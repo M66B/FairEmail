@@ -62,6 +62,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.Group;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
@@ -81,12 +82,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -106,21 +109,44 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
+import javax.net.ssl.HttpsURLConnection;
 
-public class FragmentOptionsBackup extends FragmentBase {
+public class FragmentOptionsBackup extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private View view;
     private ImageButton ibHelp;
     private Button btnExport;
     private Button btnImport;
     private CardView cardCloud;
+    private TextView tvCloudInfo;
+    private TextView tvCloudPro;
     private EditText etUser;
     private TextInputLayout tilPassword;
     private Button btnLogin;
+    private TextView tvLogin;
+    private CheckBox cbAccounts;
+    private CheckBox cbBlockedSenders;
+    private CheckBox cbFilterRules;
+    private ImageButton ibSync;
+    private TextView tvLastSync;
+    private Button btnLogout;
+    private CheckBox cbDelete;
+    private Group grpLogin;
+    private Group grpLogout;
+
+    private DateFormat DTF;
 
     private static final int REQUEST_EXPORT_SELECT = 1;
     private static final int REQUEST_IMPORT_SELECT = 2;
     private static final int REQUEST_EXPORT_HANDLE = 3;
     private static final int REQUEST_IMPORT_HANDLE = 4;
+
+    private static final int CLOUD_TIMEOUT = 10 * 1000; // timeout
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        DTF = Helper.getDateTimeInstance(getContext());
+    }
 
     @Override
     @Nullable
@@ -135,9 +161,21 @@ public class FragmentOptionsBackup extends FragmentBase {
         btnExport = view.findViewById(R.id.btnExport);
         btnImport = view.findViewById(R.id.btnImport);
         cardCloud = view.findViewById(R.id.cardCloud);
+        tvCloudInfo = view.findViewById(R.id.tvCloudInfo);
+        tvCloudPro = view.findViewById(R.id.tvCloudPro);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         btnLogin = view.findViewById(R.id.btnLogin);
+        tvLogin = view.findViewById(R.id.tvLogin);
+        cbAccounts = view.findViewById(R.id.cbAccounts);
+        cbBlockedSenders = view.findViewById(R.id.cbBlockedSenders);
+        cbFilterRules = view.findViewById(R.id.cbFilterRules);
+        ibSync = view.findViewById(R.id.ibSync);
+        tvLastSync = view.findViewById(R.id.tvLastSync);
+        btnLogout = view.findViewById(R.id.btnLogout);
+        cbDelete = view.findViewById(R.id.cbDelete);
+        grpLogin = view.findViewById(R.id.grpLogin);
+        grpLogout = view.findViewById(R.id.grpLogout);
 
         // Wire controls
 
@@ -147,6 +185,13 @@ public class FragmentOptionsBackup extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Helper.getSupportUri(v.getContext(), "Options:backup"), false);
+            }
+        });
+
+        tvCloudInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 999);
             }
         });
 
@@ -171,12 +216,84 @@ public class FragmentOptionsBackup extends FragmentBase {
             }
         });
 
+        cbAccounts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("cloud_sync_accounts", isChecked).apply();
+            }
+        });
+
+        cbBlockedSenders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("cloud_sync_blocked_senders", isChecked).apply();
+            }
+        });
+
+        cbFilterRules.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("cloud_sync_filter_rules", isChecked).apply();
+            }
+        });
+
+        ibSync.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO
+            }
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLogout();
+            }
+        });
+
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
-        cardCloud.setVisibility(BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
-                ? View.VISIBLE : View.GONE);
+        cardCloud.setVisibility(
+                BuildConfig.DEBUG &&
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
+                        !TextUtils.isEmpty(BuildConfig.CLOUD_URI)
+                        ? View.VISIBLE : View.GONE);
+        Helper.linkPro(tvCloudPro);
+
+        prefs.registerOnSharedPreferenceChangeListener(this);
+        cbAccounts.setChecked(prefs.getBoolean("cloud_sync_accounts", true));
+        cbBlockedSenders.setChecked(prefs.getBoolean("cloud_sync_blocked_senders", true));
+        cbFilterRules.setChecked(prefs.getBoolean("cloud_sync_filter_rules", true));
+        onSharedPreferenceChanged(prefs, null);
 
         return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
+        super.onDestroy();
+    }
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (key == null ||
+                "cloud_user".equals(key) ||
+                "cloud_password".equals(key)) {
+            String user = prefs.getString("cloud_user", null);
+            String password = prefs.getString("cloud_password", null);
+            boolean auth = !(TextUtils.isEmpty(user) || TextUtils.isEmpty(password));
+            long last_sync = prefs.getLong("cloud_last_sync", 0);
+
+            etUser.setText(user);
+            tilPassword.getEditText().setText(password);
+            tvLogin.setText(user);
+            tvLastSync.setText(getString(R.string.title_advanced_cloud_last_sync,
+                    last_sync == 0 ? "-" : DTF.format(last_sync)));
+            cbDelete.setChecked(false);
+            grpLogin.setVisibility(auth ? View.GONE : View.VISIBLE);
+            grpLogout.setVisibility(auth ? View.VISIBLE : View.GONE);
+        }
     }
 
     @Override
@@ -1362,46 +1479,142 @@ public class FragmentOptionsBackup extends FragmentBase {
     }
 
     private void onLogin() {
+        String username = etUser.getText().toString();
+        String password = tilPassword.getEditText().getText().toString();
+
+        if (TextUtils.isEmpty(username.trim())) {
+            etUser.requestFocus();
+            return;
+        }
+
+        if (TextUtils.isEmpty(password)) {
+            tilPassword.getEditText().requestFocus();
+            return;
+        }
+
         Bundle args = new Bundle();
-        args.putString("user", etUser.getText().toString());
+        cloud(args);
+    }
+
+    private void onLogout() {
+        Bundle args = new Bundle();
+        args.putBoolean("logout", true);
+        args.putBoolean("wipe", cbDelete.isChecked());
+        cloud(args);
+    }
+
+    private void cloud(Bundle args) {
+        args.putString("user", etUser.getText().toString().trim());
         args.putString("password", tilPassword.getEditText().getText().toString());
 
-        new SimpleTask<Void>() {
+        new SimpleTask<String>() {
             @Override
             protected void onPreExecute(Bundle args) {
-                btnLogin.setEnabled(false);
+                Helper.setViewsEnabled(cardCloud, false);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
-                btnLogin.setEnabled(true);
+                Helper.setViewsEnabled(cardCloud, true);
             }
 
             @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
+            protected String onExecute(Context context, Bundle args) throws Throwable {
                 String user = args.getString("user");
                 String password = args.getString("password");
+                boolean wipe = args.getBoolean("wipe");
 
-                Pair<byte[], byte[]> key = getKeyPair(user, password);
+                byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
+                String cloudUser = Helper.hex(MessageDigest.getInstance("SHA256").digest(salt));
 
-                return null;
+                Pair<byte[], byte[]> key = getKeyPair(salt, password);
+                String cloudPassword = Helper.hex(key.first);
+
+                JSONObject jroot = new JSONObject();
+                jroot.put("username", cloudUser);
+                jroot.put("password", cloudPassword);
+                jroot.put("wipe", wipe);
+                jroot.put("debug", BuildConfig.DEBUG);
+                String request = jroot.toString();
+                Log.i("Cloud request=" + request);
+
+                URL url = new URL(BuildConfig.CLOUD_URI);
+                HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+                connection.setRequestMethod("POST");
+                connection.setDoInput(true);
+                connection.setDoOutput(true);
+                connection.setReadTimeout(CLOUD_TIMEOUT);
+                connection.setConnectTimeout(CLOUD_TIMEOUT);
+                ConnectionHelper.setUserAgent(context, connection);
+                connection.setRequestProperty("Accept", "application/json");
+                connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
+                connection.setRequestProperty("Content-Type", "application/json");
+                connection.connect();
+
+                try {
+                    connection.getOutputStream().write(request.getBytes());
+
+                    int status = connection.getResponseCode();
+                    if (status != HttpsURLConnection.HTTP_OK) {
+                        String error = "Error " + status + ": " + connection.getResponseMessage();
+                        String detail = Helper.readStream(connection.getErrorStream());
+                        JSONObject jerror = new JSONObject(detail);
+                        if (status == HttpsURLConnection.HTTP_FORBIDDEN)
+                            throw new SecurityException(jerror.optString("error"));
+                        else
+                            throw new IOException(error + " " + jerror);
+                    }
+
+                    String response = Helper.readStream(connection.getInputStream());
+                    Log.i("Cloud response=" + response);
+                    JSONObject jresponse = new JSONObject(response);
+                    return jresponse.optString("status");
+                } finally {
+                    connection.disconnect();
+                }
             }
 
             @Override
-            protected void onExecuted(Bundle args, Void data) {
+            protected void onExecuted(Bundle args, String status) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                if ("ok".equals(status) && !args.getBoolean("logout"))
+                    prefs.edit()
+                            .putString("cloud_user", args.getString("user"))
+                            .putString("cloud_password", args.getString("password"))
+                            .apply();
+                else
+                    prefs.edit()
+                            .remove("cloud_user")
+                            .remove("cloud_password")
+                            .apply();
+
+                view.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        view.scrollTo(0, cardCloud.getTop());
+                    }
+                });
             }
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                if (ex instanceof SecurityException) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
+                            .setIcon(R.drawable.twotone_warning_24)
+                            .setTitle(getString(R.string.title_advanced_cloud_invalid))
+                            .setNegativeButton(android.R.string.cancel, null);
+                    String message = ex.getMessage();
+                    if (!TextUtils.isEmpty(message))
+                        builder.setMessage(message);
+                    builder.show();
+                } else
+                    Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(FragmentOptionsBackup.this, args, "cloud:login");
+        }.execute(FragmentOptionsBackup.this, args, "cloud");
     }
 
-    private static Pair<byte[], byte[]> getKeyPair(String user, String password)
+    private static Pair<byte[], byte[]> getKeyPair(byte[] salt, String password)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
-        byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
-
         // https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
         SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
         KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, 310000, 2 * 256);

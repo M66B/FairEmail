@@ -169,6 +169,32 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
+                    android:id="@+id/tvCloudInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:drawableEnd="@drawable/twotone_info_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_cloud_security"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCloud" />
+
+                <TextView
+                    android:id="@+id/tvCloudPro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_pro_feature"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCloudInfo" />
+
+                <TextView
                     android:id="@+id/tvUser"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -177,7 +203,7 @@
                     android:text="@string/title_user"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCloud" />
+                    app:layout_constraintTop_toBottomOf="@id/tvCloudPro" />
 
                 <eu.faircode.email.EditTextPlain
                     android:id="@+id/etUser"
@@ -223,12 +249,122 @@
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
+                    android:layout_marginTop="24dp"
                     android:drawableEnd="@drawable/twotone_login_24"
                     android:drawablePadding="6dp"
-                    android:text="@string/title_advanced_login"
+                    android:tag="disable"
+                    android:text="@string/title_advanced_cloud_login"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
+                <TextView
+                    android:id="@+id/tvRegister"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_cloud_register"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnLogin" />
+
+                <TextView
+                    android:id="@+id/tvLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="username"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvRegister" />
+
+                <CheckBox
+                    android:id="@+id/cbAccounts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_cloud_accounts"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLogin" />
+
+                <CheckBox
+                    android:id="@+id/cbBlockedSenders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_cloud_blocked_senders"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbAccounts" />
+
+                <CheckBox
+                    android:id="@+id/cbFilterRules"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_cloud_filter_rules"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbBlockedSenders" />
+
+                <ImageButton
+                    android:id="@+id/ibSync"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbFilterRules"
+                    app:srcCompat="@drawable/twotone_compare_arrows_24" />
+
+                <TextView
+                    android:id="@+id/tvLastSync"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_advanced_cloud_last_sync"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibSync" />
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:drawableEnd="@drawable/twotone_logout_24"
+                    android:drawablePadding="6dp"
+                    android:tag="disable"
+                    android:text="@string/title_advanced_cloud_logout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLastSync" />
+
+                <CheckBox
+                    android:id="@+id/cbDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_warning_24"
+                    android:drawablePadding="6dp"
+                    android:tag="disable"
+                    android:text="@string/title_advanced_cloud_wipe"
+                    app:drawableTint="?attr/colorWarning"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnLogout" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpLogin"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="
+                        tvUser,etUser,tvPassword,tilPassword,btnLogin,tvRegister" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpLogout"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="
+                        tvLogin,cbAccounts,cbBlockedSenders,cbFilterRules,
+                        ibSync,tvLastSync,
+                        btnLogout,cbDelete" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
