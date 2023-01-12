@@ -972,6 +972,8 @@
     <string name="title_advanced_cleanup_hint">This will delete all temporary files</string>
     <string name="title_advanced_keywords_hint" translatable="false">Space separated</string>
 
+    <string name="title_advanced_login" translatable="false">Login</string>
+
     <string name="title_advanced_never_favorite">Never favorite</string>
     <string name="title_advanced_edit_name">Edit name</string>
 

@@ -53,6 +53,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -81,10 +82,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -108,6 +113,9 @@ public class FragmentOptionsBackup extends FragmentBase {
     private Button btnExport;
     private Button btnImport;
     private CardView cardCloud;
+    private EditText etUser;
+    private TextInputLayout tilPassword;
+    private Button btnLogin;
 
     private static final int REQUEST_EXPORT_SELECT = 1;
     private static final int REQUEST_IMPORT_SELECT = 2;
@@ -127,6 +135,9 @@ public class FragmentOptionsBackup extends FragmentBase {
         btnExport = view.findViewById(R.id.btnExport);
         btnImport = view.findViewById(R.id.btnImport);
         cardCloud = view.findViewById(R.id.cardCloud);
+        etUser = view.findViewById(R.id.etUser);
+        tilPassword = view.findViewById(R.id.tilPassword);
+        btnLogin = view.findViewById(R.id.btnLogin);
 
         // Wire controls
 
@@ -153,9 +164,17 @@ public class FragmentOptionsBackup extends FragmentBase {
             }
         });
 
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onLogin();
+            }
+        });
+
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
-        cardCloud.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        cardCloud.setVisibility(BuildConfig.DEBUG && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
+                ? View.VISIBLE : View.GONE);
 
         return view;
     }
@@ -1340,6 +1359,59 @@ public class FragmentOptionsBackup extends FragmentBase {
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setType("*/*");
         return intent;
+    }
+
+    private void onLogin() {
+        Bundle args = new Bundle();
+        args.putString("user", etUser.getText().toString());
+        args.putString("password", tilPassword.getEditText().getText().toString());
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                btnLogin.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                btnLogin.setEnabled(true);
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                String user = args.getString("user");
+                String password = args.getString("password");
+
+                Pair<byte[], byte[]> key = getKeyPair(user, password);
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(FragmentOptionsBackup.this, args, "cloud:login");
+    }
+
+    private static Pair<byte[], byte[]> getKeyPair(String user, String password)
+            throws NoSuchAlgorithmException, InvalidKeySpecException {
+        byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
+
+        // https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
+        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
+        KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, 310000, 2 * 256);
+        SecretKey secret = keyFactory.generateSecret(keySpec);
+
+        byte[] encoded = secret.getEncoded();
+        int half = encoded.length / 2;
+        return new Pair<>(
+                Arrays.copyOfRange(encoded, 0, half),
+                Arrays.copyOfRange(encoded, half, half + half));
     }
 
     public static class FragmentDialogExport extends FragmentDialogBase {
