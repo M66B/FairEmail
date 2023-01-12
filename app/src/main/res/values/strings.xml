@@ -296,7 +296,7 @@
         The password is required to import the settings again, so please don\'t forget it!
     </string>
     <string name="title_setup_export_do">The export file will contain all settings and data, but no messages and no images referenced in signatures</string>
-    <string name="title_setup_import_do">Imported accounts will be added without overwriting any existing ones</string>
+    <string name="title_setup_scroll">The input dialogs may be scrollable!</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">Password contains control or whitespace characters</string>
     <string name="title_setup_password_repeat">Repeat password</string>
@@ -500,6 +500,8 @@
     <string name="title_advanced_caption_message">Message</string>
     <string name="title_advanced_caption_message_header">Message header</string>
     <string name="title_advanced_caption_message_body">Message body</string>
+    <string name="title_advanced_caption_file">File</string>
+    <string name="title_advanced_caption_cloud" translatable="false">Cloud</string>
     <string name="title_advanced_caption_debug" translatable="false">Debug</string>
 
     <string name="title_advanced_portrait">Portrait mode</string>

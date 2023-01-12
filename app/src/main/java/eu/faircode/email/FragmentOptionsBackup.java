@@ -60,6 +60,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.cardview.widget.CardView;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
@@ -106,6 +107,7 @@ public class FragmentOptionsBackup extends FragmentBase {
     private ImageButton ibHelp;
     private Button btnExport;
     private Button btnImport;
+    private CardView cardCloud;
 
     private static final int REQUEST_EXPORT_SELECT = 1;
     private static final int REQUEST_IMPORT_SELECT = 2;
@@ -124,6 +126,7 @@ public class FragmentOptionsBackup extends FragmentBase {
         ibHelp = view.findViewById(R.id.ibHelp);
         btnExport = view.findViewById(R.id.btnExport);
         btnImport = view.findViewById(R.id.btnImport);
+        cardCloud = view.findViewById(R.id.cardCloud);
 
         // Wire controls
 
@@ -152,6 +155,7 @@ public class FragmentOptionsBackup extends FragmentBase {
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
+        cardCloud.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         return view;
     }
