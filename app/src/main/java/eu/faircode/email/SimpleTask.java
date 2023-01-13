@@ -45,7 +45,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
-import java.util.concurrent.RunnableFuture;
 import java.util.concurrent.ThreadPoolExecutor;
 
 // This simple task is simple to use, but it is also simple to cause bugs that can easily lead to crashes
@@ -74,10 +73,10 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private static final List<SimpleTask> tasks = new ArrayList<>();
 
     private static final ExecutorService serialExecutor =
-            Helper.getBackgroundExecutor(0, 1, 3, "tasks/serial");
+            Helper.getBackgroundExecutor(1, "tasks/serial");
 
     private static final ExecutorService globalExecutor =
-            Helper.getBackgroundExecutor(0, 0, 3, "tasks/global");
+            Helper.getBackgroundExecutor(0, "tasks/global");
 
     private static final int REPORT_AFTER = 15 * 60 * 1000; // milliseconds
 

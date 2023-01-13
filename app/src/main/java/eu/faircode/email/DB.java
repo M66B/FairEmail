@@ -127,7 +127,7 @@ public abstract class DB extends RoomDatabase {
     private static final int DB_CHECKPOINT = 1000; // requery/sqlite-android default
 
     private static ExecutorService executor =
-            Helper.getBackgroundExecutor(1, 0, 3, "db");
+            Helper.getBackgroundExecutor(0, "db");
 
     private static final String[] DB_TABLES = new String[]{
             "identity", "account", "folder", "message", "attachment", "operation", "contact", "certificate", "answer", "rule", "search", "log"};

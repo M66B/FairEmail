@@ -85,7 +85,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private List<Long> handling = new ArrayList<>();
 
     private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(0, 1, 3, "send");
+            Helper.getBackgroundExecutor(1, "send");
 
     private static final int RETRY_MAX = 3;
     private static final int CONNECTIVITY_DELAY = 5000; // milliseconds

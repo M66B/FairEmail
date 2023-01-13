@@ -68,7 +68,7 @@ public class TextHelper {
     private static final long MAX_CONVERSATION_DURATION = 3000; // milliseconds
 
     private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(0, 1, 3, "text");
+            Helper.getBackgroundExecutor(1, "text");
 
     static {
         System.loadLibrary("fairemail");

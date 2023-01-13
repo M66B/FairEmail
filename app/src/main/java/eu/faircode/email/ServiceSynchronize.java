@@ -129,9 +129,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
     private final MediatorState liveAccountNetworkState = new MediatorState();
 
     private static final ExecutorService executorService =
-            Helper.getBackgroundExecutor(1, 1, 0, "sync");
+            Helper.getBackgroundExecutor(1, "sync");
     private static final ExecutorService executorNotify =
-            Helper.getBackgroundExecutor(0, 1, 3, "notify");
+            Helper.getBackgroundExecutor(1, "notify");
 
     private static final long BACKUP_DELAY = 30 * 1000L; // milliseconds
     private static final long PURGE_DELAY = 30 * 1000L; // milliseconds

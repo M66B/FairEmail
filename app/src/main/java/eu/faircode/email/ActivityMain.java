@@ -51,7 +51,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
     private static final long IGNORE_STORAGE_SPACE = 24 * 60 * 60 * 1000L; // milliseconds
 
     private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(0, 1, 3, "main");
+            Helper.getBackgroundExecutor(1, "main");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

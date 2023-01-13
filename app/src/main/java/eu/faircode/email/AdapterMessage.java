@@ -337,9 +337,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private DateFormat DTF;
 
     private static final ExecutorService executorDiffer =
-            Helper.getBackgroundExecutor(0, 0, 3, "differ");
+            Helper.getBackgroundExecutor(0, "differ");
     private static final ExecutorService executorAvatar =
-            Helper.getBackgroundExecutor(0, 0, 3, "avatar");
+            Helper.getBackgroundExecutor(0, "avatar");
 
     private static final int MAX_RECIPIENTS_COMPACT = 3;
     private static final int MAX_RECIPIENTS_NORMAL = 7;

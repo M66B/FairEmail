@@ -69,7 +69,7 @@ public class ViewModelMessages extends ViewModel {
     };
 
     private static final ExecutorService executor =
-            Helper.getBackgroundExecutor(0, 0, 3, "model");
+            Helper.getBackgroundExecutor(0, "model");
 
     private static final int LOCAL_PAGE_SIZE = 50;
     private static final int THREAD_PAGE_SIZE = 100;

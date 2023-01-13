@@ -268,19 +268,19 @@ public class Helper {
 
     static ExecutorService getUIExecutor() {
         if (sUIExecutor == null)
-            sUIExecutor = getBackgroundExecutor(0, 0, 3, "UI");
+            sUIExecutor = getBackgroundExecutor(0, "UI");
         return sUIExecutor;
     }
 
     static ExecutorService getMediaTaskExecutor() {
         if (sMediaExecutor == null)
-            sMediaExecutor = getBackgroundExecutor(0, 1, 3, "media");
+            sMediaExecutor = getBackgroundExecutor(1, "media");
         return sMediaExecutor;
     }
 
     static ExecutorService getDownloadTaskExecutor() {
         if (sDownloadExecutor == null)
-            sDownloadExecutor = getBackgroundExecutor(0, 0, 3, "download");
+            sDownloadExecutor = getBackgroundExecutor(0, "download");
         return sDownloadExecutor;
     }
 
@@ -295,10 +295,6 @@ public class Helper {
     }
 
     static ExecutorService getBackgroundExecutor(int threads, final String name) {
-        return getBackgroundExecutor(threads == 0 ? -1 : threads, threads, 3, name);
-    }
-
-    static ExecutorService getBackgroundExecutor(int min, int max, int keepalive, final String name) {
         ThreadFactory factory = new ThreadFactory() {
             private final AtomicInteger threadId = new AtomicInteger();
 
@@ -324,22 +320,23 @@ public class Helper {
             }
         };
 
-        if (max == 0) {
+        if (threads == 0) {
             // java.lang.OutOfMemoryError: pthread_create (1040KB stack) failed: Try again
             // 1040 KB native stack size / 32 KB thread stack size ~ 32 threads
             int processors = Runtime.getRuntime().availableProcessors(); // Modern devices: 8
+            threads = Math.max(8, processors * 2) + 1;
             return new ThreadPoolExecutorEx(
                     name,
-                    min < 0 ? Math.max(2, processors / 2 + 1) : min,
-                    Math.max(8, processors * 2) + 1,
-                    keepalive, TimeUnit.SECONDS,
+                    threads,
+                    threads,
+                    3, TimeUnit.SECONDS,
                     new LinkedBlockingQueue<Runnable>(),
                     factory);
-        } else if (max == 1)
+        } else if (threads == 1)
             return new ThreadPoolExecutorEx(
                     name,
-                    min, max,
-                    keepalive, TimeUnit.SECONDS,
+                    threads, threads,
+                    3, TimeUnit.SECONDS,
                     new PriorityBlockingQueue<Runnable>(10, new PriorityComparator()),
                     factory) {
                 private final AtomicLong sequenceId = new AtomicLong();
@@ -358,8 +355,8 @@ public class Helper {
         else
             return new ThreadPoolExecutorEx(
                     name,
-                    min, max,
-                    keepalive, TimeUnit.SECONDS,
+                    threads, threads,
+                    3, TimeUnit.SECONDS,
                     new LinkedBlockingQueue<Runnable>(),
                     factory);
     }
@@ -374,6 +371,8 @@ public class Helper {
                 BlockingQueue<Runnable> workQueue,
                 ThreadFactory threadFactory) {
             super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory);
+            if (keepAliveTime != 0)
+                allowCoreThreadTimeOut(true);
             this.name = name;
         }
 
