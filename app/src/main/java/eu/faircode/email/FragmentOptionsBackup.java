@@ -43,6 +43,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
+import android.util.Base64;
 import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -84,6 +85,8 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -105,10 +108,12 @@ import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
+import javax.crypto.spec.SecretKeySpec;
 import javax.net.ssl.HttpsURLConnection;
 
 public class FragmentOptionsBackup extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -212,7 +217,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onLogin();
+                onCloudLogin();
             }
         });
 
@@ -240,14 +245,14 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         ibSync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO
+                onCloudSync();
             }
         });
 
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onLogout();
+                onCloudLogout();
             }
         });
 
@@ -1478,11 +1483,16 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         return intent;
     }
 
-    private void onLogin() {
-        String username = etUser.getText().toString();
+    private void onCloudSync() {
+        Bundle args = new Bundle();
+        cloud(args);
+    }
+
+    private void onCloudLogin() {
+        String username = etUser.getText().toString().trim();
         String password = tilPassword.getEditText().getText().toString();
 
-        if (TextUtils.isEmpty(username.trim())) {
+        if (TextUtils.isEmpty(username)) {
             etUser.requestFocus();
             return;
         }
@@ -1492,11 +1502,17 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             return;
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        prefs.edit()
+                .putString("cloud_user", username)
+                .putString("cloud_password", password)
+                .apply();
+
         Bundle args = new Bundle();
         cloud(args);
     }
 
-    private void onLogout() {
+    private void onCloudLogout() {
         Bundle args = new Bundle();
         args.putBoolean("logout", true);
         args.putBoolean("wipe", cbDelete.isChecked());
@@ -1504,8 +1520,10 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     }
 
     private void cloud(Bundle args) {
-        args.putString("user", etUser.getText().toString().trim());
-        args.putString("password", tilPassword.getEditText().getText().toString());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+        args.putString("user", prefs.getString("cloud_user", null));
+        args.putString("password", prefs.getString("cloud_password", null));
 
         new SimpleTask<String>() {
             @Override
@@ -1525,16 +1543,40 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 boolean wipe = args.getBoolean("wipe");
 
                 byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
-                String cloudUser = Helper.hex(MessageDigest.getInstance("SHA256").digest(salt));
+                byte[] huser = MessageDigest.getInstance("SHA256").digest(salt);
+                String cloudUser = Base64.encodeToString(huser, Base64.NO_PADDING | Base64.NO_WRAP);
 
                 Pair<byte[], byte[]> key = getKeyPair(salt, password);
-                String cloudPassword = Helper.hex(key.first);
+                String cloudPassword = Base64.encodeToString(key.first, Base64.NO_PADDING | Base64.NO_WRAP);
 
                 JSONObject jroot = new JSONObject();
                 jroot.put("username", cloudUser);
                 jroot.put("password", cloudPassword);
                 jroot.put("wipe", wipe);
                 jroot.put("debug", BuildConfig.DEBUG);
+
+                if (false) {
+                    JSONArray jwrite = new JSONArray();
+
+                    JSONObject jkv1 = new JSONObject();
+                    jkv1.put("key", encryptValue("key1", key.second));
+                    jkv1.put("value", encryptValue("value1", key.second));
+                    jwrite.put(jkv1);
+
+                    JSONObject jkv2 = new JSONObject();
+                    jkv2.put("key", encryptValue("key2", key.second));
+                    jkv2.put("value", null);
+                    jwrite.put(jkv2);
+
+                    jroot.put("write", jwrite);
+                }
+
+                if (true) {
+                    JSONArray jread = new JSONArray();
+                    jread.put(encryptValue("key1", key.second));
+                    jroot.put("read", jread);
+                }
+
                 String request = jroot.toString();
                 Log.i("Cloud request=" + request);
 
@@ -1558,6 +1600,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     if (status != HttpsURLConnection.HTTP_OK) {
                         String error = "Error " + status + ": " + connection.getResponseMessage();
                         String detail = Helper.readStream(connection.getErrorStream());
+                        Log.w("Cloud error=" + error + " detail=" + detail);
                         JSONObject jerror = new JSONObject(detail);
                         if (status == HttpsURLConnection.HTTP_FORBIDDEN)
                             throw new SecurityException(jerror.optString("error"));
@@ -1576,7 +1619,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
             @Override
             protected void onExecuted(Bundle args, String status) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 if ("ok".equals(status) && !args.getBoolean("logout"))
                     prefs.edit()
                             .putString("cloud_user", args.getString("user"))
@@ -1625,6 +1667,16 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         return new Pair<>(
                 Arrays.copyOfRange(encoded, 0, half),
                 Arrays.copyOfRange(encoded, half, half + half));
+    }
+
+    private String encryptValue(String value, byte[] key)
+            throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        SecretKeySpec secret = new SecretKeySpec(key, "AES");
+        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+        IvParameterSpec ivSpec = new IvParameterSpec(new byte[12]);
+        cipher.init(Cipher.ENCRYPT_MODE, secret, ivSpec);
+        byte[] encrypted = cipher.doFinal(value.getBytes());
+        return Base64.encodeToString(encrypted, Base64.NO_PADDING | Base64.NO_WRAP);
     }
 
     public static class FragmentDialogExport extends FragmentDialogBase {
