@@ -68,7 +68,7 @@ import javax.mail.internet.InternetAddress;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 260,
+        version = 261,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2625,6 +2625,15 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `rule` ADD COLUMN `daily` INTEGER NOT NULL DEFAULT 0");
+                    }
+                }).addMigrations(new Migration(260, 261) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        String startup = prefs.getString("startup", "unified");
+                        if (!"folders".equals(startup))
+                            db.execSQL("UPDATE `folder` SET `hide_seen` = 0");
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override

@@ -1200,7 +1200,7 @@
     <string name="title_edit_account_color">Edit account color</string>
     <string name="title_hide_folder">Hide folder</string>
     <string name="title_hide_seen_folder">Hide folder if all messages are read</string>
-    <string name="title_hide_seen_folder_hint">Only in the folder list shown on the start screen</string>
+    <string name="title_hide_seen_folder_hint">Only in the account and unified folder list</string>
     <string name="title_unified_folder">Show in unified inbox</string>
     <string name="title_navigation_folder">Show in navigation menu</string>
     <string name="title_navigation_folder_hide">Hide in navigation menu</string>

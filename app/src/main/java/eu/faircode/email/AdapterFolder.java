@@ -236,8 +236,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
 
         private void bindTo(final TupleFolderEx folder) {
             boolean disabled = isDisabled(folder);
-            boolean hide_seen = (account < 0 && !primary &&
-                    folder.hide_seen && folder.unseen + folder.childs_unseen == 0);
 
             int p = 0;
             if (show_compact)
@@ -247,7 +245,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     p = dp3;
             view.setPadding(p, p, p, p);
             view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
-            view.setAlpha(folder.hide || hide_seen || disabled ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(folder.hide || folder.isHidden() || disabled ? Helper.LOW_LIGHT : 1.0f);
 
             if (listener == null && selectedModel != null)
                 itemView.setBackgroundColor(
@@ -1379,7 +1377,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         if (account < 0 && !primary) {
             List<TupleFolderEx> filtered = new ArrayList<>();
             for (TupleFolderEx folder : folders)
-                if (show_hidden || !folder.hide_seen || folder.unseen + folder.childs_unseen > 0)
+                if (show_hidden || !folder.isHidden())
                     filtered.add(folder);
 
             if (filtered.size() > 0)
@@ -1591,9 +1589,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     (parent.subscribed != null && parent.subscribed) ||
                     (childs != null && childs.size() > 0)) {
                 parent.indentation = indentation;
-                result.add(parent);
-                if (!parent.collapsed && childs != null)
-                    result.addAll(childs);
+                if (show_hidden || !parent.isHidden()) {
+                    result.add(parent);
+                    if (!parent.collapsed && childs != null)
+                        result.addAll(childs);
+                }
             }
         }
 

@@ -63,6 +63,10 @@ public class TupleFolderEx extends EntityFolder implements Serializable {
     @Ignore
     public int childs_unseen = 0;
 
+    boolean isHidden() {
+        return (this.hide_seen && this.unseen + this.childs_unseen == 0);
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof TupleFolderEx) {
