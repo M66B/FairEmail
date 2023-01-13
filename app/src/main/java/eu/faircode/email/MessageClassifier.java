@@ -696,7 +696,7 @@ public class MessageClassifier {
                     long m = max.get(clazz);
                     long avg = total.get(clazz) / count.get(clazz);
                     Frequency freq = wordClassFrequency.get(account).get(word).get(clazz);
-                    if (freq.count < m / 50) {
+                    if (freq.count < m / 5000) {
                         dropped++;
                         wordClassFrequency.get(account).get(word).remove(clazz);
                     } else if (freq.count < avg / 2 && false) {
@@ -720,6 +720,11 @@ public class MessageClassifier {
             // max/20 = 4.4 MB
             // max/50 = 6.5 MB
             // max/100 = 6.5 MB
+            // max/200 = 11.5 MB
+            // max/500 = 15 MB
+            // max/1000 = 18 MB
+            // max/2000 = 22 MB
+            // max/5000 = 26 MB
 
             // avg/1 = 21.3
             // avg/2 = 25.5
