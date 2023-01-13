@@ -1552,12 +1552,12 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                 JSONObject jroot = new JSONObject();
                 jroot.put("version", 1);
+                jroot.put("command", wipe ? "wipe" : "login");
                 jroot.put("username", cloudUser);
                 jroot.put("password", cloudPassword);
-                jroot.put("wipe", wipe);
                 jroot.put("debug", BuildConfig.DEBUG);
 
-                if (true) {
+                if (false) {
                     JSONArray jwrite = new JSONArray();
 
                     JSONObject jkv1 = new JSONObject();
@@ -1570,13 +1570,15 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     jkv2.put("value", null);
                     jwrite.put(jkv2);
 
-                    jroot.put("write", jwrite);
+                    jroot.put("command", "write");
+                    jroot.put("items", jwrite);
                 }
 
                 if (false) {
                     JSONArray jread = new JSONArray();
                     jread.put(transform("key1", key.second, true));
-                    jroot.put("read", jread);
+                    jroot.put("command", "read");
+                    jroot.put("items", jread);
                 }
 
                 String request = jroot.toString();
