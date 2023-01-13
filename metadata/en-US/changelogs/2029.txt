@@ -6,6 +6,15 @@ For support you can use the contact form.
 
 Quetecsaurus
 
+Next version
+
+* Added backup settings tab page
+* Added option to disable quick actions
+* Improved performance
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 1.2029 - 2023-01-09
 
 * Added auto hiding top toolbar when scrolling messages (can be turned off in the display settings)
