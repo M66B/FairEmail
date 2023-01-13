@@ -1675,10 +1675,10 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private String encryptValue(String value, byte[] key)
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         SecretKeySpec secret = new SecretKeySpec(key, "AES");
-        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+        Cipher cipher = Cipher.getInstance("AES/GCM-SIV/NoPadding");
         IvParameterSpec ivSpec = new IvParameterSpec(new byte[12]);
-        cipher.updateAAD(ByteBuffer.allocate(4).putInt(0).array());
         cipher.init(Cipher.ENCRYPT_MODE, secret, ivSpec);
+        //cipher.updateAAD(ByteBuffer.allocate(4).putInt(0).array());
         byte[] encrypted = cipher.doFinal(value.getBytes());
         return Base64.encodeToString(encrypted, Base64.NO_PADDING | Base64.NO_WRAP);
     }
