@@ -84,6 +84,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URL;
+import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -1544,12 +1545,14 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                 byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
                 byte[] huser = MessageDigest.getInstance("SHA256").digest(salt);
-                String cloudUser = Base64.encodeToString(huser, Base64.NO_PADDING | Base64.NO_WRAP);
+                byte[] userid = Arrays.copyOfRange(huser, 0, 8);
+                String cloudUser = Base64.encodeToString(userid, Base64.NO_PADDING | Base64.NO_WRAP);
 
                 Pair<byte[], byte[]> key = getKeyPair(salt, password);
                 String cloudPassword = Base64.encodeToString(key.first, Base64.NO_PADDING | Base64.NO_WRAP);
 
                 JSONObject jroot = new JSONObject();
+                jroot.put("version", 1);
                 jroot.put("username", cloudUser);
                 jroot.put("password", cloudPassword);
                 jroot.put("wipe", wipe);
@@ -1674,6 +1677,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         SecretKeySpec secret = new SecretKeySpec(key, "AES");
         Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
         IvParameterSpec ivSpec = new IvParameterSpec(new byte[12]);
+        cipher.updateAAD(ByteBuffer.allocate(4).putInt(0).array());
         cipher.init(Cipher.ENCRYPT_MODE, secret, ivSpec);
         byte[] encrypted = cipher.doFinal(value.getBytes());
         return Base64.encodeToString(encrypted, Base64.NO_PADDING | Base64.NO_WRAP);
