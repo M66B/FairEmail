@@ -84,7 +84,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.URL;
-import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -1558,25 +1557,25 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 jroot.put("wipe", wipe);
                 jroot.put("debug", BuildConfig.DEBUG);
 
-                if (false) {
+                if (true) {
                     JSONArray jwrite = new JSONArray();
 
                     JSONObject jkv1 = new JSONObject();
-                    jkv1.put("key", encryptValue("key1", key.second));
-                    jkv1.put("value", encryptValue("value1", key.second));
+                    jkv1.put("key", transform("key1", key.second, true));
+                    jkv1.put("value", transform("value1", key.second, true));
                     jwrite.put(jkv1);
 
                     JSONObject jkv2 = new JSONObject();
-                    jkv2.put("key", encryptValue("key2", key.second));
+                    jkv2.put("key", transform("key2", key.second, true));
                     jkv2.put("value", null);
                     jwrite.put(jkv2);
 
                     jroot.put("write", jwrite);
                 }
 
-                if (true) {
+                if (false) {
                     JSONArray jread = new JSONArray();
-                    jread.put(encryptValue("key1", key.second));
+                    jread.put(transform("key1", key.second, true));
                     jroot.put("read", jread);
                 }
 
@@ -1614,6 +1613,15 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     String response = Helper.readStream(connection.getInputStream());
                     Log.i("Cloud response=" + response);
                     JSONObject jresponse = new JSONObject(response);
+                    if (jresponse.has("items")) {
+                        JSONArray jitems = jresponse.getJSONArray("items");
+                        for (int i = 0; i < jitems.length(); i++) {
+                            JSONObject jitem = jitems.getJSONObject(i);
+                            String k = transform(jitem.optString("key"), key.second, false);
+                            String v = transform(jitem.optString("value"), key.second, false);
+                            Log.i("Cloud item " + k + "=" + v);
+                        }
+                    }
                     return jresponse.optString("status");
                 } finally {
                     connection.disconnect();
@@ -1672,15 +1680,21 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 Arrays.copyOfRange(encoded, half, half + half));
     }
 
-    private String encryptValue(String value, byte[] key)
+    private String transform(String value, byte[] key, boolean encrypt)
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
         SecretKeySpec secret = new SecretKeySpec(key, "AES");
         Cipher cipher = Cipher.getInstance("AES/GCM-SIV/NoPadding");
         IvParameterSpec ivSpec = new IvParameterSpec(new byte[12]);
-        cipher.init(Cipher.ENCRYPT_MODE, secret, ivSpec);
+        cipher.init(encrypt ? Cipher.ENCRYPT_MODE : Cipher.DECRYPT_MODE, secret, ivSpec);
         //cipher.updateAAD(ByteBuffer.allocate(4).putInt(0).array());
-        byte[] encrypted = cipher.doFinal(value.getBytes());
-        return Base64.encodeToString(encrypted, Base64.NO_PADDING | Base64.NO_WRAP);
+        if (encrypt) {
+            byte[] encrypted = cipher.doFinal(value.getBytes());
+            return Base64.encodeToString(encrypted, Base64.NO_PADDING | Base64.NO_WRAP);
+        } else {
+            byte[] encrypted = Base64.decode(value, Base64.NO_PADDING | Base64.NO_WRAP);
+            byte[] decrypted = cipher.doFinal(encrypted);
+            return new String(decrypted);
+        }
     }
 
     public static class FragmentDialogExport extends FragmentDialogBase {
