@@ -359,11 +359,16 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     }
 
     void cancel(Context context) {
-        ExecutorService executor = getExecutor(context);
-        if (executor instanceof ThreadPoolExecutor && future instanceof Runnable) {
-            boolean removed = ((ThreadPoolExecutor) executor).remove((Runnable) future);
-            Log.i("Remove task=" + name + " removed=" + removed);
+        try {
+            ExecutorService executor = getExecutor(context);
+            if (executor instanceof ThreadPoolExecutor && future instanceof Runnable) {
+                boolean removed = ((ThreadPoolExecutor) executor).remove((Runnable) future);
+                Log.i("Remove task=" + name + " removed=" + removed);
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
+
         if (future != null && future.cancel(false)) {
             Log.i("Cancelled task=" + name);
             cleanup(context);
