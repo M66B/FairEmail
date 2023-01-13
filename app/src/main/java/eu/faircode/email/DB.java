@@ -2632,7 +2632,9 @@ public abstract class DB extends RoomDatabase {
                         logMigration(startVersion, endVersion);
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         String startup = prefs.getString("startup", "unified");
-                        if (!"folders".equals(startup))
+                        if ("folders".equals(startup))
+                            db.execSQL("UPDATE `folder` SET `hide_seen` = 0 WHERE `unified` = 0");
+                        else
                             db.execSQL("UPDATE `folder` SET `hide_seen` = 0");
                     }
                 }).addMigrations(new Migration(998, 999) {
