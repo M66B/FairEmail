@@ -968,10 +968,16 @@ public class FragmentMessages extends FragmentBase
                 if (pos > 0) {
                     Calendar cal0 = Calendar.getInstance();
                     Calendar cal1 = Calendar.getInstance();
+                    cal0.setMinimalDaysInFirstWeek(4); // ISO 8601
+                    cal1.setMinimalDaysInFirstWeek(4); // ISO 8601
+                    cal0.setFirstDayOfWeek(Calendar.MONDAY);
+                    cal1.setFirstDayOfWeek(Calendar.MONDAY);
                     cal0.setTimeInMillis(prev.received);
                     cal1.setTimeInMillis(message.received);
                     int year0 = cal0.get(Calendar.YEAR);
                     int year1 = cal1.get(Calendar.YEAR);
+                    if (date_week && year0 - 1 == year1)
+                        year0--;
                     int day0 = cal0.get(date_week ? Calendar.WEEK_OF_YEAR : Calendar.DAY_OF_YEAR);
                     int day1 = cal1.get(date_week ? Calendar.WEEK_OF_YEAR : Calendar.DAY_OF_YEAR);
                     if (year0 == year1 && day0 == day1)
@@ -1050,8 +1056,10 @@ public class FragmentMessages extends FragmentBase
                 StringBuilder sb = new StringBuilder();
                 Calendar cal = Calendar.getInstance();
                 cal.setTimeInMillis(time);
+                cal.setMinimalDaysInFirstWeek(4);
+                cal.setFirstDayOfWeek(Calendar.MONDAY);
                 sb.append(cal.get(Calendar.YEAR)).append("-W").append(cal.get(Calendar.WEEK_OF_YEAR));
-                cal.set(Calendar.DAY_OF_WEEK, 1);
+                cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
                 sb.append(' ').append(Helper.getDateInstance(context).format(cal.getTimeInMillis()));
                 return sb.toString();
             }
