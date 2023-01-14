@@ -1409,10 +1409,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvSize.setVisibility(
                     message.totalSize != null && ("size".equals(sort) || "attachments".equals(sort))
                             ? View.VISIBLE : View.GONE);
-            SpannableStringBuilder time = new SpannableStringBuilderEx(
-                    ((date || date_fixed) && !date_week) && FragmentMessages.SORT_DATE_HEADER.contains(sort)
-                            ? TF.format(message.received)
-                            : Helper.getRelativeTimeSpanString(context, message.received));
+            SpannableStringBuilder time;
+            if (date_week)
+                time = new SpannableStringBuilderEx(Helper.getRelativeDateSpanString(context, message.received));
+            else
+                time = new SpannableStringBuilderEx(
+                        (date || date_fixed) && FragmentMessages.SORT_DATE_HEADER.contains(sort)
+                                ? TF.format(message.received)
+                                : Helper.getRelativeTimeSpanString(context, message.received));
             if (show_recent && message.recent)
                 time.setSpan(new UnderlineSpan(), 0, time.length(), 0);
             tvTime.setText(time);

@@ -147,6 +147,7 @@ import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -1996,6 +1997,16 @@ public class Helper {
         if (style == SimpleDateFormat.MEDIUM)
             skeleton += "s";
         return android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
+    }
+
+    static CharSequence getRelativeDateSpanString(Context context, long millis) {
+        Calendar cal0 = Calendar.getInstance();
+        Calendar cal1 = Calendar.getInstance();
+        cal0.setTimeInMillis(millis);
+        boolean thisMonth = (cal0.get(Calendar.MONTH) == cal1.get(Calendar.MONTH));
+        String skeleton = (thisMonth ? "MMM-d" : "Y-M-d");
+        String format = android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
+        return new SimpleDateFormat(format).format(millis);
     }
 
     static CharSequence getRelativeTimeSpanString(Context context, long millis) {
