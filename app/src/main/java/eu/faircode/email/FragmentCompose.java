@@ -3038,7 +3038,7 @@ public class FragmentCompose extends FragmentBase {
                 snackbar.show();
             } else {
                 File dir = Helper.ensureExists(new File(context.getFilesDir(), "photo"));
-                File file = new File(dir, working + ".jpg");
+                File file = new File(dir, working + "_" + new Date().getTime() + ".jpg");
                 try {
                     photoURI = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
