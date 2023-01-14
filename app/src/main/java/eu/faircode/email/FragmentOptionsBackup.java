@@ -43,7 +43,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
-import android.util.Base64;
 import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -83,19 +82,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -108,13 +100,10 @@ import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
 import javax.crypto.CipherOutputStream;
 import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.spec.SecretKeySpec;
-import javax.net.ssl.HttpsURLConnection;
 
 public class FragmentOptionsBackup extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private View view;
@@ -144,8 +133,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private static final int REQUEST_IMPORT_SELECT = 2;
     private static final int REQUEST_EXPORT_HANDLE = 3;
     private static final int REQUEST_IMPORT_HANDLE = 4;
-
-    private static final int CLOUD_TIMEOUT = 10 * 1000; // timeout
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1542,92 +1529,50 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 String password = args.getString("password");
                 boolean wipe = args.getBoolean("wipe");
 
-                byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
-                byte[] huser = MessageDigest.getInstance("SHA256").digest(salt);
-                byte[] userid = Arrays.copyOfRange(huser, 0, 8);
-                String cloudUser = Base64.encodeToString(userid, Base64.NO_PADDING | Base64.NO_WRAP);
-
-                Pair<byte[], byte[]> key = getKeyPair(salt, password);
-                String cloudPassword = Base64.encodeToString(key.first, Base64.NO_PADDING | Base64.NO_WRAP);
-
-                JSONObject jroot = new JSONObject();
-                jroot.put("version", 1);
-                jroot.put("command", wipe ? "wipe" : "login");
-                jroot.put("username", cloudUser);
-                jroot.put("password", cloudPassword);
-                jroot.put("debug", BuildConfig.DEBUG);
+                JSONObject jrequest = new JSONObject();
+                jrequest.put("command", wipe ? "wipe" : "login");
 
                 if (false) {
                     JSONArray jwrite = new JSONArray();
 
+                    JSONObject jkv0 = new JSONObject();
+                    jkv0.put("key", "key0");
+                    jkv0.put("timestamp", 1000);
+                    jkv0.put("value", "value0");
+                    jwrite.put(jkv0);
+
                     JSONObject jkv1 = new JSONObject();
-                    jkv1.put("key", transform("key1", key.second, true));
-                    jkv1.put("value", transform("value1", key.second, true));
+                    jkv1.put("key", "key1");
+                    jkv1.put("timestamp", 1001);
+                    jkv1.put("value", "value1");
                     jwrite.put(jkv1);
 
-                    JSONObject jkv2 = new JSONObject();
-                    jkv2.put("key", transform("key2", key.second, true));
-                    jkv2.put("value", null);
-                    jwrite.put(jkv2);
-
-                    jroot.put("command", "write");
-                    jroot.put("items", jwrite);
+                    jrequest.put("command", "write");
+                    jrequest.put("stage", "ack");
+                    jrequest.put("items", jwrite);
                 }
 
-                if (false) {
+                if (true) {
                     JSONArray jread = new JSONArray();
-                    jread.put(transform("key1", key.second, true));
-                    jroot.put("command", "read");
-                    jroot.put("items", jread);
+                    jread.put("key1");
+                    jrequest.put("command", "read");
+                    jrequest.put("stage", "sync");
+                    jrequest.put("keys", jread);
                 }
 
-                String request = jroot.toString();
-                Log.i("Cloud request=" + request);
+                JSONObject jresponse = CloudSync.perform(context, user, password, jrequest);
 
-                URL url = new URL(BuildConfig.CLOUD_URI);
-                HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-                connection.setRequestMethod("POST");
-                connection.setDoInput(true);
-                connection.setDoOutput(true);
-                connection.setReadTimeout(CLOUD_TIMEOUT);
-                connection.setConnectTimeout(CLOUD_TIMEOUT);
-                ConnectionHelper.setUserAgent(context, connection);
-                connection.setRequestProperty("Accept", "application/json");
-                connection.setRequestProperty("Content-Length", Integer.toString(request.length()));
-                connection.setRequestProperty("Content-Type", "application/json");
-                connection.connect();
-
-                try {
-                    connection.getOutputStream().write(request.getBytes());
-
-                    int status = connection.getResponseCode();
-                    if (status != HttpsURLConnection.HTTP_OK) {
-                        String error = "Error " + status + ": " + connection.getResponseMessage();
-                        String detail = Helper.readStream(connection.getErrorStream());
-                        Log.w("Cloud error=" + error + " detail=" + detail);
-                        JSONObject jerror = new JSONObject(detail);
-                        if (status == HttpsURLConnection.HTTP_FORBIDDEN)
-                            throw new SecurityException(jerror.optString("error"));
-                        else
-                            throw new IOException(error + " " + jerror);
+                if (jresponse.has("items")) {
+                    JSONArray jitems = jresponse.getJSONArray("items");
+                    for (int i = 0; i < jitems.length(); i++) {
+                        JSONObject jitem = jitems.getJSONObject(i);
+                        String key = jitem.getString("key");
+                        long timestamp = jitem.getLong("timestamp");
+                        String value = (jitem.has("value") ? jitem.getString("value") : null);
+                        Log.i("Cloud item " + key + "=" + value + " @" + timestamp);
                     }
-
-                    String response = Helper.readStream(connection.getInputStream());
-                    Log.i("Cloud response=" + response);
-                    JSONObject jresponse = new JSONObject(response);
-                    if (jresponse.has("items")) {
-                        JSONArray jitems = jresponse.getJSONArray("items");
-                        for (int i = 0; i < jitems.length(); i++) {
-                            JSONObject jitem = jitems.getJSONObject(i);
-                            String k = transform(jitem.optString("key"), key.second, false);
-                            String v = transform(jitem.optString("value"), key.second, false);
-                            Log.i("Cloud item " + k + "=" + v);
-                        }
-                    }
-                    return jresponse.optString("status");
-                } finally {
-                    connection.disconnect();
                 }
+                return jresponse.optString("status");
             }
 
             @Override
@@ -1666,37 +1611,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(FragmentOptionsBackup.this, args, "cloud");
-    }
-
-    private static Pair<byte[], byte[]> getKeyPair(byte[] salt, String password)
-            throws NoSuchAlgorithmException, InvalidKeySpecException {
-        // https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
-        SecretKeyFactory keyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-        KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, 310000, 2 * 256);
-        SecretKey secret = keyFactory.generateSecret(keySpec);
-
-        byte[] encoded = secret.getEncoded();
-        int half = encoded.length / 2;
-        return new Pair<>(
-                Arrays.copyOfRange(encoded, 0, half),
-                Arrays.copyOfRange(encoded, half, half + half));
-    }
-
-    private String transform(String value, byte[] key, boolean encrypt)
-            throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-        SecretKeySpec secret = new SecretKeySpec(key, "AES");
-        Cipher cipher = Cipher.getInstance("AES/GCM-SIV/NoPadding");
-        IvParameterSpec ivSpec = new IvParameterSpec(new byte[12]);
-        cipher.init(encrypt ? Cipher.ENCRYPT_MODE : Cipher.DECRYPT_MODE, secret, ivSpec);
-        //cipher.updateAAD(ByteBuffer.allocate(4).putInt(0).array());
-        if (encrypt) {
-            byte[] encrypted = cipher.doFinal(value.getBytes());
-            return Base64.encodeToString(encrypted, Base64.NO_PADDING | Base64.NO_WRAP);
-        } else {
-            byte[] encrypted = Base64.decode(value, Base64.NO_PADDING | Base64.NO_WRAP);
-            byte[] decrypted = cipher.doFinal(encrypted);
-            return new String(decrypted);
-        }
     }
 
     public static class FragmentDialogExport extends FragmentDialogBase {
