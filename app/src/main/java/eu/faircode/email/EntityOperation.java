@@ -211,6 +211,7 @@ public class EntityOperation {
                 boolean autounflag = prefs.getBoolean("autounflag", false);
                 boolean reset_importance = prefs.getBoolean("reset_importance", false);
                 boolean reset_snooze = prefs.getBoolean("reset_snooze", true);
+                boolean auto_block_sender = prefs.getBoolean("auto_block_sender", true);
 
                 if (jargs.opt(1) != null) {
                     // rules, classify
@@ -230,16 +231,19 @@ public class EntityOperation {
                     return;
 
                 if (EntityFolder.JUNK.equals(target.type) &&
-                        Objects.equals(source.account, target.account) &&
-                        (jargs.opt(3) == null || !jargs.optBoolean(3))) {
+                        Objects.equals(source.account, target.account)) {
+                    Boolean noblock = (Boolean) jargs.opt(3);
                     jargs.remove(3);
-                    // Prevent blocking self
-                    List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
-                    if (!message.fromSelf(identities)) {
-                        EntityLog.log(context, "Auto block sender=" + MessageHelper.formatAddresses(message.from));
-                        EntityContact.update(context,
-                                message.account, message.identity, message.from,
-                                EntityContact.TYPE_JUNK, message.received);
+                    boolean block = (noblock == null ? auto_block_sender : !noblock);
+                    if (block) {
+                        // Prevent blocking self
+                        List<TupleIdentityEx> identities = db.identity().getComposableIdentities(null);
+                        if (!message.fromSelf(identities)) {
+                            EntityLog.log(context, "Auto block sender=" + MessageHelper.formatAddresses(message.from));
+                            EntityContact.update(context,
+                                    message.account, message.identity, message.from,
+                                    EntityContact.TYPE_JUNK, message.received);
+                        }
                     }
                 }
 

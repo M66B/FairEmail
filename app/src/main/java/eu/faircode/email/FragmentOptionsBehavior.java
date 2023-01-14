@@ -100,6 +100,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoImportant;
     private SwitchCompat swResetImportance;
     private SwitchCompat swResetSnooze;
+    private SwitchCompat swAutoBlockSender;
     private SwitchCompat swSwipeReply;
 
     final static int MAX_SWIPE_SENSITIVITY = 10;
@@ -113,7 +114,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "autoexpand", "expand_first", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "autoclose_unseen", "collapse_marked",
             "undo_timeout",
-            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "reset_snooze",
+            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "reset_snooze", "auto_block_sender",
             "swipe_reply"
     };
 
@@ -169,6 +170,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoImportant = view.findViewById(R.id.swAutoImportant);
         swResetImportance = view.findViewById(R.id.swResetImportance);
         swResetSnooze = view.findViewById(R.id.swResetSnooze);
+        swAutoBlockSender = view.findViewById(R.id.swAutoBlockSender);
         swSwipeReply = view.findViewById(R.id.swSwipeReply);
 
         setOptions();
@@ -514,6 +516,12 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swAutoBlockSender.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_block_sender", checked).apply();
+            }
+        });
 
         swSwipeReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -635,6 +643,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
         swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
         swResetSnooze.setChecked(prefs.getBoolean("reset_snooze", true));
+        swAutoBlockSender.setChecked(prefs.getBoolean("auto_block_sender", true));
         swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
     }
 
