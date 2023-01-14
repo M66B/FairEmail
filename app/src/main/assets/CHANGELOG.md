@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
-### Next version
+### 1.2030 - 2023-01-14
 
 * Added backup settings tab page
 * Added option to disable quick actions
