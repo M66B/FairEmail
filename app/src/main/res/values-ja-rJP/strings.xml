@@ -18,7 +18,7 @@
     <string name="channel_notification">メール</string>
     <string name="channel_progress">進捗</string>
     <string name="channel_update">更新</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">お知らせ</string>
+    <string name="channel_announcements">お知らせ</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">エラー</string>
     <string name="channel_alert">サーバーアラート</string>
@@ -232,7 +232,7 @@
         設定をインポートするにはパスワードが必要です。パスワードは絶対に忘れないでください！
     </string>
     <string name="title_setup_export_do">エクスポートファイルにはすべての設定とデータが含まれますが、署名で参照されるメッセージや画像は含まれません</string>
-    <string name="title_setup_import_do">インポートしたアカウントは既存のアカウントを上書きせずに追加されます</string>
+    <string name="title_setup_scroll">入力ダイアログはスクロールできることがあります！</string>
     <string name="title_setup_password">パスワード</string>
     <string name="title_setup_password_chars">パスワードに制御文字または空白が含まれています</string>
     <string name="title_setup_password_repeat">パスワードを再入力</string>
@@ -309,6 +309,7 @@
     <string name="title_advanced_section_encryption">暗号化</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">その他</string>
+    <string name="title_advanced_section_backup">バックアップ</string>
     <string name="title_advanced_default">デフォルトでは変更せずにアプリを使用できる一般的な値に設定されています</string>
     <string name="title_advanced_receive">すべてのアカウントのメッセージを受信</string>
     <string name="title_advanced_when">同期</string>
@@ -407,6 +408,7 @@
     <string name="title_advanced_caption_message">メッセージ</string>
     <string name="title_advanced_caption_message_header">見出し</string>
     <string name="title_advanced_caption_message_body">本文</string>
+    <string name="title_advanced_caption_file">ファイル</string>
     <string name="title_advanced_portrait">ポートレートモード (縦画面)</string>
     <string name="title_advanced_landscape">ランドスケープモード (横画面)</string>
     <string name="title_advanced_two_row">2 行に分割</string>
@@ -539,6 +541,7 @@
     <string name="title_advanced_undo">「元に戻す」を表示する時間</string>
     <string name="title_advanced_quick_filter">目立たないクイックフィルターアイコンを表示</string>
     <string name="title_advanced_quick_scroll">目立たないクイックスクロールアップ/ダウンアイコンを表示</string>
+    <string name="title_advanced_quick_actions">メッセージを選択したときにクイックアクションを表示</string>
     <string name="title_advanced_folder_nav">デフォルトでメッセージリストからフォルダーリストに戻る</string>
     <string name="title_advanced_autoread">移動するメッセージを自動で既読にする</string>
     <string name="title_advanced_star_snoozed">スヌーズしたメッセージに自動でスターを付ける</string>
@@ -659,7 +662,7 @@
     <string name="title_advanced_check_weekly">アップデートの確認頻度を毎日から毎週へ変更</string>
     <string name="title_advanced_beta">BitBucket でテスト版を確認</string>
     <string name="title_advanced_changelog">更新後に更新履歴を表示</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">お知らせを確認</string>
+    <string name="title_advanced_announcements">お知らせを確認</string>
     <string name="title_advanced_experiments">実験的な機能を試す</string>
     <string name="title_advanced_crash_reports">エラーレポートを送信</string>
     <string name="title_advanced_cleanup_attachments">古いメッセージの添付ファイルを削除</string>
@@ -969,7 +972,6 @@
     <string name="title_edit_account_color">アカウントの色を編集</string>
     <string name="title_hide_folder">フォルダーを非表示</string>
     <string name="title_hide_seen_folder">すべてのメッセージが既読のとき、フォルダーを非表示にする</string>
-    <string name="title_hide_seen_folder_hint">スタート画面に表示されるフォルダ一覧にのみ表示されます</string>
     <string name="title_unified_folder">統合受信トレイに表示</string>
     <string name="title_navigation_folder">ナビゲーションメニューに表示</string>
     <string name="title_navigation_folder_hide">ナビゲーションメニューから隠す</string>
@@ -1078,9 +1080,9 @@
     <string name="title_configure_buttons">ボタンを設定&#8230;</string>
     <string name="title_quick_actions">アクションを選択</string>
     <string name="title_quick_actions_hint">最大 %1$d つのアクションを表示できます</string>
-    <string name="title_quick_actions_low">重要度が低い</string>
-    <string name="title_quick_actions_normal">通常の重要度</string>
-    <string name="title_quick_actions_high">重要度が高い</string>
+    <string name="title_quick_actions_low">重要度: 低</string>
+    <string name="title_quick_actions_normal">重要度: 通常</string>
+    <string name="title_quick_actions_high">重要度: 高</string>
     <string name="title_quick_actions_snooze">スヌーズする</string>
     <string name="title_quick_actions_clear">操作後に選択を解除</string>
     <string name="title_trash">ゴミ箱</string>
@@ -1092,7 +1094,7 @@
     <string name="title_more">展開</string>
     <string name="title_less">折りたたむ</string>
     <string name="title_spam">迷惑メール</string>
-    <string name="title_move">移動する</string>
+    <string name="title_move">移動</string>
     <string name="title_copy_btn">コピー</string>
     <string name="title_keywords_btn">キーワード</string>
     <string name="title_unsubscribe">購読解除</string>
@@ -1102,7 +1104,7 @@
     <string name="title_move_to_folder">&#8230;に移動</string>
     <string name="title_move_to_account">%1$s に移動&#8230;</string>
     <string name="title_report_spam">迷惑メールとして扱う</string>
-    <string name="title_delete_permanently">完全に削除する</string>
+    <string name="title_delete_permanently">完全に削除</string>
     <string name="title_snooze">スヌーズ&#8230;</string>
     <string name="title_archive">アーカイブ</string>
     <string name="title_reply">返信</string>
@@ -1469,17 +1471,17 @@
     <string name="title_rule_unseen">未読にする</string>
     <string name="title_rule_hide">非表示にする</string>
     <string name="title_rule_ignore">通知しない</string>
-    <string name="title_rule_snooze">スヌーズする</string>
+    <string name="title_rule_snooze">スヌーズ</string>
     <string name="title_rule_flag">スターを付ける</string>
-    <string name="title_rule_importance">重要度を設定する</string>
-    <string name="title_rule_keyword">キーワードを追加する</string>
-    <string name="title_rule_move">移動する</string>
+    <string name="title_rule_importance">重要度を設定</string>
+    <string name="title_rule_keyword">キーワードを追加</string>
+    <string name="title_rule_move">移動</string>
     <string name="title_rule_copy">コピー (ラベル)</string>
-    <string name="title_rule_answer">返信/転送する</string>
+    <string name="title_rule_answer">返信/転送</string>
     <string name="title_rule_tts">テキストを読み上げる</string>
     <string name="title_rule_automation">自動化</string>
     <string name="title_rule_delete">完全に削除する</string>
-    <string name="title_rule_sound">音声を再生する</string>
+    <string name="title_rule_sound">音声を再生</string>
     <string name="title_rule_caption">ルールを編集</string>
     <string name="title_rule_title">ルールの適用先</string>
     <string name="title_rule_name">名前</string>
@@ -1590,11 +1592,11 @@
     <string name="title_legend_draft">下書きあり</string>
     <string name="title_legend_priority">重要度が高い</string>
     <string name="title_legend_priority_low">重要度が低い</string>
-    <string name="title_legend_sensitivity_personal">パーソナルにマーク</string>
-    <string name="title_legend_sensitivity_private">プライベートにマーク</string>
-    <string name="title_legend_sensitivity_confidential">機密 (社外秘) にマーク</string>
-    <string name="title_legend_importance">重要度を上げる</string>
-    <string name="title_legend_importance_low">重要度を下げる</string>
+    <string name="title_legend_sensitivity_personal">機密度: パーソナル</string>
+    <string name="title_legend_sensitivity_private">機密度: プライベート</string>
+    <string name="title_legend_sensitivity_confidential">機密度: 機密 (社外秘)</string>
+    <string name="title_legend_importance">重要</string>
+    <string name="title_legend_importance_low">重要でない</string>
     <string name="title_legend_signed">電子署名されたメッセージ</string>
     <string name="title_legend_encrypted">暗号化されたメッセージ</string>
     <string name="title_legend_auth">認証に失敗しました</string>

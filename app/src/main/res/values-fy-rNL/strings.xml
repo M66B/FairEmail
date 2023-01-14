@@ -182,7 +182,6 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string name="title_setup_close">Slut ynstellings</string>
     <string name="title_setup_export">Ynstellings eksportearje</string>
     <string name="title_setup_import">Ynstellings ymportearje</string>
-    <string name="title_setup_import_do">Ymporteare akkounts sille tafoege wurde sûnder besteande oerskriuwe</string>
     <string name="title_setup_password">Wachtwurd</string>
     <string name="title_setup_password_chars">Wachtwurd befettet karakters foar kontrôle as spaasjes</string>
     <string name="title_setup_password_repeat">Werhelje wachtwurd</string>

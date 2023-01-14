@@ -126,6 +126,7 @@
     <string name="title_advanced_section_send">அனுப்புபவை</string>
     <string name="title_advanced_section_privacy">தனியுரிமை</string>
     <string name="title_advanced_section_notifications">அறிவிப்புகள்</string>
+    <string name="title_advanced_section_backup">Backup</string>
     <string name="title_advanced_caption_general">பொது</string>
     <string name="title_advanced_caption_conversation">உரையாடல்</string>
     <string name="title_advanced_caption_message">அஞ்சல்</string>

@@ -223,7 +223,6 @@
         請勿忘記密碼！因為再次匯入設定時需要用到它。
     </string>
     <string name="title_setup_export_do">匯出的檔案包含所有設定和數據，但不包含簽名檔所引用的訊息和圖片</string>
-    <string name="title_setup_import_do">匯入的帳戶不會覆蓋任何現有帳戶</string>
     <string name="title_setup_password">密碼</string>
     <string name="title_setup_password_chars">密碼包含控制或空白字元</string>
     <string name="title_setup_password_repeat">重複輸入密碼</string>
@@ -298,6 +297,7 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">其他</string>
+    <string name="title_advanced_section_backup">備份</string>
     <string name="title_advanced_default">所有選項均有常用標準值，無須為使用本程式而特別改動</string>
     <string name="title_advanced_receive">接收所有帳戶訊息</string>
     <string name="title_advanced_when">頻次</string>

@@ -18,7 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Průběh</string>
     <string name="channel_update">Aktualizace</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Oznámení</string>
+    <string name="channel_announcements">Oznámení</string>
     <string name="channel_warning">Upozornění</string>
     <string name="channel_error">Chyby</string>
     <string name="channel_alert">Upozornění serveru</string>
@@ -272,7 +272,7 @@ v prohlížeči ze všech Google účtů.</string>
         Heslo je vyžadováno pro zpětný import nastavení, nezapomeňte jej tedy prosím!
     </string>
     <string name="title_setup_export_do">Exportovaný soubor bude obsahovat všechna nastavení a data, ale žádné zprávy a obrázky, uvedené v podpisech</string>
-    <string name="title_setup_import_do">Importované účty budou přidány bez přepsání stávajících účtů</string>
+    <string name="title_setup_scroll">Vstupní dialogy mohou být posuvné!</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje řídící znaky či mezery</string>
     <string name="title_setup_password_repeat">Zopakujte heslo</string>
@@ -348,6 +348,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_section_encryption">Šifrování</string>
     <string name="title_advanced_section_notifications">Oznámení</string>
     <string name="title_advanced_section_misc">Ostatní</string>
+    <string name="title_advanced_section_backup">Záloha</string>
     <string name="title_advanced_default">Všechny volby mají přednastaveny běžně používané standardní hodnoty, které není třeba měnit, aby bylo možné aplikaci používat</string>
     <string name="title_advanced_receive">Přijímat zprávy pro všechny účty</string>
     <string name="title_advanced_when">Kdy</string>
@@ -446,6 +447,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_caption_message">Zpráva</string>
     <string name="title_advanced_caption_message_header">Hlavička zprávy</string>
     <string name="title_advanced_caption_message_body">Tělo zprávy</string>
+    <string name="title_advanced_caption_file">Soubor</string>
     <string name="title_advanced_portrait">Režim na výšku</string>
     <string name="title_advanced_landscape">Režim na šířku</string>
     <string name="title_advanced_two_row">Použít dva řádky</string>
@@ -578,6 +580,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_undo">Časový limit vrácení zpět</string>
     <string name="title_advanced_quick_filter">Zobrazit neobtěžující ikony pro rychlé filtrování</string>
     <string name="title_advanced_quick_scroll">Zobrazit neobtěžující ikony pro rychlý posun nahoru/dolů</string>
+    <string name="title_advanced_quick_actions">Zobrazit rychlé akce při výběru zpráv</string>
     <string name="title_advanced_folder_nav">Vždy se vrátit do seznamu složek ze seznamu zpráv</string>
     <string name="title_advanced_autoread">Při přesunu označit zprávy jako přečtené automaticky</string>
     <string name="title_advanced_star_snoozed">Při odložení zpráv přidat hvězdičku automaticky</string>
@@ -697,7 +700,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_check_weekly">Kontrolovat týdně, místo denně</string>
     <string name="title_advanced_beta">Kontrola testovacích verzí na BitBucket</string>
     <string name="title_advanced_changelog">Zobrazit seznam změn po aktualizaci</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Kontrola oznámení</string>
+    <string name="title_advanced_announcements">Kontrola oznámení</string>
     <string name="title_advanced_experiments">Vyzkoušet experimentální funkce</string>
     <string name="title_advanced_crash_reports">Odesílat zprávy o chybách</string>
     <string name="title_advanced_cleanup_attachments">Odstranit přílohy starých zpráv</string>
@@ -1008,7 +1011,6 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_edit_account_color">Upravit barvu účtu</string>
     <string name="title_hide_folder">Skrýt složku</string>
     <string name="title_hide_seen_folder">Skrýt složku, pokud jsou přečteny všechny zprávy</string>
-    <string name="title_hide_seen_folder_hint">Pouze v seznamu složek zobrazeném na úvodní obrazovce</string>
     <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>
     <string name="title_navigation_folder">Zobrazit v navigačním menu</string>
     <string name="title_navigation_folder_hide">Skrýt v navigačním menu</string>

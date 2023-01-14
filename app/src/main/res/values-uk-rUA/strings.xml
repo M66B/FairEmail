@@ -18,7 +18,7 @@
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Прогрес</string>
     <string name="channel_update">Оновлення</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Оголошення</string>
+    <string name="channel_announcements">Оголошення</string>
     <string name="channel_warning">Попередження</string>
     <string name="channel_error">Помилки</string>
     <string name="channel_alert">Сповіщення сервера</string>
@@ -272,7 +272,7 @@
         Необхідно ввести пароль для повторного імпортування налаштувань, тому не забувайте про це!
     </string>
     <string name="title_setup_export_do">Файл експорту буде містити всі налаштування і дані, але ніяких повідомлень і зображень, на які посилаються в підписах</string>
-    <string name="title_setup_import_do">Імпортовані облікові записи будуть додані без перезапису будь-яких записів що існують</string>
+    <string name="title_setup_scroll">Діалоги для введення можуть бути прокручуванні!</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль містить елементи керування або пробіли</string>
     <string name="title_setup_password_repeat">Повторіть пароль</string>
@@ -348,6 +348,7 @@
     <string name="title_advanced_section_encryption">Шифрування</string>
     <string name="title_advanced_section_notifications">Сповіщення</string>
     <string name="title_advanced_section_misc">Інші налаштування</string>
+    <string name="title_advanced_section_backup">Backup</string>
     <string name="title_advanced_default">Всі параметри зазвичай мають стандартні значення, які не потрібно змінювати</string>
     <string name="title_advanced_receive">Отримувати повідомлення для всіх облікових записів</string>
     <string name="title_advanced_when">Коли</string>
@@ -446,6 +447,7 @@
     <string name="title_advanced_caption_message">Повідомлення</string>
     <string name="title_advanced_caption_message_header">Заголовок повідомлення</string>
     <string name="title_advanced_caption_message_body">Текст повідомлення</string>
+    <string name="title_advanced_caption_file">Файл</string>
     <string name="title_advanced_portrait">Портретний режим</string>
     <string name="title_advanced_landscape">Альбомна орієнтація</string>
     <string name="title_advanced_two_row">Використовувати два рядки</string>
@@ -578,6 +580,7 @@
     <string name="title_advanced_undo">Час для відміни дії</string>
     <string name="title_advanced_quick_filter">Показувати ненав\'язливі піктограми швидкого фільтру</string>
     <string name="title_advanced_quick_scroll">Показати не нав\'язливі піктограми швидкого прокручування вгору/вниз</string>
+    <string name="title_advanced_quick_actions">Показувати швидкі дії, коли обрані повідомлення</string>
     <string name="title_advanced_folder_nav">Завжди повертатися зі списку повідомлень до списку тек</string>
     <string name="title_advanced_autoread">Автоматично відзначати повідомлення прочитаними при їх переміщенні</string>
     <string name="title_advanced_star_snoozed">Автоматично додавати відкладені повідомлення до обраних</string>
@@ -697,7 +700,7 @@
     <string name="title_advanced_check_weekly">Щотижнева перевірка замість щоденної</string>
     <string name="title_advanced_beta">Перевірити наявність тестових версій на BitBucket</string>
     <string name="title_advanced_changelog">Показати список змін після оновлення</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Перевірити на оголошення</string>
+    <string name="title_advanced_announcements">Перевірити на оголошення</string>
     <string name="title_advanced_experiments">Спробуйте експериментальні функції</string>
     <string name="title_advanced_crash_reports">Надіслати звіт про помилки</string>
     <string name="title_advanced_cleanup_attachments">Видалити вкладення для старих повідомлень</string>
@@ -1008,7 +1011,6 @@
     <string name="title_edit_account_color">Змінити колір облікового запису</string>
     <string name="title_hide_folder">Сховати теку</string>
     <string name="title_hide_seen_folder">Приховати теку, якщо всі повідомлення прочитані</string>
-    <string name="title_hide_seen_folder_hint">Показуватися тільки в списку тек при стартовому екрані</string>
     <string name="title_unified_folder">Показати в об\'єднаній вхідній теці</string>
     <string name="title_navigation_folder">Показати в меню навігації</string>
     <string name="title_navigation_folder_hide">Не показувати у меню навігації</string>

@@ -18,7 +18,7 @@
     <string name="channel_notification">电子邮件</string>
     <string name="channel_progress">进度</string>
     <string name="channel_update">更新</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">公告</string>
+    <string name="channel_announcements">公告</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">错误</string>
     <string name="channel_alert">服务器警告</string>
@@ -232,7 +232,7 @@
         导入时将需要密码，所以请不要忘记！
     </string>
     <string name="title_setup_export_do">导出文件将包含所有的设置和数据，但是不含邮件，也不含签名中引用的图像</string>
-    <string name="title_setup_import_do">导入的账户不会覆盖任何现有的账户</string>
+    <string name="title_setup_scroll">输入对话框可以滚动！</string>
     <string name="title_setup_password">密码</string>
     <string name="title_setup_password_chars">密码包含控制字符或空格字符</string>
     <string name="title_setup_password_repeat">再次输入密码</string>
@@ -308,6 +308,7 @@
     <string name="title_advanced_section_encryption">加密</string>
     <string name="title_advanced_section_notifications">通知</string>
     <string name="title_advanced_section_misc">杂项</string>
+    <string name="title_advanced_section_backup">备份</string>
     <string name="title_advanced_default">所有选项均具有常用的标准值，无需做出更改即可使用</string>
     <string name="title_advanced_receive">接收所有账户的消息</string>
     <string name="title_advanced_when">何时</string>
@@ -406,6 +407,7 @@
     <string name="title_advanced_caption_message">消息</string>
     <string name="title_advanced_caption_message_header">邮件标头</string>
     <string name="title_advanced_caption_message_body">消息正文</string>
+    <string name="title_advanced_caption_file">文件</string>
     <string name="title_advanced_portrait">竖屏模式</string>
     <string name="title_advanced_landscape">横屏模式</string>
     <string name="title_advanced_two_row">使用两行</string>
@@ -538,6 +540,7 @@
     <string name="title_advanced_undo">撤回超时</string>
     <string name="title_advanced_quick_filter">显示不显眼的快速过滤图标</string>
     <string name="title_advanced_quick_scroll">显示不显眼的快速上/下滚动图标</string>
+    <string name="title_advanced_quick_actions">选中消息时显示快速操作</string>
     <string name="title_advanced_folder_nav">始终从邮件列表返回文件夹列表</string>
     <string name="title_advanced_autoread">移动消息时自动标为已读</string>
     <string name="title_advanced_star_snoozed">自动给打盹消息添加星标</string>
@@ -657,7 +660,7 @@
     <string name="title_advanced_check_weekly">每周而不是每天检查</string>
     <string name="title_advanced_beta">检查 BitBucket 上的测试版</string>
     <string name="title_advanced_changelog">更新后显示更新日志</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">接收公告</string>
+    <string name="title_advanced_announcements">接收公告</string>
     <string name="title_advanced_experiments">尝试实验性功能</string>
     <string name="title_advanced_crash_reports">发送错误报告</string>
     <string name="title_advanced_cleanup_attachments">删除旧消息的附件</string>
@@ -967,7 +970,6 @@
     <string name="title_edit_account_color">编辑账户颜色</string>
     <string name="title_hide_folder">隐藏文件夹</string>
     <string name="title_hide_seen_folder">隐藏所有邮件都已读的文件夹</string>
-    <string name="title_hide_seen_folder_hint">仅在开始屏幕上显示的文件夹列表</string>
     <string name="title_unified_folder">在聚合收件箱中显示</string>
     <string name="title_navigation_folder">在导航菜单中显示</string>
     <string name="title_navigation_folder_hide">在导航菜单中隐藏</string>

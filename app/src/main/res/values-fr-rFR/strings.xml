@@ -18,7 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Progression</string>
     <string name="channel_update">Mises à jour</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Annonces</string>
+    <string name="channel_announcements">Annonces</string>
     <string name="channel_warning">Avertissements</string>
     <string name="channel_error">Erreurs</string>
     <string name="channel_alert">Alertes de serveur</string>
@@ -245,7 +245,7 @@
         Le mot de passe est requis pour importer à nouveau les paramètres, veuillez ne pas l\'oublier !
     </string>
     <string name="title_setup_export_do">Le fichier d\'exportation contiendra tous les paramètres et données mais pas de messages ni d\'images référencées dans les signatures</string>
-    <string name="title_setup_import_do">Les comptes importés seront ajoutés sans remplacer les comptes existants</string>
+    <string name="title_setup_scroll">Les boîtes de dialogue de saisie peuvent être déroulantes !</string>
     <string name="title_setup_password">Mot de passe</string>
     <string name="title_setup_password_chars">Le mot de passe contient des caractères de contrôle ou des espaces</string>
     <string name="title_setup_password_repeat">Confirmer le mot de passe</string>
@@ -322,6 +322,7 @@
     <string name="title_advanced_section_encryption">Chiffrement</string>
     <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_section_misc">Divers</string>
+    <string name="title_advanced_section_backup">Sauvegarde</string>
     <string name="title_advanced_default">Toutes les options ont des valeurs standard couramment utilisées qui n\'ont pas besoin d\'être modifiées pour utiliser l\'application</string>
     <string name="title_advanced_receive">Recevoir des messages pour tous les comptes</string>
     <string name="title_advanced_when">Quand</string>
@@ -420,6 +421,7 @@
     <string name="title_advanced_caption_message">Message</string>
     <string name="title_advanced_caption_message_header">En-tête du message</string>
     <string name="title_advanced_caption_message_body">Contenu du message</string>
+    <string name="title_advanced_caption_file">Fichier</string>
     <string name="title_advanced_portrait">Mode portrait</string>
     <string name="title_advanced_landscape">Mode paysage</string>
     <string name="title_advanced_two_row">Utiliser deux rangées</string>
@@ -552,6 +554,7 @@
     <string name="title_advanced_undo">Délai d\'expiration de l\'annulation</string>
     <string name="title_advanced_quick_filter">Afficher les icônes discrètes de filtrage rapide</string>
     <string name="title_advanced_quick_scroll">Afficher les icônes discrètes de défilement rapide vers le haut/bas</string>
+    <string name="title_advanced_quick_actions">Afficher les actions rapides lorsque des messages sont sélectionnés</string>
     <string name="title_advanced_folder_nav">Toujours revenir à la liste des dossiers à partir d\'une liste de messages</string>
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
     <string name="title_advanced_star_snoozed">Marquer automatiquement les messages comme suivis lors de leur report</string>
@@ -672,7 +675,7 @@
     <string name="title_advanced_check_weekly">Vérifier une fois par semaine au lieu d\'une fois par jour</string>
     <string name="title_advanced_beta">Vérifier les versions de test sur BitBucket</string>
     <string name="title_advanced_changelog">Afficher l\'historique des modifications après la mise à jour</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Vérifier les annonces</string>
+    <string name="title_advanced_announcements">Vérifier les annonces</string>
     <string name="title_advanced_experiments">Essayer les fonctionnalités expérimentales</string>
     <string name="title_advanced_crash_reports">Envoyer des rapports d\'erreur</string>
     <string name="title_advanced_cleanup_attachments">Supprimer les pièces jointes des anciens messages</string>
@@ -983,7 +986,6 @@
     <string name="title_edit_account_color">Modifier la couleur du compte</string>
     <string name="title_hide_folder">Masquer le dossier</string>
     <string name="title_hide_seen_folder">Masquer le dossier si tous les messages sont lus</string>
-    <string name="title_hide_seen_folder_hint">Seulement dans la liste des dossiers affichée sur l\'écran de démarrage</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_navigation_folder">Afficher dans le menu de navigation</string>
     <string name="title_navigation_folder_hide">Masquer dans le menu de navigation</string>

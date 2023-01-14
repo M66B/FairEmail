@@ -256,6 +256,7 @@
     <string name="title_advanced_section_encryption">암호화</string>
     <string name="title_advanced_section_notifications">알림</string>
     <string name="title_advanced_section_misc">기타</string>
+    <string name="title_advanced_section_backup">백업</string>
     <string name="title_advanced_receive">모든 계정의 메시지 수신</string>
     <string name="title_advanced_when">일시</string>
     <string name="title_advanced_optimize">자동으로 최적화</string>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail søk</string>
-    <string name="app_changelog">Endringer</string>
-    <string name="app_welcome">FairEmail er en åpen kildekode e-postprogram som er fokusert på personvern og sikkerhet. Av denne grunn kan noen funksjoner virke annerledes enn det du er vant til.</string>
+    <string name="app_changelog">Brigdelogg</string>
+    <string name="app_welcome">FairEmail er ein e-postapp med open kjeldekode og merksemd på personvern og tryggleik. Nokre funksjonar kan difor verke annleis enn det du er vant til.</string>
     <string name="app_limitations">For eksempel er meldinger omformatert som standard for å fjerne utrygge elementer og for å forbedre lesbarhet, og åpning av lenker må bekreftes for sikkerhet. Begge kan deaktiveres om ønskelig.</string>
     <string name="app_unsupported">Bugs i Android-versjonen av denne spesifikke enheten forårsaker krasj</string>
     <string name="app_data_loss">All data kan bli tapt</string>
     <string name="app_continue">Fortsett likevel</string>
-    <string name="app_exit">Gå \'tilbake\' igjen for å avslutte</string>
+    <string name="app_exit">Gå \'attende\' igjen for å lata att</string>
     <string name="app_cake">Ikke nok lagringsplass igjen</string>
     <string name="app_cake_remaining">Gjenværende lagringsplass på enheten %1$s</string>
     <string name="app_cake_required">Minimum lagringsplass krevd %1$s</string>
@@ -18,13 +18,13 @@
     <string name="channel_notification">E-post</string>
     <string name="channel_progress">Fremgang</string>
     <string name="channel_update">Oppdateringer</string>
-    <string name="channel_warning">Advarsler</string>
+    <string name="channel_warning">Åtvaringar</string>
     <string name="channel_error">Feil</string>
-    <string name="channel_alert">Servervarsler</string>
-    <string name="channel_group_contacts">Kontakter</string>
-    <string name="channel_service_description">Synkronisering og overvåking av kontoer</string>
+    <string name="channel_alert">Tenarvarsel</string>
+    <string name="channel_group_contacts">Kontaktar</string>
+    <string name="channel_service_description">Kontosynkronisering og -tilsyn</string>
     <string name="channel_send_description">Sending av meldingar</string>
-    <string name="channel_notification_description">Varsler om nye meldinger</string>
+    <string name="channel_notification_description">Varsel om nye meldingar</string>
     <string name="channel_progress_description">Meddelelser om fremgang av lengre pågående aktiviteter</string>
     <plurals name="page_conversation">
         <item quantity="one">Samtale</item>
@@ -32,18 +32,18 @@
     </plurals>
     <plurals name="page_message">
         <item quantity="one">Melding</item>
-        <item quantity="other">Meldinger</item>
+        <item quantity="other">Meldingar</item>
     </plurals>
     <string name="page_folders">Mapper</string>
     <string name="page_compose">Skriv</string>
     <string name="tile_synchronize">Synkroniser</string>
-    <string name="tile_unseen">Nye meldinger</string>
+    <string name="tile_unseen">Nye meldingar</string>
     <string name="shortcut_refresh">Oppdater</string>
     <string name="shortcut_compose">Skriv</string>
-    <string name="shortcut_setup">Innstillinger</string>
+    <string name="shortcut_setup">Innstillingar</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Overvåker %1$d konto</item>
-        <item quantity="other">Overvåker %1$d kontoer</item>
+        <item quantity="one">Har tilsyn med %1$d konto</item>
+        <item quantity="other">Har tilsyn med %1$d kontoar</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d ventende aktivitet</item>
@@ -51,54 +51,54 @@
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">%1$d ny melding</item>
-        <item quantity="other">%1$d nye meldinger</item>
+        <item quantity="other">%1$d nye meldingar</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d melding som skal sendes</item>
-        <item quantity="other">%1$d meldinger som skal sendes</item>
+        <item quantity="one">Skal senda %1$d melding</item>
+        <item quantity="other">Skal senda %1$d meldingar</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d ny</item>
-        <item quantity="other">%1$d ny</item>
+        <item quantity="other">%1$d nye</item>
     </plurals>
     <plurals name="title_moving_messages">
         <item quantity="one">Flyt %1$d melding?</item>
         <item quantity="other">Flyt %1$d meldingar?</item>
     </plurals>
     <plurals name="title_deleting_messages">
-        <item quantity="one">Slette %1$d melding permanent?</item>
-        <item quantity="other">Slette %1$d meldinger permanent?</item>
+        <item quantity="one">Slett %1$d melding?</item>
+        <item quantity="other">Slett %1$d meldingar?</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Behandle %1$d meldingen som spam?</item>
-        <item quantity="other">Behandle %1$d meldingene som spam?</item>
+        <item quantity="one">Handsam %1$d melding som søppelpost?</item>
+        <item quantity="other">Handsam %1$d meldingar som søppelpost?</item>
     </plurals>
-    <string name="title_ask_spam_who">Behandle melding fra %1$s som spam?</string>
+    <string name="title_ask_spam_who">Handsam melding ifrå %1$s som søppelpost?</string>
     <string name="title_junk_hint">Din e-postleverandør er ansvarlig for filtrering av nettsøppel. En e-postapp har ikke alle dataene som trengs for å gjøre dette pålitelig.</string>
-    <string name="title_junk_pop_hint">Meldinger fra blokkerte sendere vil ikke bli lastet ned.
-        Om \"Forlat meldinger på server\" ikke er aktivert, vil disse meldingene bli permanent tapt!
+    <string name="title_junk_pop_hint">        Meldingar ifrå hindra sendarar vert ikkje henta.
+        Om «Lat meldingar vera att på tenar» ikkje er påslegen, vil desse meldingane gå tapt.
     </string>
-    <string name="title_block">Blokkere %1$s</string>
-    <string name="title_block_sender">Blokker avsender</string>
-    <string name="title_block_sender_domain">Blokker domene %1$s</string>
+    <string name="title_block">Hindre %1$s</string>
+    <string name="title_block_sender">Hindre sendar</string>
+    <string name="title_block_sender_domain">Hindre domene «%1$s»</string>
     <string name="title_block_sender_hint">Blokkerer en sender er en gratis egenskap.
         Blokkering av en senderdomene bruker filterregler, som er en pro-egenskap.
     </string>
-    <string name="title_blocked_senders">Blokkerte sendere</string>
+    <string name="title_blocked_senders">Hindra sendarar</string>
     <plurals name="title_ask_block_sender">
-        <item quantity="one">Blokker sender av %1$s melding?</item>
-        <item quantity="other">Blokker sender av %1$s meldinger?</item>
+        <item quantity="one">Hindre sendar av %1$s melding?</item>
+        <item quantity="other">Hindre sendar av %1$s meldingar?</item>
     </plurals>
     <plurals name="title_hours">
         <item quantity="one">%1$s time</item>
-        <item quantity="other">%1$s timer</item>
+        <item quantity="other">%1$s timar</item>
     </plurals>
     <plurals name="title_days">
         <item quantity="one">%1$s dag</item>
-        <item quantity="other">%1$s dager</item>
+        <item quantity="other">%1$s dagar</item>
     </plurals>
     <string name="title_junk_filter">Bruk lokalt spamfilter</string>
-    <string name="title_junk_filter_hint">Dette kan øke batteribruk og feilaktig markere meldinger som spam</string>
+    <string name="title_junk_filter_hint">Dette kan auke batteribruk og med eit mistak merke meldingar som søppelpost</string>
     <string name="title_junk_blocklist">Bruk lister for spamblokkering</string>
     <string name="title_junk_clear">Tøm</string>
     <string name="title_junk_clear_hint">Dette vil slette alle regler for blokkering av sendere</string>
@@ -179,7 +179,6 @@
     <string name="title_setup_configuring">Konfigurerer konto &#8230;</string>
     <string name="title_setup_export">Eksporter innstillingene</string>
     <string name="title_setup_import">Importer innstillinger</string>
-    <string name="title_setup_import_do">Importerte kontoer vil bli lagt til uten å overskrive eksisterende</string>
     <string name="title_setup_password">Passord</string>
     <string name="title_setup_password_chars">Passord inneholder kontroll eller mellomromstegn</string>
     <string name="title_setup_password_repeat">Gjenta passord</string>
@@ -227,6 +226,7 @@
     <string name="title_advanced_section_encryption">Kryptering</string>
     <string name="title_advanced_section_notifications">Varslinger</string>
     <string name="title_advanced_section_misc">Diverse</string>
+    <string name="title_advanced_section_backup">Sikkerhetskopier</string>
     <string name="title_advanced_receive">Motta meldinger for alle kontoer</string>
     <string name="title_advanced_when">Når</string>
     <string name="title_advanced_optimize">Automatisk optimalisering</string>

@@ -238,7 +238,6 @@
         O contrasinal é necesario para importar os axustes de novo, polo que non o esqueza!
     </string>
     <string name="title_setup_export_do">O ficheiro de exportación contén todos os axustes e os datos, pero non as mensaxes e as imaxes citadas nas sinaturas</string>
-    <string name="title_setup_import_do">As contas importadas engadiranse sen sobrescribir as existentes</string>
     <string name="title_setup_password">Contrasinal</string>
     <string name="title_setup_password_chars">O contrasinal contén caracteres de control ou espazos</string>
     <string name="title_setup_password_repeat">Repetir contrasinal</string>

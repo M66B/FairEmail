@@ -90,6 +90,7 @@
     <string name="title_advanced_section_synchronize">प्राप्त करें</string>
     <string name="title_advanced_section_send">भेजें</string>
     <string name="title_advanced_section_notifications">सूचनाएँ</string>
+    <string name="title_advanced_section_backup">Backup</string>
     <string name="title_advanced_caption_general">सामान्य</string>
     <string name="title_advanced_caption_conversation">वार्तालाप</string>
     <string name="title_advanced_caption_message">संदेश</string>

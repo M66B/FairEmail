@@ -212,7 +212,6 @@
     <string name="title_setup_close">تنظیمات را ببند</string>
     <string name="title_setup_export">ذخیره تنظیمات</string>
     <string name="title_setup_import">وارد کردن تنظیمات</string>
-    <string name="title_setup_import_do">حساب‌های وارد شده بدون رونویسی موارد موجود افزوده خواهند شد</string>
     <string name="title_setup_password">گذرواژه</string>
     <string name="title_setup_password_chars">گذرواژه دارای control یا نویسه‌های فضای سفید می‌باشد</string>
     <string name="title_setup_password_repeat">تکرار گذرواژه</string>
@@ -283,6 +282,7 @@
     <string name="title_advanced_section_encryption">رمزنگاری</string>
     <string name="title_advanced_section_notifications">اعلان‌ها</string>
     <string name="title_advanced_section_misc">متفرقه</string>
+    <string name="title_advanced_section_backup">پشتیبان‌گیری</string>
     <string name="title_advanced_receive">دریافت پیام‌ها برای همه حساب‌ها</string>
     <string name="title_advanced_when">هنگامی که</string>
     <string name="title_advanced_optimize">خودکار بهینه‌سازی کن</string>
@@ -649,7 +649,6 @@
     <string name="title_edit_account_color">ویرایش رنگ حساب</string>
     <string name="title_hide_folder">پنهان‌سازی پوشه</string>
     <string name="title_hide_seen_folder">در صورتی که همه پیام‌ها خوانده شده‌اند پوشه را پنهان کن</string>
-    <string name="title_hide_seen_folder_hint">تنها در فهرست پوشه‌‌های نمایش داده شده در صفحه شروع</string>
     <string name="title_unified_folder">نمایش در صندوق دریافت یکپارچه</string>
     <string name="title_navigation_folder">نمایش در منوی ناوبری</string>
     <string name="title_navigation_folder_hide">در منوی ناوبری پنهان کن</string>

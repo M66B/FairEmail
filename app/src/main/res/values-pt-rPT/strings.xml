@@ -18,7 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Progresso</string>
     <string name="channel_update">Actualizações</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Anúncios</string>
+    <string name="channel_announcements">Anúncios</string>
     <string name="channel_warning">Avisos</string>
     <string name="channel_error">Erros</string>
     <string name="channel_alert">Alertas do servidor</string>
@@ -247,7 +247,7 @@
         Esta palavra-passe é necessária para importar novamente as definições, por isso, não a esqueça!
     </string>
     <string name="title_setup_export_do">O ficheiro de exportação conterá todas as configurações e dados, mas nenhuma mensagem ou imagem referenciada nas assinaturas</string>
-    <string name="title_setup_import_do">Contas importadas serão adicionadas sem sobrescrever as já existentes</string>
+    <string name="title_setup_scroll">Os diálogos de entrada podem ser deslizados!</string>
     <string name="title_setup_password">Palavra-passe</string>
     <string name="title_setup_password_chars">A palavra-passe contém caracteres de controlo ou espaços em branco</string>
     <string name="title_setup_password_repeat">Repita a palavra-passe</string>
@@ -323,6 +323,7 @@
     <string name="title_advanced_section_encryption">Encriptação</string>
     <string name="title_advanced_section_notifications">Notificações</string>
     <string name="title_advanced_section_misc">Diversos</string>
+    <string name="title_advanced_section_backup">Cópia de segurança</string>
     <string name="title_advanced_default">Os valores padrão de todas as opções são os mais usuais, que não precisam ser alterados para utilizar a aplicação</string>
     <string name="title_advanced_receive">Receber mensagens de todas as contas</string>
     <string name="title_advanced_when">Quando</string>
@@ -421,6 +422,7 @@
     <string name="title_advanced_caption_message">Mensagem</string>
     <string name="title_advanced_caption_message_header">Cabeçalho da mensagem</string>
     <string name="title_advanced_caption_message_body">Corpo da mensagem</string>
+    <string name="title_advanced_caption_file">Ficheiro</string>
     <string name="title_advanced_portrait">Modo retrato</string>
     <string name="title_advanced_landscape">Modo paisagem</string>
     <string name="title_advanced_two_row">Usar duas linhas</string>
@@ -553,6 +555,7 @@
     <string name="title_advanced_undo">Tempo limite para reverter</string>
     <string name="title_advanced_quick_filter">Mostrar ícones de filtro rápido não-intrusivos</string>
     <string name="title_advanced_quick_scroll">Mostrar ícones não-intrusivos de navegação rápida</string>
+    <string name="title_advanced_quick_actions">Mostrar ações rápidas quando as mensagens forem selecionadas</string>
     <string name="title_advanced_folder_nav">Voltar sempre à lista de pastas a partir da lista de mensagens</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao mover mensagens</string>
     <string name="title_advanced_star_snoozed">Adicionar estrela automaticamente ao adiar mensagens</string>
@@ -673,7 +676,7 @@
     <string name="title_advanced_check_weekly">Verificar semanalmente em vez de diariamente</string>
     <string name="title_advanced_beta">Verificar as versões de teste no BitBucket</string>
     <string name="title_advanced_changelog">Mostrar lista de alterações após uma actualização</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Verificar por anúncios</string>
+    <string name="title_advanced_announcements">Verificar por anúncios</string>
     <string name="title_advanced_experiments">Ativar funcionalidades experimentais</string>
     <string name="title_advanced_crash_reports">Enviar relatórios de erro</string>
     <string name="title_advanced_cleanup_attachments">Apagar anexos de mensagens antigas</string>
@@ -983,7 +986,6 @@
     <string name="title_edit_account_color">Editar cor da conta</string>
     <string name="title_hide_folder">Ocultar pasta</string>
     <string name="title_hide_seen_folder">Ocultar pasta caso não haja mensagens por ler</string>
-    <string name="title_hide_seen_folder_hint">Apenas na lista de pastas mostrada na página inicial</string>
     <string name="title_unified_folder">Mostrar na cx. entrada unificada</string>
     <string name="title_navigation_folder">Mostrar no menu de navegação</string>
     <string name="title_navigation_folder_hide">Ocultar no menu de navegação</string>

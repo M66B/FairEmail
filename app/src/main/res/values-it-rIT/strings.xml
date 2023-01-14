@@ -18,7 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Avanzamento</string>
     <string name="channel_update">Aggiornamenti</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Annunci</string>
+    <string name="channel_announcements">Annunci</string>
     <string name="channel_warning">Avvisi</string>
     <string name="channel_error">Errori</string>
     <string name="channel_alert">Avvisi server</string>
@@ -244,7 +244,7 @@
         La password è necessaria per re-importare le impostazioni, sei quindi pregato di non dimenticarla!
     </string>
     <string name="title_setup_export_do">Il file d\'esportazione conterrà tutte le impostazioni e i dati, ma nessun messaggio e nessun\'immagine riferita nelle firme</string>
-    <string name="title_setup_import_do">I profili importati saranno aggiunti senza sovrascriverne alcuno esistente</string>
+    <string name="title_setup_scroll">Le finestre di dialogo d\'input possono essere scorrevoli!</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">La password contiene caratteri di controllo o spazi vuoti</string>
     <string name="title_setup_password_repeat">Ripeti password</string>
@@ -321,6 +321,7 @@
     <string name="title_advanced_section_encryption">Crittografia</string>
     <string name="title_advanced_section_notifications">Notifiche</string>
     <string name="title_advanced_section_misc">Varie</string>
+    <string name="title_advanced_section_backup">Backup</string>
     <string name="title_advanced_default">Tutte le opzioni hanno comunemente usato valori standard, che non devono esser cambiati per usare l\'app</string>
     <string name="title_advanced_receive">Ricevi i messaggi per tutti i profili</string>
     <string name="title_advanced_when">Quando</string>
@@ -419,6 +420,7 @@
     <string name="title_advanced_caption_message">Messaggio</string>
     <string name="title_advanced_caption_message_header">Intestazione del messaggio</string>
     <string name="title_advanced_caption_message_body">Corpo del messaggio</string>
+    <string name="title_advanced_caption_file">File</string>
     <string name="title_advanced_portrait">Modalità Ritratto</string>
     <string name="title_advanced_landscape">Modalità Paesaggio</string>
     <string name="title_advanced_two_row">Usa due righe</string>
@@ -551,6 +553,7 @@
     <string name="title_advanced_undo">Annulla timeout</string>
     <string name="title_advanced_quick_filter">Mostra icone rapide del filtro non vistose</string>
     <string name="title_advanced_quick_scroll">Mostra icone di scorrimento rapido in su/giù non vistose</string>
+    <string name="title_advanced_quick_actions">Mostra azioni rapide quando messaggi sono selezionati</string>
     <string name="title_advanced_folder_nav">Torna sempre all\'elenco delle cartelle da un elenco di messaggi</string>
     <string name="title_advanced_autoread">Contrassegna automaticamente i messaggi come letti allo spostamento</string>
     <string name="title_advanced_star_snoozed">Aggiungi automaticamente la stella posticipando i messaggi</string>
@@ -670,7 +673,7 @@
     <string name="title_advanced_check_weekly">Controlla settimanalmente invece che giornalmente</string>
     <string name="title_advanced_beta">Verifica la presenza delle versioni di prova su BitBucket</string>
     <string name="title_advanced_changelog">Mostra il changelog dopo l\'aggiornamento</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Controlla gli annunci</string>
+    <string name="title_advanced_announcements">Controlla gli annunci</string>
     <string name="title_advanced_experiments">Prova le funzionalità sperimentali</string>
     <string name="title_advanced_crash_reports">Invia rapporti d\'errore</string>
     <string name="title_advanced_cleanup_attachments">Elimina gli allegati dei vecchi messaggi</string>
@@ -981,7 +984,6 @@
     <string name="title_edit_account_color">Modifica colore del profilo</string>
     <string name="title_hide_folder">Nascondi cartella</string>
     <string name="title_hide_seen_folder">Nascondi la cartella se tutti i messaggi sono letti</string>
-    <string name="title_hide_seen_folder_hint">Solo nell\'elenco delle cartelle mostrato nella schermata iniziale</string>
     <string name="title_unified_folder">Mostra nella posta in arrivo unificata</string>
     <string name="title_navigation_folder">Mostra nel menu di navigazione</string>
     <string name="title_navigation_folder_hide">Nascondi nel menu di navigazione</string>

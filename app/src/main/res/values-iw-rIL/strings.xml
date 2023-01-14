@@ -18,7 +18,7 @@
     <string name="channel_notification">דוא״ל</string>
     <string name="channel_progress">התקדמות</string>
     <string name="channel_update">עדכונים</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">הכרזות</string>
+    <string name="channel_announcements">הכרזות</string>
     <string name="channel_warning">אזהרות</string>
     <string name="channel_error">שגיאות</string>
     <string name="channel_alert">התראות שרת</string>
@@ -271,7 +271,7 @@
         בסיסמה יש להשתמש כדי לייבא את ההגדרות שוב, עדיף לא לשכוח אותה!
     </string>
     <string name="title_setup_export_do">הקובץ המיוצא יכיל את כל ההגדרות והנתונים אך לא הודעות ולא תמונות שיש אליהן הפניה בחתימות</string>
-    <string name="title_setup_import_do">חשבונות מיובאים יתווספו מבלי לדרוס חשבונות קיימים</string>
+    <string name="title_setup_scroll">חלוניות הקלט אינן נגללות!</string>
     <string name="title_setup_password">סיסמה</string>
     <string name="title_setup_password_chars">הסיסמה מכילה תווי בקרה או רווחים</string>
     <string name="title_setup_password_repeat">חזרה על הסיסמה</string>
@@ -348,6 +348,7 @@
     <string name="title_advanced_section_encryption">הצפנה</string>
     <string name="title_advanced_section_notifications">התראות</string>
     <string name="title_advanced_section_misc">שונות</string>
+    <string name="title_advanced_section_backup">גיבוי</string>
     <string name="title_advanced_default">כל האפשרויות מוגדרות לפי ערכים מקובלים, כך שאין צורך לשנות דבר כדי להשתמש ביישומון</string>
     <string name="title_advanced_receive">קבלת הודעות מכול החשבונות</string>
     <string name="title_advanced_when">מתי</string>
@@ -446,6 +447,7 @@
     <string name="title_advanced_caption_message">הודעה</string>
     <string name="title_advanced_caption_message_header">כותרת ההודעה</string>
     <string name="title_advanced_caption_message_body">גוף ההודעה</string>
+    <string name="title_advanced_caption_file">קובץ</string>
     <string name="title_advanced_portrait">מצב אנכי</string>
     <string name="title_advanced_landscape">מצב אופקי</string>
     <string name="title_advanced_two_row">להשתמש בשתי שורות</string>
@@ -578,6 +580,7 @@
     <string name="title_advanced_undo">תום זמן לביטול</string>
     <string name="title_advanced_quick_filter">הצגת סמלי מסננים מהירים שאינם בולטים</string>
     <string name="title_advanced_quick_scroll">הצגת סמלי גלילה מהירה מעלה/מטה שאינם בולטים</string>
+    <string name="title_advanced_quick_actions">להציג פעולות חטופות עם בחירת הודעות</string>
     <string name="title_advanced_folder_nav">תמיד לחזור אחורה לרשימת התיקיות מרשימת ההודעות</string>
     <string name="title_advanced_autoread">לסמן הודעות כנקראו אוטומטית בהעברתן</string>
     <string name="title_advanced_star_snoozed">להוסיף כוכב על הודעות מושהות אוטומטית</string>
@@ -698,7 +701,7 @@
     <string name="title_advanced_check_weekly">לבדוק שבועית במקום יומית</string>
     <string name="title_advanced_beta">איתור גרסאות בדיקה ב־BitBucket</string>
     <string name="title_advanced_changelog">הצגת יומן השינויים לאחר עדכון</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">בדיקת הכרזות</string>
+    <string name="title_advanced_announcements">בדיקת הכרזות</string>
     <string name="title_advanced_experiments">התנסות ביכולות נסיוניות</string>
     <string name="title_advanced_crash_reports">שליחת דוחות שגיאה</string>
     <string name="title_advanced_cleanup_attachments">מחיקת קבצים מצורפים להודעות ישנות</string>
@@ -1008,7 +1011,6 @@
     <string name="title_edit_account_color">עריכת צבע חשבון</string>
     <string name="title_hide_folder">הסתרת תיקייה</string>
     <string name="title_hide_seen_folder">להסתיר את התיקייה אם כל ההודעות נקראו</string>
-    <string name="title_hide_seen_folder_hint">רק ברשימת התיקיות שמופיעה במסך הפתיחה</string>
     <string name="title_unified_folder">הצגה בדואר נכנס מאוחד</string>
     <string name="title_navigation_folder">הצגה בתפריט הניווט</string>
     <string name="title_navigation_folder_hide">הסתרה בתפריט הניווט</string>

@@ -18,7 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Πρόοδος</string>
     <string name="channel_update">Ενημερώσεις</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Ανακοινώσεις</string>
+    <string name="channel_announcements">Ανακοινώσεις</string>
     <string name="channel_warning">Προειδοποιήσεις</string>
     <string name="channel_error">Σφάλματα</string>
     <string name="channel_alert">Ειδοποιήσεις διακομιστή</string>
@@ -245,7 +245,7 @@
         Ο κωδικός πρόσβασης απαιτείται για να εισαγάγετε ξανά τις ρυθμίσεις, οπότε, παρακαλούμε, μην τον ξεχάσετε!
     </string>
     <string name="title_setup_export_do">Το αρχείο εξαγωγής θα περιέχει όλες τις ρυθμίσεις και τα δεδομένα, αλλά όχι μηνύματα, ούτε και εικόνες ενσωματωμένες σε υπογραφές</string>
-    <string name="title_setup_import_do">Οι εισαγόμενοι λογαριασμοί θα προστεθούν χωρίς να αντικατασταθεί κάποιος από τους ήδη υπάρχοντες</string>
+    <string name="title_setup_scroll">Οι διάλογοι εισόδου μπορεί να είναι με κύλιση!</string>
     <string name="title_setup_password">Κωδικός πρόσβασης</string>
     <string name="title_setup_password_chars">Ο κωδικός πρόσβασης περιέχει χαρακτήρες ελέγχου ή διαστήματα</string>
     <string name="title_setup_password_repeat">Επανάληψη κωδικού πρόσβασης</string>
@@ -321,6 +321,7 @@
     <string name="title_advanced_section_encryption">Κρυπτογράφηση</string>
     <string name="title_advanced_section_notifications">Ειδοποιήσεις</string>
     <string name="title_advanced_section_misc">Διάφορα</string>
+    <string name="title_advanced_section_backup">Αντίγραφο Ασφαλείας</string>
     <string name="title_advanced_default">Όλες οι επιλογές έχουν συνήθως χρησιμοποιούμενες τυπικές τιμές, χωρίς να είναι ανάγκη να αλλάξουν για να χρησιμοποιηθεί η εφαρμογή</string>
     <string name="title_advanced_receive">Λήψη μηνυμάτων για όλους τους λογαριασμούς</string>
     <string name="title_advanced_when">Πότε</string>
@@ -419,6 +420,7 @@
     <string name="title_advanced_caption_message">Μήνυμα</string>
     <string name="title_advanced_caption_message_header">Κεφαλίδα μηνύματος</string>
     <string name="title_advanced_caption_message_body">Σώμα μηνύματος</string>
+    <string name="title_advanced_caption_file">Αρχείο</string>
     <string name="title_advanced_portrait">Κατακόρυφος προσανατολισμός</string>
     <string name="title_advanced_landscape">Οριζόντιος προσανατολισμός</string>
     <string name="title_advanced_two_row">Χρήση δύο γραμμών</string>
@@ -551,6 +553,7 @@
     <string name="title_advanced_undo">Χρονικό περιθώριο για αναίρεση</string>
     <string name="title_advanced_quick_filter">Διακριτικά εικονίδια για γρήγορο φιλτράρισμα</string>
     <string name="title_advanced_quick_scroll">Διακριτικά εικονίδια για ταχεία κύλιση προς τα πάνω/κάτω</string>
+    <string name="title_advanced_quick_actions">Προβολή γρήγορων ενεργειών όταν μηνύματα είναι επιλεγμένα</string>
     <string name="title_advanced_folder_nav">Πάντα επιστροφή στη λίστα φακέλων από μια λίστα μηνυμάτων</string>
     <string name="title_advanced_autoread">Αυτόματη σήμανση των μηνυμάτων ως αναγνωσμένων κατά τη μετακίνησή τους</string>
     <string name="title_advanced_star_snoozed">Αυτόματη προσθήκη αστεριού στα υπό αναβολή μηνύματα</string>
@@ -669,7 +672,7 @@
     <string name="title_advanced_check_weekly">Εβδομαδιαίος έλεγχος αντί για καθημερινός</string>
     <string name="title_advanced_beta">Έλεγχος για δοκιμαστικές εκδόσεις στο BitBucket</string>
     <string name="title_advanced_changelog">Προβολή ιστορικού αλλαγών μετά την ενημέρωση</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Έλεγχος για ανακοινώσεις</string>
+    <string name="title_advanced_announcements">Έλεγχος για ανακοινώσεις</string>
     <string name="title_advanced_experiments">Δοκιμή πειραματικών χαρακτηριστικών</string>
     <string name="title_advanced_crash_reports">Αποστολή αναφοράς σφαλμάτων</string>
     <string name="title_advanced_cleanup_attachments">Διαγραφή συνημμένων από παλιά μηνύματα</string>
@@ -979,7 +982,6 @@
     <string name="title_edit_account_color">Επεξεργασία χρώματος λογαριασμού</string>
     <string name="title_hide_folder">Απόκρυψη φακέλου</string>
     <string name="title_hide_seen_folder">Απόκρυψη φακέλου, εφόσον όλα τα μηνύματα έχουν διαβαστεί</string>
-    <string name="title_hide_seen_folder_hint">Μόνο για τη λίστα φακέλων που εμφανίζεται στην οθόνη έναρξης</string>
     <string name="title_unified_folder">Προβολή στα ενοποιημένα εισερχόμενα</string>
     <string name="title_navigation_folder">Προβολή στο μενού πλοήγησης</string>
     <string name="title_navigation_folder_hide">Απόκρυψη στο μενού πλοήγησης</string>

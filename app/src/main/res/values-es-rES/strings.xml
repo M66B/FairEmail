@@ -244,7 +244,6 @@
         La contraseña es necesaria para importar la configuración de nuevo, ¡así que por favor no la olvide!
     </string>
     <string name="title_setup_export_do">El archivo de exportación contendrá todos los ajustes y datos, pero no hay mensajes ni imágenes referenciadas en las firmas</string>
-    <string name="title_setup_import_do">Las cuentas importadas serán añadidas sin sobreescribir las existentes</string>
     <string name="title_setup_password">Contraseña</string>
     <string name="title_setup_password_chars">La contraseña contiene caracteres de control o espacios en blanco</string>
     <string name="title_setup_password_repeat">Confirmar contraseña</string>
@@ -320,6 +319,7 @@
     <string name="title_advanced_section_encryption">Cifrado</string>
     <string name="title_advanced_section_notifications">Notificaciones</string>
     <string name="title_advanced_section_misc">Misceláneas</string>
+    <string name="title_advanced_section_backup">Copia de seguridad</string>
     <string name="title_advanced_default">Todas las opciones tienen valores estándar comúnmente utilizados, que no necesitan ser cambiados para usar la aplicación</string>
     <string name="title_advanced_receive">Recibir mensajes para todas las cuentas</string>
     <string name="title_advanced_when">Cuando</string>
@@ -550,6 +550,7 @@
     <string name="title_advanced_undo">Tiempo de espera para deshacer</string>
     <string name="title_advanced_quick_filter">Mostrar iconos no intrusivos para filtro rápido</string>
     <string name="title_advanced_quick_scroll">Mostrar iconos rápidos de arriba/abajo no intrusivos</string>
+    <string name="title_advanced_quick_actions">Mostrar acciones rápidas cuando mensajes están seleccionados</string>
     <string name="title_advanced_folder_nav">Siempre volver a la lista de carpetas de una lista de mensajes</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_star_snoozed">Destacar automáticamente al posponer mensajes</string>
@@ -979,7 +980,6 @@
     <string name="title_edit_account_color">Editar color de cuenta</string>
     <string name="title_hide_folder">Ocultar carpeta</string>
     <string name="title_hide_seen_folder">Ocultar carpeta si todos los mensajes son leídos</string>
-    <string name="title_hide_seen_folder_hint">Sólo en la lista de carpetas mostrada en la pantalla de inicio</string>
     <string name="title_unified_folder">Mostrar en bandeja de entrada unificada</string>
     <string name="title_navigation_folder">Mostrar en el menú de navegación</string>
     <string name="title_navigation_folder_hide">Ocultar en el menú de navegación</string>

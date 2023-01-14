@@ -18,6 +18,7 @@
     <string name="channel_notification">E-pošta</string>
     <string name="channel_progress">Napredak</string>
     <string name="channel_update">Ažuriranja</string>
+    <string name="channel_announcements">Najave</string>
     <string name="channel_warning">Upozorenja</string>
     <string name="channel_error">Greške</string>
     <string name="channel_alert">Upozorenja servera</string>
@@ -257,7 +258,7 @@
         Lozinka je neophodna za ponovni uvoz postavki, zato Vas molimo da je ne zaboravite!
     </string>
     <string name="title_setup_export_do">Izvozna datoteka sadržavat će sve postavke i podatke, ali ne i poruke ni slike koje su referencirane u potpisima</string>
-    <string name="title_setup_import_do">Uvezeni računi bit će dodani bez prepisivanja preko postojećih računa</string>
+    <string name="title_setup_scroll">Dijalozi s inputom mogu se skrolati!</string>
     <string name="title_setup_password">Lozinka</string>
     <string name="title_setup_password_chars">Lozinka sadrži znakove ili prazna polja</string>
     <string name="title_setup_password_repeat">Ponovite lozinku</string>
@@ -334,6 +335,7 @@
     <string name="title_advanced_section_encryption">Šifriranje</string>
     <string name="title_advanced_section_notifications">Obavještenja</string>
     <string name="title_advanced_section_misc">Razno</string>
+    <string name="title_advanced_section_backup">Sigurnosna kopija</string>
     <string name="title_advanced_default">Sve opcije imaju uobičajene standardne vrijednosti, koje ne morate mijenjati da bi koristili aplikaciju</string>
     <string name="title_advanced_receive">Primaj poruke sa svih računa</string>
     <string name="title_advanced_when">Raspored</string>
@@ -400,6 +402,7 @@
     <string name="title_advanced_reply_move_inbox">Također za poruke u inbox-u</string>
     <string name="title_advanced_auto_link">Automatski kreiraj linkove (hiperveze)</string>
     <string name="title_advanced_plain_only">Pošalji običan tekst po zadanom</string>
+    <string name="title_advanced_plain_only_reply">Automatski odgovori običnim tekstom na poruku samo s običnim tekstom</string>
     <string name="title_advanced_flow">\'format flowed\' način prikaza običnog teksta</string>
     <string name="title_advanced_usenet_signature">Prati Usenet-ovu konvenciju za potpise</string>
     <string name="title_advanced_remove_signatures">Ukloni prepoznate potpise</string>
@@ -431,6 +434,7 @@
     <string name="title_advanced_caption_message">Poruka</string>
     <string name="title_advanced_caption_message_header">Zaglavlje poruke</string>
     <string name="title_advanced_caption_message_body">Sadržaj poruke</string>
+    <string name="title_advanced_caption_file">Datoteka</string>
     <string name="title_advanced_portrait">Portret (uspravni) prikaz</string>
     <string name="title_advanced_landscape">Landšaft (vodoravni) prikaz</string>
     <string name="title_advanced_two_row">Koristi dva reda</string>
@@ -438,6 +442,7 @@
     <string name="title_advanced_min_screen_size">Minimalna veličina ekrana za podijeljeni ekran</string>
     <string name="title_advanced_close_pane">Suzi red ili kolonu pri zatvaranju konverzacije</string>
     <string name="title_advanced_column_width">Širina kolone / visina reda poruka: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar">Sakrij gornju alatnu traku pri skrolanju poruka</string>
     <string name="title_advanced_nav_options">Prikaži opcije navigacijskog menija</string>
     <string name="title_advanced_nav_categories">Prikaži kategorije računa u navigacijskom meniju</string>
     <string name="title_advanced_nav_pin">Zakači navigacijski meni</string>
@@ -562,6 +567,7 @@
     <string name="title_advanced_undo">Vrijeme isteka za vraćanje</string>
     <string name="title_advanced_quick_filter">Prikaži nenametljive ikonice za brzo filtriranje</string>
     <string name="title_advanced_quick_scroll">Prikaži nenametljive ikonice za brzo pomicanje gore/dolje</string>
+    <string name="title_advanced_quick_actions">Prikaži brze radnje kada se označe poruke</string>
     <string name="title_advanced_folder_nav">Uvijek se vraćaj sa spiska poruka na spisak foldera </string>
     <string name="title_advanced_autoread">Automatski označi poruke kao pročitane pri premještanju istih</string>
     <string name="title_advanced_star_snoozed">Automatski dodaj zvjezdicu za odložene poruke</string>
@@ -682,6 +688,7 @@
     <string name="title_advanced_check_weekly">Provjeravaj sedmično umjesto dnevno</string>
     <string name="title_advanced_beta">Provjeri testne verzije na BitBucket-u</string>
     <string name="title_advanced_changelog">Prikaži zapisnik promjena nakon ažuriranja</string>
+    <string name="title_advanced_announcements">Provjeri najave</string>
     <string name="title_advanced_experiments">Probaj eksperimentalne mogućnosti</string>
     <string name="title_advanced_crash_reports">Pošalji izvještaj o greški</string>
     <string name="title_advanced_cleanup_attachments">Izbriši priloge starih poruka</string>
@@ -991,7 +998,6 @@
     <string name="title_edit_account_color">Uredi boju računa</string>
     <string name="title_hide_folder">Sakrij folder</string>
     <string name="title_hide_seen_folder">Sakrij folder ako su sve poruke pročitane</string>
-    <string name="title_hide_seen_folder_hint">Samo na spisku foldera prikazanom na početnom ekranu</string>
     <string name="title_unified_folder">Prikaži u objedinjenom inboxu</string>
     <string name="title_navigation_folder">Prikaži u navigacijskom meniju</string>
     <string name="title_navigation_folder_hide">Sakrij u navigacijskom meniju</string>
@@ -1101,6 +1107,7 @@
     <string name="title_quick_actions">Izaberite radnje</string>
     <string name="title_quick_actions_hint">Bit će prikazane do %1$d radnje(i)</string>
     <string name="title_quick_actions_low">Niska važnost</string>
+    <string name="title_quick_actions_normal">Normalan značaj</string>
     <string name="title_quick_actions_high">Visoka važnost</string>
     <string name="title_quick_actions_snooze">Odgodi</string>
     <string name="title_quick_actions_clear">Deselekcija označenog nakon izvršene radnje</string>
@@ -1830,6 +1837,7 @@
     <string name="title_widget_padding">Veličina razmaka</string>
     <string name="title_widget_separator_lines">Prikaži linije razdvajanja</string>
     <string name="title_widget_semi_transparent">Poluprovidna pozadina</string>
+    <string name="title_widget_count_top">Prikaži nepročitane poruke na vrhu</string>
     <string name="title_widget_avatars">Prikaži avatare kontakata</string>
     <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
     <string name="title_widget_compose">Prikaži dugme za pisanje nove poruke</string>

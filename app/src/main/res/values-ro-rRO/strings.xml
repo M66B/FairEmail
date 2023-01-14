@@ -18,7 +18,7 @@
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Progres</string>
     <string name="channel_update">Actualizări</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Anunţuri</string>
+    <string name="channel_announcements">Anunţuri</string>
     <string name="channel_warning">Atenționări</string>
     <string name="channel_error">Erori</string>
     <string name="channel_alert">Alerte server</string>
@@ -258,7 +258,7 @@
         Parola este necesară pentru a importa din nou setările, așa că vă rugăm să nu o uitați!
     </string>
     <string name="title_setup_export_do">Fișierul de export va conține toate setările și datele, dar nu și mesajele și nici imaginile la care se face referire în semnături</string>
-    <string name="title_setup_import_do">Conturile importate vor fi adăugate fără a suprascrie pe cele existente</string>
+    <string name="title_setup_scroll">Dialogurile de intrare pot fi derulate!</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>
     <string name="title_setup_password_repeat">Repetă parola</string>
@@ -334,6 +334,7 @@
     <string name="title_advanced_section_encryption">Criptare</string>
     <string name="title_advanced_section_notifications">Notificări</string>
     <string name="title_advanced_section_misc">Diverse</string>
+    <string name="title_advanced_section_backup">Copie de siguranță</string>
     <string name="title_advanced_default">Toate opțiunile au valori standard utilizate în mod obișnuit, care nu trebuie modificate pentru a utiliza aplicația</string>
     <string name="title_advanced_receive">Primește mesaje pentru toate conturile</string>
     <string name="title_advanced_when">Când</string>
@@ -432,6 +433,7 @@
     <string name="title_advanced_caption_message">Mesaj</string>
     <string name="title_advanced_caption_message_header">Antet mesaj</string>
     <string name="title_advanced_caption_message_body">Corp mesaj</string>
+    <string name="title_advanced_caption_file">Fişier</string>
     <string name="title_advanced_portrait">Modul portret</string>
     <string name="title_advanced_landscape">Mod peisaj</string>
     <string name="title_advanced_two_row">Utilizați două rânduri</string>
@@ -564,6 +566,7 @@
     <string name="title_advanced_undo">Expirare anulare</string>
     <string name="title_advanced_quick_filter">Arată iconițele de filtrare rapidă</string>
     <string name="title_advanced_quick_scroll">Arată iconițele de derulare sus/jos rapidă</string>
+    <string name="title_advanced_quick_actions">Arată acțiuni rapide atunci când mesajele sunt selectate</string>
     <string name="title_advanced_folder_nav">Reveniți întotdeauna la lista de dosare dintr-o listă de mesaje</string>
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_star_snoozed">Adaugă automat stea la mesajele amânate</string>
@@ -683,7 +686,7 @@
     <string name="title_advanced_check_weekly">Verifică săptămânal în loc de zilnic</string>
     <string name="title_advanced_beta">Verificați pentru versiuni de testare pe BitBucket</string>
     <string name="title_advanced_changelog">Afișați lista de modificări după actualizare</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Caută anunțuri</string>
+    <string name="title_advanced_announcements">Caută anunțuri</string>
     <string name="title_advanced_experiments">Încercați funcţii experimentale</string>
     <string name="title_advanced_crash_reports">Trimite rapoarte de eroare</string>
     <string name="title_advanced_cleanup_attachments">Ştergeţi ataşamentele mesajelor vechi</string>
@@ -994,7 +997,6 @@
     <string name="title_edit_account_color">Editare culoare cont</string>
     <string name="title_hide_folder">Ascunde dosar</string>
     <string name="title_hide_seen_folder">Ascundeți folderul dacă toate mesajele sunt citite</string>
-    <string name="title_hide_seen_folder_hint">Numai în lista de dosare afișată pe ecranul de pornire</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_navigation_folder">Arată în meniul de navigație</string>
     <string name="title_navigation_folder_hide">Ascundeți în meniul de navigare</string>

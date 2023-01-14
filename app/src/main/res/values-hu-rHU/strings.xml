@@ -219,7 +219,6 @@
         Jelszó szükséges az újbóli importáláshoz, ezért ne felejtse el!
     </string>
     <string name="title_setup_export_do">Az exportált fájl tartalmazni fog minden beállítást és adatot, de nem tartalmazza az aláírásban tett utalásokat üzenetekre és képekre</string>
-    <string name="title_setup_import_do">Az importált kapcsolatok hozzáadása során nem módosulnak a meglévőek</string>
     <string name="title_setup_password">Jelszó</string>
     <string name="title_setup_password_chars">A jelszó vezérlő vagy szóköz karaktert tartalmaz</string>
     <string name="title_setup_password_repeat">Ismételje meg a jelszót</string>
@@ -289,6 +288,7 @@
     <string name="title_advanced_section_encryption">Titkosítás</string>
     <string name="title_advanced_section_notifications">Értesítések</string>
     <string name="title_advanced_section_misc">Egyebek</string>
+    <string name="title_advanced_section_backup">Biztonsági mentés</string>
     <string name="title_advanced_default">Az összes opció általánosan használt szabványos értékeket tartalmaz, amelyeket nem kell megváltoztatni az alkalmazás használatához</string>
     <string name="title_advanced_receive">Üzenetek fogadása minden fiókon</string>
     <string name="title_advanced_when">Mikor</string>

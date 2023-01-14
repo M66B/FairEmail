@@ -215,7 +215,6 @@
     <string name="title_setup_export_remark">  Konfigurazio-fitxategia kontuaren konfigurazio eta informazio guztia jasotzen duenez, pasahitz batekin zifratzen da.
   Pasahitza beharrezkoa da konfigurazioa berriro inportatzeko; beraz, mesedez, ez ahaztu!    </string>
     <string name="title_setup_export_do">Esportazio-fitxategiak doikuntza eta datu guztiak izango ditu, baina ez dago mezurik, ezta erreferentziazko irudirik ere sinaduretan</string>
-    <string name="title_setup_import_do">Inportatutako kontuak daudenak gainidatzi gabe gehituko dira</string>
     <string name="title_setup_password">Pasahitza</string>
     <string name="title_setup_password_chars">Pasahitzak kontrol karaktereak edo espazio zuriak ditu</string>
     <string name="title_setup_password_repeat">Errepikatu pasahitza</string>
@@ -284,6 +283,7 @@
     <string name="title_advanced_section_encryption">Zifratzea</string>
     <string name="title_advanced_section_notifications">Jakinarazpenak</string>
     <string name="title_advanced_section_misc">Miszelanea</string>
+    <string name="title_advanced_section_backup">Babes-kopia</string>
     <string name="title_advanced_default">Aukera guztiek erabili ohi dituzten balio estandarrak dituzte, aplikazioa erabiltzeko aldatu behar ez direnak</string>
     <string name="title_advanced_receive">Jaso kontu guztietako mezuak</string>
     <string name="title_advanced_when">Noiz</string>

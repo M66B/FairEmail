@@ -18,7 +18,7 @@
     <string name="channel_notification">البريد</string>
     <string name="channel_progress">التقدم</string>
     <string name="channel_update">التحديثات</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">إعلانات</string>
+    <string name="channel_announcements">إعلانات</string>
     <string name="channel_warning">التحذيرات</string>
     <string name="channel_error">الأخطاء</string>
     <string name="channel_alert">تنبيهات الخادم</string>
@@ -273,7 +273,6 @@
         كلمة المرور مطلوبة لاستيراد الإعدادات مرة أخرى، لذا يرجى عدم نسيانها!
     </string>
     <string name="title_setup_export_do">سيحتوي ملف التصدير على جميع الإعدادات والبيانات، ولكن لا توجد رسائل ولا صور مشار إليها في التوقيعات</string>
-    <string name="title_setup_import_do">سيتم إضافة الحسابات المستوردة دون الكتابة فوق أي حسابات موجودة</string>
     <string name="title_setup_password">الكلمة السرية</string>
     <string name="title_setup_password_chars">تحتوي كلمة المرور على أحرف تحكم أو مسافات بيضاء</string>
     <string name="title_setup_password_repeat">أعد كتابة الكلمة السرية</string>
@@ -350,6 +349,7 @@
     <string name="title_advanced_section_encryption">التشفير</string>
     <string name="title_advanced_section_notifications">الاشعارات</string>
     <string name="title_advanced_section_misc">خيارات متنوعة</string>
+    <string name="title_advanced_section_backup">النسخة الاحتياطية</string>
     <string name="title_advanced_default">جميع الخيارات تستخدم قيم قياسية شائعة، التي لا تحتاج إلى تغييرها لاستخدام التطبيق</string>
     <string name="title_advanced_receive">تلقي الرسائل لجميع الحسابات</string>
     <string name="title_advanced_when">متى</string>
@@ -393,7 +393,7 @@
     <string name="title_advanced_clear_all_hint">سيؤدي هذا إلى حذف جميع بيانات التطبيق من جهازك، بما في ذلك حسابات البريد الإلكتروني والرسائل والإعدادات التي تم تكوينها وأي بيانات تم جمعها.</string>
     <string name="title_advanced_encrypt_default">تشفير بشكل افتراضي</string>
     <string name="title_advanced_language_system">النظام</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">التحقق من وجود إعلانات</string>
+    <string name="title_advanced_announcements">التحقق من وجود إعلانات</string>
     <string name="title_advanced_crash_reports">إرسال تقارير الأخطاء</string>
     <string name="title_advanced_cleanup">تنظيف</string>
     <string name="title_advanced_debug">وضع التصحيح</string>

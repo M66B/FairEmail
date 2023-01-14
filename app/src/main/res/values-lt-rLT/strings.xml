@@ -16,6 +16,7 @@
     <string name="title_setup_options">Nustatymai</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
+    <string name="title_advanced_section_backup">Atsarginė kopija</string>
     <string name="title_advanced_caption_general">Bendra</string>
     <string name="title_advanced_notify_action_delete">Ištrinti</string>
     <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.

@@ -18,6 +18,7 @@
     <string name="channel_notification">e-posta</string>
     <string name="channel_progress">İlerleme</string>
     <string name="channel_update">Güncellemeler</string>
+    <string name="channel_announcements">Duyurular</string>
     <string name="channel_warning">Uyarılar</string>
     <string name="channel_error">Hatalar</string>
     <string name="channel_alert">Sunucu uyarıları</string>
@@ -175,6 +176,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_rationale">Lütfen bir hesap seçmek ve isminizi okumak için izin verin</string>
     <string name="title_setup_gmail_permissions">Google, tüm e-postalarınızı okumak, oluşturmak, göndermek ve kalıcı olarak silmek için izin isteyecektir. FairEmail, açık onayınız olmadan mesajlarınızı asla silmeyecektir.</string>
     <string name="title_setup_gmail_login">Chrome bir hesapta oturum açtıysa, yalnızca Android üzerinden yeni bir hesap eklenebilir. Bu, Chrome senkronizasyon ayarları aracılığıyla Chrome\'dan çıkış yapılarak önlenebilir.</string>
+    <string name="title_setup_gmail_max">\"Maksimum sayıda hesapta oturum açtınız\" hata mesajının görüntülenmesi durumunda, tarayıcınızdan tüm Google hesaplarından çıkış yapmanız gerekir.</string>
     <string name="title_setup_gmail_on_device">Neden bir cihaz hesabı seçmem gerekiyor?</string>
     <string name="title_setup_gmail_password">Cihazdaki bir hesap yerine şifreli bir hesabı yetkilendirmek istiyorum</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
@@ -242,7 +244,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         Ayarları tekrar içe aktarmak için parola gereklidir, bu yüzden lütfen bunu unutmayın!
     </string>
     <string name="title_setup_export_do">Dışa aktarma dosyası tüm ayarları ve verileri içerecek, ancak imzalarda atıfta bulunulan hiçbir mesaj ve resim olmayacak</string>
-    <string name="title_setup_import_do">İçe aktarılan hesaplar varolan hesapların üzerine yazılmadan eklenecek</string>
     <string name="title_setup_password">Parola</string>
     <string name="title_setup_password_chars">Parola, kontrol veya boşluk karakterleri içeriyor</string>
     <string name="title_setup_password_repeat">Parolayı tekrarla</string>
@@ -318,6 +319,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_section_encryption">Şifreleme</string>
     <string name="title_advanced_section_notifications">Bildirimler</string>
     <string name="title_advanced_section_misc">Çeşitli</string>
+    <string name="title_advanced_section_backup">Yedekleme</string>
     <string name="title_advanced_default">Tüm seçenekler, uygulamayı kullanmak için değiştirilmesi gerekmeyen yaygın olarak kullanılan standart değerlere sahiptir</string>
     <string name="title_advanced_receive">Tüm hesaplardan mesajları al</string>
     <string name="title_advanced_when">Ne zaman</string>
@@ -384,6 +386,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_reply_move_inbox">Ayrıca gelen kutusundaki mesajlar için</string>
     <string name="title_advanced_auto_link">Otomatik olarak bağlantı oluşturun</string>
     <string name="title_advanced_plain_only">Öntanımlı olarak yalnızca düz metin gönder</string>
+    <string name="title_advanced_plain_only_reply">Yalnızca düz metin mesajına yanıt verirken otomatik olarak yalnızca düz metin</string>
     <string name="title_advanced_flow">düz metin için \"biçim akışı\"</string>
     <string name="title_advanced_usenet_signature">Kullanıcı ağı imza sözleşmesi</string>
     <string name="title_advanced_remove_signatures">Tanınan imzaları kaldır</string>
@@ -422,6 +425,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_min_screen_size">Ekranı bölmek için minimum ekran boyutu</string>
     <string name="title_advanced_close_pane">Bir konuşmayı kapatırken satırı veya sütunu daralt</string>
     <string name="title_advanced_column_width">Mesaj sütun genişliği / satır yüksekliği: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar">Mesajları kaydırırken üstteki araç çubuğunu gizle</string>
     <string name="title_advanced_nav_options">Gezinme menüsü seçeneklerini göster</string>
     <string name="title_advanced_nav_categories">Gezinme menüsünde hesap kategorilerini göster</string>
     <string name="title_advanced_nav_pin">Gezinme menüsünü sabitle</string>
@@ -546,6 +550,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_undo">Zaman aşımını geri al</string>
     <string name="title_advanced_quick_filter">Rahatsız edici olmayan hızlı filtre simgelerini göster</string>
     <string name="title_advanced_quick_scroll">Rahatsız edici olmayan hızlı yukarı/aşağı kaydırma simgelerini göster</string>
+    <string name="title_advanced_quick_actions">Mesajlar seçildiğinde hızlı eylemleri göster</string>
     <string name="title_advanced_folder_nav">Her zaman bir mesaj listesinden klasör listesine geri dön</string>
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_star_snoozed">Ertelenen mesajlara otomatik olarak yıldız ekle</string>
@@ -615,6 +620,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_disconnect_auto_update">Listeleri haftalık olarak otomatik güncelle</string>
     <string name="title_advanced_disconnect_links">Takipçi içeren bağlantıları önden uyarabilmek için listeleri kullan</string>
     <string name="title_advanced_disconnect_images">Takipçi içeren görselleri tanımak için listeleri kullan</string>
+    <string name="title_advanced_clear_all_hint">Bu, yapılandırılmış e-posta hesapları, mesajlar, ayarlar ve toplanan tüm veriler dahil olmak üzere cihazınızdaki tüm uygulama verilerini siler.</string>
     <string name="title_advanced_mnemonic">Verileri uzaktan sil</string>
     <string name="title_advanced_mnemonic_hint">Konu satırında aşağıdaki kelimeleri içeren herhangi bir e-posta, uygulama verilerini otomatik olarak ve hemen siler</string>
     <string name="title_advanced_clear_all">Uygulama verilerini sil</string>
@@ -664,6 +670,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_check_weekly">Günlük yerine haftalık kontrol edin</string>
     <string name="title_advanced_beta">BitBucket\'te test sürümlerini kontrol et</string>
     <string name="title_advanced_changelog">Güncellemeden sonra yapılan değişiklikler günlüğünü göster</string>
+    <string name="title_advanced_announcements">Duyuruları kontrol et</string>
     <string name="title_advanced_experiments">Deneysel özellikleri deneyin</string>
     <string name="title_advanced_crash_reports">Hata raporları gönder</string>
     <string name="title_advanced_cleanup_attachments">Eski iletilerin eklerini sil</string>
@@ -974,7 +981,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_edit_account_color">Hesap rengini düzenle</string>
     <string name="title_hide_folder">Klasörü gizle</string>
     <string name="title_hide_seen_folder">Tüm mesajlar okunduysa klasörü gizle</string>
-    <string name="title_hide_seen_folder_hint">Yalnızca başlangıç ​​ekranında gösterilen klasör listesinde</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>
     <string name="title_navigation_folder_hide">Gezinme menüsünde gizle</string>
@@ -1082,6 +1088,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_quick_actions">Eylem seç</string>
     <string name="title_quick_actions_hint">En fazla %1$d işlem gösterilecek</string>
     <string name="title_quick_actions_low">Düşük önem</string>
+    <string name="title_quick_actions_normal">Normal önem</string>
     <string name="title_quick_actions_high">Yüksek önem</string>
     <string name="title_quick_actions_snooze">Ertele</string>
     <string name="title_quick_actions_clear">Eylemden sonra seçimi temizle</string>
@@ -1485,6 +1492,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_name">Ad</string>
     <string name="title_rule_order">Sıralama</string>
     <string name="title_rule_enabled">Etkin</string>
+    <string name="title_rule_daily">Günlük çalıştır (yalnızca)</string>
+    <string name="title_rule_age">Şundan daha eski mesajlar: (gün)</string>
     <string name="title_rule_stop">Bu kuralı yürüttükten sonra kuralları işlemeyi durdur</string>
     <string name="title_rule_sender">Gönderici içeriği</string>
     <string name="title_rule_sender_known">Gönderen rehberden birisi</string>
@@ -1806,6 +1815,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_widget_padding">Boşluk boyutu</string>
     <string name="title_widget_separator_lines">Ayırıcı çizgileri göster</string>
     <string name="title_widget_semi_transparent">Yarı saydam arka plan</string>
+    <string name="title_widget_count_top">Okunmamış sayıyı en üstte göster</string>
     <string name="title_widget_avatars">Kişi avatarlarını göster</string>
     <string name="title_widget_refresh">Mesajları yenile düğmesini göster</string>
     <string name="title_widget_compose">Yeni mesaj oluştur düğmesini göster</string>

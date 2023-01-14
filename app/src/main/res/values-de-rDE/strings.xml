@@ -18,7 +18,7 @@
     <string name="channel_notification">Neue E-Mail</string>
     <string name="channel_progress">Fortschritt</string>
     <string name="channel_update">Aktualisierungen</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Ankündigungen</string>
+    <string name="channel_announcements">Ankündigungen</string>
     <string name="channel_warning">Warnungen</string>
     <string name="channel_error">Fehler</string>
     <string name="channel_alert">Serverbenachrichtigungen</string>
@@ -246,7 +246,7 @@
         Das Passwort wird benötigt, um die Einstellungen erneut zu importieren. Bitte vergessen Sie es daher nicht!
     </string>
     <string name="title_setup_export_do">Die Exportdatei enthält alle Einstellungen und Daten, aber keine Nachrichten und keine in Signaturen eingebettete Grafiken.</string>
-    <string name="title_setup_import_do">Importierte Konten werden hinzugefügt, ohne vorhandene zu überschreiben</string>
+    <string name="title_setup_scroll">Die Eingabedialoge können rollbar sein!</string>
     <string name="title_setup_password">Passwort</string>
     <string name="title_setup_password_chars">Passwort enthält Steuer- oder Leerzeichen</string>
     <string name="title_setup_password_repeat">Passwort erneut eingeben</string>
@@ -322,6 +322,7 @@
     <string name="title_advanced_section_encryption">Verschlüsselung</string>
     <string name="title_advanced_section_notifications">Benachrichtigungen</string>
     <string name="title_advanced_section_misc">Verschiedenes</string>
+    <string name="title_advanced_section_backup">Sicherung</string>
     <string name="title_advanced_default">Alle Optionen haben häufig verwendete Standardwerte, die für die Verwendung der App nicht geändert werden müssen</string>
     <string name="title_advanced_receive">Nachrichten für alle Konten empfangen</string>
     <string name="title_advanced_when">Wann</string>
@@ -388,7 +389,7 @@
     <string name="title_advanced_reply_move_inbox">Auch für Nachrichten im Posteingang</string>
     <string name="title_advanced_auto_link">Links automatisch erstellen</string>
     <string name="title_advanced_plain_only">Standardmäßig nur einfachen Text senden</string>
-    <string name="title_advanced_plain_only_reply">Nur beim Antworten auf eine einfache Textnachricht automatisch einfachen Text verwenden</string>
+    <string name="title_advanced_plain_only_reply">Nur beim Antworten auf eine Nur-Textnachricht automatisch Nur-Text verwenden</string>
     <string name="title_advanced_flow">Format fließend für unformatierten Text</string>
     <string name="title_advanced_usenet_signature">Usenet-Signaturkonvention</string>
     <string name="title_advanced_remove_signatures">Erkannte Signaturen entfernen</string>
@@ -420,6 +421,7 @@
     <string name="title_advanced_caption_message">Nachricht</string>
     <string name="title_advanced_caption_message_header">Nachrichtenkopfzeilen</string>
     <string name="title_advanced_caption_message_body">Nachrichtentext</string>
+    <string name="title_advanced_caption_file">Datei</string>
     <string name="title_advanced_portrait">Hochformat</string>
     <string name="title_advanced_landscape">Querformat</string>
     <string name="title_advanced_two_row">Zwei Zeilen verwenden</string>
@@ -427,7 +429,7 @@
     <string name="title_advanced_min_screen_size">Minimale Bildschirmgröße zum Teilen des Bildschirms</string>
     <string name="title_advanced_close_pane">Zeile oder Spalte beim Schließen einer Unterhaltung einklappen</string>
     <string name="title_advanced_column_width">Spaltenbreite/Zeilenhöhe der Nachricht: %1$s %%</string>
-    <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim rollen von Nachrichten ausblenden</string>
+    <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Rollen von Nachrichten ausblenden</string>
     <string name="title_advanced_nav_options">Navigationsmenü-Optionen anzeigen</string>
     <string name="title_advanced_nav_categories">Kontokategorien im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_pin">Navigationsmenü anheften</string>
@@ -552,6 +554,7 @@
     <string name="title_advanced_undo">Anzeigedauer von »Rückgängig«</string>
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Unaufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
+    <string name="title_advanced_quick_actions">Schnellaktionen anzeigen, sobald Nachrichten ausgewählt sind</string>
     <string name="title_advanced_folder_nav">Von einer Nachrichtenliste immer zur Ordnerliste zurückkehren</string>
     <string name="title_advanced_autoread">Nachrichten beim Verschieben automatisch als gelesen kennzeichnen</string>
     <string name="title_advanced_star_snoozed">Zurückgestellte Nachrichten automatisch kennzeichnen</string>
@@ -671,7 +674,7 @@
     <string name="title_advanced_check_weekly">Wöchentlich statt täglich prüfen</string>
     <string name="title_advanced_beta">Testversionen bei BitBucket suchen</string>
     <string name="title_advanced_changelog">Änderungsprotokoll nach Aktualisierungen anzeigen</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Auf Ankündigungen prüfen</string>
+    <string name="title_advanced_announcements">Auf Ankündigungen prüfen</string>
     <string name="title_advanced_experiments">Experimentelle Funktionen ausprobieren</string>
     <string name="title_advanced_crash_reports">Fehlerberichte senden</string>
     <string name="title_advanced_cleanup_attachments">Anhänge aus alten Nachrichten löschen</string>
@@ -982,7 +985,6 @@
     <string name="title_edit_account_color">Farbe des Kontos ändern</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
     <string name="title_hide_seen_folder">Ordner ausblenden, wenn alle Nachrichten gelesen wurden</string>
-    <string name="title_hide_seen_folder_hint">Nur in der auf dem Startbildschirm angezeigten Ordnerliste</string>
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_navigation_folder">Im Navigationsmenü anzeigen</string>
     <string name="title_navigation_folder_hide">Im Navigationsmenü ausblenden</string>

@@ -179,7 +179,6 @@
     <string name="title_setup_configuring">Konfigurerer konto &#8230;</string>
     <string name="title_setup_export">Eksporter innstillingene</string>
     <string name="title_setup_import">Importer innstillinger</string>
-    <string name="title_setup_import_do">Importerte kontoer vil bli lagt til uten å overskrive eksisterende</string>
     <string name="title_setup_password">Passord</string>
     <string name="title_setup_password_chars">Passord inneholder kontroll eller mellomromstegn</string>
     <string name="title_setup_password_repeat">Gjenta passord</string>
@@ -227,6 +226,7 @@
     <string name="title_advanced_section_encryption">Kryptering</string>
     <string name="title_advanced_section_notifications">Varslinger</string>
     <string name="title_advanced_section_misc">Diverse</string>
+    <string name="title_advanced_section_backup">Sikkerhetskopier</string>
     <string name="title_advanced_receive">Motta meldinger for alle kontoer</string>
     <string name="title_advanced_when">Når</string>
     <string name="title_advanced_optimize">Automatisk optimalisering</string>

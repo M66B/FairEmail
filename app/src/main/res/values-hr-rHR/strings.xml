@@ -231,7 +231,6 @@
         Za ponovni uvoz postavki potrebna je lozinka, stoga je nemojte zaboraviti!
     </string>
     <string name="title_setup_export_do">Datoteka za izvoz sadržavat će sve postavke i podatke, ali ne i poruke i slike na koje se upućuje u potpisima</string>
-    <string name="title_setup_import_do">Uvezeni računi bit će dodani bez prepisa postojećih</string>
     <string name="title_setup_password">Lozinka</string>
     <string name="title_setup_password_chars">Lozinka sadrži znakove kontrole ili bjeline</string>
     <string name="title_setup_password_repeat">Ponovite lozinku</string>
@@ -306,6 +305,7 @@
     <string name="title_advanced_section_encryption">Šifriranje</string>
     <string name="title_advanced_section_notifications">Obavijesti</string>
     <string name="title_advanced_section_misc">Razno</string>
+    <string name="title_advanced_section_backup">Sigurnosno kopiranje</string>
     <string name="title_advanced_default">Sve opcije imaju uobičajene standardne vrijednosti koje se ne moraju mijenjati za korištenje aplikacije</string>
     <string name="title_advanced_receive">Primi poruke za sve račune</string>
     <string name="title_advanced_when">Kada</string>
@@ -920,7 +920,6 @@
     <string name="title_edit_account_name">Uredi ime računa</string>
     <string name="title_hide_folder">Sakrij mapu</string>
     <string name="title_hide_seen_folder">Sakrij mapu ako su sve poruke pročitane</string>
-    <string name="title_hide_seen_folder_hint">Samo u popisu mapa prikazanom na početnom zaslonu</string>
     <string name="title_unified_folder">Prikaži u objedinjenoj ulaznom spremniku</string>
     <string name="title_navigation_folder">Prikaži u navigacijskom izborniku</string>
     <string name="title_synchronize_folder">Sinkroniziranje (primanje poruka)</string>

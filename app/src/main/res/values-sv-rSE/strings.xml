@@ -18,7 +18,7 @@
     <string name="channel_notification">E-post</string>
     <string name="channel_progress">Förlopp</string>
     <string name="channel_update">Uppdateringar</string>
-    <string name="channel_announcements" comment="channel_announcements&#10;Title of notification channel for announcements">Notiser</string>
+    <string name="channel_announcements">Notiser</string>
     <string name="channel_warning">Varningar</string>
     <string name="channel_error">Fel</string>
     <string name="channel_alert">Servermeddelanden</string>
@@ -239,7 +239,7 @@
     <string name="title_setup_import">Importera inställningar</string>
     <string name="title_setup_export_remark">Eftersom konfigurationsfilen innehåller alla inställningar och all kontoinformation så krypteras den med ett lösenord. Lösenordet behövs för att importera konfigurationsfilen igen, så glöm inte bort det!    </string>
     <string name="title_setup_export_do">Exportfilen kommer att innehålla alla inställningar och data, men inga meddelanden och inga bilder från signaturer</string>
-    <string name="title_setup_import_do">Importerade konton kommer att läggas till utan att skriva över några befintliga</string>
+    <string name="title_setup_scroll">Inmatningsdialogerna kan vara rullningsbara!</string>
     <string name="title_setup_password">Lösenord</string>
     <string name="title_setup_password_chars">Lösenordet innehåller CTRL- eller blanksteg</string>
     <string name="title_setup_password_repeat">Upprepa lösenord</string>
@@ -314,6 +314,7 @@
     <string name="title_advanced_section_encryption">Kryptering</string>
     <string name="title_advanced_section_notifications">Aviseringar</string>
     <string name="title_advanced_section_misc">Diverse</string>
+    <string name="title_advanced_section_backup">Säkerhetskopiering</string>
     <string name="title_advanced_default">Alla alternativ har standardvärden, som inte behöver ändras för att använda appen</string>
     <string name="title_advanced_receive">Ta emot meddelanden för alla konton</string>
     <string name="title_advanced_when">När</string>
@@ -412,6 +413,7 @@
     <string name="title_advanced_caption_message">Meddelande</string>
     <string name="title_advanced_caption_message_header">Meddelandehuvud</string>
     <string name="title_advanced_caption_message_body">Meddelande-text</string>
+    <string name="title_advanced_caption_file">Fil</string>
     <string name="title_advanced_portrait">Porträttläge</string>
     <string name="title_advanced_landscape">Landskapsläge</string>
     <string name="title_advanced_two_row">Använd två rader</string>
@@ -544,6 +546,7 @@
     <string name="title_advanced_undo">Ångra timeout</string>
     <string name="title_advanced_quick_filter">Visa icke-påträngande snabbfilter-ikoner</string>
     <string name="title_advanced_quick_scroll">Visa icke-påträngande snabba scrolla upp/ner ikoner</string>
+    <string name="title_advanced_quick_actions">Visa snabbåtgärder när meddelanden väljs</string>
     <string name="title_advanced_folder_nav">Gå alltid tillbaka till mapplistan från en meddelandelista</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
     <string name="title_advanced_star_snoozed">Stjärnmarkera automatiskt vid slumring av meddelanden</string>
@@ -663,7 +666,7 @@
     <string name="title_advanced_check_weekly">Kolla veckovis istället för dagligen</string>
     <string name="title_advanced_beta">Sök efter testversioner på BitBucket</string>
     <string name="title_advanced_changelog">Visa ändringslogg efter uppdatering</string>
-    <string name="title_advanced_announcements" comment="title_advanced_announcements&#10;Title for option to enable/disable announcements">Kontrollera notiser</string>
+    <string name="title_advanced_announcements">Kontrollera notiser</string>
     <string name="title_advanced_experiments">Prova experimentella funktioner</string>
     <string name="title_advanced_crash_reports">Skicka felrapporter</string>
     <string name="title_advanced_cleanup_attachments">Ta bort bilagor på gamla meddelanden</string>
@@ -974,7 +977,6 @@
     <string name="title_edit_account_color">Redigera kontofärg</string>
     <string name="title_hide_folder">Dölj mapp</string>
     <string name="title_hide_seen_folder">Dölj mapp om alla meddelanden har lästs</string>
-    <string name="title_hide_seen_folder_hint">Endast i mapplistan som visas på startskärmen</string>
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_navigation_folder">Visa i navigeringsmenyn</string>
     <string name="title_navigation_folder_hide">Dölj i navigeringsmenyn</string>

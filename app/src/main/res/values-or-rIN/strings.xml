@@ -187,6 +187,7 @@
     <string name="title_advanced_section_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
     <string name="title_advanced_section_notifications">ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକ</string>
     <string name="title_advanced_section_misc">ବିବିଧ</string>
+    <string name="title_advanced_section_backup">ବ୍ୟାକଅପ୍</string>
     <string name="title_advanced_when">କେବେ</string>
     <string name="title_advanced_optimize">ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଅପ୍ଟିମାଇଜ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_always">ଏହି ଆକାଉଣ୍ଟଗୁଡ଼ିକ ପାଇଁ ସର୍ବଦା ବାର୍ତ୍ତା ପ୍ରାପ୍ତ କରନ୍ତୁ</string>

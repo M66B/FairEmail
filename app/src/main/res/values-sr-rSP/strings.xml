@@ -128,7 +128,6 @@
     <string name="title_setup_error">Грешка</string>
     <string name="title_setup_export">Извези поставке</string>
     <string name="title_setup_import">Увези поставке</string>
-    <string name="title_setup_import_do">Увезени налози ће бити додати поред постојећих</string>
     <string name="title_setup_password">Лозинка</string>
     <string name="title_setup_password_repeat">Поновите лозинку</string>
     <string name="title_setup_password_missing">Лозинка недостаје</string>
@@ -166,6 +165,7 @@
     <string name="title_advanced_section_encryption">Шифровање</string>
     <string name="title_advanced_section_notifications">Обавештења</string>
     <string name="title_advanced_section_misc">Разно</string>
+    <string name="title_advanced_section_backup">Резервна копија</string>
     <string name="title_advanced_when">Када</string>
     <string name="title_advanced_schedule">Распоред</string>
     <string name="title_advanced_advanced">Напредно</string>

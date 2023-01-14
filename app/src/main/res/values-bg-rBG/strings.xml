@@ -156,7 +156,6 @@
     <string name="title_setup_close">Затваряне на настройките</string>
     <string name="title_setup_export">Експортиране на настройките</string>
     <string name="title_setup_import">Внасяне на настройки</string>
-    <string name="title_setup_import_do">Импортираните профили ще се добавят, без да се презаписват съществуващите</string>
     <string name="title_setup_password">Парола</string>
     <string name="title_setup_password_chars">Паролата съдържа контролни символи или интервали</string>
     <string name="title_setup_password_repeat">Повторете паролата</string>
@@ -210,6 +209,7 @@
     <string name="title_advanced_section_encryption">Криптиране</string>
     <string name="title_advanced_section_notifications">Известия</string>
     <string name="title_advanced_section_misc">Разни</string>
+    <string name="title_advanced_section_backup">Архивиране</string>
     <string name="title_advanced_receive">Получаване на съобщения от всички акаунти</string>
     <string name="title_advanced_when">Кога</string>
     <string name="title_advanced_optimize">Автоматично оптимизиране</string>

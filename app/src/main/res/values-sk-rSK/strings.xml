@@ -265,7 +265,6 @@
         Toto heslo je potrebné zadať aj pri importe nastavení, prosím, bezpečne si ho uchovajte!
     </string>
     <string name="title_setup_export_do">Exportovaný súbor bude obsahovať všetky nastavenia a údaje okrem emailových správ a obrázkov odkazovaných vo vašich podpisoch</string>
-    <string name="title_setup_import_do">Importované účty budú pridané bez prepísania existujúcich účtov</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje riadiace alebo prázdne znaky</string>
     <string name="title_setup_password_repeat">Zopakovať heslo</string>
@@ -339,6 +338,7 @@
     <string name="title_advanced_section_encryption">Šifrovanie</string>
     <string name="title_advanced_section_notifications">Upozornenia</string>
     <string name="title_advanced_section_misc">Rôzne</string>
+    <string name="title_advanced_section_backup">Zálohovať</string>
     <string name="title_advanced_default">Všetky voľby majú prednastavené bežne používané štandardné hodnoty, ktoré nie je potrebné pre používanie aplikácie meniť</string>
     <string name="title_advanced_receive">Prijímať správy pre všetky účty</string>
     <string name="title_advanced_when">Kedy</string>
@@ -974,7 +974,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_edit_account_color">Upraviť farbu účtu</string>
     <string name="title_hide_folder">Skryť priečinok</string>
     <string name="title_hide_seen_folder">Skryť priečinok, keď sú všetky správy prečítané</string>
-    <string name="title_hide_seen_folder_hint">Len v zozname priečinkov na úvodnej obrazovke</string>
     <string name="title_unified_folder">Zobraziť v spoločnej doručenej pošte</string>
     <string name="title_navigation_folder">Zobrazovať v navigačnom menu</string>
     <string name="title_synchronize_folder">Synchronizovať (prijať správy)</string>

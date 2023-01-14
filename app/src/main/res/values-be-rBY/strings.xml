@@ -18,6 +18,7 @@
     <string name="channel_notification">Электронная пошта</string>
     <string name="channel_progress">Прагрэс</string>
     <string name="channel_update">Абнаўленні</string>
+    <string name="channel_announcements">Навіны</string>
     <string name="channel_warning">Папярэджанні</string>
     <string name="channel_error">Памылкі</string>
     <string name="channel_alert">Папярэджанні сервера</string>
@@ -271,7 +272,7 @@
     
     </string>
     <string name="title_setup_export_do">Файл для экспартавання будзе змяшчаць усе налады і даныя, акрамя паведамленняў і выяў, на якія спасылаюцца подпісы</string>
-    <string name="title_setup_import_do">Імпартаваныя ўліковыя запісы будуць дададзены без перазапісу існуючых</string>
+    <string name="title_setup_scroll">Дыялогавыя вокны ўводу можна пракручваць!</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль змяшчае службовыя сімвалы або прабелы</string>
     <string name="title_setup_password_repeat">Паўтарыце пароль</string>
@@ -348,6 +349,7 @@
     <string name="title_advanced_section_encryption">Шыфраванне</string>
     <string name="title_advanced_section_notifications">Апавяшчэнні</string>
     <string name="title_advanced_section_misc">Рознае</string>
+    <string name="title_advanced_section_backup">Рэзервовае капіраванне</string>
     <string name="title_advanced_default">Усе параметры звычайна маюць стандартныя значэнні, якія не трэба мяняць для выкарыстання праграмы</string>
     <string name="title_advanced_receive">Атрымліваць паведамленні для ўсіх уліковых запісаў</string>
     <string name="title_advanced_when">Калі</string>
@@ -414,6 +416,7 @@
     <string name="title_advanced_reply_move_inbox">Таксама для ўваходных паведамленняў</string>
     <string name="title_advanced_auto_link">Аўтаматычна ствараць спасылкі</string>
     <string name="title_advanced_plain_only">Па змаўчанні адпраўляць толькі звычайны тэкст</string>
+    <string name="title_advanced_plain_only_reply">Аўтаматычна выкарыстоўваць толькі звычайны тэкст пры адказе на паведамленне са звычайным тэкстам</string>
     <string name="title_advanced_flow">Выкарыстоўваць \'пластычнае\' фармаціраванне для звычайнага тэксту</string>
     <string name="title_advanced_usenet_signature">Выкарыстоўваць подпіс у стылістыцы Usenet</string>
     <string name="title_advanced_remove_signatures">Выдаляць распазнаныя подпісы</string>
@@ -445,6 +448,7 @@
     <string name="title_advanced_caption_message">Паведамленне</string>
     <string name="title_advanced_caption_message_header">Загаловак паведамлення</string>
     <string name="title_advanced_caption_message_body">Змест паведамлення</string>
+    <string name="title_advanced_caption_file">Файл</string>
     <string name="title_advanced_portrait">Партрэтны рэжым</string>
     <string name="title_advanced_landscape">Ландшафтны рэжым</string>
     <string name="title_advanced_two_row">Выкарыстоўваць два радкі</string>
@@ -452,6 +456,7 @@
     <string name="title_advanced_min_screen_size">Мінімальны памер экрана для падзелу</string>
     <string name="title_advanced_close_pane">Згортваць радок або слупок пры закрыцці размовы</string>
     <string name="title_advanced_column_width">Шырыня слупка паведамлення / вышыня радка: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar">Хаваць верхнюю панэль інструментаў пры пракручванні паведамленняў</string>
     <string name="title_advanced_nav_options">Паказваць опцыі меню навігацыі</string>
     <string name="title_advanced_nav_categories">Паказваць катэгорыі ўліковых запісаў у меню навігацыі</string>
     <string name="title_advanced_nav_pin">Замацаваць меню навігацыі</string>
@@ -576,6 +581,7 @@
     <string name="title_advanced_undo">Час чакання скасавання дзеяння</string>
     <string name="title_advanced_quick_filter">Паказваць непрыкметныя значкі хуткага фільтра</string>
     <string name="title_advanced_quick_scroll">Паказваць непрыкметныя значкі хуткага пракручвання ўверх/уніз</string>
+    <string name="title_advanced_quick_actions">Паказваць хуткія дзеянні пры выбары паведамленняў</string>
     <string name="title_advanced_folder_nav">Заўсёды вяртацца ў спіс папак са спісу паведамленняў</string>
     <string name="title_advanced_autoread">Аўтаматычна адзначаць паведамленні як прачытаныя ў пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_star_snoozed">Аўтаматычна пазначаць адкладзеныя паведамленні</string>
@@ -696,6 +702,7 @@
     <string name="title_advanced_check_weekly">Штотыднёвая праверка замест штодзённай</string>
     <string name="title_advanced_beta">Праверыць тэставыя версіі на BitBucket</string>
     <string name="title_advanced_changelog">Паказаць журнал змяненняў пасля абнаўлення</string>
+    <string name="title_advanced_announcements">Правяраць навіны</string>
     <string name="title_advanced_experiments">Паспрабаваць эксперыментальныя функцыі</string>
     <string name="title_advanced_crash_reports">Адпраўляць справаздачы аб памылках</string>
     <string name="title_advanced_cleanup_attachments">Выдаліць укладанні ў старых паведамленнях</string>
@@ -1006,7 +1013,6 @@
     <string name="title_edit_account_color">Рэдагаваць колер уліковага запісу</string>
     <string name="title_hide_folder">Схаваць папку</string>
     <string name="title_hide_seen_folder">Схаваць папку, калі ўсе паведамленні прачытаны</string>
-    <string name="title_hide_seen_folder_hint">Толькі ў спісе папак, паказаным на стартавым экране</string>
     <string name="title_unified_folder">Паказаць у агульнай паштовай скрыні</string>
     <string name="title_navigation_folder">Паказваць у меню навігацыі</string>
     <string name="title_navigation_folder_hide">Схаваць у меню навігацыі</string>
@@ -1116,6 +1122,7 @@
     <string name="title_quick_actions">Выберыце дзеянні</string>
     <string name="title_quick_actions_hint">Будзе паказвацца максімум %1$d дзеянні</string>
     <string name="title_quick_actions_low">Нізкая важнасць</string>
+    <string name="title_quick_actions_normal">Звычайная важнасць</string>
     <string name="title_quick_actions_high">Высокая важнасць</string>
     <string name="title_quick_actions_snooze">Адкласці</string>
     <string name="title_quick_actions_clear">Ачысціць выбар пасля выканання дзеяння</string>
@@ -1845,6 +1852,7 @@
     <string name="title_widget_padding">Памер водступу</string>
     <string name="title_widget_separator_lines">Паказаць раздзяляльныя лініі</string>
     <string name="title_widget_semi_transparent">Напаўпразрысты фон</string>
+    <string name="title_widget_count_top">Паказваць колькасць непрачытаных паведамленняў уверсе</string>
     <string name="title_widget_avatars">Паказваць аватары кантактаў</string>
     <string name="title_widget_refresh">Паказваць кнопку абнаўлення паведамленняў</string>
     <string name="title_widget_compose">Паказаць кнопку для стварэння новага паведамлення</string>
