@@ -29,18 +29,15 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.URL;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
+import java.nio.ByteBuffer;
+import java.security.GeneralSecurityException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.Arrays;
 
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.IvParameterSpec;
@@ -52,10 +49,7 @@ public class CloudSync {
     private static final int CLOUD_TIMEOUT = 10 * 1000; // timeout
 
     public static JSONObject perform(Context context, String user, String password, JSONObject jrequest)
-            throws InvalidAlgorithmParameterException, NoSuchAlgorithmException,
-            InvalidKeySpecException, InvalidKeyException,
-            IllegalBlockSizeException, NoSuchPaddingException, BadPaddingException,
-            JSONException, IOException {
+            throws GeneralSecurityException, JSONException, IOException {
         byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
         byte[] huser = MessageDigest.getInstance("SHA256").digest(salt);
         byte[] userid = Arrays.copyOfRange(huser, 0, 8);
@@ -69,24 +63,18 @@ public class CloudSync {
         jrequest.put("password", cloudPassword);
         jrequest.put("debug", BuildConfig.DEBUG);
 
-        if (jrequest.has("keys")) {
-            JSONArray jkeys = jrequest.getJSONArray("keys");
-            for (int i = 0; i < jkeys.length(); i++) {
-                jkeys.put(i, transform(jkeys.getString(i), key.second, true));
-            }
-        }
-
         if (jrequest.has("items")) {
             JSONArray jitems = jrequest.getJSONArray("items");
             for (int i = 0; i < jitems.length(); i++) {
                 JSONObject jitem = jitems.getJSONObject(i);
+                int revision = jitem.getInt("revision");
 
                 String k = jitem.getString("key");
-                jitem.put("key", transform(k, key.second, true));
+                jitem.put("key", transform(k, key.second, null, true));
 
                 if (jitem.has("value") && !jitem.isNull("value")) {
                     String v = jitem.getString("value");
-                    jitem.put("value", transform(v, key.second, true));
+                    jitem.put("value", transform(v, key.second, revision, true));
                 }
             }
         }
@@ -130,13 +118,14 @@ public class CloudSync {
                 JSONArray jitems = jresponse.getJSONArray("items");
                 for (int i = 0; i < jitems.length(); i++) {
                     JSONObject jitem = jitems.getJSONObject(i);
+                    int revision = jitem.getInt("revision");
 
                     String ekey = jitem.getString("key");
-                    jitem.put("key", transform(ekey, key.second, false));
+                    jitem.put("key", transform(ekey, key.second, null, false));
 
                     if (jitem.has("value") && !jitem.isNull("value")) {
                         String evalue = jitem.getString("value");
-                        jitem.put("value", transform(evalue, key.second, false));
+                        jitem.put("value", transform(evalue, key.second, revision, false));
                     }
                 }
             }
@@ -161,13 +150,13 @@ public class CloudSync {
                 Arrays.copyOfRange(encoded, half, half + half));
     }
 
-    private static String transform(String value, byte[] key, boolean encrypt)
-            throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+    private static String transform(String value, byte[] key, Integer revision, boolean encrypt) throws GeneralSecurityException {
         SecretKeySpec secret = new SecretKeySpec(key, "AES");
         Cipher cipher = Cipher.getInstance("AES/GCM-SIV/NoPadding");
         IvParameterSpec ivSpec = new IvParameterSpec(new byte[12]);
         cipher.init(encrypt ? Cipher.ENCRYPT_MODE : Cipher.DECRYPT_MODE, secret, ivSpec);
-        //cipher.updateAAD(ByteBuffer.allocate(4).putInt(0).array());
+        if (revision != null)
+            cipher.updateAAD(ByteBuffer.allocate(4).putInt(revision).array());
         if (encrypt) {
             byte[] encrypted = cipher.doFinal(value.getBytes());
             return Base64.encodeToString(encrypted, Base64.NO_PADDING | Base64.NO_WRAP);

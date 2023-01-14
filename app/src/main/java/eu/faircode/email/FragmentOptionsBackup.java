@@ -1532,32 +1532,29 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 JSONObject jrequest = new JSONObject();
                 jrequest.put("command", wipe ? "wipe" : "login");
 
-                if (false) {
-                    JSONArray jwrite = new JSONArray();
+                if (true) {
+                    boolean sync = true;
+
+                    JSONArray jitems = new JSONArray();
 
                     JSONObject jkv0 = new JSONObject();
                     jkv0.put("key", "key0");
-                    jkv0.put("timestamp", 1000);
-                    jkv0.put("value", "value0");
-                    jwrite.put(jkv0);
+                    jkv0.put("revision", 1000);
+                    if (!sync)
+                        jkv0.put("value", "value0");
+                    jitems.put(jkv0);
 
                     JSONObject jkv1 = new JSONObject();
                     jkv1.put("key", "key1");
-                    jkv1.put("timestamp", 1001);
-                    jkv1.put("value", "value1");
-                    jwrite.put(jkv1);
+                    jkv1.put("revision", 1001);
+                    if (!sync)
+                        jkv1.put("value", "value1");
+                    jitems.put(jkv1);
 
-                    jrequest.put("command", "write");
-                    jrequest.put("stage", "ack");
-                    jrequest.put("items", jwrite);
-                }
-
-                if (true) {
-                    JSONArray jread = new JSONArray();
-                    jread.put("key1");
-                    jrequest.put("command", "read");
-                    jrequest.put("stage", "sync");
-                    jrequest.put("keys", jread);
+                    jrequest.put("command", sync ? "read" : "write");
+                    if (sync)
+                        jrequest.put("compare", true);
+                    jrequest.put("items", jitems);
                 }
 
                 JSONObject jresponse = CloudSync.perform(context, user, password, jrequest);
@@ -1567,9 +1564,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     for (int i = 0; i < jitems.length(); i++) {
                         JSONObject jitem = jitems.getJSONObject(i);
                         String key = jitem.getString("key");
-                        long timestamp = jitem.getLong("timestamp");
+                        long revision = jitem.getLong("revision");
                         String value = (jitem.has("value") ? jitem.getString("value") : null);
-                        Log.i("Cloud item " + key + "=" + value + " @" + timestamp);
+                        Log.i("Cloud item " + key + "=" + value + " @" + revision);
                     }
                 }
                 return jresponse.optString("status");
