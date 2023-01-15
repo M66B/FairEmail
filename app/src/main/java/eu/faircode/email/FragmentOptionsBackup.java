@@ -1541,6 +1541,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     DB db = DB.getInstance(context);
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     long sync_status = prefs.getLong("sync_status", new Date().getTime());
+                    Log.i("Cloud sync status=" + sync_status);
 
                     JSONObject jsyncstatus = new JSONObject();
                     jsyncstatus.put("key", "sync.status");
@@ -1579,7 +1580,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                             JSONObject jitem = new JSONObject();
                                             jitem.put("key", "identity." + identity.uuid);
                                             jitem.put("val", identity.toJSON().toString());
-                                            jitem.put("rev", 1L);
+                                            jitem.put("rev", sync_status);
                                             jupload.put(jitem);
                                         }
 
@@ -1590,7 +1591,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                 JSONObject jitem = new JSONObject();
                                 jitem.put("key", "account." + account.uuid);
                                 jitem.put("val", jaccountdata.toString());
-                                jitem.put("rev", 1L);
+                                jitem.put("rev", sync_status);
                                 jupload.put(jitem);
                             }
 
@@ -1602,13 +1603,13 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                         jsyncstatus.put("key", "sync.status");
                         jsyncstatus.put("val", jstatus.toString());
-                        jsyncstatus.put("rev", 1L);
+                        jsyncstatus.put("rev", sync_status);
                         jupload.put(jsyncstatus);
 
                         jrequest.put("items", jupload);
                         CloudSync.perform(context, user, password, "write", jrequest);
 
-                        prefs.edit().putLong("sync_status", 1L).apply();
+                        prefs.edit().putLong("sync_status", sync_status).apply();
 
                         return null;
                     } else if (jitems.length() == 1) {
