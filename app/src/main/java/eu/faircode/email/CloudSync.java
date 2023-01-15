@@ -121,7 +121,7 @@ public class CloudSync {
                 String v = null;
                 if (jitem.has("val") && !jitem.isNull("val")) {
                     v = jitem.getString("val");
-                    jitem.put("val", transform(v, key.second, revision, true));
+                    jitem.put("val", transform(v, key.second, getAd(k, revision), true));
                 }
                 v = (v == null ? null : "#" + v.length());
 
@@ -189,7 +189,7 @@ public class CloudSync {
                     String v = null;
                     if (jitem.has("val") && !jitem.isNull("val")) {
                         String evalue = jitem.getString("val");
-                        v = transform(evalue, key.second, revision, false);
+                        v = transform(evalue, key.second, getAd(k, revision), false);
                         jitem.put("val", v);
                     }
                     v = (v == null ? null : "#" + v.length());
@@ -218,13 +218,22 @@ public class CloudSync {
                 Arrays.copyOfRange(encoded, half, half + half));
     }
 
-    private static String transform(String value, byte[] key, Integer revision, boolean encrypt) throws GeneralSecurityException {
+    private static byte[] getAd(String key, int revision) throws NoSuchAlgorithmException {
+        byte[] k = MessageDigest.getInstance("SHA256").digest(key.getBytes());
+        byte[] ad = ByteBuffer.allocate(4 + 8)
+                .putInt(revision)
+                .put(Arrays.copyOfRange(k, 0, 8))
+                .array();
+        return ad;
+    }
+
+    private static String transform(String value, byte[] key, byte[] ad, boolean encrypt) throws GeneralSecurityException {
         SecretKeySpec secret = new SecretKeySpec(key, "AES");
         Cipher cipher = Cipher.getInstance("AES/GCM-SIV/NoPadding");
         IvParameterSpec ivSpec = new IvParameterSpec(new byte[12]);
         cipher.init(encrypt ? Cipher.ENCRYPT_MODE : Cipher.DECRYPT_MODE, secret, ivSpec);
-        if (revision != null)
-            cipher.updateAAD(ByteBuffer.allocate(4).putInt(revision).array());
+        if (ad != null)
+            cipher.updateAAD(ad);
         if (encrypt) {
             byte[] encrypted = cipher.doFinal(value.getBytes());
             return Base64.encodeToString(encrypted, Base64.NO_PADDING | Base64.NO_WRAP);
