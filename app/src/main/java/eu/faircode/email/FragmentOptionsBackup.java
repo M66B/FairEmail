@@ -1473,11 +1473,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         return intent;
     }
 
-    private void onCloudSync() {
-        Bundle args = new Bundle();
-        cloud(args);
-    }
-
     private void onCloudLogin() {
         String username = etUser.getText().toString().trim();
         String password = tilPassword.getEditText().getText().toString();
@@ -1499,13 +1494,20 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 .apply();
 
         Bundle args = new Bundle();
+        args.putString("command", "login");
+        cloud(args);
+    }
+
+    private void onCloudSync() {
+        Bundle args = new Bundle();
+        args.putString("command", "sync");
         cloud(args);
     }
 
     private void onCloudLogout() {
+        boolean wipe = cbDelete.isChecked();
         Bundle args = new Bundle();
-        args.putBoolean("logout", true);
-        args.putBoolean("wipe", cbDelete.isChecked());
+        args.putString("command", wipe ? "wipe" : "logout");
         cloud(args);
     }
 
@@ -1515,7 +1517,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         args.putString("user", prefs.getString("cloud_user", null));
         args.putString("password", prefs.getString("cloud_password", null));
 
-        new SimpleTask<String>() {
+        new SimpleTask<Void>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 Helper.setViewsEnabled(cardCloud, false);
@@ -1527,65 +1529,175 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             }
 
             @Override
-            protected String onExecute(Context context, Bundle args) throws Throwable {
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
                 String user = args.getString("user");
                 String password = args.getString("password");
-                boolean wipe = args.getBoolean("wipe");
+                String command = args.getString("command");
 
                 JSONObject jrequest = new JSONObject();
-                jrequest.put("command", wipe ? "wipe" : "login");
+                jrequest.put("command", command);
 
-                if (true) {
-                    boolean sync = true;
+                if ("sync".equals(command)) {
+                    DB db = DB.getInstance(context);
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    int sync_status = prefs.getInt("sync_status", 0);
+
+                    JSONObject jstatus = new JSONObject();
+                    jstatus.put("key", "sync.status");
+                    jstatus.put("rev", 0);
 
                     JSONArray jitems = new JSONArray();
+                    jitems.put(jstatus);
 
-                    JSONObject jkv0 = new JSONObject();
-                    jkv0.put("key", "key0");
-                    jkv0.put("revision", 1000);
-                    if (!sync)
-                        jkv0.put("value", "value0");
-                    jitems.put(jkv0);
-
-                    JSONObject jkv1 = new JSONObject();
-                    jkv1.put("key", "key1");
-                    jkv1.put("revision", 1001);
-                    if (!sync)
-                        jkv1.put("value", "value1");
-                    jitems.put(jkv1);
-
-                    jrequest.put("command", sync ? "read" : "write");
-                    if (sync)
-                        jrequest.put("compare", true);
                     jrequest.put("items", jitems);
-                }
 
-                JSONObject jresponse = CloudSync.perform(context, user, password, jrequest);
+                    JSONObject jresponse = CloudSync.perform(context, user, password, jrequest);
+                    jitems = jresponse.getJSONArray("items");
+                    int count = jresponse.getInt("count");
 
-                if (jresponse.has("items")) {
-                    JSONArray jitems = jresponse.getJSONArray("items");
-                    for (int i = 0; i < jitems.length(); i++) {
-                        JSONObject jitem = jitems.getJSONObject(i);
-                        String key = jitem.getString("key");
-                        long revision = jitem.getLong("revision");
-                        String value = (jitem.has("value") ? jitem.getString("value") : null);
-                        Log.i("Cloud item " + key + "=" + value + " @" + revision);
-                    }
-                }
-                return jresponse.optString("status");
+                    if (count == 0) {
+                        Log.i("Cloud server is empty");
+
+                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
+                        Log.i("Cloud accounts=" + (accounts == null ? null : accounts.size()));
+                        if (accounts != null && accounts.size() != 0) {
+                            JSONArray jupload = new JSONArray();
+
+                            JSONArray juuids = new JSONArray();
+                            for (EntityAccount account : accounts)
+                                if (!TextUtils.isEmpty(account.uuid)) {
+                                    juuids.put(account.uuid);
+
+                                    JSONArray jidentities = new JSONArray();
+                                    List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                                    if (identities != null)
+                                        for (EntityIdentity identity : identities)
+                                            if (!TextUtils.isEmpty(identity.uuid)) {
+                                                jidentities.put(identity.uuid);
+
+                                                JSONObject jitem = new JSONObject();
+                                                jitem.put("key", "identity." + identity.uuid);
+                                                jitem.put("val", identity.toJSON().toString());
+                                                jitem.put("rev", 1);
+                                                jupload.put(jitem);
+                                            }
+
+                                    JSONObject jaccountdata = new JSONObject();
+                                    jaccountdata.put("account", account.toJSON());
+                                    jaccountdata.put("identities", jidentities);
+
+                                    JSONObject jitem = new JSONObject();
+                                    jitem.put("key", "account." + account.uuid);
+                                    jitem.put("val", jaccountdata.toString());
+                                    jitem.put("rev", 1);
+                                    jupload.put(jitem);
+                                }
+
+                            JSONObject jstatusdata = new JSONObject();
+                            jstatusdata.put("accounts", juuids);
+
+                            jstatus.put("key", "sync.status");
+                            jstatus.put("val", jstatusdata.toString());
+                            jstatus.put("rev", 1);
+                            jupload.put(jstatus);
+
+                            jrequest.put("command", "write");
+                            jrequest.put("items", jupload);
+                            CloudSync.perform(context, user, password, jrequest);
+
+                            prefs.edit().putInt("sync_status", 1).apply();
+                        }
+
+                        return null;
+                    } else if (count == 1) {
+                        if (jitems.length() == 1) {
+                            // New revision
+                            JSONObject jitem = jitems.getJSONObject(0);
+                            Log.i("Cloud status revision=" + jitem.getInt("rev") + "/" + sync_status);
+
+                            JSONArray jdownload = new JSONArray();
+
+                            // Get accounts
+                            JSONObject jstatusdata = new JSONObject(jitem.getString("val"));
+                            JSONArray juuids = jstatusdata.getJSONArray("accounts");
+                            for (int i = 0; i < juuids.length(); i++) {
+                                String uuid = juuids.getString(i);
+                                JSONObject jaccount = new JSONObject();
+                                jaccount.put("key", "account." + uuid);
+                                jaccount.put("rev", 0);
+                                jdownload.put(jaccount);
+                                Log.i("Cloud account " + uuid);
+                            }
+
+                            jrequest.put("items", jdownload);
+                            jresponse = CloudSync.perform(context, user, password, jrequest);
+
+                            // Process accounts
+                            jitems = jresponse.getJSONArray("items");
+                            jdownload = new JSONArray();
+                            for (int i = 0; i < jitems.length(); i++) {
+                                JSONObject jaccount = jitems.getJSONObject(i);
+                                String key = jaccount.getString("key");
+                                String value = jaccount.getString("val");
+                                int revision = jaccount.getInt("rev");
+                                String uuid = key.split("\\.")[1];
+                                EntityAccount account = db.account().getAccountByUUID(uuid);
+                                JSONObject jaccountdata = new JSONObject(value);
+                                JSONArray jidentities = jaccountdata.getJSONArray("identities");
+                                Log.i("Cloud account " + uuid + "=" + (account != null) +
+                                        " rev=" + revision +
+                                        " identities=" + jidentities +
+                                        " size=" + value.length());
+
+                                for (int j = 0; j < jidentities.length(); j++) {
+                                    JSONObject jidentity = new JSONObject();
+                                    jidentity.put("key", "identity." + jidentities.getString(j));
+                                    jidentity.put("rev", 0);
+                                    jdownload.put(jidentity);
+                                }
+                            }
+
+                            // Get identities
+                            jrequest.put("items", jdownload);
+                            jresponse = CloudSync.perform(context, user, password, jrequest);
+
+                            // Process identities
+                            jitems = jresponse.getJSONArray("items");
+                            for (int i = 0; i < jitems.length(); i++) {
+                                JSONObject jaccount = jitems.getJSONObject(i);
+                                String key = jaccount.getString("key");
+                                String value = jaccount.getString("val");
+                                int revision = jaccount.getInt("rev");
+                                String uuid = key.split("\\.")[1];
+                                EntityIdentity identity = db.identity().getIdentityByUUID(uuid);
+                                Log.i("Cloud identity " + uuid + "=" + (identity != null) +
+                                        " rev=" + revision +
+                                        " size=" + value.length());
+                            }
+
+                        } else {
+                            // No changes
+                        }
+                    } else
+                        throw new IllegalArgumentException("Expected one status item");
+                } else
+                    CloudSync.perform(context, user, password, jrequest);
+
+                return null;
             }
 
             @Override
-            protected void onExecuted(Bundle args, String status) {
-                if ("ok".equals(status) && !args.getBoolean("logout"))
-                    prefs.edit()
-                            .putString("cloud_user", args.getString("user"))
-                            .putString("cloud_password", args.getString("password"))
-                            .apply();
-                else
+            protected void onExecuted(Bundle args, Void data) {
+                String command = args.getString("command");
+                if ("logout".equals(command))
                     prefs.edit()
                             .remove("cloud_user")
                             .remove("cloud_password")
+                            .apply();
+                else
+                    prefs.edit()
+                            .putString("cloud_user", args.getString("user"))
+                            .putString("cloud_password", args.getString("password"))
                             .apply();
 
                 view.post(new Runnable() {

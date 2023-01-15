@@ -35,7 +35,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -47,15 +51,57 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class CloudSync {
     private static final int CLOUD_TIMEOUT = 10 * 1000; // timeout
+    private static final int BATCH_SIZE = 25;
+
+    private static final Map<String, Pair<byte[], byte[]>> keyCache = new HashMap<>();
 
     public static JSONObject perform(Context context, String user, String password, JSONObject jrequest)
+            throws GeneralSecurityException, JSONException, IOException {
+        List<JSONObject> responses = new ArrayList<>();
+        for (JSONArray batch : partition(jrequest.getJSONArray("items"))) {
+            jrequest.put("items", batch);
+            responses.add(_perform(context, user, password, jrequest));
+        }
+        if (responses.size() == 1)
+            return responses.get(0);
+        else {
+            int count = 0;
+            JSONArray jall = new JSONArray();
+            for (JSONObject response : responses) {
+                JSONArray jitems = response.getJSONArray("items");
+                for (int i = 0; i < jitems.length(); i++)
+                    jall.put(jitems.getJSONObject(i));
+                count += response.optInt("count", 0);
+            }
+            JSONObject jresponse = responses.get(0);
+            jresponse.put("items", jall);
+            jresponse.put("count", count);
+            return jresponse;
+        }
+    }
+
+    private static JSONObject _perform(Context context, String user, String password, JSONObject jrequest)
             throws GeneralSecurityException, JSONException, IOException {
         byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
         byte[] huser = MessageDigest.getInstance("SHA256").digest(salt);
         byte[] userid = Arrays.copyOfRange(huser, 0, 8);
         String cloudUser = Base64.encodeToString(userid, Base64.NO_PADDING | Base64.NO_WRAP);
 
-        Pair<byte[], byte[]> key = getKeyPair(salt, password);
+        Pair<byte[], byte[]> key;
+        String lookup = Helper.hex(salt) + ":" + password;
+        synchronized (keyCache) {
+            key = keyCache.get(lookup);
+        }
+        if (key == null) {
+            Log.i("Cloud generating key");
+            key = getKeyPair(salt, password);
+            synchronized (keyCache) {
+                keyCache.put(lookup, key);
+            }
+        } else {
+            Log.i("Cloud using cached key");
+        }
+
         String cloudPassword = Base64.encodeToString(key.first, Base64.NO_PADDING | Base64.NO_WRAP);
 
         jrequest.put("version", 1);
@@ -67,20 +113,24 @@ public class CloudSync {
             JSONArray jitems = jrequest.getJSONArray("items");
             for (int i = 0; i < jitems.length(); i++) {
                 JSONObject jitem = jitems.getJSONObject(i);
-                int revision = jitem.getInt("revision");
+                int revision = jitem.getInt("rev");
 
                 String k = jitem.getString("key");
                 jitem.put("key", transform(k, key.second, null, true));
 
-                if (jitem.has("value") && !jitem.isNull("value")) {
-                    String v = jitem.getString("value");
-                    jitem.put("value", transform(v, key.second, revision, true));
+                String v = null;
+                if (jitem.has("val") && !jitem.isNull("val")) {
+                    v = jitem.getString("val");
+                    jitem.put("val", transform(v, key.second, revision, true));
                 }
+                v = (v == null ? null : "#" + v.length());
+
+                Log.i("Cloud > " + k + "=" + v + " @" + revision);
             }
         }
 
         String request = jrequest.toString();
-        Log.i("Cloud request=" + request);
+        Log.i("Cloud request length=" + request.length());
 
         URL url = new URL(BuildConfig.CLOUD_URI);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -111,22 +161,28 @@ public class CloudSync {
             }
 
             String response = Helper.readStream(connection.getInputStream());
-            Log.i("Cloud response=" + response);
+            Log.i("Cloud response length=" + response.length());
             JSONObject jresponse = new JSONObject(response);
 
             if (jresponse.has("items")) {
                 JSONArray jitems = jresponse.getJSONArray("items");
                 for (int i = 0; i < jitems.length(); i++) {
                     JSONObject jitem = jitems.getJSONObject(i);
-                    int revision = jitem.getInt("revision");
+                    int revision = jitem.getInt("rev");
 
                     String ekey = jitem.getString("key");
-                    jitem.put("key", transform(ekey, key.second, null, false));
+                    String k = transform(ekey, key.second, null, false);
+                    jitem.put("key", k);
 
-                    if (jitem.has("value") && !jitem.isNull("value")) {
-                        String evalue = jitem.getString("value");
-                        jitem.put("value", transform(evalue, key.second, revision, false));
+                    String v = null;
+                    if (jitem.has("val") && !jitem.isNull("val")) {
+                        String evalue = jitem.getString("val");
+                        v = transform(evalue, key.second, revision, false);
+                        jitem.put("val", v);
                     }
+                    v = (v == null ? null : "#" + v.length());
+
+                    Log.i("Cloud < " + k + "=" + v + " @" + revision);
                 }
             }
 
@@ -165,5 +221,26 @@ public class CloudSync {
             byte[] decrypted = cipher.doFinal(encrypted);
             return new String(decrypted);
         }
+    }
+
+    private static List<JSONArray> partition(JSONArray jarray) throws JSONException {
+        if (jarray.length() <= BATCH_SIZE)
+            return Arrays.asList(jarray);
+
+        int count = 0;
+        List<JSONArray> jpartitions = new ArrayList<>();
+        for (int i = 0; i < jarray.length(); i += BATCH_SIZE) {
+            JSONArray jpartition = new JSONArray();
+            for (int j = 0; j < BATCH_SIZE && i + j < jarray.length(); j++) {
+                count++;
+                jpartition.put(jarray.get(i + j));
+            }
+            jpartitions.add(jpartition);
+        }
+
+        if (count != jarray.length())
+            throw new IllegalArgumentException("Partition error size=" + count + "/" + jarray.length());
+
+        return jpartitions;
     }
 }
