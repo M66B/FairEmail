@@ -66,17 +66,14 @@ public class CloudSync {
         if (responses.size() == 1)
             return responses.get(0);
         else {
-            int count = 0;
             JSONArray jall = new JSONArray();
             for (JSONObject response : responses) {
                 JSONArray jitems = response.getJSONArray("items");
                 for (int i = 0; i < jitems.length(); i++)
                     jall.put(jitems.getJSONObject(i));
-                count += response.optInt("count", 0);
             }
             JSONObject jresponse = responses.get(0);
             jresponse.put("items", jall);
-            jresponse.put("count", count);
             return jresponse;
         }
     }
@@ -114,7 +111,7 @@ public class CloudSync {
             JSONArray jitems = jrequest.getJSONArray("items");
             for (int i = 0; i < jitems.length(); i++) {
                 JSONObject jitem = jitems.getJSONObject(i);
-                int revision = jitem.getInt("rev");
+                long revision = jitem.getLong("rev");
 
                 String k = jitem.getString("key");
                 jitem.put("key", transform(k, key.second, null, true));
@@ -181,7 +178,7 @@ public class CloudSync {
                 JSONArray jitems = jresponse.getJSONArray("items");
                 for (int i = 0; i < jitems.length(); i++) {
                     JSONObject jitem = jitems.getJSONObject(i);
-                    int revision = jitem.getInt("rev");
+                    long revision = jitem.getLong("rev");
 
                     String ekey = jitem.getString("key");
                     String k = transform(ekey, key.second, null, false);
@@ -219,10 +216,10 @@ public class CloudSync {
                 Arrays.copyOfRange(encoded, half, half + half));
     }
 
-    private static byte[] getAd(String key, int revision) throws NoSuchAlgorithmException {
+    private static byte[] getAd(String key, long revision) throws NoSuchAlgorithmException {
         byte[] k = MessageDigest.getInstance("SHA256").digest(key.getBytes());
-        byte[] ad = ByteBuffer.allocate(4 + 8)
-                .putInt(revision)
+        byte[] ad = ByteBuffer.allocate(8 + 8)
+                .putLong(revision)
                 .put(Arrays.copyOfRange(k, 0, 8))
                 .array();
         return ad;
