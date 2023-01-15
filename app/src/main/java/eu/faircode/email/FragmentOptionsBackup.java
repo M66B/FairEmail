@@ -1544,7 +1544,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                     JSONObject jstatus = new JSONObject();
                     jstatus.put("key", "sync.status");
-                    jstatus.put("rev", 0);
+                    jstatus.put("rev", sync_status * 0);
 
                     JSONArray jitems = new JSONArray();
                     jitems.put(jstatus);
@@ -1624,57 +1624,64 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                 String uuid = juuids.getString(i);
                                 JSONObject jaccount = new JSONObject();
                                 jaccount.put("key", "account." + uuid);
-                                jaccount.put("rev", 0);
+                                jaccount.put("rev", sync_status * 0);
                                 jdownload.put(jaccount);
                                 Log.i("Cloud account " + uuid);
                             }
 
-                            jrequest.put("items", jdownload);
-                            jresponse = CloudSync.perform(context, user, password, jrequest);
+                            if (jdownload.length() > 0) {
+                                Log.i("Cloud getting accounts");
+                                jrequest.put("items", jdownload);
+                                jresponse = CloudSync.perform(context, user, password, jrequest);
 
-                            // Process accounts
-                            jitems = jresponse.getJSONArray("items");
-                            jdownload = new JSONArray();
-                            for (int i = 0; i < jitems.length(); i++) {
-                                JSONObject jaccount = jitems.getJSONObject(i);
-                                String key = jaccount.getString("key");
-                                String value = jaccount.getString("val");
-                                int revision = jaccount.getInt("rev");
-                                String uuid = key.split("\\.")[1];
-                                EntityAccount account = db.account().getAccountByUUID(uuid);
-                                JSONObject jaccountdata = new JSONObject(value);
-                                JSONArray jidentities = jaccountdata.getJSONArray("identities");
-                                Log.i("Cloud account " + uuid + "=" + (account != null) +
-                                        " rev=" + revision +
-                                        " identities=" + jidentities +
-                                        " size=" + value.length());
+                                // Process accounts
+                                Log.i("Cloud processing accounts");
+                                jitems = jresponse.getJSONArray("items");
+                                jdownload = new JSONArray();
+                                for (int i = 0; i < jitems.length(); i++) {
+                                    JSONObject jaccount = jitems.getJSONObject(i);
+                                    String key = jaccount.getString("key");
+                                    String value = jaccount.getString("val");
+                                    int revision = jaccount.getInt("rev");
+                                    String uuid = key.split("\\.")[1];
+                                    EntityAccount account = db.account().getAccountByUUID(uuid);
+                                    JSONObject jaccountdata = new JSONObject(value);
+                                    JSONArray jidentities = jaccountdata.getJSONArray("identities");
+                                    Log.i("Cloud account " + uuid + "=" + (account != null) +
+                                            " rev=" + revision +
+                                            " identities=" + jidentities +
+                                            " size=" + value.length());
 
-                                for (int j = 0; j < jidentities.length(); j++) {
-                                    JSONObject jidentity = new JSONObject();
-                                    jidentity.put("key", "identity." + jidentities.getString(j));
-                                    jidentity.put("rev", 0);
-                                    jdownload.put(jidentity);
+                                    for (int j = 0; j < jidentities.length(); j++) {
+                                        JSONObject jidentity = new JSONObject();
+                                        jidentity.put("key", "identity." + jidentities.getString(j));
+                                        jidentity.put("rev", sync_status);
+                                        jdownload.put(jidentity);
+                                    }
+                                }
+
+                                if (jdownload.length() > 0) {
+                                    // Get identities
+                                    Log.i("Cloud getting identities");
+                                    jrequest.put("items", jdownload);
+                                    jresponse = CloudSync.perform(context, user, password, jrequest);
+
+                                    // Process identities
+                                    Log.i("Cloud processing identities");
+                                    jitems = jresponse.getJSONArray("items");
+                                    for (int i = 0; i < jitems.length(); i++) {
+                                        JSONObject jaccount = jitems.getJSONObject(i);
+                                        String key = jaccount.getString("key");
+                                        String value = jaccount.getString("val");
+                                        int revision = jaccount.getInt("rev");
+                                        String uuid = key.split("\\.")[1];
+                                        EntityIdentity identity = db.identity().getIdentityByUUID(uuid);
+                                        Log.i("Cloud identity " + uuid + "=" + (identity != null) +
+                                                " rev=" + revision +
+                                                " size=" + value.length());
+                                    }
                                 }
                             }
-
-                            // Get identities
-                            jrequest.put("items", jdownload);
-                            jresponse = CloudSync.perform(context, user, password, jrequest);
-
-                            // Process identities
-                            jitems = jresponse.getJSONArray("items");
-                            for (int i = 0; i < jitems.length(); i++) {
-                                JSONObject jaccount = jitems.getJSONObject(i);
-                                String key = jaccount.getString("key");
-                                String value = jaccount.getString("val");
-                                int revision = jaccount.getInt("rev");
-                                String uuid = key.split("\\.")[1];
-                                EntityIdentity identity = db.identity().getIdentityByUUID(uuid);
-                                Log.i("Cloud identity " + uuid + "=" + (identity != null) +
-                                        " rev=" + revision +
-                                        " size=" + value.length());
-                            }
-
                         } else {
                             // No changes
                         }
