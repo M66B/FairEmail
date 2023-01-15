@@ -164,6 +164,18 @@ public class CloudSync {
             Log.i("Cloud response length=" + response.length());
             JSONObject jresponse = new JSONObject(response);
 
+            if (jresponse.has("account")) {
+                JSONObject jaccount = jresponse.getJSONObject("account");
+                if (jaccount.has("consumed"))
+                    Log.i("Cloud $$$ account consumed=" + jaccount.get("consumed"));
+                if (jaccount.has("metrics"))
+                    Log.i("Cloud $$$ account metrics=" + jaccount.get("metrics"));
+            }
+            if (jresponse.has("consumed"))
+                Log.i("Cloud $$$ consumed=" + jresponse.get("consumed"));
+            if (jresponse.has("metrics"))
+                Log.i("Cloud $$$ metrics=" + jresponse.get("metrics"));
+
             if (jresponse.has("items")) {
                 JSONArray jitems = jresponse.getJSONArray("items");
                 for (int i = 0; i < jitems.length(); i++) {
