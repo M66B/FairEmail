@@ -2789,6 +2789,8 @@ This means that messages with multiple labels will be shown multiple times as we
 A lot of knowledge and experience is required to successfully develop an app for a specific platform,
 which is why I develop apps for Android only.
 
+You can install FairEmail on recent Windows versions, though, see [here](#user-content-faq185), and also on ChromeOS via the Play Store.
+
 <br />
 
 <a name="faq76"></a>

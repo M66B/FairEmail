@@ -1540,7 +1540,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 if ("sync".equals(command)) {
                     DB db = DB.getInstance(context);
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    int sync_status = prefs.getInt("sync_status", 0);
+                    long sync_status = prefs.getLong("sync_status", new Date().getTime());
 
                     JSONObject jsyncstatus = new JSONObject();
                     jsyncstatus.put("key", "sync.status");
@@ -1579,7 +1579,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                             JSONObject jitem = new JSONObject();
                                             jitem.put("key", "identity." + identity.uuid);
                                             jitem.put("val", identity.toJSON().toString());
-                                            jitem.put("rev", 1);
+                                            jitem.put("rev", 1L);
                                             jupload.put(jitem);
                                         }
 
@@ -1590,7 +1590,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                 JSONObject jitem = new JSONObject();
                                 jitem.put("key", "account." + account.uuid);
                                 jitem.put("val", jaccountdata.toString());
-                                jitem.put("rev", 1);
+                                jitem.put("rev", 1L);
                                 jupload.put(jitem);
                             }
 
@@ -1602,18 +1602,18 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                         jsyncstatus.put("key", "sync.status");
                         jsyncstatus.put("val", jstatus.toString());
-                        jsyncstatus.put("rev", 1);
+                        jsyncstatus.put("rev", 1L);
                         jupload.put(jsyncstatus);
 
                         jrequest.put("items", jupload);
                         CloudSync.perform(context, user, password, "write", jrequest);
 
-                        prefs.edit().putInt("sync_status", 1).apply();
+                        prefs.edit().putLong("sync_status", 1L).apply();
 
                         return null;
                     } else if (jitems.length() == 1) {
                         JSONObject jitem = jitems.getJSONObject(0);
-                        int rev = jitem.getInt("rev");
+                        long rev = jitem.getLong("rev");
                         Log.i("Cloud status revision=" + rev + "/" + sync_status);
 
                         if (BuildConfig.DEBUG)
@@ -1650,7 +1650,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                             for (int i = 0; i < jitems.length(); i++) {
                                 JSONObject jaccount = jitems.getJSONObject(i);
                                 String value = jaccount.getString("val");
-                                int revision = jaccount.getInt("rev");
+                                long revision = jaccount.getLong("rev");
 
                                 JSONObject jaccountdata = new JSONObject(value);
                                 EntityAccount raccount = EntityAccount.fromJSON(jaccountdata.getJSONObject("account"));
@@ -1682,7 +1682,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                 for (int i = 0; i < jitems.length(); i++) {
                                     JSONObject jaccount = jitems.getJSONObject(i);
                                     String value = jaccount.getString("val");
-                                    int revision = jaccount.getInt("rev");
+                                    long revision = jaccount.getLong("rev");
                                     EntityIdentity ridentity = EntityIdentity.fromJSON(new JSONObject(value));
                                     EntityIdentity lidentity = db.identity().getIdentityByUUID(ridentity.uuid);
                                     Log.i("Cloud identity " + ridentity.uuid + "=" + (lidentity == null ? "insert" : "update") +
@@ -1692,7 +1692,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                             }
                         }
 
-                        prefs.edit().putInt("sync_status", rev).apply();
+                        prefs.edit().putLong("sync_status", rev).apply();
                     } else
                         throw new IllegalArgumentException("Expected one status item");
                 } else
