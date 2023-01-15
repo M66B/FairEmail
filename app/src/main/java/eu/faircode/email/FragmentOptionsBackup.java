@@ -1542,157 +1542,161 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     int sync_status = prefs.getInt("sync_status", 0);
 
-                    JSONObject jstatus = new JSONObject();
-                    jstatus.put("key", "sync.status");
-                    jstatus.put("rev", sync_status * 0);
+                    JSONObject jsyncstatus = new JSONObject();
+                    jsyncstatus.put("key", "sync.status");
+                    jsyncstatus.put("rev", sync_status);
 
                     JSONArray jitems = new JSONArray();
-                    jitems.put(jstatus);
+                    jitems.put(jsyncstatus);
 
                     jrequest.put("items", jitems);
 
-                    JSONObject jresponse = CloudSync.perform(context, user, password, jrequest);
+                    JSONObject jresponse = CloudSync.perform(context, user, password, "read", jrequest);
                     jitems = jresponse.getJSONArray("items");
-                    int count = jresponse.getInt("count");
 
-                    if (count == 0) {
+                    if (jitems.length() == 0) {
                         Log.i("Cloud server is empty");
 
                         List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
                         Log.i("Cloud accounts=" + (accounts == null ? null : accounts.size()));
-                        if (accounts != null && accounts.size() != 0) {
-                            JSONArray jupload = new JSONArray();
+                        if (accounts == null || accounts.size() == 0)
+                            return null; // nothing to offer
 
-                            JSONArray juuids = new JSONArray();
-                            for (EntityAccount account : accounts)
-                                if (!TextUtils.isEmpty(account.uuid)) {
-                                    juuids.put(account.uuid);
+                        JSONArray jupload = new JSONArray();
 
-                                    JSONArray jidentities = new JSONArray();
-                                    List<EntityIdentity> identities = db.identity().getIdentities(account.id);
-                                    if (identities != null)
-                                        for (EntityIdentity identity : identities)
-                                            if (!TextUtils.isEmpty(identity.uuid)) {
-                                                jidentities.put(identity.uuid);
+                        JSONArray juuids = new JSONArray();
+                        for (EntityAccount account : accounts)
+                            if (!TextUtils.isEmpty(account.uuid)) {
+                                juuids.put(account.uuid);
 
-                                                JSONObject jitem = new JSONObject();
-                                                jitem.put("key", "identity." + identity.uuid);
-                                                jitem.put("val", identity.toJSON().toString());
-                                                jitem.put("rev", 1);
-                                                jupload.put(jitem);
-                                            }
+                                JSONArray jidentities = new JSONArray();
+                                List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                                if (identities != null)
+                                    for (EntityIdentity identity : identities)
+                                        if (!TextUtils.isEmpty(identity.uuid)) {
+                                            jidentities.put(identity.uuid);
 
-                                    JSONObject jaccountdata = new JSONObject();
-                                    jaccountdata.put("account", account.toJSON());
-                                    jaccountdata.put("identities", jidentities);
+                                            JSONObject jitem = new JSONObject();
+                                            jitem.put("key", "identity." + identity.uuid);
+                                            jitem.put("val", identity.toJSON().toString());
+                                            jitem.put("rev", 1);
+                                            jupload.put(jitem);
+                                        }
 
-                                    JSONObject jitem = new JSONObject();
-                                    jitem.put("key", "account." + account.uuid);
-                                    jitem.put("val", jaccountdata.toString());
-                                    jitem.put("rev", 1);
-                                    jupload.put(jitem);
-                                }
+                                JSONObject jaccountdata = new JSONObject();
+                                jaccountdata.put("account", account.toJSON());
+                                jaccountdata.put("identities", jidentities);
 
-                            JSONObject jaccounts = new JSONObject();
-                            jaccounts.put("uuids", juuids);
+                                JSONObject jitem = new JSONObject();
+                                jitem.put("key", "account." + account.uuid);
+                                jitem.put("val", jaccountdata.toString());
+                                jitem.put("rev", 1);
+                                jupload.put(jitem);
+                            }
 
-                            JSONObject jstatusdata = new JSONObject();
-                            jstatusdata.put("accounts", jaccounts);
+                        JSONObject jaccounts = new JSONObject();
+                        jaccounts.put("uuids", juuids);
 
-                            jstatus.put("key", "sync.status");
-                            jstatus.put("val", jstatusdata.toString());
-                            jstatus.put("rev", 1);
-                            jupload.put(jstatus);
+                        JSONObject jstatus = new JSONObject();
+                        jstatus.put("accounts", jaccounts);
 
-                            jrequest.put("command", "write");
-                            jrequest.put("items", jupload);
-                            CloudSync.perform(context, user, password, jrequest);
+                        jsyncstatus.put("key", "sync.status");
+                        jsyncstatus.put("val", jstatus.toString());
+                        jsyncstatus.put("rev", 1);
+                        jupload.put(jsyncstatus);
 
-                            prefs.edit().putInt("sync_status", 1).apply();
-                        }
+                        jrequest.put("items", jupload);
+                        CloudSync.perform(context, user, password, "write", jrequest);
+
+                        prefs.edit().putInt("sync_status", 1).apply();
 
                         return null;
-                    } else if (count == 1) {
-                        if (jitems.length() == 1) {
-                            // New revision
-                            JSONObject jitem = jitems.getJSONObject(0);
-                            Log.i("Cloud status revision=" + jitem.getInt("rev") + "/" + sync_status);
+                    } else if (jitems.length() == 1) {
+                        JSONObject jitem = jitems.getJSONObject(0);
+                        int rev = jitem.getInt("rev");
+                        Log.i("Cloud status revision=" + rev + "/" + sync_status);
 
-                            JSONArray jdownload = new JSONArray();
+                        if (BuildConfig.DEBUG)
+                            sync_status--;
 
-                            // Get accounts
-                            JSONObject jstatusdata = new JSONObject(jitem.getString("val"));
-                            JSONObject jaccountinfo = jstatusdata.getJSONObject("accounts");
-                            JSONArray juuids = jaccountinfo.getJSONArray("uuids");
-                            for (int i = 0; i < juuids.length(); i++) {
-                                String uuid = juuids.getString(i);
-                                JSONObject jaccount = new JSONObject();
-                                jaccount.put("key", "account." + uuid);
-                                jaccount.put("rev", sync_status * 0);
-                                jdownload.put(jaccount);
-                                Log.i("Cloud account " + uuid);
+                        if (rev <= sync_status)
+                            return null; // no changes
+
+                        // New revision
+                        JSONArray jdownload = new JSONArray();
+
+                        // Get accounts
+                        JSONObject jstatus = new JSONObject(jitem.getString("val"));
+                        JSONObject jaccounts = jstatus.getJSONObject("accounts");
+                        JSONArray juuids = jaccounts.getJSONArray("uuids");
+                        for (int i = 0; i < juuids.length(); i++) {
+                            String uuid = juuids.getString(i);
+                            JSONObject jaccount = new JSONObject();
+                            jaccount.put("key", "account." + uuid);
+                            jaccount.put("rev", sync_status);
+                            jdownload.put(jaccount);
+                            Log.i("Cloud account " + uuid);
+                        }
+
+                        if (jdownload.length() > 0) {
+                            Log.i("Cloud getting accounts");
+                            jrequest.put("items", jdownload);
+                            jresponse = CloudSync.perform(context, user, password, "sync", jrequest);
+
+                            // Process accounts
+                            Log.i("Cloud processing accounts");
+                            jitems = jresponse.getJSONArray("items");
+                            jdownload = new JSONArray();
+                            for (int i = 0; i < jitems.length(); i++) {
+                                JSONObject jaccount = jitems.getJSONObject(i);
+                                String value = jaccount.getString("val");
+                                int revision = jaccount.getInt("rev");
+
+                                JSONObject jaccountdata = new JSONObject(value);
+                                EntityAccount raccount = EntityAccount.fromJSON(jaccountdata.getJSONObject("account"));
+                                EntityAccount laccount = db.account().getAccountByUUID(raccount.uuid);
+
+                                JSONArray jidentities = jaccountdata.getJSONArray("identities");
+                                Log.i("Cloud account " + raccount.uuid + "=" + (laccount == null ? "insert" : "update") +
+                                        " rev=" + revision +
+                                        " identities=" + jidentities +
+                                        " size=" + value.length());
+
+                                for (int j = 0; j < jidentities.length(); j++) {
+                                    JSONObject jidentity = new JSONObject();
+                                    jidentity.put("key", "identity." + jidentities.getString(j));
+                                    jidentity.put("rev", sync_status);
+                                    jdownload.put(jidentity);
+                                }
                             }
 
                             if (jdownload.length() > 0) {
-                                Log.i("Cloud getting accounts");
+                                // Get identities
+                                Log.i("Cloud getting identities");
                                 jrequest.put("items", jdownload);
-                                jresponse = CloudSync.perform(context, user, password, jrequest);
+                                jresponse = CloudSync.perform(context, user, password, "sync", jrequest);
 
-                                // Process accounts
-                                Log.i("Cloud processing accounts");
+                                // Process identities
+                                Log.i("Cloud processing identities");
                                 jitems = jresponse.getJSONArray("items");
-                                jdownload = new JSONArray();
                                 for (int i = 0; i < jitems.length(); i++) {
                                     JSONObject jaccount = jitems.getJSONObject(i);
-                                    String key = jaccount.getString("key");
                                     String value = jaccount.getString("val");
                                     int revision = jaccount.getInt("rev");
-                                    String uuid = key.split("\\.")[1];
-                                    EntityAccount account = db.account().getAccountByUUID(uuid);
-                                    JSONObject jaccountdata = new JSONObject(value);
-                                    JSONArray jidentities = jaccountdata.getJSONArray("identities");
-                                    Log.i("Cloud account " + uuid + "=" + (account != null) +
+                                    EntityIdentity ridentity = EntityIdentity.fromJSON(new JSONObject(value));
+                                    EntityIdentity lidentity = db.identity().getIdentityByUUID(ridentity.uuid);
+                                    Log.i("Cloud identity " + ridentity.uuid + "=" + (lidentity == null ? "insert" : "update") +
                                             " rev=" + revision +
-                                            " identities=" + jidentities +
                                             " size=" + value.length());
-
-                                    for (int j = 0; j < jidentities.length(); j++) {
-                                        JSONObject jidentity = new JSONObject();
-                                        jidentity.put("key", "identity." + jidentities.getString(j));
-                                        jidentity.put("rev", sync_status * 0);
-                                        jdownload.put(jidentity);
-                                    }
-                                }
-
-                                if (jdownload.length() > 0) {
-                                    // Get identities
-                                    Log.i("Cloud getting identities");
-                                    jrequest.put("items", jdownload);
-                                    jresponse = CloudSync.perform(context, user, password, jrequest);
-
-                                    // Process identities
-                                    Log.i("Cloud processing identities");
-                                    jitems = jresponse.getJSONArray("items");
-                                    for (int i = 0; i < jitems.length(); i++) {
-                                        JSONObject jaccount = jitems.getJSONObject(i);
-                                        String key = jaccount.getString("key");
-                                        String value = jaccount.getString("val");
-                                        int revision = jaccount.getInt("rev");
-                                        String uuid = key.split("\\.")[1];
-                                        EntityIdentity identity = db.identity().getIdentityByUUID(uuid);
-                                        Log.i("Cloud identity " + uuid + "=" + (identity != null) +
-                                                " rev=" + revision +
-                                                " size=" + value.length());
-                                    }
                                 }
                             }
-                        } else {
-                            // No changes
                         }
+
+                        prefs.edit().putInt("sync_status", rev).apply();
                     } else
                         throw new IllegalArgumentException("Expected one status item");
                 } else
-                    CloudSync.perform(context, user, password, jrequest);
+                    CloudSync.perform(context, user, password, command, jrequest);
 
                 return null;
             }

@@ -55,8 +55,9 @@ public class CloudSync {
 
     private static final Map<String, Pair<byte[], byte[]>> keyCache = new HashMap<>();
 
-    public static JSONObject perform(Context context, String user, String password, JSONObject jrequest)
+    public static JSONObject perform(Context context, String user, String password, String command, JSONObject jrequest)
             throws GeneralSecurityException, JSONException, IOException {
+        jrequest.put("command", command);
         List<JSONObject> responses = new ArrayList<>();
         for (JSONArray batch : partition(jrequest.getJSONArray("items"))) {
             jrequest.put("items", batch);
