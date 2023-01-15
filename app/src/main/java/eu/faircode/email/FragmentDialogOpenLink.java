@@ -334,7 +334,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                prefs.edit().putBoolean(uri.getHost() + ".confirm_link", !isChecked).apply();
+                prefs.edit().putBoolean(getConfirmHost(uri) + ".confirm_link", !isChecked).apply();
             }
         });
 
@@ -581,13 +581,9 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         cbSanitize.setChecked(sanitize_links);
 
-        cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again, uri.getHost()));
-        cbNotAgain.setVisibility(
-                !always_confirm &&
-                        !sanitize_links &&
-                        UriHelper.isSecure(uri) &&
-                        !TextUtils.isEmpty(uri.getHost())
-                        ? View.VISIBLE : View.GONE);
+        String chost = getConfirmHost(uri);
+        cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again, chost));
+        cbNotAgain.setVisibility(!always_confirm && chost != null ? View.VISIBLE : View.GONE);
 
         setMore(false);
 
@@ -860,6 +856,19 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         public String toString() {
             return name + ":" + tabs;
         }
+    }
+
+    public static String getConfirmHost(Uri uri) {
+        String scheme = uri.getScheme();
+        if ("https".equals(scheme)) {
+            String host = uri.getHost();
+            return (TextUtils.isEmpty(host) ? null : host);
+        } else if ("mailto".equals(scheme)) {
+            MailTo mailto = MailTo.parse(uri);
+            String to = mailto.getTo();
+            return (TextUtils.isEmpty(to) ? null : to);
+        } else
+            return null;
     }
 
     public static class AdapterPackage extends ArrayAdapter<Package> {
