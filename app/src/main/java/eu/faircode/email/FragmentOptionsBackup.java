@@ -109,6 +109,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private View view;
     private ImageButton ibHelp;
     private Button btnExport;
+    private TextView tvExportPro;
     private Button btnImport;
     private CardView cardCloud;
     private TextView tvCloudInfo;
@@ -151,6 +152,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
         ibHelp = view.findViewById(R.id.ibHelp);
         btnExport = view.findViewById(R.id.btnExport);
+        tvExportPro = view.findViewById(R.id.tvExportPro);
         btnImport = view.findViewById(R.id.btnImport);
         cardCloud = view.findViewById(R.id.cardCloud);
         tvCloudInfo = view.findViewById(R.id.tvCloudInfo);
@@ -245,6 +247,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
+        Helper.linkPro(tvExportPro);
         cardCloud.setVisibility(
                 BuildConfig.DEBUG &&
                         Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
