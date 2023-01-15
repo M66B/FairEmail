@@ -1593,8 +1593,11 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                     jupload.put(jitem);
                                 }
 
+                            JSONObject jaccounts = new JSONObject();
+                            jaccounts.put("uuids", juuids);
+
                             JSONObject jstatusdata = new JSONObject();
-                            jstatusdata.put("accounts", juuids);
+                            jstatusdata.put("accounts", jaccounts);
 
                             jstatus.put("key", "sync.status");
                             jstatus.put("val", jstatusdata.toString());
@@ -1619,7 +1622,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                             // Get accounts
                             JSONObject jstatusdata = new JSONObject(jitem.getString("val"));
-                            JSONArray juuids = jstatusdata.getJSONArray("accounts");
+                            JSONObject jaccountinfo = jstatusdata.getJSONObject("accounts");
+                            JSONArray juuids = jaccountinfo.getJSONArray("uuids");
                             for (int i = 0; i < juuids.length(); i++) {
                                 String uuid = juuids.getString(i);
                                 JSONObject jaccount = new JSONObject();
@@ -1655,7 +1659,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                     for (int j = 0; j < jidentities.length(); j++) {
                                         JSONObject jidentity = new JSONObject();
                                         jidentity.put("key", "identity." + jidentities.getString(j));
-                                        jidentity.put("rev", sync_status);
+                                        jidentity.put("rev", sync_status * 0);
                                         jdownload.put(jidentity);
                                     }
                                 }
