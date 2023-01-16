@@ -20,8 +20,12 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
+
+import androidx.preference.PreferenceManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,6 +41,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -55,13 +60,210 @@ public class CloudSync {
 
     private static final Map<String, Pair<byte[], byte[]>> keyCache = new HashMap<>();
 
-    public static JSONObject perform(Context context, String user, String password, String command, JSONObject jrequest)
+    // Upper level
+
+    static void execute(Context context, String command)
+            throws JSONException, GeneralSecurityException, IOException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String user = prefs.getString("cloud_user", null);
+        String password = prefs.getString("cloud_password", null);
+
+        JSONObject jrequest = new JSONObject();
+
+        if ("sync".equals(command)) {
+            DB db = DB.getInstance(context);
+            long lrevision = prefs.getLong("sync_status", new Date().getTime());
+            Log.i("Cloud sync status=" + lrevision);
+
+            for (EntitySync s : db.sync().getSync(null, null, Long.MAX_VALUE))
+                Log.i("Cloud sync " + s.entity + ":" + s.reference + " " + s.action + " " + new Date(s.time));
+            db.sync().deleteSync(Long.MAX_VALUE);
+
+            JSONObject jsyncstatus = new JSONObject();
+            jsyncstatus.put("key", "sync.status");
+            jsyncstatus.put("rev", lrevision);
+
+            JSONArray jitems = new JSONArray();
+            jitems.put(jsyncstatus);
+
+            jrequest.put("items", jitems);
+
+            JSONObject jresponse = call(context, user, password, "read", jrequest);
+            jitems = jresponse.getJSONArray("items");
+
+            if (jitems.length() == 0) {
+                Log.i("Cloud server is empty");
+                sendLocalData(context, user, password, lrevision);
+            } else if (jitems.length() == 1) {
+                Log.i("Cloud sync check");
+                jsyncstatus = jitems.getJSONObject(0);
+                receiveRemoteData(context, user, password, lrevision, jsyncstatus);
+            } else
+                throw new IllegalArgumentException("Expected one status item");
+        } else {
+            JSONArray jitems = new JSONArray();
+            jrequest.put("items", jitems);
+            call(context, user, password, command, jrequest);
+        }
+    }
+
+    private static void sendLocalData(Context context, String user, String password, long lrevision) throws JSONException, GeneralSecurityException, IOException {
+        DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
+        Log.i("Cloud accounts=" + (accounts == null ? null : accounts.size()));
+        if (accounts == null || accounts.size() == 0)
+            return;
+
+        JSONArray jupload = new JSONArray();
+
+        JSONArray jaccountuuids = new JSONArray();
+        for (EntityAccount account : accounts)
+            if (!TextUtils.isEmpty(account.uuid)) {
+                jaccountuuids.put(account.uuid);
+
+                JSONArray jidentitieuuids = new JSONArray();
+                List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                if (identities != null)
+                    for (EntityIdentity identity : identities)
+                        if (!TextUtils.isEmpty(identity.uuid)) {
+                            jidentitieuuids.put(identity.uuid);
+
+                            JSONObject jidentity = new JSONObject();
+                            jidentity.put("key", "identity." + identity.uuid);
+                            jidentity.put("val", identity.toJSON().toString());
+                            jidentity.put("rev", lrevision);
+                            jupload.put(jidentity);
+                        }
+
+                JSONObject jaccountdata = new JSONObject();
+                jaccountdata.put("account", account.toJSON());
+                jaccountdata.put("identities", jidentitieuuids);
+
+                JSONObject jaccount = new JSONObject();
+                jaccount.put("key", "account." + account.uuid);
+                jaccount.put("val", jaccountdata.toString());
+                jaccount.put("rev", lrevision);
+                jupload.put(jaccount);
+            }
+
+        JSONObject jaccountuuidsholder = new JSONObject();
+        jaccountuuidsholder.put("uuids", jaccountuuids);
+
+        JSONObject jaccountstatus = new JSONObject();
+        jaccountstatus.put("accounts", jaccountuuidsholder);
+
+        JSONObject jsyncstatus = new JSONObject();
+        jsyncstatus.put("key", "sync.status");
+        jsyncstatus.put("val", jaccountstatus.toString());
+        jsyncstatus.put("rev", lrevision);
+        jupload.put(jsyncstatus);
+
+        JSONObject jrequest = new JSONObject();
+        jrequest.put("items", jupload);
+        call(context, user, password, "write", jrequest);
+
+        prefs.edit().putLong("sync_status", lrevision).apply();
+    }
+
+    private static void receiveRemoteData(Context context, String user, String password, long lrevision, JSONObject jsyncstatus) throws JSONException, GeneralSecurityException, IOException {
+        DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        long rrevision = jsyncstatus.getLong("rev");
+        Log.i("Cloud revision=" + lrevision + "/" + rrevision);
+
+        if (BuildConfig.DEBUG)
+            lrevision--;
+
+        if (rrevision <= lrevision)
+            return; // no changes
+
+        // New revision
+        JSONArray jdownload = new JSONArray();
+
+        // Get accounts
+        JSONObject jstatus = new JSONObject(jsyncstatus.getString("val"));
+        JSONObject jaccountstatus = jstatus.getJSONObject("accounts");
+        JSONArray jaccountuuids = jaccountstatus.getJSONArray("uuids");
+        for (int i = 0; i < jaccountuuids.length(); i++) {
+            String uuid = jaccountuuids.getString(i);
+            JSONObject jaccount = new JSONObject();
+            jaccount.put("key", "account." + uuid);
+            jaccount.put("rev", lrevision);
+            jdownload.put(jaccount);
+            Log.i("Cloud account " + uuid);
+        }
+
+        if (jdownload.length() > 0) {
+            Log.i("Cloud getting accounts");
+            JSONObject jrequest = new JSONObject();
+            jrequest.put("items", jdownload);
+            JSONObject jresponse = call(context, user, password, "sync", jrequest);
+
+            // Process accounts
+            Log.i("Cloud processing accounts");
+            JSONArray jitems = jresponse.getJSONArray("items");
+            jdownload = new JSONArray();
+            for (int i = 0; i < jitems.length(); i++) {
+                JSONObject jaccount = jitems.getJSONObject(i);
+                String value = jaccount.getString("val");
+                long revision = jaccount.getLong("rev");
+
+                JSONObject jaccountdata = new JSONObject(value);
+                EntityAccount raccount = EntityAccount.fromJSON(jaccountdata.getJSONObject("account"));
+                EntityAccount laccount = db.account().getAccountByUUID(raccount.uuid);
+
+                JSONArray jidentities = jaccountdata.getJSONArray("identities");
+                Log.i("Cloud account " + raccount.uuid + "=" + (laccount == null ? "insert" : "update") +
+                        " rev=" + revision +
+                        " identities=" + jidentities +
+                        " size=" + value.length());
+
+                for (int j = 0; j < jidentities.length(); j++) {
+                    JSONObject jidentity = new JSONObject();
+                    jidentity.put("key", "identity." + jidentities.getString(j));
+                    jidentity.put("rev", lrevision);
+                    jdownload.put(jidentity);
+                }
+            }
+
+            if (jdownload.length() > 0) {
+                // Get identities
+                Log.i("Cloud getting identities");
+                jrequest.put("items", jdownload);
+                jresponse = call(context, user, password, "sync", jrequest);
+
+                // Process identities
+                Log.i("Cloud processing identities");
+                jitems = jresponse.getJSONArray("items");
+                for (int i = 0; i < jitems.length(); i++) {
+                    JSONObject jidentity = jitems.getJSONObject(i);
+                    String value = jidentity.getString("val");
+                    long revision = jidentity.getLong("rev");
+                    EntityIdentity ridentity = EntityIdentity.fromJSON(new JSONObject(value));
+                    EntityIdentity lidentity = db.identity().getIdentityByUUID(ridentity.uuid);
+                    Log.i("Cloud identity " + ridentity.uuid + "=" + (lidentity == null ? "insert" : "update") +
+                            " rev=" + revision +
+                            " size=" + value.length());
+                }
+            }
+        }
+
+        prefs.edit().putLong("sync_status", rrevision).apply();
+    }
+
+    // Lower level
+
+    public static JSONObject call(Context context, String user, String password, String command, JSONObject jrequest)
             throws GeneralSecurityException, JSONException, IOException {
+        Log.i("Cloud command=" + command);
         jrequest.put("command", command);
         List<JSONObject> responses = new ArrayList<>();
         for (JSONArray batch : partition(jrequest.getJSONArray("items"))) {
             jrequest.put("items", batch);
-            responses.add(_perform(context, user, password, jrequest));
+            responses.add(_call(context, user, password, jrequest));
         }
         if (responses.size() == 1)
             return responses.get(0);
@@ -78,7 +280,7 @@ public class CloudSync {
         }
     }
 
-    private static JSONObject _perform(Context context, String user, String password, JSONObject jrequest)
+    private static JSONObject _call(Context context, String user, String password, JSONObject jrequest)
             throws GeneralSecurityException, JSONException, IOException {
         byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
         byte[] huser = MessageDigest.getInstance("SHA256").digest(salt);

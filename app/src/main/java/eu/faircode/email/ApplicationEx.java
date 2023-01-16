@@ -258,6 +258,7 @@ public class ApplicationEx extends Application
             WorkerAutoUpdate.init(this);
             WorkerCleanup.init(this);
             WorkerDailyRules.init(this);
+            WorkerSync.init(this);
         }
 
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
