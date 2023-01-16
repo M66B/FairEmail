@@ -178,6 +178,15 @@ public class FragmentDialogBase extends DialogFragment {
     }
 
     @Override
+    public void dismiss() {
+        try {
+            super.dismiss();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+    }
+
+    @Override
     public void onDismiss(@NonNull DialogInterface dialog) {
         sendResult(RESULT_CANCELED);
         super.onDismiss(dialog);
