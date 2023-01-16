@@ -87,7 +87,7 @@ public class CloudSync {
                     continue;
                 }
 
-                if ("account".equals(s.entity) && "auth".equals(s.reference)) {
+                if ("account".equals(s.entity) && "auth".equals(s.action)) {
                     EntityAccount account = db.account().getAccountByUUID(s.reference);
                     if (account == null || account.auth_type != AUTH_TYPE_PASSWORD) {
                         if (account == null)
@@ -99,7 +99,7 @@ public class CloudSync {
                     }
                 }
 
-                if ("identity".equals(s.entity) && "auth".equals(s.reference)) {
+                if ("identity".equals(s.entity) && "auth".equals(s.action)) {
                     EntityIdentity identity = db.identity().getIdentityByUUID(s.reference);
                     if (identity == null || identity.auth_type != AUTH_TYPE_PASSWORD) {
                         if (identity == null)
