@@ -55,7 +55,7 @@ public class WorkerSync extends Worker {
             semaphore.acquire();
 
             EntityLog.log(context, EntityLog.Type.Rules, "Cloud sync execute");
-            CloudSync.execute(context, "sync");
+            CloudSync.execute(context, "sync", false);
             EntityLog.log(context, EntityLog.Type.Rules, "Cloud sync completed");
 
             return Result.success();

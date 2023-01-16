@@ -1529,7 +1529,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 String command = args.getString("command");
-                CloudSync.execute(context, command);
+                CloudSync.execute(context, command, true);
                 return null;
             }
 

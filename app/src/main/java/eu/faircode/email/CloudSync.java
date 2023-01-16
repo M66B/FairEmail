@@ -64,7 +64,7 @@ public class CloudSync {
 
     // Upper level
 
-    static void execute(Context context, String command)
+    static void execute(Context context, String command, boolean manual)
             throws JSONException, GeneralSecurityException, IOException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String user = prefs.getString("cloud_user", null);
@@ -78,47 +78,11 @@ public class CloudSync {
             long lrevision = prefs.getLong("sync_status", new Date().getTime());
             Log.i("Cloud local revision=" + lrevision + " (" + new Date(lrevision) + ")");
 
-            Long lastUpdate = null;
-            for (EntitySync s : db.sync().getSync(null, null, Long.MAX_VALUE)) {
-                Log.i("Cloud sync " + s.entity + ":" + s.reference + " " + s.action + " " + new Date(s.time));
-                if (s.reference == null) {
-                    Log.w("Cloud reference missing");
-                    db.sync().deleteSync(s.id);
-                    continue;
-                }
-
-                if ("account".equals(s.entity) && "auth".equals(s.action)) {
-                    EntityAccount account = db.account().getAccountByUUID(s.reference);
-                    if (account == null || account.auth_type != AUTH_TYPE_PASSWORD) {
-                        if (account == null)
-                            Log.w("Cloud account missing uuid=" + s.reference);
-                        else
-                            Log.w("Cloud account auth uuid=" + s.reference);
-                        db.sync().deleteSync(s.id);
-                        continue;
-                    }
-                }
-
-                if ("identity".equals(s.entity) && "auth".equals(s.action)) {
-                    EntityIdentity identity = db.identity().getIdentityByUUID(s.reference);
-                    if (identity == null || identity.auth_type != AUTH_TYPE_PASSWORD) {
-                        if (identity == null)
-                            Log.w("Cloud identity missing uuid=" + s.reference);
-                        else
-                            Log.w("Cloud identity auth uuid=" + s.reference);
-                        db.sync().deleteSync(s.id);
-                        continue;
-                    }
-                }
-
-                if (lastUpdate == null || s.time > lastUpdate)
-                    lastUpdate = s.time;
-            }
-
+            Long lastUpdate = getLastUpdate(context);
             Log.i("Cloud last update=" + (lastUpdate == null ? null : new Date(lastUpdate)));
-
-            if (lastUpdate != null)
-                db.sync().deleteSyncByTime(lastUpdate);
+            if (lastUpdate != null && lrevision > lastUpdate)
+                Log.w("Cloud invalid local revision" +
+                        " lrevision=" + lrevision + " last=" + lastUpdate);
 
             JSONObject jsyncstatus = new JSONObject();
             jsyncstatus.put("key", "sync.status");
@@ -138,9 +102,36 @@ public class CloudSync {
             } else if (jitems.length() == 1) {
                 Log.i("Cloud sync check");
                 jsyncstatus = jitems.getJSONObject(0);
-                receiveRemoteData(context, user, password, lrevision, jsyncstatus);
+                long rrevision = jsyncstatus.getLong("rev");
+                JSONObject jstatus = new JSONObject(jsyncstatus.getString("val"));
+                int sync_version = jstatus.optInt("sync.version", 0);
+                int app_version = jstatus.optInt("app.version", 0);
+                Log.i("Cloud version sync=" + sync_version + " app=" + app_version +
+                        " local=" + lrevision + " last=" + lastUpdate + " remote=" + rrevision);
+
+                // last > local (local mods) && remote > local (remote mods) = CONFLICT
+                // local > last = ignorable ERROR
+                // remote > local = fetch remote
+                // last > remote = send local
+
+                if (lastUpdate != null && lastUpdate > rrevision) // local newer than remote
+                    sendLocalData(context, user, password, lastUpdate);
+                else if (rrevision > lrevision) // remote changes
+                    if (lastUpdate != null && lastUpdate > lrevision) { // local changes
+                        Log.w("Cloud conflict" +
+                                " lrevision=" + lrevision + " last=" + lastUpdate + " rrevision=" + rrevision);
+                        if (manual)
+                            if (lastUpdate >= rrevision)
+                                sendLocalData(context, user, password, lastUpdate);
+                            else
+                                receiveRemoteData(context, user, password, lrevision, jstatus);
+                    } else
+                        receiveRemoteData(context, user, password, lrevision, jstatus);
             } else
                 throw new IllegalArgumentException("Expected one status item");
+
+            if (lastUpdate != null)
+                db.sync().deleteSyncByTime(lastUpdate);
         } else {
             JSONArray jitems = new JSONArray();
             jrequest.put("items", jitems);
@@ -150,7 +141,52 @@ public class CloudSync {
         prefs.edit().putLong("cloud_last_sync", new Date().getTime()).apply();
     }
 
-    private static void sendLocalData(Context context, String user, String password, long lrevision) throws JSONException, GeneralSecurityException, IOException {
+    private static Long getLastUpdate(Context context) {
+        DB db = DB.getInstance(context);
+
+        Long lastUpdate = null;
+
+        for (EntitySync sync : db.sync().getSync(null, null, Long.MAX_VALUE)) {
+            Log.i("Cloud sync " + sync.entity + ":" + sync.reference + " " + sync.action + " " + new Date(sync.time));
+            if (sync.reference == null) {
+                Log.w("Cloud reference missing");
+                db.sync().deleteSync(sync.id);
+                continue;
+            }
+
+            if ("account".equals(sync.entity) && "auth".equals(sync.action)) {
+                EntityAccount account = db.account().getAccountByUUID(sync.reference);
+                if (account == null || account.auth_type != AUTH_TYPE_PASSWORD) {
+                    if (account == null)
+                        Log.w("Cloud account missing uuid=" + sync.reference);
+                    else
+                        Log.i("Cloud account oauth uuid=" + sync.reference);
+                    db.sync().deleteSync(sync.id);
+                    continue;
+                }
+            }
+
+            if ("identity".equals(sync.entity) && "auth".equals(sync.action)) {
+                EntityIdentity identity = db.identity().getIdentityByUUID(sync.reference);
+                if (identity == null || identity.auth_type != AUTH_TYPE_PASSWORD) {
+                    if (identity == null)
+                        Log.w("Cloud identity missing uuid=" + sync.reference);
+                    else
+                        Log.i("Cloud identity oauth uuid=" + sync.reference);
+                    db.sync().deleteSync(sync.id);
+                    continue;
+                }
+            }
+
+            if (lastUpdate == null || sync.time > lastUpdate)
+                lastUpdate = sync.time;
+        }
+
+        return lastUpdate;
+    }
+
+    private static void sendLocalData(Context context, String user, String password, long lrevision)
+            throws JSONException, GeneralSecurityException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -197,7 +233,8 @@ public class CloudSync {
         jaccountuuids.put("uuids", jaccountuuidlist);
 
         JSONObject jstatus = new JSONObject();
-        jstatus.put("version", 1);
+        jstatus.put("sync.version", 1);
+        jstatus.put("app.version", BuildConfig.VERSION_CODE);
         jstatus.put("accounts", jaccountuuids);
 
         JSONObject jsyncstatus = new JSONObject();
@@ -213,22 +250,10 @@ public class CloudSync {
         prefs.edit().putLong("sync_status", lrevision).apply();
     }
 
-    private static void receiveRemoteData(Context context, String user, String password, long lrevision, JSONObject jsyncstatus) throws JSONException, GeneralSecurityException, IOException {
+    private static void receiveRemoteData(Context context, String user, String password, long lrevision, JSONObject jstatus)
+            throws JSONException, GeneralSecurityException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-        long rrevision = jsyncstatus.getLong("rev");
-        JSONObject jstatus = new JSONObject(jsyncstatus.getString("val"));
-        int version = jstatus.optInt("version", 0);
-        Log.i("Cloud version=" + version + " revision=" + lrevision + "/" + rrevision);
-
-        if (BuildConfig.DEBUG && false)
-            lrevision--;
-
-        if (rrevision <= lrevision) {
-            Log.i("Cloud no changes");
-            return;
-        }
 
         // New revision
         JSONArray jdownload = new JSONArray();
@@ -300,7 +325,7 @@ public class CloudSync {
             }
         }
 
-        prefs.edit().putLong("sync_status", rrevision).apply();
+        prefs.edit().putLong("sync_status", lrevision).apply();
     }
 
     // Lower level
