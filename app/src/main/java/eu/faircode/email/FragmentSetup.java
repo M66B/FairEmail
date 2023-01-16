@@ -811,7 +811,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if ("poll_interval".equals(key))
+        if ("poll_interval".equals(key) && cbAlways != null)
             cbAlways.setChecked(ServiceSynchronize.getPollInterval(getContext()) == 0);
     }
 
