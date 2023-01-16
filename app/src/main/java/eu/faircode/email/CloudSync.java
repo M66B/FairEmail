@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
@@ -72,12 +74,51 @@ public class CloudSync {
 
         if ("sync".equals(command)) {
             DB db = DB.getInstance(context);
-            long lrevision = prefs.getLong("sync_status", new Date().getTime());
-            Log.i("Cloud sync status=" + lrevision);
 
-            for (EntitySync s : db.sync().getSync(null, null, Long.MAX_VALUE))
+            long lrevision = prefs.getLong("sync_status", new Date().getTime());
+            Log.i("Cloud local revision=" + lrevision + " (" + new Date(lrevision) + ")");
+
+            Long lastUpdate = null;
+            for (EntitySync s : db.sync().getSync(null, null, Long.MAX_VALUE)) {
                 Log.i("Cloud sync " + s.entity + ":" + s.reference + " " + s.action + " " + new Date(s.time));
-            db.sync().deleteSync(Long.MAX_VALUE);
+                if (s.reference == null) {
+                    Log.w("Cloud reference missing");
+                    db.sync().deleteSync(s.id);
+                    continue;
+                }
+
+                if ("account".equals(s.entity) && "auth".equals(s.reference)) {
+                    EntityAccount account = db.account().getAccountByUUID(s.reference);
+                    if (account == null || account.auth_type != AUTH_TYPE_PASSWORD) {
+                        if (account == null)
+                            Log.w("Cloud account missing uuid=" + s.reference);
+                        else
+                            Log.w("Cloud account auth uuid=" + s.reference);
+                        db.sync().deleteSync(s.id);
+                        continue;
+                    }
+                }
+
+                if ("identity".equals(s.entity) && "auth".equals(s.reference)) {
+                    EntityIdentity identity = db.identity().getIdentityByUUID(s.reference);
+                    if (identity == null || identity.auth_type != AUTH_TYPE_PASSWORD) {
+                        if (identity == null)
+                            Log.w("Cloud identity missing uuid=" + s.reference);
+                        else
+                            Log.w("Cloud identity auth uuid=" + s.reference);
+                        db.sync().deleteSync(s.id);
+                        continue;
+                    }
+                }
+
+                if (lastUpdate == null || s.time > lastUpdate)
+                    lastUpdate = s.time;
+            }
+
+            Log.i("Cloud last update=" + (lastUpdate == null ? null : new Date(lastUpdate)));
+
+            if (lastUpdate != null)
+                db.sync().deleteSyncByTime(lastUpdate);
 
             JSONObject jsyncstatus = new JSONObject();
             jsyncstatus.put("key", "sync.status");
@@ -105,6 +146,8 @@ public class CloudSync {
             jrequest.put("items", jitems);
             call(context, user, password, command, jrequest);
         }
+
+        prefs.edit().putLong("cloud_last_sync", new Date().getTime()).apply();
     }
 
     private static void sendLocalData(Context context, String user, String password, long lrevision) throws JSONException, GeneralSecurityException, IOException {
@@ -113,15 +156,17 @@ public class CloudSync {
 
         List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
         Log.i("Cloud accounts=" + (accounts == null ? null : accounts.size()));
-        if (accounts == null || accounts.size() == 0)
+        if (accounts == null || accounts.size() == 0) {
+            Log.i("Cloud no accounts");
             return;
+        }
 
         JSONArray jupload = new JSONArray();
 
-        JSONArray jaccountuuids = new JSONArray();
+        JSONArray jaccountuuidlist = new JSONArray();
         for (EntityAccount account : accounts)
             if (!TextUtils.isEmpty(account.uuid)) {
-                jaccountuuids.put(account.uuid);
+                jaccountuuidlist.put(account.uuid);
 
                 JSONArray jidentitieuuids = new JSONArray();
                 List<EntityIdentity> identities = db.identity().getIdentities(account.id);
@@ -148,15 +193,16 @@ public class CloudSync {
                 jupload.put(jaccount);
             }
 
-        JSONObject jaccountuuidsholder = new JSONObject();
-        jaccountuuidsholder.put("uuids", jaccountuuids);
+        JSONObject jaccountuuids = new JSONObject();
+        jaccountuuids.put("uuids", jaccountuuidlist);
 
-        JSONObject jaccountstatus = new JSONObject();
-        jaccountstatus.put("accounts", jaccountuuidsholder);
+        JSONObject jstatus = new JSONObject();
+        jstatus.put("version", 1);
+        jstatus.put("accounts", jaccountuuids);
 
         JSONObject jsyncstatus = new JSONObject();
         jsyncstatus.put("key", "sync.status");
-        jsyncstatus.put("val", jaccountstatus.toString());
+        jsyncstatus.put("val", jstatus.toString());
         jsyncstatus.put("rev", lrevision);
         jupload.put(jsyncstatus);
 
@@ -172,28 +218,31 @@ public class CloudSync {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
         long rrevision = jsyncstatus.getLong("rev");
-        Log.i("Cloud revision=" + lrevision + "/" + rrevision);
+        JSONObject jstatus = new JSONObject(jsyncstatus.getString("val"));
+        int version = jstatus.optInt("version", 0);
+        Log.i("Cloud version=" + version + " revision=" + lrevision + "/" + rrevision);
 
-        if (BuildConfig.DEBUG)
+        if (BuildConfig.DEBUG && false)
             lrevision--;
 
-        if (rrevision <= lrevision)
-            return; // no changes
+        if (rrevision <= lrevision) {
+            Log.i("Cloud no changes");
+            return;
+        }
 
         // New revision
         JSONArray jdownload = new JSONArray();
 
         // Get accounts
-        JSONObject jstatus = new JSONObject(jsyncstatus.getString("val"));
         JSONObject jaccountstatus = jstatus.getJSONObject("accounts");
-        JSONArray jaccountuuids = jaccountstatus.getJSONArray("uuids");
-        for (int i = 0; i < jaccountuuids.length(); i++) {
-            String uuid = jaccountuuids.getString(i);
+        JSONArray jaccountuuidlist = jaccountstatus.getJSONArray("uuids");
+        for (int i = 0; i < jaccountuuidlist.length(); i++) {
+            String uuid = jaccountuuidlist.getString(i);
             JSONObject jaccount = new JSONObject();
             jaccount.put("key", "account." + uuid);
             jaccount.put("rev", lrevision);
             jdownload.put(jaccount);
-            Log.i("Cloud account " + uuid);
+            Log.i("Cloud account uuid=" + uuid);
         }
 
         if (jdownload.length() > 0) {

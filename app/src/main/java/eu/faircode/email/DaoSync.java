@@ -29,10 +29,13 @@ public interface DaoSync {
     @Query("SELECT * FROM sync" +
             " WHERE (:entity IS NULL OR entity = :entity)" +
             " AND (:reference IS NULL OR reference = :reference)" +
-            " AND time < :time" +
+            " AND time <= :time" +
             " ORDER BY time")
     List<EntitySync> getSync(String entity, String reference, long time);
 
-    @Query("DELETE FROM sync WHERE time < :time")
-    int deleteSync(long time);
+    @Query("DELETE FROM sync WHERE id= :id")
+    int deleteSync(long id);
+
+    @Query("DELETE FROM sync WHERE time <= :time")
+    int deleteSyncByTime(long time);
 }

@@ -274,7 +274,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if (key == null ||
                 "cloud_user".equals(key) ||
-                "cloud_password".equals(key)) {
+                "cloud_password".equals(key) ||
+                "cloud_last_sync".equals(key)) {
             String user = prefs.getString("cloud_user", null);
             String password = prefs.getString("cloud_password", null);
             boolean auth = !(TextUtils.isEmpty(user) || TextUtils.isEmpty(password));

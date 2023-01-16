@@ -485,12 +485,12 @@ public abstract class DB extends RoomDatabase {
 
                             db.execSQL("DROP TRIGGER IF EXISTS `account_insert`");
                             db.execSQL("DROP TRIGGER IF EXISTS `account_update`");
-                            db.execSQL("DROP TRIGGER IF EXISTS `account_password`");
+                            db.execSQL("DROP TRIGGER IF EXISTS `account_auth`");
                             db.execSQL("DROP TRIGGER IF EXISTS `account_delete`");
 
                             db.execSQL("DROP TRIGGER IF EXISTS `identity_insert`");
                             db.execSQL("DROP TRIGGER IF EXISTS `identity_update`");
-                            db.execSQL("DROP TRIGGER IF EXISTS `identity_password`");
+                            db.execSQL("DROP TRIGGER IF EXISTS `identity_auth`");
                             db.execSQL("DROP TRIGGER IF EXISTS `identity_delete`");
                         }
 
@@ -563,18 +563,20 @@ public abstract class DB extends RoomDatabase {
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS account_update" +
                 " AFTER UPDATE" +
-                " OF host, encryption, insecure, port, auth_type, provider, `user`, certificate_alias, realm, fingerprint" +
+                " OF host, encryption, insecure, port, realm, fingerprint" +
                 " ON account" +
                 " BEGIN" +
                 "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
                 "  VALUES ('account', NEW.uuid, 'update', strftime('%s') * 1000);" +
                 " END");
 
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS account_password" +
-                " AFTER UPDATE OF password ON account" +
+        db.execSQL("CREATE TRIGGER IF NOT EXISTS account_auth" +
+                " AFTER UPDATE" +
+                " OF auth_type, provider, `user`, password, certificate_alias" +
+                " ON account" +
                 " BEGIN" +
                 "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
-                "  VALUES ('account', NEW.uuid, 'password', strftime('%s') * 1000);" +
+                "  VALUES ('account', NEW.uuid, 'auth', strftime('%s') * 1000);" +
                 " END");
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS account_delete" +
@@ -593,18 +595,20 @@ public abstract class DB extends RoomDatabase {
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_update" +
                 " AFTER UPDATE" +
-                " OF host, encryption, insecure, port, auth_type, provider, `user`, certificate_alias, realm, fingerprint" +
+                " OF host, encryption, insecure, port, realm, fingerprint" +
                 " ON identity" +
                 " BEGIN" +
                 "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
                 "  VALUES ('identity', NEW.uuid, 'update', strftime('%s') * 1000);" +
                 " END");
 
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_password" +
-                " AFTER UPDATE OF password ON identity" +
+        db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_auth" +
+                " AFTER UPDATE" +
+                " OF auth_type, provider, `user`, password, certificate_alias" +
+                " ON identity" +
                 " BEGIN" +
                 "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
-                "  VALUES ('identity', NEW.uuid, 'password', strftime('%s') * 1000);" +
+                "  VALUES ('identity', NEW.uuid, 'auth', strftime('%s') * 1000);" +
                 " END");
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_delete" +
