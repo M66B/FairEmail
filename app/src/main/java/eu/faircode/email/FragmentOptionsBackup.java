@@ -1543,6 +1543,10 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     long sync_status = prefs.getLong("sync_status", new Date().getTime());
                     Log.i("Cloud sync status=" + sync_status);
 
+                    for (EntitySync s : db.sync().getSync(null, null, Long.MAX_VALUE))
+                        Log.i("Cloud sync " + s.entity + ":" + s.reference + " " + s.action + " " + new Date(s.time));
+                    db.sync().deleteSync(Long.MAX_VALUE);
+
                     JSONObject jsyncstatus = new JSONObject();
                     jsyncstatus.put("key", "sync.status");
                     jsyncstatus.put("rev", sync_status);
