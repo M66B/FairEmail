@@ -90,6 +90,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swHideToolbar;
     private SwitchCompat swNavOptions;
     private SwitchCompat swNavCategories;
+    private SwitchCompat swNavLastSync;
     private SwitchCompat swNavMessageCount;
     private SwitchCompat swNavUnseenDrafts;
     private SwitchCompat swNavPinnedCount;
@@ -197,7 +198,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "date", "date_week", "date_fixed", "date_bold", "group_category",
             "cards", "beige", "tabular_card_bg", "shadow_unread", "shadow_border", "shadow_highlight", "dividers",
             "portrait2", "portrait2c", "landscape", "close_pane", "column_width",
-            "hide_toolbar", "nav_options", "nav_categories", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
+            "hide_toolbar", "nav_options", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_swap", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
             "avatars", "bimi", "gravatars", "libravatars", "favicons", "favicons_partial", "generated_icons", "identicons",
@@ -254,6 +255,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swHideToolbar = view.findViewById(R.id.swHideToolbar);
         swNavOptions = view.findViewById(R.id.swNavOptions);
         swNavCategories = view.findViewById(R.id.swNavCategories);
+        swNavLastSync = view.findViewById(R.id.swNavLastSync);
         swNavMessageCount = view.findViewById(R.id.swNavMessageCount);
         swNavUnseenDrafts = view.findViewById(R.id.swNavUnseenDrafts);
         swNavPinnedCount = view.findViewById(R.id.swNavPinnedCount);
@@ -609,6 +611,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("nav_count", checked).apply();
+            }
+        });
+
+        swNavLastSync.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("nav_last_sync", checked).apply();
             }
         });
 
@@ -1421,6 +1430,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swHideToolbar.setChecked(prefs.getBoolean("hide_toolbar", true));
         swNavOptions.setChecked(prefs.getBoolean("nav_options", true));
         swNavCategories.setChecked(prefs.getBoolean("nav_categories", false));
+        swNavLastSync.setChecked(prefs.getBoolean("nav_last_sync", true));
         swNavMessageCount.setChecked(prefs.getBoolean("nav_count", false));
         swNavUnseenDrafts.setChecked(prefs.getBoolean("nav_unseen_drafts", false));
         swNavPinnedCount.setChecked(prefs.getBoolean("nav_count_pinned", false));

@@ -58,6 +58,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private boolean nav_last_sync;
     private boolean nav_count;
     private boolean nav_count_pinned;
     private boolean nav_unseen_drafts;
@@ -167,7 +168,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
             tvItem.setVisibility(expanded ? View.VISIBLE : View.GONE);
 
             if (account.folderName == null) {
-                if (account.last_connected != null && expanded) {
+                if (account.last_connected != null && expanded && nav_last_sync) {
                     Calendar cal = Calendar.getInstance();
                     cal.set(Calendar.HOUR_OF_DAY, 0);
                     cal.set(Calendar.MINUTE, 0);
@@ -284,6 +285,7 @@ public class AdapterNavAccountFolder extends RecyclerView.Adapter<AdapterNavAcco
         this.inflater = LayoutInflater.from(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.nav_last_sync = prefs.getBoolean("nav_last_sync", true);
         this.nav_count = prefs.getBoolean("nav_count", false);
         this.nav_count_pinned = prefs.getBoolean("nav_count_pinned", false);
         this.nav_unseen_drafts = prefs.getBoolean("nav_unseen_drafts", false);
