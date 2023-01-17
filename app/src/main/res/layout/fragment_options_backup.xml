@@ -367,7 +367,7 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="
-                        tvLogin,cbAccounts,cbBlockedSenders,cbFilterRules,
+                        tvLogin,cbBlockedSenders,
                         ibSync,tvLastSync,
                         btnLogout,cbDelete" />
             </androidx.constraintlayout.widget.ConstraintLayout>
