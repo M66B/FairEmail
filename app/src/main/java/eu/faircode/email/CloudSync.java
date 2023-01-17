@@ -79,12 +79,12 @@ public class CloudSync {
             long lrevision = prefs.getLong("sync_status", new Date().getTime());
             Log.i("Cloud local revision=" + lrevision + " (" + new Date(lrevision) + ")");
 
-            JSONObject jsyncstatus = new JSONObject();
-            jsyncstatus.put("key", "sync.status");
-            jsyncstatus.put("rev", lrevision);
+            JSONObject jsync = new JSONObject();
+            jsync.put("key", "sync.status");
+            jsync.put("rev", lrevision);
 
             JSONArray jitems = new JSONArray();
-            jitems.put(jsyncstatus);
+            jitems.put(jsync);
 
             jrequest.put("items", jitems);
 
@@ -93,13 +93,30 @@ public class CloudSync {
 
             if (jitems.length() == 0) {
                 Log.i("Cloud server is empty");
+
+                JSONObject jstatusdata = new JSONObject();
+                jstatusdata.put("sync.version", 1);
+                jstatusdata.put("app.version", BuildConfig.VERSION_CODE);
+
+                jsync = new JSONObject();
+                jsync.put("key", "sync.status");
+                jsync.put("val", jstatusdata.toString());
+                jsync.put("rev", lrevision);
+                jitems.put(jsync);
+
+                jrequest = new JSONObject();
+                jrequest.put("items", jitems);
+                call(context, user, password, "write", jrequest);
+
+                prefs.edit().putLong("sync_status", lrevision).apply();
             } else if (jitems.length() == 1) {
                 Log.i("Cloud sync check");
-                jsyncstatus = jitems.getJSONObject(0);
-                long rrevision = jsyncstatus.getLong("rev");
-                JSONObject jstatus = new JSONObject(jsyncstatus.getString("val"));
-                int sync_version = jstatus.optInt("sync.version", 0);
-                int app_version = jstatus.optInt("app.version", 0);
+                jsync = jitems.getJSONObject(0);
+                long rrevision = jsync.getLong("rev");
+                JSONObject jstatusdata = new JSONObject(jsync.getString("val"));
+
+                int sync_version = jstatusdata.optInt("sync.version", 0);
+                int app_version = jstatusdata.optInt("app.version", 0);
                 Log.i("Cloud version sync=" + sync_version + " app=" + app_version +
                         " local=" + lrevision + " remote=" + rrevision);
             } else
