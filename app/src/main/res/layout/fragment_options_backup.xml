@@ -304,54 +304,13 @@
                     app:layout_constraintTop_toBottomOf="@id/tvRegister" />
 
                 <CheckBox
-                    android:id="@+id/cbAccounts"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_cloud_accounts"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLogin" />
-
-                <CheckBox
-                    android:id="@+id/cbAccountsDelete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_cloud_accounts_delete"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbAccounts" />
-
-                <TextView
-                    android:id="@+id/tvAccountsInfo"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="12dp"
-                    android:text="@string/title_advanced_cloud_accounts_info"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbAccountsDelete" />
-
-                <CheckBox
                     android:id="@+id/cbBlockedSenders"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_cloud_blocked_senders"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAccountsInfo" />
-
-                <CheckBox
-                    android:id="@+id/cbFilterRules"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_cloud_filter_rules"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbBlockedSenders" />
+                    app:layout_constraintTop_toBottomOf="@id/tvLogin" />
 
                 <ImageButton
                     android:id="@+id/ibSync"
@@ -359,7 +318,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cbFilterRules"
+                    app:layout_constraintTop_toBottomOf="@id/cbBlockedSenders"
                     app:srcCompat="@drawable/twotone_compare_arrows_24" />
 
                 <TextView

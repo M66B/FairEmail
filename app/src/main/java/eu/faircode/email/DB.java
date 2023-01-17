@@ -68,7 +68,7 @@ import javax.mail.internet.InternetAddress;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 262,
+        version = 261,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -81,8 +81,7 @@ import javax.mail.internet.InternetAddress;
                 EntityAnswer.class,
                 EntityRule.class,
                 EntitySearch.class,
-                EntityLog.class,
-                EntitySync.class
+                EntityLog.class
         },
         views = {
                 TupleAccountView.class,
@@ -116,8 +115,6 @@ public abstract class DB extends RoomDatabase {
     public abstract DaoSearch search();
 
     public abstract DaoLog log();
-
-    public abstract DaoSync sync();
 
     private static int sPid;
     private static Context sContext;
@@ -479,19 +476,9 @@ public abstract class DB extends RoomDatabase {
                                         Log.i("Get PRAGMA " + pragma + "=<?>");
                                 }
 
-                        if (BuildConfig.DEBUG) {
+                        if (BuildConfig.DEBUG && false) {
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
-
-                            db.execSQL("DROP TRIGGER IF EXISTS `account_insert`");
-                            db.execSQL("DROP TRIGGER IF EXISTS `account_update`");
-                            db.execSQL("DROP TRIGGER IF EXISTS `account_auth`");
-                            db.execSQL("DROP TRIGGER IF EXISTS `account_delete`");
-
-                            db.execSQL("DROP TRIGGER IF EXISTS `identity_insert`");
-                            db.execSQL("DROP TRIGGER IF EXISTS `identity_update`");
-                            db.execSQL("DROP TRIGGER IF EXISTS `identity_auth`");
-                            db.execSQL("DROP TRIGGER IF EXISTS `identity_delete`");
                         }
 
                         createTriggers(db);
@@ -552,72 +539,6 @@ public abstract class DB extends RoomDatabase {
                 "  WHERE message.id = OLD.message" +
                 "  AND OLD.encryption IS NULL" +
                 "  AND NOT ((OLD.disposition = 'inline' OR (OLD.related IS NOT 0 AND OLD.cid IS NOT NULL)) AND OLD.type IN (" + images + "));" +
-                " END");
-
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS account_insert" +
-                " AFTER INSERT ON account" +
-                " BEGIN" +
-                "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
-                "  VALUES ('account', NEW.uuid, 'insert', strftime('%s') * 1000);" +
-                " END");
-
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS account_update" +
-                " AFTER UPDATE" +
-                " OF host, encryption, insecure, port, realm, fingerprint" +
-                ", poll_interval, keep_alive_noop, partial_fetch, ignore_size, use_date, use_received, unicode" +
-                " ON account" +
-                " BEGIN" +
-                "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
-                "  VALUES ('account', NEW.uuid, 'update', strftime('%s') * 1000);" +
-                " END");
-
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS account_auth" +
-                " AFTER UPDATE" +
-                " OF auth_type, provider, `user`, password" +
-                " ON account" +
-                " BEGIN" +
-                "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
-                "  VALUES ('account', NEW.uuid, 'auth', strftime('%s') * 1000);" +
-                " END");
-
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS account_delete" +
-                " AFTER DELETE ON account" +
-                " BEGIN" +
-                "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
-                "  VALUES ('account', OLD.uuid, 'delete', strftime('%s') * 1000);" +
-                " END");
-
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_insert" +
-                " AFTER INSERT ON identity" +
-                " BEGIN" +
-                "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
-                "  VALUES ('identity', NEW.uuid, 'insert', strftime('%s') * 1000);" +
-                " END");
-
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_update" +
-                " AFTER UPDATE" +
-                " OF email, host, encryption, insecure, port, realm, fingerprint" +
-                ", use_ip, ehlo, unicode, octetmime" +
-                " ON identity" +
-                " BEGIN" +
-                "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
-                "  VALUES ('identity', NEW.uuid, 'update', strftime('%s') * 1000);" +
-                " END");
-
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_auth" +
-                " AFTER UPDATE" +
-                " OF auth_type, provider, `user`, password" +
-                " ON identity" +
-                " BEGIN" +
-                "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
-                "  VALUES ('identity', NEW.uuid, 'auth', strftime('%s') * 1000);" +
-                " END");
-
-        db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_delete" +
-                " AFTER DELETE ON identity" +
-                " BEGIN" +
-                "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
-                "  VALUES ('identity', OLD.uuid, 'delete', strftime('%s') * 1000);" +
                 " END");
     }
 
@@ -2715,20 +2636,6 @@ public abstract class DB extends RoomDatabase {
                             db.execSQL("UPDATE `folder` SET `hide_seen` = 0 WHERE `unified` = 0");
                         else
                             db.execSQL("UPDATE `folder` SET `hide_seen` = 0");
-                    }
-                }).addMigrations(new Migration(261, 262) {
-                    @Override
-                    public void migrate(@NonNull SupportSQLiteDatabase db) {
-                        logMigration(startVersion, endVersion);
-                        db.execSQL("CREATE TABLE `sync`" +
-                                " (`id` INTEGER PRIMARY KEY AUTOINCREMENT" +
-                                ", `entity` TEXT NOT NULL" +
-                                ", `reference` TEXT" +
-                                ", `action` TEXT NOT NULL" +
-                                ", `time` INTEGER NOT NULL)");
-                        db.execSQL("CREATE INDEX IF NOT EXISTS `index_sync_entity_reference` ON `sync` (`entity`, `reference`)");
-                        db.execSQL("CREATE INDEX IF NOT EXISTS `index_sync_time` ON `sync` (`time`)");
-                        createTriggers(db);
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
