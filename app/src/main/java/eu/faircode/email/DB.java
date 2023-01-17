@@ -564,6 +564,7 @@ public abstract class DB extends RoomDatabase {
         db.execSQL("CREATE TRIGGER IF NOT EXISTS account_update" +
                 " AFTER UPDATE" +
                 " OF host, encryption, insecure, port, realm, fingerprint" +
+                ", poll_interval, keep_alive_noop, partial_fetch, ignore_size, use_date, use_received, unicode" +
                 " ON account" +
                 " BEGIN" +
                 "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
@@ -572,7 +573,7 @@ public abstract class DB extends RoomDatabase {
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS account_auth" +
                 " AFTER UPDATE" +
-                " OF auth_type, provider, `user`, password, certificate_alias" +
+                " OF auth_type, provider, `user`, password" +
                 " ON account" +
                 " BEGIN" +
                 "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
@@ -595,7 +596,8 @@ public abstract class DB extends RoomDatabase {
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_update" +
                 " AFTER UPDATE" +
-                " OF host, encryption, insecure, port, realm, fingerprint" +
+                " OF email, host, encryption, insecure, port, realm, fingerprint" +
+                ", use_ip, ehlo, unicode, octetmime" +
                 " ON identity" +
                 " BEGIN" +
                 "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +
@@ -604,7 +606,7 @@ public abstract class DB extends RoomDatabase {
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_auth" +
                 " AFTER UPDATE" +
-                " OF auth_type, provider, `user`, password, certificate_alias" +
+                " OF auth_type, provider, `user`, password" +
                 " ON identity" +
                 " BEGIN" +
                 "  INSERT INTO sync ('entity', 'reference', 'action', 'time')" +

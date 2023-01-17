@@ -973,11 +973,14 @@
     <string name="title_advanced_cleanup_hint">This will delete all temporary files</string>
     <string name="title_advanced_keywords_hint" translatable="false">Space separated</string>
 
+    <string name="title_experimental" translatable="false">This is an experimental feature!</string>
     <string name="title_advanced_cloud_security" translatable="false">All data is encrypted end-to-end and the cloud server will never see the username, password and data</string>
     <string name="title_advanced_cloud_login" translatable="false">Login</string>
     <string name="title_advanced_cloud_register" translatable="false">Logging in for the first time will automatically create an account</string>
     <string name="title_advanced_cloud_invalid" translatable="false">Invalid username or password</string>
     <string name="title_advanced_cloud_accounts" translatable="false">Sync accounts</string>
+    <string name="title_advanced_cloud_accounts_delete" translatable="false">Delete accounts</string>
+    <string name="title_advanced_cloud_accounts_info" translatable="false">Only the server configuration will be synchronized</string>
     <string name="title_advanced_cloud_blocked_senders" translatable="false">Sync blocked senders</string>
     <string name="title_advanced_cloud_filter_rules" translatable="false">Sync filter rules</string>
     <string name="title_advanced_cloud_last_sync" translatable="false">Last sync: %1$s</string>

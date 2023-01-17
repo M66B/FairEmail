@@ -45,8 +45,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -127,6 +129,8 @@ public class CloudSync {
                                 receiveRemoteData(context, user, password, lrevision, jstatus);
                     } else
                         receiveRemoteData(context, user, password, lrevision, jstatus);
+                else if (BuildConfig.DEBUG)
+                    receiveRemoteData(context, user, password, lrevision - 1, jstatus);
             } else
                 throw new IllegalArgumentException("Expected one status item");
 
@@ -213,13 +217,13 @@ public class CloudSync {
 
                             JSONObject jidentity = new JSONObject();
                             jidentity.put("key", "identity." + identity.uuid);
-                            jidentity.put("val", identity.toJSON().toString());
+                            jidentity.put("val", toJSON(identity).toString());
                             jidentity.put("rev", lrevision);
                             jupload.put(jidentity);
                         }
 
                 JSONObject jaccountdata = new JSONObject();
-                jaccountdata.put("account", account.toJSON());
+                jaccountdata.put("account", toJSON(account));
                 jaccountdata.put("identities", jidentitieuuids);
 
                 JSONObject jaccount = new JSONObject();
@@ -254,8 +258,13 @@ public class CloudSync {
             throws JSONException, GeneralSecurityException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean sync_accounts = prefs.getBoolean("cloud_sync_accounts", true);
+        boolean sync_accounts_delete = prefs.getBoolean("cloud_sync_accounts_delete", false);
+        boolean sync_blocked_senders = prefs.getBoolean("cloud_sync_blocked_senders", true);
+        boolean sync_filter_rules = prefs.getBoolean("cloud_sync_filter_rules", true);
 
         // New revision
+        boolean updates = false;
         JSONArray jdownload = new JSONArray();
 
         // Get accounts
@@ -286,11 +295,12 @@ public class CloudSync {
                 long revision = jaccount.getLong("rev");
 
                 JSONObject jaccountdata = new JSONObject(value);
-                EntityAccount raccount = EntityAccount.fromJSON(jaccountdata.getJSONObject("account"));
+                EntityAccount raccount = accountFromJSON(jaccountdata.getJSONObject("account"));
                 EntityAccount laccount = db.account().getAccountByUUID(raccount.uuid);
 
                 JSONArray jidentities = jaccountdata.getJSONArray("identities");
-                Log.i("Cloud account " + raccount.uuid + "=" + (laccount == null ? "insert" : "update") +
+                Log.i("Cloud account " + raccount.uuid + "=" +
+                        (laccount == null ? "insert" : (areEqual(toJSON(raccount), toJSON(laccount)) ? "equal" : "update")) +
                         " rev=" + revision +
                         " identities=" + jidentities +
                         " size=" + value.length());
@@ -316,9 +326,11 @@ public class CloudSync {
                     JSONObject jidentity = jitems.getJSONObject(i);
                     String value = jidentity.getString("val");
                     long revision = jidentity.getLong("rev");
-                    EntityIdentity ridentity = EntityIdentity.fromJSON(new JSONObject(value));
+                    EntityIdentity ridentity = identityFromJSON(new JSONObject(value));
                     EntityIdentity lidentity = db.identity().getIdentityByUUID(ridentity.uuid);
-                    Log.i("Cloud identity " + ridentity.uuid + "=" + (lidentity == null ? "insert" : "update") +
+
+                    Log.i("Cloud identity " + ridentity.uuid + "=" +
+                            (lidentity == null ? "insert" : (areEqual(toJSON(ridentity), toJSON(lidentity)) ? "equal" : "update")) +
                             " rev=" + revision +
                             " size=" + value.length());
                 }
@@ -326,6 +338,216 @@ public class CloudSync {
         }
 
         prefs.edit().putLong("sync_status", lrevision).apply();
+
+        if (updates)
+            ServiceSynchronize.reload(context, null, true, "sync");
+    }
+
+    private static boolean areEqual(JSONObject o1, JSONObject o2) throws JSONException {
+        if (o1 == null && o2 == null)
+            return true;
+        if (o1 == null || o2 == null)
+            return false;
+
+        Iterator<String> i1 = o1.keys();
+        while (i1.hasNext()) {
+            String k1 = i1.next();
+            if (!o2.has(k1))
+                return false;
+        }
+
+        Iterator<String> i2 = o2.keys();
+        while (i2.hasNext()) {
+            String k2 = i2.next();
+            if (!o2.has(k2))
+                return false;
+            if (!Objects.equals(o1.get(k2), o2.get(k2)))
+                return false;
+        }
+
+        return true;
+    }
+
+    private static JSONObject toJSON(EntityAccount account) throws JSONException {
+        JSONObject json = new JSONObject();
+        if (account == null)
+            return json;
+        //json.put("id", id);
+        json.put("uuid", account.uuid);
+        //json.put("order", order);
+        json.put("protocol", account.protocol);
+        json.put("host", account.host);
+        json.put("encryption", account.encryption);
+        json.put("insecure", account.insecure);
+        json.put("port", account.port);
+        json.put("auth_type", account.auth_type);
+        json.put("provider", account.provider);
+        json.put("user", account.user);
+        json.put("password", account.password);
+        //json.put("certificate_alias", certificate_alias);
+        json.put("realm", account.realm);
+        json.put("fingerprint", account.fingerprint);
+
+        //json.put("name", name);
+        //json.put("category", category);
+        //json.put("color", color);
+        //json.put("calendar", calendar);
+
+        //json.put("synchronize", synchronize);
+        //json.put("ondemand", ondemand);
+        //json.put("poll_exempted", poll_exempted);
+        //json.put("primary", primary);
+        //json.put("notify", notify);
+        //json.put("browse", browse);
+        //json.put("leave_on_server", leave_on_server);
+        //json.put("leave_deleted", leave_deleted);
+        //json.put("leave_on_device", leave_on_device);
+        //json.put("max_messages", max_messages);
+        //json.put("auto_seen", auto_seen);
+        // not separator
+
+        //json.put("swipe_left", swipe_left);
+        //json.put("swipe_right", swipe_right);
+
+        //json.put("move_to", move_to);
+
+        json.put("poll_interval", account.poll_interval);
+        json.put("keep_alive_noop", account.keep_alive_noop);
+        json.put("partial_fetch", account.partial_fetch);
+        json.put("ignore_size", account.ignore_size);
+        json.put("use_date", account.use_date);
+        json.put("use_received", account.use_received);
+        json.put("unicode", account.unicode);
+        //json.put("conditions", conditions);
+        // not prefix
+        // not created
+        // not tbd
+        // not state
+        // not warning
+        // not error
+        // not last connected
+        return json;
+    }
+
+    public static EntityAccount accountFromJSON(JSONObject json) throws JSONException {
+        EntityAccount account = new EntityAccount();
+        account.uuid = json.getString("uuid");
+        if (json.has("protocol"))
+            account.protocol = json.getInt("protocol");
+
+        account.host = json.getString("host");
+        account.encryption = json.getInt("encryption");
+        account.insecure = (json.has("insecure") && json.getBoolean("insecure"));
+        account.port = json.getInt("port");
+        account.auth_type = json.getInt("auth_type");
+        if (json.has("provider") && !json.isNull("provider"))
+            account.provider = json.getString("provider");
+        account.user = json.getString("user");
+        account.password = json.getString("password");
+        if (json.has("realm") && !json.isNull("realm"))
+            account.realm = json.getString("realm");
+        if (json.has("fingerprint") && !json.isNull("fingerprint"))
+            account.fingerprint = json.getString("fingerprint");
+
+        account.poll_interval = json.getInt("poll_interval");
+        account.keep_alive_noop = json.optBoolean("keep_alive_noop");
+
+        account.partial_fetch = json.optBoolean("partial_fetch", true);
+        account.ignore_size = json.optBoolean("ignore_size", false);
+        account.use_date = json.optBoolean("use_date", false);
+        account.use_received = json.optBoolean("use_received", false);
+        account.unicode = json.optBoolean("unicode", false);
+
+        return account;
+    }
+
+    private static JSONObject toJSON(EntityIdentity identity) throws JSONException {
+        JSONObject json = new JSONObject();
+        if (identity == null)
+            return json;
+        //json.put("id", id);
+        json.put("uuid", identity.uuid);
+        //json.put("name", name);
+        json.put("email", identity.email);
+        // not account
+        //json.put("display", display);
+        //if (color != null)
+        //    json.put("color", color);
+        //TODO json.put("signature", signature);
+
+        json.put("host", identity.host);
+        json.put("encryption", identity.encryption);
+        json.put("insecure", identity.insecure);
+        json.put("port", identity.port);
+        json.put("auth_type", identity.auth_type);
+        json.put("provider", identity.provider);
+        json.put("user", identity.user);
+        json.put("password", identity.password);
+        //json.put("certificate_alias", certificate_alias);
+        json.put("realm", identity.realm);
+        json.put("fingerprint", identity.fingerprint);
+        json.put("use_ip", identity.use_ip);
+        json.put("ehlo", identity.ehlo);
+
+        //json.put("synchronize", synchronize);
+        //json.put("primary", primary);
+        //TODO json.put("self", self);
+        //TODO json.put("sender_extra", sender_extra);
+        //TODO json.put("sender_extra_name", sender_extra_name);
+        //TODO json.put("sender_extra_regex", sender_extra_regex);
+
+        //json.put("replyto", replyto);
+        //json.put("cc", cc);
+        //json.put("bcc", bcc);
+        //json.put("internal", internal);
+
+        json.put("unicode", identity.unicode);
+        json.put("octetmime", identity.octetmime);
+        // not plain_only
+        //json.put("sign_default", sign_default);
+        //json.put("encrypt_default", encrypt_default);
+        // not encrypt
+        // delivery_receipt
+        // read_receipt
+        // not store_sent
+        // not sent_folder
+        // not sign_key
+        // sign_key_alias
+        // not tbd
+        // not state
+        // not error
+        // not last_connected
+        // not max_size
+        return json;
+    }
+
+    public static EntityIdentity identityFromJSON(JSONObject json) throws JSONException {
+        EntityIdentity identity = new EntityIdentity();
+        identity.uuid = json.getString("uuid");
+        identity.email = json.getString("email");
+
+        identity.host = json.getString("host");
+        identity.encryption = json.getInt("encryption");
+        identity.insecure = json.optBoolean("insecure");
+        identity.port = json.getInt("port");
+        identity.auth_type = json.getInt("auth_type");
+        if (json.has("provider") && !json.isNull("provider"))
+            identity.provider = json.getString("provider");
+        identity.user = json.getString("user");
+        identity.password = json.getString("password");
+        if (json.has("realm") && !json.isNull("realm"))
+            identity.realm = json.getString("realm");
+        if (json.has("fingerprint") && !json.isNull("fingerprint"))
+            identity.fingerprint = json.getString("fingerprint");
+        if (json.has("use_ip"))
+            identity.use_ip = json.getBoolean("use_ip");
+        if (json.has("ehlo") && !json.isNull("ehlo"))
+            identity.ehlo = json.getString("ehlo");
+
+        identity.unicode = json.optBoolean("unicode");
+        identity.octetmime = json.optBoolean("octetmime");
+
+        return identity;
     }
 
     // Lower level

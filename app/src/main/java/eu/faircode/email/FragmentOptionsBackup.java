@@ -119,6 +119,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private Button btnLogin;
     private TextView tvLogin;
     private CheckBox cbAccounts;
+    private CheckBox cbAccountsDelete;
     private CheckBox cbBlockedSenders;
     private CheckBox cbFilterRules;
     private ImageButton ibSync;
@@ -162,6 +163,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         btnLogin = view.findViewById(R.id.btnLogin);
         tvLogin = view.findViewById(R.id.tvLogin);
         cbAccounts = view.findViewById(R.id.cbAccounts);
+        cbAccountsDelete = view.findViewById(R.id.cbAccountsDelete);
         cbBlockedSenders = view.findViewById(R.id.cbBlockedSenders);
         cbFilterRules = view.findViewById(R.id.cbFilterRules);
         ibSync = view.findViewById(R.id.ibSync);
@@ -214,6 +216,14 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("cloud_sync_accounts", isChecked).apply();
+                cbAccountsDelete.setEnabled(isChecked);
+            }
+        });
+
+        cbAccountsDelete.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("cloud_sync_accounts_delete", isChecked).apply();
             }
         });
 
@@ -257,6 +267,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         cbAccounts.setChecked(prefs.getBoolean("cloud_sync_accounts", true));
+        cbAccountsDelete.setChecked(prefs.getBoolean("cloud_sync_accounts_delete", false));
+        cbAccountsDelete.setEnabled(cbAccounts.isChecked());
         cbBlockedSenders.setChecked(prefs.getBoolean("cloud_sync_blocked_senders", true));
         cbFilterRules.setChecked(prefs.getBoolean("cloud_sync_filter_rules", true));
         onSharedPreferenceChanged(prefs, null);
