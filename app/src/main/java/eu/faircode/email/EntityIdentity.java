@@ -249,7 +249,7 @@ public class EntityIdentity {
         EntityIdentity identity = new EntityIdentity();
         identity.id = json.getLong("id");
 
-        if (json.has("uuid"))
+        if (json.has("uuid") && !json.isNull("uuid"))
             identity.uuid = json.getString("uuid");
 
         identity.name = json.getString("name");
@@ -270,19 +270,19 @@ public class EntityIdentity {
         identity.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         identity.port = json.getInt("port");
         identity.auth_type = json.getInt("auth_type");
-        if (json.has("provider"))
+        if (json.has("provider") && !json.isNull("provider"))
             identity.provider = json.getString("provider");
         identity.user = json.getString("user");
         identity.password = json.getString("password");
-        if (json.has("certificate_alias"))
+        if (json.has("certificate_alias") && !json.isNull("certificate_alias"))
             identity.certificate_alias = json.getString("certificate_alias");
         if (json.has("realm") && !json.isNull("realm"))
             identity.realm = json.getString("realm");
-        if (json.has("fingerprint"))
+        if (json.has("fingerprint") && !json.isNull("fingerprint"))
             identity.fingerprint = json.getString("fingerprint");
         if (json.has("use_ip"))
             identity.use_ip = json.getBoolean("use_ip");
-        if (json.has("ehlo"))
+        if (json.has("ehlo") && !json.isNull("ehlo"))
             identity.ehlo = json.getString("ehlo");
 
         identity.synchronize = json.getBoolean("synchronize");
@@ -293,7 +293,7 @@ public class EntityIdentity {
             identity.sender_extra = json.getBoolean("sender_extra");
         if (json.has("sender_extra_name"))
             identity.sender_extra_name = json.getBoolean("sender_extra_name");
-        if (json.has("sender_extra_regex"))
+        if (json.has("sender_extra_regex") && !json.isNull("sender_extra_regex"))
             identity.sender_extra_regex = json.getString("sender_extra_regex");
 
         if (json.has("replyto") && !json.isNull("replyto"))

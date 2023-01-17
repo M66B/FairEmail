@@ -336,7 +336,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         if (json.has("id"))
             account.id = json.getLong("id");
 
-        if (json.has("uuid"))
+        if (json.has("uuid") && !json.isNull("uuid"))
             account.uuid = json.getString("uuid");
 
         if (json.has("order"))
@@ -356,15 +356,15 @@ public class EntityAccount extends EntityOrder implements Serializable {
         account.insecure = (json.has("insecure") && json.getBoolean("insecure"));
         account.port = json.getInt("port");
         account.auth_type = json.getInt("auth_type");
-        if (json.has("provider"))
+        if (json.has("provider") && !json.isNull("provider"))
             account.provider = json.getString("provider");
         account.user = json.getString("user");
         account.password = json.getString("password");
-        if (json.has("certificate_alias"))
+        if (json.has("certificate_alias") && !json.isNull("certificate_alias"))
             account.certificate_alias = json.getString("certificate_alias");
-        if (json.has("realm"))
+        if (json.has("realm") && !json.isNull("realm"))
             account.realm = json.getString("realm");
-        if (json.has("fingerprint"))
+        if (json.has("fingerprint") && !json.isNull("fingerprint"))
             account.fingerprint = json.getString("fingerprint");
 
         if (json.has("name") && !json.isNull("name"))
@@ -373,7 +373,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
             account.category = json.getString("category");
         if (json.has("color"))
             account.color = json.getInt("color");
-        account.calendar = json.optString("calendar", null);
+        if (json.has("calendar") && !json.isNull("calendar"))
+            account.calendar = json.getString("calendar");
 
         account.synchronize = json.getBoolean("synchronize");
         if (json.has("ondemand"))
