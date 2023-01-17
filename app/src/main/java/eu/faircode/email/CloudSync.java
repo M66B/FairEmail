@@ -33,6 +33,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.ByteBuffer;
@@ -49,6 +51,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -723,7 +727,8 @@ public class CloudSync {
         return ad;
     }
 
-    private static String transform(String value, byte[] key, byte[] ad, boolean encrypt) throws GeneralSecurityException {
+    private static String transform(String value, byte[] key, byte[] ad, boolean encrypt)
+            throws GeneralSecurityException, IOException {
         SecretKeySpec secret = new SecretKeySpec(key, "AES");
         Cipher cipher = Cipher.getInstance("AES/GCM-SIV/NoPadding");
         IvParameterSpec ivSpec = new IvParameterSpec(new byte[12]);
@@ -731,12 +736,29 @@ public class CloudSync {
         if (ad != null)
             cipher.updateAAD(ad);
         if (encrypt) {
-            byte[] encrypted = cipher.doFinal(value.getBytes());
+            byte[] encrypted = cipher.doFinal(compress(value.getBytes()));
             return Base64.encodeToString(encrypted, Base64.NO_PADDING | Base64.NO_WRAP);
         } else {
             byte[] encrypted = Base64.decode(value, Base64.NO_PADDING | Base64.NO_WRAP);
             byte[] decrypted = cipher.doFinal(encrypted);
-            return new String(decrypted);
+            return new String(decompress(decrypted));
+        }
+    }
+
+    public static byte[] compress(byte[] data) throws IOException {
+        try (ByteArrayOutputStream bos = new ByteArrayOutputStream(data.length)) {
+            try (GZIPOutputStream gzip = new GZIPOutputStream(bos)) {
+                gzip.write(data);
+            }
+            return bos.toByteArray();
+        }
+    }
+
+    public static byte[] decompress(byte[] compressed) throws IOException {
+        try (ByteArrayInputStream is = new ByteArrayInputStream(compressed)) {
+            try (GZIPInputStream gis = new GZIPInputStream(is)) {
+                return Helper.readBytes(gis);
+            }
         }
     }
 
