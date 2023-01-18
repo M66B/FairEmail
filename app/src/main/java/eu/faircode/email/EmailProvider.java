@@ -70,6 +70,9 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 import javax.net.SocketFactory;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 
@@ -612,17 +615,17 @@ public class EmailProvider implements Parcelable {
         for (String link : Misc.getISPDBUrls(domain, email))
             try {
                 URL url = new URL(link);
-                return getISPDB(context, domain, url, intf);
+                return getISPDB(context, domain, url, true, intf);
             } catch (Throwable ex) {
                 Log.i(ex);
             }
 
         URL url = new URL("https://autoconfig.thunderbird.net/v1.1/" + domain);
-        return getISPDB(context, domain, url, intf);
+        return getISPDB(context, domain, url, false, intf);
     }
 
     @NonNull
-    private static EmailProvider getISPDB(Context context, String domain, URL url, IDiscovery intf) throws IOException, XmlPullParserException {
+    private static EmailProvider getISPDB(Context context, String domain, URL url, boolean unsafe, IDiscovery intf) throws IOException, XmlPullParserException {
         EmailProvider provider = new EmailProvider(domain);
 
         HttpURLConnection request = null;
@@ -636,6 +639,16 @@ public class EmailProvider implements Parcelable {
             request.setConnectTimeout(ISPDB_TIMEOUT);
             request.setDoInput(true);
             ConnectionHelper.setUserAgent(context, request);
+
+            if (unsafe && request instanceof HttpsURLConnection) {
+                ((HttpsURLConnection) request).setHostnameVerifier(new HostnameVerifier() {
+                    @Override
+                    public boolean verify(String hostname, SSLSession session) {
+                        return true;
+                    }
+                });
+            }
+
             request.connect();
 
             int status = request.getResponseCode();
