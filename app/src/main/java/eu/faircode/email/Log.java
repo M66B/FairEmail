@@ -32,6 +32,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.UriPermission;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -2857,6 +2858,21 @@ public class Log {
             long size = 0;
             File file = attachment.getFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                try {
+                    List<UriPermission> uperms = context.getContentResolver().getPersistedUriPermissions();
+                    if (uperms != null)
+                        for (UriPermission uperm : uperms) {
+                            size += write(os, String.format("%s r=%b w=%b %s\r\n",
+                                    uperm.getUri().toString(),
+                                    uperm.isReadPermission(),
+                                    uperm.isWritePermission(),
+                                    new Date(uperm.getPersistedTime())));
+                        }
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+                size += write(os, "\r\n");
+
                 try {
                     PackageInfo pi = context.getPackageManager()
                             .getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
