@@ -270,7 +270,10 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         sbDLimit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("send_dlimit", progress).apply();
+
                 progress++;
+
                 tvDLimit.setText(getString(R.string.title_style_link_send_dlimit, Integer.toString(progress)));
             }
 
@@ -288,6 +291,8 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         sbTLimit.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putInt("send_tlimit", progress).apply();
+
                 progress++;
 
                 if (progress < 24)
@@ -320,8 +325,12 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
             etTitle.setText(savedInstanceState.getString("fair:text"));
         }
 
-        sbDLimit.setProgress(Send.DEFAULT_DLIMIT - 1);
-        sbTLimit.setProgress(Send.DEFAULT_TLIMIT - 1);
+        int dlimit = prefs.getInt("send_dlimit", Send.DEFAULT_DLIMIT - 1);
+        int tlimit = prefs.getInt("send_tlimit", Send.DEFAULT_TLIMIT - 1);
+        sbDLimit.setProgress(dlimit == 0 ? 1 : 0);
+        sbTLimit.setProgress(tlimit == 0 ? 1 : 0);
+        sbDLimit.setProgress(dlimit);
+        sbTLimit.setProgress(tlimit);
 
         pbWait.setVisibility(View.GONE);
         pbUpload.setVisibility(View.GONE);
