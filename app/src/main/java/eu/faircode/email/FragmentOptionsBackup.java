@@ -118,7 +118,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private TextInputLayout tilPassword;
     private Button btnLogin;
     private TextView tvLogin;
-    private CheckBox cbBlockedSenders;
     private ImageButton ibSync;
     private TextView tvLastSync;
     private Button btnLogout;
@@ -159,7 +158,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         tilPassword = view.findViewById(R.id.tilPassword);
         btnLogin = view.findViewById(R.id.btnLogin);
         tvLogin = view.findViewById(R.id.tvLogin);
-        cbBlockedSenders = view.findViewById(R.id.cbBlockedSenders);
         ibSync = view.findViewById(R.id.ibSync);
         tvLastSync = view.findViewById(R.id.tvLastSync);
         btnLogout = view.findViewById(R.id.btnLogout);
@@ -206,13 +204,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             }
         });
 
-        cbBlockedSenders.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                prefs.edit().putBoolean("cloud_sync_blocked_senders", isChecked).apply();
-            }
-        });
-
         ibSync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -238,7 +229,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         Helper.linkPro(tvCloudPro);
 
         prefs.registerOnSharedPreferenceChangeListener(this);
-        cbBlockedSenders.setChecked(prefs.getBoolean("cloud_sync_blocked_senders", true));
         onSharedPreferenceChanged(prefs, null);
 
         return view;
@@ -1455,8 +1445,14 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     }
 
     private void onCloudLogin() {
+        final Context context = getContext();
         String username = etUser.getText().toString().trim();
         String password = tilPassword.getEditText().getText().toString();
+
+        if (!ActivityBilling.isPro(context)) {
+            context.startActivity(new Intent(context, ActivityBilling.class));
+            return;
+        }
 
         if (TextUtils.isEmpty(username)) {
             etUser.requestFocus();
@@ -1468,7 +1464,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             return;
         }
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit()
                 .putString("cloud_user", username)
                 .putString("cloud_password", password)

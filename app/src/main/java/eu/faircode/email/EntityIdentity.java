@@ -323,41 +323,47 @@ public class EntityIdentity {
     public boolean equals(Object obj) {
         if (obj instanceof EntityIdentity) {
             EntityIdentity other = (EntityIdentity) obj;
-            return (Objects.equals(this.uuid, other.uuid) &&
-                    this.name.equals(other.name) &&
-                    this.email.equals(other.email) &&
-                    this.account.equals(other.account) &&
-                    Objects.equals(this.display, other.display) &&
-                    Objects.equals(this.color, other.color) &&
-                    Objects.equals(this.signature, other.signature) &&
-                    this.host.equals(other.host) &&
-                    this.encryption.equals(other.encryption) &&
-                    this.insecure.equals(other.insecure) &&
-                    this.port.equals(other.port) &&
-                    this.auth_type.equals(other.auth_type) &&
-                    this.user.equals(other.user) &&
-                    this.password.equals(other.password) &&
-                    Objects.equals(this.realm, other.realm) &&
-                    this.use_ip == other.use_ip &&
-                    Objects.equals(this.ehlo, other.ehlo) &&
-                    this.synchronize.equals(other.synchronize) &&
-                    this.primary.equals(other.primary) &&
-                    this.self.equals(other.self) &&
-                    this.sender_extra.equals(other.sender_extra) &&
-                    this.sender_extra_name.equals(other.sender_extra_name) &&
-                    Objects.equals(this.sender_extra_regex, other.sender_extra_regex) &&
-                    Objects.equals(this.replyto, other.replyto) &&
-                    Objects.equals(this.cc, other.cc) &&
-                    Objects.equals(this.bcc, other.bcc) &&
-                    Objects.equals(this.internal, other.internal) &&
-                    Objects.equals(this.sign_key, other.sign_key) &&
-                    Objects.equals(this.sign_key_alias, other.sign_key_alias) &&
-                    Objects.equals(this.state, other.state) &&
-                    Objects.equals(this.error, other.error) &&
-                    Objects.equals(this.last_connected, other.last_connected) &&
-                    Objects.equals(this.max_size, other.max_size));
+            return areEqual(this, other, true, true);
         } else
             return false;
+    }
+
+    public static boolean areEqual(EntityIdentity i1, EntityIdentity other, boolean auth, boolean state) {
+        return (Objects.equals(i1.uuid, other.uuid) &&
+                i1.name.equals(other.name) &&
+                i1.email.equals(other.email) &&
+                Objects.equals(i1.account, other.account) &&
+                Objects.equals(i1.display, other.display) &&
+                Objects.equals(i1.color, other.color) &&
+                Objects.equals(i1.signature, other.signature) &&
+                i1.host.equals(other.host) &&
+                i1.encryption.equals(other.encryption) &&
+                i1.insecure.equals(other.insecure) &&
+                i1.port.equals(other.port) &&
+                i1.auth_type.equals(other.auth_type) &&
+                Objects.equals(i1.provider, other.provider) &&
+                i1.user.equals(other.user) &&
+                (!auth || i1.password.equals(other.password)) &&
+                Objects.equals(i1.certificate_alias, other.certificate_alias) &&
+                Objects.equals(i1.realm, other.realm) &&
+                i1.use_ip == other.use_ip &&
+                Objects.equals(i1.ehlo, other.ehlo) &&
+                i1.synchronize.equals(other.synchronize) &&
+                i1.primary.equals(other.primary) &&
+                i1.self.equals(other.self) &&
+                i1.sender_extra.equals(other.sender_extra) &&
+                i1.sender_extra_name.equals(other.sender_extra_name) &&
+                Objects.equals(i1.sender_extra_regex, other.sender_extra_regex) &&
+                Objects.equals(i1.replyto, other.replyto) &&
+                Objects.equals(i1.cc, other.cc) &&
+                Objects.equals(i1.bcc, other.bcc) &&
+                Objects.equals(i1.internal, other.internal) &&
+                Objects.equals(i1.sign_key, other.sign_key) &&
+                Objects.equals(i1.sign_key_alias, other.sign_key_alias) &&
+                (!state || Objects.equals(i1.state, other.state)) &&
+                (!state || Objects.equals(i1.error, other.error)) &&
+                (!state || Objects.equals(i1.last_connected, other.last_connected)) &&
+                (!state || Objects.equals(i1.max_size, other.max_size)));
     }
 
     String getDisplayName() {

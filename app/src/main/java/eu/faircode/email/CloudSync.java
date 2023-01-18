@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 
@@ -32,7 +33,11 @@ import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.security.GeneralSecurityException;
@@ -70,21 +75,31 @@ public class CloudSync {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String user = prefs.getString("cloud_user", null);
         String password = prefs.getString("cloud_password", null);
+        if (TextUtils.isEmpty(user) || TextUtils.isEmpty(password))
+            return;
+        if (!ActivityBilling.isPro(context))
+            return;
 
         JSONObject jrequest = new JSONObject();
 
         if ("sync".equals(command)) {
-            DB db = DB.getInstance(context);
-
-            long lrevision = prefs.getLong("sync_status", new Date().getTime());
+            long lrevision = prefs.getLong("cloud_revision", new Date().getTime());
             Log.i("Cloud local revision=" + lrevision + " (" + new Date(lrevision) + ")");
 
-            JSONObject jsync = new JSONObject();
-            jsync.put("key", "sync.status");
-            jsync.put("rev", lrevision);
+            Long lastUpdate = updateSyncdata(context);
+            Log.i("Cloud last update=" + (lastUpdate == null ? null : new Date(lastUpdate)));
+            if (lastUpdate != null && lrevision > lastUpdate) {
+                Log.w("Cloud invalid local revision" +
+                        " lrevision=" + lrevision + " last=" + lastUpdate);
+                prefs.edit().putLong("cloud_revision", lastUpdate).apply();
+            }
+
+            JSONObject jsyncstatus = new JSONObject();
+            jsyncstatus.put("key", "sync.status");
+            jsyncstatus.put("rev", lrevision);
 
             JSONArray jitems = new JSONArray();
-            jitems.put(jsync);
+            jitems.put(jsyncstatus);
 
             jrequest.put("items", jitems);
 
@@ -93,32 +108,37 @@ public class CloudSync {
 
             if (jitems.length() == 0) {
                 Log.i("Cloud server is empty");
-
-                JSONObject jstatusdata = new JSONObject();
-                jstatusdata.put("sync.version", 1);
-                jstatusdata.put("app.version", BuildConfig.VERSION_CODE);
-
-                jsync = new JSONObject();
-                jsync.put("key", "sync.status");
-                jsync.put("val", jstatusdata.toString());
-                jsync.put("rev", lrevision);
-                jitems.put(jsync);
-
-                jrequest = new JSONObject();
-                jrequest.put("items", jitems);
-                call(context, user, password, "write", jrequest);
-
-                prefs.edit().putLong("sync_status", lrevision).apply();
+                sendLocalData(context, user, password, lrevision);
             } else if (jitems.length() == 1) {
                 Log.i("Cloud sync check");
-                jsync = jitems.getJSONObject(0);
-                long rrevision = jsync.getLong("rev");
-                JSONObject jstatusdata = new JSONObject(jsync.getString("val"));
-
-                int sync_version = jstatusdata.optInt("sync.version", 0);
-                int app_version = jstatusdata.optInt("app.version", 0);
+                jsyncstatus = jitems.getJSONObject(0);
+                long rrevision = jsyncstatus.getLong("rev");
+                JSONObject jstatus = new JSONObject(jsyncstatus.getString("val"));
+                int sync_version = jstatus.optInt("sync.version", 0);
+                int app_version = jstatus.optInt("app.version", 0);
                 Log.i("Cloud version sync=" + sync_version + " app=" + app_version +
-                        " local=" + lrevision + " remote=" + rrevision);
+                        " local=" + lrevision + " last=" + lastUpdate + " remote=" + rrevision);
+
+                // last > local (local mods) && remote > local (remote mods) = CONFLICT
+                // local > last = ignorable ERROR
+                // remote > local = fetch remote
+                // last > remote = send local
+
+                if (lastUpdate != null && lastUpdate > rrevision) // local newer than remote
+                    sendLocalData(context, user, password, lastUpdate);
+                else if (rrevision > lrevision) // remote changes
+                    if (lastUpdate != null && lastUpdate > lrevision) { // local changes
+                        Log.w("Cloud conflict" +
+                                " lrevision=" + lrevision + " last=" + lastUpdate + " rrevision=" + rrevision);
+                        if (manual)
+                            if (lastUpdate >= rrevision)
+                                sendLocalData(context, user, password, lastUpdate);
+                            else
+                                receiveRemoteData(context, user, password, lrevision, jstatus);
+                    } else
+                        receiveRemoteData(context, user, password, lrevision, jstatus);
+                else if (BuildConfig.DEBUG)
+                    receiveRemoteData(context, user, password, lrevision - 1, jstatus);
             } else
                 throw new IllegalArgumentException("Expected one status item");
         } else {
@@ -130,6 +150,224 @@ public class CloudSync {
         prefs.edit().putLong("cloud_last_sync", new Date().getTime()).apply();
     }
 
+    private static Long updateSyncdata(Context context) throws IOException, JSONException {
+        DB db = DB.getInstance(context);
+        File dir = Helper.ensureExists(new File(context.getFilesDir(), "syncdata"));
+
+        Long last = null;
+
+        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
+        if (accounts != null)
+            for (EntityAccount account : accounts)
+                if (!TextUtils.isEmpty(account.uuid)) {
+                    EntityAccount aexisting = null;
+                    File afile = new File(dir, "account." + account.uuid + ".json");
+                    if (afile.exists())
+                        try (InputStream is = new FileInputStream(afile)) {
+                            aexisting = EntityAccount.fromJSON(new JSONObject(Helper.readStream(is)));
+                        }
+
+                    boolean apassword = (account.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD);
+                    if (aexisting == null ||
+                            !EntityAccount.areEqual(account, aexisting, apassword, false))
+                        Helper.writeText(afile, account.toJSON().toString());
+
+                    long atime = afile.lastModified();
+                    if (last == null || atime > last)
+                        last = atime;
+
+                    List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                    if (identities != null)
+                        for (EntityIdentity identity : identities)
+                            if (!TextUtils.isEmpty(identity.uuid)) {
+                                EntityIdentity iexisting = null;
+                                File ifile = new File(dir, "identity." + identity.uuid + ".json");
+                                if (ifile.exists())
+                                    try (InputStream is = new FileInputStream(ifile)) {
+                                        iexisting = EntityIdentity.fromJSON(new JSONObject(Helper.readStream(is)));
+                                    }
+
+                                boolean ipassword = (account.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD);
+                                if (iexisting == null ||
+                                        EntityIdentity.areEqual(identity, iexisting, ipassword, false))
+                                    Helper.writeText(ifile, identity.toJSON().toString());
+
+                                long itime = ifile.lastModified();
+                                if (last == null || itime > last)
+                                    last = itime;
+                            }
+                }
+
+        return last;
+    }
+
+    private static void sendLocalData(Context context, String user, String password, long lrevision)
+            throws JSONException, GeneralSecurityException, IOException {
+        DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
+        Log.i("Cloud accounts=" + (accounts == null ? null : accounts.size()));
+        if (accounts == null || accounts.size() == 0) {
+            Log.i("Cloud no accounts");
+            return;
+        }
+
+        JSONArray jupload = new JSONArray();
+
+        JSONArray jaccountuuidlist = new JSONArray();
+        for (EntityAccount account : accounts)
+            if (!TextUtils.isEmpty(account.uuid)) {
+                jaccountuuidlist.put(account.uuid);
+
+                JSONArray jidentitieuuids = new JSONArray();
+                List<EntityIdentity> identities = db.identity().getIdentities(account.id);
+                if (identities != null)
+                    for (EntityIdentity identity : identities)
+                        if (!TextUtils.isEmpty(identity.uuid)) {
+                            jidentitieuuids.put(identity.uuid);
+
+                            JSONObject jidentitykv = new JSONObject();
+                            jidentitykv.put("key", "identity." + identity.uuid);
+                            jidentitykv.put("val", identity.toJSON().toString());
+                            jidentitykv.put("rev", lrevision);
+                            jupload.put(jidentitykv);
+                        }
+
+                JSONObject jaccount = account.toJSON();
+                if (account.swipe_left != null && account.swipe_left > 0) {
+                    EntityFolder f = db.folder().getFolder(account.swipe_left);
+                    if (f != null)
+                        jaccount.put("swipe_left_folder", f.name);
+                }
+                if (account.swipe_right != null && account.swipe_right > 0) {
+                    EntityFolder f = db.folder().getFolder(account.swipe_right);
+                    if (f != null)
+                        jaccount.put("swipe_right_folder", f.name);
+                }
+
+                JSONObject jaccountdata = new JSONObject();
+                jaccountdata.put("account", jaccount);
+                jaccountdata.put("identities", jidentitieuuids);
+
+                JSONObject jaccountkv = new JSONObject();
+                jaccountkv.put("key", "account." + account.uuid);
+                jaccountkv.put("val", jaccountdata.toString());
+                jaccountkv.put("rev", lrevision);
+                jupload.put(jaccountkv);
+            }
+
+        JSONObject jaccountuuids = new JSONObject();
+        jaccountuuids.put("uuids", jaccountuuidlist);
+
+        JSONObject jstatus = new JSONObject();
+        jstatus.put("sync.version", 1);
+        jstatus.put("app.version", BuildConfig.VERSION_CODE);
+        jstatus.put("accounts", jaccountuuids);
+
+        JSONObject jstatuskv = new JSONObject();
+        jstatuskv.put("key", "sync.status");
+        jstatuskv.put("val", jstatus.toString());
+        jstatuskv.put("rev", lrevision);
+        jupload.put(jstatuskv);
+
+        JSONObject jrequest = new JSONObject();
+        jrequest.put("items", jupload);
+        call(context, user, password, "write", jrequest);
+
+        prefs.edit().putLong("cloud_revision", lrevision).apply();
+    }
+
+    private static void receiveRemoteData(Context context, String user, String password, long lrevision, JSONObject jstatus)
+            throws JSONException, GeneralSecurityException, IOException {
+        DB db = DB.getInstance(context);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        // New revision
+        boolean updates = false;
+        JSONArray jdownload = new JSONArray();
+
+        // Get accounts
+        JSONObject jaccountstatus = jstatus.getJSONObject("accounts");
+        JSONArray jaccountuuidlist = jaccountstatus.getJSONArray("uuids");
+        for (int i = 0; i < jaccountuuidlist.length(); i++) {
+            String uuid = jaccountuuidlist.getString(i);
+            JSONObject jaccountkv = new JSONObject();
+            jaccountkv.put("key", "account." + uuid);
+            jaccountkv.put("rev", lrevision);
+            jdownload.put(jaccountkv);
+            Log.i("Cloud account uuid=" + uuid);
+        }
+
+        if (jdownload.length() > 0) {
+            Log.i("Cloud getting accounts");
+            JSONObject jrequest = new JSONObject();
+            jrequest.put("items", jdownload);
+            JSONObject jresponse = call(context, user, password, "sync", jrequest);
+
+            // Process accounts
+            Log.i("Cloud processing accounts");
+            JSONArray jitems = jresponse.getJSONArray("items");
+            jdownload = new JSONArray();
+            for (int i = 0; i < jitems.length(); i++) {
+                JSONObject jaccountkv = jitems.getJSONObject(i);
+                String value = jaccountkv.getString("val");
+                long revision = jaccountkv.getLong("rev");
+
+                JSONObject jaccountdata = new JSONObject(value);
+                JSONObject jaccount = jaccountdata.getJSONObject("account");
+                EntityAccount raccount = EntityAccount.fromJSON(jaccount);
+                EntityAccount laccount = db.account().getAccountByUUID(raccount.uuid);
+
+                JSONArray jidentities = jaccountdata.getJSONArray("identities");
+                Log.i("Cloud account " + raccount.uuid + "=" +
+                        (laccount == null ? "insert" :
+                                (EntityAccount.areEqual(raccount, laccount, laccount.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, true)
+                                        ? "equal" : "update")) +
+                        " rev=" + revision +
+                        " identities=" + jidentities +
+                        " size=" + value.length());
+
+                for (int j = 0; j < jidentities.length(); j++) {
+                    JSONObject jidentitykv = new JSONObject();
+                    jidentitykv.put("key", "identity." + jidentities.getString(j));
+                    jidentitykv.put("rev", lrevision);
+                    jdownload.put(jidentitykv);
+                }
+            }
+
+            if (jdownload.length() > 0) {
+                // Get identities
+                Log.i("Cloud getting identities");
+                jrequest.put("items", jdownload);
+                jresponse = call(context, user, password, "sync", jrequest);
+
+                // Process identities
+                Log.i("Cloud processing identities");
+                jitems = jresponse.getJSONArray("items");
+                for (int i = 0; i < jitems.length(); i++) {
+                    JSONObject jidentitykv = jitems.getJSONObject(i);
+                    long revision = jidentitykv.getLong("rev");
+                    String value = jidentitykv.getString("val");
+                    JSONObject jidentity = new JSONObject(value);
+                    EntityIdentity ridentity = EntityIdentity.fromJSON(jidentity);
+                    EntityIdentity lidentity = db.identity().getIdentityByUUID(ridentity.uuid);
+
+                    Log.i("Cloud identity " + ridentity.uuid + "=" +
+                            (lidentity == null ? "insert" :
+                                    (EntityIdentity.areEqual(ridentity, lidentity, lidentity.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, true)
+                                            ? "equal" : "update")) +
+                            " rev=" + revision +
+                            " size=" + value.length());
+                }
+            }
+        }
+
+        prefs.edit().putLong("cloud_revision", lrevision).apply();
+
+        if (updates)
+            ServiceSynchronize.reload(context, null, true, "sync");
+    }
     // Lower level
 
     public static JSONObject call(Context context, String user, String password, String command, JSONObject jrequest)
