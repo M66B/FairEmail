@@ -1816,8 +1816,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         Announcement announcement = new Announcement();
                         announcement.id = jannouncement.getInt("ID");
                         announcement.test = jannouncement.optBoolean("Test");
+                        announcement.play = jannouncement.optBoolean("Play", false);
+                        announcement.fdroid = jannouncement.optBoolean("FDroid", true);
                         announcement.title = title;
                         announcement.text = HtmlHelper.fromHtml(text, context);
+                        announcement.minVersion = jannouncement.optInt("minVersion", 0);
+                        announcement.maxVersion = jannouncement.optInt("maxVersion", BuildConfig.VERSION_CODE);
                         if (jannouncement.has("Link"))
                             announcement.link = Uri.parse(jannouncement.getString("Link"));
                         announcement.expires = DTF.parse(jannouncement.getString("Expires")
@@ -2459,13 +2463,23 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private class Announcement {
         int id;
         boolean test;
+        boolean play;
+        boolean fdroid;
         String title;
         Spanned text;
+        int minVersion;
+        int maxVersion;
         Uri link;
         Date expires;
 
         boolean isExpired() {
             if (this.test && !BuildConfig.DEBUG)
+                return true;
+            if (this.play && !BuildConfig.PLAY_STORE_RELEASE)
+                return true;
+            if (this.fdroid && !BuildConfig.FDROID_RELEASE)
+                return true;
+            if (this.minVersion > BuildConfig.VERSION_CODE || BuildConfig.VERSION_CODE > this.maxVersion)
                 return true;
             if (expires == null)
                 return true;
