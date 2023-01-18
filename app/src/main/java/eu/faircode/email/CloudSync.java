@@ -237,13 +237,17 @@ public class CloudSync {
                 JSONObject jaccount = account.toJSON();
                 if (account.swipe_left != null && account.swipe_left > 0) {
                     EntityFolder f = db.folder().getFolder(account.swipe_left);
-                    if (f != null)
-                        jaccount.put("swipe_left_folder", f.name);
+                    if (f != null) {
+                        jaccount.put("swipe_left_name", f.name);
+                        jaccount.put("swipe_left_type", f.type);
+                    }
                 }
                 if (account.swipe_right != null && account.swipe_right > 0) {
                     EntityFolder f = db.folder().getFolder(account.swipe_right);
-                    if (f != null)
-                        jaccount.put("swipe_right_folder", f.name);
+                    if (f != null) {
+                        jaccount.put("swipe_right_name", f.name);
+                        jaccount.put("swipe_right_type", f.name);
+                    }
                 }
 
                 JSONObject jaccountdata = new JSONObject();
@@ -320,21 +324,35 @@ public class CloudSync {
                 EntityAccount raccount = EntityAccount.fromJSON(jaccount);
                 EntityAccount laccount = db.account().getAccountByUUID(raccount.uuid);
 
-                String swipe_left_folder = null;
-                if (jaccount.has("swipe_left_folder") && !jaccount.isNull("swipe_left_folder"))
-                    swipe_left_folder = jaccount.getString("swipe_left_folder");
+                EntityFolder left = null;
+                if (jaccount.has("swipe_left_name") && !jaccount.isNull("swipe_left_name")) {
+                    left = new EntityFolder();
+                    left.account = null;
+                    left.name = jaccount.getString("swipe_left_name");
+                    left.type = jaccount.getString("swipe_left_type");
+                    left.setProperties();
+                    //left.setSpecials(account);
+                    //folder.id = db.folder().insertFolder(folder);
+                }
 
-                String swipe_right_folder = null;
-                if (jaccount.has("swipe_right_folder") && !jaccount.isNull("swipe_right_folder"))
-                    swipe_right_folder = jaccount.getString("swipe_right_folder");
+                EntityFolder right = null;
+                if (jaccount.has("swipe_right_name") && !jaccount.isNull("swipe_right_name")) {
+                    right = new EntityFolder();
+                    right.account = null;
+                    right.name = jaccount.getString("swipe_right_name");
+                    right.type = jaccount.getString("swipe_right_type");
+                    right.setProperties();
+                    //right.setSpecials(account);
+                    //folder.id = db.folder().insertFolder(folder);
+                }
 
                 Log.i("Cloud account " + raccount.uuid + "=" +
                         (laccount == null ? "insert" :
                                 (EntityAccount.areEqual(raccount, laccount, laccount.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, true)
                                         ? "equal" : "update")) +
                         " rev=" + revision +
-                        " left=" + swipe_left_folder +
-                        " right=" + swipe_right_folder +
+                        " left=" + (left == null ? null : left.name + ":" + left.type) +
+                        " right=" + (right == null ? null : right.name + ":" + right.type) +
                         " identities=" + jidentities +
                         " size=" + value.length());
 
