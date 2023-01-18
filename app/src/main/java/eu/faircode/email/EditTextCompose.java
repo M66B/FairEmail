@@ -484,7 +484,14 @@ public class EditTextCompose extends FixedEditText {
                 ClipData.Item item = cbm.getPrimaryClip().getItemAt(0);
 
                 final String html;
-                String h = item.getHtmlText();
+                String h = null;
+                if (raw) {
+                    CharSequence text = item.getText();
+                    if (text != null && HtmlHelper.isHtml(text.toString()))
+                        h = text.toString();
+                }
+                if (h == null)
+                    h = item.getHtmlText();
                 if (h == null) {
                     CharSequence text = item.getText();
                     if (text == null)
@@ -497,9 +504,9 @@ public class EditTextCompose extends FixedEditText {
                     @Override
                     public void run() {
                         try {
-                            SpannableStringBuilder ssb = (raw)
+                            SpannableStringBuilder ssb = (raw
                                     ? new SpannableStringBuilderEx(html)
-                                    : getSpanned(context, html);
+                                    : getSpanned(context, html));
 
                             EditTextCompose.this.post(new Runnable() {
                                 @Override

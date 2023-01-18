@@ -3829,6 +3829,12 @@ public class HtmlHelper {
                 .remove("x-keep-line");
     }
 
+    static boolean isHtml(String text) {
+        Pattern p = Pattern.compile(".*\\<[^>]+>.*", Pattern.DOTALL);
+        boolean isHtml = p.matcher(text).matches();
+        return isHtml;
+    }
+
     static Spanned fromHtml(@NonNull String html, Context context) {
         Document document = JsoupEx.parse(html);
         return fromDocument(context, document, null, null);
