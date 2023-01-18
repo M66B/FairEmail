@@ -377,7 +377,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     tvType.setText(EntityFolder.localizeType(context, folder.type) +
                             (folder.inherited_type == null || !(BuildConfig.DEBUG || EntityFolder.SENT.equals(folder.inherited_type))
                                     ? ""
-                                    : "/" + EntityFolder.localizeType(context, folder.inherited_type)));
+                                    : "/" + EntityFolder.localizeType(context, folder.inherited_type)) +
+                            (EntityFolder.FLAGGED.equals(folder.subtype) ? "*" : ""));
 
                 tvTotal.setText(folder.total == null ? null : NF.format(folder.total));
 

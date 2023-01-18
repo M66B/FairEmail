@@ -78,6 +78,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
     @NonNull
     public String type;
     public String inherited_type;
+    public String subtype;
     @NonNull
     public Integer level = 0; // obsolete
     @NonNull
@@ -156,6 +157,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     static final String SENT = "Sent";
     static final String SYSTEM = "System";
     static final String USER = "User";
+
+    static final String FLAGGED = "flagged";
 
     // https://tools.ietf.org/html/rfc6154
     // https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml
@@ -505,6 +508,13 @@ public class EntityFolder extends EntityOrder implements Serializable {
         }
 
         return USER;
+    }
+
+    static String getSubtype(String[] attrs, String fullname) {
+        for (String attr : attrs)
+            if ("\\Flagged".equals(attr)) // Gmail
+                return FLAGGED;
+        return null;
     }
 
     private static class TypeScore {

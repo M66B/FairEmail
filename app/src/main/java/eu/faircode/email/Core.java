@@ -750,7 +750,8 @@ class Core {
                                 if (MessageHelper.isRemoved(ex)) {
                                     if (message != null &&
                                             !EntityOperation.SEEN.equals(op.name) &&
-                                            !EntityOperation.FLAG.equals(op.name))
+                                            (!EntityOperation.FLAG.equals(op.name) ||
+                                                    EntityFolder.FLAGGED.equals(folder.subtype)))
                                         db.message().deleteMessage(message.id);
                                 }
 
@@ -2742,6 +2743,7 @@ class Core {
 
             String[] attrs = ((IMAPFolder) ifolder.second).getAttributes();
             String type = EntityFolder.getType(attrs, fullName, false);
+            String subtype = EntityFolder.getSubtype(attrs, fullName);
             boolean subscribed = subscription.contains(fullName);
 
             boolean selectable = true;
@@ -2758,7 +2760,7 @@ class Core {
             if (EntityFolder.INBOX.equals(type))
                 selectable = true;
 
-            Log.i(account.name + ":" + fullName + " type=" + type +
+            Log.i(account.name + ":" + fullName + " type=" + type + ":" + subtype +
                     " subscribed=" + subscribed +
                     " selectable=" + selectable +
                     " inferiors=" + inferiors +
@@ -2791,6 +2793,7 @@ class Core {
                         folder.separator = separator;
                         folder.name = fullName;
                         folder.type = type;
+                        folder.subtype = type;
                         folder.subscribed = subscribed;
                         folder.selectable = selectable;
                         folder.inferiors = inferiors;
@@ -2829,6 +2832,7 @@ class Core {
                             if (db.folder().getFolderByType(folder.account, EntityFolder.INBOX) == null)
                                 db.folder().setFolderType(folder.id, type);
                         }
+                        db.folder().setFolderSubtype(folder.id, subtype);
                     }
 
                     db.setTransactionSuccessful();
