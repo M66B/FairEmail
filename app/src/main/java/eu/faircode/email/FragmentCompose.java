@@ -1240,6 +1240,7 @@ public class FragmentCompose extends FragmentBase {
             }
         });
 
+        ibCcBcc.setImageLevel(cc_bcc ? 0 : 1);
         grpAddresses.setVisibility(cc_bcc ? View.VISIBLE : View.GONE);
 
         ibRemoveAttachments.setVisibility(View.GONE);
@@ -1952,6 +1953,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuAddresses() {
+        ibCcBcc.setImageLevel(grpAddresses.getVisibility() == View.GONE ? 0 : 1);
         grpAddresses.setVisibility(grpAddresses.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
 
         getMainHandler().post(new Runnable() {
@@ -4058,8 +4060,10 @@ public class FragmentCompose extends FragmentBase {
 
     private void onContactGroupSelected(Bundle args) {
         final int target = args.getInt("target");
-        if (target > 0)
+        if (target > 0) {
+            ibCcBcc.setImageLevel(0);
             grpAddresses.setVisibility(View.VISIBLE);
+        }
 
         args.putString("to", etTo.getText().toString().trim());
         args.putString("cc", etCc.getText().toString().trim());
@@ -5547,8 +5551,10 @@ public class FragmentCompose extends FragmentBase {
             grpHeader.setVisibility(View.VISIBLE);
             if ("reply_all".equals(action) ||
                     (data.draft.cc != null && data.draft.cc.length > 0) ||
-                    (data.draft.bcc != null && data.draft.bcc.length > 0))
+                    (data.draft.bcc != null && data.draft.bcc.length > 0)) {
+                ibCcBcc.setImageLevel(0);
                 grpAddresses.setVisibility(View.VISIBLE);
+            }
             ibCcBcc.setVisibility(View.VISIBLE);
 
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(data.draft.revision > 1);

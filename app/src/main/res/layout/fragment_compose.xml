@@ -112,7 +112,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/ibToAdd"
                     app:layout_constraintStart_toEndOf="@id/etTo"
                     app:layout_constraintTop_toTopOf="@+id/etTo"
-                    app:srcCompat="@drawable/twotone_people_24"
+                    app:srcCompat="@drawable/group"
                     app:tint="?attr/colorAccent" />
 
                 <ImageButton
