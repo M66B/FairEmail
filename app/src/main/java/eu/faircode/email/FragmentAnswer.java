@@ -551,6 +551,8 @@ public class FragmentAnswer extends FragmentBase {
             NoStreamException.check(uri, getContext());
 
             getContext().getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            if (!Helper.isPersisted(getContext(), uri, true, false))
+                throw new IllegalStateException("No permission granted to access selected image " + uri);
 
             int start = etText.getSelectionStart();
             SpannableStringBuilder ssb = new SpannableStringBuilderEx(etText.getText());

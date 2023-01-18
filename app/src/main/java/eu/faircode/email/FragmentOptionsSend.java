@@ -817,6 +817,9 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             if ("content".equals(uri.getScheme())) {
                 try {
                     getContext().getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                    if (!Helper.isPersisted(getContext(), uri, true, false))
+                        Log.unexpectedError(getParentFragmentManager(),
+                                new IllegalStateException("No permission granted to access selected sound " + uri));
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }

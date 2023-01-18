@@ -398,6 +398,8 @@ public class ActivitySignature extends ActivityBase {
             NoStreamException.check(uri, this);
 
             getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            if (!Helper.isPersisted(this, uri, true, false))
+                throw new IllegalStateException("No permission granted to access selected image " + uri);
 
             int start = etText.getSelectionStart();
             if (etText.isRaw())

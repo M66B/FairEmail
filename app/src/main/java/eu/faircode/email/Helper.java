@@ -41,6 +41,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.UriPermission;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -2609,6 +2610,23 @@ public class Helper {
 
     static boolean isUiThread() {
         return (Looper.myLooper() == Looper.getMainLooper());
+    }
+
+    static boolean isPersisted(Context context, Uri uri, boolean read, boolean write) {
+        try {
+            List<UriPermission> uperms = context.getContentResolver().getPersistedUriPermissions();
+            for (UriPermission uperm : uperms)
+                if (uperm.getUri().equals(uri)) {
+                    boolean canRead = uperm.isReadPermission();
+                    boolean canWrite = uperm.isWritePermission();
+                    Log.i(uri + " read=" + read + "/" + canRead + " write=" + write + "/" + canWrite);
+                    return (!read || canRead) && (!write || canWrite);
+                }
+            return false;
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return !BuildConfig.DEBUG;
+        }
     }
 
     // Cryptography
