@@ -186,7 +186,7 @@
                     app:layout_constraintBottom_toBottomOf="@id/etBcc"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/etBcc"
-                    app:srcCompat="@drawable/twotone_people_outline_24" />
+                    app:srcCompat="@drawable/twotone_supervisor_account_24" />
 
                 <eu.faircode.email.EditTextMultiAutoComplete
                     android:id="@+id/etBcc"
