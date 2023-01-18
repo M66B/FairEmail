@@ -96,9 +96,24 @@
                     android:inputType="textEmailAddress|textNoSuggestions"
                     android:maxLength="10000"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toStartOf="@+id/ibToAdd"
+                    app:layout_constraintEnd_toStartOf="@+id/ibCcBcc"
                     app:layout_constraintStart_toEndOf="@id/ivToLegend"
                     app:layout_constraintTop_toBottomOf="@id/etExtra" />
+
+                <ImageButton
+                    android:id="@+id/ibCcBcc"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/title_show_addresses"
+                    android:tooltipText="@string/title_show_addresses"
+                    app:layout_constraintBottom_toBottomOf="@id/etTo"
+                    app:layout_constraintEnd_toStartOf="@+id/ibToAdd"
+                    app:layout_constraintStart_toEndOf="@id/etTo"
+                    app:layout_constraintTop_toTopOf="@+id/etTo"
+                    app:srcCompat="@drawable/twotone_people_24"
+                    app:tint="?attr/colorAccent" />
 
                 <ImageButton
                     android:id="@+id/ibToAdd"
@@ -110,7 +125,7 @@
                     android:tooltipText="@string/title_legend_pick"
                     app:layout_constraintBottom_toBottomOf="@id/etTo"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/etTo"
+                    app:layout_constraintStart_toEndOf="@id/ibCcBcc"
                     app:layout_constraintTop_toTopOf="@+id/etTo"
                     app:srcCompat="@drawable/twotone_person_add_24"
                     app:tint="?attr/colorAccent" />
@@ -219,24 +234,9 @@
                     android:imeOptions="actionNext"
                     android:inputType="textEmailSubject|textCapSentences|textAutoCorrect"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    app:layout_constraintEnd_toStartOf="@+id/ibCcBcc"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/etBcc" />
-
-                <ImageButton
-                    android:id="@+id/ibCcBcc"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:layout_marginEnd="6dp"
-                    android:background="?android:attr/selectableItemBackgroundBorderless"
-                    android:contentDescription="@string/title_show_addresses"
-                    android:tooltipText="@string/title_show_addresses"
-                    app:layout_constraintBottom_toBottomOf="@id/etSubject"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@id/etSubject"
-                    app:layout_constraintTop_toTopOf="@+id/etSubject"
-                    app:srcCompat="@drawable/twotone_people_24"
-                    app:tint="?attr/colorAccent" />
 
                 <View
                     android:id="@+id/vSeparatorAttachments"
