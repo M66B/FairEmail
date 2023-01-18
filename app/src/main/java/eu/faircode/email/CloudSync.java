@@ -193,7 +193,7 @@ public class CloudSync {
                                     Helper.writeText(ifile, identity.toJSON().toString());
 
                                 long itime = ifile.lastModified();
-                                if (last == null || itime > last)
+                                if (itime > last)
                                     last = itime;
                             }
                 }
@@ -316,15 +316,25 @@ public class CloudSync {
 
                 JSONObject jaccountdata = new JSONObject(value);
                 JSONObject jaccount = jaccountdata.getJSONObject("account");
+                JSONArray jidentities = jaccountdata.getJSONArray("identities");
                 EntityAccount raccount = EntityAccount.fromJSON(jaccount);
                 EntityAccount laccount = db.account().getAccountByUUID(raccount.uuid);
 
-                JSONArray jidentities = jaccountdata.getJSONArray("identities");
+                String swipe_left_folder = null;
+                if (jaccount.has("swipe_left_folder") && !jaccount.isNull("swipe_left_folder"))
+                    swipe_left_folder = jaccount.getString("swipe_left_folder");
+
+                String swipe_right_folder = null;
+                if (jaccount.has("swipe_right_folder") && !jaccount.isNull("swipe_right_folder"))
+                    swipe_right_folder = jaccount.getString("swipe_right_folder");
+
                 Log.i("Cloud account " + raccount.uuid + "=" +
                         (laccount == null ? "insert" :
                                 (EntityAccount.areEqual(raccount, laccount, laccount.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, true)
                                         ? "equal" : "update")) +
                         " rev=" + revision +
+                        " left=" + swipe_left_folder +
+                        " right=" + swipe_right_folder +
                         " identities=" + jidentities +
                         " size=" + value.length());
 
