@@ -52,8 +52,12 @@ import androidx.preference.PreferenceManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.parser.ParseError;
+import org.jsoup.parser.ParseErrorList;
+import org.jsoup.parser.Parser;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -248,6 +252,7 @@ public class ActivitySignature extends ActivityBase {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         menu.findItem(R.id.menu_edit_html).setChecked(etText.isRaw());
+        menu.findItem(R.id.menu_check_html).setVisible(etText.isRaw());
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -261,6 +266,9 @@ public class ActivitySignature extends ActivityBase {
             item.setChecked(!item.isChecked());
             html(item.isChecked());
             return true;
+        } else if (itemId == R.id.menu_check_html) {
+            onMenuCheckHtml();
+            return true;
         } else if (itemId == R.id.menu_import_file) {
             onMenuSelectFile();
             return true;
@@ -270,6 +278,29 @@ public class ActivitySignature extends ActivityBase {
 
     private void onMenuHelp() {
         Helper.viewFAQ(this, 57);
+    }
+
+    private void onMenuCheckHtml() {
+        Parser parser = Parser.htmlParser().setTrackErrors(20);
+        Jsoup.parse(etText.getText().toString(), "", parser);
+        ParseErrorList errors = parser.getErrors();
+        SpannableStringBuilderEx ssb = new SpannableStringBuilderEx();
+        ssb.append("Errors: ")
+                .append(Integer.toString(errors.size()))
+                .append("\n\n");
+        for (ParseError error : errors)
+            ssb.append("At ")
+                    .append(error.getCursorPos())
+                    .append(' ')
+                    .append(error.getErrorMessage())
+                    .append("\n\n");
+
+        new AlertDialog.Builder(this)
+                .setIcon(R.drawable.twotone_bug_report_24)
+                .setTitle(R.string.title_check_html)
+                .setMessage(ssb)
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
     }
 
     private void onMenuSelectFile() {

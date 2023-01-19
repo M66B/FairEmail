@@ -1110,6 +1110,7 @@
     <string name="title_account_delete">Delete this account permanently?</string>
     <string name="title_identity_delete">Delete this identity permanently?</string>
     <string name="title_edit_html">Edit as HTML</string>
+    <string name="title_check_html">Check HTML</string>
     <string name="title_import_file">Import file</string>
     <string name="title_sign_key">Sign key: %1$s</string>
     <string name="title_created_at">Created: %1$s</string>
