@@ -355,6 +355,9 @@ public class FragmentCompose extends FragmentBase {
         lt_enabled = LanguageTool.isEnabled(context);
         lt_auto = LanguageTool.isAuto(context);
 
+        if (compose_color != Color.TRANSPARENT && Helper.isDarkTheme(context))
+            compose_color = HtmlHelper.adjustLuminance(compose_color, true, HtmlHelper.MIN_LUMINANCE_COMPOSE);
+
         setTitle(R.string.page_compose);
         setSubtitle(getResources().getQuantityString(R.plurals.page_message, 1));
     }

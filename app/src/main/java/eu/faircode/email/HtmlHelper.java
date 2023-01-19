@@ -141,12 +141,13 @@ public class HtmlHelper {
     static final int MAX_SHARE_TEXT_SIZE = 50 * 1024; // characters
     static final int MAX_TRANSLATABLE_TEXT_SIZE = 50 * 1024; // characters
 
+    static final float MIN_LUMINANCE_VIEW = 0.7f;
+    static final float MIN_LUMINANCE_COMPOSE = 0.85f;
+
     private static final int DEFAULT_FONT_SIZE = 16; // pixels
     private static final int DEFAULT_FONT_SIZE_PT = 12; // points
     private static final int GRAY_THRESHOLD = Math.round(255 * 0.2f);
     private static final int COLOR_THRESHOLD = Math.round(255 * 0.1f);
-    private static final float MIN_LUMINANCE_VIEW = 0.7f;
-    private static final float MIN_LUMINANCE_COMPOSE = 0.85f;
     private static final int TAB_SIZE = 4;
     private static final int MAX_ALT = 250;
     private static final int MAX_AUTO_LINK = 250;
