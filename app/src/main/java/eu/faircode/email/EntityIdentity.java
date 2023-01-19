@@ -132,6 +132,7 @@ public class EntityIdentity {
     public String error;
     public Long last_connected;
     public Long max_size;
+    public Long last_modified; // sync
 
     String getProtocol() {
         return (encryption == EmailService.ENCRYPTION_SSL ? "smtps" : "smtp");

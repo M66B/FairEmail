@@ -69,6 +69,7 @@ import java.io.FileNotFoundException;
 import java.net.UnknownHostException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -1017,6 +1018,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.error = null;
                     identity.last_connected = last_connected;
                     identity.max_size = (user_max_size == null ? server_max_size : user_max_size);
+                    identity.last_modified = new Date().getTime();
 
                     if (identity.primary)
                         db.identity().resetPrimary(account);
