@@ -27,7 +27,9 @@ public class Misc {
     public static List<String> getISPDBUrls(String domain, String email) {
         return Collections.unmodifiableList(Arrays.asList(
                 "https://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email,
-                "https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email
+                "https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email,
+                "http://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email,
+                "http://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email
         ));
     }
 }
