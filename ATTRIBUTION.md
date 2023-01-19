@@ -46,3 +46,4 @@ FairEmail uses:
 * [IPAddress](https://github.com/seancfoley/IPAddress). Copyright 2016-2018 Sean C Foley. [Apache License 2.0](https://github.com/seancfoley/IPAddress/blob/master/LICENSE).
 * [MaterialDings](https://github.com/Accusoft/MaterialDings). Copyright (c) 2018 Accusoft Corporation. [MIT License](https://github.com/Accusoft/MaterialDings/blob/master/LICENSE.md).
 * [Send](https://github.com/timvisee/send). [Mozilla Public License 2.0](https://github.com/timvisee/send/blob/master/LICENSE).
+* [DetectHtml](https://github.com/dbennett455/DetectHtml). [The MIT License](https://github.com/dbennett455/DetectHtml/blob/master/LICENSE).

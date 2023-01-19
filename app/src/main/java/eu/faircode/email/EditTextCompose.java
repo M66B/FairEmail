@@ -55,6 +55,7 @@ import androidx.core.view.inputmethod.InputConnectionCompat;
 import androidx.core.view.inputmethod.InputContentInfoCompat;
 import androidx.preference.PreferenceManager;
 
+import org.github.DetectHtml;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -487,7 +488,7 @@ public class EditTextCompose extends FixedEditText {
                 String h = null;
                 if (raw) {
                     CharSequence text = item.getText();
-                    if (text != null && HtmlHelper.isHtml(text.toString()))
+                    if (text != null && DetectHtml.isHtml(text.toString()))
                         h = text.toString();
                 }
                 if (h == null)
