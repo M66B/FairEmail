@@ -435,6 +435,7 @@
     <string name="title_advanced_send_reminders">Show reminders</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
     <string name="title_advanced_attach_new">Add shared files to a new draft</string>
+    <string name="title_advanced_answer_default">Short pressing on the answer button will:</string>
     <string name="title_advanced_answer_action">Long pressing on the answer button will:</string>
     <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>
 
@@ -1357,6 +1358,7 @@
     <string name="title_reply_receipt">Send read receipt</string>
     <string name="title_reply_hard_bounce">Send hard bounce</string>
     <string name="title_reply_template">Reply with template</string>
+    <string name="title_reply_menu">Show selection menu</string>
     <string name="title_move_undo">Moving to %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s authentication failed</string>
     <string name="title_on_blocklist">On spam block list</string>
@@ -2518,6 +2520,7 @@
         <item>forward</item>
         <item>resend</item>
         <item>editasnew</item>
+        <item>menu</item>
     </string-array>
 
     <string-array name="answerNames" translatable="false">
@@ -2527,6 +2530,7 @@
         <item>@string/title_forward</item>
         <item>@string/title_resend</item>
         <item>@string/title_editasnew</item>
+        <item>@string/title_reply_menu</item>
     </string-array>
 
     <string-array name="contactTypes">

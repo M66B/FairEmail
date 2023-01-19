@@ -324,7 +324,29 @@
                     app:layout_constraintTop_toBottomOf="@id/tvSendDelayed" />
 
                 <TextView
-                    android:id="@+id/tvAnswerAction"
+                    android:id="@+id/tvAnswerActionSingle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_answer_default"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spSendDelayed" />
+
+                <Spinner
+                    android:id="@+id/spAnswerActionSingle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:entries="@array/answerNames"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAnswerActionSingle" />
+
+                <TextView
+                    android:id="@+id/tvAnswerActionLong"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
@@ -334,16 +356,16 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spSendDelayed" />
+                    app:layout_constraintTop_toBottomOf="@id/spAnswerActionSingle" />
 
                 <Spinner
-                    android:id="@+id/spAnswerAction"
+                    android:id="@+id/spAnswerActionLong"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:entries="@array/answerNames"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAnswerAction" />
+                    app:layout_constraintTop_toBottomOf="@id/tvAnswerActionLong" />
 
                 <Button
                     android:id="@+id/btnSound"
@@ -355,7 +377,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_advanced_sound"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spAnswerAction" />
+                    app:layout_constraintTop_toBottomOf="@id/spAnswerActionLong" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

@@ -78,7 +78,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAutoSaveDot;
     private SwitchCompat swDiscardDelete;
     private Spinner spSendDelayed;
-    private Spinner spAnswerAction;
+    private Spinner spAnswerActionSingle;
+    private Spinner spAnswerActionLong;
     private Button btnSound;
 
     private ViewButtonColor btnComposeColor;
@@ -121,7 +122,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "send_reminders", "send_chips", "send_pending",
             "auto_save_paragraph", "auto_save_dot", "discard_delete",
             "send_delayed",
-            "answer_action",
+            "answer_single", "answer_action",
             "sound_sent",
             "compose_color", "compose_font",
             "prefix_once", "prefix_count", "alt_re", "alt_fwd",
@@ -160,7 +161,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swAutoSaveDot = view.findViewById(R.id.swAutoSaveDot);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
-        spAnswerAction = view.findViewById(R.id.spAnswerAction);
+        spAnswerActionSingle = view.findViewById(R.id.spAnswerActionSingle);
+        spAnswerActionLong = view.findViewById(R.id.spAnswerActionLong);
         btnSound = view.findViewById(R.id.btnSound);
 
         btnComposeColor = view.findViewById(R.id.btnComposeColor);
@@ -343,7 +345,20 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
-        spAnswerAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spAnswerActionSingle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                String[] values = getResources().getStringArray(R.array.answerValues);
+                prefs.edit().putString("answer_single", values[position]).apply();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                prefs.edit().remove("answer_single").apply();
+            }
+        });
+
+        spAnswerActionLong.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 String[] values = getResources().getStringArray(R.array.answerValues);
@@ -352,7 +367,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                prefs.edit().remove("sender_ellipsize").apply();
+                prefs.edit().remove("answer_action").apply();
             }
         });
 
@@ -726,12 +741,20 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 break;
             }
 
+        String[] answerValues = getResources().getStringArray(R.array.answerValues);
+
+        String answer_default = prefs.getString("answer_single", "menu");
+        for (int pos = 0; pos < answerValues.length; pos++)
+            if (answerValues[pos].equals(answer_default)) {
+                spAnswerActionSingle.setSelection(pos);
+                break;
+            }
+
         boolean reply_all = prefs.getBoolean("reply_all", false);
         String answer_action = prefs.getString("answer_action", reply_all ? "reply_all" : "reply");
-        String[] answerValues = getResources().getStringArray(R.array.answerValues);
         for (int pos = 0; pos < answerValues.length; pos++)
             if (answerValues[pos].equals(answer_action)) {
-                spAnswerAction.setSelection(pos);
+                spAnswerActionLong.setSelection(pos);
                 break;
             }
 

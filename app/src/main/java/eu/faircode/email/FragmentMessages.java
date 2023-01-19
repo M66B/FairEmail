@@ -3356,17 +3356,14 @@ public class FragmentMessages extends FragmentBase
             if (message == null)
                 return;
 
-            if (long_press && message.content) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                String answer_action = prefs.getString("answer_action", "reply");
-                if ("reply".equals(answer_action) ||
-                        "reply_all".equals(answer_action) ||
-                        "list".equals(answer_action))
-                    onMenuReply(message, answer_action, selected);
-                else
-                    onMenuReply(message, answer_action);
-            } else
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            String action = prefs.getString(
+                    long_press ? "answer_action" : "answer_single",
+                    long_press ? "reply" : "menu");
+            if ("menu".equals(action) || !message.content)
                 onReply(message, selected, fabReply);
+            else
+                onMenuReply(message, action);
         }
     }
 
@@ -3569,6 +3566,10 @@ public class FragmentMessages extends FragmentBase
         final Context context = getContext();
         if (context == null)
             return;
+        if (!"reply".equals(action) &&
+                !"reply_all".equals(action) &&
+                !"list".equals(action))
+            selected = null;
         Intent reply = new Intent(context, ActivityCompose.class)
                 .putExtra("action", action)
                 .putExtra("reference", message.id)
