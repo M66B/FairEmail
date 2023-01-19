@@ -436,7 +436,6 @@
     <string name="title_advanced_send_delayed">Delay sending messages</string>
     <string name="title_advanced_attach_new">Add shared files to a new draft</string>
     <string name="title_advanced_answer_action">Long pressing on the answer button will:</string>
-    <string name="title_advanced_answer_default">Use this as the default answer action</string>
     <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>
 
     <string name="title_advanced_auto_save_paragraph">Automatically save a draft after every paragraph</string>
