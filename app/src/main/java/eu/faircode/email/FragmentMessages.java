@@ -3575,6 +3575,12 @@ public class FragmentMessages extends FragmentBase
                 .putExtra("reference", message.id)
                 .putExtra("selected", selected);
         startActivity(reply);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean autoclose_reply = prefs.getBoolean("autoclose_reply", false);
+        if (autoclose_reply &&
+                ("reply".equals(action) || "reply_all".equals(action)))
+            finish();
     }
 
     private void onMenuResend(TupleMessageEx message) {
