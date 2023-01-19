@@ -3356,8 +3356,12 @@ public class FragmentMessages extends FragmentBase
             if (message == null)
                 return;
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean answer_default = prefs.getBoolean("answer_default", false);
+            if (answer_default)
+                long_press = !long_press;
+
             if (long_press && message.content) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 String answer_action = prefs.getString("answer_action", "reply");
                 if ("reply".equals(answer_action) ||
                         "reply_all".equals(answer_action) ||

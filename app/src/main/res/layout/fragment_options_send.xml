@@ -345,6 +345,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvAnswerAction" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAnswerDefault"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_answer_default"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spAnswerAction"
+                    app:switchPadding="12dp" />
+
                 <Button
                     android:id="@+id/btnSound"
                     style="?android:attr/buttonStyleSmall"
@@ -355,7 +367,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_advanced_sound"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spAnswerAction" />
+                    app:layout_constraintTop_toBottomOf="@id/swAnswerDefault" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

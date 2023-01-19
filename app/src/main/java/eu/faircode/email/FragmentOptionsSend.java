@@ -79,6 +79,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swDiscardDelete;
     private Spinner spSendDelayed;
     private Spinner spAnswerAction;
+    private SwitchCompat swAnswerDefault;
     private Button btnSound;
 
     private ViewButtonColor btnComposeColor;
@@ -121,7 +122,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "send_reminders", "send_chips", "send_pending",
             "auto_save_paragraph", "auto_save_dot", "discard_delete",
             "send_delayed",
-            "answer_action",
+            "answer_action", "answer_default",
             "sound_sent",
             "compose_color", "compose_font",
             "prefix_once", "prefix_count", "alt_re", "alt_fwd",
@@ -161,6 +162,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
         spSendDelayed = view.findViewById(R.id.spSendDelayed);
         spAnswerAction = view.findViewById(R.id.spAnswerAction);
+        swAnswerDefault = view.findViewById(R.id.swAnswerDefault);
         btnSound = view.findViewById(R.id.btnSound);
 
         btnComposeColor = view.findViewById(R.id.btnComposeColor);
@@ -353,6 +355,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("sender_ellipsize").apply();
+            }
+        });
+
+        swAnswerDefault.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("answer_default", checked).apply();
             }
         });
 
@@ -734,6 +743,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 spAnswerAction.setSelection(pos);
                 break;
             }
+
+        swAnswerDefault.setChecked(prefs.getBoolean("answer_default", false));
 
         btnComposeColor.setColor(prefs.getInt("compose_color", Color.TRANSPARENT));
 
