@@ -343,6 +343,17 @@ public class ColorPickerView extends View {
 		return Utils.adjustAlpha(this.alpha, color);
 	}
 
+	public int getEnteredColor() {
+		if (this.colorEdit != null)
+			try {
+				return Color.parseColor(this.colorEdit.getText().toString());
+			} catch (Throwable ex) {
+				return Color.TRANSPARENT;
+			}
+		else
+			return getSelectedColor();
+	}
+
 	public Integer[] getAllColors() {
 		return initialColors;
 	}

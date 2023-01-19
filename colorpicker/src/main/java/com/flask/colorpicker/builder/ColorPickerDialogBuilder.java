@@ -289,7 +289,7 @@ public class ColorPickerDialogBuilder {
 	}
 
 	private void positiveButtonOnClick(DialogInterface dialog, ColorPickerClickListener onClickListener) {
-		int selectedColor = colorPickerView.getSelectedColor();
+		int selectedColor = colorPickerView.getEnteredColor();
 		Integer[] allColors = colorPickerView.getAllColors();
 		onClickListener.onClick(dialog, selectedColor, allColors);
 	}
