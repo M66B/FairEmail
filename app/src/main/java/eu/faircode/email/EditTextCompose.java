@@ -488,8 +488,10 @@ public class EditTextCompose extends FixedEditText {
                 String h = null;
                 if (raw) {
                     CharSequence text = item.getText();
-                    if (text != null && DetectHtml.isHtml(text.toString()))
+                    if (text != null && DetectHtml.isHtml(text.toString())) {
+                        Log.i("Paste: raw HTML");
                         h = text.toString();
+                    }
                 }
                 if (h == null)
                     h = item.getHtmlText();
@@ -497,9 +499,12 @@ public class EditTextCompose extends FixedEditText {
                     CharSequence text = item.getText();
                     if (text == null)
                         return false;
+                    Log.i("Paste: using plain text");
                     html = "<div>" + HtmlHelper.formatPlainText(text.toString(), false) + "</div>";
-                } else
+                } else {
+                    Log.i("Paste: using HTML");
                     html = h;
+                }
 
                 Helper.getUIExecutor().submit(new Runnable() {
                     @Override
