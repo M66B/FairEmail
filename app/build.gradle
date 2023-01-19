@@ -580,7 +580,8 @@ dependencies {
     implementation "io.noties.markwon:html:$markwon_version"
 
     // // https://github.com/QuadFlask/colorpicker
-    implementation "com.github.QuadFlask:colorpicker:$colorpicker_version"
+    //implementation "com.github.QuadFlask:colorpicker:$colorpicker_version"
+    implementation project(':colorpicker')
 
     // https://github.com/EverythingMe/overscroll-decor
     // https://search.maven.org/artifact/io.github.everythingme/overscroll-decor-android

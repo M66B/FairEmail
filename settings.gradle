@@ -1,2 +1,3 @@
-include ':app', ':openpgp-api'
+include ':app', ':colorpicker', ':openpgp-api'
+project(':colorpicker').projectDir = new File('colorpicker')
 project(':openpgp-api').projectDir = new File('openpgp-api')
