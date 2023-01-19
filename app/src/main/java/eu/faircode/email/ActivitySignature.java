@@ -118,7 +118,8 @@ public class ActivitySignature extends ActivityBase {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (loaded) {
+                if (loaded &&
+                        !(start == 0 && before == s.length() && count == s.length())) {
                     dirty = true;
                     saved = null;
                 }
