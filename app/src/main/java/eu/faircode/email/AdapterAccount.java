@@ -258,7 +258,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             tvLast.setText(context.getString(R.string.title_last_connected,
                     (account.last_connected == null ? "-" : DTF.format(account.last_connected)) +
                             (BuildConfig.DEBUG ?
-                                    " " + account.poll_interval +
+                                    "/" + (account.last_modified == null ? "-" : DTF.format(account.last_modified)) +
+                                            " " + account.poll_interval +
                                             "/" + account.keep_alive_ok +
                                             "/" + account.keep_alive_failed +
                                             "/" + account.keep_alive_succeeded : "")));

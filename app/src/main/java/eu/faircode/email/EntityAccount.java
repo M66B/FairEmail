@@ -475,7 +475,9 @@ public class EntityAccount extends EntityOrder implements Serializable {
                 (!state || Objects.equals(a1.max_size, other.max_size)) &&
                 (!state || Objects.equals(a1.capabilities, other.capabilities)) &&
                 (!state || Objects.equals(a1.capability_idle, other.capability_idle)) &&
-                (!state || Objects.equals(a1.capability_utf8, other.capability_utf8)));
+                (!state || Objects.equals(a1.capability_utf8, other.capability_utf8)) &&
+                (!state || Objects.equals(a1.capability_uidl, other.capability_uidl)) &&
+                (!state || Objects.equals(a1.last_modified, other.last_modified)));
     }
 
     @Override

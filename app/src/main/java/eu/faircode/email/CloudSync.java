@@ -137,7 +137,7 @@ public class CloudSync {
                                 receiveRemoteData(context, user, password, lrevision, jstatus);
                     } else
                         receiveRemoteData(context, user, password, lrevision, jstatus);
-                else if (BuildConfig.DEBUG)
+                else if (BuildConfig.DEBUG && false)
                     receiveRemoteData(context, user, password, lrevision - 1, jstatus);
             } else
                 throw new IllegalArgumentException("Expected one status item");
@@ -169,8 +169,11 @@ public class CloudSync {
 
                     boolean apassword = (account.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD);
                     if (aexisting == null ||
-                            !EntityAccount.areEqual(account, aexisting, apassword, false))
+                            !EntityAccount.areEqual(account, aexisting, apassword, false)) {
                         Helper.writeText(afile, account.toJSON().toString());
+                        if (account.last_modified != null)
+                            afile.setLastModified(account.last_modified);
+                    }
 
                     long atime = afile.lastModified();
                     if (last == null || atime > last)
@@ -189,8 +192,11 @@ public class CloudSync {
 
                                 boolean ipassword = (account.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD);
                                 if (iexisting == null ||
-                                        EntityIdentity.areEqual(identity, iexisting, ipassword, false))
+                                        !EntityIdentity.areEqual(identity, iexisting, ipassword, false)) {
                                     Helper.writeText(ifile, identity.toJSON().toString());
+                                    if (identity.last_modified != null)
+                                        ifile.setLastModified(identity.last_modified);
+                                }
 
                                 long itime = ifile.lastModified();
                                 if (itime > last)

@@ -139,6 +139,7 @@ public abstract class DB extends RoomDatabase {
             "cache_size", "cache_spill",
             "soft_heap_limit", "hard_heap_limit", "mmap_size",
             "foreign_keys", "auto_vacuum",
+            "recursive_triggers",
             "compile_options"
     ));
 
@@ -470,6 +471,11 @@ public abstract class DB extends RoomDatabase {
                             cursor.moveToNext(); // required
                         }
 
+                        Log.i("Set PRAGMA recursive_triggers=off");
+                        try (Cursor cursor = db.query("PRAGMA recursive_triggers=off;")) {
+                            cursor.moveToNext(); // required
+                        }
+
                         // https://www.sqlite.org/pragma.html
                         for (String pragma : DB_PRAGMAS)
                             if (!"compile_options".equals(pragma) || BuildConfig.DEBUG)
@@ -486,6 +492,9 @@ public abstract class DB extends RoomDatabase {
                         if (BuildConfig.DEBUG && false) {
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
+
+                            db.execSQL("DROP TRIGGER IF EXISTS `account_update`");
+                            db.execSQL("DROP TRIGGER IF EXISTS `identity_update`");
                         }
 
                         createTriggers(db);
@@ -546,6 +555,20 @@ public abstract class DB extends RoomDatabase {
                 "  WHERE message.id = OLD.message" +
                 "  AND OLD.encryption IS NULL" +
                 "  AND NOT ((OLD.disposition = 'inline' OR (OLD.related IS NOT 0 AND OLD.cid IS NOT NULL)) AND OLD.type IN (" + images + "));" +
+                " END");
+
+        db.execSQL("CREATE TRIGGER IF NOT EXISTS account_update" +
+                " AFTER UPDATE ON account" +
+                " BEGIN" +
+                "  UPDATE account SET last_modified = strftime('%s') * 1000" +
+                "  WHERE (NEW.auth_type = " + AUTH_TYPE_PASSWORD + " OR OLD.password = NEW.password);" +
+                " END");
+
+        db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_update" +
+                " AFTER UPDATE ON identity" +
+                " BEGIN" +
+                "  UPDATE identity SET last_modified = strftime('%s') * 1000" +
+                "  WHERE (NEW.auth_type = " + AUTH_TYPE_PASSWORD + " OR OLD.password = NEW.password);" +
                 " END");
     }
 
