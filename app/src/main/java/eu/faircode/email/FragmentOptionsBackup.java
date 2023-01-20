@@ -77,6 +77,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -1500,27 +1501,42 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             @Override
             protected void onPostExecute(Bundle args) {
                 Helper.setViewsEnabled(cardCloud, true);
+                WorkerSync.init(getContext());
             }
 
             @Override
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 String command = args.getString("command");
-                CloudSync.execute(context, command, true);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+                try {
+                    CloudSync.execute(context, command, true);
+                } catch (SecurityException ex) {
+                    command = "logout";
+                    throw ex;
+                } finally {
+                    if ("logout".equals(command)) {
+                        prefs.edit()
+                                .remove("cloud_revision")
+                                .remove("cloud_user")
+                                .remove("cloud_password")
+                                .remove("cloud_last_sync")
+                                .apply();
+
+                        File dir = Helper.ensureExists(new File(context.getFilesDir(), "syncdata"));
+                        File[] files = dir.listFiles();
+                        if (files != null)
+                            for (File file : files)
+                                Log.i("Cloud delete " + file + "=" + file.delete());
+                    }
+                }
+
                 return null;
             }
 
+
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                String command = args.getString("command");
-                if ("logout".equals(command))
-                    prefs.edit()
-                            .remove("cloud_user")
-                            .remove("cloud_password")
-                            .apply();
-
-                if ("login".equals(command) || "logout".equals(command))
-                    WorkerSync.init(getContext());
-
                 view.post(new Runnable() {
                     @Override
                     public void run() {
@@ -1532,11 +1548,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof SecurityException) {
-                    prefs.edit()
-                            .remove("cloud_user")
-                            .remove("cloud_password")
-                            .apply();
-
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                             .setIcon(R.drawable.twotone_warning_24)
                             .setTitle(getString(R.string.title_advanced_cloud_invalid))
