@@ -489,7 +489,7 @@ public abstract class DB extends RoomDatabase {
                                         Log.i("Get PRAGMA " + pragma + "=<?>");
                                 }
 
-                        if (BuildConfig.DEBUG && false) {
+                        if (BuildConfig.DEBUG) {
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
                             db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
 
@@ -561,14 +561,16 @@ public abstract class DB extends RoomDatabase {
                 " AFTER UPDATE ON account" +
                 " BEGIN" +
                 "  UPDATE account SET last_modified = strftime('%s') * 1000" +
-                "  WHERE (NEW.auth_type = " + AUTH_TYPE_PASSWORD + " OR OLD.password = NEW.password);" +
+                "  WHERE id = NEW.id" +
+                "  AND (NEW.auth_type = " + AUTH_TYPE_PASSWORD + " OR OLD.password = NEW.password);" +
                 " END");
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_update" +
                 " AFTER UPDATE ON identity" +
                 " BEGIN" +
                 "  UPDATE identity SET last_modified = strftime('%s') * 1000" +
-                "  WHERE (NEW.auth_type = " + AUTH_TYPE_PASSWORD + " OR OLD.password = NEW.password);" +
+                "  WHERE id = NEW.id" +
+                "  AND (NEW.auth_type = " + AUTH_TYPE_PASSWORD + " OR OLD.password = NEW.password);" +
                 " END");
     }
 

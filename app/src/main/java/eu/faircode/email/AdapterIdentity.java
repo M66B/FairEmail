@@ -174,7 +174,9 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             tvSignKeyId.setVisibility(sb.length() > 0 ? View.VISIBLE : View.GONE);
 
             tvLast.setText(context.getString(R.string.title_last_connected,
-                    (identity.last_connected == null ? "-" : DTF.format(identity.last_connected))));
+                    (identity.last_connected == null ? "-" : DTF.format(identity.last_connected))) +
+                    (BuildConfig.DEBUG ?
+                            "/" + (identity.last_modified == null ? "-" : DTF.format(identity.last_modified)) : ""));
 
             tvMaxSize.setText(identity.max_size == null ? null : Helper.humanReadableByteCount(identity.max_size));
             tvMaxSize.setVisibility(identity.max_size == null ? View.GONE : View.VISIBLE);

@@ -364,7 +364,8 @@ public class EntityIdentity {
                 (!state || Objects.equals(i1.state, other.state)) &&
                 (!state || Objects.equals(i1.error, other.error)) &&
                 (!state || Objects.equals(i1.last_connected, other.last_connected)) &&
-                (!state || Objects.equals(i1.max_size, other.max_size)));
+                (!state || Objects.equals(i1.max_size, other.max_size)) &&
+                (!state || Objects.equals(i1.last_modified, other.last_modified)));
     }
 
     String getDisplayName() {

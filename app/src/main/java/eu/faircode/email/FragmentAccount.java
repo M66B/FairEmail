@@ -1288,8 +1288,6 @@ public class FragmentAccount extends FragmentBase {
                     account.warning = null;
                     account.error = null;
                     account.last_connected = last_connected;
-                    account.last_modified = new Date().getTime();
-                    // SET last_modified = strftime('%s') * 1000
 
                     if (account.primary)
                         db.account().resetPrimary();

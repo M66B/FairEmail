@@ -1018,7 +1018,6 @@ public class FragmentIdentity extends FragmentBase {
                     identity.error = null;
                     identity.last_connected = last_connected;
                     identity.max_size = (user_max_size == null ? server_max_size : user_max_size);
-                    identity.last_modified = new Date().getTime();
 
                     if (identity.primary)
                         db.identity().resetPrimary(account);
