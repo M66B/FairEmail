@@ -71,7 +71,7 @@ public class WorkerSync extends Worker {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String user = prefs.getString("cloud_user", null);
         String password = prefs.getString("cloud_password", null);
-        boolean enabled = false && !(TextUtils.isEmpty(user) || TextUtils.isEmpty(password));
+        boolean enabled = !(TextUtils.isEmpty(user) || TextUtils.isEmpty(password));
         try {
             if (enabled) {
                 Calendar cal = Calendar.getInstance();
@@ -83,7 +83,8 @@ public class WorkerSync extends Worker {
                 cal.add(Calendar.DAY_OF_MONTH, 1);
                 delay = cal.getTimeInMillis() - delay;
 
-                Log.i("Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");
+                EntityLog.log(context, EntityLog.Type.Cloud,
+                        "Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");
                 PeriodicWorkRequest.Builder builder =
                         new PeriodicWorkRequest.Builder(WorkerSync.class, 1, TimeUnit.DAYS)
                                 .setInitialDelay(delay, TimeUnit.MILLISECONDS);
@@ -91,7 +92,8 @@ public class WorkerSync extends Worker {
                         .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, builder.build());
                 Log.i("Queued " + getName());
             } else {
-                Log.i("Cancelling " + getName());
+                EntityLog.log(context, EntityLog.Type.Cloud,
+                        "Cancelling " + getName());
                 WorkManager.getInstance(context).cancelUniqueWork(getName());
                 Log.i("Cancelled " + getName());
             }
