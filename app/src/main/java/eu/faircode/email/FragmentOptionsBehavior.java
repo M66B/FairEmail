@@ -91,7 +91,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private TextView tvOnClose;
     private Spinner spOnClose;
     private SwitchCompat swAutoCloseUnseen;
-    private SwitchCompat swAutoCloseReply;
+    private SwitchCompat swAutoCloseSend;
     private SwitchCompat swCollapseMarked;
     private Spinner spUndoTimeout;
     private SwitchCompat swCollapseMultiple;
@@ -113,7 +113,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "pull", "autoscroll", "quick_filter", "quick_scroll", "quick_actions", "swipe_sensitivity", "foldernav",
             "doubletap", "swipenav", "volumenav", "reversed", "swipe_close", "swipe_move",
             "autoexpand", "expand_first", "expand_all", "expand_one", "collapse_multiple",
-            "autoclose", "onclose", "autoclose_unseen", "autoclose_reply", "collapse_marked",
+            "autoclose", "onclose", "autoclose_unseen", "autoclose_send", "collapse_marked",
             "undo_timeout",
             "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "reset_snooze", "auto_block_sender",
             "swipe_reply"
@@ -163,7 +163,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         tvOnClose = view.findViewById(R.id.tvOnClose);
         spOnClose = view.findViewById(R.id.spOnClose);
         swAutoCloseUnseen = view.findViewById(R.id.swAutoCloseUnseen);
-        swAutoCloseReply = view.findViewById(R.id.swAutoCloseReply);
+        swAutoCloseSend = view.findViewById(R.id.swAutoCloseSend);
         swCollapseMarked = view.findViewById(R.id.swCollapseMarked);
         spUndoTimeout = view.findViewById(R.id.spUndoTimeout);
         swAutoRead = view.findViewById(R.id.swAutoRead);
@@ -455,10 +455,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swAutoCloseReply.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swAutoCloseSend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("autoclose_reply", checked).apply();
+                prefs.edit().putBoolean("autoclose_send", checked).apply();
             }
         });
 
@@ -636,7 +636,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         spOnClose.setEnabled(!swAutoClose.isChecked());
 
         swAutoCloseUnseen.setChecked(prefs.getBoolean("autoclose_unseen", false));
-        swAutoCloseReply.setChecked(prefs.getBoolean("autoclose_reply", false));
+        swAutoCloseSend.setChecked(prefs.getBoolean("autoclose_send", false));
         swCollapseMarked.setChecked(prefs.getBoolean("collapse_marked", true));
 
         int undo_timeout = prefs.getInt("undo_timeout", 5000);

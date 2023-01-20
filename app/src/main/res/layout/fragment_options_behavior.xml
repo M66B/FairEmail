@@ -624,12 +624,12 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swAutoCloseReply"
+                    android:id="@+id/swAutoCloseSend"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:checked="true"
-                    android:text="@string/title_advanced_autoclose_reply"
+                    android:text="@string/title_advanced_autoclose_send"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAutoCloseUnseen"
@@ -644,7 +644,7 @@
                     android:text="@string/title_advanced_collapse_marked"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAutoCloseReply"
+                    app:layout_constraintTop_toBottomOf="@id/swAutoCloseSend"
                     app:switchPadding="12dp" />
 
                 <TextView

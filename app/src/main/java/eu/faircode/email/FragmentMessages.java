@@ -243,6 +243,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 import java.util.function.Consumer;
 
@@ -388,6 +389,7 @@ public class FragmentMessages extends FragmentBase
     private Long next = null;
     private Long closeId = null;
     private int autoCloseCount = 0;
+    private int lastSentCount = 0;
     private boolean autoExpanded = true;
     private Long lastSync = null;
 
@@ -405,6 +407,9 @@ public class FragmentMessages extends FragmentBase
     final private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
+
+    private static final ExecutorService executor =
+            Helper.getBackgroundExecutor(1, "more");
 
     private static final int MAX_MORE = 100; // messages
     private static final int MAX_SEND_RAW = 50; // messages
@@ -3575,12 +3580,6 @@ public class FragmentMessages extends FragmentBase
                 .putExtra("reference", message.id)
                 .putExtra("selected", selected);
         startActivity(reply);
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean autoclose_reply = prefs.getBoolean("autoclose_reply", false);
-        if (autoclose_reply &&
-                ("reply".equals(action) || "reply_all".equals(action)))
-            finish();
     }
 
     private void onMenuResend(TupleMessageEx message) {
@@ -4591,6 +4590,7 @@ public class FragmentMessages extends FragmentBase
         outState.putBoolean("fair:reset", reset);
         outState.putBoolean("fair:autoExpanded", autoExpanded);
         outState.putInt("fair:autoCloseCount", autoCloseCount);
+        outState.putInt("fair:lastSentCount", lastSentCount);
 
         outState.putStringArray("fair:values", values.keySet().toArray(new String[0]));
         for (String name : values.keySet())
@@ -4617,6 +4617,7 @@ public class FragmentMessages extends FragmentBase
             reset = savedInstanceState.getBoolean("fair:reset");
             autoExpanded = savedInstanceState.getBoolean("fair:autoExpanded");
             autoCloseCount = savedInstanceState.getInt("fair:autoCloseCount");
+            lastSentCount = savedInstanceState.getInt("fair:lastSentCount");
 
             for (String name : savedInstanceState.getStringArray("fair:values"))
                 if (!"selected".equals(name)) {
@@ -6423,7 +6424,7 @@ public class FragmentMessages extends FragmentBase
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
-                }.serial().setId("messages:" + FragmentMessages.this.hashCode()).execute(this, args, "quickactions");
+                }.setExecutor(executor).setId("messages:" + FragmentMessages.this.hashCode()).execute(this, args, "quickactions");
             }
         } else {
             fabMore.hide();
@@ -6671,8 +6672,25 @@ public class FragmentMessages extends FragmentBase
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean expand_first = prefs.getBoolean("expand_first", true);
         boolean expand_all = prefs.getBoolean("expand_all", false);
+        boolean autoclose_send = prefs.getBoolean("autoclose_send", false);
         long download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
         boolean dup_msgids = prefs.getBoolean("dup_msgids", false);
+
+        if (autoclose_send) {
+            int sent = 0;
+            for (TupleMessageEx message : messages)
+                if (message != null &&
+                        (EntityFolder.OUTBOX.equals(message.folderType) ||
+                                EntityFolder.SENT.equals(message.folderType)))
+                    sent++;
+
+            if (lastSentCount > 0 && sent > lastSentCount) {
+                finish();
+                return true;
+            }
+
+            lastSentCount = sent;
+        }
 
         // Mark duplicates
         Map<String, List<TupleMessageEx>> duplicates = new HashMap<>();
