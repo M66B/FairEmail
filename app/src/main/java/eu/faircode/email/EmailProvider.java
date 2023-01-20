@@ -89,6 +89,7 @@ public class EmailProvider implements Parcelable {
     public int keepalive;
     public boolean noop;
     public boolean partial;
+    public boolean raw;
     public boolean useip;
     public boolean appPassword;
     public String maxtls;
@@ -247,6 +248,7 @@ public class EmailProvider implements Parcelable {
                         provider.keepalive = getAttributeIntValue(xml, "keepalive", 0);
                         provider.noop = getAttributeBooleanValue(xml, "noop", false);
                         provider.partial = getAttributeBooleanValue(xml, "partial", true);
+                        provider.raw = getAttributeBooleanValue(xml, "raw", false);
                         provider.useip = getAttributeBooleanValue(xml, "useip", true);
                         provider.appPassword = getAttributeBooleanValue(xml, "appPassword", false);
                         provider.maxtls = xml.getAttributeValue(null, "maxtls");

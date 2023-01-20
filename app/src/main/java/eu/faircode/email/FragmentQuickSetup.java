@@ -551,6 +551,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                 account.keep_alive_noop = provider.noop;
 
                                 account.partial_fetch = provider.partial;
+                                account.raw_fetch = provider.raw;
 
                                 account.created = new Date().getTime();
                                 account.last_connected = account.created;

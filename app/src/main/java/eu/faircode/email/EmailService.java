@@ -306,6 +306,10 @@ public class EmailService implements AutoCloseable {
         properties.put("mail." + protocol + ".partialfetch", Boolean.toString(enabled));
     }
 
+    void setRawFetch(boolean enabled) {
+        properties.put("fairemail.rawfetch", Boolean.toString(enabled));
+    }
+
     void setIgnoreBodyStructureSize(boolean enabled) {
         properties.put("mail." + protocol + ".ignorebodystructuresize", Boolean.toString(enabled));
     }

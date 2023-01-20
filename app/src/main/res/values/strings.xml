@@ -1081,6 +1081,7 @@
     <string name="title_keep_alive_interval">Keep-alive interval (minutes)</string>
     <string name="title_keep_alive_noop">Restart IMAP IDLE periodically</string>
     <string name="title_partial_fetch" translatable="false">Partial fetch</string>
+    <string name="title_raw_fetch" translatable="false">Raw fetch</string>
     <string name="title_ignore_size" translatable="false">Ignore bodystructure size</string>
     <string name="title_server_time">Use received time (server)</string>
     <string name="title_received_header">Use \'Received\' header</string>

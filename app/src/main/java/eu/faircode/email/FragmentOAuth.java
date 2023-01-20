@@ -889,6 +889,7 @@ public class FragmentOAuth extends FragmentBase {
                         account.keep_alive_noop = provider.noop;
 
                         account.partial_fetch = provider.partial;
+                        account.raw_fetch = provider.raw;
 
                         if (pop)
                             account.max_messages = EntityAccount.DEFAULT_MAX_MESSAGES;

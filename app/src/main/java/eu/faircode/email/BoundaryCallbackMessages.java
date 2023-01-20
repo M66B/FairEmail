@@ -420,6 +420,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         context, account.getProtocol(), account.realm, account.encryption, account.insecure, account.unicode,
                         EmailService.PURPOSE_SEARCH, debug || BuildConfig.DEBUG);
                 state.iservice.setPartialFetch(account.partial_fetch);
+                state.iservice.setRawFetch(account.raw_fetch);
                 state.iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 state.iservice.connect(account);
 

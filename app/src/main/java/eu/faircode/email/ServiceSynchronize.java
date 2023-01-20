@@ -1562,6 +1562,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 final EmailService iservice = new EmailService(
                         this, account.getProtocol(), account.realm, account.encryption, account.insecure, account.unicode, debug);
                 iservice.setPartialFetch(account.partial_fetch);
+                iservice.setRawFetch(account.raw_fetch);
                 iservice.setIgnoreBodyStructureSize(account.ignore_size);
                 if (account.protocol != EntityAccount.TYPE_IMAP)
                     iservice.setLeaveOnServer(account.leave_on_server);

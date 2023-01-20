@@ -4693,6 +4693,9 @@ public class MessageHelper {
 
         try {
             if (imessage instanceof IMAPMessage) {
+                if (Boolean.parseBoolean(imessage.getSession().getProperty("fairemail.rawfetch")))
+                    throw new MessagingException("Unable to load BODYSTRUCTURE");
+
                 if (structure)
                     imessage.getContentType(); // force loadBODYSTRUCTURE
                 else {

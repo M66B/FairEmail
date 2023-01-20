@@ -141,6 +141,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean partial_fetch = true;
     @NonNull
+    public Boolean raw_fetch = false;
+    @NonNull
     public Boolean ignore_size = false;
     @NonNull
     public Boolean use_date = false; // Date header
@@ -317,6 +319,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("poll_interval", poll_interval);
         json.put("keep_alive_noop", keep_alive_noop);
         json.put("partial_fetch", partial_fetch);
+        json.put("raw_fetch", raw_fetch);
         json.put("ignore_size", ignore_size);
         json.put("use_date", use_date);
         json.put("use_received", use_received);
@@ -410,6 +413,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         account.keep_alive_noop = json.optBoolean("keep_alive_noop");
 
         account.partial_fetch = json.optBoolean("partial_fetch", true);
+        account.raw_fetch = json.optBoolean("raw_fetch", false);
         account.ignore_size = json.optBoolean("ignore_size", false);
         account.use_date = json.optBoolean("use_date", false);
         account.use_received = json.optBoolean("use_received", false);
@@ -470,6 +474,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                 (!state || Objects.equals(a1.keep_alive_failed, other.keep_alive_failed)) &&
                 (!state || Objects.equals(a1.keep_alive_succeeded, other.keep_alive_succeeded)) &&
                 a1.partial_fetch == other.partial_fetch &&
+                a1.raw_fetch == other.raw_fetch &&
                 a1.ignore_size == other.ignore_size &&
                 a1.use_date == other.use_date &&
                 a1.use_received == other.use_received &&
