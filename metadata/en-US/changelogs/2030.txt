@@ -6,6 +6,17 @@ For support you can use the contact form.
 
 Quetecsaurus
 
+Next version
+
+* Added "*Don't ask again*" for mailto links
+* Added menu item to check HTML syntax of a signature
+* Added option to disable last sync time in the navigation menu
+* Added option to disable automatically blocking spam senders
+* Added option to configure default answer button action
+* Added option to automatically close conversations on sending messages
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2030 - 2023-01-14
 
 * Added backup settings tab page
