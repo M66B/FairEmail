@@ -83,15 +83,20 @@ public class CloudSync {
 
         JSONObject jrequest = new JSONObject();
 
+        EntityLog.log(context, EntityLog.Type.Cloud, "Cloud command=" + command);
         if ("sync".equals(command)) {
             long lrevision = prefs.getLong("cloud_lrevision", 0);
-            Log.i("Cloud local revision=" + lrevision + " (" + new Date(lrevision) + ")");
+            EntityLog.log(context, EntityLog.Type.Cloud,
+                    "Cloud local revision=" + lrevision + " (" + new Date(lrevision) + ")");
 
             Long lastUpdate = updateSyncdata(context);
-            Log.i("Cloud last update=" + (lastUpdate == null ? null : new Date(lastUpdate)));
+            EntityLog.log(context, EntityLog.Type.Cloud,
+                    "Cloud last update=" + (lastUpdate == null ? null : new Date(lastUpdate)));
             if (lastUpdate != null && lrevision > lastUpdate) {
-                Log.w("Cloud invalid local revision" +
-                        " lrevision=" + lrevision + " last=" + lastUpdate);
+                String msg = "Cloud invalid local revision" +
+                        " lrevision=" + lrevision + " last=" + lastUpdate;
+                Log.w(msg);
+                EntityLog.log(context, EntityLog.Type.Cloud, msg);
                 lrevision = lastUpdate;
                 prefs.edit().putLong("cloud_lrevision", lrevision).apply();
             }
@@ -109,19 +114,20 @@ public class CloudSync {
             jitems = jresponse.getJSONArray("items");
 
             if (jitems.length() == 0) {
-                Log.i("Cloud server is empty");
+                EntityLog.log(context, EntityLog.Type.Cloud, "Cloud server is empty");
                 sendLocalData(context, user, password, lrevision == 0
                         ? (lastUpdate == null ? new Date().getTime() : lastUpdate)
                         : lrevision);
             } else if (jitems.length() == 1) {
-                Log.i("Cloud sync check");
+                EntityLog.log(context, EntityLog.Type.Cloud, "Cloud sync check");
                 jsyncstatus = jitems.getJSONObject(0);
                 long rrevision = jsyncstatus.getLong("rev");
                 JSONObject jstatus = new JSONObject(jsyncstatus.getString("val"));
                 int sync_version = jstatus.optInt("sync.version", 0);
                 int app_version = jstatus.optInt("app.version", 0);
-                Log.i("Cloud version sync=" + sync_version + " app=" + app_version +
-                        " local=" + lrevision + " last=" + lastUpdate + " remote=" + rrevision);
+                EntityLog.log(context, EntityLog.Type.Cloud,
+                        "Cloud version sync=" + sync_version + " app=" + app_version +
+                                " local=" + lrevision + " last=" + lastUpdate + " remote=" + rrevision);
 
                 // last > local (local mods) && remote > local (remote mods) = CONFLICT
                 // local > last = ignorable ERROR
@@ -132,8 +138,9 @@ public class CloudSync {
                     sendLocalData(context, user, password, lastUpdate);
                 else if (rrevision > lrevision) // remote changes
                     if (lastUpdate != null && lastUpdate > lrevision) { // local changes
-                        Log.w("Cloud conflict" +
-                                " lrevision=" + lrevision + " last=" + lastUpdate + " rrevision=" + rrevision);
+                        EntityLog.log(context, EntityLog.Type.Cloud,
+                                "Cloud conflict" +
+                                        " lrevision=" + lrevision + " last=" + lastUpdate + " rrevision=" + rrevision);
                         if (manual)
                             if (lastUpdate >= rrevision)
                                 sendLocalData(context, user, password, lastUpdate);
@@ -218,16 +225,15 @@ public class CloudSync {
         boolean cloud_send = prefs.getBoolean("cloud_send", true);
 
         if (!cloud_send) {
-            Log.w("Cloud skip send");
+            EntityLog.log(context, EntityLog.Type.Cloud, "Cloud skip send");
             return;
         }
 
         List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
-        Log.i("Cloud accounts=" + (accounts == null ? null : accounts.size()));
-        if (accounts == null || accounts.size() == 0) {
-            Log.i("Cloud no accounts");
+        EntityLog.log(context, EntityLog.Type.Cloud,
+                "Cloud accounts=" + (accounts == null ? null : accounts.size()));
+        if (accounts == null || accounts.size() == 0)
             return;
-        }
 
         JSONArray jupload = new JSONArray();
 
@@ -308,7 +314,7 @@ public class CloudSync {
         boolean cloud_receive = prefs.getBoolean("cloud_receive", true);
 
         if (!cloud_receive) {
-            Log.w("Cloud skip receive");
+            EntityLog.log(context, EntityLog.Type.Cloud, "Cloud skip receive");
             return;
         }
 
@@ -325,17 +331,17 @@ public class CloudSync {
             jaccountkv.put("key", "account." + uuid);
             jaccountkv.put("rev", lrevision);
             jdownload.put(jaccountkv);
-            Log.i("Cloud account uuid=" + uuid);
+            EntityLog.log(context, EntityLog.Type.Cloud, "Cloud account uuid=" + uuid);
         }
 
         if (jdownload.length() > 0) {
-            Log.i("Cloud getting accounts");
+            EntityLog.log(context, EntityLog.Type.Cloud, "Cloud getting accounts");
             JSONObject jrequest = new JSONObject();
             jrequest.put("items", jdownload);
             JSONObject jresponse = call(context, user, password, "sync", jrequest);
 
             // Process accounts
-            Log.i("Cloud processing accounts");
+            EntityLog.log(context, EntityLog.Type.Cloud, "Cloud processing accounts");
             JSONArray jitems = jresponse.getJSONArray("items");
             jdownload = new JSONArray();
             for (int i = 0; i < jitems.length(); i++) {
@@ -363,15 +369,17 @@ public class CloudSync {
                     right.type = jaccount.getString("swipe_right_type");
                 }
 
-                Log.i("Cloud account " + raccount.uuid + "=" +
-                        (laccount == null ? "insert" :
-                                (EntityAccount.areEqual(raccount, laccount, laccount.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, true)
-                                        ? "equal" : "update")) +
-                        " rev=" + revision +
-                        " left=" + (left == null ? null : left.name + ":" + left.type) +
-                        " right=" + (right == null ? null : right.name + ":" + right.type) +
-                        " identities=" + jidentities +
-                        " size=" + value.length());
+                EntityLog.log(context, EntityLog.Type.Cloud,
+                        "Cloud account " + raccount.uuid + "=" +
+                                (laccount == null ? "insert" :
+                                        (EntityAccount.areEqual(raccount, laccount,
+                                                laccount.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, true)
+                                                ? "equal" : "update")) +
+                                " rev=" + revision +
+                                " left=" + (left == null ? null : left.name + ":" + left.type) +
+                                " right=" + (right == null ? null : right.name + ":" + right.type) +
+                                " identities=" + jidentities +
+                                " size=" + value.length());
 
                 raccount.id = null;
 
@@ -448,12 +456,12 @@ public class CloudSync {
 
             if (jdownload.length() > 0) {
                 // Get identities
-                Log.i("Cloud getting identities");
+                EntityLog.log(context, EntityLog.Type.Cloud, "Cloud getting identities");
                 jrequest.put("items", jdownload);
                 jresponse = call(context, user, password, "sync", jrequest);
 
                 // Process identities
-                Log.i("Cloud processing identities");
+                EntityLog.log(context, EntityLog.Type.Cloud, "Cloud processing identities");
                 jitems = jresponse.getJSONArray("items");
                 for (int i = 0; i < jitems.length(); i++) {
                     JSONObject jidentitykv = jitems.getJSONObject(i);
@@ -463,12 +471,14 @@ public class CloudSync {
                     EntityIdentity ridentity = EntityIdentity.fromJSON(jidentity);
                     EntityIdentity lidentity = db.identity().getIdentityByUUID(ridentity.uuid);
 
-                    Log.i("Cloud identity " + ridentity.uuid + "=" +
-                            (lidentity == null ? "insert" :
-                                    (EntityIdentity.areEqual(ridentity, lidentity, lidentity.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, true)
-                                            ? "equal" : "update")) +
-                            " rev=" + revision +
-                            " size=" + value.length());
+                    EntityLog.log(context, EntityLog.Type.Cloud,
+                            "Cloud identity " + ridentity.uuid + "=" +
+                                    (lidentity == null ? "insert" :
+                                            (EntityIdentity.areEqual(ridentity, lidentity,
+                                                    lidentity.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, true)
+                                                    ? "equal" : "update")) +
+                                    " rev=" + revision +
+                                    " size=" + value.length());
 
                     ridentity.id = null;
                     ridentity.primary = false;
@@ -504,7 +514,7 @@ public class CloudSync {
             }
         }
 
-        Log.i("Cloud set lrevision=" + rrevision);
+        EntityLog.log(context, EntityLog.Type.Cloud, "Cloud set lrevision=" + rrevision);
         prefs.edit().putLong("cloud_lrevision", rrevision).apply();
 
         if (updates)
@@ -515,7 +525,8 @@ public class CloudSync {
 
     public static JSONObject call(Context context, String user, String password, String command, JSONObject jrequest)
             throws GeneralSecurityException, JSONException, IOException {
-        Log.i("Cloud command=" + command);
+        EntityLog.log(context, EntityLog.Type.Cloud, "Cloud command=" + command);
+
         jrequest.put("command", command);
         List<JSONObject> responses = new ArrayList<>();
         for (JSONArray batch : partition(jrequest.getJSONArray("items"))) {
@@ -550,13 +561,13 @@ public class CloudSync {
             key = keyCache.get(lookup);
         }
         if (key == null) {
-            Log.i("Cloud generating key");
+            EntityLog.log(context, EntityLog.Type.Cloud, "Cloud generating key");
             key = getKeyPair(salt, password);
             synchronized (keyCache) {
                 keyCache.put(lookup, key);
             }
         } else {
-            Log.i("Cloud using cached key");
+            EntityLog.log(context, EntityLog.Type.Cloud, "Cloud using cached key");
         }
 
         String cloudPassword = Base64.encodeToString(key.first, Base64.NO_PADDING | Base64.NO_WRAP);
@@ -587,7 +598,8 @@ public class CloudSync {
         }
 
         String request = jrequest.toString();
-        Log.i("Cloud request length=" + request.length());
+        EntityLog.log(context, EntityLog.Type.Cloud,
+                "Cloud request length=" + request.length());
 
         URL url = new URL(BuildConfig.CLOUD_URI);
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
@@ -609,7 +621,9 @@ public class CloudSync {
             if (status != HttpsURLConnection.HTTP_OK) {
                 String error = "Error " + status + ": " + connection.getResponseMessage();
                 String detail = Helper.readStream(connection.getErrorStream());
-                Log.w("Cloud error=" + error + " detail=" + detail);
+                String msg = "Cloud error=" + error + " detail=" + detail;
+                Log.e(msg);
+                EntityLog.log(context, EntityLog.Type.Cloud, msg);
                 JSONObject jerror = new JSONObject(detail);
                 if (status == HttpsURLConnection.HTTP_FORBIDDEN)
                     throw new SecurityException(jerror.optString("error"));
@@ -618,7 +632,8 @@ public class CloudSync {
             }
 
             String response = Helper.readStream(connection.getInputStream());
-            Log.i("Cloud response length=" + response.length());
+            EntityLog.log(context, EntityLog.Type.Cloud,
+                    "Cloud response length=" + response.length());
             JSONObject jresponse = new JSONObject(response);
 
             if (jresponse.has("account")) {

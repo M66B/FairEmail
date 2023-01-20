@@ -64,7 +64,7 @@ public class EntityLog {
     @NonNull
     public String data;
 
-    public enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification, Rules, Debug}
+    public enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification, Rules, Cloud, Debug}
 
     static void log(final Context context, String data) {
         log(context, Type.General, data);
@@ -229,6 +229,8 @@ public class EntityLog {
                 return ContextCompat.getColor(context, R.color.solarizedBlue);
             case Rules:
                 return ContextCompat.getColor(context, R.color.solarizedCyan);
+            case Cloud:
+                return ContextCompat.getColor(context, R.color.solarizedRed);
             case Debug:
                 return Helper.resolveColor(context, R.attr.colorWarning);
             default:
