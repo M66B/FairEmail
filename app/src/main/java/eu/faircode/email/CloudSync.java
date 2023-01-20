@@ -75,6 +75,7 @@ public class CloudSync {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String user = prefs.getString("cloud_user", null);
         String password = prefs.getString("cloud_password", null);
+
         if (TextUtils.isEmpty(user) || TextUtils.isEmpty(password))
             return;
         if (!ActivityBilling.isPro(context))
@@ -83,7 +84,7 @@ public class CloudSync {
         JSONObject jrequest = new JSONObject();
 
         if ("sync".equals(command)) {
-            long lrevision = prefs.getLong("cloud_revision", new Date().getTime());
+            long lrevision = prefs.getLong("cloud_lrevision", 0);
             Log.i("Cloud local revision=" + lrevision + " (" + new Date(lrevision) + ")");
 
             Long lastUpdate = updateSyncdata(context);
@@ -91,7 +92,8 @@ public class CloudSync {
             if (lastUpdate != null && lrevision > lastUpdate) {
                 Log.w("Cloud invalid local revision" +
                         " lrevision=" + lrevision + " last=" + lastUpdate);
-                prefs.edit().putLong("cloud_revision", lastUpdate).apply();
+                lrevision = lastUpdate;
+                prefs.edit().putLong("cloud_lrevision", lrevision).apply();
             }
 
             JSONObject jsyncstatus = new JSONObject();
@@ -108,7 +110,9 @@ public class CloudSync {
 
             if (jitems.length() == 0) {
                 Log.i("Cloud server is empty");
-                sendLocalData(context, user, password, lrevision);
+                sendLocalData(context, user, password, lrevision == 0
+                        ? (lastUpdate == null ? new Date().getTime() : lastUpdate)
+                        : lrevision);
             } else if (jitems.length() == 1) {
                 Log.i("Cloud sync check");
                 jsyncstatus = jitems.getJSONObject(0);
@@ -134,11 +138,11 @@ public class CloudSync {
                             if (lastUpdate >= rrevision)
                                 sendLocalData(context, user, password, lastUpdate);
                             else
-                                receiveRemoteData(context, user, password, lrevision, jstatus);
+                                receiveRemoteData(context, user, password, lrevision, rrevision, jstatus);
                     } else
-                        receiveRemoteData(context, user, password, lrevision, jstatus);
+                        receiveRemoteData(context, user, password, lrevision, rrevision, jstatus);
                 else if (BuildConfig.DEBUG && false)
-                    receiveRemoteData(context, user, password, lrevision - 1, jstatus);
+                    receiveRemoteData(context, user, password, lrevision - 1, rrevision, jstatus);
             } else
                 throw new IllegalArgumentException("Expected one status item");
         } else {
@@ -156,10 +160,10 @@ public class CloudSync {
 
         Long last = null;
 
-        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
+        List<EntityAccount> accounts = db.account().getAccounts();
         if (accounts != null)
             for (EntityAccount account : accounts)
-                if (!TextUtils.isEmpty(account.uuid)) {
+                if (account.synchronize && !TextUtils.isEmpty(account.uuid)) {
                     EntityAccount aexisting = null;
                     File afile = new File(dir, "account." + account.uuid + ".json");
                     if (afile.exists())
@@ -182,7 +186,7 @@ public class CloudSync {
                     List<EntityIdentity> identities = db.identity().getIdentities(account.id);
                     if (identities != null)
                         for (EntityIdentity identity : identities)
-                            if (!TextUtils.isEmpty(identity.uuid)) {
+                            if (identity.synchronize && !TextUtils.isEmpty(identity.uuid)) {
                                 EntityIdentity iexisting = null;
                                 File ifile = new File(dir, "identity." + identity.uuid + ".json");
                                 if (ifile.exists())
@@ -233,9 +237,12 @@ public class CloudSync {
                         if (!TextUtils.isEmpty(identity.uuid)) {
                             jidentitieuuids.put(identity.uuid);
 
+                            JSONObject jidentity = identity.toJSON();
+                            jidentity.put("account_uuid", account.uuid);
+
                             JSONObject jidentitykv = new JSONObject();
                             jidentitykv.put("key", "identity." + identity.uuid);
-                            jidentitykv.put("val", identity.toJSON().toString());
+                            jidentitykv.put("val", jidentity.toString());
                             jidentitykv.put("rev", lrevision);
                             jupload.put(jidentitykv);
                         }
@@ -285,10 +292,10 @@ public class CloudSync {
         jrequest.put("items", jupload);
         call(context, user, password, "write", jrequest);
 
-        prefs.edit().putLong("cloud_revision", lrevision).apply();
+        prefs.edit().putLong("cloud_lrevision", lrevision).apply();
     }
 
-    private static void receiveRemoteData(Context context, String user, String password, long lrevision, JSONObject jstatus)
+    private static void receiveRemoteData(Context context, String user, String password, long lrevision, long rrevision, JSONObject jstatus)
             throws JSONException, GeneralSecurityException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -333,23 +340,15 @@ public class CloudSync {
                 EntityFolder left = null;
                 if (jaccount.has("swipe_left_name") && !jaccount.isNull("swipe_left_name")) {
                     left = new EntityFolder();
-                    left.account = null;
                     left.name = jaccount.getString("swipe_left_name");
                     left.type = jaccount.getString("swipe_left_type");
-                    left.setProperties();
-                    //left.setSpecials(account);
-                    //folder.id = db.folder().insertFolder(folder);
                 }
 
                 EntityFolder right = null;
                 if (jaccount.has("swipe_right_name") && !jaccount.isNull("swipe_right_name")) {
                     right = new EntityFolder();
-                    right.account = null;
                     right.name = jaccount.getString("swipe_right_name");
                     right.type = jaccount.getString("swipe_right_type");
-                    right.setProperties();
-                    //right.setSpecials(account);
-                    //folder.id = db.folder().insertFolder(folder);
                 }
 
                 Log.i("Cloud account " + raccount.uuid + "=" +
@@ -361,6 +360,69 @@ public class CloudSync {
                         " right=" + (right == null ? null : right.name + ":" + right.type) +
                         " identities=" + jidentities +
                         " size=" + value.length());
+
+                raccount.id = null;
+
+                try {
+                    db.beginTransaction();
+
+                    if (laccount == null) {
+                        raccount.notify = false; // TODO
+                        if (raccount.swipe_left != null && raccount.swipe_left > 0)
+                            raccount.swipe_left = null;
+                        if (raccount.swipe_right != null && raccount.swipe_right > 0)
+                            raccount.swipe_right = null;
+                        raccount.move_to = null; // TODO
+                        raccount.id = db.account().insertAccount(raccount);
+
+                        if (raccount.protocol == EntityAccount.TYPE_POP) {
+                            for (EntityFolder folder : EntityFolder.getPopFolders(context)) {
+                                EntityFolder existing = db.folder().getFolderByType(raccount.id, folder.type);
+                                if (existing == null) {
+                                    folder.account = raccount.id;
+                                    folder.id = db.folder().insertFolder(folder);
+                                }
+                            }
+                        } else {
+                            if (left != null) {
+                                left.account = raccount.id;
+                                left.setProperties();
+                                left.setSpecials(raccount);
+                                left.id = db.folder().insertFolder(left);
+                            }
+
+                            if (right != null) {
+                                right.account = raccount.id;
+                                right.setProperties();
+                                right.setSpecials(raccount);
+                                right.id = db.folder().insertFolder(right);
+                            }
+
+                            db.account().setAccountSwipes(raccount.id,
+                                    left == null ? null : left.id,
+                                    right == null ? null : right.id);
+                        }
+                    } else {
+                        raccount.id = laccount.id;
+                        raccount.notify = laccount.notify; // TODO
+                        raccount.swipe_left = laccount.swipe_left; // TODO
+                        raccount.swipe_right = laccount.swipe_right; // TODO
+                        raccount.move_to = laccount.move_to; // TODO
+                        db.account().updateAccount(raccount);
+                    }
+
+                    if (raccount.id != null) {
+                        if (raccount.primary) {
+                            db.account().resetPrimary();
+                            db.account().setAccountPrimary(raccount.id, true);
+                        }
+                        db.account().setLastModified(raccount.id, rrevision);
+                    }
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
 
                 for (int j = 0; j < jidentities.length(); j++) {
                     JSONObject jidentitykv = new JSONObject();
@@ -393,15 +455,40 @@ public class CloudSync {
                                             ? "equal" : "update")) +
                             " rev=" + revision +
                             " size=" + value.length());
+
+                    ridentity.id = null;
+                    ridentity.primary = false;
+                    ridentity.last_modified = rrevision;
+
+                    try {
+                        db.beginTransaction();
+
+                        if (lidentity == null) {
+                            EntityAccount account = db.account().getAccountByUUID(jidentity.getString("account_uuid"));
+                            if (account != null) {
+                                ridentity.account = account.id;
+                                ridentity.id = db.identity().insertIdentity(ridentity);
+                            }
+                        } else {
+                            ridentity.id = lidentity.id;
+                            db.identity().updateIdentity(ridentity);
+                        }
+
+                        db.setTransactionSuccessful();
+                    } finally {
+                        db.endTransaction();
+                    }
                 }
             }
         }
 
-        prefs.edit().putLong("cloud_revision", lrevision).apply();
+        Log.i("Cloud set lrevision=" + rrevision);
+        prefs.edit().putLong("cloud_lrevision", rrevision).apply();
 
         if (updates)
             ServiceSynchronize.reload(context, null, true, "sync");
     }
+
     // Lower level
 
     public static JSONObject call(Context context, String user, String password, String command, JSONObject jrequest)

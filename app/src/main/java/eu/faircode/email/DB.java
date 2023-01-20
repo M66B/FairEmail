@@ -562,6 +562,7 @@ public abstract class DB extends RoomDatabase {
                 " BEGIN" +
                 "  UPDATE account SET last_modified = strftime('%s') * 1000" +
                 "  WHERE id = NEW.id" +
+                "  AND OLD.last_modified = NEW.last_modified" +
                 "  AND (NEW.auth_type = " + AUTH_TYPE_PASSWORD + " OR OLD.password = NEW.password)" +
                 "  AND OLD.keep_alive_ok IS NEW.keep_alive_ok" +
                 "  AND OLD.keep_alive_failed IS NEW.keep_alive_failed" +
@@ -580,6 +581,7 @@ public abstract class DB extends RoomDatabase {
                 " BEGIN" +
                 "  UPDATE identity SET last_modified = strftime('%s') * 1000" +
                 "  WHERE id = NEW.id" +
+                "  AND OLD.last_modified = NEW.last_modified" +
                 "  AND OLD.state IS NEW.state" +
                 "  AND OLD.error IS NEW.error" +
                 "  AND OLD.last_connected IS NEW.last_connected" +

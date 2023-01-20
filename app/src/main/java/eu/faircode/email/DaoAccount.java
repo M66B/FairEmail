@@ -288,6 +288,11 @@ public interface DaoAccount {
             " AND (NOT (swipe_left IS :left) OR NOT (swipe_right IS :right))")
     int setAccountSwipes(long id, Long left, Long right);
 
+    @Query("UPDATE account" +
+            " SET last_modified = :last_modified" +
+            " WHERE id = :id")
+    int setLastModified(long id, Long last_modified);
+
     @Query("UPDATE account SET `primary` = 0 WHERE NOT (`primary` IS 0)")
     void resetPrimary();
 
