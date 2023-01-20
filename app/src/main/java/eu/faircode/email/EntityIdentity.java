@@ -345,8 +345,10 @@ public class EntityIdentity {
                 Objects.equals(i1.provider, other.provider) &&
                 i1.user.equals(other.user) &&
                 (!auth || i1.password.equals(other.password)) &&
+                // certificate
                 Objects.equals(i1.certificate_alias, other.certificate_alias) &&
                 Objects.equals(i1.realm, other.realm) &&
+                Objects.equals(i1.fingerprint, other.fingerprint) &&
                 i1.use_ip == other.use_ip &&
                 Objects.equals(i1.ehlo, other.ehlo) &&
                 i1.synchronize.equals(other.synchronize) &&
@@ -359,12 +361,23 @@ public class EntityIdentity {
                 Objects.equals(i1.cc, other.cc) &&
                 Objects.equals(i1.bcc, other.bcc) &&
                 Objects.equals(i1.internal, other.internal) &&
+                Objects.equals(i1.unicode, other.unicode) &&
+                Objects.equals(i1.octetmime, other.octetmime) &&
+                // plain_only
+                Objects.equals(i1.sign_default, other.sign_default) &&
+                Objects.equals(i1.encrypt_default, other.encrypt_default) &&
+                Objects.equals(i1.encrypt, other.encrypt) &&
+                // delivery_receipt
+                // read_receipt
+                // store_sent
+                // sent_folder
                 Objects.equals(i1.sign_key, other.sign_key) &&
                 Objects.equals(i1.sign_key_alias, other.sign_key_alias) &&
+                Objects.equals(i1.tbd, other.tbd) &&
                 (!state || Objects.equals(i1.state, other.state)) &&
                 (!state || Objects.equals(i1.error, other.error)) &&
                 (!state || Objects.equals(i1.last_connected, other.last_connected)) &&
-                (!state || Objects.equals(i1.max_size, other.max_size)) &&
+                Objects.equals(i1.max_size, other.max_size) &&
                 (!state || Objects.equals(i1.last_modified, other.last_modified)));
     }
 

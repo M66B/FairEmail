@@ -562,7 +562,17 @@ public abstract class DB extends RoomDatabase {
                 " BEGIN" +
                 "  UPDATE account SET last_modified = strftime('%s') * 1000" +
                 "  WHERE id = NEW.id" +
-                "  AND (NEW.auth_type = " + AUTH_TYPE_PASSWORD + " OR OLD.password = NEW.password);" +
+                "  AND (NEW.auth_type = " + AUTH_TYPE_PASSWORD + " OR OLD.password = NEW.password)" +
+                "  AND OLD.keep_alive_ok IS NEW.keep_alive_ok" +
+                "  AND OLD.keep_alive_failed IS NEW.keep_alive_failed" +
+                "  AND OLD.keep_alive_succeeded IS NEW.keep_alive_succeeded" +
+                "  AND OLD.quota_usage IS NEW.quota_usage" +
+                "  AND OLD.thread IS NEW.thread" +
+                "  AND OLD.state IS NEW.state" +
+                "  AND OLD.warning IS NEW.warning" +
+                "  AND OLD.error IS NEW.error" +
+                "  AND OLD.last_connected IS NEW.last_connected" +
+                "  AND OLD.backoff_until IS NEW.backoff_until;" +
                 " END");
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS identity_update" +
@@ -570,6 +580,9 @@ public abstract class DB extends RoomDatabase {
                 " BEGIN" +
                 "  UPDATE identity SET last_modified = strftime('%s') * 1000" +
                 "  WHERE id = NEW.id" +
+                "  AND OLD.state IS NEW.state" +
+                "  AND OLD.error IS NEW.error" +
+                "  AND OLD.last_connected IS NEW.last_connected" +
                 "  AND (NEW.auth_type = " + AUTH_TYPE_PASSWORD + " OR OLD.password = NEW.password);" +
                 " END");
     }

@@ -429,8 +429,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     }
 
     public static boolean areEqual(EntityAccount a1, EntityAccount other, boolean auth, boolean state) {
-        return (Objects.equals(a1.uuid, other.uuid) &&
-                Objects.equals(a1.order, other.order) &&
+        return (Objects.equals(a1.order, other.order) &&
+                Objects.equals(a1.uuid, other.uuid) &&
                 a1.protocol.equals(other.protocol) &&
                 a1.host.equals(other.host) &&
                 a1.encryption.equals(other.encryption) &&
@@ -440,43 +440,57 @@ public class EntityAccount extends EntityOrder implements Serializable {
                 Objects.equals(a1.provider, other.provider) &&
                 a1.user.equals(other.user) &&
                 (!auth || a1.password.equals(other.password)) &&
+                // certificate
                 Objects.equals(a1.certificate_alias, other.certificate_alias) &&
                 Objects.equals(a1.realm, other.realm) &&
+                Objects.equals(a1.fingerprint, other.fingerprint) &&
                 Objects.equals(a1.name, other.name) &&
                 Objects.equals(a1.category, other.category) &&
+                // signature
                 Objects.equals(a1.color, other.color) &&
                 Objects.equals(a1.calendar, other.calendar) &&
                 a1.synchronize.equals(other.synchronize) &&
+                Objects.equals(a1.ondemand, other.ondemand) &&
+                Objects.equals(a1.poll_exempted, other.poll_exempted) &&
                 a1.primary.equals(other.primary) &&
                 a1.notify.equals(other.notify) &&
                 a1.browse.equals(other.browse) &&
                 a1.leave_on_server.equals(other.leave_on_server) &&
+                Objects.equals(a1.leave_deleted, other.leave_deleted) &&
                 a1.leave_on_device.equals(other.leave_on_device) &&
                 Objects.equals(a1.max_messages, other.max_messages) &&
                 a1.auto_seen.equals(other.auto_seen) &&
+                // separator
                 Objects.equals(a1.swipe_left, other.swipe_left) &&
                 Objects.equals(a1.swipe_right, other.swipe_right) &&
+                Objects.equals(a1.move_to, other.move_to) &&
                 a1.poll_interval.equals(other.poll_interval) &&
+                Objects.equals(a1.keep_alive_noop, other.keep_alive_noop) &&
+                (!state || Objects.equals(a1.keep_alive_ok, other.keep_alive_ok)) &&
+                (!state || Objects.equals(a1.keep_alive_failed, other.keep_alive_failed)) &&
+                (!state || Objects.equals(a1.keep_alive_succeeded, other.keep_alive_succeeded)) &&
                 a1.partial_fetch == other.partial_fetch &&
                 a1.ignore_size == other.ignore_size &&
                 a1.use_date == other.use_date &&
                 a1.use_received == other.use_received &&
+                // prefix
                 a1.unicode == other.unicode &&
                 Objects.equals(a1.conditions, other.conditions) &&
                 (!state || Objects.equals(a1.quota_usage, other.quota_usage)) &&
-                (!state || Objects.equals(a1.quota_limit, other.quota_limit)) &&
-                (!state || Objects.equals(a1.created, other.created)) &&
+                Objects.equals(a1.quota_limit, other.quota_limit) &&
+                Objects.equals(a1.created, other.created) &&
                 Objects.equals(a1.tbd, other.tbd) &&
+                // thread
                 (!state || Objects.equals(a1.state, other.state)) &&
                 (!state || Objects.equals(a1.warning, other.warning)) &&
                 (!state || Objects.equals(a1.error, other.error)) &&
                 (!state || Objects.equals(a1.last_connected, other.last_connected)) &&
                 (!state || Objects.equals(a1.backoff_until, other.backoff_until)) &&
-                (!state || Objects.equals(a1.max_size, other.max_size)) &&
-                (!state || Objects.equals(a1.capabilities, other.capabilities)) &&
-                (!state || Objects.equals(a1.capability_idle, other.capability_idle)) &&
-                (!state || Objects.equals(a1.capability_utf8, other.capability_utf8)) &&
-                (!state || Objects.equals(a1.capability_uidl, other.capability_uidl)) &&
+                Objects.equals(a1.max_size, other.max_size) &&
+                Objects.equals(a1.capabilities, other.capabilities) &&
+                Objects.equals(a1.capability_idle, other.capability_idle) &&
+                Objects.equals(a1.capability_utf8, other.capability_utf8) &&
+                Objects.equals(a1.capability_uidl, other.capability_uidl) &&
                 (!state || Objects.equals(a1.last_modified, other.last_modified)));
     }
 
