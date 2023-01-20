@@ -32,13 +32,13 @@
             android:id="@+id/menu_empty_trash"
             android:icon="@drawable/twotone_delete_forever_24"
             android:title="@string/title_empty_trash"
-            app:showAsAction="ifRoom" />
+            app:showAsAction="always" />
 
         <item
             android:id="@+id/menu_empty_spam"
             android:icon="@drawable/twotone_delete_forever_24"
             android:title="@string/title_empty_spam"
-            app:showAsAction="ifRoom" />
+            app:showAsAction="always" />
     </group>
 
     <group android:id="@+id/group_selection">
