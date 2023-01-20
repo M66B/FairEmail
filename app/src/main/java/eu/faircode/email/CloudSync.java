@@ -215,6 +215,12 @@ public class CloudSync {
             throws JSONException, GeneralSecurityException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean cloud_send = prefs.getBoolean("cloud_send", true);
+
+        if (!cloud_send) {
+            Log.w("Cloud skip send");
+            return;
+        }
 
         List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
         Log.i("Cloud accounts=" + (accounts == null ? null : accounts.size()));
@@ -299,6 +305,12 @@ public class CloudSync {
             throws JSONException, GeneralSecurityException, IOException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean cloud_receive = prefs.getBoolean("cloud_receive", true);
+
+        if (!cloud_receive) {
+            Log.w("Cloud skip receive");
+            return;
+        }
 
         // New revision
         boolean updates = false;
@@ -416,10 +428,12 @@ public class CloudSync {
                             db.account().resetPrimary();
                             db.account().setAccountPrimary(raccount.id, true);
                         }
-                        db.account().setLastModified(raccount.id, rrevision);
+                        db.account().setAccountLastModified(raccount.id, rrevision);
                     }
 
                     db.setTransactionSuccessful();
+
+                    updates = true;
                 } finally {
                     db.endTransaction();
                 }
@@ -472,6 +486,14 @@ public class CloudSync {
                         } else {
                             ridentity.id = lidentity.id;
                             db.identity().updateIdentity(ridentity);
+                        }
+
+                        if (ridentity.id != null) {
+                            if (ridentity.primary) {
+                                db.identity().resetPrimary(ridentity.account);
+                                db.identity().setIdentityPrimary(ridentity.id, true);
+                            }
+                            db.identity().setIdentityLastModified(ridentity.id, rrevision);
                         }
 
                         db.setTransactionSuccessful();

@@ -119,6 +119,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private TextInputLayout tilPassword;
     private Button btnLogin;
     private TextView tvLogin;
+    private CheckBox cbSend;
+    private CheckBox cbReceive;
     private ImageButton ibSync;
     private TextView tvLastSync;
     private Button btnLogout;
@@ -159,6 +161,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         tilPassword = view.findViewById(R.id.tilPassword);
         btnLogin = view.findViewById(R.id.btnLogin);
         tvLogin = view.findViewById(R.id.tvLogin);
+        cbSend = view.findViewById(R.id.cbSend);
+        cbReceive = view.findViewById(R.id.cbReceive);
         ibSync = view.findViewById(R.id.ibSync);
         tvLastSync = view.findViewById(R.id.tvLastSync);
         btnLogout = view.findViewById(R.id.btnLogout);
@@ -212,6 +216,20 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             }
         });
 
+        cbSend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("cloud_send", isChecked).apply();
+            }
+        });
+
+        cbReceive.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("cloud_receive", isChecked).apply();
+            }
+        });
+
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -228,6 +246,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                         !TextUtils.isEmpty(BuildConfig.CLOUD_URI)
                         ? View.VISIBLE : View.GONE);
         Helper.linkPro(tvCloudPro);
+
+        cbSend.setChecked(prefs.getBoolean("cloud_send", true));
+        cbReceive.setChecked(prefs.getBoolean("cloud_receive", true));
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, null);

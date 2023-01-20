@@ -153,6 +153,11 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET `primary` = 0 WHERE account = :account AND NOT (`primary` IS 0)")
     void resetPrimary(long account);
 
+    @Query("UPDATE identity" +
+            " SET last_modified = :last_modified" +
+            " WHERE id = :id")
+    int setIdentityLastModified(long id, Long last_modified);
+
     @Query("DELETE FROM identity WHERE id = :id")
     int deleteIdentity(long id);
 }

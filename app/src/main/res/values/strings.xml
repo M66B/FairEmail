@@ -979,11 +979,18 @@
 
     <string name="title_experimental" translatable="false">This is an experimental feature!</string>
 
+    <string name="title_advanced_cloud_info" translatable="false">This feature is for synchronizing data between devices</string>
     <string name="title_advanced_cloud_security" translatable="false">All data is encrypted end-to-end and the cloud server will never see the username, password and data</string>
     <string name="title_advanced_cloud_login" translatable="false">Login</string>
     <string name="title_advanced_cloud_register" translatable="false">Logging in for the first time will automatically create an account</string>
     <string name="title_advanced_cloud_invalid" translatable="false">Invalid username or password</string>
-    <string name="title_advanced_cloud_account_remark" translatable="false">Only the data of enabled accounts will be synced and existing accounts on the device will never be deleted.</string>
+    <string name="title_advanced_cloud_account_remark" translatable="false">
+        Only enabled accounts and identities will be synchronized.
+        Folder properties will not be synchronized.
+        Existing accounts on the device will never be deleted.
+    </string>
+    <string name="title_advanced_cloud_receive" translatable="false">Receive data</string>
+    <string name="title_advanced_cloud_send" translatable="false">Send data</string>
     <string name="title_advanced_cloud_last_sync" translatable="false">Last sync: %1$s</string>
     <string name="title_advanced_cloud_logout" translatable="false">Logout</string>
     <string name="title_advanced_cloud_wipe" translatable="false">Wipe cloud data on logout</string>
