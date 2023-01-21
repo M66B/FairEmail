@@ -35,7 +35,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -120,11 +119,12 @@ public class CloudSync {
                         : lrevision);
             } else if (jitems.length() == 1) {
                 EntityLog.log(context, EntityLog.Type.Cloud, "Cloud sync check");
+
                 jsyncstatus = jitems.getJSONObject(0);
                 long rrevision = jsyncstatus.getLong("rev");
-                JSONObject jstatus = new JSONObject(jsyncstatus.getString("val"));
-                int sync_version = jstatus.optInt("sync.version", 0);
-                int app_version = jstatus.optInt("app.version", 0);
+                int sync_version = jsyncstatus.optInt("ver", 0);
+                int app_version = jsyncstatus.optInt("app", 0);
+
                 EntityLog.log(context, EntityLog.Type.Cloud,
                         "Cloud version sync=" + sync_version + " app=" + app_version +
                                 " local=" + lrevision + " last=" + lastUpdate + " remote=" + rrevision);
@@ -134,6 +134,7 @@ public class CloudSync {
                 // remote > local = fetch remote
                 // last > remote = send local
 
+                JSONObject jstatus = new JSONObject(jsyncstatus.getString("val"));
                 if (lastUpdate != null && lastUpdate > rrevision) // local newer than remote
                     sendLocalData(context, user, password, lastUpdate);
                 else if (rrevision > lrevision) // remote changes
@@ -290,14 +291,14 @@ public class CloudSync {
         jaccountuuids.put("uuids", jaccountuuidlist);
 
         JSONObject jstatus = new JSONObject();
-        jstatus.put("sync.version", 1);
-        jstatus.put("app.version", BuildConfig.VERSION_CODE);
         jstatus.put("accounts", jaccountuuids);
 
         JSONObject jstatuskv = new JSONObject();
         jstatuskv.put("key", "sync.status");
         jstatuskv.put("val", jstatus.toString());
         jstatuskv.put("rev", lrevision);
+        jstatuskv.put("ver", 1);
+        jstatuskv.put("app", BuildConfig.VERSION_CODE);
         jupload.put(jstatuskv);
 
         JSONObject jrequest = new JSONObject();
@@ -310,6 +311,7 @@ public class CloudSync {
     private static void receiveRemoteData(Context context, String user, String password, long lrevision, long rrevision, JSONObject jstatus)
             throws JSONException, GeneralSecurityException, IOException {
         DB db = DB.getInstance(context);
+        File dir = Helper.ensureExists(new File(context.getFilesDir(), "syncdata"));
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean cloud_receive = prefs.getBoolean("cloud_receive", true);
 
@@ -409,6 +411,7 @@ public class CloudSync {
                                 left.setProperties();
                                 left.setSpecials(raccount);
                                 left.id = db.folder().insertFolder(left);
+                                raccount.swipe_left = left.id;
                             }
 
                             if (right != null) {
@@ -416,11 +419,10 @@ public class CloudSync {
                                 right.setProperties();
                                 right.setSpecials(raccount);
                                 right.id = db.folder().insertFolder(right);
+                                raccount.swipe_right = right.id;
                             }
 
-                            db.account().setAccountSwipes(raccount.id,
-                                    left == null ? null : left.id,
-                                    right == null ? null : right.id);
+                            db.account().setAccountSwipes(raccount.id, raccount.swipe_left, raccount.swipe_right);
                         }
                     } else {
                         raccount.id = laccount.id;
@@ -440,6 +442,10 @@ public class CloudSync {
                     }
 
                     db.setTransactionSuccessful();
+
+                    File afile = new File(dir, "account." + raccount.uuid + ".json");
+                    Helper.writeText(afile, raccount.toJSON().toString());
+                    afile.setLastModified(rrevision);
 
                     updates = true;
                 } finally {
@@ -510,6 +516,10 @@ public class CloudSync {
                     } finally {
                         db.endTransaction();
                     }
+
+                    File ifile = new File(dir, "identity." + ridentity.uuid + ".json");
+                    Helper.writeText(ifile, ridentity.toJSON().toString());
+                    ifile.setLastModified(rrevision);
                 }
             }
         }
