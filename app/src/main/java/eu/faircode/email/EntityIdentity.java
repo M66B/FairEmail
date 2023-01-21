@@ -333,7 +333,7 @@ public class EntityIdentity {
         return (Objects.equals(i1.uuid, other.uuid) &&
                 i1.name.equals(other.name) &&
                 i1.email.equals(other.email) &&
-                Objects.equals(i1.account, other.account) &&
+                (!state || Objects.equals(i1.account, other.account)) &&
                 Objects.equals(i1.display, other.display) &&
                 Objects.equals(i1.color, other.color) &&
                 Objects.equals(i1.signature, other.signature) &&
@@ -377,7 +377,7 @@ public class EntityIdentity {
                 (!state || Objects.equals(i1.state, other.state)) &&
                 (!state || Objects.equals(i1.error, other.error)) &&
                 (!state || Objects.equals(i1.last_connected, other.last_connected)) &&
-                Objects.equals(i1.max_size, other.max_size) &&
+                (!state || Objects.equals(i1.max_size, other.max_size)) &&
                 (!state || Objects.equals(i1.last_modified, other.last_modified)));
     }
 

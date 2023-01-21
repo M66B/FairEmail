@@ -482,7 +482,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                 a1.unicode == other.unicode &&
                 Objects.equals(a1.conditions, other.conditions) &&
                 (!state || Objects.equals(a1.quota_usage, other.quota_usage)) &&
-                Objects.equals(a1.quota_limit, other.quota_limit) &&
+                (!state || Objects.equals(a1.quota_limit, other.quota_limit)) &&
                 Objects.equals(a1.created, other.created) &&
                 Objects.equals(a1.tbd, other.tbd) &&
                 // thread
@@ -491,11 +491,11 @@ public class EntityAccount extends EntityOrder implements Serializable {
                 (!state || Objects.equals(a1.error, other.error)) &&
                 (!state || Objects.equals(a1.last_connected, other.last_connected)) &&
                 (!state || Objects.equals(a1.backoff_until, other.backoff_until)) &&
-                Objects.equals(a1.max_size, other.max_size) &&
-                Objects.equals(a1.capabilities, other.capabilities) &&
-                Objects.equals(a1.capability_idle, other.capability_idle) &&
-                Objects.equals(a1.capability_utf8, other.capability_utf8) &&
-                Objects.equals(a1.capability_uidl, other.capability_uidl) &&
+                (!state || Objects.equals(a1.max_size, other.max_size)) &&
+                (!state || Objects.equals(a1.capabilities, other.capabilities)) &&
+                (!state || Objects.equals(a1.capability_idle, other.capability_idle)) &&
+                (!state || Objects.equals(a1.capability_utf8, other.capability_utf8)) &&
+                (!state || Objects.equals(a1.capability_uidl, other.capability_uidl)) &&
                 (!state || Objects.equals(a1.last_modified, other.last_modified)));
     }
 
