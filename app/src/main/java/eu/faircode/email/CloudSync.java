@@ -27,6 +27,11 @@ import android.util.Pair;
 
 import androidx.preference.PreferenceManager;
 
+import org.bouncycastle.crypto.InvalidCipherTextException;
+import org.bouncycastle.crypto.engines.AESEngine;
+import org.bouncycastle.crypto.modes.GCMSIVBlockCipher;
+import org.bouncycastle.crypto.params.AEADParameters;
+import org.bouncycastle.crypto.params.KeyParameter;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,12 +58,9 @@ import java.util.Map;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.spec.SecretKeySpec;
 import javax.net.ssl.HttpsURLConnection;
 
 public class CloudSync {
@@ -70,7 +72,7 @@ public class CloudSync {
     // Upper level
 
     static void execute(Context context, String command, boolean manual)
-            throws JSONException, GeneralSecurityException, IOException {
+            throws JSONException, GeneralSecurityException, IOException, InvalidCipherTextException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String user = prefs.getString("cloud_user", null);
         String password = prefs.getString("cloud_password", null);
@@ -220,7 +222,7 @@ public class CloudSync {
     }
 
     private static void sendLocalData(Context context, String user, String password, long lrevision)
-            throws JSONException, GeneralSecurityException, IOException {
+            throws JSONException, GeneralSecurityException, IOException, InvalidCipherTextException {
         DB db = DB.getInstance(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean cloud_send = prefs.getBoolean("cloud_send", true);
@@ -309,7 +311,7 @@ public class CloudSync {
     }
 
     private static void receiveRemoteData(Context context, String user, String password, long lrevision, long rrevision, JSONObject jstatus)
-            throws JSONException, GeneralSecurityException, IOException {
+            throws JSONException, GeneralSecurityException, IOException, InvalidCipherTextException {
         DB db = DB.getInstance(context);
         File dir = Helper.ensureExists(new File(context.getFilesDir(), "syncdata"));
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -534,7 +536,7 @@ public class CloudSync {
     // Lower level
 
     public static JSONObject call(Context context, String user, String password, String command, JSONObject jrequest)
-            throws GeneralSecurityException, JSONException, IOException {
+            throws GeneralSecurityException, JSONException, IOException, InvalidCipherTextException {
         EntityLog.log(context, EntityLog.Type.Cloud, "Cloud command=" + command);
 
         jrequest.put("command", command);
@@ -559,7 +561,7 @@ public class CloudSync {
     }
 
     private static JSONObject _call(Context context, String user, String password, JSONObject jrequest)
-            throws GeneralSecurityException, JSONException, IOException {
+            throws GeneralSecurityException, JSONException, IOException, InvalidCipherTextException {
         byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
         byte[] huser = MessageDigest.getInstance("SHA256").digest(salt);
         byte[] userid = Arrays.copyOfRange(huser, 0, 8);
@@ -710,21 +712,25 @@ public class CloudSync {
     }
 
     private static String transform(String value, byte[] key, byte[] ad, boolean encrypt)
-            throws GeneralSecurityException, IOException {
-        SecretKeySpec secret = new SecretKeySpec(key, "AES");
-        Cipher cipher = Cipher.getInstance("AES/GCM-SIV/NoPadding");
-        IvParameterSpec ivSpec = new IvParameterSpec(new byte[12]);
-        cipher.init(encrypt ? Cipher.ENCRYPT_MODE : Cipher.DECRYPT_MODE, secret, ivSpec);
-        if (ad != null)
-            cipher.updateAAD(ad);
-        if (encrypt) {
-            byte[] encrypted = cipher.doFinal(compress(value.getBytes()));
-            return Base64.encodeToString(encrypted, Base64.NO_PADDING | Base64.NO_WRAP);
-        } else {
-            byte[] encrypted = Base64.decode(value, Base64.NO_PADDING | Base64.NO_WRAP);
-            byte[] decrypted = cipher.doFinal(encrypted);
-            return new String(decompress(decrypted));
-        }
+            throws InvalidCipherTextException, IOException {
+
+        byte[] iv = new byte[12];
+        GCMSIVBlockCipher cipher = new GCMSIVBlockCipher(new AESEngine());
+        AEADParameters aead = new AEADParameters(new KeyParameter(key), 128, iv, ad);
+        cipher.init(encrypt, aead);
+
+        byte[] input = (encrypt
+                ? compress(value.getBytes())
+                : Base64.decode(value, Base64.NO_PADDING | Base64.NO_WRAP));
+        int outputLength = cipher.getOutputSize(input.length);
+        byte[] output = new byte[outputLength];
+        int outputOffset = cipher.processBytes(input, 0, input.length, output, 0);
+        outputOffset += cipher.doFinal(output, outputOffset); // tag
+        if (outputOffset != outputLength)
+            throw new IllegalStateException("offset=" + outputOffset + "/" + outputLength);
+        return (encrypt
+                ? Base64.encodeToString(output, Base64.NO_PADDING | Base64.NO_WRAP)
+                : new String(decompress(output)));
     }
 
     public static byte[] compress(byte[] data) throws IOException {
