@@ -113,7 +113,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private TextView tvExportPro;
     private Button btnImport;
     private CardView cardCloud;
-    private TextView tvCloudInfo;
+    private ImageButton ibCloudInfo;
     private TextView tvCloudPro;
     private EditText etUser;
     private TextInputLayout tilPassword;
@@ -155,7 +155,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         tvExportPro = view.findViewById(R.id.tvExportPro);
         btnImport = view.findViewById(R.id.btnImport);
         cardCloud = view.findViewById(R.id.cardCloud);
-        tvCloudInfo = view.findViewById(R.id.tvCloudInfo);
+        ibCloudInfo = view.findViewById(R.id.ibCloudInfo);
         tvCloudPro = view.findViewById(R.id.tvCloudPro);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
@@ -181,10 +181,10 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             }
         });
 
-        tvCloudInfo.setOnClickListener(new View.OnClickListener() {
+        ibCloudInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 999);
+                Helper.viewFAQ(v.getContext(), 189);
             }
         });
 
@@ -242,7 +242,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         Helper.linkPro(tvExportPro);
         cardCloud.setVisibility(
                 BuildConfig.DEBUG &&
-                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
                         !TextUtils.isEmpty(BuildConfig.CLOUD_URI)
                         ? View.VISIBLE : View.GONE);
         Helper.linkPro(tvCloudPro);
