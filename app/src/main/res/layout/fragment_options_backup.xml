@@ -402,6 +402,7 @@
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="
                         tvLogin,tvAccountRemark,
+                        cbSend,cbReceive,
                         ibSync,tvLastSync,
                         btnLogout,cbDelete" />
             </androidx.constraintlayout.widget.ConstraintLayout>
