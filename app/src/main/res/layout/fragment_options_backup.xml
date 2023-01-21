@@ -278,6 +278,18 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <TextView
+                    android:id="@+id/tvPasswordRemark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_cloud_password_remark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+
                 <Button
                     android:id="@+id/btnLogin"
                     style="?android:attr/buttonStyleSmall"
@@ -289,7 +301,7 @@
                     android:tag="disable"
                     android:text="@string/title_advanced_cloud_login"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tilPassword" />
+                    app:layout_constraintTop_toBottomOf="@id/tvPasswordRemark" />
 
                 <TextView
                     android:id="@+id/tvRegister"
@@ -394,7 +406,8 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="
-                        tvUser,etUser,tvPassword,tilPassword,btnLogin,tvRegister" />
+                        tvUser,etUser,tvPassword,tilPassword,tvPasswordRemark,
+                        btnLogin,tvRegister" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpLogout"
