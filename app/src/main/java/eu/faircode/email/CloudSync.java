@@ -232,7 +232,7 @@ public class CloudSync {
             return;
         }
 
-        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
+        List<EntityAccount> accounts = db.account().getAccounts();
         EntityLog.log(context, EntityLog.Type.Cloud,
                 "Cloud accounts=" + (accounts == null ? null : accounts.size()));
         if (accounts == null || accounts.size() == 0)
@@ -242,14 +242,14 @@ public class CloudSync {
 
         JSONArray jaccountuuidlist = new JSONArray();
         for (EntityAccount account : accounts)
-            if (!TextUtils.isEmpty(account.uuid)) {
+            if (account.synchronize && !TextUtils.isEmpty(account.uuid)) {
                 jaccountuuidlist.put(account.uuid);
 
                 JSONArray jidentitieuuids = new JSONArray();
                 List<EntityIdentity> identities = db.identity().getIdentities(account.id);
                 if (identities != null)
                     for (EntityIdentity identity : identities)
-                        if (!TextUtils.isEmpty(identity.uuid)) {
+                        if (identity.synchronize && !TextUtils.isEmpty(identity.uuid)) {
                             jidentitieuuids.put(identity.uuid);
 
                             JSONObject jidentity = identity.toJSON();
@@ -377,7 +377,7 @@ public class CloudSync {
                         "Cloud account " + raccount.uuid + "=" +
                                 (laccount == null ? "insert" :
                                         (EntityAccount.areEqual(raccount, laccount,
-                                                laccount.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, true)
+                                                laccount.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, false)
                                                 ? "equal" : "update")) +
                                 " rev=" + revision +
                                 " left=" + (left == null ? null : left.name + ":" + left.type) +
@@ -483,13 +483,12 @@ public class CloudSync {
                             "Cloud identity " + ridentity.uuid + "=" +
                                     (lidentity == null ? "insert" :
                                             (EntityIdentity.areEqual(ridentity, lidentity,
-                                                    lidentity.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, true)
+                                                    lidentity.auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD, false)
                                                     ? "equal" : "update")) +
                                     " rev=" + revision +
                                     " size=" + value.length());
 
                     ridentity.id = null;
-                    ridentity.primary = false;
                     ridentity.last_modified = rrevision;
 
                     try {
@@ -503,6 +502,7 @@ public class CloudSync {
                             }
                         } else {
                             ridentity.id = lidentity.id;
+                            ridentity.account = lidentity.account;
                             db.identity().updateIdentity(ridentity);
                         }
 
