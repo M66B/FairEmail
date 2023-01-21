@@ -596,12 +596,10 @@ public class CloudSync {
                 long revision = jitem.getLong("rev");
 
                 String k = jitem.getString("key");
-                jitem.put("key", transform(k, key.second, null, true));
-
                 String v = null;
                 if (jitem.has("val") && !jitem.isNull("val")) {
                     v = jitem.getString("val");
-                    jitem.put("val", transform(v, key.second, getAd(k, revision), true));
+                    jitem.put("val", transform(v, key.second, getIv(revision), getAd(k, revision), true));
                 }
                 v = (v == null ? null : "#" + v.length());
 
@@ -666,14 +664,11 @@ public class CloudSync {
                     JSONObject jitem = jitems.getJSONObject(i);
                     long revision = jitem.getLong("rev");
 
-                    String ekey = jitem.getString("key");
-                    String k = transform(ekey, key.second, null, false);
-                    jitem.put("key", k);
-
+                    String k = jitem.getString("key");
                     String v = null;
                     if (jitem.has("val") && !jitem.isNull("val")) {
                         String evalue = jitem.getString("val");
-                        v = transform(evalue, key.second, getAd(k, revision), false);
+                        v = transform(evalue, key.second, getIv(revision), getAd(k, revision), false);
                         jitem.put("val", v);
                     }
                     v = (v == null ? null : "#" + v.length());
@@ -702,6 +697,13 @@ public class CloudSync {
                 Arrays.copyOfRange(encoded, half, half + half));
     }
 
+    private static byte[] getIv(long revision) {
+        byte[] iv = ByteBuffer.allocate(12)
+                .putLong(revision)
+                .array();
+        return iv;
+    }
+
     private static byte[] getAd(String key, long revision) throws NoSuchAlgorithmException {
         byte[] k = MessageDigest.getInstance("SHA256").digest(key.getBytes());
         byte[] ad = ByteBuffer.allocate(8 + 8)
@@ -711,10 +713,8 @@ public class CloudSync {
         return ad;
     }
 
-    private static String transform(String value, byte[] key, byte[] ad, boolean encrypt)
+    private static String transform(String value, byte[] key, byte[] iv, byte[] ad, boolean encrypt)
             throws InvalidCipherTextException, IOException {
-
-        byte[] iv = new byte[12];
         GCMSIVBlockCipher cipher = new GCMSIVBlockCipher(new AESEngine());
         AEADParameters aead = new AEADParameters(new KeyParameter(key), 128, iv, ad);
         cipher.init(encrypt, aead);
