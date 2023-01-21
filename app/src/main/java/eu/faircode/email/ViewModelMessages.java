@@ -436,7 +436,7 @@ public class ViewModelMessages extends ViewModel {
                         Log.i("Observe previous/next fallback=" + result);
                         return result;
                     }
-                }.execute(context, owner, args, "model:fallback");
+                }.setExecutor(executor).execute(context, owner, args, "model:fallback");
             }
         });
     }
