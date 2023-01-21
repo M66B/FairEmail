@@ -429,8 +429,14 @@ public class CloudSync {
                     } else {
                         raccount.id = laccount.id;
                         raccount.notify = laccount.notify; // TODO
-                        raccount.swipe_left = laccount.swipe_left; // TODO
-                        raccount.swipe_right = laccount.swipe_right; // TODO
+                        if (left != null) {
+                            left = db.folder().getFolderByName(laccount.id, left.name);
+                            raccount.swipe_left = (left == null ? null : left.id);
+                        }
+                        if (right != null) {
+                            right = db.folder().getFolderByName(laccount.id, right.name);
+                            raccount.swipe_right = (right == null ? null : right.id);
+                        }
                         raccount.move_to = laccount.move_to; // TODO
                         db.account().updateAccount(raccount);
                     }
