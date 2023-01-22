@@ -4972,7 +4972,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onToggleMessage(TupleMessageEx message) {
-            if (EntityFolder.DRAFTS.equals(message.folderType) &&
+            if (EntityFolder.DRAFTS.equals(message.folderType) && message.visible == 1 &&
                     !EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) &&
                     !EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))
                 context.startActivity(
