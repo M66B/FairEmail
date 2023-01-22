@@ -995,6 +995,7 @@
     </string>
     <string name="title_advanced_cloud_account_remark" translatable="false">
         Only enabled accounts and identities will be synchronized.
+        Gmail accounts authenticated via Android cannot be synchronized.
         Folder properties will not be synchronized.
         Existing accounts on the device will never be deleted.
     </string>
