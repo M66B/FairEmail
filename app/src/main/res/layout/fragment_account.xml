@@ -690,6 +690,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPartialFetchRemark" />
 
+        <TextView
+            android:id="@+id/tvRawFetchRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_account_raw_fetch_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbRawFetch" />
+
         <CheckBox
             android:id="@+id/cbIgnoreSize"
             android:layout_width="wrap_content"
@@ -697,7 +708,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_ignore_size"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbRawFetch" />
+            app:layout_constraintTop_toBottomOf="@id/tvRawFetchRemark" />
 
         <RadioGroup
             android:id="@+id/rgDate"
@@ -1170,7 +1181,7 @@
                 cbBrowse,tvBrowseHint,
                 cbAutoSeen,
                 tvInterval,etInterval,tvIntervalRemark,cbNoop,tvNoopRemark,
-                cbPartialFetch,tvPartialFetchRemark,cbRawFetch,cbIgnoreSize,rgDate,tvDateRemark,
+                cbPartialFetch,tvPartialFetchRemark,cbRawFetch,tvRawFetchRemark,cbIgnoreSize,rgDate,tvDateRemark,
                 cbUnicode,cbUnmeteredOnly,cbVpnOnly" />
 
         <androidx.constraintlayout.widget.Group

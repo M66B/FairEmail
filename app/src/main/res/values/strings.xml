@@ -1038,6 +1038,7 @@
     <string name="title_account_interval_hint">Frequency of refreshing the connection for push messages or frequency of checking for new messages</string>
     <string name="title_account_noop_hint">This will refresh the connection more actively, but also use more battery power</string>
     <string name="title_account_partial_fetch_hint">Disable this only in case of empty messages or corrupt attachments</string>
+    <string name="title_account_raw_fetch_hint">Enabling this will increase battery and data usage</string>
     <string name="title_color">Color</string>
     <string name="title_calendar">Calendar</string>
     <string name="title_background">Background</string>
