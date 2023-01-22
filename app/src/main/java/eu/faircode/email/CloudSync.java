@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.os.OperationCanceledException;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
@@ -652,6 +653,8 @@ public class CloudSync {
                 JSONObject jerror = new JSONObject(detail);
                 if (status == HttpsURLConnection.HTTP_FORBIDDEN)
                     throw new SecurityException(jerror.optString("error"));
+                else if (status == HttpsURLConnection.HTTP_PAYMENT_REQUIRED)
+                    throw new OperationCanceledException(jerror.optString("error"));
                 else
                     throw new IOException(error + " " + jerror);
             }

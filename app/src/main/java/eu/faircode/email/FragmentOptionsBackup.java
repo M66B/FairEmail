@@ -37,6 +37,7 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.OperationCanceledException;
 import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -119,6 +120,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private TextInputLayout tilPassword;
     private Button btnLogin;
     private TextView tvLogin;
+    private Button btnActivate;
     private CheckBox cbSend;
     private CheckBox cbReceive;
     private ImageButton ibSync;
@@ -161,6 +163,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         tilPassword = view.findViewById(R.id.tilPassword);
         btnLogin = view.findViewById(R.id.btnLogin);
         tvLogin = view.findViewById(R.id.tvLogin);
+        btnActivate = view.findViewById(R.id.btnActivate);
         cbSend = view.findViewById(R.id.cbSend);
         cbReceive = view.findViewById(R.id.cbReceive);
         ibSync = view.findViewById(R.id.ibSync);
@@ -209,6 +212,13 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             }
         });
 
+        btnActivate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO
+            }
+        });
+
         ibSync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,6 +256,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                         !TextUtils.isEmpty(BuildConfig.CLOUD_URI)
                         ? View.VISIBLE : View.GONE);
         Helper.linkPro(tvCloudPro);
+        btnActivate.setVisibility(View.GONE);
 
         cbSend.setChecked(prefs.getBoolean("cloud_send", true));
         cbReceive.setChecked(prefs.getBoolean("cloud_receive", false));
@@ -1555,6 +1566,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
+                btnActivate.setVisibility(View.GONE);
                 view.post(new Runnable() {
                     @Override
                     public void run() {
@@ -1565,6 +1577,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                btnActivate.setVisibility(ex instanceof OperationCanceledException ? View.VISIBLE : View.GONE);
                 if (ex instanceof SecurityException) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                             .setIcon(R.drawable.twotone_warning_24)
@@ -1574,7 +1587,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     if (!TextUtils.isEmpty(message))
                         builder.setMessage(message);
                     builder.show();
-                } else
+                } else if (!(ex instanceof OperationCanceledException))
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(FragmentOptionsBackup.this, args, "cloud");
