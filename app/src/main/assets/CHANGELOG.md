@@ -17,6 +17,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Small improvements and minor bug fixes
 * Updated translations
 
+<img src="https://bitbucket.org/M66B/fairemail-test/downloads/cloud_sync.png" width="480" />
+
 ### 1.2030 - 2023-01-14
 
 * Added backup settings tab page

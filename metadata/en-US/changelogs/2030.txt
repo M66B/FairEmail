@@ -17,6 +17,8 @@ Next version
 * Small improvements and minor bug fixes
 * Updated translations
 
+
+
 1.2030 - 2023-01-14
 
 * Added backup settings tab page
