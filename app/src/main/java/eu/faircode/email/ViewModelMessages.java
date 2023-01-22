@@ -245,7 +245,8 @@ public class ViewModelMessages extends ViewModel {
         if (viewType == AdapterMessage.ViewType.UNIFIED)
             models.remove(AdapterMessage.ViewType.FOLDER);
 
-        if (viewType != AdapterMessage.ViewType.SEARCH)
+        if (viewType != AdapterMessage.ViewType.SEARCH &&
+                viewType != AdapterMessage.ViewType.THREAD)
             models.remove(AdapterMessage.ViewType.SEARCH);
 
         if (viewType != AdapterMessage.ViewType.THREAD) {
