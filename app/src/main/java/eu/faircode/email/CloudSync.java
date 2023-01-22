@@ -84,7 +84,7 @@ public class CloudSync {
 
         JSONObject jrequest = new JSONObject();
 
-        EntityLog.log(context, EntityLog.Type.Cloud, "Cloud command=" + command);
+        EntityLog.log(context, EntityLog.Type.Cloud, "Cloud request=" + command);
         if ("sync".equals(command)) {
             long lrevision = prefs.getLong("cloud_lrevision", 0);
             EntityLog.log(context, EntityLog.Type.Cloud,
@@ -155,13 +155,22 @@ public class CloudSync {
                     receiveRemoteData(context, user, password, lrevision - 1, rrevision, jstatus);
             } else
                 throw new IllegalArgumentException("Expected one status item");
+
+            prefs.edit().putLong("cloud_last_sync", new Date().getTime()).apply();
+        } else if ("wipe".equals(command)) {
+            jrequest.put("items", new JSONArray());
+            JSONObject jresponse = call(context, user, password, "keys", jrequest);
+            JSONArray jitems = jresponse.getJSONArray("items");
+            for (int i = 0; i < jitems.length(); i++)
+                jitems.getJSONObject(i).put("val", null);
+            jrequest.put("items", jitems);
+            call(context, user, password, "write", jrequest); // wipe data
+            call(context, user, password, "wipe", jrequest); // wipe account
         } else {
             JSONArray jitems = new JSONArray();
             jrequest.put("items", jitems);
             call(context, user, password, command, jrequest);
         }
-
-        prefs.edit().putLong("cloud_last_sync", new Date().getTime()).apply();
     }
 
     private static Long updateSyncdata(Context context) throws IOException, JSONException {
@@ -599,7 +608,7 @@ public class CloudSync {
             JSONArray jitems = jrequest.getJSONArray("items");
             for (int i = 0; i < jitems.length(); i++) {
                 JSONObject jitem = jitems.getJSONObject(i);
-                long revision = jitem.getLong("rev");
+                long revision = jitem.optLong("rev", 0);
 
                 String k = jitem.getString("key");
                 String v = null;
@@ -668,7 +677,7 @@ public class CloudSync {
                 JSONArray jitems = jresponse.getJSONArray("items");
                 for (int i = 0; i < jitems.length(); i++) {
                     JSONObject jitem = jitems.getJSONObject(i);
-                    long revision = jitem.getLong("rev");
+                    long revision = jitem.optLong("rev", 0);
 
                     String k = jitem.getString("key");
                     String v = null;
@@ -757,6 +766,7 @@ public class CloudSync {
     }
 
     private static List<JSONArray> partition(JSONArray jarray) throws JSONException {
+        Log.i("Cloud batch size=" + jarray.length() + "/" + BATCH_SIZE);
         if (jarray.length() <= BATCH_SIZE)
             return Arrays.asList(jarray);
 
@@ -770,6 +780,8 @@ public class CloudSync {
             }
             jpartitions.add(jpartition);
         }
+
+        Log.i("Cloud partitions=" + jpartitions.size());
 
         if (count != jarray.length())
             throw new IllegalArgumentException("Partition error size=" + count + "/" + jarray.length());

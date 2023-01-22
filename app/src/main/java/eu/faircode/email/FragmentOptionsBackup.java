@@ -242,7 +242,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         Helper.linkPro(tvExportPro);
         cardCloud.setVisibility(
                 BuildConfig.DEBUG &&
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
+                        Build.VERSION.SDK_INT >= Build.VERSION_CODES.O &&
                         !TextUtils.isEmpty(BuildConfig.CLOUD_URI)
                         ? View.VISIBLE : View.GONE);
         Helper.linkPro(tvCloudPro);
@@ -1511,8 +1511,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     }
 
     private void cloud(Bundle args) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
         new SimpleTask<Void>() {
             @Override
             protected void onPreExecute(Bundle args) {
@@ -1536,7 +1534,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     command = "logout";
                     throw ex;
                 } finally {
-                    if ("logout".equals(command)) {
+                    if ("logout".equals(command) || "wipe".equals(command)) {
                         prefs.edit()
                                 .remove("cloud_revision")
                                 .remove("cloud_user")
@@ -1554,7 +1552,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                 return null;
             }
-
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
