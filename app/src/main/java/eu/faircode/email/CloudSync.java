@@ -183,7 +183,8 @@ public class CloudSync {
         List<EntityAccount> accounts = db.account().getAccounts();
         if (accounts != null)
             for (EntityAccount account : accounts)
-                if (account.synchronize && !TextUtils.isEmpty(account.uuid)) {
+                if (account.synchronize && !TextUtils.isEmpty(account.uuid) &&
+                        account.auth_type != ServiceAuthenticator.AUTH_TYPE_GMAIL) {
                     EntityAccount aexisting = null;
                     File afile = new File(dir, "account." + account.uuid + ".json");
                     if (afile.exists())
@@ -252,7 +253,8 @@ public class CloudSync {
 
         JSONArray jaccountuuidlist = new JSONArray();
         for (EntityAccount account : accounts)
-            if (account.synchronize && !TextUtils.isEmpty(account.uuid)) {
+            if (account.synchronize && !TextUtils.isEmpty(account.uuid) &&
+                    account.auth_type != ServiceAuthenticator.AUTH_TYPE_GMAIL) {
                 jaccountuuidlist.put(account.uuid);
 
                 JSONArray jidentitieuuids = new JSONArray();
