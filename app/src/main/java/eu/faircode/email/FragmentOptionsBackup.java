@@ -248,7 +248,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         Helper.linkPro(tvCloudPro);
 
         cbSend.setChecked(prefs.getBoolean("cloud_send", true));
-        cbReceive.setChecked(prefs.getBoolean("cloud_receive", true));
+        cbReceive.setChecked(prefs.getBoolean("cloud_receive", false));
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, null);

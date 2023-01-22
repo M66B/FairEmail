@@ -315,7 +315,7 @@ public class CloudSync {
         DB db = DB.getInstance(context);
         File dir = Helper.ensureExists(new File(context.getFilesDir(), "syncdata"));
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean cloud_receive = prefs.getBoolean("cloud_receive", true);
+        boolean cloud_receive = prefs.getBoolean("cloud_receive", false);
 
         if (!cloud_receive) {
             EntityLog.log(context, EntityLog.Type.Cloud, "Cloud skip receive");
