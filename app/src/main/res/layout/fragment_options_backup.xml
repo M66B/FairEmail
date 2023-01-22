@@ -324,11 +324,22 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnLogin" />
 
+                <TextView
+                    android:id="@+id/tvLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="username"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvRegister" />
+
                 <Button
                     android:id="@+id/btnActivate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="12dp"
                     android:backgroundTint="?attr/colorInfoBackground"
                     android:drawableEnd="@drawable/twotone_redeem_24"
                     android:drawablePadding="6dp"
@@ -340,16 +351,17 @@
                     android:textStyle="bold"
                     app:drawableTint="?attr/colorInfoForeground"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvRegister" />
+                    app:layout_constraintTop_toBottomOf="@id/tvLogin" />
 
                 <TextView
-                    android:id="@+id/tvLogin"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvActivateRemark"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    android:text="username"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textStyle="bold"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_advanced_cloud_activate_remark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnActivate" />
 
@@ -363,7 +375,7 @@
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLogin" />
+                    app:layout_constraintTop_toBottomOf="@id/tvActivateRemark" />
 
                 <CheckBox
                     android:id="@+id/cbSend"
@@ -435,6 +447,13 @@
                     app:constraint_referenced_ids="
                         tvUser,etUser,tvPassword,tilPassword,tvPasswordRemark,
                         btnLogin,tvRegister" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpActivate"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="
+                        btnActivate,tvActivateRemark" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpLogout"

@@ -576,12 +576,24 @@ public class CloudSync {
         }
     }
 
-    private static JSONObject _call(Context context, String user, String password, JSONObject jrequest)
-            throws GeneralSecurityException, JSONException, IOException, InvalidCipherTextException {
-        byte[] salt = MessageDigest.getInstance("SHA256").digest(user.getBytes());
+    private static byte[] getSalt(String user) throws NoSuchAlgorithmException {
+        return MessageDigest.getInstance("SHA256").digest(user.getBytes());
+    }
+
+    static String getCloudUser(String user) throws NoSuchAlgorithmException {
+        return getCloudUser(getSalt(user));
+    }
+
+    private static String getCloudUser(byte[] salt) throws NoSuchAlgorithmException {
         byte[] huser = MessageDigest.getInstance("SHA256").digest(salt);
         byte[] userid = Arrays.copyOfRange(huser, 0, 8);
-        String cloudUser = Base64.encodeToString(userid, Base64.NO_PADDING | Base64.NO_WRAP);
+        return Base64.encodeToString(userid, Base64.NO_PADDING | Base64.NO_WRAP);
+    }
+
+    private static JSONObject _call(Context context, String user, String password, JSONObject jrequest)
+            throws GeneralSecurityException, JSONException, IOException, InvalidCipherTextException {
+        byte[] salt = getSalt(user);
+        String cloudUser = getCloudUser(salt);
 
         Pair<byte[], byte[]> key;
         String lookup = Helper.hex(salt) + ":" + password;

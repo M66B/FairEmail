@@ -989,6 +989,10 @@
     <string name="title_advanced_cloud_password_remark" translatable="false">You can change the password by wiping the data and logging in again</string>
     <string name="title_advanced_cloud_invalid" translatable="false">Invalid username or password</string>
     <string name="title_advanced_cloud_activate" translatable="false">Activate</string>
+    <string name="title_advanced_cloud_activate_remark" translatable="false">
+        Please use the same email address you used to activate the pro features.
+        The cloud account and the email address will not be linked.
+    </string>
     <string name="title_advanced_cloud_account_remark" translatable="false">
         Only enabled accounts and identities will be synchronized.
         Folder properties will not be synchronized.

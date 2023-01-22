@@ -128,6 +128,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private Button btnLogout;
     private CheckBox cbDelete;
     private Group grpLogin;
+    private Group grpActivate;
     private Group grpLogout;
 
     private DateFormat DTF;
@@ -171,6 +172,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         btnLogout = view.findViewById(R.id.btnLogout);
         cbDelete = view.findViewById(R.id.cbDelete);
         grpLogin = view.findViewById(R.id.grpLogin);
+        grpActivate = view.findViewById(R.id.grpActivate);
         grpLogout = view.findViewById(R.id.grpLogout);
 
         // Wire controls
@@ -215,7 +217,18 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         btnActivate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO
+                try {
+                    String user = prefs.getString("cloud_user", null);
+                    Intent intent = new Intent(Intent.ACTION_SEND)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            .setType("text/plain")
+                            .putExtra(Intent.EXTRA_EMAIL, new String[]{BuildConfig.CLOUD_EMAIL})
+                            .putExtra(Intent.EXTRA_SUBJECT, CloudSync.getCloudUser(user))
+                            .putExtra(Intent.EXTRA_TEXT, "Activate");
+                    v.getContext().startActivity(intent);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
             }
         });
 
@@ -256,7 +269,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                         !TextUtils.isEmpty(BuildConfig.CLOUD_URI)
                         ? View.VISIBLE : View.GONE);
         Helper.linkPro(tvCloudPro);
-        btnActivate.setVisibility(View.GONE);
 
         cbSend.setChecked(prefs.getBoolean("cloud_send", true));
         cbReceive.setChecked(prefs.getBoolean("cloud_receive", false));
@@ -278,10 +290,14 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         if (key == null ||
                 "cloud_user".equals(key) ||
                 "cloud_password".equals(key) ||
+                "cloud_activated".equals(key) ||
+                "cloud_busy".equals(key) ||
                 "cloud_last_sync".equals(key)) {
             String user = prefs.getString("cloud_user", null);
             String password = prefs.getString("cloud_password", null);
             boolean auth = !(TextUtils.isEmpty(user) || TextUtils.isEmpty(password));
+            boolean activated = prefs.getBoolean("cloud_activated", false);
+            boolean busy = prefs.getBoolean("cloud_busy", false);
             long last_sync = prefs.getLong("cloud_last_sync", 0);
 
             etUser.setText(user);
@@ -291,6 +307,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     last_sync == 0 ? "-" : DTF.format(last_sync)));
             cbDelete.setChecked(false);
             grpLogin.setVisibility(auth ? View.GONE : View.VISIBLE);
+            grpActivate.setVisibility(auth && !activated && !busy ? View.VISIBLE : View.GONE);
             grpLogout.setVisibility(auth ? View.VISIBLE : View.GONE);
         }
     }
@@ -1522,15 +1539,19 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     }
 
     private void cloud(Bundle args) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         new SimpleTask<Void>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 Helper.setViewsEnabled(cardCloud, false);
+                prefs.edit().putBoolean("cloud_busy", true).apply();
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
                 Helper.setViewsEnabled(cardCloud, true);
+                prefs.edit().putBoolean("cloud_busy", false).apply();
                 WorkerSync.init(getContext());
             }
 
@@ -1566,7 +1587,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                btnActivate.setVisibility(View.GONE);
+                prefs.edit().putBoolean("cloud_activated", true).apply();
+
                 view.post(new Runnable() {
                     @Override
                     public void run() {
@@ -1577,8 +1599,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                btnActivate.setVisibility(ex instanceof OperationCanceledException ? View.VISIBLE : View.GONE);
-                if (ex instanceof SecurityException) {
+                if (ex instanceof OperationCanceledException)
+                    prefs.edit().putBoolean("cloud_activated", false).apply();
+                else if (ex instanceof SecurityException) {
                     AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
                             .setIcon(R.drawable.twotone_warning_24)
                             .setTitle(getString(R.string.title_advanced_cloud_invalid))
@@ -1587,7 +1610,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     if (!TextUtils.isEmpty(message))
                         builder.setMessage(message);
                     builder.show();
-                } else if (!(ex instanceof OperationCanceledException))
+                } else
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(FragmentOptionsBackup.this, args, "cloud");

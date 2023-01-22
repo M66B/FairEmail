@@ -71,9 +71,21 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
     @Override
     public void onBackStackChanged() {
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
-            String action = getIntent().getAction();
-            if (!isShared(action) &&
-                    (action == null || !action.startsWith("widget:"))) {
+            Intent intent = getIntent();
+
+            String action = intent.getAction();
+            boolean widget = (action != null && action.startsWith("widget:"));
+
+            String[] tos = intent.getStringArrayExtra(Intent.EXTRA_EMAIL);
+            boolean cloud = (tos != null && tos.length == 1 && BuildConfig.CLOUD_EMAIL.equals(tos[0]));
+
+            if (cloud) {
+                Intent setup = new Intent(this, ActivitySetup.class)
+                        .setAction("misc")
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .putExtra("tab", "backup");
+                startActivity(setup);
+            } else if (!isShared(action) && !widget) {
                 Intent parent = getParentActivityIntent();
                 if (parent != null)
                     if (shouldUpRecreateTask(parent))
