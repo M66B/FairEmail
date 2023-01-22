@@ -2005,7 +2005,8 @@ public class Helper {
         Calendar cal1 = Calendar.getInstance();
         cal0.setTimeInMillis(millis);
         boolean thisMonth = (cal0.get(Calendar.MONTH) == cal1.get(Calendar.MONTH));
-        String skeleton = (thisMonth ? "MMM-d" : "Y-M-d");
+        boolean thisYear = (cal0.get(Calendar.YEAR) == cal1.get(Calendar.YEAR));
+        String skeleton = (thisMonth && thisYear ? "MMM-d" : "Y-M-d");
         String format = android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
         return new SimpleDateFormat(format).format(millis);
     }
