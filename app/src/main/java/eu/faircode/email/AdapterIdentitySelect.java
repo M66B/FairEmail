@@ -82,7 +82,10 @@ public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
             text2.setText(identity.accountName + "/" + identity.email);
         }
 
-        tvExtra.setText((identity.cc == null ? "" : "+CC") + (identity.bcc == null ? "" : "+BCC"));
+        tvExtra.setText(
+                (identity.cc == null ? "" : "+CC") +
+                        (identity.bcc == null ? "" : "+BCC") +
+                        (identity.replyto != null && !identity.replyto.equals(identity.email) ? "<<" : ""));
 
         text2.setVisibility(single ? View.GONE : View.VISIBLE);
         tvExtra.setVisibility(identity.cc == null && identity.bcc == null ? View.GONE : View.VISIBLE);
