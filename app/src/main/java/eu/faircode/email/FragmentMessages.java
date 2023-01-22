@@ -486,7 +486,7 @@ public class FragmentMessages extends FragmentBase
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        hide_toolbar = prefs.getBoolean("hide_toolbar", true);
+        hide_toolbar = prefs.getBoolean("hide_toolbar", false);
         cards = prefs.getBoolean("cards", true);
         dividers = prefs.getBoolean("dividers", true);
         category = prefs.getBoolean("group_category", false);
