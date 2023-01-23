@@ -363,6 +363,7 @@
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_send_delayed">Retarder l’envoi des messages</string>
     <string name="title_advanced_attach_new">Ajouter des fichiers partagés à un nouveau brouillon</string>
+    <string name="title_advanced_answer_default">Un appui court sur le bouton de réponse va:</string>
     <string name="title_advanced_answer_action">Un appui long sur le bouton de réponse va:</string>
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
     <string name="title_advanced_auto_save_paragraph">Enregistrer automatiquement un brouillon après chaque paragraphe</string>
@@ -435,6 +436,7 @@
     <string name="title_advanced_nav_pin">Épingler le menu de navigation</string>
     <string name="title_advanced_nav_hide_title">Masquer les options du menu de navigation?</string>
     <string name="title_advanced_nav_hide_message">Vous pouvez réactiver les options dans les paramètres d\'affichage</string>
+    <string name="title_advanced_nav_last_sync">Afficher la date et l\'heure de la dernière synchronisation dans le menu de navigation</string>
     <string name="title_advanced_nav_message_count">Afficher le nombre de messages stockés localement dans le menu de navigation</string>
     <string name="title_advanced_nav_unseen_drafts">Afficher le nombre de brouillons non lus dans le menu de navigation</string>
     <string name="title_advanced_nav_pinned_count">Afficher le nombre de messages non lus dans le menu de navigation épinglé</string>
@@ -548,6 +550,7 @@
     <string name="title_advanced_expand_one">Ne déplier qu’un seul message à la fois</string>
     <string name="title_advanced_collapse_multiple">Replier les multiples messages d’une conversation en faisant « Retour »</string>
     <string name="title_advanced_autoclose">Fermer automatiquement les conversations</string>
+    <string name="title_advanced_autoclose_send">Fermer automatiquement les conversations après l\'envoi de messages</string>
     <string name="title_advanced_onclose">Lors de la fermeture d’une conversation</string>
     <string name="title_advanced_autoclose_unread">Fermer les conversations lors du marquage des messages comme non lus</string>
     <string name="title_advanced_collapse_marked">Replier les messages marqués manuellement comme lus ou non lus</string>
@@ -562,6 +565,7 @@
     <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_reset_importance">Réinitialiser l’importance lors du déplacement des messages</string>
     <string name="title_advanced_cancel_snooze">Annuler le report des messages lors de leur déplacement</string>
+    <string name="title_advanced_auto_block_sender">Bloquer automatiquement l\'expéditeur lors du signalement de courrier indésirable</string>
     <string name="title_advanced_swipe_reply">Balayer vers la droite les messages dépliés pour répondre</string>
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
@@ -822,6 +826,7 @@
     <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages poussés ou fréquence de vérification des nouveaux messages</string>
     <string name="title_account_noop_hint">Ceci actualisera la connexion plus activement mais utilisera également plus de batterie</string>
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement en cas de messages vides ou de pièces jointes corrompues</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Activer ceci augmentera l\'utilisation de la pile et des données</string>
     <string name="title_color">Couleur</string>
     <string name="title_calendar">Calendrier</string>
     <string name="title_background">Arrière-plan</string>
@@ -901,6 +906,7 @@
     <string name="title_account_delete">Supprimer définitivement ce compte?</string>
     <string name="title_identity_delete">Supprimer définitivement cette identité?</string>
     <string name="title_edit_html">Modifier en HTML</string>
+    <string name="title_check_html">Vérifier le code HTML</string>
     <string name="title_import_file">Importer un fichier</string>
     <string name="title_sign_key">Clé de signature : %1$s</string>
     <string name="title_last_connected">Dernière connexion : %1$s</string>
@@ -986,6 +992,7 @@
     <string name="title_edit_account_color">Modifier la couleur du compte</string>
     <string name="title_hide_folder">Masquer le dossier</string>
     <string name="title_hide_seen_folder">Masquer le dossier si tous les messages sont lus</string>
+    <string name="title_hide_seen_folder_hint">Seulement dans la liste des comptes et des dossiers unifiés</string>
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_navigation_folder">Afficher dans le menu de navigation</string>
     <string name="title_navigation_folder_hide">Masquer dans le menu de navigation</string>
@@ -1129,6 +1136,7 @@
     <string name="title_reply_receipt">Envoyer une confirmation de lecture</string>
     <string name="title_reply_hard_bounce">Envoyer un avis de non-livraison définitive</string>
     <string name="title_reply_template">Répondre avec un modèle</string>
+    <string name="title_reply_menu">Afficher le menu de sélection</string>
     <string name="title_move_undo">Déplacement vers %1$s (%2$d)</string>
     <string name="title_authentication_failed">L\'authentification %1$s a échoué</string>
     <string name="title_on_blocklist">Sur la liste de blocage des indésirables</string>

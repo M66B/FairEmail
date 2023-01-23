@@ -124,9 +124,9 @@
     <string name="title_version">バージョン %1$s</string>
     <string name="title_privacy_policy">プライバシーポリシー</string>
     <string name="title_list_accounts">アカウント</string>
-    <string name="title_list_identities">ID</string>
+    <string name="title_list_identities">ユーザー ID</string>
     <string name="title_edit_account">アカウントを編集</string>
-    <string name="title_edit_identity">ID を編集</string>
+    <string name="title_edit_identity">ユーザー ID を編集</string>
     <string name="title_edit_folder">フォルダーを編集</string>
     <string name="title_disable_gmail">Gmail アプリを無効にする</string>
     <string name="title_setup">設定</string>
@@ -152,9 +152,9 @@
     <string name="title_setup_documentation">メールサーバー設定については、メールプロバイダーのドキュメントを参照してください</string>
     <string name="title_setup_account_remark">メールを受信</string>
     <string name="title_setup_identity_remark">メールを送信</string>
-    <string name="title_setup_account_identity_hint">アカウント設定で名前、色、スワイプ操作を設定でき、ID 設定で署名を設定できます。</string>
+    <string name="title_setup_account_identity_hint">名前、色、スワイプ操作はアカウント設定から、署名はユーザー ID 設定から変更できます</string>
     <string name="title_setup_accounts">アカウント</string>
-    <string name="title_setup_identities">ID</string>
+    <string name="title_setup_identities">ユーザー ID</string>
     <string name="title_setup_google_sign_in">Google でサインイン</string>
     <string name="title_setup_other">その他のプロバイダー (IMAP)</string>
     <string name="title_setup_inbound">メール受信のみ (送信できません！)</string>
@@ -187,7 +187,7 @@
     <string name="title_setup_grant">付与</string>
     <string name="title_setup_grant_again">必要な権限を付与</string>
     <string name="title_setup_exchange_support">Microsoft Exchange に対応していますか？</string>
-    <string name="title_setup_identity_what">ID とは？</string>
+    <string name="title_setup_identity_what">ユーザー ID とは？</string>
     <string name="title_setup_free">このアプリは無料で使用できますか？</string>
     <string name="title_setup_permissions">アクセス権限を付与する</string>
     <string name="title_setup_permissions_remark">連絡先へのアクセスのため (オプション)</string>
@@ -239,7 +239,7 @@
     <string name="title_setup_password_missing">パスワードを入力してください</string>
     <string name="title_setup_password_different">パスワードが一致しません</string>
     <string name="title_setup_password_invalid">パスワードが間違っているか、ファイルが破損しています</string>
-    <string name="title_setup_import_accounts">アカウントと ID をインポート</string>
+    <string name="title_setup_import_accounts">アカウントとユーザー ID をインポート</string>
     <string name="title_setup_import_delete">先に既存のアカウントを削除してください</string>
     <string name="title_setup_import_rules">フィルタールールをインポート</string>
     <string name="title_setup_import_contacts">ローカルの連絡先をインポート</string>
@@ -250,7 +250,7 @@
     <string name="title_setup_imported">設定をインポートしました</string>
     <string name="title_setup_import_invalid">設定ファイルが無効です</string>
     <string name="title_importing_account">アカウント %1$s</string>
-    <string name="title_importing_identity">ID %1$s</string>
+    <string name="title_importing_identity">ユーザー ID %1$s</string>
     <string name="title_importing_exists">スキップされました: すでに存在します</string>
     <string name="title_importing_wizard">ウィザードを実行してもう一度認証する</string>
     <string name="title_setup_reorder_accounts">アカウントの並び替え</string>
@@ -350,13 +350,14 @@
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
     <string name="title_advanced_attach_new">共有されたファイルを返信の下書きに追加</string>
+    <string name="title_advanced_answer_default">返信ボタンを短く押したときのアクション:</string>
     <string name="title_advanced_answer_action">返信ボタンを長押ししたときのアクション:</string>
     <string name="title_advanced_send_pending">目立たない送信遅延アイコンを表示</string>
     <string name="title_advanced_auto_save_paragraph">段落ごとに下書きを自動で保存</string>
     <string name="title_advanced_auto_save_dot">文章ごとに下書きを自動で保存</string>
     <string name="title_advanced_compose_color">デフォルトの文字色</string>
     <string name="title_advanced_compose_font">デフォルトのフォント</string>
-    <string name="title_advanced_auto_identity">新規作成するメッセージを送信する ID を自動で選択</string>
+    <string name="title_advanced_auto_identity">新規作成するメッセージを送信するユーザー ID を自動で選択</string>
     <string name="title_advanced_prefix_once">返信/転送のプレフィックスを 1 つだけにする</string>
     <string name="title_advanced_prefix_count">返信のプレフィックスにカウントを追加</string>
     <string name="title_advanced_separate_reply">返信/転送の見出しの前に水平線を挿入</string>
@@ -422,6 +423,7 @@
     <string name="title_advanced_nav_pin">ナビゲーションメニューをピン留め</string>
     <string name="title_advanced_nav_hide_title">ナビゲーションメニューからオプションを非表示にしますか？</string>
     <string name="title_advanced_nav_hide_message">表示設定からもう一度オプションを表示することができます</string>
+    <string name="title_advanced_nav_last_sync">ナビゲーションメニューに最後の同期時間を表示</string>
     <string name="title_advanced_nav_message_count">ローカルに保存されたメッセージの数をナビゲーションメニューに表示</string>
     <string name="title_advanced_nav_unseen_drafts">ナビゲーションメニューに未読の下書きの数を表示</string>
     <string name="title_advanced_nav_pinned_count">ピン留めしたナビゲーションメニューに未読の数を表示</string>
@@ -535,6 +537,7 @@
     <string name="title_advanced_expand_one">一度に 1 つのメッセージのみを展開</string>
     <string name="title_advanced_collapse_multiple">複数のメッセージがある会話で「戻る」をタップしてメッセージを折りたたむ</string>
     <string name="title_advanced_autoclose">会話を自動的に閉じる</string>
+    <string name="title_advanced_autoclose_send">メッセージを送信したあと、自動で会話を閉じる</string>
     <string name="title_advanced_onclose">会話を閉じるとき</string>
     <string name="title_advanced_autoclose_unread">未読としてマークしたときに会話を閉じる</string>
     <string name="title_advanced_collapse_marked">手動で既読または未読としてマークされたメッセージを折りたたむ</string>
@@ -549,6 +552,7 @@
     <string name="title_advanced_auto_important">スター付きメッセージを自動で重要にマーク</string>
     <string name="title_advanced_reset_importance">移動するメッセージの重要度をリセット</string>
     <string name="title_advanced_cancel_snooze">メッセージを移動するときスヌーズをキャンセル</string>
+    <string name="title_advanced_auto_block_sender">メッセージを迷惑メールとして報告したとき、差出人を自動でブロック</string>
     <string name="title_advanced_swipe_reply">展開したメッセージを右にスワイプして返信</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ/遅延時間</string>
     <string name="title_advanced_notifications">通知を管理</string>
@@ -698,7 +702,7 @@
     <string name="title_advanced_folder_nav_hint">常にメッセージリストから関連するアカウントのフォルダーリストに戻ります</string>
     <string name="title_advanced_suggest_names_hint">無効にすると、連絡先を選択する際にメールアドレスのみが使用されます</string>
     <string name="title_advanced_suggest_local_hint">Android のローカル連絡先を追加します。有効にすると、新しく送受信されたメッセージの連絡先データが保存されます。</string>
-    <string name="title_advanced_auto_identity_hint">新規メッセージにメールを送信するとき、最後に使用した ID を選択します</string>
+    <string name="title_advanced_auto_identity_hint">新規メッセージにメールを送信するとき、最後に使用したユーザー ID を選択します</string>
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「--」を挿入します</string>
@@ -785,7 +789,7 @@
     <string name="title_identity_name">名前</string>
     <string name="title_identity_email">メールアドレス</string>
     <string name="title_identity_tenant_hint">ほとんどの場合、このフィールドは空です</string>
-    <string name="title_identity_color_hint">ID の色はフォルダーとアカウントの色よりも優先されます</string>
+    <string name="title_identity_color_hint">ユーザー ID の色はフォルダーとアカウントの色よりも優先されます</string>
     <string name="title_advanced_sender">差出人アドレスの編集を許可</string>
     <string name="title_advanced_sender_name">差出人アドレスが編集されたときに名前を使用</string>
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名を参照する正規表現</string>
@@ -808,6 +812,7 @@
     <string name="title_account_interval_hint">プッシュメッセージの接続を更新する頻度または新着メッセージを確認する頻度</string>
     <string name="title_account_noop_hint">より頻繁に接続を更新しますが、バッテリー使用量が増加します</string>
     <string name="title_account_partial_fetch_hint">メッセージが空の場合や添付ファイルが破損している場合にのみ無効にする</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">有効にするとバッテリーとデータの使用量が増加します</string>
     <string name="title_color">色</string>
     <string name="title_calendar">カレンダー</string>
     <string name="title_background">背景</string>
@@ -840,7 +845,7 @@
     <string name="title_ehlo">カスタム HELO/EHLO 識別</string>
     <string name="title_primary">プライマリー</string>
     <string name="title_primary_account">プライマリー (デフォルトアカウント)</string>
-    <string name="title_primary_identity">プライマリー (デフォルト ID)</string>
+    <string name="title_primary_identity">プライマリー (デフォルトのユーザー ID)</string>
     <string name="title_self_identity">返信するときにメールアドレスを削除</string>
     <string name="title_leave_on_server">サーバーにメッセージを残す</string>
     <string name="title_leave_deleted">削除したメッセージをサーバーに残す</string>
@@ -855,7 +860,7 @@
     <string name="title_date_remark">変更は新着メッセージにのみ適用されます</string>
     <string name="title_unmetered_only">従量制課金接続を使用しない</string>
     <string name="title_ignore_schedule">スケジュール外でも同期する</string>
-    <string name="title_related_identity">関連 ID (SMTPサーバー) を追加</string>
+    <string name="title_related_identity">関連するユーザー ID (SMTPサーバー) を追加</string>
     <string name="title_check">確認</string>
     <string name="title_trust">フィンガープリント %1$s でサーバー証明書を信頼する</string>
     <string name="title_no_name">名前を入力してください</string>
@@ -870,14 +875,14 @@
     <string name="title_no_inbox">受信トレイが見つかりません</string>
     <string name="title_no_drafts">下書きフォルダーがありません</string>
     <string name="title_no_junk_folder">このアカウントの迷惑メールフォルダーが選択されていません</string>
-    <string name="title_default_composable">デフォルトのメールアドレスは、プライマリーアカウントのプライマリー ID によって決定されます</string>
-    <string name="title_no_composable">メールを送信するには、ID を設定し、アカウント設定で下書きフォルダーを選択する必要があります</string>
+    <string name="title_default_composable">デフォルトのメールアドレスは、プライマリーアカウントのプライマリー ユーザー ID によって決定されます</string>
+    <string name="title_no_composable">メールを送信するにはユーザー ID を設定し、アカウント設定で下書きフォルダーを選択する必要があります</string>
     <string name="title_no_standard">このプロバイダーは独自のメールプロトコルを使用しているため、サードパーティのメールクライアントを使用することができません</string>
     <string name="title_no_idle">このプロバイダーはプッシュメッセージをサポートしていません。これにより新着メッセージの受信が遅れ、バッテリー使用量が増加します</string>
     <string name="title_no_utf8">このプロバイダーは UTF-8 をサポートしていません</string>
     <string name="title_no_sync">%1$s 以降の同期エラー</string>
     <string name="title_reply_domain">差出人 (%1$s) と返信先 (%2$s) のドメインが異なります</string>
-    <string name="title_identity_required">メールを送信するには ID が必要です</string>
+    <string name="title_identity_required">メールを送信するにはユーザー ID が必要です</string>
     <string name="title_drafts_required">メールを送信するには下書きフォルダーが必要です</string>
     <string name="title_drafts_select">メールを送信するには、アカウント設定で下書きフォルダーを選択する必要があります</string>
     <string name="title_account_auth_update">認証をアップデート</string>
@@ -885,8 +890,9 @@
     <string name="title_change_password">パスワードを変更</string>
     <string name="title_delete_account">アカウントを削除</string>
     <string name="title_account_delete">このアカウントを完全に削除しますか？</string>
-    <string name="title_identity_delete">この ID を完全に削除しますか？</string>
+    <string name="title_identity_delete">このユーザー ID を完全に削除しますか？</string>
     <string name="title_edit_html">HTML として編集</string>
+    <string name="title_check_html">HTML を確認</string>
     <string name="title_import_file">ファイルをインポート</string>
     <string name="title_sign_key">電子署名鍵: %1$s</string>
     <string name="title_last_connected">最終接続: %1$s</string>
@@ -899,7 +905,7 @@
     <string name="title_oauth_support">OAuth はサポートされていません</string>
     <string name="title_review">レビュー</string>
     <string name="title_hint_accounts">アカウントを長押して、アカウントの無効化・削除などのオプションを表示します</string>
-    <string name="title_hint_alias">ID を長押しして、コピー (エイリアス ID を作成) などのオプションを表示</string>
+    <string name="title_hint_alias">ユーザー ID を長押しして、コピー (エイリアスのユーザー ID を作成) などのオプションを表示</string>
     <string name="title_service_auth">メールサーバーの応答: %1$s</string>
     <string name="title_service_vpn">お使いの VPN が原因の可能性があります</string>
     <string name="title_service_token">Android アカウントマネージャーは、VPN、ファイアウォール、広告ブロッカーなどによってブロックされ、アクセストークンの取得が妨げられている可能性があります</string>
@@ -972,6 +978,7 @@
     <string name="title_edit_account_color">アカウントの色を編集</string>
     <string name="title_hide_folder">フォルダーを非表示</string>
     <string name="title_hide_seen_folder">すべてのメッセージが既読のとき、フォルダーを非表示にする</string>
+    <string name="title_hide_seen_folder_hint">アカウント一覧と統合フォルダーに適用されます</string>
     <string name="title_unified_folder">統合受信トレイに表示</string>
     <string name="title_navigation_folder">ナビゲーションメニューに表示</string>
     <string name="title_navigation_folder_hide">ナビゲーションメニューから隠す</string>
@@ -983,7 +990,7 @@
     <string name="title_auto_classify_source">このフォルダーに新着メッセージを分類</string>
     <string name="title_auto_classify_target">このフォルダーに分類されたメッセージを自動的に移動</string>
     <string name="title_sync_days">メッセージの同期 (日)</string>
-    <string name="title_sync_days_remark">この値を増やすとバッテリーとデータ使用量が増加します</string>
+    <string name="title_sync_days_remark">この値を増やすとバッテリーとデータの使用量が増加します</string>
     <string name="title_keep_days">メッセージの保持 (日)</string>
     <string name="title_keep_days_remark">古いメッセージはデバイスから削除されますが、サーバーには残ります</string>
     <string name="title_keep_all">すべてのメッセージを保持</string>
@@ -1115,6 +1122,7 @@
     <string name="title_reply_receipt">開封確認メッセージを送信</string>
     <string name="title_reply_hard_bounce">ハードバウンスを送信</string>
     <string name="title_reply_template">テンプレートで返信</string>
+    <string name="title_reply_menu">選択メニューを表示</string>
     <string name="title_move_undo">%1$s に移動しました (%2$d)</string>
     <string name="title_authentication_failed">%1$s の認証に失敗しました</string>
     <string name="title_on_blocklist">迷惑メールブロックリストにあります</string>
@@ -1512,7 +1520,7 @@
     <string name="title_rule_folder">フォルダー</string>
     <string name="title_rule_folder_create">サブフォルダーを作成</string>
     <string name="title_rule_thread">同じ会話内またはフォルダー内のすべてのメッセージ</string>
-    <string name="title_rule_identity">ID</string>
+    <string name="title_rule_identity">ユーザー ID</string>
     <string name="title_rule_template">返信テンプレート</string>
     <string name="title_rule_answer_subject">テンプレート名を件名として使用</string>
     <string name="title_rule_original_text">元のメッセージ本文を含める</string>
@@ -1525,7 +1533,7 @@
     <string name="title_rule_name_missing">ルール名を入力してください</string>
     <string name="title_rule_condition_missing">条件を入力してください</string>
     <string name="title_rule_folder_missing">フォルダーがありません</string>
-    <string name="title_rule_identity_missing">ID がありません</string>
+    <string name="title_rule_identity_missing">ユーザー ID がありません</string>
     <string name="title_rule_answer_missing">テンプレートがありません</string>
     <string name="title_rule_keyword_missing">キーワードがありません</string>
     <string name="title_rule_automation_hint">インテント「%1$s」とエクストラ「%2$s」が送信されます</string>

@@ -18,6 +18,7 @@
     <string name="channel_notification">E-pošta</string>
     <string name="channel_progress">Napredek</string>
     <string name="channel_update">Posodobitve</string>
+    <string name="channel_announcements">Obvestila</string>
     <string name="channel_warning">Opozorila</string>
     <string name="channel_error">Napake</string>
     <string name="channel_alert">Opozorila strežnika</string>
@@ -270,6 +271,7 @@
         Za uvoz nastavitev je ponovno treba vnesti geslo, zato ga ne izgubite!
     </string>
     <string name="title_setup_export_do">Izvozna datoteka vsebuje vse nastavitve in podatke, vendar nobenega sporočila ali slike za podpis.</string>
+    <string name="title_setup_scroll">V pogovornih oknih za vnos se lahko pomikate!</string>
     <string name="title_setup_password">Geslo</string>
     <string name="title_setup_password_chars">Geslo vsebuje krmilne znake ali presledke.</string>
     <string name="title_setup_password_repeat">Ponovite geslo.</string>
@@ -386,6 +388,7 @@
     <string name="title_advanced_send_reminders">Prikaži opomnike</string>
     <string name="title_advanced_send_delayed">Odloži pošiljanje sporočil</string>
     <string name="title_advanced_attach_new">Dodaj datoteke v souporabi k novemu osnutku</string>
+    <string name="title_advanced_answer_default">Kratek pritisk na gumb za odgovor bo:</string>
     <string name="title_advanced_answer_action">Dolg pritisk na gumb za odgovor bo:</string>
     <string name="title_advanced_send_pending">Prikaži nevsiljivo ikono zakasnelega pošiljanja</string>
     <string name="title_advanced_auto_save_paragraph">Samodejno shrani osnutek po vsakem odstavku</string>
@@ -412,6 +415,7 @@
     <string name="title_advanced_reply_move_inbox">Tudi za sporočila v mapi \'Prejeto\'</string>
     <string name="title_advanced_auto_link">Samodejno ustvari povezave</string>
     <string name="title_advanced_plain_only">Privzeto pošlji samo golo besedilo</string>
+    <string name="title_advanced_plain_only_reply">Samodejno nastavi golo besedilo, ko odgovarjam na sporočilo v golem besedilu</string>
     <string name="title_advanced_flow">\'Tekoča oblika\' za golo besedilo</string>
     <string name="title_advanced_usenet_signature">Dogovor za podpis Usenet</string>
     <string name="title_advanced_remove_signatures">Odstrani prepoznane podpise</string>
@@ -443,6 +447,7 @@
     <string name="title_advanced_caption_message">Sporočilo</string>
     <string name="title_advanced_caption_message_header">Glava sporočila</string>
     <string name="title_advanced_caption_message_body">Telo sporočila</string>
+    <string name="title_advanced_caption_file">Datoteka</string>
     <string name="title_advanced_portrait">Pokončni način</string>
     <string name="title_advanced_landscape">Ležeči način</string>
     <string name="title_advanced_two_row">Uporabi dve vrstici</string>
@@ -450,11 +455,13 @@
     <string name="title_advanced_min_screen_size">Najmanjša velikost za razdelitev zaslona</string>
     <string name="title_advanced_close_pane">Strni vrstico ali stolpec ob zapiranju pogovora</string>
     <string name="title_advanced_column_width">Širina stolpcev/višina vrstic sporočil: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar">Skrij zgornjo orodno vrstico, ko se pomikam po sporočilu.</string>
     <string name="title_advanced_nav_options">Prikaži možnosti menija za krmarjenje</string>
     <string name="title_advanced_nav_categories">Prikaži kategorije računov v meniju za krmarjenje</string>
     <string name="title_advanced_nav_pin">Pripni meni za krmarjenje</string>
     <string name="title_advanced_nav_hide_title">Skrij možnosti menija za krmarjenje?</string>
     <string name="title_advanced_nav_hide_message">Možnosti lahko ponovno omogočite v nastavitvah prikaza.</string>
+    <string name="title_advanced_nav_last_sync">V meniju za krmarjenje prikaži čas zadnje sinhronizacije</string>
     <string name="title_advanced_nav_message_count">Prikaži število krajevno shranjenih sporočil v meniju za krmarjenje</string>
     <string name="title_advanced_nav_unseen_drafts">Prikaži število neprebranih osnutkov v meniju za krmarjenje</string>
     <string name="title_advanced_nav_pinned_count">Prikaži število neprebranih sporočil v pripetem meniju za krmarjenje</string>
@@ -568,12 +575,14 @@
     <string name="title_advanced_expand_one">Razširi samo eno sporočilo naenkrat</string>
     <string name="title_advanced_collapse_multiple">Ob pritisku na \'Nazaj\' strni sporočila v pogovoru z več sporočili</string>
     <string name="title_advanced_autoclose">Samodejno zapri pogovore</string>
+    <string name="title_advanced_autoclose_send">Po pošiljanju sporočil samodejno zapri pogovore</string>
     <string name="title_advanced_onclose">Ob zapiranju pogovora</string>
     <string name="title_advanced_autoclose_unread">Zapri pogovor, ko so sporočila označena kot prebrana</string>
     <string name="title_advanced_collapse_marked">Strni sporočila, ki so ročno označena kot prebrana ali neprebrana</string>
     <string name="title_advanced_undo">Omejitev razveljavitve</string>
     <string name="title_advanced_quick_filter">Prikaži nevsiljive ikone hitrega filtra</string>
     <string name="title_advanced_quick_scroll">Prikaži nevsiljive ikone hitrega pomika</string>
+    <string name="title_advanced_quick_actions">Prikaži hitra dejanja, ko izberem sporočila</string>
     <string name="title_advanced_folder_nav">Vedno se vrni na seznam map s seznama sporoil</string>
     <string name="title_advanced_autoread">Ob premikanju sporočil samodejno označi sporočila kot prebrana</string>
     <string name="title_advanced_star_snoozed">Ob dremežu sporočil samodejno dodaj zvezdico</string>
@@ -581,6 +590,7 @@
     <string name="title_advanced_auto_important">Samodejno naredi sporočila, označena z zvezdico, pomembna</string>
     <string name="title_advanced_reset_importance">Ponastavi pomembnost ob premikanju sporočil</string>
     <string name="title_advanced_cancel_snooze">Prekliči dremež ob premikanju sporočil</string>
+    <string name="title_advanced_auto_block_sender">Pri prijavi neželene pošte samodejno blokiraj pošiljatelja</string>
     <string name="title_advanced_swipe_reply">Potegni razširjena sporočila desno za odgovor</string>
     <string name="title_advanced_default_snooze">Privzeti čas dremeža/zakasnitve</string>
     <string name="title_advanced_notifications">Upravljaj z obvestili</string>
@@ -643,6 +653,7 @@
     <string name="title_advanced_disconnect_auto_update">Samodejno tedensko posodobi sezname</string>
     <string name="title_advanced_disconnect_links">Uporabi sezname za opozorilo o sledilnih povezavah</string>
     <string name="title_advanced_disconnect_images">Uporabi sezname za prepoznavanje sledilnih slik</string>
+    <string name="title_advanced_clear_all_hint">To bo iz vaše naprave izbrisalo vse podatke programa, vključno z e-poštnimi računi, sporočili, nastavitvami in zbranimi podatki.</string>
     <string name="title_advanced_mnemonic">Oddaljeno izbriši podatke</string>
     <string name="title_advanced_mnemonic_hint">Če bodo prejeta sporočila v zadevi vsebovala spodnje besede, se bodo podatki programa samodejno in takoj izbrisali.</string>
     <string name="title_advanced_clear_all">Izbriši podatke programa</string>
@@ -692,6 +703,7 @@
     <string name="title_advanced_check_weekly">Preveri tedensko namesto dnevno</string>
     <string name="title_advanced_beta">Poišči preizkusne različice na BitBucketu</string>
     <string name="title_advanced_changelog">Prikaži dnevnik sprememb po posodobitvi</string>
+    <string name="title_advanced_announcements">Preveri za obvestila</string>
     <string name="title_advanced_experiments">Preizkusne značilnosti</string>
     <string name="title_advanced_crash_reports">Pošiljaj poročila o napakah</string>
     <string name="title_advanced_cleanup_attachments">Izbriši priloge starih sporočil</string>
@@ -837,6 +849,7 @@
     <string name="title_account_interval_hint">Pogostost osveževanja povezave za potisna sporočila ali preverjanja za nova sporočila.</string>
     <string name="title_account_noop_hint">To bo dejavneje osveževalo povezavo, vendar tudi porabilo več energije.</string>
     <string name="title_account_partial_fetch_hint">Onemogočite to samo v primeru praznih sporočil ali okvarjenih prilog.</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Omogočanje tega bo povečalo porabo energije in podatkov.</string>
     <string name="title_color">Barva</string>
     <string name="title_calendar">Koledar</string>
     <string name="title_background">Ozadje</string>
@@ -916,6 +929,7 @@
     <string name="title_account_delete">Trajno izbriši ta račun?</string>
     <string name="title_identity_delete">Trajno izbriši to identiteto?</string>
     <string name="title_edit_html">Uredi kot HTML</string>
+    <string name="title_check_html">Preveri HTML</string>
     <string name="title_import_file">Uvozi datoteko</string>
     <string name="title_sign_key">Podpisni ključ: %1$s</string>
     <string name="title_last_connected">Nazadnje povezano: %1$s</string>
@@ -1001,6 +1015,7 @@
     <string name="title_edit_account_color">Uredi barvo računa</string>
     <string name="title_hide_folder">Skrij mapo</string>
     <string name="title_hide_seen_folder">Skrij mapo, če so vsa sporočila prebrana</string>
+    <string name="title_hide_seen_folder_hint">Samo za račun in na seznamu poenotenih map</string>
     <string name="title_unified_folder">Prikaži v poenoteni mapi \'Prejeto\'</string>
     <string name="title_navigation_folder">Prikaži v meniju za krmarjenje</string>
     <string name="title_navigation_folder_hide">Skrij v meniju za krmarjenje</string>
@@ -1109,6 +1124,7 @@
     <string name="title_quick_actions">Izberite dejanja</string>
     <string name="title_quick_actions_hint">Prikazanih bo do %1$d dejanj.</string>
     <string name="title_quick_actions_low">Nizka pomembnost</string>
+    <string name="title_quick_actions_normal">Običajna pomembnost</string>
     <string name="title_quick_actions_high">Visoka pomembnost</string>
     <string name="title_quick_actions_snooze">Dremež</string>
     <string name="title_quick_actions_clear">Počisti izbiro po dejanju</string>
@@ -1142,6 +1158,7 @@
     <string name="title_reply_receipt">Pošlji potrdilo o branju</string>
     <string name="title_reply_hard_bounce">Pošlji trdi odboj</string>
     <string name="title_reply_template">Odgovori s predlogo</string>
+    <string name="title_reply_menu">Prikaži meni za izbiro</string>
     <string name="title_move_undo">Premikanje v %1$s (%2$d)</string>
     <string name="title_authentication_failed">Overitev %1$s je spodletela.</string>
     <string name="title_on_blocklist">Na seznamu za blokiranje vsil. pošte</string>
@@ -1837,6 +1854,7 @@
     <string name="title_widget_padding">Velikost blazinjenja</string>
     <string name="title_widget_separator_lines">Prikaži ločilne črte</string>
     <string name="title_widget_semi_transparent">Polprosojno ozadje</string>
+    <string name="title_widget_count_top">Prikaži število neprebranih sporočil na vrhu</string>
     <string name="title_widget_avatars">Prikaži podobe stikov</string>
     <string name="title_widget_refresh">Prikaži gumb za osvežitev sporočila</string>
     <string name="title_widget_compose">Prikaži gumb za novo sporočilo</string>

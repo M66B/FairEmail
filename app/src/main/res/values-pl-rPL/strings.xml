@@ -28,10 +28,10 @@
     <string name="channel_notification_description">Powiadomienia o nowych wiadomościach</string>
     <string name="channel_progress_description">Powiadomienia o postępach dłuższych działań</string>
     <plurals name="page_conversation">
-        <item quantity="one">Rozmowa</item>
-        <item quantity="few">Rozmowy</item>
-        <item quantity="many">Rozmowy</item>
-        <item quantity="other">Rozmów</item>
+        <item quantity="one">Konwersacja</item>
+        <item quantity="few">Konwersacje</item>
+        <item quantity="many">Rozmów</item>
+        <item quantity="other">Konwersacji</item>
     </plurals>
     <plurals name="page_message">
         <item quantity="one">Wiadomość</item>
@@ -388,6 +388,7 @@
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
     <string name="title_advanced_attach_new">Dodaj udostępnione pliki do nowego szkicu</string>
+    <string name="title_advanced_answer_default">Krótkie naciśnięcie przycisku odpowiedzi spowoduje:</string>
     <string name="title_advanced_answer_action">Długie naciśnięcie przycisku odpowiedzi spowoduje:</string>
     <string name="title_advanced_send_pending">Pokaż nieprzeszkadzającą ikonę wysłania z opóźnieniem</string>
     <string name="title_advanced_auto_save_paragraph">Automatycznie zapisuj wersję roboczą po każdym akapicie</string>
@@ -419,7 +420,7 @@
     <string name="title_advanced_usenet_signature">Konwencja podpisu Usenet</string>
     <string name="title_advanced_remove_signatures">Usuń rozpoznane podpisy</string>
     <string name="title_advanced_receipt">Podczas żądania potwierdzenia</string>
-    <string name="title_advanced_forward_new">Rozpocznij nową rozmowę przy przekazywaniu dalej</string>
+    <string name="title_advanced_forward_new">Rozpocznij nową konwersację przy przekazywaniu dalej</string>
     <string name="title_advanced_lookup_mx">Sprawdź adresy e-mail odbiorcy przed wysłaniem</string>
     <string name="title_advanced_metered">Użyj połączeń taryfowych</string>
     <string name="title_advanced_download">Automatycznie pobieraj wiadomości i załączniki przy połączeniach taryfowych do</string>
@@ -442,7 +443,7 @@
     <string name="title_advanced_caption_navigation">Nawigacja</string>
     <string name="title_advanced_caption_checks">Kontrole</string>
     <string name="title_advanced_caption_list">Lista</string>
-    <string name="title_advanced_caption_conversation">Wątek</string>
+    <string name="title_advanced_caption_conversation">Konwersacja</string>
     <string name="title_advanced_caption_message">Wiadomość</string>
     <string name="title_advanced_caption_message_header">Nagłówek wiadomości</string>
     <string name="title_advanced_caption_message_body">Treść wiadomości</string>
@@ -452,7 +453,7 @@
     <string name="title_advanced_two_row">Dwa wiersze</string>
     <string name="title_advanced_two_col">Dwie kolumny</string>
     <string name="title_advanced_min_screen_size">Minimalny rozmiar ekranu dla podziału ekranu</string>
-    <string name="title_advanced_close_pane">Zwiń wiersz lub kolumnę podczas zamykania rozmowy</string>
+    <string name="title_advanced_close_pane">Zwiń wiersz lub kolumnę podczas zamykania konwersacji</string>
     <string name="title_advanced_column_width">Szerokość kolumny wiadomości / wysokość wiersza: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ukryj górny pasek narzędzi podczas przewijania wiadomości</string>
     <string name="title_advanced_nav_options">Pokaż opcje menu nawigacji</string>
@@ -460,6 +461,7 @@
     <string name="title_advanced_nav_pin">Przypnij menu nawigacji</string>
     <string name="title_advanced_nav_hide_title">Ukryć opcje menu nawigacji?</string>
     <string name="title_advanced_nav_hide_message">Możesz włączyć opcje ponownie w ustawieniach wyświetlania</string>
+    <string name="title_advanced_nav_last_sync">Pokaż czas ostatniej synchronizacji w menu nawigacji</string>
     <string name="title_advanced_nav_message_count">Pokaż liczbę lokalnie przechowywanych wiadomości w menu nawigacji</string>
     <string name="title_advanced_nav_unseen_drafts">Pokaż liczbę nieprzeczytanych szkiców w menu nawigacji</string>
     <string name="title_advanced_nav_pinned_count">Pokaż liczbę nieprzeczytanych wiadomości w przypiętym menu nawigacji</string>
@@ -476,8 +478,8 @@
     <string name="title_advanced_date_fixed">Pokaż stały nagłówek daty na górze</string>
     <string name="title_advanced_date_bold">Pokaż datę pogrubioną</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
-    <string name="title_advanced_threading_unread">Pokaż liczbę nieprzeczytanych wiadomości w wątkach</string>
-    <string name="title_advanced_indentation">Otrzymane/wysłane wiadomości z lewej/prawej strony wątków</string>
+    <string name="title_advanced_threading_unread">Pokaż liczbę nieprzeczytanych wiadomości w konwersacjach</string>
+    <string name="title_advanced_indentation">Otrzymane/wysłane wiadomości z lewej/prawej strony konwersacji</string>
     <string name="title_advanced_highlight_unread">Podświetl nieprzeczytane wiadomości</string>
     <string name="title_advanced_color_stripe">Pokaż kolorowy pasek</string>
     <string name="title_advanced_color_stripe_wide">Użyj szerokiego kolorowego paska</string>
@@ -537,10 +539,10 @@
     <string name="title_advanced_image_placeholders">Pokaż symbole zastępcze obrazu</string>
     <string name="title_advanced_images_inline">Automatycznie pokazuj wstawione obrazy</string>
     <string name="title_advanced_button_extra">Pokaż dodatkowe przyciski na dole wiadomości</string>
-    <string name="title_advanced_seekbar">Pokaż względną pozycję rozmowy za pomocą kropki</string>
+    <string name="title_advanced_seekbar">Pokaż względną pozycję konwersacji za pomocą kropki</string>
     <string name="title_advanced_actionbar">Pokaż pasek akcji konwersacji</string>
     <string name="title_advanced_actionbar_swap">Zamień miejscami przycisk kosza i archiwum</string>
-    <string name="title_advanced_actionbar_color">Użyj koloru konta jako koloru tła dla paska akcji rozmowy</string>
+    <string name="title_advanced_actionbar_color">Użyj koloru konta jako koloru tła dla paska akcji konwersacji</string>
     <string name="title_advanced_category_header">Grupuj według kategorii konta</string>
     <string name="title_advanced_navbar_colorize">Koloruj pasek nawigacji Androida</string>
     <string name="title_advanced_list_count">Pokaż liczbę wiadomości lub konwersacji na górnym pasku akcji</string>
@@ -563,18 +565,19 @@
     <string name="title_advanced_autoscroll">Przewiń do góry po otrzymaniu nowych wiadomości</string>
     <string name="title_advanced_double_tap">Podwójne kliknięcie, aby oznaczyć odczytane/nieodczytane</string>
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
-    <string name="title_advanced_volumenav">Zwiększanie/zmniejszanie głośności, aby przejść do następnej/poprzedniej rozmowy</string>
+    <string name="title_advanced_volumenav">Zwiększanie/zmniejszanie głośności, aby przejść do następnej/poprzedniej konwersacji</string>
     <string name="title_advanced_reversed">Odwróć kierunek nawigacji</string>
-    <string name="title_advanced_swipe_close">Przesuń palcem w dół, aby zamknąć rozmowę</string>
+    <string name="title_advanced_swipe_close">Przesuń palcem w dół, aby zamknąć konwersację</string>
     <string name="title_advanced_swipe_move">Przesuń w górę, aby przenieść konwersację</string>
     <string name="title_advanced_autoexpand">Automatycznie rozwijaj wiadomości</string>
-    <string name="title_advanced_expand_first">Automatycznie rozwiń pierwszą wiadomość po przeczytaniu rozmowy</string>
+    <string name="title_advanced_expand_first">Automatycznie rozwiń pierwszą wiadomość po przeczytaniu konwersacji</string>
     <string name="title_advanced_expand_all">Automatycznie rozwiń wszystkie przeczytane wiadomości</string>
     <string name="title_advanced_expand_one">Rozwiń tylko jedną wiadomość na raz</string>
-    <string name="title_advanced_collapse_multiple">Zwiń wiadomości w rozmowie z wieloma wiadomościami przy \'wstecz\'</string>
+    <string name="title_advanced_collapse_multiple">Zwiń wiadomości w konwersacji z wieloma wiadomościami przy \'wstecz\'</string>
     <string name="title_advanced_autoclose">Automatycznie zamykaj konwersacje</string>
-    <string name="title_advanced_onclose">Przy zamykaniu wiadomości</string>
-    <string name="title_advanced_autoclose_unread">Zamknij rozmowy przy oznaczaniu wiadomości jako nieprzeczytane</string>
+    <string name="title_advanced_autoclose_send">Automatycznie zamykaj konwersacje po wysłaniu wiadomości</string>
+    <string name="title_advanced_onclose">Przy zamykaniu konwersacji</string>
+    <string name="title_advanced_autoclose_unread">Zamknij konwersacje przy oznaczaniu wiadomości jako nieprzeczytane</string>
     <string name="title_advanced_collapse_marked">Zwiń wiadomości, które są ręcznie oznaczone jako przeczytane lub nieprzeczytane</string>
     <string name="title_advanced_undo">Ustaw limit czasu dla \"Cofnij\"</string>
     <string name="title_advanced_quick_filter">Pokaż nienatarczywe ikony szybkiego filtrowania</string>
@@ -587,6 +590,7 @@
     <string name="title_advanced_auto_important">Wiadomości oznaczone gwiazdką automatycznie ustaw jako ważne</string>
     <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
     <string name="title_advanced_cancel_snooze">Anuluj drzemkę przy przenoszeniu wiadomości</string>
+    <string name="title_advanced_auto_block_sender">Automatycznie blokuj nadawcę podczas zgłaszania spamu</string>
     <string name="title_advanced_swipe_reply">Przesuń rozszerzone wiadomości w prawo, aby odpowiedzieć</string>
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia/opóźnienia</string>
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
@@ -658,7 +662,7 @@
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
     <string name="title_advanced_encrypt_auto">Automatycznie zaszyfruj, gdy wszystkie klucze odbiorców są dostępne</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>
-    <string name="title_advanced_auto_undo_decrypt">Cofnij odszyfrowanie przy zamykaniu rozmowy</string>
+    <string name="title_advanced_auto_undo_decrypt">Cofnij odszyfrowanie przy zamykaniu konwersacji</string>
     <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
     <string name="title_advanced_autocrypt">Użyj Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Tryb automatycznego szyfrowania</string>
@@ -775,10 +779,10 @@
     <string name="compressed">Nie zostanie wyświetlona zawartość plików skompresowanych (%1$s), z więcej niż %2$s plikami lub z plikami większymi niż %3$s</string>
     <string name="title_advanced_parse_classes_hint">Spowoduje to poprawniejsze wyświetlanie wiadomości, ale z możliwym opóźnieniem</string>
     <string name="title_advanced_restore_on_launch_hint">Przywraca ostatni stan aplikacji po jej ponownym uruchomieniu za pomocą ikony launchera, w ciągu %1$d minut</string>
-    <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w rozmowie jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
+    <string name="title_advanced_autoexpand_hint">Automatycznie otwieraj wiadomość, gdy w konwersacji jest tylko jedna wiadomość lub tylko jedna nieprzeczytana wiadomość</string>
     <string name="title_advanced_expandall_hint">Przycisk odpowiedzi nie będzie wyświetlany, gdy zostanie rozwinięte wiele wiadomości, ponieważ nie jest jasne, do której wiadomości odnosi się przycisk</string>
     <string name="title_advanced_autoseen_hint">Automatycznie oznaczanie wiadomości jako przeczytane po rozwinięciu może być wyłączone w zaawansowanych ustawieniach konta dla każdego konta</string>
-    <string name="title_advanced_autoclose_hint">Automatycznie zamykaj wątki rozmowy po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
+    <string name="title_advanced_autoclose_hint">Automatycznie zamykaj konwersacje po zarchiwizowaniu, wysłaniu lub usunięciu wszystkich wiadomości</string>
     <string name="title_advanced_sender_hint">Większość dostawców nie zezwala na modyfikowane adresy nadawcy</string>
     <string name="title_advanced_bcc_hint">Adres nie zostanie wyświetlony, ale zostanie dodany podczas wysyłania</string>
     <string name="title_advanced_internal_hint">Będzie ostrzeżenie podczas wysyłania do innej domeny</string>
@@ -846,6 +850,7 @@
     <string name="title_account_interval_hint">Częstotliwość odświeżania połączenia dla wiadomości Push lub częstotliwość sprawdzania nowych wiadomości</string>
     <string name="title_account_noop_hint">Dzięki temu połączenie będzie odświeżane bardziej aktywnie, ale również zużyje więcej energii z baterii</string>
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Włączenie tej opcji spowoduje zwiększenie zużycia baterii i danych</string>
     <string name="title_color">Kolor</string>
     <string name="title_calendar">Kalendarz</string>
     <string name="title_background">Tło</string>
@@ -925,6 +930,7 @@
     <string name="title_account_delete">Usunąć to konto bezpowrotnie?</string>
     <string name="title_identity_delete">Usunąć tożsamość bezpowrotnie?</string>
     <string name="title_edit_html">Edytuj jako HTML</string>
+    <string name="title_check_html">Sprawdź HTML</string>
     <string name="title_import_file">Importuj plik</string>
     <string name="title_sign_key">Klucz podpisu: %1$s</string>
     <string name="title_last_connected">Ostatnio połączony: %1$s</string>
@@ -1010,6 +1016,7 @@
     <string name="title_edit_account_color">Edytuj kolor konta</string>
     <string name="title_hide_folder">Ukryj folder</string>
     <string name="title_hide_seen_folder">Ukryj folder, jeśli wszystkie wiadomości zostały przeczytane</string>
+    <string name="title_hide_seen_folder_hint">Tylko na liście kont i folderów ujednoliconych</string>
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce</string>
     <string name="title_navigation_folder">Pokaż w menu nawigacji</string>
     <string name="title_navigation_folder_hide">Ukryj w menu nawigacji</string>
@@ -1152,6 +1159,7 @@
     <string name="title_reply_receipt">Wyślij potwierdzenie odczytu</string>
     <string name="title_reply_hard_bounce">Wyślij \"twarde odbicie\"</string>
     <string name="title_reply_template">Odpowiedz z szablonem</string>
+    <string name="title_reply_menu">Pokaż menu wyboru</string>
     <string name="title_move_undo">Przenoszę do %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s uwierzytelnianie nie powiodło się</string>
     <string name="title_on_blocklist">Na liście blokowanego spamu</string>
@@ -1547,7 +1555,7 @@
     <string name="title_rule_schedule_end">Od końca warunku czasu</string>
     <string name="title_rule_folder">Folder</string>
     <string name="title_rule_folder_create">Utwórz podfolder</string>
-    <string name="title_rule_thread">Wszystkie wiadomości w tej samej rozmowie i folderze</string>
+    <string name="title_rule_thread">Wszystkie wiadomości w tej samej konwersacji i folderze</string>
     <string name="title_rule_identity">Tożsamość</string>
     <string name="title_rule_template">Szablon odpowiedzi</string>
     <string name="title_rule_answer_subject">Użyj nazwy szablonu jako tematu</string>
@@ -1557,7 +1565,7 @@
     <string name="title_rule_attached">Dołącz nieprzetworzony plik wiadomości</string>
     <string name="title_rule_cc">Odpowiedz na adresy CC</string>
     <string name="title_rule_with_attachments">Z załącznikami</string>
-    <string name="title_rule_answer_remark">Dla każdej rozmowy zostanie wysłana tylko jedna odpowiedź, aby uniknąć zapętlenia odpowiedzi</string>
+    <string name="title_rule_answer_remark">Dla każdej konwersacji zostanie wysłana tylko jedna odpowiedź, aby uniknąć zapętlenia odpowiedzi</string>
     <string name="title_rule_name_missing">Brak nazwy reguły</string>
     <string name="title_rule_condition_missing">Brak warunku</string>
     <string name="title_rule_folder_missing">Brak folderu</string>
@@ -1937,8 +1945,8 @@
     </string-array>
     <string-array name="onCloseNames">
         <item>Nic nie rób</item>
-        <item>Idź do poprzedniej wiadomości</item>
-        <item>Idź do następnej wiadomości</item>
+        <item>Idź do poprzedniej konwersacji</item>
+        <item>Idź do następnej konwersacji</item>
     </string-array>
     <string-array name="resizeNames">
         <item>Drobna</item>

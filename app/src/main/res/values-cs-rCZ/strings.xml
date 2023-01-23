@@ -389,6 +389,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_attach_new">Přidat sdílené soubory do nového konceptu</string>
+    <string name="title_advanced_answer_default">Krátkým stisknutím tlačítka odpovědi:</string>
     <string name="title_advanced_answer_action">Dlouhým stisknutím tlačítka odpovědi:</string>
     <string name="title_advanced_send_pending">Zobrazit neobtěžující ikonu zpožděného odeslání</string>
     <string name="title_advanced_auto_save_paragraph">Automaticky uložit koncept po každém odstavci</string>
@@ -461,6 +462,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_nav_pin">Připnout navigační menu</string>
     <string name="title_advanced_nav_hide_title">Skrýt možnosti navigačního menu?</string>
     <string name="title_advanced_nav_hide_message">Možnosti můžete znovu povolit v nastavení displeje</string>
+    <string name="title_advanced_nav_last_sync">Zobrazit poslední čas synchronizace v navigačním menu</string>
     <string name="title_advanced_nav_message_count">Zobrazit počet místně uložených zpráv v navigačním menu</string>
     <string name="title_advanced_nav_unseen_drafts">Zobrazit počet nepřečtených konceptů v navigačním menu</string>
     <string name="title_advanced_nav_pinned_count">Zobrazit počet nepřečtených zpráv v připnutém navigačním menu</string>
@@ -574,6 +576,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_expand_one">Rozbalit vždy pouze jednu zprávu</string>
     <string name="title_advanced_collapse_multiple">Při pohybu \"zpět\" sbalit zprávy v konverzaci s vícero zprávami</string>
     <string name="title_advanced_autoclose">Zavírat konverzace automaticky</string>
+    <string name="title_advanced_autoclose_send">Automaticky zavřít konverzace po odeslání zpráv</string>
     <string name="title_advanced_onclose">Při zavření konverzace</string>
     <string name="title_advanced_autoclose_unread">Zavřít konverzace při označování zpráv jako nepřečtené</string>
     <string name="title_advanced_collapse_marked">Sbalit zprávy, které jsou ručně označeny jako přečtené nebo nepřečtené</string>
@@ -588,6 +591,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_auto_important">Automaticky činit zprávy s hvězdičkou důležitými</string>
     <string name="title_advanced_reset_importance">Obnovit důležitost při přesunu zpráv</string>
     <string name="title_advanced_cancel_snooze">Zrušit odložení při přesunu zpráv</string>
+    <string name="title_advanced_auto_block_sender">Automaticky zablokovat odesílatele při hlášení spamu</string>
     <string name="title_advanced_swipe_reply">Přejeďte rozbalené zprávy doprava pro odpověď</string>
     <string name="title_advanced_default_snooze">Výchozí doba odložení/zpoždění</string>
     <string name="title_advanced_notifications">Spravovat oznámení</string>
@@ -847,6 +851,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_account_interval_hint">Četnost obnovy spojení pro okamžité zprávy nebo četnost kontroly nových zpráv</string>
     <string name="title_account_noop_hint">Tímto se připojení bude obnovovat aktivněji, ale sníží se výdrž baterie</string>
     <string name="title_account_partial_fetch_hint">Vypnout pouze v případě prázdných zpráv nebo poškozených příloh</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Povolením této funkce se zvýší využití baterie a dat</string>
     <string name="title_color">Barva</string>
     <string name="title_calendar">Kalendář</string>
     <string name="title_background">Pozadí</string>
@@ -926,6 +931,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_account_delete">Trvale smazat tento účet?</string>
     <string name="title_identity_delete">Trvale smazat tuto identitu?</string>
     <string name="title_edit_html">Upravit jako HTML</string>
+    <string name="title_check_html">Kontrola HTML</string>
     <string name="title_import_file">Importovat soubor</string>
     <string name="title_sign_key">Podpisový klíč: %1$s</string>
     <string name="title_last_connected">Poslední připojení: %1$s</string>
@@ -1011,6 +1017,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_edit_account_color">Upravit barvu účtu</string>
     <string name="title_hide_folder">Skrýt složku</string>
     <string name="title_hide_seen_folder">Skrýt složku, pokud jsou přečteny všechny zprávy</string>
+    <string name="title_hide_seen_folder_hint">Pouze v účtu a sjednoceném seznamu složek</string>
     <string name="title_unified_folder">Zobrazit ve sjednocené doručené poště</string>
     <string name="title_navigation_folder">Zobrazit v navigačním menu</string>
     <string name="title_navigation_folder_hide">Skrýt v navigačním menu</string>
@@ -1153,6 +1160,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_reply_receipt">Odeslat potvrzení o přečtení</string>
     <string name="title_reply_hard_bounce">Odeslat oznámení o nedoručitelnosti</string>
     <string name="title_reply_template">Odpovědět šablonou</string>
+    <string name="title_reply_menu">Zobrazit nabídku výběru</string>
     <string name="title_move_undo">Přesouvání do %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s ověření se nezdařilo</string>
     <string name="title_on_blocklist">Na seznamu blokovaných adres</string>

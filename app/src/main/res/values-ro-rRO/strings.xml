@@ -997,6 +997,7 @@
     <string name="title_edit_account_color">Editare culoare cont</string>
     <string name="title_hide_folder">Ascunde dosar</string>
     <string name="title_hide_seen_folder">Ascundeți folderul dacă toate mesajele sunt citite</string>
+    <string name="title_hide_seen_folder_hint">Numai în cont și listă unificată de dosare</string>
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_navigation_folder">Arată în meniul de navigație</string>
     <string name="title_navigation_folder_hide">Ascundeți în meniul de navigare</string>

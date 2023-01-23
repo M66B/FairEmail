@@ -18,6 +18,7 @@
     <string name="channel_notification">Correo electrónico</string>
     <string name="channel_progress">Progreso</string>
     <string name="channel_update">Actualizaciones</string>
+    <string name="channel_announcements">Avisos</string>
     <string name="channel_warning">Alertas</string>
     <string name="channel_error">Errores</string>
     <string name="channel_alert">Alertas del servidor</string>
@@ -244,6 +245,7 @@
         La contraseña es necesaria para importar la configuración de nuevo, ¡así que por favor no la olvide!
     </string>
     <string name="title_setup_export_do">El archivo de exportación contendrá todos los ajustes y datos, pero no hay mensajes ni imágenes referenciadas en las firmas</string>
+    <string name="title_setup_scroll">¡Los diálogos de entrada pueden ser desplazables!</string>
     <string name="title_setup_password">Contraseña</string>
     <string name="title_setup_password_chars">La contraseña contiene caracteres de control o espacios en blanco</string>
     <string name="title_setup_password_repeat">Confirmar contraseña</string>
@@ -360,6 +362,7 @@
     <string name="title_advanced_send_reminders">Mostrar recordatorios</string>
     <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
     <string name="title_advanced_attach_new">Añadir archivos compartidos a un nuevo borrador</string>
+    <string name="title_advanced_answer_default">Una pulsación corta en el botón de respuesta:</string>
     <string name="title_advanced_answer_action">Una pulsación larga en el botón de respuesta:</string>
     <string name="title_advanced_send_pending">Mostrar icono de envío diferido no obtrusivo</string>
     <string name="title_advanced_auto_save_paragraph">Guardar automáticamente un borrador después de cada párrafo</string>
@@ -418,6 +421,7 @@
     <string name="title_advanced_caption_message">Mensaje</string>
     <string name="title_advanced_caption_message_header">Encabezado del mensaje</string>
     <string name="title_advanced_caption_message_body">Cuerpo del mensaje</string>
+    <string name="title_advanced_caption_file">Archivo</string>
     <string name="title_advanced_portrait">Modo vertical</string>
     <string name="title_advanced_landscape">Modo apaisado</string>
     <string name="title_advanced_two_row">Usar dos filas</string>
@@ -431,6 +435,7 @@
     <string name="title_advanced_nav_pin">Fijar menú de navegación</string>
     <string name="title_advanced_nav_hide_title">¿Ocultar opciones de menú de navegación?</string>
     <string name="title_advanced_nav_hide_message">Puede activar las opciones de nuevo en la configuración de visualización</string>
+    <string name="title_advanced_nav_last_sync">Mostrar la hora de última sincronización en el menú de navegación</string>
     <string name="title_advanced_nav_message_count">Mostrar el número de mensajes almacenados localmente en el menú de navegación</string>
     <string name="title_advanced_nav_unseen_drafts">Mostrar número de borradores sin leer en el menú de navegación</string>
     <string name="title_advanced_nav_pinned_count">Mostrar el número de mensajes no leídos en el menú de navegación fijado</string>
@@ -544,6 +549,7 @@
     <string name="title_advanced_expand_one">Expandir sólo un mensaje a la vez</string>
     <string name="title_advanced_collapse_multiple">Colapsar mensajes en una conversación con varios mensajes al ir \'atrás\'</string>
     <string name="title_advanced_autoclose">Cerrar conversaciones automáticamente</string>
+    <string name="title_advanced_autoclose_send">Cerrar conversaciones automáticamente después de enviar mensajes</string>
     <string name="title_advanced_onclose">Al cerrar una conversación</string>
     <string name="title_advanced_autoclose_unread">Cerrar conversaciones al marcar mensajes como no leídos</string>
     <string name="title_advanced_collapse_marked">Colapsar mensajes que se marcan manualmente como leídos o no leídos</string>
@@ -558,6 +564,7 @@
     <string name="title_advanced_auto_important">Hacer que los mensajes destacados sean importantes automáticamente</string>
     <string name="title_advanced_reset_importance">Restablecer importancia al mover mensajes</string>
     <string name="title_advanced_cancel_snooze">Cancelar posponer al mover mensajes</string>
+    <string name="title_advanced_auto_block_sender">Bloquear automáticamente al remitente al reportar como spam</string>
     <string name="title_advanced_swipe_reply">Deslice los mensajes expandidos a la derecha para responder</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer/retraso por defecto</string>
     <string name="title_advanced_notifications">Administrar notificaciones</string>
@@ -670,6 +677,7 @@
     <string name="title_advanced_check_weekly">Comprobar semanalmente en lugar de diariamente</string>
     <string name="title_advanced_beta">Buscar versiones de prueba en BitBucket</string>
     <string name="title_advanced_changelog">Mostrar registro de cambios después de actualizar</string>
+    <string name="title_advanced_announcements">Buscar avisos</string>
     <string name="title_advanced_experiments">Probar características experimentales</string>
     <string name="title_advanced_crash_reports">Enviar informes de errores</string>
     <string name="title_advanced_cleanup_attachments">Eliminar archivos adjuntos de mensajes antiguos</string>
@@ -895,6 +903,7 @@
     <string name="title_account_delete">¿Eliminar esta cuenta permanentemente?</string>
     <string name="title_identity_delete">¿Eliminar esta identidad permanentemente?</string>
     <string name="title_edit_html">Editar como HTML</string>
+    <string name="title_check_html">Comprobar HTML</string>
     <string name="title_import_file">Importar archivo</string>
     <string name="title_sign_key">Clave de firma: %1$s</string>
     <string name="title_last_connected">Última conexión: %1$s</string>
@@ -980,6 +989,7 @@
     <string name="title_edit_account_color">Editar color de cuenta</string>
     <string name="title_hide_folder">Ocultar carpeta</string>
     <string name="title_hide_seen_folder">Ocultar carpeta si todos los mensajes son leídos</string>
+    <string name="title_hide_seen_folder_hint">Sólo en la cuenta y lista de carpetas unificadas</string>
     <string name="title_unified_folder">Mostrar en bandeja de entrada unificada</string>
     <string name="title_navigation_folder">Mostrar en el menú de navegación</string>
     <string name="title_navigation_folder_hide">Ocultar en el menú de navegación</string>
@@ -1122,6 +1132,7 @@
     <string name="title_reply_receipt">Enviar acuse de lectura</string>
     <string name="title_reply_hard_bounce">Enviar rebote duro</string>
     <string name="title_reply_template">Responder con plantilla</string>
+    <string name="title_reply_menu">Mostrar menú de selección</string>
     <string name="title_move_undo">Moviendo a %1$s (%2$d)</string>
     <string name="title_authentication_failed">La autenticación %1$s falló</string>
     <string name="title_on_blocklist">En lista de bloqueo de spam</string>

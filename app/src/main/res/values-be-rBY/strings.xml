@@ -1013,6 +1013,7 @@
     <string name="title_edit_account_color">Рэдагаваць колер уліковага запісу</string>
     <string name="title_hide_folder">Схаваць папку</string>
     <string name="title_hide_seen_folder">Схаваць папку, калі ўсе паведамленні прачытаны</string>
+    <string name="title_hide_seen_folder_hint">Толькі ва ўліковым запісе і спісе агульных папак</string>
     <string name="title_unified_folder">Паказаць у агульнай паштовай скрыні</string>
     <string name="title_navigation_folder">Паказваць у меню навігацыі</string>
     <string name="title_navigation_folder_hide">Схаваць у меню навігацыі</string>

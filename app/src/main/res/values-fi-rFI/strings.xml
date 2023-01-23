@@ -18,6 +18,7 @@
     <string name="channel_notification">Sähköposti</string>
     <string name="channel_progress">Edistyminen</string>
     <string name="channel_update">Päivitykset</string>
+    <string name="channel_announcements">Ilmoitukset</string>
     <string name="channel_warning">Varoitukset</string>
     <string name="channel_error">Virheet</string>
     <string name="channel_alert">Palvelimen hälytykset</string>
@@ -244,6 +245,7 @@
         Salasana tarvitaan asetusten tuomiseksi, joten älä unohda sitä!
     </string>
     <string name="title_setup_export_do">Viety tiedosto sisältää kaikki asetukset ja tiedot, mutta ei viestejä eikä kuvia, joihin viitataan allekirjoituksissa</string>
+    <string name="title_setup_scroll">Keskusteluja voi ehkä vierittää!</string>
     <string name="title_setup_password">Salasana</string>
     <string name="title_setup_password_chars">Salasana sisältää ohjaus- tai tyhjätilamerkkejä</string>
     <string name="title_setup_password_repeat">Toista salasana</string>
@@ -360,6 +362,7 @@
     <string name="title_advanced_send_reminders">Näytä muistutukset</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
     <string name="title_advanced_attach_new">Lisää jaetut tiedostot uuteen luonnokseen</string>
+    <string name="title_advanced_answer_default">Vastausnapin lyhyesti painamisen toiminto:</string>
     <string name="title_advanced_answer_action">Vastauspainikkeen pitkän painalluksen toiminto:</string>
     <string name="title_advanced_send_pending">Näytä huomaamaton viivästetyn lähetyksen kuvake</string>
     <string name="title_advanced_auto_save_paragraph">Tallenna luonnos automaattisesti jokaisen kappaleen jälkeen</string>
@@ -386,6 +389,7 @@
     <string name="title_advanced_reply_move_inbox">Myös postilaatikon viesteille</string>
     <string name="title_advanced_auto_link">Luo linkkejä automaattisesti</string>
     <string name="title_advanced_plain_only">Lähetä muotoilemattomana tekstinä oletuksena</string>
+    <string name="title_advanced_plain_only_reply">Automaattinen tavallinen teksti, kun vastataan viestiin, jossa vain tavallista tekstiä</string>
     <string name="title_advanced_flow">\'format flowed\' muotoilemattomalle tekstille</string>
     <string name="title_advanced_usenet_signature">Usenetin allekirjoitustyyli</string>
     <string name="title_advanced_remove_signatures">Poista tunnistetut allekirjoitukset</string>
@@ -417,6 +421,7 @@
     <string name="title_advanced_caption_message">Viesti</string>
     <string name="title_advanced_caption_message_header">Viestin tunnistetiedot</string>
     <string name="title_advanced_caption_message_body">Viestin sisältö</string>
+    <string name="title_advanced_caption_file">Tiedosto</string>
     <string name="title_advanced_portrait">Pystytila</string>
     <string name="title_advanced_landscape">Vaakatila</string>
     <string name="title_advanced_two_row">Käytä kahta riviä</string>
@@ -424,11 +429,13 @@
     <string name="title_advanced_min_screen_size">Näytön vähimmäiskoko näytön jakamiseksi</string>
     <string name="title_advanced_close_pane">Tiivistä rivi tai sarake, kun keskustelu suljetaan</string>
     <string name="title_advanced_column_width">Viestisarakkeen leveys / rivin korkeus: %1$s %%</string>
+    <string name="title_advanced_hide_toolbar">Piilota työkalupalkki vierittäessä viestejä</string>
     <string name="title_advanced_nav_options">Näytä asetukset navigointivalikossa</string>
     <string name="title_advanced_nav_categories">Näytä tilien luokat navigointivalikossa</string>
     <string name="title_advanced_nav_pin">Kiinnitä navigointivalikko</string>
     <string name="title_advanced_nav_hide_title">Piilotetaanko navigointivalikon asetukset?</string>
     <string name="title_advanced_nav_hide_message">Voit ottaa asetukset uudelleen käyttöön ulkoasuasetuksissa</string>
+    <string name="title_advanced_nav_last_sync">Näytä viimeisin synkronointiajankohta ohjausvalikossa</string>
     <string name="title_advanced_nav_message_count">Näytä paikallisesti tallennettujen viestien määrä navigointivalikossa</string>
     <string name="title_advanced_nav_unseen_drafts">Näytä lukemattomien luonnosten määrä navigointivalikossa</string>
     <string name="title_advanced_nav_pinned_count">Näytä lukemattomien viestien määrä kiinnitetyssä navigointivalikossa</string>
@@ -542,12 +549,14 @@
     <string name="title_advanced_expand_one">Laajenna vain yksi viesti kerrallaan</string>
     <string name="title_advanced_collapse_multiple">Tiivistä useamman viestin keskusteluiden viestit menemällä \'takaisin\'</string>
     <string name="title_advanced_autoclose">Sulje keskustelut automaattisesti</string>
+    <string name="title_advanced_autoclose_send">Sulje automaattisesti keskustelut viestien lähettämisen jälkeen</string>
     <string name="title_advanced_onclose">Keskustelua suljettaessa</string>
     <string name="title_advanced_autoclose_unread">Sulje keskustelut, kun viestit merkitään lukemattomiksi</string>
     <string name="title_advanced_collapse_marked">Tiivistä viestit, jotka on käsin merkitty luetuiksi tai lukemattomiksi</string>
     <string name="title_advanced_undo">Toiminnon kumoamisaika</string>
     <string name="title_advanced_quick_filter">Näytä huomaamattomat pikasuodatuskuvakkeet</string>
     <string name="title_advanced_quick_scroll">Näytä huomaamattomat ylös-/alaspikavierityskuvakkeet</string>
+    <string name="title_advanced_quick_actions">Näytä pikatoiminnot, kun viestejä on valittu</string>
     <string name="title_advanced_folder_nav">Siirry viestilistasta takaisin kansiolistaan</string>
     <string name="title_advanced_autoread">Merkitse viestit luetuiksi siirrettäessä</string>
     <string name="title_advanced_star_snoozed">Lisää tähti torkutettaessa viestejä</string>
@@ -555,6 +564,7 @@
     <string name="title_advanced_auto_important">Merkitse tähdelliset viestit tärkeiksi</string>
     <string name="title_advanced_reset_importance">Palauta oma tärkeysjärjestys oletusasetukseen siirrettäessä</string>
     <string name="title_advanced_cancel_snooze">Peruuta torkku, kun viestejä siirrettään</string>
+    <string name="title_advanced_auto_block_sender">Estä lähettäjä ilmoittaessa roskapostista</string>
     <string name="title_advanced_swipe_reply">Vastaa pyyhkäisemällä laajennetut viestit oikealle</string>
     <string name="title_advanced_default_snooze">Torkun/viiveen oletusaika</string>
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
@@ -666,6 +676,7 @@
     <string name="title_advanced_check_weekly">Tarkista viikoittain päivittäisen sijaan</string>
     <string name="title_advanced_beta">Tarkista, onko BitBucketissa testiversioita</string>
     <string name="title_advanced_changelog">Näytä muutosloki päivityksen jälkeen</string>
+    <string name="title_advanced_announcements">Tarkista ilmoitukset</string>
     <string name="title_advanced_experiments">Käytä kokeellisia ominaisuuksia</string>
     <string name="title_advanced_crash_reports">Lähetä virheraportit</string>
     <string name="title_advanced_cleanup_attachments">Poista vanhojen viestien liitteet</string>
@@ -812,6 +823,7 @@
     <string name="title_account_interval_hint">Push-viestien tai uusien viestien tarkistuksen aikaväli</string>
     <string name="title_account_noop_hint">Tämä päivittää yhteyttä useammin, mutta käyttää enemmän akkua</string>
     <string name="title_account_partial_fetch_hint">Kytke tämä pois ainoastaan, jos ilmenee tyhjiä viestejä tai korruptoituneita liitteitä</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Tämä lisää akun ja datan käyttöä</string>
     <string name="title_color">Väri</string>
     <string name="title_calendar">Kalenteri</string>
     <string name="title_background">Tausta</string>
@@ -891,6 +903,7 @@
     <string name="title_account_delete">Poistetaanko tämä tili pysyvästi?</string>
     <string name="title_identity_delete">Poistetaanko tämä identiteetti pysyvästi?</string>
     <string name="title_edit_html">Muokkaa HTML-muodossa</string>
+    <string name="title_check_html">Tarkista HTML</string>
     <string name="title_import_file">Tuo tiedosto</string>
     <string name="title_sign_key">Allekirjoitusavain: %1$s</string>
     <string name="title_last_connected">Viimeksi yhdistetty: %1$s</string>
@@ -1084,6 +1097,7 @@
     <string name="title_quick_actions">Valitse toiminnot</string>
     <string name="title_quick_actions_hint">Enintään %1$d toimintoa näytetään</string>
     <string name="title_quick_actions_low">Alhainen tärkeysjärjestys</string>
+    <string name="title_quick_actions_normal">Tavallinen tärkeys</string>
     <string name="title_quick_actions_high">Korkea tärkeysjärjestys</string>
     <string name="title_quick_actions_snooze">Torkuta</string>
     <string name="title_quick_actions_clear">Tyhjennä valinta toiminnon jälkeen</string>
@@ -1117,6 +1131,7 @@
     <string name="title_reply_receipt">Lähetä vastaanottokuittaus</string>
     <string name="title_reply_hard_bounce">Lähetä hard bounce</string>
     <string name="title_reply_template">Vastaa viestipohjalla</string>
+    <string name="title_reply_menu">Näytä valintavalikko</string>
     <string name="title_move_undo">Siirretään kansioon %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s-tunnistautuminen epäonnistui</string>
     <string name="title_on_blocklist">Roskapostin estolistalla</string>
@@ -1811,6 +1826,7 @@
     <string name="title_widget_padding">Tyhjän tilan koko</string>
     <string name="title_widget_separator_lines">Näytä erotinrivit</string>
     <string name="title_widget_semi_transparent">Osittain läpinäkyvä tausta</string>
+    <string name="title_widget_count_top">Näytä lukemattomien viestien määrä</string>
     <string name="title_widget_avatars">Näytä yhteystietojen avatarit</string>
     <string name="title_widget_refresh">Näytä painike viestien päivittämiselle</string>
     <string name="title_widget_compose">Näytä painike uudelle viestille</string>

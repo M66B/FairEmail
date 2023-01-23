@@ -376,6 +376,7 @@
     <string name="title_advanced_send_reminders">Prikaži podsjetnike</string>
     <string name="title_advanced_send_delayed">Odgodi slanje poruka</string>
     <string name="title_advanced_attach_new">Dodaj dijeljene datoteke u novi nacrt</string>
+    <string name="title_advanced_answer_default">Kratko pritiskanje dugmeta \'odgovor\' će:</string>
     <string name="title_advanced_answer_action">Dugo pritiskanje tipke \'odgovor\' će:</string>
     <string name="title_advanced_send_pending">Prikaži nenametljivu ikonicu za odgođeno slanje</string>
     <string name="title_advanced_auto_save_paragraph">Automatski sačuvaj nacrt nakon svakog paragrafa</string>
@@ -448,6 +449,7 @@
     <string name="title_advanced_nav_pin">Zakači navigacijski meni</string>
     <string name="title_advanced_nav_hide_title">Sakriti opcije navigacijskog menija?</string>
     <string name="title_advanced_nav_hide_message">Možete ponovo omogućiti opcije na postavkama ekrana</string>
+    <string name="title_advanced_nav_last_sync">Prikazati vrijeme posljednje sinhronizacije u navigacijskom meniju</string>
     <string name="title_advanced_nav_message_count">Prikaži broj lokalno spašenih poruka u navigacijskom meniju</string>
     <string name="title_advanced_nav_unseen_drafts">Prikaži broj nepročitanih nacrta u navigacijskom meniju</string>
     <string name="title_advanced_nav_pinned_count">Prikaži broj nepročitanih poruka u fiksiranom navigacijskom meniju</string>
@@ -561,6 +563,7 @@
     <string name="title_advanced_expand_one">Raširi samo jednu poruku u datom trenutku</string>
     <string name="title_advanced_collapse_multiple">Suzi poruke u konverzacijama sa višestrukim porukama u pozadini</string>
     <string name="title_advanced_autoclose">Automatski zatvori konverzacije</string>
+    <string name="title_advanced_autoclose_send">Automatski zatvoriti konverzacije nakon slanja poruka</string>
     <string name="title_advanced_onclose">Pri zatvaranju konverzacija</string>
     <string name="title_advanced_autoclose_unread">Zatvori konverzacije markiranjem poruka kao \'nepročitane\'</string>
     <string name="title_advanced_collapse_marked">Suzi poruke, koje se ručno označavaju kao pročitane ili nepročitane</string>
@@ -575,6 +578,7 @@
     <string name="title_advanced_auto_important">Automatski označi poruke sa zvjezdicom kao važne</string>
     <string name="title_advanced_reset_importance">Resetuj važnost pri premještanju poruka</string>
     <string name="title_advanced_cancel_snooze">Otkaži odgađanje pri premještanju poruka</string>
+    <string name="title_advanced_auto_block_sender">Automatski blokiraj pošiljaoca kada se prijavljuje spam</string>
     <string name="title_advanced_swipe_reply">Prstom prevucite proširene poruke na desno za odgovor</string>
     <string name="title_advanced_default_snooze">Zadano vrijeme odlaganja/odgađanja</string>
     <string name="title_advanced_notifications">Upravljaj obavještenjima</string>
@@ -834,6 +838,7 @@
     <string name="title_account_interval_hint">Učestalost osvježavanja konekcije zbog trenutnih obavještenja ili učestalost provjeravanja novih poruka</string>
     <string name="title_account_noop_hint">Ovo će aktivnije osvježavati konekciju, ali i trošiti više baterije</string>
     <string name="title_account_partial_fetch_hint">Isključite ovu opciju u slučaju praznih poruka ili nevaljanih priloga</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Omogućavanje ove opcije će povećati potrošnju baterije i podataka</string>
     <string name="title_color">Boja</string>
     <string name="title_calendar">Kalendar</string>
     <string name="title_background">Pozadina</string>
@@ -913,6 +918,7 @@
     <string name="title_account_delete">Izbrisati ovaj račun trajno?</string>
     <string name="title_identity_delete">Izbrisati ovaj identitet trajno?</string>
     <string name="title_edit_html">Uredi kao HTML</string>
+    <string name="title_check_html">Provjeri HTML</string>
     <string name="title_import_file">Uvezi datoteku</string>
     <string name="title_sign_key">Potpiši ključ: %1$s</string>
     <string name="title_last_connected">Zadnja konekcija: %1$s</string>
@@ -998,6 +1004,7 @@
     <string name="title_edit_account_color">Uredi boju računa</string>
     <string name="title_hide_folder">Sakrij folder</string>
     <string name="title_hide_seen_folder">Sakrij folder ako su sve poruke pročitane</string>
+    <string name="title_hide_seen_folder_hint">Samo na spisku računa i objedinjenih foldera</string>
     <string name="title_unified_folder">Prikaži u objedinjenom inboxu</string>
     <string name="title_navigation_folder">Prikaži u navigacijskom meniju</string>
     <string name="title_navigation_folder_hide">Sakrij u navigacijskom meniju</string>
@@ -1141,6 +1148,7 @@
     <string name="title_reply_receipt">Pošalji potvrdu o čitanju</string>
     <string name="title_reply_hard_bounce">Pošalji \'hard bounce\'</string>
     <string name="title_reply_template">Odgovori koristeći prijedložak</string>
+    <string name="title_reply_menu">Prikaži meni s opcijama</string>
     <string name="title_move_undo">Premještanje u %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s provjera nije uspješna</string>
     <string name="title_on_blocklist">Na listi za blokiranje spama</string>

@@ -389,6 +389,7 @@
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
     <string name="title_advanced_attach_new">Додати спільні файли до нової чернетки</string>
+    <string name="title_advanced_answer_default">Коротке натискання на кнопку відповіді буде:</string>
     <string name="title_advanced_answer_action">Тривале натискання на кнопку відповіді для:</string>
     <string name="title_advanced_send_pending">Показати ненав\'язливий значок при затримці відправлення</string>
     <string name="title_advanced_auto_save_paragraph">Автоматично зберігати чернетку після кожного абзацу</string>
@@ -461,6 +462,7 @@
     <string name="title_advanced_nav_pin">Прикріпити меню навігації</string>
     <string name="title_advanced_nav_hide_title">Приховати параметри меню навігації?</string>
     <string name="title_advanced_nav_hide_message">Ви можете знову включити опції в налаштуваннях екрану</string>
+    <string name="title_advanced_nav_last_sync">Показувати час останньої синхронізації в меню навігації</string>
     <string name="title_advanced_nav_message_count">Показати кількість локально збережених повідомлень в меню навігації</string>
     <string name="title_advanced_nav_unseen_drafts">Відображати кількість непрочитаних чернеток у меню навігації</string>
     <string name="title_advanced_nav_pinned_count">Відображати кількість непрочитаних повідомлень у закріпленому навігаційному меню</string>
@@ -574,6 +576,7 @@
     <string name="title_advanced_expand_one">Розгортати лише одне повідомлення за один раз</string>
     <string name="title_advanced_collapse_multiple">Згорнути повідомлення в розмові з декількома повідомленнями при натисканні \'назад\'</string>
     <string name="title_advanced_autoclose">Автоматично закривати розмови</string>
+    <string name="title_advanced_autoclose_send">Автоматично закривати розмови після відправлення повідомлень</string>
     <string name="title_advanced_onclose">При закритті розмови</string>
     <string name="title_advanced_autoclose_unread">Закрити бесіди для повідомлень котрі позначенні як непрочитані</string>
     <string name="title_advanced_collapse_marked">Згорнути повідомлення, які вручну позначені як прочитані або непрочитані</string>
@@ -588,6 +591,7 @@
     <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення відмічені як обрані</string>
     <string name="title_advanced_reset_importance">Скинути важливість повідомлення при його переміщені</string>
     <string name="title_advanced_cancel_snooze">Відмінити паузу при переміщенні повідомлень</string>
+    <string name="title_advanced_auto_block_sender">Автоматично блокувати відправника при інформуванні про спам</string>
     <string name="title_advanced_swipe_reply">Проведіть по розкритому повідомленню праворуч для відповіді</string>
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
@@ -846,6 +850,7 @@
     <string name="title_account_interval_hint">Частота оновлення з\'єднання для push-повідомлень або частота перевірки на нові повідомлення</string>
     <string name="title_account_noop_hint">Це буде оновлювати підключення активніше, але також буде використовувати більше заряду акумулятора</string>
     <string name="title_account_partial_fetch_hint">Вимкнути це лише у випадку пустих повідомлень або пошкоджених вкладень</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Включення збільшить витрату заряду акумулятора та даних</string>
     <string name="title_color">Колір</string>
     <string name="title_calendar">Календар</string>
     <string name="title_background">Тло</string>
@@ -925,6 +930,7 @@
     <string name="title_account_delete">Видалити цей обліковий запис безповоротно?</string>
     <string name="title_identity_delete">Видалити ці особисті дані безповоротно?</string>
     <string name="title_edit_html">Редагувати як HTML</string>
+    <string name="title_check_html">Перевірити HTML</string>
     <string name="title_import_file">Імпорт файлу</string>
     <string name="title_sign_key">Ключ підпису: %1$s</string>
     <string name="title_last_connected">Останнє підключення: %1$s</string>
@@ -1011,6 +1017,7 @@
     <string name="title_edit_account_color">Змінити колір облікового запису</string>
     <string name="title_hide_folder">Сховати теку</string>
     <string name="title_hide_seen_folder">Приховати теку, якщо всі повідомлення прочитані</string>
+    <string name="title_hide_seen_folder_hint">Тільки в обліковому записі й в об\'єднаному списку тек</string>
     <string name="title_unified_folder">Показати в об\'єднаній вхідній теці</string>
     <string name="title_navigation_folder">Показати в меню навігації</string>
     <string name="title_navigation_folder_hide">Не показувати у меню навігації</string>
@@ -1153,6 +1160,7 @@
     <string name="title_reply_receipt">Надіслати повідомлення про перегляд</string>
     <string name="title_reply_hard_bounce">Надіслати жорстку відмову у повідомлені про стан доставки</string>
     <string name="title_reply_template">Відповісти з шаблоном</string>
+    <string name="title_reply_menu">Показати меню вибору</string>
     <string name="title_move_undo">Переміщення до %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s автентифікація не вдалася</string>
     <string name="title_on_blocklist">У списку блокування спаму</string>

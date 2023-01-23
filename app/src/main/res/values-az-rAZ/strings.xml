@@ -245,6 +245,7 @@
         Tənzimləmələri təkrar daxilə köçürmək üçün həmin parol tələb olunur, ona görə də bunu unutmayın!
     </string>
     <string name="title_setup_export_do">Xaricə köçürmə faylı, bütün tənzimləmələr və verilənləri ehtiva edəcək, ancaq imzalarda istinad edilən heç bir mesaj və təsvirlər olmayacaq</string>
+    <string name="title_setup_scroll">Giriş dialoqları sürüşdürülə bilən ola bilər!</string>
     <string name="title_setup_password">Parol</string>
     <string name="title_setup_password_chars">Parol, nəzarət və ya boşluq simvollarını ehtiva edir</string>
     <string name="title_setup_password_repeat">Parolu təkrarla</string>
@@ -362,6 +363,7 @@
     <string name="title_advanced_send_reminders">Xatırladıcıları göstər</string>
     <string name="title_advanced_send_delayed">Göndərilən mesajların gecikməsi</string>
     <string name="title_advanced_attach_new">Yeni bir qaralamaya paylaşılan faylları əlavə edin</string>
+    <string name="title_advanced_answer_default">Cavab düyməsinə qısa basanda:</string>
     <string name="title_advanced_answer_action">Cavab düyməsinə uzun basanda:</string>
     <string name="title_advanced_send_pending">Narahat edici olmayan gecikməli göndərmə nişanını göstər</string>
     <string name="title_advanced_auto_save_paragraph">Qaralamanı hər paraqrafdan sonra avtomatik saxla</string>
@@ -420,6 +422,7 @@
     <string name="title_advanced_caption_message">Mesaj</string>
     <string name="title_advanced_caption_message_header">Mesaj başlığı</string>
     <string name="title_advanced_caption_message_body">Mesaj gövdəsi</string>
+    <string name="title_advanced_caption_file">Fayl</string>
     <string name="title_advanced_portrait">Şaquli rejim</string>
     <string name="title_advanced_landscape">Üfüqi rejim</string>
     <string name="title_advanced_two_row">İki sətir istifadə et</string>
@@ -433,6 +436,7 @@
     <string name="title_advanced_nav_pin">Naviqasiya menyusunu sancaqla</string>
     <string name="title_advanced_nav_hide_title">Naviqasiya menyu seçimləri gizlədilsin?</string>
     <string name="title_advanced_nav_hide_message">Görüntü tənzimləmələrində bu seçimi təkrar fəallaşdıra bilərsiniz</string>
+    <string name="title_advanced_nav_last_sync">Naviqasiya menyusunda son sinxronlaşdırma vaxtını göstər</string>
     <string name="title_advanced_nav_message_count">Naviqasiya menyusunda yerli yaddaşda saxlanılmış mesaj sayını göstər</string>
     <string name="title_advanced_nav_unseen_drafts">Naviqasiya menyusunda oxunmamış qaralamaların sayını göstər</string>
     <string name="title_advanced_nav_pinned_count">Sancaqlanmış naviqasiya menyusunda oxunmamış mesajların sayını göstər</string>
@@ -546,6 +550,7 @@
     <string name="title_advanced_expand_one">Bir dəfəyə yalnız bir mesajı genişləndir</string>
     <string name="title_advanced_collapse_multiple">Bir neçə mesajlı danışıqlardakı mesajları \"geri\" seçimində yığcamlaşdır</string>
     <string name="title_advanced_autoclose">Söhbətləri avtomatik bağla</string>
+    <string name="title_advanced_autoclose_send">Mesajları göndərdikdən sonra danışıqları avtomatik bağla</string>
     <string name="title_advanced_onclose">Bir danışığı bağlayanda</string>
     <string name="title_advanced_autoclose_unread">Mesajları oxunmamış kimi işarələyəndə danışıqları bağla</string>
     <string name="title_advanced_collapse_marked">Əllə oxunmuş və ya oxunmamış olaraq işarələnmiş mesajları kiçilt</string>
@@ -560,6 +565,7 @@
     <string name="title_advanced_auto_important">Ulduzlu mesajları avtomatik olaraq vacib et</string>
     <string name="title_advanced_reset_importance">Mesajları köçürəndə vacibliyi sıfırla</string>
     <string name="title_advanced_cancel_snooze">Hərəkətli mesajlarda ertələməni ləğv et</string>
+    <string name="title_advanced_auto_block_sender">Spam bildirirkən göndərəni avtomatik əngəllə</string>
     <string name="title_advanced_swipe_reply">Genişləndirilmiş mesajları cavablandırmaq üçün sağa sürüşdür</string>
     <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
     <string name="title_advanced_notifications">Bildirişləri idarə et</string>
@@ -898,6 +904,7 @@
     <string name="title_account_delete">Bu hesab birdəfəlik silinsin?</string>
     <string name="title_identity_delete">Bu kimlik birdəfəlik silinsin?</string>
     <string name="title_edit_html">HTML kimi düzəliş et</string>
+    <string name="title_check_html">HTML-i yoxla</string>
     <string name="title_import_file">Faylı daxilə köçür</string>
     <string name="title_sign_key">İmza açarı: %1$s</string>
     <string name="title_last_connected">Son bağlantı: %1$s</string>
@@ -983,6 +990,7 @@
     <string name="title_edit_account_color">Hesab rənginə düzəliş et</string>
     <string name="title_hide_folder">Qovluğu gizlət</string>
     <string name="title_hide_seen_folder">Bütün mesajlar oxunubsa qovluğu gizlət</string>
+    <string name="title_hide_seen_folder_hint">Yalnız hesabda və birləşmiş qovluq siyahısında</string>
     <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
     <string name="title_navigation_folder">Naviqasiya menyusunda göstər</string>
     <string name="title_navigation_folder_hide">Hərəkət menyusunda gizlət</string>
@@ -1126,6 +1134,7 @@
     <string name="title_reply_receipt">Oxundu bildirişini göndər</string>
     <string name="title_reply_hard_bounce">Sərt sıçrayış göndər</string>
     <string name="title_reply_template">Şablon ilə cavabla</string>
+    <string name="title_reply_menu">Seçim menyusunu göstər</string>
     <string name="title_move_undo">%1$s köçürülür (%2$d)</string>
     <string name="title_authentication_failed">%1$s kimlik təsdiqləməsi uğursuz oldu</string>
     <string name="title_on_blocklist">Spam əngəlləmə siyahısında</string>

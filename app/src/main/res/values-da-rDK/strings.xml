@@ -5,12 +5,12 @@
     <string name="app_welcome">FairEmail er en open source e-mail app med fokus på privatliv og sikkerhed. Derfor vil visse funktioner muligvis fungere anderledes, end hvad du er vant til.</string>
     <string name="app_limitations">F.eks. omformateres beskeder som standard for at fjerne usikre elementer samt forbedre læsbarheden, og åbning af links skal sikkerhedsbekræftes. Begge funktioner kan om ønsket deaktiveres.</string>
     <string name="app_unsupported">Fejl i Android-versionen på denne enhedstype forårsager nedbrud</string>
-    <string name="app_data_loss">Alle-data kan gå tabt</string>
+    <string name="app_data_loss">Alle data kan gå tabt</string>
     <string name="app_continue">Fortsæt alligevel</string>
     <string name="app_exit">Tryk \'Tilbage\' igen for at afslutte</string>
     <string name="app_cake">Utilstrækkelig tilgængelig lagerplads</string>
     <string name="app_cake_remaining">Resterende lagerplads på enheden: %1$s</string>
-    <string name="app_cake_required">Krævede minimum af lagerplads: %1$s</string>
+    <string name="app_cake_required">Krævet minimum af lagerplads: %1$s</string>
     <string name="app_updated">Senest opdateret: %1$s</string>
     <string name="app_download">Downloadet fra: %1$s</string>
     <string name="channel_service">Monitorering</string>
@@ -44,7 +44,7 @@
     <string name="shortcut_setup">Indstillinger</string>
     <plurals name="title_notification_synchronizing">
         <item quantity="one">Monitorerer %1$d konto</item>
-        <item quantity="other">Monitorere %1$d konti</item>
+        <item quantity="other">Monitorerer %1$d konti</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$d afventende operation</item>
@@ -85,7 +85,7 @@
     <string name="title_block_sender_hint">        Afsenderblokering er en gratisfunktion.
         Afsenderdomæneblokering sker via filterregler og er en Pro-funktion.
     </string>
-    <string name="title_blocked_senders">Blokerede afsender</string>
+    <string name="title_blocked_senders">Blokerede afsendere</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokér afsenderen af %1$s besked?</item>
         <item quantity="other">Blokér afsenderen af %1$s beskeder?</item>
@@ -147,12 +147,12 @@
     <string name="title_setup_quick">Hurtig opsætning</string>
     <string name="title_setup_intro">Kontoopsætning udgør kun tre trin, hvorefter e-mails kan afsendes og modtages</string>
     <string name="title_setup_simple">Ingen grund til at ændre valgmuligheder</string>
-    <string name="title_setup_issue">FairEmail er udviklet for at hjælpe dig med at beskytte din fortrolighed og repræsenterer bogstaveligt talt tusindvis af arbejdstimer. Oplever du problemer, så kontakte mig først mhp. support, inden du giver en dårlig bedømmelse. Jeg vil med glæde hjælpe!</string>
+    <string name="title_setup_issue">FairEmail er udviklet for at hjælpe dig med at beskytte din fortrolighed og repræsenterer bogstaveligt talt tusindvis af arbejdstimer. Oplever du problemer, så kontakt mig først mhp. support, inden du giver en dårlig bedømmelse. Jeg vil med glæde hjælpe!</string>
     <string name="title_setup_analytics">FairEmail viser ikke annoncer eller sporer/analyserer brugeradfærd. Bugsnag bruges til fejlrapportering og er som standard deaktiveret.</string>
     <string name="title_setup_quick_accounts">Tilføj eller skift konti</string>
     <string name="title_setup_quick_support">Visse udbydere besværliggør kontotilføjelse. Bebrejd venligst ikke FairEmail for dette, men anmod i stedet om support.</string>
     <string name="title_setup_quick_hint">Den angivne e-mailadresse bruges til indhentning af opsætningsoplysninger fra e-mailserveren og autoconfig.thunderbird.net</string>
-    <string name="title_setup_quick_patience">Vær venligst tålmodig&#8230;</string>
+    <string name="title_setup_quick_patience">Vær venligst tålmodig &#8230;</string>
     <string name="title_setup_quick_imap">IMAP-server til beskedmodtagelse</string>
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
     <string name="title_setup_quick_certificates">Servercertifikater</string>
@@ -175,7 +175,7 @@
     <string name="title_setup_oauth_permission">E-mailudbyderen har kun godkendt OAuth til Play Store- og GitHub-versioner</string>
     <string name="title_setup_gmail_support">Godkendelse af Google-konti fungerer kun i Play Store-versioner, da Android tjekker den digitale app-signatur</string>
     <string name="title_setup_gmail_rationale">Giv tilladelser til at vælge en konto og læse dit navn</string>
-    <string name="title_setup_gmail_permissions">Google vil beder om tilladelse til at læse, komponere, sende samt permanent slette alle din e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>
+    <string name="title_setup_gmail_permissions">Google vil bede om tilladelse til at læse, komponere, sende samt permanent slette alle dine e-mails. FairEmail sletter aldrig dine beskeder uden dit samtykke.</string>
     <string name="title_setup_gmail_login">Er Chrome logget ind på en konto, kan en ny konto kun tilføjes via Android. Dette kan undgås ved at logge ud af Chrome via dens synkindstillinger.</string>
     <string name="title_setup_gmail_max">I tilfælde af fejlmeddelelsen \"Du er logget ind på det maksimale antal konti\", skal der logges ud på alle Google-konti i browseren.</string>
     <string name="title_setup_gmail_on_device">Hvorfor skal der vælges en enhedsbaseret konto?</string>
@@ -194,7 +194,7 @@
     <string name="title_setup_no_inbox">Indbakke ikke fundet</string>
     <string name="title_setup_advanced_protection">Når du er tilmeldt det avancerede beskyttelsesprogram, er det ikke muligt at benytte en tredjeparts e-mail app. Dette er en begrænsning pålagt af Google.</string>
     <string name="title_setup_quick_success">En konto er nu tilføjet</string>
-    <string name="title_setup_quick_no_sent">Ingen Sendt-beskedmappe er valgt. Afsendte breve lagres muligvis ikke.</string>
+    <string name="title_setup_quick_no_sent">Ingen Sendt-beskedmappe er valgt. Afsendte beskeder lagres muligvis ikke.</string>
     <string name="title_setup_quick_configure">For at redigere navn, farve, strygehandlinger mv.</string>
     <string name="title_setup_manage">Administrér</string>
     <string name="title_setup_grant">Tillad</string>
@@ -292,7 +292,7 @@
     <string name="title_setup_theme_composer_light">Lys baggrund til beskedredigering</string>
     <string name="title_setup_theme_you_hint">Material You-farverne kan opsættes i Android Tapet og stil indstillinger</string>
     <string name="title_setup_theme_system_hint">Følg system skifter automatisk til lyst/mørkt dag/nat, hvis understøttet af Android</string>
-    <string name="title_setup_theme_more_colors">Flere farver ænskes</string>
+    <string name="title_setup_theme_more_colors">Flere farver ønskes</string>
     <string name="title_setup_advanced">Avanceret</string>
     <string name="title_setup_options">Valgmuligheder</string>
     <string name="title_setup_defaults">Gendan standardværdier</string>
@@ -353,8 +353,8 @@
     <string name="title_advanced_blocklist_warning">Bloklister er ikke perfekt og kan blokere mere end blot spam!</string>
     <string name="title_advanced_keyboard">Vis tastatur som standard</string>
     <string name="title_advanced_keyboard_no_fullscreen">Forhindr fuldskærmstastatur</string>
-    <string name="title_advanced_suggest_names">Brugernavne og e-mailadresser</string>
-    <string name="title_advanced_suggest_local">Foreslår lokalt lagrede kontakter</string>
+    <string name="title_advanced_suggest_names">Brug navne og e-mailadresser</string>
+    <string name="title_advanced_suggest_local">Foreslå lokalt lagrede kontakter</string>
     <string name="title_advanced_suggest_sent">Foreslå adresser fra sendte beskeder</string>
     <string name="title_advanced_suggest_received">Foreslå adresser fra modtagne beskeder</string>
     <string name="title_advanced_suggest_frequently">Sortér foreslåede adresser efter brugsfrekvens</string>
@@ -363,6 +363,7 @@
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
     <string name="title_advanced_attach_new">Føj delte filer til et nyt udkast</string>
+    <string name="title_advanced_answer_default">Kort tryk på svarknappen vil:</string>
     <string name="title_advanced_answer_action">Langt tryk på svarknappen vil:</string>
     <string name="title_advanced_send_pending">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
     <string name="title_advanced_auto_save_paragraph">Gem automatisk udkast efter hvert afsnit</string>
@@ -392,10 +393,10 @@
     <string name="title_advanced_plain_only_reply">Brug automatisk ren tekst ved besvarelse af en ren tekst besked</string>
     <string name="title_advanced_flow">\'format flowed\' til simpel tekst</string>
     <string name="title_advanced_usenet_signature">Usenet-signaturkonvention</string>
-    <string name="title_advanced_remove_signatures">Fjern genkedte signaturer</string>
+    <string name="title_advanced_remove_signatures">Fjern genkendte signaturer</string>
     <string name="title_advanced_receipt">Når kvittering udbedes</string>
     <string name="title_advanced_forward_new">Start en ny samtale ved videresendelse</string>
-    <string name="title_advanced_lookup_mx">Tjek modtager e-mail inden afsendelse</string>
+    <string name="title_advanced_lookup_mx">Tjek modtagers e-mailadresser inden afsendelse</string>
     <string name="title_advanced_metered">Brug forbrugsbaserede forbindelser</string>
     <string name="title_advanced_download">Download automatisk beskeder og vedhæftninger på forbrugsbaserede forbindelser</string>
     <string name="title_advanced_roaming">Download beskeder og vedhæftninger under roaming</string>
@@ -434,7 +435,8 @@
     <string name="title_advanced_nav_categories">Vis kontokategorier i navigeringsmenuen</string>
     <string name="title_advanced_nav_pin">Fastgør navigeringsmenu</string>
     <string name="title_advanced_nav_hide_title">Skjul navigeringsmenuindstillinger?</string>
-    <string name="title_advanced_nav_hide_message">Indstillingerne kan genaktivere via skærmindstillingerne</string>
+    <string name="title_advanced_nav_hide_message">Indstillingerne kan genaktiveres via skærmindstillingerne</string>
+    <string name="title_advanced_nav_last_sync">Vis den sidste synktid i navigeringsmenuen</string>
     <string name="title_advanced_nav_message_count">Vis antal lokalt gemte beskeder i navigationsmenuen</string>
     <string name="title_advanced_nav_unseen_drafts">Vis antallet af ulæste udkast i navigeringsmenuen</string>
     <string name="title_advanced_nav_pinned_count">Vis antallet af ulæste udkast i den fastgjorte navigeringsmenu</string>
@@ -548,6 +550,7 @@
     <string name="title_advanced_expand_one">Udvid kun én besked ad gangen</string>
     <string name="title_advanced_collapse_multiple">Sammenfold beskeder i en samtale med flere beskeder ved tryk på \'Tilbage\'</string>
     <string name="title_advanced_autoclose">Auto-luk samtaler</string>
+    <string name="title_advanced_autoclose_send">Luk automatisk samtaler efter beskedafsendelse</string>
     <string name="title_advanced_onclose">Ved lukning af i en samtale</string>
     <string name="title_advanced_autoclose_unread">Luk konversationer, når beskeder markeres som ulæste</string>
     <string name="title_advanced_collapse_marked">Sammenfold beskeder, som manuelt markeres som læste/ulæste</string>
@@ -562,6 +565,7 @@
     <string name="title_advanced_auto_important">Gør automatisk stjernemarkerede beskeder vigtige</string>
     <string name="title_advanced_reset_importance">Nulstil vigtighed, når beskeder flyttes</string>
     <string name="title_advanced_cancel_snooze">Afbryd udsættelse ved flytning af beskeder</string>
+    <string name="title_advanced_auto_block_sender">Blokér automatisk afsenderen ved spamanmeldelse</string>
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
@@ -822,6 +826,7 @@
     <string name="title_account_interval_hint">Opfriskningsfrekvensen af forbindelsen til push-beskeder eller frekvensen for tjek af nye beskeder</string>
     <string name="title_account_noop_hint">Dette vil opdatere forbindelsen mere aktivt, men også forbruge mere batteristrøm</string>
     <string name="title_account_partial_fetch_hint">Deaktivér dette kun i tilfælde af tomme beskeder eller ødelagte vedhæftninger</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Aktivering vil forøge strøm- og dataforbruget</string>
     <string name="title_color">Farve</string>
     <string name="title_calendar">Kalender</string>
     <string name="title_background">Baggrund</string>
@@ -901,6 +906,7 @@
     <string name="title_account_delete">Slet denne konto permanent?</string>
     <string name="title_identity_delete">Slet denne identitet permanent?</string>
     <string name="title_edit_html">Redigér som HTML</string>
+    <string name="title_check_html">Tjek HTML</string>
     <string name="title_import_file">Filimport</string>
     <string name="title_sign_key">Signér nøgle: %1$s</string>
     <string name="title_last_connected">Sidst forbundet: %1$s</string>
@@ -986,6 +992,7 @@
     <string name="title_edit_account_color">Redigér kontofarve</string>
     <string name="title_hide_folder">Skjul mappe</string>
     <string name="title_hide_seen_folder">Skjul, hvis alle beskeder er læst</string>
+    <string name="title_hide_seen_folder_hint">Kun i kontoen og samlet mappeliste</string>
     <string name="title_unified_folder">Vis i samlet indbakke</string>
     <string name="title_navigation_folder">Vis i navigationsmenu</string>
     <string name="title_navigation_folder_hide">Skjul i navigeringsmenuen</string>
@@ -1129,6 +1136,7 @@
     <string name="title_reply_receipt">Send læst-kvittering</string>
     <string name="title_reply_hard_bounce">Send hard bounce</string>
     <string name="title_reply_template">Besvar med skabelon</string>
+    <string name="title_reply_menu">Vis valgmenu</string>
     <string name="title_move_undo">Flytter til %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s godkendelse mislykkedes</string>
     <string name="title_on_blocklist">På spamblokeringsliste</string>
@@ -1716,6 +1724,7 @@
     <string name="title_reset_open">Sæt eller ryd standard-apps</string>
     <string name="title_select_app">Vælg app</string>
     <string name="title_updated">Opdatering til version %1$s tilgængelig</string>
+    <string name="title_no_update">Ingen opdatering er tilgængelig</string>
     <string name="title_issue">Har du et spørgsmål eller problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nej</string>

@@ -389,6 +389,7 @@
     <string name="title_advanced_send_reminders">הצגת תזכורות</string>
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
     <string name="title_advanced_attach_new">הוספת קבצים משותפים לטיוטה חדשה</string>
+    <string name="title_advanced_answer_default">לחיצה קצרה על כפתור המענה:</string>
     <string name="title_advanced_answer_action">לחיצה ארוכה על כפתור המענה:</string>
     <string name="title_advanced_send_pending">הצגת סמלי שליחה מושהית שאינם בולטים</string>
     <string name="title_advanced_auto_save_paragraph">לשמור טיוטה אוטומטית אחרי כל פרק</string>
@@ -461,6 +462,7 @@
     <string name="title_advanced_nav_pin">נעיצת תפריט הניווט</string>
     <string name="title_advanced_nav_hide_title">להסתיר את אפשרויות תפריט הניווט?</string>
     <string name="title_advanced_nav_hide_message">אפשר להפעיל את האפשרויות שוב בהגדרות התצוגה</string>
+    <string name="title_advanced_nav_last_sync">להציג את מועד הסנכרון האחרון בתפריט הניווט</string>
     <string name="title_advanced_nav_message_count">להציג את מספר ההודעות שמאוחסנות מקומית בתפריט הניווט</string>
     <string name="title_advanced_nav_unseen_drafts">להציג את מספר הטיוטות שלא נקראו בתפריט הניווט</string>
     <string name="title_advanced_nav_pinned_count">להציג את מספר ההודעות שלא נקראו בתפריט הניווט הנעוץ</string>
@@ -574,6 +576,7 @@
     <string name="title_advanced_expand_one">להרחיב הודעה אחת כל פעם</string>
     <string name="title_advanced_collapse_multiple">צמצום הודעות בדיונים עם מגוון הודעות עם ‚חזרה’</string>
     <string name="title_advanced_autoclose">לסגור דיונים אוטומטית</string>
+    <string name="title_advanced_autoclose_send">לסגור דיונים אוטומטית לאחר שליחת הודעות</string>
     <string name="title_advanced_onclose">עם סגירת דיון</string>
     <string name="title_advanced_autoclose_unread">לסגור דיונים עם סימון הודעות כנקראו</string>
     <string name="title_advanced_collapse_marked">צמצום הודעות שסומנו ידנית כנקראו או לא נקראו</string>
@@ -588,6 +591,7 @@
     <string name="title_advanced_auto_important">להפוך הודעות שסומנו בכוכב לחשובות אוטומטית</string>
     <string name="title_advanced_reset_importance">איפוס החשיבות בעת העברת הודעות</string>
     <string name="title_advanced_cancel_snooze">ביטול נודניק בעת העברת הודעות</string>
+    <string name="title_advanced_auto_block_sender">לחסום את השולח אוטומטית בעת דיווח על ספאם</string>
     <string name="title_advanced_swipe_reply">החלקת הודעות מורחבות לימין פותחת מענה</string>
     <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
@@ -847,6 +851,7 @@
     <string name="title_account_interval_hint">תדירות רענון החיבור להודעות בדחיפה או תדירות בדיקת הודעות חדשות</string>
     <string name="title_account_noop_hint">הגדרה זו תרענן את החיבור בצורה יותר פעילה אך גם תצרוך יותר סוללה</string>
     <string name="title_account_partial_fetch_hint">יש להשבית את זה רק במקרה של הודעות ריקות או קבצים מצורפים פגומים</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">הפעלת האפשרות תגדיל את ניצולת הסוללה והתעבורה</string>
     <string name="title_color">צבע</string>
     <string name="title_calendar">לוח שנה</string>
     <string name="title_background">רקע</string>
@@ -926,6 +931,7 @@
     <string name="title_account_delete">למחוק את החשבון הזה לצמיתות?</string>
     <string name="title_identity_delete">למחוק את הזהות הזאת לצמיתות?</string>
     <string name="title_edit_html">עריכה כ־HTML</string>
+    <string name="title_check_html">בדיק תHTML</string>
     <string name="title_import_file">ייבוא קובץ</string>
     <string name="title_sign_key">חתימת מפתח: %1$s</string>
     <string name="title_last_connected">חיבור אחרון: %1$s</string>
@@ -1011,6 +1017,7 @@
     <string name="title_edit_account_color">עריכת צבע חשבון</string>
     <string name="title_hide_folder">הסתרת תיקייה</string>
     <string name="title_hide_seen_folder">להסתיר את התיקייה אם כל ההודעות נקראו</string>
+    <string name="title_hide_seen_folder_hint">רק בחשבון וברשימת התיקיות האחודה</string>
     <string name="title_unified_folder">הצגה בדואר נכנס מאוחד</string>
     <string name="title_navigation_folder">הצגה בתפריט הניווט</string>
     <string name="title_navigation_folder_hide">הסתרה בתפריט הניווט</string>
@@ -1154,6 +1161,7 @@
     <string name="title_reply_receipt">שליחת אישור קריאה</string>
     <string name="title_reply_hard_bounce">שליחת הקפצה קשיחה</string>
     <string name="title_reply_template">מענה עם תבנית</string>
+    <string name="title_reply_menu">הצגת תפריט בחירה</string>
     <string name="title_move_undo">העברה אל %1$s (%2$d)</string>
     <string name="title_authentication_failed">אימות %1$s נכשל</string>
     <string name="title_on_blocklist">ברשימת חסימת ספאם</string>

@@ -177,6 +177,7 @@
     <string name="title_setup_gmail_rationale">Sei pregato di garantire i permessi per selezionare un profilo e leggere il tuo nome</string>
     <string name="title_setup_gmail_permissions">Google chiederà le autorizzazioni per leggere, scrivere, inviare ed eliminare permanentemente tutte le tue email. FairEmail non eliminerà mai i tuoi messaggi senza il tuo consenso esplicito.</string>
     <string name="title_setup_gmail_login">Se Chrome è connesso a un profilo, puoi aggiungere un nuovo profilo solo tramite Android. Ciò si può evitare disconnettendosi da Chrome tramite le impostazioni di sincronizzazione di Chrome.</string>
+    <string name="title_setup_gmail_max">In caso di messaggio di errore \"Hai effettuato l\'accesso al numero massimo di profili\", devi disconnetterti da tutti i profili Google nel browser.</string>
     <string name="title_setup_gmail_on_device">Perché devo selezionare un profilo presente sul dispositivo?</string>
     <string name="title_setup_gmail_password">Desidero autorizzare un profilo con una password, invece di un profilo su dispositivo</string>
     <string name="title_setup_office_auth">L\'errore \'AUTHENTICATE fallita\' può esser causato dalla disabilitazione di IMAP/SMTP dall\'amministratore di sistema</string>
@@ -362,6 +363,7 @@
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
     <string name="title_advanced_attach_new">Aggiungi i file condivisi a una nuova bozza</string>
+    <string name="title_advanced_answer_default">La pressione breve sul pulsante di risposta:</string>
     <string name="title_advanced_answer_action">La pressione prolungata sul pulsante di risposta:</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
     <string name="title_advanced_auto_save_paragraph">Salva automaticamente una bozza dopo ogni paragrafo</string>
@@ -434,6 +436,7 @@
     <string name="title_advanced_nav_pin">Fissa il menu di navigazione</string>
     <string name="title_advanced_nav_hide_title">Nascondere le opzioni del menu di navigazione?</string>
     <string name="title_advanced_nav_hide_message">Puoi abilitare nuovamente le opzioni nelle impostazioni di visualizzazione</string>
+    <string name="title_advanced_nav_last_sync">Mostra la data e l\'ora dell\'ultima sincronizzazione nel menu di navigazione</string>
     <string name="title_advanced_nav_message_count">Mostra il numero di messaggi memorizzati localmente nel menu di navigazione</string>
     <string name="title_advanced_nav_unseen_drafts">Mostra il numero di bozze non lette nel menu di navigazione</string>
     <string name="title_advanced_nav_pinned_count">Mostra il numero di messaggi non letti nel menu di navigazione fissato</string>
@@ -547,13 +550,14 @@
     <string name="title_advanced_expand_one">Espandi solo un messaggio per volta</string>
     <string name="title_advanced_collapse_multiple">Comprimi i messaggi in una conversazione con più messaggi tornando \'indietro\'</string>
     <string name="title_advanced_autoclose">Chiudi automaticamente le conversazioni</string>
+    <string name="title_advanced_autoclose_send">Chiudi automaticamente le conversazioni dopo l\'invio dei messaggi</string>
     <string name="title_advanced_onclose">Alla chiusura di una conversazione</string>
     <string name="title_advanced_autoclose_unread">Chiudi le conversazioni contrassegnando i messaggi come non letti</string>
     <string name="title_advanced_collapse_marked">Comprimi i messaggi manualmente contrassegnati come letti o non letti</string>
     <string name="title_advanced_undo">Annulla timeout</string>
     <string name="title_advanced_quick_filter">Mostra icone rapide del filtro non vistose</string>
     <string name="title_advanced_quick_scroll">Mostra icone di scorrimento rapido in su/giù non vistose</string>
-    <string name="title_advanced_quick_actions">Mostra azioni rapide quando messaggi sono selezionati</string>
+    <string name="title_advanced_quick_actions">Mostra azioni rapide quando i messaggi sono selezionati</string>
     <string name="title_advanced_folder_nav">Torna sempre all\'elenco delle cartelle da un elenco di messaggi</string>
     <string name="title_advanced_autoread">Contrassegna automaticamente i messaggi come letti allo spostamento</string>
     <string name="title_advanced_star_snoozed">Aggiungi automaticamente la stella posticipando i messaggi</string>
@@ -561,6 +565,7 @@
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi stellati</string>
     <string name="title_advanced_reset_importance">Ripristina l\'importanza allo spostamento dei messaggi</string>
     <string name="title_advanced_cancel_snooze">Annulla posticipazione allo spostamento dei messaggi</string>
+    <string name="title_advanced_auto_block_sender">Blocca automaticamente il mittente segnalando lo spam</string>
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
@@ -623,6 +628,7 @@
     <string name="title_advanced_disconnect_auto_update">Aggiorna settimanalmente e automaticamente gli elenchi</string>
     <string name="title_advanced_disconnect_links">Usa gli elenchi per avvisare dei link di monitoraggio</string>
     <string name="title_advanced_disconnect_images">Usa gli elenchi per riconoscere le immagini di monitoraggio</string>
+    <string name="title_advanced_clear_all_hint">Questo eliminerà tutti i dati dell\'app dal tuo dispositivo, compresi i profili email configurati, messaggi, impostazioni e tutti i dati raccolti.</string>
     <string name="title_advanced_mnemonic">Elimina i dati da remoto</string>
     <string name="title_advanced_mnemonic_hint">Qualsiasi email ricevuta con le seguenti parole nella riga dell\'oggetto eliminerà automaticamente e immediatamente i dati dell\'app</string>
     <string name="title_advanced_clear_all">Elimina i dati dell\'app</string>
@@ -820,6 +826,7 @@
     <string name="title_account_interval_hint">Frequenza di aggiornamento della connessione per i messaggi push o frequenza di controllo per i nuovi messaggi</string>
     <string name="title_account_noop_hint">Questo aggiornerà la connessione più attivamente, ma consumerà anche più batteria</string>
     <string name="title_account_partial_fetch_hint">Disabilitalo solo in caso di messaggi vuoti o allegati corrotti</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Abilitarlo aumenterà l\'uso della batteria e dei dati</string>
     <string name="title_color">Colore</string>
     <string name="title_calendar">Calendario</string>
     <string name="title_background">Sfondo</string>
@@ -899,6 +906,7 @@
     <string name="title_account_delete">Eliminare permanentemente questo profilo?</string>
     <string name="title_identity_delete">Eliminare permanentemente quest\'identità?</string>
     <string name="title_edit_html">Modifica come HTML</string>
+    <string name="title_check_html">Controlla HTML</string>
     <string name="title_import_file">Importa file</string>
     <string name="title_sign_key">Chiave di firma: %1$s</string>
     <string name="title_last_connected">Ultima connessione: %1$s</string>
@@ -984,6 +992,7 @@
     <string name="title_edit_account_color">Modifica colore del profilo</string>
     <string name="title_hide_folder">Nascondi cartella</string>
     <string name="title_hide_seen_folder">Nascondi la cartella se tutti i messaggi sono letti</string>
+    <string name="title_hide_seen_folder_hint">Solo nell\'elenco di profili e delle cartelle unificate</string>
     <string name="title_unified_folder">Mostra nella posta in arrivo unificata</string>
     <string name="title_navigation_folder">Mostra nel menu di navigazione</string>
     <string name="title_navigation_folder_hide">Nascondi nel menu di navigazione</string>
@@ -1127,6 +1136,7 @@
     <string name="title_reply_receipt">Invia conferma di lettura</string>
     <string name="title_reply_hard_bounce">Invia hard bounce</string>
     <string name="title_reply_template">Rispondi con modello</string>
+    <string name="title_reply_menu">Mostra il menu di selezione</string>
     <string name="title_move_undo">Spostando in %1$s (%2$d)</string>
     <string name="title_authentication_failed">Autenticazione %1$s fallita</string>
     <string name="title_on_blocklist">Sull\'elenco di blocco spam</string>

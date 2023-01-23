@@ -244,6 +244,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         Ayarları tekrar içe aktarmak için parola gereklidir, bu yüzden lütfen bunu unutmayın!
     </string>
     <string name="title_setup_export_do">Dışa aktarma dosyası tüm ayarları ve verileri içerecek, ancak imzalarda atıfta bulunulan hiçbir mesaj ve resim olmayacak</string>
+    <string name="title_setup_scroll">Giriş diyalogları kaydırılabilir olabilir!</string>
     <string name="title_setup_password">Parola</string>
     <string name="title_setup_password_chars">Parola, kontrol veya boşluk karakterleri içeriyor</string>
     <string name="title_setup_password_repeat">Parolayı tekrarla</string>
@@ -360,6 +361,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
     <string name="title_advanced_attach_new">Yeni bir taslağa paylaşılan dosyalar ekleyin</string>
+    <string name="title_advanced_answer_default">Cevap düğmesine kısa basıldığında:</string>
     <string name="title_advanced_answer_action">Cevap düğmesine uzun basmak:</string>
     <string name="title_advanced_send_pending">Rahatsız edici olmayan gecikmeli gönderme simgesini göster</string>
     <string name="title_advanced_auto_save_paragraph">Her paragraftan sonra bir taslağı otomatik olarak kaydet</string>
@@ -418,6 +420,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_caption_message">İleti</string>
     <string name="title_advanced_caption_message_header">İleti başlığı</string>
     <string name="title_advanced_caption_message_body">İleti metni</string>
+    <string name="title_advanced_caption_file">Dosya</string>
     <string name="title_advanced_portrait">Dikey modu</string>
     <string name="title_advanced_landscape">Yatay modu</string>
     <string name="title_advanced_two_row">İki satır kullan</string>
@@ -431,6 +434,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_nav_pin">Gezinme menüsünü sabitle</string>
     <string name="title_advanced_nav_hide_title">Gezinme menüsü seçenekleri gizlensin mi?</string>
     <string name="title_advanced_nav_hide_message">Seçenekleri ekran ayarlarında tekrar etkinleştirebilirsiniz</string>
+    <string name="title_advanced_nav_last_sync">Navigasyon menüsünde son senkronizasyon zamanını gösterin</string>
     <string name="title_advanced_nav_message_count">Navigasyon menüsünde yerel olarak saklanan mesajların sayısını göster</string>
     <string name="title_advanced_nav_unseen_drafts">Gezinme menüsünde okunmamış taslak sayısını göster</string>
     <string name="title_advanced_nav_pinned_count">Sabitlenmiş gezinme menüsünde okunmamış mesajların sayısını göster</string>
@@ -544,6 +548,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_expand_one">Bir kerede yalnızca bir mesaj genişlet</string>
     <string name="title_advanced_collapse_multiple">Birden fazla mesaj içeren sohbetlerdeki mesajları \'geri\' seçeneğinde daralt</string>
     <string name="title_advanced_autoclose">İletişimleri otomatik olarak kapat</string>
+    <string name="title_advanced_autoclose_send">Mesaj gönderdikten sonra konuşmaları otomatik olarak kapat</string>
     <string name="title_advanced_onclose">Bir konuşmayı kapatırken</string>
     <string name="title_advanced_autoclose_unread">İletileri okunmadı olarak işaretlemeyle ilgili görüşmeleri kapatın</string>
     <string name="title_advanced_collapse_marked">Okundu veya okunmadı olarak manuel olarak işaretlenen iletileri daralt</string>
@@ -558,6 +563,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_auto_important">Yıldızlanan mesajları otomatik olarak önemli hale getir</string>
     <string name="title_advanced_reset_importance">Mesajları taşırken önem derecesini sıfırla</string>
     <string name="title_advanced_cancel_snooze">Hareketli mesajlarda ertelemeyi iptal et</string>
+    <string name="title_advanced_auto_block_sender">Spam bildirirken göndereni otomatik olarak engelle</string>
     <string name="title_advanced_swipe_reply">Genişletilmiş mesajları yanıtlamak için sağa kaydırın</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
@@ -817,6 +823,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_account_interval_hint">Anlık mesajlar için bağlantı yenileme frekansı ya da yeni mesajlar için kontrol etme frekansı</string>
     <string name="title_account_noop_hint">Bu, bağlantıyı daha aktif bir şekilde yenileyecek, ancak aynı zamanda daha fazla pil gücü kullanacaktır</string>
     <string name="title_account_partial_fetch_hint">Bunu yalnızca boş iletiler veya bozuk ekler olması durumunda devre dışı bırakın</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Bunu etkinleştirmek pil ve veri kullanımını artıracaktır</string>
     <string name="title_color">Renk</string>
     <string name="title_calendar">Takvim</string>
     <string name="title_background">Arka Plan</string>
@@ -896,6 +903,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_account_delete">Bu hesap kalıcı olarak silinsin mi?</string>
     <string name="title_identity_delete">Bu kimlik kalıcı olarak silinsin mi?</string>
     <string name="title_edit_html">HTML olarak düzenle</string>
+    <string name="title_check_html">HTML\'i kontrol et</string>
     <string name="title_import_file">Dosyayı İçe Aktar</string>
     <string name="title_sign_key">İmzalama anahtarı: %1$s</string>
     <string name="title_last_connected">Son bağlantı: %1$s</string>
@@ -917,7 +925,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_service_error10">Bu hesabın kimliğinin yeniden doğrulanması gerekiyor, bu işlem hızlı kurulum sihirbazı aracılığıyla yapılabilir</string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_expand_read">Genişletirken mesajları okundu olarak işaretle</string>
-    <string name="title_synchronize_now">Şimdi eşzamanla</string>
+    <string name="title_synchronize_now">Şimdi senkronize et</string>
     <string name="title_synchronize_subfolders">Alt Klasörler</string>
     <string name="title_synchronize_more">Daha fazla mesaj yükle</string>
     <string name="title_synchronize_more_hint">Bu, eski mesajların tek bir indirilmesiyle sonuçlanacak, bu nedenle günlük kullanım için daha fazla pil kullanımıyla sonuçlanmayacaktır</string>
@@ -981,10 +989,11 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_edit_account_color">Hesap rengini düzenle</string>
     <string name="title_hide_folder">Klasörü gizle</string>
     <string name="title_hide_seen_folder">Tüm mesajlar okunduysa klasörü gizle</string>
+    <string name="title_hide_seen_folder_hint">Yalnızca hesapta ve birleştirilmiş klasör listesinde</string>
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>
     <string name="title_navigation_folder_hide">Gezinme menüsünde gizle</string>
-    <string name="title_synchronize_folder">Eşzamanla (iletileri al)</string>
+    <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
     <string name="title_poll_folder">Sürekli eşzamanlama yerine belirli aralıklarla bakın</string>
     <string name="title_poll_folder_remark">Çoğu e-posta sunucusu push mesajlarına yalnızca birkaç klasör için izin verir!</string>
     <string name="title_download_folder">İleti metinlerini ve eklerini otomatik olarak indir</string>
@@ -1122,6 +1131,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_reply_receipt">Okundu bilgisi gönder</string>
     <string name="title_reply_hard_bounce">Sert sıçrama gönder</string>
     <string name="title_reply_template">Şablonla yanıtla</string>
+    <string name="title_reply_menu">Seçim menüsünü göster</string>
     <string name="title_move_undo">%1$s\'a taşınıyor (%2$d)</string>
     <string name="title_authentication_failed">%1$s kimlik doğrulama başarısız</string>
     <string name="title_on_blocklist">Spam engelleme listesinde</string>
@@ -1572,7 +1582,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_legend_backoff">Başarısızlıktan sonra bekle</string>
     <string name="title_legend_quota">Posta kutusu neredeyse dolu</string>
     <string name="title_legend_executing">İşlemler uygulanıyor</string>
-    <string name="title_legend_synchronizing">Eşzamanlama yapılıyor</string>
+    <string name="title_legend_synchronizing">Senkronize ediliyor</string>
     <string name="title_legend_downloading">İndiriliyor</string>
     <string name="title_legend_closing">Kapatılıyor</string>
     <string name="title_legend_unified">Birleşik gelen kutusu / birincil hesap</string>
@@ -1588,7 +1598,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_legend_rule">Kuralları var</string>
     <string name="title_legend_similar">Benzer iletileri ara</string>
     <string name="title_legend_notify">Yeni iletileri bildir</string>
-    <string name="title_legend_sync_keep">İletilerin eşzamanlanacağı / saklanacağı gün sayısı</string>
+    <string name="title_legend_sync_keep">Mesajların senkronize edileceği / saklanacağı gün sayısı</string>
     <string name="title_legend_download_fetch">İndirilen iletilerin / alınan başlıkların sayısı</string>
     <string name="title_legend_stop">İşlem kurallarının durdur</string>
     <string name="title_legend_thread">Söyleşi</string>
