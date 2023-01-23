@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.Manifest;
+import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.app.ActivityManager;
 import android.content.ComponentName;
@@ -80,6 +81,8 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     private boolean visible;
     private boolean contacts;
     private List<IKeyPressedListener> keyPressedListeners = new ArrayList<>();
+
+    private static final long ACTIONBAR_ANIMATION_DURATION = 250L;
 
     @Override
     protected void attachBaseContext(Context base) {
@@ -843,43 +846,69 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
     public void showActionBar(boolean show) {
         ViewGroup abv = findViewById(R.id.action_bar);
-        if (abv == null) {
-            ActionBar ab = getSupportActionBar();
-            if (ab == null)
-                return;
-            if (show)
-                ab.show();
-            else
-                ab.hide();
-        } else {
-            if (abShowing == show)
-                return;
-            abShowing = show;
+        if (abv == null)
+            return;
 
-            int height = Helper.getActionBarHeight(this);
-            int current = abv.getLayoutParams().height;
-            int target = (show ? height : 0);
-            if (abAnimator == null) {
-                abAnimator = ValueAnimator.ofInt(current, target);
-                abAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-                    @Override
-                    public void onAnimationUpdate(ValueAnimator anim) {
-                        try {
-                            abv.getLayoutParams().height = (Integer) anim.getAnimatedValue();
-                            abv.requestLayout();
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
+        if (abShowing == show)
+            return;
+        abShowing = show;
+
+        int height = Helper.getActionBarHeight(this);
+        int current = abv.getLayoutParams().height;
+        int target = (show ? height : 0);
+        Log.i("ActionBar height=" + current + "..." + target);
+
+
+        if (abAnimator != null)
+            abAnimator.cancel();
+
+        abAnimator = ValueAnimator.ofInt(current, target);
+
+        abAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator anim) {
+                try {
+                    Integer v = (Integer) anim.getAnimatedValue();
+                    Log.i("ActionBar height=" + v);
+                    ViewGroup.LayoutParams lparam = abv.getLayoutParams();
+                    if (lparam.height == v)
+                        Log.i("ActionBar ---");
+                    else {
+                        lparam.height = v;
+                        abv.requestLayout();
                     }
-                });
-            } else {
-                abAnimator.cancel();
-                abAnimator.setIntValues(current, target);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+
+        abAnimator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(@NonNull Animator animation) {
+                Log.i("ActionBar start");
             }
 
-            abAnimator.setDuration(250L * Math.abs(current - target) / height);
-            abAnimator.start();
-        }
+            @Override
+            public void onAnimationEnd(@NonNull Animator animation) {
+                Log.i("ActionBar end");
+                abAnimator = null;
+            }
+
+            @Override
+            public void onAnimationCancel(@NonNull Animator animation) {
+                Log.i("ActionBar cancel");
+                abAnimator = null;
+            }
+
+            @Override
+            public void onAnimationRepeat(@NonNull Animator animation) {
+                Log.i("ActionBar repeat");
+            }
+        });
+
+        abAnimator.setDuration(ACTIONBAR_ANIMATION_DURATION * Math.abs(current - target) / height);
+        abAnimator.start();
     }
 
     Handler getMainHandler() {
