@@ -826,7 +826,7 @@
     <string name="title_account_interval_hint">Frequência para atualizar a ligação para mensagens push ou frequência de verificação de novas mensagens (não é para defenir o tempo de verificação de novas mensagens, para isso ir ao menu \"Receber\")</string>
     <string name="title_account_noop_hint">Isto atualizará a ligação com mais frequência, mas também irá consumir mais bateria</string>
     <string name="title_account_partial_fetch_hint">Desactivar isto apenas em caso de mensagens vazias ou anexos corrompidos</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Habilitar isso aumentará a bateria e o uso de dados</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Esta permissão aumentará a utilização de bateria e dados</string>
     <string name="title_color">Cor</string>
     <string name="title_calendar">Calendário</string>
     <string name="title_background">Fundo</string>

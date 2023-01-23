@@ -542,6 +542,7 @@
     <string name="title_advanced_expand_one">Expandera endast ett meddelande åt gången</string>
     <string name="title_advanced_collapse_multiple">Kollapsa meddelanden i en konversation med flera meddelanden på \'back\'</string>
     <string name="title_advanced_autoclose">Stäng konversationer automatiskt</string>
+    <string name="title_advanced_autoclose_send">Stäng konversationer automatiskt efter att ha skickat meddelanden</string>
     <string name="title_advanced_onclose">När du stänger en konversation</string>
     <string name="title_advanced_autoclose_unread">Stäng konversationer när meddelanden markeras som olästa</string>
     <string name="title_advanced_collapse_marked">Kollapsa meddelanden som manuellt markeras som lästa eller olästa</string>
@@ -816,6 +817,7 @@
     <string name="title_account_interval_hint">Frekvens för att uppdatera anslutningen för pushmeddelanden eller frekvens för att söka efter nya meddelanden</string>
     <string name="title_account_noop_hint">Detta kommer att uppdatera anslutningen mer aktivt, men även använda mer batterikraft</string>
     <string name="title_account_partial_fetch_hint">Inaktivera detta endast vid tomma meddelanden eller korrupta bilagor</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Aktivering av detta kommer att öka batteri- och dataanvändningen</string>
     <string name="title_color">Färg</string>
     <string name="title_calendar">Kalender</string>
     <string name="title_background">Bakgrund</string>

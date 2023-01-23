@@ -825,6 +825,7 @@
     <string name="title_account_interval_hint">Ani mesajlar üçün bağlantını təzələmə tezliyi və ya yeni mesajların yoxlanış tezliyi</string>
     <string name="title_account_noop_hint">Bu, bağlantını daha aktiv şəkildə təzələyəcək, ancaq daha çox batareya istifadəsinə səbəb olacaq</string>
     <string name="title_account_partial_fetch_hint">Bunu yalnız boş mesajlar və ya zədəli qoşmalar olduğu halda sıradan çıxardın</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Bunu fəallaşdırmaq batareya və internet istifadəsini artıracaq</string>
     <string name="title_color">Rəng</string>
     <string name="title_calendar">Təqvim</string>
     <string name="title_background">Arxaplan</string>

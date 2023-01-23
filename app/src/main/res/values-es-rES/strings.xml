@@ -824,6 +824,7 @@
     <string name="title_account_interval_hint">Frecuencia de actualizar la conexión para mensajes push o frecuencia de comprobación de nuevos mensajes</string>
     <string name="title_account_noop_hint">Esto actualizará la conexión más activamente, pero también usará más batería</string>
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
+    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Activar esto aumentará el uso de batería y datos</string>
     <string name="title_color">Color</string>
     <string name="title_calendar">Calendario</string>
     <string name="title_background">Fondo</string>
