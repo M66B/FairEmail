@@ -217,18 +217,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         btnActivate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    String user = prefs.getString("cloud_user", null);
-                    Intent intent = new Intent(Intent.ACTION_SEND)
-                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                            .setType("text/plain")
-                            .putExtra(Intent.EXTRA_EMAIL, new String[]{BuildConfig.CLOUD_EMAIL})
-                            .putExtra(Intent.EXTRA_SUBJECT, CloudSync.getCloudUser(user))
-                            .putExtra(Intent.EXTRA_TEXT, "Activate");
-                    v.getContext().startActivity(intent);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
+                onCloudActivate();
             }
         });
 
@@ -1522,6 +1511,24 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         cloud(args);
     }
 
+    private void onCloudActivate() {
+        try {
+            final Context context = getContext();
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String user = prefs.getString("cloud_user", null);
+
+            Intent intent = new Intent(Intent.ACTION_SEND)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    .setType("text/plain")
+                    .putExtra(Intent.EXTRA_EMAIL, new String[]{BuildConfig.CLOUD_EMAIL})
+                    .putExtra(Intent.EXTRA_SUBJECT, CloudSync.getCloudUser(user))
+                    .putExtra(Intent.EXTRA_TEXT, "Activate");
+            startActivity(intent);
+        } catch (Throwable ex) {
+            Log.unexpectedError(getParentFragmentManager(), ex);
+        }
+    }
+
     private void onCloudSync() {
         Bundle args = new Bundle();
         args.putString("command", "sync");
@@ -1541,14 +1548,22 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         new SimpleTask<Void>() {
             @Override
             protected void onPreExecute(Bundle args) {
-                Helper.setViewsEnabled(cardCloud, false);
                 prefs.edit().putBoolean("cloud_busy", true).apply();
+                Helper.setViewsEnabled(cardCloud, false);
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
-                Helper.setViewsEnabled(cardCloud, true);
                 prefs.edit().putBoolean("cloud_busy", false).apply();
+                Helper.setViewsEnabled(cardCloud, true);
+
+                view.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        view.scrollTo(0, cardCloud.getBottom());
+                    }
+                });
+
                 WorkerSync.init(getContext());
             }
 
@@ -1560,7 +1575,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 try {
                     CloudSync.execute(context, command, true);
                 } catch (SecurityException ex) {
-                    command = "logout";
+                    prefs.edit().remove("cloud_password").apply();
                     throw ex;
                 } finally {
                     if ("logout".equals(command) || "wipe".equals(command)) {
@@ -1585,13 +1600,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             @Override
             protected void onExecuted(Bundle args, Void data) {
                 prefs.edit().putBoolean("cloud_activated", true).apply();
-
-                view.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        view.scrollTo(0, cardCloud.getTop());
-                    }
-                });
             }
 
             @Override

@@ -990,6 +990,7 @@
     <string name="title_advanced_cloud_invalid" translatable="false">Invalid username or password</string>
     <string name="title_advanced_cloud_activate" translatable="false">Activate</string>
     <string name="title_advanced_cloud_activate_remark" translatable="false">
+        Cloud sync needs to be activated by sending an email.
         Please use the same email address you used to activate the pro features.
         The cloud account and the email address will not be linked.
     </string>
