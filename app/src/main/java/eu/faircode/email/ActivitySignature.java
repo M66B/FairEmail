@@ -438,13 +438,13 @@ public class ActivitySignature extends ActivityBase {
                 etText.getText().insert(start, "<img src=\"" + Html.escapeHtml(uri.toString()) + "\" />");
             else {
                 SpannableStringBuilder ssb = new SpannableStringBuilderEx(etText.getText());
-                ssb.insert(start, " \uFFFC"); // Object replacement character
+                ssb.insert(start, "\n\uFFFC\n"); // Object replacement character
                 String source = uri.toString();
                 Drawable d = ImageHelper.decodeImage(this, -1, source, true, 0, 1.0f, etText);
                 ImageSpan is = new ImageSpan(d, source);
                 ssb.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 etText.setText(ssb);
-                etText.setSelection(start + 2);
+                etText.setSelection(start + 3);
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
                 boolean signature_images_hint = prefs.getBoolean("signature_images_hint", false);
