@@ -72,16 +72,19 @@ public class WorkerSync extends Worker {
         String user = prefs.getString("cloud_user", null);
         String password = prefs.getString("cloud_password", null);
         boolean enabled = !(TextUtils.isEmpty(user) || TextUtils.isEmpty(password));
+        Log.i("Cloud worker enabled=" + enabled);
         try {
             if (enabled) {
                 Calendar cal = Calendar.getInstance();
-                long delay = cal.getTimeInMillis();
+                long now = cal.getTimeInMillis();
                 cal.set(Calendar.MILLISECOND, 0);
                 cal.set(Calendar.SECOND, 0);
                 cal.set(Calendar.MINUTE, 30);
-                cal.set(Calendar.HOUR_OF_DAY, 1);
-                cal.add(Calendar.DAY_OF_MONTH, 1);
-                delay = cal.getTimeInMillis() - delay;
+                cal.set(Calendar.HOUR_OF_DAY, 8);
+                long delay = cal.getTimeInMillis() - now;
+                if (delay < 0)
+                    cal.add(Calendar.DATE, 1);
+                delay = cal.getTimeInMillis() - now;
 
                 EntityLog.log(context, EntityLog.Type.Cloud,
                         "Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");

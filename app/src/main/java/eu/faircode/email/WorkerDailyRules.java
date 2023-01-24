@@ -129,13 +129,15 @@ public class WorkerDailyRules extends Worker {
         try {
             if (enabled) {
                 Calendar cal = Calendar.getInstance();
-                long delay = cal.getTimeInMillis();
+                long now = cal.getTimeInMillis();
                 cal.set(Calendar.MILLISECOND, 0);
                 cal.set(Calendar.SECOND, 0);
                 cal.set(Calendar.MINUTE, 0);
                 cal.set(Calendar.HOUR_OF_DAY, 1);
-                cal.add(Calendar.DAY_OF_MONTH, 1);
-                delay = cal.getTimeInMillis() - delay;
+                long delay = cal.getTimeInMillis() - now;
+                if (delay < 0)
+                    cal.add(Calendar.DATE, 1);
+                delay = cal.getTimeInMillis() - now;
 
                 Log.i("Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");
                 PeriodicWorkRequest.Builder builder =
