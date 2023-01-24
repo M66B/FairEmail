@@ -89,6 +89,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebViewCompat;
 import androidx.webkit.WebViewFeature;
+import androidx.work.WorkInfo;
+import androidx.work.WorkManager;
+import androidx.work.WorkQuery;
 
 import com.bugsnag.android.BreadcrumbType;
 import com.bugsnag.android.Bugsnag;
@@ -2915,6 +2918,24 @@ public class Log {
                     TupleFtsStats stats = db.message().getFts();
                     size += write(os, String.format("fts: %d/%d %s\r\n", stats.fts, stats.total,
                             Helper.humanReadableByteCount(Fts4DbHelper.size(context))));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+
+                size += write(os, "\r\n");
+
+                try {
+                    List<WorkInfo> works = WorkManager
+                            .getInstance(context)
+                            .getWorkInfos(WorkQuery.fromStates(
+                                    WorkInfo.State.ENQUEUED,
+                                    WorkInfo.State.BLOCKED,
+                                    WorkInfo.State.RUNNING))
+                            .get();
+                    for (WorkInfo work : works) {
+                        size += write(os, String.format("Work: %s\r\n",
+                                work.toString()));
+                    }
                 } catch (Throwable ex) {
                     size += write(os, String.format("%s\r\n", ex));
                 }
