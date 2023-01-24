@@ -100,7 +100,7 @@ public class WorkerSync extends Worker {
                 WorkManager.getInstance(context).cancelUniqueWork(getName());
                 Log.i("Cancelled " + getName());
             }
-        } catch (IllegalStateException ex) {
+        } catch (Throwable ex) {
             // https://issuetracker.google.com/issues/138465476
             Log.w(ex);
         }

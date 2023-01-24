@@ -425,9 +425,41 @@ public class WorkerCleanup extends Worker {
                 WorkManager.getInstance(context).cancelUniqueWork(getName());
                 Log.i("Cancelled " + getName());
             }
-        } catch (IllegalStateException ex) {
+        } catch (Throwable ex) {
             // https://issuetracker.google.com/issues/138465476
             Log.w(ex);
+            /*
+                Exception java.lang.ExceptionInInitializerError:
+                  at androidx.work.impl.model.WorkSpec.<init> (WorkSpec.kt:66)
+                  at androidx.work.impl.model.WorkSpec.<init> (WorkSpec.kt:153)
+                  at androidx.work.WorkRequest$Builder.setWorkSpec$work_runtime_release (WorkRequest.kt:73)
+                  at androidx.work.PeriodicWorkRequest$Builder.<init> (PeriodicWorkRequest.kt:77)
+                  at eu.faircode.email.WorkerCleanup.init (WorkerCleanup.java:415)
+                  at eu.faircode.email.ApplicationEx.onCreate (ApplicationEx.java:259)
+                  at android.app.Instrumentation.callApplicationOnCreate (Instrumentation.java:1011)
+                  at android.app.ActivityThread.handleBindApplication (ActivityThread.java:4591)
+                  at android.app.ActivityThread.access$1500 (ActivityThread.java:149)
+                  at android.app.ActivityThread$H.handleMessage (ActivityThread.java:1345)
+                  at android.os.Handler.dispatchMessage (Handler.java:102)
+                  at android.os.Looper.loop (Looper.java:135)
+                  at android.app.ActivityThread.main (ActivityThread.java:5297)
+                  at java.lang.reflect.Method.invoke (Method.java)
+                  at java.lang.reflect.Method.invoke (Method.java:372)
+                  at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run (ZygoteInit.java:908)
+                  at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:703)
+                Caused by java.lang.ArrayIndexOutOfBoundsException:
+                  at java.lang.Class.getDexCacheString (Class.java:459)
+                  at java.lang.reflect.ArtField.getName (ArtField.java:77)
+                  at java.lang.reflect.Field.getName (Field.java:122)
+                  at java.io.ObjectStreamClass.computeSerialVersionUID (ObjectStreamClass.java:418)
+                  at java.io.ObjectStreamClass.createClassDesc (ObjectStreamClass.java:279)
+                  at java.io.ObjectStreamClass.lookupStreamClass (ObjectStreamClass.java:1087)
+                  at java.io.ObjectStreamClass.lookup (ObjectStreamClass.java:1055)
+                  at java.io.ObjectOutputStream.<init> (ObjectOutputStream.java:112)
+                  at androidx.work.Data.toByteArrayInternal (Data.java:380)
+                  at androidx.work.Data$Builder.build (Data.java:957)
+                  at androidx.work.Data.<clinit> (Data.java:57)
+             */
         }
     }
 

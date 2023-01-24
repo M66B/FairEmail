@@ -157,7 +157,7 @@ public class WorkerFts extends Worker {
                 Log.i("Queued " + getName());
             } else if (immediately)
                 cancel(context);
-        } catch (IllegalStateException ex) {
+        } catch (Throwable ex) {
             // https://issuetracker.google.com/issues/138465476
             Log.w(ex);
         }
