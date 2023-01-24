@@ -661,16 +661,26 @@ public class CloudSync {
             if (status != HttpsURLConnection.HTTP_OK) {
                 String error = "Error " + status + ": " + connection.getResponseMessage();
                 String detail = Helper.readStream(connection.getErrorStream());
+
                 String msg = "Cloud error=" + error + " detail=" + detail;
-                Log.e(msg);
                 EntityLog.log(context, EntityLog.Type.Cloud, msg);
-                JSONObject jerror = new JSONObject(detail);
+
+                JSONObject jerror;
+                try {
+                    jerror = new JSONObject(detail);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    jerror = new JSONObject();
+                }
+
                 if (status == HttpsURLConnection.HTTP_FORBIDDEN)
                     throw new SecurityException(jerror.optString("error"));
                 else if (status == HttpsURLConnection.HTTP_PAYMENT_REQUIRED)
                     throw new OperationCanceledException(jerror.optString("error"));
-                else
+                else {
+                    Log.e(msg);
                     throw new IOException(error + " " + jerror);
+                }
             }
 
             String response = Helper.readStream(connection.getInputStream());
