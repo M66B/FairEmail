@@ -8,7 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2031 - 2023-01-24
 
-* Added cloud sync to synchronize accounts across devices
+* Added [cloud sync](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq189) to synchronize accounts across devices
 * Added "*Don't ask again*" for mailto links
 * Added inserting image links
 * Added menu item to check HTML syntax of a signature
