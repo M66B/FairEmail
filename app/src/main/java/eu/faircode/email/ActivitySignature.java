@@ -502,10 +502,11 @@ public class ActivitySignature extends ActivityBase {
 
     private void onLinkSelected(Bundle args) {
         String link = args.getString("link");
+        boolean image = args.getBoolean("image");
         int start = args.getInt("start");
         int end = args.getInt("end");
         String title = args.getString("title");
         etText.setSelection(start, end);
-        StyleHelper.apply(R.id.menu_link, this, null, etText, link, title);
+        StyleHelper.apply(R.id.menu_link, this, null, etText, -1L, 0, link, image, title);
     }
 }

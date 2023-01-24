@@ -1530,6 +1530,7 @@
     <string name="title_style_clear">Clear formatting</string>
     <string name="title_style_link">Insert link</string>
     <string name="title_style_link_address">Address</string>
+    <string name="title_style_link_image">Insert as an image</string>
     <string name="title_style_link_title">Title</string>
     <string name="title_style_link_metadata">Fetch title</string>
     <string name="title_style_link_metadata_remark">This will fetch the title at the entered address</string>

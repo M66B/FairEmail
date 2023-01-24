@@ -4248,11 +4248,12 @@ public class FragmentCompose extends FragmentBase {
 
     private void onLinkSelected(Bundle args) {
         String link = args.getString("link");
+        boolean image = args.getBoolean("image");
         int start = args.getInt("start");
         int end = args.getInt("end");
         String title = args.getString("title");
         etBody.setSelection(start, end);
-        StyleHelper.apply(R.id.menu_link, getViewLifecycleOwner(), null, etBody, link, title);
+        StyleHelper.apply(R.id.menu_link, getViewLifecycleOwner(), null, etBody, working, zoom, link, image, title);
     }
 
     private void onActionDiscardConfirmed() {

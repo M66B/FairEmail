@@ -37,6 +37,7 @@ import android.text.style.URLSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
@@ -61,6 +62,7 @@ import java.nio.charset.StandardCharsets;
 
 public class FragmentDialogInsertLink extends FragmentDialogBase {
     private EditText etLink;
+    private CheckBox cbImage;
     private EditText etTitle;
     private Button btnUpload;
     private ProgressBar pbUpload;
@@ -96,6 +98,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
         final Context context = getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_insert_link, null);
         etLink = view.findViewById(R.id.etLink);
+        cbImage = view.findViewById(R.id.cbImage);
         final TextView tvInsecure = view.findViewById(R.id.tvInsecure);
         etTitle = view.findViewById(R.id.etTitle);
         final Button btnMetadata = view.findViewById(R.id.btnMetadata);
@@ -343,6 +346,7 @@ public class FragmentDialogInsertLink extends FragmentDialogBase {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         args.putString("link", etLink.getText().toString());
+                        args.putBoolean("image", cbImage.isChecked());
                         args.putString("title", etTitle.getText().toString());
                         sendResult(RESULT_OK);
                     }

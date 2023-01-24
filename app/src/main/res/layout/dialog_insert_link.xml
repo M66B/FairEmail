@@ -57,6 +57,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etLink" />
 
+        <CheckBox
+            android:id="@+id/cbImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_style_link_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvInsecure" />
+
         <TextView
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
@@ -66,7 +75,7 @@
             android:text="@string/title_style_link_title"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInsecure" />
+            app:layout_constraintTop_toBottomOf="@id/cbImage" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etTitle"

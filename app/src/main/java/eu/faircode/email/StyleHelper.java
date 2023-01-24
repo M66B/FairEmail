@@ -25,6 +25,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -41,6 +43,7 @@ import android.text.style.BackgroundColorSpan;
 import android.text.style.BulletSpan;
 import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
 import android.text.style.ParagraphStyle;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
@@ -59,6 +62,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.PopupMenu;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
@@ -66,6 +70,9 @@ import androidx.preference.PreferenceManager;
 import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
+
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -1326,28 +1333,50 @@ public class StyleHelper {
     static boolean setLink(EditText etBody, int start, int end, Object... args) {
         Log.breadcrumb("style", "action", "link");
 
-        String url = (String) args[0];
-        String title = (String) args[1];
+        long working = (Long) args[0];
+        int zoom = (Integer) args[1];
+        String url = (String) args[2];
+        boolean image = (Boolean) args[3];
+        String title = (String) args[4];
 
         Editable edit = etBody.getText();
-        URLSpan[] spans = edit.getSpans(start, end, URLSpan.class);
-        for (URLSpan span : spans)
-            edit.removeSpan(span);
+        if (image) {
+            Uri uri = Uri.parse(url);
+            if (!UriHelper.isHyperLink(uri))
+                return false;
 
-        if (!TextUtils.isEmpty(url)) {
-            if (TextUtils.isEmpty(title))
-                title = url;
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(edit);
 
-            if (start == end)
-                edit.insert(start, title);
-            else if (!title.equals(edit.subSequence(start, end).toString()))
-                edit.replace(start, end, title);
+            ssb.insert(start, "\n\uFFFC\n"); // Object replacement character
 
-            edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            Drawable img = ImageHelper.decodeImage(etBody.getContext(),
+                    working, url, true, zoom, 1.0f, etBody);
+
+            ImageSpan is = new ImageSpan(img, url);
+            ssb.setSpan(is, start + 1, start + 2, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+            etBody.setText(ssb);
+            etBody.setSelection(start + 3);
+        } else {
+            URLSpan[] spans = edit.getSpans(start, end, URLSpan.class);
+            for (URLSpan span : spans)
+                edit.removeSpan(span);
+
+            if (!TextUtils.isEmpty(url)) {
+                if (TextUtils.isEmpty(title))
+                    title = url;
+
+                if (start == end)
+                    edit.insert(start, title);
+                else if (!title.equals(edit.subSequence(start, end).toString()))
+                    edit.replace(start, end, title);
+
+                edit.setSpan(new URLSpan(url), start, start + title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+
+            etBody.setText(edit);
+            etBody.setSelection(start + title.length());
         }
-
-        etBody.setText(edit);
-        etBody.setSelection(start + title.length());
 
         return true;
 
