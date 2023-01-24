@@ -3002,7 +3002,9 @@ public class HtmlHelper {
                                         span.attr("style"),
                                         "font-size:larger; background-color:" + encodeWebColor(color)
                                 ));
-                                span.text(text.substring(start, end));
+                                span.text(tnode.getWholeText().length() == text.length()
+                                        ? tnode.getWholeText().substring(start, end)
+                                        : text.substring(start, end));
                                 holder.appendChild(span);
 
                                 prev = end;
