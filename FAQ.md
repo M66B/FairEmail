@@ -5168,19 +5168,27 @@ Unfortunately, it is not possible to enable cloud backup for other backup softwa
 Cloud sync is meant to synchronize configuration data across devices.
 It can be used to restore configuration data onto a new device too.
 
-Cloud sync is based on a cloud account. You can register/login by entering a username and a password and using the login button.
+Cloud sync is based on a cloud account.
+You can register/login by entering a username and a password and using the *Login* button.
 
 A cloud sync account needs to be activated, which is to prevent misusing the cloud sync server.
 To activate a cloud sync account, use the *Activate* button to send an email to a special email address.
 The email needs to come from an address used to activate the pro features before.
 You'll receive an email in response indicating whether the activation was succesful or not.
 
-The app will automatically synchronize once a day, but you can manually synchronize too.
+The app will automatically synchronize once a day around 1:30am, but you can manually synchronize too.
 
-Synchronization will currently add and update enabled accounts and identities only.
-Existing accounts or identities will never be deleted.
+Synchronization will currently add and update enabled accounts and identities only,
+but on the roadmap is synchronizing blocked senders and filter rules too.
 
-Cloud sync is an experimental feature. It is not available for the Play Store version of the app yet.
+Updating includes enabling/disabling accounts and identities.
+
+Existing accounts or identities will never be deleted
+
+All data is [end-to-end encrypted](https://en.wikipedia.org/wiki/End-to-end_encryption),
+which means that the cloud server can't see the data contents.
+
+Cloud sync is an experimental feature. It is not available for the Play Store version of the app, yet.
 
 <h2><a name="get-support"></a>Get support</h2>
 
