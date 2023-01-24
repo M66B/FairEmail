@@ -19,6 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -219,6 +222,32 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
         edit.replace(start, end, tokenizer.terminateToken(text));
 
         setSelection(edit.length());
+    }
+
+    @Override
+    public boolean onTextContextMenuItem(int id) {
+        try {
+            if (id == android.R.id.paste) {
+                Context context = getContext();
+                ClipboardManager cbm = Helper.getSystemService(context, ClipboardManager.class);
+                if (cbm != null && cbm.hasPrimaryClip()) {
+                    ClipData data = cbm.getPrimaryClip();
+                    ClipDescription description = (data == null ? null : data.getDescription());
+                    ClipData.Item item = (data == null ? null : data.getItemAt(0));
+                    CharSequence text = (item == null ? null : item.coerceToText(context));
+                    if (text != null) {
+                        CharSequence label = (description == null ? "coerced_plain_text" : description.getLabel());
+                        data = ClipData.newPlainText(label, text.toString());
+                        cbm.setPrimaryClip(data);
+                    }
+                }
+            }
+
+            return super.onTextContextMenuItem(id);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     private final Runnable update = new Runnable() {
