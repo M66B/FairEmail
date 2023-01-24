@@ -27,7 +27,9 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
+import androidx.work.Constraints;
 import androidx.work.ExistingPeriodicWorkPolicy;
+import androidx.work.NetworkType;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
@@ -90,7 +92,9 @@ public class WorkerSync extends Worker {
                         "Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");
                 PeriodicWorkRequest.Builder builder =
                         new PeriodicWorkRequest.Builder(WorkerSync.class, 1, TimeUnit.DAYS)
-                                .setInitialDelay(delay, TimeUnit.MILLISECONDS);
+                                .setInitialDelay(delay, TimeUnit.MILLISECONDS)
+                                .setConstraints(new Constraints.Builder()
+                                        .setRequiredNetworkType(NetworkType.CONNECTED).build());
                 WorkManager.getInstance(context)
                         .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, builder.build());
                 Log.i("Queued " + getName());
