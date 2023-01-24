@@ -80,6 +80,7 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
+import androidx.work.WorkManager;
 
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -2112,6 +2113,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 WorkerCleanup.cleanup(context, true);
+                WorkManager.getInstance(context).pruneWork();
                 return null;
             }
 
