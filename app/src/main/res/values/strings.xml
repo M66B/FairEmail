@@ -979,20 +979,26 @@
 
     <string name="title_experimental" translatable="false">This is an experimental feature!</string>
 
-    <string name="title_advanced_cloud_info" translatable="false">This feature is for synchronizing data between devices</string>
+    <string name="title_advanced_cloud_info" translatable="false">
+        This feature is for synchronizing configuration data between devices
+    </string>
     <string name="title_advanced_cloud_security" translatable="false">
-        All data is encrypted end-to-end and the cloud server will never see the username, password and data.
+        All data is end-to-end encrypted and the cloud server cannot see the username, password and data.
         Data on the cloud server will be automatically deleted after one month of inactivity.
     </string>
     <string name="title_advanced_cloud_login" translatable="false">Login</string>
-    <string name="title_advanced_cloud_register" translatable="false">Logging in for the first time will automatically create an account</string>
-    <string name="title_advanced_cloud_password_remark" translatable="false">You can change the password by wiping the data and logging in again</string>
+    <string name="title_advanced_cloud_register" translatable="false">
+        Logging in for the first time will automatically create a cloud account
+    </string>
+    <string name="title_advanced_cloud_password_remark" translatable="false">
+            You can change the password by wiping the data and logging in again
+    </string>
     <string name="title_advanced_cloud_invalid" translatable="false">Invalid username or password</string>
     <string name="title_advanced_cloud_activate" translatable="false">Activate</string>
     <string name="title_advanced_cloud_activate_remark" translatable="false">
-        Cloud sync needs to be activated by sending an email.
+        Cloud sync accounts need to be activated by sending an email within 24 hours.
         Please use the same email address you used to activate the pro features.
-        The cloud account and the email address will not be linked.
+        A cloud sync account and the email address will not be linked.
     </string>
     <string name="title_advanced_cloud_account_remark" translatable="false">
         Only enabled accounts and identities will be synchronized.
