@@ -6,9 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
-### Next version
+### 1.2031 - 2023-01-24
 
+* Added cloud sync to synchronize accounts across devices
 * Added "*Don't ask again*" for mailto links
+* Added inserting image links
 * Added menu item to check HTML syntax of a signature
 * Added option to disable last sync time in the navigation menu
 * Added option to disable automatically blocking spam senders
@@ -16,8 +18,6 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Added option to automatically close conversations on sending messages
 * Small improvements and minor bug fixes
 * Updated translations
-
-<img src="https://bitbucket.org/M66B/fairemail-test/downloads/cloud_sync.png" width="480" />
 
 ### 1.2030 - 2023-01-14
 
