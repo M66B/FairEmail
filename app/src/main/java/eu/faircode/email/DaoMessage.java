@@ -349,8 +349,9 @@ public interface DaoMessage {
             //" OR (:message AND `preview` LIKE :find COLLATE NOCASE)" + // no index
             //" OR (:notes AND `notes` LIKE :find COLLATE NOCASE)" + // no index
             //" OR (:headers AND `headers` LIKE :find COLLATE NOCASE)" + // no index
-            " OR (attachment.name LIKE :find COLLATE NOCASE)" + // no index
-            " OR (attachment.type LIKE :find COLLATE NOCASE)) AS matched" + // no index
+            //" OR (attachment.name LIKE :find COLLATE NOCASE)" + // no index
+            //" OR (attachment.type LIKE :find COLLATE NOCASE)" +
+            ") AS matched" + // no index
             " FROM message" +
             " LEFT JOIN attachment ON attachment.message = message.id" +
             " WHERE NOT ui_hide" +
