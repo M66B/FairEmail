@@ -1583,6 +1583,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                 .remove("cloud_revision")
                                 .remove("cloud_user")
                                 .remove("cloud_password")
+                                .remove("cloud_activated")
                                 .remove("cloud_last_sync")
                                 .apply();
 
