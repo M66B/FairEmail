@@ -80,7 +80,7 @@ public class WorkerSync extends Worker {
                 cal.set(Calendar.MILLISECOND, 0);
                 cal.set(Calendar.SECOND, 0);
                 cal.set(Calendar.MINUTE, 30);
-                cal.set(Calendar.HOUR_OF_DAY, 8);
+                cal.set(Calendar.HOUR_OF_DAY, 1);
                 long delay = cal.getTimeInMillis() - now;
                 if (delay < 0)
                     cal.add(Calendar.DATE, 1);
