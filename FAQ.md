@@ -5187,6 +5187,8 @@ Existing accounts or identities will never be deleted
 
 All data is [end-to-end encrypted](https://en.wikipedia.org/wiki/End-to-end_encryption),
 which means that the cloud server can't see the data contents.
+The used encryption method is [AES-GCM-SIV](https://en.wikipedia.org/wiki/AES-GCM-SIV)
+using a 256 bit key derived from the username and password with [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) using SHA256 and 310,000 iterations.
 
 Cloud sync is an experimental feature. It is not available for the Play Store version of the app, yet.
 
