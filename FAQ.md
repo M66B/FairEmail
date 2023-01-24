@@ -387,6 +387,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(186) How can I let the app auto store iCalendar invitations?](#user-content-faq186)
 * [(187) Are colored stars synchronized across devices?](#user-content-faq187)
 * [(188) Why is Google backup disabled?](#user-content-faq188)
+* [(189) What is cloud sync?](#user-content-faq189)
 
 [I have another question.](#user-content-get-support)
 
@@ -5162,6 +5163,24 @@ Unfortunately, it is not possible to enable cloud backup for other backup softwa
 <br />
 
 <a name="faq189"></a>
+**(189) What is cloud sync?**
+
+Cloud sync is meant to synchronize configuration data across devices.
+It can be used to restore configuration data onto a new device too.
+
+Cloud sync is based on a cloud account. You can register/login by entering a username and a password and using the login button.
+
+A cloud sync account needs to be activated, which is to prevent misusing the cloud sync server.
+To activate a cloud sync account, use the *Activate* button to send an email to a special email address.
+The email needs to come from an address used to activate the pro features before.
+You'll receive an email in response indicating whether the activation was succesful or not.
+
+The app will automatically synchronize once a day, but you can manually synchronize too.
+
+Synchronization will currently add and update enabled accounts and identities only.
+Existing accounts or identities will never be deleted.
+
+Cloud sync is an experimental feature. It is not available for the Play Store version of the app yet.
 
 <h2><a name="get-support"></a>Get support</h2>
 
