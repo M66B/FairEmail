@@ -162,6 +162,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     contact.state == EntityContact.STATE_FAVORITE ? colorAccent : textColorSecondary));
             ivFavorite.setContentDescription(contact.state == EntityContact.STATE_FAVORITE
                     ? context.getString(R.string.title_accessibility_flagged) : null);
+            ivFavorite.setVisibility(contact.type == EntityContact.TYPE_JUNK ||
+                    contact.type == EntityContact.TYPE_NO_JUNK
+                    ? View.GONE : View.VISIBLE);
 
             view.requestLayout();
         }
@@ -236,7 +239,9 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                 popupMenu.getMenu().add(Menu.NONE, 0, order++, via).setEnabled(false);
             }
 
-            if (contact.state != EntityContact.STATE_IGNORE)
+            if (contact.state != EntityContact.STATE_IGNORE &&
+                    contact.type != EntityContact.TYPE_JUNK &&
+                    contact.type != EntityContact.TYPE_NO_JUNK)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_never_favorite, order++, R.string.title_advanced_never_favorite);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_share, order++, R.string.title_share); // should be system whitelisted
             if (Shortcuts.can(context))
