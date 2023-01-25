@@ -1265,6 +1265,7 @@ Possible causes of messages not being synchronized (sent or received) are:
 * The number of days to synchronize message for is set too low
 * There is no usable internet connection
 * The email server is temporarily not available
+* Battery optimizations were not disable via setup step 3
 * Android stopped the synchronization service
 * A memory management app stopped the synchronization service
 
@@ -1274,8 +1275,10 @@ If there are any error messages, please see [this FAQ](#user-content-faq22).
 
 On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
 
-Some Android versions stop apps and services too aggressively.
-See [this dedicated website](https://dontkillmyapp.com/) and [this Android issue](https://issuetracker.google.com/issues/122098785) for more information.
+Some Android versions, especially those of Samsung, OnePlus, Huawei and Xiaomi, stop apps and services too aggressively.
+See [this dedicated website](https://dontkillmyapp.com/) "*Don't kill my app*" for solutions,
+and [this Android issue](https://issuetracker.google.com/issues/122098785) (requires logging in with a Google account) for more information.
+
 If you have a Doogee device, please [see here](https://android.stackexchange.com/questions/214639/background-apps-get-killed-by-something-other-than-battery-optimization).
 
 Disabling battery optimizations (setup step 3) reduces the chance Android will stop the synchronization service.
