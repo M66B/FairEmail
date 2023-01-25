@@ -649,10 +649,10 @@
     <string name="title_advanced_quick_actions">Show quick actions when messages are selected</string>
     <string name="title_advanced_folder_nav">Always go back to the folder list from a message list</string>
     <string name="title_advanced_autoread">Automatically mark messages read on moving messages</string>
-    <string name="title_advanced_star_snoozed">Automatically add star on snoozing messages</string>
     <string name="title_advanced_autounstar">Automatically remove stars from messages on moving messages</string>
-    <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_reset_importance">Reset importance on moving messages</string>
+    <string name="title_advanced_star_snoozed">Automatically add star on snoozing messages</string>
+    <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_cancel_snooze">Cancel snooze on moving messages</string>
     <string name="title_advanced_auto_block_sender">Automatically block the sender when reporting spam</string>
     <string name="title_advanced_swipe_reply">Swipe expanded messages to the right to reply</string>

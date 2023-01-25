@@ -96,10 +96,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private Spinner spUndoTimeout;
     private SwitchCompat swCollapseMultiple;
     private SwitchCompat swAutoRead;
-    private SwitchCompat swFlagSnoozed;
     private SwitchCompat swAutoUnflag;
-    private SwitchCompat swAutoImportant;
     private SwitchCompat swResetImportance;
+    private SwitchCompat swFlagSnoozed;
+    private SwitchCompat swAutoImportant;
     private SwitchCompat swResetSnooze;
     private SwitchCompat swAutoBlockSender;
     private SwitchCompat swSwipeReply;
@@ -167,10 +167,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swCollapseMarked = view.findViewById(R.id.swCollapseMarked);
         spUndoTimeout = view.findViewById(R.id.spUndoTimeout);
         swAutoRead = view.findViewById(R.id.swAutoRead);
-        swFlagSnoozed = view.findViewById(R.id.swFlagSnoozed);
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
-        swAutoImportant = view.findViewById(R.id.swAutoImportant);
         swResetImportance = view.findViewById(R.id.swResetImportance);
+        swFlagSnoozed = view.findViewById(R.id.swFlagSnoozed);
+        swAutoImportant = view.findViewById(R.id.swAutoImportant);
         swResetSnooze = view.findViewById(R.id.swResetSnooze);
         swAutoBlockSender = view.findViewById(R.id.swAutoBlockSender);
         swSwipeReply = view.findViewById(R.id.swSwipeReply);
@@ -490,13 +490,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swFlagSnoozed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("flag_snoozed", checked).apply();
-            }
-        });
-
         swAutoUnflag.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -504,17 +497,24 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swAutoImportant.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("auto_important", checked).apply();
-            }
-        });
-
         swResetImportance.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("reset_importance", checked).apply();
+            }
+        });
+
+        swFlagSnoozed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("flag_snoozed", checked).apply();
+            }
+        });
+
+        swAutoImportant.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("auto_important", checked).apply();
             }
         });
 
@@ -648,10 +648,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
 
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
-        swFlagSnoozed.setChecked(prefs.getBoolean("flag_snoozed", false));
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
-        swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
         swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
+        swFlagSnoozed.setChecked(prefs.getBoolean("flag_snoozed", false));
+        swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
         swResetSnooze.setChecked(prefs.getBoolean("reset_snooze", true));
         swAutoBlockSender.setChecked(prefs.getBoolean("auto_block_sender", true));
         swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
