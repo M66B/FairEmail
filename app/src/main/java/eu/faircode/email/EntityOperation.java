@@ -558,16 +558,6 @@ public class EntityOperation {
                     return;
                 }
 
-                if (EXISTS.equals(name)) {
-                    EntityFolder f = db.folder().getFolder(folder);
-                    EntityMessage m = db.message().getMessage(message);
-                    if (f != null && m != null) {
-                        Log.i("POP3: inline EXISTS");
-                        EntityContact.received(context, a, f, m);
-                        return;
-                    }
-                }
-
                 if (DELETE.equals(name)) {
                     EntityFolder f = db.folder().getFolder(folder);
                     if (f != null &&
