@@ -4244,7 +4244,7 @@ Sometimes the server received date/time is incorrect,
 mostly because messages were incorrectly imported from another server and sometimes due to a bug in the email server.
 
 In these rare cases, it is possible to let FairEmail use either the date/time from the *Date* header (sent time) or from the *Received* header as a workaround.
-This can be changed in the advanced account settings: Settings, tap Manual setup, tap Accounts, tap account, tap Advanced.
+This can be changed in the advanced account settings: go to the Settings, tap *Manual setup and account options*, tap *Accounts*, tap the account, tap *Advanced*.
 
 This will not change the time of already synchronized messages.
 To solve this, long press the folder(s) in the folder list and select *Delete local messages* and *Synchronize now*.
