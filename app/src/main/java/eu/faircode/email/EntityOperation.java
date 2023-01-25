@@ -543,33 +543,9 @@ public class EntityOperation {
             }
         }
 
-        if (account != null) {
-            EntityAccount a = db.account().getAccount(account);
-            if (a != null && a.protocol == EntityAccount.TYPE_POP) {
-                // TODO: special cases for MOVE, DELETE, PURGE
-
-                if (SEEN.equals(name) ||
-                        FLAG.equals(name) ||
-                        ANSWERED.equals(name) ||
-                        KEYWORD.equals(name) ||
-                        ADD.equals(name) ||
-                        REPORT.equals(name)) {
-                    Log.i("POP3: skipping op=" + name);
-                    return;
-                }
-
-                if (DELETE.equals(name)) {
-                    EntityFolder f = db.folder().getFolder(folder);
-                    if (f != null &&
-                            (EntityFolder.DRAFTS.equals(f.type) ||
-                                    EntityFolder.TRASH.equals(f.type))) {
-                        Log.i("POP3: inline DELETE folder=" + f.name);
-                        db.message().deleteMessage(message);
-                        return;
-                    }
-                }
-            }
-        }
+        // Check for offline POP3 operations
+        if (inlinePOP3(context, account, folder, message, name, jargs))
+            return;
 
         EntityOperation op = new EntityOperation();
         op.account = account;
@@ -591,6 +567,149 @@ public class EntityOperation {
         if (op.message != null)
             crumb.put("message", Long.toString(op.message));
         Log.breadcrumb("queued", crumb);
+    }
+
+    private static boolean inlinePOP3(Context context, Long account, long folder, Long message, String name, JSONArray jargs) {
+        if (account == null || message == null)
+            return false;
+
+        DB db = DB.getInstance(context);
+        EntityAccount a = db.account().getAccount(account);
+        if (a == null || a.protocol != EntityAccount.TYPE_POP)
+            return false;
+
+        // TODO: special case for PURGE
+
+        if (SEEN.equals(name) ||
+                FLAG.equals(name) ||
+                ANSWERED.equals(name) ||
+                KEYWORD.equals(name) ||
+                ADD.equals(name) ||
+                REPORT.equals(name)) {
+            Log.i("POP3: skipping op=" + name);
+            return true;
+        }
+
+        if (MOVE.equals(name)) {
+            try {
+                long target = jargs.getLong(0);
+                boolean seen = jargs.optBoolean(1);
+                boolean unflag = jargs.optBoolean(3);
+
+                EntityFolder f = db.folder().getFolder(folder);
+                EntityFolder t = db.folder().getFolder(target);
+                if (f == null || t == null || f.id.equals(t.id)) {
+                    Log.e("POP3: invalid MOVE/folders");
+                    return true;
+                }
+
+                if (a.leave_deleted &&
+                        EntityFolder.INBOX.equals(f.type) &&
+                        EntityFolder.TRASH.equals(t.type)) {
+                    Log.i("POP3 convert MOVE into DELETE");
+                    name = DELETE;
+                } else {
+                    EntityMessage m = db.message().getMessage(message);
+                    if (m == null) {
+                        Log.e("POP3: invalid MOVE/message");
+                        return true;
+                    }
+
+                    Log.i("POP3: local MOVE " + f.type + " > " + t.type);
+
+                    m.folder = t.id;
+                    if (seen)
+                        m.ui_seen = seen;
+                    if (unflag)
+                        m.ui_flagged = false;
+                    m.ui_hide = false;
+
+                    db.message().updateMessage(m);
+                    return true;
+                }
+            } catch (JSONException ex) {
+                Log.e(ex);
+                return true;
+            }
+        }
+
+        if (DELETE.equals(name)) {
+            EntityFolder f = db.folder().getFolder(folder);
+            EntityMessage m = db.message().getMessage(message);
+            if (f == null || m == null) {
+                Log.e("POP3: invalid DELETE");
+                return true;
+            }
+
+            if (!EntityFolder.DRAFTS.equals(f.type) &&
+                    !EntityFolder.TRASH.equals(f.type)) {
+
+                Log.i("POP3: local TRASH " + f.type);
+
+                EntityFolder trash = db.folder().getFolderByType(m.account, EntityFolder.TRASH);
+                if (trash == null) {
+                    trash = new EntityFolder();
+                    trash.account = m.id;
+                    trash.name = context.getString(R.string.title_folder_trash);
+                    trash.type = EntityFolder.TRASH;
+                    trash.synchronize = false;
+                    trash.unified = false;
+                    trash.notify = false;
+                    trash.sync_days = Integer.MAX_VALUE;
+                    trash.keep_days = Integer.MAX_VALUE;
+                    trash.initialize = 0;
+                    trash.id = db.folder().insertFolder(trash);
+                }
+
+                long id = m.id;
+
+                m.id = null;
+                m.folder = trash.id;
+                m.msgid = null; // virtual message
+                m.ui_hide = false;
+                m.ui_seen = true;
+                m.id = db.message().insertMessage(m);
+
+                try {
+                    File source = EntityMessage.getFile(context, id);
+                    File target = m.getFile(context);
+                    Helper.copy(source, target);
+                } catch (IOException ex) {
+                    Log.e(ex);
+                }
+
+                EntityAttachment.copy(context, id, m.id);
+
+                m.id = id;
+            }
+
+            // Delete from device
+            if (EntityFolder.INBOX.equals(f.type)) {
+                if (a.leave_deleted) {
+                    // Remove message/attachments files on cleanup
+                    Log.i("POP3: DELETE reset content");
+                    db.message().resetMessageContent(m.id);
+                    db.attachment().resetAvailable(m.id);
+                }
+
+                // Synchronize will delete messages when needed
+                Log.i("POP3: DELETE hide " + f.type);
+                db.message().setMessageUiHide(m.id, true);
+            } else {
+                Log.i("POP3: local DELETE " + f.type);
+                db.message().deleteMessage(m.id);
+            }
+
+            if (EntityFolder.INBOX.equals(f.type) && !a.leave_deleted) {
+                Log.i("POP3: DELETE remote " + f.type);
+                return false;
+            } else {
+                Log.i("POP3: local only " + f.type);
+                return true;
+            }
+        }
+
+        return false;
     }
 
     static void poll(Context context, long fid) throws JSONException {

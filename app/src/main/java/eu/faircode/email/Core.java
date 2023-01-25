@@ -411,10 +411,6 @@ class Core {
                             messages.addAll(similar.values());
 
                             switch (op.name) {
-                                case EntityOperation.MOVE:
-                                    onMove(context, jargs, account, folder, messages, (POP3Folder) ifolder, (POP3Store) istore, state);
-                                    break;
-
                                 case EntityOperation.DELETE:
                                     onDelete(context, jargs, account, folder, messages, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
@@ -1676,49 +1672,6 @@ class Core {
             }
     }
 
-    private static void onMove(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, List<EntityMessage> messages, POP3Folder ifolder, POP3Store istore, State state) throws JSONException, FolderNotFoundException, IOException, MessagingException {
-        // Move message
-        DB db = DB.getInstance(context);
-
-        // Get arguments
-        long id = jargs.getLong(0);
-        boolean seen = jargs.optBoolean(1);
-        boolean unflag = jargs.optBoolean(3);
-
-        // Get target folder
-        EntityFolder target = db.folder().getFolder(id);
-        if (target == null)
-            throw new FolderNotFoundException();
-        if (folder.id.equals(target.id))
-            throw new IllegalArgumentException("self");
-
-        if (Boolean.TRUE.equals(account.leave_deleted) &&
-                EntityFolder.INBOX.equals(folder.type) &&
-                EntityFolder.TRASH.equals(target.type)) {
-            onDelete(context, jargs, account, folder, messages, ifolder, istore, state);
-            return;
-        }
-
-        // Move from drafts/sent/trash+leave_delete only
-        if (!EntityFolder.DRAFTS.equals(folder.type) &&
-                !EntityFolder.SENT.equals(folder.type) &&
-                !(EntityFolder.TRASH.equals(folder.type) && account.leave_deleted))
-            throw new IllegalArgumentException("Invalid POP3 folder" +
-                    " source=" + folder.type + " target=" + target.type +
-                    " leave deleted=" + account.leave_deleted);
-
-        for (EntityMessage message : messages) {
-            message.folder = target.id;
-            if (seen)
-                message.ui_seen = seen;
-            if (unflag)
-                message.ui_flagged = false;
-            message.ui_hide = false;
-
-            db.message().updateMessage(message);
-        }
-    }
-
     private static void onFetch(Context context, JSONArray jargs, EntityFolder folder, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         long uid = jargs.getLong(0);
         boolean invalidate = jargs.optBoolean(1);
@@ -1942,85 +1895,28 @@ class Core {
     }
 
     private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, List<EntityMessage> messages, POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
-        // Delete message
-        DB db = DB.getInstance(context);
-
         // Delete from server
-        if (EntityFolder.INBOX.equals(folder.type) && !account.leave_deleted) {
-            Map<EntityMessage, Message> map = findMessages(context, folder, messages, istore, ifolder);
-            for (EntityMessage message : messages) {
-                Message imessage = map.get(message);
-                if (imessage != null) {
-                    Log.i(folder.name + " POP delete=" + message.uidl + "/" + message.msgid);
-                    imessage.setFlag(Flags.Flag.DELETED, true);
-                }
-            }
+        if (!EntityFolder.INBOX.equals(folder.type) || account.leave_deleted)
+            throw new IllegalArgumentException("POP3: invalid DELETE");
 
-            if (map.size() > 0)
-                try {
-                    Log.i(folder.name + " POP expunge");
-                    ifolder.close(true);
-                    ifolder.open(Folder.READ_WRITE);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                    state.error(new FolderClosedException(ifolder, "POP", new Exception(ex)));
-                }
-        }
-
+        Map<EntityMessage, Message> map = findMessages(context, folder, messages, istore, ifolder);
         for (EntityMessage message : messages) {
-            // Move to trash folder
-            if (!EntityFolder.DRAFTS.equals(folder.type) &&
-                    !EntityFolder.TRASH.equals(folder.type)) {
-                EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
-                if (trash == null) {
-                    trash = new EntityFolder();
-                    trash.account = account.id;
-                    trash.name = context.getString(R.string.title_folder_trash);
-                    trash.type = EntityFolder.TRASH;
-                    trash.synchronize = false;
-                    trash.unified = false;
-                    trash.notify = false;
-                    trash.sync_days = Integer.MAX_VALUE;
-                    trash.keep_days = Integer.MAX_VALUE;
-                    trash.initialize = 0;
-                    trash.id = db.folder().insertFolder(trash);
-                }
-
-                long id = message.id;
-
-                message.id = null;
-                message.folder = trash.id;
-                message.msgid = null; // virtual message
-                message.ui_hide = false;
-                message.ui_seen = true;
-                message.id = db.message().insertMessage(message);
-
-                try {
-                    File source = EntityMessage.getFile(context, id);
-                    File target = message.getFile(context);
-                    Helper.copy(source, target);
-                } catch (IOException ex) {
-                    Log.e(ex);
-                }
-
-                EntityAttachment.copy(context, id, message.id);
-
-                message.id = id;
+            Message imessage = map.get(message);
+            if (imessage != null) {
+                Log.i(folder.name + " POP delete=" + message.uidl + "/" + message.msgid);
+                imessage.setFlag(Flags.Flag.DELETED, true);
             }
-
-            // Delete from device
-            if (EntityFolder.INBOX.equals(folder.type)) {
-                if (account.leave_deleted) {
-                    // Remove message/attachments files on cleanup
-                    db.message().resetMessageContent(message.id);
-                    db.attachment().resetAvailable(message.id);
-                }
-
-                // Synchronize will delete messages when needed
-                db.message().setMessageUiHide(message.id, true);
-            } else
-                db.message().deleteMessage(message.id);
         }
+
+        if (map.size() > 0)
+            try {
+                Log.i(folder.name + " POP expunge");
+                ifolder.close(true);
+                ifolder.open(Folder.READ_WRITE);
+            } catch (Throwable ex) {
+                Log.e(ex);
+                state.error(new FolderClosedException(ifolder, "POP", new Exception(ex)));
+            }
     }
 
     private static void onHeaders(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
