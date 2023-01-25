@@ -543,6 +543,44 @@ public class EntityOperation {
             }
         }
 
+        if (account != null) {
+            EntityAccount a = db.account().getAccount(account);
+            if (a != null && a.protocol == EntityAccount.TYPE_POP) {
+                // TODO: special cases for MOVE, DELETE, PURGE
+
+                if (SEEN.equals(name) ||
+                        FLAG.equals(name) ||
+                        ANSWERED.equals(name) ||
+                        KEYWORD.equals(name) ||
+                        ADD.equals(name) ||
+                        REPORT.equals(name)) {
+                    Log.i("POP3: skipping op=" + name);
+                    return;
+                }
+
+                if (EXISTS.equals(name)) {
+                    EntityFolder f = db.folder().getFolder(folder);
+                    EntityMessage m = db.message().getMessage(message);
+                    if (f != null && m != null) {
+                        Log.i("POP3: inline EXISTS");
+                        EntityContact.received(context, a, f, m);
+                        return;
+                    }
+                }
+
+                if (DELETE.equals(name)) {
+                    EntityFolder f = db.folder().getFolder(folder);
+                    if (f != null &&
+                            (EntityFolder.DRAFTS.equals(f.type) ||
+                                    EntityFolder.TRASH.equals(f.type))) {
+                        Log.i("POP3: inline DELETE folder=" + f.name);
+                        db.message().deleteMessage(message);
+                        return;
+                    }
+                }
+            }
+        }
+
         EntityOperation op = new EntityOperation();
         op.account = account;
         op.folder = folder;

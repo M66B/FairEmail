@@ -411,25 +411,6 @@ class Core {
                             messages.addAll(similar.values());
 
                             switch (op.name) {
-                                case EntityOperation.SEEN:
-                                    onSeen(context, jargs, folder, message, (POP3Folder) ifolder);
-                                    break;
-
-                                case EntityOperation.FLAG:
-                                    onFlag(context, jargs, folder, message, (POP3Folder) ifolder);
-                                    break;
-
-                                case EntityOperation.ANSWERED:
-                                case EntityOperation.KEYWORD:
-                                case EntityOperation.ADD:
-                                case EntityOperation.REPORT:
-                                    // Do nothing
-                                    break;
-
-                                case EntityOperation.EXISTS:
-                                    onExists(context, jargs, account, folder, message);
-                                    break;
-
                                 case EntityOperation.MOVE:
                                     onMove(context, jargs, account, folder, messages, (POP3Folder) ifolder, (POP3Store) istore, state);
                                     break;
@@ -1011,22 +992,6 @@ class Core {
                 db.message().setMessageFlagged(message.id, set);
             else if (flag == Flags.Flag.DELETED && !message.deleted.equals(set))
                 db.message().setMessageDeleted(message.id, set);
-    }
-
-    private static void onSeen(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder) throws JSONException {
-        // Mark message (un)seen
-        DB db = DB.getInstance(context);
-
-        boolean seen = jargs.getBoolean(0);
-        db.message().setMessageUiSeen(message.id, seen);
-    }
-
-    private static void onFlag(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder) throws MessagingException, JSONException {
-        // Star/unstar message
-        DB db = DB.getInstance(context);
-
-        boolean flagged = jargs.getBoolean(0);
-        db.message().setMessageFlagged(message.id, flagged);
     }
 
     private static void onAnswered(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, JSONException {
@@ -2263,11 +2228,6 @@ class Core {
 
         if (attachment.size != null)
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
-    }
-
-    private static void onExists(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message) {
-        // POP3
-        EntityContact.received(context, account, folder, message);
     }
 
     private static void onExists(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws MessagingException, IOException {
