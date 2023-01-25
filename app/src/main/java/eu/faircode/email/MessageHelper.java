@@ -32,6 +32,7 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
 import android.util.Base64;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.core.net.MailTo;
@@ -773,10 +774,15 @@ public class MessageHelper {
                 email != null && message.extra != null) {
             String username = UriHelper.getEmailUser(identity.email);
             if (!message.extra.equals(username)) {
-                email = addExtra(email, message.extra);
+                Pair<String, String> extra = getExtra(email, message.extra);
 
-                if (!identity.sender_extra_name)
+                if (extra.first != null)
+                    name = extra.first;
+                else if (!identity.sender_extra_name)
                     name = null;
+
+                if (extra.second != null)
+                    email = extra.second;
 
                 Log.i("extra=\"" + name + "\" <" + email + ">");
             }
@@ -788,10 +794,19 @@ public class MessageHelper {
         return new InternetAddress(email, name, StandardCharsets.UTF_8.name());
     }
 
-    static String addExtra(String email, String extra) {
+    static Pair<String, String> getExtra(String email, String extra) {
+        String name = null;
+        int comma = extra.indexOf(',');
+        if (comma >= 0) {
+            name = extra.substring(0, comma).trim();
+            extra = extra.substring(comma + 1).trim();
+            if (TextUtils.isEmpty(extra))
+                return new Pair<>(name, null);
+        }
+
         int at = email.indexOf('@');
         if (at < 0)
-            return email;
+            return new Pair<>(name, email);
 
         if (extra.length() > 1 && extra.startsWith("+"))
             email = email.substring(0, at) + extra + email.substring(at);
@@ -800,7 +815,7 @@ public class MessageHelper {
         else
             email = extra + email.substring(at);
 
-        return email;
+        return new Pair<>(name, email);
     }
 
     private static void addAddress(String email, Message.RecipientType type, MimeMessage imessage, EntityIdentity identity) throws MessagingException {

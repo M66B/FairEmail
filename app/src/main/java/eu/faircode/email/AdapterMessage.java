@@ -7981,8 +7981,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         if (email == null)
             return;
 
-        email = MessageHelper.addExtra(email, extra);
-        ((InternetAddress) addresses[0]).setAddress(email);
+        Pair<String, String> p = MessageHelper.getExtra(email, extra);
+
+        if (p.first != null)
+            try {
+                ((InternetAddress) addresses[0]).setPersonal(p.first);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
+        if (p.second != null)
+            ((InternetAddress) addresses[0]).setAddress(p.second);
     }
 
     PagedList<TupleMessageEx> getCurrentList() {
