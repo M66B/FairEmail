@@ -5179,7 +5179,9 @@ To activate a cloud sync account, use the *Activate* button to send an email to 
 The email needs to come from an address used to activate the pro features before.
 You'll receive an email in response indicating whether the activation was succesful or not.
 
-The app will automatically synchronize once a day around 1:30am, provided that there is an internet connection, but you can manually synchronize too.
+The app will automatically synchronize once a day around 1:30 AM, provided there is an internet connection,
+otherwise synchronization will be postponed until after an internet connection becomes available.
+You can also manually synchronize with the opposite arrows button.
 
 Synchronization will currently add and update enabled accounts and identities only,
 but on the roadmap is synchronizing blocked senders and filter rules too.
