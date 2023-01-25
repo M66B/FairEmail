@@ -4933,11 +4933,11 @@ public class FragmentCompose extends FragmentBase {
                                     data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
                                 }
 
-                                Address preferred = null;
                                 if (ref.identity != null) {
                                     EntityIdentity recognized = db.identity().getIdentity(ref.identity);
                                     EntityLog.log(context, "Recognized=" + (recognized == null ? null : recognized.email));
 
+                                    Address preferred = null;
                                     if (recognized != null) {
                                         Address same = null;
                                         Address similar = null;
@@ -4975,15 +4975,23 @@ public class FragmentCompose extends FragmentBase {
 
                                         preferred = (same == null ? similar : same);
                                     }
+
+                                    if (preferred != null) {
+                                        String from = ((InternetAddress) preferred).getAddress();
+                                        String name = ((InternetAddress) preferred).getPersonal();
+                                        EntityLog.log(context, "Preferred=" + name + " <" + from + ">");
+                                        if (TextUtils.isEmpty(from) || from.equals(recognized.email))
+                                            from = null;
+                                        if (TextUtils.isEmpty(name) || name.equals(recognized.name))
+                                            name = null;
+                                        String username = UriHelper.getEmailUser(from);
+                                        String extra = (name == null ? "" : name + ", ") +
+                                                (username == null ? "" : username);
+                                        data.draft.extra = (TextUtils.isEmpty(extra) ? null : extra);
+                                    } else
+                                        EntityLog.log(context, "Preferred=null");
                                 } else
                                     EntityLog.log(context, "Recognized=null");
-
-                                if (preferred != null) {
-                                    String from = ((InternetAddress) preferred).getAddress();
-                                    EntityLog.log(context, "Preferred=" + from);
-                                    data.draft.extra = UriHelper.getEmailUser(from);
-                                } else
-                                    EntityLog.log(context, "Preferred=null");
                             }
 
                             if ("reply_all".equals(action))
