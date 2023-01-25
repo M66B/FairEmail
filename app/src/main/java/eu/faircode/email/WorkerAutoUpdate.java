@@ -71,7 +71,7 @@ public class WorkerAutoUpdate extends Worker {
                                 .setConstraints(new Constraints.Builder()
                                         .setRequiredNetworkType(NetworkType.CONNECTED).build());
                 WorkManager.getInstance(context)
-                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, builder.build());
+                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.UPDATE, builder.build());
                 Log.i("Queued " + getName());
             } else {
                 Log.i("Cancelling " + getName());

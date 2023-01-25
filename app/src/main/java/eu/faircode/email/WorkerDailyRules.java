@@ -144,7 +144,7 @@ public class WorkerDailyRules extends Worker {
                         new PeriodicWorkRequest.Builder(WorkerDailyRules.class, 1, TimeUnit.DAYS)
                                 .setInitialDelay(delay, TimeUnit.MILLISECONDS);
                 WorkManager.getInstance(context)
-                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.KEEP, builder.build());
+                        .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.UPDATE, builder.build());
                 Log.i("Queued " + getName());
             } else {
                 Log.i("Cancelling " + getName());
