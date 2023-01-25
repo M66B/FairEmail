@@ -420,6 +420,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.ANSWERED:
+                                case EntityOperation.KEYWORD:
                                 case EntityOperation.ADD:
                                 case EntityOperation.REPORT:
                                     // Do nothing
