@@ -59,7 +59,7 @@ public class FragmentDialogPermissions extends FragmentDialogBase {
         tvDozeDevice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(context, Uri.parse(Helper.DONTKILL_URI), true);
+                Helper.view(v.getContext(), Uri.parse(Helper.DONTKILL_URI), true);
             }
         });
 

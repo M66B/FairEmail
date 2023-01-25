@@ -1514,6 +1514,14 @@ public class Helper {
                 isSony());
     }
 
+    static boolean isAggressivelyKilling() {
+        return (BuildConfig.DEBUG ||
+                isSamsung() ||
+                isOnePlus() ||
+                isHuawei() ||
+                isXiaomi());
+    }
+
     static boolean isAndroid12() {
         return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
     }
