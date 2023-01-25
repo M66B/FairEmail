@@ -104,7 +104,7 @@
                     android:id="@+id/ibCcBcc"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_marginEnd="6dp"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:contentDescription="@string/title_show_addresses"
                     android:tooltipText="@string/title_show_addresses"
