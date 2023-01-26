@@ -4984,7 +4984,8 @@ public class FragmentCompose extends FragmentBase {
                                         EntityLog.log(context, "Preferred=" + name + " <" + from + ">");
                                         if (TextUtils.isEmpty(from) || from.equals(recognized.email))
                                             from = null;
-                                        if (TextUtils.isEmpty(name) || name.equals(recognized.name))
+                                        if (!recognized.reply_extra_name ||
+                                                TextUtils.isEmpty(name) || name.equals(recognized.name))
                                             name = null;
                                         String username = UriHelper.getEmailUser(from);
                                         String extra = (name == null ? "" : name + ", ") +

@@ -101,6 +101,8 @@ public class EntityIdentity {
     public Boolean sender_extra = false;
     @NonNull
     public Boolean sender_extra_name = false;
+    @NonNull
+    public Boolean reply_extra_name = false;
     public String sender_extra_regex;
     public String replyto;
     public String cc;

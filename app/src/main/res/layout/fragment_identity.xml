@@ -594,10 +594,22 @@
             android:id="@+id/cbSenderExtraName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="12dp"
+            android:checked="true"
             android:text="@string/title_advanced_sender_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSenderExtra" />
+
+        <CheckBox
+            android:id="@+id/cbReplyExtraName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_advanced_reply_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSenderExtraName" />
 
         <TextView
             android:id="@+id/tvSenderExtra"
@@ -607,7 +619,7 @@
             android:text="@string/title_advanced_sender_regex"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSenderExtraName" />
+            app:layout_constraintTop_toBottomOf="@id/cbReplyExtraName" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etSenderExtra"
@@ -971,7 +983,7 @@
                 tvRealm,etRealm,
                 cbUseIp,tvUseIpHint,tvEhlo,etEhlo,
                 cbSynchronize,cbPrimary,cbSelf,tvSelfHint,
-                cbSenderExtra,cbSenderExtraName,tvSenderExtra,etSenderExtra,ibSenderExtra,tvSenderExtraHint,
+                cbSenderExtra,cbSenderExtraName,cbReplyExtraName,tvSenderExtra,etSenderExtra,ibSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,
                 tvInternal,etInternal,tvInternalHint,
                 tvE2Encryption,cbSignDefault,cbEncryptDefault,
