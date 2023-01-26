@@ -819,8 +819,9 @@ Note that you can copy an identity by long pressing it.
 Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message,
 if your provider allows this. Considering the email address test@example.org you can use these special username formats:
 
-* Username *+extra* will result in the email address *test+extra@example.org*
-* Username *@extra* will result in the email address *test@extra.example.org*
+* "*+extra*" will result in the email address "*test+extra@example.org*"
+* "*@extra*" will result in the email address "*test@extra.example.org*"
+* "*Some name, username*" will result in the email address "*Some name, &lt;username@example.org&gt;*" (since version 1.2032)
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
