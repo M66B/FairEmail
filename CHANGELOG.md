@@ -6,6 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
+### Next version
+
+* Added local operations for POP3
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### 1.2031 - 2023-01-24
 
 * Added [cloud sync](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq189) to synchronize accounts across devices
