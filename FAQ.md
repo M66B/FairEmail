@@ -1808,6 +1808,12 @@ If you want to match a catch-all email address, this regex is usually fine, prov
 .*
 ```
 
+If you want to *not* match specific addresses, you can use something like this:
+
+```
+^(?!marcel$|johanna$).*
+```
+
 If you like to match the special purpose email addresses abc@example.com and xyx@example.com
 and like to have a fallback email address main@example.com as well, you could do something like this:
 
