@@ -6,9 +6,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
-### Next version
+### 1.2032 - 2023-01-26
 
-* Added local operations for POP3
+* Added local POP3 operations to reduce the number of account connections
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
