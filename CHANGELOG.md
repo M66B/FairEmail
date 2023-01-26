@@ -6,6 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
+### 1.2033 - 2023-01-26
+
+* Fixed incorrect folder state icons
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 ### 1.2032 - 2023-01-26
 
 * Added local POP3 operations to reduce the number of account connections
