@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_download">%1$s жүктелді</string>
+    <string name="channel_service">Бақылау</string>
+    <string name="channel_send">Жіберу</string>
     <string name="channel_notification">Электронды пошта</string>
+    <string name="channel_progress">Прогресс</string>
     <string name="channel_warning">Ескерту</string>
+    <string name="channel_error">Қателер</string>
+    <string name="page_folders">Бумалар</string>
     <string name="title_junk_clear">Тазалау</string>
     <string name="title_contact_email">Электронды пошта</string>
     <string name="title_log_clear">Тазалау</string>

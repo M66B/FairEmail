@@ -832,6 +832,7 @@
     <string name="title_identity_color_hint">צבעי הזהויות קודמים בעדיפות על צבעי תיקיות וחשבונות</string>
     <string name="title_advanced_sender">לאפשר את עריכת כתובת המוען</string>
     <string name="title_advanced_sender_name">להשתמש בשם כאשר כתובת המוען נערכה</string>
+    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">העתקת השם מההודעה שהתקבלה</string>
     <string name="title_advanced_sender_regex">ביטוי רגולרי ללכידת שם המשתמש של כתובות דוא״ל נכנסות</string>
     <string name="title_identity_reply_to">כתובת למענה</string>
     <string name="title_identity_internal">שמות תחום פנימיים (עם פסיקים מפרידים)</string>

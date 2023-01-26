@@ -210,6 +210,7 @@
     <string name="title_setup_doze_remark">Att skicka och ta emot e-post tillförlitligt i bakgrunden</string>
     <string name="title_setup_doze_explanation">Batterioptimeringar bör inaktiveras för appen för att säkerställa tillförlitlig sändning och mottagning av meddelanden i bakgrunden</string>
     <string name="title_setup_doze_hint">Även om detta kan låta motsägelsefullt, så resulterar avstängd batterioptimering för denna app i mindre batterianvändning</string>
+    <string name="title_setup_doze_aggressively">Den här enheten kan stoppa synkroniseringstjänsten</string>
     <string name="title_setup_doze_why">Varför ska batterioptimeringar inaktiveras?</string>
     <string name="title_setup_doze_instructions">I nästa Android-dialogruta byt ut \"Inte optimerad\" till \"Alla appar\", välj sedan denna app och välj \"Optimera inte\"</string>
     <string name="title_setup_doze_battery">Hög batterianvändning?</string>
@@ -797,6 +798,7 @@
     <string name="title_identity_color_hint">Identitetsfärger har företräde framför mapp- och kontofärger</string>
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_advanced_sender_name">Använd namn när avsändaradressen har redigerats</string>
+    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">Kopiera namnet från det mottagna meddelandet</string>
     <string name="title_advanced_sender_regex">Regex för att matcha användarnamn för inkommande e-postadresser</string>
     <string name="title_identity_reply_to">Svara till adress</string>
     <string name="title_identity_internal">Interna domännamn (kommaseparerade)</string>
