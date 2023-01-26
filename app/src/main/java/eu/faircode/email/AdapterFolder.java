@@ -276,13 +276,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         ivState.setImageResource(R.drawable.twotone_cancel_24);
                         ivState.setContentDescription(context.getString(R.string.title_legend_closing));
                     } else if (folder.state == null) {
-                        if (folder.poll) {
-                            ivState.setImageResource(R.drawable.twotone_hourglass_top_24);
-                            ivState.setContentDescription(context.getString(R.string.title_legend_synchronize_poll));
-                        } else {
-                            ivState.setImageResource(R.drawable.twotone_cloud_off_24);
-                            ivState.setContentDescription(context.getString(R.string.title_legend_disconnected));
-                        }
+                        ivState.setImageResource(R.drawable.twotone_cloud_off_24);
+                        ivState.setContentDescription(context.getString(R.string.title_legend_disconnected));
                     } else
                         ivState.setImageResource(R.drawable.twotone_warning_24);
                 } else {
@@ -402,10 +397,17 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         a.append(NF.format(folder.keep_days));
 
                     tvAfter.setText(a.toString());
-                    ibSync.setImageResource(folder.synchronize
-                            ? R.drawable.twotone_sync_24 : R.drawable.twotone_sync_disabled_24);
-                    ibSync.setContentDescription(context.getString(folder.synchronize
-                            ? R.string.title_legend_synchronize_on : R.string.title_legend_synchronize_off));
+                    if (folder.synchronize) {
+                        ibSync.setImageResource(folder.poll
+                                ? R.drawable.twotone_hourglass_top_24
+                                : R.drawable.twotone_sync_24);
+                        ibSync.setContentDescription(context.getString(folder.poll
+                                ? R.string.title_legend_synchronize_poll
+                                : R.string.title_legend_synchronize_on));
+                    } else {
+                        ibSync.setImageResource(R.drawable.twotone_sync_disabled_24);
+                        ibSync.setContentDescription(context.getString(R.string.title_legend_synchronize_off));
+                    }
                 }
                 ibSync.setImageTintList(ColorStateList.valueOf(
                         folder.synchronize && folder.initialize != 0 &&
