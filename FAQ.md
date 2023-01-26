@@ -1802,7 +1802,7 @@ to match **the username** of an email address (the part before the @ sign).
 Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity.
 Since version 1.1640 it is possible to match the full email address with a regex, which can be useful for matching alias domain names.
 
-If you like to match a catch-all email address, this regex is mostly okay:
+If you want to match a catch-all email address, this regex is usually fine, provided all usernames for the domain are yours:
 
 ```
 .*
