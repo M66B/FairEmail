@@ -4945,6 +4945,8 @@ public class FragmentCompose extends FragmentBase {
                                         List<Address> addresses = new ArrayList<>();
                                         if (data.draft.from != null)
                                             addresses.addAll(Arrays.asList(data.draft.from));
+                                        if (data.draft.to != null)
+                                            addresses.addAll(Arrays.asList(data.draft.to));
                                         if (ref.cc != null)
                                             addresses.addAll(Arrays.asList(ref.cc));
                                         if (ref.bcc != null)
