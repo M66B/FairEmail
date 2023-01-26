@@ -241,6 +241,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_doze_remark">Chcete-li poslat a přijímat e-mail spolehlivě na pozadí</string>
     <string name="title_setup_doze_explanation">Optimalizace baterie by měly být pro aplikaci zakázány, aby bylo zajištěno spolehlivé odesílání a přijímání zpráv na pozadí</string>
     <string name="title_setup_doze_hint">Ačkoli to může znít protichůdně, vypnutí optimalizace výdrže baterie pro tuto aplikaci povede k její menší spotřebě</string>
+    <string name="title_setup_doze_aggressively">Toto zařízení může zastavit službu synchronizace</string>
     <string name="title_setup_doze_why">Proč by měla být vypnuta optimalizace baterie?</string>
     <string name="title_setup_doze_instructions">V následujícím Android dialogu změňte \"Neoptimalizováno\" na \"Všechny aplikace\", nalistujte tuto aplikaci a zvolte u ní \"Neoptimalizovat\"</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
@@ -586,10 +587,10 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_quick_actions">Zobrazit rychlé akce při výběru zpráv</string>
     <string name="title_advanced_folder_nav">Vždy se vrátit do seznamu složek ze seznamu zpráv</string>
     <string name="title_advanced_autoread">Při přesunu označit zprávy jako přečtené automaticky</string>
-    <string name="title_advanced_star_snoozed">Při odložení zpráv přidat hvězdičku automaticky</string>
     <string name="title_advanced_autounstar">Při přesunu odebrat zprávám hvězdičku automaticky</string>
-    <string name="title_advanced_auto_important">Automaticky činit zprávy s hvězdičkou důležitými</string>
     <string name="title_advanced_reset_importance">Obnovit důležitost při přesunu zpráv</string>
+    <string name="title_advanced_star_snoozed">Při odložení zpráv přidat hvězdičku automaticky</string>
+    <string name="title_advanced_auto_important">Automaticky činit zprávy s hvězdičkou důležitými</string>
     <string name="title_advanced_cancel_snooze">Zrušit odložení při přesunu zpráv</string>
     <string name="title_advanced_auto_block_sender">Automaticky zablokovat odesílatele při hlášení spamu</string>
     <string name="title_advanced_swipe_reply">Přejeďte rozbalené zprávy doprava pro odpověď</string>
@@ -851,7 +852,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_account_interval_hint">Četnost obnovy spojení pro okamžité zprávy nebo četnost kontroly nových zpráv</string>
     <string name="title_account_noop_hint">Tímto se připojení bude obnovovat aktivněji, ale sníží se výdrž baterie</string>
     <string name="title_account_partial_fetch_hint">Vypnout pouze v případě prázdných zpráv nebo poškozených příloh</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Povolením této funkce se zvýší využití baterie a dat</string>
+    <string name="title_account_raw_fetch_hint">Povolením této funkce se zvýší využití baterie a dat</string>
     <string name="title_color">Barva</string>
     <string name="title_calendar">Kalendář</string>
     <string name="title_background">Pozadí</string>
@@ -1292,6 +1293,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_style_clear">Vymazat formátování</string>
     <string name="title_style_link">Vložit odkaz</string>
     <string name="title_style_link_address">Adresa</string>
+    <string name="title_style_link_image">Vložit jako obrázek</string>
     <string name="title_style_link_title">Předmět</string>
     <string name="title_style_link_metadata">Načíst předmět</string>
     <string name="title_style_link_metadata_remark">Tímto se načte předmět na zadané adrese</string>

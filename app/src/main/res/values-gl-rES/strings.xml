@@ -536,10 +536,10 @@
     <string name="title_advanced_quick_scroll">Mostrar iconas rápidas de mover arriba/abaixo non obstruíntes</string>
     <string name="title_advanced_folder_nav">Sempre volver á lista de cartafoles desde a lista de mensaxes</string>
     <string name="title_advanced_autoread">Marcar mensaxes como lidas automaticamente cando se movan as mensaxes</string>
-    <string name="title_advanced_star_snoozed">Engadir unha estrela automaticamente ás mensaxes adiadas</string>
     <string name="title_advanced_autounstar">Quitar as estrelas automaticamente das mensaxes ao movelas</string>
-    <string name="title_advanced_auto_important">Marcar como importantes as mensaxes con estrela</string>
     <string name="title_advanced_reset_importance">Reiniciar a importancia ao mover as mensaxes</string>
+    <string name="title_advanced_star_snoozed">Engadir unha estrela automaticamente ás mensaxes adiadas</string>
+    <string name="title_advanced_auto_important">Marcar como importantes as mensaxes con estrela</string>
     <string name="title_advanced_swipe_reply">Esvarar as mensaxes expandidas cara a dereita para responder</string>
     <string name="title_advanced_default_snooze">Tempo predeterminado do adiamento/retardo</string>
     <string name="title_advanced_notifications">Xestionar notificacións</string>

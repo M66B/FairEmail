@@ -240,6 +240,7 @@
     <string name="title_setup_doze_remark">Niezawodne wysyłanie i odbieranie wiadomości e-mail w tle</string>
     <string name="title_setup_doze_explanation">Optymalizacja baterii powinna być wyłączona dla aplikacji, aby zapewnić niezawodne wysyłanie i odbieranie wiadomości w tle</string>
     <string name="title_setup_doze_hint">Chociaż może to brzmieć sprzecznie, wyłączenie optymalizacji baterii dla tej aplikacji spowoduje mniejsze zużycie baterii</string>
+    <string name="title_setup_doze_aggressively">To urządzenie może zatrzymać usługę synchronizacji</string>
     <string name="title_setup_doze_why">Dlaczego optymalizacje baterii powinny być wyłączone?</string>
     <string name="title_setup_doze_instructions">W następnym oknie dialogowym Androida zmień \"Nie zoptymalizowane\" na \"Wszystkie aplikacje\", wybierz tę aplikację i wybierz \"Nie optymalizuj\"</string>
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
@@ -585,10 +586,10 @@
     <string name="title_advanced_quick_actions">Pokaż szybkie akcje po wybraniu wiadomości</string>
     <string name="title_advanced_folder_nav">Zawsze wracaj do listy folderów z listy wiadomości</string>
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
-    <string name="title_advanced_star_snoozed">Automatycznie dodawaj gwiazdkę przy usypianiu wiadomości</string>
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
-    <string name="title_advanced_auto_important">Wiadomości oznaczone gwiazdką automatycznie ustaw jako ważne</string>
     <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
+    <string name="title_advanced_star_snoozed">Automatycznie dodawaj gwiazdkę przy usypianiu wiadomości</string>
+    <string name="title_advanced_auto_important">Wiadomości oznaczone gwiazdką automatycznie ustaw jako ważne</string>
     <string name="title_advanced_cancel_snooze">Anuluj drzemkę przy przenoszeniu wiadomości</string>
     <string name="title_advanced_auto_block_sender">Automatycznie blokuj nadawcę podczas zgłaszania spamu</string>
     <string name="title_advanced_swipe_reply">Przesuń rozszerzone wiadomości w prawo, aby odpowiedzieć</string>
@@ -850,7 +851,7 @@
     <string name="title_account_interval_hint">Częstotliwość odświeżania połączenia dla wiadomości Push lub częstotliwość sprawdzania nowych wiadomości</string>
     <string name="title_account_noop_hint">Dzięki temu połączenie będzie odświeżane bardziej aktywnie, ale również zużyje więcej energii z baterii</string>
     <string name="title_account_partial_fetch_hint">Wyłącz to tylko w przypadku pustych wiadomości lub uszkodzonych załączników</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Włączenie tej opcji spowoduje zwiększenie zużycia baterii i danych</string>
+    <string name="title_account_raw_fetch_hint">Włączenie tej opcji spowoduje zwiększenie zużycia baterii i danych</string>
     <string name="title_color">Kolor</string>
     <string name="title_calendar">Kalendarz</string>
     <string name="title_background">Tło</string>
@@ -1291,6 +1292,7 @@
     <string name="title_style_clear">Wyczyść formatowanie</string>
     <string name="title_style_link">Wstaw link</string>
     <string name="title_style_link_address">Adres</string>
+    <string name="title_style_link_image">Wstaw jako obraz</string>
     <string name="title_style_link_title">Tytuł</string>
     <string name="title_style_link_metadata">Pobierz tytuł</string>
     <string name="title_style_link_metadata_remark">Spowoduje to pobranie tytułu pod wprowadzonym adresem</string>

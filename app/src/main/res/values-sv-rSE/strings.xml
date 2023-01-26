@@ -552,10 +552,10 @@
     <string name="title_advanced_quick_actions">Visa snabbåtgärder när meddelanden väljs</string>
     <string name="title_advanced_folder_nav">Gå alltid tillbaka till mapplistan från en meddelandelista</string>
     <string name="title_advanced_autoread">Märk automatiskt meddelanden som lästa vid flyttning av meddelanden</string>
-    <string name="title_advanced_star_snoozed">Stjärnmarkera automatiskt vid slumring av meddelanden</string>
     <string name="title_advanced_autounstar">Ta automatiskt bort stjärnmarkeringar från meddelanden när meddelanden flyttas</string>
-    <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
     <string name="title_advanced_reset_importance">Återställ betydelsen när du flyttar meddelanden</string>
+    <string name="title_advanced_star_snoozed">Stjärnmarkera automatiskt vid slumring av meddelanden</string>
+    <string name="title_advanced_auto_important">Gör automatiskt stjärnmärkta meddelanden viktiga</string>
     <string name="title_advanced_cancel_snooze">Avbryt snooze när meddelanden flyttas</string>
     <string name="title_advanced_auto_block_sender">Blockera avsändaren automatiskt vid rapportering av skräppost</string>
     <string name="title_advanced_swipe_reply">Svep expanderade meddelanden till höger för att svara</string>
@@ -817,7 +817,7 @@
     <string name="title_account_interval_hint">Frekvens för att uppdatera anslutningen för pushmeddelanden eller frekvens för att söka efter nya meddelanden</string>
     <string name="title_account_noop_hint">Detta kommer att uppdatera anslutningen mer aktivt, men även använda mer batterikraft</string>
     <string name="title_account_partial_fetch_hint">Inaktivera detta endast vid tomma meddelanden eller korrupta bilagor</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Aktivering av detta kommer att öka batteri- och dataanvändningen</string>
+    <string name="title_account_raw_fetch_hint">Aktivering av detta kommer att öka batteri- och dataanvändningen</string>
     <string name="title_color">Färg</string>
     <string name="title_calendar">Kalender</string>
     <string name="title_background">Bakgrund</string>
@@ -1258,6 +1258,7 @@
     <string name="title_style_clear">Rensa formatering</string>
     <string name="title_style_link">Infoga länk</string>
     <string name="title_style_link_address">Adress</string>
+    <string name="title_style_link_image">Infoga som bild</string>
     <string name="title_style_link_title">Rubrik</string>
     <string name="title_style_link_metadata">Hämta rubrik</string>
     <string name="title_style_link_metadata_remark">Detta kommer att hämta rubriken på den angivna adressen</string>

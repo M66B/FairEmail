@@ -240,6 +240,7 @@
     <string name="title_setup_doze_remark">Для надёжной отправки и получения электронной почты в фоновом режиме</string>
     <string name="title_setup_doze_explanation">Оптимизация батареи должна быть отключена для приложения, чтобы обеспечить надёжную отправку и получение сообщений в фоновом режиме</string>
     <string name="title_setup_doze_hint">Хотя это может показаться противоречивым, отключение оптимизации потребления заряда батареи для этого приложения приведёт к сокращению использования заряда батареи</string>
+    <string name="title_setup_doze_aggressively">Это устройство может остановить службу синхронизации</string>
     <string name="title_setup_doze_why">Почему оптимизация батареи должна быть отключена?</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне Android измените \"Не оптимизировать\" на \"Все приложения\", выберите это приложение и для него выберите \"Не оптимизировать\"</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
@@ -585,10 +586,10 @@
     <string name="title_advanced_quick_actions">Показывать быстрые действия при выделении сообщений</string>
     <string name="title_advanced_folder_nav">Всегда возвращаться к списку папок из списка сообщений</string>
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
-    <string name="title_advanced_star_snoozed">Автоматически добавлять в избранное при откладывании сообщений</string>
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
-    <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_reset_importance">Сбрасывать важность при перемещении сообщений</string>
+    <string name="title_advanced_star_snoozed">Автоматически добавлять в избранное при откладывании сообщений</string>
+    <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_cancel_snooze">Отменять откладывание при перемещении сообщений</string>
     <string name="title_advanced_auto_block_sender">Автоматически блокировать отправителя при сообщении о спаме</string>
     <string name="title_advanced_swipe_reply">Жест вправо на раскрытом сообщении для ответа</string>
@@ -851,7 +852,7 @@
     <string name="title_account_interval_hint">Частота обновления соединения для push-сообщений или частота проверки новых сообщений</string>
     <string name="title_account_noop_hint">Подключение будет обновляться более активно, но также больше расходовать заряд батареи</string>
     <string name="title_account_partial_fetch_hint">Отключайте это только в случае пустых сообщений или повреждённых вложений</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Включение увеличит расход заряда батареи и места в хранилище</string>
+    <string name="title_account_raw_fetch_hint">Включение увеличит расход заряда батареи и места в хранилище</string>
     <string name="title_color">Цвет</string>
     <string name="title_calendar">Календарь</string>
     <string name="title_background">Фон</string>
@@ -1294,6 +1295,7 @@
     <string name="title_style_clear">Очистить форматирование</string>
     <string name="title_style_link">Вставить ссылку</string>
     <string name="title_style_link_address">Адрес</string>
+    <string name="title_style_link_image">Вставить как изображение</string>
     <string name="title_style_link_title">Название</string>
     <string name="title_style_link_metadata">Получить заголовок</string>
     <string name="title_style_link_metadata_remark">Будет получен заголовок на введённый адрес</string>

@@ -380,10 +380,10 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string name="title_advanced_quick_filter">Lit net-opfallende rappe filterikoanen sjen</string>
     <string name="title_advanced_quick_scroll">Lit net-opfallende rappe byldkaikes omheech / omleech sjen</string>
     <string name="title_advanced_autoread">Markearje berjochten automatysk lêzen op bewegende berjochten</string>
-    <string name="title_advanced_star_snoozed">Foegje stjer automatysk ta by slûgjen fan berjochten</string>
     <string name="title_advanced_autounstar">Fuortsmite stjerren automatysk fan berjochten op bewegende berjochten</string>
-    <string name="title_advanced_auto_important">Meitsje automatyske berjochten wichtich</string>
     <string name="title_advanced_reset_importance">Belang werstelle by it ferpleatsen fan berjochten</string>
+    <string name="title_advanced_star_snoozed">Foegje stjer automatysk ta by slûgjen fan berjochten</string>
+    <string name="title_advanced_auto_important">Meitsje automatyske berjochten wichtich</string>
     <string name="title_advanced_notifications">Notifikaasjes beheare</string>
     <string name="title_advanced_notifications_default">Standert kanaal</string>
     <string name="title_advanced_notifications_newest_first">Toan earst nijste notifikaasjes</string>

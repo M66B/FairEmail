@@ -227,6 +227,7 @@
     <string name="title_setup_doze_remark">Za pouzdano slanje i primanje e-pošte u pozadini</string>
     <string name="title_setup_doze_explanation">Optimizacija baterije treba biti isključena za aplikaciju kako bi se osiguralo pouzdano slanjne i primanje poruka u pozadini</string>
     <string name="title_setup_doze_hint">Iako ovo možda zvuči kontradiktorno, isključivanjem optimizacije baterije za ovu aplikaciju rezultirat će u njenoj manjoj potrošnji</string>
+    <string name="title_setup_doze_aggressively">Ovaj uređaj može zaustaviti sinhronizaciju</string>
     <string name="title_setup_doze_why">Zašto bi optimizacije baterije trebale biti isključene?</string>
     <string name="title_setup_doze_instructions">U sljedećem dijaloškom okviru Androida promijenite \"Neoptimizirano\" u \"Sve aplikacije\", izaberite ovu aplikaciju i označite \"Ne optimizuj\"</string>
     <string name="title_setup_doze_battery">Visoka potrošnja baterije?</string>
@@ -573,10 +574,10 @@
     <string name="title_advanced_quick_actions">Prikaži brze radnje kada se označe poruke</string>
     <string name="title_advanced_folder_nav">Uvijek se vraćaj sa spiska poruka na spisak foldera </string>
     <string name="title_advanced_autoread">Automatski označi poruke kao pročitane pri premještanju istih</string>
-    <string name="title_advanced_star_snoozed">Automatski dodaj zvjezdicu za odložene poruke</string>
     <string name="title_advanced_autounstar">Automatski ukloni zvjezdicu s poruka pri premještanju istih</string>
-    <string name="title_advanced_auto_important">Automatski označi poruke sa zvjezdicom kao važne</string>
     <string name="title_advanced_reset_importance">Resetuj važnost pri premještanju poruka</string>
+    <string name="title_advanced_star_snoozed">Automatski dodaj zvjezdicu za odložene poruke</string>
+    <string name="title_advanced_auto_important">Automatski označi poruke sa zvjezdicom kao važne</string>
     <string name="title_advanced_cancel_snooze">Otkaži odgađanje pri premještanju poruka</string>
     <string name="title_advanced_auto_block_sender">Automatski blokiraj pošiljaoca kada se prijavljuje spam</string>
     <string name="title_advanced_swipe_reply">Prstom prevucite proširene poruke na desno za odgovor</string>
@@ -838,7 +839,7 @@
     <string name="title_account_interval_hint">Učestalost osvježavanja konekcije zbog trenutnih obavještenja ili učestalost provjeravanja novih poruka</string>
     <string name="title_account_noop_hint">Ovo će aktivnije osvježavati konekciju, ali i trošiti više baterije</string>
     <string name="title_account_partial_fetch_hint">Isključite ovu opciju u slučaju praznih poruka ili nevaljanih priloga</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Omogućavanje ove opcije će povećati potrošnju baterije i podataka</string>
+    <string name="title_account_raw_fetch_hint">Omogućavanje ove opcije će povećati potrošnju baterije i podataka</string>
     <string name="title_color">Boja</string>
     <string name="title_calendar">Kalendar</string>
     <string name="title_background">Pozadina</string>
@@ -1282,6 +1283,7 @@
     <string name="title_style_clear">Očisti formatiranje</string>
     <string name="title_style_link">Ubaci link</string>
     <string name="title_style_link_address">Adresa</string>
+    <string name="title_style_link_image">Umetnite kao sliku</string>
     <string name="title_style_link_title">Naslov</string>
     <string name="title_style_link_metadata">Dohvati naslov</string>
     <string name="title_style_link_metadata_remark">Ovo će dohvatiti naslov pri unesenoj adresi</string>

@@ -214,6 +214,7 @@
     <string name="title_setup_doze_remark">Enviar e receber e-mail de forma segura em segundo plano</string>
     <string name="title_setup_doze_explanation">As optimizações da bateria devem ser desactivadas para esta aplicação, para garantir o correcto envio/recepção das mensagens em segundo plano</string>
     <string name="title_setup_doze_hint">Embora isto possa parecer contraditório, desligar as otimizações de bateria para esta aplicação resultará em menos utilização de bateria</string>
+    <string name="title_setup_doze_aggressively">Este dispositivo pode interromper o serviço de sincronização</string>
     <string name="title_setup_doze_why">Porque devem as optimizações de bateria serem desactivadas?</string>
     <string name="title_setup_doze_instructions">No próximo dialogo do sistema Android:
 - Altere de \"Não optimizado\" para \"Todas as aplicações\";
@@ -561,10 +562,10 @@
     <string name="title_advanced_quick_actions">Mostrar ações rápidas quando as mensagens forem selecionadas</string>
     <string name="title_advanced_folder_nav">Voltar sempre à lista de pastas a partir da lista de mensagens</string>
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao mover mensagens</string>
-    <string name="title_advanced_star_snoozed">Adicionar estrela automaticamente ao adiar mensagens</string>
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao mover mensagens</string>
-    <string name="title_advanced_auto_important">Marcar automaticamente mensagens com estrela como importantes</string>
     <string name="title_advanced_reset_importance">Reverter importância ao mover mensagens</string>
+    <string name="title_advanced_star_snoozed">Adicionar estrela automaticamente ao adiar mensagens</string>
+    <string name="title_advanced_auto_important">Marcar automaticamente mensagens com estrela como importantes</string>
     <string name="title_advanced_cancel_snooze">Cancelar a função \'adiar\' ao mover mensagens</string>
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente quando denunciar spam</string>
     <string name="title_advanced_swipe_reply">Deslizar para a direita para responder em mensagens expandidas</string>
@@ -826,7 +827,7 @@
     <string name="title_account_interval_hint">Frequência para atualizar a ligação para mensagens push ou frequência de verificação de novas mensagens (não é para defenir o tempo de verificação de novas mensagens, para isso ir ao menu \"Receber\")</string>
     <string name="title_account_noop_hint">Isto atualizará a ligação com mais frequência, mas também irá consumir mais bateria</string>
     <string name="title_account_partial_fetch_hint">Desactivar isto apenas em caso de mensagens vazias ou anexos corrompidos</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Esta permissão aumentará a utilização de bateria e dados</string>
+    <string name="title_account_raw_fetch_hint">Esta permissão aumentará a utilização de bateria e dados</string>
     <string name="title_color">Cor</string>
     <string name="title_calendar">Calendário</string>
     <string name="title_background">Fundo</string>
@@ -1270,6 +1271,7 @@
     <string name="title_style_clear">Limpar formatação</string>
     <string name="title_style_link">Inserir hiperligação</string>
     <string name="title_style_link_address">Morada</string>
+    <string name="title_style_link_image">Inserir como uma imagem</string>
     <string name="title_style_link_title">Título</string>
     <string name="title_style_link_metadata">Buscar título</string>
     <string name="title_style_link_metadata_remark">Isto irá obter o título do endereço inserido</string>

@@ -241,6 +241,7 @@
     <string name="title_setup_doze_remark">Для надійного отримання й надсилання пошти в фоновому режимі</string>
     <string name="title_setup_doze_explanation">Оптимізація живлення повинна бути вимкнена для додатку, щоб забезпечити надійне надсилання та отримання повідомлень у фоновому режимі</string>
     <string name="title_setup_doze_hint">Хоча це може звучати суперечливо, вимкнення оптимізації заряду акумулятора призведе до меншого використання батареї</string>
+    <string name="title_setup_doze_aggressively">Цей пристрій може зупинити службу синхронізації</string>
     <string name="title_setup_doze_why">Чому оптимізація батареї має бути відключена?</string>
     <string name="title_setup_doze_instructions">В наступному діалозі Android змініть в меню \"Додатки без оптимізації\" на \"Усі додатки\", виберіть додаток FairEmail і далі \"Не оптимізувати\"</string>
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
@@ -586,10 +587,10 @@
     <string name="title_advanced_quick_actions">Показувати швидкі дії, коли обрані повідомлення</string>
     <string name="title_advanced_folder_nav">Завжди повертатися зі списку повідомлень до списку тек</string>
     <string name="title_advanced_autoread">Автоматично відзначати повідомлення прочитаними при їх переміщенні</string>
-    <string name="title_advanced_star_snoozed">Автоматично додавати відкладені повідомлення до обраних</string>
     <string name="title_advanced_autounstar">Автоматично прибирати повідомлення з обраних при їх переміщенні</string>
-    <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення відмічені як обрані</string>
     <string name="title_advanced_reset_importance">Скинути важливість повідомлення при його переміщені</string>
+    <string name="title_advanced_star_snoozed">Автоматично додавати відкладені повідомлення до обраних</string>
+    <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення відмічені як обрані</string>
     <string name="title_advanced_cancel_snooze">Відмінити паузу при переміщенні повідомлень</string>
     <string name="title_advanced_auto_block_sender">Автоматично блокувати відправника при інформуванні про спам</string>
     <string name="title_advanced_swipe_reply">Проведіть по розкритому повідомленню праворуч для відповіді</string>
@@ -850,7 +851,7 @@
     <string name="title_account_interval_hint">Частота оновлення з\'єднання для push-повідомлень або частота перевірки на нові повідомлення</string>
     <string name="title_account_noop_hint">Це буде оновлювати підключення активніше, але також буде використовувати більше заряду акумулятора</string>
     <string name="title_account_partial_fetch_hint">Вимкнути це лише у випадку пустих повідомлень або пошкоджених вкладень</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Включення збільшить витрату заряду акумулятора та даних</string>
+    <string name="title_account_raw_fetch_hint">Включення збільшить витрату заряду акумулятора та даних</string>
     <string name="title_color">Колір</string>
     <string name="title_calendar">Календар</string>
     <string name="title_background">Тло</string>
@@ -1292,6 +1293,7 @@
     <string name="title_style_clear">Очистити форматування</string>
     <string name="title_style_link">Вставити посилання</string>
     <string name="title_style_link_address">Адреса</string>
+    <string name="title_style_link_image">Вставити як зображення</string>
     <string name="title_style_link_title">Назва</string>
     <string name="title_style_link_metadata">Отримати заголовок</string>
     <string name="title_style_link_metadata_remark">Ця опція отримає заголовок на введену адресу</string>

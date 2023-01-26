@@ -191,7 +191,7 @@
     <string name="title_advanced_section_display">ପ୍ରଦର୍ଶନ</string>
     <string name="title_advanced_section_behavior">ଆଚରଣ</string>
     <string name="title_advanced_section_privacy">ଗୋପନୀୟତା</string>
-    <string name="title_advanced_section_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
+    <string name="title_advanced_section_encryption">ଗୂଢ଼ଲିଖନ</string>
     <string name="title_advanced_section_notifications">ବିଜ୍ଞପ୍ତିଗୁଡ଼ିକ</string>
     <string name="title_advanced_section_misc">ବିବିଧ</string>
     <string name="title_advanced_section_backup">ବ୍ୟାକଅପ୍</string>
@@ -210,6 +210,7 @@
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
     <string name="title_advanced_prefix_count">ପ୍ରତ୍ୟୁତ୍ତର ଉପସର୍ଗ ରେ ଗଣନା ଯୋଡ଼ନ୍ତୁ</string>
     <string name="title_advanced_signature_reply_once">କେବଳ ପ୍ରଥମ ପ୍ରତ୍ୟୁତ୍ତର ପାଇଁ</string>
+    <string name="title_advanced_discard_delete">ଡ୍ରାଫ୍ଟ କୁ ପରିତ୍ୟାଗ କଲେ ତାକୁ ସବୁଦିନ ପାଇଁ ଵିଲୋପ କରିଦେବା</string>
     <string name="title_advanced_reply_move">ଗୋଟେ ବାର୍ତ୍ତାର ପ୍ରତ୍ୟୁତ୍ତର ଦେବା ପରେ, ସେହି ଫୋଲ୍ଡରରେ ପ୍ରତ୍ୟୁତ୍ତରଟି ସଞ୍ଚୟ କରନ୍ତୁ</string>
     <string name="title_advanced_receipt">ଏକ ପାଉତି ଅନୁରୋଧ କଲାଵେଳେ</string>
     <string name="title_advanced_download_plain">ଡିଫଲ୍ଟ ଭାବେ କେବଳ ସାଧା ପାଠ୍ୟ ଥିବା ଅଂଶଗୁଡ଼ିକୁ ଡାଉନଲୋଡ୍ କରିବା (ଯଦି ଉପଲବ୍ଧ ଥାଏ)</string>
@@ -228,7 +229,7 @@
     <string name="title_advanced_nav_pin">ନେଵିଗେଶନ୍ ମେନୁ ପିନ୍ କରିବା</string>
     <string name="title_advanced_nav_hide_title">ନେଵିଗେଶନ୍ ମେନୁ ଵିକଳ୍ପଗୁଡ଼ିକ ଲୁଚାଇବେ ତ?</string>
     <string name="title_advanced_nav_pinned_count">ପିନ୍ ହୋଇଥିବା ନେଵିଗେଶନ୍ ମେନୁରେ ପଢ଼ିନଥିବା ଵାର୍ତ୍ତାଗୁଡ଼ିକର ସଂଖ୍ୟା ଦେଖାଇବା</string>
-    <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାଅ</string>
+    <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାଇବା</string>
     <string name="title_advanced_cards">ଟାବୁଲାର୍ ଶୈଳୀ ପରିଵର୍ତ୍ତେ କାର୍ଡ଼ ଶୈଳୀ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_cards_beige">କାର୍ଡ଼ ଶୈଳୀ ଵ୍ୟଵହାର କଲାଵେଳେ ବେଜ୍ ପୃଷ୍ଠପଟ ଵ୍ୟଵହାର କରିବା (କେଵଳ ହାଲୁକା ଥିମ୍ ପାଇଁ ପ୍ରଯୁଜ୍ୟ)</string>
     <string name="title_advanced_tabular_background">ଟାବୁଲାର୍ ଶୈଳୀ ଵ୍ୟଵହାର କଲାଵେଳେ କାର୍ଡ଼ ରଙ୍ଗକୁ ପୃଷ୍ଠପଟ ରଙ୍ଗ ଭାଵେ ଵ୍ୟଵହାର କରିବା</string>
@@ -237,8 +238,8 @@
     <string name="title_advanced_tabular_dividers">ଟାବୁଲାର୍ ଶୈଳୀ ଵ୍ୟଵହାର କଲାଵେଳେ ଵିଭାଜକ ରେଖା ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_date_header">ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ଵ୍ୟଵହାର କରିବା</string>
-    <string name="title_advanced_gravatars">ଗ୍ରାଵତାରସବୁ ଦେଖାଅ</string>
-    <string name="title_advanced_libravatars">ଲିବ୍ରାଵତାରସବୁ ଦେଖାଅ</string>
+    <string name="title_advanced_gravatars">ଗ୍ରାଵତାରସବୁ ଦେଖାଇବା</string>
+    <string name="title_advanced_libravatars">ଲିବ୍ରାଵତାରସବୁ ଦେଖାଇବା</string>
     <string name="title_advanced_favicons_partial">ୱେବ୍ ପୃଷ୍ଠାର କେବଳ ପ୍ରଥମ %1$s ସ୍କେନ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_name_email">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଦେଖାଇବା</string>
     <string name="title_advanced_highlight_subject">ବିଷୟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
@@ -249,6 +250,7 @@
     <string name="title_advanced_text_size">ପାଠ୍ୟ ଆକାର ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_text_font">ଫଣ୍ଟ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_text_align">ପାଠ୍ୟ ଶ୍ରେଣୀବଦ୍ଧତା ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_advanced_button_extra">ଵାର୍ତ୍ତାର ତଳେ ଅତିରିକ୍ତ ବଟନ୍ ଦେଖାଇବା</string>
     <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_bundled_fonts">ବଣ୍ଡଲ୍ ହୋଇଥିବା ଫଣ୍ଟ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_parse_classes">CSS କୁ ବିଶ୍ଳେଷଣ କରନ୍ତୁ</string>
@@ -294,6 +296,8 @@
     <string name="title_advanced_clear_all">ଆପ୍ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_advanced_clear_all_remark">ଆପ୍ ଡାଟା ଅପରିଵର୍ତ୍ତନୀୟ ଭାଵରେ ଵିଲୋପ ହୋଇଯିବ!</string>
     <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
+    <string name="title_advanced_autocrypt">ସ୍ୱତଃଗୂଢ଼ଲିଖନ ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_advanced_autocrypt_mutual">ସ୍ୱତଃଗୂଢ଼ଲିଖନ ପାରସ୍ପରିକ ମୋଡ୍</string>
     <string name="title_advanced_sort_answers">ବ୍ୟବହାରର ବାରମ୍ଵାରତା ଅନୁଯାୟୀ ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟଗୁଡ଼ିକୁ ସଜାନ୍ତୁ</string>
     <string name="title_advanced_fts">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ନିର୍ମାଣ କରିବା</string>
     <string name="title_advanced_language">ଭାଷା</string>
@@ -337,13 +341,14 @@
     <string name="title_identity_max_size">ସର୍ବାଧିକ ବାର୍ତ୍ତା ଆକାର (MB)</string>
     <string name="title_identity_receipt">ଡିଫଲ୍ଟ ଭାଵେ ଵିତରଣ/ପଠନ ପାଉତି ଅନୁରୋଧ କରିବା</string>
     <string name="title_identity_receipt_legacy">ପୁରୁଣା ପାଉତି-ଅନୁରୋଧ ଶୀର୍ଷଲେଖ ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_identity_self_hint">ଆପଣଙ୍କୁ ନିଜକୁ ପ୍ରତ୍ୟୁତ୍ତର ଦେବାରୁ ମଧ୍ୟ ପ୍ରତିରୋଧ କରେ</string>
     <string name="title_optional">ବୈକଳ୍ପିକ</string>
     <string name="title_recommended">ସୁପାରିଶ କରାଯାଇଛି</string>
     <string name="title_account_linked">ଲିଙ୍କ୍ ହୋଇଥିବା ଆକାଉଣ୍ଟ୍</string>
     <string name="title_account_name">ଆକାଉଣ୍ଟ୍ ନାମ</string>
     <string name="title_account_category">ବର୍ଗ</string>
     <string name="title_account_name_hint">ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ଭିନ୍ନ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହୁଏ</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">ଏହାକୁ ସକ୍ଷମ କରାଗଲେ ବ୍ୟାଟେରୀ ଓ ଡାଟା ଵ୍ୟଵହାର ଵୃଦ୍ଧି ପାଇବ</string>
+    <string name="title_account_raw_fetch_hint">ଏହାକୁ ସକ୍ଷମ କରାଗଲେ ବ୍ୟାଟେରୀ ଓ ଡାଟା ଵ୍ୟଵହାର ଵୃଦ୍ଧି ପାଇବ</string>
     <string name="title_color">ରଙ୍ଗ</string>
     <string name="title_calendar">କ୍ୟାଲେଣ୍ଡର</string>
     <string name="title_background">ପୃଷ୍ଠପଟ</string>
@@ -356,7 +361,7 @@
     <string name="title_provider">ପ୍ରଦାନକାରୀ</string>
     <string name="title_custom">କଷ୍ଟମ୍</string>
     <string name="title_host">ହୋଷ୍ଟ ନାମ</string>
-    <string name="title_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
+    <string name="title_encryption">ଗୂଢ଼ଲିଖନ</string>
     <string name="title_port">ପୋର୍ଟ ନମ୍ଵର୍</string>
     <string name="title_user">ଉପଭୋକ୍ତା ନାମ</string>
     <string name="title_password">ପାସ୍‍ୱାର୍ଡ଼</string>
@@ -364,6 +369,7 @@
     <string name="title_primary">ପ୍ରାଥମିକ</string>
     <string name="title_primary_account">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ଆକାଉଣ୍ଟ୍)</string>
     <string name="title_primary_identity">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ପରିଚୟ)</string>
+    <string name="title_self_identity">ପ୍ରତ୍ୟୁତ୍ତର ଦେଲାଵେଳେ ଇମେଲ୍ ଠିକଣା କାଢ଼ିଦେବା</string>
     <string name="title_leave_on_server">ସର୍ଵରରେ ଵାର୍ତ୍ତା ଛାଡ଼ିବା</string>
     <string name="title_leave_deleted">ଵିଲୋପିତ ଵାର୍ତ୍ତାଗୁଡ଼ିକୁ ସର୍ଵରରେ ଛାଡ଼ିବା</string>
     <string name="title_leave_on_device">ଡିଵାଇସରେ ଵାର୍ତ୍ତା ଛାଡ଼ିବା</string>
@@ -406,8 +412,8 @@
     <string name="title_contact_group">ଗୋଷ୍ଠୀ</string>
     <string name="title_import_contacts">vCards ଆମଦାନୀ କରନ୍ତୁ</string>
     <string name="title_export_contacts">vCards ରପ୍ତାନି କରନ୍ତୁ</string>
-    <string name="title_empty_trash_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ବାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବେ କି?</string>
-    <string name="title_empty_trash_all_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ଆକାଉଣ୍ଟର ସମସ୍ତ ବାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବେ କି?</string>
+    <string name="title_empty_trash_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ଵାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ଵିଲୋପ କରିବେ ତ?</string>
+    <string name="title_empty_trash_all_ask">ଆବର୍ଜନା ପାତ୍ରରେ ଥିବା ସମସ୍ତ ଆକାଉଣ୍ଟର ସମସ୍ତ ଵାର୍ତ୍ତା ସବୁଦିନ ପାଇଁ ଵିଲୋପ କରିବେ ତ?</string>
     <string name="title_delete_contacts">ଦୃଶ୍ୟମାନ ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକ ବିଲୋପ କରିବେ କି?</string>
     <string name="title_check_operations">ସଞ୍ଚାଳନ ପାଇଁ ଯାଞ୍ଚ କରୁଛି</string>
     <string name="title_folder_name">ଫୋଲ୍ଡର୍ ନାମ</string>
@@ -415,13 +421,15 @@
     <string name="title_search_folder">ଫୋଲ୍ଡର୍ ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="title_edit_account_name">ଆକାଉଣ୍ଟ୍ ନାମ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_hide_folder">ଫୋଲ୍ଡର୍ ଲୁଚାନ୍ତୁ</string>
-    <string name="title_hide_seen_folder">ଯଦି ସବୁ ବାର୍ତ୍ତା ପଠନ କରାଯାଏ ତେବେ ଫୋଲ୍ଡର୍ ଲୁଚାଅ</string>
+    <string name="title_hide_seen_folder">ସମସ୍ତ ଵାର୍ତ୍ତା ପଢ଼ିସାରିଲେ ଫୋଲ୍ଡର୍ ଲୁଚାଇଦେବା</string>
     <string name="title_hide_seen_folder_hint">କେଵଳ ଆକାଉଣ୍ଟ୍ ଏଵଂ ସନ୍ନିଵିଷ୍ଟ ଫୋଲ୍ଡର୍ ତାଲିକାରେ</string>
-    <string name="title_unified_folder">ସନ୍ନିଵିଷ୍ଟ ଇନବକ୍ସରେ ଦେଖାଅ</string>
+    <string name="title_unified_folder">ସନ୍ନିଵିଷ୍ଟ ଇନବକ୍ସରେ ଦେଖାଇବା</string>
     <string name="title_navigation_folder">ନେଵିଗେଶନ୍ ମେନୁରେ ଦେଖାଅ</string>
     <string name="title_navigation_folder_hide">ନେଵିଗେଶନ୍ ମେନୁରେ ଲୁଚାଅ</string>
-    <string name="title_auto_classify_target">ସ୍ୱଚାଳିତ ଭାଵେ ଵର୍ଗୀକୃତ ଵାର୍ତ୍ତାଗୁଡ଼ିକ ଏହି ଫୋଲ୍ଡରକୁ ଘୁଞ୍ଚାଯାଉ</string>
+    <string name="title_auto_classify_target">ସ୍ୱଚାଳିତ ଭାଵେ ଵର୍ଗୀକୃତ ଵାର୍ତ୍ତାଗୁଡ଼ିକୁ ଏହି ଫୋଲ୍ଡରକୁ ଘୁଞ୍ଚାଇ ଦିଆଯାଉ</string>
     <string name="title_sync_days_remark">ଏହି ମୂଲ୍ୟ ବଢ଼ାଇଲେ ବ୍ୟାଟେରୀ ଓ ଡାଟା ଵ୍ୟଵହାର ଵୃଦ୍ଧି ପାଇବ</string>
+    <string name="title_auto_trash">ସ୍ୱଚାଳିତ ଭାଵେ ପୁରୁଣା ଵାର୍ତ୍ତାଗୁଡ଼ିକୁ ଆବର୍ଜନା ପାତ୍ରରେ ପକେଇ ଦିଆଯାଉ</string>
+    <string name="title_auto_delete">ପୁରୁଣା ଵାର୍ତ୍ତାଗୁଡ଼ିକୁ ସ୍ୱଚାଳିତ ଭାଵେ ସବୁଦିନ ପାଇଁ ଵିଲୋପ କରାଯାଉ</string>
     <string name="title_folder_name_missing">ଫୋଲ୍ଡର୍ ନାମ ନିଖୋଜ</string>
     <string name="title_months">ମାସ</string>
     <string name="title_months_all">ସମସ୍ତ</string>
@@ -430,12 +438,15 @@
     <string name="title_folder_outbox">ଆଉଟବକ୍ସ</string>
     <string name="title_folder_trash">ଆବର୍ଜନା ପାତ୍ର</string>
     <string name="title_folder_system">ସିଷ୍ଟମ୍</string>
+    <string name="title_folder_user">ଉପଭୋକ୍ତା</string>
+    <string name="title_folder_user_only">କେଵଳ ଉପଭୋକ୍ତା ଫୋଲ୍ଡର୍</string>
     <string name="title_folders_unified">ସନ୍ନିଵିଷ୍ଟ ଇନବକ୍ସ ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="title_filters_active">ଗୋଟିଏ କିମ୍ବା ଅଧିକ ଶୋଧକ ସକ୍ରିୟ</string>
-    <string name="title_trashed_from">%1$sଙ୍କ ଠାରୁ ଆସିଥିବା ଆବର୍ଜନାରେ ଥିବା ବାର୍ତ୍ତା</string>
+    <string name="title_trashed_from">%1$sଙ୍କ ଠାରୁ ଆସିଥିବା ଆବର୍ଜନାରେ ଥିବା ଵାର୍ତ୍ତା</string>
     <string name="title_hide">ଲୁଚାଅ</string>
     <string name="title_unhide">ଦେଖାଅ</string>
     <string name="title_flag">ତାରା ଲଗାନ୍ତୁ</string>
+    <string name="title_set_importance">ଗୁରୁତ୍ୱ ସ୍ଥିର କରିବା</string>
     <string name="title_importance_low">ନିମ୍ନ</string>
     <string name="title_importance_normal">ସାଧାରଣ</string>
     <string name="title_importance_high">ଉଚ୍ଚ</string>
@@ -459,6 +470,7 @@
     <string name="title_delete_permanently">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_reply">ପ୍ରତ୍ୟୁତ୍ତର</string>
     <string name="title_reply_to_sender">ପ୍ରେରକଙ୍କୁ ପ୍ରତ୍ୟୁତ୍ତର ଦିଅ</string>
+    <string name="title_reply_to_recipient">ପ୍ରାପ୍ତେସୁଙ୍କୁ ପ୍ରତ୍ୟୁତ୍ତର ଦିଅ</string>
     <string name="title_reply_to_all">ସମସ୍ତଙ୍କୁ ପ୍ରତ୍ୟୁତ୍ତର ଦିଅ</string>
     <string name="title_reply_list">ତାଲିକାକୁ ପ୍ରତ୍ୟୁତ୍ତର ଦିଅ</string>
     <string name="title_reply_receipt">ପଠନ ପାଉତି ପଠାଇବା</string>
@@ -492,7 +504,7 @@
     <string name="title_subject">ବିଷୟ:</string>
     <string name="title_attachment">ସଂଲଗ୍ନକରଣ:</string>
     <string name="title_send">ପଠାନ୍ତୁ</string>
-    <string name="title_send_encryption">ଏନକ୍ରିପ୍ସନ୍</string>
+    <string name="title_send_encryption">ଗୂଢ଼ଲିଖନ</string>
     <string name="title_send_priority">ପ୍ରାଥମିକତା</string>
     <string name="title_send_sensitivity">ସମ୍ବେଦନଶୀଳତା</string>
     <string name="title_style">ଶୈଳୀ</string>
@@ -509,9 +521,10 @@
     <string name="title_style_font_default">ଡିଫଲ୍ଟ</string>
     <string name="title_style_indentation">ଇଣ୍ଡେଣ୍ଟେସନ୍</string>
     <string name="title_style_mark">ହାଇଲାଇଟ୍ କର</string>
-    <string name="title_style_link">ଲିଙ୍କ୍ ସନ୍ନିବେଶ କର</string>
+    <string name="title_style_link">ଲିଙ୍କ୍ ସନ୍ନିଵେଶ କର</string>
+    <string name="title_style_link_image">ପ୍ରତିଛଵି ଭାଵେ ସନ୍ନିଵେଶ କର</string>
     <string name="title_add_image">ପ୍ରତିଛବି ଯୋଡ଼ନ୍ତୁ</string>
-    <string name="title_add_image_inline">ସନ୍ନିବେଶ କର</string>
+    <string name="title_add_image_inline">ସନ୍ନିଵେଶ କର</string>
     <string name="title_add_image_attach">ସଂଲଗ୍ନ କର</string>
     <string name="title_add_image_resize">ଆକାର ବଦଳାନ୍ତୁ</string>
     <string name="title_add_image_privacy">ଗୋପନୀୟତା-ସମ୍ବେଦନଶୀଳ ତଥ୍ୟ ଅପସାରଣ କରନ୍ତୁ</string>
@@ -531,6 +544,7 @@
     <string name="title_extra_missing">ଉପଭୋକ୍ତା ନାମ ନିଖୋଜ</string>
     <string name="title_noreply_reminder">ଏକ \'ଉତ୍ତର-ଦିଅନି\' ଠିକଣାକୁ ପଠାଉଛି</string>
     <string name="title_resync">ପୁନଃସିଙ୍କ୍ କରନ୍ତୁ</string>
+    <string name="title_charset_auto">ସ୍ୱଚାଳିତ</string>
     <string name="title_signature_sender">ପ୍ରେରକଙ୍କ ଠିକଣା</string>
     <string name="title_signature_subject">ବିଷୟ</string>
     <string name="title_search">ସନ୍ଧାନ କରନ୍ତୁ</string>
@@ -541,13 +555,13 @@
     <string name="title_search_with_unseen">ଅପଠିତ</string>
     <string name="title_search_with_flagged">ତାରାଙ୍କିତ</string>
     <string name="title_search_with_hidden">ଲୁକ୍କାୟିତ (କେଵଳ ଡିଵାଇସରେ)</string>
-    <string name="title_search_with_encrypted">ଏନକ୍ରିପ୍ଟ ହୋଇଥିବା (କେଵଳ ଡିଵାଇସରେ)</string>
+    <string name="title_search_with_encrypted">ଗୂଢ଼ଲିଖିତ (କେଵଳ ଡିଵାଇସରେ)</string>
     <string name="title_search_in_trash">ଆବର୍ଜନା ପାତ୍ରରେ</string>
     <string name="title_search_device_first">ପ୍ରଥମେ ଡିଵାଇସରେ ଖୋଜିବା</string>
     <string name="title_search_flag_unseen">ଅପଠିତ</string>
     <string name="title_search_flag_flagged">ତାରାଙ୍କିତ</string>
     <string name="title_search_flag_hidden">ଲୁକ୍କାୟିତ</string>
-    <string name="title_search_flag_encrypted">ଏନକ୍ରିପ୍ଟ ହୋଇଥିବା</string>
+    <string name="title_search_flag_encrypted">ଗୂଢ଼ଲିଖିତ</string>
     <string name="title_search_flag_attachments">ସଂଲଗ୍ନକରଣ</string>
     <string name="title_search_flag_notes">ନୋଟଗୁଡ଼ିକ</string>
     <string name="title_search_flag_invite">ଆମନ୍ତ୍ରଣ</string>
@@ -577,7 +591,7 @@
     <string name="title_language_all">ସମସ୍ତ</string>
     <string name="title_previous">ପୂର୍ବବର୍ତ୍ତୀ</string>
     <string name="title_next">ପରବର୍ତ୍ତୀ</string>
-    <string name="title_edit_signature_image">ପ୍ରତିଛବି ସନ୍ନିବେଶ କର</string>
+    <string name="title_edit_signature_image">ପ୍ରତିଛଵି ସନ୍ନିଵେଶ କର</string>
     <string name="title_edit_signature_image_hint">        ଗୋଟିଏ ବାର୍ତ୍ତା ପଠାଇବାବେଳେ, ପ୍ରତିଛବି ମନୋନୀତ ସ୍ଥାନରୁ ସନ୍ଦେଶରେ କପି କରାଯାଇଥାଏ।
         ତେଣୁ, ପ୍ରତିଛବିର ଫାଇଲକୁ ବିଲୋପ କରନ୍ତୁନି!
     </string>
@@ -598,6 +612,7 @@
     <string name="title_rule_ignore">ବିଜ୍ଞପ୍ତି ଦମନ</string>
     <string name="title_rule_snooze">ସ୍ନୁଜ୍</string>
     <string name="title_rule_flag">ତାରା ଲଗାନ୍ତୁ</string>
+    <string name="title_rule_importance">ଗୁରୁତ୍ୱ ସ୍ଥିର କରିବା</string>
     <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_rule_tts">ପାଠ୍ୟ ରୁ କଥନ</string>
     <string name="title_rule_automation">ସ୍ୱଚାଳନ</string>
@@ -641,7 +656,7 @@
     <string name="title_legend_receipt">ପାଉତି ଅନୁରୋଧ କରାଯାଇଥିଲା</string>
     <string name="title_legend_open_external">ଆପ୍ ବାହାରେ ଖୋଲନ୍ତୁ</string>
     <string name="title_legend_cc">CC/BCC ଦେଖାଅ</string>
-    <string name="title_legend_link">ଲିଙ୍କ୍ ସନ୍ନିବେଶ କର</string>
+    <string name="title_legend_link">ଲିଙ୍କ୍ ସନ୍ନିଵେଶ କର</string>
     <string name="title_legend_photo">ଫଟୋ ଉଠାନ୍ତୁ</string>
     <string name="title_legend_audio">ଅଡ଼ିଓ ରେକର୍ଡ କର</string>
     <string name="title_legend_show_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
@@ -649,6 +664,7 @@
     <string name="title_legend_edit">ସମ୍ପାଦନ</string>
     <string name="title_legend_delete">ବିଲୋପ</string>
     <string name="title_legend_c">ରଚନା କରନ୍ତୁ</string>
+    <string name="title_legend_d">ଆବର୍ଜନା (ଵିଲୋପ)</string>
     <string name="title_legend_n">ପରବର୍ତ୍ତୀ</string>
     <string name="title_legend_p">ପୂର୍ବବର୍ତ୍ତୀ</string>
     <string name="title_legend_r">ପ୍ରତ୍ୟୁତ୍ତର</string>
@@ -659,7 +675,7 @@
     <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>
     <string name="title_undo">ପୂର୍ବବତ୍</string>
     <string name="title_redo">ପୁନଃକରଣ</string>
-    <string name="title_insert_line">ଲାଇନ୍ ସନ୍ନିବେଶ କର</string>
+    <string name="title_insert_line">ଲାଇନ୍ ସନ୍ନିଵେଶ କର</string>
     <string name="title_insert_brackets">ବନ୍ଧନୀରେ ଆବଦ୍ଧ</string>
     <string name="title_insert_quotes">ଉଦ୍ଧୃତ</string>
     <string name="title_add">ଯୋଡ଼ନ୍ତୁ</string>
@@ -690,7 +706,7 @@
     <string name="title_widget_folder_unified">ସନ୍ନିଵିଷ୍ଟ ଇନବକ୍ସ ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="title_widget_font_size">ପାଠ୍ୟ ଆକାର</string>
     <string name="title_widget_padding">ପ୍ୟାଡିଂ ଆକାର</string>
-    <string name="title_widget_avatars">ସମ୍ପର୍କ ଅବତାରସବୁ ଦେଖାଅ</string>
+    <string name="title_widget_avatars">ସମ୍ପର୍କ ଅଵତାରସବୁ ଦେଖାଇବା</string>
     <string name="title_widget_background">ପୃଷ୍ଠପଟ ରଙ୍ଗ</string>
     <string name="title_widget_day_night">ସିଷ୍ଟମର ଗାଢ଼ ଥିମକୁ ଅନୁସରଣ କରିବା</string>
     <!-- Thunderbird -->

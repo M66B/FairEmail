@@ -214,6 +214,7 @@
     <string name="title_setup_doze_remark">Pour envoyer et recevoir des courriels de manière fiable en arrière-plan</string>
     <string name="title_setup_doze_explanation">Les optimisations de la pile doivent être désactivées pour que l\'application assure un envoi et une réception fiables des messages en arrière-plan</string>
     <string name="title_setup_doze_hint">Bien que cela puisse sembler contradictoire, désactiver les optimisations de pile pour cette application entraînera une diminution de l\'utilisation de la pile</string>
+    <string name="title_setup_doze_aggressively">Cet appareil peut arrêter le service de synchronisation</string>
     <string name="title_setup_doze_why">Pourquoi l\'optimisation de la pile devrait-elle être désactivée?</string>
     <string name="title_setup_doze_instructions">Dans la prochaine fenêtre de dialogue Android, changez « Non optimisées » en « Toutes les applications », sélectionnez cette application et cochez « Ne pas optimiser »</string>
     <string name="title_setup_doze_battery">Utilisation élevée de la pile?</string>
@@ -560,10 +561,10 @@
     <string name="title_advanced_quick_actions">Afficher les actions rapides lorsque des messages sont sélectionnés</string>
     <string name="title_advanced_folder_nav">Toujours revenir à la liste des dossiers à partir d\'une liste de messages</string>
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
-    <string name="title_advanced_star_snoozed">Marquer automatiquement les messages comme suivis lors de leur report</string>
     <string name="title_advanced_autounstar">Retirer automatiquement l’étoile de suivi des messages lors de leur déplacement</string>
-    <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_reset_importance">Réinitialiser l’importance lors du déplacement des messages</string>
+    <string name="title_advanced_star_snoozed">Marquer automatiquement les messages comme suivis lors de leur report</string>
+    <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_cancel_snooze">Annuler le report des messages lors de leur déplacement</string>
     <string name="title_advanced_auto_block_sender">Bloquer automatiquement l\'expéditeur lors du signalement de courrier indésirable</string>
     <string name="title_advanced_swipe_reply">Balayer vers la droite les messages dépliés pour répondre</string>
@@ -826,7 +827,7 @@
     <string name="title_account_interval_hint">Fréquence de rafraîchissement de la connexion pour les messages poussés ou fréquence de vérification des nouveaux messages</string>
     <string name="title_account_noop_hint">Ceci actualisera la connexion plus activement mais utilisera également plus de batterie</string>
     <string name="title_account_partial_fetch_hint">Désactiver ceci seulement en cas de messages vides ou de pièces jointes corrompues</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Activer ceci augmentera l\'utilisation de la pile et des données</string>
+    <string name="title_account_raw_fetch_hint">Activer ceci augmentera l\'utilisation de la pile et des données</string>
     <string name="title_color">Couleur</string>
     <string name="title_calendar">Calendrier</string>
     <string name="title_background">Arrière-plan</string>
@@ -1270,6 +1271,7 @@
     <string name="title_style_clear">Effacer la mise en forme</string>
     <string name="title_style_link">Insérer un lien</string>
     <string name="title_style_link_address">Adresse</string>
+    <string name="title_style_link_image">Insérer en tant qu\'image</string>
     <string name="title_style_link_title">Titre</string>
     <string name="title_style_link_metadata">Récupérer le titre</string>
     <string name="title_style_link_metadata_remark">Ceci récupérera le titre à l\'adresse saisie</string>

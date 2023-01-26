@@ -467,10 +467,10 @@
     <string name="title_advanced_quick_scroll">Erakutsi azkar gora/behera korritzeko ikonoak</string>
     <string name="title_advanced_folder_nav">Itzuli beti karpeten zerrendara mezuen zerrrendatik</string>
     <string name="title_advanced_autoread">Markatu mezuak irakurrita gisa hauek mugitzean</string>
-    <string name="title_advanced_star_snoozed">Gehitu automatikoki izarra atzeratutako mezuetan</string>
     <string name="title_advanced_autounstar">Kendu izarrak mezuetatik hauek mugitzean</string>
-    <string name="title_advanced_auto_important">Bihurtu izardun mezuak garrantzitsu automatikoki</string>
     <string name="title_advanced_reset_importance">Berrezarri garrantzia mezuak mugitzean</string>
+    <string name="title_advanced_star_snoozed">Gehitu automatikoki izarra atzeratutako mezuetan</string>
+    <string name="title_advanced_auto_important">Bihurtu izardun mezuak garrantzitsu automatikoki</string>
     <string name="title_advanced_notifications">Kudeatu jakinarazpenak</string>
     <string name="title_advanced_notifications_default">Kanal lehenetsia</string>
     <string name="title_advanced_badge">Erakutsi mezu berrien kopurua abiarazleko ikonoan</string>

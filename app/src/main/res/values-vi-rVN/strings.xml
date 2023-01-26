@@ -525,10 +525,10 @@
     <string name="title_advanced_quick_scroll">Hiện biểu tượng cuộn lên/xuống nhanh không gây phiền</string>
     <string name="title_advanced_folder_nav">Luôn quay lại danh sách thư mục từ danh sách thư</string>
     <string name="title_advanced_autoread">Tự động đánh dấu thư đã đọc khi di chuyển thư</string>
-    <string name="title_advanced_star_snoozed">Tự động thêm sao khi đặt báo lại thư</string>
     <string name="title_advanced_autounstar">Tự động bỏ sao khỏi thư khi di chuyển thư</string>
-    <string name="title_advanced_auto_important">Tự động làm cho thư được gắn sao trở nên quan trọng</string>
     <string name="title_advanced_reset_importance">Đặt lại tầm quan trọng khi di chuyển thư</string>
+    <string name="title_advanced_star_snoozed">Tự động thêm sao khi đặt báo lại thư</string>
+    <string name="title_advanced_auto_important">Tự động làm cho thư được gắn sao trở nên quan trọng</string>
     <string name="title_advanced_swipe_reply">Vuốt thư đã mở rộng sang phải để trả lời</string>
     <string name="title_advanced_default_snooze">Thời gian trễ/báo lại mặc định</string>
     <string name="title_advanced_notifications">Quản lý thông báo</string>

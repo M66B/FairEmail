@@ -390,6 +390,7 @@
     <string name="title_advanced_send_reminders">Паказваць напаміны</string>
     <string name="title_advanced_send_delayed">Затрымка адпраўкі паведамленняў</string>
     <string name="title_advanced_attach_new">Дадаваць файлы, якімі вы падзяліліся, у новы чарнавік</string>
+    <string name="title_advanced_answer_default">Кароткае націсканне на кнопку адказу выкліча:</string>
     <string name="title_advanced_answer_action">Доўгае націсканне на кнопку адказу выкліча:</string>
     <string name="title_advanced_send_pending">Паказваць непрыкметны значок затрымкі адпраўкі</string>
     <string name="title_advanced_auto_save_paragraph">Аўтаматычна захоўваць чарнавік пасля заканчэння кожнага абзаца</string>
@@ -462,6 +463,7 @@
     <string name="title_advanced_nav_pin">Замацаваць меню навігацыі</string>
     <string name="title_advanced_nav_hide_title">Схаваць параметры меню навігацыі?</string>
     <string name="title_advanced_nav_hide_message">Вы можаце паўторна ўключыць параметры ў наладах экрана</string>
+    <string name="title_advanced_nav_last_sync">Паказваць час апошняй сінхранізацыі ў меню навігацыі</string>
     <string name="title_advanced_nav_message_count">Паказваць колькасць лакальна захаваных паведамленняў у меню навігацыі</string>
     <string name="title_advanced_nav_unseen_drafts">Паказваць колькасць непрачытаных чарнавікоў у меню навігацыі</string>
     <string name="title_advanced_nav_pinned_count">Паказваць колькасць непрачытаных паведамленняў у замацаваным меню навігацыі</string>
@@ -575,6 +577,7 @@
     <string name="title_advanced_expand_one">Разгортваць толькі адно паведамленне за раз</string>
     <string name="title_advanced_collapse_multiple">Згортваць паведамленні ў размове з некалькімі паведамленнямі кнопкай \'назад\'</string>
     <string name="title_advanced_autoclose">Аўтаматычна закрываць размовы</string>
+    <string name="title_advanced_autoclose_send">Аўтаматычна закрываць размовы пасля адпраўкі паведамленняў</string>
     <string name="title_advanced_onclose">Пры закрыцці размовы</string>
     <string name="title_advanced_autoclose_unread">Закрываць размовы пры адзначэнні паведамленняў як непрачытаных</string>
     <string name="title_advanced_collapse_marked">Згортваць паведамленні, адзначаныя як прачытаныя або непрачытаныя ўручную</string>
@@ -584,11 +587,12 @@
     <string name="title_advanced_quick_actions">Паказваць хуткія дзеянні пры выбары паведамленняў</string>
     <string name="title_advanced_folder_nav">Заўсёды вяртацца ў спіс папак са спісу паведамленняў</string>
     <string name="title_advanced_autoread">Аўтаматычна адзначаць паведамленні як прачытаныя ў пры перамяшчэнні паведамленняў</string>
-    <string name="title_advanced_star_snoozed">Аўтаматычна пазначаць адкладзеныя паведамленні</string>
     <string name="title_advanced_autounstar">Аўтаматычна выдаляць пазнакі пры перамяшчэнні паведамленняў</string>
-    <string name="title_advanced_auto_important">Аўтаматычна рабіць важнымі пазначаныя паведамленні</string>
     <string name="title_advanced_reset_importance">Скідваць важнасць паведамленняў пры іх перамяшчэнні</string>
+    <string name="title_advanced_star_snoozed">Аўтаматычна пазначаць адкладзеныя паведамленні</string>
+    <string name="title_advanced_auto_important">Аўтаматычна рабіць важнымі пазначаныя паведамленні</string>
     <string name="title_advanced_cancel_snooze">Адмяняць адкладанне пры перамяшчэнні паведамленняў</string>
+    <string name="title_advanced_auto_block_sender">Аўтаматычна блакіраваць адпраўніка пры паведамленні пра спам</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
     <string name="title_advanced_default_snooze">Час адкладання/затрымкі па змаўчанні</string>
     <string name="title_advanced_notifications">Кіраваць апавяшчэннямі</string>
@@ -848,6 +852,7 @@
     <string name="title_account_interval_hint">Частата абнаўлення злучэння для апавяшчэнняў або частата праверкі новых паведамленняў</string>
     <string name="title_account_noop_hint">Гэта опцыя дазволіць больш актыўна абнаўляць злучэнне, але таксама выкліча большае спажыванне энергіі батарэі</string>
     <string name="title_account_partial_fetch_hint">Адключайце гэту опцыю толькі ў выпадку пустых паведамленняў або пашкоджаных укладанняў</string>
+    <string name="title_account_raw_fetch_hint">Уключэнне гэтай опцыі прывядзе да павялічвання выкарыстання батарэі і перадачы даных</string>
     <string name="title_color">Колер</string>
     <string name="title_calendar">Каляндар</string>
     <string name="title_background">Фон</string>
@@ -927,6 +932,7 @@
     <string name="title_account_delete">Выдаліць гэты ўліковы запіс назаўсёды?</string>
     <string name="title_identity_delete">Выдаліць гэты ідэнтыфікатар назаўсёды?</string>
     <string name="title_edit_html">Рэдагаваць як HTML</string>
+    <string name="title_check_html">Праверыць HTML</string>
     <string name="title_import_file">Імпартаваць файл</string>
     <string name="title_sign_key">Ключ подпісу: %1$s</string>
     <string name="title_last_connected">Апошняе злучэнне: %1$s</string>
@@ -1157,6 +1163,7 @@
     <string name="title_reply_receipt">Адправіць апавяшчэнне аб прачытанні</string>
     <string name="title_reply_hard_bounce">Адправіць жорсткую адмову</string>
     <string name="title_reply_template">Адказаць з дапамогай шаблону</string>
+    <string name="title_reply_menu">Паказваць меню выбару</string>
     <string name="title_move_undo">Перамяшчэнне ў %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s аўтэнтыфікацыя не ўдалася</string>
     <string name="title_on_blocklist">У спісе блакіроўкі спаму</string>
@@ -1290,6 +1297,7 @@
     <string name="title_style_clear">Ачысціць фарматаванне</string>
     <string name="title_style_link">Уставіць спасылку</string>
     <string name="title_style_link_address">Адрас</string>
+    <string name="title_style_link_image">Уставіць як выяву</string>
     <string name="title_style_link_title">Назва</string>
     <string name="title_style_link_metadata">Атрымаць загаловак</string>
     <string name="title_style_link_metadata_remark">Гэта прывядзе да атрымання загалоўка для ўведзенага адраса</string>

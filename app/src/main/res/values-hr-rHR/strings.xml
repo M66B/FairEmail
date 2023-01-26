@@ -522,10 +522,10 @@
     <string name="title_advanced_quick_scroll">Pokaži nenametljive ikone za brzo pomicanje prema gore / dolje</string>
     <string name="title_advanced_folder_nav">Uvijek se vrati na popis mapa s popisa poruka</string>
     <string name="title_advanced_autoread">Automatski označiti poruke kao pročitane u pokretu poruka</string>
-    <string name="title_advanced_star_snoozed">Automatski dodaj zvjezdicu pri odgađaju poruka</string>
     <string name="title_advanced_autounstar">Automatsko uklanjanje zvijezda iz poruka prema pokretu</string>
-    <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_reset_importance">Povrati važnost pri pokretu poruke</string>
+    <string name="title_advanced_star_snoozed">Automatski dodaj zvjezdicu pri odgađaju poruka</string>
+    <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_swipe_reply">Povuci proširene poruke udesno za odgovor</string>
     <string name="title_advanced_default_snooze">Zadano vrijeme odlaganja/odgađanja</string>
     <string name="title_advanced_notifications">Upravljaj obavijestima</string>

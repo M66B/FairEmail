@@ -585,10 +585,10 @@
     <string name="title_advanced_quick_actions">Prikaži hitra dejanja, ko izberem sporočila</string>
     <string name="title_advanced_folder_nav">Vedno se vrni na seznam map s seznama sporoil</string>
     <string name="title_advanced_autoread">Ob premikanju sporočil samodejno označi sporočila kot prebrana</string>
-    <string name="title_advanced_star_snoozed">Ob dremežu sporočil samodejno dodaj zvezdico</string>
     <string name="title_advanced_autounstar">Ob premikanju sporočil samodejno odstrani zvezdice</string>
-    <string name="title_advanced_auto_important">Samodejno naredi sporočila, označena z zvezdico, pomembna</string>
     <string name="title_advanced_reset_importance">Ponastavi pomembnost ob premikanju sporočil</string>
+    <string name="title_advanced_star_snoozed">Ob dremežu sporočil samodejno dodaj zvezdico</string>
+    <string name="title_advanced_auto_important">Samodejno naredi sporočila, označena z zvezdico, pomembna</string>
     <string name="title_advanced_cancel_snooze">Prekliči dremež ob premikanju sporočil</string>
     <string name="title_advanced_auto_block_sender">Pri prijavi neželene pošte samodejno blokiraj pošiljatelja</string>
     <string name="title_advanced_swipe_reply">Potegni razširjena sporočila desno za odgovor</string>
@@ -849,7 +849,7 @@
     <string name="title_account_interval_hint">Pogostost osveževanja povezave za potisna sporočila ali preverjanja za nova sporočila.</string>
     <string name="title_account_noop_hint">To bo dejavneje osveževalo povezavo, vendar tudi porabilo več energije.</string>
     <string name="title_account_partial_fetch_hint">Onemogočite to samo v primeru praznih sporočil ali okvarjenih prilog.</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Omogočanje tega bo povečalo porabo energije in podatkov.</string>
+    <string name="title_account_raw_fetch_hint">Omogočanje tega bo povečalo porabo energije in podatkov.</string>
     <string name="title_color">Barva</string>
     <string name="title_calendar">Koledar</string>
     <string name="title_background">Ozadje</string>

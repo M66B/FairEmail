@@ -559,10 +559,10 @@
     <string name="title_advanced_quick_actions">Näytä pikatoiminnot, kun viestejä on valittu</string>
     <string name="title_advanced_folder_nav">Siirry viestilistasta takaisin kansiolistaan</string>
     <string name="title_advanced_autoread">Merkitse viestit luetuiksi siirrettäessä</string>
-    <string name="title_advanced_star_snoozed">Lisää tähti torkutettaessa viestejä</string>
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
-    <string name="title_advanced_auto_important">Merkitse tähdelliset viestit tärkeiksi</string>
     <string name="title_advanced_reset_importance">Palauta oma tärkeysjärjestys oletusasetukseen siirrettäessä</string>
+    <string name="title_advanced_star_snoozed">Lisää tähti torkutettaessa viestejä</string>
+    <string name="title_advanced_auto_important">Merkitse tähdelliset viestit tärkeiksi</string>
     <string name="title_advanced_cancel_snooze">Peruuta torkku, kun viestejä siirrettään</string>
     <string name="title_advanced_auto_block_sender">Estä lähettäjä ilmoittaessa roskapostista</string>
     <string name="title_advanced_swipe_reply">Vastaa pyyhkäisemällä laajennetut viestit oikealle</string>
@@ -823,7 +823,7 @@
     <string name="title_account_interval_hint">Push-viestien tai uusien viestien tarkistuksen aikaväli</string>
     <string name="title_account_noop_hint">Tämä päivittää yhteyttä useammin, mutta käyttää enemmän akkua</string>
     <string name="title_account_partial_fetch_hint">Kytke tämä pois ainoastaan, jos ilmenee tyhjiä viestejä tai korruptoituneita liitteitä</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Tämä lisää akun ja datan käyttöä</string>
+    <string name="title_account_raw_fetch_hint">Tämä lisää akun ja datan käyttöä</string>
     <string name="title_color">Väri</string>
     <string name="title_calendar">Kalenteri</string>
     <string name="title_background">Tausta</string>

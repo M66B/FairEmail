@@ -563,10 +563,10 @@
     <string name="title_advanced_quick_scroll">Zobraziť neobťažujúce ikonky pre rýchly posun nahor/nadol</string>
     <string name="title_advanced_folder_nav">Zo zoznamu správ vždy prejsť späť do zoznamu priečinkov</string>
     <string name="title_advanced_autoread">Po presunutí správy automaticky označiť ako prečítané</string>
-    <string name="title_advanced_star_snoozed">Automaticky pridať hviezdičku po odložení správ</string>
     <string name="title_advanced_autounstar">Automaticky odstrániť hviezdičku po presunutí správ</string>
-    <string name="title_advanced_auto_important">Automaticky nastaviť vysokú prioritu pre správy s hviezdičkou</string>
     <string name="title_advanced_reset_importance">Zrušiť nastavenie priority po presunutí správ</string>
+    <string name="title_advanced_star_snoozed">Automaticky pridať hviezdičku po odložení správ</string>
+    <string name="title_advanced_auto_important">Automaticky nastaviť vysokú prioritu pre správy s hviezdičkou</string>
     <string name="title_advanced_swipe_reply">Odpovedať švihnutím rozbalených správ vpravo</string>
     <string name="title_advanced_default_snooze">Predvolený čas odloženia</string>
     <string name="title_advanced_notifications">Spravovať upozornenia</string>

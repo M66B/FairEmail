@@ -214,6 +214,7 @@
     <string name="title_setup_doze_remark">Para enviar y recibir correo electrónico de forma confiable en segundo plano</string>
     <string name="title_setup_doze_explanation">Las optimizaciones de la batería deben desactivarse para la aplicación para asegurar que el envío y la recepción de mensajes en segundo plano sean confiables</string>
     <string name="title_setup_doze_hint">Aunque esto pueda sonar contradictorio, desactivar las optimizaciones de la batería resultará en un menor uso de la batería</string>
+    <string name="title_setup_doze_aggressively">Este dispositivo podría detener el servicio de sincronización</string>
     <string name="title_setup_doze_why">¿Por qué deberían desactivarse las optimizaciones de la batería?</string>
     <string name="title_setup_doze_instructions">En el siguiente cuadro de diálogo de Android cambiar \"Sin optimizar\" a \"Todas las aplicaciones\", seleccione esta aplicación y seleccione \"No optimizar\"</string>
     <string name="title_setup_doze_battery">¿Consumo de batería elevado?</string>
@@ -559,10 +560,10 @@
     <string name="title_advanced_quick_actions">Mostrar acciones rápidas cuando mensajes están seleccionados</string>
     <string name="title_advanced_folder_nav">Siempre volver a la lista de carpetas de una lista de mensajes</string>
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
-    <string name="title_advanced_star_snoozed">Destacar automáticamente al posponer mensajes</string>
     <string name="title_advanced_autounstar">Eliminar automáticamente la estrella de los mensajes al ser movidos</string>
-    <string name="title_advanced_auto_important">Hacer que los mensajes destacados sean importantes automáticamente</string>
     <string name="title_advanced_reset_importance">Restablecer importancia al mover mensajes</string>
+    <string name="title_advanced_star_snoozed">Destacar automáticamente al posponer mensajes</string>
+    <string name="title_advanced_auto_important">Hacer que los mensajes destacados sean importantes automáticamente</string>
     <string name="title_advanced_cancel_snooze">Cancelar posponer al mover mensajes</string>
     <string name="title_advanced_auto_block_sender">Bloquear automáticamente al remitente al reportar como spam</string>
     <string name="title_advanced_swipe_reply">Deslice los mensajes expandidos a la derecha para responder</string>
@@ -824,7 +825,7 @@
     <string name="title_account_interval_hint">Frecuencia de actualizar la conexión para mensajes push o frecuencia de comprobación de nuevos mensajes</string>
     <string name="title_account_noop_hint">Esto actualizará la conexión más activamente, pero también usará más batería</string>
     <string name="title_account_partial_fetch_hint">Desactivar esto sólo en caso de mensajes vacíos o adjuntos corruptos</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Activar esto aumentará el uso de batería y datos</string>
+    <string name="title_account_raw_fetch_hint">Activar esto aumentará el uso de batería y datos</string>
     <string name="title_color">Color</string>
     <string name="title_calendar">Calendario</string>
     <string name="title_background">Fondo</string>
@@ -1265,6 +1266,7 @@
     <string name="title_style_clear">Quitar formato</string>
     <string name="title_style_link">Insertar enlace</string>
     <string name="title_style_link_address">Dirección</string>
+    <string name="title_style_link_image">Insertar como una imagen</string>
     <string name="title_style_link_title">Título</string>
     <string name="title_style_link_metadata">Obtener título</string>
     <string name="title_style_link_metadata_remark">Esto obtendrá el título en la dirección introducida</string>

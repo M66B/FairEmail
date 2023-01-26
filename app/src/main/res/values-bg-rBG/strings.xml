@@ -354,10 +354,10 @@
     <string name="title_advanced_quick_filter">Показване на ненатрапчиви икони за бърз филтър</string>
     <string name="title_advanced_quick_scroll">Показване на ненатрапчиви икони за бързо превъртане нагоре/надолу</string>
     <string name="title_advanced_autoread">Автоматично маркиране на съобщения като прочетени при преместване им</string>
-    <string name="title_advanced_star_snoozed">Автоматично добавяне на звезда при отхвърлени съобщения</string>
     <string name="title_advanced_autounstar">Автоматично премахване на звездите от съобщенията при преместване им</string>
-    <string name="title_advanced_auto_important">Автоматично прави съобщенията със звезда важни</string>
     <string name="title_advanced_reset_importance">Нулирай важността при преместване на съобщения</string>
+    <string name="title_advanced_star_snoozed">Автоматично добавяне на звезда при отхвърлени съобщения</string>
+    <string name="title_advanced_auto_important">Автоматично прави съобщенията със звезда важни</string>
     <string name="title_advanced_notifications">Управление на известията</string>
     <string name="title_advanced_notifications_default">Канал по подразбиране</string>
     <string name="title_advanced_badge">Покажети иконата на стартовия панел с брой нови съобщения</string>

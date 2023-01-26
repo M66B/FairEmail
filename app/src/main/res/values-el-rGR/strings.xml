@@ -559,10 +559,10 @@
     <string name="title_advanced_quick_actions">Προβολή γρήγορων ενεργειών όταν μηνύματα είναι επιλεγμένα</string>
     <string name="title_advanced_folder_nav">Πάντα επιστροφή στη λίστα φακέλων από μια λίστα μηνυμάτων</string>
     <string name="title_advanced_autoread">Αυτόματη σήμανση των μηνυμάτων ως αναγνωσμένων κατά τη μετακίνησή τους</string>
-    <string name="title_advanced_star_snoozed">Αυτόματη προσθήκη αστεριού στα υπό αναβολή μηνύματα</string>
     <string name="title_advanced_autounstar">Αυτόματη αφαίρεση των αστεριών από τα μηνύματα κατά τη μετακίνησή τους</string>
-    <string name="title_advanced_auto_important">Να επισημαίνονται αυτόματα ως σημαντικά τα μηνύματα με αστέρια</string>
     <string name="title_advanced_reset_importance">Επαναφορά του βαθμού σημαντικότητας κατά τη μετακίνηση των μηνυμάτων</string>
+    <string name="title_advanced_star_snoozed">Αυτόματη προσθήκη αστεριού στα υπό αναβολή μηνύματα</string>
+    <string name="title_advanced_auto_important">Να επισημαίνονται αυτόματα ως σημαντικά τα μηνύματα με αστέρια</string>
     <string name="title_advanced_cancel_snooze">Ακύρωση αναβολής κατά τη μετακίνηση μηνυμάτων</string>
     <string name="title_advanced_auto_block_sender">Αυτόματος αποκλεισμός του αποστολέα κατά την αναφορά μηνύματος ως ανεπιθύμητου</string>
     <string name="title_advanced_swipe_reply">Σύρετε προς τα δεξιά τα αναπτυγμένα μηνύματα για να απαντήσετε</string>
@@ -822,7 +822,7 @@
     <string name="title_account_interval_hint">Συχνότητα ανανέωσης της σύνδεσης για μηνύματα ώθησης (push) ή συχνότητα ελέγχου για νέα μηνύματα</string>
     <string name="title_account_noop_hint">Αυτό θα ανανεώνει τη σύνδεση πιο ενεργά, αλλά θα χρησιμοποιεί, επίσης, περισσότερη μπαταρία</string>
     <string name="title_account_partial_fetch_hint">Απενεργοποιήστε το μόνο σε περιπτώσεις κενών μηνυμάτων ή χαλασμένων συνημμένων</string>
-    <string name="title_account_raw_fetch_hint" comment="title_account_raw_fetch_hint&#10;Remark for raw fetch option">Αν ενεργοποιηθεί, θα αυξηθεί η κατανάλωση μπαταρίας και δεδομένων</string>
+    <string name="title_account_raw_fetch_hint">Αν ενεργοποιηθεί, θα αυξηθεί η κατανάλωση μπαταρίας και δεδομένων</string>
     <string name="title_color">Χρώμα</string>
     <string name="title_calendar">Ημερολόγιο</string>
     <string name="title_background">Φόντο</string>
@@ -1263,6 +1263,7 @@
     <string name="title_style_clear">Εκκαθάριση μορφοποίησης</string>
     <string name="title_style_link">Εισαγωγή συνδέσμου</string>
     <string name="title_style_link_address">Διεύθυνση</string>
+    <string name="title_style_link_image">Εισαγωγή ως εικόνα</string>
     <string name="title_style_link_title">Τίτλος</string>
     <string name="title_style_link_metadata">Ανάκτηση τίτλου</string>
     <string name="title_style_link_metadata_remark">Με αυτό θα γίνει ανάκτηση του τίτλου και της εισαχθείσας διεύθυνσης</string>

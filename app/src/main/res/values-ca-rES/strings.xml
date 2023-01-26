@@ -326,10 +326,10 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_quick_filter">Mostra les icones de filtre ràpid que no són obtrusives</string>
     <string name="title_advanced_quick_scroll">Mostra les icones de desplaçament ràpid cap amunt i cap avall que no són obtrusives</string>
     <string name="title_advanced_autoread">Automàticament marca els missatges llegits en missatges moguts</string>
-    <string name="title_advanced_star_snoozed">Afegiu automàticament estrella als missatges retardats</string>
     <string name="title_advanced_autounstar">Elimina automàticament les estrelles dels missatges quan es moguin els missatges</string>
-    <string name="title_advanced_auto_important">Posar estrella automàticament als missatges importants</string>
     <string name="title_advanced_reset_importance">Restablir la importància per moure missatges</string>
+    <string name="title_advanced_star_snoozed">Afegiu automàticament estrella als missatges retardats</string>
+    <string name="title_advanced_auto_important">Posar estrella automàticament als missatges importants</string>
     <string name="title_advanced_notifications">Gestiona les notificacions</string>
     <string name="title_advanced_notifications_default">Canal per defecte</string>
     <string name="title_advanced_badge">Mostra la icona del llançador amb nombre de missatges nous</string>

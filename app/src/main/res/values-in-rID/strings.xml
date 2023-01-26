@@ -523,10 +523,10 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_quick_filter">Tampilkan ikon filter cepat yang tidak mengganggu</string>
     <string name="title_advanced_quick_scroll">Tampilkan ikon gulir cepat ke atas/bawah yang tidak mengganggu</string>
     <string name="title_advanced_autoread">Secara otomatis menandai pesan telah terbaca saat memindahkan pesan</string>
-    <string name="title_advanced_star_snoozed">Secara otomatis menambahkan bintang saat penundaan pesan</string>
     <string name="title_advanced_autounstar">Secara otomatis menghapus bintang saat memindahkan pesan</string>
-    <string name="title_advanced_auto_important">Secara otomatis pesan berbintang menjadi pesan penting</string>
     <string name="title_advanced_reset_importance">Atur ulang \'label penting\' saat pesan di pindah</string>
+    <string name="title_advanced_star_snoozed">Secara otomatis menambahkan bintang saat penundaan pesan</string>
+    <string name="title_advanced_auto_important">Secara otomatis pesan berbintang menjadi pesan penting</string>
     <string name="title_advanced_swipe_reply">Usap ke kanan pesan yang dibentangkan untuk balas</string>
     <string name="title_advanced_default_snooze">Waktu tunda/jeda bawaan</string>
     <string name="title_advanced_notifications">Kelola pemberitahuan</string>

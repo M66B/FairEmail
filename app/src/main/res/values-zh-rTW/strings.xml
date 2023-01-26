@@ -519,10 +519,10 @@
     <string name="title_advanced_quick_scroll">顯示無存在感的快速向上/下滾動圖示</string>
     <string name="title_advanced_folder_nav">永遠從郵件列表返回文件夾列表</string>
     <string name="title_advanced_autoread">移動訊息時自動標示訊息為已讀取</string>
-    <string name="title_advanced_star_snoozed">自動在延後訊息上添加星號</string>
     <string name="title_advanced_autounstar">移動訊息時自動移除其中包含的星號</string>
-    <string name="title_advanced_auto_important">自動標記已加星號訊息為重要的</string>
     <string name="title_advanced_reset_importance">移動訊息時重設重要性</string>
+    <string name="title_advanced_star_snoozed">自動在延後訊息上添加星號</string>
+    <string name="title_advanced_auto_important">自動標記已加星號訊息為重要的</string>
     <string name="title_advanced_swipe_reply">右滑已展開的郵件進行回覆</string>
     <string name="title_advanced_default_snooze">預設延後/延遲時間</string>
     <string name="title_advanced_notifications">管理通知</string>
