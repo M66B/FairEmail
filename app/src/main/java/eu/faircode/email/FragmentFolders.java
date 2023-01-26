@@ -155,7 +155,7 @@ public class FragmentFolders extends FragmentBase {
         compact = prefs.getBoolean("compact_folders", true);
         show_hidden = false; // prefs.getBoolean("hidden_folders", false);
         show_flagged = prefs.getBoolean("flagged_folders", false);
-        hide_toolbar = prefs.getBoolean("hide_toolbar", false);
+        hide_toolbar = prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
 
         if (BuildConfig.DEBUG) {
             ViewModelSelected selectedModel =
