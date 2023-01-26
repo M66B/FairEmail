@@ -1897,7 +1897,8 @@ class Core {
     private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, List<EntityMessage> messages, POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
         // Delete from server
         if (!EntityFolder.INBOX.equals(folder.type) || account.leave_deleted)
-            throw new IllegalArgumentException("POP3: invalid DELETE");
+            throw new IllegalArgumentException("POP3: invalid DELETE" +
+                    " folder=" + folder.type + " leave=" + account.leave_deleted);
 
         Map<EntityMessage, Message> map = findMessages(context, folder, messages, istore, ifolder);
         for (EntityMessage message : messages) {
