@@ -481,7 +481,10 @@ public class EntityOperation {
                     message.ui_hide = true;
                     db.message().setMessageUiHide(message.id, message.ui_hide);
 
-                    if (perform_expunge && account != null && account.isGmail()) {
+                    if (perform_expunge &&
+                            account != null &&
+                            account.protocol == EntityAccount.TYPE_IMAP &&
+                            account.isGmail()) {
                         EntityFolder source = db.folder().getFolder(message.folder);
                         if (source != null && EntityFolder.ARCHIVE.equals(source.type)) {
                             EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
