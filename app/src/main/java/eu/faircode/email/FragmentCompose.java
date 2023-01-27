@@ -6477,9 +6477,6 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                     } else if (action == R.id.action_send) {
-                        // Delete draft (cannot move to outbox)
-                        EntityOperation.queue(context, draft, EntityOperation.DELETE);
-
                         EntityFolder outbox = db.folder().getOutbox();
                         if (outbox == null) {
                             Log.w("Outbox missing");
@@ -6499,6 +6496,8 @@ public class FragmentCompose extends FragmentBase {
                             draft.received = draft.ui_snoozed;
 
                         // Copy message to outbox
+                        long did = draft.id;
+
                         draft.id = null;
                         draft.folder = outbox.id;
                         draft.uid = null;
@@ -6514,6 +6513,11 @@ public class FragmentCompose extends FragmentBase {
                         // Send message
                         if (draft.ui_snoozed == null)
                             EntityOperation.queue(context, draft, EntityOperation.SEND);
+
+                        // Delete draft (cannot move to outbox)
+                        EntityMessage tbd = db.message().getMessage(did);
+                        if (tbd != null)
+                            EntityOperation.queue(context, tbd, EntityOperation.DELETE);
 
                         final String feedback;
                         if (draft.ui_snoozed == null) {
