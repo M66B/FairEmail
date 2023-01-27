@@ -2502,7 +2502,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         intent.setType("*/*");
         intent.putExtra(Intent.EXTRA_TITLE, "classifier.json");
-        Helper.openAdvanced(intent);
+        Helper.openAdvanced(context, intent);
         startActivityForResult(intent, REQUEST_CLASSIFIER);
     }
 

@@ -62,6 +62,7 @@ import android.os.PowerManager;
 import android.os.StatFs;
 import android.os.storage.StorageManager;
 import android.provider.Browser;
+import android.provider.DocumentsContract;
 import android.provider.Settings;
 import android.security.KeyChain;
 import android.security.KeyChainAliasCallback;
@@ -2591,14 +2592,17 @@ public class Helper {
         return size;
     }
 
-    static void openAdvanced(Intent intent) {
+    static void openAdvanced(Context context, Intent intent) {
         // https://issuetracker.google.com/issues/72053350
         intent.putExtra("android.content.extra.SHOW_ADVANCED", true);
         intent.putExtra("android.content.extra.FANCY", true);
         intent.putExtra("android.content.extra.SHOW_FILESIZE", true);
         intent.putExtra("android.provider.extra.SHOW_ADVANCED", true);
-        //File initial = Environment.getExternalStorageDirectory();
-        //intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.fromFile(initial));
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String default_folder = prefs.getString("default_folder", null);
+        if (default_folder != null)
+            intent.putExtra(DocumentsContract.EXTRA_INITIAL_URI, Uri.parse(default_folder));
     }
 
     static class ByteArrayInOutStream extends ByteArrayOutputStream {

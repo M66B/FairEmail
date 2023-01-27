@@ -7937,18 +7937,20 @@ public class FragmentMessages extends FragmentBase
         String subject = intent.getStringExtra("subject");
         String name = (TextUtils.isEmpty(subject) ? "email" : Helper.sanitizeFilename(subject)) + ".eml";
 
+        final Context context = getContext();
+
         Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         create.addCategory(Intent.CATEGORY_OPENABLE);
         create.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         create.setType("*/*");
         create.putExtra(Intent.EXTRA_TITLE, name);
-        Helper.openAdvanced(create);
-        PackageManager pm = getContext().getPackageManager();
+        Helper.openAdvanced(context, create);
+        PackageManager pm = context.getPackageManager();
         if (create.resolveActivity(pm) == null) // system whitelisted
             Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG)
                     .setGestureInsetBottomIgnored(true).show();
         else
-            startActivityForResult(Helper.getChooser(getContext(), create), REQUEST_RAW);
+            startActivityForResult(Helper.getChooser(context, create), REQUEST_RAW);
     }
 
     private void onDecrypt(Intent intent) {

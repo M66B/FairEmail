@@ -19,11 +19,15 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import static android.app.Activity.RESULT_OK;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
@@ -103,9 +107,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swResetSnooze;
     private SwitchCompat swAutoBlockSender;
     private SwitchCompat swSwipeReply;
+    private Button btnDefaultFolder;
+    private TextView tvDefaultFolder;
 
     final static int MAX_SWIPE_SENSITIVITY = 10;
     final static int DEFAULT_SWIPE_SENSITIVITY = 7;
+
+    final static int REQUEST_DEFAULT_FOLDER = 1;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "restore_on_launch", "sync_on_launch", "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
@@ -116,7 +124,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "autoclose", "onclose", "autoclose_unseen", "autoclose_send", "collapse_marked",
             "undo_timeout",
             "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "reset_snooze", "auto_block_sender",
-            "swipe_reply"
+            "swipe_reply", "default_folder"
     };
 
     @Override
@@ -174,6 +182,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swResetSnooze = view.findViewById(R.id.swResetSnooze);
         swAutoBlockSender = view.findViewById(R.id.swAutoBlockSender);
         swSwipeReply = view.findViewById(R.id.swSwipeReply);
+        btnDefaultFolder = view.findViewById(R.id.btnDefaultFolder);
+        tvDefaultFolder = view.findViewById(R.id.tvDefaultFolder);
 
         setOptions();
 
@@ -539,6 +549,18 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
+        Helper.openAdvanced(getContext(), tree);
+        PackageManager pm = getContext().getPackageManager();
+        btnDefaultFolder.setEnabled(tree.resolveActivity(pm) != null &&
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
+        btnDefaultFolder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivityForResult(Helper.getChooser(getContext(), tree), REQUEST_DEFAULT_FOLDER);
+            }
+        });
+
         // Initialize
         FragmentDialogTheme.setBackground(getContext(), view, false);
 
@@ -551,6 +573,24 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     public void onDestroyView() {
         PreferenceManager.getDefaultSharedPreferences(getContext()).unregisterOnSharedPreferenceChangeListener(this);
         super.onDestroyView();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        try {
+            switch (requestCode) {
+                case REQUEST_DEFAULT_FOLDER:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDefaultFolder(data.getData());
+                    else
+                        onDefaultFolder(null);
+                    break;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     @Override
@@ -655,6 +695,15 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swResetSnooze.setChecked(prefs.getBoolean("reset_snooze", true));
         swAutoBlockSender.setChecked(prefs.getBoolean("auto_block_sender", true));
         swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
+        tvDefaultFolder.setText(prefs.getString("default_folder", null));
+    }
+
+    private void onDefaultFolder(Uri uri) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        if (uri == null)
+            prefs.edit().remove("default_folder").apply();
+        else
+            prefs.edit().putString("default_folder", uri.toString()).apply();
     }
 
     public static class FragmentDialogSwipes extends FragmentDialogBase {

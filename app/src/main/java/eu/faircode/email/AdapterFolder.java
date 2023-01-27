@@ -1170,7 +1170,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
                     intent.setType("*/*");
                     intent.putExtra(Intent.EXTRA_TITLE, filename);
-                    Helper.openAdvanced(intent);
+                    Helper.openAdvanced(context, intent);
 
                     if (intent.resolveActivity(context.getPackageManager()) == null) { //  // system/GET_CONTENT whitelisted
                         ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();

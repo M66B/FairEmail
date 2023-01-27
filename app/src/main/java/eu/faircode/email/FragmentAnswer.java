@@ -383,7 +383,7 @@ public class FragmentAnswer extends FragmentBase {
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setType("image/*");
-        Helper.openAdvanced(intent);
+        Helper.openAdvanced(getContext(), intent);
         startActivityForResult(intent, REQUEST_IMAGE);
     }
 

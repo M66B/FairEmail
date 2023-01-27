@@ -339,12 +339,12 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
     private void onExportSelect() {
         startActivityForResult(
-                Helper.getChooser(getContext(), getIntentExport()), REQUEST_EXPORT_HANDLE);
+                Helper.getChooser(getContext(), getIntentExport(getContext())), REQUEST_EXPORT_HANDLE);
     }
 
     private void onImportSelect() {
         startActivityForResult(
-                Helper.getChooser(getContext(), getIntentImport()), REQUEST_IMPORT_HANDLE);
+                Helper.getChooser(getContext(), getIntentImport(getContext())), REQUEST_IMPORT_HANDLE);
     }
 
     private void handleExport(Intent data) {
@@ -1112,6 +1112,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                             if ("alert_once".equals(key) && !Helper.isXiaomi())
                                 continue;
 
+                            if ("default_folder".equals(key))
+                                continue;
+
                             if ("background_service".equals(key) &&
                                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                                 continue;
@@ -1444,10 +1447,11 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     }
 
     private void askPassword(final boolean export) {
-        Intent intent = (export ? getIntentExport() : getIntentImport());
-        PackageManager pm = getContext().getPackageManager();
+        final Context context = getContext();
+        Intent intent = (export ? getIntentExport(context) : getIntentImport(context));
+        PackageManager pm = context.getPackageManager();
         if (intent.resolveActivity(pm) == null) { //  // system/GET_CONTENT whitelisted
-            ToastEx.makeText(getContext(), R.string.title_no_saf, Toast.LENGTH_LONG).show();
+            ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -1461,18 +1465,18 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         }
     }
 
-    private static Intent getIntentExport() {
+    private static Intent getIntentExport(Context context) {
         Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
         intent.setType("*/*");
         intent.putExtra(Intent.EXTRA_TITLE, "fairemail_" +
                 new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".backup");
-        Helper.openAdvanced(intent);
+        Helper.openAdvanced(context, intent);
         return intent;
     }
 
-    private static Intent getIntentImport() {
+    private static Intent getIntentImport(Context context) {
         Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);

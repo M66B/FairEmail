@@ -290,8 +290,9 @@ public class FragmentRules extends FragmentBase {
     }
 
     private void onMenuExport() {
-        if (!ActivityBilling.isPro(getContext())) {
-            startActivity(new Intent(getContext(), ActivityBilling.class));
+        final Context context = getContext();
+        if (!ActivityBilling.isPro(context)) {
+            startActivity(new Intent(context, ActivityBilling.class));
             return;
         }
 
@@ -301,7 +302,7 @@ public class FragmentRules extends FragmentBase {
         intent.setType("*/*");
         intent.putExtra(Intent.EXTRA_TITLE, "fairemail_" +
                 new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()) + ".rules");
-        Helper.openAdvanced(intent);
+        Helper.openAdvanced(context, intent);
         startActivityForResult(intent, REQUEST_EXPORT);
     }
 

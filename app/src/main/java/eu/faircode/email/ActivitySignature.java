@@ -309,7 +309,7 @@ public class ActivitySignature extends ActivityBase {
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setType("text/*");
-        Helper.openAdvanced(intent);
+        Helper.openAdvanced(ActivitySignature.this, intent);
         startActivityForResult(intent, REQUEST_FILE);
     }
 
@@ -414,7 +414,7 @@ public class ActivitySignature extends ActivityBase {
         intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setType("image/*");
-        Helper.openAdvanced(intent);
+        Helper.openAdvanced(ActivitySignature.this, intent);
         startActivityForResult(intent, REQUEST_IMAGE);
     }
 
