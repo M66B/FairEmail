@@ -331,8 +331,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
         this.auto_classify_target = parent.auto_classify_target;
         this.sync_days = parent.sync_days;
         this.keep_days = parent.keep_days;
-        this.unified = parent.unified;
-        this.navigation = parent.navigation;
+        //this.unified = parent.unified;
+        //this.navigation = parent.navigation;
         this.notify = parent.notify;
     }
 
