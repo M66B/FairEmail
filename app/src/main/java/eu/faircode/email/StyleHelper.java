@@ -119,7 +119,8 @@ public class StyleHelper {
             R.id.menu_style_spell_check,
             R.id.menu_style_password,
             R.id.menu_style_code,
-            R.id.menu_style_clear
+            R.id.menu_style_clear,
+            R.id.menu_style_settings
     };
 
     private static final int group_style_size = 1;
@@ -409,7 +410,9 @@ public class StyleHelper {
                     itemId != R.id.menu_style_indentation && groupId != group_style_indentation &&
                     itemId != R.id.menu_style_blockquote &&
                     itemId != R.id.menu_style_insert_line &&
-                    itemId != R.id.menu_style_insert_answer) {
+                    itemId != R.id.menu_style_insert_answer &&
+                    itemId != R.id.menu_style_spell_check &&
+                    itemId != R.id.menu_style_settings) {
                 Pair<Integer, Integer> word = getWord(etBody);
                 if (word == null)
                     return false;
@@ -417,19 +420,22 @@ public class StyleHelper {
                 end = word.second;
             }
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(etBody.getContext());
+            boolean keep_selection = prefs.getBoolean("style_setting_keep_selection", false);
+
             if (groupId < 0) {
                 if (itemId == R.id.menu_bold || itemId == R.id.menu_italic)
-                    return setBoldItalic(itemId, etBody, start, end, false);
+                    return setBoldItalic(itemId, etBody, start, end, keep_selection);
                 else if (itemId == R.id.menu_underline)
-                    return setUnderline(etBody, start, end, false);
+                    return setUnderline(etBody, start, end, keep_selection);
                 else if (itemId == R.id.menu_style_size)
                     return selectSize(owner, anchor, etBody);
                 else if (itemId == R.id.menu_style_background)
-                    return selectBackground(etBody, start, end);
+                    return selectBackground(etBody, start, end, keep_selection);
                 else if (itemId == R.id.menu_style_color)
-                    return selectColor(etBody, start, end);
+                    return selectColor(etBody, start, end, keep_selection);
                 else if (itemId == R.id.menu_style_font)
-                    return selectFont(owner, anchor, etBody, start, end);
+                    return selectFont(owner, anchor, etBody, start, end, keep_selection);
                 else if (itemId == R.id.menu_style_align)
                     return selectAlignment(owner, anchor, etBody, start, end);
                 else if (itemId == R.id.menu_style_list)
@@ -441,17 +447,17 @@ public class StyleHelper {
                         Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
                         if (block == null)
                             return false;
-                        return StyleHelper.setBlockQuote(etBody, block.first, block.second, false);
+                        return StyleHelper.setBlockQuote(etBody, block.first, block.second, keep_selection);
                     } else
-                        return setBlockQuote(etBody, start, end, false);
+                        return setBlockQuote(etBody, start, end, keep_selection);
                 } else if (itemId == R.id.menu_style_mark)
-                    return setMark(etBody, start, end, false);
+                    return setMark(etBody, start, end, keep_selection);
                 else if (itemId == R.id.menu_style_subscript)
-                    return setSubscript(etBody, start, end, false);
+                    return setSubscript(etBody, start, end, keep_selection);
                 else if (itemId == R.id.menu_style_superscript)
-                    return setSuperscript(etBody, start, end, false);
+                    return setSuperscript(etBody, start, end, keep_selection);
                 else if (itemId == R.id.menu_style_strikethrough)
-                    return setStrikeThrough(etBody, start, end, false);
+                    return setStrikeThrough(etBody, start, end, keep_selection);
                 else if (itemId == R.id.menu_style_insert_line)
                     return setLine(etBody, end);
                 else if (itemId == R.id.menu_style_spell_check)
@@ -460,15 +466,17 @@ public class StyleHelper {
                     return setPassword(owner, etBody, start, end);
                 else if (itemId == R.id.menu_style_code) {
                     Log.breadcrumb("style", "action", "code");
-                    setSize(etBody, start, end, HtmlHelper.FONT_SMALL, false);
-                    setFont(etBody, start, end, "monospace", false);
+                    setSize(etBody, start, end, HtmlHelper.FONT_SMALL, keep_selection);
+                    setFont(etBody, start, end, "monospace", keep_selection);
                     return true;
                 } else if (itemId == R.id.menu_link)
                     return setLink(etBody, start, end, args);
                 else if (itemId == R.id.menu_style_clear)
-                    return clear(etBody, start, end, false);
+                    return clear(etBody, start, end, keep_selection);
                 else if (itemId == R.id.menu_clear)
-                    return clearAll(etBody, start, end, false);
+                    return clearAll(etBody, start, end, keep_selection);
+                else if (itemId == R.id.menu_style_settings)
+                    return updateSettings(owner, etBody, anchor, start, end, keep_selection);
             } else {
                 switch (groupId) {
                     case group_style_size: {
@@ -484,21 +492,21 @@ public class StyleHelper {
                         else
                             size = null;
 
-                        return setSize(etBody, start, end, size, false);
+                        return setSize(etBody, start, end, size, keep_selection);
                     }
 
                     case group_style_font_standard:
                     case group_style_font_custom:
-                        return setFont(etBody, start, end, (String) args[0], false);
+                        return setFont(etBody, start, end, (String) args[0], keep_selection);
 
                     case group_style_align: {
                         if (start == end) {
                             Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
                             if (block == null)
                                 return false;
-                            return setAlignment(itemId, etBody, block.first, block.second, false);
+                            return setAlignment(itemId, etBody, block.first, block.second, keep_selection);
                         } else
-                            return setAlignment(itemId, etBody, start, end, false);
+                            return setAlignment(itemId, etBody, start, end, keep_selection);
                     }
 
                     case group_style_list: {
@@ -508,14 +516,14 @@ public class StyleHelper {
                             if (p == null)
                                 return false;
                             if (level)
-                                return StyleHelper.setListLevel(itemId, etBody, p.first, p.second, false);
+                                return StyleHelper.setListLevel(itemId, etBody, p.first, p.second, keep_selection);
                             else
-                                return StyleHelper.setList(itemId, etBody, p.first, p.second, false);
+                                return StyleHelper.setList(itemId, etBody, p.first, p.second, keep_selection);
                         } else {
                             if (level)
-                                return setListLevel(itemId, etBody, start, end, false);
+                                return setListLevel(itemId, etBody, start, end, keep_selection);
                             else
-                                return setList(itemId, etBody, start, end, false);
+                                return setList(itemId, etBody, start, end, keep_selection);
                         }
                     }
 
@@ -524,9 +532,9 @@ public class StyleHelper {
                             Pair<Integer, Integer> block = StyleHelper.getParagraph(etBody, true);
                             if (block == null)
                                 return false;
-                            return StyleHelper.setIndentation(itemId, etBody, block.first, block.second, false);
+                            return StyleHelper.setIndentation(itemId, etBody, block.first, block.second, keep_selection);
                         } else
-                            return setIndentation(itemId, etBody, start, end, false);
+                            return setIndentation(itemId, etBody, start, end, keep_selection);
                     }
                 }
             }
@@ -654,7 +662,7 @@ public class StyleHelper {
         return true;
     }
 
-    static boolean selectBackground(EditText etBody, int start, int end) {
+    static boolean selectBackground(EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "selectBackground");
 
         Helper.hideKeyboard(etBody);
@@ -673,13 +681,13 @@ public class StyleHelper {
                 .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                        setBackground(etBody, start, end, selectedColor, false);
+                        setBackground(etBody, start, end, selectedColor, select);
                     }
                 })
                 .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        setBackground(etBody, start, end, null, false);
+                        setBackground(etBody, start, end, null, select);
                     }
                 });
 
@@ -714,7 +722,7 @@ public class StyleHelper {
         etBody.setSelection(select ? start : end, end);
     }
 
-    static boolean selectColor(EditText etBody, int start, int end) {
+    static boolean selectColor(EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "selectColor");
 
         Helper.hideKeyboard(etBody);
@@ -733,13 +741,13 @@ public class StyleHelper {
                 .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
-                        setColor(etBody, start, end, selectedColor, false);
+                        setColor(etBody, start, end, selectedColor, select);
                     }
                 })
                 .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        setColor(etBody, start, end, null, false);
+                        setColor(etBody, start, end, null, select);
                     }
                 });
 
@@ -774,7 +782,7 @@ public class StyleHelper {
         etBody.setSelection(select ? start : end, end);
     }
 
-    static boolean selectFont(LifecycleOwner owner, View anchor, EditText etBody, int start, int end) {
+    static boolean selectFont(LifecycleOwner owner, View anchor, EditText etBody, int start, int end, boolean select) {
         Log.breadcrumb("style", "action", "selectFont");
 
         Context context = anchor.getContext();
@@ -794,7 +802,7 @@ public class StyleHelper {
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                return setFont(etBody, start, end, item.getIntent().getStringExtra("face"), false);
+                return setFont(etBody, start, end, item.getIntent().getStringExtra("face"), select);
             }
         });
 
@@ -1434,7 +1442,36 @@ public class StyleHelper {
         etBody.setSelection(select ? start : end, end);
 
         return true;
+    }
 
+    static boolean updateSettings(LifecycleOwner owner, EditText etBody, View anchor, int start, int end, boolean select) {
+        Log.breadcrumb("style", "action", "updateSettings");
+
+        Context context = anchor.getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, owner, anchor);
+        popupMenu.inflate(R.menu.popup_style_settings);
+
+        popupMenu.getMenu().findItem(R.id.menu_style_setting_keep_selection).setChecked(select);
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int itemId = item.getItemId();
+                if (itemId == R.id.menu_style_setting_keep_selection) {
+                    boolean keep = !item.isChecked();
+                    prefs.edit().putBoolean("style_setting_keep_selection", keep).apply();
+                    etBody.setSelection(keep ? start : end, end);
+                    return true;
+                } else
+                    return false;
+            }
+        });
+
+        popupMenu.show();
+
+        return true;
     }
 
     static boolean splitSpan(Editable edit, int start, int end, int s, int e, int f, boolean extend, Object span1, Object span2) {

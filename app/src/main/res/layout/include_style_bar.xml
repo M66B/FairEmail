@@ -343,5 +343,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_format_clear_24"
             app:tint="@color/action_foreground" />
+
+        <ImageButton
+            android:id="@+id/menu_style_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/menu_setup"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/menu_setup"
+            app:layout_constraintStart_toEndOf="@id/menu_style_clear"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/twotone_settings_24"
+            app:tint="@color/action_foreground" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </HorizontalScrollView>
