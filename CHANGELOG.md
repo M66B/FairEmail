@@ -6,11 +6,18 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
+### 1.2034 - 2023-01-27
+
+* Fixed sending attachments with POP3
+* Added styling settings with an option to keep the selection
+* Added option to select default folder (behavior settings)
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2033 - 2023-01-26
 
 * Fixed incorrect folder state icons
 * Small improvements and minor bug fixes
-* Updated AndroidX
 * Updated translations
 
 ### 1.2032 - 2023-01-26
