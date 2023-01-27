@@ -803,7 +803,7 @@
     <string name="title_identity_color_hint">Τα χρώματα των ταυτοτήτων έχουν προτεραιότητα έναντι των χρωμάτων των φακέλων και των λογαριασμών</string>
     <string name="title_advanced_sender">Να επιτρέπεται η τροποποίηση της διεύθυνσης του αποστολέα</string>
     <string name="title_advanced_sender_name">Χρήση ονόματος όταν η διεύθυνση αποστολέα έχει τροποποιηθεί</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">Αντιγραφή του ονόματος από το ληφθέν μήνυμα</string>
+    <string name="title_advanced_reply_name">Αντιγραφή του ονόματος από το ληφθέν μήνυμα</string>
     <string name="title_advanced_sender_regex">Να ταιριάξει η κανονική έκφραση (Regex) με το όνομα χρήστη εισερχομένων μηνυμάτων</string>
     <string name="title_identity_reply_to">Απάντηση στη διεύθυνση αυτή</string>
     <string name="title_identity_internal">Εσωτερικά ονόματα τομέα (χωρισμένα με κόμμα)</string>

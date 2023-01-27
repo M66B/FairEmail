@@ -337,6 +337,7 @@
     <string name="title_identity_email">ଆପଣଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
     <string name="title_identity_tenant_hint">ଅଧିକାଂଶ ସ୍ଥିତିରେ ଏହି କ୍ଷେତ୍ର ଖାଲି ରହିବା ଉଚିତ୍</string>
     <string name="title_advanced_sender">ପ୍ରେରକଙ୍କ ଠିକଣା ସମ୍ପାଦନ କରିବା ଅନୁମତି ଦେବା</string>
+    <string name="title_advanced_reply_name">ପ୍ରାପ୍ତ ହୋଇଥିବା ଵାର୍ତ୍ତାରୁ ନାମ କପି କରିନେବା</string>
     <string name="title_identity_unicode_remark">ଅଧିକାଂଶ ସର୍ଵର୍ ଏହାକୁ ସମର୍ଥନ କରନ୍ତି ନାହିଁ</string>
     <string name="title_identity_max_size">ସର୍ବାଧିକ ବାର୍ତ୍ତା ଆକାର (MB)</string>
     <string name="title_identity_receipt">ଡିଫଲ୍ଟ ଭାଵେ ଵିତରଣ/ପଠନ ପାଉତି ଅନୁରୋଧ କରିବା</string>

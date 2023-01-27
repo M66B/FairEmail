@@ -569,6 +569,7 @@
     <string name="title_advanced_auto_block_sender">Bloquer automatiquement l\'expéditeur lors du signalement de courrier indésirable</string>
     <string name="title_advanced_swipe_reply">Balayer vers la droite les messages dépliés pour répondre</string>
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Sélectionner le dossier par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
     <string name="title_advanced_notifications_default">Canal par défaut</string>
     <string name="title_advanced_notifications_service">Canal de surveillance</string>
@@ -755,6 +756,9 @@
     <string name="title_advanced_inline_hint">Les images incluses dans le message font partie intégrante du message</string>
     <string name="compressed">Le contenu des fichiers compressés (%1$s) avec plus de %2$s fichiers ou avec des fichiers de taille supérieure à %3$s ne sera pas affiché</string>
     <string name="title_advanced_parse_classes_hint">L’affichage des messages sera plus fidèle mais pourra être retardé</string>
+    <string name="title_advanced_default_folder_hint">        Android peut demander l\'autorisation d\'accès au dossier sélectionné, même si l\'application n\'en a pas besoin.
+        Vous pouvez annuler la boîte de dialogue de sélection pour revenir au dossier par défaut (habituellement le dossier \'Téléchargement\' ou \'Download\').
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Au redémarrage via l\'icône du lanceur, restaurer le dernier état de l\'application dans les %1$d minutes</string>
     <string name="title_advanced_autoexpand_hint">Ouvrir automatiquement le message s’il n’y a qu’un seul message ou un seul message non lu dans une conversation</string>
     <string name="title_advanced_expandall_hint">Le bouton de réponse n\'est pas affiché lorsque plusieurs messages sont dépliés car on ne peut pas savoir à quel message le bouton s\'applique</string>
@@ -807,7 +811,7 @@
     <string name="title_identity_color_hint">Les couleurs d’identité ont la priorité sur les couleurs de dossiers et de comptes</string>
     <string name="title_advanced_sender">Autoriser la modification de l’adresse de l’expéditeur</string>
     <string name="title_advanced_sender_name">Utiliser le nom lorsque l\'adresse de l\'expéditeur a été modifiée</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">Copier le nom depuis le message reçu</string>
+    <string name="title_advanced_reply_name">Copier le nom depuis le message reçu</string>
     <string name="title_advanced_sender_regex">Expression régulière pour faire correspondre le nom d’utilisateur des adresses courriel entrantes</string>
     <string name="title_identity_reply_to">Répondre à l’adresse</string>
     <string name="title_identity_internal">Noms de domaine internes (séparés par des virgules)</string>
@@ -1270,6 +1274,7 @@
     <string name="title_style_protected">Contenu protégé</string>
     <string name="title_style_protect_size">Texte trop long</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Maintenir la sélection</string>
     <string name="title_style_link">Insérer un lien</string>
     <string name="title_style_link_address">Adresse</string>
     <string name="title_style_link_image">Insérer en tant qu\'image</string>

@@ -792,7 +792,7 @@
     <string name="title_identity_color_hint">身份颜色优先于文件夹和账户颜色</string>
     <string name="title_advanced_sender">允许编辑发件人地址</string>
     <string name="title_advanced_sender_name">修改发件人地址后使用名称</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">复制收到邮件中的人名</string>
+    <string name="title_advanced_reply_name">复制收到邮件中的人名</string>
     <string name="title_advanced_sender_regex">用正则表达式来匹配收到的邮箱地址的用户名</string>
     <string name="title_identity_reply_to">回复给该地址</string>
     <string name="title_identity_internal">内部域名(逗号分隔)</string>

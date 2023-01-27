@@ -556,6 +556,7 @@
     <string name="title_advanced_auto_block_sender">メッセージを迷惑メールとして報告したとき、差出人を自動でブロック</string>
     <string name="title_advanced_swipe_reply">展開したメッセージを右にスワイプして返信</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ/遅延時間</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">デフォルトのフォルダーを選択</string>
     <string name="title_advanced_notifications">通知を管理</string>
     <string name="title_advanced_notifications_default">デフォルトチャンネル</string>
     <string name="title_advanced_notifications_service">チャンネルをモニターしています</string>
@@ -741,6 +742,9 @@
     <string name="title_advanced_inline_hint">インライン画像はメッセージに含まれる画像のことです</string>
     <string name="compressed">%2$s 件以上のファイルまたは %3$s 以上を含むときは、圧縮ファイル (%1$s) の内容は表示されません</string>
     <string name="title_advanced_parse_classes_hint">メッセージをより正確に表示しますが、遅延が発生する場合があります</string>
+    <string name="title_advanced_default_folder_hint">        Android が選択されたフォルダーへのアクセス権限について、アプリが必要としていないのに確認する場合があります。
+        選択ダイアログをキャンセルしてデフォルトのフォルダー (ほとんどは 「Download フォルダー」) を復元できます。
+    </string>
     <string name="title_advanced_restore_on_launch_hint">%1$d 分以内にランチャーアイコンからアプリを再起動したとき、最後の状態を復元します</string>
     <string name="title_advanced_autoexpand_hint">会話内のメッセージが 1 つだけ、または未読メッセージが 1 つだけの場合に自動的にメッセージを開きます</string>
     <string name="title_advanced_expandall_hint">複数のメッセージが展開されている場合、ボタンがどのメッセージに適用されるかが明確でないため、返信ボタンは表示されません</string>
@@ -793,7 +797,7 @@
     <string name="title_identity_color_hint">ユーザー ID の色はフォルダーとアカウントの色よりも優先されます</string>
     <string name="title_advanced_sender">差出人アドレスの編集を許可</string>
     <string name="title_advanced_sender_name">差出人アドレスが編集されたときに名前を使用</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">受信したメッセージから名前をコピーして返信</string>
+    <string name="title_advanced_reply_name">受信したメッセージから名前をコピーして返信</string>
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名を参照する正規表現</string>
     <string name="title_identity_reply_to">返信先 (Reply to)</string>
     <string name="title_identity_internal">内部ドメイン名 (カンマ区切り)</string>
@@ -1256,6 +1260,7 @@
     <string name="title_style_protected">保護されたコンテンツ</string>
     <string name="title_style_protect_size">テキストが長すぎます</string>
     <string name="title_style_clear">書式をクリア</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">選択を保存</string>
     <string name="title_style_link">リンクを挿入</string>
     <string name="title_style_link_address">アドレス</string>
     <string name="title_style_link_image">画像として挿入</string>

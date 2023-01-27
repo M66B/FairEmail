@@ -227,6 +227,7 @@
     <string name="title_setup_doze_remark">Pentru a trimite și a primi e-mailuri în mod fiabil în fundal</string>
     <string name="title_setup_doze_explanation">Optimizările bateriei trebuie să fie dezactivate pentru aplicație pentru a asigura trimiterea și primirea sigură a mesajelor în fundal</string>
     <string name="title_setup_doze_hint">Deși poate părea contradictoriu, dezactivarea optimizărilor bateriei pentru această aplicație va duce la o utilizare mai redusă a bateriei</string>
+    <string name="title_setup_doze_aggressively">Acest dispozitiv ar putea opri serviciul de sincronizare</string>
     <string name="title_setup_doze_why">De ce ar trebui să fie dezactivate optimizările bateriei?</string>
     <string name="title_setup_doze_instructions">În următorul dialog Android schimbați opțiunea \"Nu se optimizează\" în \"Toate aplicațiile\", selectați această aplicație și selectați \"Nu se optimizează\"</string>
     <string name="title_setup_doze_battery">Utilizare intensă a bateriei?</string>
@@ -375,6 +376,7 @@
     <string name="title_advanced_send_reminders">Arată mementouri</string>
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
     <string name="title_advanced_attach_new">Adăugați fișierele partajate la o nouă ciornă</string>
+    <string name="title_advanced_answer_default">Apăsarea scurtă pe butonul de răspuns va:</string>
     <string name="title_advanced_answer_action">Apăsarea îndelungată a butonului de răspuns va:</string>
     <string name="title_advanced_send_pending">Arată pictograma neobstructivă de trimitere întârziată</string>
     <string name="title_advanced_auto_save_paragraph">Salvați automat un draft după fiecare paragraf</string>
@@ -447,6 +449,7 @@
     <string name="title_advanced_nav_pin">Meniul de navigare Pin</string>
     <string name="title_advanced_nav_hide_title">Ascundeți opțiunile din meniul de navigare?</string>
     <string name="title_advanced_nav_hide_message">Puteți activa din nou opțiunile în setările de afișare</string>
+    <string name="title_advanced_nav_last_sync">Arată ultima dată de sincronizare în meniul de navigare</string>
     <string name="title_advanced_nav_message_count">Afișarea numărului de mesaje stocate local în meniul de navigare</string>
     <string name="title_advanced_nav_unseen_drafts">Afișarea numărului de ciorne necitite în meniul de navigare</string>
     <string name="title_advanced_nav_pinned_count">Afișarea numărului de mesaje necitite în meniul de navigare fixat</string>
@@ -560,6 +563,7 @@
     <string name="title_advanced_expand_one">Extinde doar câte un mesaj odată</string>
     <string name="title_advanced_collapse_multiple">La apăsarea \'înapoi\' restrânge mesajele dintr-o conversație cu mai multe mesaje</string>
     <string name="title_advanced_autoclose">Închide automat conversațiile</string>
+    <string name="title_advanced_autoclose_send">Închide automat conversațiile după trimiterea mesajelor</string>
     <string name="title_advanced_onclose">La închiderea conversației</string>
     <string name="title_advanced_autoclose_unread">Închideți conversațiile la marcarea mesajelor ca necitite</string>
     <string name="title_advanced_collapse_marked">Reducerea mesajelor care sunt marcate manual ca fiind citite sau necitite</string>
@@ -574,6 +578,7 @@
     <string name="title_advanced_star_snoozed">Adaugă automat stea la mesajele amânate</string>
     <string name="title_advanced_auto_important">Marcheză automat mesajele cu stea ca importante</string>
     <string name="title_advanced_cancel_snooze">Anulează amânarea la mutarea mesajelor</string>
+    <string name="title_advanced_auto_block_sender">Blochează automat expeditorul când raportezi spam-ul</string>
     <string name="title_advanced_swipe_reply">Glisați mesajele extinse spre dreapta pentru a răspunde</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
     <string name="title_advanced_notifications">Gestionarea notificărilor</string>
@@ -813,6 +818,7 @@
     <string name="title_identity_color_hint">Culorile de identitate au întâietate în fața culorilor dosarului și ale contului</string>
     <string name="title_advanced_sender">Permite editarea adresei expeditorului</string>
     <string name="title_advanced_sender_name">Utilizează numele atunci când adresa expeditorului a fost editată</string>
+    <string name="title_advanced_reply_name">Copiază numele din mesajul primit</string>
     <string name="title_advanced_sender_regex">Regex pentru a potrivi numele de utilizator al adreselor de e-mail primite</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_internal">Nume de domenii interne (separate prin virgulă)</string>
@@ -833,6 +839,7 @@
     <string name="title_account_interval_hint">Frecvența de actualizare a conexiunii pentru mesaje push sau frecventa de verificare de mesaje noi</string>
     <string name="title_account_noop_hint">Acest lucru va reîmprospăta conexiunea mai activ, dar va consuma mai multă energie din baterie</string>
     <string name="title_account_partial_fetch_hint">Dezactivați numai pentru mesaje goale sau atașamente corupte</string>
+    <string name="title_account_raw_fetch_hint">Activarea acestei opțiuni va crește utilizarea bateriei și a datelor</string>
     <string name="title_color">Culoare</string>
     <string name="title_calendar">Calendar</string>
     <string name="title_background">Fundal</string>
@@ -912,6 +919,7 @@
     <string name="title_account_delete">Ștergeți definitiv acest cont?</string>
     <string name="title_identity_delete">Ștergeți definitiv această identitate?</string>
     <string name="title_edit_html">Editează ca HTML</string>
+    <string name="title_check_html">Verifică HTML</string>
     <string name="title_import_file">Importă fișier</string>
     <string name="title_sign_key">Cheie semnatură: %1$s</string>
     <string name="title_last_connected">Ultima conectare: %1$s</string>
@@ -1140,6 +1148,7 @@
     <string name="title_reply_receipt">Trimite confirmare de citire</string>
     <string name="title_reply_hard_bounce">Trimite mesaj de eroare serios</string>
     <string name="title_reply_template">Răspunde cu șablon</string>
+    <string name="title_reply_menu">Arată meniul de selecţie</string>
     <string name="title_move_undo">Se mută la %1$s (%2$d)</string>
     <string name="title_authentication_failed">Autentificare %1$s eșuată</string>
     <string name="title_on_blocklist">Pe lista de blocare spam</string>
@@ -1271,6 +1280,7 @@
     <string name="title_style_clear">Elimină toate formatările</string>
     <string name="title_style_link">Inserare legătură</string>
     <string name="title_style_link_address">Adresă</string>
+    <string name="title_style_link_image">Inserare ca imagine</string>
     <string name="title_style_link_title">Titlu</string>
     <string name="title_style_link_metadata">Obține titlul</string>
     <string name="title_style_link_metadata_remark">Acest lucru va prelua titlul la adresa introdusă</string>

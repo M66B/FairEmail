@@ -819,6 +819,7 @@
     <string name="title_identity_color_hint">Boje identiteta su preče od boja foldera i računa</string>
     <string name="title_advanced_sender">Dopusti uređivanje adrese pošiljaoca</string>
     <string name="title_advanced_sender_name">Koristi ime kada je adresa pošiljaoca uređena</string>
+    <string name="title_advanced_reply_name">Kopiraj lično ime iz primljene poruke</string>
     <string name="title_advanced_sender_regex">Regularni izrazi za podudaranje korisničkog imena dolaznih e-mail adresa</string>
     <string name="title_identity_reply_to">Odgovori na adresu</string>
     <string name="title_identity_internal">Interni nazivi domena (razdvojeni zarezima)</string>

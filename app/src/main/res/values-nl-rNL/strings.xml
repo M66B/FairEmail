@@ -567,6 +567,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_auto_block_sender">Blokkeer de afzender automatisch bij het rapporteren van spam</string>
     <string name="title_advanced_swipe_reply">Veeg uitgevouwde berichten naar rechts om te beantwoorden</string>
     <string name="title_advanced_default_snooze">Standaard sluimer/vertragingstijd</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Selecteer standaard map</string>
     <string name="title_advanced_notifications">Beheer meldingen</string>
     <string name="title_advanced_notifications_default">Standaardkanaal</string>
     <string name="title_advanced_notifications_service">Bewakingskanaal</string>
@@ -752,6 +753,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>
     <string name="compressed">De inhoud van gecomprimeerde bestanden (%1$s) met meer dan %2$s bestanden of met bestanden groter dan %3$s zal niet getoond worden</string>
     <string name="title_advanced_parse_classes_hint">Dit zal nauwkeuriger berichten weergeven, maar mogelijk met een vertraging</string>
+    <string name="title_advanced_default_folder_hint">        Android kan toestemming vragen voor toegang tot de geselecteerde map, ook al heeft de app dit niet nodig.
+        U kunt het selectievenster annuleren om de standaard map te herstellen (meestal de \'Download\' map).
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Herstel laatste app-status bij herstart via het launcher-pictogram binnen %1$d minuten</string>
     <string name="title_advanced_autoexpand_hint">Bericht automatisch openen als er slechts één bericht of slechts één ongelezen bericht in een gesprek is</string>
     <string name="title_advanced_expandall_hint">De antwoordknop zal niet worden weergegeven wanneer meerdere berichten worden opengeklapt omdat het dan onduidelijk is op welk bericht de knop van toepassing is</string>
@@ -804,7 +808,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_identity_color_hint">Identiteitskleuren prevaleren boven de map en de accountkleuren</string>
     <string name="title_advanced_sender">Bewerken verzendadres toestaan</string>
     <string name="title_advanced_sender_name">Gebruik naam wanneer afzenderadres is bewerkt</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy the name from a received message when replying">Kopieer de naam uit het ontvangen bericht</string>
+    <string name="title_advanced_reply_name">Kopieer de naam uit het ontvangen bericht</string>
     <string name="title_advanced_sender_regex">Regex om gebruikersnaam deel van inkomende e-mailadressen te matchen</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
     <string name="title_identity_internal">Interne domeinnamen (komma gescheiden)</string>
@@ -1263,6 +1267,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_style_protected">Beschermde inhoud</string>
     <string name="title_style_protect_size">Te lange tekst</string>
     <string name="title_style_clear">Opmaak wissen</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Selectie behouden</string>
     <string name="title_style_link">Koppeling invoegen</string>
     <string name="title_style_link_address">Adres</string>
     <string name="title_style_link_image">Als afbeelding invoegen</string>

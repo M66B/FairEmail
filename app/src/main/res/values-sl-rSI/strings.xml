@@ -594,6 +594,7 @@
     <string name="title_advanced_auto_block_sender">Pri prijavi neželene pošte samodejno blokiraj pošiljatelja</string>
     <string name="title_advanced_swipe_reply">Potegni razširjena sporočila desno za odgovor</string>
     <string name="title_advanced_default_snooze">Privzeti čas dremeža/zakasnitve</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Izberi privzeto mapo</string>
     <string name="title_advanced_notifications">Upravljaj z obvestili</string>
     <string name="title_advanced_notifications_default">Privzeti kanal</string>
     <string name="title_advanced_notifications_service">Nazdorni kanal</string>
@@ -778,6 +779,9 @@
     <string name="title_advanced_inline_hint">Slike v besedilu so vključene v sporočilo.</string>
     <string name="compressed">Vsebina stisnjenih datotek (%1$s) z več kot %2$s-imi datotekami ali z datotekami, večjimi kot %3$s ne bo prikazana.</string>
     <string name="title_advanced_parse_classes_hint">To bo natančneje prikazalo sporočila, vendar morda z zakasnitvijo.</string>
+    <string name="title_advanced_default_folder_hint">        Android vas bo morda vprašal za dovoljenje za dostop do izbrane mape čeprav ga program ne potrebuje.
+        Pogovorno okno za izbiro lahko prekličete, da obnovite privzeto mapo (običanjo je to mapa \'Prenosi\').
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Obnovi zadnje stanje programa, ko je ponovno zagnan z ikono zaganjalnika v %1$d-h minutah.</string>
     <string name="title_advanced_autoexpand_hint">Samodejno odpri sporočilo, ko je v pogovoru samo eno sporočilo ali eno neprebrano sporočilo.</string>
     <string name="title_advanced_expandall_hint">Gumb za odgovor ne bo prikazan, kadar je razširjenih več sporočil, ker potem ni jasno, za katero sporočilo to velja.</string>
@@ -830,7 +834,7 @@
     <string name="title_identity_color_hint">Barve identitet imajo prednost pred barvami map in računov.</string>
     <string name="title_advanced_sender">Omogoči urejanje pošiljateljevega naslova</string>
     <string name="title_advanced_sender_name">Uporabi ime, kadar je bil naslov pošiljatelja urejen.</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">Kopiraj ime iz prejetega sporočila</string>
+    <string name="title_advanced_reply_name">Kopiraj ime iz prejetega sporočila</string>
     <string name="title_advanced_sender_regex">Reg. izraz za ujemanje z uporabniškim imenom dohodnega e-poštnega naslova.</string>
     <string name="title_identity_reply_to">Naslov za odgovor</string>
     <string name="title_identity_internal">Notranja imena domen (ločena z vejico)</string>
@@ -1291,6 +1295,7 @@
     <string name="title_style_protected">Zaščitena vsebina</string>
     <string name="title_style_protect_size">Besedilo je predolgo.</string>
     <string name="title_style_clear">Počisti oblikovanje</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Obdrži izbiro</string>
     <string name="title_style_link">Vstavi povezavo</string>
     <string name="title_style_link_address">Naslov</string>
     <string name="title_style_link_image">Vstavi kot sliko</string>

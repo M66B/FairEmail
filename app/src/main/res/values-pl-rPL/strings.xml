@@ -831,7 +831,7 @@
     <string name="title_identity_color_hint">Kolory tożsamości mają pierwszeństwo przed kolorami folderów i kont</string>
     <string name="title_advanced_sender">Zezwól na edycję adresu nadawcy</string>
     <string name="title_advanced_sender_name">Użyj nazwy, gdy adres nadawcy został edytowany</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">Skopiuj swoje imię i nazwisko z otrzymanej wiadomości</string>
+    <string name="title_advanced_reply_name">Skopiuj swoje imię i nazwisko z otrzymanej wiadomości</string>
     <string name="title_advanced_sender_regex">Regex, aby dopasować nazwę użytkownika dla przychodzących adresów e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_internal">Wewnętrzne nazwy domen (oddzielone przecinkami)</string>

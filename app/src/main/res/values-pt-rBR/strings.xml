@@ -568,6 +568,7 @@
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente ao denunciar spam</string>
     <string name="title_advanced_swipe_reply">Deslize as mensagens expandidas para a direita para responder</string>
     <string name="title_advanced_default_snooze">Tempo de soneca/atraso padrão</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Selecionar pasta padrão</string>
     <string name="title_advanced_notifications">Gerenciar notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
     <string name="title_advanced_notifications_service">Canal de monitoramento</string>
@@ -753,6 +754,9 @@
     <string name="title_advanced_inline_hint">Imagens em linha são incluídas na mensagem</string>
     <string name="compressed">O conteúdo de arquivos compactados (%1$s) com mais de %2$s arquivos ou com arquivos maiores que %3$s não serão ser exibidos</string>
     <string name="title_advanced_parse_classes_hint">Isto irá exibir mensagens com mais precisão, mas possivelmente com um atraso</string>
+    <string name="title_advanced_default_folder_hint">        O Android pode pedir permissão para acessar a pasta selecionada, mesmo que o app não precise dela.
+        Você pode cancelar a caixa de diálogo de seleção para restaurar a pasta padrão (geralmente a pasta \'Download\').
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Restaurar o último estado do app quando reiniciar via ícone do lançador dentro de %1$d minutos</string>
     <string name="title_advanced_autoexpand_hint">Abrir automaticamente a mensagem quando há apenas uma mensagem ou uma mensagem não-lida em uma conversa</string>
     <string name="title_advanced_expandall_hint">O botão de resposta não será mostrado quando várias mensagens forem expandidas porque não está claro a qual mensagem o botão se aplica</string>
@@ -805,7 +809,7 @@
     <string name="title_identity_color_hint">Cores de identidade têm precedência sobre as cores de pasta e conta</string>
     <string name="title_advanced_sender">Permitir editar o endereço do remetente</string>
     <string name="title_advanced_sender_name">Usar o nome quando o endereço do remetente for editado</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">Copiar o nome da mensagem recebida</string>
+    <string name="title_advanced_reply_name">Copiar o nome da mensagem recebida</string>
     <string name="title_advanced_sender_regex">Regex para corresponder ao nome de usuário de endereços de e-mail recebidos</string>
     <string name="title_identity_reply_to">Resposta para o endereço</string>
     <string name="title_identity_internal">Nomes de domínio internos (separados por vírgula)</string>
@@ -1266,6 +1270,7 @@
     <string name="title_style_protected">Conteúdo protegido</string>
     <string name="title_style_protect_size">Texto longo demais</string>
     <string name="title_style_clear">Limpar formatação</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Manter seleção</string>
     <string name="title_style_link">Inserir link</string>
     <string name="title_style_link_address">Endereço</string>
     <string name="title_style_link_image">Inserir como uma imagem</string>

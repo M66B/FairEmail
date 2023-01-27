@@ -569,6 +569,7 @@
     <string name="title_advanced_auto_block_sender">Absender automatisch sperren, wenn Spam gemeldet wird</string>
     <string name="title_advanced_swipe_reply">Erweiterte Nachricht nach rechts wischen, um zu antworten</string>
     <string name="title_advanced_default_snooze">Standardzeit für Zurückstellen/Verzögern</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Standardordner auswählen</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
     <string name="title_advanced_notifications_service">Überwachungskanal</string>
@@ -754,6 +755,9 @@
     <string name="title_advanced_inline_hint">Eingebettete Grafiken sind Grafiken, die innerhalb der Nachricht enthalten sind</string>
     <string name="compressed">Der Inhalt von komprimierten Dateien (%1$s) mit mehr als %2$s Dateien oder mit Dateien größer als %3$s wird nicht angezeigt</string>
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
+    <string name="title_advanced_default_folder_hint">        Android kann um Erlaubnis zum Zugriff auf den ausgewählten Ordner bitten, auch wenn die App sie nicht braucht.
+        Sie können den Auswahldialog abbrechen, um den Standardordner (normalerweise den \'Download\'-Ordner) wiederherzustellen.
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Letzten App-Status wiederherstellen, wenn innerhalb von %1$d Minuten über das Startsymbol neu gestartet wird</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einer Unterhaltung enthalten ist</string>
     <string name="title_advanced_expandall_hint">Die Schaltfläche „Antworten” wird nicht angezeigt, wenn mehrere Nachrichten ausgeklappt sind, da unklar ist, für welche Nachricht die Schaltfläche gilt.</string>
@@ -806,7 +810,7 @@
     <string name="title_identity_color_hint">Identitätsfarben haben Vorrang vor Ordner- und Kontofarben</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
     <string name="title_advanced_sender_name">Name verwenden, wenn die Absenderadresse bearbeitet wurde</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">Name aus der empfangenen Nachricht kopieren</string>
+    <string name="title_advanced_reply_name">Name aus der empfangenen Nachricht kopieren</string>
     <string name="title_advanced_sender_regex">Regex zum Abgleichen des Benutzernamens von eingehenden E-Mail-Adressen</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_internal">Interne Domänennamen (durch Kommata getrennt)</string>
@@ -1265,6 +1269,7 @@
     <string name="title_style_protected">Geschützter Inhalt</string>
     <string name="title_style_protect_size">Text zu lang</string>
     <string name="title_style_clear">Formatierung entfernen</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Auswahl behalten</string>
     <string name="title_style_link">Link einfügen</string>
     <string name="title_style_link_address">Adresse</string>
     <string name="title_style_link_image">Als Bild einfügen</string>

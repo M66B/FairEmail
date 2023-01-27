@@ -561,6 +561,7 @@
     <string name="title_advanced_auto_block_sender">Blockera avsändaren automatiskt vid rapportering av skräppost</string>
     <string name="title_advanced_swipe_reply">Svep expanderade meddelanden till höger för att svara</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Välj standardmapp</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
     <string name="title_advanced_notifications_service">Övervakar kanal</string>
@@ -746,6 +747,9 @@
     <string name="title_advanced_inline_hint">Infogade bilder är bilder som ingår i meddelandet</string>
     <string name="compressed">Innehållet i komprimerade filer (%1$s) med mer än %2$s filer eller med filer större än %3$s kommer inte att visas</string>
     <string name="title_advanced_parse_classes_hint">Detta kommer att visa meddelanden mer korrekt, men möjligen med en fördröjning</string>
+    <string name="title_advanced_default_folder_hint">        Android kan be om behörighet att komma åt den valda mappen, även om appen inte behöver det.
+        Du kan avbryta urvalsdialogen för att återställa standardmappen (vanligtvis mappen \'Nedladdningar\').
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Återställ senaste app-status när den startas om via ikonen för launcher inom %1$d minuter</string>
     <string name="title_advanced_autoexpand_hint">Öppna automatiskt meddelandet när det bara finns ett meddelande eller bara ett oläst meddelande i en konversation</string>
     <string name="title_advanced_expandall_hint">Svarsknappen kommer inte att visas när flera meddelanden visas i utökat läge eftersom det är oklart vilket meddelande knappen gäller</string>
@@ -798,7 +802,7 @@
     <string name="title_identity_color_hint">Identitetsfärger har företräde framför mapp- och kontofärger</string>
     <string name="title_advanced_sender">Tillåt avsändaradress redigering</string>
     <string name="title_advanced_sender_name">Använd namn när avsändaradressen har redigerats</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">Kopiera namnet från det mottagna meddelandet</string>
+    <string name="title_advanced_reply_name">Kopiera namnet från det mottagna meddelandet</string>
     <string name="title_advanced_sender_regex">Regex för att matcha användarnamn för inkommande e-postadresser</string>
     <string name="title_identity_reply_to">Svara till adress</string>
     <string name="title_identity_internal">Interna domännamn (kommaseparerade)</string>
@@ -1258,6 +1262,7 @@
     <string name="title_style_protected">Skyddat innehåll</string>
     <string name="title_style_protect_size">Texten är för lång</string>
     <string name="title_style_clear">Rensa formatering</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Behåll markering</string>
     <string name="title_style_link">Infoga länk</string>
     <string name="title_style_link_address">Adress</string>
     <string name="title_style_link_image">Infoga som bild</string>

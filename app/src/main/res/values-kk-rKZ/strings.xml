@@ -9,9 +9,15 @@
     <string name="channel_error">Қателер</string>
     <string name="page_folders">Бумалар</string>
     <string name="title_junk_clear">Тазалау</string>
+    <string name="title_advanced_section_send">Жіберу</string>
+    <string name="title_advanced_caption_message">Хабарлама</string>
     <string name="title_contact_email">Электронды пошта</string>
+    <string name="title_raw_send_message">Хабарлама</string>
+    <string name="title_send">Жіберу</string>
+    <string name="title_legend_section_folders">Бумалар</string>
     <string name="title_log_clear">Тазалау</string>
     <!-- Thunderbird -->
+    <string name="title_accessibility_folders">Бумалар</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

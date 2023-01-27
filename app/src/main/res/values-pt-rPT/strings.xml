@@ -807,7 +807,7 @@
     <string name="title_identity_color_hint">Cores de identidade têm precedência sobre as cores de pasta e conta</string>
     <string name="title_advanced_sender">Permitir a edição do endereço do remetente</string>
     <string name="title_advanced_sender_name">Utilizar o nome quando o endereço do remetente for editado</string>
-    <string name="title_advanced_reply_name" comment="title_advanced_reply_name&#10;Title for option to copy your name from a received message when replying (when it is different from that in the identity)">Copiar o nome da mensagem recebida</string>
+    <string name="title_advanced_reply_name">Copiar o nome da mensagem recebida</string>
     <string name="title_advanced_sender_regex">Regex para corresponder ao nome de utilizador de endereços de e-mail recebidos</string>
     <string name="title_identity_reply_to">Responder para o endereço</string>
     <string name="title_identity_internal">Nomes de domínio internos (separados por vírgula)</string>
