@@ -2446,6 +2446,11 @@ public class Log {
                             if (identity.synchronize) {
                                 size += write(os, account.name + "/" + identity.name + (identity.primary ? "*" : "") + " " +
                                         identity.display + " " + identity.email + " " +
+                                        (identity.self ? "" : " !self") +
+                                        (TextUtils.isEmpty(identity.sender_extra_regex) ? "" : " regex=" + identity.sender_extra_regex) +
+                                        (!identity.sender_extra ? "" : " edit" +
+                                                (identity.sender_extra_name ? "+name" : "-name") +
+                                                (identity.reply_extra_name ? "+copy" : "-copy")) +
                                         " " + identity.host + ":" + identity.port + "/" + identity.encryption +
                                         " ops=" + db.operation().getOperationCount(EntityOperation.SEND) +
                                         " " + identity.state +
