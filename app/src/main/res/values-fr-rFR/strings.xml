@@ -247,6 +247,7 @@
     </string>
     <string name="title_setup_export_do">Le fichier d\'exportation contiendra tous les paramètres et données mais pas de messages ni d\'images référencées dans les signatures</string>
     <string name="title_setup_scroll">Les boîtes de dialogue de saisie peuvent être déroulantes !</string>
+    <string name="title_setup_backup">Comment sauvegarder les messages ?</string>
     <string name="title_setup_password">Mot de passe</string>
     <string name="title_setup_password_chars">Le mot de passe contient des caractères de contrôle ou des espaces</string>
     <string name="title_setup_password_repeat">Confirmer le mot de passe</string>
@@ -563,13 +564,14 @@
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
     <string name="title_advanced_autounstar">Retirer automatiquement l\'étoile de suivi des messages lors de leur déplacement</string>
     <string name="title_advanced_reset_importance">Réinitialiser l\'importance lors du déplacement des messages</string>
+    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Lors de la suppression d\'une conversation, supprimer également les messages envoyés</string>
     <string name="title_advanced_star_snoozed">Marquer automatiquement les messages comme suivis lors de leur report</string>
     <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_cancel_snooze">Annuler le report des messages lors de leur déplacement</string>
     <string name="title_advanced_auto_block_sender">Bloquer automatiquement l\'expéditeur lors du signalement de courrier indésirable</string>
     <string name="title_advanced_swipe_reply">Balayer vers la droite les messages dépliés pour répondre</string>
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
-    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Sélectionner le dossier par défaut</string>
+    <string name="title_advanced_default_folder">Sélectionner le dossier par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
     <string name="title_advanced_notifications_default">Canal par défaut</string>
     <string name="title_advanced_notifications_service">Canal de surveillance</string>
@@ -1274,7 +1276,7 @@
     <string name="title_style_protected">Contenu protégé</string>
     <string name="title_style_protect_size">Texte trop long</string>
     <string name="title_style_clear">Effacer la mise en forme</string>
-    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Maintenir la sélection</string>
+    <string name="title_style_setting_keep_selection">Maintenir la sélection</string>
     <string name="title_style_link">Insérer un lien</string>
     <string name="title_style_link_address">Adresse</string>
     <string name="title_style_link_image">Insérer en tant qu\'image</string>

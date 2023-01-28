@@ -234,6 +234,7 @@
     </string>
     <string name="title_setup_export_do">エクスポートファイルにはすべての設定とデータが含まれますが、署名で参照されるメッセージや画像は含まれません</string>
     <string name="title_setup_scroll">入力ダイアログはスクロールできることがあります！</string>
+    <string name="title_setup_backup">メッセージをバックアップするにはどうすればいいですか？</string>
     <string name="title_setup_password">パスワード</string>
     <string name="title_setup_password_chars">パスワードに制御文字または空白が含まれています</string>
     <string name="title_setup_password_repeat">パスワードを再入力</string>
@@ -550,13 +551,14 @@
     <string name="title_advanced_autoread">移動するメッセージを自動で既読にする</string>
     <string name="title_advanced_autounstar">移動するメッセージのスターを自動で取り消す</string>
     <string name="title_advanced_reset_importance">移動するメッセージの重要度をリセット</string>
+    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">会話をゴミ箱に移動するとき、送信したメッセージもゴミ箱に移動</string>
     <string name="title_advanced_star_snoozed">スヌーズしたメッセージに自動でスターを付ける</string>
     <string name="title_advanced_auto_important">スター付きメッセージを自動で重要にマーク</string>
     <string name="title_advanced_cancel_snooze">メッセージを移動するときスヌーズをキャンセル</string>
     <string name="title_advanced_auto_block_sender">メッセージを迷惑メールとして報告したとき、差出人を自動でブロック</string>
     <string name="title_advanced_swipe_reply">展開したメッセージを右にスワイプして返信</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ/遅延時間</string>
-    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">デフォルトのフォルダーを選択</string>
+    <string name="title_advanced_default_folder">デフォルトのフォルダーを選択</string>
     <string name="title_advanced_notifications">通知を管理</string>
     <string name="title_advanced_notifications_default">デフォルトチャンネル</string>
     <string name="title_advanced_notifications_service">チャンネルをモニターしています</string>
@@ -1260,7 +1262,7 @@
     <string name="title_style_protected">保護されたコンテンツ</string>
     <string name="title_style_protect_size">テキストが長すぎます</string>
     <string name="title_style_clear">書式をクリア</string>
-    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">選択を保存</string>
+    <string name="title_style_setting_keep_selection">選択を保存</string>
     <string name="title_style_link">リンクを挿入</string>
     <string name="title_style_link_address">アドレス</string>
     <string name="title_style_link_image">画像として挿入</string>

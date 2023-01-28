@@ -214,6 +214,7 @@
     <string name="title_setup_doze_remark">Arxaplanda güvənli şəkildə e-poçt göndərmək və almaq üçün</string>
     <string name="title_setup_doze_explanation">Arxaplanda mesajların güvənlə göndərilməsi və alınmasını təmin etmək üçün tətbiqin batareya optimallaşdırması sıradan çıxarılmalıdır</string>
     <string name="title_setup_doze_hint">Bu bir az ziddiyyətli görünsə də, bu tətbiq üçün batareya optimallaşdırmasını bağlamaq daha az batareya istifadəsinə səbəb olacaq</string>
+    <string name="title_setup_doze_aggressively">Bu cihaz sinxronlaşdırma xidmətini dayandıra bilər</string>
     <string name="title_setup_doze_why">Batareya optimallaşdırmaları nə üçün sıradan çıxarılmalıdır?</string>
     <string name="title_setup_doze_instructions">Növbəti Android dialoq pəncərəsində \"Optimallaşdırılmamış\"ı (və ya Enerjiyə qənaət etmir) \"Bütün tətbiqlər\" olaraq dəyişdirin, bu tətbiqi seçin və \"Optimallaşdırmayın\"ı seçin</string>
     <string name="title_setup_doze_battery">Yüksək batareya istifadəsi?</string>
@@ -246,6 +247,7 @@
     </string>
     <string name="title_setup_export_do">Xaricə köçürmə faylı, bütün tənzimləmələr və verilənləri ehtiva edəcək, ancaq imzalarda istinad edilən heç bir mesaj və təsvirlər olmayacaq</string>
     <string name="title_setup_scroll">Giriş dialoqları sürüşdürülə bilən ola bilər!</string>
+    <string name="title_setup_backup">Mesajlar necə nüsxələnir?</string>
     <string name="title_setup_password">Parol</string>
     <string name="title_setup_password_chars">Parol, nəzarət və ya boşluq simvollarını ehtiva edir</string>
     <string name="title_setup_password_repeat">Parolu təkrarla</string>
@@ -562,12 +564,14 @@
     <string name="title_advanced_autoread">Mesajları köçürəndə mesajları avtomatik oxundu kimi işarələ</string>
     <string name="title_advanced_autounstar">Mesajları köçürəndə ulduzları mesajlardan avtomatik çıxart</string>
     <string name="title_advanced_reset_importance">Mesajları köçürəndə vacibliyi sıfırla</string>
+    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Bir danışıq tullantı qutusuna atılanda, göndərilən mesajlarda tullantı qutusuna atılacaq</string>
     <string name="title_advanced_star_snoozed">Mesajları ertələyəndə avtomatik ulduz əlavə et</string>
     <string name="title_advanced_auto_important">Ulduzlu mesajları avtomatik olaraq vacib et</string>
     <string name="title_advanced_cancel_snooze">Hərəkətli mesajlarda ertələməni ləğv et</string>
     <string name="title_advanced_auto_block_sender">Spam bildirirkən göndərəni avtomatik əngəllə</string>
     <string name="title_advanced_swipe_reply">Genişləndirilmiş mesajları cavablandırmaq üçün sağa sürüşdür</string>
     <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
+    <string name="title_advanced_default_folder">İlkin qovluğu seçin</string>
     <string name="title_advanced_notifications">Bildirişləri idarə et</string>
     <string name="title_advanced_notifications_default">İlkin kanal</string>
     <string name="title_advanced_notifications_service">Müşahidə kanalı</string>
@@ -753,6 +757,9 @@
     <string name="title_advanced_inline_hint">Sətiriçi təsvirlər, mesaja daxil edilən təsvirlərdir</string>
     <string name="compressed">Sayca %2$s fayldan çox və ya həcmi %3$s-dan çox olsa sıxışdırılmış faylların məzmunları (%1$s) göstərilməyəcək</string>
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha dəqiq görüntüləyəcək, ancaq gecikmə yaşana bilər</string>
+    <string name="title_advanced_default_folder_hint">        Android, tətbiqin buna ehtiyacı olmasa belə, seçilmiş qovluğa müraciət üçün icazə istəyə bilər.
+        İlkin qovluğu (adətən \"Endirmə\" qovluğu olur) bərpa etmək üçün seçim dialoqunu ləğv edə bilərsiniz.
+    </string>
     <string name="title_advanced_restore_on_launch_hint">%1$d dəqiqə ərzində başladıcı nişanı vasitəsilə yenidən başladılanda son tətbiq vəziyyətini bərpa et</string>
     <string name="title_advanced_autoexpand_hint">Bir danışıqda sadəcə bir mesaj və ya sadəcə bir oxunmamış mesaj olanda mesajı avtomatik aç</string>
     <string name="title_advanced_expandall_hint">Düymənin hansı mesaja tətbiq ediləcəyi qeyri-müəyyən olduğuna görə, bir neçə mesaj genişləndiriləndə cavab düyməsi göstərilməyəcək</string>
@@ -805,6 +812,7 @@
     <string name="title_identity_color_hint">Kimlik rəngləri, qovluq və hesab rənglərindən əvvəl gəlir</string>
     <string name="title_advanced_sender">Göndərənin ünvanına düzəlişə icazə ver</string>
     <string name="title_advanced_sender_name">Göndərənin ünvanına düzəliş ediləndə adı istifadə et</string>
+    <string name="title_advanced_reply_name">Alınmış mesajdakı adı kopyala</string>
     <string name="title_advanced_sender_regex">Gələn e-poçt ünvanlarının istifadəçi adını uyğunlaşdırmaq üçün normal ifadə</string>
     <string name="title_identity_reply_to">Cavablama ünvanı</string>
     <string name="title_identity_internal">Daxili domen adları (vergüllə ayrılan)</string>
@@ -1267,6 +1275,7 @@
     <string name="title_style_protected">Qorunan məzmun</string>
     <string name="title_style_protect_size">Mətn çox uzundur</string>
     <string name="title_style_clear">Formatları təmizlə</string>
+    <string name="title_style_setting_keep_selection">Seçimi saxla</string>
     <string name="title_style_link">Bağlantı daxil et</string>
     <string name="title_style_link_address">Ünvan</string>
     <string name="title_style_link_image">Şəkil olaraq daxil et</string>

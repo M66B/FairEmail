@@ -247,6 +247,7 @@
     </string>
     <string name="title_setup_export_do">Il file d\'esportazione conterrà tutte le impostazioni e i dati, ma nessun messaggio e nessun\'immagine riferita nelle firme</string>
     <string name="title_setup_scroll">Le finestre di input possono essere scorrevoli!</string>
+    <string name="title_setup_backup">Come fare il backup dei messaggi?</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">La password contiene caratteri di controllo o spazi vuoti</string>
     <string name="title_setup_password_repeat">Ripeti password</string>
@@ -563,13 +564,14 @@
     <string name="title_advanced_autoread">Contrassegna automaticamente i messaggi come letti allo spostamento</string>
     <string name="title_advanced_autounstar">Rimuovi automaticamente le stelle dai messaggi al loro spostamento</string>
     <string name="title_advanced_reset_importance">Ripristina l\'importanza allo spostamento dei messaggi</string>
+    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Cestinando una conversazione, cestinare anche i messaggi inviati</string>
     <string name="title_advanced_star_snoozed">Aggiungi automaticamente la stella posticipando i messaggi</string>
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi stellati</string>
     <string name="title_advanced_cancel_snooze">Annulla posticipazione allo spostamento dei messaggi</string>
     <string name="title_advanced_auto_block_sender">Blocca automaticamente il mittente alla segnalazione di spam</string>
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
-    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Seleziona cartella predefinita</string>
+    <string name="title_advanced_default_folder">Seleziona cartella predefinita</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
     <string name="title_advanced_notifications_default">Canale predefinito</string>
     <string name="title_advanced_notifications_service">Canale di monitoraggio</string>
@@ -1274,7 +1276,7 @@
     <string name="title_style_protected">Contenuto protetto</string>
     <string name="title_style_protect_size">Testo troppo lungo</string>
     <string name="title_style_clear">Cancella formattazione</string>
-    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Mantieni la selezione</string>
+    <string name="title_style_setting_keep_selection">Mantieni la selezione</string>
     <string name="title_style_link">Inserisci link</string>
     <string name="title_style_link_address">Indirizzo</string>
     <string name="title_style_link_image">Inserisci come immagine</string>

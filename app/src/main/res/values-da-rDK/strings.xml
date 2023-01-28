@@ -568,7 +568,7 @@
     <string name="title_advanced_auto_block_sender">Blokér automatisk afsenderen ved spamanmeldelse</string>
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
-    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Vælg standardmappe</string>
+    <string name="title_advanced_default_folder">Vælg standardmappe</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
     <string name="title_advanced_notifications_service">Monitorér kanal</string>
@@ -1273,7 +1273,7 @@
     <string name="title_style_protected">Beskyttet indhold</string>
     <string name="title_style_protect_size">Tekst for lang</string>
     <string name="title_style_clear">Ryd formatering</string>
-    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Behold valgte</string>
+    <string name="title_style_setting_keep_selection">Behold valgte</string>
     <string name="title_style_link">Indsæt link</string>
     <string name="title_style_link_address">Adresse</string>
     <string name="title_style_link_image">Indsæt et billede</string>

@@ -594,7 +594,7 @@
     <string name="title_advanced_auto_block_sender">Pri prijavi neželene pošte samodejno blokiraj pošiljatelja</string>
     <string name="title_advanced_swipe_reply">Potegni razširjena sporočila desno za odgovor</string>
     <string name="title_advanced_default_snooze">Privzeti čas dremeža/zakasnitve</string>
-    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Izberi privzeto mapo</string>
+    <string name="title_advanced_default_folder">Izberi privzeto mapo</string>
     <string name="title_advanced_notifications">Upravljaj z obvestili</string>
     <string name="title_advanced_notifications_default">Privzeti kanal</string>
     <string name="title_advanced_notifications_service">Nazdorni kanal</string>
@@ -1295,7 +1295,7 @@
     <string name="title_style_protected">Zaščitena vsebina</string>
     <string name="title_style_protect_size">Besedilo je predolgo.</string>
     <string name="title_style_clear">Počisti oblikovanje</string>
-    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Obdrži izbiro</string>
+    <string name="title_style_setting_keep_selection">Obdrži izbiro</string>
     <string name="title_style_link">Vstavi povezavo</string>
     <string name="title_style_link_address">Naslov</string>
     <string name="title_style_link_image">Vstavi kot sliko</string>

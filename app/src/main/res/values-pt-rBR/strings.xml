@@ -247,6 +247,7 @@
     </string>
     <string name="title_setup_export_do">O arquivo exportado conterá todas as configurações e dados, mas nenhuma mensagem e nenhuma imagem referenciada nas assinaturas</string>
     <string name="title_setup_scroll">Os diálogos de entrada podem ser roláveis!</string>
+    <string name="title_setup_backup">Como fazer o backup de mensagens?</string>
     <string name="title_setup_password">Senha</string>
     <string name="title_setup_password_chars">A senha contém caracteres de controle ou espaço em branco</string>
     <string name="title_setup_password_repeat">Repita a senha</string>
@@ -562,13 +563,14 @@
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao movê-las</string>
     <string name="title_advanced_reset_importance">Redefinir importância de mensagens em movimento</string>
+    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Ao descartar uma conversa, também descartar as mensagens enviadas</string>
     <string name="title_advanced_star_snoozed">Adicionar estrela automaticamente ao adiar mensagens</string>
     <string name="title_advanced_auto_important">Torne as mensagens com estrela automaticamente importantes</string>
     <string name="title_advanced_cancel_snooze">Cancelar soneca em mensagens em movimento</string>
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente ao denunciar spam</string>
     <string name="title_advanced_swipe_reply">Deslize as mensagens expandidas para a direita para responder</string>
     <string name="title_advanced_default_snooze">Tempo de soneca/atraso padrão</string>
-    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Selecionar pasta padrão</string>
+    <string name="title_advanced_default_folder">Selecionar pasta padrão</string>
     <string name="title_advanced_notifications">Gerenciar notificações</string>
     <string name="title_advanced_notifications_default">Canal padrão</string>
     <string name="title_advanced_notifications_service">Canal de monitoramento</string>
@@ -1270,7 +1272,7 @@
     <string name="title_style_protected">Conteúdo protegido</string>
     <string name="title_style_protect_size">Texto longo demais</string>
     <string name="title_style_clear">Limpar formatação</string>
-    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Manter seleção</string>
+    <string name="title_style_setting_keep_selection">Manter seleção</string>
     <string name="title_style_link">Inserir link</string>
     <string name="title_style_link_address">Endereço</string>
     <string name="title_style_link_image">Inserir como uma imagem</string>

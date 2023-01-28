@@ -561,7 +561,7 @@
     <string name="title_advanced_auto_block_sender">Blockera avsändaren automatiskt vid rapportering av skräppost</string>
     <string name="title_advanced_swipe_reply">Svep expanderade meddelanden till höger för att svara</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
-    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Välj standardmapp</string>
+    <string name="title_advanced_default_folder">Välj standardmapp</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
     <string name="title_advanced_notifications_service">Övervakar kanal</string>
@@ -1262,7 +1262,7 @@
     <string name="title_style_protected">Skyddat innehåll</string>
     <string name="title_style_protect_size">Texten är för lång</string>
     <string name="title_style_clear">Rensa formatering</string>
-    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Behåll markering</string>
+    <string name="title_style_setting_keep_selection">Behåll markering</string>
     <string name="title_style_link">Infoga länk</string>
     <string name="title_style_link_address">Adress</string>
     <string name="title_style_link_image">Infoga som bild</string>

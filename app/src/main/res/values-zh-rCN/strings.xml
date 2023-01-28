@@ -555,7 +555,7 @@
     <string name="title_advanced_auto_block_sender">报告垃圾邮件时自动屏蔽发件人</string>
     <string name="title_advanced_swipe_reply">右滑展开的邮件进行回复</string>
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
-    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">选择默认文件夹</string>
+    <string name="title_advanced_default_folder">选择默认文件夹</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">默认频道</string>
     <string name="title_advanced_notifications_service">监控频道</string>
@@ -1254,7 +1254,7 @@
     <string name="title_style_protected">受保护的内容</string>
     <string name="title_style_protect_size">文本过长</string>
     <string name="title_style_clear">清除格式</string>
-    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">保持所选</string>
+    <string name="title_style_setting_keep_selection">保持所选</string>
     <string name="title_style_link">插入链接</string>
     <string name="title_style_link_address">地址</string>
     <string name="title_style_link_image">插入为图像</string>

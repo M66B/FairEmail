@@ -568,7 +568,7 @@
     <string name="title_advanced_auto_block_sender">Estä lähettäjä ilmoittaessa roskapostista</string>
     <string name="title_advanced_swipe_reply">Vastaa pyyhkäisemällä laajennetut viestit oikealle</string>
     <string name="title_advanced_default_snooze">Torkun/viiveen oletusaika</string>
-    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Valitse oletuskansio</string>
+    <string name="title_advanced_default_folder">Valitse oletuskansio</string>
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
     <string name="title_advanced_notifications_default">Oletuskanava</string>
     <string name="title_advanced_notifications_service">Monitorointikanava</string>
@@ -1269,7 +1269,7 @@
     <string name="title_style_protected">Suojattu sisältö</string>
     <string name="title_style_protect_size">Liian pitkä teksti</string>
     <string name="title_style_clear">Poista muotoilu</string>
-    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Säilytä valinta</string>
+    <string name="title_style_setting_keep_selection">Säilytä valinta</string>
     <string name="title_style_link">Lisää linkki</string>
     <string name="title_style_link_address">Osoite</string>
     <string name="title_style_link_image">Lisää kuvana</string>

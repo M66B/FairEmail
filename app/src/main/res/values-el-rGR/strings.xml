@@ -568,7 +568,7 @@
     <string name="title_advanced_auto_block_sender">Αυτόματος αποκλεισμός του αποστολέα κατά την αναφορά μηνύματος ως ανεπιθύμητου</string>
     <string name="title_advanced_swipe_reply">Σύρετε προς τα δεξιά τα αναπτυγμένα μηνύματα για να απαντήσετε</string>
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
-    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Επιλογή προεπιλεγμένου φακέλου</string>
+    <string name="title_advanced_default_folder">Επιλογή προεπιλεγμένου φακέλου</string>
     <string name="title_advanced_notifications">Διαχείριση ειδοποιήσεων</string>
     <string name="title_advanced_notifications_default">Προεπιλεγμένο κανάλι</string>
     <string name="title_advanced_notifications_service">Κανάλι παρακολούθησης</string>
@@ -1267,7 +1267,7 @@
     <string name="title_style_protected">Προστατευόμενο περιεχόμενο</string>
     <string name="title_style_protect_size">Πολύ μεγάλο κείμενο</string>
     <string name="title_style_clear">Εκκαθάριση μορφοποίησης</string>
-    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Διατήρηση επιλογής</string>
+    <string name="title_style_setting_keep_selection">Διατήρηση επιλογής</string>
     <string name="title_style_link">Εισαγωγή συνδέσμου</string>
     <string name="title_style_link_address">Διεύθυνση</string>
     <string name="title_style_link_image">Εισαγωγή ως εικόνα</string>

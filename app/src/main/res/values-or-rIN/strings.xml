@@ -131,6 +131,7 @@
     <string name="title_setup_export_remark">        ଯେହେତୁ ସେଟିଂସ୍ ଫାଇଲ୍ ସମସ୍ତ ସେଟିଂସ୍ ଏବଂ ଆକାଉଣ୍ଟ୍ ସୂଚନା ଧାରଣ କରେ, ଏହା ଏକ ପାସ୍‍ୱାର୍ଡ଼ ସହିତ ଏନକ୍ରିପ୍ଟ ହୋଇଛି।
         ସେଟିଂସ୍ ପୁଣି ଆମଦାନୀ କରିବାକୁ ପାସ୍‍ୱାର୍ଡ଼ ଆବଶ୍ୟକ, ତେଣୁ ଦୟାକରି ଏହାକୁ ଭୁଲନ୍ତୁ ନାହିଁ!
     </string>
+    <string name="title_setup_backup">ଵାର୍ତ୍ତାଗୁଡ଼ିକର ବ୍ୟାକଅପ୍ କିପରି ନେବେ?</string>
     <string name="title_setup_password">ପାସ୍‍ୱାର୍ଡ଼</string>
     <string name="title_setup_password_repeat">ପାସ୍‍ୱାର୍ଡ଼ ପୁନରାବୃତ୍ତି କରନ୍ତୁ</string>
     <string name="title_setup_password_missing">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
