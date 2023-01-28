@@ -102,6 +102,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoRead;
     private SwitchCompat swAutoUnflag;
     private SwitchCompat swResetImportance;
+    private SwitchCompat swThreadSentTrash;
     private SwitchCompat swFlagSnoozed;
     private SwitchCompat swAutoImportant;
     private SwitchCompat swResetSnooze;
@@ -123,8 +124,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "autoexpand", "expand_first", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "autoclose_unseen", "autoclose_send", "collapse_marked",
             "undo_timeout",
-            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "reset_snooze", "auto_block_sender",
-            "swipe_reply", "default_folder"
+            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "thread_sent_trash",
+            "reset_snooze", "auto_block_sender", "swipe_reply", "default_folder"
     };
 
     @Override
@@ -177,6 +178,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swResetImportance = view.findViewById(R.id.swResetImportance);
+        swThreadSentTrash = view.findViewById(R.id.swThreadSentTrash);
         swFlagSnoozed = view.findViewById(R.id.swFlagSnoozed);
         swAutoImportant = view.findViewById(R.id.swAutoImportant);
         swResetSnooze = view.findViewById(R.id.swResetSnooze);
@@ -514,6 +516,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swThreadSentTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("thread_sent_trash", checked).apply();
+            }
+        });
+
         swFlagSnoozed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -690,6 +699,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoRead.setChecked(prefs.getBoolean("autoread", false));
         swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
         swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
+        swThreadSentTrash.setChecked(prefs.getBoolean("thread_sent_trash", true));
+
         swFlagSnoozed.setChecked(prefs.getBoolean("flag_snoozed", false));
         swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
         swResetSnooze.setChecked(prefs.getBoolean("reset_snooze", true));
