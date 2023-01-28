@@ -19,11 +19,13 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Misc {
-    public static List<String> getISPDBUrls(String domain, String email) {
+    public static List<String> getISPDBUrls(Context context, String domain, String email) {
         return new ArrayList<>();
     }
 }

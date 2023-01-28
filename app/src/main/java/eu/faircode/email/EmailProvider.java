@@ -614,7 +614,7 @@ public class EmailProvider implements Parcelable {
     @NonNull
     private static EmailProvider fromISPDB(Context context, String domain, String email, IDiscovery intf) throws Throwable {
         // https://wiki.mozilla.org/Thunderbird:Autoconfiguration
-        for (String link : Misc.getISPDBUrls(domain, email))
+        for (String link : Misc.getISPDBUrls(context, domain, email))
             try {
                 URL url = new URL(link);
                 return getISPDB(context, domain, url, true, intf);

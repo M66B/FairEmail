@@ -19,17 +19,34 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import androidx.preference.PreferenceManager;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 public class Misc {
-    public static List<String> getISPDBUrls(String domain, String email) {
-        return Collections.unmodifiableList(Arrays.asList(
+    public static List<String> getISPDBUrls(Context context, String domain, String email) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean open_safe = prefs.getBoolean("open_safe", false);
+
+        List<String> result = new ArrayList<>();
+
+        result.addAll(Arrays.asList(
                 "https://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email,
-                "https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email,
-                "http://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email,
-                "http://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email
+                "https://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email
         ));
+
+        if (!open_safe)
+            result.addAll(Arrays.asList(
+                    "http://autoconfig." + domain + "/mail/config-v1.1.xml?emailaddress=" + email,
+                    "http://" + domain + "/.well-known/autoconfig/mail/config-v1.1.xml?emailaddress=" + email
+            ));
+
+        return Collections.unmodifiableList(result);
     }
 }
