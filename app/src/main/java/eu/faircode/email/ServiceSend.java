@@ -245,6 +245,20 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         if (lastProgress >= 0)
             builder.setProgress(100, lastProgress, false);
 
+        if (!lastSuitable) {
+            Intent manage = new Intent(this, ActivitySetup.class)
+                    .setAction("connection")
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    .putExtra("tab", "connection");
+            PendingIntent piManage = PendingIntentCompat.getActivity(
+                    this, ActivitySetup.PI_CONNECTION, manage, PendingIntent.FLAG_UPDATE_CURRENT);
+            NotificationCompat.Action.Builder actionManage = new NotificationCompat.Action.Builder(
+                    R.drawable.twotone_settings_24,
+                    getString(R.string.title_setup_manage),
+                    piManage);
+            builder.addAction(actionManage.build());
+        }
+
         Notification notification = builder.build();
         notification.flags |= Notification.FLAG_NO_CLEAR;
         return notification;

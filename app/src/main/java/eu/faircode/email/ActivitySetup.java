@@ -93,7 +93,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_DELETE_ACCOUNT = 11;
     static final int REQUEST_IMPORT_PROVIDERS = 12;
 
-    static final int PI_MISC = 1;
+    static final int PI_CONNECTION = 1;
+    static final int PI_MISC = 2;
 
     static final String ACTION_QUICK_GMAIL = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_GMAIL";
     static final String ACTION_QUICK_OAUTH = BuildConfig.APPLICATION_ID + ".ACTION_QUICK_OAUTH";
