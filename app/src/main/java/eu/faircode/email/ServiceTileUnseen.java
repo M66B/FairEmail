@@ -41,6 +41,9 @@ public class ServiceTileUnseen extends ServiceTileBase {
 
         DB db = DB.getInstance(this);
 
+        Icon iconSeen = Icon.createWithResource(this, R.drawable.twotone_mail_outline_24);
+        Icon iconUnseen = Icon.createWithResource(this, R.drawable.twotone_mail_24);
+
         db.message().liveUnseenNotify().observe(owner, new Observer<List<TupleMessageEx>>() {
             @Override
             public void onChanged(List<TupleMessageEx> messages) {
@@ -58,8 +61,7 @@ public class ServiceTileUnseen extends ServiceTileBase {
                 if (tile != null)
                     try {
                         tile.setState(unseen > 0 ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
-                        tile.setIcon(Icon.createWithResource(ServiceTileUnseen.this,
-                                unseen > 0 ? R.drawable.twotone_mail_24 : R.drawable.twotone_mail_outline_24));
+                        tile.setIcon(unseen > 0 ? iconUnseen : iconSeen);
                         String status = getResources().getQuantityString(
                                 R.plurals.title_tile_unseen, unseen, unseen);
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
