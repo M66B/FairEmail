@@ -221,6 +221,7 @@ public class EntityIdentity {
         json.put("self", self);
         json.put("sender_extra", sender_extra);
         json.put("sender_extra_name", sender_extra_name);
+        json.put("reply_extra_name", reply_extra_name);
         json.put("sender_extra_regex", sender_extra_regex);
 
         json.put("replyto", replyto);
@@ -296,6 +297,8 @@ public class EntityIdentity {
             identity.sender_extra = json.getBoolean("sender_extra");
         if (json.has("sender_extra_name"))
             identity.sender_extra_name = json.getBoolean("sender_extra_name");
+        if (json.has("reply_extra_name"))
+            identity.reply_extra_name = json.getBoolean("reply_extra_name");
         if (json.has("sender_extra_regex") && !json.isNull("sender_extra_regex"))
             identity.sender_extra_regex = json.getString("sender_extra_regex");
 
