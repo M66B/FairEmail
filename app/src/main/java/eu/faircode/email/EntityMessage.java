@@ -74,6 +74,8 @@ import javax.mail.internet.InternetAddress;
                 @Index(value = {"account"}),
                 @Index(value = {"folder"}),
                 @Index(value = {"identity"}),
+                @Index(value = {"replying"}),
+                @Index(value = {"forwarding"}),
                 @Index(value = {"folder", "uid"}, unique = true),
                 @Index(value = {"inreplyto"}),
                 @Index(value = {"msgid"}),
