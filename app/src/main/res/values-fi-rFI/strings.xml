@@ -214,6 +214,7 @@
     <string name="title_setup_doze_remark">Viestien lähettämiseksi ja vastaanottamiseksi luotettavasti taustalla</string>
     <string name="title_setup_doze_explanation">Akun käytön optimointi tulisi poistaa käytöstä sovellukselle, jotta viestejä voidaan lähettää ja vastaanottaa taustalla luotettavasti</string>
     <string name="title_setup_doze_hint">Vaikka tämä saattaa kuulostaa ristiriitaiselta, akun käytön optimoinnin poistaminen tältä sovellukselta vähentää akun käyttöä</string>
+    <string name="title_setup_doze_aggressively">Tämä laite saattaa pysäyttää synkronointipalvelun</string>
     <string name="title_setup_doze_why">Miksi akun käytön optimointi pitäisi ottaa pois käytöstä?</string>
     <string name="title_setup_doze_instructions">Muuta seuraavassa Androidin ikkunassa valinta \"Ei-optimoidut sovellukset\" valintaan \"Kaikki sovellukset\", valitse tämä sovellus ja vaihtoehto \"Älä optimoi\"</string>
     <string name="title_setup_doze_battery">Suuri akun käyttö?</string>
@@ -567,6 +568,7 @@
     <string name="title_advanced_auto_block_sender">Estä lähettäjä ilmoittaessa roskapostista</string>
     <string name="title_advanced_swipe_reply">Vastaa pyyhkäisemällä laajennetut viestit oikealle</string>
     <string name="title_advanced_default_snooze">Torkun/viiveen oletusaika</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Valitse oletuskansio</string>
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
     <string name="title_advanced_notifications_default">Oletuskanava</string>
     <string name="title_advanced_notifications_service">Monitorointikanava</string>
@@ -751,6 +753,9 @@
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>
     <string name="compressed">Pakattujen tiedostojen (%1$s) sisältöä yli %2$s tiedostolla tai suuremmilla tiedostoilla kuin %3$s ei näytetä</string>
     <string name="title_advanced_parse_classes_hint">Tämä näyttää viestit tarkemmin, mutta saattaa aiheuttaa viiveen</string>
+    <string name="title_advanced_default_folder_hint">        Android voi pyytää lupaa käyttää valittua kansiota, vaikka sovellus ei tarvitse sitä.
+        Voit sulkea valintaikkunan palauttaaksesi oletuskansion (yleensä \'Lataukset\'-kansio).
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Palauta viimeisin sovelluksen tila, kun käynnistetään uudelleen käynnistyskuvakkeella %1$d minuutin kuluessa</string>
     <string name="title_advanced_autoexpand_hint">Avaa viesti automaattisesti, kun keskustelussa on vain yksi viesti tai vain yksi on lukematon</string>
     <string name="title_advanced_expandall_hint">Vastauspainiketta ei näytetä, kun useita viestejä on laajennettuna, koska on epäselvää, mihin viestiin halutaan vastata</string>
@@ -803,6 +808,7 @@
     <string name="title_identity_color_hint">Identiteettien värit ovat etusijalla ennen kansioiden ja tilien värejä</string>
     <string name="title_advanced_sender">Salli lähetysosoitteen muokkaaminen</string>
     <string name="title_advanced_sender_name">Käytä nimeä, kun lähetysosoitetta on muokattu</string>
+    <string name="title_advanced_reply_name">Kopioi nimi vastaanotetusta viestistä</string>
     <string name="title_advanced_sender_regex">Regex lähettäjän sähköpostiosoitteen käyttäjätunnuksen vastaavuuden määrittämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_internal">Sisäiset verkkotunnukset (pilkulla erotettu)</string>
@@ -989,6 +995,7 @@
     <string name="title_edit_account_color">Muokkaa tilin väriä</string>
     <string name="title_hide_folder">Piilota kansio</string>
     <string name="title_hide_seen_folder">Piilota kansio, jos kaikki viestit on luettu</string>
+    <string name="title_hide_seen_folder_hint">Vain tilin ja yhdistetyn kansion listoilla</string>
     <string name="title_unified_folder">Näytä yhdistetyssä saapuneet-kansiossa</string>
     <string name="title_navigation_folder">Näytä navigointivalikossa</string>
     <string name="title_navigation_folder_hide">Piilota navigointivalikosta</string>
@@ -1262,8 +1269,10 @@
     <string name="title_style_protected">Suojattu sisältö</string>
     <string name="title_style_protect_size">Liian pitkä teksti</string>
     <string name="title_style_clear">Poista muotoilu</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Säilytä valinta</string>
     <string name="title_style_link">Lisää linkki</string>
     <string name="title_style_link_address">Osoite</string>
+    <string name="title_style_link_image">Lisää kuvana</string>
     <string name="title_style_link_title">Otsikko</string>
     <string name="title_style_link_metadata">Hae otsikko</string>
     <string name="title_style_link_metadata_remark">Tämä hakee otsikkoa syötetystä osoitteesta</string>

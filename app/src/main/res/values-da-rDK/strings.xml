@@ -568,6 +568,7 @@
     <string name="title_advanced_auto_block_sender">Blokér automatisk afsenderen ved spamanmeldelse</string>
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Vælg standardmappe</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
     <string name="title_advanced_notifications_service">Monitorér kanal</string>
@@ -754,6 +755,9 @@
     <string name="title_advanced_inline_hint">Inline-billeder er billeder, som er inkluderet i beskeden</string>
     <string name="compressed">Komprimerede filer (%1$s) indeholdende flere end %2$s filer, eller med filer større end %3$s, vises ikke</string>
     <string name="title_advanced_parse_classes_hint">Dette viser beskeder mere korrekt, men muligvis med en forsinkelse</string>
+    <string name="title_advanced_default_folder_hint">        Android kan bede om adgangstilladelse til den valgte mappe, selvom appen ikke behøver den.
+        Valgdialogen kan annulleres for at gendanne standardmappen (normalt mappen \'Download\').
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Gendan seneste app-tilstand ved genstart inden for %1$d minutter via app-ikonet</string>
     <string name="title_advanced_autoexpand_hint">Åbn automatisk besked, når der kun er én besked eller kun én ulæst besked i en samtale</string>
     <string name="title_advanced_expandall_hint">Svar-knappen vises ikke, når flere beskeder er udvidet, da det vil være uklart, hvilken besked knappen gælder for</string>
@@ -1269,6 +1273,7 @@
     <string name="title_style_protected">Beskyttet indhold</string>
     <string name="title_style_protect_size">Tekst for lang</string>
     <string name="title_style_clear">Ryd formatering</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Behold valgte</string>
     <string name="title_style_link">Indsæt link</string>
     <string name="title_style_link_address">Adresse</string>
     <string name="title_style_link_image">Indsæt et billede</string>

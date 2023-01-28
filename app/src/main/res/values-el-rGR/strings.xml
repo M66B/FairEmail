@@ -568,6 +568,7 @@
     <string name="title_advanced_auto_block_sender">Αυτόματος αποκλεισμός του αποστολέα κατά την αναφορά μηνύματος ως ανεπιθύμητου</string>
     <string name="title_advanced_swipe_reply">Σύρετε προς τα δεξιά τα αναπτυγμένα μηνύματα για να απαντήσετε</string>
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Επιλογή προεπιλεγμένου φακέλου</string>
     <string name="title_advanced_notifications">Διαχείριση ειδοποιήσεων</string>
     <string name="title_advanced_notifications_default">Προεπιλεγμένο κανάλι</string>
     <string name="title_advanced_notifications_service">Κανάλι παρακολούθησης</string>
@@ -751,6 +752,9 @@
     <string name="title_advanced_inline_hint">Οι ένθετες εικόνες είναι οι εικόνες που περιλαμβάνονται στο μήνυμα</string>
     <string name="compressed">Τα περιεχόμενα των συμπιεσμένων αρχείων (%1$s) με περισσότερα από %2$s αρχεία ή με αρχεία μεγαλύτερα από %3$s δεν θα προβάλλονται</string>
     <string name="title_advanced_parse_classes_hint">Η προβολή των εικόνων θα είναι πιο ακριβής αλλά με ενδεχόμενη καθυστέρηση</string>
+    <string name="title_advanced_default_folder_hint">        Το Android ενδέχεται να ζητήσει άδεια πρόσβασης στον επιλεγμένο φάκελο, παρόλο που η εφαρμογή δεν το χρειάζεται.
+        Μπορείτε να ακυρώσετε τον διάλογο επιλογής για να επαναφέρετε τον προεπιλεγμένο φάκελο (συνήθως τον φάκελο \"Λήψεις\").
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Επαναφέρεται η τελευταία κατάσταση της εφαρμογής, εφόσον γίνεται επανεκκίνηση εντός %1$d λεπτών μέσω του εικονιδίου εκκίνησης</string>
     <string name="title_advanced_autoexpand_hint">Αυτόματο άνοιγμα του μηνύματος όταν υπάρχει μόνον ένα μήνυμα ή μόνον ένα μη αναγνωσμένο μήνυμα σε μία συζήτηση</string>
     <string name="title_advanced_expandall_hint">Το κουμπί απάντησης δεν θα εμφανίζεται όταν έχουν αναπτυχθεί πολλαπλά μηνύματα, καθώς τότε δεν είναι σαφές σε ποιο μήνυμα ακριβώς αφορά το κουμπί</string>
@@ -1263,6 +1267,7 @@
     <string name="title_style_protected">Προστατευόμενο περιεχόμενο</string>
     <string name="title_style_protect_size">Πολύ μεγάλο κείμενο</string>
     <string name="title_style_clear">Εκκαθάριση μορφοποίησης</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Διατήρηση επιλογής</string>
     <string name="title_style_link">Εισαγωγή συνδέσμου</string>
     <string name="title_style_link_address">Διεύθυνση</string>
     <string name="title_style_link_image">Εισαγωγή ως εικόνα</string>

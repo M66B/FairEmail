@@ -555,6 +555,7 @@
     <string name="title_advanced_auto_block_sender">报告垃圾邮件时自动屏蔽发件人</string>
     <string name="title_advanced_swipe_reply">右滑展开的邮件进行回复</string>
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">选择默认文件夹</string>
     <string name="title_advanced_notifications">管理通知</string>
     <string name="title_advanced_notifications_default">默认频道</string>
     <string name="title_advanced_notifications_service">监控频道</string>
@@ -740,6 +741,9 @@
     <string name="title_advanced_inline_hint">内联图像是邮件中包含的图像</string>
     <string name="compressed">所含文件超过 %2$s 个或大于 %3$s 的压缩文件 (%1$s) 的内容将不会显示</string>
     <string name="title_advanced_parse_classes_hint">这将更准确地显示消息，但可能会有延迟</string>
+    <string name="title_advanced_default_folder_hint">        Android 可能请求访问选定文件夹的权限，即使应用程序不需要它。
+        您可以取消选择对话框以恢复默认文件夹 (通常是“下载”文件夹)。
+    </string>
     <string name="title_advanced_restore_on_launch_hint">在 %1$d 分钟内通过图标重新启动 FairEmail 时恢复上次应用状态</string>
     <string name="title_advanced_autoexpand_hint">当对话中只有一条消息或只是一条未读消息时，自动打开该消息</string>
     <string name="title_advanced_expandall_hint">展开多封邮件时不会显示回复按钮，因为这样会无法确定回复哪封邮件</string>
@@ -1250,6 +1254,7 @@
     <string name="title_style_protected">受保护的内容</string>
     <string name="title_style_protect_size">文本过长</string>
     <string name="title_style_clear">清除格式</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">保持所选</string>
     <string name="title_style_link">插入链接</string>
     <string name="title_style_link_address">地址</string>
     <string name="title_style_link_image">插入为图像</string>

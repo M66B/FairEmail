@@ -568,6 +568,7 @@
     <string name="title_advanced_auto_block_sender">Bloquear automáticamente al remitente al reportar como spam</string>
     <string name="title_advanced_swipe_reply">Deslice los mensajes expandidos a la derecha para responder</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer/retraso por defecto</string>
+    <string name="title_advanced_default_folder" comment="title_advanced_default_folder&#10;Title for button to select the default folder for selection of files (attachments, images)">Seleccionar carpeta por defecto</string>
     <string name="title_advanced_notifications">Administrar notificaciones</string>
     <string name="title_advanced_notifications_default">Canal por defecto</string>
     <string name="title_advanced_notifications_service">Canal de monitoreo</string>
@@ -753,6 +754,9 @@
     <string name="title_advanced_inline_hint">Las imágenes embebidas son imágenes incluídas en el mensaje</string>
     <string name="compressed">El cotenido de archivos comprimidos (%1$s) con más de %2$s archivos o archivos de más de %3$s no se mostrarán</string>
     <string name="title_advanced_parse_classes_hint">Esto mostrará los mensajes con mayor precisión, pero posiblemente con un retraso</string>
+    <string name="title_advanced_default_folder_hint">        Puede que Android solicite permiso para acceder a la carpeta seleccionada, aunque la aplicación no lo necesite.
+        Puede cancelar el diálogo de selección para restaurar la carpeta predeterminada (por lo general la carpeta \'Descargas\').
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Restaurar el último estado de la aplicación cuando se reinicie mediante el icono del lanzador dentro de los %1$d minutos</string>
     <string name="title_advanced_autoexpand_hint">Abrir mensaje automáticamente cuando haya solo un mensaje o uno no leído en una conversación</string>
     <string name="title_advanced_expandall_hint">El botón de respuesta no se mostrará cuando se expandan varios mensajes porque no está claro a qué mensaje aplica el botón</string>
@@ -1265,6 +1269,7 @@
     <string name="title_style_protected">Contenido protegido</string>
     <string name="title_style_protect_size">Texto demasiado largo</string>
     <string name="title_style_clear">Quitar formato</string>
+    <string name="title_style_setting_keep_selection" comment="title_style_setting_keep_selection&#10;Title for option to keep the text selection after applying a style option like bold, italic, etc.">Mantener selección</string>
     <string name="title_style_link">Insertar enlace</string>
     <string name="title_style_link_address">Dirección</string>
     <string name="title_style_link_image">Insertar como una imagen</string>
