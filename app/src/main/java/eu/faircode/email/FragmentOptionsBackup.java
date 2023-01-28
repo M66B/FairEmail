@@ -217,6 +217,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             }
         });
 
+        btnLogin.setEnabled(!BuildConfig.PLAY_STORE_RELEASE || ActivityBilling.isPro(getContext()));
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1111,6 +1112,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                             String key = jsetting.getString("key");
 
                             if ("pro".equals(key) && !BuildConfig.DEBUG)
+                                continue;
+                            if ("iab_json".equals(key) || "iab_signature".equals(key))
                                 continue;
 
                             if ("accept_unsupported".equals(key))

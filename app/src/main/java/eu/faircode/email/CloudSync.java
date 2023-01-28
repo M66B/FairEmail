@@ -84,6 +84,15 @@ public class CloudSync {
             return;
 
         JSONObject jrequest = new JSONObject();
+        if ("login".equals(command)) {
+            String iab_json = prefs.getString("iab_json", null);
+            String iab_signature = prefs.getString("iab_signature", null);
+            if (!TextUtils.isEmpty(iab_json) & !TextUtils.isEmpty(iab_signature)) {
+                Log.i("Cloud IAB " + iab_json);
+                jrequest.put("iab_json", iab_json);
+                jrequest.put("iab_signature", iab_signature);
+            }
+        }
 
         EntityLog.log(context, EntityLog.Type.Cloud, "Cloud request=" + command);
         if ("sync".equals(command)) {

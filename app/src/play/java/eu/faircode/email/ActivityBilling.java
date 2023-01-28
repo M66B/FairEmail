@@ -485,6 +485,8 @@ public class ActivityBilling extends ActivityBase implements
                                     if (isPurchaseValid(purchase)) {
                                         editor.putBoolean("pro", true);
                                         editor.putLong(sku + ".cached", new Date().getTime());
+                                        editor.putString("iab_json", purchase.getOriginalJson());
+                                        editor.putString("iab_signature", purchase.getSignature());
                                     }
 
                                     if (!purchase.isAcknowledged())
