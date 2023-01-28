@@ -113,6 +113,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
     private Button btnExport;
     private TextView tvExportPro;
     private Button btnImport;
+    private TextView tvBackupMessages;
     private CardView cardCloud;
     private ImageButton ibCloudInfo;
     private TextView tvCloudPro;
@@ -157,6 +158,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         btnExport = view.findViewById(R.id.btnExport);
         tvExportPro = view.findViewById(R.id.tvExportPro);
         btnImport = view.findViewById(R.id.btnImport);
+        tvBackupMessages = view.findViewById(R.id.tvBackupMessages);
         cardCloud = view.findViewById(R.id.cardCloud);
         ibCloudInfo = view.findViewById(R.id.ibCloudInfo);
         tvCloudPro = view.findViewById(R.id.tvCloudPro);
@@ -204,6 +206,14 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             @Override
             public void onClick(View v) {
                 onImportDialog();
+            }
+        });
+
+        tvBackupMessages.getPaint().setUnderlineText(true);
+        tvBackupMessages.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 151);
             }
         });
 

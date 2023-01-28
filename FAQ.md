@@ -4345,20 +4345,20 @@ Unfortunately, there exists no intent to delete existing calendar events.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq151)
 
-An email client is meant to read and write messages, not to backup and restore messages.
-Note that breaking or losing your device, means losing your messages!
-
+An email client is meant to read and write messages, not to back up and restore messages.
+In other words, an email client is a viewer for messages on an email server, and not a backup tool.
 Instead, the email provider/server is responsible for backups.
 
 If you want to make a backup yourself, you could use a tool like [imapsync](https://imapsync.lamiral.info/).
 
 Since version 1.1556 it is possible to export all messages of a POP3 folder in mbox format according to [RFC4155](https://www.ietf.org/rfc/rfc4155.txt),
-which might be useful to save sent messages if the email server doesn't.
+which might be useful to save sent messages if the email server doesn't (which is risky because breaking or losing your device, means losing your sent messages!).
+For this, please long press on the folder in the folder list of an account (tap on the account name in the navigation menu).
 
 If you want to import an mbox file to an existing email account,
 you can use Thunderbird on a desktop computer and the [ImportExportTools](https://addons.thunderbird.net/nl/thunderbird/addon/importexporttools/) add-on.
 
-Note that in case of IMAP all messages on your device are also on the email server.
+Note that in case of IMAP, all messages on your device are also on the email server.
 
 <br />
 

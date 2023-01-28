@@ -146,6 +146,20 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnImport" />
+
+                <TextView
+                    android:id="@+id/tvBackupMessages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_setup_backup"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvScroll" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
