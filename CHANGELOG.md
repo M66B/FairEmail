@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
+### 1.2036 - 2023-01-29
+
+* Fixed folder item layout
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2035 - 2023-01-28
 
 * Added option to disable trashing sent messages when trashing a conversation
