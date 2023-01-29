@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
+### 1.2037 - 2023-01-29
+
+* Fixed archiving of sent messages
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2036 - 2023-01-29
 
 * Fixed folder item layout
