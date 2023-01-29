@@ -29,6 +29,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -226,8 +227,30 @@ public class ContactInfo {
     }
 
     private static ContactInfo[] get(Context context, long account, String folderType, String selector, Address[] addresses, boolean cacheOnly) {
-        if (addresses == null || addresses.length == 0)
+        if (addresses == null || addresses.length == 0) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean avatars = prefs.getBoolean("avatars", true);
+            boolean bimi = (prefs.getBoolean("bimi", false) && !BuildConfig.PLAY_STORE_RELEASE);
+            boolean gravatars = (prefs.getBoolean("gravatars", false) && !BuildConfig.PLAY_STORE_RELEASE);
+            boolean libravatars = (prefs.getBoolean("libravatars", false) && !BuildConfig.PLAY_STORE_RELEASE);
+            boolean favicons = prefs.getBoolean("favicons", false);
+            boolean generated = prefs.getBoolean("generated_icons", true);
+            boolean identicons = prefs.getBoolean("identicons", false);
+            if (avatars || bimi || gravatars || libravatars || favicons || generated || identicons) {
+                Drawable d = context.getDrawable(R.drawable.twotone_person_24);
+                Bitmap bitmap = Bitmap.createBitmap(d.getIntrinsicWidth(), d.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
+                Canvas canvas = new Canvas(bitmap);
+                d.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
+                d.setTint(Helper.resolveColor(context, R.attr.colorSeparator));
+                d.draw(canvas);
+
+                ContactInfo anonymous = new ContactInfo();
+                anonymous.bitmap = bitmap;
+                return new ContactInfo[]{anonymous};
+            }
+
             return new ContactInfo[]{new ContactInfo()};
+        }
 
         ContactInfo[] result = new ContactInfo[addresses.length];
         for (int i = 0; i < addresses.length; i++) {
