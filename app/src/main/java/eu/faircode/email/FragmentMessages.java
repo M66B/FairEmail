@@ -1387,7 +1387,8 @@ public class FragmentMessages extends FragmentBase
                                         !targetFolder.id.equals(threaded.folder) &&
                                         (!filter_archive || !EntityFolder.ARCHIVE.equals(sourceFolder.type)) &&
                                         !EntityFolder.DRAFTS.equals(sourceFolder.type) && !EntityFolder.OUTBOX.equals(sourceFolder.type) &&
-                                        (!EntityFolder.SENT.equals(sourceFolder.type) || !EntityFolder.TRASH.equals(targetFolder.type) || thread_sent_trash) &&
+                                        !(EntityFolder.SENT.equals(sourceFolder.type) && EntityFolder.ARCHIVE.equals(targetFolder.type)) &&
+                                        !(EntityFolder.SENT.equals(sourceFolder.type) && EntityFolder.JUNK.equals(targetFolder.type)) && (!EntityFolder.SENT.equals(sourceFolder.type) || !EntityFolder.TRASH.equals(targetFolder.type) || thread_sent_trash) &&
                                         !EntityFolder.TRASH.equals(sourceFolder.type) && !EntityFolder.JUNK.equals(sourceFolder.type))
                                     result.add(new MessageTarget(context, threaded, account, sourceFolder, account, targetFolder));
                             }
