@@ -1590,11 +1590,11 @@
         domain="alice\\.de,alice-dsl\\.de,alice-dsl\\.net"
         link="https://maildienste.de/alice/">
         <imap
-            host="imap.alice-dsl.de"
+            host="imap.alice.de"
             port="993"
             starttls="false" />
         <smtp
-            host="smtp.alice-dsl.de"
+            host="smtp.alice.de"
             port="587"
             starttls="true" />
     </provider>
