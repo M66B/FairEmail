@@ -72,7 +72,7 @@ public class EntitySearch {
         if (json.has("order") && !json.isNull("order"))
             search.order = json.getInt("order");
         if (json.has("color") && !json.isNull("color"))
-            search.order = json.getInt("color");
+            search.color = json.getInt("color");
         search.data = json.getString("data");
 
         return search;
