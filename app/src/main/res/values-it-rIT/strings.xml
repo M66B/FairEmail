@@ -2,8 +2,8 @@
 <resources>
     <string name="app_search">Ricerca di FairEmail</string>
     <string name="app_changelog">Changelog</string>
-    <string name="app_welcome">FairEmail è un\'app di email open source concentrata su privacy e sicurezza. Per questo motivo, alcune funzionalità potrebbero funzionare diversamente da ciò a cui sei abituato.</string>
-    <string name="app_limitations">Ad esempio, i messaggi sono riformattati di default per rimuovere gli elementi non sicuri e migliorare la leggibilità, e l\'apertura dei link dev\'esser confermata per sicurezza. Sono entrambi disabilitabili, se desiderato.</string>
+    <string name="app_welcome">FairEmail è un\'app di email open source, concentrata sulla privacy e la sicurezza. Per questo motivo, alcune funzionalità potrebbero funzionare diversamente da ciò a cui sei abituato.</string>
+    <string name="app_limitations">Ad esempio, i messaggi sono riformattati di default, per rimuovere gli elementi non sicuri e migliorare la leggibilità e, l\'apertura dei link dev\'essere confermata per sicurezza. Entrambi possono essere disabilitati, se desiderato.</string>
     <string name="app_unsupported">I bug nella versione Android di questo specifico dispositivo causano crash</string>
     <string name="app_data_loss">Tutti i dati potrebbero esser persi</string>
     <string name="app_continue">Continua comunque</string>
@@ -15,7 +15,7 @@
     <string name="app_download">Scaricata da: %1$s</string>
     <string name="channel_service">Monitoraggio</string>
     <string name="channel_send">Invia</string>
-    <string name="channel_notification">E-mail</string>
+    <string name="channel_notification">Email</string>
     <string name="channel_progress">Avanzamento</string>
     <string name="channel_update">Aggiornamenti</string>
     <string name="channel_announcements">Annunci</string>
@@ -240,14 +240,14 @@
     <string name="title_setup_extra">Extra</string>
     <string name="title_setup_delete_account_hint">Questo rimuoverà i profili solo dall\'app</string>
     <string name="title_setup_close">Chiudi le impostazioni</string>
-    <string name="title_setup_export">Impostazioni di esportazione</string>
+    <string name="title_setup_export">Esporta impostazioni</string>
     <string name="title_setup_import">Importa impostazioni</string>
     <string name="title_setup_export_remark">        Poiché il file delle impostazioni contiene tutte le impostazioni e informazioni del profilo, è crittografato con una password.
         La password è necessaria per re-importare le impostazioni, sei quindi pregato di non dimenticarla!
     </string>
     <string name="title_setup_export_do">Il file d\'esportazione conterrà tutte le impostazioni e i dati, ma nessun messaggio e nessun\'immagine riferita nelle firme</string>
     <string name="title_setup_scroll">Le finestre di input possono essere scorrevoli!</string>
-    <string name="title_setup_backup">Come fare il backup dei messaggi?</string>
+    <string name="title_setup_backup">Come eseguire il backup dei messaggi?</string>
     <string name="title_setup_password">Password</string>
     <string name="title_setup_password_chars">La password contiene caratteri di controllo o spazi vuoti</string>
     <string name="title_setup_password_repeat">Ripeti password</string>
@@ -564,14 +564,14 @@
     <string name="title_advanced_autoread">Contrassegna automaticamente i messaggi come letti allo spostamento</string>
     <string name="title_advanced_autounstar">Rimuovi automaticamente le stelle dai messaggi al loro spostamento</string>
     <string name="title_advanced_reset_importance">Ripristina l\'importanza allo spostamento dei messaggi</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Cestinando una conversazione, cestinare anche i messaggi inviati</string>
+    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Cestinando una conversazionwe, elimina anche i messaggi inviati</string>
     <string name="title_advanced_star_snoozed">Aggiungi automaticamente la stella posticipando i messaggi</string>
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi stellati</string>
     <string name="title_advanced_cancel_snooze">Annulla posticipazione allo spostamento dei messaggi</string>
     <string name="title_advanced_auto_block_sender">Blocca automaticamente il mittente alla segnalazione di spam</string>
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
-    <string name="title_advanced_default_folder">Seleziona cartella predefinita</string>
+    <string name="title_advanced_default_folder">Seleziona la cartella predefinita</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
     <string name="title_advanced_notifications_default">Canale predefinito</string>
     <string name="title_advanced_notifications_service">Canale di monitoraggio</string>
@@ -758,8 +758,8 @@
     <string name="title_advanced_inline_hint">Le immagini in linea sono immagini incluse nel messaggio</string>
     <string name="compressed">I contenuti dei file compressi (%1$s) con oltre %2$s file o con file più grandi di %3$s non saranno mostrati</string>
     <string name="title_advanced_parse_classes_hint">Questo visualizzerà più accuratamente i messaggi, ma probabilmente con un ritardo</string>
-    <string name="title_advanced_default_folder_hint">        Android potrebbe richiedere l\'autorizzazione per accedere alla cartella selezionata, anche se l\'applicazione non ne ha bisogno.
-        Puoi annullare la finestra di selezione per ritornare alla cartella predefinita (di solito la cartella \'Download\').
+    <string name="title_advanced_default_folder_hint">        Android potrebbe richiedere l\'autorizzazione ad accedere alla cartella selezionata, anche se l\'app non la necessita.
+        Puoi annullare la finestra di selezione per ripristinare la cartella predefinita (solitamente la cartella \'Download\').
     </string>
     <string name="title_advanced_restore_on_launch_hint">Quando riavviato tramite l\'icona del launcher, ripristina l\'ultimo stato dell\'app entro %1$d minuti</string>
     <string name="title_advanced_autoexpand_hint">Apri automaticamente il messaggio quando ce n\'è solo uno o c\'è solo un messaggio non letto in una conversazione</string>
