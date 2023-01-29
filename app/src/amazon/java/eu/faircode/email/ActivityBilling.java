@@ -133,7 +133,7 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
     }
 
     @NonNull
-    static String getSkuPro() {
+    static String getSkuPro(Context context) {
         return BuildConfig.APPLICATION_ID.replace(".debug", "") + ".pro";
     }
 
@@ -202,7 +202,7 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
     private void onPurchase(Intent intent) {
         if (Helper.isAmazonInstall() || isTesting(this))
             try {
-                String skuPro = getSkuPro();
+                String skuPro = getSkuPro(this);
                 Log.i("IAB purchase SKU=" + skuPro);
                 RequestId requestId = PurchasingService.purchase(skuPro);
                 Log.i("IAB request=" + requestId);
@@ -238,7 +238,7 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
             PurchasingService.getUserData();
             PurchasingService.getPurchaseUpdates(true); // TODO: reset?
             Set<String> skus = new HashSet<>();
-            skus.add(getSkuPro());
+            skus.add(getSkuPro(this));
             PurchasingService.getProductData(skus);
         }
     }
@@ -291,7 +291,7 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
                 for (String key : products.keySet()) {
                     Product product = products.get(key);
                     Log.i("IAB product=" + product.toString().replace('\n', '|'));
-                    if (getSkuPro().equals(product.getSku()))
+                    if (getSkuPro(this).equals(product.getSku()))
                         for (IBillingListener listener : listeners)
                             listener.onSkuDetails(product.getSku(), product.getPrice());
                 }
@@ -322,7 +322,7 @@ public class ActivityBilling extends ActivityBase implements PurchasingListener,
         Log.i("IAB receipt=" + receipt.toString().replace('\n', '|') +
                 " canceled=" + receipt.isCanceled() + "/" + receipt.getCancelDate());
 
-        if (getSkuPro().equals(receipt.getSku())) {
+        if (getSkuPro(this).equals(receipt.getSku())) {
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             if (receipt.isCanceled()) {
                 prefs.edit().remove("pro").apply();
