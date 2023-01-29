@@ -64,14 +64,14 @@ public class EntitySearch {
     public static EntitySearch fromJSON(JSONObject json) throws JSONException {
         EntitySearch search = new EntitySearch();
         // id
-        if (json.has("account"))
+        if (json.has("account") && !json.isNull("account"))
             search.account_uuid = json.getString("account");
-        if (json.has("folder"))
+        if (json.has("folder") && !json.isNull("folder"))
             search.folder_name = json.getString("folder");
         search.name = json.getString("name");
-        if (json.has("order"))
+        if (json.has("order") && !json.isNull("order"))
             search.order = json.getInt("order");
-        if (json.has("color"))
+        if (json.has("color") && !json.isNull("color"))
             search.order = json.getInt("color");
         search.data = json.getString("data");
 
