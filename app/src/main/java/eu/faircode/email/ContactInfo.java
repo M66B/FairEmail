@@ -514,12 +514,15 @@ public class ContactInfo {
 
         // Generated
         boolean identicon = false;
-        if (info.bitmap == null && generated && !TextUtils.isEmpty(info.email)) {
+        String name = address.getPersonal();
+        String tag = (TextUtils.isEmpty(info.email) ? name : info.email);
+        String etag = (TextUtils.isEmpty(info.email) ? Helper.sanitizeFilename(name + "@name") : ekey);
+        if (info.bitmap == null && generated && !TextUtils.isEmpty(tag)) {
             File dir = Helper.ensureExists(new File(context.getFilesDir(), "generated"));
             File[] files = dir.listFiles(new FilenameFilter() {
                 @Override
                 public boolean accept(File file, String name) {
-                    return name.startsWith(ekey);
+                    return name.startsWith(etag);
                 }
             });
             if (files != null && files.length == 1) {
@@ -532,16 +535,16 @@ public class ContactInfo {
                 if (identicons) {
                     identicon = true;
                     info.bitmap = ImageHelper.generateIdenticon(
-                            info.email, dp, 5, context);
+                            tag, dp, 5, context);
                     info.type = "identicon";
                 } else {
                     info.bitmap = ImageHelper.generateLetterIcon(
-                            info.email, address.getPersonal(), dp, context);
+                            tag, address.getPersonal(), dp, context);
                     info.type = "letter";
                 }
 
                 // Add to cache
-                File output = new File(dir, ekey + "." + info.type);
+                File output = new File(dir, etag + "." + info.type);
                 try (OutputStream os = new BufferedOutputStream(new FileOutputStream(output))) {
                     info.bitmap.compress(Bitmap.CompressFormat.PNG, 90, os);
                 } catch (IOException ex) {
