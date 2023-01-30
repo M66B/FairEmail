@@ -260,6 +260,7 @@
     </string>
     <string name="title_setup_export_do">Fișierul de export va conține toate setările și datele, dar nu și mesajele și nici imaginile la care se face referire în semnături</string>
     <string name="title_setup_scroll">Dialogurile de intrare pot fi derulate!</string>
+    <string name="title_setup_backup">Cum pot fi salvate mesajele?</string>
     <string name="title_setup_password">Parolă</string>
     <string name="title_setup_password_chars">Parola conține caractere nule sau de control</string>
     <string name="title_setup_password_repeat">Repetă parola</string>
@@ -575,12 +576,14 @@
     <string name="title_advanced_autoread">Marchează automat mesajele mutate ca citite</string>
     <string name="title_advanced_autounstar">Elimină automat steaua mesajelor mutate</string>
     <string name="title_advanced_reset_importance">Resetează importanța la mutarea mesajelor</string>
+    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Când se șterge o conversație, șterge de asemenea și mesajele trimise</string>
     <string name="title_advanced_star_snoozed">Adaugă automat stea la mesajele amânate</string>
     <string name="title_advanced_auto_important">Marcheză automat mesajele cu stea ca importante</string>
     <string name="title_advanced_cancel_snooze">Anulează amânarea la mutarea mesajelor</string>
     <string name="title_advanced_auto_block_sender">Blochează automat expeditorul când raportezi spam-ul</string>
     <string name="title_advanced_swipe_reply">Glisați mesajele extinse spre dreapta pentru a răspunde</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
+    <string name="title_advanced_default_folder">Selectați directorul implicit</string>
     <string name="title_advanced_notifications">Gestionarea notificărilor</string>
     <string name="title_advanced_notifications_default">Canal implicit</string>
     <string name="title_advanced_notifications_service">Canalul de monitorizare</string>
@@ -766,6 +769,9 @@
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
     <string name="compressed">Conținutul fișierelor comprimate (%1$s) cu mai mult de %2$s fișiere sau cu fișiere mai mari de %3$s nu va fi afișat</string>
     <string name="title_advanced_parse_classes_hint">Acest lucru va afișa cu mai multă precizie mesajele, dar posibil cu o întârziere</string>
+    <string name="title_advanced_default_folder_hint">        Android poate solicita permisiunea de a accesa directorul selectat, chiar dacă aplicația nu are nevoie de ea.
+        Puteți anula dialogul de selectare pentru a restaura directorul implicit (de obicei \'Descărcare\').
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Restaurează ultima stare a aplicației la repornirea prin pictograma lansator în %1$d minute</string>
     <string name="title_advanced_autoexpand_hint">Atunci când este doar un mesaj sau doar un mesaj necitit într-o conversație</string>
     <string name="title_advanced_expandall_hint">Butonul de răspuns nu va fi afișat atunci când sunt extinse mai multe mesaje, deoarece nu este clar la ce mesaj se aplică butonul</string>
@@ -1278,6 +1284,7 @@
     <string name="title_style_protected">Conținut protejat</string>
     <string name="title_style_protect_size">Textul este prea lung</string>
     <string name="title_style_clear">Elimină toate formatările</string>
+    <string name="title_style_setting_keep_selection">Păstrează selecția</string>
     <string name="title_style_link">Inserare legătură</string>
     <string name="title_style_link_address">Adresă</string>
     <string name="title_style_link_image">Inserare ca imagine</string>

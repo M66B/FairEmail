@@ -213,6 +213,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_doze_remark">Arka planda güvenilir bir şekilde e-posta göndermek ve almak için</string>
     <string name="title_setup_doze_explanation">Arka planda mesajların güvenilir bir şekilde gönderilmesini ve alınmasını sağlamak için uygulamanın pil optimizasyonları devre dışı bırakılmalıdır</string>
     <string name="title_setup_doze_hint">Bu kulağa çelişkili gelse de, bu uygulama için pil optimizasyonlarını kapatmak daha az pil kullanımına neden olur</string>
+    <string name="title_setup_doze_aggressively">Bu cihaz senkronizasyon hizmetini durdurabilir</string>
     <string name="title_setup_doze_why">Pil optimizasyonları neden devre dışı bırakılmalı?</string>
     <string name="title_setup_doze_instructions">Bir sonraki Android iletişim kutusunda \"Optimize edilmemiş\" i \"Tüm uygulamalar\" olarak değiştirin, bu uygulamayı seçin ve \"Optimize etme\" yi seçin</string>
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
@@ -245,6 +246,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     </string>
     <string name="title_setup_export_do">Dışa aktarma dosyası tüm ayarları ve verileri içerecek, ancak imzalarda atıfta bulunulan hiçbir mesaj ve resim olmayacak</string>
     <string name="title_setup_scroll">Giriş diyalogları kaydırılabilir olabilir!</string>
+    <string name="title_setup_backup">Mesajlar nasıl yedeklensin?</string>
     <string name="title_setup_password">Parola</string>
     <string name="title_setup_password_chars">Parola, kontrol veya boşluk karakterleri içeriyor</string>
     <string name="title_setup_password_repeat">Parolayı tekrarla</string>
@@ -560,12 +562,14 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_autoread">İleti taşındığında otomatik olarak okundu diye işaretle</string>
     <string name="title_advanced_autounstar">Mesajları taşırken otomatik olarak yıldızı kaldır</string>
     <string name="title_advanced_reset_importance">Mesajları taşırken önem derecesini sıfırla</string>
+    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Bir konuşmayı çöpe atarken, gönderilen mesajlar da çöpe atılır</string>
     <string name="title_advanced_star_snoozed">Ertelenen mesajlara otomatik olarak yıldız ekle</string>
     <string name="title_advanced_auto_important">Yıldızlanan mesajları otomatik olarak önemli hale getir</string>
     <string name="title_advanced_cancel_snooze">Hareketli mesajlarda ertelemeyi iptal et</string>
     <string name="title_advanced_auto_block_sender">Spam bildirirken göndereni otomatik olarak engelle</string>
     <string name="title_advanced_swipe_reply">Genişletilmiş mesajları yanıtlamak için sağa kaydırın</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
+    <string name="title_advanced_default_folder">Varsayılan klasörü seçin</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
     <string name="title_advanced_notifications_default">Varsayılan kanal</string>
     <string name="title_advanced_notifications_service">İzleme kanalı</string>
@@ -751,6 +755,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_inline_hint">Satıriçi resimler mesajın içine eklenen resimlerdir</string>
     <string name="compressed">%2$s\'den fazla dosya içeren veya %3$s\'den büyük dosyalar içeren sıkıştırılmış dosyaların (%1$s) içerikleri gösterilmeyecek</string>
     <string name="title_advanced_parse_classes_hint">Bu, mesajları daha doğru bir şekilde gösterecektir, ancak muhtemelen bir gecikme ile</string>
+    <string name="title_advanced_default_folder_hint">        Android, uygulamanın ihtiyacı olmasa bile seçilen klasöre erişim izni isteyebilir.
+        Varsayılan klasörü (genellikle \'İndirilenler\' klasöründedir) geri yüklemek için seçim iletişim kutusunu iptal edebilirsiniz.
+    </string>
     <string name="title_advanced_restore_on_launch_hint">%1$d dakika içinde başlatıcı simgesi aracılığıyla yeniden başlatıldığında son uygulama durumunu geri yükle</string>
     <string name="title_advanced_autoexpand_hint">Bir sohbette yalnızca bir ileti veya yalnızca bir okunmamış ileti olduğunda iletiyi otomatik olarak aç</string>
     <string name="title_advanced_expandall_hint">Düğmenin hangi mesaja uygulanacağı belirsiz olduğundan, birden fazla mesaj genişletildiğinde cevap düğmesi gösterilmeyecektir</string>
@@ -803,6 +810,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_identity_color_hint">Kimlik renkleri, klasör ve hesap renklerinden önceliklidir</string>
     <string name="title_advanced_sender">Gönderici adresini düzenlemeye izin ver</string>
     <string name="title_advanced_sender_name">Gönderen adresi düzenlendiğinde adı kullan</string>
+    <string name="title_advanced_reply_name">Alınan mesajdaki adı kopyalayın</string>
     <string name="title_advanced_sender_regex">Gelen e-posta adreslerinin kullanıcı adı bölümünü eşleştirmek için düzenli ifade</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
     <string name="title_identity_internal">Dahili alan adları (virgülle ayrılmış)</string>
@@ -1262,6 +1270,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_style_protected">Korumalı içerik</string>
     <string name="title_style_protect_size">Metin çok uzun</string>
     <string name="title_style_clear">Biçimlendirmeyi temizle</string>
+    <string name="title_style_setting_keep_selection">Seçileni tut</string>
     <string name="title_style_link">Bağlantı ekle</string>
     <string name="title_style_link_address">Adres</string>
     <string name="title_style_link_image">Resim olarak ekle</string>
