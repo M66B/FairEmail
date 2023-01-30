@@ -247,6 +247,7 @@
     </string>
     <string name="title_setup_export_do">El archivo de exportación contendrá todos los ajustes y datos, pero no hay mensajes ni imágenes referenciadas en las firmas</string>
     <string name="title_setup_scroll">¡Los diálogos de entrada pueden ser desplazables!</string>
+    <string name="title_setup_backup">¿Cómo hacer una copia de seguridad de los mensajes?</string>
     <string name="title_setup_password">Contraseña</string>
     <string name="title_setup_password_chars">La contraseña contiene caracteres de control o espacios en blanco</string>
     <string name="title_setup_password_repeat">Confirmar contraseña</string>
@@ -562,6 +563,7 @@
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_autounstar">Eliminar automáticamente la estrella de los mensajes al ser movidos</string>
     <string name="title_advanced_reset_importance">Restablecer importancia al mover mensajes</string>
+    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Al eliminar una conversación, también eliminar mensajes enviados</string>
     <string name="title_advanced_star_snoozed">Destacar automáticamente al posponer mensajes</string>
     <string name="title_advanced_auto_important">Hacer que los mensajes destacados sean importantes automáticamente</string>
     <string name="title_advanced_cancel_snooze">Cancelar posponer al mover mensajes</string>
