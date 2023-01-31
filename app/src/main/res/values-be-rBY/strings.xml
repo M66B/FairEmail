@@ -240,6 +240,7 @@
     <string name="title_setup_doze_remark">Для надзейнай адпраўкі і атрымання электроннай пошты ў фонавым рэжыме</string>
     <string name="title_setup_doze_explanation">Каб забяспечыць надзейную адпраўку і атрыманне паведамленняў у фонавым рэжыме, аптымізацыя батарэі для праграмы павінна быць адключана</string>
     <string name="title_setup_doze_hint">Нягледзячы на ​​​​тое, што гэта можа здацца супярэчлівым, адключэнне аптымізацыі батарэі для гэтай праграмы прывядзе да меншага спажывання зараду батарэі</string>
+    <string name="title_setup_doze_aggressively">Гэта прылада можа спыніць службу сінхранізацыі</string>
     <string name="title_setup_doze_why">Чаму варта адключыць аптымізацыю батарэі?</string>
     <string name="title_setup_doze_instructions">У наступным дыялогавым акне Android змяніце \"Не аптымізавана\" на \"Усе праграмы\", выберыце гэту праграму і змяніце значэнне на \"Не аптымізаваць\"</string>
     <string name="title_setup_doze_battery">Высокае спажыванне зараду батарэі?</string>
@@ -273,6 +274,7 @@
     </string>
     <string name="title_setup_export_do">Файл для экспартавання будзе змяшчаць усе налады і даныя, акрамя паведамленняў і выяў, на якія спасылаюцца подпісы</string>
     <string name="title_setup_scroll">Дыялогавыя вокны ўводу можна пракручваць!</string>
+    <string name="title_setup_backup">Як зрабіць рэзервовую копію паведамленняў?</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль змяшчае службовыя сімвалы або прабелы</string>
     <string name="title_setup_password_repeat">Паўтарыце пароль</string>
@@ -589,12 +591,14 @@
     <string name="title_advanced_autoread">Аўтаматычна адзначаць паведамленні як прачытаныя ў пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_autounstar">Аўтаматычна выдаляць пазнакі пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_reset_importance">Скідваць важнасць паведамленняў пры іх перамяшчэнні</string>
+    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Пры выдаленні размовы таксама выдаляць адпраўленыя паведамленні</string>
     <string name="title_advanced_star_snoozed">Аўтаматычна пазначаць адкладзеныя паведамленні</string>
     <string name="title_advanced_auto_important">Аўтаматычна рабіць важнымі пазначаныя паведамленні</string>
     <string name="title_advanced_cancel_snooze">Адмяняць адкладанне пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_auto_block_sender">Аўтаматычна блакіраваць адпраўніка пры паведамленні пра спам</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
     <string name="title_advanced_default_snooze">Час адкладання/затрымкі па змаўчанні</string>
+    <string name="title_advanced_default_folder">Выбраць папку па змаўчанні</string>
     <string name="title_advanced_notifications">Кіраваць апавяшчэннямі</string>
     <string name="title_advanced_notifications_default">Канал па змаўчанні</string>
     <string name="title_advanced_notifications_service">Канал маніторынгу</string>
@@ -780,6 +784,10 @@
     <string name="title_advanced_inline_hint">Убудаваныя выявы - гэта выявы, уключаныя ў паведамленне</string>
     <string name="compressed">Не будзе паказвацца змест для сціснутых файлаў (%1$s), якія маюць %2$s файлаў і больш, або якія змяшчаюць файлы памерам %3$s і больш</string>
     <string name="title_advanced_parse_classes_hint">Гэта опцыя дазволіць больш дакладна адлюстроўваць паведамленні, але з верагоднасцю затрымкі</string>
+    <string name="title_advanced_default_folder_hint">       Android можа запытаць дазвол на доступ да выбранай папкі, нават калі праграме ён не патрэбны.
+       Вы можаце скасаваць дыялогавае акно выбару, каб аднавіць папку па змаўчанні (звычайна гэта папка \'Спампоўкі\').
+    
+    </string>
     <string name="title_advanced_restore_on_launch_hint">Аднаўляць апошні стан праграмы пры перазагрузцы праз ярлык праграмы на працягу %1$d хвілін</string>
     <string name="title_advanced_autoexpand_hint">Аўтаматычна адкрываць паведамленне, калі ў размове ёсць толькі адно паведамленне або толькі адно непрачытанае паведамленне</string>
     <string name="title_advanced_expandall_hint">Кнопка адказу не будзе паказвацца пры разгортванні некалькіх паведамленняў, таму што незразумела, да якога паведамлення будзе прымяняцца кнопка</string>
@@ -832,6 +840,7 @@
     <string name="title_identity_color_hint">Колеры ідэнтыфікатараў маюць прыярытэт перад колерамі папак і ўліковых запісаў</string>
     <string name="title_advanced_sender">Дазволіць рэдагаванне адраса адпраўніка</string>
     <string name="title_advanced_sender_name">Выкарыстоўваць імя, калі адрас адпраўніка быў зменены</string>
+    <string name="title_advanced_reply_name">Скапіраваць імя з атрыманага паведамлення</string>
     <string name="title_advanced_sender_regex">Рэгулярны выраз, які адпавядае імю карыстальніка з уваходных адрасоў электроннай пошты</string>
     <string name="title_identity_reply_to">Адрас адказу</string>
     <string name="title_identity_internal">Унутраныя даменныя імёны (падзеленыя коскамі)</string>
@@ -1295,6 +1304,7 @@
     <string name="title_style_protected">Абаронены змест</string>
     <string name="title_style_protect_size">Тэкст занадта доўгі</string>
     <string name="title_style_clear">Ачысціць фарматаванне</string>
+    <string name="title_style_setting_keep_selection">Пакінуць выбар</string>
     <string name="title_style_link">Уставіць спасылку</string>
     <string name="title_style_link_address">Адрас</string>
     <string name="title_style_link_image">Уставіць як выяву</string>
