@@ -758,7 +758,7 @@
     <string name="compressed">Der Inhalt von komprimierten Dateien (%1$s) mit mehr als %2$s Dateien oder mit Dateien größer als %3$s wird nicht angezeigt</string>
     <string name="title_advanced_parse_classes_hint">Dies wird die Nachrichten genauer anzeigen, aber möglicherweise mit einer Verzögerung</string>
     <string name="title_advanced_default_folder_hint">        Android kann um Erlaubnis zum Zugriff auf den ausgewählten Ordner bitten, auch wenn die App sie nicht braucht.
-        Sie können den Auswahldialog abbrechen, um den Standardordner (normalerweise den \'Download\'-Ordner) wiederherzustellen.
+        Sie können den Auswahldialog abbrechen, um den Standardordner (normalerweise den Download-Ordner) wiederherzustellen.
     </string>
     <string name="title_advanced_restore_on_launch_hint">Letzten App-Status wiederherstellen, wenn innerhalb von %1$d Minuten über das Startsymbol neu gestartet wird</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einer Unterhaltung enthalten ist</string>
