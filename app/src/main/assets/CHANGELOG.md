@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
+### 1.2039 - 2023-01-31
+
+* Fixed upgrading from older versions
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2038 - 2023-01-30
 
 * Showing person icon for contacts without avatars
