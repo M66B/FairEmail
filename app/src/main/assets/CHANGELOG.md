@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
+### 1.2040 - 2023-01-31
+
+* Reverted message text preview layout change
+* Small improvements and minor bug fixes
+* Updated translations
+
 ### 1.2039 - 2023-01-31
 
 * Fixed upgrading from older versions
