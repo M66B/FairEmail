@@ -50,7 +50,7 @@
         android:paddingStart="6dp"
         android:paddingEnd="6dp"
         android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="@+id/tvNotes"
+        app:layout_constraintBottom_toBottomOf="@+id/tvFolder"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/paddingTop"
@@ -349,7 +349,7 @@
         android:text="label1,label2,label3"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
-        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/tvFolder" />
 
     <TextView
@@ -364,7 +364,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
-        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/tvLabels" />
 
     <TextView
@@ -379,7 +379,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="italic"
         app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
-        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/tvExpand" />
 
     <TextView
@@ -393,7 +393,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/paddingEnd"
-        app:layout_constraintStart_toEndOf="@id/ibAvatar"
+        app:layout_constraintStart_toEndOf="@id/paddingStart"
         app:layout_constraintTop_toBottomOf="@id/tvPreview" />
 
     <TextView
