@@ -1230,6 +1230,11 @@ See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-f
 
 Please see [this FAQ](#user-content-faq139) for possible causes of the error *... User is authenticated but not connected ...*.
 
+For unknown reasons, some Outlook/Hotmail accounts cannot send messages
+because of the server error '*535 5.7.3 Authentication unsuccessful*'.
+This can be resolved by authenticating the account with an (app) password (see above) instead of with OAuth.
+You should use the "*Other provider*" wizard instead of "*Outlook / Office 365 (OAuth)*" in this case.
+
 For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
 
 <br />
