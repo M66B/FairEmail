@@ -489,13 +489,8 @@ public abstract class DB extends RoomDatabase {
                                         Log.i("Get PRAGMA " + pragma + "=<?>");
                                 }
 
-                        if (BuildConfig.DEBUG) {
-                            db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
-                            db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
-
-                            db.execSQL("DROP TRIGGER IF EXISTS `account_update`");
-                            db.execSQL("DROP TRIGGER IF EXISTS `identity_update`");
-                        }
+                        if (BuildConfig.DEBUG && false)
+                            dropTriggers(db);
 
                         createTriggers(db);
                     }
@@ -526,6 +521,14 @@ public abstract class DB extends RoomDatabase {
             Log.e(ex);
             return null;
         }
+    }
+
+    private static void dropTriggers(@NonNull SupportSQLiteDatabase db) {
+        db.execSQL("DROP TRIGGER IF EXISTS `attachment_insert`");
+        db.execSQL("DROP TRIGGER IF EXISTS `attachment_delete`");
+
+        db.execSQL("DROP TRIGGER IF EXISTS `account_update`");
+        db.execSQL("DROP TRIGGER IF EXISTS `identity_update`");
     }
 
     private static void createTriggers(@NonNull SupportSQLiteDatabase db) {
