@@ -117,7 +117,7 @@
         <item
             android:id="@+id/title_search_in_text"
             android:icon="@drawable/twotone_manage_search_24"
-            android:title="@string/title_button_search_text"
+            android:title="@string/title_search_in_text"
             app:showAsAction="never" />
 
         <item
