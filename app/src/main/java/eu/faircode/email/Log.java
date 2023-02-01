@@ -2250,6 +2250,8 @@ public class Log {
                         value = "[redacted]";
                     else if ("cloud_password".equals(key) && value != null)
                         value = "[redacted]";
+                    else if ("pin".equals(key) && value != null)
+                        value = "[redacted]";
                     else if (key != null && key.startsWith("oauth."))
                         value = "[redacted]";
                     size += write(os, key + "=" + value + "\r\n");
