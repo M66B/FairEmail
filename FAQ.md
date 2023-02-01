@@ -5240,6 +5240,9 @@ The goal of the design is to be minimalistic (no unnecessary menus, buttons, etc
 All displayed things should be useful in one or another way and should be carefully positioned for easy usage.
 Fonts, sizes, colors, etc should be material design whenever possible.
 
+There are requests daily to change the appearance in this or that way, but the problem is that these requests are more often than not conflicting.
+To prevent making other people unhappy, changes in the appearance always need to clearly and objectively contribute to the usability of the app to be considered.
+
 A feature will be considered useful to most people if more than 0.1% of the users request a feature, which in practice means about 500 people.
 
 Features not fulfilling these requirements will likely be rejected.
