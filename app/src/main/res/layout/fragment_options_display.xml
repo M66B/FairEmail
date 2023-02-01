@@ -1717,6 +1717,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvOverrideWidthHint"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvContrastHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_placeholders_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swContrast" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swHyphenation"
                     android:layout_width="0dp"
@@ -1725,8 +1737,20 @@
                     android:text="@string/title_advanced_hyphenation"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swContrast"
+                    app:layout_constraintTop_toBottomOf="@id/tvContrastHint"
                     app:switchPadding="12dp" />
+
+                <TextView
+                    android:id="@+id/tvHyphenationHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_placeholders_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swHyphenation" />
 
                 <TextView
                     android:id="@+id/tvDisplayFont"
@@ -1739,7 +1763,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swHyphenation" />
+                    app:layout_constraintTop_toBottomOf="@id/tvHyphenationHint" />
 
                 <Spinner
                     android:id="@+id/spDisplayFont"
@@ -1785,6 +1809,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvMonospacedPreHint"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvTextSeparatorsHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_placeholders_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swTextSeparators" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swCollapseQuotes"
                     android:layout_width="0dp"
@@ -1793,8 +1829,20 @@
                     android:text="@string/title_advanced_collapse_quotes"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swTextSeparators"
+                    app:layout_constraintTop_toBottomOf="@id/tvTextSeparatorsHint"
                     app:switchPadding="12dp" />
+
+                <TextView
+                    android:id="@+id/tvCollapseQuotesHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_placeholders_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swCollapseQuotes" />
 
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swImagesPlaceholders"
@@ -1805,7 +1853,7 @@
                     android:text="@string/title_advanced_image_placeholders"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swCollapseQuotes"
+                    app:layout_constraintTop_toBottomOf="@id/tvCollapseQuotesHint"
                     app:switchPadding="12dp" />
 
                 <TextView

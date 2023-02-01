@@ -164,6 +164,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private SwitchCompat swContrast;
     private SwitchCompat swHyphenation;
+    private TextView tvHyphenationHint;
     private Spinner spDisplayFont;
     private SwitchCompat swMonospacedPre;
     private SwitchCompat swTextSeparators;
@@ -327,6 +328,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swOverrideWidth = view.findViewById(R.id.swOverrideWidth);
         swContrast = view.findViewById(R.id.swContrast);
         swHyphenation = view.findViewById(R.id.swHyphenation);
+        tvHyphenationHint = view.findViewById(R.id.tvHyphenationHint);
         spDisplayFont = view.findViewById(R.id.spDisplayFont);
         swMonospacedPre = view.findViewById(R.id.swMonospacedPre);
         swTextSeparators = view.findViewById(R.id.swTextSeparators);
@@ -1161,6 +1163,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         });
 
         swHyphenation.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
+        tvHyphenationHint.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? View.GONE : View.VISIBLE);
         swHyphenation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
