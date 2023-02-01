@@ -205,6 +205,18 @@
                     app:layout_constraintTop_toBottomOf="@id/swDateBold"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvCategoryHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_category"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swCategory" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swCards"
                     android:layout_width="0dp"
@@ -214,7 +226,7 @@
                     android:text="@string/title_advanced_cards"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swCategory"
+                    app:layout_constraintTop_toBottomOf="@id/tvCategoryHint"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
