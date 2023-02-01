@@ -2827,18 +2827,18 @@ public class Helper {
 
                                 @Override
                                 public void onAuthenticationError(final int errorCode, @NonNull final CharSequence errString) {
-                                    if (isCancelled(errorCode) || errorCode == BiometricPrompt.ERROR_UNABLE_TO_PROCESS)
+                                    if (isBioCancelled(errorCode) || errorCode == BiometricPrompt.ERROR_UNABLE_TO_PROCESS)
                                         Log.w("Authenticate biometric error " + errorCode + ": " + errString);
                                     else
                                         Log.e("Authenticate biometric error " + errorCode + ": " + errString);
 
-                                    if (isHardwareFailure(errorCode)) {
+                                    if (isBioHardwareFailure(errorCode)) {
                                         prefs.edit().remove("biometrics").apply();
                                         ApplicationEx.getMainHandler().post(authenticated);
                                         return;
                                     }
 
-                                    if (!isCancelled(errorCode))
+                                    if (!isBioCancelled(errorCode))
                                         ApplicationEx.getMainHandler().post(new RunnableEx("auth:error") {
                                             @Override
                                             public void delegate() {
@@ -2863,19 +2863,6 @@ public class Helper {
                                     Log.w("Authenticate biometric failed");
                                     if (++fails >= 3)
                                         ApplicationEx.getMainHandler().post(cancelled);
-                                }
-
-                                private boolean isCancelled(int errorCode) {
-                                    return (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON ||
-                                            errorCode == BiometricPrompt.ERROR_CANCELED ||
-                                            errorCode == BiometricPrompt.ERROR_USER_CANCELED);
-                                }
-
-                                private boolean isHardwareFailure(int errorCode) {
-                                    return (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE ||
-                                            errorCode == BiometricPrompt.ERROR_NO_BIOMETRICS || // No fingerprints enrolled.
-                                            errorCode == BiometricPrompt.ERROR_HW_NOT_PRESENT ||
-                                            errorCode == BiometricPrompt.ERROR_NO_DEVICE_CREDENTIAL);
                                 }
                             });
 
@@ -3082,7 +3069,17 @@ public class Helper {
 
                                     @Override
                                     public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
-                                        ToastEx.makeText(activity, "Error " + errorCode + ": " + errString, Toast.LENGTH_LONG).show();
+                                        tilPassword.post(new RunnableEx("tilPassword") {
+                                            @Override
+                                            protected void delegate() {
+                                                if (isBioCancelled(errorCode))
+                                                    return;
+                                                else if (isBioHardwareFailure(errorCode))
+                                                    tilPassword.getEditText().setTransformationMethod(null);
+                                                else
+                                                    ToastEx.makeText(activity, "Error " + errorCode + ": " + errString, Toast.LENGTH_LONG).show();
+                                            }
+                                        });
                                     }
                                 });
                         prompt.authenticate(info.build());
@@ -3091,6 +3088,19 @@ public class Helper {
                 }
             }
         });
+    }
+
+    private static boolean isBioCancelled(int errorCode) {
+        return (errorCode == BiometricPrompt.ERROR_NEGATIVE_BUTTON ||
+                errorCode == BiometricPrompt.ERROR_CANCELED ||
+                errorCode == BiometricPrompt.ERROR_USER_CANCELED);
+    }
+
+    private static boolean isBioHardwareFailure(int errorCode) {
+        return (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE ||
+                errorCode == BiometricPrompt.ERROR_NO_BIOMETRICS || // No fingerprints enrolled.
+                errorCode == BiometricPrompt.ERROR_HW_NOT_PRESENT ||
+                errorCode == BiometricPrompt.ERROR_NO_DEVICE_CREDENTIAL);
     }
 
     static void selectKeyAlias(final Activity activity, final LifecycleOwner owner, final String alias, final IKeyAlias intf) {
