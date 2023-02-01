@@ -433,14 +433,18 @@ public class EntityRule {
             // Schedule
             JSONObject jschedule = jcondition.optJSONObject("schedule");
             if (jschedule != null) {
+                boolean all = jschedule.optBoolean("all", false);
                 int start = jschedule.optInt("start", 0);
                 int end = jschedule.optInt("end", 0);
 
-                Calendar cal_start = getRelativeCalendar(start, message.received);
-                Calendar cal_end = getRelativeCalendar(end, message.received);
+                Calendar cal_start = getRelativeCalendar(all, start, message.received);
+                Calendar cal_end = getRelativeCalendar(all, end, message.received);
 
                 if (cal_start.getTimeInMillis() > cal_end.getTimeInMillis())
-                    cal_start.add(Calendar.HOUR_OF_DAY, -7 * 24);
+                    if (all)
+                        cal_end.add(Calendar.DATE, 1);
+                    else
+                        cal_start.add(Calendar.HOUR_OF_DAY, -7 * 24);
 
                 if (message.received < cal_start.getTimeInMillis() ||
                         message.received > cal_end.getTimeInMillis())
@@ -1141,7 +1145,7 @@ public class EntityRule {
             JSONObject jschedule = jcondition.optJSONObject("schedule");
 
             int end = (jschedule == null ? 0 : jschedule.optInt("end", 0));
-            Calendar cal = getRelativeCalendar(end, message.received);
+            Calendar cal = getRelativeCalendar(false, end, message.received);
             wakeup = cal.getTimeInMillis() + duration * 3600 * 1000L;
         } else
             wakeup = message.received + duration * 3600 * 1000L;
@@ -1240,19 +1244,24 @@ public class EntityRule {
         return true;
     }
 
-    private static Calendar getRelativeCalendar(int minutes, long reference) {
+    private static Calendar getRelativeCalendar(boolean all, int minutes, long reference) {
         int d = minutes / (24 * 60);
         int h = minutes / 60 % 24;
         int m = minutes % 60;
 
         Calendar cal = Calendar.getInstance();
-        if (reference > cal.getTimeInMillis() - 7 * 24 * 3600 * 1000L)
-            cal.setTimeInMillis(reference);
-        long time = cal.getTimeInMillis();
 
-        cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY + d);
-        if (cal.getTimeInMillis() < time)
-            cal.add(Calendar.HOUR_OF_DAY, 7 * 24);
+        if (all)
+            cal.setTimeInMillis(reference);
+        else {
+            if (reference > cal.getTimeInMillis() - 7 * 24 * 3600 * 1000L)
+                cal.setTimeInMillis(reference);
+            long time = cal.getTimeInMillis();
+
+            cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY + d);
+            if (cal.getTimeInMillis() < time)
+                cal.add(Calendar.HOUR_OF_DAY, 7 * 24);
+        }
 
         cal.set(Calendar.HOUR_OF_DAY, h);
         cal.set(Calendar.MINUTE, m);

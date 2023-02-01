@@ -126,6 +126,7 @@ public class FragmentRule extends FragmentBase {
     private Spinner spScheduleDayEnd;
     private TextView tvScheduleHourStart;
     private TextView tvScheduleHourEnd;
+    private CheckBox cbEveryDay;
 
     private Spinner spAction;
     private TextView tvActionRemark;
@@ -307,6 +308,7 @@ public class FragmentRule extends FragmentBase {
         spScheduleDayEnd = view.findViewById(R.id.spScheduleDayEnd);
         tvScheduleHourStart = view.findViewById(R.id.tvScheduleHourStart);
         tvScheduleHourEnd = view.findViewById(R.id.tvScheduleHourEnd);
+        cbEveryDay = view.findViewById(R.id.cbEveryDay);
 
         spAction = view.findViewById(R.id.spAction);
         tvActionRemark = view.findViewById(R.id.tvActionRemark);
@@ -470,6 +472,14 @@ public class FragmentRule extends FragmentBase {
         adapterDay.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spScheduleDayStart.setAdapter(adapterDay);
         spScheduleDayEnd.setAdapter(adapterDay);
+
+        cbEveryDay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                spScheduleDayStart.setEnabled(!isChecked);
+                spScheduleDayEnd.setEnabled(!isChecked);
+            }
+        });
 
         adapterAction = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<Action>());
         adapterAction.setDropDownViewResource(R.layout.spinner_item1_dropdown);
@@ -1198,6 +1208,8 @@ public class FragmentRule extends FragmentBase {
                         int start = (jschedule != null && jschedule.has("start") ? jschedule.getInt("start") : 0);
                         int end = (jschedule != null && jschedule.has("end") ? jschedule.getInt("end") : 0);
 
+                        cbEveryDay.setChecked(jschedule != null && jschedule.optBoolean("all"));
+
                         spScheduleDayStart.setSelection(start / (24 * 60));
                         spScheduleDayEnd.setSelection(end / (24 * 60));
 
@@ -1564,6 +1576,7 @@ public class FragmentRule extends FragmentBase {
 
         int dstart = spScheduleDayStart.getSelectedItemPosition();
         int dend = spScheduleDayEnd.getSelectedItemPosition();
+
         Object hstart = tvScheduleHourStart.getTag();
         Object hend = tvScheduleHourEnd.getTag();
         if (hstart == null)
@@ -1571,13 +1584,15 @@ public class FragmentRule extends FragmentBase {
         if (hend == null)
             hend = 0;
 
-        int start = dstart * 24 * 60 + (int) hstart;
-        int end = dend * 24 * 60 + (int) hend;
+        boolean all = cbEveryDay.isChecked();
+        int start = (all ? 0 : dstart) * 24 * 60 + (int) hstart;
+        int end = (all ? 0 : dend) * 24 * 60 + (int) hend;
 
         if (start != end) {
             JSONObject jschedule = new JSONObject();
             jschedule.put("start", start);
             jschedule.put("end", end);
+            jschedule.put("all", all);
             jcondition.put("schedule", jschedule);
         }
 

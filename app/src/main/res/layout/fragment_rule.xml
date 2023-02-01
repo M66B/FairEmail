@@ -675,6 +675,15 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvScheduleHourStart" />
 
+                <CheckBox
+                    android:id="@+id/cbEveryDay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/title_rule_time_every_day"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvScheduleHourEnd" />
+
                 <TextView
                     android:id="@+id/tvAction"
                     android:layout_width="wrap_content"
@@ -685,7 +694,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvScheduleHourEnd" />
+                    app:layout_constraintTop_toBottomOf="@+id/cbEveryDay" />
 
                 <View
                     android:id="@+id/vSeparatorAction"
