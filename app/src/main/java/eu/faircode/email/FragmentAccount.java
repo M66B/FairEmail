@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import static android.app.Activity.RESULT_OK;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
@@ -614,7 +613,11 @@ public class FragmentAccount extends FragmentBase {
 
         rgEncryption.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
-        tilPassword.setEndIconMode(id < 0 || Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
+
+        if (id < 0)
+            tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
+        else
+            Helper.setupPasswordToggle(getActivity(), tilPassword);
 
         btnAdvanced.setVisibility(View.GONE);
 

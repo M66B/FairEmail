@@ -22,6 +22,9 @@ package eu.faircode.email;
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
+import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
+
 import android.Manifest;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
@@ -73,6 +76,8 @@ import android.text.Spannable;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.format.Time;
+import android.text.method.PasswordTransformationMethod;
+import android.text.method.TransformationMethod;
 import android.util.DisplayMetrics;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -125,6 +130,7 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputLayout;
 
 import org.openintents.openpgp.util.OpenPgpApi;
 
@@ -2725,14 +2731,13 @@ public class Helper {
     }
 
     static boolean canAuthenticate(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        String pin = prefs.getString("pin", null);
-        if (!TextUtils.isEmpty(pin))
-            return true;
-
         try {
             BiometricManager bm = BiometricManager.from(context);
-            return (bm.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS);
+            if (bm.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_WEAK) == BiometricManager.BIOMETRIC_SUCCESS)
+                return true;
+            if (bm.canAuthenticate(BiometricManager.Authenticators.DEVICE_CREDENTIAL) == BiometricManager.BIOMETRIC_SUCCESS)
+                return true;
+            return false;
         } catch (Throwable ex) {
             /*
                 java.lang.SecurityException: eu.faircode.email from uid 10377 not allowed to perform USE_FINGERPRINT
@@ -2802,13 +2807,14 @@ public class Helper {
                     BiometricPrompt.PromptInfo.Builder info = new BiometricPrompt.PromptInfo.Builder()
                             .setTitle(activity.getString(enabled == null ? R.string.app_name : R.string.title_setup_biometrics));
 
-                    KeyguardManager kgm = (KeyguardManager) activity.getSystemService(Context.KEYGUARD_SERVICE);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && kgm != null && kgm.isDeviceSecure())
-                        info.setDeviceCredentialAllowed(true);
+                    BiometricManager bm = BiometricManager.from(activity);
+                    int authenticators = BiometricManager.Authenticators.BIOMETRIC_WEAK;
+                    if (bm.canAuthenticate(BiometricManager.Authenticators.DEVICE_CREDENTIAL) == BiometricManager.BIOMETRIC_SUCCESS)
+                        authenticators |= BiometricManager.Authenticators.DEVICE_CREDENTIAL;
                     else
                         info.setNegativeButtonText(activity.getString(android.R.string.cancel));
-
-                    info.setConfirmationRequired(false);
+                    info.setAllowedAuthenticators(authenticators)
+                            .setConfirmationRequired(false);
 
                     info.setSubtitle(activity.getString(enabled == null ? R.string.title_setup_biometrics_unlock
                             : enabled
@@ -3034,6 +3040,57 @@ public class Helper {
         Log.i("Authenticate clear");
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         prefs.edit().remove("last_authentication").apply();
+    }
+
+    static void setupPasswordToggle(FragmentActivity activity, TextInputLayout tilPassword) {
+        boolean can = canAuthenticate(activity);
+        boolean secure = isSecure(activity);
+
+        tilPassword.setEndIconMode(can || secure ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
+        tilPassword.setEndIconOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TransformationMethod tm = tilPassword.getEditText().getTransformationMethod();
+                if (tm == null)
+                    tilPassword.getEditText().setTransformationMethod(PasswordTransformationMethod.getInstance());
+                else {
+                    if (can) {
+                        BiometricPrompt.PromptInfo.Builder info = new BiometricPrompt.PromptInfo.Builder()
+                                .setTitle(activity.getString(R.string.title_setup_biometrics))
+                                .setSubtitle(activity.getString(R.string.title_password));
+
+                        BiometricManager bm = BiometricManager.from(activity);
+                        int authenticators = BiometricManager.Authenticators.BIOMETRIC_WEAK;
+                        if (bm.canAuthenticate(BiometricManager.Authenticators.DEVICE_CREDENTIAL) == BiometricManager.BIOMETRIC_SUCCESS)
+                            authenticators |= BiometricManager.Authenticators.DEVICE_CREDENTIAL;
+                        else
+                            info.setNegativeButtonText(activity.getString(android.R.string.cancel));
+                        info.setAllowedAuthenticators(authenticators)
+                                .setConfirmationRequired(false);
+
+                        BiometricPrompt prompt = new BiometricPrompt(activity, Helper.getUIExecutor(),
+                                new BiometricPrompt.AuthenticationCallback() {
+                                    @Override
+                                    public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                                        tilPassword.post(new RunnableEx("tilPassword") {
+                                            @Override
+                                            protected void delegate() {
+                                                tilPassword.getEditText().setTransformationMethod(null);
+                                            }
+                                        });
+                                    }
+
+                                    @Override
+                                    public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                                        ToastEx.makeText(activity, "Error " + errorCode + ": " + errString, Toast.LENGTH_LONG).show();
+                                    }
+                                });
+                        prompt.authenticate(info.build());
+                    } else if (secure)
+                        tilPassword.getEditText().setTransformationMethod(null);
+                }
+            }
+        });
     }
 
     static void selectKeyAlias(final Activity activity, final LifecycleOwner owner, final String alias, final IKeyAlias intf) {

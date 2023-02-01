@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import static android.app.Activity.RESULT_OK;
-import static com.google.android.material.textfield.TextInputLayout.END_ICON_NONE;
 import static com.google.android.material.textfield.TextInputLayout.END_ICON_PASSWORD_TOGGLE;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
@@ -320,7 +319,11 @@ public class FragmentPop extends FragmentBase {
         // Initialize
         Helper.setViewsEnabled(view, false);
 
-        tilPassword.setEndIconMode(id < 0 || Helper.isSecure(getContext()) ? END_ICON_PASSWORD_TOGGLE : END_ICON_NONE);
+        if (id < 0)
+            tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
+        else
+            Helper.setupPasswordToggle(getActivity(), tilPassword);
+
         pbSave.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
 
