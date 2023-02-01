@@ -1958,4 +1958,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Virgilio.it"
+        domain="virgilio\\.it"
+        link="https://aiuto.virgilio.it/articolo/mail/parametri-di-configurazione-per-il-client-di-posta/">
+        <imap
+            host="in.virgilio.it"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="out.virgilio.it"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
