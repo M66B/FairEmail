@@ -7,13 +7,13 @@ buildscript {
 
     dependencies {
         // https://developer.android.com/studio/releases/gradle-plugin
-        classpath 'com.android.tools.build:gradle:7.4.0'
+        classpath 'com.android.tools.build:gradle:7.4.1'
         // https://github.com/bugsnag/bugsnag-android-gradle-plugin
         // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android-gradle-plugin
         classpath "com.bugsnag:bugsnag-android-gradle-plugin:7.3.1"
         // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.20"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.7.20"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.8.0"
         // https://plugins.gradle.org/plugin/de.undercouch.download
         classpath "de.undercouch:gradle-download-task:5.3.0"
     }
