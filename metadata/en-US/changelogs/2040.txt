@@ -6,6 +6,15 @@ For support you can use the contact form.
 
 Quetecsaurus
 
+Next version
+
+* Added collapsing block quotes again
+* Added biometric authentication to show passwords
+* Added every day to rule relative time condition
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated translations
+
 1.2040 - 2023-01-31
 
 * Reverted message text preview layout change
