@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
-### Next version
+### 1.2041 - 2023-02-02
 
 * Added collapsing block quotes again
 * Added biometric authentication to show passwords
