@@ -38,11 +38,14 @@ import androidx.preference.PreferenceManager;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 
 public class Widget extends AppWidgetProvider {
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(0, "widget");
+
     @Override
     public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
-        Helper.getParallelExecutor().submit(new Runnable() {
+        executor.submit(new Runnable() {
             @Override
             public void run() {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
