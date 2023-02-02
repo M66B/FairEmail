@@ -42,6 +42,7 @@
     </provider>
     <provider
         name="Outlook"
+        documentation="You may need to use &lt;a href=&quot;https://support.microsoft.com/en-us/account-billing/using-app-passwords-with-apps-that-don-t-support-two-step-verification-5896ed9b-4263-e681-128a-a6f2979a7944&quot;&gt;an app password&lt;/a&gt;."
         domain="outlook\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
@@ -60,6 +61,7 @@
     </provider>
     <provider
         name="Live"
+        documentation="You may need to use &lt;a href=&quot;https://support.microsoft.com/en-us/account-billing/using-app-passwords-with-apps-that-don-t-support-two-step-verification-5896ed9b-4263-e681-128a-a6f2979a7944&quot;&gt;an app password&lt;/a&gt;."
         domain="live\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
@@ -78,6 +80,7 @@
     </provider>
     <provider
         name="Hotmail"
+        documentation="You may need to use &lt;a href=&quot;https://support.microsoft.com/en-us/account-billing/using-app-passwords-with-apps-that-don-t-support-two-step-verification-5896ed9b-4263-e681-128a-a6f2979a7944&quot;&gt;an app password&lt;/a&gt;."
         domain="hotmail\\..*"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
@@ -111,6 +114,7 @@
     <provider
         name="Outlook"
         description="Outlook/Office 365"
+        documentation="You may need to use &lt;a href=&quot;https://support.microsoft.com/en-us/account-billing/using-app-passwords-with-apps-that-don-t-support-two-step-verification-5896ed9b-4263-e681-128a-a6f2979a7944&quot;&gt;an app password&lt;/a&gt;."
         enabled="false"
         id="office365"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
@@ -151,6 +155,7 @@
     <provider
         name="Outlook"
         description="Outlook/Office 365"
+        documentation="You may need to use &lt;a href=&quot;https://support.microsoft.com/en-us/account-billing/using-app-passwords-with-apps-that-don-t-support-two-step-verification-5896ed9b-4263-e681-128a-a6f2979a7944&quot;&gt;an app password&lt;/a&gt;."
         id="office365pcke"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
@@ -190,6 +195,7 @@
         alt="true"
         debug="true"
         description="Outlook/Office 365 (alt)"
+        documentation="You may need to use &lt;a href=&quot;https://support.microsoft.com/en-us/account-billing/using-app-passwords-with-apps-that-don-t-support-two-step-verification-5896ed9b-4263-e681-128a-a6f2979a7944&quot;&gt;an app password&lt;/a&gt;."
         id="outlook"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"

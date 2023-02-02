@@ -1023,8 +1023,14 @@ public class FragmentOAuth extends FragmentBase {
         grpError.setVisibility(View.VISIBLE);
 
         if (EntityAccount.isOutlook(id)) {
-            if (ex instanceof AuthenticationFailedException)
+            if (ex instanceof AuthenticationFailedException) {
+                if (ex.getMessage() != null &&
+                        ex.getMessage().contains("535 5.7.3 Authentication unsuccessful"))
+                    tvOfficeAuthHint.setText(R.string.title_setup_office_auth_5_7_3);
+                else
+                    tvOfficeAuthHint.setText(R.string.title_setup_office_auth);
                 tvOfficeAuthHint.setVisibility(View.VISIBLE);
+            }
         }
 
         EmailProvider provider;
