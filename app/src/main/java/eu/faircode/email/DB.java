@@ -2427,6 +2427,7 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
+                        dropTriggers(db);
                         db.execSQL("UPDATE account" +
                                 " SET max_messages = MAX(max_messages, MIN(max_messages * 4," +
                                 "   (SELECT COUNT(*) FROM folder" +
