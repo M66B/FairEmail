@@ -7636,6 +7636,32 @@ public class FragmentMessages extends FragmentBase
         if (searchView == null)
             return;
 
+        View itemView = rvMessage.findContainingItemView(searchView);
+        if (itemView == null) {
+            Log.w("Search: itemView not found");
+            return;
+        }
+
+        int p = rvMessage.getChildAdapterPosition(itemView);
+        if (p == NO_POSITION) {
+            Log.w("Search: position not found");
+            return;
+        }
+
+        long id = adapter.getKeyAtPosition(p);
+        if (id == NO_POSITION) {
+            Log.w("Search: id not found");
+            return;
+        }
+
+        boolean show_full = iProperties.getValue("full", id);
+        if (show_full) {
+            AdapterMessage.ViewHolder holder = (AdapterMessage.ViewHolder) rvMessage.getChildViewHolder(itemView);
+            String query = etSearch.getText().toString().toLowerCase();
+            holder.searchWebView(query);
+            return;
+        }
+
         searchIndex = (next ? searchIndex + 1 : 1);
         String query = etSearch.getText().toString().toLowerCase();
         String text = searchView.getText().toString().toLowerCase();
@@ -7667,16 +7693,13 @@ public class FragmentMessages extends FragmentBase
                 int y = layout.getLineTop(line);
                 int dy = context.getResources().getDimensionPixelSize(R.dimen.search_in_text_margin);
 
-                View itemView = rvMessage.findContainingItemView(searchView);
-                if (itemView != null) {
-                    Rect rect = new Rect();
-                    searchView.getDrawingRect(rect);
+                Rect rect = new Rect();
+                searchView.getDrawingRect(rect);
 
-                    RecyclerView.ViewHolder holder = rvMessage.getChildViewHolder(itemView);
-                    ((ViewGroup) itemView).offsetDescendantRectToMyCoords(searchView, rect);
+                RecyclerView.ViewHolder holder = rvMessage.getChildViewHolder(itemView);
+                ((ViewGroup) itemView).offsetDescendantRectToMyCoords(searchView, rect);
 
-                    iProperties.scrollTo(holder.getAdapterPosition(), rect.top + y - dy);
-                }
+                iProperties.scrollTo(holder.getAdapterPosition(), rect.top + y - dy);
             }
         }
 
@@ -7691,8 +7714,27 @@ public class FragmentMessages extends FragmentBase
     }
 
     private void clearSearch() {
-        if (searchView != null)
-            searchView.clearComposingText();
+        if (searchView == null)
+            return;
+        searchView.clearComposingText();
+
+        View itemView = rvMessage.findContainingItemView(searchView);
+        if (itemView == null)
+            return;
+
+        int p = rvMessage.getChildAdapterPosition(itemView);
+        if (p == NO_POSITION)
+            return;
+
+        long id = adapter.getKeyAtPosition(p);
+        if (id == NO_POSITION)
+            return;
+
+        boolean show_full = iProperties.getValue("full", id);
+        if (show_full) {
+            AdapterMessage.ViewHolder holder = (AdapterMessage.ViewHolder) rvMessage.getChildViewHolder(itemView);
+            holder.searchWebView("");
+        }
     }
 
     private ActivityBase.IKeyPressedListener keyPressedListener = new ActivityBase.IKeyPressedListener() {
