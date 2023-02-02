@@ -661,6 +661,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (ddss.length > 0) {
                                 int s = buffer.getSpanStart(ddss[0]);
                                 properties.setValue("quotes", message.id, buffer.charAt(s) != '0');
+                                properties.setHeight(message.id, null);
                                 bindBody(message, false);
                                 return true;
                             }
