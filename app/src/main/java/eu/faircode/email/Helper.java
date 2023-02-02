@@ -260,9 +260,6 @@ public class Helper {
     private static ExecutorService sMediaExecutor = null;
     private static ExecutorService sDownloadExecutor = null;
 
-    private static int sOperationIndex = 0;
-    private static final ExecutorService[] sOperationExecutor = new ExecutorService[OPERATION_WORKERS];
-
     static ExecutorService getSerialExecutor() {
         if (sSerialExecutor == null)
             sSerialExecutor = getBackgroundExecutor(1, "serial");
@@ -291,16 +288,6 @@ public class Helper {
         if (sDownloadExecutor == null)
             sDownloadExecutor = getBackgroundExecutor(0, "download");
         return sDownloadExecutor;
-    }
-
-    static ExecutorService getOperationExecutor() {
-        synchronized (sOperationExecutor) {
-            if (sOperationExecutor[sOperationIndex] == null)
-                sOperationExecutor[sOperationIndex] = getBackgroundExecutor(1, "operation");
-            ExecutorService result = sOperationExecutor[sOperationIndex];
-            sOperationIndex = (sOperationIndex + 1) % sOperationExecutor.length;
-            return result;
-        }
     }
 
     static ExecutorService getBackgroundExecutor(int threads, final String name) {

@@ -1550,7 +1550,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 Log.i(account.name + " run thread=" + currentThread);
 
                 final ObjectHolder<TwoStateOwner> cowner = new ObjectHolder<>();
-                final ExecutorService executor = Helper.getOperationExecutor();
+                final ExecutorService executor = Helper.getBackgroundExecutor(1, "operation." + account.id);
 
                 // Debug
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
