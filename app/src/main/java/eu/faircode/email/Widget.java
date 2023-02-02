@@ -41,7 +41,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 
 public class Widget extends AppWidgetProvider {
-    private static final ExecutorService executor = Helper.getBackgroundExecutor(0, "widget");
+    private static final ExecutorService executor = Helper.getBackgroundExecutor(1, "widget");
 
     @Override
     public void onUpdate(final Context context, final AppWidgetManager appWidgetManager, final int[] appWidgetIds) {
