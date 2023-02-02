@@ -788,6 +788,7 @@
     <string name="title_rule_attachments">첨부파일</string>
     <string name="title_rule_header">제목 포함</string>
     <string name="title_rule_skip_quotes">인용한 텍스트 건너뛰기</string>
+    <string name="title_rule_time_every_day">매일</string>
     <string name="title_rule_regex">정규표현식</string>
     <string name="title_rule_and">그리고</string>
     <string name="title_rule_action">동작</string>

@@ -1387,6 +1387,7 @@
     <string name="title_rule_body_remark">Ezt a feltételt beállítva mindig letölti az üzenet szövegét, ami lelassíthatja az üzenet lista szinkronizálását</string>
     <string name="title_rule_time_after">Után érkezett</string>
     <string name="title_rule_time_before">Előtt érkezett</string>
+    <string name="title_rule_time_every_day">Naponta</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">ÉS</string>
     <string name="title_rule_action">Művelet</string>

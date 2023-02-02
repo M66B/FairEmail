@@ -443,6 +443,7 @@
     <string name="title_advanced_nav_pinned_count">Mostrar o número de mensagens não lidas em um menu de navegação fixado</string>
     <string name="title_advanced_startup">Mostrar na Tela de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
+    <string name="title_advanced_category">A categoria da conta pode ser configurada nas opções avançadas da conta na tela principal de configurações</string>
     <string name="title_advanced_cards_beige">Usar o fundo quando usar o estilo do cartão (apenas temas claros)</string>
     <string name="title_advanced_tabular_background">Usar a cor do cartão como cor de fundo quando usar um estilo tabular</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>
@@ -563,7 +564,7 @@
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao movê-las</string>
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao movê-las</string>
     <string name="title_advanced_reset_importance">Redefinir importância de mensagens em movimento</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Ao descartar uma conversa, também descartar as mensagens enviadas</string>
+    <string name="title_advanced_thread_sent_trash">Ao descartar uma conversa, também descartar as mensagens enviadas</string>
     <string name="title_advanced_star_snoozed">Adicionar estrela automaticamente ao adiar mensagens</string>
     <string name="title_advanced_auto_important">Torne as mensagens com estrela automaticamente importantes</string>
     <string name="title_advanced_cancel_snooze">Cancelar soneca em mensagens em movimento</string>
@@ -1531,6 +1532,7 @@
     <string name="title_rule_time_after">Recebidos depois de</string>
     <string name="title_rule_time_before">Recebidos antes de</string>
     <string name="title_rule_time_rel">Período relativo (recebido entre)</string>
+    <string name="title_rule_time_every_day">Todos os dias</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Ação</string>

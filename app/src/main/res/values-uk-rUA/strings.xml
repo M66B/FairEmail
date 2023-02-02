@@ -470,6 +470,7 @@
     <string name="title_advanced_nav_pinned_count">Відображати кількість непрочитаних повідомлень у закріпленому навігаційному меню</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
     <string name="title_advanced_cards">Використовувати стиль картки замість табличного стилю</string>
+    <string name="title_advanced_category">Категорії облікового запису можна налаштувати у розширених налаштуваннях облікового запису за допомогою головного екрану налаштувань</string>
     <string name="title_advanced_cards_beige">Використовувати бежевий фон під час використання стилю карт (тільки для світлої теми)</string>
     <string name="title_advanced_tabular_background">Використовувати колір картки як тло під час використання табличного стилю</string>
     <string name="title_advanced_cards_shadow">Використовувати тінь для непрочитаних повідомлень під час використання стилю картки</string>
@@ -590,6 +591,7 @@
     <string name="title_advanced_autoread">Автоматично відзначати повідомлення прочитаними при їх переміщенні</string>
     <string name="title_advanced_autounstar">Автоматично прибирати повідомлення з обраних при їх переміщенні</string>
     <string name="title_advanced_reset_importance">Скинути важливість повідомлення при його переміщені</string>
+    <string name="title_advanced_thread_sent_trash">Коли видаляються розмови, також видалити надіслані повідомлення</string>
     <string name="title_advanced_star_snoozed">Автоматично додавати відкладені повідомлення до обраних</string>
     <string name="title_advanced_auto_important">Автоматично робити важливими повідомлення відмічені як обрані</string>
     <string name="title_advanced_cancel_snooze">Відмінити паузу при переміщенні повідомлень</string>
@@ -1556,6 +1558,7 @@
     <string name="title_rule_time_after">Отримано після</string>
     <string name="title_rule_time_before">Отримано до</string>
     <string name="title_rule_time_rel">Відносний час (отримано) між</string>
+    <string name="title_rule_time_every_day">Щодня</string>
     <string name="title_rule_regex">Регулярний вираз</string>
     <string name="title_rule_and">ТА</string>
     <string name="title_rule_action">Дія</string>

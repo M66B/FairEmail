@@ -718,6 +718,7 @@
     <string name="title_rule_subject">Наслов садржи</string>
     <string name="title_rule_attachments">Има прилог</string>
     <string name="title_rule_header">Заглавље садржи</string>
+    <string name="title_rule_time_every_day">Сваки дан</string>
     <string name="title_rule_regex">Регуларни израз</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Радња</string>

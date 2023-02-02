@@ -444,6 +444,7 @@
     <string name="title_advanced_nav_pinned_count">Afficher le nombre de messages non lus dans le menu de navigation épinglé</string>
     <string name="title_advanced_startup">Afficher sur l’écran de démarrage</string>
     <string name="title_advanced_cards">Utiliser le style carte au lieu du style tableau</string>
+    <string name="title_advanced_category">La catégorie du compte peut être configurée dans les options avancées du compte via l\'écran des paramètres principaux</string>
     <string name="title_advanced_cards_beige">Afficher un arrière-plan beige lors de l\'utilisation du style carte (thèmes clairs seulement)</string>
     <string name="title_advanced_tabular_background">Utiliser la couleur de la carte comme couleur d\'arrière-plan lors de l\'utilisation du style tableau</string>
     <string name="title_advanced_cards_shadow">Utiliser une ombre autour des messages non lus pour le style carte</string>
@@ -564,7 +565,7 @@
     <string name="title_advanced_autoread">Marquer automatiquement les messages comme lus lors de leur déplacement</string>
     <string name="title_advanced_autounstar">Retirer automatiquement l’étoile de suivi des messages lors de leur déplacement</string>
     <string name="title_advanced_reset_importance">Réinitialiser l’importance lors du déplacement des messages</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Lors de la suppression d\'une conversation, supprimer également les messages envoyés</string>
+    <string name="title_advanced_thread_sent_trash">Lors de la suppression d\'une conversation, supprimer également les messages envoyés</string>
     <string name="title_advanced_star_snoozed">Marquer automatiquement les messages comme suivis lors de leur report</string>
     <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_cancel_snooze">Annuler le report des messages lors de leur déplacement</string>
@@ -1535,6 +1536,7 @@
     <string name="title_rule_time_after">Reçu après</string>
     <string name="title_rule_time_before">Reçu avant</string>
     <string name="title_rule_time_rel">Temps relatif (reçu) entre</string>
+    <string name="title_rule_time_every_day">Tous les jours</string>
     <string name="title_rule_regex">Expression régulière</string>
     <string name="title_rule_and">ET</string>
     <string name="title_rule_action">Action</string>

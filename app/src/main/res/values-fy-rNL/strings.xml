@@ -1114,6 +1114,7 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string name="title_rule_time_after">Ûntfangen nei</string>
     <string name="title_rule_time_before">Ûntfangen foardat</string>
     <string name="title_rule_time_rel">Relative tiid tusken (ûntfongen)</string>
+    <string name="title_rule_time_every_day">Eltse dei</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Aksje</string>

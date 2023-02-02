@@ -469,6 +469,7 @@
     <string name="title_advanced_nav_pinned_count">Pokaż liczbę nieprzeczytanych wiadomości w przypiętym menu nawigacji</string>
     <string name="title_advanced_startup">Pokaż na ekranie początkowym</string>
     <string name="title_advanced_cards">Użyj stylu karty zamiast stylu tabelarycznego</string>
+    <string name="title_advanced_category">Kategoria konta może być skonfigurowana w zaawansowanych opcjach konta na ekranie ustawień głównych</string>
     <string name="title_advanced_cards_beige">Użyj beżowego tła podczas używania stylu karty (tylko jasne motywy)</string>
     <string name="title_advanced_tabular_background">Użyj koloru karty jako koloru tła podczas korzystania ze stylu tabelarycznego</string>
     <string name="title_advanced_cards_shadow">Użyj cienia do nieprzeczytanych wiadomości, jeśli używasz stylu karty</string>
@@ -589,7 +590,7 @@
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
     <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Podczas usuwania konwersacji do kosza, usuń również wysłane wiadomości</string>
+    <string name="title_advanced_thread_sent_trash">Podczas usuwania konwersacji do kosza, usuń również wysłane wiadomości</string>
     <string name="title_advanced_star_snoozed">Automatycznie dodawaj gwiazdkę przy usypianiu wiadomości</string>
     <string name="title_advanced_auto_important">Wiadomości oznaczone gwiazdką automatycznie ustaw jako ważne</string>
     <string name="title_advanced_cancel_snooze">Anuluj drzemkę przy przenoszeniu wiadomości</string>
@@ -1557,6 +1558,7 @@
     <string name="title_rule_time_after">Otrzymane po</string>
     <string name="title_rule_time_before">Otrzymane przed</string>
     <string name="title_rule_time_rel">Względny czas (otrzymany) między</string>
+    <string name="title_rule_time_every_day">Codziennie</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">I</string>
     <string name="title_rule_action">Akcja</string>

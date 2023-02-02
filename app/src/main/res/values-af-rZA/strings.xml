@@ -69,6 +69,7 @@
     <string name="title_disable_widths">Deaktiveer breedte</string>
     <string name="title_compose">Komponeer</string>
     <string name="title_send">stuur</string>
+    <string name="title_rule_time_every_day">Elke dag</string>
     <string name="title_legend_section_synchronize">Sinkroniseer</string>
     <string name="title_legend_section_folders">Dopsies</string>
     <string name="title_legend_section_messages">Boodskappe</string>

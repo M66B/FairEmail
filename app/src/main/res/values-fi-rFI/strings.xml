@@ -1528,6 +1528,7 @@
     <string name="title_rule_time_after">Vastaanotettu jälkeen</string>
     <string name="title_rule_time_before">Vastaanotettu ennen</string>
     <string name="title_rule_time_rel">Suhteellinen aika (vastaanotettu) välillä</string>
+    <string name="title_rule_time_every_day">Joka päivä</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">JA</string>
     <string name="title_rule_action">Toiminto</string>

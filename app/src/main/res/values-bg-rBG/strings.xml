@@ -1008,6 +1008,7 @@
     <string name="title_rule_time_after">Получено след</string>
     <string name="title_rule_time_before">Получено преди</string>
     <string name="title_rule_time_rel">Относително време (получено) между</string>
+    <string name="title_rule_time_every_day">Всеки ден</string>
     <string name="title_rule_regex">Регулярен</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>

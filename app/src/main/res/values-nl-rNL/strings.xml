@@ -180,6 +180,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_gmail_on_device">Waarom moet ik een account op het apparaat selecteren?</string>
     <string name="title_setup_gmail_password">Ik wil een account autoriseren met een wachtwoord in plaats van een account op het apparaat</string>
     <string name="title_setup_office_auth">De fout \'AUTHENTICATE failed\' kan worden veroorzaakt doordat IMAP/SMTP door de systeemadministrator is uitgeschakeld</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Probeer a.u.b. de snelle installatiewizard voor \"Andere provider\".</string>
     <string name="title_setup_oauth_rationale">Autoriseer toegang tot uw %1$s account</string>
     <string name="title_setup_oauth_update">Autoriseer een bestaand account opnieuw (anders een nieuwe account aanmaken)</string>
     <string name="title_setup_oauth_updated">Accountautorisatie is bijgewerkt</string>
@@ -442,6 +443,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_nav_pinned_count">Toon het aantal ongelezen berichten in het vastgezette navigatiemenu</string>
     <string name="title_advanced_startup">Toon op het startscherm</string>
     <string name="title_advanced_cards">Gebruik kaart-stijl in plaats van tabulaire stijl</string>
+    <string name="title_advanced_category">De accountcategorie kan worden geconfigureerd in de geavanceerde accountopties via het hoofdinstellingen scherm</string>
     <string name="title_advanced_cards_beige">Gebruik een beige achtergrond bij het gebruik van de kaartstijl (alleen lichte thema\'s)</string>
     <string name="title_advanced_tabular_background">Gebruik kaart kleur als achtergrondkleur bij gebruik van tabulaire stijl</string>
     <string name="title_advanced_cards_shadow">Gebruik schaduw voor ongelezen berichten bij gebruik van kaartstijl</string>
@@ -562,7 +564,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_autoread">Markeer berichten automatisch als gelezen bij het verplaatsen van berichten</string>
     <string name="title_advanced_autounstar">Automatisch ster verwijderen van berichten bij verplaatsende berichten</string>
     <string name="title_advanced_reset_importance">Reset belang bij verplaatsen van berichten</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Wanneer een gesprek naar de prullenbak wordt verplaatst, verwijder ook verzonden berichten</string>
+    <string name="title_advanced_thread_sent_trash">Wanneer een gesprek naar de prullenbak wordt verplaatst, verwijder ook verzonden berichten</string>
     <string name="title_advanced_star_snoozed">Voeg automatisch ster toe bij het sluimeren van berichten</string>
     <string name="title_advanced_auto_important">Automatisch berichten met een ster belangrijk maken</string>
     <string name="title_advanced_cancel_snooze">Annuleer sluimeren bij het verplaatsen van berichten</string>
@@ -1525,6 +1527,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_time_after">Ontvangen na</string>
     <string name="title_rule_time_before">Ontvangen voor</string>
     <string name="title_rule_time_rel">Relatieve tijd (ontvangen) tussen</string>
+    <string name="title_rule_time_every_day">Iedere dag</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Actie</string>

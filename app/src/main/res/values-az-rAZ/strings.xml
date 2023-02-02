@@ -564,7 +564,7 @@
     <string name="title_advanced_autoread">Mesajları köçürəndə mesajları avtomatik oxundu kimi işarələ</string>
     <string name="title_advanced_autounstar">Mesajları köçürəndə ulduzları mesajlardan avtomatik çıxart</string>
     <string name="title_advanced_reset_importance">Mesajları köçürəndə vacibliyi sıfırla</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Bir danışıq tullantı qutusuna atılanda, göndərilən mesajlarda tullantı qutusuna atılacaq</string>
+    <string name="title_advanced_thread_sent_trash">Bir danışıq tullantı qutusuna atılanda, göndərilən mesajlarda tullantı qutusuna atılacaq</string>
     <string name="title_advanced_star_snoozed">Mesajları ertələyəndə avtomatik ulduz əlavə et</string>
     <string name="title_advanced_auto_important">Ulduzlu mesajları avtomatik olaraq vacib et</string>
     <string name="title_advanced_cancel_snooze">Hərəkətli mesajlarda ertələməni ləğv et</string>
@@ -1534,6 +1534,7 @@
     <string name="title_rule_time_after">Alınandan sonra</string>
     <string name="title_rule_time_before">Alınmazdan əvvəl</string>
     <string name="title_rule_time_rel">Qarşılıqlı vaxt (alınan) aralığı</string>
+    <string name="title_rule_time_every_day">Hər gün</string>
     <string name="title_rule_regex">Müntəzəm ifadə</string>
     <string name="title_rule_and">VƏ</string>
     <string name="title_rule_action">Əməliyyat</string>

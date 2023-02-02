@@ -1432,6 +1432,7 @@
     <string name="title_rule_time_after">Đã nhận sau</string>
     <string name="title_rule_time_before">Đã nhận trước</string>
     <string name="title_rule_time_rel">Thời gian tương đối (đã nhận) giữa</string>
+    <string name="title_rule_time_every_day">Mỗi ngày</string>
     <string name="title_rule_regex">Biểu thức tìm kiếm</string>
     <string name="title_rule_and">VÀ</string>
     <string name="title_rule_action">Hành động</string>

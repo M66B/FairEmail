@@ -470,6 +470,7 @@
     <string name="title_advanced_nav_pinned_count">להציג את מספר ההודעות שלא נקראו בתפריט הניווט הנעוץ</string>
     <string name="title_advanced_startup">הצגה במסך הפתיחה</string>
     <string name="title_advanced_cards">להשתמש בסגנון כרטיסים במקום בסגנון לשוניות</string>
+    <string name="title_advanced_category">ניתן להגדיר את קטגוריית החשבון באפשרויות המתקדמות של החשבון דרך מסך ההגדרות הראשי</string>
     <string name="title_advanced_cards_beige">להשתמש ברקע בז׳ בעת שימוש בסגנון כרטיסים (ערכות עיצוב בהירות בלבד)</string>
     <string name="title_advanced_tabular_background">להשתמש בצבע הכרטיס כצבע הרקע בעת שימוש בסגנון כרטיסיות</string>
     <string name="title_advanced_cards_shadow">להשתמש בהצללה להודעות שלא נקראו בעת שימוש בסגנון כרטיסים</string>
@@ -590,7 +591,7 @@
     <string name="title_advanced_autoread">לסמן הודעות כנקראו אוטומטית בהעברתן</string>
     <string name="title_advanced_autounstar">להסיר כוכבים מהודעות אוטומטית בעת העברת הודעות</string>
     <string name="title_advanced_reset_importance">איפוס החשיבות בעת העברת הודעות</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">בעת השלכת דיון לאשפה, להשליך גם את ההודעות שנשלחו</string>
+    <string name="title_advanced_thread_sent_trash">בעת השלכת דיון לאשפה, להשליך גם את ההודעות שנשלחו</string>
     <string name="title_advanced_star_snoozed">להוסיף כוכב על הודעות מושהות אוטומטית</string>
     <string name="title_advanced_auto_important">להפוך הודעות שסומנו בכוכב לחשובות אוטומטית</string>
     <string name="title_advanced_cancel_snooze">ביטול נודניק בעת העברת הודעות</string>
@@ -1560,6 +1561,7 @@
     <string name="title_rule_time_after">התקבל לאחר</string>
     <string name="title_rule_time_before">התקבל לפני</string>
     <string name="title_rule_time_rel">זמן יחסי (של הקבלה) בין</string>
+    <string name="title_rule_time_every_day">כל יום</string>
     <string name="title_rule_regex">ביטוי רגולרי</string>
     <string name="title_rule_and">וגם</string>
     <string name="title_rule_action">פעולה</string>

@@ -469,6 +469,7 @@
     <string name="title_advanced_nav_pinned_count">Показывать количество непрочитанных сообщений в закреплённом меню навигации</string>
     <string name="title_advanced_startup">При запуске показывать</string>
     <string name="title_advanced_cards">Использовать карточный стиль вместо табличного</string>
+    <string name="title_advanced_category">Категория учётной записи может быть настроена в дополнительных настройках, которые можно открыть через главный экран настроек</string>
     <string name="title_advanced_cards_beige">Использовать бежевый фон для карточного стиля (только для светлых тем)</string>
     <string name="title_advanced_tabular_background">Использовать цвет карточки в качестве цвета фона при использовании табличного стиля</string>
     <string name="title_advanced_cards_shadow">Использовать тень для непрочитанных сообщений для карточного стиля</string>
@@ -589,7 +590,7 @@
     <string name="title_advanced_autoread">Автоматически помечать сообщения прочитанными при перемещении</string>
     <string name="title_advanced_autounstar">Автоматически удалять отметку избранного при перемещении сообщений</string>
     <string name="title_advanced_reset_importance">Сбрасывать важность при перемещении сообщений</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">При удалении диалога также удалять отправленные сообщения</string>
+    <string name="title_advanced_thread_sent_trash">При удалении диалога также удалять отправленные сообщения</string>
     <string name="title_advanced_star_snoozed">Автоматически добавлять в избранное при откладывании сообщений</string>
     <string name="title_advanced_auto_important">Автоматически помечать избранные сообщения важными</string>
     <string name="title_advanced_cancel_snooze">Отменять откладывание при перемещении сообщений</string>
@@ -1559,6 +1560,7 @@
     <string name="title_rule_time_after">Получено после</string>
     <string name="title_rule_time_before">Получено до</string>
     <string name="title_rule_time_rel">Относительное время (получения) между</string>
+    <string name="title_rule_time_every_day">Ежедневно</string>
     <string name="title_rule_regex">Регулярное выражение</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>

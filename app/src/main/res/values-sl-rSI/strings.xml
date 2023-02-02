@@ -469,6 +469,7 @@
     <string name="title_advanced_nav_pinned_count">Prikaži število neprebranih sporočil v pripetem meniju za krmarjenje</string>
     <string name="title_advanced_startup">Ob zagonu prikaži</string>
     <string name="title_advanced_cards">Uporabi kartice namesto seznama</string>
+    <string name="title_advanced_category">Kategorijo računa lahko nastavite v naprednih nastavitvah, ki jih najdete v glavnih nastavitvah.</string>
     <string name="title_advanced_cards_beige">Uporabi sivo-rjavo ozadje ob uporabi kartičnega sloga (samo svetle teme)</string>
     <string name="title_advanced_tabular_background">Uporabi barvo kartic kot ozadje ob uporabi sloga z zavihki</string>
     <string name="title_advanced_cards_shadow">Uporabi senčenje za neprebrana sporočila ob uporabi kartičnega sloga</string>
@@ -589,7 +590,7 @@
     <string name="title_advanced_autoread">Ob premikanju sporočil samodejno označi sporočila kot prebrana</string>
     <string name="title_advanced_autounstar">Ob premikanju sporočil samodejno odstrani zvezdice</string>
     <string name="title_advanced_reset_importance">Ponastavi pomembnost ob premikanju sporočil</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Ko izbrišem pogovor, izbriši tudi poslana sporočila</string>
+    <string name="title_advanced_thread_sent_trash">Ko izbrišem pogovor, izbriši tudi poslana sporočila</string>
     <string name="title_advanced_star_snoozed">Ob dremežu sporočil samodejno dodaj zvezdico</string>
     <string name="title_advanced_auto_important">Samodejno naredi sporočila, označena z zvezdico, pomembna</string>
     <string name="title_advanced_cancel_snooze">Prekliči dremež ob premikanju sporočil</string>
@@ -1556,6 +1557,7 @@
     <string name="title_rule_time_after">Prejeto po</string>
     <string name="title_rule_time_before">Prejeto pred</string>
     <string name="title_rule_time_rel">Relativni (prejeti) čas med</string>
+    <string name="title_rule_time_every_day">Vsak dan</string>
     <string name="title_rule_regex">Reg. izraz</string>
     <string name="title_rule_and">IN</string>
     <string name="title_rule_action">Dejanje</string>

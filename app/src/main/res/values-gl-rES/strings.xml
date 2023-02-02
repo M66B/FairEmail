@@ -1429,6 +1429,7 @@
     <string name="title_rule_time_after">Recibido despois</string>
     <string name="title_rule_time_before">Recibido antes</string>
     <string name="title_rule_time_rel">Tempo relativo entre (recibido)</string>
+    <string name="title_rule_time_every_day">Todos os días</string>
     <string name="title_rule_regex">Expresión regular</string>
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Acción</string>

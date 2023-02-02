@@ -1555,6 +1555,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_time_after">Přijato po</string>
     <string name="title_rule_time_before">Přijato před</string>
     <string name="title_rule_time_rel">Relativní čas (přijatý) mezi</string>
+    <string name="title_rule_time_every_day">Každý den</string>
     <string name="title_rule_regex">Regulární výraz</string>
     <string name="title_rule_and">A</string>
     <string name="title_rule_action">Akce</string>

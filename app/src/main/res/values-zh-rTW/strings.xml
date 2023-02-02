@@ -1407,6 +1407,7 @@
     <string name="title_rule_time_after">接收時間不早於</string>
     <string name="title_rule_time_before">接收時間不晚於</string>
     <string name="title_rule_time_rel">相對時間 (接收) 區間</string>
+    <string name="title_rule_time_every_day">每天</string>
     <string name="title_rule_regex">正則表達式</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">動作</string>

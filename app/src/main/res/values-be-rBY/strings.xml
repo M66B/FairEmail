@@ -591,7 +591,7 @@
     <string name="title_advanced_autoread">Аўтаматычна адзначаць паведамленні як прачытаныя ў пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_autounstar">Аўтаматычна выдаляць пазнакі пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_reset_importance">Скідваць важнасць паведамленняў пры іх перамяшчэнні</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Пры выдаленні размовы таксама выдаляць адпраўленыя паведамленні</string>
+    <string name="title_advanced_thread_sent_trash">Пры выдаленні размовы таксама выдаляць адпраўленыя паведамленні</string>
     <string name="title_advanced_star_snoozed">Аўтаматычна пазначаць адкладзеныя паведамленні</string>
     <string name="title_advanced_auto_important">Аўтаматычна рабіць важнымі пазначаныя паведамленні</string>
     <string name="title_advanced_cancel_snooze">Адмяняць адкладанне пры перамяшчэнні паведамленняў</string>
@@ -1563,6 +1563,7 @@
     <string name="title_rule_time_after">Атрымана пасля</string>
     <string name="title_rule_time_before">Атрымана да</string>
     <string name="title_rule_time_rel">Адносны час (атрымання) паміж</string>
+    <string name="title_rule_time_every_day">Штодня</string>
     <string name="title_rule_regex">Рэгулярны выраз</string>
     <string name="title_rule_and">І</string>
     <string name="title_rule_action">Дзеянне</string>

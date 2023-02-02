@@ -430,6 +430,7 @@
     <string name="title_advanced_nav_pinned_count">在固定导航菜单中显示未读邮件的数量</string>
     <string name="title_advanced_startup">在启动屏幕上显示</string>
     <string name="title_advanced_cards">使用卡片样式而非表单样式 (即主页会话间有间隔)</string>
+    <string name="title_advanced_category">账户类别可以通过主设置屏幕在高级账户选项中配置</string>
     <string name="title_advanced_cards_beige">使用卡牌风格时使用米色背景(仅适用于浅色主题)</string>
     <string name="title_advanced_tabular_background">使用表格样式时，使用卡片颜色作为背景色</string>
     <string name="title_advanced_cards_shadow">使用卡片样式时对未读消息显示阴影</string>
@@ -550,7 +551,7 @@
     <string name="title_advanced_autoread">移动消息时自动标为已读</string>
     <string name="title_advanced_autounstar">移动消息时自动移除星标</string>
     <string name="title_advanced_reset_importance">在移动消息时重置其重要性</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">回收对话时，同时回收发送的消息</string>
+    <string name="title_advanced_thread_sent_trash">回收对话时，同时回收发送的消息</string>
     <string name="title_advanced_star_snoozed">自动给打盹消息添加星标</string>
     <string name="title_advanced_auto_important">自动标注星标消息为重要</string>
     <string name="title_advanced_cancel_snooze">移动消息时取消延后</string>
@@ -1515,6 +1516,7 @@
     <string name="title_rule_time_after">接收时间晚于</string>
     <string name="title_rule_time_before">接收时间早于</string>
     <string name="title_rule_time_rel">相对时间间隔 (收信)</string>
+    <string name="title_rule_time_every_day">每天</string>
     <string name="title_rule_regex">正则表达式</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">操作</string>

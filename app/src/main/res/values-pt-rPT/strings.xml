@@ -565,7 +565,7 @@
     <string name="title_advanced_autoread">Marcar mensagens como lidas automaticamente ao mover mensagens</string>
     <string name="title_advanced_autounstar">Remover estrelas automaticamente das mensagens ao mover mensagens</string>
     <string name="title_advanced_reset_importance">Reverter importância ao mover mensagens</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Ao descartar uma conversa, também descartar mensagens enviadas</string>
+    <string name="title_advanced_thread_sent_trash">Ao descartar uma conversa, também descartar mensagens enviadas</string>
     <string name="title_advanced_star_snoozed">Adicionar estrela automaticamente ao adiar mensagens</string>
     <string name="title_advanced_auto_important">Marcar automaticamente mensagens com estrela como importantes</string>
     <string name="title_advanced_cancel_snooze">Cancelar a função \'adiar\' ao mover mensagens</string>
@@ -1535,6 +1535,7 @@
     <string name="title_rule_time_after">Recebida após</string>
     <string name="title_rule_time_before">Recebida antes de</string>
     <string name="title_rule_time_rel">Tempo relativo (recebido) entre</string>
+    <string name="title_rule_time_every_day">Todos os dias</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OU</string>
     <string name="title_rule_action">Acção</string>

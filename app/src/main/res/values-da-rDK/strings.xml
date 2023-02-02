@@ -563,7 +563,7 @@
     <string name="title_advanced_autoread">Auto-markér beskeder som læst, når de flyttes</string>
     <string name="title_advanced_autounstar">Fjern automatisk stjerner fra beskeder, når de flyttes</string>
     <string name="title_advanced_reset_importance">Nulstil vigtighed, når beskeder flyttes</string>
-    <string name="title_advanced_thread_sent_trash" comment="title_advanced_thread_sent_trash&#10;Title for option to disable trashing sent messages when trashing a conversation">Kasseres en samtale, kasseres sendte beskeder ligeledes</string>
+    <string name="title_advanced_thread_sent_trash">Kasseres en samtale, kasseres sendte beskeder ligeledes</string>
     <string name="title_advanced_star_snoozed">Auto-tilføj stjerne på udsatte beskeder</string>
     <string name="title_advanced_auto_important">Gør automatisk stjernemarkerede beskeder vigtige</string>
     <string name="title_advanced_cancel_snooze">Afbryd udsættelse ved flytning af beskeder</string>
@@ -1534,6 +1534,7 @@
     <string name="title_rule_time_after">Modtaget efter</string>
     <string name="title_rule_time_before">Modtaget før</string>
     <string name="title_rule_time_rel">Absolut tid (modtaget) mellem</string>
+    <string name="title_rule_time_every_day">Dagligt</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OG</string>
     <string name="title_rule_action">Handling</string>

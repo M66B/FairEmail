@@ -1417,6 +1417,7 @@
     <string name="title_rule_time_after">Primljeno nakon</string>
     <string name="title_rule_time_before">Primljeno prije</string>
     <string name="title_rule_time_rel">Relativno vrijeme (primljeno) između</string>
+    <string name="title_rule_time_every_day">Svaki dan</string>
     <string name="title_rule_regex">Regularni izraz</string>
     <string name="title_rule_and">I</string>
     <string name="title_rule_action">Akcija</string>

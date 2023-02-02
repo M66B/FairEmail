@@ -1341,6 +1341,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_time_after">Diterima setelah</string>
     <string name="title_rule_time_before">Diterima sebelum</string>
     <string name="title_rule_time_rel">Waktu relatif (diterima) antara</string>
+    <string name="title_rule_time_every_day">Setiap hari</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">DAN</string>
     <string name="title_rule_action">Tindakan</string>

@@ -1201,6 +1201,7 @@
     <string name="title_rule_header">Goiburuak hau du</string>
     <string name="title_rule_body">Testuak dauka</string>
     <string name="title_rule_body_remark">Baldintza hori erabiltzeak beti deskargatuko du testua mezutik, eta horrek mezu-zerrendaren sinkronizazioa mantsotu dezake</string>
+    <string name="title_rule_time_every_day">Egunero</string>
     <string name="title_rule_regex">Adierazpen erregularra</string>
     <string name="title_rule_and">ETA</string>
     <string name="title_rule_action">Ekintza</string>

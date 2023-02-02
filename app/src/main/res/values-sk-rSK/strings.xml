@@ -1478,6 +1478,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_time_after">Prijaté po</string>
     <string name="title_rule_time_before">Prijaté pred</string>
     <string name="title_rule_time_rel">Relatívny čas (prijaté) v rozmedzí</string>
+    <string name="title_rule_time_every_day">Každý deň</string>
     <string name="title_rule_regex">Regulárny výraz</string>
     <string name="title_rule_and">A</string>
     <string name="title_rule_action">Akcia</string>

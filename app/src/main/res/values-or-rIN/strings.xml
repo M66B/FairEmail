@@ -625,6 +625,7 @@
     <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_rule_body">ପାଠ୍ୟ ଧାରଣ କରେ</string>
     <string name="title_rule_body_remark">ଏହି ସର୍ତ୍ତ ଵ୍ୟଵହାର କରିବା ଦ୍ୱାରା ସର୍ଵଦା ଵାର୍ତ୍ତାର ପାଠ୍ୟ ଡାଉନଲୋଡ୍ ହେବ, ଯାହା ଵାର୍ତ୍ତା ତାଲିକାର ସିଙ୍କ୍ରୋନାଇଜେଶନ୍ ମନ୍ଥର କରିପାରେ</string>
+    <string name="title_rule_time_every_day">ପ୍ରତିଦିନ</string>
     <string name="title_rule_regex">RegEx</string>
     <string name="title_rule_identity">ପରିଚୟ</string>
     <string name="title_rule_template">ପ୍ରତ୍ୟୁତ୍ତର ଟେମ୍ପଲେଟ୍</string>
