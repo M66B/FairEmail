@@ -187,9 +187,9 @@
     </provider>
     <provider
         name="Outlook"
+        alt="true"
         debug="true"
         description="Outlook/Office 365 (alt)"
-        enabled="false"
         id="outlook"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"

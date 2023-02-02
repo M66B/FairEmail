@@ -82,6 +82,7 @@ public class EmailProvider implements Parcelable {
     public String description;
     public boolean debug;
     public boolean enabled;
+    public boolean alt;
     public List<String> domain;
     public List<String> mx;
     public int order;
@@ -235,6 +236,7 @@ public class EmailProvider implements Parcelable {
 
                         provider.debug = getAttributeBooleanValue(xml, "debug", false);
                         provider.enabled = getAttributeBooleanValue(xml, "enabled", true);
+                        provider.alt = getAttributeBooleanValue(xml, "alt", false);
 
                         String domain = xml.getAttributeValue(null, "domain");
                         if (domain != null)

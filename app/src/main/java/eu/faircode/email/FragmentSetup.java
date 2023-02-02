@@ -314,8 +314,11 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                             provider.oauth.enabled &&
                             !TextUtils.isEmpty(provider.oauth.clientId)) {
                         String title = getString(R.string.title_setup_oauth, provider.description);
+                        SpannableString ss = new SpannableString(title);
+                        if (provider.alt)
+                            ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ss.length(), 0);
                         MenuItem item = menu
-                                .add(Menu.FIRST, -1, order++, title)
+                                .add(Menu.FIRST, -1, order++, ss)
                                 .setIntent(new Intent(ActivitySetup.ACTION_QUICK_OAUTH)
                                         .putExtra("id", provider.id)
                                         .putExtra("name", provider.description)
