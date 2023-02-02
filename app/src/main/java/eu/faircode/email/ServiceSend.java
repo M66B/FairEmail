@@ -390,6 +390,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         break;
 
                     EntityOperation op = ops.get(0);
+                    if (db.operation().getOperation(op.id) == null) {
+                        ops.remove(op);
+                        continue;
+                    }
 
                     EntityMessage message = null;
                     if (op.message != null)
