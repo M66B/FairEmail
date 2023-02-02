@@ -660,7 +660,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
                             if (ddss.length > 0) {
                                 int s = buffer.getSpanStart(ddss[0]);
-                                properties.setValue("quotes", message.id, buffer.charAt(s) != 48);
+                                properties.setValue("quotes", message.id, buffer.charAt(s) != '0');
                                 bindBody(message, false);
                                 return true;
                             }
