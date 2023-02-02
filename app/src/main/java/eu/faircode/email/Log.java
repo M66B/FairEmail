@@ -2392,6 +2392,7 @@ public class Log {
 
                         size += write(os, account.name + (account.primary ? "*" : "") +
                                 " " + (account.protocol == EntityAccount.TYPE_IMAP ? "IMAP" : "POP") + "/" + account.auth_type +
+                                (account.provider == null ? "" : " [" + account.provider + "]") +
                                 " " + account.host + ":" + account.port + "/" + account.encryption +
                                 " sync=" + account.synchronize +
                                 " exempted=" + account.poll_exempted +
@@ -2447,8 +2448,9 @@ public class Log {
                         for (EntityIdentity identity : identities)
                             if (identity.synchronize) {
                                 size += write(os, account.name + "/" + identity.name + (identity.primary ? "*" : "") + " " +
-                                        identity.display + " " + identity.email + " " +
+                                        identity.display + " " + identity.email +
                                         (identity.self ? "" : " !self") +
+                                        (identity.provider == null ? "" : " [" + identity.provider + "]") +
                                         (TextUtils.isEmpty(identity.sender_extra_regex) ? "" : " regex=" + identity.sender_extra_regex) +
                                         (!identity.sender_extra ? "" : " edit" +
                                                 (identity.sender_extra_name ? "+name" : "-name") +

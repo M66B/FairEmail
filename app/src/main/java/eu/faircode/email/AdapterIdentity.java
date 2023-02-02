@@ -68,6 +68,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     private LayoutInflater inflater;
 
     private int colorStripeWidth;
+    private boolean debug;
 
     private List<TupleIdentityEx> items = new ArrayList<>();
 
@@ -139,7 +140,11 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             ivPrimary.setVisibility(identity.primary ? View.VISIBLE : View.GONE);
             ivGroup.setVisibility(identity.self ? View.GONE : View.VISIBLE);
             tvName.setText(identity.getDisplayName());
-            tvUser.setText(identity.email);
+
+            StringBuilder user = new StringBuilder(identity.email);
+            if (identity.provider != null && (BuildConfig.DEBUG || debug))
+                user.append(" (").append(identity.provider).append(')');
+            tvUser.setText(user);
 
             if ("connected".equals(identity.state)) {
                 ivState.setImageResource(R.drawable.twotone_cloud_done_24);
@@ -420,6 +425,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
         this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
+        this.debug = prefs.getBoolean("debug", false);
 
         this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);
 
