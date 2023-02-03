@@ -95,9 +95,6 @@ public class FragmentBase extends Fragment {
 
     static final int REQUEST_PERMISSIONS = 1000;
 
-    static final String ACTION_STORE_ATTACHMENT = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENT";
-    static final String ACTION_STORE_ATTACHMENTS = BuildConfig.APPLICATION_ID + ".STORE_ATTACHMENTS";
-
     protected ActionBar getSupportActionBar() {
         FragmentActivity activity = getActivity();
         if (activity instanceof ActivityBase)
@@ -334,21 +331,12 @@ public class FragmentBase extends Fragment {
             getParentFragmentManager().popBackStack();
             finish = false;
         }
-
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-        IntentFilter iff = new IntentFilter();
-        iff.addAction(ACTION_STORE_ATTACHMENT);
-        iff.addAction(ACTION_STORE_ATTACHMENTS);
-        lbm.registerReceiver(receiver, iff);
     }
 
     @Override
     public void onPause() {
         Log.d("Pause " + this);
         super.onPause();
-
-        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-        lbm.unregisterReceiver(receiver);
     }
 
     @Override
@@ -514,32 +502,17 @@ public class FragmentBase extends Fragment {
         ((ActivityBilling) getActivity()).addBillingListener(listener, getViewLifecycleOwner());
     }
 
-    private BroadcastReceiver receiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                String action = intent.getAction();
-
-                if (ACTION_STORE_ATTACHMENT.equals(action))
-                    onStoreAttachment(intent);
-                if (ACTION_STORE_ATTACHMENTS.equals(action))
-                    onStoreAttachments(intent);
-            }
-        }
-    };
-
-    private void onStoreAttachment(Intent intent) {
-        long attachment = intent.getLongExtra("id", -1L);
-        getArguments().putLong("selected_attachment", attachment);
-        Log.i("Save attachment id=" + attachment);
+    protected void onStoreAttachment(EntityAttachment attachment) {
+        getArguments().putLong("selected_attachment", attachment.id);
+        Log.i("Save attachment id=" + attachment.id);
 
         final Context context = getContext();
 
         Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         create.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        create.setType(intent.getStringExtra("type"));
-        create.putExtra(Intent.EXTRA_TITLE, intent.getStringExtra("name"));
+        create.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        create.setType(attachment.type);
+        create.putExtra(Intent.EXTRA_TITLE, attachment.name);
         Helper.openAdvanced(context, create);
         PackageManager pm = context.getPackageManager();
         if (create.resolveActivity(pm) == null) { // system whitelisted
@@ -549,8 +522,7 @@ public class FragmentBase extends Fragment {
             startActivityForResult(Helper.getChooser(context, create), REQUEST_ATTACHMENT);
     }
 
-    private void onStoreAttachments(Intent intent) {
-        long message = intent.getLongExtra("id", -1L);
+    protected void onStoreAttachments(long message) {
         getArguments().putLong("selected_message", message);
         Log.i("Save attachments message=" + message);
 

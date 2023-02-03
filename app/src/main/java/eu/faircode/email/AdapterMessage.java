@@ -5087,10 +5087,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onSaveAttachments(TupleMessageEx message) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(FragmentBase.ACTION_STORE_ATTACHMENTS)
-                            .putExtra("id", message.id));
+            ((FragmentBase)parentFragment).onStoreAttachments(message.id);
         }
 
         private void onActionCopyNote(TupleMessageEx message) {

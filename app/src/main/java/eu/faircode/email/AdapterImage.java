@@ -285,12 +285,8 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
             if (!attachment.available)
                 return false;
 
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(FragmentBase.ACTION_STORE_ATTACHMENT)
-                            .putExtra("id", attachment.id)
-                            .putExtra("name", Helper.sanitizeFilename(attachment.name))
-                            .putExtra("type", attachment.getMimeType()));
+            ((FragmentBase) parentFragment).onStoreAttachment(attachment);
+
             return true;
         }
     }

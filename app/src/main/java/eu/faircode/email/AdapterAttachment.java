@@ -381,12 +381,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onSave(EntityAttachment attachment) {
-            LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-            lbm.sendBroadcast(
-                    new Intent(FragmentBase.ACTION_STORE_ATTACHMENT)
-                            .putExtra("id", attachment.id)
-                            .putExtra("name", Helper.sanitizeFilename(attachment.name))
-                            .putExtra("type", attachment.getMimeType()));
+            ((FragmentBase) parentFragment).onStoreAttachment(attachment);
         }
 
         private void onScan(EntityAttachment attachment) {
