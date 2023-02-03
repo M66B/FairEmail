@@ -5087,7 +5087,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onSaveAttachments(TupleMessageEx message) {
-            ((FragmentBase)parentFragment).onStoreAttachments(message.id);
+            ((FragmentBase) parentFragment).onStoreAttachments(message.id);
         }
 
         private void onActionCopyNote(TupleMessageEx message) {
