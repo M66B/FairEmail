@@ -120,6 +120,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     @NonNull
     public Boolean navigation = false;
     @NonNull
+    public Boolean count_unread = true;
+    @NonNull
     public Boolean notify = false;
 
     public Integer total; // messages on server

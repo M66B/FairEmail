@@ -65,6 +65,7 @@ public class FragmentFolder extends FragmentBase {
     private CheckBox cbHideSeen;
     private CheckBox cbUnified;
     private CheckBox cbNavigation;
+    private CheckBox cbCountUnread;
     private CheckBox cbNotify;
     private CheckBox cbSynchronize;
     private CheckBox cbPoll;
@@ -131,6 +132,7 @@ public class FragmentFolder extends FragmentBase {
         cbHideSeen = view.findViewById(R.id.cbHideSeen);
         cbUnified = view.findViewById(R.id.cbUnified);
         cbNavigation = view.findViewById(R.id.cbNavigation);
+        cbCountUnread = view.findViewById(R.id.cbCountUnread);
         cbNotify = view.findViewById(R.id.cbNotify);
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPoll = view.findViewById(R.id.cbPoll);
@@ -253,6 +255,7 @@ public class FragmentFolder extends FragmentBase {
         grpImap.setVisibility(imap ? View.VISIBLE : View.GONE);
         tvParent.setText(parent);
         grpParent.setVisibility(parent == null ? View.GONE : View.VISIBLE);
+        cbCountUnread.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         cbAutoClassifySource.setVisibility(View.GONE);
         cbAutoClassifyTarget.setVisibility(View.GONE);
         tvAutoClassifyPro.setVisibility(View.GONE);
@@ -316,6 +319,7 @@ public class FragmentFolder extends FragmentBase {
                     cbHideSeen.setChecked(folder == null ? false : folder.hide_seen);
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     cbNavigation.setChecked(folder == null ? false : folder.navigation);
+                    cbCountUnread.setChecked(folder == null ? true : folder.count_unread);
                     cbNotify.setChecked(folder == null ? false : folder.notify);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
                     cbPoll.setChecked(folder == null ? true : folder.poll);
@@ -461,6 +465,7 @@ public class FragmentFolder extends FragmentBase {
         args.putBoolean("hide_seen", cbHideSeen.isChecked());
         args.putBoolean("unified", cbUnified.isChecked());
         args.putBoolean("navigation", cbNavigation.isChecked());
+        args.putBoolean("count_unread", cbCountUnread.isChecked());
         args.putBoolean("notify", cbNotify.isChecked());
         args.putBoolean("synchronize", cbSynchronize.isChecked());
         args.putBoolean("poll", cbPoll.isChecked());
@@ -506,6 +511,7 @@ public class FragmentFolder extends FragmentBase {
                 boolean hide_seen = args.getBoolean("hide_seen");
                 boolean unified = args.getBoolean("unified");
                 boolean navigation = args.getBoolean("navigation");
+                boolean count_unread = args.getBoolean("count_unread");
                 boolean notify = args.getBoolean("notify");
                 boolean synchronize = args.getBoolean("synchronize");
                 boolean poll = args.getBoolean("poll");
@@ -559,6 +565,8 @@ public class FragmentFolder extends FragmentBase {
                         if (!Objects.equals(folder.unified, unified))
                             return true;
                         if (!Objects.equals(folder.navigation, navigation))
+                            return true;
+                        if (!Objects.equals(folder.count_unread, count_unread))
                             return true;
                         if (!Objects.equals(folder.notify, notify))
                             return true;
@@ -616,6 +624,7 @@ public class FragmentFolder extends FragmentBase {
                         create.type = EntityFolder.USER;
                         create.unified = unified;
                         create.navigation = navigation;
+                        create.count_unread = count_unread;
                         create.notify = notify;
                         create.hide = hide;
                         create.hide_seen = hide;
@@ -645,7 +654,8 @@ public class FragmentFolder extends FragmentBase {
                         Log.i("Updating folder=" + folder.name);
                         db.folder().setFolderProperties(id,
                                 folder.name.equals(name) ? null : name,
-                                display, color, unified, navigation, notify,
+                                display, color, unified,
+                                navigation, count_unread, notify,
                                 hide, hide_seen,
                                 synchronize, poll, poll_factor, download,
                                 auto_classify_source, auto_classify_target,

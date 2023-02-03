@@ -1250,6 +1250,7 @@
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
     <string name="title_poll_folder_remark">Most email servers allow push messages for a handful of folders only!</string>
     <string name="title_download_folder">Automatically download message texts and attachments</string>
+    <string name="title_count_unread" translatable="false">Count unread messages</string>
     <string name="title_notify_folder">Notify on new messages</string>
     <string name="title_auto_classify_source">Classify new messages in this folder</string>
     <string name="title_auto_classify_target">Automatically move classified messages to this folder</string>
