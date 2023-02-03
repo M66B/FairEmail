@@ -3132,9 +3132,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         for (QuoteSpan quoteSpan : lqs) {
                             int s = ssb.getSpanStart(quoteSpan);
                             int e = ssb.getSpanEnd(quoteSpan);
+                            if (s == 0 || s == e)
+                                continue;
 
                             if (show_quotes) {
-                                ssb.insert(s > 0 ? s - 1 : s, "0");
+                                ssb.insert(s - 1, "\n0");
                                 ssb.setSpan(
                                         new DynamicDrawableSpan() {
                                             @Override
@@ -3142,12 +3144,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                 return d;
                                             }
                                         },
-                                        s > 0 ? s - 1 : s, s > 0 ? s : s + 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                                        s, s + 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                             } else {
                                 for (Object span : ssb.getSpans(s, e, Object.class))
                                     ssb.removeSpan(span);
                                 ssb.delete(s, e);
-                                ssb.insert(s > 0 ? s - 1 : s, "1");
+                                ssb.insert(s - 1, "\n1");
                                 ssb.setSpan(
                                         new DynamicDrawableSpan() {
                                             @Override
@@ -3155,7 +3157,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                 return d;
                                             }
                                         },
-                                        s > 0 ? s - 1 : s, s > 0 ? s : s + 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                                        s, s + 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
                             }
                         }
 
