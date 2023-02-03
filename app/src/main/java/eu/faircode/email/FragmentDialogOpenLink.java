@@ -583,7 +583,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         String chost = getConfirmHost(uri);
         cbNotAgain.setText(context.getString(R.string.title_no_ask_for_again, chost));
-        cbNotAgain.setVisibility(!always_confirm && chost != null ? View.VISIBLE : View.GONE);
+        cbNotAgain.setVisibility(!always_confirm && !sanitize_links && chost != null ? View.VISIBLE : View.GONE);
 
         setMore(false);
 
