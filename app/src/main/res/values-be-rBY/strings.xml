@@ -207,6 +207,7 @@
     <string name="title_setup_gmail_on_device">Чаму мне неабходна выбраць уліковы запіс на прыладзе?</string>
     <string name="title_setup_gmail_password">Я хачу аўтарызаваць уліковы запіс з дапамогай пароля замест уліковага запісу на прыладзе</string>
     <string name="title_setup_office_auth">Памылка \'Збой АЎТЭНТЫФІКАЦЫІ\' можа быць выклікана тым, што пратаколы IMAP/SMTP адключаны сістэмным адміністратарам</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Калі ласка, паспрабуйце опцыю \"Іншы правайдар\" у майстры хуткага наладжвання.</string>
     <string name="title_setup_oauth_rationale">Аўтарызуйце доступ да вашага ўліковага запісу %1$s</string>
     <string name="title_setup_oauth_update">Паўторна аўтарызаваць існуючы ўліковы запіс (у адваротным выпадку стварыць новы ўліковы запіс)</string>
     <string name="title_setup_oauth_updated">Аўтарызацыя ўліковага запісу была абноўлена</string>
@@ -252,7 +253,7 @@
     <string name="title_setup_data">Эканомія даных уключана</string>
     <string name="title_setup_always">Імгненныя апавяшчэнні аб новых паведамленнях</string>
     <string name="title_setup_always_remark">Пры ўключэнні гэтай опцыі спажыванне зараду батарэі можа павялічыцца з-за нестабільнага злучэння, выкарыстання старога сеткавага абсталявання і г.д.</string>
-    <string name="title_setup_advanced_options">Паказаць дадатковыя опцыі</string>
+    <string name="title_setup_advanced_options">Паказаць дадатковыя параметры</string>
     <string name="title_setup_inbox">Перайсці да ўваходнай пошты</string>
     <string name="title_setup_go">Пачаць</string>
     <string name="title_setup_to_do">Выканаць</string>
@@ -471,6 +472,7 @@
     <string name="title_advanced_nav_pinned_count">Паказваць колькасць непрачытаных паведамленняў у замацаваным меню навігацыі</string>
     <string name="title_advanced_startup">Паказваць на стартавым экране</string>
     <string name="title_advanced_cards">Выкарыстоўваць картачны стыль замест таблічнага</string>
+    <string name="title_advanced_category">Катэгорыю ўліковага запісу можна наладзіць у дадатковых параметрах уліковага запісу на галоўным экране налад</string>
     <string name="title_advanced_cards_beige">Выкарыстоўваць бэжавы фон пры выкарыстанні картачнага стылю (толькі светлыя тэмы)</string>
     <string name="title_advanced_tabular_background">Выкарыстоўваць колер карткі ў якасці фону пры выкарыстанні таблічнага стылю</string>
     <string name="title_advanced_cards_shadow">Пры выкарыстанні картачнага стылю выкарыстоўваць цень для непрачытаных паведамленняў</string>
@@ -716,7 +718,7 @@
     <string name="title_advanced_cleanup_attachments">Выдаліць укладанні ў старых паведамленнях</string>
     <string name="title_advanced_cleanup">Ачыстка</string>
     <string name="title_advanced_app">Налады праграмы</string>
-    <string name="title_advanced_more">Дадатковыя налады</string>
+    <string name="title_advanced_more">Дадатковыя параметры</string>
     <string name="title_advanced_main_log">Асноўная журналізацыя</string>
     <string name="title_advanced_main_log_mem">Весці журнал выкарыстання памяці</string>
     <string name="title_advanced_protocol">Весці журнал пратаколаў</string>

@@ -181,6 +181,7 @@
     <string name="title_setup_gmail_on_device">Pourquoi dois-je sélectionner un compte présent sur mon appareil ?</string>
     <string name="title_setup_gmail_password">Je veux autoriser un compte avec un mot de passe au lieu d\'un compte de l\'appareil</string>
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur système</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Veuillez utiliser l\'assistant de configuration rapide pour \"Autre fournisseur\".</string>
     <string name="title_setup_oauth_rationale">Autoriser l\'accès à votre compte %1$s</string>
     <string name="title_setup_oauth_update">Autoriser à nouveau un compte existant (sinon créer un nouveau compte)</string>
     <string name="title_setup_oauth_updated">L\'autorisation du compte a été mise à jour</string>
@@ -845,7 +846,7 @@
     <string name="title_account_left">Balayer vers la gauche</string>
     <string name="title_account_right">Balayer vers la droite</string>
     <string name="title_account_move">Déplacer par défaut vers</string>
-    <string name="title_account_gmail">Pour une synchronisation fiable d\'un compte Gmail, l\'assistant d\'installation rapide de Gmail doit être utilisé dans la mesure du possible</string>
+    <string name="title_account_gmail">Pour une synchronisation fiable d\'un compte Gmail, l\'assistant de configuration rapide de Gmail doit être utilisé dans la mesure du possible</string>
     <string name="title_domain">Nom de domaine</string>
     <string name="title_autoconfig">Obtenir les paramètres</string>
     <string name="title_aliases">Alias</string>
@@ -934,7 +935,7 @@
     <string name="title_service_token">Le gestionnaire de compte d\'Android pourrait être bloqué par un VPN, un pare-feu, un bloqueur de publicité, etc., l\'empêchant d\'obtenir un jeton d\'accès</string>
     <string name="title_service_port">Veuillez vérifier le numéro de port</string>
     <string name="title_service_protocol">Veuillez vérifier le protocole (SSL/TLS ou STARTTLS)</string>
-    <string name="title_service_error10">Ce compte doit être de nouveau authentifié, ce qui peut être fait via l\'assistant d\'installation rapide</string>
+    <string name="title_service_error10">Ce compte doit être de nouveau authentifié, ce qui peut être fait via l\'assistant de configuration rapide</string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_expand_read">Marquer les messages comme lus lors de leur ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>

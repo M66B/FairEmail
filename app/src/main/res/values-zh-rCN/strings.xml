@@ -168,6 +168,7 @@
     <string name="title_setup_gmail_on_device">为什么我需要选择设备上账户？</string>
     <string name="title_setup_gmail_password">我想使用密码而不是设备上的帐户进行授权</string>
     <string name="title_setup_office_auth">“认证失败”的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">“其他提供商”请尝试快速设置向导。</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
     <string name="title_setup_oauth_update">重新授权现有账户（否则请新建账户）</string>
     <string name="title_setup_oauth_updated">账户授权已更新</string>

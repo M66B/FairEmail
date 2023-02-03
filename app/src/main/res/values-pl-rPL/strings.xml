@@ -207,6 +207,7 @@
     <string name="title_setup_gmail_on_device">Dlaczego muszę wybrać konto na urządzeniu?</string>
     <string name="title_setup_gmail_password">Chcę autoryzować konto za pomocą hasła zamiast konta na urządzeniu</string>
     <string name="title_setup_office_auth">Błąd \"AUTHENTICATE failed\" może być spowodowany wyłączeniem protokołu IMAP/SMTP przez administratora systemu</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Spróbuj kreatora szybkich ustawień dla \"innego dostawcy\".</string>
     <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
     <string name="title_setup_oauth_update">Autoryzuj istniejące konto ponownie (w przeciwnym razie utwórz nowe konto)</string>
     <string name="title_setup_oauth_updated">Autoryzacja konta została zaktualizowana</string>

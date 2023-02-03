@@ -181,6 +181,7 @@
     <string name="title_setup_gmail_on_device">Por que é que preciso selecionar uma conta no dispositivo?</string>
     <string name="title_setup_gmail_password">Quero autorizar uma conta com a palavra-passe ao invés da conta em utilização no dispositivo</string>
     <string name="title_setup_office_auth">O erro \'AUTHENTICATE failed\' pode ser causado pelo protocolo IMAP/SMTP ter sido desactivado pelo administrador do sistema</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Por favor, tente o assistente de configuração rápida para \"Outro provedor\".</string>
     <string name="title_setup_oauth_rationale">Autorizar o acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar novamente uma conta existente (caso contrário, criar uma conta)</string>
     <string name="title_setup_oauth_updated">Autorização de conta actualizada</string>
@@ -445,6 +446,7 @@
     <string name="title_advanced_nav_pinned_count">Mostrar o número de mensagens não lidas no menu de navegação fixado</string>
     <string name="title_advanced_startup">Mostrar no ecrã de bloqueio</string>
     <string name="title_advanced_cards">Usar estilo de cartões em vez do estilo tabular</string>
+    <string name="title_advanced_category">A categoria da conta pode ser configurada nas opções avançadas da conta através da tela de configurações principais</string>
     <string name="title_advanced_cards_beige">Usar o fundo bege quando usar o estilo de cartão (apenas temas claros)</string>
     <string name="title_advanced_tabular_background">Usar a cor do cartão como cor de fundo quando o estilo tabular seja utilizado</string>
     <string name="title_advanced_cards_shadow">Usar sombra para mensagens não lidas quando usar o estilo do cartão</string>

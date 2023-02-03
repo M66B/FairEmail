@@ -207,6 +207,7 @@
     <string name="title_setup_gmail_on_device">Зачем выбирать учётную запись на устройстве?</string>
     <string name="title_setup_gmail_password">Я хочу авторизовать учётную запись паролем вместо учётной записи на устройстве</string>
     <string name="title_setup_office_auth">Ошибка \"AUTHENTICATE failed\" может быть вызвана отключением IMAP/SMTP системным администратором</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Попробуйте мастер быстрой настройки для \"Другого провайдера\".</string>
     <string name="title_setup_oauth_rationale">Авторизовать доступ к вашей учётной записи %1$s</string>
     <string name="title_setup_oauth_update">Авторизация существующей учётной записи (или создание новой)</string>
     <string name="title_setup_oauth_updated">Авторизация учётной записи обновлена</string>

@@ -207,6 +207,7 @@
     <string name="title_setup_gmail_on_device">Zakaj moram izbrati sistemski račun?</string>
     <string name="title_setup_gmail_password">Račun želim odobriti z geslom namesto z računom v napravi.</string>
     <string name="title_setup_office_auth">Napaka \'OVERITEV je spodletela\' se lahko pojavi, če je skrbnik sistema onemogočil IMAP/SMTP.</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Poizkusite s čarovnikom za hitro nastavitev z možnostjo \"Drugi ponudnik\".</string>
     <string name="title_setup_oauth_rationale">Odobrite dostop do računa %1$s.</string>
     <string name="title_setup_oauth_update">Ponovno odobri obstoječi račun (drugače ustvari novega)</string>
     <string name="title_setup_oauth_updated">Odobritev računa je bila posodobljena.</string>

@@ -181,6 +181,7 @@
     <string name="title_setup_gmail_on_device">Por que eu preciso selecionar uma conta no dispositivo?</string>
     <string name="title_setup_gmail_password">Eu quero autorizar uma conta com uma senha ao invés de uma conta no dispositivo</string>
     <string name="title_setup_office_auth">O erro \'Falha de Autenticação\' pode ser causadado por desativação do IMAP/SMTP pelo administrador do sistema</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Tente o assistente de configuração rápida para \"Outro provedor\".</string>
     <string name="title_setup_oauth_rationale">Autorizar acesso à sua conta %1$s</string>
     <string name="title_setup_oauth_update">Autorizar uma conta existente novamente (caso contrário, crie uma nova conta)</string>
     <string name="title_setup_oauth_updated">Autorização da conta foi atualizada</string>

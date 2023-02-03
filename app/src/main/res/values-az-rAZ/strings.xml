@@ -181,6 +181,7 @@
     <string name="title_setup_gmail_on_device">Niyə bir cihaz hesabı seçməliyəm?</string>
     <string name="title_setup_gmail_password">Cihazdakı bir hesabın əvəzinə parollu bir hesaba səlahiyyət vermək istəyirəm</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' xətası, sistem administratorunun IMAP/SMTP-ni sıradan çıxartdığı üçün baş verə bilər</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">\"Digər provayder\" üçün zəhmət olmasa cəld quraşdırma sehrbazını sınayın.</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza müraciət üçün səlahiyyət verin</string>
     <string name="title_setup_oauth_update">Mövcud bir hesaba yenidən səlahiyyət verin (əks halda yeni bir hesab yaradın)</string>
     <string name="title_setup_oauth_updated">Hesab səlahiyyətləndirmə güncəlləndi</string>
@@ -444,6 +445,7 @@
     <string name="title_advanced_nav_pinned_count">Sancaqlanmış naviqasiya menyusunda oxunmamış mesajların sayını göstər</string>
     <string name="title_advanced_startup">Başlanğıc ekranında göstər</string>
     <string name="title_advanced_cards">Cədvəl stili əvəzinə kart stilini istifadə et</string>
+    <string name="title_advanced_category">Hesab kateqoriyası, əsas tənzimləmələr ekranı vasitəsilə qabaqcıl hesab seçimlərində konfiqurasiya edilə bilər</string>
     <string name="title_advanced_cards_beige">Kart stilini istifadə edəndə bej arxaplan istifadə et (yalnız açıq temalar)</string>
     <string name="title_advanced_tabular_background">Cədvəl stili istifadə edəndə kart rəngini arxaplan rəngi kimi istifadə et</string>
     <string name="title_advanced_cards_shadow">Kart stilini istifadə edəndə oxunmamış mesajlar üçün kölgə istifadə et</string>

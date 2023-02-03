@@ -181,6 +181,7 @@
     <string name="title_setup_gmail_on_device">Perché devo selezionare un profilo presente sul dispositivo?</string>
     <string name="title_setup_gmail_password">Desidero autorizzare un profilo con una password, invece di un profilo su dispositivo</string>
     <string name="title_setup_office_auth">L\'errore \'AUTHENTICATE fallita\' può esser causato dalla disabilitazione di IMAP/SMTP dall\'amministratore di sistema</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Sei pregato di provare la procedura guidata di configurazione rapida per \"Altro fornitore\".</string>
     <string name="title_setup_oauth_rationale">Autorizza l\'accesso al tuo profilo di %1$s</string>
     <string name="title_setup_oauth_update">Autorizza nuovamente un profilo esistente (altrimenti creane uno nuovo)</string>
     <string name="title_setup_oauth_updated">Autorizzazione del profilo aggiornata</string>

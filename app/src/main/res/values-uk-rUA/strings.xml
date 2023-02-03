@@ -208,6 +208,7 @@
     <string name="title_setup_gmail_on_device">Навіщо мені обрати обліковий запис на пристрої?</string>
     <string name="title_setup_gmail_password">Я хочу авторизувати обліковий запис за допомогою пароля замість облікового запису на пристрої</string>
     <string name="title_setup_office_auth">Помилка \'Автентифікація не вдалася\' викликана помилкою IMAP/SMTP можливо вимкненою системним адміністратором</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Будь ласка, спробуйте майстер швидкого налаштування для \"іншого постачальника\".</string>
     <string name="title_setup_oauth_rationale">Авторизувати доступ до вашого облікового запису %1$s</string>
     <string name="title_setup_oauth_update">Авторизувати наявний обліковий запис знову (інакше створіть новий обліковий запис)</string>
     <string name="title_setup_oauth_updated">Авторизація облікового запису була оновлена</string>
@@ -1660,7 +1661,7 @@
     <string name="title_legend_classified">Автоматично класифіковано</string>
     <string name="title_legend_snoozed">Відкладено</string>
     <string name="title_legend_browsed">Переглянуто або знайдено</string>
-    <string name="title_legend_answered">Була відповідь</string>
+    <string name="title_legend_answered">З відповіддю</string>
     <string name="title_legend_forwarded">Переслано</string>
     <string name="title_legend_plain_only">Тільки звичайний текст</string>
     <string name="title_legend_receipt">Був запит на інформування про прочитання</string>
