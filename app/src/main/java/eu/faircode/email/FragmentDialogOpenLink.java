@@ -342,10 +342,11 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Package pkg = (Package) parent.getAdapter().getItem(position);
-                prefs.edit()
-                        .putString("open_with_pkg", pkg.name)
-                        .putBoolean("open_with_tabs", pkg.tabs)
-                        .apply();
+                if (pkg.browser)
+                    prefs.edit()
+                            .putString("open_with_pkg", pkg.name)
+                            .putBoolean("open_with_tabs", pkg.tabs)
+                            .apply();
             }
 
             @Override
@@ -613,8 +614,24 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
                             int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
                             List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
+
+                            intent.setData(Uri.parse("http://example.com"));
+                            List<ResolveInfo> browsers = pm.queryIntentActivities(intent, flags);
+
+                            for (ResolveInfo browser : browsers) {
+                                boolean found = false;
+                                for (ResolveInfo ri : ris)
+                                    if (Objects.equals(ri.activityInfo.packageName, browser.activityInfo.packageName)) {
+                                        found = true;
+                                        break;
+                                    }
+                                if (!found)
+                                    ris.add(browser);
+                            }
+
                             for (ResolveInfo ri : ris) {
                                 Resources res = pm.getResourcesForApplication(ri.activityInfo.applicationInfo);
+
                                 Drawable icon;
                                 try {
                                     icon = res.getDrawable(ri.activityInfo.applicationInfo.icon);
@@ -626,6 +643,9 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                                     Log.w(ex);
                                     icon = null;
                                 }
+                                if (icon != null)
+                                    icon.setBounds(0, 0, dp24, dp24);
+
                                 CharSequence label;
                                 try {
                                     if (ri.activityInfo.applicationInfo.labelRes == 0)
@@ -640,13 +660,20 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                                     Log.w(ex);
                                     label = null;
                                 }
-                                if (icon != null)
-                                    icon.setBounds(0, 0, dp24, dp24);
+
+                                boolean isBrowser = false;
+                                for (ResolveInfo browser : browsers)
+                                    if (Objects.equals(ri.activityInfo.packageName, browser.activityInfo.packageName)) {
+                                        isBrowser = true;
+                                        break;
+                                    }
+
                                 pkgs.add(new Package(
                                         icon,
                                         label,
                                         ri.activityInfo.packageName,
                                         false,
+                                        isBrowser,
                                         ri.activityInfo.applicationInfo.enabled));
 
                                 try {
@@ -661,6 +688,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                                                 label,
                                                 ri.activityInfo.packageName,
                                                 true,
+                                                isBrowser,
                                                 ri.activityInfo.applicationInfo.enabled));
                                 } catch (Throwable ex) {
                                     Log.e(ex);
@@ -678,12 +706,14 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                             context.getString(R.string.title_select_app),
                             "chooser",
                             false,
+                            false,
                             true));
                     pkgs.add(new Package(
                             android,
                             context.getString(R.string.title_select_app),
                             "chooser",
                             true,
+                            false,
                             true));
 
                     return pkgs;
@@ -842,13 +872,15 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         private CharSequence title;
         private String name;
         private boolean tabs;
+        private boolean browser;
         private boolean enabled;
 
-        public Package(Drawable icon, CharSequence title, String name, boolean tabs, boolean enabled) {
+        public Package(Drawable icon, CharSequence title, String name, boolean tabs, boolean browser, boolean enabled) {
             this.icon = icon;
             this.title = title;
             this.name = name;
             this.tabs = tabs;
+            this.browser = browser;
             this.enabled = enabled;
         }
 
@@ -876,6 +908,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         private final List<Package> pkgs;
         private final Drawable external;
         private final Drawable browser;
+        private final int textColorPrimary;
+        private final int textColorSecondary;
 
         AdapterPackage(@NonNull Context context, List<Package> pkgs) {
             super(context, 0, pkgs);
@@ -887,6 +921,8 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             this.browser = ContextCompat.getDrawable(context, R.drawable.twotone_language_24);
             if (browser != null)
                 browser.setBounds(0, 0, browser.getIntrinsicWidth(), browser.getIntrinsicHeight());
+            this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
+            this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         }
 
         @NonNull
@@ -908,6 +944,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             if (pkg != null) {
                 view.setAlpha(pkg.enabled ? 1f : Helper.LOW_LIGHT);
                 text1.setText(pkg.title == null ? pkg.name : pkg.title.toString());
+                text1.setTextColor(pkg.browser ? textColorPrimary : textColorSecondary);
                 text1.setCompoundDrawablesRelative(
                         pkg.icon == null ? browser : pkg.icon,
                         null,
