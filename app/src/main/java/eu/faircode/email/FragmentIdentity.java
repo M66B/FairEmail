@@ -526,11 +526,6 @@ public class FragmentIdentity extends FragmentBase {
         pbAutoConfig.setVisibility(View.GONE);
         cbInsecure.setVisibility(View.GONE);
 
-        if (id < 0)
-            tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
-        else
-            Helper.setupPasswordToggle(getActivity(), tilPassword);
-
         btnAdvanced.setVisibility(View.GONE);
 
         etEhlo.setHint(EmailService.getDefaultEhlo());
@@ -566,9 +561,52 @@ public class FragmentIdentity extends FragmentBase {
         etRealm.setText(account.realm);
         cbTrust.setChecked(false);
 
+        setAuth(auth);
+    }
+
+    private void setAuth(int auth) {
         etUser.setEnabled(auth == AUTH_TYPE_PASSWORD);
         tilPassword.getEditText().setEnabled(auth == AUTH_TYPE_PASSWORD);
         btnCertificate.setEnabled(auth == AUTH_TYPE_PASSWORD);
+
+        tilPassword.setEndIconMode(TextInputLayout.END_ICON_NONE);
+        tilPassword.setEndIconMode(auth == AUTH_TYPE_PASSWORD ? END_ICON_PASSWORD_TOGGLE : TextInputLayout.END_ICON_CUSTOM);
+
+        if (auth == AUTH_TYPE_PASSWORD)
+            Helper.setupPasswordToggle(getActivity(), tilPassword);
+        else {
+            tilPassword.setEndIconDrawable(R.drawable.twotone_edit_24);
+
+            tilPassword.setEndIconOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(view.getContext(), FragmentIdentity.this, view);
+
+                    popupMenu.getMenu().add(Menu.NONE, R.string.title_account_auth_password, 1, R.string.title_account_auth_password);
+
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            int id = item.getItemId();
+                            if (id == R.string.title_account_auth_password) {
+                                onPassword();
+                                return true;
+                            } else
+                                return false;
+                        }
+
+                        private void onPassword() {
+                            FragmentIdentity.this.auth = AUTH_TYPE_PASSWORD;
+                            setAuth(AUTH_TYPE_PASSWORD);
+                            tilPassword.getEditText().setText(null);
+                            tilPassword.requestFocus();
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+            });
+        }
     }
 
     private void setProvider(EmailProvider provider) {
@@ -716,11 +754,7 @@ public class FragmentIdentity extends FragmentBase {
                 saving = false;
                 invalidateOptionsMenu();
                 Helper.setViewsEnabled(view, true);
-                if (auth != AUTH_TYPE_PASSWORD) {
-                    etUser.setEnabled(false);
-                    tilPassword.getEditText().setEnabled(false);
-                    btnCertificate.setEnabled(false);
-                }
+                setAuth(auth); // Disable user/password again
                 pbSave.setVisibility(View.GONE);
             }
 
@@ -1242,45 +1276,7 @@ public class FragmentIdentity extends FragmentBase {
                 }
 
                 Helper.setViewsEnabled(view, true);
-
-                if (auth != AUTH_TYPE_PASSWORD) {
-                    etUser.setEnabled(false);
-                    tilPassword.getEditText().setEnabled(false);
-                    btnCertificate.setEnabled(false);
-
-                    tilPassword.setEndIconDrawable(R.drawable.twotone_edit_24);
-                    tilPassword.setEndIconOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), FragmentIdentity.this, view);
-
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_account_auth_password, 1, R.string.title_account_auth_password);
-
-                            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                                @Override
-                                public boolean onMenuItemClick(MenuItem item) {
-                                    int id = item.getItemId();
-                                    if (id == R.string.title_account_auth_password) {
-                                        onPassword();
-                                        return true;
-                                    } else
-                                        return false;
-                                }
-
-                                private void onPassword() {
-                                    auth = AUTH_TYPE_PASSWORD;
-                                    etUser.setEnabled(true);
-                                    tilPassword.getEditText().setText(null);
-                                    tilPassword.getEditText().setEnabled(true);
-                                    tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
-                                    tilPassword.requestFocus();
-                                }
-                            });
-
-                            popupMenu.show();
-                        }
-                    });
-                }
+                setAuth(auth);
 
                 cbPrimary.setEnabled(cbSynchronize.isChecked());
                 cbSenderExtraName.setEnabled(cbSenderExtra.isChecked());
