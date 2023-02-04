@@ -79,7 +79,7 @@ public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
             text1.setText(identity.getDisplayName() + " <" + identity.email + ">");
         else {
             text1.setText(identity.getDisplayName() + (identity.primary ? " ★" : ""));
-            text2.setText(identity.accountName + "/" + identity.email);
+            text2.setText(identity.accountName + ":" + identity.email);
         }
 
         tvExtra.setText(
