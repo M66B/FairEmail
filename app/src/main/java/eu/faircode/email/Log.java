@@ -2068,11 +2068,21 @@ public class Log {
                     Helper.formatDuration(running), Helper.formatDuration(cpu), util));
         }
 
+        Boolean largeHeap;
+        try {
+            ApplicationInfo info = pm.getApplicationInfo(context.getPackageName(), 0);
+            largeHeap = (info.flags & ApplicationInfo.FLAG_LARGE_HEAP) != 0;
+        } catch (Throwable ex) {
+            largeHeap = null;
+        }
+
         ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
-        sb.append(String.format("Memory class: %d/%d MB Total: %s\r\n",
-                am.getMemoryClass(), am.getLargeMemoryClass(), Helper.humanReadableByteCount(mi.totalMem)));
+        sb.append(String.format("Memory class: %d/%d Large: %s MB Total: %s\r\n",
+                am.getMemoryClass(), am.getLargeMemoryClass(),
+                largeHeap == null ? "?" : Boolean.toString(largeHeap),
+                Helper.humanReadableByteCount(mi.totalMem)));
 
         long storage_available = Helper.getAvailableStorageSpace();
         long storage_total = Helper.getTotalStorageSpace();
