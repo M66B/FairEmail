@@ -1420,7 +1420,7 @@ class Core {
         if (target == null)
             throw new FolderNotFoundException();
         if (folder.id.equals(target.id))
-            throw new IllegalArgumentException("self");
+            throw new IllegalArgumentException("self type=" + folder.type + "/" + target.type);
         if (!target.selectable)
             throw new IllegalArgumentException("not selectable type=" + target.type);
 
