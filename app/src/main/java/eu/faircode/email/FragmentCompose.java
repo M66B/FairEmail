@@ -6322,14 +6322,6 @@ public class FragmentCompose extends FragmentBase {
                                 args.putString("address_error", ex.getMessage());
                             }
 
-                            try {
-                                checkMx(ato, context);
-                                checkMx(acc, context);
-                                checkMx(abcc, context);
-                            } catch (UnknownHostException ex) {
-                                args.putString("mx_error", ex.getMessage());
-                            }
-
                             if (draft.to == null && draft.cc == null && draft.bcc == null &&
                                     (identity == null || (identity.cc == null && identity.bcc == null)))
                                 args.putBoolean("remind_to", true);
@@ -6553,6 +6545,22 @@ public class FragmentCompose extends FragmentBase {
             } finally {
                 db.endTransaction();
             }
+
+            if (action == R.id.action_check)
+                try {
+                    InternetAddress[] ato = MessageHelper.dedup(MessageHelper.parseAddresses(context, to));
+                    InternetAddress[] acc = MessageHelper.dedup(MessageHelper.parseAddresses(context, cc));
+                    InternetAddress[] abcc = MessageHelper.dedup(MessageHelper.parseAddresses(context, bcc));
+
+                    try {
+                        checkMx(ato, context);
+                        checkMx(acc, context);
+                        checkMx(abcc, context);
+                    } catch (UnknownHostException ex) {
+                        args.putString("mx_error", ex.getMessage());
+                    }
+                } catch (Throwable ignored) {
+                }
 
             args.putBoolean("dirty", dirty);
             if (dirty)
