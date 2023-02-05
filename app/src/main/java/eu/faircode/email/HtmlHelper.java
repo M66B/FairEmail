@@ -2964,8 +2964,9 @@ public class HtmlHelper {
                                 Element span = document.createElement("span");
                                 span.attr("style", mergeStyles(
                                         span.attr("style"),
-                                        "font-size:larger; background-color:" + encodeWebColor(color)
-                                ));
+                                        "font-size:larger !important;" +
+                                                "font-weight:bold !important;" +
+                                                "background-color:" + encodeWebColor(color) + " !important"));
                                 span.text(tnode.getWholeText().length() == text.length()
                                         ? tnode.getWholeText().substring(start, end)
                                         : text.substring(start, end));
