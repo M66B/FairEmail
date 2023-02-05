@@ -769,7 +769,7 @@
     <string name="title_advanced_date_hint">Повідомлення групуються тільки за датою при сортуванні їх за часом</string>
     <string name="title_advanced_navbar_colorize_hint">В цілому робота залежить від версії Android та її модифікації</string>
     <string name="title_advanced_split_hint">Це розділить екран на частини</string>
-    <string name="title_advanced_split_min_hint">Ця умова, призначена для пристроїв котрі можуть бути зігнуті</string>
+    <string name="title_advanced_split_min_hint">Ця умова стосується пристроїв із гнучким екраном</string>
     <string name="title_advanced_threading_hint">Групові повідомлення, пов\'язані один з одним</string>
     <string name="title_advanced_highlight_hint">Акцентований колір теми буде використаний для виділення</string>
     <string name="title_advanced_privacy_risk">Там може бути ризик приватності</string>
@@ -1835,7 +1835,7 @@
     <string name="title_pro_activated">Всі Pro-функції активовано</string>
     <string name="title_pro_valid">Всі Pro-функції активовані</string>
     <string name="title_pro_invalid">Відповідь з помилкою</string>
-    <string name="title_pro_support">FairEmail потребує вашої допомоги. Натисніть, щоб придбати Pro-функції, та допомогти розвивати цей проект та вимкнути це повідомлення.</string>
+    <string name="title_pro_support">FairEmail потребує вашої допомоги. Натисніть тут, щоб придбати Pro-функції, допомогти розвитку проекту та вимкнути це повідомлення.</string>
     <string name="title_boundary_error">Помилка завантаження повідомлень із сервера пошти</string>
     <string name="title_boundary_retry">Спробуйте знову</string>
     <string name="title_unexpected_error">Непередбачувана помилка</string>

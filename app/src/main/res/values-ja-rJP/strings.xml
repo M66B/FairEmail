@@ -4,7 +4,7 @@
     <string name="app_changelog">更新履歴</string>
     <string name="app_welcome">FairEmail はプライバシーとセキュリティを重視するオープンソースのメールアプリです。そのため、今までのメールアプリとは異なる動作をする場合があります。</string>
     <string name="app_limitations">例えば、メッセージから安全でない要素を削除し、読みやすくするために再フォーマットしたり、安全のためにリンクを開く前に確認画面を表示したりします。どちらも不要であれば無効にできます。</string>
-    <string name="app_unsupported">このデバイスに搭載されている Android バージョンのバグによりクラッシュすることがあります</string>
+    <string name="app_unsupported">このデバイスの Android バージョンのバグによりクラッシュすることがあります</string>
     <string name="app_data_loss">すべてのデータが失われる可能性があります</string>
     <string name="app_continue">それでも続行する</string>
     <string name="app_exit">もう一度「戻る」で終了します</string>
@@ -168,6 +168,7 @@
     <string name="title_setup_gmail_on_device">なぜデバイス上のアカウントを選択するのですか？</string>
     <string name="title_setup_gmail_password">デバイス上のアカウントの代わりにパスワードで別のアカウントを認証したい</string>
     <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によって IMAP/SMTP が無効にされていることが原因である可能性があります</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">クイック セットアップ ウィザードの「その他のプロバイダー」をお試しください。</string>
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可する</string>
     <string name="title_setup_oauth_update">設定済みのアカウントをもう一度認証する (設定されていない場合、新しいアカウントを作成)</string>
     <string name="title_setup_oauth_updated">アカウントの認証情報が更新されました</string>
@@ -280,7 +281,7 @@
     <string name="title_setup_theme_html_light">元のメッセージを表示するときは背景色を白にする</string>
     <string name="title_setup_theme_composer_light">メッセージエディターの背景色は白にする</string>
     <string name="title_setup_theme_you_hint">Material You カラーは設定アプリの［壁紙とスタイル］で設定できます</string>
-    <string name="title_setup_theme_system_hint">Android でサポートされている場合、システムテーマは昼と夜で自動で切り替わります</string>
+    <string name="title_setup_theme_system_hint">Android で対応している場合、システムテーマは昼と夜で自動で切り替わります</string>
     <string name="title_setup_theme_more_colors">もっと色が欲しい</string>
     <string name="title_setup_advanced">詳細</string>
     <string name="title_setup_options">オプション</string>
@@ -431,6 +432,7 @@
     <string name="title_advanced_nav_pinned_count">ピン留めしたナビゲーションメニューに未読の数を表示</string>
     <string name="title_advanced_startup">スタート画面に表示</string>
     <string name="title_advanced_cards">表形式の代わりにカード形式を使用</string>
+    <string name="title_advanced_category">アカウントのカテゴリーは、メイン設定のアカウントの詳細オプションから設定できます</string>
     <string name="title_advanced_cards_beige">カード形式のとき、背景色にベージュを使用 (ライトテーマのみ)</string>
     <string name="title_advanced_tabular_background">表形式のとき、背景色にカードの色を使用</string>
     <string name="title_advanced_cards_shadow">カード形式のとき、未読メッセージにシャドウを使用</string>
@@ -636,8 +638,8 @@
     <string name="title_advanced_import_pgp">鍵をインポート</string>
     <string name="title_advanced_sign_algo">電子署名アルゴリズム</string>
     <string name="title_advanced_encrypt_algo">暗号化アルゴリズム</string>
-    <string name="title_advanced_remark_algo">        すべてのメールクライアントがすべてのアルゴリズムをサポートしているわけではないことに注意してください。
-        デフォルトのアルゴリズム SHA256 と AES128 は一般的にサポートされています。
+    <string name="title_advanced_remark_algo">        すべてのメールクライアントがすべてのアルゴリズムに対応しているわけではないことに注意してください。
+        デフォルトのアルゴリズム SHA256 と AES128 は一般的に対応されています。
     </string>
     <string name="title_advanced_check_certificate">送信するときに公開鍵を確認</string>
     <string name="title_advanced_manage_certificates">公開鍵を管理</string>
@@ -690,7 +692,7 @@
     <string name="title_advanced_schedule_ignore">アカウント設定の詳細でスケジュールを無効にすることができます</string>
     <string name="title_advanced_quick_sync_hint">データ使用量が減少しますが、メールサーバーが標準に従わない場合、新着メッセージが見逃される可能性があります</string>
     <string name="title_advanced_no_date_hint">一部のプロバイダーは存在しない日付や無効な日付、将来の日付のメッセージを日付のないメッセージとして取り扱います</string>
-    <string name="title_advanced_unseen_hint">一部のプロバイダーでは適切にサポートされていないため、メッセージがまったく同期されないかすべて同期されてしまう場合があります</string>
+    <string name="title_advanced_unseen_hint">一部のプロバイダーは正しく対応していないため、メッセージがまったく同期されないかすべて同期されてしまう場合があります</string>
     <string name="title_advanced_data_usage">データ使用量が大幅に増加する可能性があります！</string>
     <string name="title_advanced_deleted_unseen">無効にすると未読メッセージがデバイスで永久に保持されます</string>
     <string name="title_advanced_sync_kept_hint">特に大量のメッセージがデバイスに保存されている場合、バッテリー使用量とデータ使用量が大幅に増加することがあります</string>
@@ -762,7 +764,7 @@
     <string name="title_advanced_display_autolock_nav_hint">%1$d 秒の猶予時間があります</string>
     <string name="title_advanced_user_agent_hint">一部のサーバーは一般化されたユーザーエージェント文字列を受け付けません</string>
     <string name="title_advanced_safe_browsing_hint">Google のサーバーは、どのアドレスが検索されたか知ることができます</string>
-    <string name="title_advanced_badge_hint">サポートしているランチャーでのみ利用できます</string>
+    <string name="title_advanced_badge_hint">対応しているランチャーでのみ利用できます</string>
     <string name="title_advanced_notify_action_hint">最大 3 つのアクションを表示できます</string>
     <string name="title_advanced_notify_car_hint">接続とは地図など何かが投影されている状態を意味します</string>
     <string name="title_advanced_notify_remove_hint">新着メッセージ通知はこの設定に関係なく、スワイプしたり、メッセージを既読にすると削除されます</string>
@@ -773,10 +775,10 @@
     <string name="title_advanced_notify_preview_all_hint">全文を表示できるウェアラブル (最大 5,000 文字) 向け</string>
     <string name="title_advanced_notify_preview_only_hint">本文がダウンロードされるまで通知の表示を遅らせます</string>
     <string name="title_advanced_wearable_hint">通知は本文をダウンロード後、ウェアラブルにのみ送信されます</string>
-    <string name="title_advanced_messaging_hint">Android Auto のサポートに必要です</string>
+    <string name="title_advanced_messaging_hint">Android Auto に対応するために必要です</string>
     <string name="title_advanced_move_hint">移動先フォルダーはアカウントから設定できます</string>
-    <string name="title_advanced_notify_no_grouping">この Android バージョンでは通知のグループ化がサポートされていません</string>
-    <string name="title_advanced_notify_no_channels">この Android バージョンでは通知チャンネルがサポートされていません</string>
+    <string name="title_advanced_notify_no_grouping">この Android バージョンは通知のグループ化に対応していません</string>
+    <string name="title_advanced_notify_no_channels">この Android バージョンは通知チャンネルに対応していません</string>
     <string name="title_advanced_fts_hint">有効にすると、検索パフォーマンスが向上しますが、バッテリー使用量とストレージ使用量も増加します</string>
     <string name="title_advanced_english_hint">アプリが再起動されます</string>
     <string name="title_advanced_experiments_hint">現在の実験機能リスト</string>
@@ -804,7 +806,7 @@
     <string name="title_identity_reply_to">返信先 (Reply to)</string>
     <string name="title_identity_internal">内部ドメイン名 (カンマ区切り)</string>
     <string name="title_identity_unicode">メッセージヘッダーで UTF-8 を許可</string>
-    <string name="title_identity_unicode_remark">ほとんどのサーバーはサポートしていません</string>
+    <string name="title_identity_unicode_remark">ほとんどのサーバーが対応していません</string>
     <string name="title_identity_octetmime">8BITMIME を許可</string>
     <string name="title_identity_max_size">最大メッセージサイズ (MB)</string>
     <string name="title_identity_receipt">デフォルトで配信確認・開封確認メッセージを要求</string>
@@ -861,7 +863,7 @@
     <string name="title_max_messages">ダウンロードするメッセージの最大数 (空白にするとすべてダウンロードします)</string>
     <string name="title_keep_poll_interval">ポーリング間隔 (分)</string>
     <string name="title_keep_alive_interval">キープアライブ間隔 (分)</string>
-    <string name="title_keep_alive_noop">IMAP IDLEを定期的に更新</string>
+    <string name="title_keep_alive_noop">IMAP IDLE を定期的に更新</string>
     <string name="title_server_time">サーバーの受信時刻を使用</string>
     <string name="title_received_header">「Received」ヘッダーを使用</string>
     <string name="title_date_header">「Date」ヘッダーを使用 (送信時刻)</string>
@@ -886,8 +888,8 @@
     <string name="title_default_composable">デフォルトのメールアドレスは、プライマリーアカウントのプライマリー ユーザー ID によって決定されます</string>
     <string name="title_no_composable">メールを送信するにはユーザー ID を設定し、アカウント設定で下書きフォルダーを選択する必要があります</string>
     <string name="title_no_standard">このプロバイダーは独自のメールプロトコルを使用しているため、サードパーティのメールクライアントを使用することができません</string>
-    <string name="title_no_idle">このプロバイダーはプッシュメッセージをサポートしていません。これにより新着メッセージの受信が遅れ、バッテリー使用量が増加します</string>
-    <string name="title_no_utf8">このプロバイダーは UTF-8 をサポートしていません</string>
+    <string name="title_no_idle">このプロバイダーはプッシュメッセージに対応していません。これにより新着メッセージの受信が遅れ、バッテリー使用量が増加します</string>
+    <string name="title_no_utf8">このプロバイダーは UTF-8 に対応していません</string>
     <string name="title_no_sync">%1$s 以降の同期エラー</string>
     <string name="title_reply_domain">差出人 (%1$s) と返信先 (%2$s) のドメインが異なります</string>
     <string name="title_identity_required">メールを送信するにはユーザー ID が必要です</string>
@@ -908,9 +910,9 @@
     <string name="title_storage_quota">サーバーのストレージ使用量: %1$s/%2$s</string>
     <string name="title_pop_support">POP3 プロトコルではメッセージのダウンロードと受信トレイからの削除のみ可能です。メッセージを既読としてマークしたり、迷惑メールとして報告したり、メッセージを移動したりすることはできません。可能であれば IMAP プロトコルの使用を検討してください</string>
     <string name="title_pop_sent">デバイスを紛失したり盗難されたりした場合、送信されたメッセージが失われる可能性があります。</string>
-    <string name="title_pop_warning">POP3 サーバーが UIDL コマンドをサポートしていない場合、データ使用量が高くなる可能性があります。それを考慮して、適切な Poll 頻度に調整してください。</string>
-    <string name="title_pop_folders">POP3 プロトコルはフォルダーの作成をサポートしていません</string>
-    <string name="title_oauth_support">OAuth はサポートされていません</string>
+    <string name="title_pop_warning">POP3 サーバーが UIDL コマンドに対応していない場合、データ使用量が増加する可能性があります。それを考慮して、適切な Poll 頻度に調整してください。</string>
+    <string name="title_pop_folders">POP3 プロトコルはフォルダーの作成に対応していません</string>
+    <string name="title_oauth_support">OAuth には対応していません</string>
     <string name="title_review">レビュー</string>
     <string name="title_hint_accounts">アカウントを長押して、アカウントの無効化・削除などのオプションを表示します</string>
     <string name="title_hint_alias">ユーザー ID を長押しして、コピー (エイリアスのユーザー ID を作成) などのオプションを表示</string>
@@ -1352,7 +1354,7 @@
     <string name="title_encrypt">暗号化</string>
     <string name="title_decrypt">復号</string>
     <string name="title_resync">再同期</string>
-    <string name="title_charset">エンコード</string>
+    <string name="title_charset">エンコーディング</string>
     <string name="title_charset_auto">自動</string>
     <string name="title_alternative_text">プレーンテキストを読み込む</string>
     <string name="title_alternative_html">HTML を読み込む</string>
@@ -1387,14 +1389,14 @@
     </string>
     <string name="title_search_index_hint">検索インデックスを介した検索は高速ですが、単語全体しか検索されません。</string>
     <string name="title_search_text_hint">本文を検索しています。多数のメッセージがある場合、一部のサーバーで正しく動作しない可能性があります</string>
-    <string name="title_search_text_unsupported">「%s」は、メールサーバーが本文の検索をサポートしていないことを意味します</string>
+    <string name="title_search_text_unsupported">「%s」はメールサーバーが本文の検索に対応していないことを意味します</string>
     <string name="title_search_size_hint">サイズ別にメッセージを検索しています。多数のメッセージがある場合、一部のサーバーで動作しない可能性があります</string>
     <string name="title_search_more">その他のオプション</string>
     <string name="title_search_use_index">検索インデックスを使用</string>
     <string name="title_search_in_senders">差出人 (From) を検索</string>
     <string name="title_search_in_recipients">宛先 (To, CC) を検索</string>
     <string name="title_search_in_subject">件名を検索</string>
-    <string name="title_search_in_keywords">キーワードを検索 (サポートされている場合)</string>
+    <string name="title_search_in_keywords">キーワードを検索 (対応している場合のみ)</string>
     <string name="title_search_in_message">本文を検索</string>
     <string name="title_search_in_notes">ローカルメモを検索</string>
     <string name="title_search_with">検索範囲を指定</string>
@@ -1755,7 +1757,7 @@
     <string name="title_no_ask_again">次回から確認しない</string>
     <string name="title_no_ask_for_again">%1$s は次回から確認しない</string>
     <string name="title_no_body">本文が見つかりません</string>
-    <string name="title_no_charset">サポートされていないエンコード: %1$s</string>
+    <string name="title_no_charset">対応していないエンコーディング: %1$s</string>
     <string name="title_via">経由: %1$s</string>
     <string name="title_1hour">1 時間</string>
     <string name="title_1day">1 日</string>

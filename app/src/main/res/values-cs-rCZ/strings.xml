@@ -208,6 +208,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_gmail_on_device">Proč potřebuji vybrat účet na zařízení?</string>
     <string name="title_setup_gmail_password">Chci autorizovat účet s pomocí hesla namísto účtu v zařízení</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Prosím, zkuste průvodce rychlým nastavením pro \"jiného poskytovatele\".</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
     <string name="title_setup_oauth_update">Znovu autorizovat existující účet (jinak vytvořit nový účet)</string>
     <string name="title_setup_oauth_updated">Autorizace účtu byla aktualizována</string>
@@ -274,6 +275,7 @@ v prohlížeči ze všech Google účtů.</string>
     </string>
     <string name="title_setup_export_do">Exportovaný soubor bude obsahovat všechna nastavení a data, ale žádné zprávy a obrázky, uvedené v podpisech</string>
     <string name="title_setup_scroll">Vstupní dialogy mohou být posuvné!</string>
+    <string name="title_setup_backup">Jak zálohovat zprávy?</string>
     <string name="title_setup_password">Heslo</string>
     <string name="title_setup_password_chars">Heslo obsahuje řídící znaky či mezery</string>
     <string name="title_setup_password_repeat">Zopakujte heslo</string>
@@ -469,6 +471,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_nav_pinned_count">Zobrazit počet nepřečtených zpráv v připnutém navigačním menu</string>
     <string name="title_advanced_startup">Na úvodní obrazovce zobrazit</string>
     <string name="title_advanced_cards">Použít styl karet namísto tabulkového zobrazení</string>
+    <string name="title_advanced_category">Kategorie účtu může být nakonfigurována v pokročilých možnostech účtu prostřednictvím hlavní obrazovky nastavení</string>
     <string name="title_advanced_cards_beige">Použít béžové pozadí při zobrazení stylem karet (pouze světlé motivy)</string>
     <string name="title_advanced_tabular_background">Použít barvu karty jako pozadí při zobrazení stylem tabulky</string>
     <string name="title_advanced_cards_shadow">Použít stín pro nepřečtené zprávy, při zobrazení stylem karet</string>
@@ -589,6 +592,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_autoread">Při přesunu označit zprávy jako přečtené automaticky</string>
     <string name="title_advanced_autounstar">Při přesunu odebrat zprávám hvězdičku automaticky</string>
     <string name="title_advanced_reset_importance">Obnovit důležitost při přesunu zpráv</string>
+    <string name="title_advanced_thread_sent_trash">Při odstranění konverzace do koše odstranit také odeslané zprávy</string>
     <string name="title_advanced_star_snoozed">Při odložení zpráv přidat hvězdičku automaticky</string>
     <string name="title_advanced_auto_important">Automaticky činit zprávy s hvězdičkou důležitými</string>
     <string name="title_advanced_cancel_snooze">Zrušit odložení při přesunu zpráv</string>

@@ -177,6 +177,7 @@
     <string name="title_setup_gmail_on_device">Varför måste jag välja ett lokalt konto på enheten?</string>
     <string name="title_setup_gmail_password">Jag vill auktorisera ett konto med ett lösenord istället för ett konto på enheten</string>
     <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP inaktiveras av systemadministratören</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Vänligen försök snabbinstallationsguiden för \"Annan leverantör\".</string>
     <string name="title_setup_oauth_rationale">Auktorisera åtkomst till ditt %1$s konto</string>
     <string name="title_setup_oauth_update">Auktorisera ett befintligt konto igen (annars skapa ett nytt konto)</string>
     <string name="title_setup_oauth_updated">Kontoauktorisering har uppdaterats</string>

@@ -180,6 +180,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_on_device">Neden bir cihaz hesabı seçmem gerekiyor?</string>
     <string name="title_setup_gmail_password">Cihazdaki bir hesap yerine şifreli bir hesabı yetkilendirmek istiyorum</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
+    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">\"Diğer sağlayıcı\" için lütfen hızlı kurulum sihirbazını deneyiniz.</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
     <string name="title_setup_oauth_update">Mevcut bir hesabı yeniden yetkilendir (aksi takdirde yeni bir hesap oluştur)</string>
     <string name="title_setup_oauth_updated">Hesap yetkilendirme güncellendi</string>
@@ -442,6 +443,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_nav_pinned_count">Sabitlenmiş gezinme menüsünde okunmamış mesajların sayısını göster</string>
     <string name="title_advanced_startup">Başlangıç ekranında göster</string>
     <string name="title_advanced_cards">Tablo stili yerine kart stilini kullan</string>
+    <string name="title_advanced_category">Hesap kategorisi, ayarlar ana ekranındaki gelişmiş hesap opsiyonlarından ayarlanabilir</string>
     <string name="title_advanced_cards_beige">Kart stilini kullanırken bej arka plan kullan (yalnızca açık renkli temalar)</string>
     <string name="title_advanced_tabular_background">Tablo stilini kullanırken kart rengini arka plan rengi olarak kullan</string>
     <string name="title_advanced_cards_shadow">Kart stilini kullanırken okunmamış mesajlar için gölge kullanın</string>
