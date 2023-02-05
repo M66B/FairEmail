@@ -1041,7 +1041,7 @@ public class FragmentOAuth extends FragmentBase {
             provider = null;
         }
 
-        btnHelp.setVisibility((provider != null && provider.link != null ? View.VISIBLE : View.GONE));
+        btnHelp.setVisibility(provider != null && provider.link != null ? View.VISIBLE : View.GONE);
 
         etName.setEnabled(true);
         etEmail.setEnabled(true);
