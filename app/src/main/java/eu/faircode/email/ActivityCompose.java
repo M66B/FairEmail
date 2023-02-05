@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.app.NotificationManager;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -40,6 +41,7 @@ import androidx.preference.PreferenceManager;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -216,26 +218,40 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             if (!TextUtils.isEmpty(html))
                 args.putString("body", html);
 
-            if (intent.hasExtra(Intent.EXTRA_STREAM))
-                if (Intent.ACTION_SEND_MULTIPLE.equals(action)) {
-                    ArrayList<Uri> streams = intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM);
-                    if (streams != null) {
-                        // Some apps send null streams
-                        ArrayList<Uri> uris = new ArrayList<>();
-                        for (Uri stream : streams)
-                            if (stream != null)
-                                uris.add(stream);
-                        if (uris.size() > 0)
-                            args.putParcelableArrayList("attachments", uris);
-                    }
-                } else {
-                    Uri stream = intent.getParcelableExtra(Intent.EXTRA_STREAM);
-                    if (stream != null) {
-                        ArrayList<Uri> uris = new ArrayList<>();
+            ArrayList<Uri> uris = new ArrayList<>();
+
+            ClipData clip = intent.getClipData();
+            if (clip != null)
+                for (int i = 0; i < clip.getItemCount(); i++) {
+                    ClipData.Item item = clip.getItemAt(i);
+                    Uri stream = (item == null ? null : item.getUri());
+                    if (stream != null)
                         uris.add(stream);
-                        args.putParcelableArrayList("attachments", uris);
-                    }
                 }
+
+            if (intent.hasExtra(Intent.EXTRA_STREAM)) {
+                ArrayList<Uri> streams = (Intent.ACTION_SEND_MULTIPLE.equals(action)
+                        ? intent.getParcelableArrayListExtra(Intent.EXTRA_STREAM)
+                        : new ArrayList<>(Arrays.asList((Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM))));
+                if (streams != null) {
+                    // Some apps send null streams
+                    for (Uri stream : streams)
+                        if (stream != null) {
+                            boolean found = false;
+                            for (Uri e : uris)
+                                if (stream.equals(e)) {
+                                    found = true;
+                                    break;
+                                }
+                            if (!found)
+                                uris.add(stream);
+                        }
+                }
+            }
+
+            if (uris.size() > 0)
+                args.putParcelableArrayList("attachments", uris);
+
         } else
             args = intent.getExtras();
 
