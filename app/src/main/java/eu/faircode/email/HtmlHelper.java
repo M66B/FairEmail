@@ -2806,7 +2806,7 @@ public class HtmlHelper {
     }
 
     static Spanned highlightHeaders(Context context, String headers, boolean blocklist) {
-        SpannableStringBuilder ssb = new SpannableStringBuilderEx(headers);
+        SpannableStringBuilder ssb = new SpannableStringBuilderEx(headers.replaceAll("\\t", " "));
         int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
         int colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
         int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
