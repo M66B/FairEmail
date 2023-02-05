@@ -6711,8 +6711,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             if (uris.size() == 1)
                                 intent.putExtra(Intent.EXTRA_STREAM, uris.get(0));
                             else {
-                                intent.setAction(Intent.ACTION_SEND_MULTIPLE);
-                                intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, uris);
+                                // Too many apps don't accept ACTION_SEND_MULTIPLE
+                                ClipData clip = null;
+                                ContentResolver resolver = context.getContentResolver();
+                                for (Uri uri : uris) {
+                                    if (clip == null)
+                                        clip = ClipData.newUri(resolver, context.getString(R.string.app_name), uri);
+                                    else
+                                        clip.addItem(new ClipData.Item(uri));
+                                }
+                                intent.setClipData(clip);
                             }
                             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
                         }
