@@ -33,6 +33,7 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkRequest;
+import android.net.Uri;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.text.TextUtils;
@@ -92,6 +93,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private static final int PROGRESS_UPDATE_INTERVAL = 1000; // milliseconds
 
     static final int PI_SEND = 1;
+    static final int PI_FIX = 2;
 
     @Override
     public void onCreate() {
@@ -460,11 +462,24 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                             try {
                                 int tries_left = (unrecoverable ? 0 : RETRY_MAX - op.tries);
                                 NotificationManager nm = Helper.getSystemService(this, NotificationManager.class);
-                                if (NotificationHelper.areNotificationsEnabled(nm))
+                                if (NotificationHelper.areNotificationsEnabled(nm)) {
+                                    NotificationCompat.Builder builder = getNotificationError(
+                                            MessageHelper.formatAddressesShort(message.to), ex, tries_left);
+
+                                    if (ex instanceof AuthenticationFailedException &&
+                                            ex.getMessage() != null &&
+                                            ex.getMessage().contains("535 5.7.3 Authentication unsuccessful")) {
+                                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(Helper.SUPPORT_URI))
+                                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        PendingIntent piFix = PendingIntentCompat.getActivity(
+                                                this, PI_FIX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                                        builder.setContentIntent(piFix);
+                                    }
+
                                     nm.notify("send:" + message.id,
                                             NotificationHelper.NOTIFICATION_TAGGED,
-                                            getNotificationError(
-                                                    MessageHelper.formatAddressesShort(message.to), ex, tries_left).build());
+                                            builder.build());
+                                }
                             } catch (Throwable ex1) {
                                 Log.w(ex1);
                             }
