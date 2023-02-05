@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
+### 1.2043 - 2023-02-05
+
+* Small improvements and minor bug fixes
+* Updated material design library
+* Updated translations
+
 ### 1.2042 - 2023-02-03
 
 * Fixed confirming non-https links
