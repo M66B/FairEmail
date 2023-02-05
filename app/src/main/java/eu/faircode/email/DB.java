@@ -2846,11 +2846,47 @@ public abstract class DB extends RoomDatabase {
     public void endTransaction() {
         try {
             super.endTransaction();
-        } catch (IllegalStateException ex) {
-            if ("Cannot perform this operation because there is no current transaction.".equals(ex.getMessage()))
-                Log.w(ex);
-            else
+        } catch (Throwable ex) {
+            String msg = ex.getMessage();
+            if (TextUtils.isEmpty(msg))
                 throw ex;
+
+            if (msg.contains("no current transaction")) {
+                // java.lang.IllegalStateException: Cannot perform this operation because there is no current transaction.
+                Log.w(ex);
+                return;
+            }
+
+            if (msg.contains("no transaction is active")) {
+                // Moto e⁶ plus - Android 9
+                /*
+                    android.database.sqlite.SQLiteException: cannot rollback - no transaction is active (code 1 SQLITE_ERROR)
+                            at android.database.sqlite.SQLiteConnection.nativeExecute(SQLiteConnection.java:-2)
+                            at android.database.sqlite.SQLiteConnection.execute(SQLiteConnection.java:569)
+                            at android.database.sqlite.SQLiteSession.endTransactionUnchecked(SQLiteSession.java:439)
+                            at android.database.sqlite.SQLiteSession.endTransaction(SQLiteSession.java:401)
+                            at android.database.sqlite.SQLiteDatabase.endTransaction(SQLiteDatabase.java:566)
+                            at androidx.sqlite.db.framework.FrameworkSQLiteDatabase.endTransaction(FrameworkSQLiteDatabase:75)
+                            at androidx.room.RoomDatabase.internalEndTransaction(RoomDatabase:594)
+                            at androidx.room.RoomDatabase.endTransaction(RoomDatabase:584)
+                            at eu.faircode.email.DB.endTransaction(DB:2842)
+                            at androidx.room.paging.LimitOffsetDataSource.loadInitial(LimitOffsetDataSource:181)
+                            at androidx.paging.PositionalDataSource.dispatchLoadInitial(PositionalDataSource:286)
+                            at androidx.paging.TiledPagedList.<init>(TiledPagedList:107)
+                            at androidx.paging.PagedList.create(PagedList:229)
+                            at androidx.paging.PagedList$Builder.build(PagedList:388)
+                            at androidx.paging.LivePagedListBuilder$1.compute(LivePagedListBuilder:206)
+                            at androidx.paging.LivePagedListBuilder$1.compute(LivePagedListBuilder:171)
+                            at androidx.lifecycle.ComputableLiveData$2.run(ComputableLiveData:110)
+                            at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+                            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+                            at java.lang.Thread.run(Thread.java:764)
+                 */
+                Log.w(ex);
+                return;
+            }
+
+            throw ex;
         }
     }
 
