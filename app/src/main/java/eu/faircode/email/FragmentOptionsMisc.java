@@ -1932,8 +1932,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
                 ? View.GONE : View.VISIBLE);
         grpBitbucket.setVisibility(View.GONE);
-        grpAnnouncements.setVisibility(!BuildConfig.DEBUG &&
-                (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
+        grpAnnouncements.setVisibility(TextUtils.isEmpty(BuildConfig.ANNOUNCEMENT_URI)
                 ? View.GONE : View.VISIBLE);
         grpTest.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
