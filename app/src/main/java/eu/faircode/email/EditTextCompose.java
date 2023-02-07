@@ -657,7 +657,11 @@ public class EditTextCompose extends FixedEditText {
                             (flags & InputConnectionCompat.INPUT_CONTENT_GRANT_READ_URI_PERMISSION) != 0)
                         info.requestPermission();
 
-                    inputContentListener.onInputContent(info.getContentUri());
+                    String type = null;
+                    if (info.getDescription().getMimeTypeCount() > 0)
+                        type = info.getDescription().getMimeType(0);
+
+                    inputContentListener.onInputContent(info.getContentUri(), type);
                     return true;
                 } catch (Throwable ex) {
                     Log.w(ex);
@@ -672,7 +676,7 @@ public class EditTextCompose extends FixedEditText {
     }
 
     interface IInputContentListener {
-        void onInputContent(Uri uri);
+        void onInputContent(Uri uri, String type);
     }
 
     void setSelectionListener(ISelection listener) {

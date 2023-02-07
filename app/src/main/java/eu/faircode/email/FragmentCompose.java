@@ -611,9 +611,9 @@ public class FragmentCompose extends FragmentBase {
 
         etBody.setInputContentListener(new EditTextCompose.IInputContentListener() {
             @Override
-            public void onInputContent(Uri uri) {
+            public void onInputContent(Uri uri, String type) {
                 Log.i("Received input uri=" + uri);
-                onAddAttachment(Arrays.asList(uri), true, 0, false, false);
+                onAddAttachment(Arrays.asList(uri), type == null ? null : new String[]{type}, true, 0, false, false);
             }
         });
 
@@ -2828,7 +2828,7 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_ATTACHMENT:
                 case REQUEST_RECORD_AUDIO:
                     if (resultCode == RESULT_OK && data != null)
-                        onAddAttachment(getUris(data), false, 0, false, false);
+                        onAddAttachment(getUris(data), null, false, 0, false, false);
                     break;
                 case REQUEST_OPENPGP:
                     if (resultCode == RESULT_OK && data != null)
@@ -3086,15 +3086,16 @@ public class FragmentCompose extends FragmentBase {
         boolean resize_images = prefs.getBoolean("resize_images", true);
         boolean privacy_images = prefs.getBoolean("privacy_images", false);
         int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
-        onAddAttachment(uri, add_inline, resize_images ? resize : 0, privacy_images, focus);
+        onAddAttachment(uri, null, add_inline, resize_images ? resize : 0, privacy_images, focus);
     }
 
-    private void onAddAttachment(List<Uri> uris, boolean image, int resize, boolean privacy, boolean focus) {
+    private void onAddAttachment(List<Uri> uris, String[] types, boolean image, int resize, boolean privacy, boolean focus) {
         etBody.clearComposingText();
 
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putParcelableArrayList("uris", new ArrayList<>(uris));
+        args.putStringArray("types", types);
         args.putBoolean("image", image);
         args.putInt("resize", resize);
         args.putInt("zoom", zoom);
@@ -3108,6 +3109,7 @@ public class FragmentCompose extends FragmentBase {
             protected Spanned onExecute(Context context, Bundle args) throws IOException {
                 final long id = args.getLong("id");
                 List<Uri> uris = args.getParcelableArrayList("uris");
+                String[] types = args.getStringArray("types");
                 boolean image = args.getBoolean("image");
                 int resize = args.getInt("resize");
                 int zoom = args.getInt("zoom");
@@ -3121,8 +3123,11 @@ public class FragmentCompose extends FragmentBase {
                 if (start > s.length())
                     start = s.length();
 
-                for (Uri uri : uris) {
-                    EntityAttachment attachment = addAttachment(context, id, uri, image, resize, privacy);
+                for (int i = 0; i < uris.size(); i++) {
+                    Uri uri = uris.get(i);
+                    String type = (types != null && i < types.length ? types[i] : null);
+
+                    EntityAttachment attachment = addAttachment(context, id, uri, type, image, resize, privacy);
                     if (attachment == null)
                         continue;
                     if (!image)
@@ -3240,7 +3245,7 @@ public class FragmentCompose extends FragmentBase {
                         if (info.isImage())
                             images.add(uri);
                         else
-                            addAttachment(context, id, uri, false, 0, false);
+                            addAttachment(context, id, uri, null, false, 0, false);
                     } catch (IOException ex) {
                         Log.e(ex);
                     }
@@ -4361,7 +4366,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private static EntityAttachment addAttachment(
-            Context context, long id, Uri uri, boolean image, int resize, boolean privacy) throws IOException {
+            Context context, long id, Uri uri, String type, boolean image, int resize, boolean privacy) throws IOException {
         Log.w("Add attachment uri=" + uri + " image=" + image + " resize=" + resize + " privacy=" + privacy);
 
         NoStreamException.check(uri, context);
@@ -4370,13 +4375,16 @@ public class FragmentCompose extends FragmentBase {
         UriInfo info = getInfo(uri, context);
 
         EntityLog.log(context, "Add attachment" +
-                " uri=" + uri + " image=" + image + " resize=" + resize + " privacy=" + privacy +
+                " uri=" + uri + " type=" + type + " image=" + image + " resize=" + resize + " privacy=" + privacy +
                 " name=" + info.name + " type=" + info.type + " size=" + info.size);
 
+        if (type == null)
+            type = info.type;
+
         String ext = Helper.getExtension(info.name);
-        if (info.name != null && ext == null && info.type != null) {
+        if (info.name != null && ext == null && type != null) {
             String guessed = MimeTypeMap.getSingleton()
-                    .getExtensionFromMimeType(info.type.toLowerCase(Locale.ROOT));
+                    .getExtensionFromMimeType(type.toLowerCase(Locale.ROOT));
             if (!TextUtils.isEmpty(guessed)) {
                 ext = guessed;
                 info.name += '.' + ext;
@@ -4399,7 +4407,7 @@ public class FragmentCompose extends FragmentBase {
                 attachment.name = "img" + attachment.sequence + (ext == null ? "" : "." + ext);
             else
                 attachment.name = info.name;
-            attachment.type = info.type;
+            attachment.type = type;
             attachment.disposition = (image ? Part.INLINE : Part.ATTACHMENT);
             attachment.size = info.size;
             attachment.progress = 0;
@@ -5346,7 +5354,7 @@ public class FragmentCompose extends FragmentBase {
                                 if (info.isImage())
                                     images.add(uri);
                                 else
-                                    addAttachment(context, data.draft.id, uri, false, 0, false);
+                                    addAttachment(context, data.draft.id, uri, null, false, 0, false);
                             } catch (IOException ex) {
                                 Log.e(ex);
                             }
