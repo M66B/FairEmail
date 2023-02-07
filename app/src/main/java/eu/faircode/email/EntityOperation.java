@@ -834,14 +834,32 @@ public class EntityOperation {
 
             if (SEEN.equals(name)) {
                 EntityMessage m = db.message().getMessage(message);
-                if (m != null)
-                    db.message().setMessageUiSeen(m.id, m.seen);
+                if (m != null) {
+                    boolean seen = m.seen;
+                    try {
+                        JSONArray jargs = new JSONArray(args);
+                        seen = jargs.getBoolean(0);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                    db.message().setMessageUiSeen(m.id, seen);
+                }
             }
 
             if (FLAG.equals(name)) {
                 EntityMessage m = db.message().getMessage(message);
-                if (m != null)
-                    db.message().setMessageUiFlagged(m.id, m.flagged, m.color);
+                if (m != null) {
+                    boolean flagged = m.flagged;
+                    Integer color = m.color;
+                    try {
+                        JSONArray jargs = new JSONArray(args);
+                        flagged = jargs.getBoolean(0);
+                        color = (jargs.length() > 1 && !jargs.isNull(1) ? jargs.getInt(1) : null);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+                    db.message().setMessageUiFlagged(m.id, flagged, color);
+                }
             }
         }
 
