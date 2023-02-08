@@ -351,6 +351,7 @@ public class ApplicationEx extends Application
             EntityLog.log(context, "Upgrading from " + version + " to " + BuildConfig.VERSION_CODE);
 
         SharedPreferences.Editor editor = prefs.edit();
+        editor.remove("max_backoff_power");
 
         if (version < BuildConfig.VERSION_CODE)
             editor.remove("crash_report_count");

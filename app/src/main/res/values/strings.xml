@@ -846,6 +846,7 @@
     <string name="title_advanced_use_top" translatable="false">Use TOP</string>
     <string name="title_advanced_idle_done" translatable="false">IDLE/DONE</string>
     <string name="title_advanced_fast_fetch" translatable="false">Fast FETCH</string>
+    <string name="title_advanced_max_backoff" translatable="false">Max. back-off: %1$d s</string>
     <string name="title_advanced_logarithmic_backoff" translatable="false">Logarithmic back-off</string>
     <string name="title_advanced_logarithmic_backoff_hint" translatable="false">Turning this off can result in a significant increase in battery usage!</string>
     <string name="title_advanced_keep_alive_poll" translatable="false">Poll on keep-alive</string>

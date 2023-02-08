@@ -1580,6 +1580,28 @@
                     app:layout_constraintTop_toBottomOf="@id/swIdleDone"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvMaxBackoff"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_max_backoff"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swFastFetch" />
+
+                <SeekBar
+                    android:id="@+id/sbMaxBackOff"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:max="4"
+                    android:progress="3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvMaxBackoff" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swLogarithmicBackoff"
                     android:layout_width="0dp"
@@ -1589,7 +1611,7 @@
                     android:text="@string/title_advanced_logarithmic_backoff"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swFastFetch"
+                    app:layout_constraintTop_toBottomOf="@id/sbMaxBackOff"
                     app:switchPadding="12dp" />
 
                 <TextView
