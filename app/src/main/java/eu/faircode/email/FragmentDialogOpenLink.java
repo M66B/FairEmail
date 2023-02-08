@@ -324,7 +324,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 Uri link = (checked ? sanitized : uri);
-                boolean secure = UriHelper.isSecure(link);
+                boolean secure = cbSecure.isChecked();
                 cbSecure.setTag(secure);
                 cbSecure.setChecked(secure);
                 etLink.setText(format(UriHelper.secure(link, secure), context));
