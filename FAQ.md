@@ -1830,7 +1830,11 @@ and like to have a fallback email address main@example.com as well, you could do
 You can test a regex [here](https://regexr.com/).
 
 Matched identities can be used to color code messages.
+
 The identity color takes precedence over the folder and account color.
+This means that the color of the color stripe will be determined by first checking if there is a color set for the 'via' (matched) identity,
+and after that if there is a color set for the folder containing the message, and finally if there is a color set for the account the message belongs to.
+
 Setting identity colors is a pro feature.
 
 <br />
