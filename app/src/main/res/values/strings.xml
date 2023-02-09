@@ -1650,6 +1650,7 @@
     <string name="title_alternative_text">Load plain text</string>
     <string name="title_alternative_html">Load HTML</string>
     <string name="title_no_openpgp">OpenKeychain not found</string>
+    <string name="title_no_openpgp_remark">PGP end-to-end encryption needs to be configured first</string>
     <string name="title_user_interaction">Transferring to OpenKeychain</string>
     <string name="title_padlock">Use the padlock to decrypt the message</string>
     <string name="title_signed_data">Verify the signature to show the message text</string>

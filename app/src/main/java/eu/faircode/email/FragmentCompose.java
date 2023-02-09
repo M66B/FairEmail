@@ -1975,6 +1975,22 @@ public class FragmentCompose extends FragmentBase {
     private void onMenuEncrypt() {
         EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
         if (identity == null || identity.encrypt == 0) {
+            final Context context = getContext();
+            if (!Helper.isOpenKeychainInstalled(context)) {
+                new AlertDialog.Builder(context)
+                        .setTitle(R.string.title_no_openpgp)
+                        .setMessage(R.string.title_no_openpgp_remark)
+                        .setPositiveButton(R.string.title_info, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Helper.viewFAQ(context, 12);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+                return;
+            }
+
             if (EntityMessage.ENCRYPT_NONE.equals(encrypt) || encrypt == null)
                 encrypt = EntityMessage.PGP_SIGNENCRYPT;
             else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt))
