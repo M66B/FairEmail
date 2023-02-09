@@ -5345,8 +5345,10 @@ public class FragmentCompose extends FragmentBase {
                         attachment.progress = null;
                         attachment.available = true;
                         attachment.id = db.attachment().insertAttachment(attachment);
+
                         File file = attachment.getFile(context);
-                        ics.renameTo(file);
+                        Helper.copy(ics, file);
+                        ics.delete();
 
                         ICalendar icalendar = Biweekly.parse(file).first();
                         VEvent event = icalendar.getEvents().get(0);
