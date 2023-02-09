@@ -1807,23 +1807,23 @@ public class FragmentCompose extends FragmentBase {
         int colorActionForeground = Helper.resolveColor(actionBarContext, android.R.attr.textColorPrimary);
 
         View v = menu.findItem(R.id.menu_encrypt).getActionView();
-        ImageButton ib = v.findViewById(R.id.button);
+        ImageButton ibEncrypt = v.findViewById(R.id.button);
         TextView tv = v.findViewById(R.id.text);
 
         v.setAlpha(state == State.LOADED && !dsn ? 1f : Helper.LOW_LIGHT);
-        ib.setEnabled(state == State.LOADED && !dsn);
+        ibEncrypt.setEnabled(state == State.LOADED && !dsn);
 
         if (EntityMessage.PGP_SIGNONLY.equals(encrypt) || EntityMessage.SMIME_SIGNONLY.equals(encrypt)) {
-            ib.setImageResource(R.drawable.twotone_gesture_24);
-            ib.setImageTintList(ColorStateList.valueOf(colorActionForeground));
+            ibEncrypt.setImageResource(R.drawable.twotone_gesture_24);
+            ibEncrypt.setImageTintList(ColorStateList.valueOf(colorActionForeground));
             tv.setText(EntityMessage.PGP_SIGNONLY.equals(encrypt) ? "P" : "S");
         } else if (EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) || EntityMessage.SMIME_SIGNENCRYPT.equals(encrypt)) {
-            ib.setImageResource(R.drawable.twotone_lock_24);
-            ib.setImageTintList(ColorStateList.valueOf(colorEncrypt));
+            ibEncrypt.setImageResource(R.drawable.twotone_lock_24);
+            ibEncrypt.setImageTintList(ColorStateList.valueOf(colorEncrypt));
             tv.setText(EntityMessage.PGP_SIGNENCRYPT.equals(encrypt) ? "P" : "S");
         } else {
-            ib.setImageResource(R.drawable.twotone_lock_open_24);
-            ib.setImageTintList(ColorStateList.valueOf(colorActionForeground));
+            ibEncrypt.setImageResource(R.drawable.twotone_lock_open_24);
+            ibEncrypt.setImageTintList(ColorStateList.valueOf(colorActionForeground));
             tv.setText(null);
         }
 
