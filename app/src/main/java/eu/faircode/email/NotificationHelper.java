@@ -36,6 +36,7 @@ import androidx.annotation.RequiresApi;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -53,9 +54,12 @@ class NotificationHelper {
             "notification",
             "progress",
             "update",
+            "announcements",
             "warning",
             "error",
-            "alerts"
+            "alerts",
+            "LEAKCANARY_LOW",
+            "LEAKCANARY_MAX"
     ));
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -165,15 +169,25 @@ class NotificationHelper {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    static void clear(Context context) {
+    static String[] getChannelIds(Context context) {
+        List<String> result = new ArrayList();
+
         NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
         for (NotificationChannel channel : nm.getNotificationChannels()) {
             String id = channel.getId();
-            if (!PERSISTENT_IDS.contains(id)) {
-                EntityLog.log(context, "Deleting channel=" + id);
-                nm.deleteNotificationChannel(id);
-            }
+            if (!PERSISTENT_IDS.contains(id))
+                result.add(id);
         }
+
+        Collections.sort(result);
+
+        return result.toArray(new String[0]);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    static void deleteChannel(Context context, String id) {
+        NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
+        nm.deleteNotificationChannel(id);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)

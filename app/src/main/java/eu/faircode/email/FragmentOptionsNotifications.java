@@ -26,6 +26,7 @@ import android.app.NotificationManager;
 import android.app.StatusBarManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -37,6 +38,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.service.quicksettings.TileService;
+import android.text.TextUtils;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -54,11 +57,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 
-import java.util.List;
 import java.util.function.Consumer;
 
 public class FragmentOptionsNotifications extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -242,37 +245,107 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                 (BuildConfig.DEBUG || debug) ? View.VISIBLE : View.GONE);
         ibClear.setOnClickListener(new View.OnClickListener() {
             @Override
+            @RequiresApi(api = Build.VERSION_CODES.O)
             public void onClick(View v) {
-                new SimpleTask<Void>() {
+                new SimpleTask<Pair<String[], String[]>>() {
                     @Override
-                    protected Void onExecute(Context context, Bundle args) {
+                    protected Pair<String[], String[]> onExecute(Context context, Bundle args) throws Throwable {
+                        String[] ids = NotificationHelper.getChannelIds(context);
+                        String[] titles = new String[ids.length];
+
                         DB db = DB.getInstance(context);
 
-                        List<EntityAccount> accounts = db.account().getAccounts();
-                        if (accounts == null)
-                            return null;
-
-                        for (EntityAccount account : accounts)
-                            if (account.notify) {
-                                EntityLog.log(context, account.name + " disabling notify");
-                                db.account().setAccountNotify(account.id, false);
+                        for (int i = 0; i < ids.length; i++)
+                            try {
+                                if (ids[i].startsWith("notification.folder.")) {
+                                    long fid = Long.parseLong(ids[i].split("\\.")[2]);
+                                    EntityFolder folder = db.folder().getFolder(fid);
+                                    EntityAccount account = db.account().getAccount(folder == null ? -1L : folder.account);
+                                    titles[i] = (folder == null ? ids[i] : account.name + "/" + folder.name);
+                                } else if (ids[i].startsWith("notification.")) {
+                                    String[] parts = ids[i].split("\\.");
+                                    if (parts.length == 2 && TextUtils.isDigitsOnly(parts[1])) {
+                                        long aid = Long.parseLong(parts[1]);
+                                        EntityAccount account = db.account().getAccount(aid);
+                                        titles[i] = (account == null ? ids[i] : account.name);
+                                    } else
+                                        titles[i] = ids[i].substring("notification.".length());
+                                } else
+                                    titles[i] = ids[i];
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                                titles[i] = ids[i];
                             }
 
-                        return null;
+                        return new Pair<>(ids, titles);
                     }
 
                     @Override
-                    @RequiresApi(api = Build.VERSION_CODES.O)
-                    protected void onExecuted(Bundle args, Void data) {
-                        NotificationHelper.clear(getContext());
-                        ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                    protected void onExecuted(Bundle args, Pair<String[], String[]> data) {
+                        boolean[] selected = new boolean[data.first.length];
+
+                        new AlertDialog.Builder(v.getContext())
+                                .setIcon(R.drawable.twotone_delete_24)
+                                .setTitle(R.string.title_advanced_notifications_delete)
+                                .setMultiChoiceItems(data.second, selected, new DialogInterface.OnMultiChoiceClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                                        selected[which] = isChecked;
+                                    }
+                                })
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Bundle args = new Bundle();
+                                        args.putStringArray("ids", data.first);
+                                        args.putBooleanArray("selected", selected);
+
+                                        new SimpleTask<Void>() {
+                                            @Override
+                                            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                                String[] ids = args.getStringArray("ids");
+                                                boolean[] selected = args.getBooleanArray("selected");
+
+                                                DB db = DB.getInstance(context);
+
+                                                for (int i = 0; i < selected.length; i++)
+                                                    try {
+                                                        if (!selected[i])
+                                                            continue;
+
+                                                        if (ids[i].startsWith("notification.")) {
+                                                            String[] parts = ids[i].split("\\.");
+                                                            if (parts.length == 2 && TextUtils.isDigitsOnly(parts[1])) {
+                                                                long aid = Long.parseLong(ids[i].split("\\.")[1]);
+                                                                if (db.account().setAccountNotify(aid, false) != 1)
+                                                                    continue;
+                                                            }
+                                                        }
+
+                                                        NotificationHelper.deleteChannel(context, ids[i]);
+                                                    } catch (Throwable ex) {
+                                                        Log.e(ex);
+                                                    }
+
+                                                return null;
+                                            }
+
+                                            @Override
+                                            protected void onException(Bundle args, Throwable ex) {
+                                                Log.unexpectedError(getParentFragmentManager(), ex);
+                                            }
+                                        }.execute(FragmentOptionsNotifications.this, args, "channel:delete");
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .show();
                     }
 
                     @Override
                     protected void onException(Bundle args, Throwable ex) {
                         Log.unexpectedError(getParentFragmentManager(), ex);
                     }
-                }.execute(FragmentOptionsNotifications.this, new Bundle(), "notification:clear");
+                }.execute(FragmentOptionsNotifications.this, new Bundle(), "channel:list");
             }
         });
 
