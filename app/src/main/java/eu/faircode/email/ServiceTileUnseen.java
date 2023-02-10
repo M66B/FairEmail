@@ -20,10 +20,8 @@ package eu.faircode.email;
 */
 
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.graphics.drawable.Icon;
 import android.os.Build;
-import android.os.IBinder;
 import android.service.quicksettings.Tile;
 
 import androidx.lifecycle.Observer;
@@ -76,16 +74,6 @@ public class ServiceTileUnseen extends ServiceTileBase {
                     }
             }
         });
-    }
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return super.onBind(intent);
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        return super.onStartCommand(intent, flags, startId);
     }
 
     @Override

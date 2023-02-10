@@ -20,7 +20,9 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
+import android.os.IBinder;
 import android.service.quicksettings.TileService;
 
 import androidx.annotation.RequiresApi;
@@ -30,6 +32,42 @@ public class ServiceTileBase extends TileService {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(ApplicationEx.getLocalizedContext(base));
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        try {
+            return super.onBind(intent);
+        } catch (Throwable ex) {
+            /*
+                Exception java.lang.RuntimeException:
+                  at android.app.ActivityThread.handleBindService (ActivityThread.java:4202)
+                  at android.app.ActivityThread.access$2500 (ActivityThread.java:273)
+                  at android.app.ActivityThread$H.handleMessage (ActivityThread.java:2060)
+                  at android.os.Handler.dispatchMessage (Handler.java:112)
+                  at android.os.Looper.loop (Looper.java:216)
+                  at android.app.ActivityThread.main (ActivityThread.java:7625)
+                  at java.lang.reflect.Method.invoke (Method.java)
+                  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run (RuntimeInit.java:524)
+                  at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:987)
+                Caused by java.lang.RuntimeException: Unable to reach IQSService
+                  at android.service.quicksettings.TileService.onBind (TileService.java:333)
+                  at eu.faircode.email.ServiceTileUnseen.onBind (ServiceTileUnseen.java:83)
+                  at android.app.ActivityThread.handleBindService (ActivityThread.java:4184)
+                Caused by android.os.DeadObjectException:
+                  at android.os.BinderProxy.transactNative (BinderProxy.java)
+                  at android.os.BinderProxy.transact (BinderProxy.java:1149)
+                  at android.service.quicksettings.IQSService$Stub$Proxy.getTile (IQSService.java:189)
+                  at android.service.quicksettings.TileService.onBind (TileService.java:331)
+             */
+            Log.w(ex);
+            return null;
+        }
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
