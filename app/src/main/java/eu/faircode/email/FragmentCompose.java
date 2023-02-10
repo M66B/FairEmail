@@ -1978,6 +1978,7 @@ public class FragmentCompose extends FragmentBase {
             final Context context = getContext();
             if (!Helper.isOpenKeychainInstalled(context)) {
                 new AlertDialog.Builder(context)
+                        .setIcon(R.drawable.twotone_lock_24)
                         .setTitle(R.string.title_no_openpgp)
                         .setMessage(R.string.title_no_openpgp_remark)
                         .setPositiveButton(R.string.title_info, new DialogInterface.OnClickListener() {
