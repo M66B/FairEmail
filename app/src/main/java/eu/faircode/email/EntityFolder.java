@@ -469,7 +469,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
     String getDisplayName(Context context, EntityFolder parent) {
         String n = name;
-        if (parent != null && name.startsWith(parent.name))
+        if (parent != null &&
+                n.startsWith(parent.name) &&
+                n.length() > parent.name.length() + 1)
             n = n.substring(parent.name.length() + 1);
         return (display == null ? localizeName(context, n) : display);
     }
