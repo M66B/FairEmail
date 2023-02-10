@@ -53,7 +53,7 @@ public class TupleFolderView {
     public boolean equals(@Nullable Object obj) {
         if (obj instanceof TupleFolderView) {
             TupleFolderView other = (TupleFolderView) obj;
-            return (this.id.equals(other.id) &&
+            return (Objects.equals(this.id, other.id) &&
                     Objects.equals(this.account, other.account) &&
                     this.name.equals(other.name) &&
                     this.type.equals(other.type) &&
