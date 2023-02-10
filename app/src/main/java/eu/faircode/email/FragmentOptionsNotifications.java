@@ -871,7 +871,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
                 try {
                     getContext().getContentResolver().takePersistableUriPermission(uri, Intent.FLAG_GRANT_READ_URI_PERMISSION);
                     if (!Helper.isPersisted(getContext(), uri, true, false))
-                        Log.unexpectedError(getParentFragmentManager(),
+                        Log.unexpectedError(FragmentOptionsNotifications.this,
                                 new IllegalStateException("No permission granted to access selected sound " + uri));
                 } catch (Throwable ex) {
                     Log.w(ex);

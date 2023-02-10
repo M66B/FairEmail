@@ -85,6 +85,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebViewCompat;
@@ -1852,6 +1853,33 @@ public class Log {
         ServiceSynchronize.eval(context, "debuginfo");
 
         return draft;
+    }
+
+    static void unexpectedError(Fragment fragment, Throwable ex) {
+        unexpectedError(fragment, ex, true);
+    }
+
+    static void unexpectedError(Fragment fragment, Throwable ex, boolean report) {
+        try {
+            unexpectedError(fragment.getParentFragmentManager(), ex, report);
+        } catch (Throwable exex) {
+            Log.w(exex);
+            /*
+                Exception java.lang.IllegalStateException:
+                  at androidx.fragment.app.Fragment.getParentFragmentManager (Fragment.java:1107)
+                  at eu.faircode.email.FragmentDialogForwardRaw.send (FragmentDialogForwardRaw.java:307)
+                  at eu.faircode.email.FragmentDialogForwardRaw.access$200 (FragmentDialogForwardRaw.java:56)
+                  at eu.faircode.email.FragmentDialogForwardRaw$4.onClick (FragmentDialogForwardRaw.java:239)
+                  at androidx.appcompat.app.AlertController$ButtonHandler.handleMessage (AlertController.java:167)
+                  at android.os.Handler.dispatchMessage (Handler.java:106)
+                  at android.os.Looper.loopOnce (Looper.java:210)
+                  at android.os.Looper.loop (Looper.java:299)
+                  at android.app.ActivityThread.main (ActivityThread.java:8168)
+                  at java.lang.reflect.Method.invoke (Method.java)
+                  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run (RuntimeInit.java:556)
+                  at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:1037)
+             */
+        }
     }
 
     static void unexpectedError(FragmentManager manager, Throwable ex) {

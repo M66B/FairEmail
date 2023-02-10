@@ -2801,7 +2801,7 @@ public class FragmentCompose extends FragmentBase {
                             .setGestureInsetBottomIgnored(true).show();
                 else {
                     Log.e(ex);
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                    Log.unexpectedError(FragmentCompose.this, ex);
                 }
             }
         }
@@ -5877,7 +5877,7 @@ public class FragmentCompose extends FragmentBase {
             if (ex instanceof SecurityException)
                 ex = new Throwable(getString(R.string.title_no_permissions), ex);
 
-            Log.unexpectedError(getParentFragmentManager(), ex,
+            Log.unexpectedError(FragmentCompose.this, ex,
                     !(ex instanceof IOException || ex.getCause() instanceof IOException));
                     /*
                         java.lang.IllegalStateException: java.io.IOException: Failed to redact /storage/emulated/0/Download/97203830-piston-vecteur-icône-simple-symbole-plat-sur-fond-blanc.jpg

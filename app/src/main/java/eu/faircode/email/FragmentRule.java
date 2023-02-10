@@ -998,10 +998,10 @@ public class FragmentRule extends FragmentBase {
                     String permission = android.Manifest.permission.READ_CONTACTS;
                     requestPermissions(new String[]{permission}, REQUEST_PERMISSIONS);
                 } catch (Throwable ex1) {
-                    Log.unexpectedError(getParentFragmentManager(), ex1);
+                    Log.unexpectedError(FragmentRule.this, ex1);
                 }
             else
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(FragmentRule.this, ex);
         }
     }
 

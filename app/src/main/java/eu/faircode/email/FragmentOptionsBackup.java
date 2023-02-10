@@ -1475,7 +1475,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             fragment.setTargetFragment(this, export ? REQUEST_EXPORT_SELECT : REQUEST_IMPORT_SELECT);
             fragment.show(getParentFragmentManager(), "password");
         } catch (Throwable ex) {
-            Log.unexpectedError(getParentFragmentManager(), ex);
+            Log.unexpectedError(FragmentOptionsBackup.this, ex);
         }
     }
 
@@ -1543,7 +1543,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     .putExtra(Intent.EXTRA_TEXT, "Activate");
             startActivity(intent);
         } catch (Throwable ex) {
-            Log.unexpectedError(getParentFragmentManager(), ex);
+            Log.unexpectedError(FragmentOptionsBackup.this, ex);
         }
     }
 

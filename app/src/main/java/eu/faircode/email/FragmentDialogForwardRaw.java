@@ -304,7 +304,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
             startActivity(send);
         } catch (Throwable ex) {
             // java.lang.IllegalArgumentException: Failed to resolve canonical path for ...
-            Log.unexpectedError(getParentFragmentManager(), ex);
+            Log.unexpectedError(FragmentDialogForwardRaw.this, ex);
         }
     }
 

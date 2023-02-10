@@ -9151,7 +9151,7 @@ public class FragmentMessages extends FragmentBase
                                                     }
                                                 }.execute(FragmentMessages.this, args, "certificate:store");
                                             } catch (Throwable ex) {
-                                                Log.unexpectedError(getParentFragmentManager(), ex);
+                                                Log.unexpectedError(FragmentMessages.this, ex);
                                             }
                                         }
                                     });
