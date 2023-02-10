@@ -5380,6 +5380,7 @@ class Core {
         boolean pro = ActivityBilling.isPro(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean notify_grouping = prefs.getBoolean("notify_grouping", true);
         boolean notify_private = prefs.getBoolean("notify_private", true);
         boolean notify_newest_first = prefs.getBoolean("notify_newest_first", false);
         MessageHelper.AddressFormat email_format = MessageHelper.getAddressFormat(context);
@@ -5437,7 +5438,8 @@ class Core {
         }
 
         // Summary notification
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N || notify_summary) {
+        if (notify_summary ||
+                (notify_grouping && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)) {
             // Build pending intents
             Intent content;
             if (group < 0) {
@@ -5669,7 +5671,7 @@ class Core {
                 mbuilder.setStyle(messagingStyle);
             }
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            if (notify_grouping && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                 mbuilder
                         .setGroup(Long.toString(group))
                         .setGroupSummary(false)
