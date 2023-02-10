@@ -5380,6 +5380,7 @@ class Core {
         boolean pro = ActivityBilling.isPro(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean notify_private = prefs.getBoolean("notify_private", true);
         boolean notify_newest_first = prefs.getBoolean("notify_newest_first", false);
         MessageHelper.AddressFormat email_format = MessageHelper.getAddressFormat(context);
         boolean prefer_contact = prefs.getBoolean("prefer_contact", false);
@@ -5520,10 +5521,12 @@ class Core {
 
             // Subtext should not be set, to show number of new messages
 
-            Notification pub = builder.build();
-            builder
-                    .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
-                    .setPublicVersion(pub);
+            if (notify_private) {
+                Notification pub = builder.build();
+                builder
+                        .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
+                        .setPublicVersion(pub);
+            }
 
             if (notify_preview)
                 if (redacted)
@@ -5618,7 +5621,9 @@ class Core {
                             .setDeleteIntent(piIgnore)
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                             .setCategory(NotificationCompat.CATEGORY_EMAIL)
-                            .setVisibility(NotificationCompat.VISIBILITY_PRIVATE)
+                            .setVisibility(notify_private
+                                    ? NotificationCompat.VISIBILITY_PRIVATE
+                                    : NotificationCompat.VISIBILITY_PUBLIC)
                             .setOnlyAlertOnce(alert_once)
                             .setAllowSystemGeneratedContextualActions(false);
 
