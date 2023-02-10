@@ -173,7 +173,7 @@ android {
             buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
             buildConfigField "String", "BITBUCKET_DOWNLOADS_API", "\"https://api.bitbucket.org/2.0/repositories/M66B/fairemail-test/downloads\""
             buildConfigField "String", "BITBUCKET_DOWNLOADS_URI", "\"https://bitbucket.org/M66B/fairemail-test/downloads/\""
-            buildConfigField "String", "ANNOUNCEMENT_URI", "\"https://gist.githubusercontent.com/M66B/d544192ca56224839d6ba0f2f6314c1f/raw/\""
+            buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"https://api.fairemail.net/sync\""
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
             buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
@@ -196,7 +196,7 @@ android {
             buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
             buildConfigField "String", "BITBUCKET_DOWNLOADS_API", "\"https://api.bitbucket.org/2.0/repositories/M66B/fairemail-test/downloads\""
             buildConfigField "String", "BITBUCKET_DOWNLOADS_URI", "\"https://bitbucket.org/M66B/fairemail-test/downloads/\""
-            buildConfigField "String", "ANNOUNCEMENT_URI", "\"https://gist.githubusercontent.com/M66B/d544192ca56224839d6ba0f2f6314c1f/raw/\""
+            buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"https://api.fairemail.net/sync\""
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
             buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
