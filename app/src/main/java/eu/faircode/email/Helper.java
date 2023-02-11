@@ -2329,8 +2329,11 @@ public class Helper {
         };
     }
 
-    static boolean isDot(char c) {
-        return (c == '.' /* Latin */ || c == '。' /* Chinese */);
+    static boolean isEndChar(char c) {
+        return (c == '.' /* Latin */ ||
+                c == '。' /* Chinese */ ||
+                c == ':' || c == ';' ||
+                c == '?' || c == '!');
     }
 
     static String trim(String value, String chars) {

@@ -670,7 +670,7 @@ public class FragmentCompose extends FragmentBase {
                     char b = text.charAt(index - 1);
 
                     save = (auto_save_paragraph && c == '\n' && b != '\n') ||
-                            (auto_save_dot && Helper.isDot(c) && !Helper.isDot(b));
+                            (auto_save_dot && Helper.isEndChar(c) && !Helper.isEndChar(b));
                     if (save)
                         Log.i("Save=" + index);
 
