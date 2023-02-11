@@ -210,7 +210,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(6) How can I login to Gmail / G suite?](#user-content-faq6)
 * [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
 * [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
-* [(9) What are identities / how do I add an alias?](#user-content-faq9)
+* [(9) What are identities / how do I add an alias / configure a default CC or BCC address?](#user-content-faq9)
 * [~~(11) Why is POP not supported?~~](#user-content-faq11)
 * [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
 * [(12) How does encryption/decryption work?](#user-content-faq12)
@@ -805,7 +805,7 @@ Please see [this FAQ](#user-content-faq111) about OAuth support.
 <br />
 
 <a name="faq9"></a>
-**(9) What are identities / how do I add an alias?**
+**(9) What are identities / how do I add an alias / configure a default CC or BCC address?**
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq9)
 
@@ -815,7 +815,7 @@ Some providers allow you to have multiple aliases.
 You can configure these by setting the email address field of an additional identity to the alias address
 and setting the user name field to your main email address.
 
-Note that you can copy an identity by long pressing it.
+Note that you can copy an identity by long pressing it in the list of identities (via *Manual setup and account options* in the main settings page).
 
 Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message,
 if your provider allows this. Considering the email address test@example.org you can use these special username formats:
@@ -823,6 +823,8 @@ if your provider allows this. Considering the email address test@example.org you
 * "*+extra*" will result in the email address "*test+extra@example.org*"
 * "*@extra*" will result in the email address "*test@extra.example.org*"
 * "*Some name, username*" will result in the email address "*Some name, &lt;username@example.org&gt;*" (since version 1.2032)
+
+You can configure a default CC or BCC address in the advanced identity settings.
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
@@ -4167,7 +4169,7 @@ by long pressing the sent folder in the folder list and enabling *Show in unifie
 This way all messages can stay where they belong, while allowing to see both incoming and outgoing messages at one place.
 
 If this is not an option, you can [create a rule](#user-content-faq71) to automatically move sent messages to the inbox
-or set a default CC/BCC address in the advanced identity settings (via the manual setup in the main setup screen) to send yourself a copy.
+or set a default CC or BCC address in the advanced identity settings (via the manual setup in the main setup screen) to send yourself a copy.
 
 <br />
 
