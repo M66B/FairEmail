@@ -141,6 +141,9 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET sign_key_alias = :alias WHERE id = :id AND NOT (sign_key_alias IS :alias)")
     int setIdentitySignKeyAlias(long id, String alias);
 
+    @Query("UPDATE identity SET sign_key_alias = NULL")
+    int clearIdentitySignKeyAliases();
+
     @Query("UPDATE identity SET max_size = :max_size WHERE id = :id AND NOT (max_size IS :max_size)")
     int setIdentityMaxSize(long id, Long max_size);
 

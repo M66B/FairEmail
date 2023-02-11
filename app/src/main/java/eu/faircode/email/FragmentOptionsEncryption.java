@@ -89,6 +89,7 @@ public class FragmentOptionsEncryption extends FragmentBase
     private SwitchCompat swEncryptAuto;
     private SwitchCompat swAutoDecrypt;
     private SwitchCompat swAutoUndoDecrypt;
+    private Button btnReset;
 
     private Spinner spOpenPgp;
     private ImageButton ibOpenKeychain;
@@ -140,6 +141,7 @@ public class FragmentOptionsEncryption extends FragmentBase
         swEncryptAuto = view.findViewById(R.id.swEncryptAuto);
         swAutoDecrypt = view.findViewById(R.id.swAutoDecrypt);
         swAutoUndoDecrypt = view.findViewById(R.id.swAutoUndoDecrypt);
+        btnReset = view.findViewById(R.id.btnReset);
 
         spOpenPgp = view.findViewById(R.id.spOpenPgp);
         ibOpenKeychain = view.findViewById(R.id.ibOpenKeychain);
@@ -234,6 +236,30 @@ public class FragmentOptionsEncryption extends FragmentBase
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("auto_undecrypt", checked).apply();
+            }
+        });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new SimpleTask<Void>() {
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                        DB db = DB.getInstance(context);
+                        db.identity().clearIdentitySignKeyAliases();
+                        return null;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Void data) {
+                        ToastEx.makeText(v.getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentOptionsEncryption.this, new Bundle(), "encryption:reset");
             }
         });
 

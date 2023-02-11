@@ -1659,6 +1659,8 @@
     <string name="title_not_encrypted">Message is not signed or encrypted</string>
     <string name="title_no_sign_key">No sign key selected</string>
     <string name="title_reset_sign_key">Reset sign key</string>
+    <string name="title_reset_selected_keys">Reset selected keys</string>
+    <string name="title_reset_selected_keys_hint">Can be used in case of new certificates, etc.</string>
 
     <string name="title_signature_none">Message not signed</string>
     <string name="title_signature_valid">Message signature valid</string>
