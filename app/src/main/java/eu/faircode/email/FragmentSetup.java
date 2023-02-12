@@ -330,6 +330,9 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                         int resid = res.getIdentifier("provider_" + provider.id, "drawable", pkg);
                         if (resid != 0)
                             item.setIcon(resid);
+
+                        if ("outlook".equals(provider.id))
+                            menu.add(Menu.FIRST, R.string.title_setup_outlook, order++, R.string.title_setup_outlook);
                     }
 
                 menu.add(Menu.NONE, R.string.title_setup_other, order++, R.string.title_setup_other)
@@ -374,7 +377,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                                         .setNegativeButton(android.R.string.cancel, null)
                                         .show();
                             return true;
-                        } else if (itemId == R.string.title_setup_other) {
+                        } else if (itemId == R.string.title_setup_other ||
+                                itemId == R.string.title_setup_outlook) {
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP));
                             return true;
                         } else if (itemId == R.string.title_setup_classic) {
