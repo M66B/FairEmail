@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:fontFamily="monospace"
-            android:text="FETCH, BODY, ATTACHMENT, HEADERS, SYNC"
+            android:text="FETCH, BODY, ATTACHMENT, HEADERS, RULE, SYNC"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"

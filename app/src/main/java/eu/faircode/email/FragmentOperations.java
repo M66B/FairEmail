@@ -190,6 +190,7 @@ public class FragmentOperations extends FragmentBase {
                                             addAll(ops, db.operation().getOperations(EntityOperation.BODY));
                                             addAll(ops, db.operation().getOperations(EntityOperation.ATTACHMENT));
                                             addAll(ops, db.operation().getOperations(EntityOperation.HEADERS));
+                                            addAll(ops, db.operation().getOperations(EntityOperation.RULE));
                                             addAll(ops, db.operation().getOperations(EntityOperation.SYNC));
                                         }
 
