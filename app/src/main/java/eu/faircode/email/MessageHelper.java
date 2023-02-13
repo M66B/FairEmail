@@ -1988,13 +1988,16 @@ public class MessageHelper {
         return true;
     }
 
-    Boolean verifyDKIM(Context context) throws MessagingException {
-        // Proof of concept, doesn't work 100% reliable
-        if (true)
-            return true;
+    Boolean verifyDKIM(Context context) throws MessagingException, IOException {
+        if (!(imessage instanceof IMAPMessage))
+            return null;
+
+        Properties props = MessageHelper.getSessionProperties(true);
+        Session isession = Session.getInstance(props, null);
+        MimeMessage amessage = new MimeMessage(isession, ((IMAPMessage) imessage).getMimeStream());
 
         // https://datatracker.ietf.org/doc/html/rfc6376/
-        String[] headers = imessage.getHeader("DKIM-Signature");
+        String[] headers = amessage.getHeader("DKIM-Signature");
         if (headers == null || headers.length < 1)
             return null;
 
@@ -2042,7 +2045,7 @@ public class MessageHelper {
                         }
                         processed.add(n);
 
-                        String[] h = ("DKIM-Signature".equals(n) ? new String[]{header} : imessage.getHeader(n));
+                        String[] h = ("DKIM-Signature".equals(n) ? new String[]{header} : amessage.getHeader(n));
                         if (h == null) {
                             Log.i("DKIM missing header='" + n + "'");
                             continue;
@@ -2051,17 +2054,26 @@ public class MessageHelper {
                         for (int i = h.length - 1; i >= 0; i--) {
                             String v = h[i];
                             if ("DKIM-Signature".equals(n)) {
-                                int b = v.lastIndexOf(" b=");
-                                int s = v.indexOf(";", b + 3);
-                                v = v.substring(0, b + 3) + (s < 0 ? "" : v.substring(s));
-                                Log.i("DKIM v=" + v);
+                                int b = v.lastIndexOf("b=");
+                                int s = v.indexOf(";", b + 2);
+                                v = v.substring(0, b + 2) + (s < 0 ? "" : v.substring(s));
                             } else
                                 Log.i("DKIM " + n + "=" + v.replaceAll("\\r?\\n", "|"));
 
-                            if ("simple".equals(c[0]))
-                                head.append(n).append(": ")
-                                        .append(v);
-                            else if ("relaxed".equals(c[0])) {
+                            if ("simple".equals(c[0])) {
+                                if ("DKIM-Signature".equals(n))
+                                    head.append(n).append(": ").append(v);
+                                else {
+                                    // Find original header/name
+                                    Enumeration<Header> oheaders = amessage.getAllHeaders();
+                                    while (oheaders.hasMoreElements()) {
+                                        Header oheader = oheaders.nextElement();
+                                        if (n.equalsIgnoreCase(oheader.getName()))
+                                            head.append(oheader.getName()).append(": ")
+                                                    .append(oheader.getValue());
+                                    }
+                                }
+                            } else if ("relaxed".equals(c[0])) {
                                 v = MimeUtility.unfold(v);
                                 head.append(n.trim().toLowerCase()).append(':')
                                         .append(v.replaceAll("\\s+", " ").trim());
@@ -2075,7 +2087,7 @@ public class MessageHelper {
                     Log.i("DKIM head=" + head.toString().replace("\r\n", "|"));
 
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                    Helper.copy(imessage.getRawInputStream(), bos);
+                    Helper.copy(amessage.getRawInputStream(), bos);
                     String body = bos.toString(); // TODO: charset
                     if ("simple".equals(c[c.length > 1 ? 1 : 0])) {
                         if (TextUtils.isEmpty(body))

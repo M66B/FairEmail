@@ -3168,8 +3168,6 @@ class Core {
                         message.bimi_selector = helper.getBimiSelector();
                         message.tls = helper.getTLS();
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
-                        if (BuildConfig.DEBUG)
-                            helper.verifyDKIM(context);
                         if (Boolean.TRUE.equals(message.dkim))
                             message.dkim = helper.checkDKIMRequirements();
                         message.spf = MessageHelper.getAuthentication("spf", authentication);
@@ -4259,8 +4257,13 @@ class Core {
             message.bimi_selector = helper.getBimiSelector();
             message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
-            if (BuildConfig.DEBUG)
-                helper.verifyDKIM(context);
+            if (BuildConfig.DEBUG &&
+                    Boolean.TRUE.equals(message.dkim) &&
+                    EntityFolder.JUNK.equals(folder.type)) {
+                Boolean dkim = helper.verifyDKIM(context);
+                flagged = Boolean.FALSE.equals(dkim);
+                color = android.graphics.Color.RED;
+            }
             if (Boolean.TRUE.equals(message.dkim))
                 message.dkim = helper.checkDKIMRequirements();
             message.spf = MessageHelper.getAuthentication("spf", authentication);
