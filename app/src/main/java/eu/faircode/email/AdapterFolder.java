@@ -245,7 +245,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     p = dp3;
             view.setPadding(p, p, p, p);
             view.setActivated(folder.tbc != null || folder.rename != null || folder.tbd != null);
-            view.setAlpha(folder.hide || folder.isHidden() || disabled ? Helper.LOW_LIGHT : 1.0f);
+            view.setAlpha(folder.hide || folder.isHidden(listener != null) || disabled ? Helper.LOW_LIGHT : 1.0f);
 
             if (listener == null && selectedModel != null)
                 itemView.setBackgroundColor(
@@ -1378,7 +1378,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         if (account < 0 && !primary) {
             List<TupleFolderEx> filtered = new ArrayList<>();
             for (TupleFolderEx folder : folders)
-                if (show_hidden || !folder.isHidden())
+                if (show_hidden || !folder.isHidden(listener != null))
                     filtered.add(folder);
 
             if (filtered.size() > 0)
@@ -1590,7 +1590,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     (parent.subscribed != null && parent.subscribed) ||
                     (childs != null && childs.size() > 0)) {
                 parent.indentation = indentation;
-                if (show_hidden || !parent.isHidden()) {
+                if (show_hidden || !parent.isHidden(listener != null)) {
                     result.add(parent);
                     if (!parent.collapsed && childs != null)
                         result.addAll(childs);
