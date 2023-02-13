@@ -26,6 +26,7 @@ import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkInfo;
 import android.os.Build;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
@@ -212,11 +213,24 @@ public class DnsHelper {
                         result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort()));
                     } else if (record instanceof TXTRecord) {
                         TXTRecord txt = (TXTRecord) record;
-                        for (Object content : txt.getStrings())
+                        for (Object content : txt.getStrings()) {
+                            String text = content.toString();
+                            int i = 0;
+                            int slash = text.indexOf('\\', i);
+                            while (slash >= 0 && slash + 4 < text.length()) {
+                                String digits = text.substring(slash + 1, slash + 4);
+                                if (TextUtils.isDigitsOnly(digits)) {
+                                    int k = Integer.parseInt(digits);
+                                    text = text.substring(0, slash) + (char) k + text.substring(slash + 4);
+                                } else
+                                    i += 4;
+                                slash = text.indexOf('\\', i);
+                            }
                             if (result.size() > 0)
-                                result.get(0).name += content.toString();
+                                result.get(0).name += text;
                             else
-                                result.add(new DnsRecord(content.toString(), 0));
+                                result.add(new DnsRecord(text, 0));
+                        }
                     } else if (record instanceof ARecord) {
                         ARecord a = (ARecord) record;
                         result.add(new DnsRecord(a.getAddress().getHostAddress()));
