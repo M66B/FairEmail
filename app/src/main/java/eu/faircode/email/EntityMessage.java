@@ -155,6 +155,7 @@ public class EntityMessage implements Serializable {
     public Boolean receipt_request;
     public Address[] receipt_to;
     public String bimi_selector;
+    public String signedby;
     public Boolean tls;
     public Boolean dkim;
     public Boolean spf;

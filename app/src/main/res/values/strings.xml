@@ -856,6 +856,7 @@
     <string name="title_advanced_keep_alive_poll" translatable="false">Poll on keep-alive</string>
     <string name="title_advanced_empty_pool" translatable="false">Empty connection pool</string>
     <string name="title_advanced_exact_alarms" translatable="false">Use exact timers</string>
+    <string name="title_advanced_native_dkim" translatable="false">Native DKIM verification</string>
     <string name="title_advanced_infra" translatable="false">Show infrastructure</string>
     <string name="title_advanced_dup_msgid" translatable="false">Duplicates by message ID</string>
     <string name="title_advanced_global_keywords" translatable="false">Global keywords</string>
@@ -1485,6 +1486,7 @@
 
     <string name="title_compose">Compose</string>
     <string name="title_submitter">Sent by:</string>
+    <string name="title_signed_by">Signed by:</string>
     <string name="title_delivered_to">Delivered to:</string>
     <string name="title_from">From:</string>
     <string name="title_to">To:</string>

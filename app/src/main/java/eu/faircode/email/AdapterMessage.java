@@ -272,6 +272,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean avatars;
     private boolean color_stripe;
     private boolean check_authentication;
+    private boolean native_dkim;
     private boolean check_tls;
     private boolean check_reply_domain;
     private boolean check_mx;
@@ -400,6 +401,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibPinContact;
         private ImageButton ibAddContact;
 
+        private TextView tvSignedByTitle;
         private TextView tvSubmitterTitle;
         private TextView tvDeliveredToTitle;
         private TextView tvFromExTitle;
@@ -415,6 +417,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvLanguageTitle;
         private TextView tvThreadTitle;
 
+        private TextView tvSignedBy;
         private TextView tvSubmitter;
         private TextView tvDeliveredTo;
         private TextView tvFromEx;
@@ -806,6 +809,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibPinContact = vsBody.findViewById(R.id.ibPinContact);
             ibAddContact = vsBody.findViewById(R.id.ibAddContact);
 
+            tvSignedByTitle = vsBody.findViewById(R.id.tvSignedByTitle);
             tvSubmitterTitle = vsBody.findViewById(R.id.tvSubmitterTitle);
             tvDeliveredToTitle = vsBody.findViewById(R.id.tvDeliveredToTitle);
             tvFromExTitle = vsBody.findViewById(R.id.tvFromExTitle);
@@ -821,6 +825,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvLanguageTitle = vsBody.findViewById(R.id.tvLanguageTitle);
             tvThreadTitle = vsBody.findViewById(R.id.tvThreadTitle);
 
+            tvSignedBy = vsBody.findViewById(R.id.tvSignedBy);
             tvSubmitter = vsBody.findViewById(R.id.tvSubmitter);
             tvDeliveredTo = vsBody.findViewById(R.id.tvDeliveredTo);
             tvFromEx = vsBody.findViewById(R.id.tvFromEx);
@@ -1680,6 +1685,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibPinContact.setVisibility(View.GONE);
             ibAddContact.setVisibility(View.GONE);
 
+            tvSignedByTitle.setVisibility(View.GONE);
             tvSubmitterTitle.setVisibility(View.GONE);
             tvDeliveredToTitle.setVisibility(View.GONE);
             tvFromExTitle.setVisibility(View.GONE);
@@ -1695,6 +1701,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvLanguageTitle.setVisibility(View.GONE);
             tvThreadTitle.setVisibility(View.GONE);
 
+            tvSignedBy.setVisibility(View.GONE);
             tvSubmitter.setVisibility(View.GONE);
             tvDeliveredTo.setVisibility(View.GONE);
             tvFromEx.setVisibility(View.GONE);
@@ -2485,6 +2492,29 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibNotifyContact.setVisibility(show_addresses && hasChannel && froms > 0 ? View.VISIBLE : View.GONE);
             ibPinContact.setVisibility(show_addresses && pin && contacts && froms > 0 ? View.VISIBLE : View.GONE);
             ibAddContact.setVisibility(show_addresses && contacts && froms > 0 ? View.VISIBLE : View.GONE);
+
+
+            boolean known_signer = false;
+            if (native_dkim &&
+                    message.signedby != null &&
+                    message.from != null &&
+                    message.from.length == 1) {
+                String domain = UriHelper.getEmailDomain(((InternetAddress) message.from[0]).getAddress());
+                if (domain != null)
+                    for (String signer : message.signedby.split(","))
+                        if (signer.equals(domain)) {
+                            known_signer = true;
+                            break;
+                        }
+            }
+            boolean show_signers = (native_dkim &&
+                    message.signedby != null &&
+                    (show_addresses || !known_signer));
+
+            tvSignedByTitle.setVisibility(show_signers ? View.VISIBLE : View.GONE);
+            tvSignedBy.setVisibility(show_signers ? View.VISIBLE : View.GONE);
+            tvSignedBy.setTextColor(known_signer ? textColorTertiary : colorAccent);
+            tvSignedBy.setText(message.signedby);
 
             tvSubmitterTitle.setVisibility(!TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
             tvSubmitter.setVisibility(!TextUtils.isEmpty(submitter) ? View.VISIBLE : View.GONE);
@@ -4576,6 +4606,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         .append('\n');
                 sb.append("DMARC: ")
                         .append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"));
+            }
+
+            if (native_dkim && !TextUtils.isEmpty(message.signedby)) {
+                if (sb.length() > 0)
+                    sb.append('\n');
+                sb.append("Signed by:").append('\n');
+                for (String signer : message.signedby.split(","))
+                    sb.append(signer).append('\n');
             }
 
             if (Boolean.TRUE.equals(message.blocklist)) {
@@ -7402,6 +7440,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.avatars = (contacts && avatars) || (bimi || gravatars || libravatars || favicons || generated);
         this.color_stripe = prefs.getBoolean("color_stripe", true);
         this.check_authentication = prefs.getBoolean("check_authentication", true);
+        this.native_dkim = prefs.getBoolean("native_dkim", false);
         this.check_tls = prefs.getBoolean("check_tls", true);
         this.check_reply_domain = prefs.getBoolean("check_reply_domain", true);
         this.check_mx = prefs.getBoolean("check_mx", false);
@@ -7531,6 +7570,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!Objects.equals(prev.bimi_selector, next.bimi_selector)) {
                     same = false;
                     log("bimi_selector changed", next.id);
+                }
+                if (!Objects.equals(prev.signedby, next.signedby)) {
+                    same = false;
+                    log("signedby changed", next.id);
                 }
                 if (!Objects.equals(prev.tls, next.tls)) {
                     same = false;

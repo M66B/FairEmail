@@ -4076,6 +4076,7 @@ class Core {
         boolean download_headers = prefs.getBoolean("download_headers", false);
         boolean download_plain = prefs.getBoolean("download_plain", false);
         boolean notify_known = prefs.getBoolean("notify_known", false);
+        boolean native_dkim = prefs.getBoolean("native_dkim", false);
         boolean experiments = prefs.getBoolean("experiments", false);
         boolean pro = ActivityBilling.isPro(context);
 
@@ -4255,15 +4256,14 @@ class Core {
             message.receipt_request = helper.getReceiptRequested();
             message.receipt_to = helper.getReceiptTo();
             message.bimi_selector = helper.getBimiSelector();
+
+            if (native_dkim) {
+                List<String> signers = helper.verifyDKIM(context);
+                message.signedby = (signers.size() == 0 ? null : TextUtils.join(",", signers));
+            }
+
             message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
-            if (BuildConfig.DEBUG &&
-                    Boolean.TRUE.equals(message.dkim) &&
-                    EntityFolder.JUNK.equals(folder.type)) {
-                Boolean dkim = helper.verifyDKIM(context);
-                flagged = Boolean.FALSE.equals(dkim);
-                color = android.graphics.Color.RED;
-            }
             if (Boolean.TRUE.equals(message.dkim))
                 message.dkim = helper.checkDKIMRequirements();
             message.spf = MessageHelper.getAuthentication("spf", authentication);
