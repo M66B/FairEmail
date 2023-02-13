@@ -709,7 +709,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                     if (provider != null &&
                             provider.imap != null && provider.smtp != null) {
-                        tvUser.setText("-");
+                        tvUser.setText(TextUtils.isEmpty(provider.username) ? "-" : provider.username);
                         tvImap.setText(provider.imap.toString());
                         tvSmtp.setText(provider.smtp.toString());
                         grpSetup.setVisibility(View.VISIBLE);
