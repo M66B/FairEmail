@@ -102,6 +102,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -1992,6 +1993,7 @@ public class MessageHelper {
         if (!(imessage instanceof IMAPMessage))
             return null;
 
+        // Workaround reformatted headers
         Properties props = MessageHelper.getSessionProperties(true);
         Session isession = Session.getInstance(props, null);
         MimeMessage amessage = new MimeMessage(isession, ((IMAPMessage) imessage).getMimeStream());
@@ -2031,58 +2033,66 @@ public class MessageHelper {
                     String[] c = kv.get("c").split("/");
 
                     StringBuilder head = new StringBuilder();
-                    // TODO: check presence from
-                    Log.i("DKIM headers=" + kv.get("h"));
+
+                    String hs = kv.get("h");
+                    Log.i("DKIM headers=" + hs);
+
+                    boolean from = false;
                     List<String> _h = new ArrayList<>();
-                    _h.addAll(Arrays.asList(kv.get("h").split(":")));
+                    for (String key : hs.split(":")) {
+                        _h.add(key.trim());
+                        from = (from || "from".equalsIgnoreCase(key.trim()));
+                    }
+                    if (!from)
+                        throw new IllegalArgumentException("from missing: " + hs);
+
                     _h.add("DKIM-Signature");
-                    List<String> processed = new ArrayList<>();
+
+                    Map<String, Integer> index = new Hashtable<>();
                     for (String n : _h) {
-                        n = n.trim();
-                        if (processed.contains(n)) {
-                            Log.i("DKIM duplicate header='" + n + "'");
-                            continue;
-                        }
-                        processed.add(n);
+                        // https://datatracker.ietf.org/doc/html/rfc6376/#section-5.4.2
+                        String _n = n.toLowerCase(Locale.ROOT);
+                        Integer idx = index.get(_n);
+                        idx = (idx == null ? 1 : idx + 1);
+                        index.put(_n, idx);
 
                         String[] h = ("DKIM-Signature".equals(n) ? new String[]{header} : amessage.getHeader(n));
-                        if (h == null) {
-                            Log.i("DKIM missing header='" + n + "'");
+                        if (h == null || idx > h.length) {
+                            // https://datatracker.ietf.org/doc/html/rfc6376/#section-5.4
+                            Log.i("DKIM missing header=" + n + "[" + idx + "/" + (h == null ? null : h.length) + "]");
                             continue;
                         }
 
-                        for (int i = h.length - 1; i >= 0; i--) {
-                            String v = h[i];
-                            if ("DKIM-Signature".equals(n)) {
-                                int b = v.lastIndexOf("b=");
-                                int s = v.indexOf(";", b + 2);
-                                v = v.substring(0, b + 2) + (s < 0 ? "" : v.substring(s));
-                            } else
-                                Log.i("DKIM " + n + "=" + v.replaceAll("\\r?\\n", "|"));
+                        String v = h[h.length - idx];
+                        if ("DKIM-Signature".equals(n)) {
+                            int b = v.lastIndexOf("b=");
+                            int s = v.indexOf(";", b + 2);
+                            v = v.substring(0, b + 2) + (s < 0 ? "" : v.substring(s));
+                        } else
+                            Log.i("DKIM " + n + "=" + v.replaceAll("\\r?\\n", "|"));
 
-                            if ("simple".equals(c[0])) {
-                                if ("DKIM-Signature".equals(n))
-                                    head.append(n).append(": ").append(v);
-                                else {
-                                    // Find original header/name
-                                    Enumeration<Header> oheaders = amessage.getAllHeaders();
-                                    while (oheaders.hasMoreElements()) {
-                                        Header oheader = oheaders.nextElement();
-                                        if (n.equalsIgnoreCase(oheader.getName()))
-                                            head.append(oheader.getName()).append(": ")
-                                                    .append(oheader.getValue());
-                                    }
+                        if ("simple".equals(c[0])) {
+                            if ("DKIM-Signature".equals(n))
+                                head.append(n).append(": ").append(v);
+                            else {
+                                // Find original header/name
+                                Enumeration<Header> oheaders = amessage.getAllHeaders();
+                                while (oheaders.hasMoreElements()) {
+                                    Header oheader = oheaders.nextElement();
+                                    if (n.equalsIgnoreCase(oheader.getName()))
+                                        head.append(oheader.getName()).append(": ")
+                                                .append(oheader.getValue());
                                 }
-                            } else if ("relaxed".equals(c[0])) {
-                                v = MimeUtility.unfold(v);
-                                head.append(n.trim().toLowerCase()).append(':')
-                                        .append(v.replaceAll("\\s+", " ").trim());
-                            } else
-                                throw new IllegalArgumentException(c[0]);
+                            }
+                        } else if ("relaxed".equals(c[0])) {
+                            v = MimeUtility.unfold(v);
+                            head.append(_n).append(':')
+                                    .append(v.replaceAll("\\s+", " ").trim());
+                        } else
+                            throw new IllegalArgumentException(c[0]);
 
-                            if (!"DKIM-Signature".equals(n))
-                                head.append("\r\n");
-                        }
+                        if (!"DKIM-Signature".equals(n))
+                            head.append("\r\n");
                     }
                     Log.i("DKIM head=" + head.toString().replace("\r\n", "|"));
 
@@ -2137,7 +2147,6 @@ public class MessageHelper {
                     boolean verified = sig.verify(signature);
                     Log.i("DKIM valid=" + verified +
                             " dns=" + dns +
-                            " results=" + getAuthentication("dkim", getAuthentication()) +
                             " from=" + formatAddresses(getFrom()));
 
                     if (verified)
