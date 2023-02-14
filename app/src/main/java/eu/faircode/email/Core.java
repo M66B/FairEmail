@@ -4518,6 +4518,11 @@ class Core {
                 db.endTransaction();
             }
 
+            if (BuildConfig.DEBUG &&
+                    message.signedby == null &&
+                    Boolean.TRUE.equals(message.dkim))
+                EntityOperation.queue(context, message, EntityOperation.FLAG, true, android.graphics.Color.RED);
+
             try {
                 EntityContact.received(context, account, folder, message);
 
