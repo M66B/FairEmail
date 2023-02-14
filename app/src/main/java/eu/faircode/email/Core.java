@@ -2933,6 +2933,7 @@ class Core {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean sync_quick_pop = prefs.getBoolean("sync_quick_pop", true);
         boolean notify_known = prefs.getBoolean("notify_known", false);
+        boolean native_dkim = prefs.getBoolean("native_dkim", false);
         boolean download_eml = prefs.getBoolean("download_eml", false);
         boolean download_plain = prefs.getBoolean("download_plain", false);
         boolean check_blocklist = prefs.getBoolean("check_blocklist", false);
@@ -3166,6 +3167,12 @@ class Core {
                         message.receipt_request = helper.getReceiptRequested();
                         message.receipt_to = helper.getReceiptTo();
                         message.bimi_selector = helper.getBimiSelector();
+
+                        if (native_dkim) {
+                            List<String> signers = helper.verifyDKIM(context);
+                            message.signedby = (signers.size() == 0 ? null : TextUtils.join(",", signers));
+                        }
+
                         message.tls = helper.getTLS();
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
                         if (Boolean.TRUE.equals(message.dkim))

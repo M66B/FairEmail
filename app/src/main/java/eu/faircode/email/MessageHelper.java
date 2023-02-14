@@ -54,6 +54,7 @@ import com.sun.mail.util.BASE64DecoderStream;
 import com.sun.mail.util.DecodingException;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MessageRemovedIOException;
+import com.sun.mail.util.ReadableMime;
 
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.apache.commons.compress.archivers.ArchiveException;
@@ -1994,13 +1995,11 @@ public class MessageHelper {
         List<String> signers = new ArrayList<>();
 
         try {
-            // Workaround reformatted headers
-            Properties props = MessageHelper.getSessionProperties(true);
-            Session isession = Session.getInstance(props, null);
-            MimeMessage amessage = new MimeMessage(isession, ((IMAPMessage) imessage).getMimeStream());
+            // Workaround reformatted headers (Content-Type)
+            InternetHeaders ih = new InternetHeaders(((ReadableMime) imessage).getMimeStream(), true);
 
             // https://datatracker.ietf.org/doc/html/rfc6376/
-            String[] headers = amessage.getHeader("DKIM-Signature");
+            String[] headers = ih.getHeader("DKIM-Signature");
             if (headers == null || headers.length < 1)
                 return signers;
 
@@ -2065,7 +2064,7 @@ public class MessageHelper {
 
                         String[] values = ("DKIM-Signature".equals(key)
                                 ? new String[]{header}
-                                : amessage.getHeader(key));
+                                : ih.getHeader(key));
                         if (values == null || idx > values.length) {
                             // https://datatracker.ietf.org/doc/html/rfc6376/#section-5.4
                             Log.i("DKIM missing header=" +
@@ -2086,7 +2085,7 @@ public class MessageHelper {
                                 head.append(key).append(": ").append(value);
                             else {
                                 // Find original header/name
-                                Enumeration<Header> oheaders = amessage.getAllHeaders();
+                                Enumeration<Header> oheaders = ih.getAllHeaders();
                                 while (oheaders.hasMoreElements()) {
                                     Header oheader = oheaders.nextElement();
                                     if (key.equalsIgnoreCase(oheader.getName()))
@@ -2107,7 +2106,7 @@ public class MessageHelper {
                     Log.i("DKIM head=" + head.toString().replace("\r\n", "|"));
 
                     ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                    Helper.copy(amessage.getRawInputStream(), bos);
+                    Helper.copy(imessage.getRawInputStream(), bos);
                     String body = bos.toString(); // TODO: charset?
                     if ("simple".equals(c[c.length > 1 ? 1 : 0])) {
                         if (TextUtils.isEmpty(body))
