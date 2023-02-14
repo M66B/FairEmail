@@ -2084,13 +2084,18 @@ public class MessageHelper {
                             if ("DKIM-Signature".equals(key))
                                 head.append(key).append(": ").append(value);
                             else {
-                                // Find original header/name
+                                // Find original header/name (case sensitive)
+                                int _idx = values.length - idx;
                                 Enumeration<Header> oheaders = ih.getAllHeaders();
                                 while (oheaders.hasMoreElements()) {
                                     Header oheader = oheaders.nextElement();
-                                    if (key.equalsIgnoreCase(oheader.getName()))
-                                        head.append(oheader.getName()).append(": ")
-                                                .append(oheader.getValue());
+                                    if (key.equalsIgnoreCase(oheader.getName())) {
+                                        if (_idx-- == 0) {
+                                            head.append(oheader.getName()).append(": ")
+                                                    .append(oheader.getValue());
+                                            break;
+                                        }
+                                    }
                                 }
                             }
                         } else if ("relaxed".equals(c[0])) {
