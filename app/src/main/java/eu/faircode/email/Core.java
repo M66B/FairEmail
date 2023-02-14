@@ -2977,6 +2977,7 @@ class Core {
 
             // Get messages
             Message[] imessages = ifolder.getMessages();
+
             List<TupleUidl> ids = db.message().getUidls(folder.id);
             int max = (account.max_messages == null
                     ? imessages.length
@@ -3109,7 +3110,9 @@ class Core {
 
                         TupleUidl tuple = (hasUidl ? uidlTuple.get(uidl) : msgIdTuple.get(msgid));
                         if (tuple != null) {
-                            _new = false;
+                            if (account.max_messages != null)
+                                _new = false;
+
                             Log.i(account.name + " POP having " +
                                     msgid + "=" + msgIdTuple.containsKey(msgid) + "/" +
                                     uidl + "=" + uidlTuple.containsKey(uidl));
