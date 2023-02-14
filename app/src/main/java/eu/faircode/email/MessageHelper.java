@@ -2132,6 +2132,15 @@ public class MessageHelper {
                     } else
                         throw new IllegalArgumentException(c[1]);
 
+                    String length = kv.get("l");
+                    if (!TextUtils.isEmpty(length) && TextUtils.isDigitsOnly(length)) {
+                        int l = Integer.parseInt(length);
+                        if (l < 100)
+                            throw new IllegalArgumentException("Body length " + l + " < 100");
+                        if (l < body.length())
+                            body = body.substring(0, l);
+                    }
+
                     Log.i("DKIM body=" + body.replace("\r\n", "|"));
 
                     byte[] bh = MessageDigest.getInstance(halgo).digest(body.getBytes());  // TODO: charset?
