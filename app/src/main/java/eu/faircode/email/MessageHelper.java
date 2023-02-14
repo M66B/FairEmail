@@ -179,6 +179,7 @@ public class MessageHelper {
     private static final int MAX_META_EXCERPT = 1024; // characters
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72; // characters
     private static final int MAX_DIAGNOSTIC = 250; // characters
+    private static final int DKIM_MIN_TEXT = 100; // characters
 
     private static final String DOCTYPE = "<!DOCTYPE";
     private static final String HTML_START = "<html>";
@@ -2142,8 +2143,8 @@ public class MessageHelper {
                     String length = kv.get("l");
                     if (!TextUtils.isEmpty(length) && TextUtils.isDigitsOnly(length)) {
                         int l = Integer.parseInt(length);
-                        if (l < 100)
-                            throw new IllegalArgumentException("Body length " + l + " < 100");
+                        if (l < DKIM_MIN_TEXT)
+                            throw new IllegalArgumentException("Body length " + l + " < " + DKIM_MIN_TEXT);
                         if (l < body.length())
                             body = body.substring(0, l);
                     }
