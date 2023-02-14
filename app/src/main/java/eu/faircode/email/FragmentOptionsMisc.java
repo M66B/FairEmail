@@ -1587,6 +1587,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swNativeDkim.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
         swNativeDkim.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {

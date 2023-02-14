@@ -3168,7 +3168,7 @@ class Core {
                         message.receipt_to = helper.getReceiptTo();
                         message.bimi_selector = helper.getBimiSelector();
 
-                        if (native_dkim) {
+                        if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
                             List<String> signers = helper.verifyDKIM(context);
                             message.signedby = (signers.size() == 0 ? null : TextUtils.join(",", signers));
                         }
@@ -4264,7 +4264,7 @@ class Core {
             message.receipt_to = helper.getReceiptTo();
             message.bimi_selector = helper.getBimiSelector();
 
-            if (native_dkim) {
+            if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
                 List<String> signers = helper.verifyDKIM(context);
                 message.signedby = (signers.size() == 0 ? null : TextUtils.join(",", signers));
             }
