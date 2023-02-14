@@ -3010,15 +3010,18 @@ class Core {
                 // Index IDs
                 Map<String, TupleUidl> uidlTuple = new HashMap<>();
                 for (TupleUidl id : ids) {
-                    if (id.uidl != null && id.msgid != null)
+                    if (id.uidl != null && id.msgid != null) {
+                        if (uidlTuple.containsKey(id.uidl))
+                            Log.w(account.name + " POP duplicate uidl/msgid=" + id.uidl + "/" + id.msgid);
                         uidlTuple.put(id.uidl, id);
+                    }
                 }
 
                 Map<String, TupleUidl> msgIdTuple = new HashMap<>();
                 for (TupleUidl id : ids)
                     if (id.msgid != null) {
                         if (msgIdTuple.containsKey(id.msgid))
-                            Log.w(account.name + " POP duplicate msgid=" + id.msgid);
+                            Log.w(account.name + " POP duplicate msgid/uidl=" + id.msgid + "/" + id.uidl);
                         msgIdTuple.put(id.msgid, id);
                     }
 
