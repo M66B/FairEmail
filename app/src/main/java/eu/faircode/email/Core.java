@@ -2984,7 +2984,7 @@ class Core {
                     : Math.min(imessages.length, account.max_messages));
 
             boolean sync = true;
-            if (sync_quick_pop && !force &&
+            if (!hasUidl && sync_quick_pop && !force &&
                     imessages.length > 0 && folder.last_sync_count != null &&
                     imessages.length == folder.last_sync_count) {
                 // Check if last message known as new messages indicator
