@@ -3143,11 +3143,7 @@ class Core {
                         }
 
                         Long sent = helper.getSent();
-                        Long received = helper.getReceivedHeader(helper.getResent());
-                        if (received == null)
-                            received = sent;
-                        if (received == null)
-                            received = 0L;
+                        long received = helper.getPOP3Received();
 
                         boolean seen = (received <= account.created);
                         EntityLog.log(context, account.name + " POP sync=" + uidl + "/" + msgid +

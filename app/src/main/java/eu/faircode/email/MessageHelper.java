@@ -2509,7 +2509,16 @@ public class MessageHelper {
         return getReceivedHeader(null);
     }
 
-    Long getReceivedHeader(Long before) throws MessagingException {
+    long getPOP3Received() throws MessagingException {
+        Long received = getReceivedHeader(getResent());
+        if (received == null)
+            received = getSent();
+        if (received == null)
+            received = 0L;
+        return received;
+    }
+
+    private Long getReceivedHeader(Long before) throws MessagingException {
         ensureHeaders();
 
         // https://tools.ietf.org/html/rfc5321#section-4.4
