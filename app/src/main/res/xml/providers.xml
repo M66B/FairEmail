@@ -1977,17 +1977,4 @@
             port="465"
             starttls="false" />
     </provider>
-    <provider
-        name="o2.pl"
-        domain="o2\\.pl,go2\\.pl"
-        link="https://pomoc.o2.pl/jak-skonfigurowac-program-pocztowy">
-        <imap
-            host="poczta.o2.pl"
-            port="993"
-            starttls="false" />
-        <smtp
-            host="poczta.o2.pl"
-            port="465"
-            starttls="false" />
-    </provider>
 </providers>
