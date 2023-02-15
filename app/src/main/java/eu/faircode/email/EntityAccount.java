@@ -58,7 +58,6 @@ public class EntityAccount extends EntityOrder implements Serializable {
     // https://tools.ietf.org/html/rfc2177
     static final int DEFAULT_KEEP_ALIVE_INTERVAL = 15; // minutes
     static final int DEFAULT_POLL_INTERVAL = 15; // minutes
-    static final int DEFAULT_MAX_MESSAGES = 250; // POP3
 
     static final int QUOTA_WARNING = 95; // percent
 
@@ -120,7 +119,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     public Boolean leave_deleted = false;
     @NonNull
     public Boolean leave_on_device = false;
-    public Integer max_messages; // POP3
+    public Integer max_messages = null; // POP3
     @NonNull
     public Boolean auto_seen = true;
     @ColumnInfo(name = "separator")

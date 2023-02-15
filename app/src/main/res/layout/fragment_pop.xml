@@ -469,11 +469,21 @@
             android:id="@+id/etMax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberSigned"
             android:maxLength="9"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMax" />
+
+        <TextView
+            android:id="@+id/tvMaxRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_max_messages_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etMax" />
 
         <!-- keep alive -->
 
@@ -485,7 +495,7 @@
             android:text="@string/title_keep_poll_interval"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etMax" />
+            app:layout_constraintTop_toBottomOf="@id/tvMaxRemark" />
 
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etInterval"

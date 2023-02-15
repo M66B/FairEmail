@@ -891,9 +891,6 @@ public class FragmentOAuth extends FragmentBase {
                         account.partial_fetch = provider.partial;
                         account.raw_fetch = provider.raw;
 
-                        if (pop)
-                            account.max_messages = EntityAccount.DEFAULT_MAX_MESSAGES;
-
                         account.created = new Date().getTime();
                         account.last_connected = account.created;
 

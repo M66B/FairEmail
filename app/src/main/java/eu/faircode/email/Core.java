@@ -2981,7 +2981,8 @@ class Core {
             List<TupleUidl> ids = db.message().getUidls(folder.id);
             int max = (account.max_messages == null
                     ? imessages.length
-                    : Math.min(imessages.length, account.max_messages));
+                    : Math.min(imessages.length, Math.abs(account.max_messages)));
+            boolean reversed = (account.max_messages != null && account.max_messages < 0);
 
             boolean sync = true;
             if (!hasUidl && sync_quick_pop && !force &&
@@ -3003,6 +3004,7 @@ class Core {
                     " device=" + ids.size() +
                     " server=" + imessages.length +
                     " max=" + max + "/" + account.max_messages +
+                    " reversed=" + reversed +
                     " last=" + folder.last_sync_count +
                     " sync=" + sync +
                     " uidl=" + hasUidl);
@@ -3075,7 +3077,7 @@ class Core {
                 }
 
                 boolean _new = true;
-                for (int i = imessages.length - 1; i >= imessages.length - max; i--) {
+                for (int i = reversed ? 0 : imessages.length - 1; reversed ? i < max : i >= imessages.length - max; i += reversed ? 1 : -1) {
                     state.ensureRunning("Sync/POP3");
 
                     Message imessage = imessages[i];
@@ -3392,8 +3394,8 @@ class Core {
             }
 
             if (account.max_messages != null && !account.leave_on_device) {
-                int hidden = db.message().setMessagesUiHide(folder.id, account.max_messages);
-                int deleted = db.message().deleteMessagesKeep(folder.id, account.max_messages + 100);
+                int hidden = db.message().setMessagesUiHide(folder.id, Math.abs(account.max_messages));
+                int deleted = db.message().deleteMessagesKeep(folder.id, Math.abs(account.max_messages) + 100);
                 EntityLog.log(context, account.name + " POP" +
                         " cleanup max=" + account.max_messages + "" +
                         " hidden=" + hidden + " deleted=" + deleted);

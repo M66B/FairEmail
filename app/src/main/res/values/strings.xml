@@ -1112,6 +1112,10 @@
     <string name="title_leave_deleted">Leave deleted messages on server</string>
     <string name="title_leave_on_device">Leave messages on device</string>
     <string name="title_max_messages">Maximum number of messages to download (blank for all)</string>
+    <string name="title_max_messages_remark">
+        Enter a positive number to download the messages at the end (most common)
+        and a negative number to download the messages at the beginning (least common)
+    </string>
     <string name="title_keep_poll_interval">Poll interval (minutes)</string>
     <string name="title_keep_alive_interval">Keep-alive interval (minutes)</string>
     <string name="title_keep_alive_noop">Restart IMAP IDLE periodically</string>
