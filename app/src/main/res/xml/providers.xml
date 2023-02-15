@@ -1091,7 +1091,7 @@
     </provider>
     <provider
         name="o2.pl"
-        domain="o2\\.pl"
+        domain="o2\\.pl,go2\\.pl"
         link="https://pomoc.o2.pl/jak-skonfigurowac-program-pocztowy"
         maxtls="1.2"
         noop="true">
