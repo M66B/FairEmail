@@ -296,7 +296,9 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         return super.onGenericMotionEvent(event);
     }
 
+    private float lastX;
     private float lastY;
+    private Integer lastXoff;
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -304,18 +306,39 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         if (event.getAction() == MotionEvent.ACTION_DOWN)
             intercept = true; // Prevent ACTION_CANCEL on fling
         else if (event.getAction() == MotionEvent.ACTION_MOVE) {
-            int range = computeVerticalScrollRange();
-            int extend = computeVerticalScrollExtent();
-            boolean canScrollVertical = (range > extend);
+            int yrange = computeVerticalScrollRange();
+            int yextend = computeVerticalScrollExtent();
+            boolean canScrollVertical = (yrange > yextend);
             if (canScrollVertical) {
-                int bottom = range - extend;
-                int off = computeVerticalScrollOffset();
+                int bottom = yrange - yextend;
+                int yoff = computeVerticalScrollOffset();
                 float dy = lastY - event.getY();
-                intercept = (off > 0 || dy >= 0) && (off < bottom || dy <= 0);
+                intercept = (yoff > 0 || dy >= 0) && (yoff < bottom || dy <= 0);
+            }
+
+            if (intercept)
+                lastXoff = computeHorizontalScrollOffset();
+            else {
+                int xrange = computeHorizontalScrollRange();
+                int xextend = computeHorizontalScrollExtent();
+                boolean canScrollHorizontal = (xrange > xextend);
+                //Log.i("MMM xrange=" + xrange + " xextend=" + xextend + " can=" + canScrollHorizontal);
+                if (canScrollHorizontal) {
+                    int right = xrange - xextend;
+                    int xoff = computeHorizontalScrollOffset();
+                    if (lastXoff == null)
+                        lastXoff = xoff;
+                    float dx = lastX - event.getX();
+                    intercept = (xoff > 0 || dx >= 0) &&
+                            (xoff < right || dx <= 0) &&
+                            (Math.signum(dx) == Math.signum(xoff - lastXoff));
+                    lastXoff = xoff;
+                }
             }
         }
         getParent().requestDisallowInterceptTouchEvent(intercept || event.getPointerCount() > 1);
 
+        lastX = event.getX();
         lastY = event.getY();
         return super.onTouchEvent(event);
     }
