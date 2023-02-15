@@ -1997,7 +1997,7 @@ public class MessageHelper {
 
         try {
             // Workaround reformatted headers (Content-Type)
-            // This will do a BODY.PEEK[]
+            // This will do a BODY.PEEK[] to fetch the headers and message body
             Properties props = MessageHelper.getSessionProperties(true);
             Session isession = Session.getInstance(props, null);
             MimeMessage amessage = new MimeMessage(isession, ((ReadableMime) imessage).getMimeStream());
@@ -2020,6 +2020,7 @@ public class MessageHelper {
                     halgo = "SHA-256";
                     salgo = "SHA256withRSA";
                 } else {
+                    // TODO: Ed25519
                     Log.i("DKIM a=" + a);
                     continue;
                 }
