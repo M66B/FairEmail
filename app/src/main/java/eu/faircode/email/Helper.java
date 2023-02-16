@@ -2332,6 +2332,7 @@ public class Helper {
     static boolean isEndChar(char c) {
         return (c == '.' /* Latin */ ||
                 c == '。' /* Chinese */ ||
+                c == ',' ||
                 c == ':' || c == ';' ||
                 c == '?' || c == '!');
     }
