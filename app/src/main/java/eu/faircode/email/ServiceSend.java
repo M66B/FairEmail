@@ -534,6 +534,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     db.operation().deleteOperation(op.id);
                 }
 
+                EntityLog.log(this, "Send restore id=" + message.id);
+
                 db.message().setMessageError(message.id, null);
                 nm.cancel("send:" + message.id, NotificationHelper.NOTIFICATION_TAGGED);
 
