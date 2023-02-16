@@ -188,14 +188,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                 window.setNavigationBarColor(colorPrimaryDark);
         }
 
-        Fragment bfragment = getSupportFragmentManager()
-                .findFragmentByTag("androidx.biometric.BiometricFragment");
+        FragmentManager fm = getSupportFragmentManager();
+
+        Fragment bfragment = fm.findFragmentByTag("androidx.biometric.BiometricFragment");
         if (bfragment != null) {
             Log.e("Orphan BiometricFragment");
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .remove(bfragment)
-                    .commitNowAllowingStateLoss();
+            fm.beginTransaction().remove(bfragment).commitNowAllowingStateLoss();
             /*
                 java.lang.RuntimeException: Unable to start activity ComponentInfo{eu.faircode.email/eu.faircode.email.ActivitySetup}: androidx.fragment.app.Fragment$InstantiationException: Unable to instantiate fragment androidx.biometric.FingerprintDialogFragment: could not find Fragment constructor
                   at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:2957)
@@ -231,6 +229,12 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
                   at java.lang.Class.getConstructor(Class.java:1725)
                   at androidx.fragment.app.Fragment.instantiate(SourceFile:4)
              */
+        }
+
+        Fragment ffragment = fm.findFragmentByTag("androidx.biometric.FingerprintDialogFragment");
+        if (ffragment != null) {
+            Log.e("Orphan FingerprintDialogFragment");
+            fm.beginTransaction().remove(ffragment).commitNowAllowingStateLoss();
         }
 
         checkAuthentication(true);
