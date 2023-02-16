@@ -2747,6 +2747,13 @@ public abstract class DB extends RoomDatabase {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `message` ADD COLUMN `signedby` TEXT");
                     }
+                }).addMigrations(new Migration(269, 270) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("UPDATE account SET raw_fetch = 1" +
+                                " WHERE host = 'imap.mail.yahoo.com' OR host = 'imap.aol.com'");
+                    }
                 }).addMigrations(new Migration(998, 999) {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
