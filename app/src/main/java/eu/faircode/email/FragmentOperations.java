@@ -181,12 +181,15 @@ public class FragmentOperations extends FragmentBase {
 
                                         List<EntityOperation> ops = new ArrayList<>();
 
+                                        // ADD, SEND, EXISTS, SUBSCRIBE
+
                                         if (error)
                                             addAll(ops, db.operation().getOperationsError());
 
                                         if (fetch) {
                                             addAll(ops, db.operation().getOperations(EntityOperation.FETCH));
                                             addAll(ops, db.operation().getOperations(EntityOperation.DOWNLOAD));
+                                            addAll(ops, db.operation().getOperations(EntityOperation.RAW));
                                             addAll(ops, db.operation().getOperations(EntityOperation.BODY));
                                             addAll(ops, db.operation().getOperations(EntityOperation.ATTACHMENT));
                                             addAll(ops, db.operation().getOperations(EntityOperation.HEADERS));
