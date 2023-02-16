@@ -1998,9 +1998,12 @@ public class MessageHelper {
         try {
             // Workaround reformatted headers (Content-Type)
             // This will do a BODY.PEEK[] to fetch the headers and message body
-            Properties props = MessageHelper.getSessionProperties(true);
-            Session isession = Session.getInstance(props, null);
-            MimeMessage amessage = new MimeMessage(isession, ((ReadableMime) imessage).getMimeStream());
+            MimeMessage amessage = imessage;
+            if (imessage instanceof ReadableMime) {
+                Properties props = MessageHelper.getSessionProperties(true);
+                Session isession = Session.getInstance(props, null);
+                amessage = new MimeMessage(isession, ((ReadableMime) imessage).getMimeStream());
+            }
 
             // https://datatracker.ietf.org/doc/html/rfc6376/
             String[] headers = amessage.getHeader("DKIM-Signature");
@@ -4810,8 +4813,11 @@ public class MessageHelper {
 
         try {
             if (imessage instanceof IMAPMessage) {
-                if (Boolean.parseBoolean(imessage.getSession().getProperty("fairemail.rawfetch")))
-                    throw new MessagingException("Unable to load BODYSTRUCTURE");
+                if (Boolean.parseBoolean(imessage.getSession().getProperty("fairemail.rawfetch"))) {
+                    Properties props = MessageHelper.getSessionProperties(true);
+                    Session isession = Session.getInstance(props, null);
+                    imessage = new MimeMessage(isession, ((ReadableMime) imessage).getMimeStream());
+                }
 
                 if (structure)
                     imessage.getContentType(); // force loadBODYSTRUCTURE
