@@ -2295,7 +2295,9 @@ class Core {
 
                     EntityLog.log(context, folder.name + " creating");
                     Folder ifolder = istore.getFolder(folder.name);
-                    if (!ifolder.exists())
+                    if (ifolder.exists())
+                        EntityLog.log(context, folder.name + " already exists on server");
+                    else
                         try {
                             ((IMAPFolder) ifolder).doCommand(new IMAPFolder.ProtocolCommand() {
                                 @Override
@@ -2357,16 +2359,29 @@ class Core {
                     EntityLog.log(context, folder.name + " deleting server");
                     Folder ifolder = istore.getFolder(folder.name);
                     if (ifolder.exists()) {
-                        ifolder.setSubscribed(false);
-                        ifolder.delete(false);
-                    }
-                    EntityLog.log(context, folder.name + " deleting device");
-                    db.folder().deleteFolder(folder.id);
+                        try {
+                            ifolder.setSubscribed(false);
+                            ((IMAPFolder) ifolder).doCommand(new IMAPFolder.ProtocolCommand() {
+                                @Override
+                                public Object doCommand(IMAPProtocol protocol) throws ProtocolException {
+                                    protocol.delete(folder.name);
+                                    return null;
+                                }
+                            });
+                            EntityLog.log(context, folder.name + " deleting device");
+                            db.folder().deleteFolder(folder.id);
+                        } catch (MessagingException ex) {
+                            Log.w(ex);
+                            EntityLog.log(context, folder.name + " deletion " +
+                                    ex + "\n" + android.util.Log.getStackTraceString(ex));
+                            db.account().setAccountError(account.id, Log.formatThrowable(ex));
+                        }
+                    } else
+                        EntityLog.log(context, folder.name + " does not exist on server anymore");
                 } finally {
                     db.folder().resetFolderTbd(folder.id);
                     sync_folders = true;
                 }
-                EntityLog.log(context, folder.name + " deleted");
 
             } else {
                 if (EntityFolder.DRAFTS.equals(folder.type))
