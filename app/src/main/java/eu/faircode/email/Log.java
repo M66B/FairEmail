@@ -2544,6 +2544,9 @@ public class Log {
                                 jfolder.put("selectable", folder.selectable);
                                 jfolder.put("inferiors", folder.inferiors);
                                 jfolder.put("auto_add", folder.auto_add);
+                                jfolder.put("tbc", Boolean.TRUE.equals(folder.tbc));
+                                jfolder.put("rename", folder.rename);
+                                jfolder.put("tbd", Boolean.TRUE.equals(folder.tbd));
                                 jfolder.put("operations", db.operation().getOperationCount(folder.id, null));
                                 jfolder.put("error", folder.error);
                                 if (folder.last_sync != null)
