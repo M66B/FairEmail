@@ -222,7 +222,7 @@
             enabled="true"
             privacy="https://privacy.microsoft.com/privacystatement"
             prompt="login"
-            redirectUri="msauth.eu.faircode.email://auth"
+            redirectUri="msauth://eu.faircode.email/xSLzBBuLJunOQPB89rtzM54FXx4%3D"
             scopes="profile,openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send,https://outlook.office.com/POP.AccessAsUser.All"
             tokenEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token"
             tokenScopes="true" />

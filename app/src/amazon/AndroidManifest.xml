@@ -503,6 +503,18 @@
                     android:host="auth"
                     android:scheme="msauth.${namespace}" />
             </intent-filter>
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="${namespace}"
+                    android:path="/xSLzBBuLJunOQPB89rtzM54FXx4="
+                    android:scheme="msauth" />
+            </intent-filter>
         </activity>
 
         <activity
