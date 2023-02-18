@@ -101,6 +101,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private Group grpCertificate;
     private Group grpError;
 
+    private int title;
     private boolean update;
     private EmailProvider bestProvider = null;
     private Bundle bestArgs = null;
@@ -119,6 +120,7 @@ public class FragmentQuickSetup extends FragmentBase {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
+        title = args.getInt("title", R.string.title_setup_other);
         update = args.getBoolean("update", true);
 
         lockOrientation();
@@ -127,7 +129,7 @@ public class FragmentQuickSetup extends FragmentBase {
     @Override
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        setSubtitle(R.string.title_setup_other);
+        setSubtitle(title);
         setHasOptionsMenu(true);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_quick_setup, container, false);

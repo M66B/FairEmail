@@ -642,8 +642,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onQuickSetup(Intent intent) {
+        Bundle args = new Bundle();
+        args.putInt("title", intent.getIntExtra("title", R.string.title_setup_other));
+
         FragmentQuickSetup fragment = new FragmentQuickSetup();
-        fragment.setArguments(new Bundle());
+        fragment.setArguments(args);
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("quick");
         fragmentTransaction.commit();
