@@ -423,6 +423,19 @@
                     app:layout_constraintTop_toBottomOf="@id/tvCaptionMessage" />
 
                 <TextView
+                    android:id="@+id/tvComposeColorHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_compose_color_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnComposeColor" />
+
+                <TextView
                     android:id="@+id/tvComposeFont"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -433,7 +446,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/btnComposeColor" />
+                    app:layout_constraintTop_toBottomOf="@id/tvComposeColorHint" />
 
                 <Spinner
                     android:id="@+id/spComposeFont"
