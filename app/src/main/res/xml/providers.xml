@@ -270,8 +270,7 @@
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88"
         noop="true"
         order="7"
-        partial="false"
-        raw="true">
+        partial="true">
         <imap
             host="imap.mail.yahoo.com"
             port="993"
@@ -305,8 +304,7 @@
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88"
         noop="true"
         order="7"
-        partial="false"
-        raw="true">
+        partial="true">
         <imap
             host="imap.mail.yahoo.com"
             port="993"
@@ -960,8 +958,7 @@
         id="aol"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88"
         noop="true"
-        patial="false"
-        raw="true">
+        partial="true">
         <imap
             host="imap.aol.com"
             port="993"
