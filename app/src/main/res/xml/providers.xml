@@ -119,7 +119,7 @@
     </provider>
     <provider
         name="Outlook"
-        description="Outlook/Office 365"
+        description="Office 365"
         enabled="false"
         id="office365"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
@@ -159,7 +159,7 @@
     </provider>
     <provider
         name="Outlook"
-        description="Outlook/Office 365"
+        description="Office 365"
         id="office365pcke"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
@@ -198,7 +198,7 @@
         name="Outlook"
         alt="true"
         debug="true"
-        description="Outlook/Office 365 (alt)"
+        description="Office 365 (alt)"
         id="outlook"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
