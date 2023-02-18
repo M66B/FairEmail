@@ -217,6 +217,8 @@ public class EmailProvider implements Parcelable {
     private static List<EmailProvider> parseProfiles(XmlPullParser xml) {
         List<EmailProvider> result = null;
 
+        String lang = Locale.getDefault().getLanguage();
+
         try {
             EmailProvider provider = null;
             int eventType = xml.getEventType();
@@ -256,7 +258,9 @@ public class EmailProvider implements Parcelable {
                         provider.maxtls = xml.getAttributeValue(null, "maxtls");
                         provider.link = xml.getAttributeValue(null, "link");
 
-                        String documentation = xml.getAttributeValue(null, "documentation");
+                        String documentation = xml.getAttributeValue(null, "documentation." + lang);
+                        if (documentation == null)
+                            documentation = xml.getAttributeValue(null, "documentation");
                         if (documentation != null)
                             provider.documentation = new StringBuilder(documentation);
 
