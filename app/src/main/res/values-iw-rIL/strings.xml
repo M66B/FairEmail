@@ -207,7 +207,7 @@
     <string name="title_setup_gmail_on_device">מדוע עלי לבחור בחשבון שכבר מחובר במכשיר?</string>
     <string name="title_setup_gmail_password">ארצה לאמת חשבון עם סיסמה במקום חשבון פנימי במכשיר</string>
     <string name="title_setup_office_auth">השגיאה ‚AUTHENTICATE נכשל’ עלולה להיגרם עקב IMAP/SMTP שהושבתו על ידי הנהלת המערכת</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">נא לנסות את אשף ההקמה המהירה עבור „ספק אחר”.</string>
+    <string name="title_setup_office_auth_5_7_3">נא לנסות את אשף ההקמה המהירה עבור ‚ספק אחר’.</string>
     <string name="title_setup_oauth_rationale">להרשות גישה לחשבון %1$s שלך</string>
     <string name="title_setup_oauth_update">אימות חשבון קיים שוב (אחרת ליצור חשבון חדש)</string>
     <string name="title_setup_oauth_updated">אישור החשבון עודכן</string>
@@ -601,11 +601,14 @@
     <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_default_folder">בחירת תיקיית ברירת מחדל</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
+    <string name="title_advanced_notifications_delete">מחיקת ערוצי התראות</string>
     <string name="title_advanced_notifications_default">ערוץ בררת מחדל</string>
     <string name="title_advanced_notifications_service">ערוץ מעקב</string>
     <string name="title_advanced_notifications_newest_first">הצגת ההתראות החדשות ביותר בהתחלה</string>
     <string name="title_advanced_badge">הצגת סמל משגר עם מספר ההודעות החדשות</string>
     <string name="title_advanced_unseen_ignored">לאפשר למספר ההודעות החדשות להיות תואם למספר ההתראות</string>
+    <string name="title_advanced_notify_grouping">קיבוץ התראות</string>
+    <string name="title_advanced_notify_private">לשמור על חסיון ההתראות כשהמכשיר נעול</string>
     <string name="title_advanced_notify_background">להציג התראות כאשר במצב רקע בלבד</string>
     <string name="title_advanced_notify_known">הצגת התראות לאנשי קשר בלבד</string>
     <string name="title_advanced_notify_suppress_in_call">להשהות התראות בזמן שיחה</string>
@@ -1398,12 +1401,15 @@
     <string name="title_alternative_text">טעינת טקסט פשוט</string>
     <string name="title_alternative_html">טעינת HTML</string>
     <string name="title_no_openpgp">OpenKeychain לא נמצא</string>
+    <string name="title_no_openpgp_remark">יש להגדיר הצפנת PGP מקצה לקצה תחילה</string>
     <string name="title_user_interaction">מועבר ל־OpenKeychain</string>
     <string name="title_padlock">המנעול משמש לפענוח ההודעה</string>
     <string name="title_signed_data">אימות החתימה כדי להציג את טקסט ההודעה</string>
     <string name="title_not_encrypted">ההודעה אינה חתומה או מוצפנת</string>
     <string name="title_no_sign_key">לא נבחר מפתח חתימה</string>
     <string name="title_reset_sign_key">איפוס מפתח חתימה</string>
+    <string name="title_reset_selected_keys">איפוס המפתחות הנבחרים</string>
+    <string name="title_reset_selected_keys_hint">אפשר להשתמש במקרה של אישורים חדשים וכו׳.</string>
     <string name="title_signature_none">ההודעה אינה חתומה</string>
     <string name="title_signature_valid">חתימת ההודעה תקפה</string>
     <string name="title_signature_valid_from">חתימת ההודעה תקפה: %1$s</string>

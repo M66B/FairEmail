@@ -180,7 +180,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_gmail_on_device">Neden bir cihaz hesabı seçmem gerekiyor?</string>
     <string name="title_setup_gmail_password">Cihazdaki bir hesap yerine şifreli bir hesabı yetkilendirmek istiyorum</string>
     <string name="title_setup_office_auth">\'AUTHENTICATE failed\' hatası, sistem yöneticinizin IMAP/SMTP protokollerini engellemesinden kaynaklanıyor olabilir</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">\"Diğer sağlayıcı\" için lütfen hızlı kurulum sihirbazını deneyiniz.</string>
+    <string name="title_setup_office_auth_5_7_3">Lütfen \'Diğer sağlayıcı\' hızlı kurulum sihirbazını deneyin.</string>
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
     <string name="title_setup_oauth_update">Mevcut bir hesabı yeniden yetkilendir (aksi takdirde yeni bir hesap oluştur)</string>
     <string name="title_setup_oauth_updated">Hesap yetkilendirme güncellendi</string>
@@ -573,11 +573,14 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_default_folder">Varsayılan klasörü seçin</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
+    <string name="title_advanced_notifications_delete">Bildirim kanallarını sil</string>
     <string name="title_advanced_notifications_default">Varsayılan kanal</string>
     <string name="title_advanced_notifications_service">İzleme kanalı</string>
     <string name="title_advanced_notifications_newest_first">Önce en yeni bildirimleri göster</string>
     <string name="title_advanced_badge">Yeni ileti sayısını başlatıcıdaki simgede göster</string>
     <string name="title_advanced_unseen_ignored">Yeni iletilerin sayısıyla bildirimlerin sayısının eşleşmesine izin ver</string>
+    <string name="title_advanced_notify_grouping">Grup bildirimleri</string>
+    <string name="title_advanced_notify_private">Cihaz kilitliyken bildirimleri gizli tutun</string>
     <string name="title_advanced_notify_background">Bildirimleri sadece arka plandayken göster</string>
     <string name="title_advanced_notify_known">Sadece kişilerimden gelen bildirimleri göster</string>
     <string name="title_advanced_notify_suppress_in_call">Görüşme sırasında bildirimleri geciktir</string>
@@ -1367,12 +1370,15 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_alternative_text">Düzen metni yükle</string>
     <string name="title_alternative_html">HTML\'i yükle</string>
     <string name="title_no_openpgp">OpenKeychain bulunamadı</string>
+    <string name="title_no_openpgp_remark">Önce PGP uçtan uca şifrelemenin yapılandırılması gerekir</string>
     <string name="title_user_interaction">OpenKeychain\'e gönderiliyor</string>
     <string name="title_padlock">Mesajın şifresini çözmek için asma kilidi kullan</string>
     <string name="title_signed_data">Mesaj metnini göstermek için imzayı doğrula</string>
     <string name="title_not_encrypted">Mesaj imzalı veya şifreli değil</string>
     <string name="title_no_sign_key">Hiçbir imzalama anahtarı seçilmedi</string>
     <string name="title_reset_sign_key">İmzalama anahtarını sıfırla</string>
+    <string name="title_reset_selected_keys">Seçili tuşları sıfırla</string>
+    <string name="title_reset_selected_keys_hint">Yeni sertifika vb. durumlarda kullanılabilir.</string>
     <string name="title_signature_none">İleti imzalı değil</string>
     <string name="title_signature_valid">İleti imzası geçerli</string>
     <string name="title_signature_valid_from">Mesaj imzası geçerli: %1$s</string>

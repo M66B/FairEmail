@@ -181,7 +181,7 @@
     <string name="title_setup_gmail_on_device">Pourquoi dois-je sélectionner un compte présent sur mon appareil ?</string>
     <string name="title_setup_gmail_password">Je veux autoriser un compte avec un mot de passe au lieu d\'un compte de l\'appareil</string>
     <string name="title_setup_office_auth">L’erreur \'AUTHENTICATE failed\' peut être due à la désactivation d’IMAP/SMTP par l’administrateur système</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Veuillez utiliser l\'assistant de configuration rapide pour \"Autre fournisseur\".</string>
+    <string name="title_setup_office_auth_5_7_3">Veuillez essayer l\'assistant de configuration rapide « Autre fournisseur ».</string>
     <string name="title_setup_oauth_rationale">Autoriser l’accès à votre compte %1$s</string>
     <string name="title_setup_oauth_update">Autoriser à nouveau un compte existant (sinon créer un nouveau compte)</string>
     <string name="title_setup_oauth_updated">L\'autorisation du compte a été mise à jour</string>
@@ -575,11 +575,14 @@
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
     <string name="title_advanced_default_folder">Sélectionner le dossier par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
+    <string name="title_advanced_notifications_delete">Supprimer les canaux de notification</string>
     <string name="title_advanced_notifications_default">Canal par défaut</string>
     <string name="title_advanced_notifications_service">Canal de surveillance</string>
     <string name="title_advanced_notifications_newest_first">Afficher les notifications les plus récentes en premier</string>
     <string name="title_advanced_badge">Afficher le nombre de nouveaux messages sur l\'icône de lancement</string>
     <string name="title_advanced_unseen_ignored">Faire correspondre le nombre de nouveaux messages et le nombre de notifications</string>
+    <string name="title_advanced_notify_grouping">Regrouper les notifications</string>
+    <string name="title_advanced_notify_private">Garder les notifications privées lorsque l\'appareil est verrouillé</string>
     <string name="title_advanced_notify_background">Afficher les notifications en arrière-plan uniquement</string>
     <string name="title_advanced_notify_known">Afficher les notifications uniquement pour les contacts</string>
     <string name="title_advanced_notify_suppress_in_call">Différer les notifications pendant un appel</string>
@@ -725,6 +728,7 @@
     <string name="title_advanced_auto_identity_hint">Ceci sélectionnera la dernière identité utilisée lors de la sélection d\'un destinataire pour les nouveaux messages</string>
     <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l’objet sont vides ou quand une pièce jointe semble avoir été oubliée</string>
     <string name="title_advanced_reply_move_hint">Le serveur de messagerie pourrait tout de même ajouter les messages au dossier des messages envoyés</string>
+    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Les couleurs très claires ou très sombres rendront les messages illisibles par les destinataires</string>
     <string name="title_advanced_usenet_hint">Insérer -- entre le texte et la signature</string>
     <string name="title_advanced_remove_signature_hint">Ceci peut entraîner la suppression de trop peu ou de beaucoup trop de texte</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
@@ -875,6 +879,9 @@
     <string name="title_leave_deleted">Laisser les messages supprimés sur le serveur</string>
     <string name="title_leave_on_device">Laisser les messages sur l’appareil</string>
     <string name="title_max_messages">Nombre maximum de messages à télécharger (laisser vide pour tous)</string>
+    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Saisir un nombre positif pour télécharger les messages à la fin (le plus commun)
+        et un nombre négatif pour télécharger les messages au début (le moins commun)
+    </string>
     <string name="title_keep_poll_interval">Intervalle de synchronisation (minutes)</string>
     <string name="title_keep_alive_interval">Intervalle de maintien de connexion (minutes)</string>
     <string name="title_keep_alive_noop">Redémarrer IMAP IDLE périodiquement</string>
@@ -1217,6 +1224,7 @@
     </string>
     <string name="title_compose">Rédiger</string>
     <string name="title_submitter">Envoyé par :</string>
+    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Signé par:</string>
     <string name="title_delivered_to">Envoyé à :</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
@@ -1373,12 +1381,15 @@
     <string name="title_alternative_text">Charger le texte brut</string>
     <string name="title_alternative_html">Charger le HTML</string>
     <string name="title_no_openpgp">OpenKeychain introuvable</string>
+    <string name="title_no_openpgp_remark">Le chiffrement PGP de bout en bout doit être configuré en premier</string>
     <string name="title_user_interaction">Transfert vers OpenKeychain</string>
     <string name="title_padlock">Utiliser le cadenas pour déchiffrer le message</string>
     <string name="title_signed_data">Vérifier la signature pour afficher le texte du message</string>
     <string name="title_not_encrypted">Le message n\'est ni signé ni chiffré</string>
     <string name="title_no_sign_key">Aucune clé de signature sélectionnée</string>
     <string name="title_reset_sign_key">Réinitialiser la clé de signature</string>
+    <string name="title_reset_selected_keys">Réinitialiser les clés sélectionnées</string>
+    <string name="title_reset_selected_keys_hint">Peuvent être utilisées pour de nouveaux certificats, etc.</string>
     <string name="title_signature_none">Message non signé</string>
     <string name="title_signature_valid">Signature du message valide</string>
     <string name="title_signature_valid_from">Signature du message valide : %1$s</string>

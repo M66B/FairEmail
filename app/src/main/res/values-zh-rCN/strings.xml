@@ -168,7 +168,7 @@
     <string name="title_setup_gmail_on_device">为什么我需要选择设备上账户？</string>
     <string name="title_setup_gmail_password">我想使用密码而不是设备上的帐户进行授权</string>
     <string name="title_setup_office_auth">“认证失败”的错误可能是由于 IMAP/SMTP 被系统管理员禁用导致的</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">“其他提供商”请尝试快速设置向导。</string>
+    <string name="title_setup_office_auth_5_7_3">请尝试\'其他提供商\'快速设置向导。</string>
     <string name="title_setup_oauth_rationale">授权访问您的 %1$s 账户</string>
     <string name="title_setup_oauth_update">重新授权现有账户（否则请新建账户）</string>
     <string name="title_setup_oauth_updated">账户授权已更新</string>
@@ -561,11 +561,14 @@
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_default_folder">选择默认文件夹</string>
     <string name="title_advanced_notifications">管理通知</string>
+    <string name="title_advanced_notifications_delete">删除通知通道</string>
     <string name="title_advanced_notifications_default">默认频道</string>
     <string name="title_advanced_notifications_service">监控频道</string>
     <string name="title_advanced_notifications_newest_first">最新通知显示在前</string>
     <string name="title_advanced_badge">在启动器图标上显示新消息数目</string>
     <string name="title_advanced_unseen_ignored">让新消息数量匹配通知数量</string>
+    <string name="title_advanced_notify_grouping">通知分组</string>
+    <string name="title_advanced_notify_private">设备被锁定时保持通知私密</string>
     <string name="title_advanced_notify_background">仅在处于后台时显示通知</string>
     <string name="title_advanced_notify_known">仅显示联系人通知</string>
     <string name="title_advanced_notify_suppress_in_call">通话时延迟通知</string>
@@ -1353,12 +1356,15 @@
     <string name="title_alternative_text">加载纯文本</string>
     <string name="title_alternative_html">加载 HTML</string>
     <string name="title_no_openpgp">OpenKeychain 未找到</string>
+    <string name="title_no_openpgp_remark">PGP 端到端加密需要先进行配置</string>
     <string name="title_user_interaction">正传输到 OpenKeychain</string>
     <string name="title_padlock">使用挂锁解密消息</string>
     <string name="title_signed_data">验证签名以显示消息文本</string>
     <string name="title_not_encrypted">消息未签名或加密</string>
     <string name="title_no_sign_key">未选择签名密钥</string>
     <string name="title_reset_sign_key">重置签名密钥</string>
+    <string name="title_reset_selected_keys">重置选中的密钥</string>
+    <string name="title_reset_selected_keys_hint">可以用于新证书等。</string>
     <string name="title_signature_none">消息未签名</string>
     <string name="title_signature_valid">消息签名有效</string>
     <string name="title_signature_valid_from">消息签名有效： %1$s</string>

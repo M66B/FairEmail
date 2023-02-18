@@ -208,7 +208,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_gmail_on_device">Proč potřebuji vybrat účet na zařízení?</string>
     <string name="title_setup_gmail_password">Chci autorizovat účet s pomocí hesla namísto účtu v zařízení</string>
     <string name="title_setup_office_auth">Chyba „AUTHENTICATE failed“ může být způsobena zakázaným IMAP/SMTP správcem systému</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Prosím, zkuste průvodce rychlým nastavením pro \"jiného poskytovatele\".</string>
+    <string name="title_setup_office_auth_5_7_3">Prosím, zkuste průvodce rychlým nastavením \"jiného poskytovatele\".</string>
     <string name="title_setup_oauth_rationale">Autorizovat přístup k vašemu účtu %1$s</string>
     <string name="title_setup_oauth_update">Znovu autorizovat existující účet (jinak vytvořit nový účet)</string>
     <string name="title_setup_oauth_updated">Autorizace účtu byla aktualizována</string>
@@ -601,11 +601,14 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_default_snooze">Výchozí doba odložení/zpoždění</string>
     <string name="title_advanced_default_folder">Vybrat výchozí složku</string>
     <string name="title_advanced_notifications">Spravovat oznámení</string>
+    <string name="title_advanced_notifications_delete">Smazat kanál oznámení</string>
     <string name="title_advanced_notifications_default">Výchozí kanál</string>
     <string name="title_advanced_notifications_service">Monitorovací kanál</string>
     <string name="title_advanced_notifications_newest_first">Nejnovější oznámení zobrazit přednostně</string>
     <string name="title_advanced_badge">Zobrazit počet nových zpráv u ikony aplikace</string>
     <string name="title_advanced_unseen_ignored">Počet oznámení bude odpovídat počtu nových zpráv</string>
+    <string name="title_advanced_notify_grouping">Seskupit oznámení</string>
+    <string name="title_advanced_notify_private">Ponechat oznámení soukromá, pokud je zařízení uzamčeno</string>
     <string name="title_advanced_notify_background">Zobrazovat oznámení pouze při běhu na pozadí</string>
     <string name="title_advanced_notify_known">Zobrazit oznámení pouze pro kontakty</string>
     <string name="title_advanced_notify_suppress_in_call">Zpoždění upozornění během hovoru</string>
@@ -750,6 +753,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_auto_identity_hint">Toto zvolí poslední identitu použitou při výběru příjemce pro nové zprávy</string>
     <string name="title_advanced_send_reminders_hint">Zobrazí upozornění, je-li text zprávy či předmět prázdný nebo chybí-li pravděpodobně příloha</string>
     <string name="title_advanced_reply_move_hint">E-mailový server stále může zprávy ukládat i do složky odeslané</string>
+    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Velmi světlá nebo tmavá barva povede k nečitelným zprávám na straně příjemců</string>
     <string name="title_advanced_usenet_hint">Vložit „-- “ mezi text a podpis</string>
     <string name="title_advanced_remove_signature_hint">To může vést k odstranění příliš malého nebo příliš velkého textu</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
@@ -900,6 +904,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_leave_deleted">Ponechat smazané zprávy na serveru</string>
     <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>
     <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
+    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Zadejte kladné číslo ke stažení zpráv na konci (nejvíce běžné)
+        a záporné číslo ke stažení zpráv na začátku (nejméně běžné)
+    </string>
     <string name="title_keep_poll_interval">Interval dotazování (minuty)</string>
     <string name="title_keep_alive_interval">Interval udržování spojení (minuty)</string>
     <string name="title_keep_alive_noop">Restartovat IMAP IDLE periodicky</string>
@@ -1239,6 +1246,7 @@ v prohlížeči ze všech Google účtů.</string>
     </string>
     <string name="title_compose">Napsat zprávu</string>
     <string name="title_submitter">Odeslal:</string>
+    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Podepsáno:</string>
     <string name="title_delivered_to">Doručeno na:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Komu:</string>
@@ -1395,12 +1403,15 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_alternative_text">Načíst prostý text</string>
     <string name="title_alternative_html">Načíst HTML</string>
     <string name="title_no_openpgp">OpenKeychain nenalezena</string>
+    <string name="title_no_openpgp_remark">PGP end-to-end šifrování musí být nejprve nakonfigurováno</string>
     <string name="title_user_interaction">Přenášení do OpenKeychain</string>
     <string name="title_padlock">K dešifrování zprávy použijte zámek</string>
     <string name="title_signed_data">Ověřit podpis pro zobrazení textu zprávy</string>
     <string name="title_not_encrypted">Zpráva není podepsána ani šifrována</string>
     <string name="title_no_sign_key">Nebyl vybrán žádný podpisový klíč</string>
     <string name="title_reset_sign_key">Vynulovat podpisový klíč</string>
+    <string name="title_reset_selected_keys">Resetovat vybrané klíče</string>
+    <string name="title_reset_selected_keys_hint">Lze použít v případě nových certifikátů atd.</string>
     <string name="title_signature_none">Zpráva není podepsána</string>
     <string name="title_signature_valid">Podpis zprávy je platný</string>
     <string name="title_signature_valid_from">Podpis zprávy je platný: %1$s</string>

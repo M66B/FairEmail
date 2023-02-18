@@ -575,6 +575,7 @@
     <string name="title_advanced_notifications_newest_first">Näytä uusimmat ilmoitukset ensin</string>
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän vastata ilmoitusten lukumäärää</string>
+    <string name="title_advanced_notify_grouping">Ryhmittele ilmoitukset</string>
     <string name="title_advanced_notify_background">Näytä ilmoitukset vain, kun sovellus on taustalla</string>
     <string name="title_advanced_notify_known">Näytä ilmoitukset vain yhteystiedoille</string>
     <string name="title_advanced_notify_suppress_in_call">Viivästytä ilmoitukset puhelun aikana</string>

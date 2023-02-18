@@ -194,7 +194,7 @@
     <string name="title_setup_gmail_on_device">Zašto trebam izabrati račun na lokalnom uređaju?</string>
     <string name="title_setup_gmail_password">Želim autorizovati račun sa lozinkom umjesto lokalnog računa na uređaju</string>
     <string name="title_setup_office_auth">Greška \'PROVJERA nije uspjela\' može biti uzrokovana postavkama IMAP/SMTP-a koje je isključio sistemski administrator</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Molimo da probate čarobnjak brzih postavki za \"druge provajdere\".</string>
+    <string name="title_setup_office_auth_5_7_3">Molimo da probate brzi čarobnjak postavki za \'druge provajdere\'.</string>
     <string name="title_setup_oauth_rationale">Autorizuj pristup vašem%1$s računu</string>
     <string name="title_setup_oauth_update">Autorizuj postojeći račun opet (u suprotnom, kreiraj novi račun)</string>
     <string name="title_setup_oauth_updated">Autorizacija računa je ažurirana</string>
@@ -588,11 +588,14 @@
     <string name="title_advanced_default_snooze">Zadano vrijeme odlaganja/odgađanja</string>
     <string name="title_advanced_default_folder">Izaberite zadani folder</string>
     <string name="title_advanced_notifications">Upravljaj obavještenjima</string>
+    <string name="title_advanced_notifications_delete">Izbriši kanale obavještenja</string>
     <string name="title_advanced_notifications_default">Zadani kanal</string>
     <string name="title_advanced_notifications_service">Kanal monitoringa</string>
     <string name="title_advanced_notifications_newest_first">Prikaži prvo najnovija obavještenja</string>
     <string name="title_advanced_badge">Prikaži launcher ikonicu sa brojem novih poruka</string>
     <string name="title_advanced_unseen_ignored">Neka se broj novih poruka podudara s brojem obavještenja</string>
+    <string name="title_advanced_notify_grouping">Grupiši obavještenja</string>
+    <string name="title_advanced_notify_private">Obavještenja su privatna kada je uređaj zaključan</string>
     <string name="title_advanced_notify_background">Prikaži obavještenja samo u pozadini</string>
     <string name="title_advanced_notify_known">Prikaži obavještenja samo za kontakte</string>
     <string name="title_advanced_notify_suppress_in_call">Odgodi obavještenja tokom poziva</string>
@@ -1385,12 +1388,15 @@
     <string name="title_alternative_text">Učitaj obični tekst</string>
     <string name="title_alternative_html">Učitaj HTML</string>
     <string name="title_no_openpgp">OpenKeychan nije pronađen</string>
+    <string name="title_no_openpgp_remark">Potrebno je prvo podesiti PGP end-to-end šifriranje</string>
     <string name="title_user_interaction">Prebacivanje na OpenKeychain</string>
     <string name="title_padlock">Koristi lokot za dešifriranje poruke</string>
     <string name="title_signed_data">Potvrdi potpis za prikazivanje teksta poruke</string>
     <string name="title_not_encrypted">Poruka nije potpisana niti šifrirana</string>
     <string name="title_no_sign_key">Nema izabranog ključa za potpis</string>
     <string name="title_reset_sign_key">Resetuj ključ za potpis</string>
+    <string name="title_reset_selected_keys">Resetuj označene ključeve</string>
+    <string name="title_reset_selected_keys_hint">Može se koristiti za nove certifikate, itd.</string>
     <string name="title_signature_none">Poruka nije potpisana</string>
     <string name="title_signature_valid">Važeći potpis poruke</string>
     <string name="title_signature_valid_from">Važeći potpis poruke: %1$s</string>

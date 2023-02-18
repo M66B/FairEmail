@@ -174,7 +174,7 @@
     <string name="title_setup_quick">Швидке налаштування</string>
     <string name="title_setup_intro">Налаштування облікового запису лише за три кроки, і після цього ви зможете відправляти та отримувати листи</string>
     <string name="title_setup_simple">Немає необхідності змінювати будь-які інші параметри</string>
-    <string name="title_setup_issue">FairEmail був розроблений для захисту Вашої приватності і являє собою буквально тисячі годин роботи. Якщо у Вас виникли проблеми, будь ласка, зв\'яжіться зі мною в першу чергу, перш ніж залишити поганий відгук. Дуже радий допомогти!</string>
+    <string name="title_setup_issue">FairEmail створено для захисту ваших особистих даних, на його розробку було витрачено тисячі годин роботи. Якщо у вас виникнуть проблеми з додатком, перш ніж залишити поганий відгук, зв\'яжіться, будь ласка, зі мною. Буду радий допомогти!</string>
     <string name="title_setup_analytics">FairEmail не відображає рекламу і не відстежує та не проаналізує вашу поведінку. Bugsnag використовується для звітування про помилки та вимкнено за замовчуванням.</string>
     <string name="title_setup_quick_accounts">Додавання/зміна облікових записів</string>
     <string name="title_setup_quick_support">Деякі провайдери ускладнюють додавання рахунку. Будь ласка, не звинувачуйте у цьому Fairemail, а попросіть допомогу у Вашій службі підтримки.</string>
@@ -208,7 +208,7 @@
     <string name="title_setup_gmail_on_device">Навіщо мені обрати обліковий запис на пристрої?</string>
     <string name="title_setup_gmail_password">Я хочу авторизувати обліковий запис за допомогою пароля замість облікового запису на пристрої</string>
     <string name="title_setup_office_auth">Помилка \'Автентифікація не вдалася\' викликана помилкою IMAP/SMTP можливо вимкненою системним адміністратором</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Будь ласка, спробуйте майстер швидкого налаштування для \"іншого постачальника\".</string>
+    <string name="title_setup_office_auth_5_7_3">Будь ласка, спробуйте майстер швидкого налаштування \"Інший постачальник\".</string>
     <string name="title_setup_oauth_rationale">Авторизувати доступ до вашого облікового запису %1$s</string>
     <string name="title_setup_oauth_update">Авторизувати наявний обліковий запис знову (інакше створіть новий обліковий запис)</string>
     <string name="title_setup_oauth_updated">Авторизація облікового запису була оновлена</string>
@@ -341,7 +341,7 @@
     <string name="title_advanced_hint_remark">        Параметри класифіковані вкладками, розділені на секції, організовані за зовнішній виглядом або за використанням, та доступні для пошуку.
     </string>
     <string name="title_advanced_hint_setup">Ви можете налаштувати обліковий запис, натиснувши на кнопку майстра на головній сторінці конфігурації.</string>
-    <string name="title_advanced_section_main">Головне</string>
+    <string name="title_advanced_section_main">Загальні</string>
     <string name="title_advanced_section_synchronize">Отримання</string>
     <string name="title_advanced_section_send">Надсилання</string>
     <string name="title_advanced_section_connection">Підключення</string>
@@ -601,11 +601,14 @@
     <string name="title_advanced_default_snooze">Час повторного нагадування за замовчуванням</string>
     <string name="title_advanced_default_folder">Виберіть теку за замовчуванням</string>
     <string name="title_advanced_notifications">Керування сповіщеннями</string>
+    <string name="title_advanced_notifications_delete">Видалити канали сповіщень</string>
     <string name="title_advanced_notifications_default">Канал за замовчуванням</string>
     <string name="title_advanced_notifications_service">Моніторинг каналу</string>
     <string name="title_advanced_notifications_newest_first">Показувати спочатку нові сповіщення</string>
     <string name="title_advanced_badge">Показувати іконку лаунчера з кількістю нових повідомлень</string>
     <string name="title_advanced_unseen_ignored">Дозволити так щоб кількість нових повідомлень співпадала з кількістю сповіщень</string>
+    <string name="title_advanced_notify_grouping">Групування сповіщень</string>
+    <string name="title_advanced_notify_private">Приховувати вміст сповіщень, якщо пристрій заблоковано</string>
     <string name="title_advanced_notify_background">Показувати сповіщення, лише у фоновому режимі</string>
     <string name="title_advanced_notify_known">Показувати сповіщення лише для контактів</string>
     <string name="title_advanced_notify_suppress_in_call">Затримка сповіщень під час дзвінка</string>
@@ -749,6 +752,7 @@
     <string name="title_advanced_auto_identity_hint">Це може обрати останню ідентифікацію, коли використовувалася для одержувача нових повідомлень</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
+    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Використання дуже світлих або дуже темних кольорів може призвести до того, що отримувач не зможе прочитати ваше повідомлення</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
     <string name="title_advanced_remove_signature_hint">Це може призвести до замалого або занадто багатого видалянню тексту</string>
     <string name="title_advanced_metered_hint">Лімітовані підключення - це загалом, мобільне підключення або платні Wi-Fi точки доступу</string>
@@ -899,6 +903,9 @@
     <string name="title_leave_deleted">Залишати видалені повідомлення на сервері</string>
     <string name="title_leave_on_device">Залишати повідомлення на пристрої</string>
     <string name="title_max_messages">Максимальна кількість повідомлень для завантаження (якщо порожньо то всі)</string>
+    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">Задайте додатнє число для завантаження останніх повідомлень (використовується зазвичай)
+        або від\'ємне для завантаженя перших повідомлень (використовується рідко)
+    </string>
     <string name="title_keep_poll_interval">Інтервал опитування (хвилини)</string>
     <string name="title_keep_alive_interval">Інтервал підтримування каналу (хв.)</string>
     <string name="title_keep_alive_noop">Періодично перезапускати IDLE IMAP</string>
@@ -1237,8 +1244,9 @@
     <string name="title_reformatted">        Це вид переформатованого повідомлення.        Ви можете натиснути на &#x26F6; значок, щоб переглянути оригінальне повідомлення та приховати це повідомлення.
         Переформатування повідомлень займає деякий час, в залежності від розміру повідомлення і швидкості Вашого пристрою.
     </string>
-    <string name="title_compose">Написати лист</string>
+    <string name="title_compose">Написати листа</string>
     <string name="title_submitter">Надіслав:</string>
+    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Підписано:</string>
     <string name="title_delivered_to">Доставлено:</string>
     <string name="title_from">Від:</string>
     <string name="title_to">До:</string>
@@ -1395,12 +1403,15 @@
     <string name="title_alternative_text">Завантажити звичайний текст</string>
     <string name="title_alternative_html">Завантажити HTML</string>
     <string name="title_no_openpgp">OpenKeychain не знайдено</string>
+    <string name="title_no_openpgp_remark">Для використання шифрування PGP потрібно спершу його налаштувати</string>
     <string name="title_user_interaction">Передача в OpenKeychain</string>
     <string name="title_padlock">Використовувати padlock для розшифровки повідомлення</string>
     <string name="title_signed_data">Перевірте підпис, щоб показати текст повідомлення</string>
     <string name="title_not_encrypted">Повідомлення не підписано або не зашифровано</string>
     <string name="title_no_sign_key">Не вибрано жодного ключа для підпису</string>
     <string name="title_reset_sign_key">Скинути ключ підпису</string>
+    <string name="title_reset_selected_keys">Скинути вибрані ключі</string>
+    <string name="title_reset_selected_keys_hint">Можна скористатися у разі зміни сертифікатів, тощо.</string>
     <string name="title_signature_none">Повідомлення не підписано</string>
     <string name="title_signature_valid">Дійсний підпис повідомлення</string>
     <string name="title_signature_valid_from">Дійсний підпис повідомлення: %1$s</string>
@@ -1608,7 +1619,7 @@
     <string name="title_legend_section_synchronize">Синхронізація</string>
     <string name="title_legend_section_folders">Теки</string>
     <string name="title_legend_section_messages">Повідомлення</string>
-    <string name="title_legend_section_compose">Написати лист</string>
+    <string name="title_legend_section_compose">Написати листа</string>
     <string name="title_legend_section_keyboard">Клавіатура</string>
     <string name="title_legend_oauth">Авторизація OAuth</string>
     <string name="title_legend_folder_connected">Теку під\'єднано</string>

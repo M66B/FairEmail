@@ -181,7 +181,7 @@
     <string name="title_setup_gmail_on_device">Hvorfor skal der vælges en enhedsbaseret konto?</string>
     <string name="title_setup_gmail_password">Jeg ønsker at godkende en konto med en adgangskode i stedet for en enhedskonto</string>
     <string name="title_setup_office_auth">Fejlen \'GODKENDELSE mislykkedes\' kan skyldes, at IMAP/SMTP er deaktiveret af systemadministratoren</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Prøv guiden til hurtig opsætning af \"Anden udbyder\".</string>
+    <string name="title_setup_office_auth_5_7_3">Prøv guiden \'Anden udbyder\' for hurtig opsætning.</string>
     <string name="title_setup_oauth_rationale">Godkend adgang til din %1$s-konto</string>
     <string name="title_setup_oauth_update">Godkend en eksisterende konto igen (ellers opret en ny konto)</string>
     <string name="title_setup_oauth_updated">Kontogodkendelsen blev opdateret</string>
@@ -574,11 +574,14 @@
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_default_folder">Vælg standardmappe</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
+    <string name="title_advanced_notifications_delete">Slet notifikationskanaler</string>
     <string name="title_advanced_notifications_default">Standardkanal</string>
     <string name="title_advanced_notifications_service">Monitorér kanal</string>
     <string name="title_advanced_notifications_newest_first">Vis seneste notifikationer først</string>
     <string name="title_advanced_badge">Vis launcher-ikon med antal nye beskeder</string>
     <string name="title_advanced_unseen_ignored">Lad antal Nye beskeder matche notifikationsantal</string>
+    <string name="title_advanced_notify_grouping">Gruppenotifikationer</string>
+    <string name="title_advanced_notify_private">Hold notifikationer private, når enheden er låst</string>
     <string name="title_advanced_notify_background">Vis kun notifikationer i baggrundstilstand</string>
     <string name="title_advanced_notify_known">Vis kun notifikationer for kontakter</string>
     <string name="title_advanced_notify_suppress_in_call">Udsæt notifikationer under opkald</string>
@@ -724,6 +727,7 @@
     <string name="title_advanced_auto_identity_hint">Dette vælger den seneste brugte identitet ved valg af modtager af nye beskeder</string>
     <string name="title_advanced_send_reminders_hint">Vis en advarsel, når beskedtekst eller emne er tomt, eller en vedhæftet fil muligvis mangler</string>
     <string name="title_advanced_reply_move_hint">E-mailserveren kan dog stadig føje beskederne til beskedafsendelsesmappen</string>
+    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Meget lyse eller mørke farver vil gøre meddelelser ulæselige for modtageren</string>
     <string name="title_advanced_usenet_hint">Indsæt \'-- \' mellem teksten og signaturen</string>
     <string name="title_advanced_remove_signature_hint">Dette kan resultere i, at for lidt/meget tekst fjernes</string>
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>
@@ -874,6 +878,9 @@
     <string name="title_leave_deleted">Lad slettede beskeder forblive på serveren</string>
     <string name="title_leave_on_device">Lad beskeder forblive på enhed</string>
     <string name="title_max_messages">Maks. antal beskeder at downloade (tomt for samtlige)</string>
+    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Angiv et positivt tal for at downloade meddelelserne i slutningen (mest almindeligt)
+        og et negativt tal for at downloade meddelelserne i begyndelsen
+    </string>
     <string name="title_keep_poll_interval">Polling-interval (minutter)</string>
     <string name="title_keep_alive_interval">Hold i live-interval (minutter)</string>
     <string name="title_keep_alive_noop">Genstart periodisk IMAP IDLE</string>
@@ -1216,6 +1223,7 @@
     </string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Sendt af:</string>
+    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Signeret af:</string>
     <string name="title_delivered_to">Leveret til:</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>
@@ -1372,12 +1380,15 @@
     <string name="title_alternative_text">Indlæs simpel tekst</string>
     <string name="title_alternative_html">Indlæs HTML</string>
     <string name="title_no_openpgp">OpenKeychain ikke fundet</string>
+    <string name="title_no_openpgp_remark">PGP end-to-end kryptering skal opsættes først</string>
     <string name="title_user_interaction">Overfører til OpenKeychain</string>
     <string name="title_padlock">Brug hængelåsen til at dekryptere beskeden</string>
     <string name="title_signed_data">Bekræft signaturen for at vise beskedtekst</string>
     <string name="title_not_encrypted">Besked er ikke signeret eller krypteret</string>
     <string name="title_no_sign_key">Ingen signeringsnøgle valgt</string>
     <string name="title_reset_sign_key">Nulstil sign key</string>
+    <string name="title_reset_selected_keys">Nulstil valgte taster</string>
+    <string name="title_reset_selected_keys_hint">Kan bruges i tilfælde af nye certifikater mv.</string>
     <string name="title_signature_none">Besked ikke signeret</string>
     <string name="title_signature_valid">Beskedsignatur gyldig</string>
     <string name="title_signature_valid_from">Beskedsignatur gyldig: %1$s</string>

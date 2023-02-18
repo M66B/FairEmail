@@ -207,7 +207,7 @@
     <string name="title_setup_gmail_on_device">Dlaczego muszę wybrać konto na urządzeniu?</string>
     <string name="title_setup_gmail_password">Chcę autoryzować konto za pomocą hasła zamiast konta na urządzeniu</string>
     <string name="title_setup_office_auth">Błąd \"AUTHENTICATE failed\" może być spowodowany wyłączeniem protokołu IMAP/SMTP przez administratora systemu</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Spróbuj kreatora szybkich ustawień dla \"innego dostawcy\".</string>
+    <string name="title_setup_office_auth_5_7_3">Wypróbuj kreatora szybkiej konfiguracji od „innego dostawcy”.</string>
     <string name="title_setup_oauth_rationale">Autoryzuj dostęp do Twojego konta %1$s</string>
     <string name="title_setup_oauth_update">Autoryzuj istniejące konto ponownie (w przeciwnym razie utwórz nowe konto)</string>
     <string name="title_setup_oauth_updated">Autoryzacja konta została zaktualizowana</string>
@@ -600,11 +600,14 @@
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia/opóźnienia</string>
     <string name="title_advanced_default_folder">Wybierz folder domyślny</string>
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
+    <string name="title_advanced_notifications_delete">Usuń kanały powiadomień</string>
     <string name="title_advanced_notifications_default">Domyślny kanał</string>
     <string name="title_advanced_notifications_service">Kanał monitorowania</string>
     <string name="title_advanced_notifications_newest_first">Pokaż najpierw najnowsze powiadomienia</string>
     <string name="title_advanced_badge">Pokaż liczbę nowych wiadomości na ikonie launchera</string>
     <string name="title_advanced_unseen_ignored">Liczba powiadomień odpowiada liczbie nowych wiadomości</string>
+    <string name="title_advanced_notify_grouping">Powiadomienia grupowe</string>
+    <string name="title_advanced_notify_private">Zachowaj prywatność powiadomień, gdy urządzenie jest zablokowane</string>
     <string name="title_advanced_notify_background">Pokaż powiadomienia tylko, gdy pracuje w tle</string>
     <string name="title_advanced_notify_known">Pokaż powiadomienia tylko dla kontaktów</string>
     <string name="title_advanced_notify_suppress_in_call">Opóźnij powiadomienia podczas połączenia</string>
@@ -749,6 +752,7 @@
     <string name="title_advanced_auto_identity_hint">Spowoduje to wybranie ostatnio użytej tożsamości podczas wybierania odbiorcy dla nowych wiadomości</string>
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
+    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Bardzo jasne lub bardzo ciemne kolory spowodują, że wiadomości po stronie odbiorcy będą nieczytelne</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
     <string name="title_advanced_remove_signature_hint">Może to spowodować usunięcie zbyt małego lub zbyt dużego tekstu</string>
     <string name="title_advanced_metered_hint">Połączenia taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
@@ -899,6 +903,9 @@
     <string name="title_leave_deleted">Pozostaw usunięte wiadomości na serwerze</string>
     <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
     <string name="title_max_messages">Maksymalna liczba wiadomości do pobrania (puste dla wszystkich)</string>
+    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Wpisz liczbę dodatnią, aby pobrać wiadomości na końcu (najczęściej spotykane)
+        i liczbę ujemną, aby pobrać wiadomości na początku (najmniej powszechne)
+    </string>
     <string name="title_keep_poll_interval">Interwał sprawdzania (minuty)</string>
     <string name="title_keep_alive_interval">Interwał utrzymywania aktywności (minuty)</string>
     <string name="title_keep_alive_noop">Okresowo restartuj IMAP IDLE</string>
@@ -1238,6 +1245,7 @@
     </string>
     <string name="title_compose">Napisz</string>
     <string name="title_submitter">Wysłane przez:</string>
+    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Podpisany przez:</string>
     <string name="title_delivered_to">Dostarczone do:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Do:</string>
@@ -1394,12 +1402,15 @@
     <string name="title_alternative_text">Wczytaj zwykły tekst</string>
     <string name="title_alternative_html">Wczytaj HTML</string>
     <string name="title_no_openpgp">Nie znaleziono OpenKeychain</string>
+    <string name="title_no_openpgp_remark">Najpierw należy skonfigurować szyfrowanie PGP end-to-end</string>
     <string name="title_user_interaction">Przenoszenie do OpenKeychain</string>
     <string name="title_padlock">Użyj kłódki, aby odszyfrować wiadomość</string>
     <string name="title_signed_data">Sprawdź podpis, aby wyświetlić tekst wiadomości</string>
     <string name="title_not_encrypted">Wiadomość nie jest podpisana lub zaszyfrowana</string>
     <string name="title_no_sign_key">Nie wybrano klucza podpisu</string>
     <string name="title_reset_sign_key">Resetuj klucz podpisu</string>
+    <string name="title_reset_selected_keys">Zresetuj wybrane klucze</string>
+    <string name="title_reset_selected_keys_hint">Można używać w przypadku nowych certyfikatów itp.</string>
     <string name="title_signature_none">Wiadomość niepodpisana</string>
     <string name="title_signature_valid">Ważny podpis wiadomości</string>
     <string name="title_signature_valid_from">Podpis wiadomości prawidłowy: %1$s</string>

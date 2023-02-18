@@ -207,7 +207,7 @@
     <string name="title_setup_gmail_on_device">Чаму мне неабходна выбраць уліковы запіс на прыладзе?</string>
     <string name="title_setup_gmail_password">Я хачу аўтарызаваць уліковы запіс з дапамогай пароля замест уліковага запісу на прыладзе</string>
     <string name="title_setup_office_auth">Памылка \'Збой АЎТЭНТЫФІКАЦЫІ\' можа быць выклікана тым, што пратаколы IMAP/SMTP адключаны сістэмным адміністратарам</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Калі ласка, паспрабуйце опцыю \"Іншы правайдар\" у майстры хуткага наладжвання.</string>
+    <string name="title_setup_office_auth_5_7_3">Паспрабуйце опцыю ў майстры хуткага наладжвання \'Іншы правайдар\'.</string>
     <string name="title_setup_oauth_rationale">Аўтарызуйце доступ да вашага ўліковага запісу %1$s</string>
     <string name="title_setup_oauth_update">Паўторна аўтарызаваць існуючы ўліковы запіс (у адваротным выпадку стварыць новы ўліковы запіс)</string>
     <string name="title_setup_oauth_updated">Аўтарызацыя ўліковага запісу была абноўлена</string>
@@ -602,11 +602,14 @@
     <string name="title_advanced_default_snooze">Час адкладання/затрымкі па змаўчанні</string>
     <string name="title_advanced_default_folder">Выбраць папку па змаўчанні</string>
     <string name="title_advanced_notifications">Кіраваць апавяшчэннямі</string>
+    <string name="title_advanced_notifications_delete">Выдаліць каналы апавяшчэнняў</string>
     <string name="title_advanced_notifications_default">Канал па змаўчанні</string>
     <string name="title_advanced_notifications_service">Канал маніторынгу</string>
     <string name="title_advanced_notifications_newest_first">Спачатку паказваць новыя апавяшчэнні</string>
     <string name="title_advanced_badge">Паказваць колькасць новых паведамленняў побач з ярлыком праграмы</string>
     <string name="title_advanced_unseen_ignored">Колькасць новых паведамленняў адпавядае колькасці апавяшчэнняў</string>
+    <string name="title_advanced_notify_grouping">Групаванне апавяшчэнняў</string>
+    <string name="title_advanced_notify_private">Захоўваць апавяшчэнні прыватнымі, калі прылада заблакіравана</string>
     <string name="title_advanced_notify_background">Паказваць апавяшчэнні толькі ў фонавым рэжыме</string>
     <string name="title_advanced_notify_known">Паказваць апавяшчэнні толькі для кантактаў</string>
     <string name="title_advanced_notify_suppress_in_call">Адкладваць апавяшчэнні падчас выкліку</string>
@@ -1401,12 +1404,15 @@
     <string name="title_alternative_text">Загрузіць звычайны тэкст</string>
     <string name="title_alternative_html">Загрузіць HTML</string>
     <string name="title_no_openpgp">OpenKeychain не знойдзена</string>
+    <string name="title_no_openpgp_remark">Спачатку неабходна наладзіць скразное шыфраванне PGP</string>
     <string name="title_user_interaction">Перанос на OpenKeychain</string>
     <string name="title_padlock">Выкарыстоўваць замок для расшыфроўкі паведамлення</string>
     <string name="title_signed_data">Для паказу тэксту паведамлення правяраць подпіс</string>
     <string name="title_not_encrypted">Паведамленне не падпісана і не зашыфравана</string>
     <string name="title_no_sign_key">Ключ подпісу не выбраны</string>
     <string name="title_reset_sign_key">Скінуць ключ подпісу</string>
+    <string name="title_reset_selected_keys">Скінуць выбраныя ключы</string>
+    <string name="title_reset_selected_keys_hint">Можа выкарыстоўвацца ў выпадку абнаўлення сертыфікатаў і г. д.</string>
     <string name="title_signature_none">Паведамленне не падпісана</string>
     <string name="title_signature_valid">Сапраўдны подпіс паведамлення</string>
     <string name="title_signature_valid_from">Сапраўдны подпіс паведамлення: %1$s</string>

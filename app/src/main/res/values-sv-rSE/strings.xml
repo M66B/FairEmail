@@ -177,7 +177,7 @@
     <string name="title_setup_gmail_on_device">Varför måste jag välja ett lokalt konto på enheten?</string>
     <string name="title_setup_gmail_password">Jag vill auktorisera ett konto med ett lösenord istället för ett konto på enheten</string>
     <string name="title_setup_office_auth">Felet \"AUTHENTICATE failed\" kan orsakas av att IMAP/SMTP inaktiveras av systemadministratören</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Vänligen försök snabbinstallationsguiden för \"Annan leverantör\".</string>
+    <string name="title_setup_office_auth_5_7_3">Försök med snabbinstallationsguiden \'Annan leverantör\'.</string>
     <string name="title_setup_oauth_rationale">Auktorisera åtkomst till ditt %1$s konto</string>
     <string name="title_setup_oauth_update">Auktorisera ett befintligt konto igen (annars skapa ett nytt konto)</string>
     <string name="title_setup_oauth_updated">Kontoauktorisering har uppdaterats</string>
@@ -437,6 +437,7 @@
     <string name="title_advanced_nav_pinned_count">Visa antalet olästa meddelanden i navigeringsmenyn</string>
     <string name="title_advanced_startup">Visa på startskärmen</string>
     <string name="title_advanced_cards">Använd kortstil istället för tabellstil</string>
+    <string name="title_advanced_category">Kontokategorin kan konfigureras i de avancerade kontoalternativen via huvudinställningsskärmen</string>
     <string name="title_advanced_cards_beige">Använd beige bakgrund när du använder kortstil (endast ljusa teman)</string>
     <string name="title_advanced_tabular_background">Använd kortfärg som bakgrundsfärg när du använder tabulär stil</string>
     <string name="title_advanced_cards_shadow">Använd skugga för olästa meddelanden när du använder kort-stil</string>
@@ -566,11 +567,14 @@
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_default_folder">Välj standardmapp</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
+    <string name="title_advanced_notifications_delete">Ta bort aviseringskanaler</string>
     <string name="title_advanced_notifications_default">Standard kanal</string>
     <string name="title_advanced_notifications_service">Övervakar kanal</string>
     <string name="title_advanced_notifications_newest_first">Visa nyaste aviseringar först</string>
     <string name="title_advanced_badge">Visa programstartarikon med antal nya meddelanden</string>
     <string name="title_advanced_unseen_ignored">Låt antalet nya meddelanden matcha antalet aviseringar</string>
+    <string name="title_advanced_notify_grouping">Gruppera aviseringar</string>
+    <string name="title_advanced_notify_private">Håll aviseringar privata när enheten är låst</string>
     <string name="title_advanced_notify_background">Visa aviseringar endast i bakgrunden</string>
     <string name="title_advanced_notify_known">Visa endast aviseringar för kontakter</string>
     <string name="title_advanced_notify_suppress_in_call">Inaktivera aviseringar under pågående telefonsamtal</string>
@@ -715,6 +719,7 @@
     <string name="title_advanced_auto_identity_hint">Detta kommer att välja den senaste identiteten som använts när du väljer en mottagare för nya meddelanden</string>
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_reply_move_hint">E-postservern kan fortfarande lägga till meddelanden till skickade mail mappen</string>
+    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Mycket ljusa eller mycket mörka färger kommer att resultera i oläsliga meddelanden på mottagarsidan</string>
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
     <string name="title_advanced_remove_signature_hint">Detta kan leda till att för lite eller för mycket text tas bort</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
@@ -865,6 +870,9 @@
     <string name="title_leave_deleted">Lämna raderade meddelanden på servern</string>
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
+    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Ange ett positivt värde för att ladda ner meddelandena i slutet (vanligast)
+        or ett negativt värde för att ladda ner meddelandena i början (minst vanligast)
+    </string>
     <string name="title_keep_poll_interval">Avsökningsintervall (minuter)</string>
     <string name="title_keep_alive_interval">Håll-levande-intervall (minuter)</string>
     <string name="title_keep_alive_noop">Starta om IMAP IDLE regelbundet</string>
@@ -1204,6 +1212,7 @@
     </string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Skickad av:</string>
+    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Signerat av:</string>
     <string name="title_delivered_to">Levererad till:</string>
     <string name="title_from">Från:</string>
     <string name="title_to">Till:</string>
@@ -1360,12 +1369,15 @@
     <string name="title_alternative_text">Visa oformaterad text</string>
     <string name="title_alternative_html">Visa HTML</string>
     <string name="title_no_openpgp">OpenKeychain hittades inte</string>
+    <string name="title_no_openpgp_remark">PGP obruten (end-to-end) kryptering måste konfigureras först</string>
     <string name="title_user_interaction">Överför till OpenKeychain</string>
     <string name="title_padlock">Använd hänglåset för att dekryptera meddelandet</string>
     <string name="title_signed_data">Verifiera signaturen för att visa meddelandetexten</string>
     <string name="title_not_encrypted">Meddelandet är inte signerat eller krypterat</string>
     <string name="title_no_sign_key">Ingen signeringsnyckel vald</string>
     <string name="title_reset_sign_key">Återställ signerings nyckel</string>
+    <string name="title_reset_selected_keys">Återställ valda nycklar</string>
+    <string name="title_reset_selected_keys_hint">Kan användas vid nya certifikat, etc.</string>
     <string name="title_signature_none">Meddelande är inte signerat</string>
     <string name="title_signature_valid">Meddelandesignaturen är giltig</string>
     <string name="title_signature_valid_from">Meddelandesignaturen är giltig: %1$s</string>

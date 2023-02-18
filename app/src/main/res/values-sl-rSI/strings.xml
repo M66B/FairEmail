@@ -207,7 +207,7 @@
     <string name="title_setup_gmail_on_device">Zakaj moram izbrati sistemski račun?</string>
     <string name="title_setup_gmail_password">Račun želim odobriti z geslom namesto z računom v napravi.</string>
     <string name="title_setup_office_auth">Napaka \'OVERITEV je spodletela\' se lahko pojavi, če je skrbnik sistema onemogočil IMAP/SMTP.</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Poizkusite s čarovnikom za hitro nastavitev z možnostjo \"Drugi ponudnik\".</string>
+    <string name="title_setup_office_auth_5_7_3">Poizkusite s čarovnikom za hitro nastavitev z možnostjo \'Drugi ponudnik\'.</string>
     <string name="title_setup_oauth_rationale">Odobrite dostop do računa %1$s.</string>
     <string name="title_setup_oauth_update">Ponovno odobri obstoječi račun (drugače ustvari novega)</string>
     <string name="title_setup_oauth_updated">Odobritev računa je bila posodobljena.</string>
@@ -600,11 +600,14 @@
     <string name="title_advanced_default_snooze">Privzeti čas dremeža/zakasnitve</string>
     <string name="title_advanced_default_folder">Izberi privzeto mapo</string>
     <string name="title_advanced_notifications">Upravljaj z obvestili</string>
+    <string name="title_advanced_notifications_delete">Izbriši kanale za obvestila</string>
     <string name="title_advanced_notifications_default">Privzeti kanal</string>
     <string name="title_advanced_notifications_service">Nazdorni kanal</string>
     <string name="title_advanced_notifications_newest_first">Najprej prikaži novejša obvestila</string>
     <string name="title_advanced_badge">Ikono zaganjalnika prikaži s številom novih sporočil</string>
     <string name="title_advanced_unseen_ignored">Število novih sporočil naj se ujema s številom obvestil</string>
+    <string name="title_advanced_notify_grouping">Skupine obvestil</string>
+    <string name="title_advanced_notify_private">Obdrži obvestila zasebna, ko je naprava zaklenjena</string>
     <string name="title_advanced_notify_background">Prikaži obvestila samo, ko se program izvaja v ozadju</string>
     <string name="title_advanced_notify_known">Prikaži obvestila samo za stike</string>
     <string name="title_advanced_notify_suppress_in_call">Zakasni obvestila med klicem</string>
@@ -1394,12 +1397,15 @@
     <string name="title_alternative_text">Naloži golo besedilo</string>
     <string name="title_alternative_html">Naloži HTML</string>
     <string name="title_no_openpgp">OpenKeychain ni bil najden.</string>
+    <string name="title_no_openpgp_remark">Najprej je treba nastaviti šifriranje PGP</string>
     <string name="title_user_interaction">Prenašanje v OpenKeychain</string>
     <string name="title_padlock">Uporabi ključavnico za odšifriranje besedila</string>
     <string name="title_signed_data">Preveri podpis za prikaz besedila sporočila.</string>
     <string name="title_not_encrypted">Sporočilo ni podpisano ali šifrirano.</string>
     <string name="title_no_sign_key">Podpisni ključ ni bil izbran.</string>
     <string name="title_reset_sign_key">Ponastavi podpisni ključ</string>
+    <string name="title_reset_selected_keys">Ponastavi izbrane ključe</string>
+    <string name="title_reset_selected_keys_hint">Uporabi se lahko npr. v primeru novih potrdil.</string>
     <string name="title_signature_none">Sporočilo ni podpisano.</string>
     <string name="title_signature_valid">Podpis sporočila je veljaven.</string>
     <string name="title_signature_valid_from">Podpis sporočila je veljaven: %1$s.</string>

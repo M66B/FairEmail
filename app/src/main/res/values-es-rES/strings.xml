@@ -181,7 +181,7 @@
     <string name="title_setup_gmail_on_device">¿Por qué necesito seleccionar una cuenta del dispositivo?</string>
     <string name="title_setup_gmail_password">Quiero autorizar una cuenta con una contraseña en lugar de una cuenta en el dispositivo</string>
     <string name="title_setup_office_auth">El error \'AUTHENTICATE failed\' puede ser causado por IMAP/SMTP desactivado por el administrador de sistemas</string>
-    <string name="title_setup_office_auth_5_7_3" comment="title_setup_office_auth_5_7_3&#10;Help text for Microsoft-specific error">Por favor, pruebe el asistente de configuración rápida para \"Otro proveedor\".</string>
+    <string name="title_setup_office_auth_5_7_3">Por favor, pruebe el asistente de configuración rápida \'Otro proveedor\'.</string>
     <string name="title_setup_oauth_rationale">Autorizar acceso a su cuenta %1$s</string>
     <string name="title_setup_oauth_update">Volver a autorizar una cuenta existente (de lo contrario crear una nueva cuenta)</string>
     <string name="title_setup_oauth_updated">Se ha actualizado la autorización de la cuenta</string>
@@ -574,11 +574,14 @@
     <string name="title_advanced_default_snooze">Tiempo de posponer/retraso por defecto</string>
     <string name="title_advanced_default_folder">Seleccionar carpeta por defecto</string>
     <string name="title_advanced_notifications">Administrar notificaciones</string>
+    <string name="title_advanced_notifications_delete">Eliminar canales de notificación</string>
     <string name="title_advanced_notifications_default">Canal por defecto</string>
     <string name="title_advanced_notifications_service">Canal de monitoreo</string>
     <string name="title_advanced_notifications_newest_first">Mostrar notificaciones más recientes primero</string>
     <string name="title_advanced_badge">Mostrar icono del lanzador con el número de mensajes nuevos</string>
     <string name="title_advanced_unseen_ignored">Permitir que el número de mensajes nuevos coincida con el número de notificaciones</string>
+    <string name="title_advanced_notify_grouping">Agrupar notificaciones</string>
+    <string name="title_advanced_notify_private">Mantener las notificaciones en privado cuando el dispositivo está bloqueado</string>
     <string name="title_advanced_notify_background">Mostrar notificaciones sólo en segundo plano</string>
     <string name="title_advanced_notify_known">Mostrar notificaciones sólo para contactos</string>
     <string name="title_advanced_notify_suppress_in_call">Demorar notificaciones durante una llamada</string>
@@ -1368,12 +1371,15 @@
     <string name="title_alternative_text">Cargar texto plano</string>
     <string name="title_alternative_html">Cargar HTML</string>
     <string name="title_no_openpgp">OpenKeychain no encontrado</string>
+    <string name="title_no_openpgp_remark">El cifrado PGP de extremo a extremo debe configurarse primero</string>
     <string name="title_user_interaction">Transfiriendo a OpenKeychain</string>
     <string name="title_padlock">Use el candado para descifrar el mensaje</string>
     <string name="title_signed_data">Verificar la firma para mostrar el texto del mensaje</string>
     <string name="title_not_encrypted">El mensaje no está firmado ni cifrado</string>
     <string name="title_no_sign_key">Ninguna clave de firma seleccionada</string>
     <string name="title_reset_sign_key">Restablecer clave de firma</string>
+    <string name="title_reset_selected_keys">Restablecer claves seleccionadas</string>
+    <string name="title_reset_selected_keys_hint">Se puede utilizar en caso de nuevos certificados, etc.</string>
     <string name="title_signature_none">Mensaje no firmado</string>
     <string name="title_signature_valid">Firma de mensaje válida</string>
     <string name="title_signature_valid_from">Firma de mensaje válida: %1$s</string>
