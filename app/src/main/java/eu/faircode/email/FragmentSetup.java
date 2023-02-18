@@ -283,7 +283,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         btnQuick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final Context context = getContext();
+                final Context context = v.getContext();
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
