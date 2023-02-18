@@ -4,13 +4,13 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### Next version
+### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
+
+### 1.2045 - 2023-02-18
 
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
-
-### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
 ### 1.2043 - 2023-02-05
 
