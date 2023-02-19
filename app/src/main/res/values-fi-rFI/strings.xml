@@ -1445,6 +1445,7 @@
     <string name="title_sort_on_attachments">Liitteet</string>
     <string name="title_sort_on_hidden">Piilotettu</string>
     <string name="title_sort_ascending">Vanhin ensin</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Järjestys</string>
     <string name="title_filter">Suodata pois</string>
     <string name="title_filter_seen">Luettu</string>
     <string name="title_filter_unflagged">Tähdetön</string>

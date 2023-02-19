@@ -948,6 +948,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_sort_on_attachments">Adjunts</string>
     <string name="title_sort_on_hidden">Ocults</string>
     <string name="title_sort_ascending">El més antic primer</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordre</string>
     <string name="title_filter">Filtrar per</string>
     <string name="title_filter_seen">Llegir</string>
     <string name="title_filter_unflagged">Sense destacat</string>

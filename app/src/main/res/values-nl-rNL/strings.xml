@@ -725,7 +725,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_auto_identity_hint">Dit zal de laatst gebruikte identiteit selecteren bij het selecteren van een ontvanger voor nieuwe berichten</string>
     <string name="title_advanced_send_reminders_hint">Toon een waarschuwing wanneer de berichttekst of het onderwerp leeg is of wanneer een bijlage zou kunnen ontbreken</string>
     <string name="title_advanced_reply_move_hint">De e-mailserver kan de berichten nog steeds toevoegen aan de map met verzonden berichten</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Zeer lichte of zeer donkere kleuren leiden tot onleesbare berichten aan de kant van de ontvanger</string>
+    <string name="title_advanced_compose_color_hint">Zeer lichte of zeer donkere kleuren leiden tot onleesbare berichten aan de kant van de ontvanger</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
     <string name="title_advanced_remove_signature_hint">Dit kan ertoe leiden dat te weinig of te veel tekst wordt verwijderd</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
@@ -876,7 +876,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_leave_deleted">Laat verwijderde berichten achter op de server</string>
     <string name="title_leave_on_device">Laat berichten achter op apparaat</string>
     <string name="title_max_messages">Maximum aantal berichten om te downloaden (leeg voor allen)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Voer een positief getal in om berichten aan het einde te downloaden (meest gebruikelijk)
+    <string name="title_max_messages_remark">        Voer een positief getal in om berichten aan het einde te downloaden (meest gebruikelijk)
         en een negatief getal om berichten te downloaden aan het begin (minst gebruikelijk)
     </string>
     <string name="title_keep_poll_interval">Poll interval (minuten)</string>
@@ -1217,7 +1217,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     </string>
     <string name="title_compose">Opstellen</string>
     <string name="title_submitter">Verstuurd door:</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Getekend door:</string>
+    <string name="title_signed_by">Getekend door:</string>
     <string name="title_delivered_to">Afgeleverd aan:</string>
     <string name="title_from">Van:</string>
     <string name="title_to">Aan:</string>
@@ -1455,6 +1455,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_sort_on_attachments">Bijlagen</string>
     <string name="title_sort_on_hidden">Verborgen</string>
     <string name="title_sort_ascending">Oudste eerst</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Volgorde</string>
+    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">Toegepaste keren</string>
+    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">Laatst toegepast</string>
     <string name="title_filter">Uitfilteren</string>
     <string name="title_filter_seen">Gelezen</string>
     <string name="title_filter_unflagged">Zonder ster</string>

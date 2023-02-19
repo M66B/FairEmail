@@ -1466,6 +1466,7 @@
     <string name="title_sort_on_attachments">Atașamente</string>
     <string name="title_sort_on_hidden">Ascuns</string>
     <string name="title_sort_ascending">Întâi cele mai vechi</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordine</string>
     <string name="title_filter">Exclude</string>
     <string name="title_filter_seen">Citit</string>
     <string name="title_filter_unflagged">Fără stea</string>

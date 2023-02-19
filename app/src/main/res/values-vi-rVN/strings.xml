@@ -1353,6 +1353,7 @@
     <string name="title_sort_on_attachments">Tệp đính kèm</string>
     <string name="title_sort_on_hidden">Ẩn</string>
     <string name="title_sort_ascending">Cũ nhất trước</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Thứ tự</string>
     <string name="title_filter">Lọc ra</string>
     <string name="title_filter_seen">Đã đọc</string>
     <string name="title_filter_unflagged">Chưa gắn sao</string>

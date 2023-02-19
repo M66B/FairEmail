@@ -726,6 +726,7 @@
     <string name="title_advanced_auto_identity_hint">Esto seleccionará la última identidad utilizada al seleccionar un destinatario para nuevos mensajes</string>
     <string name="title_advanced_send_reminders_hint">Mostrar una advertencia cuando el texto del mensaje o el asunto estén vacíos o cuando un archivo adjunto pueda estar ausente</string>
     <string name="title_advanced_reply_move_hint">El servidor de correo electrónico todavía puede añadir los mensajes a la carpeta de mensajes enviados</string>
+    <string name="title_advanced_compose_color_hint">Los colores muy claros o muy oscuros resultarán en mensajes ilegibles en el lado de los destinatarios</string>
     <string name="title_advanced_usenet_hint">Insertar \'-- \' entre el texto y la firma</string>
     <string name="title_advanced_remove_signature_hint">Esto puede dar lugar a que se elimine demasiado poco o demasiado texto</string>
     <string name="title_advanced_metered_hint">Las conexiones de uso medido son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>
@@ -876,6 +877,9 @@
     <string name="title_leave_deleted">Dejar mensajes borrados en el servidor</string>
     <string name="title_leave_on_device">Dejar mensajes en el dispositivo</string>
     <string name="title_max_messages">Número máximo de mensajes a descargar (en blanco para descargar todos)</string>
+    <string name="title_max_messages_remark">        Introduzca un número positivo para descargar los mensajes al final (más común)
+        y un número negativo para descargar los mensajes al principio (menos común)
+    </string>
     <string name="title_keep_poll_interval">Intervalo de espera (minutos)</string>
     <string name="title_keep_alive_interval">Intervalo de keep-alive (minutos)</string>
     <string name="title_keep_alive_noop">Reiniciar IMAP IDLE periódicamente</string>
@@ -1215,6 +1219,7 @@
     </string>
     <string name="title_compose">Redactar</string>
     <string name="title_submitter">Enviado por:</string>
+    <string name="title_signed_by">Firmado por:</string>
     <string name="title_delivered_to">Entregado a:</string>
     <string name="title_from">De:</string>
     <string name="title_to">A:</string>
@@ -1453,6 +1458,7 @@
     <string name="title_sort_on_attachments">Adjuntos</string>
     <string name="title_sort_on_hidden">Oculto</string>
     <string name="title_sort_ascending">Más antiguo primero</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Orden</string>
     <string name="title_filter">Excluir</string>
     <string name="title_filter_seen">Leído</string>
     <string name="title_filter_unflagged">No destacado</string>

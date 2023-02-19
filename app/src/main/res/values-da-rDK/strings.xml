@@ -727,7 +727,7 @@
     <string name="title_advanced_auto_identity_hint">Dette vælger den seneste brugte identitet ved valg af modtager af nye beskeder</string>
     <string name="title_advanced_send_reminders_hint">Vis en advarsel, når beskedtekst eller emne er tomt, eller en vedhæftet fil muligvis mangler</string>
     <string name="title_advanced_reply_move_hint">E-mailserveren kan dog stadig føje beskederne til beskedafsendelsesmappen</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Meget lyse eller mørke farver vil gøre meddelelser ulæselige for modtageren</string>
+    <string name="title_advanced_compose_color_hint">Meget lyse eller mørke farver vil gøre meddelelser ulæselige for modtageren</string>
     <string name="title_advanced_usenet_hint">Indsæt \'-- \' mellem teksten og signaturen</string>
     <string name="title_advanced_remove_signature_hint">Dette kan resultere i, at for lidt/meget tekst fjernes</string>
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>
@@ -878,7 +878,7 @@
     <string name="title_leave_deleted">Lad slettede beskeder forblive på serveren</string>
     <string name="title_leave_on_device">Lad beskeder forblive på enhed</string>
     <string name="title_max_messages">Maks. antal beskeder at downloade (tomt for samtlige)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Angiv et positivt tal for at downloade meddelelserne i slutningen (mest almindeligt)
+    <string name="title_max_messages_remark">        Angiv et positivt tal for at downloade meddelelserne i slutningen (mest almindeligt)
         og et negativt tal for at downloade meddelelserne i begyndelsen
     </string>
     <string name="title_keep_poll_interval">Polling-interval (minutter)</string>
@@ -1223,7 +1223,7 @@
     </string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Sendt af:</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Signeret af:</string>
+    <string name="title_signed_by">Signeret af:</string>
     <string name="title_delivered_to">Leveret til:</string>
     <string name="title_from">Fra:</string>
     <string name="title_to">Til:</string>
@@ -1463,6 +1463,7 @@
     <string name="title_sort_on_attachments">Vedhæftninger</string>
     <string name="title_sort_on_hidden">Skjult</string>
     <string name="title_sort_ascending">Ældste først</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Rækkefølge</string>
     <string name="title_filter">Filtrér fra</string>
     <string name="title_filter_seen">Læst</string>
     <string name="title_filter_unflagged">Fjernet stjernemarkering</string>

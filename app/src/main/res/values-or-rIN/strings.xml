@@ -61,7 +61,7 @@
     <string name="menu_issue">ସମସ୍ୟା ରିପୋର୍ଟ କରନ୍ତୁ</string>
     <string name="menu_attribution">କୃତଜ୍ଞତା</string>
     <string name="menu_privacy">ଗୋପନୀୟତା</string>
-    <string name="menu_about">ବିଷୟରେ</string>
+    <string name="menu_about">ଵିଷୟରେ</string>
     <string name="menu_pro">ପ୍ରୋ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ</string>
     <string name="menu_rate">ଏହି ଆପକୁ ମୂଲ୍ୟାଙ୍କନ କରନ୍ତୁ</string>
     <string name="title_welcome">ସ୍ୱାଗତ</string>
@@ -243,7 +243,7 @@
     <string name="title_advanced_libravatars">ଲିବ୍ରାଵତାରସବୁ ଦେଖାଇବା</string>
     <string name="title_advanced_favicons_partial">ୱେବ୍ ପୃଷ୍ଠାର କେବଳ ପ୍ରଥମ %1$s ସ୍କେନ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_name_email">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଦେଖାଇବା</string>
-    <string name="title_advanced_highlight_subject">ବିଷୟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
+    <string name="title_advanced_highlight_subject">ଵିଷୟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_highlight_color">ହାଇଲାଇଟ୍ ରଙ୍ଗ</string>
     <string name="title_advanced_override_width">ମୂଳ ବାର୍ତ୍ତାରେ ସ୍ଥିର ଓସାର ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_advanced_background_color">ପୃଷ୍ଠପଟ ରଙ୍ଗ ଵ୍ୟଵହାର କରିବା</string>
@@ -481,8 +481,8 @@
     <string name="title_authentication_failed">%1$s ପ୍ରାମାଣିକିକରଣ ଵିଫଳ ହେଲା</string>
     <string name="title_receipt_subject">ପଠନ ପାଉତି: %1$s</string>
     <string name="title_receipt_text">ଏହି ପଠନ ପାଉତି କେଵଳ ସ୍ୱୀକାର କରେ ଯେ ଵାର୍ତ୍ତା ପ୍ରଦର୍ଶିତ ହୋଇଛି। କୌଣସି ଗ୍ୟାରେଣ୍ଟି ନାହିଁ ଯେ ପ୍ରାପ୍ତେସୁ ଵାର୍ତ୍ତା ଵିଷୟବସ୍ତୁ ପଢ଼ିଛନ୍ତି।</string>
-    <string name="title_no_viewer_name">ବିଷୟବସ୍ତୁ ନାମ</string>
-    <string name="title_no_viewer_type">ବିଷୟବସ୍ତୁ ପ୍ରକାର</string>
+    <string name="title_no_viewer_name">ଵିଷୟଵସ୍ତୁ ନାମ</string>
+    <string name="title_no_viewer_type">ଵିଷୟଵସ୍ତୁ ପ୍ରକାର</string>
     <string name="title_no_viewer_search">ଆପ୍‌ ଖୋଜନ୍ତୁ</string>
     <string name="title_no_recorder">କୌଣସି ଉପଯୁକ୍ତ ଅଡ଼ିଓ ରେକର୍ଡର୍ ଆପ୍ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="title_no_folder">ଫୋଲ୍ଡର୍ ବିଦ୍ୟମାନ ନାହିଁ</string>
@@ -503,7 +503,7 @@
     <string name="title_date">ତାରିଖ:</string>
     <string name="title_size">ଆକାର:</string>
     <string name="title_language">ଭାଷା:</string>
-    <string name="title_subject">ବିଷୟ:</string>
+    <string name="title_subject">ଵିଷୟ:</string>
     <string name="title_attachment">ସଂଲଗ୍ନକରଣ:</string>
     <string name="title_send">ପଠାନ୍ତୁ</string>
     <string name="title_send_encryption">ଗୂଢ଼ଲିଖନ</string>
@@ -548,7 +548,7 @@
     <string name="title_resync">ପୁନଃସିଙ୍କ୍ କରନ୍ତୁ</string>
     <string name="title_charset_auto">ସ୍ୱଚାଳିତ</string>
     <string name="title_signature_sender">ପ୍ରେରକଙ୍କ ଠିକଣା</string>
-    <string name="title_signature_subject">ବିଷୟ</string>
+    <string name="title_signature_subject">ଵିଷୟ</string>
     <string name="title_search">ସନ୍ଧାନ କରନ୍ତୁ</string>
     <string name="title_search_for_hint">ପାଠ୍ୟ ପ୍ରବେଶ କରନ୍ତୁ</string>
     <string name="title_search_index_hint">ସନ୍ଧାନ ଅନୁକ୍ରମଣିକା ମାଧ୍ୟମରେ ଖୋଜିବା ଦ୍ରୁତ ଅଟେ, କିନ୍ତୁ ଏହା ଦ୍ୱାରା କେବଳ ପୂର୍ଣ୍ଣ ଶବ୍ଦ ମିଳିଥାଏ।</string>
@@ -574,14 +574,19 @@
     <string name="title_save_search_name">ନାମ</string>
     <string name="title_save_search_order">କ୍ରମ</string>
     <string name="title_save_search_color">ରଙ୍ଗ</string>
+    <string name="title_sort_on">ଏହା ଅନୁଯାୟୀ ସଜାନ୍ତୁ</string>
     <string name="title_sort_on_time">ସମୟ</string>
     <string name="title_sort_on_unread">ପଢ଼ି ନାହାଁନ୍ତି</string>
     <string name="title_sort_on_starred">ତାରାଙ୍କିତ</string>
     <string name="title_sort_on_priority">ପ୍ରାଥମିକତା</string>
     <string name="title_sort_on_sender">ପ୍ରେରକ</string>
-    <string name="title_sort_on_subject">ବିଷୟ</string>
+    <string name="title_sort_on_subject">ଵିଷୟ</string>
     <string name="title_sort_on_size">ଆକାର</string>
     <string name="title_sort_on_attachments">ସଂଲଗ୍ନକରଣ</string>
+    <string name="title_sort_on_hidden">ଲୁକ୍କାୟିତ</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">କ୍ରମ</string>
+    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">ପ୍ରୟୋଗ ଗଣନା</string>
+    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">ଗତ ପ୍ରୟୋଗ</string>
     <string name="title_filter_seen">ପଠିତ</string>
     <string name="title_filter_deleted">ବିଲୋପିତ</string>
     <string name="title_filter_trash">ଆବର୍ଜନାରେ</string>
@@ -638,7 +643,7 @@
     <string name="title_rule_check">ଯାଞ୍ଚ କର</string>
     <string name="title_rule_no_body">ଵାର୍ତ୍ତାର ପାଠ୍ୟ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="title_rule_tts_from">ପ୍ରେରକ</string>
-    <string name="title_rule_tts_subject">ବିଷୟ</string>
+    <string name="title_rule_tts_subject">ଵିଷୟ</string>
     <string name="title_rule_tts_content">ପାଠ୍ୟ</string>
     <string name="title_rule_select_sound">ଧ୍ୱନି ବାଛନ୍ତୁ</string>
     <string name="title_rule_use_as_alarm">ଆଲାର୍ମ ଭାଵେ ଵ୍ୟଵହାର କରିବା</string>

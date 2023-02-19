@@ -1452,6 +1452,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_sort_on_attachments">Ekler</string>
     <string name="title_sort_on_hidden">Gizli</string>
     <string name="title_sort_ascending">Önce en eski</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Sıralama</string>
     <string name="title_filter">Filtreleme</string>
     <string name="title_filter_seen">Okunmuş</string>
     <string name="title_filter_unflagged">Yıldızlı Olmayan</string>

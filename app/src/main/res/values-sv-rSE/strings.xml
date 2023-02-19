@@ -719,7 +719,7 @@
     <string name="title_advanced_auto_identity_hint">Detta kommer att välja den senaste identiteten som använts när du väljer en mottagare för nya meddelanden</string>
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_reply_move_hint">E-postservern kan fortfarande lägga till meddelanden till skickade mail mappen</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Mycket ljusa eller mycket mörka färger kommer att resultera i oläsliga meddelanden på mottagarsidan</string>
+    <string name="title_advanced_compose_color_hint">Mycket ljusa eller mycket mörka färger kommer att resultera i oläsliga meddelanden på mottagarsidan</string>
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
     <string name="title_advanced_remove_signature_hint">Detta kan leda till att för lite eller för mycket text tas bort</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
@@ -870,7 +870,7 @@
     <string name="title_leave_deleted">Lämna raderade meddelanden på servern</string>
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Ange ett positivt värde för att ladda ner meddelandena i slutet (vanligast)
+    <string name="title_max_messages_remark">        Ange ett positivt värde för att ladda ner meddelandena i slutet (vanligast)
         or ett negativt värde för att ladda ner meddelandena i början (minst vanligast)
     </string>
     <string name="title_keep_poll_interval">Avsökningsintervall (minuter)</string>
@@ -1212,7 +1212,7 @@
     </string>
     <string name="title_compose">Skriv</string>
     <string name="title_submitter">Skickad av:</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Signerat av:</string>
+    <string name="title_signed_by">Signerat av:</string>
     <string name="title_delivered_to">Levererad till:</string>
     <string name="title_from">Från:</string>
     <string name="title_to">Till:</string>
@@ -1452,6 +1452,7 @@
     <string name="title_sort_on_attachments">Bilagor</string>
     <string name="title_sort_on_hidden">Dold</string>
     <string name="title_sort_ascending">Äldst först</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordning</string>
     <string name="title_filter">Filtrera bort</string>
     <string name="title_filter_seen">Läst</string>
     <string name="title_filter_unflagged">Utan stjärnmärkning</string>

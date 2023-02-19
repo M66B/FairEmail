@@ -1310,6 +1310,7 @@
     <string name="title_sort_on_attachments">Mellékletek</string>
     <string name="title_sort_on_hidden">Rejtett</string>
     <string name="title_sort_ascending">Régebbiek előre</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Rendezés</string>
     <string name="title_filter">Kiszűrés</string>
     <string name="title_filter_seen">Olvasott</string>
     <string name="title_filter_unflagged">Csillagozatlan</string>

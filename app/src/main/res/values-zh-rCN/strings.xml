@@ -713,6 +713,7 @@
     <string name="title_advanced_auto_identity_hint">这将选择上次使用的身份作为新邮件收件人</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
+    <string name="title_advanced_compose_color_hint">非常浅或非常深的颜色会导致收件人处的信息难以辨认</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_remove_signature_hint">这可能会导致删除太少或太多文本</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
@@ -863,6 +864,9 @@
     <string name="title_leave_deleted">在服务器上保留已删除邮件</string>
     <string name="title_leave_on_device">在设备上保留消息</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
+    <string name="title_max_messages_remark">        输入一个正数下载末尾消息(最常见)
+        和一个负数下载开头消息(最少见)
+    </string>
     <string name="title_keep_poll_interval">轮询间隔(分钟)</string>
     <string name="title_keep_alive_interval">保活间隔（分钟）</string>
     <string name="title_keep_alive_noop">定期重启 IMAP IDLE</string>
@@ -1200,6 +1204,7 @@
     </string>
     <string name="title_compose">撰写</string>
     <string name="title_submitter">发送自：</string>
+    <string name="title_signed_by">签名人：</string>
     <string name="title_delivered_to">发送给：</string>
     <string name="title_from">发件人：</string>
     <string name="title_to">收件人：</string>
@@ -1439,6 +1444,7 @@
     <string name="title_sort_on_attachments">附件</string>
     <string name="title_sort_on_hidden">隐藏</string>
     <string name="title_sort_ascending">旧消息在前</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">顺序</string>
     <string name="title_filter">滤除</string>
     <string name="title_filter_seen">已读</string>
     <string name="title_filter_unflagged">未标星</string>

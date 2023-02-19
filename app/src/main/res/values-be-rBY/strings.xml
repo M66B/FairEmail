@@ -1487,6 +1487,7 @@
     <string name="title_sort_on_attachments">Укладанняў</string>
     <string name="title_sort_on_hidden">Стану адлюстравання</string>
     <string name="title_sort_ascending">Спачатку старыя</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Парадак</string>
     <string name="title_filter">Адфільтраваць</string>
     <string name="title_filter_seen">Прачытаныя</string>
     <string name="title_filter_unflagged">Не пазначаныя</string>

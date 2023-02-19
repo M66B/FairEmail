@@ -970,6 +970,7 @@
     <string name="title_sort_on_attachments">پیوست‎ها</string>
     <string name="title_sort_on_hidden">پنهان</string>
     <string name="title_sort_ascending">ابتدا قدیمی‌ترین</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">سفارش</string>
     <string name="title_filter">پالودن</string>
     <string name="title_filter_seen">خوانده شده</string>
     <string name="title_filter_unflagged">بدون ستاره شده</string>

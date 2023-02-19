@@ -1471,6 +1471,7 @@
     <string name="title_sort_on_attachments">Prilozima</string>
     <string name="title_sort_on_hidden">Skrivenom</string>
     <string name="title_sort_ascending">Prvo najstarije</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Redoslijed</string>
     <string name="title_filter">Izdvoji</string>
     <string name="title_filter_seen">Pročitano</string>
     <string name="title_filter_unflagged">Bez zvjezdice</string>

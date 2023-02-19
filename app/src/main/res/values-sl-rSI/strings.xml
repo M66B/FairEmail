@@ -1480,6 +1480,7 @@
     <string name="title_sort_on_attachments">Prilogah</string>
     <string name="title_sort_on_hidden">Skrito</string>
     <string name="title_sort_ascending">Najprej najstarejša</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Vrstni red</string>
     <string name="title_filter">Izključi</string>
     <string name="title_filter_seen">Prebrana</string>
     <string name="title_filter_unflagged">Brez zvezdice</string>

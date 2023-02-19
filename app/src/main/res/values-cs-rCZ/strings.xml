@@ -753,7 +753,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_auto_identity_hint">Toto zvolí poslední identitu použitou při výběru příjemce pro nové zprávy</string>
     <string name="title_advanced_send_reminders_hint">Zobrazí upozornění, je-li text zprávy či předmět prázdný nebo chybí-li pravděpodobně příloha</string>
     <string name="title_advanced_reply_move_hint">E-mailový server stále může zprávy ukládat i do složky odeslané</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Velmi světlá nebo tmavá barva povede k nečitelným zprávám na straně příjemců</string>
+    <string name="title_advanced_compose_color_hint">Velmi světlá nebo tmavá barva povede k nečitelným zprávám na straně příjemců</string>
     <string name="title_advanced_usenet_hint">Vložit „-- “ mezi text a podpis</string>
     <string name="title_advanced_remove_signature_hint">To může vést k odstranění příliš malého nebo příliš velkého textu</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>
@@ -904,7 +904,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_leave_deleted">Ponechat smazané zprávy na serveru</string>
     <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>
     <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Zadejte kladné číslo ke stažení zpráv na konci (nejvíce běžné)
+    <string name="title_max_messages_remark">        Zadejte kladné číslo ke stažení zpráv na konci (nejvíce běžné)
         a záporné číslo ke stažení zpráv na začátku (nejméně běžné)
     </string>
     <string name="title_keep_poll_interval">Interval dotazování (minuty)</string>
@@ -1246,7 +1246,7 @@ v prohlížeči ze všech Google účtů.</string>
     </string>
     <string name="title_compose">Napsat zprávu</string>
     <string name="title_submitter">Odeslal:</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Podepsáno:</string>
+    <string name="title_signed_by">Podepsáno:</string>
     <string name="title_delivered_to">Doručeno na:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Komu:</string>
@@ -1486,6 +1486,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_sort_on_attachments">Přílohy</string>
     <string name="title_sort_on_hidden">Skryto</string>
     <string name="title_sort_ascending">Od nejstarších</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Pořadí</string>
+    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">Použitý počet</string>
+    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">Naposledy použito</string>
     <string name="title_filter">Odfiltrovat</string>
     <string name="title_filter_seen">Přečteno</string>
     <string name="title_filter_unflagged">Bez hvězdičky</string>

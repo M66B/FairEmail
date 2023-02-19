@@ -752,7 +752,7 @@
     <string name="title_advanced_auto_identity_hint">Spowoduje to wybranie ostatnio użytej tożsamości podczas wybierania odbiorcy dla nowych wiadomości</string>
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Bardzo jasne lub bardzo ciemne kolory spowodują, że wiadomości po stronie odbiorcy będą nieczytelne</string>
+    <string name="title_advanced_compose_color_hint">Bardzo jasne lub bardzo ciemne kolory spowodują, że wiadomości po stronie odbiorcy będą nieczytelne</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
     <string name="title_advanced_remove_signature_hint">Może to spowodować usunięcie zbyt małego lub zbyt dużego tekstu</string>
     <string name="title_advanced_metered_hint">Połączenia taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
@@ -903,7 +903,7 @@
     <string name="title_leave_deleted">Pozostaw usunięte wiadomości na serwerze</string>
     <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
     <string name="title_max_messages">Maksymalna liczba wiadomości do pobrania (puste dla wszystkich)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Wpisz liczbę dodatnią, aby pobrać wiadomości na końcu (najczęściej spotykane)
+    <string name="title_max_messages_remark">        Wpisz liczbę dodatnią, aby pobrać wiadomości na końcu (najczęściej spotykane)
         i liczbę ujemną, aby pobrać wiadomości na początku (najmniej powszechne)
     </string>
     <string name="title_keep_poll_interval">Interwał sprawdzania (minuty)</string>
@@ -1245,7 +1245,7 @@
     </string>
     <string name="title_compose">Napisz</string>
     <string name="title_submitter">Wysłane przez:</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Podpisany przez:</string>
+    <string name="title_signed_by">Podpisany przez:</string>
     <string name="title_delivered_to">Dostarczone do:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Do:</string>
@@ -1485,6 +1485,7 @@
     <string name="title_sort_on_attachments">Załączniki</string>
     <string name="title_sort_on_hidden">Ukryta</string>
     <string name="title_sort_ascending">Od najstarszych</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Kolejność</string>
     <string name="title_filter">Odfiltruj</string>
     <string name="title_filter_seen">Przeczytana</string>
     <string name="title_filter_unflagged">Nie oznaczona</string>

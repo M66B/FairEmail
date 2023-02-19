@@ -941,6 +941,7 @@
     <string name="title_sort_on_attachments">Прикачени файлове</string>
     <string name="title_sort_on_hidden">Скрито</string>
     <string name="title_sort_ascending">Първо най-старите</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Подреждане</string>
     <string name="title_filter">Филтрирай по</string>
     <string name="title_filter_seen">Прочетени</string>
     <string name="title_filter_unflagged">Без звезда</string>

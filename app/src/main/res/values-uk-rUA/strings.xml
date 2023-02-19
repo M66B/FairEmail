@@ -752,7 +752,7 @@
     <string name="title_advanced_auto_identity_hint">Це може обрати останню ідентифікацію, коли використовувалася для одержувача нових повідомлень</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Використання дуже світлих або дуже темних кольорів може призвести до того, що отримувач не зможе прочитати ваше повідомлення</string>
+    <string name="title_advanced_compose_color_hint">Використання дуже світлих або дуже темних кольорів може призвести до того, що отримувач не зможе прочитати ваше повідомлення</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
     <string name="title_advanced_remove_signature_hint">Це може призвести до замалого або занадто багатого видалянню тексту</string>
     <string name="title_advanced_metered_hint">Лімітовані підключення - це загалом, мобільне підключення або платні Wi-Fi точки доступу</string>
@@ -903,7 +903,7 @@
     <string name="title_leave_deleted">Залишати видалені повідомлення на сервері</string>
     <string name="title_leave_on_device">Залишати повідомлення на пристрої</string>
     <string name="title_max_messages">Максимальна кількість повідомлень для завантаження (якщо порожньо то всі)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">Задайте додатнє число для завантаження останніх повідомлень (використовується зазвичай)
+    <string name="title_max_messages_remark">Задайте додатнє число для завантаження останніх повідомлень (використовується зазвичай)
         або від\'ємне для завантаженя перших повідомлень (використовується рідко)
     </string>
     <string name="title_keep_poll_interval">Інтервал опитування (хвилини)</string>
@@ -1246,7 +1246,7 @@
     </string>
     <string name="title_compose">Написати листа</string>
     <string name="title_submitter">Надіслав:</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Підписано:</string>
+    <string name="title_signed_by">Підписано:</string>
     <string name="title_delivered_to">Доставлено:</string>
     <string name="title_from">Від:</string>
     <string name="title_to">До:</string>
@@ -1486,6 +1486,9 @@
     <string name="title_sort_on_attachments">Вкладеннями</string>
     <string name="title_sort_on_hidden">Приховані</string>
     <string name="title_sort_ascending">Спочатку старіші</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Порядок</string>
+    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">Лічильник застосувань</string>
+    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">Востаннє застосовано</string>
     <string name="title_filter">Відфільтрувати</string>
     <string name="title_filter_seen">Прочитано</string>
     <string name="title_filter_unflagged">Не обране</string>

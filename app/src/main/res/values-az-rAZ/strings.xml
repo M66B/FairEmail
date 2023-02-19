@@ -1458,6 +1458,7 @@
     <string name="title_sort_on_attachments">Qoşmalar</string>
     <string name="title_sort_on_hidden">Gizli</string>
     <string name="title_sort_ascending">Birinci köhnə</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Sifariş</string>
     <string name="title_filter">Filtrləmə</string>
     <string name="title_filter_seen">Oxunan</string>
     <string name="title_filter_unflagged">Ulduzlu olmayan</string>

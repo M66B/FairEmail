@@ -1347,6 +1347,7 @@
     <string name="title_sort_on_attachments">Con anexos</string>
     <string name="title_sort_on_hidden">Agochado</string>
     <string name="title_sort_ascending">Máis antigos primeiro</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Orde</string>
     <string name="title_filter">Sen coincidencia nos filtros</string>
     <string name="title_filter_seen">Lido</string>
     <string name="title_filter_unflagged">Sen destacar</string>

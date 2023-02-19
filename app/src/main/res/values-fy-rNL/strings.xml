@@ -1047,6 +1047,7 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string name="title_sort_on_attachments">Taheaksels</string>
     <string name="title_sort_on_hidden">Ferburgen</string>
     <string name="title_sort_ascending">Aldste earst</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Sekwinsje</string>
     <string name="title_filter">Útfilterje</string>
     <string name="title_filter_seen">Lêze</string>
     <string name="title_filter_unflagged">Unstjerre</string>

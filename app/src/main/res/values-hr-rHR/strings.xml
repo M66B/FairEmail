@@ -1338,6 +1338,7 @@
     <string name="title_sort_on_attachments">Prilozi</string>
     <string name="title_sort_on_hidden">Skriveno</string>
     <string name="title_sort_ascending">Prvo najstarije</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Redoslijed</string>
     <string name="title_filter">Filtrirati</string>
     <string name="title_filter_seen">Pročitaj</string>
     <string name="title_filter_unflagged">Bez zvjezdice</string>

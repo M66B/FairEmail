@@ -753,7 +753,7 @@
     <string name="title_advanced_auto_identity_hint">Будет выбран последний идентификатор, использовавшийся для получателя новых сообщений</string>
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
     <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Очень светлые или очень тёмные цвета сделают сообщение неразборчивым для получателя</string>
+    <string name="title_advanced_compose_color_hint">Очень светлые или очень тёмные цвета сделают сообщение неразборчивым для получателя</string>
     <string name="title_advanced_usenet_hint">Вставлять \"-- \" между текстом и подписью</string>
     <string name="title_advanced_remove_signature_hint">Может привести к слишком маленькому или большому убиранию текста</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения — это обычно мобильные сети или платные Wi-Fi</string>
@@ -904,7 +904,7 @@
     <string name="title_leave_deleted">Оставлять удалённые сообщения на сервере</string>
     <string name="title_leave_on_device">Оставлять сообщения на устройстве</string>
     <string name="title_max_messages">Максимальное количество загружаемых сообщений (пусто для всех)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Введите положительное число для загрузки сообщений в конце (более распространённое)
+    <string name="title_max_messages_remark">        Введите положительное число для загрузки сообщений в конце (более распространённое)
         или отрицательное число для загрузки сообщений в начале (менее распространённое)
     </string>
     <string name="title_keep_poll_interval">Интервал опроса (мин.)</string>
@@ -1248,7 +1248,7 @@
     </string>
     <string name="title_compose">Создать</string>
     <string name="title_submitter">Отправлено:</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Подписано:</string>
+    <string name="title_signed_by">Подписано:</string>
     <string name="title_delivered_to">Доставлено:</string>
     <string name="title_from">От:</string>
     <string name="title_to">Кому:</string>
@@ -1488,6 +1488,9 @@
     <string name="title_sort_on_attachments">Вложения</string>
     <string name="title_sort_on_hidden">Скрытые</string>
     <string name="title_sort_ascending">Сначала старые</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Порядок</string>
+    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">Количество применений</string>
+    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">Последнее применение</string>
     <string name="title_filter">Фильтр</string>
     <string name="title_filter_seen">Прочитанные</string>
     <string name="title_filter_unflagged">Не избранные</string>

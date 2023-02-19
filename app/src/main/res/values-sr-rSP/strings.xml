@@ -663,6 +663,7 @@
     <string name="title_sort_on_attachments">Прилози</string>
     <string name="title_sort_on_hidden">Сакривеним</string>
     <string name="title_sort_ascending">Прво најстарије</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Редослед</string>
     <string name="title_filter">Филтрирај по</string>
     <string name="title_filter_seen">Прочитаним</string>
     <string name="title_filter_unflagged">Без звездице</string>

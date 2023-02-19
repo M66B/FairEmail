@@ -727,7 +727,7 @@
     <string name="title_advanced_auto_identity_hint">Dadurch wird die zuletzt verwendete Identität, die für den letzten ausgewählten Empfänger einer neuen Nachricht benutzt wurde, verwendet</string>
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
     <string name="title_advanced_reply_move_hint">Der E-Mail-Server könnte die Nachrichten trotzdem noch in den Ordner für gesendete Nachrichten hinzufügen</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Sehr helle oder sehr dunkle Farben führen zu unleserlichen Nachrichten auf der Seite des Empfängers</string>
+    <string name="title_advanced_compose_color_hint">Sehr helle oder sehr dunkle Farben führen zu unleserlichen Nachrichten auf der Seite des Empfängers</string>
     <string name="title_advanced_usenet_hint">Signaturtrenner »-- « zwischen Text und Signatur einfügen</string>
     <string name="title_advanced_remove_signature_hint">Das kann dazu führen, dass zu wenig oder zu viel Text entfernt wird</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte WLAN-Zugangspunkte</string>
@@ -878,7 +878,7 @@
     <string name="title_leave_deleted">Gelöschte Nachrichten auf Server belassen</string>
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
     <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">Geben Sie eine positive Zahl ein, um die Nachrichten am Ende herunterzuladen (am häufigsten) und eine negative Zahl, um die Nachrichten am Anfang herunterzuladen (weniger häufig)    </string>
+    <string name="title_max_messages_remark">Geben Sie eine positive Zahl ein, um die Nachrichten am Ende herunterzuladen (am häufigsten) und eine negative Zahl, um die Nachrichten am Anfang herunterzuladen (weniger häufig)    </string>
     <string name="title_keep_poll_interval">Abrufintervall (Minuten)</string>
     <string name="title_keep_alive_interval">Aktivitätsintervall (Minuten)</string>
     <string name="title_keep_alive_noop">IMAP IDLE periodisch neu starten</string>
@@ -1217,7 +1217,7 @@
     </string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Signiert von:</string>
+    <string name="title_signed_by">Signiert von:</string>
     <string name="title_delivered_to">Zugestellt an:</string>
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>
@@ -1458,6 +1458,9 @@
     <string name="title_sort_on_attachments">Anhänge</string>
     <string name="title_sort_on_hidden">Verborgen</string>
     <string name="title_sort_ascending">Älteste zuerst</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Reihenfolge</string>
+    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">Anwendungs-Anzahl</string>
+    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">Zuletzt angewandt</string>
     <string name="title_filter">Ausfiltern</string>
     <string name="title_filter_seen">Gelesen</string>
     <string name="title_filter_unflagged">Nicht markiert</string>

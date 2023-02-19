@@ -724,7 +724,7 @@
     <string name="title_advanced_auto_identity_hint">Με αυτό θα επιλέγεται η τελευταία ταυτότητα που έχει χρησιμοποιηθεί κατά την επιλογή ενός παραλήπτη για νέα μηνύματα</string>
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
     <string name="title_advanced_reply_move_hint">Ο διακομιστής ηλ. ταχυδρομείου ενδέχεται να προσθέτει ακόμα τα μηνύματα στον φάκελο απεσταλμένων</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Πολύ ανοικτά ή πολύ σκούρα χρώματα θα έχουν ως αποτέλεσμα δυσανάγνωστα μηνύματα για τους παραλήπτες</string>
+    <string name="title_advanced_compose_color_hint">Πολύ ανοικτά ή πολύ σκούρα χρώματα θα έχουν ως αποτέλεσμα δυσανάγνωστα μηνύματα για τους παραλήπτες</string>
     <string name="title_advanced_usenet_hint">Να παρεμβάλλεται ένα \'-- \' ανάμεσα στο κείμενο και την υπογραφή</string>
     <string name="title_advanced_remove_signature_hint">Αυτό μπορεί να επιφέρει την απαλοιφή είτε υπερβολικά λίγου είτε υπερβολικά πολύ κειμένου</string>
     <string name="title_advanced_metered_hint">Οι συνδέσεις με ογκοχρέωση είναι, γενικά, οι κινητές συνδέσεις διαδικτύου ή τα επί πληρωμή σημεία Wi-Fi</string>
@@ -875,7 +875,7 @@
     <string name="title_leave_deleted">Να παραμένουν τα διεγραμμένα μηνύματα στον διακομιστή</string>
     <string name="title_leave_on_device">Να παραμένουν τα μηνύματα στη συσκευή</string>
     <string name="title_max_messages">Μέγιστος αριθμός μηνυμάτων για κατέβασμα (κενό για όλα)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Εισάγετε έναν θετικό αριθμό για να κατεβάσετε τα μηνύματα στο τέλος (το πιο συνηθισμένο)
+    <string name="title_max_messages_remark">        Εισάγετε έναν θετικό αριθμό για να κατεβάσετε τα μηνύματα στο τέλος (το πιο συνηθισμένο)
         και έναν αρνητικό αριθμό για να κατεβάσετε τα μηνύματα στην αρχή (το λιγότερο συνηθισμένο)
     </string>
     <string name="title_keep_poll_interval">Χρονικό διάστημα μεταξύ συγχρονισμών (λεπτά)</string>
@@ -1217,7 +1217,7 @@
     </string>
     <string name="title_compose">Σύνταξη</string>
     <string name="title_submitter">Στάλθηκε από:</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Υπογεγραμμένο από:</string>
+    <string name="title_signed_by">Υπογεγραμμένο από:</string>
     <string name="title_delivered_to">Παραδόθηκε σε:</string>
     <string name="title_from">Από:</string>
     <string name="title_to">Προς:</string>
@@ -1457,6 +1457,7 @@
     <string name="title_sort_on_attachments">Συνημμένα</string>
     <string name="title_sort_on_hidden">Κρυφό</string>
     <string name="title_sort_ascending">Πρώτα τα παλαιότερα</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Σειρά</string>
     <string name="title_filter">Φιλτράρισμα (αποκλεισμός)</string>
     <string name="title_filter_seen">Αναγνωσμένα</string>
     <string name="title_filter_unflagged">Χωρίς αστέρι</string>

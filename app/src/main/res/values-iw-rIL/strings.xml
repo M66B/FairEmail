@@ -1484,6 +1484,7 @@
     <string name="title_sort_on_attachments">קבצים מצורפים</string>
     <string name="title_sort_on_hidden">מוסתר</string>
     <string name="title_sort_ascending">הישנים בהתחלה</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">סדר</string>
     <string name="title_filter">סינון החוצה</string>
     <string name="title_filter_seen">נקראו</string>
     <string name="title_filter_unflagged">ללא כוכב</string>

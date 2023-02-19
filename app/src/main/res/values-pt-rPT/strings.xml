@@ -728,7 +728,7 @@
     <string name="title_advanced_auto_identity_hint">Isto selecionará a última identidade usada ao selecionar um destinatário para novas mensagens</string>
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de correio electrónico ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
+    <string name="title_advanced_compose_color_hint">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
     <string name="title_advanced_usenet_hint">Coloca \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_remove_signature_hint">Pode resultar na remoção de pouco ou de demasiado texto</string>
     <string name="title_advanced_metered_hint">Ligações limitadas são geralmente ligações móveis ou hotspots Wi-Fi pagos</string>
@@ -879,7 +879,7 @@
     <string name="title_leave_deleted">Deixar as mensagens eliminadas no servidor</string>
     <string name="title_leave_on_device">Deixar as mensagens no dispositivo</string>
     <string name="title_max_messages">Número máximo de mensagens a serem transferidas (espaço em branco para todas)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Insira um número positivo para baixar as mensagens no final (mais comum)
+    <string name="title_max_messages_remark">        Insira um número positivo para baixar as mensagens no final (mais comum)
         e um número negativo para baixar as mensagens no início (menos comum)
     </string>
     <string name="title_keep_poll_interval">Intervalo de verificação (em minutos)</string>
@@ -1224,7 +1224,7 @@
     </string>
     <string name="title_compose">Compor</string>
     <string name="title_submitter">Enviado por:</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Assinado por:</string>
+    <string name="title_signed_by">Assinado por:</string>
     <string name="title_delivered_to">Entregue a:</string>
     <string name="title_from">De:</string>
     <string name="title_to">Para:</string>
@@ -1464,6 +1464,7 @@
     <string name="title_sort_on_attachments">Anexos</string>
     <string name="title_sort_on_hidden">Oculta</string>
     <string name="title_sort_ascending">Mais antigas primeiro</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordenar</string>
     <string name="title_filter">Filtrar (excluir)</string>
     <string name="title_filter_seen">Lida</string>
     <string name="title_filter_unflagged">Sem estrela</string>

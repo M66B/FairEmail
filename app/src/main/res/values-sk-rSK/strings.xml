@@ -1399,6 +1399,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_sort_on_attachments">Prílohy</string>
     <string name="title_sort_on_hidden">Skryté</string>
     <string name="title_sort_ascending">Od najstaršej</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Poradie</string>
     <string name="title_filter">Filtrovať</string>
     <string name="title_filter_seen">Prečítané</string>
     <string name="title_filter_unflagged">Bez hviezdičky</string>

@@ -728,7 +728,7 @@
     <string name="title_advanced_auto_identity_hint">Ceci sélectionnera la dernière identité utilisée lors de la sélection d\'un destinataire pour les nouveaux messages</string>
     <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l’objet sont vides ou quand une pièce jointe semble avoir été oubliée</string>
     <string name="title_advanced_reply_move_hint">Le serveur de messagerie pourrait tout de même ajouter les messages au dossier des messages envoyés</string>
-    <string name="title_advanced_compose_color_hint" comment="title_advanced_compose_color_hint&#10;Help text for button to select default color for messages to be sent">Les couleurs très claires ou très sombres vont rendre les messages illisibles chez les destinataires</string>
+    <string name="title_advanced_compose_color_hint">Les couleurs très claires ou très sombres vont rendre les messages illisibles chez les destinataires</string>
     <string name="title_advanced_usenet_hint">Insérer \'-- \' entre le texte et la signature</string>
     <string name="title_advanced_remove_signature_hint">Ceci peut entraîner la suppression de trop peu ou trop de texte</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
@@ -879,7 +879,7 @@
     <string name="title_leave_deleted">Laisser les messages supprimés sur le serveur</string>
     <string name="title_leave_on_device">Laisser les messages sur l\'appareil</string>
     <string name="title_max_messages">Nombre maximum de messages à télécharger (laisser vide pour tous)</string>
-    <string name="title_max_messages_remark" comment="title_max_messages_remark&#10;Help text for POP3 maximum message count">        Saisissez un nombre positif pour télécharger les messages à la fin (le plus commun)
+    <string name="title_max_messages_remark">        Saisissez un nombre positif pour télécharger les messages à la fin (le plus commun)
         et un nombre négatif pour télécharger les messages au début (le moins commun)
     </string>
     <string name="title_keep_poll_interval">Intervalle de synchronisation (minutes)</string>
@@ -1224,7 +1224,7 @@
     </string>
     <string name="title_compose">Rédiger</string>
     <string name="title_submitter">Envoyé par :</string>
-    <string name="title_signed_by" comment="title_signed_by&#10;Title for who takes responsibility for a message (=DKIM signer)">Signé par :</string>
+    <string name="title_signed_by">Signé par :</string>
     <string name="title_delivered_to">Envoyé à :</string>
     <string name="title_from">De :</string>
     <string name="title_to">À :</string>
@@ -1464,6 +1464,9 @@
     <string name="title_sort_on_attachments">Pièces jointes</string>
     <string name="title_sort_on_hidden">Masqués</string>
     <string name="title_sort_ascending">Le plus ancien en premier</string>
+    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordre</string>
+    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">Décompte utilisé</string>
+    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">Dernièrement utilisé</string>
     <string name="title_filter">Filtrer (exclure)</string>
     <string name="title_filter_seen">Lus</string>
     <string name="title_filter_unflagged">Non suivis</string>
