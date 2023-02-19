@@ -2503,7 +2503,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 String domain = UriHelper.getEmailDomain(((InternetAddress) message.from[0]).getAddress());
                 if (domain != null)
                     for (String signer : message.signedby.split(","))
-                        if (signer.equals(domain)) { // TODO: root domain check?
+                        if (Objects.equals(
+                                UriHelper.getRootDomain(context, signer),
+                                UriHelper.getRootDomain(context, domain))) {
                             known_signer = true;
                             break;
                         }
