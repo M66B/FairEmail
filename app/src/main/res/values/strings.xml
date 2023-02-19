@@ -416,6 +416,7 @@
     <string name="title_advanced_sync_folders">Synchronize folder list</string>
     <string name="title_advanced_sync_folders_poll">Actively synchronize folder list</string>
     <string name="title_advanced_sync_shared_folders">Synchronize shared folder lists</string>
+    <string name="title_advanced_sync_added">Enable synchronization for new user folders</string>
     <string name="title_advanced_subscriptions">Manage folder subscriptions</string>
     <string name="title_advanced_check_authentication">Check message authentication</string>
     <string name="title_advanced_check_tls">Check transport layer security (TLS)</string>

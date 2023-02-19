@@ -2253,9 +2253,11 @@ class Core {
         boolean sync_folders = prefs.getBoolean("sync_folders", true);
         boolean sync_folders_poll = prefs.getBoolean("sync_folders_poll", false);
         boolean sync_shared_folders = prefs.getBoolean("sync_shared_folders", false);
+        boolean sync_added_folders = prefs.getBoolean("sync_added_folders", false);
         Log.i(account.name + " sync folders=" + sync_folders +
                 " poll=" + sync_folders_poll +
                 " shared=" + sync_shared_folders +
+                " added=" + sync_added_folders +
                 " keep_alive=" + keep_alive +
                 " force=" + force);
 
@@ -2268,9 +2270,12 @@ class Core {
 
         // Get folder names
         boolean drafts = false;
+        boolean user = false;
         Map<String, EntityFolder> local = new HashMap<>();
         List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
         for (EntityFolder folder : folders) {
+            if (EntityFolder.USER.equals(folder.type))
+                user = true;
             if (folder.tbc != null) {
                 try {
                     // Prefix folder with namespace
@@ -2675,6 +2680,8 @@ class Core {
 
                         if (selectable)
                             folder.inheritFrom(parent);
+                        if (user && sync_added_folders && EntityFolder.USER.equals(type))
+                            folder.synchronize = true;
 
                         folder.id = db.folder().insertFolder(folder);
                         Log.i(folder.name + " added type=" + folder.type + " sync=" + folder.synchronize);
