@@ -2499,10 +2499,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     message.signedby != null &&
                     message.from != null &&
                     message.from.length == 1) {
+                // https://dmarcly.com/blog/what-is-dmarc-identifier-alignment-domain-alignment
                 String domain = UriHelper.getEmailDomain(((InternetAddress) message.from[0]).getAddress());
                 if (domain != null)
                     for (String signer : message.signedby.split(","))
-                        if (signer.equals(domain)) {
+                        if (signer.equals(domain)) { // TODO: root domain check?
                             known_signer = true;
                             break;
                         }
