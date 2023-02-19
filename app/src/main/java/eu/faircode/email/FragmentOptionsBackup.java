@@ -700,7 +700,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         args.putBoolean("import_settings", vme.getOption("settings"));
 
         new SimpleTask<Void>() {
-            private SpannableStringBuilder ssb = new SpannableStringBuilder();
+            private SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
             @Override
             protected void onProgress(CharSequence status, Bundle data) {
@@ -868,7 +868,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                             EntityAccount existing = db.account().getAccountByUUID(account.uuid);
                             if (existing != null) {
-                                SpannableStringBuilder ssb = new SpannableStringBuilder();
+                                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                                 ssb.append(context.getString(R.string.title_importing_exists));
                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
                                 postProgress(ssb);
@@ -879,7 +879,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                             if (account.auth_type == AUTH_TYPE_GMAIL &&
                                     GmailState.getAccount(context, account.user) == null) {
-                                SpannableStringBuilder ssb = new SpannableStringBuilder();
+                                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                                 ssb.append(account.name).append(": ");
                                 ssb.append(context.getString(R.string.title_importing_wizard));
                                 ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
@@ -1230,7 +1230,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 ServiceSynchronize.eval(context, "import");
                 Log.i("Imported data");
 
-                SpannableStringBuilder ssb = new SpannableStringBuilder();
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                 ssb.append(context.getString(R.string.title_setup_imported));
                 ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
                 postProgress(ssb, null);
@@ -1242,7 +1242,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 if (ex instanceof NoStreamException)
                     ((NoStreamException) ex).report(getActivity());
                 else {
-                    SpannableStringBuilder ssb = new SpannableStringBuilder();
+                    SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                     if (ex.getCause() instanceof BadPaddingException /* GCM: AEADBadTagException */)
                         ssb.append(getString(R.string.title_setup_password_invalid));
                     else if (ex instanceof IOException && ex.getCause() instanceof IllegalBlockSizeException)

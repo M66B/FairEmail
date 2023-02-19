@@ -334,7 +334,7 @@ public class EntityAnswer implements Serializable {
                 continue;
             order++;
 
-            SpannableStringBuilder ssb = new SpannableStringBuilder(answer.name);
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(answer.name);
 
             if (answer.color != null) {
                 Drawable d = new ColorDrawable(answer.color);
@@ -434,7 +434,7 @@ public class EntityAnswer implements Serializable {
         icon.setTint(color);
 
         for (EntityAnswer answer : favorites) {
-            SpannableStringBuilder ssb = new SpannableStringBuilder(answer.name);
+            SpannableStringBuilder ssb = new SpannableStringBuilderEx(answer.name);
 
             if (answer.color != null) {
                 Drawable d = new ColorDrawable(answer.color);

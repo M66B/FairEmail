@@ -3485,7 +3485,7 @@ public class FragmentMessages extends FragmentBase
                 if (data.answers != null) {
                     int order = 100;
                     for (EntityAnswer answer : data.answers) {
-                        SpannableStringBuilder ssb = new SpannableStringBuilder(answer.name);
+                        SpannableStringBuilder ssb = new SpannableStringBuilderEx(answer.name);
 
                         if (answer.color != null) {
                             int first = answer.name.codePointAt(0);
