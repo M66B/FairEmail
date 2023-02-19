@@ -301,6 +301,28 @@ public class EntityRule {
                     if ("$tls".equals(keyword)) {
                         if (!Boolean.TRUE.equals(message.tls))
                             return false;
+                    } else if ("$aligned".equals(keyword)) {
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean native_dkim = prefs.getBoolean("native_dkim", false);
+                        if (!native_dkim)
+                            return false;
+                        if (message.signedby == null)
+                            return false;
+                        if (message.from == null || message.from.length != 1)
+                            return false;
+                        String domain = UriHelper.getEmailDomain(((InternetAddress) message.from[0]).getAddress());
+                        if (domain == null)
+                            return false;
+                        boolean valid = false;
+                        for (String signer : message.signedby.split(","))
+                            if (Objects.equals(
+                                    UriHelper.getRootDomain(context, signer),
+                                    UriHelper.getRootDomain(context, domain))) {
+                                valid = true;
+                                break;
+                            }
+                        if (!valid)
+                            return false;
                     } else if ("$dkim".equals(keyword)) {
                         if (!Boolean.TRUE.equals(message.dkim))
                             return false;
