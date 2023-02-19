@@ -1481,8 +1481,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvFolder.setText(outbox ? message.identityEmail : message.accountName);
             else if (viewType == ViewType.THREAD || viewType == ViewType.SEARCH)
                 tvFolder.setText(message.getFolderName(context));
-            else
-                tvFolder.setText(message.accountName + "/" + message.getFolderName(context));
+            else {
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+                ssb.append(message.accountName);
+                if (message.accountColor != null)
+                    ssb.setSpan(new ForegroundColorSpan(message.accountColor), 0, ssb.length(), 0);
+                ssb.append('/');
+                int s = ssb.length();
+                ssb.append(message.getFolderName(context));
+                if (message.folderColor != null)
+                    ssb.setSpan(new ForegroundColorSpan(message.folderColor), s, ssb.length(), 0);
+                tvFolder.setText(ssb);
+            }
 
             tvFolder.setVisibility(compact && viewType != ViewType.THREAD ? View.GONE : View.VISIBLE);
 
