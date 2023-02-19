@@ -8,6 +8,26 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="collapseActionView|always" />
 
+    <item
+        android:id="@+id/menu_sort_on"
+        android:icon="@drawable/twotone_sort_24"
+        android:title="@string/title_sort_on"
+        app:showAsAction="ifRoom">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_sort_on_order"
+                    android:title="@string/title_sort_on_order" />
+                <item
+                    android:id="@+id/menu_sort_on_applied"
+                    android:title="@string/title_sort_on_applied" />
+                <item
+                    android:id="@+id/menu_sort_on_last_applied"
+                    android:title="@string/title_sort_on_last_applied" />
+            </group>
+        </menu>
+    </item>
+
     <group android:id="@+id/group_backup">
         <item
             android:id="@+id/menu_export"

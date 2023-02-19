@@ -53,10 +53,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.Collator;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 import javax.mail.MessagingException;
 
@@ -70,6 +74,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
     private int protocol = -1;
+    private String sort;
     private String search = null;
     private List<TupleRuleEx> all = new ArrayList<>();
     private List<TupleRuleEx> selected = new ArrayList<>();
@@ -574,9 +579,37 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         });
     }
 
-    public void set(int protocol, @NonNull List<TupleRuleEx> rules) {
+    public void set(int protocol, String sort, @NonNull List<TupleRuleEx> rules) {
         this.protocol = protocol;
-        Log.i("Set protocol=" + protocol + " rules=" + rules.size() + " search=" + search);
+        this.sort = sort;
+        Log.i("Set protocol=" + protocol + " rules=" + rules.size() + " sort=" + sort + " search=" + search);
+
+        final Collator collator = Collator.getInstance(Locale.getDefault());
+        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
+
+        Collections.sort(rules, new Comparator<TupleRuleEx>() {
+            @Override
+            public int compare(TupleRuleEx r1, TupleRuleEx r2) {
+                int order;
+                if ("last_applied".equals(sort))
+                    order = -Long.compare(
+                            r1.last_applied == null ? 0 : r1.last_applied,
+                            r2.last_applied == null ? 0 : r2.last_applied);
+                else if ("applied".equals(sort)) {
+                    order = -Integer.compare(
+                            r1.applied == null ? 0 : r1.applied,
+                            r2.applied == null ? 0 : r2.applied);
+                } else
+                    order = Integer.compare(r1.order, r2.order);
+
+                if (order == 0)
+                    return collator.compare(
+                            r1.name == null ? "" : r1.name,
+                            r2.name == null ? "" : r2.name);
+                else
+                    return order;
+            }
+        });
 
         all = rules;
 
@@ -624,10 +657,16 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         }
     }
 
+    public void setSort(String sort) {
+        this.sort = sort;
+        set(protocol, sort, all);
+        notifyDataSetChanged();
+    }
+
     public void search(String query) {
         Log.i("Rules query=" + query);
         search = query;
-        set(protocol, all);
+        set(protocol, sort, all);
     }
 
     private static class DiffCallback extends DiffUtil.Callback {

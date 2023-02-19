@@ -1753,6 +1753,10 @@
     <string name="title_sort_on_hidden">Hidden</string>
     <string name="title_sort_ascending">Oldest first</string>
 
+    <string name="title_sort_on_order">Order</string>
+    <string name="title_sort_on_applied">Applied count</string>
+    <string name="title_sort_on_last_applied">Last applied</string>
+
     <string name="title_filter">Filter out</string>
     <string name="title_filter_seen">Read</string>
     <string name="title_filter_unflagged">Unstarred</string>

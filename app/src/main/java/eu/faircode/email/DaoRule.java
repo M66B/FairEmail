@@ -53,8 +53,7 @@ public interface DaoRule {
     @Query("SELECT rule.*, folder.account, folder.name AS folderName, account.name AS accountName FROM rule" +
             " JOIN folder ON folder.id = rule.folder" +
             " JOIN account ON account.id = folder.account" +
-            " WHERE rule.folder = :folder" +
-            " ORDER BY `order`, name COLLATE NOCASE")
+            " WHERE rule.folder = :folder")
     LiveData<List<TupleRuleEx>> liveRules(long folder);
 
     @Query("SELECT COUNT(*) FROM rule")
