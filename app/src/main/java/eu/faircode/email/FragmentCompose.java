@@ -4533,6 +4533,9 @@ public class FragmentCompose extends FragmentBase {
 
                     exif.setAttribute(ExifInterface.TAG_XMP, null);
                     exif.setAttribute(ExifInterface.TAG_IMAGE_DESCRIPTION, null);
+                    //exif.setAttribute(ExifInterface.TAG_MAKE, null);
+                    //exif.setAttribute(ExifInterface.TAG_MODEL, null);
+                    //exif.setAttribute(ExifInterface.TAG_SOFTWARE, null);
                     exif.setAttribute(ExifInterface.TAG_ARTIST, null);
                     exif.setAttribute(ExifInterface.TAG_COPYRIGHT, null);
                     exif.setAttribute(ExifInterface.TAG_USER_COMMENT, null);
