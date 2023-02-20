@@ -30,6 +30,7 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -39,6 +40,7 @@ import android.widget.TimePicker;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.preference.PreferenceManager;
 
 import java.text.DateFormat;
@@ -68,10 +70,10 @@ public class FragmentDialogDuration extends FragmentDialogBase {
         int default_snooze = prefs.getInt("default_snooze", 1);
 
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_duration, null);
-        final TextView tvDuration = dview.findViewById(R.id.tvDuration);
         final Button btn1hour = dview.findViewById(R.id.btn1hour);
         final Button btn1day = dview.findViewById(R.id.btn1day);
-        final Button btn1week = dview.findViewById(R.id.btn1week);
+        final Button btnMore = dview.findViewById(R.id.btnMore);
+        final TextView tvDuration = dview.findViewById(R.id.tvDuration);
         final TimePicker timePicker = dview.findViewById(R.id.timePicker);
         final DatePicker datePicker = dview.findViewById(R.id.datePicker);
 
@@ -144,8 +146,6 @@ public class FragmentDialogDuration extends FragmentDialogBase {
                 long duration = 3600 * 1000L;
                 if (view.getId() != R.id.btn1hour)
                     duration *= 24;
-                if (view.getId() == R.id.btn1week)
-                    duration *= 7;
 
                 Bundle args = getArguments();
                 args.putLong("duration", duration);
@@ -157,7 +157,109 @@ public class FragmentDialogDuration extends FragmentDialogBase {
 
         btn1hour.setOnClickListener(buttonListener);
         btn1day.setOnClickListener(buttonListener);
-        btn1week.setOnClickListener(buttonListener);
+
+        btnMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Context context = v.getContext();
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), btnMore);
+                popupMenu.inflate(R.menu.menu_duration);
+
+                DateFormat dtf = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
+
+                Calendar cal = Calendar.getInstance();
+                long now = cal.getTimeInMillis();
+                cal.set(Calendar.MINUTE, 0);
+                cal.set(Calendar.HOUR_OF_DAY, 8);
+                long morning = cal.getTimeInMillis();
+                String at8am = dtf.format(cal.getTimeInMillis());
+                cal.set(Calendar.HOUR_OF_DAY, 12);
+                long afternoon = cal.getTimeInMillis();
+                String at12pm = dtf.format(cal.getTimeInMillis());
+                cal.set(Calendar.HOUR_OF_DAY, 18);
+                long evening = cal.getTimeInMillis();
+                String at18pm = dtf.format(cal.getTimeInMillis());
+
+                popupMenu.getMenu().findItem(R.id.menu_this_afternoon)
+                        .setTitle(getString(R.string.title_today_at, at12pm))
+                        .setVisible(now < afternoon);
+                popupMenu.getMenu().findItem(R.id.menu_this_evening)
+                        .setTitle(getString(R.string.title_today_at, at18pm))
+                        .setVisible(now < evening);
+                popupMenu.getMenu().findItem(R.id.menu_tomorrow_morning)
+                        .setTitle(getString(R.string.title_tomorrow_at, at8am));
+                popupMenu.getMenu().findItem(R.id.menu_tomorrow_afternoon)
+                        .setTitle(getString(R.string.title_tomorrow_at, at12pm));
+                popupMenu.getMenu().findItem(R.id.menu_after_tomorrow_morning)
+                        .setTitle(getString(R.string.title_after_tomorrow_at, at8am));
+                popupMenu.getMenu().findItem(R.id.menu_after_tomorrow_afternoon)
+                        .setTitle(getString(R.string.title_after_tomorrow_at, at12pm));
+                popupMenu.getMenu().findItem(R.id.menu_saturday_norming)
+                        .setTitle(getString(R.string.title_saturday_at, at8am));
+                popupMenu.getMenu().findItem(R.id.menu_monday_norming)
+                        .setTitle(getString(R.string.title_monday_at, at8am));
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        dialog.dismiss();
+
+                        Calendar cal = Calendar.getInstance();
+                        long now = cal.getTimeInMillis();
+
+                        int itemId = item.getItemId();
+                        if (itemId == R.id.menu_tomorrow_morning ||
+                                itemId == R.id.menu_after_tomorrow_morning ||
+                                itemId == R.id.menu_saturday_norming ||
+                                itemId == R.id.menu_monday_norming) {
+                            cal.set(Calendar.HOUR_OF_DAY, 8);
+                            cal.set(Calendar.MINUTE, 0);
+                            cal.set(Calendar.SECOND, 0);
+                            cal.set(Calendar.MILLISECOND, 0);
+                            if (itemId == R.id.menu_tomorrow_morning)
+                                cal.add(Calendar.DATE, 1);
+                            else if (itemId == R.id.menu_after_tomorrow_morning)
+                                cal.add(Calendar.DATE, 2);
+                            else if (itemId == R.id.menu_saturday_norming) {
+                                cal.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
+                                if (cal.getTimeInMillis() < now)
+                                    cal.add(Calendar.DATE, 7);
+                            } else if (itemId == R.id.menu_monday_norming) {
+                                cal.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY);
+                                if (cal.getTimeInMillis() < now)
+                                    cal.add(Calendar.DATE, 7);
+                            }
+                        } else if (itemId == R.id.menu_this_afternoon ||
+                                itemId == R.id.menu_tomorrow_afternoon ||
+                                itemId == R.id.menu_after_tomorrow_afternoon) {
+                            cal.set(Calendar.HOUR_OF_DAY, 12);
+                            cal.set(Calendar.MINUTE, 0);
+                            cal.set(Calendar.SECOND, 0);
+                            cal.set(Calendar.MILLISECOND, 0);
+                            if (itemId == R.id.menu_tomorrow_afternoon)
+                                cal.add(Calendar.DATE, 1);
+                            else if (itemId == R.id.menu_after_tomorrow_afternoon)
+                                cal.add(Calendar.DATE, 2);
+                        } else if (itemId == R.id.menu_this_evening) {
+                            cal.set(Calendar.HOUR_OF_DAY, 18);
+                            cal.set(Calendar.MINUTE, 0);
+                            cal.set(Calendar.SECOND, 0);
+                            cal.set(Calendar.MILLISECOND, 0);
+                        } else if (itemId == R.id.menu_next_week)
+                            cal.add(Calendar.DATE, 7);
+
+                        Bundle args = getArguments();
+                        args.putLong("duration", cal.getTimeInMillis() - now);
+                        args.putLong("time", cal.getTimeInMillis());
+
+                        sendResult(RESULT_OK);
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        });
 
         timePicker.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override

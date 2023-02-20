@@ -4,56 +4,54 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:fadeScrollbars="false"
-    android:padding="24dp"
+    android:padding="12dp"
     android:scrollbarStyle="outsideOverlay">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tvDuration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thursday 28 February 2019 06:45 am"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <Button
             android:id="@+id/btn1hour"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="@string/title_1hour"
             app:layout_constraintEnd_toStartOf="@+id/btn1day"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvDuration" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn1day"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:text="@string/title_1day"
-            app:layout_constraintEnd_toStartOf="@+id/btn1week"
+            app:layout_constraintEnd_toStartOf="@+id/btnMore"
             app:layout_constraintStart_toEndOf="@id/btn1hour"
-            app:layout_constraintTop_toBottomOf="@id/tvDuration" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn1week"
+            android:id="@+id/btnMore"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:text="@string/title_1week"
+            android:text="@string/title_more_overflow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btn1day"
-            app:layout_constraintTop_toBottomOf="@id/tvDuration" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Thursday 28 February 2019 06:45 am"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn1hour" />
 
         <TimePicker
             android:id="@+id/timePicker"
@@ -63,7 +61,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHeight_max="180dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn1hour" />
+            app:layout_constraintTop_toBottomOf="@id/tvDuration" />
 
         <DatePicker
             android:id="@+id/datePicker"

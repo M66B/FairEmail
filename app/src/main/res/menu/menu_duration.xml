@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_this_afternoon"
+        android:title="@string/title_today_at" />
+    <item
+        android:id="@+id/menu_this_evening"
+        android:title="@string/title_today_at" />
+    <item
+        android:id="@+id/menu_tomorrow_morning"
+        android:title="@string/title_tomorrow_at" />
+    <item
+        android:id="@+id/menu_tomorrow_afternoon"
+        android:title="@string/title_tomorrow_at" />
+    <item
+        android:id="@+id/menu_after_tomorrow_morning"
+        android:title="@string/title_after_tomorrow_at" />
+    <item
+        android:id="@+id/menu_after_tomorrow_afternoon"
+        android:title="@string/title_after_tomorrow_at" />
+    <item
+        android:id="@+id/menu_saturday_norming"
+        android:title="@string/title_saturday_at" />
+    <item
+        android:id="@+id/menu_monday_norming"
+        android:title="@string/title_monday_at" />
+    <item
+        android:id="@+id/menu_next_week"
+        android:title="@string/title_next_week" />
+</menu>
