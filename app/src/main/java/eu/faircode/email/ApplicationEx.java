@@ -679,7 +679,8 @@ public class ApplicationEx extends Application
         } else if (version < 2029) {
             if (!prefs.contains("plain_only_reply"))
                 editor.putBoolean("plain_only_reply", true);
-        }
+        } else if (version < 2046)
+            editor.remove("message_junk");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");

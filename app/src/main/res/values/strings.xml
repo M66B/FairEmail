@@ -2040,7 +2040,11 @@
     <string name="title_hint_support">If you have a question or a problem, please use the support menu to get help</string>
     <string name="title_hint_message_actions">Swipe left to trash; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
     <string name="title_hint_message_selection">Long press a message to start selecting multiple messages; Hold and swipe up or down to select more messages</string>
-    <string name="title_hint_message_junk">These messages are in the spam folder of the email server. Obviously, the app cannot prevent spam messages from being sent to you.</string>
+    <string name="title_hint_message_junk">
+        An email client basically displays messages on an email server.
+        An email server is responsible for filtering spam, not an email client.
+        If you receive a lot of spam, please contact your email provider and don\'t blame the app!
+    </string>
     <string name="title_hint_important">Important</string>
     <string name="title_hint_sync">Downloading messages can take some time, depending on the speed of the provider, internet connection, the device and on the number of messages. While downloading messages the app might respond slower.</string>
     <string name="title_hint_sync_note">By default, not all messages will be downloaded to limit storage space and battery and data usage. You can change this by long pressing a folder in the folder list and selecting \'Synchronize more\'.</string>
