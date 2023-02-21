@@ -697,6 +697,13 @@ public class FragmentOAuth extends FragmentBase {
                             EntityLog.log(context, "jwt payload=" + payload);
                             JSONObject jpayload = new JSONObject(payload);
 
+                            if (jpayload.has("iat"))
+                                Log.i("Issued at " + new Date(jpayload.getLong("iat") * 1000L));
+                            if (jpayload.has("nbf"))
+                                Log.i("Not before " + new Date(jpayload.getLong("nbf") * 1000L));
+                            if (jpayload.has("exp"))
+                                Log.i("Expiration time " + new Date(jpayload.getLong("exp") * 1000L));
+
                             if (jpayload.has("preferred_username")) {
                                 String u = jpayload.getString("preferred_username");
                                 if (!TextUtils.isEmpty(u) && !usernames.contains(u))
