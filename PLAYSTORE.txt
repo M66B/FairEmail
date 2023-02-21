@@ -95,6 +95,6 @@ All pro features are convenience or advanced features.
 <b>Support</b>
 
 If you have a question or problem, please check here first:
-https://github.com/M66B/open-source-email/blob/master/FAQ.md
+https://github.com/M66B/FairEmail/blob/master/FAQ.md
 
 If you cannot find what you are looking for, please contact me at marcel+fairemail@faircode.eu, and I will try to help you.
