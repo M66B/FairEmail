@@ -189,7 +189,11 @@
             redirectUri="msauth.eu.faircode.email://auth"
             scopes="profile,openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send,https://outlook.office.com/POP.AccessAsUser.All"
             tokenEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token"
-            tokenScopes="true" />
+            tokenScopes="true">
+            <!--parameter
+                key="domain_hint"
+                value="9188040d-6c67-4c5b-b112-36a304b66dad" /-->
+        </oauth>
         <!-- https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow -->
         <!-- https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth -->
         <!-- https://learn.microsoft.com/en-us/azure/active-directory/develop/redirect-uris-ios -->

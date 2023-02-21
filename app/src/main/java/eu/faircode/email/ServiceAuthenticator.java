@@ -24,6 +24,7 @@ import static eu.faircode.email.GmailState.TYPE_GOOGLE;
 import android.accounts.AuthenticatorException;
 import android.accounts.OperationCanceledException;
 import android.content.Context;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
@@ -41,6 +42,8 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -182,6 +185,10 @@ public class ServiceAuthenticator extends Authenticator {
             ErrorHolder holder = new ErrorHolder();
             Semaphore semaphore = new Semaphore(0);
 
+            Map<String, String> params = new LinkedHashMap<>();
+            if (provider.oauth.tokenScopes)
+                params.put("scope", TextUtils.join(" ", provider.oauth.scopes));
+
             Log.i("OAuth refresh user=" + id + ":" + user);
             AppAuthConfiguration config = new AppAuthConfiguration.Builder()
                     .setBrowserMatcher(new BrowserMatcher() {
@@ -195,6 +202,7 @@ public class ServiceAuthenticator extends Authenticator {
             authState.performActionWithFreshTokens(
                     authService,
                     clientAuth,
+                    //params,
                     new AuthState.AuthStateAction() {
                         @Override
                         public void execute(String accessToken, String idToken, AuthorizationException error) {
