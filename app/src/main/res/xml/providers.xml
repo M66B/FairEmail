@@ -199,9 +199,50 @@
         <!-- https://learn.microsoft.com/en-us/azure/active-directory/develop/redirect-uris-ios -->
     </provider>
     <provider
+        name="Outlook test"
+        debug="true"
+        description="Office 365 test"
+        id="outlooktest"
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
+        maxtls="1.2"
+        noop="true"
+        order="5"
+        partial="false"
+        useip="false">
+        <imap
+            host="outlook.office365.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.office365.com"
+            port="587"
+            starttls="true" />
+        <pop
+            host="outlook.office365.com"
+            port="995"
+            starttls="false" />
+        <oauth
+            askAccount="true"
+            authorizationEndpoint="https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize"
+            clientId="835c3383-543c-4aa2-98ca-c465eb039987"
+            enabled="false"
+            privacy="https://privacy.microsoft.com/privacystatement"
+            prompt="login"
+            redirectUri="msauth://eu.faircode.email/xSLzBBuLJunOQPB89rtzM54FXx4%3D"
+            scopes="profile,openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send"
+            tokenEndpoint="https://login.microsoftonline.com/consumers/oauth2/v2.0/token"
+            tokenScopes="true">
+            <!--parameter
+                key="domain_hint"
+                value="9188040d-6c67-4c5b-b112-36a304b66dad" /-->
+        </oauth>
+        <!-- https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow -->
+        <!-- https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth -->
+        <!-- https://learn.microsoft.com/en-us/azure/active-directory/develop/redirect-uris-ios -->
+    </provider>
+    <provider
         name="Outlook"
         alt="true"
-        debug="true"
         description="Office 365 (alt)"
         id="outlook"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
