@@ -2026,4 +2026,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Optimum"
+        domain="optimum\\.net,optonline\\.net"
+        link="https://faq.optimum.net/node/7327">
+        <imap
+            host="mail.optimum.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.optimum.net"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
