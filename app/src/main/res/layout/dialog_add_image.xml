@@ -59,6 +59,18 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </RadioGroup>
 
+        <ImageButton
+            android:id="@+id/ibSettings"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@id/rgAction"
+            app:layout_constraintEnd_toEndOf="@id/rgAction"
+            app:layout_constraintTop_toTopOf="@id/rgAction"
+            app:srcCompat="@drawable/twotone_settings_24" />
+
         <CheckBox
             android:id="@+id/cbResize"
             android:layout_width="wrap_content"

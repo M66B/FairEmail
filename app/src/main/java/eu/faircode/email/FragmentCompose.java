@@ -7436,6 +7436,7 @@ public class FragmentCompose extends FragmentBase {
             final ViewGroup dview = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.dialog_add_image, null);
             final ImageView ivType = dview.findViewById(R.id.ivType);
             final RadioGroup rgAction = dview.findViewById(R.id.rgAction);
+            final ImageButton ibSettings = dview.findViewById(R.id.ibSettings);
             final CheckBox cbResize = dview.findViewById(R.id.cbResize);
             final ImageButton ibResize = dview.findViewById(R.id.ibResize);
             final Spinner spResize = dview.findViewById(R.id.spResize);
@@ -7463,6 +7464,17 @@ public class FragmentCompose extends FragmentBase {
                 @Override
                 public void onCheckedChanged(RadioGroup group, int checkedId) {
                     prefs.edit().putBoolean("add_inline", checkedId == R.id.rbInline).apply();
+                }
+            });
+
+            // https://developer.android.com/reference/android/provider/MediaStore#ACTION_PICK_IMAGES_SETTINGS
+            PackageManager pm = getContext().getPackageManager();
+            Intent settings = new Intent(MediaStore.ACTION_PICK_IMAGES_SETTINGS);
+            ibSettings.setVisibility(settings.resolveActivity(pm) == null ? View.GONE : View.VISIBLE);
+            ibSettings.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    v.getContext().startActivity(settings);
                 }
             });
 
