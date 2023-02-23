@@ -1870,7 +1870,7 @@ public class HtmlHelper {
             }
 
         for (String key : baseParams.keySet())
-            if (!STYLE_NO_INHERIT.contains(key))
+            if (!STYLE_NO_INHERIT.contains(key) || element)
                 result.put(key, baseParams.get(key));
 
         return TextUtils.join(";", result.values());
