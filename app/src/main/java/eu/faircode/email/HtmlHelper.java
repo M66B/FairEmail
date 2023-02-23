@@ -1121,6 +1121,10 @@ public class HtmlHelper {
                         continue;
                 }
                 p.attr("x-paragraph", "true");
+                if (TextUtils.isEmpty(p.text())) {
+                    p.removeAttr("x-line-before");
+                    p.removeAttr("x-line-after");
+                }
             }
         }
 
