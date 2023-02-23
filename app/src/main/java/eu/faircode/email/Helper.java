@@ -1954,6 +1954,22 @@ public class Helper {
     }
     // https://issuetracker.google.com/issues/37054851
 
+    static String getPrintableString(String value) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < value.length(); i++) {
+            char kar = value.charAt(i);
+            if (kar == '\n')
+                result.append('|');
+            else if (kar == ' ')
+                result.append('_');
+            else if (!Helper.isPrintableChar(kar) || kar == '\u00a0')
+                result.append('{').append(Integer.toHexString(kar)).append('}');
+            else
+                result.append(kar);
+        }
+        return result.toString();
+    }
+
     static DateFormat getTimeInstance(Context context) {
         return getTimeInstance(context, SimpleDateFormat.MEDIUM);
     }

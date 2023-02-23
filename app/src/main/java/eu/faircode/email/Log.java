@@ -665,7 +665,7 @@ public class Log {
                         else if (element instanceof Spanned)
                             elements[i] = "<redacted>";
                         else
-                            elements[i] = (element == null ? "<null>" : printableString(element.toString()));
+                            elements[i] = (element == null ? "<null>" : Helper.getPrintableString(element.toString()));
                     }
                     value = TextUtils.join(",", elements);
                     if (length > 10)
@@ -726,22 +726,6 @@ public class Log {
         }
 
         return result;
-    }
-
-    static String printableString(String value) {
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < value.length(); i++) {
-            char kar = value.charAt(i);
-            if (kar == '\n')
-                result.append('|');
-            else if (kar == ' ')
-                result.append('_');
-            else if (!Helper.isPrintableChar(kar))
-                result.append('{').append(Integer.toHexString(kar)).append('}');
-            else
-                result.append(kar);
-        }
-        return result.toString();
     }
 
     static void logMemory(Context context, String message) {
