@@ -44,6 +44,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.preference.PreferenceManager;
 
 import java.text.DateFormat;
+import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -179,6 +180,11 @@ public class FragmentDialogDuration extends FragmentDialogBase {
                 cal.set(Calendar.HOUR_OF_DAY, 18);
                 long evening = cal.getTimeInMillis();
                 String at18pm = dtf.format(cal.getTimeInMillis());
+                cal.add(Calendar.DATE, 1);
+                int tomorrow = cal.get(Calendar.DAY_OF_WEEK);
+                cal.add(Calendar.DATE, 1);
+                int after_tomorrow = cal.get(Calendar.DAY_OF_WEEK);
+                String[] daynames = new DateFormatSymbols().getWeekdays();
 
                 popupMenu.getMenu().findItem(R.id.menu_this_afternoon)
                         .setTitle(getString(R.string.title_today_at, at12pm))
@@ -186,18 +192,23 @@ public class FragmentDialogDuration extends FragmentDialogBase {
                 popupMenu.getMenu().findItem(R.id.menu_this_evening)
                         .setTitle(getString(R.string.title_today_at, at18pm))
                         .setVisible(now < evening);
+
                 popupMenu.getMenu().findItem(R.id.menu_tomorrow_morning)
                         .setTitle(getString(R.string.title_tomorrow_at, at8am));
                 popupMenu.getMenu().findItem(R.id.menu_tomorrow_afternoon)
                         .setTitle(getString(R.string.title_tomorrow_at, at12pm));
+
                 popupMenu.getMenu().findItem(R.id.menu_after_tomorrow_morning)
-                        .setTitle(getString(R.string.title_after_tomorrow_at, at8am));
+                        .setTitle(getString(R.string.title_day_at_time, daynames[after_tomorrow], at8am));
                 popupMenu.getMenu().findItem(R.id.menu_after_tomorrow_afternoon)
-                        .setTitle(getString(R.string.title_after_tomorrow_at, at12pm));
+                        .setTitle(getString(R.string.title_day_at_time, daynames[after_tomorrow], at12pm));
+
                 popupMenu.getMenu().findItem(R.id.menu_saturday_norming)
-                        .setTitle(getString(R.string.title_saturday_at, at8am));
+                        .setTitle(getString(R.string.title_day_at_time, daynames[Calendar.SATURDAY], at8am))
+                        .setVisible(tomorrow != Calendar.SATURDAY && after_tomorrow != Calendar.SATURDAY);
                 popupMenu.getMenu().findItem(R.id.menu_monday_norming)
-                        .setTitle(getString(R.string.title_monday_at, at8am));
+                        .setTitle(getString(R.string.title_day_at_time, daynames[Calendar.MONDAY], at8am))
+                        .setVisible(tomorrow != Calendar.MONDAY && after_tomorrow != Calendar.MONDAY);
 
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override

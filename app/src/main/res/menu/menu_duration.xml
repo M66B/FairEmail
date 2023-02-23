@@ -14,16 +14,16 @@
         android:title="@string/title_tomorrow_at" />
     <item
         android:id="@+id/menu_after_tomorrow_morning"
-        android:title="@string/title_after_tomorrow_at" />
+        android:title="@string/title_day_at_time" />
     <item
         android:id="@+id/menu_after_tomorrow_afternoon"
-        android:title="@string/title_after_tomorrow_at" />
+        android:title="@string/title_day_at_time" />
     <item
         android:id="@+id/menu_saturday_norming"
-        android:title="@string/title_saturday_at" />
+        android:title="@string/title_day_at_time" />
     <item
         android:id="@+id/menu_monday_norming"
-        android:title="@string/title_monday_at" />
+        android:title="@string/title_day_at_time" />
     <item
         android:id="@+id/menu_next_week"
         android:title="@string/title_next_week" />
