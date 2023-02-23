@@ -361,6 +361,7 @@ public class FragmentMessages extends FragmentBase
     private String onclose;
     private boolean quick_scroll;
     private boolean addresses;
+    private boolean auto_hide_answer;
     private boolean swipe_reply;
     private boolean quick_actions;
 
@@ -510,6 +511,7 @@ public class FragmentMessages extends FragmentBase
         onclose = (autoclose ? null : prefs.getString("onclose", null));
         quick_scroll = prefs.getBoolean("quick_scroll", true);
         addresses = prefs.getBoolean("addresses", false);
+        auto_hide_answer = prefs.getBoolean("auto_hide_answer", true);
         swipe_reply = prefs.getBoolean("swipe_reply", false);
         quick_actions = prefs.getBoolean("quick_actions", true);
 
@@ -7033,7 +7035,7 @@ public class FragmentMessages extends FragmentBase
             return;
 
         int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
-        if (scrolling && !accessibility)
+        if (auto_hide_answer && scrolling && !accessibility)
             fabReply.hide();
         else {
             if (expanded == 1) {

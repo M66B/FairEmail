@@ -151,7 +151,7 @@ public class FragmentOptions extends FragmentBase {
             "collapse_quotes", "image_placeholders", "inline_images",
             "seekbar", "actionbar", "actionbar_swap", "actionbar_color", "group_category",
             "autoscroll", "swipenav", "reversed", "swipe_close", "swipe_move", "autoexpand", "autoclose", "onclose",
-            "thread_sent_trash", "swipe_reply",
+            "thread_sent_trash", "auto_hide_answer", "swipe_reply",
             "language_detection",
             "quick_filter", "quick_scroll", "quick_actions",
             "experiments", "debug", "log_level", "test1", "test2", "test3", "test4", "test5",

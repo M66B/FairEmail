@@ -661,6 +661,7 @@
     <string name="title_advanced_auto_important">Automatically make starred messages important</string>
     <string name="title_advanced_cancel_snooze">Cancel snooze on moving messages</string>
     <string name="title_advanced_auto_block_sender">Automatically block the sender when reporting spam</string>
+    <string name="title_advanced_auto_hide_answer">Automatically hide the answer button when scrolling</string>
     <string name="title_advanced_swipe_reply">Swipe expanded messages to the right to reply</string>
     <string name="title_advanced_default_snooze">Default snooze/delay time</string>
     <string name="title_advanced_default_folder">Select default folder</string>
