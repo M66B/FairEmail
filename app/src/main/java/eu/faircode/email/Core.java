@@ -3137,7 +3137,7 @@ class Core {
                             if (account.max_messages != null)
                                 _new = false;
 
-                            Log.i(account.name + " POP having " +
+                            Log.i(account.name + " POP having index=" + i + " " +
                                     msgid + "=" + msgIdTuple.containsKey(msgid) + "/" +
                                     uidl + "=" + uidlTuple.containsKey(uidl));
 
@@ -3170,7 +3170,7 @@ class Core {
                         long received = helper.getPOP3Received();
 
                         boolean seen = (received <= account.created);
-                        EntityLog.log(context, account.name + " POP sync=" + uidl + "/" + msgid +
+                        EntityLog.log(context, account.name + " POP index=" + i + " sync=" + uidl + "/" + msgid +
                                 " new=" + _new + " seen=" + seen);
 
                         String[] authentication = helper.getAuthentication();
