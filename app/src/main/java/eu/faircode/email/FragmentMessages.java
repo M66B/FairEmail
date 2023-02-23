@@ -2184,6 +2184,15 @@ public class FragmentMessages extends FragmentBase
                     else
                         llm.scrollToPositionWithOffset(pos, -child.getPaddingTop());
 
+                    View wvBody = child.findViewById(R.id.wvBody);
+                    if (wvBody instanceof WebView) {
+                        if (bottom) {
+                            int ch = ((WebView) wvBody).getContentHeight();
+                            wvBody.scrollTo(0, Helper.dp2pixels(wvBody.getContext(), ch));
+                        } else
+                            wvBody.scrollTo(0, 0);
+                    }
+
                     break;
                 }
             }
