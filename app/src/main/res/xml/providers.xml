@@ -732,6 +732,7 @@
     </provider>
     <provider
         name="freenet.de"
+        documentation="Haben Sie SMTP über die Systemsteuerung des E-Mail-Anbieters aktiviert?"
         domain="freenet\\.de,fn\\.de,freenetmail\\.de,bossmail\\.de,justmail\\.de"
         link="https://kundenservice.freenet.de/artikel/1869">
         <imap
