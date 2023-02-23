@@ -981,7 +981,7 @@ public class HtmlHelper {
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/margin
                             // https://developer.mozilla.org/en-US/docs/Web/CSS/padding
                             if (element.isBlock()) {
-                                Float[] p = new Float[4];
+                                Float[] p = new Float[4]; // top, right, bottom, left
 
                                 String[] v = value.split(" ");
                                 for (int i = 0; i < v.length && i < p.length; i++)
@@ -992,7 +992,11 @@ public class HtmlHelper {
                                     p[2] = p[0];
                                     p[3] = p[0];
                                 } else if (v.length == 2) {
+                                    // top and bottom, left and right
                                     p[2] = p[0];
+                                    p[3] = p[1];
+                                } else if (v.length == 3) {
+                                    // top, right and left, bottom
                                     p[3] = p[1];
                                 }
 
