@@ -2420,7 +2420,7 @@ public class Log {
                                 " exempted=" + account.poll_exempted +
                                 " poll=" + account.poll_interval +
                                 " ondemand=" + account.ondemand +
-                                " msgs=" + content + "/" + messages +
+                                " msgs=" + content + "/" + messages + " max=" + account.max_messages +
                                 " ops=" + db.operation().getOperationCount(account.id) +
                                 " schedule=" + (!ignore_schedule) + (ignore_schedule ? " !!!" : "") +
                                 " unmetered=" + unmetered + (unmetered ? " !!!" : "") +
