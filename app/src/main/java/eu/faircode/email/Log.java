@@ -2434,6 +2434,7 @@ public class Log {
                         for (TupleFolderEx folder : folders)
                             if (folder.synchronize) {
                                 int unseen = db.message().countUnseen(folder.id);
+                                int hidden = db.message().countHidden(folder.id);
                                 int notifying = db.message().countNotifying(folder.id);
                                 size += write(os, "- " + folder.name + " " +
                                         folder.type + (folder.inherited_type == null ? "" : "/" + folder.inherited_type) +
@@ -2443,7 +2444,7 @@ public class Log {
                                         " days=" + folder.sync_days + "/" + folder.keep_days +
                                         " msgs=" + folder.content + "/" + folder.messages + "/" + folder.total +
                                         " ops=" + db.operation().getOperationCount(folder.id, null) +
-                                        " unseen=" + unseen + " notifying=" + notifying +
+                                        " unseen=" + unseen + " hidden=" + hidden + " notifying=" + notifying +
                                         " " + folder.state +
                                         (folder.last_sync == null ? "" : " " + dtf.format(folder.last_sync)) +
                                         "\r\n");

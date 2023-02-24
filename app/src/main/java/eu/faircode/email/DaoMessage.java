@@ -490,6 +490,11 @@ public interface DaoMessage {
             " AND NOT ui_seen")
     int countUnseen(long folder);
 
+    @Query("SELECT COUNT(*) FROM message" +
+            " WHERE folder = :folder" +
+            " AND ui_hide")
+    int countHidden(long folder);
+
     @Query("SELECT COUNT(*)" +
             " FROM message" +
             " WHERE folder = :folder" +
