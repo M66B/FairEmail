@@ -6,6 +6,19 @@ For support you can use the contact form.
 
 Quetecsaurus
 
+Next version
+
+* Added sort options for filter rules
+* Added option to disable auto hiding of answer button
+* Added option to auto enable sync of new folders
+* Added presets for snooze / delayed send
+* Added account/folder colors to account/folder name in message header
+* Added scrolling of original message when using up/down buttons
+* Added Korean and Norwegian to DeepL
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 1.2045 - 2023-02-18
 
 * Small improvements and minor bug fixes
