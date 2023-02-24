@@ -6959,6 +6959,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             element.attr("x-computed", computed);
                     }
 
+                    if (BuildConfig.DEBUG) {
+                        d = HtmlHelper.sanitizeView(context, d, false);
+                        d.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
+                    }
+
                     File dir = Helper.ensureExists(new File(context.getFilesDir(), "shared"));
                     File share = new File(dir, message.id + ".txt");
                     Helper.writeText(share, d.html());

@@ -567,6 +567,8 @@ public class HtmlHelper {
             safelist.addTags("center").addAttributes(":all", "align");
         if (!view)
             safelist.addProtocols("img", "src", "content");
+        if (BuildConfig.DEBUG)
+            safelist.addAttributes(":all", "x-computed");
 
         final Document document = new Cleaner(safelist).clean(parsed);
 
