@@ -1115,19 +1115,11 @@ public class HtmlHelper {
         // Paragraphs
         for (Element p : document.select("p")) {
             p.tagName("div");
-            if (p.childNodeSize() != 0) {
-                if (p.childNodeSize() == 1) {
-                    Node lonely = p.childNode(0);
-                    if (lonely instanceof TextNode &&
-                            "\u00a0".equals(((TextNode) lonely).getWholeText()))
-                        continue;
-                }
+            if (TextUtils.isEmpty(p.text())) {
+                p.attr("x-line-before", "false");
+                p.attr("x-line-after", "true");
+            } else
                 p.attr("x-paragraph", "true");
-                if (TextUtils.isEmpty(p.text())) {
-                    p.removeAttr("x-line-before");
-                    p.removeAttr("x-line-after");
-                }
-            }
         }
 
         // Short inline quotes
