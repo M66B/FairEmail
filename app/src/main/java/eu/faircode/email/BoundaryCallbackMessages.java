@@ -43,6 +43,7 @@ import com.sun.mail.util.MessageRemovedIOException;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.nodes.Document;
 
 import java.io.File;
 import java.io.IOException;
@@ -832,11 +833,18 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             try {
                 File file = EntityMessage.getFile(context, message.id);
                 if (file.exists()) {
+                    String selector = criteria.getJsoup();
+                    if (selector != null) {
+                        Document d = JsoupEx.parse(file);
+                        return (d.select(selector).size() > 0);
+                    }
+
                     String html = Helper.readText(file);
                     if (criteria.in_html) {
                         if (html.contains(criteria.query))
                             return true;
                     }
+
                     if (criteria.in_message) {
                         // This won't match <p>An <b>example</b><p> when searching for "An example"
                         if (contains(html, criteria.query, partial, true)) {
@@ -992,6 +1000,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         private static final String CC = "cc:";
         private static final String BCC = "bcc:";
         private static final String KEYWORD = "keyword:";
+        private static final String JSOUP_PREFIX = "jsoup:";
+
+        String getJsoup() {
+            if (query == null)
+                return null;
+            if (!query.startsWith(JSOUP_PREFIX))
+                return null;
+            return query.substring(JSOUP_PREFIX.length());
+        }
 
         boolean onServer() {
             if (query == null)
