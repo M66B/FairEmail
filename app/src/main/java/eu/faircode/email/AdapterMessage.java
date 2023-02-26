@@ -322,7 +322,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private boolean gotoTop = false;
     private Integer gotoPos = null;
-    private boolean firstClick = false;
     private AsyncPagedListDiffer<TupleMessageEx> differ;
     private Map<Long, Integer> keyPosition = new HashMap<>();
     private Map<Integer, Long> positionKey = new HashMap<>();
@@ -4339,13 +4338,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return;
                     }
 
-                    firstClick = !firstClick;
+                    boolean firstClick = !properties.getValue("firstClick", message.id);
+                    properties.setValue("firstClick", message.id, firstClick);
                     if (firstClick) {
                         ApplicationEx.getMainHandler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
+                                boolean firstClick = properties.getValue("firstClick", message.id);
                                 if (firstClick) {
-                                    firstClick = false;
+                                    properties.setValue("firstClick", message.id, false);
                                     lbm.sendBroadcast(viewThread);
                                     properties.setValue("selected", message.id, true);
                                 }
