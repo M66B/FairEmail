@@ -7214,6 +7214,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAnswer,
                         context.getString(R.string.title_reply)));
 
+                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibArchive,
+                        context.getString(R.string.title_archive)));
+
+                info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibTrash,
+                        context.getString(R.string.title_trash)));
+
                 if (ibAvatar.getVisibility() == View.VISIBLE && ibAvatar.isEnabled())
                     info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAvatar,
                             context.getString(R.string.title_accessibility_view_contact)));
@@ -7255,6 +7261,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return true;
                 } else if (action == R.id.ibAnswer) {
                     onActionAnswer(message, view);
+                    return true;
+                } else if (action == R.id.ibArchive) {
+                    onActionArchive(message);
+                    return true;
+                } else if (action == R.id.ibTrash) {
+                    onActionTrash(message, false);
                     return true;
                 } else if (action == R.id.ibAvatar) {
                     onViewContact(message);
