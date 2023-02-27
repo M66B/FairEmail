@@ -3285,7 +3285,7 @@ class Core {
                             if (Boolean.TRUE.equals(message.blocklist)) {
                                 EntityLog.log(context, account.name + " POP blocklist=" +
                                         MessageHelper.formatAddresses(message.from));
-                                continue;
+                                message.ui_hide = true;
                             }
                         }
 
@@ -3309,7 +3309,7 @@ class Core {
                                 EntityLog.log(context, account.name + " POP blocked=" +
                                         MessageHelper.formatAddresses(message.from));
 
-                                continue;
+                                message.ui_hide = true;
                             }
                         }
 
