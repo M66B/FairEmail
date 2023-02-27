@@ -3035,7 +3035,7 @@ class Core {
                 // Index IDs
                 Map<String, TupleUidl> uidlTuple = new HashMap<>();
                 for (TupleUidl id : ids) {
-                    if (id.uidl != null && id.msgid != null) {
+                    if (id.uidl != null) {
                         if (uidlTuple.containsKey(id.uidl))
                             Log.w(account.name + " POP duplicate uidl/msgid=" + id.uidl + "/" + id.msgid);
                         uidlTuple.put(id.uidl, id);
