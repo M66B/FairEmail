@@ -4946,19 +4946,20 @@ class Core {
 
         if (account.protocol == EntityAccount.TYPE_IMAP && folder.read_only)
             return;
-        if (!ActivityBilling.isPro(context))
-            return;
+
+        boolean pro = ActivityBilling.isPro(context);
 
         DB db = DB.getInstance(context);
         try {
             boolean executed = false;
-            for (EntityRule rule : rules)
-                if (rule.matches(context, message, headers, html)) {
-                    rule.execute(context, message);
-                    executed = true;
-                    if (rule.stop)
-                        break;
-                }
+            if (pro)
+                for (EntityRule rule : rules)
+                    if (rule.matches(context, message, headers, html)) {
+                        rule.execute(context, message);
+                        executed = true;
+                        if (rule.stop)
+                            break;
+                    }
 
             if (EntityFolder.INBOX.equals(folder.type))
                 if (message.from != null) {
