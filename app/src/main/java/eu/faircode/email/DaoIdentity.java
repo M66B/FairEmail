@@ -135,6 +135,9 @@ public interface DaoIdentity {
     @Query("UPDATE identity SET encrypt = :encrypt WHERE id = :id AND NOT (encrypt IS :encrypt)")
     int setIdentityEncrypt(long id, int encrypt);
 
+    @Query("UPDATE identity SET sign_default = 0, encrypt_default = 0 WHERE encrypt = 0")
+    int resetIdentityPGP();
+
     @Query("UPDATE identity SET sign_key = :sign_key WHERE id = :id AND NOT (sign_key IS :sign_key)")
     int setIdentitySignKey(long id, Long sign_key);
 
