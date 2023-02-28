@@ -1158,6 +1158,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                             if ("external_storage".equals(key))
                                 continue;
 
+                            if ("reformatted_hint".equals(key))
+                                continue;
+
                             Object value = jsetting.get("value");
                             String type = jsetting.optString("type");
                             Log.i("Setting name=" + key + " value=" + value + " type=" + type);
