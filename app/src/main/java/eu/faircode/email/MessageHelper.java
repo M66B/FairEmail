@@ -3310,6 +3310,7 @@ public class MessageHelper {
             parts.addAll(extra);
 
             for (PartHolder h : parts) {
+/*
                 int size = h.part.getSize();
                 if (size > 100 * 1024 * 1024)
                     Log.e("Unreasonable message size=" + size);
@@ -3317,6 +3318,7 @@ public class MessageHelper {
                     warnings.add(context.getString(R.string.title_insufficient_memory, size));
                     return null;
                 }
+*/
 
                 if (Boolean.parseBoolean(System.getProperty("fairemail.preamble"))) {
                     String preamble = h.contentType.getParameter("preamble");
@@ -4657,6 +4659,13 @@ public class MessageHelper {
                 filename = null;
             }
 
+            int size = Integer.MAX_VALUE;
+            try {
+                size = part.getSize();
+            } catch (MessagingException ex) {
+                Log.w(ex);
+            }
+
             ContentType contentType;
             try {
                 // From the body structure
@@ -4671,7 +4680,8 @@ public class MessageHelper {
 
             String ct = contentType.getBaseType();
             if (("text/plain".equalsIgnoreCase(ct) || "text/html".equalsIgnoreCase(ct)) &&
-                    !Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename)) {
+                    !Part.ATTACHMENT.equalsIgnoreCase(disposition) && TextUtils.isEmpty(filename) &&
+                    (size <= MAX_MESSAGE_SIZE || size == Integer.MAX_VALUE)) {
                 parts.text.add(new PartHolder(part, contentType));
             } else {
                 // Workaround for NIL message content type
@@ -4680,6 +4690,16 @@ public class MessageHelper {
                     plain.setParameterList(contentType.getParameterList());
                     Log.w("Converting from " + contentType + " to " + plain);
                     parts.text.add(new PartHolder(part, plain));
+                }
+
+                if (("text/plain".equalsIgnoreCase(ct) || "text/html".equalsIgnoreCase(ct)) &&
+                        TextUtils.isEmpty(Helper.getExtension(filename))) {
+                    if (TextUtils.isEmpty(filename))
+                        filename = "body";
+                    if ("text/plain".equalsIgnoreCase(ct))
+                        filename += ".txt";
+                    if ("text/html".equalsIgnoreCase(ct))
+                        filename += ".html";
                 }
 
                 if (Report.isDeliveryStatus(ct) ||
