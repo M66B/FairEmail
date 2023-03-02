@@ -734,6 +734,7 @@ public interface DaoMessage {
     @Query("UPDATE message SET receipt_request = :receipt_request WHERE id = :id AND NOT (receipt_request IS :receipt_request)")
     int setMessageReceiptRequest(long id, Boolean receipt_request);
 
+    @Transaction
     @Query("UPDATE message SET notifying = :notifying WHERE id = :id AND NOT (notifying IS :notifying)")
     int setMessageNotifying(long id, int notifying);
 
@@ -795,9 +796,11 @@ public interface DaoMessage {
             "    LIMIT :keep)")
     int setMessagesUiHide(long folder, int keep);
 
+    @Transaction
     @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id AND NOT (ui_ignored IS :ui_ignored)")
     int setMessageUiIgnored(long id, boolean ui_ignored);
 
+    @Transaction
     @Query("UPDATE message SET ui_silent = :ui_silent WHERE id = :id AND NOT (ui_silent IS :ui_silent)")
     int setMessageUiSilent(long id, boolean ui_silent);
 
