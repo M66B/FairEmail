@@ -269,7 +269,7 @@ public class EntityMessage implements Serializable {
     }
 
     String getLink() {
-        return "https://email.faircode.eu/link/#" + id;
+        return "message://email.faircode.eu/link/#" + id;
     }
 
     boolean isPlainOnly() {

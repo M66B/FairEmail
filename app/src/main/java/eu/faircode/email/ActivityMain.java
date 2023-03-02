@@ -118,12 +118,9 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
         Intent intent = getIntent();
         Uri data = (intent == null ? null : intent.getData());
         if (data != null &&
-                (("message".equals(data.getScheme()) &&
-                        ("email.faircode.eu".equals(data.getHost()) ||
-                                BuildConfig.APPLICATION_ID.equals(data.getHost()))) ||
-                        ("https".equals(data.getScheme()) &&
-                                "email.faircode.eu".equals(data.getHost()) &&
-                                "link".equals(data.getPath())))) {
+                "message".equals(data.getScheme()) &&
+                ("email.faircode.eu".equals(data.getHost()) ||
+                        BuildConfig.APPLICATION_ID.equals(data.getHost()))) {
             super.onCreate(savedInstanceState);
 
             Bundle args = new Bundle();
