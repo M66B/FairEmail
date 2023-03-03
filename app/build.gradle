@@ -363,6 +363,20 @@ task downloadPSL(type: Download) {
     overwrite true
 }
 
+task upload() {
+    // ./gradlew upload -Ptype=github -Ptitle=test
+    doLast {
+        exec {
+            workingDir "${buildDir}"
+            commandLine 'curl',
+                    '-o', '/dev/null',
+                    '-X', 'POST', "https://M66B:" + localProperties.getProperty("bb.pwd", "") + "@api.bitbucket.org/2.0/repositories/M66B/fairemail-test/downloads",
+                    '--form', "files=@${buildDir}/outputs/apk/" + type + "/release/FairEmail-v1." + getVersionCode() + getRevision() + "-" + type + "-release.apk;" +
+                    "filename=FairEmail-v1." + getVersionCode() + getRevision() + "-" + type + "-" + title + "-release.apk"
+        }
+    }
+}
+
 repositories {
     google()
     mavenCentral()
