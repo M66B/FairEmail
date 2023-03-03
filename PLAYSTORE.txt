@@ -1,3 +1,7 @@
+Title: FairEmail, privacy aware email (maximum 30 characters)
+
+Description: Fully featured, privacy oriented email app (maximum 80 characters)
+
 FairEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo!
 
 FairEmail might be for you if you value your privacy.
