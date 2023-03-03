@@ -118,9 +118,11 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
         Intent intent = getIntent();
         Uri data = (intent == null ? null : intent.getData());
         if (data != null &&
-                "message".equals(data.getScheme()) &&
-                ("email.faircode.eu".equals(data.getHost()) ||
-                        BuildConfig.APPLICATION_ID.equals(data.getHost()))) {
+                (("message".equals(data.getScheme()) &&
+                        ("email.faircode.eu".equals(data.getHost()) ||
+                                BuildConfig.APPLICATION_ID.equals(data.getHost()))) ||
+                        ("https".equals(data.getScheme()) &&
+                                "link.fairemail.net".equals(data.getHost())))) {
             super.onCreate(savedInstanceState);
 
             Bundle args = new Bundle();
@@ -131,7 +133,8 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 protected EntityMessage onExecute(Context context, Bundle args) {
                     Uri data = args.getParcelable("data");
                     long id;
-                    if ("email.faircode.eu".equals(data.getHost()))
+                    if ("email.faircode.eu".equals(data.getHost()) ||
+                            "link.fairemail.net".equals(data.getHost()))
                         id = Long.parseLong(data.getFragment());
                     else {
                         String path = data.getPath();
