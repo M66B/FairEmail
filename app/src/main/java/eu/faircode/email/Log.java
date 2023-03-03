@@ -38,6 +38,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
+import android.content.pm.verify.domain.DomainVerificationManager;
+import android.content.pm.verify.domain.DomainVerificationUserState;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.Cursor;
@@ -2958,6 +2960,27 @@ public class Log {
                 }
 
                 size += write(os, "\r\n");
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    try {
+                        DomainVerificationManager dvm = Helper.getSystemService(context, DomainVerificationManager.class);
+                        DomainVerificationUserState userState = dvm.getDomainVerificationUserState(context.getPackageName());
+                        Map<String, Integer> hostToStateMap = userState.getHostToStateMap();
+                        for (String key : hostToStateMap.keySet()) {
+                            Integer stateValue = hostToStateMap.get(key);
+                            if (stateValue == DomainVerificationUserState.DOMAIN_STATE_VERIFIED)
+                                size += write(os, String.format("Verified: %s\r\n", key));
+                            else if (stateValue == DomainVerificationUserState.DOMAIN_STATE_SELECTED)
+                                size += write(os, String.format("selected: %s\r\n", key));
+                            else
+                                size += write(os, String.format("Unverified: %s (%d)\r\n", key,
+                                        stateValue == null ? -1 : stateValue));
+                        }
+                    } catch (Throwable ex) {
+                        size += write(os, String.format("%s\r\n", ex));
+                    }
+                    size += write(os, "\r\n");
+                }
 
                 try {
                     List<WorkInfo> works = WorkManager
