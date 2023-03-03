@@ -194,7 +194,7 @@
                 <data android:host="email.faircode.eu" />
             </intent-filter>
 
-            <intent-filter android:autoVerify="false">
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -489,7 +489,7 @@
             android:resizeableActivity="true"
             android:taskAffinity="${applicationId}.SETUP"
             tools:node="replace">
-            <intent-filter android:autoVerify="false">
+            <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
