@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
-### Next version
+### 1.2046 - 2023-03-04
 
 * Added sort options for filter rules
 * Added option to disable auto hiding of answer button
