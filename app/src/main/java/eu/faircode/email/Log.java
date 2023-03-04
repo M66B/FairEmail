@@ -2353,6 +2353,17 @@ public class Log {
                     filter = nm.getCurrentInterruptionFilter();
                 }
 
+                StringBuilder filters = new StringBuilder();
+                for (String key : prefs.getAll().keySet())
+                    if (key.startsWith("filter_")) {
+                        Object value = prefs.getAll().get(key);
+                        if (Boolean.TRUE.equals(value))
+                            filters.append(' ')
+                                    .append(key.substring(7))
+                                    .append('=')
+                                    .append(value);
+                    }
+
                 size += write(os, "enabled=" + enabled + (enabled ? "" : " !!!") +
                         " interval=" + pollInterval + "\r\n" +
                         "metered=" + metered + (metered ? "" : " !!!") +
@@ -2373,7 +2384,8 @@ public class Log {
                         " messages=" + db.message().countTotal() +
                         " rules=" + db.rule().countTotal() +
                         " ops=" + db.operation().getOperationCount() +
-                        " outbox=" + db.message().countOutbox() +
+                        " outbox=" + db.message().countOutbox() + "\r\n" +
+                        "filter " + filters +
                         "\r\n\r\n");
 
                 if (schedule) {
