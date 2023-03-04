@@ -348,6 +348,10 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                                         .setNegativeButton(android.R.string.cancel, null)
                                         .show();
                             return true;
+                        } else if (itemId == R.string.title_setup_other) {
+                            lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP)
+                                    .putExtra("title", itemId));
+                            return true;
                         } else if (itemId == R.string.title_setup_classic) {
                             ibManual.setPressed(true);
                             ibManual.setPressed(false);
