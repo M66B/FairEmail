@@ -6,6 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
+### 1.2048 - 2023-03-04
+
+* Fixed 'Other provider' setup wizard
+
 ### 1.2047 - 2023-03-04
 
 * Fixed authenticating Yahoo/AOL accounts
