@@ -752,7 +752,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                 db.identity().setIdentityState(ident.id, "connecting");
 
                 AuthState authState = AuthState.jsonDeserialize(ident.password);
-                ServiceAuthenticator.OAuthRefresh(ServiceSend.this, ident.provider, ident.user, authState, false);
+                ServiceAuthenticator.OAuthRefresh(ServiceSend.this, ident.provider, ident.auth_type, ident.user, authState, false);
                 Long expiration = authState.getAccessTokenExpirationTime();
                 if (expiration != null)
                     EntityLog.log(ServiceSend.this, ident.user + " token expiration=" + new Date(expiration));
