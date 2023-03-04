@@ -10284,7 +10284,7 @@ public class FragmentMessages extends FragmentBase
 
         FragmentTransaction fragmentTransaction = manager.beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("search");
-        fragmentTransaction.commit();
+        fragmentTransaction.commitAllowingStateLoss();
     }
 
     static void searchContact(Context context, LifecycleOwner owner, FragmentManager fm, long message, boolean sender_only) {
