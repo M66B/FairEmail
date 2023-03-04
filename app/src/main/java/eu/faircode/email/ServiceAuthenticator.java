@@ -232,6 +232,19 @@ public class ServiceAuthenticator extends Authenticator {
         }
     }
 
+    static String getAuthTypeName(int auth_type) {
+        if (auth_type == AUTH_TYPE_PASSWORD)
+            return "password";
+        else if (auth_type == AUTH_TYPE_GMAIL)
+            return "gmail";
+        else if (auth_type == AUTH_TYPE_OAUTH)
+            return "oauth";
+        else if (auth_type == AUTH_TYPE_GRAPH)
+            return "graph";
+        else
+            return "?" + auth_type;
+    }
+
     static String getAuthTokenType(String type) {
         // https://developers.google.com/gmail/imap/xoauth2-protocol
         if (TYPE_GOOGLE.equals(type))
