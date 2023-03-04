@@ -344,6 +344,7 @@
     <string name="title_advanced_sync_folders">Synchroniser la liste des dossiers</string>
     <string name="title_advanced_sync_folders_poll">Synchroniser activement la liste des dossiers</string>
     <string name="title_advanced_sync_shared_folders">Synchroniser les listes de dossiers partagés</string>
+    <string name="title_advanced_sync_added">Activer la synchronisation pour les nouveaux dossiers utilisateur</string>
     <string name="title_advanced_subscriptions">Gérer les abonnements aux dossiers</string>
     <string name="title_advanced_check_authentication">Contrôler l\'authentification des messages</string>
     <string name="title_advanced_check_tls">Vérifier la « Transport Layer Security » (TLS)</string>
@@ -571,6 +572,7 @@
     <string name="title_advanced_auto_important">Marquer automatiquement les messages suivis comme importants</string>
     <string name="title_advanced_cancel_snooze">Annuler le report des messages lors de leur déplacement</string>
     <string name="title_advanced_auto_block_sender">Bloquer automatiquement l\'expéditeur lors du signalement de courrier indésirable</string>
+    <string name="title_advanced_auto_hide_answer">Masquer automatiquement le bouton de réponse lors du défilement</string>
     <string name="title_advanced_swipe_reply">Balayer vers la droite les messages dépliés pour répondre</string>
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
     <string name="title_advanced_default_folder">Sélectionner le dossier par défaut</string>
@@ -728,7 +730,7 @@
     <string name="title_advanced_auto_identity_hint">Ceci sélectionnera la dernière identité utilisée lors de la sélection d\'un destinataire pour les nouveaux messages</string>
     <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l’objet sont vides ou quand une pièce jointe semble avoir été oubliée</string>
     <string name="title_advanced_reply_move_hint">Le serveur de messagerie pourrait tout de même ajouter les messages au dossier des messages envoyés</string>
-    <string name="title_advanced_compose_color_hint">Les couleurs très claires ou très sombres vont rendre les messages illisibles chez les destinataires</string>
+    <string name="title_advanced_compose_color_hint">Les couleurs très claires ou très sombres rendront les messages illisibles par les destinataires</string>
     <string name="title_advanced_usenet_hint">Insérer \'-- \' entre le texte et la signature</string>
     <string name="title_advanced_remove_signature_hint">Ceci peut entraîner la suppression de trop peu ou trop de texte</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
@@ -879,7 +881,7 @@
     <string name="title_leave_deleted">Laisser les messages supprimés sur le serveur</string>
     <string name="title_leave_on_device">Laisser les messages sur l\'appareil</string>
     <string name="title_max_messages">Nombre maximum de messages à télécharger (laisser vide pour tous)</string>
-    <string name="title_max_messages_remark">        Saisissez un nombre positif pour télécharger les messages à la fin (le plus commun)
+    <string name="title_max_messages_remark">        Saisir un nombre positif pour télécharger les messages à la fin (le plus commun)
         et un nombre négatif pour télécharger les messages au début (le moins commun)
     </string>
     <string name="title_keep_poll_interval">Intervalle de synchronisation (minutes)</string>
@@ -1464,9 +1466,9 @@
     <string name="title_sort_on_attachments">Pièces jointes</string>
     <string name="title_sort_on_hidden">Masqués</string>
     <string name="title_sort_ascending">Le plus ancien en premier</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordre</string>
-    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">Décompte utilisé</string>
-    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">Dernièrement utilisé</string>
+    <string name="title_sort_on_order">Ordre</string>
+    <string name="title_sort_on_applied">Nombre d\'utilisations</string>
+    <string name="title_sort_on_last_applied">Dernièrement utilisé</string>
     <string name="title_filter">Filtrer (exclure)</string>
     <string name="title_filter_seen">Lus</string>
     <string name="title_filter_unflagged">Non suivis</string>
@@ -1724,7 +1726,10 @@
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayez vers la gauche pour mettre à la corbeille ; balayez vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
     <string name="title_hint_message_selection">Appuyez longuement sur un message pour activer la sélection multiple ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner davantage de messages</string>
-    <string name="title_hint_message_junk">Ces messages se trouvent dans le dossier spam sur le serveur de messagerie. Évidemment, l\'application ne peut pas empêcher que des messages indésirables vous soient envoyés.</string>
+    <string name="title_hint_message_junk">        Un client de messagerie affiche essentiellement les messages d\'un serveur de messagerie.
+        Un serveur de messagerie est responsable du filtrage du courrier indésirable, contrairement à un client de messagerie.
+        Si vous recevez beaucoup de courrier indésirable, veuillez contacter votre fournisseur de messagerie et ne blâmez pas cette application !
+    </string>
     <string name="title_hint_important">Important</string>
     <string name="title_hint_sync">Le téléchargement des messages peut prendre un certain temps selon la vitesse du fournisseur, de la connexion Internet, de l’appareil ainsi que du nombre de messages. Pendant le téléchargement des messages, l’application peut répondre plus lentement.</string>
     <string name="title_hint_sync_note">Par défaut, tous les messages ne seront pas téléchargés pour limiter l\'espace de stockage et l\'utilisation de la batterie et des données. Vous pouvez modifier ceci en appuyant longuement sur un dossier dans la liste des dossiers et en sélectionnant « Synchroniser plus ».</string>
@@ -1789,7 +1794,11 @@
     <string name="title_via">Via : %1$s</string>
     <string name="title_1hour">1 heure</string>
     <string name="title_1day">1 jour</string>
-    <string name="title_1week">1 semaine</string>
+    <string name="title_more_overflow">Plus&#8230;</string>
+    <string name="title_today_at">Aujourd\'hui à %1$s</string>
+    <string name="title_tomorrow_at">Demain à %1$s</string>
+    <string name="title_day_at_time">%1$s à %2$s</string>
+    <string name="title_next_week">La semaine prochaine à cette heure</string>
     <string name="title_now">Maintenant</string>
     <string name="title_after">Après %1$s</string>
     <string name="title_reset">Réinitialiser</string>

@@ -1269,7 +1269,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_sort_on_attachments">Memiliki lampiran</string>
     <string name="title_sort_on_hidden">Tersembunyi</string>
     <string name="title_sort_ascending">Terlama dahulu</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Urutan</string>
+    <string name="title_sort_on_order">Urutan</string>
     <string name="title_filter">Filter</string>
     <string name="title_filter_seen">Sudah dibaca</string>
     <string name="title_filter_unflagged">Tidak berbintang</string>
@@ -1555,7 +1555,6 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_via">Melalui: %1$s</string>
     <string name="title_1hour">1 jam</string>
     <string name="title_1day">1 hari</string>
-    <string name="title_1week">1 minggu</string>
     <string name="title_now">Sekarang</string>
     <string name="title_after">Setelah %1$s</string>
     <string name="title_reset">Atur Ulang</string>

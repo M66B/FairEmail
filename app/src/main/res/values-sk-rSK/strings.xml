@@ -1399,7 +1399,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_sort_on_attachments">Prílohy</string>
     <string name="title_sort_on_hidden">Skryté</string>
     <string name="title_sort_ascending">Od najstaršej</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Poradie</string>
+    <string name="title_sort_on_order">Poradie</string>
     <string name="title_filter">Filtrovať</string>
     <string name="title_filter_seen">Prečítané</string>
     <string name="title_filter_unflagged">Bez hviezdičky</string>
@@ -1650,7 +1650,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_support">Ak máte otázky alebo chcete nahlásiť problémy, pomoc získate cez ponuku Podpora</string>
     <string name="title_hint_message_actions">Potiahnutím vľavo premiestnite do koša. Potiahnutím vpravo archivujete (ak je to možné). Tieto akcie je možné zmeniť v nastaveniach účtu</string>
     <string name="title_hint_message_selection">Pridržaním správy začnete viac násobný výber, držte a posúvajte hore alebo dolu, a vyberiete viac správ</string>
-    <string name="title_hint_message_junk">Tieto správy sú uložené v priečinku s nevyžiadanou poštou na servery. Prirodzene FairEmail nedokáže zabrániť doručovaniu nevyžiadaných správ.</string>
     <string name="title_hint_important">Dôležité</string>
     <string name="title_hint_sync">Preberanie správ zaberie určitý čas v závislosti od rýchlosti poskytovateľa, pripojenia na internet, zariadenia a množstva správ. Počas preberania môže aplikácia reagovať pomalšie.</string>
     <string name="title_hint_sync_note">S cieľom ušetriť úložný priestor, prenos dát a napájanie z batérie sa štandardne nebudú preberať všetky správy. Môžete to zmeniť dlhým stlačením priečinka v zozname a zvolením \'Synchronizovať viac\'.</string>
@@ -1709,7 +1708,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_via">Cez: %1$s</string>
     <string name="title_1hour">hodinu</string>
     <string name="title_1day">deň</string>
-    <string name="title_1week">týždeň</string>
     <string name="title_now">Teraz</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Vynulovať</string>

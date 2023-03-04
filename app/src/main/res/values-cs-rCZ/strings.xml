@@ -370,6 +370,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_sync_folders">Synchronizovat seznam složek</string>
     <string name="title_advanced_sync_folders_poll">Aktivně synchronizovat seznam složek</string>
     <string name="title_advanced_sync_shared_folders">Synchronizovat seznamy sdílených složek</string>
+    <string name="title_advanced_sync_added">Povolit synchronizaci pro nové uživatelské složky</string>
     <string name="title_advanced_subscriptions">Spravovat odběry složek</string>
     <string name="title_advanced_check_authentication">Zkontrolovat ověření zprávy</string>
     <string name="title_advanced_check_tls">Kontrolovat Transport Layer Security (TLS)</string>
@@ -597,6 +598,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_auto_important">Automaticky činit zprávy s hvězdičkou důležitými</string>
     <string name="title_advanced_cancel_snooze">Zrušit odložení při přesunu zpráv</string>
     <string name="title_advanced_auto_block_sender">Automaticky zablokovat odesílatele při hlášení spamu</string>
+    <string name="title_advanced_auto_hide_answer">Automaticky skrýt tlačítko odpovědi při posouvání</string>
     <string name="title_advanced_swipe_reply">Přejeďte rozbalené zprávy doprava pro odpověď</string>
     <string name="title_advanced_default_snooze">Výchozí doba odložení/zpoždění</string>
     <string name="title_advanced_default_folder">Vybrat výchozí složku</string>
@@ -1486,9 +1488,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_sort_on_attachments">Přílohy</string>
     <string name="title_sort_on_hidden">Skryto</string>
     <string name="title_sort_ascending">Od nejstarších</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Pořadí</string>
-    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">Použitý počet</string>
-    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">Naposledy použito</string>
+    <string name="title_sort_on_order">Pořadí</string>
+    <string name="title_sort_on_applied">Použitý počet</string>
+    <string name="title_sort_on_last_applied">Naposledy použito</string>
     <string name="title_filter">Odfiltrovat</string>
     <string name="title_filter_seen">Přečteno</string>
     <string name="title_filter_unflagged">Bez hvězdičky</string>
@@ -1746,7 +1748,10 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>
-    <string name="title_hint_message_junk">Tyto zprávy jsou ve složce nevyžádané pošty na e-mailovém serveru. Aplikace samozřejmě nemůže zabránit odesílání nevyžádaných zpráv.</string>
+    <string name="title_hint_message_junk">        Emailový klient v podstatě zobrazuje zprávy na e-mailovém serveru.
+        E-mailový server je zodpovědný za filtrování nevyžádané pošty, nikoli e-mailový klient.
+        Pokud obdržíte spoustu nevyžádané pošty, prosím kontaktujte svého poskytovatele e-mailu a neobviňujte aplikaci!
+    </string>
     <string name="title_hint_important">Důležité</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
     <string name="title_hint_sync_note">Ve výchozím nastavení nebudou stahovány všechny zprávy, aby se omezilo zabrané místo v úložišti, využití baterie a dat. Můžete to změnit dlouhým podržením složky v seznamu složek a zvolením \'Synchronizovat více\'.</string>
@@ -1811,7 +1816,11 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_via">Přes: %1$s</string>
     <string name="title_1hour">1 hodina</string>
     <string name="title_1day">1 den</string>
-    <string name="title_1week">1 týden</string>
+    <string name="title_more_overflow">Více&#8230;</string>
+    <string name="title_today_at">Dnes v %1$s</string>
+    <string name="title_tomorrow_at">Zítra v %1$s</string>
+    <string name="title_day_at_time">%1$s v %2$s</string>
+    <string name="title_next_week">Příští týden v samý čas</string>
     <string name="title_now">Nyní</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Obnovit</string>

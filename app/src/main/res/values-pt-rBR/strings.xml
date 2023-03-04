@@ -343,6 +343,7 @@
     <string name="title_advanced_sync_folders">Sincronizar lista de pastas</string>
     <string name="title_advanced_sync_folders_poll">Sincronizar lista de pastas ativamente</string>
     <string name="title_advanced_sync_shared_folders">Sincronizar listas de pastas compartilhadas</string>
+    <string name="title_advanced_sync_added">Habilitar sincronização para novas pastas de usuário</string>
     <string name="title_advanced_subscriptions">Gerenciar assinaturas de pastas</string>
     <string name="title_advanced_check_authentication">Verificar autenticação da mensagem</string>
     <string name="title_advanced_check_tls">Checar transport layer security (TLS)</string>
@@ -570,6 +571,7 @@
     <string name="title_advanced_auto_important">Torne as mensagens com estrela automaticamente importantes</string>
     <string name="title_advanced_cancel_snooze">Cancelar soneca em mensagens em movimento</string>
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente ao denunciar spam</string>
+    <string name="title_advanced_auto_hide_answer">Ocultar automaticamente o botão de resposta ao rolar</string>
     <string name="title_advanced_swipe_reply">Deslize as mensagens expandidas para a direita para responder</string>
     <string name="title_advanced_default_snooze">Tempo de soneca/atraso padrão</string>
     <string name="title_advanced_default_folder">Selecionar pasta padrão</string>
@@ -1460,9 +1462,9 @@
     <string name="title_sort_on_attachments">Anexos</string>
     <string name="title_sort_on_hidden">Oculto</string>
     <string name="title_sort_ascending">Antigos primeiro</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordenar</string>
-    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">Número de aplicadas</string>
-    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">Última aplicada</string>
+    <string name="title_sort_on_order">Ordenar</string>
+    <string name="title_sort_on_applied">Número de aplicadas</string>
+    <string name="title_sort_on_last_applied">Última aplicada</string>
     <string name="title_filter">Filtrar</string>
     <string name="title_filter_seen">Lido</string>
     <string name="title_filter_unflagged">Sem Estrela</string>
@@ -1720,7 +1722,10 @@
     <string name="title_hint_support">Se você tiver uma pergunta ou um problema, por favor, use o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para a lixeira; Deslize para a direita para o arquivo (se disponível); As ações de deslize podem ser configuradas nas configurações da conta</string>
     <string name="title_hint_message_selection">Pressione uma mensagem para começar a selecionar múltiplas mensagens; segure e deslize para cima ou para baixo para selecionar mais mensagens</string>
-    <string name="title_hint_message_junk">Estas mensagens estão na pasta de spam do servidor de e-mail. Obviamente, o aplicativo não pode impedir que mensagens de spam sejam enviadas para você.</string>
+    <string name="title_hint_message_junk">        Um cliente de e-mail basicamente exibe mensagens em um servidor de e-mail.
+        Um servidor de e-mail é responsável por filtrar spam, não um cliente de e-mail.
+        Se você receber muito spam, entre em contato com seu provedor de e-mail e não culpe o aplicativo!
+    </string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Baixar mensagens pode levar algum tempo, dependendo da velocidade do provedor, da conexão de internet e do dispositivo, e o número de mensagens. Enquanto estiver baixando as mensagens o app pode responder mais devagar.</string>
     <string name="title_hint_sync_note">Por padrão, nem todas as mensagens serão baixadas para limitar o espaço de armazenamento e o uso de bateria e dados. Você pode alterar isso pressionando longamente uma pasta na lista de pastas e selecionando \'Sincronizar mais\'.</string>
@@ -1785,7 +1790,11 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 dia</string>
-    <string name="title_1week">1 semana</string>
+    <string name="title_more_overflow">Mais &#8230;</string>
+    <string name="title_today_at">Hoje às %1$s</string>
+    <string name="title_tomorrow_at">Amanhã às %1$s</string>
+    <string name="title_day_at_time">%1$s às %2$s</string>
+    <string name="title_next_week">Neste horário semana que vem</string>
     <string name="title_now">Agora</string>
     <string name="title_after">Após %1$s</string>
     <string name="title_reset">Resetar</string>

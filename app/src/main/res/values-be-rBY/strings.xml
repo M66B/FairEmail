@@ -371,6 +371,7 @@
     <string name="title_advanced_sync_folders">Сінхранізаваць папкі</string>
     <string name="title_advanced_sync_folders_poll">Актыўная сінхранізацыя спіса папак</string>
     <string name="title_advanced_sync_shared_folders">Сінхранізаваць спіс абагуленых папак</string>
+    <string name="title_advanced_sync_added">Уключыць сінхранізацыю для новых карыстальніцкіх папак</string>
     <string name="title_advanced_subscriptions">Кіраванне падпіскай на папкі</string>
     <string name="title_advanced_check_authentication">Правяраць аўтэнтыфікацыю паведамлення</string>
     <string name="title_advanced_check_tls">Праверыць пратакол Transport Layer Security (TLS)</string>
@@ -598,6 +599,7 @@
     <string name="title_advanced_auto_important">Аўтаматычна рабіць важнымі пазначаныя паведамленні</string>
     <string name="title_advanced_cancel_snooze">Адмяняць адкладанне пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_auto_block_sender">Аўтаматычна блакіраваць адпраўніка пры паведамленні пра спам</string>
+    <string name="title_advanced_auto_hide_answer">Аўтаматычна хаваць кнопку адказу пры пракручванні</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
     <string name="title_advanced_default_snooze">Час адкладання/затрымкі па змаўчанні</string>
     <string name="title_advanced_default_folder">Выбраць папку па змаўчанні</string>
@@ -754,6 +756,7 @@
     <string name="title_advanced_auto_identity_hint">Выбірае апошні ідэнтыфікатар, які выкарыстоўвалася ў якасці атрымальніка для новых паведамленняў</string>
     <string name="title_advanced_send_reminders_hint">Паказваць папярэджанне, калі тэкст або тэма паведамлення пустыя або калі існуе верагоднасць адсутнасці ўкладання</string>
     <string name="title_advanced_reply_move_hint">Сервер электроннай пошты ўсё яшчэ можа дадаваць паведамленні ў папку адпраўленых паведамленняў</string>
+    <string name="title_advanced_compose_color_hint">Вельмі светлыя або вельмі цёмныя колеры зробяць паведамленні нечытэльнымі для атрымальнікаў</string>
     <string name="title_advanced_usenet_hint">Устаўляць \'—\' паміж тэкстам і подпісам</string>
     <string name="title_advanced_remove_signature_hint">Гэта можа прывесці да таго, што будзе выдаляцца занадта малая або занадта вялікая частка тэксту</string>
     <string name="title_advanced_metered_hint">Лімітаваныя злучэнні — гэта злучэнні з выкарыстаннем мабільных даных або платныя кропкі доступу Wi-Fi</string>
@@ -905,6 +908,9 @@
     <string name="title_leave_deleted">Пакідаць выдаленыя паведамленні на серверы</string>
     <string name="title_leave_on_device">Пакідаць паведамленні на прыладзе</string>
     <string name="title_max_messages">Максімальная колькасць паведамленняў для загрузкі (калі пуста, то для ўсіх)</string>
+    <string name="title_max_messages_remark">        Увядзіце дадатны лік для загрузкі апошніх паведамленняў (найбольш распаўсюджана)
+        або адмоўны лік для загрузкі першых паведамленняў (найменш распаўсюджана)
+    </string>
     <string name="title_keep_poll_interval">Інтэрвал апытання (хвіліны)</string>
     <string name="title_keep_alive_interval">Інтэрвал падтрымання актыўнасці (хвіліны)</string>
     <string name="title_keep_alive_noop">Перыядычна перазагружаць IMAP IDLE</string>
@@ -1248,6 +1254,7 @@
     </string>
     <string name="title_compose">Стварыць</string>
     <string name="title_submitter">Адпраўлена:</string>
+    <string name="title_signed_by">Падпісана:</string>
     <string name="title_delivered_to">Дастаўлена:</string>
     <string name="title_from">Ад:</string>
     <string name="title_to">Каму:</string>
@@ -1487,7 +1494,9 @@
     <string name="title_sort_on_attachments">Укладанняў</string>
     <string name="title_sort_on_hidden">Стану адлюстравання</string>
     <string name="title_sort_ascending">Спачатку старыя</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Парадак</string>
+    <string name="title_sort_on_order">Парадак</string>
+    <string name="title_sort_on_applied">Колькасці ўжыванняў</string>
+    <string name="title_sort_on_last_applied">Апошняга ўжывання</string>
     <string name="title_filter">Адфільтраваць</string>
     <string name="title_filter_seen">Прачытаныя</string>
     <string name="title_filter_unflagged">Не пазначаныя</string>
@@ -1745,7 +1754,10 @@
     <string name="title_hint_support">Калі ў вас ёсць пытанне або праблема, калі ласка, па дапамогу звяртайцеся праз меню падтрымкі</string>
     <string name="title_hint_message_actions">Для выдалення правядзіце пальцам улева; Для архівацыі (калі даступна) правядзіце пальцам управа; Жэсты можна наладзіць у наладах уліковага запісу</string>
     <string name="title_hint_message_selection">Для выбару некалькіх паведамленняў націсніце і на паведамленне і ўтрымлівайце, а затым правядзіце пальцам уверх або ўніз і выберыце неабходныя паведамленні</string>
-    <string name="title_hint_message_junk">Гэтыя паведамленні знаходзяцца ў папцы са спамам на серверы электроннай пошты. Відавочна, што праграма не можа прадухіліць адпраўку спаму вам.</string>
+    <string name="title_hint_message_junk">        Кліент электроннай пошты звычайна адлюстроўвае паведамленні з сервера электроннай пошты.
+        За фільтрацыю спама адказвае сервер электроннай пошты, а не паштовы кліент.
+        Калі вы атрымліваеце шмат спама, звярніцеся да правайдара электроннай пошты і не абвінавачвайце праграму!
+    </string>
     <string name="title_hint_important">Важна</string>
     <string name="title_hint_sync">Загрузка паведамленняў можа заняць некаторы час, у залежнасці ад хуткасці правайдара, інтэрнэт-злучэння, прылады і колькасці паведамленняў. Падчас загрузкі паведамленняў праграма можа адказваць павольней.</string>
     <string name="title_hint_sync_note">З мэтай абмежавання месца ў сховішчы, выкарыстання батарэі і даных, па змаўчанні будуць загружацца не ўсе паведамленні. Вы можаце змяніць гэта доўгім націсканнем на папку ў спісе папак і выбраць пункт \'Сінхранізаваць больш\' у меню.</string>
@@ -1810,7 +1822,11 @@
     <string name="title_via">Праз: %1$s</string>
     <string name="title_1hour">1 гадзіна</string>
     <string name="title_1day">1 дзень</string>
-    <string name="title_1week">1 тыдзень</string>
+    <string name="title_more_overflow">Больш &#8230;</string>
+    <string name="title_today_at">Сёння а %1$s</string>
+    <string name="title_tomorrow_at">Заўтра а %1$s</string>
+    <string name="title_day_at_time">%1$s а %2$s</string>
+    <string name="title_next_week">У гэты час на наступным тыдні</string>
     <string name="title_now">Цяпер</string>
     <string name="title_after">Пасля %1$s</string>
     <string name="title_reset">Скінуць</string>
@@ -1829,7 +1845,7 @@
     <string name="title_icalendar_maybe">Магчыма</string>
     <string name="title_icalendar_calendar">Каляндар</string>
     <string name="title_pro_feature">Гэта опцыя адносіцца да pro-функцый</string>
-    <string name="title_pro_list">Спіс pro-функцый</string>
+    <string name="title_pro_list">Спіс платных функцый</string>
     <string name="title_pro_purchase">Набыць</string>
     <string name="title_pro_one_time">%1$s (аднаразовая пакупка)</string>
     <string name="title_pro_no_play">Праграма Крама Play не знойдзена</string>
@@ -1838,16 +1854,16 @@
          Для падтрымкі FairEmail у доўгатэрміновай перспектыве выкарыстанне некаторых зручных і дадатковых функцый з\'яўляецца платным.
          Каб нагадаць вам пра гэта FairEmail будзе паказваць невялікі напамін, які знікне, калі вы набудзеце платныя функцыі.
     </string>
-    <string name="title_pro_whichever">Якія б функцыі ні былі б аднесены да pro-функцый, заўсёды знойдзецца той, хто паскардзіцца, што функцыя павінна быць бясплатнай. Калі ласка, не будзьце такім чалавекам.</string>
+    <string name="title_pro_whichever">Якія б функцыі ні былі б аднесены да платных функцый, заўсёды знойдзецца той, хто паскардзіцца, што функцыя павінна быць бясплатнай. Калі ласка, не будзьце такім чалавекам.</string>
     <string name="title_pro_google">FairEmail запусціць працэс пакупкі ў Краме Play і ў далейшым ён будзе ажыццяўляцца пад кіраўніцтвам Google. Таму, калі ласка, у выпадку ўзнікнення праблем не абвінавачвайце праграму!</string>
     <string name="title_pro_hide">Схаваць напамін на %1$d тыдняў</string>
-    <string name="title_pro_hint">Пакупка pro-функцый дазволіць вам карыстацца ўсімі цяперашнімі і будучымі pro-функцыямі, а нам — абслугоўваць і падтрымліваць гэту праграму.</string>
-    <string name="title_pro_price">Чаму pro-функцыі такія дарагія?</string>
+    <string name="title_pro_hint">Пакупка платных функцый дазволіць вам карыстацца ўсімі цяперашнімі і будучымі платнымі функцыямі, а нам — абслугоўваць і падтрымліваць гэту праграму.</string>
+    <string name="title_pro_price">Чаму платныя функцыі такія дарагія?</string>
     <string name="title_pro_family">Ці магу я выкарыстоўваць сямейную бібліятэку Google Play?</string>
     <string name="title_pro_restore">Як я магу аднавіць пакупку (на іншай прыладзе)?</string>
     <string name="title_pro_pending">Чаканне пакупкі</string>
-    <string name="title_pro_activated">Усе pro-функцыі актывіраваны</string>
-    <string name="title_pro_valid">Усе pro-функцыі актывіраваны</string>
+    <string name="title_pro_activated">Усе платныя функцыі актывіраваны</string>
+    <string name="title_pro_valid">Усе платныя функцыі актывіраваны</string>
     <string name="title_pro_invalid">Няправільны адказ</string>
     <string name="title_pro_support">FairEmail патрэбна ваша дапамога. Націсніце тут, каб купіць платныя функцыі, і такім чынам падтрымаць праект, або адключыце гэты напамін.</string>
     <string name="title_boundary_error">Памылка загрузкі паведамленняў з паштовага сервера</string>

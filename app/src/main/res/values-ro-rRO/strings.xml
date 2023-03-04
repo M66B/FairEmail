@@ -194,6 +194,7 @@
     <string name="title_setup_gmail_on_device">De ce trebuie să selectez un cont pe dispozitiv?</string>
     <string name="title_setup_gmail_password">Vreau să autorizez un cont cu o parolă în loc de un cont pe dispozitiv</string>
     <string name="title_setup_office_auth">Eroarea \'Autentificare eșuată\' poate fi cauzată de dezactivarea administrativă a IMAP/SMTP</string>
+    <string name="title_setup_office_auth_5_7_3">Vă rugăm să încercați expertul de configurare rapidă \'Alt furnizor\'.</string>
     <string name="title_setup_oauth_rationale">Autorizare acces la contul %1$s</string>
     <string name="title_setup_oauth_update">Autorizați din nou un cont existent (în caz contrar, creați un cont nou)</string>
     <string name="title_setup_oauth_updated">Autorizarea contului a fost actualizată</string>
@@ -355,6 +356,7 @@
     <string name="title_advanced_sync_folders">Sincronizare lista dosare</string>
     <string name="title_advanced_sync_folders_poll">Sincronizarea activă a listei de dosare</string>
     <string name="title_advanced_sync_shared_folders">Sincronizare liste de dosare partajate</string>
+    <string name="title_advanced_sync_added">Activați sincronizarea pentru noile fișiere de utilizator</string>
     <string name="title_advanced_subscriptions">Gestionați abonările la dosare</string>
     <string name="title_advanced_check_authentication">Verificarea autentificării mesajelor</string>
     <string name="title_advanced_check_tls">Verificați securitatea stratului de transport (TLS)</string>
@@ -582,6 +584,7 @@
     <string name="title_advanced_auto_important">Marcheză automat mesajele cu stea ca importante</string>
     <string name="title_advanced_cancel_snooze">Anulează amânarea la mutarea mesajelor</string>
     <string name="title_advanced_auto_block_sender">Blochează automat expeditorul când raportezi spam-ul</string>
+    <string name="title_advanced_auto_hide_answer">Ascunde automat butonul de răspuns la derulare</string>
     <string name="title_advanced_swipe_reply">Glisați mesajele extinse spre dreapta pentru a răspunde</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
     <string name="title_advanced_default_folder">Selectați directorul implicit</string>
@@ -738,6 +741,7 @@
     <string name="title_advanced_auto_identity_hint">Aceasta va selecta ultima identitate folosită la selectarea unui destinatar pentru mesaje noi</string>
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
     <string name="title_advanced_reply_move_hint">Serverul de e-mail ar putea adăuga mesajele la folderul de mesaje trimise</string>
+    <string name="title_advanced_compose_color_hint">Culorile foarte deschise sau foarte închise vor avea ca rezultat mesaje ilizibile pe partea destinatarilor</string>
     <string name="title_advanced_usenet_hint">Inserează \'-- \' între text și semnătură</string>
     <string name="title_advanced_remove_signature_hint">Acest lucru poate duce la eliminarea unui text prea scurt sau prea mare</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
@@ -888,6 +892,9 @@
     <string name="title_leave_deleted">Păstrează pe server mesajele șterse</string>
     <string name="title_leave_on_device">Păstrează mesajele pe dispozitiv</string>
     <string name="title_max_messages">Numărul maxim de mesaje de descărcat (liber pentru toate)</string>
+    <string name="title_max_messages_remark">        Introduceți un număr pozitiv pentru a descărca mesajele de la sfârșit (cel mai frecvent)
+        și un număr negativ pentru a descărca mesajele de la început (cel mai rar)
+    </string>
     <string name="title_keep_poll_interval">Interval verificare (minute)</string>
     <string name="title_keep_alive_interval">Interval menținere conexiune (minute)</string>
     <string name="title_keep_alive_noop">Reporniți periodic IMAP IDLE</string>
@@ -1227,6 +1234,7 @@
     </string>
     <string name="title_compose">Compune</string>
     <string name="title_submitter">Trimis de:</string>
+    <string name="title_signed_by">Semnat de:</string>
     <string name="title_delivered_to">Livrare către:</string>
     <string name="title_from">De la:</string>
     <string name="title_to">Către:</string>
@@ -1466,7 +1474,9 @@
     <string name="title_sort_on_attachments">Atașamente</string>
     <string name="title_sort_on_hidden">Ascuns</string>
     <string name="title_sort_ascending">Întâi cele mai vechi</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordine</string>
+    <string name="title_sort_on_order">Ordine</string>
+    <string name="title_sort_on_applied">Număr de rezultate</string>
+    <string name="title_sort_on_last_applied">Ultima aplicatie</string>
     <string name="title_filter">Exclude</string>
     <string name="title_filter_seen">Citit</string>
     <string name="title_filter_unflagged">Fără stea</string>
@@ -1724,7 +1734,10 @@
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisați stânga pentru Gunoi sau dreapta pentru Arhivă (dacă este disponibilă). Acțiunile de glisare se pot configura în setările contului</string>
     <string name="title_hint_message_selection">Atingeți lung un mesaj pentru a începe selecția multiplă. Țineți și glisați sus sau jos pentru a selecta mai multe mesaje</string>
-    <string name="title_hint_message_junk">Aceste mesaje se află în dosarul de spam al serverului de e-mail. Evident, aplicația nu poate împiedica trimiterea de mesaje spam.</string>
+    <string name="title_hint_message_junk">        Un client de e-mail afișează practic mesajele de pe un server de e-mail.
+        Un server de e-mail este responsabil pentru filtrarea spam-ului, nu un client de e-mail.
+        Dacă primiți o mulțime de spam, vă rugăm să contactați furnizorul de e-mail și nu dați vina pe aplicație!
+    </string>
     <string name="title_hint_important">Important</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
     <string name="title_hint_sync_note">În mod implicit, nu vor fi descărcate toate mesajele pentru a limita spațiul de stocare și bateria și consumul de date. Puteți schimba acest lucru apăsând lung un folder din lista de dosare și selectând \'Sincronizează mai mult\'.</string>
@@ -1789,7 +1802,11 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">O oră</string>
     <string name="title_1day">O zi</string>
-    <string name="title_1week">O săptămână</string>
+    <string name="title_more_overflow">Mai mult &#8230;</string>
+    <string name="title_today_at">Astăzi la %1$s</string>
+    <string name="title_tomorrow_at">Mâine la %1$s</string>
+    <string name="title_day_at_time">%1$s la %2$s</string>
+    <string name="title_next_week">Săptămâna viitoare pe vremea asta</string>
     <string name="title_now">Acum</string>
     <string name="title_after">După %1$s</string>
     <string name="title_reset">Resetare</string>

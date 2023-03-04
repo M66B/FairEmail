@@ -357,6 +357,7 @@
     <string name="title_advanced_sync_folders">Sinhronizuj spisak foldera</string>
     <string name="title_advanced_sync_folders_poll">Aktivno sinhronizuj spisak foldera</string>
     <string name="title_advanced_sync_shared_folders">Sinhronizuj spisak dijeljenih foldera</string>
+    <string name="title_advanced_sync_added">Omogući sinhronizaciju foldera novog korisnika</string>
     <string name="title_advanced_subscriptions">Upravljaj folderskim pretplatama</string>
     <string name="title_advanced_check_authentication">Provjeri vjerodostojnost poruke</string>
     <string name="title_advanced_check_tls">Provjeri transport layer security (TLS)</string>
@@ -584,6 +585,7 @@
     <string name="title_advanced_auto_important">Automatski označi poruke sa zvjezdicom kao važne</string>
     <string name="title_advanced_cancel_snooze">Otkaži odgađanje pri premještanju poruka</string>
     <string name="title_advanced_auto_block_sender">Automatski blokiraj pošiljaoca kada se prijavljuje spam</string>
+    <string name="title_advanced_auto_hide_answer">Automatski sakrij dugme za odgovor prilikom pomjeranja</string>
     <string name="title_advanced_swipe_reply">Prstom prevucite proširene poruke na desno za odgovor</string>
     <string name="title_advanced_default_snooze">Zadano vrijeme odlaganja/odgađanja</string>
     <string name="title_advanced_default_folder">Izaberite zadani folder</string>
@@ -740,6 +742,7 @@
     <string name="title_advanced_auto_identity_hint">Ovim će se izabrati posljednji identitet korišten pri biranju primaoca novih poruka</string>
     <string name="title_advanced_send_reminders_hint">Prikazuje upozorenje kada su tekst poruke ili predmet prazni ili kada nedostaje prilog</string>
     <string name="title_advanced_reply_move_hint">E-mail server još može dodavati poruke u folder za poslane poruke</string>
+    <string name="title_advanced_compose_color_hint">Presvijetle ili pretamne boje mogu prouzrokovati nečitke poruke s primaočeve strane</string>
     <string name="title_advanced_usenet_hint">Ubaci \'-- \' između teksta i potpisa</string>
     <string name="title_advanced_remove_signature_hint">Ovo može rezultirati premalim ili prevelikim uklanjanjem teksta</string>
     <string name="title_advanced_metered_hint">Konekcije \'s ograničenim paketom\' su općenito mobilne konekcije ili plaćeni Wi-Fi hotspot-ovi</string>
@@ -890,6 +893,9 @@
     <string name="title_leave_deleted">Zadrži izbrisane poruke na serveru</string>
     <string name="title_leave_on_device">Zadrži poruke na uređaju</string>
     <string name="title_max_messages">Maksimalan broj poruka za preuzimanje (prazno za sve)</string>
+    <string name="title_max_messages_remark">        Unesite pozitivan broj za preuzimanje poruka na kraju (najčešće)
+        i negativan broj za preuzimanje poruka na početku (najrjeđe)
+    </string>
     <string name="title_keep_poll_interval">Interval odaziva (minute)</string>
     <string name="title_keep_alive_interval">Interval provjere konekcije (minute)</string>
     <string name="title_keep_alive_noop">Povremeno restartuj IMAP IDLE</string>
@@ -1232,6 +1238,7 @@
     </string>
     <string name="title_compose">Napiši</string>
     <string name="title_submitter">Poslao/la:</string>
+    <string name="title_signed_by">Potpisao-la:</string>
     <string name="title_delivered_to">Dostavljeno:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Za:</string>
@@ -1471,7 +1478,9 @@
     <string name="title_sort_on_attachments">Prilozima</string>
     <string name="title_sort_on_hidden">Skrivenom</string>
     <string name="title_sort_ascending">Prvo najstarije</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Redoslijed</string>
+    <string name="title_sort_on_order">Redoslijed</string>
+    <string name="title_sort_on_applied">Broj potvrđenog</string>
+    <string name="title_sort_on_last_applied">Zadnje potvrđeno</string>
     <string name="title_filter">Izdvoji</string>
     <string name="title_filter_seen">Pročitano</string>
     <string name="title_filter_unflagged">Bez zvjezdice</string>
@@ -1729,7 +1738,10 @@
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>
-    <string name="title_hint_message_junk">Ove poruke su u spam folderu na e-mail serveru. Očigledno, aplikacija ne može spriječiti spam poruke da Vam se ne šalju.</string>
+    <string name="title_hint_message_junk">        E-mail klijent prikazuje poruke sa e-mail servera.
+        E-mail server filtrira spam poruke, a ne klijent.
+        Ako primate mnogo spam poruka, molimo da kontaktirate vašeg e-mail provajdera, ne tražite krivca u aplikaciji!
+    </string>
     <string name="title_hint_important">Važno</string>
     <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, a to zavisi od brzine provajdera, internet konekcije, samog uređaja te broja poruka. Prilikom preuzimanja poruka aplikacija će možda sporije reagovati.</string>
     <string name="title_hint_sync_note">Po zadanom, sve poruke neće biti preuzete da bi se ograničili zauzeće prostora, potrošnja baterije i podataka. Ovo možete promijeniti dugim dodirom na folder sa spiska i biranjem opcije \'Sinhronizuj više\'.</string>
@@ -1794,7 +1806,11 @@
     <string name="title_via">Preko: %1$s</string>
     <string name="title_1hour">1 sat</string>
     <string name="title_1day">1 dan</string>
-    <string name="title_1week">1 sedmica</string>
+    <string name="title_more_overflow">Više &#8230;</string>
+    <string name="title_today_at">Danas u %1$s</string>
+    <string name="title_tomorrow_at">Sutra u %1$s</string>
+    <string name="title_day_at_time">%1$s u %2$s</string>
+    <string name="title_next_week">U ovo vrijeme iduće sedmice</string>
     <string name="title_now">Sada</string>
     <string name="title_after">Nakon %1$s</string>
     <string name="title_reset">Resetuj</string>

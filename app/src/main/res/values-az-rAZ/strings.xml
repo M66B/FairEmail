@@ -344,6 +344,7 @@
     <string name="title_advanced_sync_folders">Qovluq siyahısını sinxronlaşdır</string>
     <string name="title_advanced_sync_folders_poll">Qovluq siyahısını aktiv olaraq sinxronlaşdır</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan qovluq siyahılarını sinxronlaşdır</string>
+    <string name="title_advanced_sync_added">Yeni istifadəçi qovluqları üçün sinxronlaşdırmanı fəallaşdır</string>
     <string name="title_advanced_subscriptions">Qovluq abunəliklərini idarə et</string>
     <string name="title_advanced_check_authentication">Mesaj kimlik təsdiqləməsini yoxla</string>
     <string name="title_advanced_check_tls">Daşıma qatı güvənliyini (TLS) yoxlayın</string>
@@ -571,6 +572,7 @@
     <string name="title_advanced_auto_important">Ulduzlu mesajları avtomatik olaraq vacib et</string>
     <string name="title_advanced_cancel_snooze">Hərəkətli mesajlarda ertələməni ləğv et</string>
     <string name="title_advanced_auto_block_sender">Spam bildirirkən göndərəni avtomatik əngəllə</string>
+    <string name="title_advanced_auto_hide_answer">Sürüşdürərkən cavablandırma düyməsini avtomatik gizlət</string>
     <string name="title_advanced_swipe_reply">Genişləndirilmiş mesajları cavablandırmaq üçün sağa sürüşdür</string>
     <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
     <string name="title_advanced_default_folder">İlkin qovluğu seçin</string>
@@ -727,6 +729,7 @@
     <string name="title_advanced_auto_identity_hint">Bu, yeni mesajlar üçün bir alıcı seçərkən istifadə edilən son kimliyi seçəcək</string>
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
+    <string name="title_advanced_compose_color_hint">Çox açıq və ya çox tünd rənglər, alıcının mesajları oxuya bilməməsi ilə nəticələnir</string>
     <string name="title_advanced_usenet_hint">Mətn və imza arasına \'-- \' əlavə et</string>
     <string name="title_advanced_remove_signature_hint">Bu, həddindən az və ya çox mətnin silinməsinə səbəb ola bilər</string>
     <string name="title_advanced_metered_hint">Ümumiyyətlə ölçülmüş bağlantılar, mobil və ya ödənişli Wi-Fi bağlantılarıdır</string>
@@ -877,6 +880,9 @@
     <string name="title_leave_deleted">Silənən mesajları serverdə burax</string>
     <string name="title_leave_on_device">Mesajları cihazda burax</string>
     <string name="title_max_messages">Endiriləcək mesajların maksimum sayı (hamısı üçün boş)</string>
+    <string name="title_max_messages_remark">        Mesajları sonda endirmək üçün müsbət bir ədəd daxil edin (ən geniş yayılmış)
+        və mesajları başlanğıcda endirmək üçün mənfi bir ədəd daxil edin (ən az yayılmış)
+    </string>
     <string name="title_keep_poll_interval">Anket aralığı (dəqiqə)</string>
     <string name="title_keep_alive_interval">Canlı saxlama aralığı (dəqiqə)</string>
     <string name="title_keep_alive_noop">IMAP IDLE-i vaxtaşırı yenidən başlat</string>
@@ -1219,6 +1225,7 @@
     </string>
     <string name="title_compose">Yaz</string>
     <string name="title_submitter">Göndərən:</string>
+    <string name="title_signed_by">İmzalandı:</string>
     <string name="title_delivered_to">Çatdırıldı:</string>
     <string name="title_from">Göndərən:</string>
     <string name="title_to">Alıcı:</string>
@@ -1458,7 +1465,9 @@
     <string name="title_sort_on_attachments">Qoşmalar</string>
     <string name="title_sort_on_hidden">Gizli</string>
     <string name="title_sort_ascending">Birinci köhnə</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Sifariş</string>
+    <string name="title_sort_on_order">Sıralama</string>
+    <string name="title_sort_on_applied">Tətbiq edilən say</string>
+    <string name="title_sort_on_last_applied">Son tətbiq edilmə</string>
     <string name="title_filter">Filtrləmə</string>
     <string name="title_filter_seen">Oxunan</string>
     <string name="title_filter_unflagged">Ulduzlu olmayan</string>
@@ -1716,7 +1725,10 @@
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantıya atmaq üçün sola sürüşdürün; (əgər varsa) arxivləmək üçün sağa; Sürüşdürmə əməliyyatları hesab tənzimləmələrindən konfiqurasiya edilə bilər</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın; daha çox mesaj seçmək üçün basıb yuxarı və ya aşağı sürüşdürün</string>
-    <string name="title_hint_message_junk">Bu mesajlar, e-poçt serverinin spam qovluğundadır. Aydındır ki, tətbiq spam mesajların sizə göndərilməsini əngəlləyə bilmir.</string>
+    <string name="title_hint_message_junk">        Bir e-poçt müştərisi (client) mesajları əsasən e-poçt serverində göstərir.
+        Spam poçtların filtrlənməsinə e-poçt serveri cavabdehdir, e-poçt müştərisi (client) yox.
+        Əgər həddindən artıq spam poçt alırsınızsa, zəhmət olmasa e-poçt provayderinizlə əlaqə saxlayın və tətbiqi günahlandırmayın!
+    </string>
     <string name="title_hint_important">Vacib</string>
     <string name="title_hint_sync">Mesajların endirilməsi provayderinizin sürətindən, internet bağlantınızdan və mesaj sayından asılı olaraq bir az vaxt apara bilər. Mesajları endirərkən tətbiq yavaş cavab verə bilər.</string>
     <string name="title_hint_sync_note">İlkin olaraq, anbar sahəsini, batareya və verilənlər istifadəsini məhdudlaşdırmaq üçün bütün mesajlar endirilmir. Bunu, qovluq siyahınızda bir qovluğa uzun basaraq və \"Daha çox sinxronlaşdır\"ı seçərək dəyişdirə bilərsiniz.</string>
@@ -1781,7 +1793,11 @@
     <string name="title_via">%1$s ilə</string>
     <string name="title_1hour">1 saat</string>
     <string name="title_1day">1 gün</string>
-    <string name="title_1week">1 həftə</string>
+    <string name="title_more_overflow">Daha çox &#8230;</string>
+    <string name="title_today_at">Bu gün %1$s</string>
+    <string name="title_tomorrow_at">Sabah %1$s</string>
+    <string name="title_day_at_time">%1$s %2$s</string>
+    <string name="title_next_week">Növbəti həftə bu vaxt</string>
     <string name="title_now">İndi</string>
     <string name="title_after">%1$s sonra</string>
     <string name="title_reset">Sıfırla</string>

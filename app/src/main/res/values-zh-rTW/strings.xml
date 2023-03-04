@@ -1332,7 +1332,7 @@
     <string name="title_sort_on_attachments">附件</string>
     <string name="title_sort_on_hidden">隱藏</string>
     <string name="title_sort_ascending">舊訊息優先</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">順序</string>
+    <string name="title_sort_on_order">順序</string>
     <string name="title_filter">篩選</string>
     <string name="title_filter_seen">已讀取</string>
     <string name="title_filter_unflagged">未加星號</string>
@@ -1630,7 +1630,6 @@
     <string name="title_via">透過：%1$s</string>
     <string name="title_1hour">1 小時</string>
     <string name="title_1day">1 天</string>
-    <string name="title_1week">1 週</string>
     <string name="title_now">立刻</string>
     <string name="title_after">在 %1$s 之後</string>
     <string name="title_reset">重設</string>

@@ -1445,7 +1445,7 @@
     <string name="title_sort_on_attachments">Liitteet</string>
     <string name="title_sort_on_hidden">Piilotettu</string>
     <string name="title_sort_ascending">Vanhin ensin</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Järjestys</string>
+    <string name="title_sort_on_order">Järjestys</string>
     <string name="title_filter">Suodata pois</string>
     <string name="title_filter_seen">Luettu</string>
     <string name="title_filter_unflagged">Tähdetön</string>
@@ -1703,7 +1703,6 @@
     <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, käytä tukivalikkoa</string>
     <string name="title_hint_message_actions">Pyyhkäisy vasemmalle siirtää roskakoriin; Pyyhkäisy oikealle arkistoi (kun mahdollista); Pyyhkäisytoimintoja voi muokata tilin asetuksissa</string>
     <string name="title_hint_message_selection">Aloita useamman viestin valinta painamalla viestiä pitkään; Valitse useampi pitkään painamalla ja pyyhkäisemällä ylös tai alas</string>
-    <string name="title_hint_message_junk">Nämä viestit ovat sähköpostipalvelimen roskapostikansiossa. Sovellus ei selvästikään voi estää roskapostin lähettämistä sinulle.</string>
     <string name="title_hint_important">Tärkeä</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
     <string name="title_hint_sync_note">Oletuksena kaikkia viestejä ei ladata tallennustilan ja akun käytön sekä tiedonsiirron rajoittamiseksi. Voit muuttaa tätä painamalla kansiota pitkään kansiolistassa ja valitsemalla \'Synkronoi lisää\'.</string>
@@ -1768,7 +1767,6 @@
     <string name="title_via">Kautta: %1$s</string>
     <string name="title_1hour">1 tunti</string>
     <string name="title_1day">1 päivä</string>
-    <string name="title_1week">1 viikko</string>
     <string name="title_now">Nyt</string>
     <string name="title_after">%1$s päästä</string>
     <string name="title_reset">Palauta oletukset</string>

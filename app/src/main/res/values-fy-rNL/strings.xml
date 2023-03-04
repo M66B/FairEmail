@@ -1047,7 +1047,7 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string name="title_sort_on_attachments">Taheaksels</string>
     <string name="title_sort_on_hidden">Ferburgen</string>
     <string name="title_sort_ascending">Aldste earst</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Sekwinsje</string>
+    <string name="title_sort_on_order">Sekwinsje</string>
     <string name="title_filter">Útfilterje</string>
     <string name="title_filter_seen">Lêze</string>
     <string name="title_filter_unflagged">Unstjerre</string>
@@ -1316,7 +1316,6 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string name="title_via">Fia: %1$s</string>
     <string name="title_1hour">1 oere</string>
     <string name="title_1day">1 dei</string>
-    <string name="title_1week">1 wike</string>
     <string name="title_now">No</string>
     <string name="title_after">Nei %1$s</string>
     <string name="title_reset">Weromsette</string>

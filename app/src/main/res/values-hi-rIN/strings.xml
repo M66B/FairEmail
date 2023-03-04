@@ -95,6 +95,7 @@
     <string name="title_advanced_caption_conversation">वार्तालाप</string>
     <string name="title_advanced_caption_message">संदेश</string>
     <string name="title_advanced_notify_action_delete">मिटाए</string>
+    <string name="title_advanced_pin">PIN</string>
     <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
     <string name="title_advanced_cleanup">Depending on the Android version, tethering may work or may not work. Tethered traffic cannot be filtered.</string>
@@ -121,6 +122,9 @@
     <string name="title_legend_section_messages">संदेशों</string>
     <string name="title_legend_section_compose">लिखें</string>
     <string name="title_legend_thread">वार्तालाप</string>
+    <string name="title_legend_sensitivity_personal">व्यक्तिगत है</string>
+    <string name="title_legend_sensitivity_private">निजी है</string>
+    <string name="title_legend_sensitivity_confidential">गोपनीय है</string>
     <string name="title_legend_audio">ध्वनि रिकॉर्ड करना</string>
     <string name="title_legend_delete">मिटाए</string>
     <string name="title_legend_c">लिखें</string>
@@ -139,9 +143,16 @@
     <string name="title_debug_info_remark">कृपया समस्या का वर्णन करें और समस्या के समय से संकेत मिलता है:</string>
     <string name="title_widget_account_all">सभी</string>
     <!-- Thunderbird -->
+    <string name="title_keyword_label3">व्यक्तिगत</string>
     <string name="title_accessibility_folders">फ़ोल्डर्स</string>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
     <!-- https://en.wikipedia.org/wiki/Comparison_of_high-definition_smartphone_displays -->
+    <string-array name="sensitivityNames">
+        <item>Normal</item>
+        <item>व्यक्तिगत</item>
+        <item>निजी</item>
+        <item>गोपनीय</item>
+    </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->

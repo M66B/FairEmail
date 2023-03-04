@@ -1134,7 +1134,7 @@
     <string name="title_sort_on_attachments">Eranskinak</string>
     <string name="title_sort_on_hidden">Ezkutuan</string>
     <string name="title_sort_ascending">Zaharrena lehena</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordena</string>
+    <string name="title_sort_on_order">Ordena</string>
     <string name="title_filter">Iragazi</string>
     <string name="title_filter_seen">Irakurrita</string>
     <string name="title_filter_unflagged">Izarrik gabe</string>
@@ -1366,7 +1366,6 @@
     <string name="title_hint_support">Galdera edo arazoren bat baduzu, erabili laguntza menua laguntza jasotzeko</string>
     <string name="title_hint_message_actions">Pasatu hatza ezkerrera zakarrontzira botatzeko, pasatu hatza eskuinera artxibatzeko (eskuragarri badago). Hatza pasatzeko ekintzak kontuaren ezarpenetan konfiguratu daitezke</string>
     <string name="title_hint_message_selection">Sakatu luze mezu bat hainbat mezu hautatzen hasteko. Mantendu eta pasatu hatza gora edo behera mezu gehiago hautatzeko</string>
-    <string name="title_hint_message_junk">Mezu horiek posta elektronikoko zerbitzariaren spam posta-karpetan daude. Jakina, aplikazioak ezin du saihestu spam mezuak bidaltzea.</string>
     <string name="title_hint_important">Garrantzitsua</string>
     <string name="title_hint_sync">Mezuak deskargatzeak denbora hartu dezake, hornitzailearen abiadura, internet konexioa, gailua eta mezu kopuruaren arabera. Mezuak deskargatu bitartean aplikazioa motel erantzun lezake.</string>
     <string name="title_hint_sync_note">Lehenespenez, mezu guztiak ez dira deskargatuko biltegiratzeko espazioaren, bateriaren eta datuen erabilera mugatzeko. Hau alda dezakezu karpeten zerrendan dagoen karpeta baten gainean luze sakatuta eta \'Sinkronizatu gehiago\' aukeratuta.</string>
@@ -1418,7 +1417,6 @@
     <string name="title_via">Honen bidez: %1$s</string>
     <string name="title_1hour">Ordu 1</string>
     <string name="title_1day">Egun 1</string>
-    <string name="title_1week">aste 1</string>
     <string name="title_now">Orain</string>
     <string name="title_after">%1$s eta gero</string>
     <string name="title_reset">Berrezarri</string>

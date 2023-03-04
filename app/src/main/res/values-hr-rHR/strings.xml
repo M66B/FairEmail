@@ -1338,7 +1338,7 @@
     <string name="title_sort_on_attachments">Prilozi</string>
     <string name="title_sort_on_hidden">Skriveno</string>
     <string name="title_sort_ascending">Prvo najstarije</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Redoslijed</string>
+    <string name="title_sort_on_order">Redoslijed</string>
     <string name="title_filter">Filtrirati</string>
     <string name="title_filter_seen">Pročitaj</string>
     <string name="title_filter_unflagged">Bez zvjezdice</string>
@@ -1588,7 +1588,6 @@
     <string name="title_hint_support">Ako imate pitanje ili problem, upotrijebite izbornik za podršku da biste dobili pomoć</string>
     <string name="title_hint_message_actions">Prijeđite prstom ulijevo za otpad; Prstom povucite udesno za arhivu (ako dostupno); Akcije prelaska prstom možete konfigurirati u postavkama računa</string>
     <string name="title_hint_message_selection">Dugo pritisnite poruku za početak odabiranja više poruka; Držite i prelazite prstom prema gore ili dolje da biste odabrali više poruka</string>
-    <string name="title_hint_message_junk">Te se poruke nalaze u mapi neželjene pošte na poslužitelju e-pošte. Očito, aplikacija ne može spriječiti slanje neželjenih poruka.</string>
     <string name="title_hint_important">Važno</string>
     <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, ovisno o brzini davatelja, internetskoj vezi i uređaju te broju poruka. Tijekom preuzimanja poruka aplikacija može reagirati sporije.</string>
     <string name="title_hint_sync_note">Prema zadanim postavkama, neće se preuzimati sve poruke kako bi se ograničio prostor za pohranu i potrošnja baterije i podataka. To možete promijeniti dugim pritiskom na mapu na popisu mapa i odabirom \"Sinkroniziraj više\".</string>
@@ -1646,7 +1645,6 @@
     <string name="title_via">Preko: %1$s</string>
     <string name="title_1hour">1 sat</string>
     <string name="title_1day">1 dan</string>
-    <string name="title_1week">1 tjedan</string>
     <string name="title_now">Sada</string>
     <string name="title_after">Poslije %1$s</string>
     <string name="title_reset">Resetiraj</string>

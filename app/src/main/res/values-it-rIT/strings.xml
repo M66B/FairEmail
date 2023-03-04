@@ -236,7 +236,7 @@
     <string name="title_setup_error">Errore</string>
     <string name="title_setup_pop">Usa POP3 (sconsigliato)</string>
     <string name="title_setup_recent">Usa \'recent\' per più client email</string>
-    <string name="title_setup_configuring">Configurazione del profilo &#8230;</string>
+    <string name="title_setup_configuring">Configurazione del profilo&#8230;</string>
     <string name="title_setup_app_password">Potresti dover usare la password di un\'app</string>
     <string name="title_setup_extra">Extra</string>
     <string name="title_setup_delete_account_hint">Questo rimuoverà i profili solo dall\'app</string>
@@ -344,6 +344,7 @@
     <string name="title_advanced_sync_folders">Sincronizza elenco delle cartelle</string>
     <string name="title_advanced_sync_folders_poll">Sincronizza attivamente l\'elenco delle cartelle</string>
     <string name="title_advanced_sync_shared_folders">Sincronizza gli elenchi delle cartelle condivise</string>
+    <string name="title_advanced_sync_added">Abilita la sincronizzazione per le nuove cartelle utente</string>
     <string name="title_advanced_subscriptions">Gestisci sottoscrizioni alla cartella</string>
     <string name="title_advanced_check_authentication">Verifica l\'autenticazione del messaggio</string>
     <string name="title_advanced_check_tls">Controlla il Transport Layer Security (TLS)</string>
@@ -571,6 +572,7 @@
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi stellati</string>
     <string name="title_advanced_cancel_snooze">Annulla posticipazione allo spostamento dei messaggi</string>
     <string name="title_advanced_auto_block_sender">Blocca automaticamente il mittente alla segnalazione di spam</string>
+    <string name="title_advanced_auto_hide_answer">Nascondi automaticamente il pulsante di risposta durante lo scorrimento</string>
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_default_folder">Seleziona la cartella predefinita</string>
@@ -812,7 +814,7 @@
     <string name="title_advanced_swipe_actions">Imposta azioni di scorrimento</string>
     <string name="title_advanced_swipe_actions_hint">Questo imposterà l\'azione di scorrimento a sinistra/destra per tutti i profili IMAP</string>
     <string name="title_advanced_swipe_sensitivity">Sensibilità di scorrimento a sinistra/destra</string>
-    <string name="title_select">Seleziona &#8230;</string>
+    <string name="title_select">Seleziona&#8230;</string>
     <string name="title_identity_name">Il tuo nome</string>
     <string name="title_identity_email">Il tuo indirizzo email</string>
     <string name="title_identity_tenant_hint">Questo campo dovrebbe esser vuoto in gran parte dei casi</string>
@@ -1082,7 +1084,7 @@
     <string name="title_new_message">Nuovo messaggio</string>
     <string name="title_editasnew">Modifica come nuovo</string>
     <string name="title_edit_notes">Modifica le note locali</string>
-    <string name="title_create_rule">Crea regola &#8230;</string>
+    <string name="title_create_rule">Crea regola&#8230;</string>
     <string name="title_full_screen">Schermo intero</string>
     <string name="title_force_light">Forza tema chiaro</string>
     <string name="title_share">Condividi</string>
@@ -1115,7 +1117,7 @@
     <string name="title_buttons_hint">Le azioni effettive disponibili dipendono dal tipo di profilo e dalla configurazione</string>
     <string name="title_button_search_similar">Cerca messaggi simili</string>
     <string name="title_button_search_text">Cerca nel testo del messaggio</string>
-    <string name="title_configure_buttons">Configura pulsanti &#8230;</string>
+    <string name="title_configure_buttons">Configura pulsanti&#8230;</string>
     <string name="title_quick_actions">Seleziona azioni</string>
     <string name="title_quick_actions_hint">Sarranno mostrate fino a %1$d azioni</string>
     <string name="title_quick_actions_low">Importanza bassa</string>
@@ -1124,8 +1126,8 @@
     <string name="title_quick_actions_snooze">Posticipa</string>
     <string name="title_quick_actions_clear">Annulla la selezione dopo un\'azione</string>
     <string name="title_trash">Cestino</string>
-    <string name="title_copy">Copia &#8230;</string>
-    <string name="title_copy_to">Copia in &#8230;</string>
+    <string name="title_copy">Copia&#8230;</string>
+    <string name="title_copy_to">Copia in&#8230;</string>
     <string name="title_subscribe">Iscriviti</string>
     <string name="title_delete">Elimina</string>
     <string name="title_delete_all">Elimina tutto</string>
@@ -1138,12 +1140,12 @@
     <string name="title_unsubscribe">Disiscriviti</string>
     <string name="title_message_rule">Crea una regola</string>
     <string name="title_no_junk">Non spam</string>
-    <string name="title_move_to">Sposta in &#8230;</string>
-    <string name="title_move_to_folder">Sposta in &#8230;</string>
-    <string name="title_move_to_account">Sposta in %1$s &#8230;</string>
+    <string name="title_move_to">Sposta in&#8230;</string>
+    <string name="title_move_to_folder">Sposta in&#8230;</string>
+    <string name="title_move_to_account">Sposta in %1$s&#8230;</string>
     <string name="title_report_spam">Tratta come spam</string>
     <string name="title_delete_permanently">Elimina permanentemente</string>
-    <string name="title_snooze">Posticipa &#8230;</string>
+    <string name="title_snooze">Posticipa&#8230;</string>
     <string name="title_archive">Archivia</string>
     <string name="title_reply">Risposta</string>
     <string name="title_reply_to_sender">Rispondi al mittente</string>
@@ -1319,7 +1321,7 @@
     <string name="title_create_template">Crea modello</string>
     <string name="title_select_default_identity">Seleziona l\'indirizzo predefinito</string>
     <string name="title_translate">Traduci</string>
-    <string name="title_translate_configure">Configura &#8230;</string>
+    <string name="title_translate_configure">Configura&#8230;</string>
     <string name="title_translate_key">Inserisci tasto</string>
     <string name="title_translating">Traducendo&#8230;</string>
     <string name="title_translate_formal">Usa il modulo formale</string>
@@ -1464,7 +1466,9 @@
     <string name="title_sort_on_attachments">Allegati</string>
     <string name="title_sort_on_hidden">Nascosto</string>
     <string name="title_sort_ascending">Prima i più vecchi</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordine</string>
+    <string name="title_sort_on_order">Ordine</string>
+    <string name="title_sort_on_applied">Conteggio d\'uso</string>
+    <string name="title_sort_on_last_applied">Ultima applicazione</string>
     <string name="title_filter">Filtra</string>
     <string name="title_filter_seen">Letti</string>
     <string name="title_filter_unflagged">Non stellato</string>
@@ -1722,7 +1726,10 @@
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>
-    <string name="title_hint_message_junk">Questi messaggi sono nella cartella di spam del server email. Ovviamente, l\'app non può prevenire che ti siano inviati i messaggi spam.</string>
+    <string name="title_hint_message_junk">        Un client email visualizza fondamentalmente messaggi su un server email.
+        Un server email è responsabile del filtraggio dello spam, al contrario di un client email.
+        Se ricevi molti spam, contatta il tuo provider email e non incolpare l\'app!
+    </string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere un po\' di tempo, in base alla velocità del provider, la connessione internet, il dispositivo e il numero di messaggi. Durante il download dei messaggi l\'app potrebbe rispondere più lentamente.</string>
     <string name="title_hint_sync_note">Di default, non tutti i messaggi saranno scaricati per limitare l\'uso dello spazio d\'archiviazione, della batteria e dei dati. Puoi modificare ciò tenendo premuta una cartella nell\'elenco delle cartelle e selezionando \'Sincronizza altri\'.</string>
@@ -1787,7 +1794,11 @@
     <string name="title_via">Tramite: %1$s</string>
     <string name="title_1hour">1 ora</string>
     <string name="title_1day">1 giorno</string>
-    <string name="title_1week">1 settimana</string>
+    <string name="title_more_overflow">Altro&#8230;</string>
+    <string name="title_today_at">Oggi alle %1$s</string>
+    <string name="title_tomorrow_at">Domani alle %1$s</string>
+    <string name="title_day_at_time">%1$s alle %2$s</string>
+    <string name="title_next_week">La prossima settimana a quest\'ora</string>
     <string name="title_now">Ora</string>
     <string name="title_after">Dopo %1$s</string>
     <string name="title_reset">Ripristina</string>

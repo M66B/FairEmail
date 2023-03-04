@@ -330,6 +330,7 @@
     <string name="title_advanced_sync_folders">同步文件夹列表</string>
     <string name="title_advanced_sync_folders_poll">主动同步文件夹列表</string>
     <string name="title_advanced_sync_shared_folders">同步共享文件夹列表</string>
+    <string name="title_advanced_sync_added">自动为新用户文件夹启用同步</string>
     <string name="title_advanced_subscriptions">管理文件夹订阅</string>
     <string name="title_advanced_check_authentication">检查消息认证</string>
     <string name="title_advanced_check_tls">检查安全传输层协议 (TLS)</string>
@@ -557,6 +558,7 @@
     <string name="title_advanced_auto_important">自动标注星标消息为重要</string>
     <string name="title_advanced_cancel_snooze">移动消息时取消延后</string>
     <string name="title_advanced_auto_block_sender">报告垃圾邮件时自动屏蔽发件人</string>
+    <string name="title_advanced_auto_hide_answer">在滚动时自动隐藏回复按钮</string>
     <string name="title_advanced_swipe_reply">右滑展开的邮件进行回复</string>
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_default_folder">选择默认文件夹</string>
@@ -732,7 +734,7 @@
     <string name="title_advanced_layout_hint">切换到更为紧凑的布局，改变消息文本大小可以在邮件视图中的顶部动作栏菜单中完成</string>
     <string name="title_advanced_startup_hint">长按文件夹列表中的任何文件夹，可将其从添加到或移除出聚合文件夹列表</string>
     <string name="title_advanced_date_hint">若按时间对消息排序，将仅按日期对消息分组</string>
-    <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于Android版本和变体</string>
+    <string name="title_advanced_navbar_colorize_hint">这是否正常工作取决于 Android 版本和变体</string>
     <string name="title_advanced_split_hint">这将把屏幕分割成几部分</string>
     <string name="title_advanced_split_min_hint">这是一个用于可折叠设备的条件</string>
     <string name="title_advanced_threading_hint">合并相同主题为一封会话</string>
@@ -907,7 +909,7 @@
     <string name="title_delete_account">删除帐户</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
-    <string name="title_edit_html">以HTML格式编辑</string>
+    <string name="title_edit_html">以 HTML 格式编辑</string>
     <string name="title_check_html">检查 HTML</string>
     <string name="title_import_file">导入文件</string>
     <string name="title_sign_key">签名密钥：%1$s</string>
@@ -1444,7 +1446,9 @@
     <string name="title_sort_on_attachments">附件</string>
     <string name="title_sort_on_hidden">隐藏</string>
     <string name="title_sort_ascending">旧消息在前</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">顺序</string>
+    <string name="title_sort_on_order">顺序</string>
+    <string name="title_sort_on_applied">应用次数</string>
+    <string name="title_sort_on_last_applied">上次应用</string>
     <string name="title_filter">滤除</string>
     <string name="title_filter_seen">已读</string>
     <string name="title_filter_unflagged">未标星</string>
@@ -1702,7 +1706,10 @@
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑移动到回收站；向右滑存档（如果支持） ；可在账户设置中配置滑动操作</string>
     <string name="title_hint_message_selection">长按进行多选；按住的同时并上下滑动可选择多个邮件</string>
-    <string name="title_hint_message_junk">这些消息在邮件服务器的垃圾邮件文件夹中。显然，应用无法防止垃圾邮件被发送给您。</string>
+    <string name="title_hint_message_junk">        电子邮件客户端只是显示电子邮件服务器上的邮件
+        电子邮件服务器负责过滤垃圾邮件，而非电子邮件客户端负责
+        如果您收到大量垃圾邮件，请联系您的电子邮件提供商，不要让应用程序背锅！
+    </string>
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
     <string name="title_hint_sync_note">默认情况下，本应用不会下载所有的消息，以减少存储空间、电量和流量的使用。当然，您可以通过长按文件夹列表中的相应文件夹，并选择弹出菜单的“同步更多”来改变这一点</string>
@@ -1767,7 +1774,11 @@
     <string name="title_via">通过: %1$s</string>
     <string name="title_1hour">1 小时</string>
     <string name="title_1day">1 天</string>
-    <string name="title_1week">1 周</string>
+    <string name="title_more_overflow">更多 &#8230;</string>
+    <string name="title_today_at">今天的 %1$s</string>
+    <string name="title_tomorrow_at">明天的 %1$s</string>
+    <string name="title_day_at_time">%1$s 于 %2$s</string>
+    <string name="title_next_week">下周的这个时间</string>
     <string name="title_now">现在</string>
     <string name="title_after">%1$s之后</string>
     <string name="title_reset">重置</string>

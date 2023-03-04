@@ -215,6 +215,7 @@
     <string name="title_setup_doze_remark">For at sende og modtage e-mail pålideligt i baggrunden</string>
     <string name="title_setup_doze_explanation">Batterioptimeringer bør deaktiveres for appen for at sikre pålidelig baggrundsbeskedafsendelse og -modtagelse</string>
     <string name="title_setup_doze_hint">Selvom dette kan lyde selvmodsigende, vil deaktivering af batterioptimering for denne app resultere i lavere strømforbrug</string>
+    <string name="title_setup_doze_aggressively">Denne enhed kan muligvis stoppe synkroniseringstjenesten</string>
     <string name="title_setup_doze_why">Hvorfor bør batterioptimeringer deaktiveres?</string>
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
@@ -343,6 +344,7 @@
     <string name="title_advanced_sync_folders">Synkronisér mappeliste</string>
     <string name="title_advanced_sync_folders_poll">Synk aktivt mappeliste</string>
     <string name="title_advanced_sync_shared_folders">Synkronisér delte mappelister</string>
+    <string name="title_advanced_sync_added">Aktivér synkronisering for nye brugermapper</string>
     <string name="title_advanced_subscriptions">Håndér mappeabonnementer</string>
     <string name="title_advanced_check_authentication">Tjek beskedgodkendelse</string>
     <string name="title_advanced_check_tls">Tjek transportlagssikkerhed (TLS)</string>
@@ -570,6 +572,7 @@
     <string name="title_advanced_auto_important">Gør automatisk stjernemarkerede beskeder vigtige</string>
     <string name="title_advanced_cancel_snooze">Afbryd udsættelse ved flytning af beskeder</string>
     <string name="title_advanced_auto_block_sender">Blokér automatisk afsenderen ved spamanmeldelse</string>
+    <string name="title_advanced_auto_hide_answer">Skjul automatisk svarknappen når der scrolles</string>
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_default_folder">Vælg standardmappe</string>
@@ -1463,7 +1466,9 @@
     <string name="title_sort_on_attachments">Vedhæftninger</string>
     <string name="title_sort_on_hidden">Skjult</string>
     <string name="title_sort_ascending">Ældste først</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Rækkefølge</string>
+    <string name="title_sort_on_order">Rækkefølge</string>
+    <string name="title_sort_on_applied">Anvendt antal</string>
+    <string name="title_sort_on_last_applied">Senest anvendt</string>
     <string name="title_filter">Filtrér fra</string>
     <string name="title_filter_seen">Læst</string>
     <string name="title_filter_unflagged">Fjernet stjernemarkering</string>
@@ -1721,7 +1726,10 @@
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
     <string name="title_hint_message_actions">Stryg til venstre for Papirkurv; Stryg til højre for at arkivere (hvis tilgængeligt); Strygehandlingerne kan opsættes i kontoindstillingerne</string>
     <string name="title_hint_message_selection">Langt tryk på en besked for at tilgå valg af flere beskeder; Hold og stryg op/ned for at vælge flere beskeder</string>
-    <string name="title_hint_message_junk">Disse beskeder befinder i e-mailserverens Spam-mappen. Appen ikke selvfølgelig ikke forhindre, at nogen sender dig spambeskeder.</string>
+    <string name="title_hint_message_junk">        En e-mailklient viser beskeder, som befinder sig på en e-mail-server.
+        E-mailserveren er ansvarlig for spamfiltrering, ikke e-mailklienten.
+        Modtages en masse spam, kontakt da e-mailudbyderen (bebrejd ikke appen!).
+    </string>
     <string name="title_hint_important">Vigtigt</string>
     <string name="title_hint_sync">Download af beskeder kan tage noget tid afhængigt af hastigheden hos udbyderen, dataforbindelsen, enheden samt beskedantallet. Under besked-download kan app\'en muligvis reagerer langsommere.</string>
     <string name="title_hint_sync_note">For at begrænse lagerplads- samt batteri- og dataforbrug, downloades ikke alle beskeder som standard. Dette kan ændres med at langt tryk på en mappe i mappelisten, vælg dernæst \'Synkronisér flere\'.</string>
@@ -1786,7 +1794,11 @@
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 time</string>
     <string name="title_1day">1 dag</string>
-    <string name="title_1week">1 uge</string>
+    <string name="title_more_overflow">Flere &#8230;</string>
+    <string name="title_today_at">I dag kl. %1$s</string>
+    <string name="title_tomorrow_at">I morgen kl. %1$s</string>
+    <string name="title_day_at_time">%1$s kl. %2$s</string>
+    <string name="title_next_week">Samme tid næste uge</string>
     <string name="title_now">Nu</string>
     <string name="title_after">Efter %1$s</string>
     <string name="title_reset">Nulstil</string>

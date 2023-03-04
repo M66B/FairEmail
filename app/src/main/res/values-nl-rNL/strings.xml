@@ -342,6 +342,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_sync_folders">Lijst met mappen synchroniseren</string>
     <string name="title_advanced_sync_folders_poll">Actief mappenlijst synchroniseren</string>
     <string name="title_advanced_sync_shared_folders">Lijst met gedeelde mappen synchroniseren</string>
+    <string name="title_advanced_sync_added">Synchronisatie van nieuwe gebruikersmappen inschakelen</string>
     <string name="title_advanced_subscriptions">Beheer map abonnementen</string>
     <string name="title_advanced_check_authentication">Controleer authenticatie bericht</string>
     <string name="title_advanced_check_tls">Controleer transport layer security (TLS)</string>
@@ -569,6 +570,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_auto_important">Automatisch berichten met een ster belangrijk maken</string>
     <string name="title_advanced_cancel_snooze">Annuleer sluimeren bij het verplaatsen van berichten</string>
     <string name="title_advanced_auto_block_sender">Blokkeer de afzender automatisch bij het rapporteren van spam</string>
+    <string name="title_advanced_auto_hide_answer">Automatisch de antwoordknop verbergen bij scrollen</string>
     <string name="title_advanced_swipe_reply">Veeg uitgevouwde berichten naar rechts om te beantwoorden</string>
     <string name="title_advanced_default_snooze">Standaard sluimer/vertragingstijd</string>
     <string name="title_advanced_default_folder">Selecteer standaard map</string>
@@ -1455,9 +1457,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_sort_on_attachments">Bijlagen</string>
     <string name="title_sort_on_hidden">Verborgen</string>
     <string name="title_sort_ascending">Oudste eerst</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Volgorde</string>
-    <string name="title_sort_on_applied" comment="title_sort_on_applied&#10;Sort options for rules: rule applied count">Toegepaste keren</string>
-    <string name="title_sort_on_last_applied" comment="title_sort_on_last_applied&#10;Sort options for rules: rule last applied date/time">Laatst toegepast</string>
+    <string name="title_sort_on_order">Volgorde</string>
+    <string name="title_sort_on_applied">Toegepaste keren</string>
+    <string name="title_sort_on_last_applied">Laatst toegepast</string>
     <string name="title_filter">Uitfilteren</string>
     <string name="title_filter_seen">Gelezen</string>
     <string name="title_filter_unflagged">Zonder ster</string>
@@ -1714,7 +1716,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>
     <string name="title_hint_message_selection">Druk lang op een bericht om meerdere berichten te selecteren; Hou vast en veeg omhoog of omlaag om meer berichten te selecteren</string>
-    <string name="title_hint_message_junk">Deze berichten bevinden zich in de spammap van de mailserver. Uiteraard kan de app niet voorkomen dat er spamberichten naar u worden verzonden.</string>
+    <string name="title_hint_message_junk">        Een mailclient toont in principe berichten op een mailserver.
+        Een mailserver is verantwoordelijk voor het filteren van spam, niet een mailclient.
+        Als u veel spam ontvangt, neem dan a.u.b. contact op met uw mailprovider en geef de app niet de schuld!
+    </string>
     <string name="title_hint_important">Belangrijk</string>
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
     <string name="title_hint_sync_note">Standaard worden niet alle berichten gedownload om de opslagruimte en het batterij- en gegevensgebruik te beperken. U kunt dit wijzigen door lang op een map in de mappenlijst te drukken en \'Meer synchroniseren\' te selecteren.</string>
@@ -1779,7 +1784,11 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 uur</string>
     <string name="title_1day">1 dag</string>
-    <string name="title_1week">1 week</string>
+    <string name="title_more_overflow">Meer &#8230;</string>
+    <string name="title_today_at">Vandaag om %1$s</string>
+    <string name="title_tomorrow_at">Morgen om %1$s</string>
+    <string name="title_day_at_time">%1$s om %2$s</string>
+    <string name="title_next_week">Huidige tijd volgende week</string>
     <string name="title_now">Nu</string>
     <string name="title_after">Over %1$s</string>
     <string name="title_reset">Herstellen</string>

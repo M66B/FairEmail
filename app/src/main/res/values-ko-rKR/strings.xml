@@ -731,7 +731,7 @@
     <string name="title_sort_on_attachments">첨부파일</string>
     <string name="title_sort_on_hidden">숨김</string>
     <string name="title_sort_ascending">오래된 순</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">정렬</string>
+    <string name="title_sort_on_order">정렬</string>
     <string name="title_filter_seen">읽음</string>
     <string name="title_filter_unflagged">즐겨찾기 해제함</string>
     <string name="title_filter_unknown">알 수 없는 발신자</string>
@@ -897,7 +897,6 @@
     <string name="title_legend_r">답장</string>
     <string name="title_legend_s">선택/선택 해제</string>
     <string name="title_legend_t">글자에 포커스</string>
-    <string name="title_hint_message_junk">이 메시지들은 이메일 서버의 스팸함에 들어 있습니다. 본 앱에서 스팸 수신 자체를 막지는 못합니다.</string>
     <string name="title_hint_important">중요</string>
     <string name="title_open_link">링크 열기</string>
     <string name="title_image_link">이미지 링크</string>
@@ -932,7 +931,6 @@
     <string name="title_ask_what">할 일 물어보기</string>
     <string name="title_1hour">1시간</string>
     <string name="title_1day">1일</string>
-    <string name="title_1week">1주</string>
     <string name="title_now">지금</string>
     <string name="title_after">%1$s 후</string>
     <string name="title_reset">초기화</string>

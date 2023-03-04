@@ -948,7 +948,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_sort_on_attachments">Adjunts</string>
     <string name="title_sort_on_hidden">Ocults</string>
     <string name="title_sort_ascending">El més antic primer</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Ordre</string>
+    <string name="title_sort_on_order">Ordre</string>
     <string name="title_filter">Filtrar per</string>
     <string name="title_filter_seen">Llegir</string>
     <string name="title_filter_unflagged">Sense destacat</string>
@@ -1182,7 +1182,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_via">Mitjançant: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 dia</string>
-    <string name="title_1week">1 setmana</string>
     <string name="title_now">Ara</string>
     <string name="title_after">Després de %1$s</string>
     <string name="title_reset">Restablir</string>

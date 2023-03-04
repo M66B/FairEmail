@@ -343,6 +343,7 @@
     <string name="title_advanced_sync_folders">Sincronizar lista de carpetas</string>
     <string name="title_advanced_sync_folders_poll">Sincronizar la lista de carpetas activamente</string>
     <string name="title_advanced_sync_shared_folders">Sincronizar listas de carpetas compartidas</string>
+    <string name="title_advanced_sync_added">Habilitar sincronización para nuevas carpetas de usuarios</string>
     <string name="title_advanced_subscriptions">Administrar suscripciones de carpeta</string>
     <string name="title_advanced_check_authentication">Comprobar autenticación de mensaje</string>
     <string name="title_advanced_check_tls">Comprobar capa de seguridad de transporte (TLS)</string>
@@ -570,6 +571,7 @@
     <string name="title_advanced_auto_important">Hacer que los mensajes destacados sean importantes automáticamente</string>
     <string name="title_advanced_cancel_snooze">Cancelar posponer al mover mensajes</string>
     <string name="title_advanced_auto_block_sender">Bloquear automáticamente al remitente al reportar como spam</string>
+    <string name="title_advanced_auto_hide_answer">Ocultar automáticamente el botón de respuesta al desplazarse</string>
     <string name="title_advanced_swipe_reply">Deslice los mensajes expandidos a la derecha para responder</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer/retraso por defecto</string>
     <string name="title_advanced_default_folder">Seleccionar carpeta por defecto</string>
@@ -1458,7 +1460,9 @@
     <string name="title_sort_on_attachments">Adjuntos</string>
     <string name="title_sort_on_hidden">Oculto</string>
     <string name="title_sort_ascending">Más antiguo primero</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Orden</string>
+    <string name="title_sort_on_order">Orden</string>
+    <string name="title_sort_on_applied">Conteo aplicado</string>
+    <string name="title_sort_on_last_applied">Última aplicación</string>
     <string name="title_filter">Excluir</string>
     <string name="title_filter_seen">Leído</string>
     <string name="title_filter_unflagged">No destacado</string>
@@ -1716,7 +1720,10 @@
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>
     <string name="title_hint_message_selection">Mantenga pulsado un mensaje para empezar a seleccionar varios mensajes; mantenga pulsado y deslice hacia arriba o abajo para seleccionar más mensajes</string>
-    <string name="title_hint_message_junk">Estos mensajes están en la carpeta de correo no deseado del servidor de correo electrónico. Obviamente, la aplicación no puede evitar que se le envíen mensajes no deseados.</string>
+    <string name="title_hint_message_junk">        Un cliente de correo básicamente muestra los mensajes en un servidor de correo.
+        Un servidor de correo electrónico es responsable de filtrar el spam, no un cliente de correo electrónico.
+        Si recibe un montón de spam, por favor contacte a su proveedor de correo electrónico y no culpe a la aplicación!
+    </string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
     <string name="title_hint_sync_note">Por defecto, no todos los mensajes serán descargados para limitar el uso de espacio de almacenamiento, batería y datos. Puede cambiar esto manteniendo pulsado sobre una carpeta en la lista de carpetas y seleccionando \'Sincronizar más\'.</string>
@@ -1781,7 +1788,11 @@
     <string name="title_via">Vía: %1$s</string>
     <string name="title_1hour">1 hora</string>
     <string name="title_1day">1 día</string>
-    <string name="title_1week">1 semana</string>
+    <string name="title_more_overflow">Más&#8230;</string>
+    <string name="title_today_at">Hoy a las %1$s</string>
+    <string name="title_tomorrow_at">Mañana a las %1$s</string>
+    <string name="title_day_at_time">%1$s a las %2$s</string>
+    <string name="title_next_week">A esta hora la próxima semana</string>
     <string name="title_now">Ahora</string>
     <string name="title_after">Después de %1$s</string>
     <string name="title_reset">Restablecer</string>

@@ -1452,7 +1452,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_sort_on_attachments">Ekler</string>
     <string name="title_sort_on_hidden">Gizli</string>
     <string name="title_sort_ascending">Önce en eski</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Sıralama</string>
+    <string name="title_sort_on_order">Sıralama</string>
     <string name="title_filter">Filtreleme</string>
     <string name="title_filter_seen">Okunmuş</string>
     <string name="title_filter_unflagged">Yıldızlı Olmayan</string>
@@ -1710,7 +1710,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>
     <string name="title_hint_message_selection">Birden fazla ileti seçmeye başlamak için bir mesaja uzun basın; basılı tutarak ve yukarı veya aşağı kaydırın ve iletileri seçin</string>
-    <string name="title_hint_message_junk">Bu mesajlar, e-posta sunucusunun spam klasöründedir. Açıkçası, uygulama spam mesajlarının size gönderilmesini engelleyemez.</string>
     <string name="title_hint_important">Önemli</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
     <string name="title_hint_sync_note">Varsayılan olarak, tüm mesajlar depolama alanını, batarya ve veri kullanımını sınırlamak için indirilemez. Bunu, klasör listesinde bir klasöre uzun basarak ve \'Daha fazlasını senkronize et\' seçerek değiştirebilirsiniz.</string>
@@ -1775,7 +1774,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_via">Şu yol ile: %1$s</string>
     <string name="title_1hour">1 saat</string>
     <string name="title_1day">1 gün</string>
-    <string name="title_1week">1 hafta</string>
     <string name="title_now">Şimdi</string>
     <string name="title_after">%1$s\'den sonra</string>
     <string name="title_reset">Sıfırlama</string>

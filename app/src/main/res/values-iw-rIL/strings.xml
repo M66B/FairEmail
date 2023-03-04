@@ -370,6 +370,7 @@
     <string name="title_advanced_sync_folders">סנכרון רשימת התיקיות</string>
     <string name="title_advanced_sync_folders_poll">סנכרון רשימת התיקיות באופן פעיל</string>
     <string name="title_advanced_sync_shared_folders">סנכרון רשימות תיקיות משותפות</string>
+    <string name="title_advanced_sync_added">הפעלת סנכרון לתיקיות חדשות של המשתמש</string>
     <string name="title_advanced_subscriptions">ניהול מינוי על תיקיות</string>
     <string name="title_advanced_check_authentication">בדיקת אימות ההודעה</string>
     <string name="title_advanced_check_tls">בדיקת אבטחת שכבת התעבורה (TLS)</string>
@@ -597,6 +598,7 @@
     <string name="title_advanced_auto_important">להפוך הודעות שסומנו בכוכב לחשובות אוטומטית</string>
     <string name="title_advanced_cancel_snooze">ביטול נודניק בעת העברת הודעות</string>
     <string name="title_advanced_auto_block_sender">לחסום את השולח אוטומטית בעת דיווח על ספאם</string>
+    <string name="title_advanced_auto_hide_answer">להסתיר את כפתור המענה אוטומטית בעת הגלילה</string>
     <string name="title_advanced_swipe_reply">החלקת הודעות מורחבות לימין פותחת מענה</string>
     <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_default_folder">בחירת תיקיית ברירת מחדל</string>
@@ -753,6 +755,7 @@
     <string name="title_advanced_auto_identity_hint">תיבחר הזהות האחרונה בה נעשה שימוש כאשר נבחר נמען להודעות חדשות</string>
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
+    <string name="title_advanced_compose_color_hint">צבעים בהירים או כהים מדי יובילו להודעות בלתי קריאות בצד המקבל</string>
     <string name="title_advanced_usenet_hint">להוסיף ‚--’ בין הטקסט והחתימה</string>
     <string name="title_advanced_remove_signature_hint">יכול להוביל למעט מדי או יותר מדי טקסט שיוסר</string>
     <string name="title_advanced_metered_hint">חיבורים מוגבלים הם בדרך כלל חיבורים סלולריים או רשת אלחוטית בתשלום</string>
@@ -903,6 +906,9 @@
     <string name="title_leave_deleted">להשאיר הודעות שנמחקו על השרת</string>
     <string name="title_leave_on_device">להשאיר הודעות במכשיר</string>
     <string name="title_max_messages">מספר ההודעות המרבי להורדה (ריק בשביל כולן)</string>
+    <string name="title_max_messages_remark">        נא למלא מספר חיובי כדי להוריד את ההודעות בסוף (יותר נפוץ)
+        ומספר שלילי כדי להוריד את ההודעות בהתחלה (פחות נפוץ)
+    </string>
     <string name="title_keep_poll_interval">משך תשאול (דקות)</string>
     <string name="title_keep_alive_interval">הפרשים בין Keep-alive (דקות)</string>
     <string name="title_keep_alive_noop">הפעלת IMAP IDLE מחדש באופן תדיר</string>
@@ -1245,6 +1251,7 @@
     </string>
     <string name="title_compose">כתיבת הודעה</string>
     <string name="title_submitter">נשלח על ידי:</string>
+    <string name="title_signed_by">נחתם על ידי:</string>
     <string name="title_delivered_to">נמסר אל:</string>
     <string name="title_from">מאת:</string>
     <string name="title_to">אל:</string>
@@ -1484,7 +1491,9 @@
     <string name="title_sort_on_attachments">קבצים מצורפים</string>
     <string name="title_sort_on_hidden">מוסתר</string>
     <string name="title_sort_ascending">הישנים בהתחלה</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">סדר</string>
+    <string name="title_sort_on_order">סדר</string>
+    <string name="title_sort_on_applied">מניין החלה</string>
+    <string name="title_sort_on_last_applied">החלה אחרונה</string>
     <string name="title_filter">סינון החוצה</string>
     <string name="title_filter_seen">נקראו</string>
     <string name="title_filter_unflagged">ללא כוכב</string>
@@ -1742,7 +1751,10 @@
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
     <string name="title_hint_message_selection">לחיצה ארוכה על הודעה מתחילה בחירה במגוון הודעות, יש להחזיק ולהחליק כלפי מעלה או מטה כדי לבחור הודעות נוספות</string>
-    <string name="title_hint_message_junk">ההודעות האלו נמצאות בתיקיית הספאם בשרת הדוא״ל. כמובן שהיישומון לא יכול למנוע מהודעות ספאם להישלח אליך.</string>
+    <string name="title_hint_message_junk">        לקוח דוא״ל, בגדול, מציג הודעות משרת דוא״ל.
+        שרת דוא״ל אחראי על מיגור דואר זבל, לא לקוח הדוא״ל.
+        אם יוצא לך לקבל המון דואר זבל, נא ליצור קשר עם ספק הדוא״ל שלך, אין טעם להאשים את היישומון!
+    </string>
     <string name="title_hint_important">חשוב</string>
     <string name="title_hint_sync">משיכת הודעות עשויה לארוך זמן מה כתלות במהירות הספק, חיבור האינטרנט, המכשיר ומספר ההודעות. היישומון עשוי להגיב בכבדות בזמן משיכת ההודעות.</string>
     <string name="title_hint_sync_note">כבררת מחדל, לא כל ההודעות תימשכנה כדי להגביל את ניצולת האחסון והסוללה. אפשר לשנות את זה בלחיצה ארוכה על תיקייה ברשימת התיקיות ובחירה ב‚סנכרון עוד’.</string>
@@ -1807,7 +1819,11 @@
     <string name="title_via">דרך: %1$s</string>
     <string name="title_1hour">שעה</string>
     <string name="title_1day">יום</string>
-    <string name="title_1week">שבוע</string>
+    <string name="title_more_overflow">עוד &#8230;</string>
+    <string name="title_today_at">היום ב־%1$s</string>
+    <string name="title_tomorrow_at">מחר ב־%1$s</string>
+    <string name="title_day_at_time">%1$s ב־%2$s</string>
+    <string name="title_next_week">בשעה הזאת בשבוע הבא</string>
     <string name="title_now">עכשיו</string>
     <string name="title_after">אחרי %1$s</string>
     <string name="title_reset">איפוס</string>

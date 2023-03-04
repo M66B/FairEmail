@@ -1480,7 +1480,7 @@
     <string name="title_sort_on_attachments">Prilogah</string>
     <string name="title_sort_on_hidden">Skrito</string>
     <string name="title_sort_ascending">Najprej najstarejša</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Vrstni red</string>
+    <string name="title_sort_on_order">Vrstni red</string>
     <string name="title_filter">Izključi</string>
     <string name="title_filter_seen">Prebrana</string>
     <string name="title_filter_unflagged">Brez zvezdice</string>
@@ -1738,7 +1738,6 @@
     <string name="title_hint_support">Če imate vprašanje ali težavo, uporabite meni za podporo, da pridobite pomoč.</string>
     <string name="title_hint_message_actions">Povlecite levo za premik v smeti; povlecite desno za arhiviranje (če je na voljo).  Dejanja vlečenja lahko nastavite v nastavitvah računa.</string>
     <string name="title_hint_message_selection">Dolg pritisk na sporočilo omogoča izbiro več sporočil; držite in povlecite gor in dol za izbiro več sporočil.</string>
-    <string name="title_hint_message_junk">Ta sporočila so v mapi z vsiljeno pošto e-poštnega strežnika.  Očitno program ne more preprečiti pošiljanja vsiljene pošte.</string>
     <string name="title_hint_important">Pomembno</string>
     <string name="title_hint_sync">Prejemanje sporočil lahko traja nekaj časa, odvisno od hitrosti ponudnika, internetne povezave, naprave in števila sporočil.  Med prejemanjem sporočil se lahko program počasneje odziva.</string>
     <string name="title_hint_sync_note">Privzeto vsa sporočila ne bodo prejeta zaradi omejitve porabe prostora, energije in podatkov.  To lahko spremenite z dolgim pritiskom na mapo na seznamu map in pritiskom na \'Sinhroniziraj več\'.</string>
@@ -1803,7 +1802,6 @@
     <string name="title_via">Preko: %1$s</string>
     <string name="title_1hour">1 ura</string>
     <string name="title_1day">1 dan</string>
-    <string name="title_1week">1 teden</string>
     <string name="title_now">Zdaj</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Ponastavi</string>

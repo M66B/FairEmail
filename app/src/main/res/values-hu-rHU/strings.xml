@@ -1310,7 +1310,7 @@
     <string name="title_sort_on_attachments">Mellékletek</string>
     <string name="title_sort_on_hidden">Rejtett</string>
     <string name="title_sort_ascending">Régebbiek előre</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Rendezés</string>
+    <string name="title_sort_on_order">Rendezés</string>
     <string name="title_filter">Kiszűrés</string>
     <string name="title_filter_seen">Olvasott</string>
     <string name="title_filter_unflagged">Csillagozatlan</string>
@@ -1612,7 +1612,6 @@
     <string name="title_via">Ezen keresztül: %1$s</string>
     <string name="title_1hour">1 óra</string>
     <string name="title_1day">1 nap</string>
-    <string name="title_1week">1 hét</string>
     <string name="title_now">Most</string>
     <string name="title_after">%1$s után</string>
     <string name="title_reset">Visszaállítás</string>

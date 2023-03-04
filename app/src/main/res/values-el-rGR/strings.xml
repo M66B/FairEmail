@@ -343,6 +343,7 @@
     <string name="title_advanced_sync_folders">Συγχρονισμός της λίστας φακέλων</string>
     <string name="title_advanced_sync_folders_poll">Ενεργός συγχρονισμός της λίστας φακέλων</string>
     <string name="title_advanced_sync_shared_folders">Συγχρονισμός της λίστας κοινών φακέλων</string>
+    <string name="title_advanced_sync_added">Ενεργοποίηση συγχρονισμού για τους νέους φακέλους χρήστη</string>
     <string name="title_advanced_subscriptions">Διαχείριση συνδρομών σε φακέλους</string>
     <string name="title_advanced_check_authentication">Έλεγχος ταυτοποίησης μηνύματος</string>
     <string name="title_advanced_check_tls">Έλεγχος της ασφάλειας επιπέδου μεταφοράς (Transport Layer Security - TLS)</string>
@@ -570,6 +571,7 @@
     <string name="title_advanced_auto_important">Να επισημαίνονται αυτόματα ως σημαντικά τα μηνύματα με αστέρια</string>
     <string name="title_advanced_cancel_snooze">Ακύρωση αναβολής κατά τη μετακίνηση μηνυμάτων</string>
     <string name="title_advanced_auto_block_sender">Αυτόματος αποκλεισμός του αποστολέα κατά την αναφορά μηνύματος ως ανεπιθύμητου</string>
+    <string name="title_advanced_auto_hide_answer">Αυτόματη απόκρυψη του κουμπιού απάντησης κατά την κύλιση</string>
     <string name="title_advanced_swipe_reply">Σύρετε προς τα δεξιά τα αναπτυγμένα μηνύματα για να απαντήσετε</string>
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
     <string name="title_advanced_default_folder">Επιλογή προεπιλεγμένου φακέλου</string>
@@ -1457,7 +1459,9 @@
     <string name="title_sort_on_attachments">Συνημμένα</string>
     <string name="title_sort_on_hidden">Κρυφό</string>
     <string name="title_sort_ascending">Πρώτα τα παλαιότερα</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Σειρά</string>
+    <string name="title_sort_on_order">Σειρά</string>
+    <string name="title_sort_on_applied">Φορές που εφαρμόστηκε</string>
+    <string name="title_sort_on_last_applied">Τελευταία εφαρμογή</string>
     <string name="title_filter">Φιλτράρισμα (αποκλεισμός)</string>
     <string name="title_filter_seen">Αναγνωσμένα</string>
     <string name="title_filter_unflagged">Χωρίς αστέρι</string>
@@ -1715,7 +1719,10 @@
     <string name="title_hint_support">Αν έχετε μία ερώτηση ή ένα πρόβλημα, παρακαλώ χρησιμοποιήστε το μενού \"Υποστήριξη\" για να λάβετε βοήθεια</string>
     <string name="title_hint_message_actions">Σάρωση αριστερά για απορρίμματα• σάρωση δεξιά για αρχειοθέτηση (αν είναι διαθέσιμη)• μπορείτε να ρυθμίσετε τις ενέργειες σάρωσης στις ρυθμίσεις του λογαριασμού</string>
     <string name="title_hint_message_selection">Πατήστε παρατεταμένα σε ένα μήνυμα για να αρχίσετε να επιλέγετε πολλαπλά μηνύματα. Συνεχίστε το πάτημα και σύρετε προς τα πάνω ή κάτω για να επιλέξετε περισσότερα μηνύματα</string>
-    <string name="title_hint_message_junk">Τα μηνύματα αυτά βρίσκονται στον φάκελο ανεπιθύμητων του διακομιστή ηλ. ταχυδρομείου. Προφανώς, η εφαρμογή δεν μπορεί να εμποδίσει την αποστολή ανεπιθύμητων μηνυμάτων προς εσάς.</string>
+    <string name="title_hint_message_junk">        Ένας πελάτης ταχυδρομείου προβάλλει, ουσιαστικά, τα μηνύματα ενός διακομιστή ταχυδρομείου.
+        Ένας διακομιστής ταχυδρομείου είναι υπεύθυνος για το φιλτράρισμα ανεπιθύμητων μηνυμάτων, όχι ένας πελάτης ταχυδρομείου.
+        Αν λαμβάνετε πολλά ανεπιθύμητα μηνύματα, παρακαλούμε, επικοινωνήστε με τον πάροχο του ταχυδρομείου σας και μην κατηγορείτε την εφαρμογή!
+    </string>
     <string name="title_hint_important">Σημαντικό</string>
     <string name="title_hint_sync">Το κατέβασμα των μηνυμάτων μπορεί να διαρκέσει κάποιο διάστημα, ανάλογα με την ταχύτητα του παρόχου, της σύνδεσης, της συσκευής και τον αριθμό των μηνυμάτων. Ενόσω κατεβαίνουν τα μηνύματα, η εφαρμογή ίσως να ανταποκρίνεται πιο αργά.</string>
     <string name="title_hint_sync_note">Από προεπιλογή, δεν θα κατέβουν όλα τα μηνύματα, για περιορισμό αποθηκευτικού χώρου και χρήσης μπαταρίας και δεδομένων. Μπορείτε να αλλάξετε αυτή τη ρύθμιση, με παρατεταμένο πάτημα πάνω σε έναν φάκελο στη λίστα φακέλων και επιλέγοντας «Συγχρονισμός περισσοτέρων».</string>
@@ -1780,7 +1787,11 @@
     <string name="title_via">Μέσω: %1$s</string>
     <string name="title_1hour">1 ώρα</string>
     <string name="title_1day">1 ημέρα</string>
-    <string name="title_1week">1 εβδομάδα</string>
+    <string name="title_more_overflow">Περισσότερα &#8230;</string>
+    <string name="title_today_at">Σήμερα στις/στη %1$s</string>
+    <string name="title_tomorrow_at">Αύριο στις/στη %1$s</string>
+    <string name="title_day_at_time">%1$s στο %2$s</string>
+    <string name="title_next_week">Αυτήν την ώρα την επόμενη εβδομάδα</string>
     <string name="title_now">Τώρα</string>
     <string name="title_after">Μετά από %1$s</string>
     <string name="title_reset">Επαναφορά</string>

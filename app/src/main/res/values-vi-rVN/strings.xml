@@ -1353,7 +1353,7 @@
     <string name="title_sort_on_attachments">Tệp đính kèm</string>
     <string name="title_sort_on_hidden">Ẩn</string>
     <string name="title_sort_ascending">Cũ nhất trước</string>
-    <string name="title_sort_on_order" comment="title_sort_on_order&#10;Sort options for rules: rule sequence order">Thứ tự</string>
+    <string name="title_sort_on_order">Thứ tự</string>
     <string name="title_filter">Lọc ra</string>
     <string name="title_filter_seen">Đã đọc</string>
     <string name="title_filter_unflagged">Chưa gắn sao</string>
@@ -1604,7 +1604,6 @@
     <string name="title_hint_support">Nếu bạn có câu hỏi hoặc vấn đề, hãy sử dụng menu hỗ trợ để có trợ giúp</string>
     <string name="title_hint_message_actions">Vuốt trái để đưa vào thùng rác; Vuốt phải để lưu trữ (nếu có); Các hành động vuốt có thể được thiết lập trong cài đặt tài khoản</string>
     <string name="title_hint_message_selection">Nhấn giữ một thư để bắt đầu chọn nhiều thư; Giữ và vuốt lên hoặc xuống để chọn thêm thư</string>
-    <string name="title_hint_message_junk">Các thư này ở trong thư mục thư rác của máy chủ email. Rõ ràng là ứng dụng không thể ngăn không cho thư rác được gửi đến bạn.</string>
     <string name="title_hint_important">Quan trọng</string>
     <string name="title_hint_sync">Việc tải xuống thư có thể mất một ít thời gian, tùy vào tốc độ của nhà cung cấp, kết nối internet, thiết bị và số lượng thư. Trong khi đang tải xuống thư, ứng dụng có thể sẽ phản hồi chậm hơn.</string>
     <string name="title_hint_sync_note">Theo mặc định, không phải tất cả thư sẽ được tải xuống để giới hạn sử dụng không gian bộ nhớ, pin và dữ liệu. Bạn có thể thay đổi điều này bằng cách nhấn giữ một thư mục trong danh sách thư mục và chọn \'Đồng bộ hoá thêm\'.</string>
@@ -1663,7 +1662,6 @@
     <string name="title_via">Qua: %1$s</string>
     <string name="title_1hour">1 tiếng</string>
     <string name="title_1day">1 ngày</string>
-    <string name="title_1week">1 tuần</string>
     <string name="title_now">Bây giờ</string>
     <string name="title_after">Sau %1$s</string>
     <string name="title_reset">Đặt lại</string>
