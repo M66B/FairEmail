@@ -4817,6 +4817,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onHelp(TupleMessageEx message) {
+            if (message.error != null &&
+                    message.error.contains("535 5.7.3 Authentication unsuccessful")) {
+                Intent intent = new Intent(context, ActivityError.class);
+                intent.setAction("535:" + message.identity);
+                intent.putExtra("title", "535 5.7.3 Authentication unsuccessful");
+                intent.putExtra("message", message.error);
+                intent.putExtra("provider", "outlookgraph");
+                intent.putExtra("account", message.account);
+                intent.putExtra("identity", message.identity);
+                intent.putExtra("authorize", true);
+                intent.putExtra("personal", message.identityName);
+                intent.putExtra("address", message.identityEmail);
+                intent.putExtra("faq", 14);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+                return;
+            }
+
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibError);
 
             int order = 0;

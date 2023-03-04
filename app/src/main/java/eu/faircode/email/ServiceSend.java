@@ -482,11 +482,30 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                                     if (ex instanceof AuthenticationFailedException &&
                                             ex.getMessage() != null &&
                                             ex.getMessage().contains("535 5.7.3 Authentication unsuccessful")) {
-                                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(Helper.SUPPORT_URI))
-                                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        PendingIntent piFix = PendingIntentCompat.getActivity(
-                                                this, PI_FIX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-                                        builder.setContentIntent(piFix);
+                                        EntityIdentity identity = db.identity().getIdentity(message.identity);
+                                        if (identity == null) {
+                                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(Helper.SUPPORT_URI))
+                                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            PendingIntent piFix = PendingIntentCompat.getActivity(
+                                                    this, PI_FIX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                                            builder.setContentIntent(piFix);
+                                        } else {
+                                            Intent intent = new Intent(this, ActivityError.class);
+                                            intent.setAction("535:" + identity.id);
+                                            intent.putExtra("title", ex.getMessage());
+                                            intent.putExtra("message", Log.formatThrowable(ex, "\n", false));
+                                            intent.putExtra("provider", "outlookgraph");
+                                            intent.putExtra("account", identity.account);
+                                            intent.putExtra("identity", identity.id);
+                                            intent.putExtra("authorize", true);
+                                            intent.putExtra("personal", identity.name);
+                                            intent.putExtra("address", identity.user);
+                                            intent.putExtra("faq", 14);
+                                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            PendingIntent pi = PendingIntentCompat.getActivity(
+                                                    this, ActivityError.PI_ERROR, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                                            builder.setContentIntent(pi);
+                                        }
                                     }
 
                                     nm.notify("send:" + message.id,

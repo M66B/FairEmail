@@ -43,11 +43,11 @@
                         android:layout_height="wrap_content"
                         android:drawableStart="@drawable/twotone_warning_24"
                         android:drawablePadding="6dp"
-                        app:drawableTint="?attr/colorWarning"
                         android:text="Error"
                         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                         android:textColor="?android:attr/textColorPrimary"
                         android:textStyle="bold"
+                        app:drawableTint="?attr/colorWarning"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -69,13 +69,10 @@
 
                     <Button
                         android:id="@+id/btnPassword"
-                        style="?android:attr/buttonStyleSmall"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="24dp"
-                        android:drawableEnd="@drawable/twotone_edit_24"
                         android:drawablePadding="6dp"
-                        android:tag="disable"
                         android:text="@string/title_password"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/tvMessage" />

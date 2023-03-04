@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
@@ -68,23 +70,43 @@ public class ActivityError extends ActivityBase {
         String message = intent.getStringExtra("message");
         String provider = intent.getStringExtra("provider");
         long account = intent.getLongExtra("account", -1L);
+        long identity = intent.getLongExtra("identity", -1L);
         int protocol = intent.getIntExtra("protocol", -1);
         int auth_type = intent.getIntExtra("auth_type", -1);
+        boolean authorize = intent.getBooleanExtra("authorize", false);
+        String personal = intent.getStringExtra("personal");
+        String address = intent.getStringExtra("address");
         int faq = intent.getIntExtra("faq", -1);
 
         tvTitle.setText(title);
         tvMessage.setMovementMethod(LinkMovementMethod.getInstance());
         tvMessage.setText(message);
 
+        btnPassword.setText(authorize ? R.string.title_setup_oauth_authorize : R.string.title_password);
+        btnPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0, 0,
+                authorize ? R.drawable.twotone_check_24 : R.drawable.twotone_edit_24, 0);
+
         btnPassword.setVisibility(account < 0 ? View.GONE : View.VISIBLE);
         btnPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(ActivityError.this, ActivitySetup.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                        .putExtra("target", "accounts")
-                        .putExtra("id", account)
-                        .putExtra("protocol", protocol));
+                if (authorize)
+                    startActivity(new Intent(ActivityError.this, ActivitySetup.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            .putExtra("target", "oauth")
+                            .putExtra("id", provider)
+                            .putExtra("name", "Outlook")
+                            .putExtra("askAccount", true)
+                            .putExtra("askTenant", true)
+                            .putExtra("personal", personal)
+                            .putExtra("address", address));
+                else
+                    startActivity(new Intent(ActivityError.this, ActivitySetup.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            .putExtra("target", "accounts")
+                            .putExtra("id", account)
+                            .putExtra("protocol", protocol));
                 finish();
             }
         });
