@@ -348,11 +348,6 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                                         .setNegativeButton(android.R.string.cancel, null)
                                         .show();
                             return true;
-                        } else if (itemId == R.string.title_setup_other ||
-                                itemId == R.string.title_setup_outlook) {
-                            lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_SETUP)
-                                    .putExtra("title", itemId));
-                            return true;
                         } else if (itemId == R.string.title_setup_classic) {
                             ibManual.setPressed(true);
                             ibManual.setPressed(false);
@@ -429,9 +424,6 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                         int resid = res.getIdentifier("provider_" + provider.id, "drawable", pkg);
                         if (resid != 0)
                             item.setIcon(resid);
-
-                        if ("office365pcke".equals(provider.id))
-                            menu.add(alt ? Menu.FIRST : Menu.NONE, R.string.title_setup_outlook, order++, R.string.title_setup_outlook);
                     }
 
                 return order;

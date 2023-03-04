@@ -2106,6 +2106,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         for (String key : prefs.getAll().keySet())
                             if ((!BuildConfig.DEBUG &&
                                     key.startsWith("translated_") && cbGeneral.isChecked()) ||
+                                    key.startsWith("oauth.") ||
                                     (key.startsWith("announcement.") && cbGeneral.isChecked()) ||
                                     (key.endsWith(".show_full") && cbFull.isChecked()) ||
                                     (key.endsWith(".show_images") && cbImages.isChecked()) ||

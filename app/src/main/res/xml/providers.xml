@@ -199,14 +199,13 @@
         <!-- https://learn.microsoft.com/en-us/azure/active-directory/develop/redirect-uris-ios -->
     </provider>
     <provider
-        name="Outlook test"
-        debug="true"
-        description="Office 365 test"
-        id="outlooktest"
+        name="Outlook"
+        description="Outlook/Hotmail/Live"
+        id="outlookgraph"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
         noop="true"
-        order="5"
+        order="6"
         partial="false"
         useip="false">
         <imap
@@ -223,19 +222,30 @@
             starttls="false" />
         <oauth
             askAccount="true"
-            authorizationEndpoint="https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize"
-            clientId="835c3383-543c-4aa2-98ca-c465eb039987"
-            enabled="false"
+            authorizationEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize"
+            clientId="3514cf2c-e7a3-45a2-80d4-6a3c3498eca0"
+            enabled="true"
             privacy="https://privacy.microsoft.com/privacystatement"
             prompt="login"
-            redirectUri="msauth://eu.faircode.email/xSLzBBuLJunOQPB89rtzM54FXx4%3D"
-            scopes="profile,openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send"
-            tokenEndpoint="https://login.microsoftonline.com/consumers/oauth2/v2.0/token"
+            redirectUri="msauth.eu.faircode.email://auth"
+            scopes="profile,openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send,https://outlook.office.com/POP.AccessAsUser.All"
+            tokenEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token"
             tokenScopes="true">
             <!--parameter
                 key="domain_hint"
                 value="9188040d-6c67-4c5b-b112-36a304b66dad" /-->
         </oauth>
+        <graph
+            askAccount="true"
+            authorizationEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+            clientId="835c3383-543c-4aa2-98ca-c465eb039987"
+            enabled="true"
+            privacy="https://privacy.microsoft.com/privacystatement"
+            prompt="login"
+            redirectUri="msauth://eu.faircode.email/xSLzBBuLJunOQPB89rtzM54FXx4%3D"
+            scopes="offline_access,https://graph.microsoft.com/Mail.Send"
+            tokenEndpoint="https://login.microsoftonline.com/common/oauth2/v2.0/token"
+            tokenScopes="true" />
         <!-- https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow -->
         <!-- https://docs.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth -->
         <!-- https://learn.microsoft.com/en-us/azure/active-directory/develop/redirect-uris-ios -->
@@ -293,7 +303,7 @@
     <provider
         name="Yahoo.co.jp"
         domain="yahoo\\.co\\.jp"
-        order="6"
+        order="7"
         user="local">
         <imap
             host="imap.mail.yahoo.co.jp"
@@ -314,7 +324,7 @@
         id="yahoo"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88"
         noop="true"
-        order="7"
+        order="8"
         partial="true">
         <imap
             host="imap.mail.yahoo.com"
@@ -348,7 +358,7 @@
         id="yahoo2"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq88"
         noop="true"
-        order="7"
+        order="8"
         partial="true">
         <imap
             host="imap.mail.yahoo.com"

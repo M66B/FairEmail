@@ -99,6 +99,7 @@ public class EmailProvider implements Parcelable {
     public Server smtp = new Server();
     public Server pop;
     public OAuth oauth;
+    public OAuth graph;
     public UserType user = UserType.EMAIL;
     public String username;
     public StringBuilder documentation; // html
@@ -305,6 +306,19 @@ public class EmailProvider implements Parcelable {
                         provider.oauth.redirectUri = xml.getAttributeValue(null, "redirectUri");
                         provider.oauth.privacy = xml.getAttributeValue(null, "privacy");
                         provider.oauth.prompt = xml.getAttributeValue(null, "prompt");
+                    } else if ("graph".equals(name)) {
+                        provider.graph = new OAuth();
+                        provider.graph.enabled = getAttributeBooleanValue(xml, "enabled", false);
+                        provider.graph.askAccount = getAttributeBooleanValue(xml, "askAccount", false);
+                        provider.graph.clientId = xml.getAttributeValue(null, "clientId");
+                        provider.graph.clientSecret = xml.getAttributeValue(null, "clientSecret");
+                        provider.graph.scopes = xml.getAttributeValue(null, "scopes").split(",");
+                        provider.graph.authorizationEndpoint = xml.getAttributeValue(null, "authorizationEndpoint");
+                        provider.graph.tokenEndpoint = xml.getAttributeValue(null, "tokenEndpoint");
+                        provider.graph.tokenScopes = getAttributeBooleanValue(xml, "tokenScopes", false);
+                        provider.graph.redirectUri = xml.getAttributeValue(null, "redirectUri");
+                        provider.graph.privacy = xml.getAttributeValue(null, "privacy");
+                        provider.graph.prompt = xml.getAttributeValue(null, "prompt");
                     } else if ("parameter".equals(name)) {
                         if (provider.oauth.parameters == null)
                             provider.oauth.parameters = new LinkedHashMap<>();

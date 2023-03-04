@@ -63,6 +63,7 @@ public class ServiceAuthenticator extends Authenticator {
     static final int AUTH_TYPE_PASSWORD = 1;
     static final int AUTH_TYPE_GMAIL = 2;
     static final int AUTH_TYPE_OAUTH = 3;
+    static final int AUTH_TYPE_GRAPH = 4;
 
     static final long MIN_REFRESH_INTERVAL = 15 * 60 * 1000L;
     static final long MIN_FORCE_REFRESH_INTERVAL = 15 * 60 * 1000L;
@@ -155,7 +156,7 @@ public class ServiceAuthenticator extends Authenticator {
         void onPasswordChanged(Context context, String newPassword);
     }
 
-    private static void OAuthRefresh(Context context, String id, String user, AuthState authState, boolean forceRefresh)
+    static void OAuthRefresh(Context context, String id, String user, AuthState authState, boolean forceRefresh)
             throws MessagingException {
         try {
             long now = new Date().getTime();

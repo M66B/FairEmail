@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import static android.app.Activity.RESULT_OK;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GRAPH;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 
 import android.content.ActivityNotFoundException;
@@ -239,7 +240,7 @@ public class FragmentOAuth extends FragmentBase {
         btnOAuth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onAuthorize();
+                onAuthorize(false);
             }
         });
 
@@ -309,7 +310,7 @@ public class FragmentOAuth extends FragmentBase {
         }
     }
 
-    private void onAuthorize() {
+    private void onAuthorize(boolean graph) {
         try {
             if (askAccount) {
                 String name = etName.getText().toString().trim();
@@ -350,6 +351,7 @@ public class FragmentOAuth extends FragmentBase {
             final Context context = getContext();
             PackageManager pm = context.getPackageManager();
             EmailProvider provider = EmailProvider.getProvider(context, id);
+            EmailProvider.OAuth oauth = (graph ? provider.graph : provider.oauth);
 
             int flags = PackageManager.GET_RESOLVED_FILTER;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
@@ -416,8 +418,8 @@ public class FragmentOAuth extends FragmentBase {
 
             AuthorizationService authService = new AuthorizationService(context, appAuthConfig);
 
-            String authorizationEndpoint = provider.oauth.authorizationEndpoint;
-            String tokenEndpoint = provider.oauth.tokenEndpoint;
+            String authorizationEndpoint = oauth.authorizationEndpoint;
+            String tokenEndpoint = oauth.tokenEndpoint;
             String tenant = etTenant.getText().toString().trim();
 
             if (TextUtils.isEmpty(tenant))
@@ -432,14 +434,15 @@ public class FragmentOAuth extends FragmentBase {
 
             AuthState authState = new AuthState(serviceConfig);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            prefs.edit().putString("oauth." + provider.id, authState.jsonSerializeString()).apply();
+            String key = "oauth." + provider.id + (graph ? ":graph" : "");
+            prefs.edit().putString(key, authState.jsonSerializeString()).apply();
 
-            Map<String, String> params = (provider.oauth.parameters == null
+            Map<String, String> params = (oauth.parameters == null
                     ? new LinkedHashMap<>()
-                    : provider.oauth.parameters);
+                    : oauth.parameters);
 
-            String clientId = provider.oauth.clientId;
-            Uri redirectUri = Uri.parse(provider.oauth.redirectUri);
+            String clientId = oauth.clientId;
+            Uri redirectUri = Uri.parse(oauth.redirectUri);
             if ("gmail".equals(id) && BuildConfig.DEBUG && false) {
                 clientId = "803253368361-hr8kelm53hqodj7c6brdjeb2ctn5jg3p.apps.googleusercontent.com";
                 redirectUri = Uri.parse("eu.faircode.email.debug:/");
@@ -452,8 +455,8 @@ public class FragmentOAuth extends FragmentBase {
                             clientId,
                             ResponseTypeValues.CODE,
                             redirectUri)
-                            .setScopes(provider.oauth.scopes)
-                            .setState(provider.id)
+                            .setScopes(oauth.scopes)
+                            .setState(provider.id + (graph ? ":graph" : ""))
                             .setAdditionalParameters(params);
 
             if (askAccount) {
@@ -465,8 +468,8 @@ public class FragmentOAuth extends FragmentBase {
                     authRequestBuilder.setLoginHint(address);
             }
 
-            if (!TextUtils.isEmpty(provider.oauth.prompt))
-                authRequestBuilder.setPrompt(provider.oauth.prompt);
+            if (!TextUtils.isEmpty(oauth.prompt))
+                authRequestBuilder.setPrompt(oauth.prompt);
 
             AuthorizationRequest authRequest = authRequestBuilder.build();
 
@@ -509,26 +512,26 @@ public class FragmentOAuth extends FragmentBase {
                     throw ex;
             }
 
-            final EmailProvider provider = EmailProvider.getProvider(getContext(), auth.state);
+            String id = auth.state.split(":")[0];
+            final EmailProvider provider = EmailProvider.getProvider(getContext(), id);
+            EmailProvider.OAuth oauth = (auth.state.endsWith(":graph") ? provider.graph : provider.oauth);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            String json = prefs.getString("oauth." + provider.id, null);
-            prefs.edit().remove("oauth." + provider.id).apply();
+            String json = prefs.getString("oauth." + auth.state, null);
+            prefs.edit().remove("oauth." + auth.state).apply();
 
             final AuthState authState = AuthState.jsonDeserialize(json);
 
-            Log.i("OAuth get token provider=" + provider.id);
+            Log.i("OAuth get token provider=" + provider.id + " state=" + auth.state);
             authState.update(auth, null);
-            if (BuildConfig.DEBUG)
-                Log.i("OAuth response=" + authState.jsonSerializeString());
 
             AuthorizationService authService = new AuthorizationService(getContext());
 
             ClientAuthentication clientAuth;
-            if (provider.oauth.clientSecret == null)
+            if (oauth.clientSecret == null)
                 clientAuth = NoClientAuthentication.INSTANCE;
             else
-                clientAuth = new ClientSecretPost(provider.oauth.clientSecret);
+                clientAuth = new ClientSecretPost(oauth.clientSecret);
 
             TokenRequest.Builder builder = new TokenRequest.Builder(
                     auth.request.configuration,
@@ -540,8 +543,8 @@ public class FragmentOAuth extends FragmentBase {
                     .setAdditionalParameters(Collections.<String, String>emptyMap())
                     .setNonce(auth.request.nonce);
 
-            if (provider.oauth.tokenScopes)
-                builder.setScope(TextUtils.join(" ", provider.oauth.scopes));
+            if (oauth.tokenScopes)
+                builder.setScope(TextUtils.join(" ", oauth.scopes));
 
             TokenRequest request = builder.build();
 
@@ -555,17 +558,36 @@ public class FragmentOAuth extends FragmentBase {
                                 if (access == null)
                                     throw error;
 
-                                Log.i("OAuth got token provider=" + provider.id);
-                                if (BuildConfig.DEBUG)
-                                    Log.i("TokenResponse=" + access.jsonSerializeString());
-                                authState.update(access, null);
-                                if (BuildConfig.DEBUG)
-                                    Log.i("OAuth response=" + authState.jsonSerializeString());
+                                String[] scopes = access.getScopeSet().toArray(new String[0]);
+                                Log.i("OAuth got token provider=" + provider.id +
+                                        " state=" + auth.state +
+                                        " scopes=" + TextUtils.join(",", scopes));
 
                                 if (TextUtils.isEmpty(access.refreshToken))
                                     throw new IllegalStateException("No refresh token");
 
-                                onOAuthorized(access.accessToken, access.idToken, authState);
+                                authState.update(access, null);
+
+                                if (provider.graph == null || !provider.graph.enabled)
+                                    onOAuthorized(
+                                            new String[]{access.accessToken},
+                                            new String[]{access.idToken},
+                                            new AuthState[]{authState});
+                                else {
+                                    if (auth.state.endsWith(":graph")) {
+                                        String key0 = "oauth." + provider.id;
+                                        String json0 = prefs.getString(key0, null);
+                                        prefs.edit().remove(key0).apply();
+                                        AuthState state0 = AuthState.jsonDeserialize(json0);
+                                        onOAuthorized(
+                                                new String[]{state0.getAccessToken(), authState.getAccessToken()},
+                                                new String[]{state0.getIdToken(), authState.getIdToken()},
+                                                new AuthState[]{state0, authState});
+                                    } else {
+                                        prefs.edit().putString("oauth." + provider.id, authState.jsonSerializeString()).apply();
+                                        onAuthorize(true);
+                                    }
+                                }
                             } catch (Throwable ex) {
                                 showError(ex);
                             }
@@ -576,18 +598,22 @@ public class FragmentOAuth extends FragmentBase {
         }
     }
 
-    private void onOAuthorized(String accessToken, String idToken, AuthState state) {
+    private void onOAuthorized(String[] accessToken, String[] idToken, AuthState[] state) {
         Log.breadcrumb("onOAuthorized", "id", id);
 
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
 
+        List<String> states = new ArrayList<>();
+        for (AuthState s : state)
+            states.add(s.jsonSerializeString());
+
         Bundle args = new Bundle();
         args.putString("id", id);
         args.putString("name", name);
-        args.putString("token", accessToken);
-        args.putString("jwt", idToken);
-        args.putString("state", state.jsonSerializeString());
+        args.putStringArray("token", accessToken);
+        args.putStringArray("jwt", idToken);
+        args.putStringArray("state", states.toArray(new String[0]));
         args.putBoolean("askAccount", askAccount);
         args.putString("personal", etName.getText().toString().trim());
         args.putString("address", etEmail.getText().toString().trim());
@@ -611,9 +637,9 @@ public class FragmentOAuth extends FragmentBase {
             protected Void onExecute(Context context, Bundle args) throws Throwable {
                 String id = args.getString("id");
                 String name = args.getString("name");
-                String token = args.getString("token");
-                String jwt = args.getString("jwt");
-                String state = args.getString("state");
+                String[] token = args.getStringArray("token");
+                String[] jwt = args.getStringArray("jwt");
+                String[] state = args.getStringArray("state");
                 boolean askAccount = args.getBoolean("askAccount", false);
                 String personal = args.getString("personal");
                 String address = args.getString("address");
@@ -653,12 +679,10 @@ public class FragmentOAuth extends FragmentBase {
                 usernames.add(sharedname == null ? username : sharedname);
 
                 EntityLog.log(context, "OAuth id=" + id + " user=" + username + " shared=" + sharedname);
-                EntityLog.log(context, "OAuth token=" + token);
-                EntityLog.log(context, "OAuth jwt=" + jwt);
 
-                if (token != null && sharedname == null && !"gmail".equals(id)) {
+                if (token[0] != null && sharedname == null && !"gmail".equals(id)) {
                     // https://docs.microsoft.com/en-us/azure/active-directory/develop/access-tokens
-                    String[] segments = token.split("\\.");
+                    String[] segments = token[0].split("\\.");
                     if (segments.length > 1)
                         try {
                             String payload = new String(Base64.decode(segments[1], Base64.DEFAULT));
@@ -687,9 +711,9 @@ public class FragmentOAuth extends FragmentBase {
                         }
                 }
 
-                if (jwt != null && sharedname == null) {
+                if (jwt[0] != null && sharedname == null) {
                     // https://docs.microsoft.com/en-us/azure/active-directory/develop/id-tokens
-                    String[] segments = jwt.split("\\.");
+                    String[] segments = jwt[0].split("\\.");
                     if (segments.length > 1)
                         try {
                             // https://jwt.ms/
@@ -756,17 +780,19 @@ public class FragmentOAuth extends FragmentBase {
                                 aservice.connect(
                                         inbound.host, inbound.port,
                                         AUTH_TYPE_OAUTH, provider.id,
-                                        alt, state,
+                                        alt, state[0],
                                         null, null);
                             }
-                            try (EmailService iservice = new EmailService(
-                                    context, iprotocol, null, iencryption, false, false,
-                                    EmailService.PURPOSE_CHECK, true)) {
-                                iservice.connect(
-                                        provider.smtp.host, provider.smtp.port,
-                                        AUTH_TYPE_OAUTH, provider.id,
-                                        alt, state,
-                                        null, null);
+                            if (state.length == 1) {
+                                try (EmailService iservice = new EmailService(
+                                        context, iprotocol, null, iencryption, false, false,
+                                        EmailService.PURPOSE_CHECK, true)) {
+                                    iservice.connect(
+                                            provider.smtp.host, provider.smtp.port,
+                                            AUTH_TYPE_OAUTH, provider.id,
+                                            alt, state[0],
+                                            null, null);
+                                }
                             }
                             EntityLog.log(context, "Using username=" + alt);
                             username = alt;
@@ -781,7 +807,7 @@ public class FragmentOAuth extends FragmentBase {
                 if (askAccount)
                     identities.add(new Pair<>(username, personal));
                 else if ("mailru".equals(id)) {
-                    URL url = new URL("https://oauth.mail.ru/userinfo?access_token=" + token);
+                    URL url = new URL("https://oauth.mail.ru/userinfo?access_token=" + token[0]);
                     Log.i("GET " + url);
                     HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
                     connection.setRequestMethod("GET");
@@ -829,7 +855,7 @@ public class FragmentOAuth extends FragmentBase {
                     aservice.connect(
                             inbound.host, inbound.port,
                             AUTH_TYPE_OAUTH, provider.id,
-                            sharedname == null ? username : sharedname, state,
+                            sharedname == null ? username : sharedname, state[0],
                             null, null);
 
                     if (pop)
@@ -839,7 +865,7 @@ public class FragmentOAuth extends FragmentBase {
                 }
 
                 Long max_size = null;
-                if (!inbound_only) {
+                if (!inbound_only && state.length == 1) {
                     EntityLog.log(context, "OAuth checking SMTP provider=" + provider.id);
 
                     try (EmailService iservice = new EmailService(
@@ -848,7 +874,7 @@ public class FragmentOAuth extends FragmentBase {
                         iservice.connect(
                                 provider.smtp.host, provider.smtp.port,
                                 AUTH_TYPE_OAUTH, provider.id,
-                                username, state,
+                                username, state[0],
                                 null, null);
                         max_size = iservice.getMaxSize();
                     }
@@ -881,7 +907,7 @@ public class FragmentOAuth extends FragmentBase {
                         account.auth_type = AUTH_TYPE_OAUTH;
                         account.provider = provider.id;
                         account.user = (sharedname == null ? username : sharedname);
-                        account.password = state;
+                        account.password = state[0];
 
                         int at = account.user.indexOf('@');
                         String user = account.user.substring(0, at);
@@ -943,10 +969,10 @@ public class FragmentOAuth extends FragmentBase {
                                 ident.host = provider.smtp.host;
                                 ident.encryption = iencryption;
                                 ident.port = provider.smtp.port;
-                                ident.auth_type = AUTH_TYPE_OAUTH;
+                                ident.auth_type = (state.length == 1 ? AUTH_TYPE_OAUTH : AUTH_TYPE_GRAPH);
                                 ident.provider = provider.id;
                                 ident.user = username;
-                                ident.password = state;
+                                ident.password = state[state.length - 1];
                                 ident.use_ip = provider.useip;
                                 ident.synchronize = true;
                                 ident.primary = ident.user.equals(ident.email);
@@ -961,8 +987,12 @@ public class FragmentOAuth extends FragmentBase {
                         args.putLong("account", update.id);
                         EntityLog.log(context, "OAuth update account=" + update.name);
                         db.account().setAccountSynchronize(update.id, true);
-                        db.account().setAccountPassword(update.id, state, AUTH_TYPE_OAUTH, provider.id);
-                        db.identity().setIdentityPassword(update.id, username, state, update.auth_type, AUTH_TYPE_OAUTH, provider.id);
+                        db.account().setAccountPassword(update.id, state[0], AUTH_TYPE_OAUTH, provider.id);
+                        db.identity().setIdentityPassword(update.id, username,
+                                state[state.length - 1],
+                                update.auth_type,
+                                (state.length == 1 ? AUTH_TYPE_OAUTH : AUTH_TYPE_GRAPH),
+                                provider.id);
                     }
 
                     db.setTransactionSuccessful();

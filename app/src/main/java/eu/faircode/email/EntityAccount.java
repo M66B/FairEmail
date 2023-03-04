@@ -181,7 +181,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
     }
 
     static boolean isOutlook(String id) {
-        return ("office365".equals(id) || "office365pcke".equals(id) || "outlook".equals(id) || "outlooktest".equals(id));
+        return ("office365".equals(id) || "office365pcke".equals(id) || "outlook".equals(id) || "outlookgraph".equals(id));
     }
 
     boolean isYahooJp() {
