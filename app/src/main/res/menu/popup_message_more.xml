@@ -105,6 +105,11 @@
             android:title="@string/title_share" />
 
         <item
+            android:id="@+id/menu_share_link"
+            android:icon="@drawable/twotone_insert_link_45_24"
+            android:title="@string/title_share_link" />
+
+        <item
             android:id="@+id/menu_pin"
             android:icon="@drawable/twotone_push_pin_24"
             android:title="@string/title_pin" />

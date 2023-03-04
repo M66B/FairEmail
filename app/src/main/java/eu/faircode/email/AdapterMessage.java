@@ -58,6 +58,7 @@ import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.text.Html;
 import android.text.Layout;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -5839,6 +5840,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_force_light).setChecked(force_light);
 
             popupMenu.getMenu().findItem(R.id.menu_share).setEnabled(message.content);
+            popupMenu.getMenu().findItem(R.id.menu_share_link).setVisible(BuildConfig.DEBUG);
             popupMenu.getMenu().findItem(R.id.menu_pin).setVisible(pin);
             popupMenu.getMenu().findItem(R.id.menu_event).setEnabled(message.content);
             popupMenu.getMenu().findItem(R.id.menu_print).setEnabled(hasWebView && message.content);
@@ -5945,6 +5947,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                     } else if (itemId == R.id.menu_share) {
                         onMenuShare(message, false);
+                        return true;
+                    } else if (itemId == R.id.menu_share_link) {
+                        onMenuShareLink(message);
                         return true;
                     } else if (itemId == R.id.menu_pin) {
                         onMenuPin(message);
@@ -6807,6 +6812,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:share");
+        }
+
+        private void onMenuShareLink(TupleMessageEx message) {
+            String link = message.getLink();
+            String title = context.getString(R.string.title_share_link_open);
+            String html = "<a href=\"" + link + "\">" + Html.escapeHtml(title) + "<a/>";
+
+            Intent intent = new Intent();
+            intent.setAction(Intent.ACTION_SEND);
+            intent.setType("text/plain");
+            intent.putExtra(Intent.EXTRA_TEXT, link);
+            intent.putExtra(Intent.EXTRA_HTML_TEXT, html);
+            context.startActivity(intent);
         }
 
         private void onMenuPin(TupleMessageEx message) {
