@@ -92,6 +92,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.mail.AuthenticationFailedException;
 import javax.net.ssl.HttpsURLConnection;
@@ -558,7 +559,8 @@ public class FragmentOAuth extends FragmentBase {
                                 if (access == null)
                                     throw error;
 
-                                String[] scopes = access.getScopeSet().toArray(new String[0]);
+                                Set<String> scopeSet = access.getScopeSet();
+                                String[] scopes = (scopeSet == null ? new String[0] : scopeSet.toArray(new String[0]));
                                 Log.i("OAuth got token provider=" + provider.id +
                                         " state=" + auth.state +
                                         " scopes=" + TextUtils.join(",", scopes));
