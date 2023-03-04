@@ -2405,6 +2405,22 @@ public class Log {
                     size += write(os, "\r\n");
                 }
 
+                Map<Long, EntityFolder> unified = new HashMap<>();
+                for (EntityFolder folder : db.folder().getFoldersByType(EntityFolder.INBOX))
+                    unified.put(folder.id, folder);
+                for (EntityFolder folder : db.folder().getFoldersUnified(null, false))
+                    unified.put(folder.id, folder);
+
+                for (Long fid : unified.keySet()) {
+                    EntityFolder folder = unified.get(fid);
+                    EntityAccount account = db.account().getAccount(folder.account);
+                    size += write(os, String.format("%s/%s:%s sync=%b unified=%b\r\n",
+                            (account == null ? null : account.name),
+                            folder.name, folder.type, folder.synchronize, folder.unified));
+                }
+
+                size += write(os, "\r\n");
+
                 for (EntityAccount account : accounts) {
                     if (account.synchronize) {
                         int content = 0;
