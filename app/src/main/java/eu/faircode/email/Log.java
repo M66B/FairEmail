@@ -2359,14 +2359,15 @@ public class Log {
                 }
 
                 StringBuilder filters = new StringBuilder();
+                StringBuilder sorts = new StringBuilder();
                 for (String key : prefs.getAll().keySet())
                     if (key.startsWith("filter_")) {
                         Object value = prefs.getAll().get(key);
                         if (Boolean.TRUE.equals(value))
-                            filters.append(' ')
-                                    .append(key.substring(7))
-                                    .append('=')
-                                    .append(value);
+                            filters.append(' ').append(key.substring(7)).append('=').append(value);
+                    } else if (key.startsWith("sort_")) {
+                        Object value = prefs.getAll().get(key);
+                        sorts.append(' ').append(key).append('=').append(value);
                     }
 
                 size += write(os, "enabled=" + enabled + (enabled ? "" : " !!!") +
@@ -2390,7 +2391,7 @@ public class Log {
                         " rules=" + db.rule().countTotal() +
                         " ops=" + db.operation().getOperationCount() +
                         " outbox=" + db.message().countOutbox() + "\r\n" +
-                        "filter " + filters +
+                        "filter " + filters + " " + sorts +
                         "\r\n\r\n");
 
                 if (schedule) {
