@@ -3310,6 +3310,9 @@ public class FragmentMessages extends FragmentBase
                         EntityAccount sourceAccount = db.account().getAccount(message.account);
                         if (sourceAccount == null)
                             return result;
+                        EntityFolder baseFolder = db.folder().getFolder(message.folder);
+                        if (baseFolder == null)
+                            return result;
 
                         EntityFolder targetFolder = db.folder().getFolder(tid);
                         if (targetFolder == null)
@@ -3322,7 +3325,8 @@ public class FragmentMessages extends FragmentBase
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread,
                                 threading && thread ? null : id,
-                                EntityFolder.TRASH.equals(targetFolder.type) ? null : message.folder);
+                                !EntityFolder.DRAFTS.equals(baseFolder.type) &&
+                                        EntityFolder.TRASH.equals(targetFolder.type) ? null : message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
                             if (sourceFolder == null ||
