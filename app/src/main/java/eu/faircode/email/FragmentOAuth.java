@@ -336,13 +336,7 @@ public class FragmentOAuth extends FragmentBase {
             etTenant.clearFocus();
             Helper.hideKeyboard(view);
 
-            etName.setEnabled(false);
-            etEmail.setEnabled(false);
-            etTenant.setEnabled(false);
-            cbInboundOnly.setEnabled(false);
-            cbPop.setEnabled(false);
-            cbRecent.setEnabled(false);
-            cbUpdate.setEnabled(false);
+            setEnabled(false);
             btnOAuth.setEnabled(false);
             pbOAuth.setVisibility(View.VISIBLE);
             hideError();
@@ -494,13 +488,7 @@ public class FragmentOAuth extends FragmentBase {
 
     private void onHandleOAuth(@NonNull Intent data) {
         try {
-            etName.setEnabled(true);
-            etEmail.setEnabled(true);
-            etTenant.setEnabled(true);
-            cbInboundOnly.setEnabled(true);
-            cbPop.setEnabled(true);
-            cbRecent.setEnabled(true);
-            cbUpdate.setEnabled(true);
+            setEnabled(true);
 
             Log.breadcrumb("onHandleOAuth", "id", id);
 
@@ -516,6 +504,11 @@ public class FragmentOAuth extends FragmentBase {
             String id = auth.state.split(":")[0];
             final EmailProvider provider = EmailProvider.getProvider(getContext(), id);
             EmailProvider.OAuth oauth = (auth.state.endsWith(":graph") ? provider.graph : provider.oauth);
+
+            if (provider.graph != null &&
+                    provider.graph.enabled &&
+                    !auth.state.endsWith(":graph"))
+                setEnabled(false);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String json = prefs.getString("oauth." + auth.state, null);
@@ -1034,15 +1027,19 @@ public class FragmentOAuth extends FragmentBase {
     }
 
     private void onHandleCancel() {
-        etName.setEnabled(true);
-        etEmail.setEnabled(true);
-        etTenant.setEnabled(true);
-        cbInboundOnly.setEnabled(true);
-        cbPop.setEnabled(true);
-        cbRecent.setEnabled(true);
-        cbUpdate.setEnabled(true);
+        setEnabled(true);
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
+    }
+
+    private void setEnabled(boolean enabled) {
+        etName.setEnabled(enabled);
+        etEmail.setEnabled(enabled);
+        etTenant.setEnabled(enabled);
+        cbInboundOnly.setEnabled(enabled);
+        cbPop.setEnabled(enabled);
+        cbRecent.setEnabled(enabled);
+        cbUpdate.setEnabled(enabled);
     }
 
     private void showError(Throwable ex) {
@@ -1079,13 +1076,7 @@ public class FragmentOAuth extends FragmentBase {
 
         btnHelp.setVisibility(provider != null && provider.link != null ? View.VISIBLE : View.GONE);
 
-        etName.setEnabled(true);
-        etEmail.setEnabled(true);
-        etTenant.setEnabled(true);
-        cbInboundOnly.setEnabled(true);
-        cbPop.setEnabled(true);
-        cbRecent.setEnabled(true);
-        cbUpdate.setEnabled(true);
+        setEnabled(true);
         btnOAuth.setEnabled(true);
         pbOAuth.setVisibility(View.GONE);
 
