@@ -1112,6 +1112,14 @@ public class HtmlHelper {
             hs.attr("x-line-after", "true");
         }
 
+        // Breaks
+        for (Element br : document.select("br")) {
+            Element parent = br.parent();
+            Element last = (parent == null ? null : parent.lastElementChild());
+            if (br == last)
+                br.remove();
+        }
+
         // Paragraphs
         for (Element p : document.select("p")) {
             p.tagName("div");
