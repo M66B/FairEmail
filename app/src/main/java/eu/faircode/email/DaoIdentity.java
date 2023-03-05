@@ -119,9 +119,9 @@ public interface DaoIdentity {
             " SET password = :password, auth_type = :new_auth_type, provider = :provider" +
             " WHERE account = :account" +
             " AND user = :user" +
-            " AND (auth_type = :auth_type OR auth_type = " + ServiceAuthenticator.AUTH_TYPE_GRAPH + ")" +
+            " AND (auth_type = :auth_type OR auth_type IS NULL)" +
             " AND NOT (password IS :password AND auth_type IS :new_auth_type AND provider = :provider)")
-    int setIdentityPassword(long account, String user, String password, int auth_type, int new_auth_type, String provider);
+    int setIdentityPassword(long account, String user, String password, Integer auth_type, int new_auth_type, String provider);
 
     @Query("UPDATE identity" +
             " SET fingerprint = :fingerprint" +

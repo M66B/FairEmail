@@ -992,7 +992,7 @@ public class FragmentOAuth extends FragmentBase {
                         db.account().setAccountPassword(update.id, state[0], AUTH_TYPE_OAUTH, provider.id);
                         db.identity().setIdentityPassword(update.id, username,
                                 state[state.length - 1],
-                                update.auth_type,
+                                null,
                                 (state.length == 1 ? AUTH_TYPE_OAUTH : AUTH_TYPE_GRAPH),
                                 provider.id);
                     }
