@@ -111,6 +111,9 @@ import com.sun.mail.iap.ProtocolException;
 import com.sun.mail.util.FolderClosedIOException;
 import com.sun.mail.util.MailConnectException;
 
+import net.openid.appauth.AuthState;
+import net.openid.appauth.TokenResponse;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -2405,6 +2408,27 @@ public class Log {
                     size += write(os, "\r\n");
                 }
 
+                for (EntityAccount account : accounts)
+                    if (account.synchronize)
+                        try {
+                            String info = null;
+                            if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH ||
+                                    account.auth_type == ServiceAuthenticator.AUTH_TYPE_GRAPH)
+                                info = getTokenInfo(account.password, account.auth_type);
+                            size += write(os, String.format("%s %s\r\n", account.name, info));
+
+                            List<EntityIdentity> identities = db.identity().getSynchronizingIdentities(account.id);
+                            for (EntityIdentity identity : identities)
+                                if (identity.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH ||
+                                        identity.auth_type == ServiceAuthenticator.AUTH_TYPE_GRAPH)
+                                    size += write(os, String.format("- %s %s\r\n",
+                                            identity.name, getTokenInfo(identity.password, identity.auth_type)));
+                        } catch (Throwable ex) {
+                            size += write(os, ex.toString() + "\r\n");
+                        }
+
+                size += write(os, "\r\n");
+
                 Map<Long, EntityFolder> unified = new HashMap<>();
                 for (EntityFolder folder : db.folder().getFoldersByType(EntityFolder.INBOX))
                     unified.put(folder.id, folder);
@@ -3199,6 +3223,19 @@ public class Log {
         Helper.copy(source, target);
 
         db.attachment().setDownloaded(attachment.id, target.length());
+    }
+
+    static String getTokenInfo(String password, int auth_type) throws JSONException {
+        AuthState authState = AuthState.jsonDeserialize(password);
+        Long expiration = authState.getAccessTokenExpirationTime();
+        TokenResponse t = authState.getLastTokenResponse();
+        Set<String> scopeSet = (t == null ? null : t.getScopeSet());
+        String[] scopes = (scopeSet == null ? new String[0] : scopeSet.toArray(new String[0]));
+        return String.format("%s expire=%s need=%b %s",
+                ServiceAuthenticator.getAuthTypeName(auth_type),
+                (expiration == null ? null : new Date(expiration)),
+                authState.getNeedsTokenRefresh(),
+                TextUtils.join(",", scopes));
     }
 
     static SpannableStringBuilder getCiphers() {
