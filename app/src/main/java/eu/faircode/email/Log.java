@@ -2062,6 +2062,8 @@ public class Log {
         sb.append(String.format("Contact lookup: %d cached: %d\r\n",
                 contacts[0], contacts[1]));
 
+        sb.append(String.format("Accessibility: %b\r\n", Helper.isAccessibilityEnabled(context)));
+
         String charset = MimeUtility.getDefaultJavaCharset();
         sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
 
