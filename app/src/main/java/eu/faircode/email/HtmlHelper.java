@@ -1759,14 +1759,14 @@ public class HtmlHelper {
                                 ElementSelectorImpl eselector = (ElementSelectorImpl) selector;
                                 if (tag == null
                                         ? eselector.getLocalName() == null
-                                        : tag.equals(eselector.getLocalName()))
+                                        : tag.equalsIgnoreCase(eselector.getLocalName()))
                                     style = mergeStyles(style, srule.getStyle().getCssText());
                                 break;
                             case Selector.SAC_CONDITIONAL_SELECTOR:
                                 ConditionalSelectorImpl cselector = (ConditionalSelectorImpl) selector;
                                 if (cselector.getCondition().getConditionType() == SAC_CLASS_CONDITION) {
                                     ClassConditionImpl ccondition = (ClassConditionImpl) cselector.getCondition();
-                                    if (clazz.equals(ccondition.getValue()))
+                                    if (clazz.equalsIgnoreCase(ccondition.getValue()))
                                         style = mergeStyles(style, srule.getStyle().getCssText());
                                 }
                                 break;
