@@ -112,6 +112,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private Button btnDefaultFolder;
     private TextView tvDefaultFolder;
 
+    private boolean accessibility;
+
     final static int MAX_SWIPE_SENSITIVITY = 10;
     final static int DEFAULT_SWIPE_SENSITIVITY = 7;
 
@@ -188,6 +190,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swSwipeReply = view.findViewById(R.id.swSwipeReply);
         btnDefaultFolder = view.findViewById(R.id.btnDefaultFolder);
         tvDefaultFolder = view.findViewById(R.id.tvDefaultFolder);
+
+        accessibility = Helper.isAccessibilityEnabled(getContext());
 
         setOptions();
 
@@ -714,7 +718,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
         swResetSnooze.setChecked(prefs.getBoolean("reset_snooze", true));
         swAutoBlockSender.setChecked(prefs.getBoolean("auto_block_sender", true));
-        swAutoHideAnswer.setChecked(prefs.getBoolean("auto_hide_answer", true));
+        swAutoHideAnswer.setChecked(prefs.getBoolean("auto_hide_answer", !accessibility));
         swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
         tvDefaultFolder.setText(prefs.getString("default_folder", null));
     }

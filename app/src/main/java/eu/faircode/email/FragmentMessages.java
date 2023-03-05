@@ -486,6 +486,8 @@ public class FragmentMessages extends FragmentBase
         if (folder > 0 && thread == null && type == null && criteria == null)
             Log.e("Messages for folder without type");
 
+        accessibility = Helper.isAccessibilityEnabled(getContext());
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
         hide_toolbar = prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE);
@@ -511,7 +513,7 @@ public class FragmentMessages extends FragmentBase
         onclose = (autoclose ? null : prefs.getString("onclose", null));
         quick_scroll = prefs.getBoolean("quick_scroll", true);
         addresses = prefs.getBoolean("addresses", false);
-        auto_hide_answer = prefs.getBoolean("auto_hide_answer", true);
+        auto_hide_answer = prefs.getBoolean("auto_hide_answer", !accessibility);
         swipe_reply = prefs.getBoolean("swipe_reply", false);
         quick_actions = prefs.getBoolean("quick_actions", true);
 
@@ -519,8 +521,6 @@ public class FragmentMessages extends FragmentBase
         colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
         colorSeparator = Helper.resolveColor(getContext(), R.attr.colorSeparator);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
-
-        accessibility = Helper.isAccessibilityEnabled(getContext());
 
         if (criteria == null)
             if (thread == null) {
