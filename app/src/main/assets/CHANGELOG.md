@@ -6,6 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Quetecsaurus](https://en.wikipedia.org/wiki/Quetecsaurus)
 
+### 1.2050 - 2023-03-05
+
+* Fixed updating Microsoft Graph tokens
+* Small improvements and minor bug fixes
+
 ### 1.2049 - 2023-03-04
 
 * Fixed refreshing Microsoft Graph tokens
