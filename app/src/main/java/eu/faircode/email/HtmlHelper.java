@@ -1115,8 +1115,9 @@ public class HtmlHelper {
         // Breaks
         for (Element br : document.select("br")) {
             Element parent = br.parent();
-            Element last = (parent == null ? null : parent.lastElementChild());
-            if (br == last)
+            if (parent == null || !"p".equals(parent.tagName()))
+                continue;
+            if (br == parent.lastElementChild())
                 br.remove();
         }
 
