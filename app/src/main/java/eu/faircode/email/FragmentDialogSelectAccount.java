@@ -92,7 +92,7 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
 
         return new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_account_circle_24)
-                .setTitle(R.string.title_select_account)
+                .setTitle(R.string.title_list_accounts)
                 .setAdapter(adapter, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

@@ -1210,8 +1210,6 @@
     <string name="title_empty_spam">Empty spam</string>
     <string name="title_edit_properties">Edit properties</string>
     <string name="title_edit_rules">Edit rules</string>
-    <string name="title_select_account">Select account</string>
-    <string name="title_select_folder">Select folder</string>
     <string name="title_execute_rules">Execute rules</string>
     <string name="title_export_messages">Export messages</string>
     <string name="title_create_channel">Create notification channel</string>
