@@ -1112,18 +1112,14 @@ public class HtmlHelper {
             hs.attr("x-line-after", "true");
         }
 
-        // Breaks
-        for (Element br : document.select("br")) {
-            Element parent = br.parent();
-            if (parent == null || !"p".equals(parent.tagName()))
-                continue;
-            if (br == parent.lastElementChild())
-                br.remove();
-        }
-
         // Paragraphs
         for (Element p : document.select("p")) {
             p.tagName("div");
+
+            Element last = p.lastElementChild();
+            if (last != null && "br".equals(last.tagName()))
+                last.remove();
+
             if (TextUtils.isEmpty(p.text())) {
                 p.attr("x-line-before", "false");
                 p.attr("x-line-after", "true");
