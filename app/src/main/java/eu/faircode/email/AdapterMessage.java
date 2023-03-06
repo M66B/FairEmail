@@ -4826,6 +4826,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 intent.putExtra("message", message.error);
                 intent.putExtra("provider", "outlookgraph");
                 intent.putExtra("account", message.account);
+                intent.putExtra("protocol", message.accountProtocol);
                 intent.putExtra("identity", message.identity);
                 intent.putExtra("authorize", true);
                 intent.putExtra("personal", message.identityName);

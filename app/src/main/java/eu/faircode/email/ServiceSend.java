@@ -490,12 +490,16 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                                                     this, PI_FIX, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                                             builder.setContentIntent(piFix);
                                         } else {
+                                            EntityAccount account = db.account().getAccount(identity.account);
+                                            int protocol = (account == null ? -1 : account.protocol);
+
                                             Intent intent = new Intent(this, ActivityError.class);
                                             intent.setAction("535:" + identity.id);
                                             intent.putExtra("title", ex.getMessage());
                                             intent.putExtra("message", Log.formatThrowable(ex, "\n", false));
                                             intent.putExtra("provider", "outlookgraph");
                                             intent.putExtra("account", identity.account);
+                                            intent.putExtra("protocol", protocol);
                                             intent.putExtra("identity", identity.id);
                                             intent.putExtra("authorize", true);
                                             intent.putExtra("personal", identity.name);
