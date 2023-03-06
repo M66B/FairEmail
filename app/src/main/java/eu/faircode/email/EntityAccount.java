@@ -116,6 +116,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean leave_on_server = true;
     @NonNull
+    public Boolean client_delete = false;
+    @NonNull
     public Boolean leave_deleted = false;
     @NonNull
     public Boolean leave_on_device = false;
@@ -304,6 +306,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
         json.put("notify", notify);
         json.put("browse", browse);
         json.put("leave_on_server", leave_on_server);
+        json.put("client_delete", client_delete);
         json.put("leave_deleted", leave_deleted);
         json.put("leave_on_device", leave_on_device);
         json.put("max_messages", max_messages);
@@ -391,6 +394,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
             account.browse = json.getBoolean("browse");
         if (json.has("leave_on_server"))
             account.leave_on_server = json.getBoolean("leave_on_server");
+        account.client_delete = json.optBoolean("client_delete", false);
         if (json.has("leave_deleted"))
             account.leave_deleted = json.getBoolean("leave_deleted");
         if (json.has("leave_on_device"))
@@ -459,6 +463,7 @@ public class EntityAccount extends EntityOrder implements Serializable {
                 a1.notify.equals(other.notify) &&
                 a1.browse.equals(other.browse) &&
                 a1.leave_on_server.equals(other.leave_on_server) &&
+                a1.client_delete.equals(other.client_delete) &&
                 Objects.equals(a1.leave_deleted, other.leave_deleted) &&
                 a1.leave_on_device.equals(other.leave_on_device) &&
                 Objects.equals(a1.max_messages, other.max_messages) &&

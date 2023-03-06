@@ -2317,7 +2317,10 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                                 if (ifolder != null && ifolder.isOpen()) {
                                                                     db.folder().setFolderState(folder.id, "closing");
                                                                     try {
-                                                                        ifolder.close(false);
+                                                                        boolean expunge =
+                                                                                (account.protocol == EntityAccount.TYPE_POP &&
+                                                                                        !account.leave_on_server && account.client_delete);
+                                                                        ifolder.close(expunge);
                                                                     } catch (Throwable ex) {
                                                                         Log.w(folder.name, ex);
                                                                     }

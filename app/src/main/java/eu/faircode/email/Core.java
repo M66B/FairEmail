@@ -3378,6 +3378,9 @@ class Core {
                                 Log.w(ex);
                             }
 
+                        if (!account.leave_on_server && account.client_delete)
+                            imessage.setFlag(Flags.Flag.DELETED, true);
+
                         EntityContact.received(context, account, folder, message);
                     } catch (FolderClosedException ex) {
                         throw ex;

@@ -1111,6 +1111,7 @@
     <string name="title_primary_identity">Primary (default identity)</string>
     <string name="title_self_identity">Remove email address when replying</string>
     <string name="title_leave_on_server">Leave messages on server</string>
+    <string name="title_client_delete">Actively delete messages after downloading</string>
     <string name="title_leave_deleted">Leave deleted messages on server</string>
     <string name="title_leave_on_device">Leave messages on device</string>
     <string name="title_max_messages">Maximum number of messages to download (blank for all)</string>

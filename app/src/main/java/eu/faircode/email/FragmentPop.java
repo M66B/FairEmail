@@ -96,6 +96,7 @@ public class FragmentPop extends FragmentBase {
     private TextView tvNotifyPro;
     private CheckBox cbAutoSeen;
     private CheckBox cbLeaveServer;
+    private CheckBox cbClientDelete;
     private CheckBox cbLeaveDeleted;
     private CheckBox cbLeaveDevice;
     private EditText etMax;
@@ -171,6 +172,7 @@ public class FragmentPop extends FragmentBase {
         tvNotifyPro = view.findViewById(R.id.tvNotifyPro);
         cbAutoSeen = view.findViewById(R.id.cbAutoSeen);
         cbLeaveServer = view.findViewById(R.id.cbLeaveServer);
+        cbClientDelete = view.findViewById(R.id.cbClientDelete);
         cbLeaveDeleted = view.findViewById(R.id.cbLeaveDeleted);
         cbLeaveDevice = view.findViewById(R.id.cbLeaveDevice);
         etMax = view.findViewById(R.id.etMax);
@@ -291,6 +293,13 @@ public class FragmentPop extends FragmentBase {
 
         Helper.linkPro(tvNotifyPro);
 
+        cbLeaveServer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                cbClientDelete.setEnabled(!isChecked);
+            }
+        });
+
         etInterval.setHint(Integer.toString(EntityAccount.DEFAULT_POLL_INTERVAL));
 
         adapterSwipe = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, getSwipeActions());
@@ -363,6 +372,7 @@ public class FragmentPop extends FragmentBase {
         args.putBoolean("auto_seen", cbAutoSeen.isChecked());
 
         args.putBoolean("leave_server", cbLeaveServer.isChecked());
+        args.putBoolean("client_delete", cbClientDelete.isChecked());
         args.putBoolean("leave_deleted", cbLeaveDeleted.isChecked());
         args.putBoolean("leave_device", cbLeaveDevice.isChecked());
         args.putString("max", etMax.getText().toString());
@@ -417,6 +427,7 @@ public class FragmentPop extends FragmentBase {
                 boolean notify = args.getBoolean("notify");
                 boolean auto_seen = args.getBoolean("auto_seen");
                 boolean leave_server = args.getBoolean("leave_server");
+                boolean client_delete = args.getBoolean("client_delete");
                 boolean leave_deleted = args.getBoolean("leave_deleted");
                 boolean leave_device = args.getBoolean("leave_device");
                 String max = args.getString("max");
@@ -509,6 +520,8 @@ public class FragmentPop extends FragmentBase {
                         return true;
                     if (!Objects.equals(account.leave_on_server, leave_server))
                         return true;
+                    if (!Objects.equals(account.client_delete, client_delete))
+                        return true;
                     if (!Objects.equals(account.leave_deleted, leave_deleted))
                         return true;
                     if (!Objects.equals(account.leave_on_device, leave_device))
@@ -597,6 +610,7 @@ public class FragmentPop extends FragmentBase {
                     account.notify = notify;
                     account.auto_seen = auto_seen;
                     account.leave_on_server = leave_server;
+                    account.client_delete = client_delete;
                     account.leave_deleted = leave_deleted;
                     account.leave_on_device = leave_device;
                     account.max_messages = max_messages;
@@ -792,6 +806,8 @@ public class FragmentPop extends FragmentBase {
                     cbAutoSeen.setChecked(account == null ? true : account.auto_seen);
 
                     cbLeaveServer.setChecked(account == null ? true : account.leave_on_server);
+                    cbClientDelete.setChecked(account == null ? false : account.client_delete);
+                    cbClientDelete.setEnabled(!cbLeaveServer.isChecked());
                     cbLeaveDeleted.setChecked(account == null ? true : account.leave_deleted);
                     cbLeaveDevice.setChecked(account == null ? false : account.leave_on_device);
 
