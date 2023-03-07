@@ -277,7 +277,6 @@ public class FragmentCompose extends FragmentBase {
     private Group grpSignature;
     private Group grpReferenceHint;
 
-    private ImageButton ibOpenAi;
     private ContentResolver resolver;
     private AdapterAttachment adapter;
 
@@ -300,6 +299,7 @@ public class FragmentCompose extends FragmentBase {
     private List<EntityAttachment> last_attachments = null;
     private boolean saved = false;
     private String subject = null;
+    private boolean chatting = false;
 
     private Uri photoURI = null;
 
@@ -1759,9 +1759,9 @@ public class FragmentCompose extends FragmentBase {
         });
         menu.findItem(R.id.menu_translate).setActionView(ibTranslate);
 
-        ibOpenAi = (ImageButton) infl.inflate(R.layout.action_button, null);
+        ImageButton ibOpenAi = (ImageButton) infl.inflate(R.layout.action_button, null);
         ibOpenAi.setId(View.generateViewId());
-        ibOpenAi.setImageResource(R.drawable.twotone_question_answer_24);
+        ibOpenAi.setImageResource(R.drawable.twotone_smart_toy_24);
         ibOpenAi.setContentDescription(getString(R.string.title_openai));
         ibOpenAi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1797,7 +1797,8 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_encrypt).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_translate).setVisible(DeepL.isAvailable(context));
-        menu.findItem(R.id.menu_openai).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_openai).setEnabled(state == State.LOADED && !chatting);
+        ((ImageButton) menu.findItem(R.id.menu_openai).getActionView()).setEnabled(!chatting);
         menu.findItem(R.id.menu_openai).setVisible(OpenAI.isAvailable(context));
         menu.findItem(R.id.menu_zoom).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_style).setEnabled(state == State.LOADED);
@@ -2564,97 +2565,101 @@ public class FragmentCompose extends FragmentBase {
     private void onOpenAi(View anchor) {
         int start = etBody.getSelectionStart();
         int end = etBody.getSelectionEnd();
+        boolean selection = (start >= 0 && end > start);
         Editable edit = etBody.getText();
-        String body = (start >= 0 && end > start ? edit.subSequence(start, end) : edit)
-                .toString().trim();
+        String body = (selection ? edit.subSequence(start, end) : edit).toString().trim();
 
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putString("body", body);
+        args.putBoolean("selection", selection);
 
         new SimpleTask<OpenAI.Message[]>() {
             @Override
             protected void onPreExecute(Bundle args) {
-                if (ibOpenAi != null)
-                    ibOpenAi.setEnabled(false);
+                chatting = true;
+                invalidateOptionsMenu();
             }
 
             @Override
             protected void onPostExecute(Bundle args) {
-                if (ibOpenAi != null)
-                    ibOpenAi.setEnabled(true);
+                chatting = false;
+                invalidateOptionsMenu();
             }
 
             @Override
             protected OpenAI.Message[] onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
                 String body = args.getString("body");
+                boolean selection = args.getBoolean("selection");
 
                 DB db = DB.getInstance(context);
                 EntityMessage draft = db.message().getMessage(id);
                 if (draft == null)
                     return null;
 
-                List<EntityMessage> conversation = db.message().getMessagesByThread(draft.account, draft.thread, null, null);
-                if (conversation == null)
-                    return null;
+                List<EntityMessage> inreplyto;
+                if (selection || TextUtils.isEmpty(draft.inreplyto))
+                    inreplyto = new ArrayList<>();
+                else
+                    inreplyto = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
 
-                if (TextUtils.isEmpty(body) && conversation.size() == 0)
-                    return null;
-
-                EntityFolder sent = db.folder().getFolderByType(draft.account, EntityFolder.SENT);
-                if (sent == null)
-                    return null;
-
-                Collections.sort(conversation, new Comparator<EntityMessage>() {
-                    @Override
-                    public int compare(EntityMessage m1, EntityMessage m2) {
-                        return Long.compare(m1.received, m2.received);
-                    }
-                });
-
-                List<OpenAI.Message> messages = new ArrayList<>();
+                List<OpenAI.Message> result = new ArrayList<>();
                 //messages.add(new OpenAI.Message("system", "You are a helpful assistant."));
 
-                List<String> msgids = new ArrayList<>();
-                for (EntityMessage message : conversation) {
-                    if (Objects.equals(draft.msgid, message.msgid))
-                        continue;
-                    if (msgids.contains(message.msgid))
-                        continue;
-                    msgids.add(message.msgid);
+                if (inreplyto.size() > 0 && inreplyto.get(0).content) {
+                    Document parsed = JsoupEx.parse(inreplyto.get(0).getFile(context));
+                    Document document = HtmlHelper.sanitizeView(context, parsed, false);
+                    Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
+                    String[] paragraphs = spanned.toString().split("[\\r\\n]+");
 
-                    String text = HtmlHelper.getFullText(message.getFile(context));
-                    String[] paragraphs = text.split("[\\r\\n]+");
+                    int i = 0;
                     StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < 3 && i < paragraphs.length; i++)
-                        sb.append(paragraphs[i]).append("\n");
-                    messages.add(new OpenAI.Message("assistant", sb.toString()));
+                    while (i < paragraphs.length &&
+                            sb.length() + paragraphs[i].length() + 1 < 1000)
+                        sb.append(paragraphs[i++]).append('\n');
 
-                    if (msgids.size() >= 3)
-                        break;
+                    String role = (MessageHelper.equalEmail(draft.from, inreplyto.get(0).from) ? "assistant" : "user");
+                    result.add(new OpenAI.Message(role, sb.toString()));
                 }
 
                 if (!TextUtils.isEmpty(body))
-                    messages.add(new OpenAI.Message("user", body));
+                    result.add(new OpenAI.Message("assistant", body));
 
-                if (messages.size() == 0)
+                if (result.size() == 0)
                     return null;
 
-                return OpenAI.complete(context, messages.toArray(new OpenAI.Message[0]), 1);
+                return OpenAI.completeChat(context, result.toArray(new OpenAI.Message[0]), 1);
             }
 
             @Override
             protected void onExecuted(Bundle args, OpenAI.Message[] messages) {
-                if (messages != null && messages.length > 0) {
-                    int start = etBody.getSelectionEnd();
-                    String content = messages[0].getContent();
-                    Editable edit = etBody.getText();
-                    edit.insert(start, content);
-                    int end = start + content.length();
-                    etBody.setSelection(end);
-                    StyleHelper.markAsInserted(edit, start, end);
-                }
+                if (messages == null || messages.length == 0)
+                    return;
+
+                String text = messages[0].getContent()
+                        .replaceAll("^\\n+", "").replaceAll("\\n+$", "");
+
+                Editable edit = etBody.getText();
+                int start = etBody.getSelectionStart();
+                int end = etBody.getSelectionEnd();
+
+                int index;
+                if (etBody.hasSelection()) {
+                    edit.delete(start, end);
+                    index = start;
+                } else
+                    index = end;
+
+                if (index < 0)
+                    index = 0;
+                if (index > 0 && edit.charAt(index - 1) != '\n')
+                    edit.insert(index++, "\n");
+
+                edit.insert(index, text + "\n");
+                etBody.setSelection(index + text.length() + 1);
+
+                StyleHelper.markAsInserted(edit, index, index + text.length() + 1);
             }
 
             @Override

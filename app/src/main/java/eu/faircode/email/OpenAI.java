@@ -40,7 +40,7 @@ public class OpenAI {
     static final String URI_ENDPOINT = "https://api.openai.com/";
     static final String URI_PRIVACY = "https://openai.com/policies/privacy-policy";
 
-    private static final int TIMEOUT = 20; // seconds
+    private static final int TIMEOUT = 30; // seconds
 
     static boolean isAvailable(Context context) {
         if (BuildConfig.PLAY_STORE_RELEASE)
@@ -53,7 +53,7 @@ public class OpenAI {
         return (enabled && !TextUtils.isEmpty(apikey));
     }
 
-    static Message[] complete(Context context, Message[] messages, int n) throws JSONException, IOException {
+    static Message[] completeChat(Context context, Message[] messages, int n) throws JSONException, IOException {
         // https://platform.openai.com/docs/guides/chat/introduction
         // https://platform.openai.com/docs/api-reference/chat/create
 

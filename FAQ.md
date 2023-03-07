@@ -5238,14 +5238,16 @@ Cloud sync is an experimental feature. It is not available for the Play Store ve
 
 **Usage**
 
-Tap on the conversation button in the top action bar of the message editor.
-The selected text in the message editor and the first three paragraphs of the first three messages in the conversation will be used for [chat completion](https://platform.openai.com/docs/guides/chat/introduction).
+Tap on the robot button in the top action bar of the message editor.
+The text in the message editor and the first part of the message being replied to (maximum of 1,000 characters)
+will be used for [chat completion](https://platform.openai.com/docs/guides/chat/introduction).
+If text is selected in the message editor, only the selected text will be used.
 
-For example: create a new draft and enter the text "*How far is the sun?*", and tap on the conversation button in the top action bar.
+For example: create a new draft and enter the text "*How far is the sun?*", and tap on the robot button in the top action bar.
 
 OpenAI isn't very fast, so be patient.
 
-This feature is available in the GitHub version only and requires version 1.2052 or later.
+This feature is experimental and available in the GitHub version only and requires version 1.2052 or later.
 
 <br>
 

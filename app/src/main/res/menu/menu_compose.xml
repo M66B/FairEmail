@@ -15,7 +15,7 @@
 
     <item
         android:id="@+id/menu_openai"
-        android:icon="@drawable/twotone_question_answer_24"
+        android:icon="@drawable/twotone_smart_toy_24"
         android:title="@string/title_openai"
         app:showAsAction="always" />
 
