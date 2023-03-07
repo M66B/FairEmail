@@ -2629,15 +2629,14 @@ public class FragmentCompose extends FragmentBase {
                     StringBuilder sb = new StringBuilder();
                     for (int i = 0; i < 3 && i < paragraphs.length; i++)
                         sb.append(paragraphs[i]).append("\n");
-                    String role = (MessageHelper.equalEmail(draft.from, message.from) ? "assistant" : "user");
-                    messages.add(new OpenAI.Message(role, sb.toString()));
+                    messages.add(new OpenAI.Message("assistant", sb.toString()));
 
                     if (msgids.size() >= 3)
                         break;
                 }
 
                 if (!TextUtils.isEmpty(body))
-                    messages.add(new OpenAI.Message("assistant", body));
+                    messages.add(new OpenAI.Message("user", body));
 
                 if (messages.size() == 0)
                     return null;
