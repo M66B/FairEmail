@@ -801,7 +801,7 @@
                     android:id="@+id/grpVirusTotal"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="swVirusTotal,tvVirusTotalPrivacy,ibVirusTotal,tilVirusTotal" />
+                    app:constraint_referenced_ids="swVirusTotal,tvVirusTotalPrivacy,tilVirusTotal,ibVirusTotal" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpSend"
