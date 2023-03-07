@@ -277,6 +277,7 @@ public class FragmentCompose extends FragmentBase {
     private Group grpSignature;
     private Group grpReferenceHint;
 
+    private ImageButton ibOpenAi;
     private ContentResolver resolver;
     private AdapterAttachment adapter;
 
@@ -1749,7 +1750,7 @@ public class FragmentCompose extends FragmentBase {
         ImageButton ibTranslate = (ImageButton) infl.inflate(R.layout.action_button, null);
         ibTranslate.setId(View.generateViewId());
         ibTranslate.setImageResource(R.drawable.twotone_translate_24);
-        ib.setContentDescription(getString(R.string.title_translate));
+        ibTranslate.setContentDescription(getString(R.string.title_translate));
         ibTranslate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -1757,6 +1758,18 @@ public class FragmentCompose extends FragmentBase {
             }
         });
         menu.findItem(R.id.menu_translate).setActionView(ibTranslate);
+
+        ibOpenAi = (ImageButton) infl.inflate(R.layout.action_button, null);
+        ibOpenAi.setId(View.generateViewId());
+        ibOpenAi.setImageResource(R.drawable.twotone_question_answer_24);
+        ibOpenAi.setContentDescription(getString(R.string.title_openai));
+        ibOpenAi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onOpenAi(vwAnchorMenu);
+            }
+        });
+        menu.findItem(R.id.menu_openai).setActionView(ibOpenAi);
 
         ImageButton ibZoom = (ImageButton) infl.inflate(R.layout.action_button, null);
         ibZoom.setId(View.generateViewId());
@@ -1784,6 +1797,8 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_encrypt).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_translate).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_translate).setVisible(DeepL.isAvailable(context));
+        menu.findItem(R.id.menu_openai).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_openai).setVisible(OpenAI.isAvailable(context));
         menu.findItem(R.id.menu_zoom).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_style).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
@@ -2544,6 +2559,110 @@ public class FragmentCompose extends FragmentBase {
         });
 
         popupMenu.showWithIcons(context, anchor);
+    }
+
+    private void onOpenAi(View anchor) {
+        int start = etBody.getSelectionStart();
+        int end = etBody.getSelectionEnd();
+        Editable edit = etBody.getText();
+        String body = (start >= 0 && end > start ? edit.subSequence(start, end) : edit)
+                .toString().trim();
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putString("body", body);
+
+        new SimpleTask<OpenAI.Message[]>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                if (ibOpenAi != null)
+                    ibOpenAi.setEnabled(false);
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                if (ibOpenAi != null)
+                    ibOpenAi.setEnabled(true);
+            }
+
+            @Override
+            protected OpenAI.Message[] onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String body = args.getString("body");
+
+                DB db = DB.getInstance(context);
+                EntityMessage draft = db.message().getMessage(id);
+                if (draft == null)
+                    return null;
+
+                List<EntityMessage> conversation = db.message().getMessagesByThread(draft.account, draft.thread, null, null);
+                if (conversation == null)
+                    return null;
+
+                if (TextUtils.isEmpty(body) && conversation.size() == 0)
+                    return null;
+
+                EntityFolder sent = db.folder().getFolderByType(draft.account, EntityFolder.SENT);
+                if (sent == null)
+                    return null;
+
+                Collections.sort(conversation, new Comparator<EntityMessage>() {
+                    @Override
+                    public int compare(EntityMessage m1, EntityMessage m2) {
+                        return Long.compare(m1.received, m2.received);
+                    }
+                });
+
+                List<OpenAI.Message> messages = new ArrayList<>();
+                //messages.add(new OpenAI.Message("system", "You are a helpful assistant."));
+
+                List<String> msgids = new ArrayList<>();
+                for (EntityMessage message : conversation) {
+                    if (Objects.equals(draft.msgid, message.msgid))
+                        continue;
+                    if (msgids.contains(message.msgid))
+                        continue;
+                    msgids.add(message.msgid);
+
+                    String text = HtmlHelper.getFullText(message.getFile(context));
+                    String[] paragraphs = text.split("[\\r\\n]+");
+                    StringBuilder sb = new StringBuilder();
+                    for (int i = 0; i < 3 && i < paragraphs.length; i++)
+                        sb.append(paragraphs[i]).append("\n");
+                    String role = (MessageHelper.equalEmail(draft.from, message.from) ? "assistant" : "user");
+                    messages.add(new OpenAI.Message(role, sb.toString()));
+
+                    if (msgids.size() >= 3)
+                        break;
+                }
+
+                if (!TextUtils.isEmpty(body))
+                    messages.add(new OpenAI.Message("assistant", body));
+
+                if (messages.size() == 0)
+                    return null;
+
+                return OpenAI.complete(context, messages.toArray(new OpenAI.Message[0]), 1);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, OpenAI.Message[] messages) {
+                if (messages != null && messages.length > 0) {
+                    int start = etBody.getSelectionEnd();
+                    String content = messages[0].getContent();
+                    Editable edit = etBody.getText();
+                    edit.insert(start, content);
+                    int end = start + content.length();
+                    etBody.setSelection(end);
+                    StyleHelper.markAsInserted(edit, start, end);
+                }
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "openai");
     }
 
     private void onLanguageTool(int start, int end, boolean silent) {

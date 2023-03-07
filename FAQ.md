@@ -389,6 +389,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(187) Are colored stars synchronized across devices?](#user-content-faq187)
 * [(188) Why is Google backup disabled?](#user-content-faq188)
 * [(189) What is cloud sync?](#user-content-faq189)
+* [(190) How do I use OpenAI (ChatGPT)?](#user-content-faq190)
 
 [I have another question.](#user-content-get-support)
 
@@ -5220,6 +5221,33 @@ The used encryption method is [AES-GCM-SIV](https://en.wikipedia.org/wiki/AES-GC
 using a 256 bit key derived from the username and password with [PBKDF2](https://en.wikipedia.org/wiki/PBKDF2) using SHA256 and 310,000 iterations.
 
 Cloud sync is an experimental feature. It is not available for the Play Store version of the app, yet.
+
+<br>
+
+<a name="faq190"></a>
+**(190) How do I use OpenAI (ChatGPT)?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq180)
+
+**Setup**
+
+* Create an account [here](https://platform.openai.com/signup)
+* Create an APIkey [here](https://platform.openai.com/account/api-keys)
+* Copy the APIkey and paste it in the corresponding field of the miscellaneous settings tab page
+* Enable the OpenAI switch
+
+**Usage**
+
+Tap on the conversation button in the top action bar of the message editor.
+The selected text in the message editor and the first three paragraphs of the first three messages in the conversation will be used for [chat completion](https://platform.openai.com/docs/guides/chat/introduction).
+
+For example: create a new draft and enter the text "*How far is the sun?*", and tap on the conversation button in the top action bar.
+
+OpenAI isn't very fast, so be patient.
+
+This feature is available in the GitHub version only and requires version 1.2052 or later.
+
+<br>
 
 <h2><a name="get-support"></a>Get support</h2>
 

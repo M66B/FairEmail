@@ -566,6 +566,62 @@
                     app:srcCompat="@drawable/twotone_info_24" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swOpenAi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_openai"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibSend"
+                    app:switchPadding="12dp" />
+
+                <TextView
+                    android:id="@+id/tvOpenAiPrivacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_open_in_new_12"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_privacy_policy"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorLink"
+                    app:drawableTint="?android:attr/textColorLink"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swOpenAi" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilOpenAi"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    app:endIconMode="password_toggle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvOpenAiPrivacy">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autofillHints="password"
+                        android:hint="API key"
+                        android:inputType="textPassword"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/ibOpenAi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/title_info"
+                    android:tooltipText="@string/title_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilOpenAi"
+                    app:srcCompat="@drawable/twotone_info_24" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swUpdates"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -576,7 +632,7 @@
                     android:text="@string/title_advanced_updates"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibSend"
+                    app:layout_constraintTop_toBottomOf="@id/ibOpenAi"
                     app:switchPadding="12dp" />
 
                 <TextView
@@ -808,6 +864,12 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="swSend,etSend,ibSend" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpOpenAi"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="swOpenAi,tvOpenAiPrivacy,tilOpenAi,ibOpenAi" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpUpdates"

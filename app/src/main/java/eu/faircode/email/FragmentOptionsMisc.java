@@ -141,6 +141,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSend;
     private EditText etSend;
     private ImageButton ibSend;
+    private SwitchCompat swOpenAi;
+    private TextView tvOpenAiPrivacy;
+    private TextInputLayout tilOpenAi;
+    private ImageButton ibOpenAi;
     private SwitchCompat swUpdates;
     private TextView tvGithubPrivacy;
     private ImageButton ibChannelUpdated;
@@ -244,6 +248,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private Group grpVirusTotal;
     private Group grpSend;
+    private Group grpOpenAi;
     private Group grpUpdates;
     private Group grpBitbucket;
     private Group grpAnnouncements;
@@ -263,6 +268,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host",
+            "openai_enabled", "openai_apikey",
             "updates", "weekly", "beta", "show_changelog", "announcements",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
@@ -365,6 +371,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swSend = view.findViewById(R.id.swSend);
         etSend = view.findViewById(R.id.etSend);
         ibSend = view.findViewById(R.id.ibSend);
+        swOpenAi = view.findViewById(R.id.swOpenAi);
+        tvOpenAiPrivacy = view.findViewById(R.id.tvOpenAiPrivacy);
+        tilOpenAi = view.findViewById(R.id.tilOpenAi);
+        ibOpenAi = view.findViewById(R.id.ibOpenAi);
         swUpdates = view.findViewById(R.id.swUpdates);
         tvGithubPrivacy = view.findViewById(R.id.tvGithubPrivacy);
         ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
@@ -468,6 +478,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         grpVirusTotal = view.findViewById(R.id.grpVirusTotal);
         grpSend = view.findViewById(R.id.grpSend);
+        grpOpenAi = view.findViewById(R.id.grpOpenAi);
         grpUpdates = view.findViewById(R.id.grpUpdates);
         grpBitbucket = view.findViewById(R.id.grpBitbucket);
         grpAnnouncements = view.findViewById(R.id.grpAnnouncements);
@@ -867,6 +878,49 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 183);
+            }
+        });
+
+        swOpenAi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("openai_enabled", checked).apply();
+            }
+        });
+
+        tvOpenAiPrivacy.getPaint().setUnderlineText(true);
+        tvOpenAiPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(OpenAI.URI_PRIVACY), true);
+            }
+        });
+
+        tilOpenAi.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String apikey = s.toString().trim();
+                if (TextUtils.isEmpty(apikey))
+                    prefs.edit().remove("openai_apikey").apply();
+                else
+                    prefs.edit().putString("openai_apikey", apikey).apply();
+            }
+        });
+
+        ibOpenAi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 190);
             }
         });
 
@@ -1959,6 +2013,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         grpVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         grpSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        grpOpenAi.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
 
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
@@ -2056,7 +2111,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 "lt_user".equals(key) ||
                 "lt_key".equals(key) ||
                 "vt_apikey".equals(key) ||
-                "send_host".equals(key))
+                "send_host".equals(key) ||
+                "openai_apikey".equals(key))
             return;
 
         if ("global_keywords".equals(key))
@@ -2221,6 +2277,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tilVirusTotal.getEditText().setText(prefs.getString("vt_apikey", null));
         swSend.setChecked(prefs.getBoolean("send_enabled", false));
         etSend.setText(prefs.getString("send_host", null));
+        swOpenAi.setChecked(prefs.getBoolean("openai_enabled", false));
+        tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());

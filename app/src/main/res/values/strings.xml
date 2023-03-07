@@ -793,6 +793,7 @@
     <string name="title_advanced_deepl">DeepL integration</string>
     <string name="title_advanced_virus_total">VirusTotal integration</string>
     <string name="title_advanced_send">\'Send\' integration</string>
+    <string name="title_advanced_openai">OpenAI (ChatGPT) integration</string>
     <string name="title_advanced_sdcard">I want to use an sdcard</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for GitHub updates</string>
@@ -1599,6 +1600,7 @@
     <string name="title_create_template">Create template</string>
     <string name="title_select_default_identity">Select default address</string>
     <string name="title_translate">Translate</string>
+    <string name="title_openai" translatable="false">OpenAI (ChatGPT)</string>
     <string name="title_translate_configure">Configure &#8230;</string>
     <string name="title_translate_key">Enter key</string>
     <string name="title_translating">Translating &#8230;</string>
