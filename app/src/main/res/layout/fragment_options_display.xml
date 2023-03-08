@@ -2174,6 +2174,21 @@
                     app:switchPadding="12dp" />
 
                 <TextView
+                    android:id="@+id/tvAuthNone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="6dp"
+                    android:drawableStart="@drawable/twotone_gpp_question_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_authentication_none"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:drawableTint="?attr/colorControlNormal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAuthenticationIndicator" />
+
+                <TextView
                     android:id="@+id/tvAuthSome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -2186,7 +2201,7 @@
                     android:textStyle="italic"
                     app:drawableTint="?attr/colorControlNormal"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAuthenticationIndicator" />
+                    app:layout_constraintTop_toBottomOf="@id/tvAuthNone" />
 
                 <TextView
                     android:id="@+id/tvAuthAll"
