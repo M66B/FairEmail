@@ -1722,6 +1722,18 @@ public class FragmentCompose extends FragmentBase {
 
         LayoutInflater infl = LayoutInflater.from(context);
 
+        ImageButton ibOpenAi = (ImageButton) infl.inflate(R.layout.action_button, null);
+        ibOpenAi.setId(View.generateViewId());
+        ibOpenAi.setImageResource(R.drawable.twotone_smart_toy_24);
+        ibOpenAi.setContentDescription(getString(R.string.title_openai));
+        ibOpenAi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onOpenAi();
+            }
+        });
+        menu.findItem(R.id.menu_openai).setActionView(ibOpenAi);
+
         View v = infl.inflate(R.layout.action_button_text, null);
         v.setId(View.generateViewId());
         ImageButton ib = v.findViewById(R.id.button);
@@ -1758,18 +1770,6 @@ public class FragmentCompose extends FragmentBase {
             }
         });
         menu.findItem(R.id.menu_translate).setActionView(ibTranslate);
-
-        ImageButton ibOpenAi = (ImageButton) infl.inflate(R.layout.action_button, null);
-        ibOpenAi.setId(View.generateViewId());
-        ibOpenAi.setImageResource(R.drawable.twotone_smart_toy_24);
-        ibOpenAi.setContentDescription(getString(R.string.title_openai));
-        ibOpenAi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onOpenAi(vwAnchorMenu);
-            }
-        });
-        menu.findItem(R.id.menu_openai).setActionView(ibOpenAi);
 
         ImageButton ibZoom = (ImageButton) infl.inflate(R.layout.action_button, null);
         ibZoom.setId(View.generateViewId());
@@ -2381,6 +2381,113 @@ public class FragmentCompose extends FragmentBase {
         fragment.show(getParentFragmentManager(), "select:identity");
     }
 
+    private void onOpenAi() {
+        int start = etBody.getSelectionStart();
+        int end = etBody.getSelectionEnd();
+        boolean selection = (start >= 0 && end > start);
+        Editable edit = etBody.getText();
+        String body = (selection ? edit.subSequence(start, end) : edit).toString().trim();
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putString("body", body);
+        args.putBoolean("selection", selection);
+
+        new SimpleTask<OpenAI.Message[]>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                chatting = true;
+                invalidateOptionsMenu();
+            }
+
+            @Override
+            protected void onPostExecute(Bundle args) {
+                chatting = false;
+                invalidateOptionsMenu();
+            }
+
+            @Override
+            protected OpenAI.Message[] onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String body = args.getString("body");
+                boolean selection = args.getBoolean("selection");
+
+                DB db = DB.getInstance(context);
+                EntityMessage draft = db.message().getMessage(id);
+                if (draft == null)
+                    return null;
+
+                List<EntityMessage> inreplyto;
+                if (selection || TextUtils.isEmpty(draft.inreplyto))
+                    inreplyto = new ArrayList<>();
+                else
+                    inreplyto = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
+
+                List<OpenAI.Message> result = new ArrayList<>();
+                //messages.add(new OpenAI.Message("system", "You are a helpful assistant."));
+
+                if (inreplyto.size() > 0 && inreplyto.get(0).content) {
+                    Document parsed = JsoupEx.parse(inreplyto.get(0).getFile(context));
+                    Document document = HtmlHelper.sanitizeView(context, parsed, false);
+                    Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
+                    String[] paragraphs = spanned.toString().split("[\\r\\n]+");
+
+                    int i = 0;
+                    StringBuilder sb = new StringBuilder();
+                    while (i < paragraphs.length &&
+                            sb.length() + paragraphs[i].length() + 1 < 1000)
+                        sb.append(paragraphs[i++]).append('\n');
+
+                    String role = (MessageHelper.equalEmail(draft.from, inreplyto.get(0).from) ? "assistant" : "user");
+                    result.add(new OpenAI.Message(role, sb.toString()));
+                }
+
+                if (!TextUtils.isEmpty(body))
+                    result.add(new OpenAI.Message("assistant", body));
+
+                if (result.size() == 0)
+                    return null;
+
+                return OpenAI.completeChat(context, result.toArray(new OpenAI.Message[0]), 1);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, OpenAI.Message[] messages) {
+                if (messages == null || messages.length == 0)
+                    return;
+
+                String text = messages[0].getContent()
+                        .replaceAll("^\\n+", "").replaceAll("\\n+$", "");
+
+                Editable edit = etBody.getText();
+                int start = etBody.getSelectionStart();
+                int end = etBody.getSelectionEnd();
+
+                int index;
+                if (etBody.hasSelection()) {
+                    edit.delete(start, end);
+                    index = start;
+                } else
+                    index = end;
+
+                if (index < 0)
+                    index = 0;
+                if (index > 0 && edit.charAt(index - 1) != '\n')
+                    edit.insert(index++, "\n");
+
+                edit.insert(index, text + "\n");
+                etBody.setSelection(index + text.length() + 1);
+
+                StyleHelper.markAsInserted(edit, index, index + text.length() + 1);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "openai");
+    }
+
     private void onTranslate(View anchor) {
         final Context context = anchor.getContext();
 
@@ -2560,113 +2667,6 @@ public class FragmentCompose extends FragmentBase {
         });
 
         popupMenu.showWithIcons(context, anchor);
-    }
-
-    private void onOpenAi(View anchor) {
-        int start = etBody.getSelectionStart();
-        int end = etBody.getSelectionEnd();
-        boolean selection = (start >= 0 && end > start);
-        Editable edit = etBody.getText();
-        String body = (selection ? edit.subSequence(start, end) : edit).toString().trim();
-
-        Bundle args = new Bundle();
-        args.putLong("id", working);
-        args.putString("body", body);
-        args.putBoolean("selection", selection);
-
-        new SimpleTask<OpenAI.Message[]>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                chatting = true;
-                invalidateOptionsMenu();
-            }
-
-            @Override
-            protected void onPostExecute(Bundle args) {
-                chatting = false;
-                invalidateOptionsMenu();
-            }
-
-            @Override
-            protected OpenAI.Message[] onExecute(Context context, Bundle args) throws Throwable {
-                long id = args.getLong("id");
-                String body = args.getString("body");
-                boolean selection = args.getBoolean("selection");
-
-                DB db = DB.getInstance(context);
-                EntityMessage draft = db.message().getMessage(id);
-                if (draft == null)
-                    return null;
-
-                List<EntityMessage> inreplyto;
-                if (selection || TextUtils.isEmpty(draft.inreplyto))
-                    inreplyto = new ArrayList<>();
-                else
-                    inreplyto = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
-
-                List<OpenAI.Message> result = new ArrayList<>();
-                //messages.add(new OpenAI.Message("system", "You are a helpful assistant."));
-
-                if (inreplyto.size() > 0 && inreplyto.get(0).content) {
-                    Document parsed = JsoupEx.parse(inreplyto.get(0).getFile(context));
-                    Document document = HtmlHelper.sanitizeView(context, parsed, false);
-                    Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
-                    String[] paragraphs = spanned.toString().split("[\\r\\n]+");
-
-                    int i = 0;
-                    StringBuilder sb = new StringBuilder();
-                    while (i < paragraphs.length &&
-                            sb.length() + paragraphs[i].length() + 1 < 1000)
-                        sb.append(paragraphs[i++]).append('\n');
-
-                    String role = (MessageHelper.equalEmail(draft.from, inreplyto.get(0).from) ? "assistant" : "user");
-                    result.add(new OpenAI.Message(role, sb.toString()));
-                }
-
-                if (!TextUtils.isEmpty(body))
-                    result.add(new OpenAI.Message("assistant", body));
-
-                if (result.size() == 0)
-                    return null;
-
-                return OpenAI.completeChat(context, result.toArray(new OpenAI.Message[0]), 1);
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, OpenAI.Message[] messages) {
-                if (messages == null || messages.length == 0)
-                    return;
-
-                String text = messages[0].getContent()
-                        .replaceAll("^\\n+", "").replaceAll("\\n+$", "");
-
-                Editable edit = etBody.getText();
-                int start = etBody.getSelectionStart();
-                int end = etBody.getSelectionEnd();
-
-                int index;
-                if (etBody.hasSelection()) {
-                    edit.delete(start, end);
-                    index = start;
-                } else
-                    index = end;
-
-                if (index < 0)
-                    index = 0;
-                if (index > 0 && edit.charAt(index - 1) != '\n')
-                    edit.insert(index++, "\n");
-
-                edit.insert(index, text + "\n");
-                etBody.setSelection(index + text.length() + 1);
-
-                StyleHelper.markAsInserted(edit, index, index + text.length() + 1);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
-            }
-        }.execute(this, args, "openai");
     }
 
     private void onLanguageTool(int start, int end, boolean silent) {
