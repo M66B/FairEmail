@@ -115,17 +115,8 @@ public class OpenAI {
                 String error = "Error " + status + ": " + connection.getResponseMessage();
                 try {
                     InputStream is = connection.getErrorStream();
-                    if (is != null) {
-                        json = Helper.readStream(is);
-                        Log.w(json);
-                        try {
-                            JSONObject jresponse = new JSONObject(json);
-                            JSONObject jerror = jresponse.getJSONObject("error");
-                            error += "\n" + jerror.getString("type") + ": " + jerror.getString("message");
-                        } catch (JSONException e) {
-                            error += "\n" + json;
-                        }
-                    }
+                    if (is != null)
+                        error += "\n" + Helper.readStream(is);
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
