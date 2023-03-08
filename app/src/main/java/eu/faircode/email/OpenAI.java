@@ -95,7 +95,7 @@ public class OpenAI {
 
         URL url = new URL(uri.toString());
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("GET");
+        connection.setRequestMethod("POST");
         connection.setDoOutput(true);
         connection.setDoInput(true);
         connection.setReadTimeout(TIMEOUT * 1000);
