@@ -53,7 +53,7 @@ public class OpenAI {
         return (enabled && !TextUtils.isEmpty(apikey));
     }
 
-    static Message[] completeChat(Context context, Message[] messages, int n) throws JSONException, IOException {
+    static Message[] completeChat(Context context, String model, Message[] messages, int n) throws JSONException, IOException {
         // https://platform.openai.com/docs/guides/chat/introduction
         // https://platform.openai.com/docs/api-reference/chat/create
 
@@ -66,7 +66,7 @@ public class OpenAI {
         }
 
         JSONObject jquestion = new JSONObject();
-        jquestion.put("model", "gpt-3.5-turbo");
+        jquestion.put("model", model);
         jquestion.put("messages", jmessages);
         jquestion.put("n", n);
         JSONObject jresponse = call(context, "v1/chat/completions", jquestion);

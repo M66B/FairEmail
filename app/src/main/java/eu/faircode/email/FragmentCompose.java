@@ -2448,7 +2448,10 @@ public class FragmentCompose extends FragmentBase {
                 if (result.size() == 0)
                     return null;
 
-                return OpenAI.completeChat(context, result.toArray(new OpenAI.Message[0]), 1);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                String model = prefs.getString("openai_model", "gpt-3.5-turbo");
+
+                return OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), 1);
             }
 
             @Override

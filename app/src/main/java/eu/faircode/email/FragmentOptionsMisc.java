@@ -144,6 +144,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swOpenAi;
     private TextView tvOpenAiPrivacy;
     private TextInputLayout tilOpenAi;
+    private EditText etOpenAiModel;
     private ImageButton ibOpenAi;
     private SwitchCompat swUpdates;
     private TextView tvGithubPrivacy;
@@ -268,7 +269,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host",
-            "openai_enabled", "openai_apikey",
+            "openai_enabled", "openai_apikey", "openai_model",
             "updates", "weekly", "beta", "show_changelog", "announcements",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
@@ -374,6 +375,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swOpenAi = view.findViewById(R.id.swOpenAi);
         tvOpenAiPrivacy = view.findViewById(R.id.tvOpenAiPrivacy);
         tilOpenAi = view.findViewById(R.id.tilOpenAi);
+        etOpenAiModel = view.findViewById(R.id.etOpenAiModel);
         ibOpenAi = view.findViewById(R.id.ibOpenAi);
         swUpdates = view.findViewById(R.id.swUpdates);
         tvGithubPrivacy = view.findViewById(R.id.tvGithubPrivacy);
@@ -914,6 +916,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     prefs.edit().remove("openai_apikey").apply();
                 else
                     prefs.edit().putString("openai_apikey", apikey).apply();
+            }
+        });
+
+        etOpenAiModel.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String model = s.toString().trim();
+                if (TextUtils.isEmpty(model))
+                    prefs.edit().remove("openai_model").apply();
+                else
+                    prefs.edit().putString("openai_model", model).apply();
             }
         });
 
@@ -2112,7 +2135,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 "lt_key".equals(key) ||
                 "vt_apikey".equals(key) ||
                 "send_host".equals(key) ||
-                "openai_apikey".equals(key))
+                "openai_apikey".equals(key) ||
+                "openai_model".equals(key))
             return;
 
         if ("global_keywords".equals(key))
@@ -2279,6 +2303,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         etSend.setText(prefs.getString("send_host", null));
         swOpenAi.setChecked(prefs.getBoolean("openai_enabled", false));
         tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
+        etOpenAiModel.setText(prefs.getString("openai_model", null));
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());
