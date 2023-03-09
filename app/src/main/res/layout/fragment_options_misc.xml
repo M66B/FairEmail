@@ -633,6 +633,31 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvOpenAiModel" />
 
+                <TextView
+                    android:id="@+id/tvOpenAiTemperature"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_openai_temperature"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etOpenAiModel" />
+
+                <SeekBar
+                    android:id="@+id/sbOpenAiTemperature"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:max="20"
+                    android:min="0"
+                    android:progress="10"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOpenAiTemperature" />
+
                 <ImageButton
                     android:id="@+id/ibOpenAi"
                     android:layout_width="wrap_content"
@@ -641,7 +666,7 @@
                     android:contentDescription="@string/title_info"
                     android:tooltipText="@string/title_info"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etOpenAiModel"
+                    app:layout_constraintTop_toBottomOf="@id/sbOpenAiTemperature"
                     app:srcCompat="@drawable/twotone_info_24" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -892,7 +917,7 @@
                     android:id="@+id/grpOpenAi"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="swOpenAi,tvOpenAiPrivacy,tilOpenAi,ibOpenAi" />
+                    app:constraint_referenced_ids="swOpenAi,tvOpenAiPrivacy,tilOpenAi,ibOpenAi,etOpenAiModel,tvOpenAiTemperature,sbOpenAiTemperature" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpUpdates"

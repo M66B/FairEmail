@@ -53,7 +53,7 @@ public class OpenAI {
         return (enabled && !TextUtils.isEmpty(apikey));
     }
 
-    static Message[] completeChat(Context context, String model, Message[] messages, int n) throws JSONException, IOException {
+    static Message[] completeChat(Context context, String model, Message[] messages, Float temperature, int n) throws JSONException, IOException {
         // https://platform.openai.com/docs/guides/chat/introduction
         // https://platform.openai.com/docs/api-reference/chat/create
 
@@ -68,6 +68,8 @@ public class OpenAI {
         JSONObject jquestion = new JSONObject();
         jquestion.put("model", model);
         jquestion.put("messages", jmessages);
+        if (temperature != null)
+            jquestion.put("temperature", temperature);
         jquestion.put("n", n);
         JSONObject jresponse = call(context, "v1/chat/completions", jquestion);
 

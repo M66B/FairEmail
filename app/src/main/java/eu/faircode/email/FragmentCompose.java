@@ -2450,8 +2450,9 @@ public class FragmentCompose extends FragmentBase {
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 String model = prefs.getString("openai_model", "gpt-3.5-turbo");
+                float temperatur = prefs.getFloat("openai_temperature", 1.0f);
 
-                return OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), 1);
+                return OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperatur, 1);
             }
 
             @Override

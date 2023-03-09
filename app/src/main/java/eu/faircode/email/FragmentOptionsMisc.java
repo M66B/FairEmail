@@ -145,6 +145,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvOpenAiPrivacy;
     private TextInputLayout tilOpenAi;
     private EditText etOpenAiModel;
+    private TextView tvOpenAiTemperature;
+    private SeekBar sbOpenAiTemperature;
     private ImageButton ibOpenAi;
     private SwitchCompat swUpdates;
     private TextView tvGithubPrivacy;
@@ -269,7 +271,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host",
-            "openai_enabled", "openai_apikey", "openai_model",
+            "openai_enabled", "openai_apikey", "openai_model", "openai_temperature",
             "updates", "weekly", "beta", "show_changelog", "announcements",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
@@ -376,6 +378,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvOpenAiPrivacy = view.findViewById(R.id.tvOpenAiPrivacy);
         tilOpenAi = view.findViewById(R.id.tilOpenAi);
         etOpenAiModel = view.findViewById(R.id.etOpenAiModel);
+        tvOpenAiTemperature = view.findViewById(R.id.tvOpenAiTemperature);
+        sbOpenAiTemperature = view.findViewById(R.id.sbOpenAiTemperature);
         ibOpenAi = view.findViewById(R.id.ibOpenAi);
         swUpdates = view.findViewById(R.id.swUpdates);
         tvGithubPrivacy = view.findViewById(R.id.tvGithubPrivacy);
@@ -937,6 +941,23 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     prefs.edit().remove("openai_model").apply();
                 else
                     prefs.edit().putString("openai_model", model).apply();
+            }
+        });
+
+        sbOpenAiTemperature.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                prefs.edit().putFloat("openai_temperature", progress / 10f).apply();
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // Do nothing
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                // Do nothing
             }
         });
 
@@ -2304,6 +2325,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swOpenAi.setChecked(prefs.getBoolean("openai_enabled", false));
         tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
         etOpenAiModel.setText(prefs.getString("openai_model", null));
+
+        float temperature = prefs.getFloat("openai_temperature", 1f);
+        tvOpenAiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
+        sbOpenAiTemperature.setProgress(Math.round(temperature * 10));
+
         swUpdates.setChecked(prefs.getBoolean("updates", true));
         swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
         swCheckWeekly.setEnabled(swUpdates.isChecked());
