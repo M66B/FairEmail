@@ -123,6 +123,23 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvFtsIndexed;
     private TextView tvFtsPro;
     private Spinner spLanguage;
+    private SwitchCompat swUpdates;
+    private TextView tvGithubPrivacy;
+    private ImageButton ibChannelUpdated;
+    private SwitchCompat swCheckWeekly;
+    private SwitchCompat swBeta;
+    private TextView tvBitBucketPrivacy;
+    private SwitchCompat swChangelog;
+    private SwitchCompat swAnnouncements;
+    private TextView tvAnnouncementsPrivacy;
+    private SwitchCompat swCrashReports;
+    private TextView tvUuid;
+    private Button btnReset;
+    private SwitchCompat swCleanupAttachments;
+    private Button btnCleanup;
+    private TextView tvLastCleanup;
+    private TextView tvSdcard;
+
     private SwitchCompat swLanguageTool;
     private TextView tvLanguageToolPrivacy;
     private SwitchCompat swLanguageToolAuto;
@@ -148,22 +165,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvOpenAiTemperature;
     private SeekBar sbOpenAiTemperature;
     private ImageButton ibOpenAi;
-    private SwitchCompat swUpdates;
-    private TextView tvGithubPrivacy;
-    private ImageButton ibChannelUpdated;
-    private SwitchCompat swCheckWeekly;
-    private SwitchCompat swBeta;
-    private TextView tvBitBucketPrivacy;
-    private SwitchCompat swChangelog;
-    private SwitchCompat swAnnouncements;
-    private TextView tvAnnouncementsPrivacy;
-    private SwitchCompat swCrashReports;
-    private TextView tvUuid;
-    private Button btnReset;
-    private SwitchCompat swCleanupAttachments;
-    private Button btnCleanup;
-    private TextView tvLastCleanup;
-    private TextView tvSdcard;
 
     private CardView cardAdvanced;
     private SwitchCompat swWatchdog;
@@ -356,6 +357,23 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
+        swUpdates = view.findViewById(R.id.swUpdates);
+        tvGithubPrivacy = view.findViewById(R.id.tvGithubPrivacy);
+        ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
+        swCheckWeekly = view.findViewById(R.id.swWeekly);
+        swBeta = view.findViewById(R.id.swBeta);
+        tvBitBucketPrivacy = view.findViewById(R.id.tvBitBucketPrivacy);
+        swChangelog = view.findViewById(R.id.swChangelog);
+        swAnnouncements = view.findViewById(R.id.swAnnouncements);
+        tvAnnouncementsPrivacy = view.findViewById(R.id.tvAnnouncementsPrivacy);
+        swCrashReports = view.findViewById(R.id.swCrashReports);
+        tvUuid = view.findViewById(R.id.tvUuid);
+        btnReset = view.findViewById(R.id.btnReset);
+        swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
+        btnCleanup = view.findViewById(R.id.btnCleanup);
+        tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
+        tvSdcard = view.findViewById(R.id.tvSdcard);
+
         swLanguageTool = view.findViewById(R.id.swLanguageTool);
         tvLanguageToolPrivacy = view.findViewById(R.id.tvLanguageToolPrivacy);
         swLanguageToolAuto = view.findViewById(R.id.swLanguageToolAuto);
@@ -381,22 +399,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvOpenAiTemperature = view.findViewById(R.id.tvOpenAiTemperature);
         sbOpenAiTemperature = view.findViewById(R.id.sbOpenAiTemperature);
         ibOpenAi = view.findViewById(R.id.ibOpenAi);
-        swUpdates = view.findViewById(R.id.swUpdates);
-        tvGithubPrivacy = view.findViewById(R.id.tvGithubPrivacy);
-        ibChannelUpdated = view.findViewById(R.id.ibChannelUpdated);
-        swCheckWeekly = view.findViewById(R.id.swWeekly);
-        swBeta = view.findViewById(R.id.swBeta);
-        tvBitBucketPrivacy = view.findViewById(R.id.tvBitBucketPrivacy);
-        swChangelog = view.findViewById(R.id.swChangelog);
-        swAnnouncements = view.findViewById(R.id.swAnnouncements);
-        tvAnnouncementsPrivacy = view.findViewById(R.id.tvAnnouncementsPrivacy);
-        swCrashReports = view.findViewById(R.id.swCrashReports);
-        tvUuid = view.findViewById(R.id.tvUuid);
-        btnReset = view.findViewById(R.id.btnReset);
-        swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
-        btnCleanup = view.findViewById(R.id.btnCleanup);
-        tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
-        tvSdcard = view.findViewById(R.id.tvSdcard);
 
         cardAdvanced = view.findViewById(R.id.cardAdvanced);
         swWatchdog = view.findViewById(R.id.swWatchdog);
@@ -683,6 +685,124 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swUpdates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("updates", checked).apply();
+                swCheckWeekly.setEnabled(checked);
+                swBeta.setEnabled(checked);
+                if (!checked) {
+                    NotificationManager nm =
+                            Helper.getSystemService(getContext(), NotificationManager.class);
+                    nm.cancel(NotificationHelper.NOTIFICATION_UPDATE);
+                }
+            }
+        });
+
+        tvGithubPrivacy.getPaint().setUnderlineText(true);
+        tvGithubPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.GITHUB_PRIVACY_URI), true);
+            }
+        });
+
+        final Intent channelUpdate = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
+                .putExtra(Settings.EXTRA_CHANNEL_ID, "update");
+
+        ibChannelUpdated.setVisibility(View.GONE);
+        ibChannelUpdated.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.getContext().startActivity(channelUpdate);
+            }
+        });
+
+        swCheckWeekly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("weekly", checked).apply();
+            }
+        });
+
+        swBeta.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("beta", checked).apply();
+            }
+        });
+
+        tvBitBucketPrivacy.getPaint().setUnderlineText(true);
+        tvBitBucketPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.BITBUCKET_PRIVACY_URI), true);
+            }
+        });
+
+        swChangelog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("show_changelog", checked).apply();
+            }
+        });
+
+        swAnnouncements.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("announcements", checked).apply();
+            }
+        });
+
+        tvAnnouncementsPrivacy.getPaint().setUnderlineText(true);
+        tvAnnouncementsPrivacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.GITHUB_PRIVACY_URI), true);
+            }
+        });
+
+        swCrashReports.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit()
+                        .remove("crash_report_count")
+                        .putBoolean("crash_reports", checked)
+                        .apply();
+                Log.setCrashReporting(checked);
+            }
+        });
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onResetQuestions();
+            }
+        });
+
+        swCleanupAttachments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("cleanup_attachments", checked).apply();
+            }
+        });
+
+        btnCleanup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCleanup();
+            }
+        });
+
+        tvSdcard.setPaintFlags(tvSdcard.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvSdcard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 93);
+            }
+        });
+
         swLanguageTool.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -965,124 +1085,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 190);
-            }
-        });
-
-        swUpdates.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("updates", checked).apply();
-                swCheckWeekly.setEnabled(checked);
-                swBeta.setEnabled(checked);
-                if (!checked) {
-                    NotificationManager nm =
-                            Helper.getSystemService(getContext(), NotificationManager.class);
-                    nm.cancel(NotificationHelper.NOTIFICATION_UPDATE);
-                }
-            }
-        });
-
-        tvGithubPrivacy.getPaint().setUnderlineText(true);
-        tvGithubPrivacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.GITHUB_PRIVACY_URI), true);
-            }
-        });
-
-        final Intent channelUpdate = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS)
-                .putExtra(Settings.EXTRA_APP_PACKAGE, getContext().getPackageName())
-                .putExtra(Settings.EXTRA_CHANNEL_ID, "update");
-
-        ibChannelUpdated.setVisibility(View.GONE);
-        ibChannelUpdated.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                v.getContext().startActivity(channelUpdate);
-            }
-        });
-
-        swCheckWeekly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("weekly", checked).apply();
-            }
-        });
-
-        swBeta.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("beta", checked).apply();
-            }
-        });
-
-        tvBitBucketPrivacy.getPaint().setUnderlineText(true);
-        tvBitBucketPrivacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.BITBUCKET_PRIVACY_URI), true);
-            }
-        });
-
-        swChangelog.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("show_changelog", checked).apply();
-            }
-        });
-
-        swAnnouncements.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("announcements", checked).apply();
-            }
-        });
-
-        tvAnnouncementsPrivacy.getPaint().setUnderlineText(true);
-        tvAnnouncementsPrivacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.GITHUB_PRIVACY_URI), true);
-            }
-        });
-
-        swCrashReports.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit()
-                        .remove("crash_report_count")
-                        .putBoolean("crash_reports", checked)
-                        .apply();
-                Log.setCrashReporting(checked);
-            }
-        });
-
-        btnReset.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onResetQuestions();
-            }
-        });
-
-        swCleanupAttachments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("cleanup_attachments", checked).apply();
-            }
-        });
-
-        btnCleanup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                onCleanup();
-            }
-        });
-
-        tvSdcard.setPaintFlags(tvSdcard.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-        tvSdcard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 93);
             }
         });
 
@@ -2055,16 +2057,15 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        grpVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
-        grpSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
-        grpOpenAi.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
-
         grpUpdates.setVisibility(!BuildConfig.DEBUG &&
                 (Helper.isPlayStoreInstall() || !Helper.hasValidFingerprint(getContext()))
                 ? View.GONE : View.VISIBLE);
         grpBitbucket.setVisibility(View.GONE);
         grpAnnouncements.setVisibility(TextUtils.isEmpty(BuildConfig.ANNOUNCEMENT_URI)
                 ? View.GONE : View.VISIBLE);
+        grpVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        grpSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        grpOpenAi.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         grpTest.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
@@ -2303,6 +2304,18 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 selected = pos + 1;
         }
 
+        swUpdates.setChecked(prefs.getBoolean("updates", true));
+        swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
+        swCheckWeekly.setEnabled(swUpdates.isChecked());
+        swBeta.setChecked(prefs.getBoolean("beta", false));
+        swBeta.setEnabled(swUpdates.isChecked());
+        swChangelog.setChecked(prefs.getBoolean("show_changelog", !BuildConfig.PLAY_STORE_RELEASE));
+        swAnnouncements.setChecked(prefs.getBoolean("announcements", true));
+        swExperiments.setChecked(prefs.getBoolean("experiments", false));
+        swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
+        tvUuid.setText(prefs.getString("uuid", null));
+        swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, display);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spLanguage.setAdapter(adapter);
@@ -2329,18 +2342,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         float temperature = prefs.getFloat("openai_temperature", 1f);
         tvOpenAiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
         sbOpenAiTemperature.setProgress(Math.round(temperature * 10));
-
-        swUpdates.setChecked(prefs.getBoolean("updates", true));
-        swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
-        swCheckWeekly.setEnabled(swUpdates.isChecked());
-        swBeta.setChecked(prefs.getBoolean("beta", false));
-        swBeta.setEnabled(swUpdates.isChecked());
-        swChangelog.setChecked(prefs.getBoolean("show_changelog", !BuildConfig.PLAY_STORE_RELEASE));
-        swAnnouncements.setChecked(prefs.getBoolean("announcements", true));
-        swExperiments.setChecked(prefs.getBoolean("experiments", false));
-        swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
-        tvUuid.setText(prefs.getString("uuid", null));
-        swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
 
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swMainLog.setChecked(prefs.getBoolean("main_log", true));

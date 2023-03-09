@@ -507,6 +507,7 @@
     <string name="title_advanced_caption_message_body">Message body</string>
     <string name="title_advanced_caption_file">File</string>
     <string name="title_advanced_caption_cloud" translatable="false">Cloud</string>
+    <string name="title_advanced_caption_integrations">Integrations</string>
     <string name="title_advanced_caption_debug" translatable="false">Debug</string>
 
     <string name="title_advanced_portrait">Portrait mode</string>
