@@ -45,6 +45,9 @@ import biweekly.util.ICalDate;
 public class CalendarHelper {
     static void insert(Context context, ICalendar icalendar, VEvent event,
                        String selectedAccount, String selectedName, EntityMessage message) {
+
+        String organizer = (event.getOrganizer() == null ? null : event.getOrganizer().getEmail());
+
         String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
         String description = (event.getDescription() == null ? null : event.getDescription().getValue());
         String location = (event.getLocation() == null ? null : event.getLocation().getValue());
@@ -90,6 +93,8 @@ public class CalendarHelper {
                 values.put(CalendarContract.Events.CALENDAR_ID, calId);
                 if (!TextUtils.isEmpty(uid))
                     values.put(CalendarContract.Events.UID_2445, uid);
+                if (!TextUtils.isEmpty(organizer))
+                    values.put(CalendarContract.Events.ORGANIZER, organizer);
                 values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
                 values.put(CalendarContract.Events.DTSTART, start.getTime());
                 values.put(CalendarContract.Events.DTEND, end.getTime());
@@ -108,6 +113,7 @@ public class CalendarHelper {
                 EntityLog.log(context, EntityLog.Type.General, message, "Inserted event" +
                         " id=" + calId + ":" + eventId +
                         " uid=" + uid +
+                        " organizer=" + organizer +
                         " tz=" + TimeZone.getDefault().getID() +
                         " start=" + new Date(start.getTime()) +
                         " end=" + new Date(end.getTime()) +
