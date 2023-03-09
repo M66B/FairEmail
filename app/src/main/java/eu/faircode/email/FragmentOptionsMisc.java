@@ -2339,7 +2339,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
         etOpenAiModel.setText(prefs.getString("openai_model", null));
 
-        float temperature = prefs.getFloat("openai_temperature", 1f);
+        float temperature = prefs.getFloat("openai_temperature", 0.5f);
         tvOpenAiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
         sbOpenAiTemperature.setProgress(Math.round(temperature * 10));
 
