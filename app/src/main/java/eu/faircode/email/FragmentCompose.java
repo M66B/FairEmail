@@ -163,6 +163,7 @@ import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
+import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -2445,7 +2446,18 @@ public class FragmentCompose extends FragmentBase {
                 String model = prefs.getString("openai_model", "gpt-3.5-turbo");
                 float temperature = prefs.getFloat("openai_temperature", 1.0f);
 
-                return OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
+                OpenAI.Message[] completions =
+                        OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
+
+                try {
+                    Pair<Double, Double> usage = OpenAI.getGrants(context);
+                    args.putDouble("used", usage.first);
+                    args.putDouble("granted", usage.second);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+
+                return completions;
             }
 
             @NonNull
@@ -2489,6 +2501,12 @@ public class FragmentCompose extends FragmentBase {
                 etBody.setSelection(index + text.length() + 1);
 
                 StyleHelper.markAsInserted(edit, index, index + text.length() + 1);
+
+                if (args.containsKey("used") && args.containsKey("granted")) {
+                    double used = args.getDouble("used");
+                    double granted = args.getDouble("granted");
+                    ToastEx.makeText(getContext(), String.format("$%.2f/%.2f", used, granted), Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override

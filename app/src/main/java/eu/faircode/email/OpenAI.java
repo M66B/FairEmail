@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -53,6 +54,34 @@ public class OpenAI {
         return (enabled && !TextUtils.isEmpty(apikey));
     }
 
+    static Pair<Double, Double> getGrants(Context context) throws JSONException, IOException {
+        // dashboard/billing/credit_grants
+        // {
+        //  "object": "credit_summary",
+        //  "total_granted": <float>,
+        //  "total_used": <float>,
+        //  "total_available": <float>,
+        //  "grants": {
+        //    "object": "list",
+        //    "data": [
+        //      {
+        //        "object": "credit_grant",
+        //        "id": "<guid>>",
+        //        "grant_amount": <float>,
+        //        "used_amount": <float>>,
+        //        "effective_at": <unixtime>,
+        //        "expires_at": <unixtime>
+        //      }
+        //    ]
+        //  }
+        //}
+
+        JSONObject grants = call(context, "GET", "dashboard/billing/credit_grants", null);
+        return new Pair<>(
+                grants.getDouble("total_used"),
+                grants.getDouble("total_granted"));
+    }
+
     static Message[] completeChat(Context context, String model, Message[] messages, Float temperature, int n) throws JSONException, IOException {
         // https://platform.openai.com/docs/guides/chat/introduction
         // https://platform.openai.com/docs/api-reference/chat/create
@@ -71,7 +100,7 @@ public class OpenAI {
         if (temperature != null)
             jquestion.put("temperature", temperature);
         jquestion.put("n", n);
-        JSONObject jresponse = call(context, "v1/chat/completions", jquestion);
+        JSONObject jresponse = call(context, "POST", "v1/chat/completions", jquestion);
 
         JSONArray jchoices = jresponse.getJSONArray("choices");
         Message[] choices = new Message[jchoices.length()];
@@ -84,21 +113,18 @@ public class OpenAI {
         return choices;
     }
 
-    private static JSONObject call(Context context, String method, JSONObject args) throws JSONException, IOException {
+    private static JSONObject call(Context context, String method, String path, JSONObject args) throws JSONException, IOException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String apikey = prefs.getString("openai_apikey", null);
 
         // https://platform.openai.com/docs/api-reference/introduction
-        Uri uri = Uri.parse(URI_ENDPOINT).buildUpon().appendEncodedPath(method).build();
+        Uri uri = Uri.parse(URI_ENDPOINT).buildUpon().appendEncodedPath(path).build();
         Log.i("OpenAI uri=" + uri);
-
-        String json = args.toString();
-        Log.i("OpenAI request=" + json);
 
         URL url = new URL(uri.toString());
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setDoOutput(true);
+        connection.setRequestMethod(method);
+        connection.setDoOutput(args != null);
         connection.setDoInput(true);
         connection.setReadTimeout(TIMEOUT * 1000);
         connection.setConnectTimeout(TIMEOUT * 1000);
@@ -109,7 +135,11 @@ public class OpenAI {
         connection.connect();
 
         try {
-            connection.getOutputStream().write(json.getBytes());
+            if (args != null) {
+                String json = args.toString();
+                Log.i("OpenAI request=" + json);
+                connection.getOutputStream().write(json.getBytes());
+            }
 
             int status = connection.getResponseCode();
             if (status != HttpURLConnection.HTTP_OK) {
