@@ -321,6 +321,8 @@ public class FragmentCompose extends FragmentBase {
 
     private static final int MAX_QUOTE_LEVEL = 5;
 
+    private static final int MAX_OPENAI_LEN = 1000; // characters
+
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
     private static final int REQUEST_CONTACT_BCC = 3;
@@ -2424,35 +2426,39 @@ public class FragmentCompose extends FragmentBase {
                     inreplyto = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
 
                 List<OpenAI.Message> result = new ArrayList<>();
-                //messages.add(new OpenAI.Message("system", "You are a helpful assistant."));
 
                 if (inreplyto.size() > 0 && inreplyto.get(0).content) {
+                    String role = (MessageHelper.equalEmail(draft.from, inreplyto.get(0).from) ? "assistant" : "user");
                     Document parsed = JsoupEx.parse(inreplyto.get(0).getFile(context));
                     Document document = HtmlHelper.sanitizeView(context, parsed, false);
                     Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
-                    String[] paragraphs = spanned.toString().split("[\\r\\n]+");
-
-                    int i = 0;
-                    StringBuilder sb = new StringBuilder();
-                    while (i < paragraphs.length &&
-                            sb.length() + paragraphs[i].length() + 1 < 1000)
-                        sb.append(paragraphs[i++]).append('\n');
-
-                    String role = (MessageHelper.equalEmail(draft.from, inreplyto.get(0).from) ? "assistant" : "user");
-                    result.add(new OpenAI.Message(role, sb.toString()));
+                    result.add(new OpenAI.Message(role, truncate(spanned.toString(), MAX_OPENAI_LEN)));
                 }
 
                 if (!TextUtils.isEmpty(body))
-                    result.add(new OpenAI.Message("assistant", body));
+                    result.add(new OpenAI.Message("assistant", truncate(body, MAX_OPENAI_LEN)));
 
                 if (result.size() == 0)
                     return null;
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 String model = prefs.getString("openai_model", "gpt-3.5-turbo");
-                float temperatur = prefs.getFloat("openai_temperature", 1.0f);
+                float temperature = prefs.getFloat("openai_temperature", 1.0f);
 
-                return OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperatur, 1);
+                return OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
+            }
+
+            @NonNull
+            private String truncate(@NonNull String text, int maxlen) {
+                String[] paragraphs = text.split("[\\r\\n]+");
+
+                int i = 0;
+                StringBuilder sb = new StringBuilder();
+                while (i < paragraphs.length &&
+                        sb.length() + paragraphs[i].length() + 1 < maxlen)
+                    sb.append(paragraphs[i++]).append('\n');
+
+                return sb.toString();
             }
 
             @Override
