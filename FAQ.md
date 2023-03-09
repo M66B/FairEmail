@@ -2747,6 +2747,10 @@ An app like Tasker can listen for this intent and perform some action.
 
 <br />
 
+You can long-press a rule in the list of rules to copy it, which can be useful if you need a rule with the same condition but a different action.
+
+<br />
+
 In the three-dots *more* message menu there is an item to create a rule for a received message with the most common conditions filled in.
 
 <br />
