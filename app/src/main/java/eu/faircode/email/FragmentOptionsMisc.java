@@ -1020,7 +1020,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvOpenAiPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(OpenAI.URI_PRIVACY), true);
+                Helper.view(v.getContext(), Uri.parse(BuildConfig.OPENAI_PRIVACY), true);
             }
         });
 
@@ -2074,7 +2074,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 ? View.GONE : View.VISIBLE);
         grpVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
         grpSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
-        grpOpenAi.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        grpOpenAi.setVisibility(TextUtils.isEmpty(BuildConfig.OPENAI_ENDPOINT) ? View.GONE : View.VISIBLE);
         grpTest.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));

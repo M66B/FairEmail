@@ -42,13 +42,10 @@ import java.util.Iterator;
 import java.util.List;
 
 public class OpenAI {
-    static final String URI_ENDPOINT = "https://api.openai.com/";
-    static final String URI_PRIVACY = "https://openai.com/policies/privacy-policy";
-
     private static final int TIMEOUT = 30; // seconds
 
     static boolean isAvailable(Context context) {
-        if (BuildConfig.PLAY_STORE_RELEASE)
+        if (TextUtils.isEmpty(BuildConfig.OPENAI_ENDPOINT))
             return false;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -152,7 +149,7 @@ public class OpenAI {
         String apikey = prefs.getString("openai_apikey", null);
 
         // https://platform.openai.com/docs/api-reference/introduction
-        Uri uri = Uri.parse(URI_ENDPOINT).buildUpon().appendEncodedPath(path).build();
+        Uri uri = Uri.parse(BuildConfig.OPENAI_ENDPOINT).buildUpon().appendEncodedPath(path).build();
         Log.i("OpenAI uri=" + uri);
 
         long start = new Date().getTime();

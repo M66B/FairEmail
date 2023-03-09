@@ -176,6 +176,8 @@ android {
             buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"https://api.fairemail.net/sync\""
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
+            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
+            buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
             buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
             buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
@@ -199,6 +201,8 @@ android {
             buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"https://api.fairemail.net/sync\""
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
+            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
+            buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
             buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
             buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
@@ -222,6 +226,8 @@ android {
             buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"https://api.fairemail.net/sync\""
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
+            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
+            buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "TX_URI", "\"\""
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
@@ -246,6 +252,8 @@ android {
             buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"\""
             buildConfigField "String", "CLOUD_EMAIL", "\"\""
+            buildConfigField "String", "OPENAI_ENDPOINT", "\"\""
+            buildConfigField "String", "OPENAI_PRIVACY", "\"\""
             buildConfigField "String", "TX_URI", "\"\""
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
@@ -270,6 +278,8 @@ android {
             buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"\""
             buildConfigField "String", "CLOUD_EMAIL", "\"\""
+            buildConfigField "String", "OPENAI_ENDPOINT", "\"\""
+            buildConfigField "String", "OPENAI_PRIVACY", "\"\""
             buildConfigField "String", "TX_URI", "\"\""
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
