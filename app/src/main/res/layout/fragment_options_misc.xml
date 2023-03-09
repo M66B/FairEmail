@@ -984,6 +984,18 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvOpenAiTemperature" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swOpenAiModeration"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_openai_moderation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbOpenAiTemperature"
+                    app:switchPadding="12dp" />
+
                 <ImageButton
                     android:id="@+id/ibOpenAi"
                     android:layout_width="wrap_content"
@@ -993,7 +1005,7 @@
                     android:contentDescription="@string/title_info"
                     android:tooltipText="@string/title_info"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sbOpenAiTemperature"
+                    app:layout_constraintTop_toBottomOf="@id/swOpenAiModeration"
                     app:srcCompat="@drawable/twotone_info_24" />
 
                 <androidx.constraintlayout.widget.Group

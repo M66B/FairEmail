@@ -164,6 +164,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private EditText etOpenAiModel;
     private TextView tvOpenAiTemperature;
     private SeekBar sbOpenAiTemperature;
+    private SwitchCompat swOpenAiModeration;
     private ImageButton ibOpenAi;
 
     private CardView cardAdvanced;
@@ -272,7 +273,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host",
-            "openai_enabled", "openai_apikey", "openai_model", "openai_temperature",
+            "openai_enabled", "openai_apikey", "openai_model", "openai_temperature", "openai_moderation",
             "updates", "weekly", "beta", "show_changelog", "announcements",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
@@ -398,6 +399,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         etOpenAiModel = view.findViewById(R.id.etOpenAiModel);
         tvOpenAiTemperature = view.findViewById(R.id.tvOpenAiTemperature);
         sbOpenAiTemperature = view.findViewById(R.id.sbOpenAiTemperature);
+        swOpenAiModeration = view.findViewById(R.id.swOpenAiModeration);
         ibOpenAi = view.findViewById(R.id.ibOpenAi);
 
         cardAdvanced = view.findViewById(R.id.cardAdvanced);
@@ -1078,6 +1080,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 // Do nothing
+            }
+        });
+
+        swOpenAiModeration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("openai_moderation", checked).apply();
             }
         });
 
@@ -2342,6 +2351,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         float temperature = prefs.getFloat("openai_temperature", 0.5f);
         tvOpenAiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
         sbOpenAiTemperature.setProgress(Math.round(temperature * 10));
+        swOpenAiModeration.setChecked(prefs.getBoolean("openai_moderation", false));
 
         swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
         swMainLog.setChecked(prefs.getBoolean("main_log", true));

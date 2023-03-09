@@ -115,10 +115,13 @@ public class OpenAI {
     static Message[] completeChat(Context context, String model, Message[] messages, Float temperature, int n) throws JSONException, IOException {
         // https://platform.openai.com/docs/guides/chat/introduction
         // https://platform.openai.com/docs/api-reference/chat/create
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean openai_moderation = prefs.getBoolean("openai_moderation", false);
 
         JSONArray jmessages = new JSONArray();
         for (Message message : messages) {
-            checkModeration(context, message.content);
+            if (openai_moderation)
+                checkModeration(context, message.content);
             JSONObject jmessage = new JSONObject();
             jmessage.put("role", message.role);
             jmessage.put("content", message.content);
