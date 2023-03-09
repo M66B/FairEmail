@@ -5866,6 +5866,7 @@ class Core {
                     message.from != null && message.from.length > 0 &&
                     db.folder().getOutbox() != null) {
                 Intent reply = new Intent(context, ServiceUI.class)
+                        .setPackage(BuildConfig.APPLICATION_ID)
                         .setAction("reply:" + message.id)
                         .putExtra("group", group);
                 PendingIntent piReply = PendingIntentCompat.getService(

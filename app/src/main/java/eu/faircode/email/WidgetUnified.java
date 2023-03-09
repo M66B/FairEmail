@@ -121,6 +121,7 @@ public class WidgetUnified extends AppWidgetProvider {
             views.setRemoteAdapter(R.id.lv, service);
 
             Intent thread = new Intent(context, ActivityView.class);
+            thread.setPackage(BuildConfig.APPLICATION_ID);
             thread.setAction("widget:" + appWidgetId);
             thread.putExtra("widget_account", account);
             thread.putExtra("widget_folder", folder);
