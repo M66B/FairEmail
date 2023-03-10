@@ -2510,7 +2510,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                Log.unexpectedError(getParentFragmentManager(), ex);
+                Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
             }
         }.execute(this, args, "openai");
     }

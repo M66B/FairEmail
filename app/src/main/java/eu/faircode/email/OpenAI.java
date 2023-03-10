@@ -179,9 +179,30 @@ public class OpenAI {
                 // https://platform.openai.com/docs/guides/error-codes/api-errors
                 String error = "Error " + status + ": " + connection.getResponseMessage();
                 try {
+                    // HTTP 429
+                    // {
+                    //    "error": {
+                    //        "message": "You exceeded your current quota, please check your plan and billing details.",
+                    //        "type": "insufficient_quota",
+                    //        "param": null,
+                    //        "code": null
+                    //    }
+                    //}
                     InputStream is = connection.getErrorStream();
-                    if (is != null)
-                        error += "\n" + Helper.readStream(is);
+                    if (is != null) {
+                        String err = Helper.readStream(is);
+                        if (BuildConfig.DEBUG)
+                            error += "\n" + err;
+                        else {
+                            Log.w(new Throwable(err));
+                            try {
+                                JSONObject jerror = new JSONObject(err).getJSONObject("error");
+                                error += "\n" + jerror.getString("type") + ": " + jerror.getString("message");
+                            } catch (JSONException ignored) {
+                                error += "\n" + err;
+                            }
+                        }
+                    }
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
