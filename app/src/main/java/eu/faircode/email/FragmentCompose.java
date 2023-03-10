@@ -2432,11 +2432,11 @@ public class FragmentCompose extends FragmentBase {
                     Document parsed = JsoupEx.parse(inreplyto.get(0).getFile(context));
                     Document document = HtmlHelper.sanitizeView(context, parsed, false);
                     Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
-                    result.add(new OpenAI.Message(role, truncate(spanned.toString(), MAX_OPENAI_LEN)));
+                    result.add(new OpenAI.Message(role, OpenAI.truncateParagraphs(spanned.toString(), MAX_OPENAI_LEN)));
                 }
 
                 if (!TextUtils.isEmpty(body))
-                    result.add(new OpenAI.Message("assistant", truncate(body, MAX_OPENAI_LEN)));
+                    result.add(new OpenAI.Message("assistant", OpenAI.truncateParagraphs(body, MAX_OPENAI_LEN)));
 
                 if (result.size() == 0)
                     return null;
@@ -2462,19 +2462,6 @@ public class FragmentCompose extends FragmentBase {
                 }
 
                 return completions;
-            }
-
-            @NonNull
-            private String truncate(@NonNull String text, int maxlen) {
-                String[] paragraphs = text.split("[\\r\\n]+");
-
-                int i = 0;
-                StringBuilder sb = new StringBuilder();
-                while (i < paragraphs.length &&
-                        sb.length() + paragraphs[i].length() + 1 < maxlen)
-                    sb.append(paragraphs[i++]).append('\n');
-
-                return sb.toString();
             }
 
             @Override
