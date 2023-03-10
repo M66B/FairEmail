@@ -2186,10 +2186,9 @@ public class Log {
                 WebViewEx.isFeatureSupported(context, WebViewFeature.ALGORITHMIC_DARKENING)));
         try {
             PackageInfo pkg = WebViewCompat.getCurrentWebViewPackage(context);
-            sb.append(String.format("WebView %d/%s %s\r\n",
+            sb.append(String.format("WebView %d/%s\r\n",
                     pkg == null ? -1 : pkg.versionCode,
-                    pkg == null ? null : pkg.versionName,
-                    pkg == null || pkg.versionCode / 100000 < 5304 ? "!!!" : ""));
+                    pkg == null ? null : pkg.versionName));
         } catch (Throwable ex) {
             sb.append(ex).append("\r\n");
         }
