@@ -2444,6 +2444,11 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 String model = prefs.getString("openai_model", "gpt-3.5-turbo");
                 float temperature = prefs.getFloat("openai_temperature", 0.5f);
+                boolean moderation = prefs.getBoolean("openai_moderation", false);
+
+                if (moderation)
+                    for (OpenAI.Message message : result)
+                        OpenAI.checkModeration(context, message.getContent());
 
                 OpenAI.Message[] completions =
                         OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
