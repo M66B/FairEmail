@@ -453,6 +453,7 @@
     <string name="title_advanced_caption_message_header">כותרת ההודעה</string>
     <string name="title_advanced_caption_message_body">גוף ההודעה</string>
     <string name="title_advanced_caption_file">קובץ</string>
+    <string name="title_advanced_caption_integrations">שילובים</string>
     <string name="title_advanced_portrait">מצב אנכי</string>
     <string name="title_advanced_landscape">מצב אופקי</string>
     <string name="title_advanced_two_row">להשתמש בשתי שורות</string>
@@ -710,6 +711,11 @@
     <string name="title_advanced_lt_key">מפתח API (רשות)</string>
     <string name="title_advanced_deepl">שילוב של DeepL</string>
     <string name="title_advanced_virus_total">שילוב של VirusTotal</string>
+    <string name="title_advanced_send">שילוב מול ‚Send’</string>
+    <string name="title_advanced_openai">שילוב מול OpenAI (ChatGPT)</string>
+    <string name="title_advanced_openai_model">דגם</string>
+    <string name="title_advanced_openai_temperature">טמפרטורה: %1$s</string>
+    <string name="title_advanced_openai_moderation">ניהול תוכן</string>
     <string name="title_advanced_sdcard">ארצה להשתמש בכרטיס SD</string>
     <string name="title_advanced_watchdog">לבדוק מדי פעם אם FairEmail עדיין פעיל</string>
     <string name="title_advanced_updates">איתור עדכונים ב־GitHub</string>
@@ -903,6 +909,7 @@
     <string name="title_primary_identity">עיקרי (זהות בררת המחדל)</string>
     <string name="title_self_identity">הסרת כתובת הדוא״ל בעת מענה</string>
     <string name="title_leave_on_server">להשאיר הודעות על השרת</string>
+    <string name="title_client_delete">למחוק הודעות באופן פעיל לאחר ההורדה</string>
     <string name="title_leave_deleted">להשאיר הודעות שנמחקו על השרת</string>
     <string name="title_leave_on_device">להשאיר הודעות במכשיר</string>
     <string name="title_max_messages">מספר ההודעות המרבי להורדה (ריק בשביל כולן)</string>
@@ -2048,6 +2055,7 @@
     <string-array name="encryptNames">
         <item>אין</item>
         <item>חתימה בלבד עם PGP</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>חתימה והצפנה עם PGP</item>
         <item>חתימה בלבד עם S/MIME</item>
         <item>חתימה והצפנה עם S/MIME</item>

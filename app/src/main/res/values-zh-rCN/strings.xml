@@ -413,6 +413,7 @@
     <string name="title_advanced_caption_message_header">邮件标头</string>
     <string name="title_advanced_caption_message_body">消息正文</string>
     <string name="title_advanced_caption_file">文件</string>
+    <string name="title_advanced_caption_integrations">集成</string>
     <string name="title_advanced_portrait">竖屏模式</string>
     <string name="title_advanced_landscape">横屏模式</string>
     <string name="title_advanced_two_row">使用两行</string>
@@ -669,6 +670,11 @@
     <string name="title_advanced_lt_key">API 密钥 (选填)</string>
     <string name="title_advanced_deepl">DeepL 集成</string>
     <string name="title_advanced_virus_total">VirusTotal 集成</string>
+    <string name="title_advanced_send">“Send” 集成</string>
+    <string name="title_advanced_openai">OpenAI (ChatGPT) 集成</string>
+    <string name="title_advanced_openai_model">模型</string>
+    <string name="title_advanced_openai_temperature">温度：%1$s</string>
+    <string name="title_advanced_openai_moderation">内容审核</string>
     <string name="title_advanced_sdcard">我想使用 SD 卡</string>
     <string name="title_advanced_watchdog">定期检查 FairEmail 是否仍在运行</string>
     <string name="title_advanced_updates">检查 GitHub 更新</string>
@@ -863,6 +869,7 @@
     <string name="title_primary_identity">主身份(默认身份)</string>
     <string name="title_self_identity">回复时去掉邮件地址</string>
     <string name="title_leave_on_server">在服务器上保留消息</string>
+    <string name="title_client_delete">下载后主动删除消息</string>
     <string name="title_leave_deleted">在服务器上保留已删除邮件</string>
     <string name="title_leave_on_device">在设备上保留消息</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
@@ -2005,6 +2012,7 @@
     <string-array name="encryptNames">
         <item>无</item>
         <item>仅PGP签名</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP 签名+加密</item>
         <item>仅S/MIME签名</item>
         <item>S/MIME 签名+加密</item>

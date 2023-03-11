@@ -1892,6 +1892,7 @@
     <string-array name="encryptNames">
         <item>Ningún</item>
         <item>Só sinatura PGP</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>Sinatura e cifrado PGP</item>
         <item>Só sinatura S/MIME</item>
         <item>Cifrado e asinado S/MIME</item>

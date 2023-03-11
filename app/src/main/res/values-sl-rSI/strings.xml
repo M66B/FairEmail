@@ -2033,6 +2033,7 @@
     <string-array name="encryptNames">
         <item>Brez</item>
         <item>Samo podpiši (PGP)</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>Podpiši in šifriraj (PGP)</item>
         <item>Samo podpiši (S/MIME)</item>
         <item>Podpiši in šifriraj (S/MIME)</item>

@@ -1063,6 +1063,7 @@
     <string-array name="encryptNames">
         <item>Ниједно</item>
         <item>PGP само-потпис</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP потпис+шифровање</item>
         <item>S/MIME само потпис</item>
         <item>S/MIME потпис+шифровање</item>

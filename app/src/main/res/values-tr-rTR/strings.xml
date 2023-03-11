@@ -2002,6 +2002,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string-array name="encryptNames">
         <item>Hiçbiri</item>
         <item>PGP sadece imzala</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP imzala ve şifrele</item>
         <item>S/MIME yalnızca imza</item>
         <item>S/MIME imza+şifre</item>

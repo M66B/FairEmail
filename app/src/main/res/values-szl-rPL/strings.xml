@@ -452,6 +452,7 @@
     <string name="title_advanced_caption_message_header">Nagłówek wiadomości</string>
     <string name="title_advanced_caption_message_body">Treść wiadomości</string>
     <string name="title_advanced_caption_file">Plik</string>
+    <string name="title_advanced_caption_integrations">Integracje</string>
     <string name="title_advanced_portrait">Orientacja pionowa</string>
     <string name="title_advanced_landscape">Orientacja pozioma</string>
     <string name="title_advanced_two_row">Dwa wiersze</string>
@@ -708,6 +709,11 @@
     <string name="title_advanced_lt_key">Klucz API (opcjonalnie)</string>
     <string name="title_advanced_deepl">Integracja z DeepL</string>
     <string name="title_advanced_virus_total">Integracja z VirusTotal</string>
+    <string name="title_advanced_send">Integracja \'Send\'</string>
+    <string name="title_advanced_openai">Integracja OpenAI (ChatGPT)</string>
+    <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
+    <string name="title_advanced_openai_moderation">Kontrola treści</string>
     <string name="title_advanced_sdcard">Chcę użyć karty SD</string>
     <string name="title_advanced_watchdog">Okresowo sprawdzaj, czy FairEmail jest nadal aktywny</string>
     <string name="title_advanced_updates">Sprawdź aktualizacje GitHub</string>
@@ -902,6 +908,7 @@
     <string name="title_primary_identity">Podstawowe (domyślna tożsamość)</string>
     <string name="title_self_identity">Usuń adres e-mail podczas odpowiedzi</string>
     <string name="title_leave_on_server">Pozostaw wiadomości na serwerze</string>
+    <string name="title_client_delete">Aktywnie usuwaj wiadomości po pobraniu</string>
     <string name="title_leave_deleted">Pozostaw usunięte wiadomości na serwerze</string>
     <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
     <string name="title_max_messages">Maksymalna liczba wiadomości do pobrania (puste dla wszystkich)</string>
@@ -2050,6 +2057,7 @@
     <string-array name="encryptNames">
         <item>Brak</item>
         <item>Tylko podpis PGP</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>Podpis PGP+szyfrowanie</item>
         <item>Tylko podpis S/MIME</item>
         <item>Podpis S/MIME+szyfrowanie</item>

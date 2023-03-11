@@ -1367,6 +1367,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string-array name="encryptNames">
         <item>Cap</item>
         <item>Només signar PGP</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>Signar i xifrar PGP</item>
         <item>Només signar S/MIME</item>
         <item>Signar i xifrar S/MIME</item>

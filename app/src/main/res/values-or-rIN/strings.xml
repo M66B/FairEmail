@@ -870,6 +870,7 @@
     <string-array name="encryptNames">
         <item>କିଛି ନୁହେଁ</item>
         <item>PGP sign-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
         <item>S/MIME sign+encrypt</item>

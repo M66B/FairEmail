@@ -1632,6 +1632,7 @@
     <string-array name="encryptNames">
         <item>Bat ere ez</item>
         <item>PGP sinadura soilik</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP sinadura eta zifratzea</item>
         <item>S/MIME sinadura soilik</item>
         <item>S/MIME sinadura eta zifratzea</item>

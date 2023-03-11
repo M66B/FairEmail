@@ -419,6 +419,7 @@
     <string name="title_advanced_caption_message_header">Meddelandehuvud</string>
     <string name="title_advanced_caption_message_body">Meddelande-text</string>
     <string name="title_advanced_caption_file">Fil</string>
+    <string name="title_advanced_caption_integrations">Integrationer</string>
     <string name="title_advanced_portrait">Porträttläge</string>
     <string name="title_advanced_landscape">Landskapsläge</string>
     <string name="title_advanced_two_row">Använd två rader</string>
@@ -675,6 +676,9 @@
     <string name="title_advanced_lt_key">API-nyckel (frivilligt)</string>
     <string name="title_advanced_deepl">DeepL integration</string>
     <string name="title_advanced_virus_total">VirusTotal integration</string>
+    <string name="title_advanced_openai_model">Modell</string>
+    <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
+    <string name="title_advanced_openai_moderation">Moderering av innehåll</string>
     <string name="title_advanced_sdcard">Jag vill använda ett SD-kort</string>
     <string name="title_advanced_watchdog">Kontrollera regelbundet om FairEmail fortfarande är aktiv</string>
     <string name="title_advanced_updates">Sök efter GitHub-uppdateringar</string>
@@ -2014,6 +2018,7 @@
     <string-array name="encryptNames">
         <item>Inga</item>
         <item>PGP signering</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP signering + kryptera</item>
         <item>S/MIME signering</item>
         <item>S/MIME signera+kryptera</item>

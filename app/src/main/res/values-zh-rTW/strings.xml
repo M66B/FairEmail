@@ -1849,6 +1849,7 @@
     <string-array name="encryptNames">
         <item>沒有</item>
         <item>僅 PGP 簽名</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP 簽名+加密</item>
         <item>僅 S/MIME 簽名</item>
         <item>S/MIME 簽名+加密</item>

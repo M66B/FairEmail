@@ -427,6 +427,7 @@
     <string name="title_advanced_caption_message_header">Intestazione del messaggio</string>
     <string name="title_advanced_caption_message_body">Corpo del messaggio</string>
     <string name="title_advanced_caption_file">File</string>
+    <string name="title_advanced_caption_integrations">Integrazioni</string>
     <string name="title_advanced_portrait">Modalità Ritratto</string>
     <string name="title_advanced_landscape">Modalità Paesaggio</string>
     <string name="title_advanced_two_row">Usa due righe</string>
@@ -684,6 +685,11 @@
     <string name="title_advanced_lt_key">Chiave API (facoltativa)</string>
     <string name="title_advanced_deepl">Integrazione con DeepL</string>
     <string name="title_advanced_virus_total">Integrazione di VirusTotal</string>
+    <string name="title_advanced_send">Integrazione di Send</string>
+    <string name="title_advanced_openai">Integrazione di OpenAI (ChatGPT)</string>
+    <string name="title_advanced_openai_model">Modello</string>
+    <string name="title_advanced_openai_temperature">Alea: %1$s</string>
+    <string name="title_advanced_openai_moderation">Moderazione del contenuto</string>
     <string name="title_advanced_sdcard">Desidero usare una scheda sd</string>
     <string name="title_advanced_watchdog">Verifica periodicamente se FairEmail è ancora attivo</string>
     <string name="title_advanced_updates">Controlla gli aggiornamenti di GitHub</string>
@@ -878,6 +884,7 @@
     <string name="title_primary_identity">Principale (identità predefinita)</string>
     <string name="title_self_identity">Rimuovi l\'indirizzo email alla risposta</string>
     <string name="title_leave_on_server">Lascia i messaggi sul server</string>
+    <string name="title_client_delete">Elimina attivamente i messaggi dopo il download</string>
     <string name="title_leave_deleted">Lascia i messaggi eliminati sul server</string>
     <string name="title_leave_on_device">Lascia messaggi sul dispositivo</string>
     <string name="title_max_messages">Numero massimo di messaggi da scaricare (vuoto per tutti)</string>
@@ -2028,6 +2035,7 @@
     <string-array name="encryptNames">
         <item>Nessuna</item>
         <item>Solo firma PGP</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>Firma+crittografia PGP</item>
         <item>Solo firma S/MIME</item>
         <item>Firma+crittografia S/MIME</item>

@@ -425,6 +425,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_caption_message_header">Berichtkop</string>
     <string name="title_advanced_caption_message_body">Berichtinhoud</string>
     <string name="title_advanced_caption_file">Bestand</string>
+    <string name="title_advanced_caption_integrations">Integraties</string>
     <string name="title_advanced_portrait">Portret-modus</string>
     <string name="title_advanced_landscape">Landschap-modus</string>
     <string name="title_advanced_two_row">Gebruik twee rijen</string>
@@ -681,6 +682,11 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_lt_key">API key (optioneel)</string>
     <string name="title_advanced_deepl">DeepL integratie</string>
     <string name="title_advanced_virus_total">VirusTotal integratie</string>
+    <string name="title_advanced_send">\'Send\' integratie</string>
+    <string name="title_advanced_openai">OpenAI (ChatGPT) integratie</string>
+    <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_temperature">Temperatuur: %1$s</string>
+    <string name="title_advanced_openai_moderation">Inhoudsmatiging</string>
     <string name="title_advanced_sdcard">Ik wil een SD-kaart gebruiken</string>
     <string name="title_advanced_watchdog">Periodiek controleren of FairEmail nog actief is</string>
     <string name="title_advanced_updates">Controleren op GitHub updates</string>
@@ -875,6 +881,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_primary_identity">Primaire identiteit (standaard identiteit)</string>
     <string name="title_self_identity">Verwijder e-mailadres bij antwoorden</string>
     <string name="title_leave_on_server">Laat berichten achter op de server</string>
+    <string name="title_client_delete">Actief berichten verwijderen na downloaden</string>
     <string name="title_leave_deleted">Laat verwijderde berichten achter op de server</string>
     <string name="title_leave_on_device">Laat berichten achter op apparaat</string>
     <string name="title_max_messages">Maximum aantal berichten om te downloaden (leeg voor allen)</string>
@@ -2016,6 +2023,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string-array name="encryptNames">
         <item>Geen</item>
         <item>PGP teken-alleen</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP versleutel-alleen</item>
         <item>PGP teken+versleutel</item>
         <item>S/MIME teken-alleen</item>
         <item>S/MIME teken+versleutel</item>

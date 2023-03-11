@@ -1869,6 +1869,7 @@
     <string-array name="encryptNames">
         <item>Nijedan</item>
         <item>PGP samo za potpis</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP potpis + šifriranje</item>
         <item>S/MIME samo za potpis</item>
         <item>S/MIME potpis + šifriranje</item>

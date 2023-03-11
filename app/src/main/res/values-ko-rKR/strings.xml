@@ -1110,6 +1110,7 @@
     <string-array name="encryptNames">
         <item>없음</item>
         <item>PGP 서명만</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
         <item>S/MIME 사인+암호화</item>

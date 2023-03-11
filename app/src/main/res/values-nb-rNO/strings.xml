@@ -1469,6 +1469,7 @@
     <string-array name="encryptNames">
         <item>Ingen</item>
         <item>Bare PGP-signering</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP signer+krypter</item>
         <item>Kun S/MIME signering</item>
         <item>S/MIME signer+krypter</item>

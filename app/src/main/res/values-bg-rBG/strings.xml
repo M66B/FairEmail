@@ -1418,6 +1418,7 @@
     <string-array name="encryptNames">
         <item>Няма</item>
         <item>PGP само подписване</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP подписване+криптиране</item>
         <item>S/MIME само подписване</item>
         <item>S/MIME подписване+криптиране</item>

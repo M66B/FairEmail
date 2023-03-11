@@ -414,6 +414,7 @@
     <string name="title_advanced_caption_message_header">見出し</string>
     <string name="title_advanced_caption_message_body">本文</string>
     <string name="title_advanced_caption_file">ファイル</string>
+    <string name="title_advanced_caption_integrations">統合</string>
     <string name="title_advanced_portrait">ポートレートモード (縦画面)</string>
     <string name="title_advanced_landscape">ランドスケープモード (横画面)</string>
     <string name="title_advanced_two_row">2 行に分割</string>
@@ -559,6 +560,7 @@
     <string name="title_advanced_auto_important">スター付きメッセージを自動で重要にマーク</string>
     <string name="title_advanced_cancel_snooze">メッセージを移動するときスヌーズをキャンセル</string>
     <string name="title_advanced_auto_block_sender">メッセージを迷惑メールとして報告したとき、差出人を自動でブロック</string>
+    <string name="title_advanced_auto_hide_answer">スクロール時に返信ボタンを隠す</string>
     <string name="title_advanced_swipe_reply">展開したメッセージを右にスワイプして返信</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ/遅延時間</string>
     <string name="title_advanced_default_folder">デフォルトのフォルダーを選択</string>
@@ -670,6 +672,10 @@
     <string name="title_advanced_lt_key">API キー (オプション)</string>
     <string name="title_advanced_deepl">DeepL を統合</string>
     <string name="title_advanced_virus_total">VirusTotal を統合</string>
+    <string name="title_advanced_send">Send を統合</string>
+    <string name="title_advanced_openai">OpenAI (ChatGPT) を統合</string>
+    <string name="title_advanced_openai_model">モデル</string>
+    <string name="title_advanced_openai_temperature">温度 (Temperature): %1$s</string>
     <string name="title_advanced_sdcard">SD カードを使用できますか？</string>
     <string name="title_advanced_watchdog">FairEmail がアクティブか定期的に確認</string>
     <string name="title_advanced_updates">GitHub のアップデートを確認</string>
@@ -1711,6 +1717,10 @@
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてゴミ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>
     <string name="title_hint_message_selection">メッセージを長押しして、複数のメッセージを選択します。そのまま上または下にスワイプすると、まとめてメッセージを選択できます</string>
+    <string name="title_hint_message_junk">        メールクライアントは、基本的にメールサーバーにあるメッセージをそのまま表示しています。
+        メールクライアントではなく、メールサーバーが迷惑メールをフィルターする責任を負っています。
+        もし迷惑メールの量が多い場合はアプリを非難するのではなく、あなたのメールプロバイダーに連絡してください。
+    </string>
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">プロバイダーの速度、インターネットの接続状況、デバイスの性能およびメッセージの数によりメッセージのダウンロードに時間がかかる場合があります。メッセージのダウンロード中はアプリの応答が遅くなることがあります</string>
     <string name="title_hint_sync_note">デフォルトでは、ストレージ容量とバッテリーとデータ使用量を制限するためにすべてのメッセージがダウンロードされるわけではありません。フォルダーリスト内のフォルダーを長押しし、「さらにメッセージを取得」を選択することで変更できます。</string>
@@ -2003,6 +2013,7 @@
     <string-array name="encryptNames">
         <item>なし</item>
         <item>PGP 電子署名のみ</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP 電子署名 + 暗号化</item>
         <item>S/MIME 電子署名のみ</item>
         <item>S/MIME 電子署名 + 暗号化</item>

@@ -709,6 +709,10 @@
     <string name="title_advanced_lt_key">API ключ (необов\'язково)</string>
     <string name="title_advanced_deepl">Інтеграція з DeepL</string>
     <string name="title_advanced_virus_total">Інтеграція з VirusTotal</string>
+    <string name="title_advanced_send">\'Send\' інтеграція</string>
+    <string name="title_advanced_openai">Інтеграція OpenAI (ChatGPT)</string>
+    <string name="title_advanced_openai_model">Модель</string>
+    <string name="title_advanced_openai_temperature">Температура: %1$s</string>
     <string name="title_advanced_sdcard">Я хочу використовувати SD-карту</string>
     <string name="title_advanced_watchdog">Періодично перевіряти, чи ще активнний додатк FairEmail</string>
     <string name="title_advanced_updates">Перевірити наявність оновлень з GitHub</string>
@@ -902,6 +906,7 @@
     <string name="title_primary_identity">Основна (особисті данні за замовчуванням)</string>
     <string name="title_self_identity">Видалити адресу електронної пошти під час відповіді</string>
     <string name="title_leave_on_server">Залишати повідомлення на сервері</string>
+    <string name="title_client_delete">Активно видаляти повідомлення після завантаження</string>
     <string name="title_leave_deleted">Залишати видалені повідомлення на сервері</string>
     <string name="title_leave_on_device">Залишати повідомлення на пристрої</string>
     <string name="title_max_messages">Максимальна кількість повідомлень для завантаження (якщо порожньо то всі)</string>
@@ -2050,6 +2055,7 @@
     <string-array name="encryptNames">
         <item>Жодного</item>
         <item>Тільки для PGP</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>Підпис+шифрування PGP</item>
         <item>Тільки S/MIME пидпис</item>
         <item>S/MIME підпис+шифрування</item>

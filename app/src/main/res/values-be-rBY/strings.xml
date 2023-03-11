@@ -2051,6 +2051,7 @@
     <string-array name="encryptNames">
         <item>Нічога</item>
         <item>Толькі подпіс PGP</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>Подпіс PGP+шыфраванне</item>
         <item>Толькі подпіс S/MIME</item>
         <item>Попіс+шыфраванне S/MIME</item>

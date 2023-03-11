@@ -427,6 +427,7 @@
     <string name="title_advanced_caption_message_header">Mesaj başlığı</string>
     <string name="title_advanced_caption_message_body">Mesaj gövdəsi</string>
     <string name="title_advanced_caption_file">Fayl</string>
+    <string name="title_advanced_caption_integrations">İnteqrasiyalar</string>
     <string name="title_advanced_portrait">Şaquli rejim</string>
     <string name="title_advanced_landscape">Üfüqi rejim</string>
     <string name="title_advanced_two_row">İki sətir istifadə et</string>
@@ -684,6 +685,11 @@
     <string name="title_advanced_lt_key">API açarı (ixtiyari)</string>
     <string name="title_advanced_deepl">DeepL inteqrasiyası</string>
     <string name="title_advanced_virus_total">VirusTotal inteqrasiyası</string>
+    <string name="title_advanced_send">\'Send\' inteqrasiyası</string>
+    <string name="title_advanced_openai">OpenAI (ChatGPT) inteqrasiyası</string>
+    <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_temperature">Hərarət: %1$s</string>
+    <string name="title_advanced_openai_moderation">Məzmun moderasiyası</string>
     <string name="title_advanced_sdcard">SD kart istifadə etmək istəyirəm</string>
     <string name="title_advanced_watchdog">Mütəmadi olaraq \"FairEmail\"in aktivliyini yoxla</string>
     <string name="title_advanced_updates">GitHub güncəlləmələrini yoxla</string>
@@ -877,6 +883,7 @@
     <string name="title_primary_identity">Üstünlük verilən (ilkin kimlik)</string>
     <string name="title_self_identity">Cavablayanda e-poçt ünvanınızı çıxardın</string>
     <string name="title_leave_on_server">Mesajları serverdə burax</string>
+    <string name="title_client_delete">Endirdikdən sonra mesajları aktiv olaraq silin</string>
     <string name="title_leave_deleted">Silənən mesajları serverdə burax</string>
     <string name="title_leave_on_device">Mesajları cihazda burax</string>
     <string name="title_max_messages">Endiriləcək mesajların maksimum sayı (hamısı üçün boş)</string>
@@ -2020,6 +2027,7 @@
     <string-array name="encryptNames">
         <item>Heç biri</item>
         <item>PGP yalnız imza</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP imza+şifrə</item>
         <item>S/MIME yalnız imza</item>
         <item>S/MIME imza+şifrə</item>

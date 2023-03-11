@@ -1831,6 +1831,7 @@
     <string-array name="encryptNames">
         <item>Egyik sem</item>
         <item>PGP csak aláírás</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP aláírás+titkosítás</item>
         <item>S/MIME csak aláírás</item>
         <item>S/MIME aláírás+titkosítás</item>

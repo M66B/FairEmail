@@ -428,6 +428,7 @@
     <string name="title_advanced_caption_message_header">Nachrichtenkopfzeilen</string>
     <string name="title_advanced_caption_message_body">Nachrichtentext</string>
     <string name="title_advanced_caption_file">Datei</string>
+    <string name="title_advanced_caption_integrations">Integrationen</string>
     <string name="title_advanced_portrait">Hochformat</string>
     <string name="title_advanced_landscape">Querformat</string>
     <string name="title_advanced_two_row">Zwei Zeilen verwenden</string>
@@ -685,6 +686,10 @@
     <string name="title_advanced_lt_key">API-Schlüssel (optional)</string>
     <string name="title_advanced_deepl">DeepL-Integration</string>
     <string name="title_advanced_virus_total">VirusTotal-Integration</string>
+    <string name="title_advanced_send">Send-Integration</string>
+    <string name="title_advanced_openai">Integration von OpenAI (ChatGPT)</string>
+    <string name="title_advanced_openai_model">Modell</string>
+    <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
     <string name="title_advanced_sdcard">Ich möchte eine SD-Karte verwenden</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Auf GitHub nach Aktualisierungen suchen</string>
@@ -879,6 +884,7 @@
     <string name="title_primary_identity">Hauptidentität</string>
     <string name="title_self_identity">E-Mail-Adresse beim Antworten entfernen</string>
     <string name="title_leave_on_server">Nachrichten auf Server belassen</string>
+    <string name="title_client_delete">Nachrichten nach dem Herunterladen aktiv löschen</string>
     <string name="title_leave_deleted">Gelöschte Nachrichten auf Server belassen</string>
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
     <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
@@ -2029,6 +2035,7 @@
     <string-array name="encryptNames">
         <item>Keine Verschlüsselung</item>
         <item>PGP nur signieren</item>
+        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
         <item>PGP signieren + verschlüsseln</item>
         <item>S/MIME nur signieren</item>
         <item>S/MIME signieren + verschlüsseln</item>
