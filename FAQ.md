@@ -960,7 +960,7 @@ Signed-only or encrypted-only messages are not a good idea, please see here abou
 * [OpenPGP Considerations Part II](https://www.openkeychain.org/openpgp-considerations-part-ii)
 * [OpenPGP Considerations Part III Autocrypt](https://www.openkeychain.org/openpgp-considerations-part-iii-autocrypt)
 
-Signed-only messages are supported, encrypted-only messages are not supported.
+Signed-only messages are supported, and encrypted-only messages are supported since version 1.2053.
 
 Common errors:
 
