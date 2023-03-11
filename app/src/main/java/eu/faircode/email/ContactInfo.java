@@ -419,11 +419,8 @@ public class ContactInfo {
 
                         if (favicons) {
                             String host = domain;
-                            if (!host.startsWith("www."))
-                                host = "www." + host;
                             while (host.indexOf('.') > 0) {
                                 final URL base = new URL("https://" + host);
-
                                 futures.add(Helper.getDownloadTaskExecutor().submit(new Callable<Favicon>() {
                                     @Override
                                     public Favicon call() throws Exception {
@@ -431,16 +428,23 @@ public class ContactInfo {
                                     }
                                 }));
 
+                                if (!host.startsWith("www.")) {
+                                    final URL www = new URL("https://www." + host);
+                                    futures.add(Helper.getDownloadTaskExecutor().submit(new Callable<Favicon>() {
+                                        @Override
+                                        public Favicon call() throws Exception {
+                                            return parseFavicon(www, scaleToPixels, context);
+                                        }
+                                    }));
+                                }
+
                                 int dot = host.indexOf('.');
                                 host = host.substring(dot + 1);
                             }
 
                             host = domain;
-                            if (!host.startsWith("www."))
-                                host = "www." + host;
                             while (host.indexOf('.') > 0) {
                                 final URL base = new URL("https://" + host);
-
                                 for (String name : FIXED_FAVICONS)
                                     futures.add(Helper.getDownloadTaskExecutor().submit(new Callable<Favicon>() {
                                         @Override
@@ -448,6 +452,17 @@ public class ContactInfo {
                                             return getFavicon(new URL(base, name), null, scaleToPixels, context);
                                         }
                                     }));
+
+                                if (!host.startsWith("www.")) {
+                                    final URL www = new URL("https://www." + host);
+                                    for (String name : FIXED_FAVICONS)
+                                        futures.add(Helper.getDownloadTaskExecutor().submit(new Callable<Favicon>() {
+                                            @Override
+                                            public Favicon call() throws Exception {
+                                                return getFavicon(new URL(www, name), null, scaleToPixels, context);
+                                            }
+                                        }));
+                                }
 
                                 int dot = host.indexOf('.');
                                 host = host.substring(dot + 1);
@@ -906,6 +921,8 @@ public class ContactInfo {
             Bitmap bitmap = ImageHelper.getScaledBitmap(connection.getInputStream(), url.toString(), mimeType, scaleToPixels);
             if (bitmap == null)
                 throw new FileNotFoundException("decodeStream");
+            if (bitmap.getWidth() <= 1 || bitmap.getHeight() <= 1)
+                throw new IOException("Too small");
             return new Favicon(bitmap, url.toString());
         } finally {
             connection.disconnect();
