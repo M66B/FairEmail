@@ -2491,6 +2491,7 @@
     <string-array name="encryptNames">
         <item>None</item>
         <item>PGP sign-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
         <item>S/MIME sign+encrypt</item>
@@ -2499,6 +2500,7 @@
     <integer-array name="encryptValues" translatable="false">
         <item>0</item>
         <item>2</item>
+        <item>5</item>
         <item>1</item>
         <item>4</item>
         <item>3</item>

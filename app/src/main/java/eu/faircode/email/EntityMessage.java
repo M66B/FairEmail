@@ -102,6 +102,7 @@ public class EntityMessage implements Serializable {
     static final Integer PGP_SIGNONLY = 2;
     static final Integer SMIME_SIGNENCRYPT = 3;
     static final Integer SMIME_SIGNONLY = 4;
+    static final Integer PGP_ENCRYPTONLY = 5;
 
     static final Integer PRIORITIY_LOW = 0;
     static final Integer PRIORITIY_NORMAL = 1;
