@@ -3643,7 +3643,6 @@ public class FragmentCompose extends FragmentBase {
                             // Attach key, signed/encrypted data
                             if (OpenPgpApi.ACTION_GET_KEY.equals(data.getAction()) ||
                                     OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction()) ||
-                                    OpenPgpApi.ACTION_ENCRYPT.equals(data.getAction()) ||
                                     OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction()))
                                 try {
                                     db.beginTransaction();
@@ -3662,8 +3661,7 @@ public class FragmentCompose extends FragmentBase {
                                             throw new IllegalArgumentException("micalg missing");
                                         ct = new ContentType("application/pgp-signature");
                                         ct.setParameter("micalg", micalg);
-                                    } else if (OpenPgpApi.ACTION_ENCRYPT.equals(data.getAction()) ||
-                                            OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
+                                    } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
                                         name = "encrypted.asc";
                                         encryption = EntityAttachment.PGP_MESSAGE;
                                     } else
@@ -3709,31 +3707,22 @@ public class FragmentCompose extends FragmentBase {
                                     throw new IllegalArgumentException(context.getString(R.string.title_key_missing,
                                             TextUtils.join(", ", pgpUserIds)));
 
-                                if (largs.getBoolean("encrypt-only")) {
-                                    // Encrypt message
-                                    Intent intent = new Intent(OpenPgpApi.ACTION_ENCRYPT);
-                                    intent.putExtra(OpenPgpApi.EXTRA_KEY_IDS, pgpKeyIds);
+                                if (identity.sign_key != null) {
+                                    pgpSignKeyId = identity.sign_key;
+
+                                    // Get public key
+                                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
+                                    intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpSignKeyId);
+                                    intent.putExtra(OpenPgpApi.EXTRA_MINIMIZE, true);
+                                    intent.putExtra(OpenPgpApi.EXTRA_MINIMIZE_USER_ID, identity.email);
                                     intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
                                     intent.putExtra(BuildConfig.APPLICATION_ID, largs);
                                     return intent;
                                 } else {
-                                    if (identity.sign_key != null) {
-                                        pgpSignKeyId = identity.sign_key;
-
-                                        // Get public key
-                                        Intent intent = new Intent(OpenPgpApi.ACTION_GET_KEY);
-                                        intent.putExtra(OpenPgpApi.EXTRA_KEY_ID, pgpSignKeyId);
-                                        intent.putExtra(OpenPgpApi.EXTRA_MINIMIZE, true);
-                                        intent.putExtra(OpenPgpApi.EXTRA_MINIMIZE_USER_ID, identity.email);
-                                        intent.putExtra(OpenPgpApi.EXTRA_REQUEST_ASCII_ARMOR, true);
-                                        intent.putExtra(BuildConfig.APPLICATION_ID, largs);
-                                        return intent;
-                                    } else {
-                                        // Get sign key
-                                        Intent intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
-                                        intent.putExtra(BuildConfig.APPLICATION_ID, largs);
-                                        return intent;
-                                    }
+                                    // Get sign key
+                                    Intent intent = new Intent(OpenPgpApi.ACTION_GET_SIGN_KEY_ID);
+                                    intent.putExtra(BuildConfig.APPLICATION_ID, largs);
+                                    return intent;
                                 }
                             } else if (OpenPgpApi.ACTION_GET_SIGN_KEY_ID.equals(data.getAction())) {
                                 pgpSignKeyId = result.getLongExtra(OpenPgpApi.EXTRA_SIGN_KEY_ID, -1);
@@ -3786,8 +3775,7 @@ public class FragmentCompose extends FragmentBase {
                                 args.putInt("action", largs.getInt("action"));
                                 args.putBundle("extras", largs.getBundle("extras"));
                                 return null;
-                            } else if (OpenPgpApi.ACTION_ENCRYPT.equals(data.getAction()) ||
-                                    OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
+                            } else if (OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
                                 input.delete();
 
                                 // send message
