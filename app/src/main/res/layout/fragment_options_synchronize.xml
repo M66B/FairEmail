@@ -99,6 +99,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swEnabled" />
+
+                <Button
+                    android:id="@+id/btnBlockedSenders"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_report_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_blocked_senders"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvManualHint" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -448,18 +460,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbDay6" />
-
-                <Button
-                    android:id="@+id/btnBlockedSenders"
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:drawableEnd="@drawable/twotone_report_24"
-                    android:drawablePadding="6dp"
-                    android:text="@string/title_blocked_senders"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvScheduleIgnore" />
 
                 <androidx.constraintlayout.widget.Group
                     android:id="@+id/grpExempted"

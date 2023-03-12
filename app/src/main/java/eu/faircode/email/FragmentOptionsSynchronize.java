@@ -69,6 +69,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private View view;
     private ImageButton ibHelp;
     private SwitchCompat swEnabled;
+    private Button btnBlockedSenders;
+
     private SwitchCompat swOptimize;
     private ImageButton ibOptimizeInfo;
     private Spinner spPollInterval;
@@ -84,7 +86,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private CheckBox[] cbDay;
     private TextView tvScheduleIgnore;
     private ImageButton ibSchedules;
-    private Button btnBlockedSenders;
 
     private SwitchCompat swQuickSyncImap;
     private SwitchCompat swQuickSyncPop;
@@ -156,6 +157,8 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         ibHelp = view.findViewById(R.id.ibHelp);
         swEnabled = view.findViewById(R.id.swEnabled);
+        btnBlockedSenders = view.findViewById(R.id.btnBlockedSenders);
+
         swOptimize = view.findViewById(R.id.swOptimize);
         ibOptimizeInfo = view.findViewById(R.id.ibOptimizeInfo);
         spPollInterval = view.findViewById(R.id.spPollInterval);
@@ -180,7 +183,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         };
         tvScheduleIgnore = view.findViewById(R.id.tvScheduleIgnore);
         ibSchedules = view.findViewById(R.id.ibSchedules);
-        btnBlockedSenders = view.findViewById(R.id.btnBlockedSenders);
 
         swQuickSyncImap = view.findViewById(R.id.swQuickSyncImap);
         swQuickSyncPop = view.findViewById(R.id.swQuickSyncPop);
@@ -231,6 +233,15 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("enabled", checked).apply();
                 WorkerDailyRules.init(compoundButton.getContext());
+            }
+        });
+
+        btnBlockedSenders.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS)
+                        .putExtra("junk", true));
             }
         });
 
@@ -341,15 +352,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 78);
-            }
-        });
-
-        btnBlockedSenders.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
-                lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS)
-                        .putExtra("junk", true));
             }
         });
 
