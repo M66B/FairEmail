@@ -8032,6 +8032,15 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                         @Override
+                        protected void onExecuted(Bundle args, Void data) {
+                            int encrypt = args.getInt("encrypt");
+
+                            boolean none = EntityMessage.ENCRYPT_NONE.equals(encrypt);
+                            tvRemindPgp.setVisibility(remind_pgp && none ? View.VISIBLE : View.GONE);
+                            tvRemindSmime.setVisibility(remind_smime && none ? View.VISIBLE : View.GONE);
+                        }
+
+                        @Override
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
