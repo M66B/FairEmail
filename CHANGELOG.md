@@ -6,6 +6,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
 
+### Next version
+
+* Added PGP encrypt-only
+* Added weekend scheduling
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
 ### 1.2052 - 2023-03-08
 
 * Added experimental [OpenAI (ChatGPT) integration](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq190)

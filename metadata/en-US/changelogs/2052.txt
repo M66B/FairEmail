@@ -6,6 +6,15 @@ For support you can use the contact form.
 
 Rahonavis
 
+Next version
+
+* Added PGP encrypt-only
+* Added weekend scheduling
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated Public Suffix List
+* Updated translations
+
 1.2052 - 2023-03-08
 
 * Added experimental OpenAI (ChatGPT) integration
