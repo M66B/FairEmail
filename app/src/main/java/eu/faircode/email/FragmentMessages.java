@@ -1048,16 +1048,39 @@ public class FragmentMessages extends FragmentBase
                 cal.set(Calendar.MILLISECOND, 0);
                 cal.add(Calendar.DAY_OF_MONTH, -1);
 
-                CharSequence rtime;
-                if (time <= cal.getTimeInMillis())
-                    rtime = DateUtils.formatDateRange(context,
-                            time, time,
-                            FORMAT_SHOW_WEEKDAY | FORMAT_SHOW_DATE);
-                else
-                    rtime = DateUtils.getRelativeTimeSpanString(
-                            time, now.getTime(),
-                            DAY_IN_MILLIS, 0);
-                return (rtime == null ? "" : rtime.toString());
+                try {
+                    CharSequence rtime;
+                    if (time <= cal.getTimeInMillis())
+                        rtime = DateUtils.formatDateRange(context,
+                                time, time,
+                                FORMAT_SHOW_WEEKDAY | FORMAT_SHOW_DATE);
+                    else
+                        rtime = DateUtils.getRelativeTimeSpanString(
+                                time, now.getTime(),
+                                DAY_IN_MILLIS, 0);
+                    return (rtime == null ? "" : rtime.toString());
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    /*
+                        java.util.MissingResourceException: Can't find resource for bundle android/icu/impl/data/icudt60b/supplementalData.res, key calendarPreferenceData
+                            at android.icu.util.UResourceBundle.get(UResourceBundle.java:491)
+                            at android.icu.util.Calendar.getKeywordValuesForLocale(Calendar.java:1873)
+                            at android.icu.text.DateTimePatternGenerator.getCalendarTypeToUse(DateTimePatternGenerator.java:165)
+                            at android.icu.text.DateTimePatternGenerator.addCLDRData(DateTimePatternGenerator.java:265)
+                            at android.icu.text.DateTimePatternGenerator.initData(DateTimePatternGenerator.java:139)
+                            at android.icu.text.DateTimePatternGenerator.getFrozenInstance(DateTimePatternGenerator.java:123)
+                            at android.icu.text.DateTimePatternGenerator.getInstance(DateTimePatternGenerator.java:92)
+                            at android.icu.text.DateIntervalFormat.getInstance(DateIntervalFormat.java:470)
+                            at libcore.icu.DateIntervalFormat.getFormatter(DateIntervalFormat.java:100)
+                            at libcore.icu.DateIntervalFormat.formatDateRange(DateIntervalFormat.java:87)
+                            at libcore.icu.DateIntervalFormat.formatDateRange(DateIntervalFormat.java:49)
+                            at android.text.format.DateUtils.formatDateRange(DateUtils.java:735)
+                            at android.text.format.DateUtils.formatDateRange(DateUtils.java:560)
+                            at android.text.format.DateUtils.formatDateRange(DateUtils.java:537)
+                            at eu.faircode.email.FragmentMessages$13.getRelativeDate(SourceFile:52)
+                     */
+                    return Helper.getDateInstance(context).format(time);
+                }
             }
 
             @NonNull
