@@ -1809,6 +1809,7 @@
     <string name="title_answer_caption">Edit template</string>
     <string name="title_answer_reply">Reply template</string>
     <string name="title_answer_name">Template name</string>
+    <string name="title_answer_label" translatable="false">Template label</string>
     <string name="title_answer_group">Template group (optional)</string>
     <string name="title_answer_standard">Default</string>
     <string name="title_answer_favorite">Favorite</string>

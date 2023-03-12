@@ -5358,6 +5358,8 @@ public class FragmentCompose extends FragmentBase {
 
                         if (a != null) {
                             db.answer().applyAnswer(a.id, new Date().getTime());
+                            if (a.label != null && ref != null)
+                                EntityOperation.queue(context, ref, EntityOperation.LABEL, a.label, true);
                             Document d = JsoupEx.parse(a.getHtml(context, data.draft.to));
                             document.body().append(d.body().html());
                         }

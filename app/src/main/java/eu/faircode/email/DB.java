@@ -68,7 +68,7 @@ import javax.mail.internet.InternetAddress;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 273,
+        version = 274,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -2773,6 +2773,13 @@ public abstract class DB extends RoomDatabase {
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
                         db.execSQL("ALTER TABLE `account` ADD COLUMN `client_delete` INTEGER NOT NULL DEFAULT 0");
+                    }
+                }).addMigrations(new Migration(273, 274) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("ALTER TABLE `answer` ADD COLUMN `label` TEXT");
+                        db.execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_answer_label` ON `answer` (`label`)");
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override

@@ -40,6 +40,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.MenuCompat;
 import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
 import org.json.JSONException;
@@ -70,6 +71,7 @@ import javax.mail.internet.InternetAddress;
         foreignKeys = {
         },
         indices = {
+                @Index(value = {"label"}, unique = true),
         }
 )
 public class EntityAnswer implements Serializable {
@@ -81,6 +83,7 @@ public class EntityAnswer implements Serializable {
     public String uuid = UUID.randomUUID().toString();
     @NonNull
     public String name;
+    public String label;
     public String group;
     @NonNull
     public Boolean standard;
