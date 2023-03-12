@@ -5245,12 +5245,17 @@ Cloud sync is an experimental feature. It is not available for the Play Store ve
 Tap on the robot button in the top action bar of the message editor.
 The text in the message editor (if any) and the first part of the message being replied to (if any)
 will be used for [chat completion](https://platform.openai.com/docs/guides/chat/introduction).
-If text is selected in the message editor, only the selected text will be used.
+If text is selected in the message editor, only the selected text will be used, and it will be replaced by the answer.
 A maximum of 1,000 characters of the message being replied to will be used to avoid exceeding the token limit.
 
 For example: create a new draft and enter the text "*How far is the sun?*", and tap on the robot button in the top action bar.
 
 OpenAI isn't very fast, so be patient.
+
+You can select the model and the [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature) in the settings.
+
+Please read the [privacy policy](https://openai.com/policies/privacy-policy) of OpenAI,
+and perhaps [this article](https://katedowninglaw.com/2023/03/10/openais-massive-data-grab/) too.
 
 This feature is experimental and available in the GitHub version only and requires version 1.2052 or later.
 
