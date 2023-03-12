@@ -248,6 +248,17 @@
                     app:layout_constraintTop_toBottomOf="@id/swSchedule" />
 
                 <TextView
+                    android:id="@+id/tvScheduleWorkDays"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_schedule_workdays"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSchedulePro" />
+
+                <TextView
                     android:id="@+id/tvScheduleStart"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -256,7 +267,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSchedulePro" />
+                    app:layout_constraintTop_toBottomOf="@id/tvScheduleWorkDays" />
 
                 <TextView
                     android:id="@+id/tvScheduleSeparator"
@@ -281,6 +292,62 @@
                     app:layout_constraintTop_toTopOf="@id/tvScheduleStart" />
 
                 <TextView
+                    android:id="@+id/tvScheduleWeekend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_advanced_schedule_weekend"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorAccent"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvScheduleStart" />
+
+                <TextView
+                    android:id="@+id/tvScheduleStartWeekend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="00:00"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvScheduleWeekend" />
+
+                <TextView
+                    android:id="@+id/tvScheduleSeparatorWeekend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="—"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvScheduleStartWeekend"
+                    app:layout_constraintStart_toEndOf="@id/tvScheduleStartWeekend"
+                    app:layout_constraintTop_toTopOf="@id/tvScheduleStartWeekend" />
+
+                <TextView
+                    android:id="@+id/tvScheduleEndWeekend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:text="00:00"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintStart_toEndOf="@id/tvScheduleSeparatorWeekend"
+                    app:layout_constraintTop_toTopOf="@id/tvScheduleStartWeekend" />
+
+                <ImageButton
+                    android:id="@+id/ibWeekend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="12dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/menu_setup"
+                    android:tooltipText="@string/menu_setup"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvScheduleWeekend"
+                    app:srcCompat="@drawable/twotone_settings_24" />
+
+                <TextView
                     android:id="@+id/tvScheduleHint"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -290,7 +357,7 @@
                     android:textStyle="italic"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvScheduleStart" />
+                    app:layout_constraintTop_toBottomOf="@id/tvScheduleStartWeekend" />
 
                 <CheckBox
                     android:id="@+id/cbDay0"
@@ -298,6 +365,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:text="Sunday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvScheduleHint" />
 
@@ -306,6 +374,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Monday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbDay0" />
 
@@ -314,6 +383,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Tuesday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbDay1" />
 
@@ -322,6 +392,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Wednesday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbDay2" />
 
@@ -330,6 +401,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Thursday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbDay3" />
 
@@ -338,6 +410,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Friday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbDay4" />
 
@@ -346,6 +419,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Saturday"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/cbDay5" />
 

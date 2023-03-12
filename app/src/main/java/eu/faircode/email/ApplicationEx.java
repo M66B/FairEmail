@@ -281,6 +281,9 @@ public class ApplicationEx extends Application
                 case "schedule":
                 case "schedule_start":
                 case "schedule_end":
+                case "schedule_start_weekend":
+                case "schedule_end_weekend":
+                case "weekend":
                 case "schedule_day0":
                 case "schedule_day1":
                 case "schedule_day2":

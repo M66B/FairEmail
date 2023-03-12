@@ -2396,15 +2396,21 @@ public class Log {
                 if (schedule) {
                     int minuteStart = prefs.getInt("schedule_start", 0);
                     int minuteEnd = prefs.getInt("schedule_end", 0);
+                    int minuteStartWeekend = prefs.getInt("schedule_start_weekend", 0);
+                    int minuteEndWeekend = prefs.getInt("schedule_end_weekend", 0);
 
-                    size += write(os, "schedule " +
-                            (minuteStart / 60) + ":" + (minuteStart % 60) + "..." +
-                            (minuteEnd / 60) + ":" + (minuteEnd % 60) + "\r\n");
+                    size += write(os, String.format("schedule %s...%s weekend %s...%s\r\n",
+                            CalendarHelper.formatHour(context, minuteStart),
+                            CalendarHelper.formatHour(context, minuteEnd),
+                            CalendarHelper.formatHour(context, minuteStartWeekend),
+                            CalendarHelper.formatHour(context, minuteEndWeekend)));
 
                     String[] daynames = new DateFormatSymbols().getWeekdays();
                     for (int i = 0; i < 7; i++) {
                         boolean day = prefs.getBoolean("schedule_day" + i, true);
-                        size += write(os, "schedule " + daynames[i + 1] + "=" + day + "\r\n");
+                        boolean weekend = CalendarHelper.isWeekend(context, i + 1);
+                        size += write(os, String.format("schedule %s=%b %s\r\n",
+                                daynames[i + 1], day, weekend ? "weekend" : ""));
                     }
 
                     size += write(os, "\r\n");

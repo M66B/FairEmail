@@ -3293,10 +3293,14 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         if (!ActivityBilling.isPro(context))
             return null;
 
-        int minuteStart = prefs.getInt("schedule_start", 0);
-        int minuteEnd = prefs.getInt("schedule_end", 0);
-
         Calendar calStart = Calendar.getInstance();
+        boolean weekend = CalendarHelper.isWeekend(context, calStart);
+        int defStart = (weekend ? prefs.getInt("schedule_start", 0) : 0);
+        int defEnd = (weekend ? prefs.getInt("schedule_end", 0) : 0);
+
+        int minuteStart = prefs.getInt("schedule_start" + (weekend ? "_weekend" : ""), defStart);
+        int minuteEnd = prefs.getInt("schedule_end" + (weekend ? "_weekend" : ""), defEnd);
+
         calStart.set(Calendar.HOUR_OF_DAY, minuteStart / 60);
         calStart.set(Calendar.MINUTE, minuteStart % 60);
         calStart.set(Calendar.SECOND, 0);
@@ -3320,7 +3324,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             boolean son = prefs.getBoolean("schedule_day" + sdow, true);
             boolean eon = prefs.getBoolean("schedule_day" + edow, true);
 
-            if (BuildConfig.DEBUG)
+            if (BuildConfig.DEBUG && false)
                 Log.i("@@@ eval dow=" + sdow + "/" + edow +
                         " on=" + son + "/" + eon +
                         " start=" + new Date(calStart.getTimeInMillis()) +
@@ -3341,6 +3345,12 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     calEnd.set(Calendar.HOUR_OF_DAY, 0);
                     calEnd.set(Calendar.MINUTE, 0);
                 }
+
+                if (BuildConfig.DEBUG)
+                    Log.i("@@@ eval dow=" + sdow + "/" + edow +
+                            " on=" + son + "/" + eon +
+                            " start=" + new Date(calStart.getTimeInMillis()) +
+                            " end=" + new Date(calEnd.getTimeInMillis()));
 
                 break;
             }

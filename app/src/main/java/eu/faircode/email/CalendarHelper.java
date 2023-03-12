@@ -23,11 +23,16 @@ import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.CalendarContract;
 import android.text.TextUtils;
 
+import androidx.preference.PreferenceManager;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -43,6 +48,28 @@ import biweekly.property.RecurrenceRule;
 import biweekly.util.ICalDate;
 
 public class CalendarHelper {
+    static boolean isWeekend(Context context, Calendar calendar) {
+        return isWeekend(context, calendar.get(Calendar.DAY_OF_WEEK));
+    }
+
+    static boolean isWeekend(Context context, int aday) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String weekend = prefs.getString("weekend", Calendar.SATURDAY + "," + Calendar.SUNDAY);
+        for (String day : weekend.split(","))
+            if (aday == Integer.parseInt(day))
+                return true;
+        return false;
+    }
+
+    static String formatHour(Context context, int minutes) {
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR_OF_DAY, minutes / 60);
+        cal.set(Calendar.MINUTE, minutes % 60);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        return Helper.getTimeInstance(context, SimpleDateFormat.SHORT).format(cal.getTime());
+    }
+
     static void insert(Context context, ICalendar icalendar, VEvent event,
                        String selectedAccount, String selectedName, EntityMessage message) {
 

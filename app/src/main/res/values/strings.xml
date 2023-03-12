@@ -402,6 +402,8 @@
     <string name="title_advanced_optimize">Automatically optimize</string>
     <string name="title_advanced_always">Always receive messages for these accounts</string>
     <string name="title_advanced_schedule">Schedule</string>
+    <string name="title_advanced_schedule_workdays">Workdays</string>
+    <string name="title_advanced_schedule_weekend">Weekend</string>
     <string name="title_advanced_advanced">Advanced</string>
     <string name="title_advanced_quick_sync">Quick sync</string>
     <string name="title_advanced_no_date">Messages without date</string>
