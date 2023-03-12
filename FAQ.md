@@ -3151,10 +3151,12 @@ Note that original messages are shown exactly as they are, which means also that
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq92)
 
 Spam filtering, verification of the [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) signature
-and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers, not of an email client.
+and [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework) authorization is a task of email servers,
+not of an email client, which is basically a viewer for messages on an email server.
 Servers generally have more memory and computing power, so they are much better suited to this task than battery-powered devices.
-Also, you'll want spam filtered for all your email clients, possibly including web email, not just one email client.
-Moreover, email servers have access to information, like the IP address, etc of the connecting server, which an email client has no access to.
+Also, you'll want spam filtered for all your email clients, possibly including web email, not just for one email client on one device.
+Moreover, email servers have access to information, like the IP address, etc. of the connecting server, which an email client has no access to.
+Furthermore, an email server can inspect all messages of all email accounts, while an email client can inspect messages in your email account only.
 
 If you are receiving a significant amount of spam, the first thing you should do is consider switching to another email provider.
 Some email servers excell at filtering spam, and others are really bad at it.
