@@ -49,6 +49,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.NumberPicker;
+import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -140,6 +141,7 @@ public class FragmentRule extends FragmentBase {
     private Spinner spImportance;
 
     private EditText etKeyword;
+    private RadioGroup rgKeyword;
 
     private Button btnFolder;
     private EditText etMoveCreate;
@@ -322,6 +324,7 @@ public class FragmentRule extends FragmentBase {
         spImportance = view.findViewById(R.id.spImportance);
 
         etKeyword = view.findViewById(R.id.etKeyword);
+        rgKeyword = view.findViewById(R.id.rgKeyword);
 
         btnFolder = view.findViewById(R.id.btnFolder);
         etMoveCreate = view.findViewById(R.id.etMoveCreate);
@@ -1246,6 +1249,9 @@ public class FragmentRule extends FragmentBase {
 
                                 case EntityRule.TYPE_KEYWORD:
                                     etKeyword.setText(jaction.getString("keyword"));
+                                    rgKeyword.check(jaction.optBoolean("set", true)
+                                            ? R.id.keyword_add : R.id.keyword_delete);
+
                                     break;
 
                                 case EntityRule.TYPE_MOVE:
@@ -1624,6 +1630,7 @@ public class FragmentRule extends FragmentBase {
 
                 case EntityRule.TYPE_KEYWORD:
                     jaction.put("keyword", MessageHelper.sanitizeKeyword(etKeyword.getText().toString()));
+                    jaction.put("set", rgKeyword.getCheckedRadioButtonId() == R.id.keyword_add);
                     break;
 
                 case EntityRule.TYPE_MOVE:

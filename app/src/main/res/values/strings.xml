@@ -1837,6 +1837,8 @@
     <string name="title_rule_flag">Add star</string>
     <string name="title_rule_importance">Set importance</string>
     <string name="title_rule_keyword">Add keyword</string>
+    <string name="title_rule_keyword_add">Add</string>
+    <string name="title_rule_keyword_delete">Delete</string>
     <string name="title_rule_move">Move</string>
     <string name="title_rule_copy">Copy (label)</string>
     <string name="title_rule_answer">Reply/forward</string>

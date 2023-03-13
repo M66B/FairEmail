@@ -1220,10 +1220,11 @@ public class EntityRule {
 
     private boolean onActionKeyword(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
         String keyword = jargs.getString("keyword");
+        boolean set = jargs.optBoolean("set", true);
         if (TextUtils.isEmpty(keyword))
             throw new IllegalArgumentException("Keyword missing rule=" + name);
 
-        EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, true);
+        EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, set);
 
         return true;
     }

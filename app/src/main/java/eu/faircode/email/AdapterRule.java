@@ -199,7 +199,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
                     setAction(getAction(type), value);
                 } else if (type == EntityRule.TYPE_KEYWORD) {
-                    setAction(getAction(type), jaction.optString("keyword"));
+                    boolean set = jaction.optBoolean("set", true);
+                    setAction(getAction(type), (set ? "+" : "-") + jaction.optString("keyword"));
                 } else if (type == EntityRule.TYPE_ANSWER) {
                     to = jaction.optString("to");
                     if (!TextUtils.isEmpty(to)) {
