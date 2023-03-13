@@ -10,6 +10,7 @@ Next version
 
 * Added PGP encrypt-only
 * Added weekend scheduling
+* Added reply template sorting options
 * Added option to vertically align keywords, preview, and notes
 * Improved OpenAI (ChatGPT) integration
 * Small improvements and minor bug fixes
