@@ -1318,7 +1318,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_snooze">Tunda</string>
     <string name="title_rule_flag">Tambahkan bintang</string>
     <string name="title_rule_importance">Atur sebagai penting</string>
-    <string name="title_rule_keyword">Tambah kata kunci</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Tambah</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Hapus</string>
     <string name="title_rule_move">Pindahkan</string>
     <string name="title_rule_copy">Salin (label)</string>
     <string name="title_rule_answer">Balas/teruskan</string>

@@ -1559,7 +1559,8 @@
     <string name="title_rule_snooze">Отложить</string>
     <string name="title_rule_flag">В избранное</string>
     <string name="title_rule_importance">Установить важность</string>
-    <string name="title_rule_keyword">Добавить ключ (слово)</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Добавить</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Удалить</string>
     <string name="title_rule_move">Переместить</string>
     <string name="title_rule_copy">Копировать (пометить)</string>
     <string name="title_rule_answer">Ответить/переслать</string>

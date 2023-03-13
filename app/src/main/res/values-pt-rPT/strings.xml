@@ -333,6 +333,8 @@
     <string name="title_advanced_optimize">Optimizar automaticamente</string>
     <string name="title_advanced_always">Receber sempre mensagens para estas contas</string>
     <string name="title_advanced_schedule">Agendamento</string>
+    <string name="title_advanced_schedule_workdays">Dias úteis</string>
+    <string name="title_advanced_schedule_weekend">Fim de semana</string>
     <string name="title_advanced_advanced">Avançado</string>
     <string name="title_advanced_quick_sync">Sincronização rápida</string>
     <string name="title_advanced_no_date">Mensagens sem data</string>
@@ -499,6 +501,7 @@
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
     <string name="title_advanced_preview_italic">Mostrar pré-visualização de mensagem em itálico</string>
     <string name="title_advanced_preview_lines">Número de linhas de pré-visualização</string>
+    <string name="title_advanced_align_header">Alinhe verticalmente as palavras-chave, pré-visualizar texto e notas</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por pré-definição</string>
     <string name="title_advanced_unzip">Mostrar conteúdo de anexos comprimidos</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
@@ -1532,7 +1535,8 @@
     <string name="title_rule_snooze">Adiar</string>
     <string name="title_rule_flag">Adicionar estrela</string>
     <string name="title_rule_importance">Definir a prioridade</string>
-    <string name="title_rule_keyword">Adicionar palavra-chave</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Adicionar</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Eliminar</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
     <string name="title_rule_answer">Responder/encaminhar</string>

@@ -1093,7 +1093,8 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_flag">Stjer tafoegje</string>
     <string name="title_rule_importance">Stel belang</string>
-    <string name="title_rule_keyword">Foegje kaaiwurd ta</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Tafoegje</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Ferwiderje</string>
     <string name="title_rule_move">Ferpleatse</string>
     <string name="title_rule_copy">Kopiearje (label)</string>
     <string name="title_rule_answer">Antwurdzje/trochstjoere</string>

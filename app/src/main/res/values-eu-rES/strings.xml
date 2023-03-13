@@ -1181,7 +1181,8 @@
     <string name="title_rule_snooze">Atzeratu</string>
     <string name="title_rule_flag">Gehitu izarra</string>
     <string name="title_rule_importance">Ezarri garrantzia</string>
-    <string name="title_rule_keyword">Gehitu gako-hitza</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Gehitu</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Ezabatu</string>
     <string name="title_rule_move">Eraman</string>
     <string name="title_rule_copy">Kopiatu (etiketa)</string>
     <string name="title_rule_answer">Erantzun/birbidali</string>

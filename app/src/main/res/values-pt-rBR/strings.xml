@@ -1531,7 +1531,8 @@
     <string name="title_rule_snooze">Soneca</string>
     <string name="title_rule_flag">Adicionar estrela</string>
     <string name="title_rule_importance">Definir a importância</string>
-    <string name="title_rule_keyword">Adicionar palavra-chave</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Adicionar</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Deletar</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
     <string name="title_rule_answer">Responder/encaminhar</string>

@@ -1453,7 +1453,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_snooze">Odložiť</string>
     <string name="title_rule_flag">Pridať hviezdičku</string>
     <string name="title_rule_importance">Nastaviť dôležitosť</string>
-    <string name="title_rule_keyword">Pridať kľúčové slovo</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Pridať</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Vymazať</string>
     <string name="title_rule_move">Presunúť</string>
     <string name="title_rule_copy">Kopírovať (štítok)</string>
     <string name="title_rule_answer">Odpovedať/preposlať</string>

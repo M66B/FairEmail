@@ -1012,7 +1012,8 @@
     <string name="title_rule_snooze">تعویق</string>
     <string name="title_rule_flag">افزودن ستاره</string>
     <string name="title_rule_importance">تعیین اهمیت</string>
-    <string name="title_rule_keyword">افزودن کلیدواژه</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">افزودن</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">حذف</string>
     <string name="title_rule_move">انتقال</string>
     <string name="title_rule_copy">کپی (برچسب)</string>
     <string name="title_rule_tts">متن به گفتار</string>

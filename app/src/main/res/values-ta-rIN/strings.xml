@@ -140,6 +140,8 @@
     <string name="title_copy_btn">நகலெடு</string>
     <string name="title_compose">இயற்றுக</string>
     <string name="title_send">அனுப்புபவை</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">சேர்</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">அழி</string>
     <string name="title_rule_enabled">வாங்கப்பட்டது</string>
     <string name="title_legend_section_synchronize">ஒத்திசைத்தல்</string>
     <string name="title_legend_section_folders">கோப்புறைகள்</string>

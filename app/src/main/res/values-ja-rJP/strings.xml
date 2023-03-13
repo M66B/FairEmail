@@ -1517,7 +1517,8 @@
     <string name="title_rule_snooze">スヌーズ</string>
     <string name="title_rule_flag">スターを付ける</string>
     <string name="title_rule_importance">重要度を設定</string>
-    <string name="title_rule_keyword">キーワードを追加</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">追加</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">削除</string>
     <string name="title_rule_move">移動</string>
     <string name="title_rule_copy">コピー (ラベル)</string>
     <string name="title_rule_answer">返信/転送</string>

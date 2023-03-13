@@ -148,7 +148,7 @@
     <string name="title_setup_quick">Schnelleinrichtung</string>
     <string name="title_setup_intro">Die Einrichtung eines Kontos ist mit nur drei Schritten erledigt und danach können Sie bereits E-Mails senden und empfangen</string>
     <string name="title_setup_simple">Es ist nicht notwendig, andere Optionen zu ändern</string>
-    <string name="title_setup_issue">FairEmail wurde entwickelt, um Ihnen zu helfen, Ihre Privatsphäre zu schützen, und erforderte buchstäblich Tausende von Arbeitsstunden. Wenn Sie irgendwelche Probleme haben, kontaktieren Sie mich bitte zuerst für Unterstützung, bevor Sie eine schlechte Bewertung abgeben. Ich freue mich Ihnen zu helfen!</string>
+    <string name="title_setup_issue">FairEmail wurde entwickelt, um Ihnen zu helfen, Ihre Privatsphäre zu schützen, und erforderte buchstäblich Tausende von Arbeitsstunden. Sollten Sie irgendwelche Probleme haben, wenden Sie sich bitte zuerst an mich, bevor Sie eine schlechte Bewertung abgeben. Ich bin gerne bereit zu helfen!</string>
     <string name="title_setup_analytics">FairEmail zeigt keine Werbung an und verfolgt oder analysiert Ihr Verhalten nicht. »Bugsnag« wird für Fehlerberichte verwendet und ist standardmäßig deaktiviert.</string>
     <string name="title_setup_quick_accounts">Konten hinzufügen oder ändern</string>
     <string name="title_setup_quick_support">Einige Anbieter erschweren das Hinzufügen eines Kontos. Bitte geben Sie nicht FairEmail dafür die Schuld, sondern bitten Sie stattdessen um Unterstützung.</string>
@@ -494,14 +494,14 @@
     <string name="title_advanced_subject_ellipsize">Falls erforderlich, Betreff kürzen</string>
     <string name="title_advanced_compact_mode_remark">Nur Kompaktmodus</string>
     <string name="title_advanced_highlight_color">Hervorhebungsfarbe</string>
-    <string name="title_advanced_keywords">Schlüsselwörter im Nachrichtenkopf anzeigen</string>
+    <string name="title_advanced_keywords">Schlagwörter im Nachrichtenkopf anzeigen</string>
     <string name="title_advanced_labels">Gmail-Labels im Nachrichtenkopf anzeigen</string>
     <string name="title_advanced_flags">Sterne anzeigen</string>
     <string name="title_advanced_flags_background">Farbigen Hintergrund statt farbiger Sterne anzeigen</string>
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_preview_italic">Nachrichtenvorschau kursiv anzeigen</string>
     <string name="title_advanced_preview_lines">Anzahl der Vorschauzeilen</string>
-    <string name="title_advanced_align_header">Schlüsselwörter, Vorschautext und Notizen vertikal ausrichten</string>
+    <string name="title_advanced_align_header">Schlagwörter, Vorschautext und Notizen senkrecht ausrichten</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_unzip">Inhalt von komprimierten Anhängen anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
@@ -596,7 +596,7 @@
     <string name="title_advanced_notify_suppress_in_car">Benachrichtigungen zurückstellen, solange Android Auto verbunden ist</string>
     <string name="title_advanced_notify_summary">Nur zusammenfassende Benachrichtigung anzeigen</string>
     <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>
-    <string name="title_advanced_notify_preview_all">Vorschau des ganzen Textes</string>
+    <string name="title_advanced_notify_preview_all">Vorschau des gesamten Textes</string>
     <string name="title_advanced_notify_preview_only">Nur Benachrichtigungen mit Vorschautext anzeigen</string>
     <string name="title_advanced_notify_actions">Benachrichtigungsaktionen</string>
     <string name="title_advanced_notify_action_trash">Papierkorb</string>
@@ -1147,7 +1147,7 @@
     <string name="title_spam">Spam</string>
     <string name="title_move">Verschieben</string>
     <string name="title_copy_btn">Kopieren</string>
-    <string name="title_keywords_btn">Stichwörter</string>
+    <string name="title_keywords_btn">Schlagwörter</string>
     <string name="title_unsubscribe">Abbestellen</string>
     <string name="title_message_rule">Regel erstellen</string>
     <string name="title_no_junk">Kein Spam</string>
@@ -1536,7 +1536,8 @@
     <string name="title_rule_snooze">Zurückstellen</string>
     <string name="title_rule_flag">Stern hinzufügen</string>
     <string name="title_rule_importance">Wichtigkeit festlegen</string>
-    <string name="title_rule_keyword">Schlagwort hinzufügen</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Hinzufügen</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Löschen</string>
     <string name="title_rule_move">Verschieben</string>
     <string name="title_rule_copy">Kopieren (Label)</string>
     <string name="title_rule_answer">Antworten/Weiterleiten</string>
@@ -1590,7 +1591,7 @@
     <string name="title_rule_folder_missing">Ordner fehlt</string>
     <string name="title_rule_identity_missing">Identität fehlt</string>
     <string name="title_rule_answer_missing">Vorlage fehlt</string>
-    <string name="title_rule_keyword_missing">Schlüsselwort fehlt</string>
+    <string name="title_rule_keyword_missing">Schlagwort fehlt</string>
     <string name="title_rule_automation_hint">Das wird den Intent \'%1$s\' mit den Extras \'%2$s\' senden</string>
     <string name="title_rule_delete_hint">Das dauerhafte Löschen kann nicht widerrufen werden. Stellen Sie daher sicher, dass die Bedingungen der Regel richtig sind!</string>
     <string name="title_rule_execute">Jetzt ausführen</string>
@@ -1892,7 +1893,7 @@
     <string name="title_keyword_label1">Wichtig</string>
     <string name="title_keyword_label2">Arbeit</string>
     <string name="title_keyword_label3">Persönlich</string>
-    <string name="title_keyword_label4">Offene Punkte</string>
+    <string name="title_keyword_label4">Zu erledigen</string>
     <string name="title_keyword_label5">Später</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d Nachricht</item>

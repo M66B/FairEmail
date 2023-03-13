@@ -116,6 +116,8 @@
     <string name="title_attachment_audio">ध्वनि रिकॉर्ड करना</string>
     <string name="title_search">खोजें</string>
     <string name="title_language_all">सभी</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">जोड़ें</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">मिटाए</string>
     <string name="title_rule_enabled">सक्षम</string>
     <string name="title_legend_section_synchronize">तुल्यकालित करें</string>
     <string name="title_legend_section_folders">फ़ोल्डर्स</string>

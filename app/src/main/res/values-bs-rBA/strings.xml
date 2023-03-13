@@ -1544,7 +1544,8 @@
     <string name="title_rule_snooze">Odgodi</string>
     <string name="title_rule_flag">Zvjezdica</string>
     <string name="title_rule_importance">Postavi važnost</string>
-    <string name="title_rule_keyword">Dodaj ključnu riječ</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Dodaj</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Izbriši</string>
     <string name="title_rule_move">Premjesti</string>
     <string name="title_rule_copy">Kopiraj (oznaku)</string>
     <string name="title_rule_answer">Odgovori/proslijedi</string>

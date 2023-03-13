@@ -1404,7 +1404,8 @@
     <string name="title_rule_snooze">Adiar</string>
     <string name="title_rule_flag">Engadir estrela</string>
     <string name="title_rule_importance">Definir importancia</string>
-    <string name="title_rule_keyword">Engadir palabras chave</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Engadir</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Eliminar</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
     <string name="title_rule_answer">Responder/reenviar</string>

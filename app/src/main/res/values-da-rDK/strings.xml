@@ -500,6 +500,7 @@
     <string name="title_advanced_preview">Forhåndsvisning af beskeder</string>
     <string name="title_advanced_preview_italic">Vis beskedforhåndsvisning med kursiv</string>
     <string name="title_advanced_preview_lines">Antal forhåndsvisningslinier</string>
+    <string name="title_advanced_align_header">Lodret justering af nøgleord, forhåndsvisning af tekst og noter</string>
     <string name="title_advanced_addresses">Vis adresseoplysninger som standard</string>
     <string name="title_advanced_unzip">Vis indhold af komprimerede vedhæftninger</string>
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
@@ -1534,7 +1535,8 @@
     <string name="title_rule_snooze">Udsæt</string>
     <string name="title_rule_flag">Tilføj stjerne</string>
     <string name="title_rule_importance">Angiv vigtighed</string>
-    <string name="title_rule_keyword">Tilføj nøgleord</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Tilføj</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Slet</string>
     <string name="title_rule_move">Flyt</string>
     <string name="title_rule_copy">Kopiér (etiket)</string>
     <string name="title_rule_answer">Besvar/videresend</string>

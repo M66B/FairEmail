@@ -499,6 +499,7 @@
     <string name="title_advanced_preview">Να προβάλλεται προεπισκόπηση μηνύματος</string>
     <string name="title_advanced_preview_italic">Να προβάλλεται η προεπισκόπηση μηνύματος σε πλάγια γραφή</string>
     <string name="title_advanced_preview_lines">Αριθμός των γραμμών της προεπισκόπησης</string>
+    <string name="title_advanced_align_header">Κατακόρυφη στοίχιση λέξεων-κλειδιών, προεπισκόπησης κειμένου και σημειώσεων</string>
     <string name="title_advanced_addresses">Να αναπτύσσονται οι λεπτομέρειες της διεύθυνσης από προεπιλογή</string>
     <string name="title_advanced_unzip">Να προβάλλονται τα περιεχόμενα των συμπιεσμένων συνημμένων</string>
     <string name="title_advanced_attachments_alt">Να προβάλλονται τα συνημμένα μετά το κείμενο του μηνύματος</string>
@@ -1527,7 +1528,8 @@
     <string name="title_rule_snooze">Αναβολή</string>
     <string name="title_rule_flag">Προσθήκη αστεριού</string>
     <string name="title_rule_importance">Ορισμός σημαντικότητας</string>
-    <string name="title_rule_keyword">Προσθήκη λέξης-κλειδιού</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Προσθήκη</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Διαγραφή</string>
     <string name="title_rule_move">Μετακίνηση</string>
     <string name="title_rule_copy">Αντιγραφή (ετικέτα)</string>
     <string name="title_rule_answer">Απάντηση/Προώθηση</string>

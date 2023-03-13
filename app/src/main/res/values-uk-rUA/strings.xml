@@ -526,6 +526,7 @@
     <string name="title_advanced_preview">Попередній перегляд повідомлення</string>
     <string name="title_advanced_preview_italic">Показувати попередній перегляд повідомлення в курсиві</string>
     <string name="title_advanced_preview_lines">Кількість рядків для попереднього перегляду</string>
+    <string name="title_advanced_align_header">Вирівнювати по вертикалі, ключові слова, текст попереднього перегляду та примітки</string>
     <string name="title_advanced_addresses">Розгорнути деталі адреси за замовчуванням</string>
     <string name="title_advanced_unzip">Показувати вміст стиснутих вкладень</string>
     <string name="title_advanced_attachments_alt">Показати вкладення після тексту повідомлення</string>
@@ -1556,7 +1557,8 @@
     <string name="title_rule_snooze">Відкласти</string>
     <string name="title_rule_flag">До обраного</string>
     <string name="title_rule_importance">Встановити пріоритет</string>
-    <string name="title_rule_keyword">Додати ключове слово</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Додати</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Вилучити</string>
     <string name="title_rule_move">Перемістити</string>
     <string name="title_rule_copy">Копіювати (мітку)</string>
     <string name="title_rule_answer">Відповісти/переслати</string>

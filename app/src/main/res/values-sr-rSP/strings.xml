@@ -703,7 +703,8 @@
     <string name="title_rule_snooze">Одложи</string>
     <string name="title_rule_flag">Додај звездицу</string>
     <string name="title_rule_importance">Постави приоритет</string>
-    <string name="title_rule_keyword">Додај кључну реч</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Додај</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Обриши</string>
     <string name="title_rule_move">Премести</string>
     <string name="title_rule_copy">Копирај (ознака)</string>
     <string name="title_rule_automation">Аутоматизација</string>

@@ -986,7 +986,8 @@
     <string name="title_rule_snooze">Отложи</string>
     <string name="title_rule_flag">Добави звезда</string>
     <string name="title_rule_importance">Задайте важност</string>
-    <string name="title_rule_keyword">Добави ключова дума</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Добавяне</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Изтриване</string>
     <string name="title_rule_move">Премести</string>
     <string name="title_rule_copy">Копирай (етикет)</string>
     <string name="title_rule_answer">Отговор/препращане</string>

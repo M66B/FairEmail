@@ -492,6 +492,7 @@
     <string name="title_advanced_preview">Förhandsvisning av meddelande</string>
     <string name="title_advanced_preview_italic">Visa förhandsgranskning av meddelande i kursiv stil</string>
     <string name="title_advanced_preview_lines">Antal förhandsgranskningsrader</string>
+    <string name="title_advanced_align_header">Vertikalt anpassa nyckelord, förhandsgranskad text och anteckningar</string>
     <string name="title_advanced_addresses">Visa adressuppgifter som standard</string>
     <string name="title_advanced_unzip">Visa innehållet i komprimerade bilagor</string>
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
@@ -1519,7 +1520,8 @@
     <string name="title_rule_snooze">Slumra</string>
     <string name="title_rule_flag">Lägg till stjärna</string>
     <string name="title_rule_importance">Sätt betydelsen</string>
-    <string name="title_rule_keyword">Lägg till nyckelord</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Lägg till</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Ta bort</string>
     <string name="title_rule_move">Flytta</string>
     <string name="title_rule_copy">Kopiera (etikett)</string>
     <string name="title_rule_answer">Svar/vidarebefordra</string>

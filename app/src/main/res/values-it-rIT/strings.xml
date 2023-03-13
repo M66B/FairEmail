@@ -500,7 +500,7 @@
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_preview_italic">Mostra l\'anteprima del messaggio in corsivo</string>
     <string name="title_advanced_preview_lines">Numero di righe d\'anteprima</string>
-    <string name="title_advanced_align_header">Allinea verticalmente le parole chiave, previsualizza il testo e le note</string>
+    <string name="title_advanced_align_header">Allinea verticalmente le parole chiave, il testo di anteprima e le note</string>
     <string name="title_advanced_addresses">Espandi i dettagli dell\'indirizzo di default</string>
     <string name="title_advanced_unzip">Mostra i contenuti degli allegati compressi</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
@@ -1535,7 +1535,8 @@
     <string name="title_rule_snooze">Posticipa</string>
     <string name="title_rule_flag">Aggiungi stella</string>
     <string name="title_rule_importance">Imposta l\'importanza</string>
-    <string name="title_rule_keyword">Aggiungi parola chiave</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Aggiungi</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Elimina</string>
     <string name="title_rule_move">Sposta</string>
     <string name="title_rule_copy">Copia (etichetta)</string>
     <string name="title_rule_answer">Rispondi/inoltra</string>

@@ -331,6 +331,8 @@
     <string name="title_advanced_optimize">Optimizar automáticamente</string>
     <string name="title_advanced_always">Siempre recibir mensajes para estas cuentas</string>
     <string name="title_advanced_schedule">Programar</string>
+    <string name="title_advanced_schedule_workdays">Días hábiles</string>
+    <string name="title_advanced_schedule_weekend">Fin de semana</string>
     <string name="title_advanced_advanced">Avanzado</string>
     <string name="title_advanced_quick_sync">Sincronización rápida</string>
     <string name="title_advanced_no_date">Mensajes sin fecha</string>
@@ -497,6 +499,7 @@
     <string name="title_advanced_preview">Mostrar vista previa de mensajes</string>
     <string name="title_advanced_preview_italic">Mostrar vista previa de mensaje en cursiva</string>
     <string name="title_advanced_preview_lines">Número de líneas de vista previa</string>
+    <string name="title_advanced_align_header">Alinear palabras clave, textos de previsualización y notas verticalmente</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
     <string name="title_advanced_unzip">Mostrar contenido de adjuntos comprimidos</string>
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
@@ -1526,7 +1529,8 @@
     <string name="title_rule_snooze">Posponer</string>
     <string name="title_rule_flag">Destacar</string>
     <string name="title_rule_importance">Establecer importancia</string>
-    <string name="title_rule_keyword">Añadir palabra clave</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Añadir</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Eliminar</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
     <string name="title_rule_answer">Responder/reenviar</string>
@@ -2029,7 +2033,7 @@
     <string-array name="encryptNames">
         <item>Ninguno</item>
         <item>Sólo firmar con PGP</item>
-        <item>PGP encrypt-only</item>
+        <item>Sólo cifrado PGP</item>
         <item>Firmar y cifrar con PGP</item>
         <item>Sólo firmar S/MIME</item>
         <item>Firmar y cifrar S/MIME</item>

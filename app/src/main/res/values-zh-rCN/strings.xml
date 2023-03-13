@@ -1515,7 +1515,8 @@
     <string name="title_rule_snooze">打盹</string>
     <string name="title_rule_flag">添加星标</string>
     <string name="title_rule_importance">设置重要性</string>
-    <string name="title_rule_keyword">添加关键字</string>
+    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">添加</string>
+    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">删除</string>
     <string name="title_rule_move">移动</string>
     <string name="title_rule_copy">复制（标签）</string>
     <string name="title_rule_answer">回复/转发</string>
