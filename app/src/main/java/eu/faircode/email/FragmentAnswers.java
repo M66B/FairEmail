@@ -106,6 +106,8 @@ public class FragmentAnswers extends FragmentBase {
             rvAnswer.addItemDecoration(itemDecorator);
         }
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
         DividerItemDecoration categoryDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
             @Override
             public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
@@ -139,6 +141,10 @@ public class FragmentAnswers extends FragmentBase {
                     return null;
 
                 if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return null;
+
+                String sort = prefs.getString("answer_sort", "name");
+                if ("last_applied".equals(sort) || "applied".equals(sort))
                     return null;
 
                 EntityAnswer prev = adapter.getItemAtPosition(pos - 1);
@@ -212,14 +218,18 @@ public class FragmentAnswers extends FragmentBase {
             searching = savedInstanceState.getString("fair:searching");
         adapter.search(searching);
 
-        DB db = DB.getInstance(getContext());
+        final Context context = getContext();
+        DB db = DB.getInstance(context);
         db.answer().liveAnswers().observe(getViewLifecycleOwner(), new Observer<List<EntityAnswer>>() {
             @Override
             public void onChanged(List<EntityAnswer> answers) {
                 if (answers == null)
                     answers = new ArrayList<>();
 
-                adapter.set(answers);
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                String sort = prefs.getString("answer_sort", "name");
+
+                adapter.set(sort, answers);
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
@@ -279,6 +289,16 @@ public class FragmentAnswers extends FragmentBase {
             }
         });
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String sort = prefs.getString("answer_sort", "order");
+
+        if ("last_applied".equals(sort))
+            menu.findItem(R.id.menu_sort_on_last_applied).setChecked(true);
+        else if ("applied".equals(sort))
+            menu.findItem(R.id.menu_sort_on_applied).setChecked(true);
+        else
+            menu.findItem(R.id.menu_sort_on_name).setChecked(true);
+
         Menu smenu = menu.findItem(R.id.menu_placeholders).getSubMenu();
 
         List<String> names = EntityAnswer.getCustomPlaceholders(getContext());
@@ -291,19 +311,38 @@ public class FragmentAnswers extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getGroupId() == Menu.FIRST) {
-            onDefine(item.getTitle().toString());
+            onMenuDefine(item.getTitle().toString());
             return true;
         } else {
-            int id = item.getItemId();
-            if (id == R.id.menu_define) {
-                onDefine(null);
+            int itemId = item.getItemId();
+            if (itemId == R.id.menu_sort_on_name) {
+                item.setChecked(true);
+                onMenuSort("name");
+                return true;
+            } else if (itemId == R.id.menu_sort_on_applied) {
+                item.setChecked(true);
+                onMenuSort("applied");
+                return true;
+            } else if (itemId == R.id.menu_sort_on_last_applied) {
+                item.setChecked(true);
+                onMenuSort("last_applied");
+                return true;
+            } else if (itemId == R.id.menu_define) {
+                onMenuDefine(null);
                 return true;
             } else
                 return super.onOptionsItemSelected(item);
         }
     }
 
-    private void onDefine(String name) {
+    private void onMenuSort(String sort) {
+        final Context context = getContext();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putString("answer_sort", sort).apply();
+        adapter.setSort(sort);
+    }
+
+    private void onMenuDefine(String name) {
         final Context context = getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_placeholder, null);
         final EditText etName = view.findViewById(R.id.etName);

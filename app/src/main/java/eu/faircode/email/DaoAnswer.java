@@ -66,8 +66,7 @@ public interface DaoAnswer {
             " WHERE receipt AND NOT hide")
     EntityAnswer getReceiptAnswer();
 
-    @Query("SELECT * FROM answer" +
-            " ORDER BY `group`, -favorite, name COLLATE NOCASE")
+    @Query("SELECT * FROM answer")
     LiveData<List<EntityAnswer>> liveAnswers();
 
     @Query("SELECT COUNT(*) FROM answer" +

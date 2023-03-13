@@ -9,6 +9,26 @@
         app:showAsAction="collapseActionView|always" />
 
     <item
+        android:id="@+id/menu_sort_on"
+        android:icon="@drawable/twotone_sort_24"
+        android:title="@string/title_sort_on"
+        app:showAsAction="ifRoom">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/menu_sort_on_name"
+                    android:title="@string/title_sort_on_name" />
+                <item
+                    android:id="@+id/menu_sort_on_applied"
+                    android:title="@string/title_sort_on_applied" />
+                <item
+                    android:id="@+id/menu_sort_on_last_applied"
+                    android:title="@string/title_sort_on_last_applied" />
+            </group>
+        </menu>
+    </item>
+
+    <item
         android:id="@+id/menu_placeholders"
         android:title="@string/title_answer_placeholder">
         <menu>
