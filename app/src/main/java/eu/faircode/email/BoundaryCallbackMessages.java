@@ -718,7 +718,14 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         Argument args = ss.generateSequence(terms, utf8 ? StandardCharsets.UTF_8.name() : null);
         args.writeAtom("ALL");
 
-        Response[] responses = protocol.command("SEARCH", args); // no CHARSET !
+        // https://www.rfc-editor.org/rfc/rfc3501#section-6.4.4
+        Response[] responses = protocol.command("SEARCH" + (utf8 ? " CHARSET UTF-8" : ""), args);
+        if (responses != null && responses.length > 0 && !responses[responses.length - 1].isOK()) {
+            // Normally "NO"
+            if (!BuildConfig.PLAY_STORE_RELEASE)
+                Log.e(responses[responses.length - 1].toString());
+            responses = protocol.command("SEARCH", args);
+        }
         if (responses == null || responses.length == 0)
             throw new ProtocolException("No response from server");
         for (Response response : responses)
@@ -1045,6 +1052,11 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     search = Normalizer
                             .normalize(search, Normalizer.Form.NFKD)
                             .replaceAll("[^\\p{ASCII}]", "");
+                    if (TextUtils.isEmpty(search)) {
+                        String msg = "Cannot convert to ASCII: " + query;
+                        Log.e(msg);
+                        throw new IllegalArgumentException(msg);
+                    }
                 }
 
                 List<String> word = new ArrayList<>();
