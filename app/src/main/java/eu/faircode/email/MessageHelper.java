@@ -3066,9 +3066,10 @@ public class MessageHelper {
             MimeTextPart p1 = parts.get(p);
             MimeTextPart p2 = parts.get(p + 1);
             // https://bugzilla.mozilla.org/show_bug.cgi?id=1374149
-            if (!"ISO-2022-JP".equalsIgnoreCase(p1.charset) &&
+            if (!"__ISO-2022-JP__".equalsIgnoreCase(p1.charset) &&
                     p1.charset != null && p1.charset.equalsIgnoreCase(p2.charset) &&
                     p1.encoding != null && p1.encoding.equalsIgnoreCase(p2.encoding)) {
+                /*
                 try {
                     byte[] b1 = decodeWord(p1.text, p1.encoding, p1.charset);
                     byte[] b2 = decodeWord(p2.text, p2.encoding, p2.charset);
@@ -3088,6 +3089,7 @@ public class MessageHelper {
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
+                */
                 p1.text += p2.text;
                 parts.remove(p + 1);
             } else
