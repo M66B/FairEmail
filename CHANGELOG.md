@@ -10,6 +10,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Added PGP encrypt-only
 * Added weekend scheduling
+* Added option to vertically align keywords, preview, and notes
+* Improved [OpenAI (ChatGPT) integration](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq190)
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated Public Suffix List
