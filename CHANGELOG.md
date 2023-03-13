@@ -6,17 +6,17 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
 
-### Next version
+### 1.2053 - 2023-03-13
 
 * Added PGP encrypt-only
-* Added weekend scheduling
+* Added weekend scheduling (receive-settings tab page)
 * Added reply template sorting options
-* Added option to vertically align keywords, preview, and notes
+* Added display option to vertically align keywords, preview, and notes
 * Improved [OpenAI (ChatGPT) integration](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq190)
 * Small improvements and minor bug fixes
-* Updated AndroidX
-* Updated Public Suffix List
-* Updated translations
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2052 - 2023-03-08
 
