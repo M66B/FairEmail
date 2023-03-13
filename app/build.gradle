@@ -411,8 +411,19 @@ configurations.all {
 
 configurations.all {
     resolutionStrategy.eachDependency { details ->
-        if (details.requested.group == "org.apache.poi") {
+        if (details.requested.group == "androidx.room") {
+            print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
+            details.useVersion "2.4.3"
+        } else if (details.requested.group == "androidx.lifecycle" &&
+                details.requested.name != "lifecycle-extensions") {
+            print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
+            details.useVersion "2.6.0"
+        } else if (details.requested.group == "org.apache.poi") {
+            print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
             details.useVersion "3.17"
+        } else if (details.requested.group == "org.simplejavamail") {
+            print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
+            details.useVersion "1.7.13"
         }
     }
 }
