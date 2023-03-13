@@ -1473,6 +1473,7 @@
     <string name="title_sort_on_attachments">Anexos</string>
     <string name="title_sort_on_hidden">Oculta</string>
     <string name="title_sort_ascending">Mais antigas primeiro</string>
+    <string name="title_sort_on_name">Nome</string>
     <string name="title_sort_on_order">Ordenar</string>
     <string name="title_sort_on_applied">Contagem aplicada</string>
     <string name="title_sort_on_last_applied">Última aplicada</string>
@@ -2028,7 +2029,7 @@
     <string-array name="encryptNames">
         <item>Nenhuma</item>
         <item>Apenas assinaturas PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Apenas encriptação PGP</item>
         <item>Assinaturas+encriptação PGP</item>
         <item>Apenas assinaturas S/MIME</item>
         <item>Assinaturas+encriptação S/MIME</item>

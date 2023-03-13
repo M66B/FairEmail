@@ -358,6 +358,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_optimize">Automaticky optimalizovat</string>
     <string name="title_advanced_always">Neustále přijímat zprávy pro tyto účty</string>
     <string name="title_advanced_schedule">Plán</string>
+    <string name="title_advanced_schedule_workdays">Pracovní dny</string>
+    <string name="title_advanced_schedule_weekend">Víkend</string>
     <string name="title_advanced_advanced">Pokročilé</string>
     <string name="title_advanced_quick_sync">Rychlá synchronizace</string>
     <string name="title_advanced_no_date">Zprávy bez data</string>
@@ -524,6 +526,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_preview">Zobrazit náhled zprávy</string>
     <string name="title_advanced_preview_italic">Zobrazit náhled zprávy kurzívou</string>
     <string name="title_advanced_preview_lines">Počet řádků náhledu</string>
+    <string name="title_advanced_align_header">Vertikálně zarovnat klíčová slova, náhled textu a poznámky</string>
     <string name="title_advanced_addresses">Automaticky zobrazit detaily adresy</string>
     <string name="title_advanced_unzip">Zobrazit obsah komprimovaných příloh</string>
     <string name="title_advanced_attachments_alt">Zobrazit přílohy pod textem zprávy</string>
@@ -1495,6 +1498,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_sort_on_attachments">Přílohy</string>
     <string name="title_sort_on_hidden">Skryto</string>
     <string name="title_sort_ascending">Od nejstarších</string>
+    <string name="title_sort_on_name">Název</string>
     <string name="title_sort_on_order">Pořadí</string>
     <string name="title_sort_on_applied">Použitý počet</string>
     <string name="title_sort_on_last_applied">Naposledy použito</string>
@@ -2058,7 +2062,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string-array name="encryptNames">
         <item>Žádný</item>
         <item>PGP pouze podpis</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Pouze šifrování PGP</item>
         <item>PGP podpis+šifrovat</item>
         <item>S/MIME pouze podpis</item>
         <item>S/MIME podpis+šifrovat</item>

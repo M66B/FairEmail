@@ -310,6 +310,7 @@
     <string name="title_advanced_language">ଭାଷା</string>
     <string name="title_advanced_language_system">ସିଷ୍ଟମ୍</string>
     <string name="title_advanced_deepl">DeepL ଏକୀକରଣ</string>
+    <string name="title_advanced_openai_temperature">ତାପମାତ୍ରା: %1$s</string>
     <string name="title_advanced_sdcard">ମୁଁ ଏକ SDcard ଵ୍ୟଵହାର କରିବାକୁ ଚାହୁଁଛି</string>
     <string name="title_advanced_updates">GitHub ଅପଡେଟସ୍ ପାଇଁ ଯାଞ୍ଚ କରନ୍ତୁ</string>
     <string name="title_advanced_check_weekly">ଦୈନିକ ବଦଳରେ ସାପ୍ତାହିକ ଯାଞ୍ଚ କରନ୍ତୁ</string>
@@ -380,6 +381,7 @@
     <string name="title_primary_identity">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ପରିଚୟ)</string>
     <string name="title_self_identity">ପ୍ରତ୍ୟୁତ୍ତର ଦେଲାଵେଳେ ଇମେଲ୍ ଠିକଣା କାଢ଼ିଦେବା</string>
     <string name="title_leave_on_server">ସର୍ଵରରେ ଵାର୍ତ୍ତା ଛାଡ଼ିବା</string>
+    <string name="title_client_delete">ଡାଉନଲୋଡ୍ କରିବା ପରେ ସକ୍ରିୟ ଭାଵେ ଵାର୍ତ୍ତା ଵିଲୋପ କରିବା</string>
     <string name="title_leave_deleted">ଵିଲୋପିତ ଵାର୍ତ୍ତାଗୁଡ଼ିକୁ ସର୍ଵରରେ ଛାଡ଼ିବା</string>
     <string name="title_leave_on_device">ଡିଵାଇସରେ ଵାର୍ତ୍ତା ଛାଡ଼ିବା</string>
     <string name="title_check">ଯାଞ୍ଚ କର</string>
@@ -601,6 +603,7 @@
     <string name="title_sort_on_size">ଆକାର</string>
     <string name="title_sort_on_attachments">ସଂଲଗ୍ନକରଣ</string>
     <string name="title_sort_on_hidden">ଲୁକ୍କାୟିତ</string>
+    <string name="title_sort_on_name">ନାମ</string>
     <string name="title_sort_on_order">କ୍ରମ</string>
     <string name="title_sort_on_applied">ପ୍ରୟୋଗ ଗଣନା</string>
     <string name="title_sort_on_last_applied">ଗତ ପ୍ରୟୋଗ</string>

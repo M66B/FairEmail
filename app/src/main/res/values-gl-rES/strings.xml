@@ -1347,6 +1347,7 @@
     <string name="title_sort_on_attachments">Con anexos</string>
     <string name="title_sort_on_hidden">Agochado</string>
     <string name="title_sort_ascending">Máis antigos primeiro</string>
+    <string name="title_sort_on_name">Nome</string>
     <string name="title_sort_on_order">Orde</string>
     <string name="title_filter">Sen coincidencia nos filtros</string>
     <string name="title_filter_seen">Lido</string>
@@ -1892,7 +1893,7 @@
     <string-array name="encryptNames">
         <item>Ningún</item>
         <item>Só sinatura PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>Sinatura e cifrado PGP</item>
         <item>Só sinatura S/MIME</item>
         <item>Cifrado e asinado S/MIME</item>

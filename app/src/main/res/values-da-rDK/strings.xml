@@ -332,6 +332,8 @@
     <string name="title_advanced_optimize">Optimér automatisk</string>
     <string name="title_advanced_always">Modtag altid beskeder til disse konti</string>
     <string name="title_advanced_schedule">Planlægning</string>
+    <string name="title_advanced_schedule_workdays">Hverdage</string>
+    <string name="title_advanced_schedule_weekend">Weekend</string>
     <string name="title_advanced_advanced">Avanceret</string>
     <string name="title_advanced_quick_sync">Hurtig synk</string>
     <string name="title_advanced_no_date">Beskeder uden dato</string>
@@ -1473,6 +1475,7 @@
     <string name="title_sort_on_attachments">Vedhæftninger</string>
     <string name="title_sort_on_hidden">Skjult</string>
     <string name="title_sort_ascending">Ældste først</string>
+    <string name="title_sort_on_name">Navn</string>
     <string name="title_sort_on_order">Rækkefølge</string>
     <string name="title_sort_on_applied">Anvendt antal</string>
     <string name="title_sort_on_last_applied">Senest anvendt</string>
@@ -2035,7 +2038,7 @@
     <string-array name="encryptNames">
         <item>Ingen</item>
         <item>Kun PGP-signering</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Kun PGP-kryptering</item>
         <item>PGP-signering + kryptering</item>
         <item>Kun S/MIME-signering</item>
         <item>S/MIME-signering + kryptering</item>

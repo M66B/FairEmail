@@ -318,6 +318,8 @@
     <string name="title_advanced_optimize">自动优化</string>
     <string name="title_advanced_always">总是接收这些账户的消息</string>
     <string name="title_advanced_schedule">计划任务</string>
+    <string name="title_advanced_schedule_workdays">工作日</string>
+    <string name="title_advanced_schedule_weekend">周末</string>
     <string name="title_advanced_advanced">高级</string>
     <string name="title_advanced_quick_sync">快速同步</string>
     <string name="title_advanced_no_date">不含日期的消息</string>
@@ -484,6 +486,7 @@
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_preview_italic">斜体字显示邮件预览</string>
     <string name="title_advanced_preview_lines">预览行数</string>
+    <string name="title_advanced_align_header">垂直对齐关键词、预览文本和注释</string>
     <string name="title_advanced_addresses">默认展开地址详情</string>
     <string name="title_advanced_unzip">显示压缩附件的内容</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
@@ -1453,6 +1456,7 @@
     <string name="title_sort_on_attachments">附件</string>
     <string name="title_sort_on_hidden">隐藏</string>
     <string name="title_sort_ascending">旧消息在前</string>
+    <string name="title_sort_on_name">名称</string>
     <string name="title_sort_on_order">顺序</string>
     <string name="title_sort_on_applied">应用次数</string>
     <string name="title_sort_on_last_applied">上次应用</string>
@@ -2012,9 +2016,9 @@
     <string-array name="encryptNames">
         <item>无</item>
         <item>仅PGP签名</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>仅 PGP 加密</item>
         <item>PGP 签名+加密</item>
-        <item>仅S/MIME签名</item>
+        <item>仅 S/MIME 签名</item>
         <item>S/MIME 签名+加密</item>
     </string-array>
     <string-array name="sizeNames">

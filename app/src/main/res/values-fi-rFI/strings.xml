@@ -1445,6 +1445,7 @@
     <string name="title_sort_on_attachments">Liitteet</string>
     <string name="title_sort_on_hidden">Piilotettu</string>
     <string name="title_sort_ascending">Vanhin ensin</string>
+    <string name="title_sort_on_name">Nimi</string>
     <string name="title_sort_on_order">Järjestys</string>
     <string name="title_filter">Suodata pois</string>
     <string name="title_filter_seen">Luettu</string>
@@ -1995,7 +1996,7 @@
     <string-array name="encryptNames">
         <item>Ei mitään</item>
         <item>PGP allekirjoita ainoastaan</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP allekirjoita+salaa</item>
         <item>S/MIME allekirjoita ainoastaan</item>
         <item>S/MIME allekirjoita+salaa</item>

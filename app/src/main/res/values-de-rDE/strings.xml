@@ -333,6 +333,8 @@
     <string name="title_advanced_optimize">Automatisch optimieren</string>
     <string name="title_advanced_always">Nachrichten für diese Konten immer empfangen</string>
     <string name="title_advanced_schedule">Zeitplan</string>
+    <string name="title_advanced_schedule_workdays">Werktage</string>
+    <string name="title_advanced_schedule_weekend">Wochenende</string>
     <string name="title_advanced_advanced">Erweitert</string>
     <string name="title_advanced_quick_sync">Schnellsynchronisation</string>
     <string name="title_advanced_no_date">Nachrichten ohne Datum empfangen</string>
@@ -499,6 +501,7 @@
     <string name="title_advanced_preview">Nachrichtenvorschau anzeigen</string>
     <string name="title_advanced_preview_italic">Nachrichtenvorschau kursiv anzeigen</string>
     <string name="title_advanced_preview_lines">Anzahl der Vorschauzeilen</string>
+    <string name="title_advanced_align_header">Schlüsselwörter, Vorschautext und Notizen vertikal ausrichten</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig anzeigen</string>
     <string name="title_advanced_unzip">Inhalt von komprimierten Anhängen anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
@@ -690,6 +693,7 @@
     <string name="title_advanced_openai">Integration von OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Modell</string>
     <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
+    <string name="title_advanced_openai_moderation">Moderation von Inhalten</string>
     <string name="title_advanced_sdcard">Ich möchte eine SD-Karte verwenden</string>
     <string name="title_advanced_watchdog">Regelmäßig prüfen, ob FairEmail noch aktiv ist</string>
     <string name="title_advanced_updates">Auf GitHub nach Aktualisierungen suchen</string>
@@ -1473,6 +1477,7 @@
     <string name="title_sort_on_attachments">Anhänge</string>
     <string name="title_sort_on_hidden">Verborgen</string>
     <string name="title_sort_ascending">Älteste zuerst</string>
+    <string name="title_sort_on_name">Name</string>
     <string name="title_sort_on_order">Reihenfolge</string>
     <string name="title_sort_on_applied">Trefferanzahl</string>
     <string name="title_sort_on_last_applied">Zuletzt angewandt</string>
@@ -2035,10 +2040,10 @@
     <string-array name="encryptNames">
         <item>Keine Verschlüsselung</item>
         <item>PGP nur signieren</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
-        <item>PGP signieren + verschlüsseln</item>
+        <item>PGP nur verschlüsseln</item>
+        <item>PGP signieren und verschlüsseln</item>
         <item>S/MIME nur signieren</item>
-        <item>S/MIME signieren + verschlüsseln</item>
+        <item>S/MIME signieren und verschlüsseln</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>

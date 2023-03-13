@@ -948,6 +948,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_sort_on_attachments">Adjunts</string>
     <string name="title_sort_on_hidden">Ocults</string>
     <string name="title_sort_ascending">El més antic primer</string>
+    <string name="title_sort_on_name">Nom</string>
     <string name="title_sort_on_order">Ordre</string>
     <string name="title_filter">Filtrar per</string>
     <string name="title_filter_seen">Llegir</string>
@@ -1367,7 +1368,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string-array name="encryptNames">
         <item>Cap</item>
         <item>Només signar PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>Signar i xifrar PGP</item>
         <item>Només signar S/MIME</item>
         <item>Signar i xifrar S/MIME</item>

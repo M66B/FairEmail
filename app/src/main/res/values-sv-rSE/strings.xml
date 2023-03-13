@@ -324,6 +324,8 @@
     <string name="title_advanced_optimize">Optimera automatiskt</string>
     <string name="title_advanced_always">Ta alltid emot meddelanden för dessa konton</string>
     <string name="title_advanced_schedule">Schema</string>
+    <string name="title_advanced_schedule_workdays">Vardagar</string>
+    <string name="title_advanced_schedule_weekend">Helg</string>
     <string name="title_advanced_advanced">Avancerat</string>
     <string name="title_advanced_quick_sync">Snabbsynkronisering</string>
     <string name="title_advanced_no_date">Meddelanden utan datum</string>
@@ -1458,6 +1460,7 @@
     <string name="title_sort_on_attachments">Bilagor</string>
     <string name="title_sort_on_hidden">Dold</string>
     <string name="title_sort_ascending">Äldst först</string>
+    <string name="title_sort_on_name">Namn</string>
     <string name="title_sort_on_order">Ordning</string>
     <string name="title_sort_on_applied">Tillämpat antal</string>
     <string name="title_sort_on_last_applied">Senast tillämpad</string>
@@ -2018,8 +2021,8 @@
     <string-array name="encryptNames">
         <item>Inga</item>
         <item>PGP signering</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
-        <item>PGP signering + kryptera</item>
+        <item>Endast PGP-kryptering</item>
+        <item>PGP-signering + kryptering</item>
         <item>S/MIME signering</item>
         <item>S/MIME signera+kryptera</item>
     </string-array>

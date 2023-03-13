@@ -1399,6 +1399,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_sort_on_attachments">Prílohy</string>
     <string name="title_sort_on_hidden">Skryté</string>
     <string name="title_sort_ascending">Od najstaršej</string>
+    <string name="title_sort_on_name">Názov</string>
     <string name="title_sort_on_order">Poradie</string>
     <string name="title_filter">Filtrovať</string>
     <string name="title_filter_seen">Prečítané</string>
@@ -1934,7 +1935,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string-array name="encryptNames">
         <item>Nič</item>
         <item>PGP len podpísať</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP podpísať aj zašifrovať</item>
         <item>S/MIME len podpísať</item>
         <item>S/MIME podpísať aj zašifrovať</item>

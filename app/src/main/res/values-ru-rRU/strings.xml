@@ -357,6 +357,8 @@
     <string name="title_advanced_optimize">Автоматическая оптимизация</string>
     <string name="title_advanced_always">Непрерывно получать сообщения с этих учётных записей</string>
     <string name="title_advanced_schedule">Расписание</string>
+    <string name="title_advanced_schedule_workdays">Будни</string>
+    <string name="title_advanced_schedule_weekend">Выходные</string>
     <string name="title_advanced_advanced">Дополнительно</string>
     <string name="title_advanced_quick_sync">Быстрая синхронизация</string>
     <string name="title_advanced_no_date">Сообщения без даты</string>
@@ -523,6 +525,7 @@
     <string name="title_advanced_preview">Показывать предпросмотр сообщения</string>
     <string name="title_advanced_preview_italic">Показывать предпросмотр сообщения курсивом</string>
     <string name="title_advanced_preview_lines">Количество строк предпросмотра</string>
+    <string name="title_advanced_align_header">Вертикальное выравнивание ключевых слов, предпросмотра текста и заметок</string>
     <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
     <string name="title_advanced_unzip">Показывать содержимое сжатых вложений</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
@@ -1497,6 +1500,7 @@
     <string name="title_sort_on_attachments">Вложения</string>
     <string name="title_sort_on_hidden">Скрытые</string>
     <string name="title_sort_ascending">Сначала старые</string>
+    <string name="title_sort_on_name">Имя</string>
     <string name="title_sort_on_order">Порядок</string>
     <string name="title_sort_on_applied">Количество применений</string>
     <string name="title_sort_on_last_applied">Последнее применение</string>
@@ -2061,7 +2065,7 @@
     <string-array name="encryptNames">
         <item>Ничего</item>
         <item>Только подпись PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Только шифрование PGP</item>
         <item>Подпись+шифрование PGP</item>
         <item>Только подпись S/MIME</item>
         <item>Подпись+шифрование S/MIME</item>

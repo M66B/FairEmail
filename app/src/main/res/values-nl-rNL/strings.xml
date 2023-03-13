@@ -330,6 +330,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_optimize">Automatisch optimaliseren</string>
     <string name="title_advanced_always">Ontvang altijd berichten voor deze accounts</string>
     <string name="title_advanced_schedule">Schema</string>
+    <string name="title_advanced_schedule_workdays">Werkdagen</string>
+    <string name="title_advanced_schedule_weekend">Weekeinde</string>
     <string name="title_advanced_advanced">Geavanceerd</string>
     <string name="title_advanced_quick_sync">Snelle synchronisatie</string>
     <string name="title_advanced_no_date">Berichten zonder datum</string>
@@ -496,6 +498,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_preview">Toon berichtvoorbeeld</string>
     <string name="title_advanced_preview_italic">Toon berichtvoorbeeld cursief</string>
     <string name="title_advanced_preview_lines">Aantal lijnen voorbeeld</string>
+    <string name="title_advanced_align_header">Lijn trefwoorden, voorbeeldtekst en notities verticaal uit</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
     <string name="title_advanced_unzip">Toon de inhoud van gecomprimeerde bijlagen</string>
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
@@ -1464,6 +1467,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_sort_on_attachments">Bijlagen</string>
     <string name="title_sort_on_hidden">Verborgen</string>
     <string name="title_sort_ascending">Oudste eerst</string>
+    <string name="title_sort_on_name">Naam</string>
     <string name="title_sort_on_order">Volgorde</string>
     <string name="title_sort_on_applied">Toegepaste keren</string>
     <string name="title_sort_on_last_applied">Laatst toegepast</string>
@@ -2023,10 +2027,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string-array name="encryptNames">
         <item>Geen</item>
         <item>PGP teken-alleen</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP versleutel-alleen</item>
-        <item>PGP teken+versleutel</item>
-        <item>S/MIME teken-alleen</item>
-        <item>S/MIME teken+versleutel</item>
+        <item>PGP alleen versleuteling</item>
+        <item>PGP ondertekening+versleuteling</item>
+        <item>S/MIME alleen ondertekening</item>
+        <item>S/MIME ondertekening+versleuteling</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>

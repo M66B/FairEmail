@@ -1269,6 +1269,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_sort_on_attachments">Memiliki lampiran</string>
     <string name="title_sort_on_hidden">Tersembunyi</string>
     <string name="title_sort_ascending">Terlama dahulu</string>
+    <string name="title_sort_on_name">Nama</string>
     <string name="title_sort_on_order">Urutan</string>
     <string name="title_filter">Filter</string>
     <string name="title_filter_seen">Sudah dibaca</string>
@@ -1773,7 +1774,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string-array name="encryptNames">
         <item>Tidak ada</item>
         <item>PGP sign-only</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
         <item>S/MIME sign+encrypt</item>

@@ -332,6 +332,8 @@
     <string name="title_advanced_optimize">Optimiser automatiquement</string>
     <string name="title_advanced_always">Recevoir les messages en continu pour ces comptes</string>
     <string name="title_advanced_schedule">Planification</string>
+    <string name="title_advanced_schedule_workdays">Jours ouvrés</string>
+    <string name="title_advanced_schedule_weekend">Week-end</string>
     <string name="title_advanced_advanced">Avancé</string>
     <string name="title_advanced_quick_sync">Synchronisation rapide</string>
     <string name="title_advanced_no_date">Messages sans date</string>
@@ -498,6 +500,7 @@
     <string name="title_advanced_preview">Afficher l\'aperçu du message</string>
     <string name="title_advanced_preview_italic">Afficher l\'aperçu du message en italique</string>
     <string name="title_advanced_preview_lines">Nombre de lignes d\'aperçu</string>
+    <string name="title_advanced_align_header">Alignez verticalement les mots-clés, le texte de prévisualisation et les notes</string>
     <string name="title_advanced_addresses">Déplier par défaut les détails de l’adresse</string>
     <string name="title_advanced_unzip">Afficher le contenu des pièces jointes compressées</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
@@ -1473,6 +1476,7 @@
     <string name="title_sort_on_attachments">Pièces jointes</string>
     <string name="title_sort_on_hidden">Masqués</string>
     <string name="title_sort_ascending">Le plus ancien en premier</string>
+    <string name="title_sort_on_name">Nom</string>
     <string name="title_sort_on_order">Ordre</string>
     <string name="title_sort_on_applied">Nombre d\'utilisations</string>
     <string name="title_sort_on_last_applied">Dernièrement utilisé</string>
@@ -2035,7 +2039,7 @@
     <string-array name="encryptNames">
         <item>Aucun</item>
         <item>Signature PGP seulement</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Chiffrement PGP seulement</item>
         <item>Signature et chiffrement PGP</item>
         <item>Signature S/MIME seulement</item>
         <item>Signature et chiffrement S/MIME</item>

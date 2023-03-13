@@ -731,6 +731,7 @@
     <string name="title_sort_on_attachments">첨부파일</string>
     <string name="title_sort_on_hidden">숨김</string>
     <string name="title_sort_ascending">오래된 순</string>
+    <string name="title_sort_on_name">이름</string>
     <string name="title_sort_on_order">정렬</string>
     <string name="title_filter_seen">읽음</string>
     <string name="title_filter_unflagged">즐겨찾기 해제함</string>
@@ -1110,7 +1111,7 @@
     <string-array name="encryptNames">
         <item>없음</item>
         <item>PGP 서명만</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
         <item>S/MIME 사인+암호화</item>

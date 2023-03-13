@@ -332,6 +332,8 @@
     <string name="title_advanced_optimize">Ottimizza automaticamente</string>
     <string name="title_advanced_always">Ricevi sempre i messaggi per questi profili</string>
     <string name="title_advanced_schedule">Pianificazione</string>
+    <string name="title_advanced_schedule_workdays">Giorni lavorativi</string>
+    <string name="title_advanced_schedule_weekend">Fine settimana</string>
     <string name="title_advanced_advanced">Avanzate</string>
     <string name="title_advanced_quick_sync">Sincronizzazione rapida</string>
     <string name="title_advanced_no_date">Messaggi senza data</string>
@@ -498,6 +500,7 @@
     <string name="title_advanced_preview">Mostra l\'anteprima del messaggio</string>
     <string name="title_advanced_preview_italic">Mostra l\'anteprima del messaggio in corsivo</string>
     <string name="title_advanced_preview_lines">Numero di righe d\'anteprima</string>
+    <string name="title_advanced_align_header">Allinea verticalmente le parole chiave, previsualizza il testo e le note</string>
     <string name="title_advanced_addresses">Espandi i dettagli dell\'indirizzo di default</string>
     <string name="title_advanced_unzip">Mostra i contenuti degli allegati compressi</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
@@ -1473,6 +1476,7 @@
     <string name="title_sort_on_attachments">Allegati</string>
     <string name="title_sort_on_hidden">Nascosto</string>
     <string name="title_sort_ascending">Prima i più vecchi</string>
+    <string name="title_sort_on_name">Nome</string>
     <string name="title_sort_on_order">Ordine</string>
     <string name="title_sort_on_applied">Conteggio d\'uso</string>
     <string name="title_sort_on_last_applied">Ultima applicazione</string>
@@ -2035,7 +2039,7 @@
     <string-array name="encryptNames">
         <item>Nessuna</item>
         <item>Solo firma PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Solo crittografia PGP</item>
         <item>Firma+crittografia PGP</item>
         <item>Solo firma S/MIME</item>
         <item>Firma+crittografia S/MIME</item>

@@ -1047,6 +1047,7 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string name="title_sort_on_attachments">Taheaksels</string>
     <string name="title_sort_on_hidden">Ferburgen</string>
     <string name="title_sort_ascending">Aldste earst</string>
+    <string name="title_sort_on_name">Namme</string>
     <string name="title_sort_on_order">Sekwinsje</string>
     <string name="title_filter">Útfilterje</string>
     <string name="title_filter_seen">Lêze</string>
@@ -1524,7 +1525,7 @@ As \"Berjochten op de server stean litte l\" net ynskeakele is, gean dizze berjo
     <string-array name="encryptNames">
         <item>Gjin</item>
         <item>PGP allinich teken</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP-teken + fersifere</item>
         <item>S/MIME allinich oanmeld</item>
         <item>S/MIME tekenje + fersiferje</item>

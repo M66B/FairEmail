@@ -1338,6 +1338,7 @@
     <string name="title_sort_on_attachments">Prilozi</string>
     <string name="title_sort_on_hidden">Skriveno</string>
     <string name="title_sort_ascending">Prvo najstarije</string>
+    <string name="title_sort_on_name">Ime</string>
     <string name="title_sort_on_order">Redoslijed</string>
     <string name="title_filter">Filtrirati</string>
     <string name="title_filter_seen">Pročitaj</string>
@@ -1869,7 +1870,7 @@
     <string-array name="encryptNames">
         <item>Nijedan</item>
         <item>PGP samo za potpis</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP potpis + šifriranje</item>
         <item>S/MIME samo za potpis</item>
         <item>S/MIME potpis + šifriranje</item>

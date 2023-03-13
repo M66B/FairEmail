@@ -1134,6 +1134,7 @@
     <string name="title_sort_on_attachments">Eranskinak</string>
     <string name="title_sort_on_hidden">Ezkutuan</string>
     <string name="title_sort_ascending">Zaharrena lehena</string>
+    <string name="title_sort_on_name">Izena</string>
     <string name="title_sort_on_order">Ordena</string>
     <string name="title_filter">Iragazi</string>
     <string name="title_filter_seen">Irakurrita</string>
@@ -1632,7 +1633,7 @@
     <string-array name="encryptNames">
         <item>Bat ere ez</item>
         <item>PGP sinadura soilik</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP sinadura eta zifratzea</item>
         <item>S/MIME sinadura soilik</item>
         <item>S/MIME sinadura eta zifratzea</item>

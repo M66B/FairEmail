@@ -454,6 +454,7 @@
     <string name="title_advanced_caption_message_header">Загаловак паведамлення</string>
     <string name="title_advanced_caption_message_body">Змест паведамлення</string>
     <string name="title_advanced_caption_file">Файл</string>
+    <string name="title_advanced_caption_integrations">Інтэграцыі</string>
     <string name="title_advanced_portrait">Партрэтны рэжым</string>
     <string name="title_advanced_landscape">Ландшафтны рэжым</string>
     <string name="title_advanced_two_row">Выкарыстоўваць два радкі</string>
@@ -711,6 +712,11 @@
     <string name="title_advanced_lt_key">Ключ API (неабавязкова)</string>
     <string name="title_advanced_deepl">Інтэграцыя з DeepL</string>
     <string name="title_advanced_virus_total">Інтэграцыя з VirusTotal</string>
+    <string name="title_advanced_send">Інтэграцыя з \'Send\'</string>
+    <string name="title_advanced_openai">Інтэграцыя з OpenAI (ChatGPT)</string>
+    <string name="title_advanced_openai_model">Мадэль</string>
+    <string name="title_advanced_openai_temperature">Тэмпература: %1$s</string>
+    <string name="title_advanced_openai_moderation">Мадэрацыя зместу</string>
     <string name="title_advanced_sdcard">Я хачу выкарыстоўваць карту памяці</string>
     <string name="title_advanced_watchdog">Перыядычна правяраць актыўнасць FairEmail</string>
     <string name="title_advanced_updates">Праверыць наяўнасць абнаўленняў на GitHub</string>
@@ -905,6 +911,7 @@
     <string name="title_primary_identity">Асноўны (ідэнтыфікатар па змаўчанні)</string>
     <string name="title_self_identity">Выдаляць адрас электроннай пошты пры адказе</string>
     <string name="title_leave_on_server">Пакідаць паведамленні на серверы</string>
+    <string name="title_client_delete">Актыўна выдаляць паведамленні пасля загрузкі</string>
     <string name="title_leave_deleted">Пакідаць выдаленыя паведамленні на серверы</string>
     <string name="title_leave_on_device">Пакідаць паведамленні на прыладзе</string>
     <string name="title_max_messages">Максімальная колькасць паведамленняў для загрузкі (калі пуста, то для ўсіх)</string>
@@ -1494,6 +1501,7 @@
     <string name="title_sort_on_attachments">Укладанняў</string>
     <string name="title_sort_on_hidden">Стану адлюстравання</string>
     <string name="title_sort_ascending">Спачатку старыя</string>
+    <string name="title_sort_on_name">Імя</string>
     <string name="title_sort_on_order">Парадак</string>
     <string name="title_sort_on_applied">Колькасці ўжыванняў</string>
     <string name="title_sort_on_last_applied">Апошняга ўжывання</string>
@@ -2051,7 +2059,7 @@
     <string-array name="encryptNames">
         <item>Нічога</item>
         <item>Толькі подпіс PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Толькі шыфраванне PGP</item>
         <item>Подпіс PGP+шыфраванне</item>
         <item>Толькі подпіс S/MIME</item>
         <item>Попіс+шыфраванне S/MIME</item>

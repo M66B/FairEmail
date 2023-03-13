@@ -676,6 +676,7 @@
     <string name="title_advanced_openai">OpenAI (ChatGPT) を統合</string>
     <string name="title_advanced_openai_model">モデル</string>
     <string name="title_advanced_openai_temperature">温度 (Temperature): %1$s</string>
+    <string name="title_advanced_openai_moderation">コンテンツモデレーション</string>
     <string name="title_advanced_sdcard">SD カードを使用できますか？</string>
     <string name="title_advanced_watchdog">FairEmail がアクティブか定期的に確認</string>
     <string name="title_advanced_updates">GitHub のアップデートを確認</string>
@@ -1457,6 +1458,7 @@
     <string name="title_sort_on_attachments">添付ファイル</string>
     <string name="title_sort_on_hidden">非表示のメッセージ</string>
     <string name="title_sort_ascending">古い順から</string>
+    <string name="title_sort_on_name">名前</string>
     <string name="title_sort_on_order">順番</string>
     <string name="title_sort_on_applied">適用回数</string>
     <string name="title_sort_on_last_applied">最終適用</string>
@@ -2013,7 +2015,7 @@
     <string-array name="encryptNames">
         <item>なし</item>
         <item>PGP 電子署名のみ</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP 暗号化のみ</item>
         <item>PGP 電子署名 + 暗号化</item>
         <item>S/MIME 電子署名のみ</item>
         <item>S/MIME 電子署名 + 暗号化</item>

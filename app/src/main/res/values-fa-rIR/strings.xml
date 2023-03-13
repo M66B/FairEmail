@@ -970,6 +970,7 @@
     <string name="title_sort_on_attachments">پیوست‎ها</string>
     <string name="title_sort_on_hidden">پنهان</string>
     <string name="title_sort_ascending">ابتدا قدیمی‌ترین</string>
+    <string name="title_sort_on_name">نام</string>
     <string name="title_sort_on_order">سفارش</string>
     <string name="title_filter">پالودن</string>
     <string name="title_filter_seen">خوانده شده</string>
@@ -1404,7 +1405,7 @@
     <string-array name="encryptNames">
         <item>هیچ کدام</item>
         <item>تنها امضای PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>امضا+رمزگذاری PGP</item>
         <item>تنها امضا شده S/MIME</item>
         <item>امضا+رمزگذاری S/MIME</item>

@@ -1353,6 +1353,7 @@
     <string name="title_sort_on_attachments">Tệp đính kèm</string>
     <string name="title_sort_on_hidden">Ẩn</string>
     <string name="title_sort_ascending">Cũ nhất trước</string>
+    <string name="title_sort_on_name">Tên</string>
     <string name="title_sort_on_order">Thứ tự</string>
     <string name="title_filter">Lọc ra</string>
     <string name="title_filter_seen">Đã đọc</string>
@@ -1878,7 +1879,7 @@
     <string-array name="encryptNames">
         <item>Không có</item>
         <item>PGP chỉ ký</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP ký+mã hoá</item>
         <item>S/MIME chỉ ký</item>
         <item>S/MIME ký+mã hoá</item>

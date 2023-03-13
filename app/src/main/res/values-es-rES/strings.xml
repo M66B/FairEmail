@@ -1467,6 +1467,7 @@
     <string name="title_sort_on_attachments">Adjuntos</string>
     <string name="title_sort_on_hidden">Oculto</string>
     <string name="title_sort_ascending">Más antiguo primero</string>
+    <string name="title_sort_on_name">Nombre</string>
     <string name="title_sort_on_order">Orden</string>
     <string name="title_sort_on_applied">Conteo aplicado</string>
     <string name="title_sort_on_last_applied">Última aplicación</string>
@@ -2028,7 +2029,7 @@
     <string-array name="encryptNames">
         <item>Ninguno</item>
         <item>Sólo firmar con PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>Firmar y cifrar con PGP</item>
         <item>Sólo firmar S/MIME</item>
         <item>Firmar y cifrar S/MIME</item>

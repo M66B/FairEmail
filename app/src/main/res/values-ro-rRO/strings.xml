@@ -344,6 +344,8 @@
     <string name="title_advanced_optimize">Optimizare automată</string>
     <string name="title_advanced_always">Primiți întotdeauna mesaje pentru aceste conturi</string>
     <string name="title_advanced_schedule">Programat</string>
+    <string name="title_advanced_schedule_workdays">Zile de muncă</string>
+    <string name="title_advanced_schedule_weekend">Sfârșit de săptămână</string>
     <string name="title_advanced_advanced">Avansate</string>
     <string name="title_advanced_quick_sync">Sincronizare rapidă</string>
     <string name="title_advanced_no_date">Mesaje fără dată</string>
@@ -439,6 +441,7 @@
     <string name="title_advanced_caption_message_header">Antet mesaj</string>
     <string name="title_advanced_caption_message_body">Corp mesaj</string>
     <string name="title_advanced_caption_file">Fişier</string>
+    <string name="title_advanced_caption_integrations">Integrări</string>
     <string name="title_advanced_portrait">Modul portret</string>
     <string name="title_advanced_landscape">Mod peisaj</string>
     <string name="title_advanced_two_row">Utilizați două rânduri</string>
@@ -509,6 +512,7 @@
     <string name="title_advanced_preview">Arată previzualizare mesaj</string>
     <string name="title_advanced_preview_italic">Arată previzualizare mesaj cu aldin</string>
     <string name="title_advanced_preview_lines">Numărul de linii de previzualizat</string>
+    <string name="title_advanced_align_header">Aliniază vertical cuvintele-cheie, previzualizare text și note</string>
     <string name="title_advanced_addresses">Implicit arată detaliile adreselor</string>
     <string name="title_advanced_unzip">Afișați conținutul atașamentelor comprimate</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
@@ -697,6 +701,9 @@
     <string name="title_advanced_virus_total">Integrare VirusTotal</string>
     <string name="title_advanced_send">Integrarea \'Trimite\'</string>
     <string name="title_advanced_openai">Integrarea OpenAI (ChatGPT)</string>
+    <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_temperature">Temperatura: %1$s</string>
+    <string name="title_advanced_openai_moderation">Moderarea conținutului</string>
     <string name="title_advanced_sdcard">Vreau să folosesc un sdcard</string>
     <string name="title_advanced_watchdog">Verifică periodic dacă FairEmail este încă activ</string>
     <string name="title_advanced_updates">Verificați dacă există actualizări pe Github</string>
@@ -1477,6 +1484,7 @@
     <string name="title_sort_on_attachments">Atașamente</string>
     <string name="title_sort_on_hidden">Ascuns</string>
     <string name="title_sort_ascending">Întâi cele mai vechi</string>
+    <string name="title_sort_on_name">Nume</string>
     <string name="title_sort_on_order">Ordine</string>
     <string name="title_sort_on_applied">Număr de rezultate</string>
     <string name="title_sort_on_last_applied">Ultima aplicatie</string>
@@ -2039,7 +2047,7 @@
     <string-array name="encryptNames">
         <item>Fără</item>
         <item>Doar semnare PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Doar PGP</item>
         <item>Semnare+criptare PGP</item>
         <item>Doar semnare S/MIME</item>
         <item>Semnare+criptare S/MIME</item>

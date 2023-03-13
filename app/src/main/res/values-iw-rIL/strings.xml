@@ -358,6 +358,8 @@
     <string name="title_advanced_optimize">מיטוב אוטומטית</string>
     <string name="title_advanced_always">תמיד לקבל הודעות מהחשבונות האלו</string>
     <string name="title_advanced_schedule">לוח זמנים</string>
+    <string name="title_advanced_schedule_workdays">ימי השבוע</string>
+    <string name="title_advanced_schedule_weekend">סוף השבוע</string>
     <string name="title_advanced_advanced">מתקדם</string>
     <string name="title_advanced_quick_sync">סנכרון מהיר</string>
     <string name="title_advanced_no_date">הודעות ללא תאריך</string>
@@ -1498,6 +1500,7 @@
     <string name="title_sort_on_attachments">קבצים מצורפים</string>
     <string name="title_sort_on_hidden">מוסתר</string>
     <string name="title_sort_ascending">הישנים בהתחלה</string>
+    <string name="title_sort_on_name">שם</string>
     <string name="title_sort_on_order">סדר</string>
     <string name="title_sort_on_applied">מניין החלה</string>
     <string name="title_sort_on_last_applied">החלה אחרונה</string>
@@ -2055,7 +2058,7 @@
     <string-array name="encryptNames">
         <item>אין</item>
         <item>חתימה בלבד עם PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>הצפנת PGP בלבד</item>
         <item>חתימה והצפנה עם PGP</item>
         <item>חתימה בלבד עם S/MIME</item>
         <item>חתימה והצפנה עם S/MIME</item>

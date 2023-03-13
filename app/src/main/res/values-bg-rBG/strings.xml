@@ -941,6 +941,7 @@
     <string name="title_sort_on_attachments">Прикачени файлове</string>
     <string name="title_sort_on_hidden">Скрито</string>
     <string name="title_sort_ascending">Първо най-старите</string>
+    <string name="title_sort_on_name">Име</string>
     <string name="title_sort_on_order">Подреждане</string>
     <string name="title_filter">Филтрирай по</string>
     <string name="title_filter_seen">Прочетени</string>
@@ -1418,7 +1419,7 @@
     <string-array name="encryptNames">
         <item>Няма</item>
         <item>PGP само подписване</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP подписване+криптиране</item>
         <item>S/MIME само подписване</item>
         <item>S/MIME подписване+криптиране</item>

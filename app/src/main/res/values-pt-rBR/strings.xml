@@ -331,6 +331,8 @@
     <string name="title_advanced_optimize">Otimizar automaticamente</string>
     <string name="title_advanced_always">Sempre receber mensagens para estas contas</string>
     <string name="title_advanced_schedule">Programar</string>
+    <string name="title_advanced_schedule_workdays">Dias úteis</string>
+    <string name="title_advanced_schedule_weekend">Fim de Semana</string>
     <string name="title_advanced_advanced">Avançado</string>
     <string name="title_advanced_quick_sync">Sincronização rápida</string>
     <string name="title_advanced_no_date">Mensagens sem data</string>
@@ -497,6 +499,7 @@
     <string name="title_advanced_preview">Mostrar pré-visualização da mensagem</string>
     <string name="title_advanced_preview_italic">Mostrar visualização de mensagem em itálicos</string>
     <string name="title_advanced_preview_lines">Número de linhas de visualização</string>
+    <string name="title_advanced_align_header">Alinhar verticalmente as palavras-chave, pré-visualizar texto e notas</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por padrão</string>
     <string name="title_advanced_unzip">Mostrar conteúdo de anexos compactados</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
@@ -1469,6 +1472,7 @@
     <string name="title_sort_on_attachments">Anexos</string>
     <string name="title_sort_on_hidden">Oculto</string>
     <string name="title_sort_ascending">Antigos primeiro</string>
+    <string name="title_sort_on_name">Nome</string>
     <string name="title_sort_on_order">Ordenar</string>
     <string name="title_sort_on_applied">Número de aplicadas</string>
     <string name="title_sort_on_last_applied">Última aplicada</string>
@@ -2030,7 +2034,7 @@
     <string-array name="encryptNames">
         <item>Nenhum</item>
         <item>Assinante PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Criptografias PGP</item>
         <item>Assinaturas PGP + criptografias</item>
         <item>Assinante S/MIME</item>
         <item>Assinaturas S/MIME + criptografias</item>

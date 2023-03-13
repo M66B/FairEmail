@@ -1332,6 +1332,7 @@
     <string name="title_sort_on_attachments">附件</string>
     <string name="title_sort_on_hidden">隱藏</string>
     <string name="title_sort_ascending">舊訊息優先</string>
+    <string name="title_sort_on_name">名稱</string>
     <string name="title_sort_on_order">順序</string>
     <string name="title_filter">篩選</string>
     <string name="title_filter_seen">已讀取</string>
@@ -1849,7 +1850,7 @@
     <string-array name="encryptNames">
         <item>沒有</item>
         <item>僅 PGP 簽名</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP 簽名+加密</item>
         <item>僅 S/MIME 簽名</item>
         <item>S/MIME 簽名+加密</item>

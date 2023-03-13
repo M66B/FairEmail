@@ -358,6 +358,8 @@
     <string name="title_advanced_optimize">Автоматично оптимізувати</string>
     <string name="title_advanced_always">Завжди отримувати повідомлення для цих облікових записів</string>
     <string name="title_advanced_schedule">Розклад</string>
+    <string name="title_advanced_schedule_workdays">Робочі дні</string>
+    <string name="title_advanced_schedule_weekend">Вихідні</string>
     <string name="title_advanced_advanced">Додаткові налаштування</string>
     <string name="title_advanced_quick_sync">Швидка синхронізація</string>
     <string name="title_advanced_no_date">Повідомлення, які не мають дати</string>
@@ -453,6 +455,7 @@
     <string name="title_advanced_caption_message_header">Заголовок повідомлення</string>
     <string name="title_advanced_caption_message_body">Текст повідомлення</string>
     <string name="title_advanced_caption_file">Файл</string>
+    <string name="title_advanced_caption_integrations">Інтеграції</string>
     <string name="title_advanced_portrait">Портретний режим</string>
     <string name="title_advanced_landscape">Альбомна орієнтація</string>
     <string name="title_advanced_two_row">Використовувати два рядки</string>
@@ -713,6 +716,7 @@
     <string name="title_advanced_openai">Інтеграція OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Модель</string>
     <string name="title_advanced_openai_temperature">Температура: %1$s</string>
+    <string name="title_advanced_openai_moderation">Модерація вмісту</string>
     <string name="title_advanced_sdcard">Я хочу використовувати SD-карту</string>
     <string name="title_advanced_watchdog">Періодично перевіряти, чи ще активнний додатк FairEmail</string>
     <string name="title_advanced_updates">Перевірити наявність оновлень з GitHub</string>
@@ -1493,6 +1497,7 @@
     <string name="title_sort_on_attachments">Вкладеннями</string>
     <string name="title_sort_on_hidden">Приховані</string>
     <string name="title_sort_ascending">Спочатку старіші</string>
+    <string name="title_sort_on_name">Ім\'я</string>
     <string name="title_sort_on_order">Порядок</string>
     <string name="title_sort_on_applied">Лічильник застосувань</string>
     <string name="title_sort_on_last_applied">Востаннє застосовано</string>
@@ -2055,9 +2060,9 @@
     <string-array name="encryptNames">
         <item>Жодного</item>
         <item>Тільки для PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Тільки PGP шифрування</item>
         <item>Підпис+шифрування PGP</item>
-        <item>Тільки S/MIME пидпис</item>
+        <item>Тільки S/MIME підпис</item>
         <item>S/MIME підпис+шифрування</item>
     </string-array>
     <string-array name="sizeNames">

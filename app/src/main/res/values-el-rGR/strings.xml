@@ -331,6 +331,8 @@
     <string name="title_advanced_optimize">Αυτόματη βελτιστοποίηση</string>
     <string name="title_advanced_always">Να λαμβάνονται πάντα τα μηνύματα για αυτούς τους λογαριασμούς</string>
     <string name="title_advanced_schedule">Χρονοδιάγραμμα</string>
+    <string name="title_advanced_schedule_workdays">Εργάσιμες ημέρες</string>
+    <string name="title_advanced_schedule_weekend">Σαββατοκύριακο</string>
     <string name="title_advanced_advanced">Για προχωρημένους</string>
     <string name="title_advanced_quick_sync">Γρήγορος συγχρονισμός</string>
     <string name="title_advanced_no_date">Μηνύματα χωρίς ημερομηνία</string>
@@ -1466,6 +1468,7 @@
     <string name="title_sort_on_attachments">Συνημμένα</string>
     <string name="title_sort_on_hidden">Κρυφό</string>
     <string name="title_sort_ascending">Πρώτα τα παλαιότερα</string>
+    <string name="title_sort_on_name">Όνομα</string>
     <string name="title_sort_on_order">Σειρά</string>
     <string name="title_sort_on_applied">Φορές που εφαρμόστηκε</string>
     <string name="title_sort_on_last_applied">Τελευταία εφαρμογή</string>
@@ -2027,7 +2030,7 @@
     <string-array name="encryptNames">
         <item>Καμία</item>
         <item>Υπογραφή PGP μόνο</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>Κρυπτογράφηση PGP μόνο</item>
         <item>Υπογραφή και κρυπτογράφηση PGP</item>
         <item>Υπογραφή S/MIME μόνο</item>
         <item>Υπογραφή + κρυπτογράφηση S/MIME</item>

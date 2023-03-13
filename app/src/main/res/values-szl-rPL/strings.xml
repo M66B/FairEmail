@@ -357,6 +357,8 @@
     <string name="title_advanced_optimize">Optymalizuj automatycznie</string>
     <string name="title_advanced_always">Zawsze odbieraj wiadomości z tych kont</string>
     <string name="title_advanced_schedule">Harmonogram</string>
+    <string name="title_advanced_schedule_workdays">Dni pracujące</string>
+    <string name="title_advanced_schedule_weekend">Weekend</string>
     <string name="title_advanced_advanced">Zaawansowane</string>
     <string name="title_advanced_quick_sync">Szybka synchronizacja</string>
     <string name="title_advanced_no_date">Wiadomości bez daty</string>
@@ -523,6 +525,7 @@
     <string name="title_advanced_preview">Pokaż podgląd wiadomości</string>
     <string name="title_advanced_preview_italic">Pokaż podgląd wiadomości kursywą</string>
     <string name="title_advanced_preview_lines">Liczba linii podglądu</string>
+    <string name="title_advanced_align_header">Wyrównaj pionowo słowa kluczowe, podgląd tekstu i notatki</string>
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
     <string name="title_advanced_unzip">Pokaż zawartość skompresowanych załączników</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
@@ -1494,6 +1497,7 @@
     <string name="title_sort_on_attachments">Załączniki</string>
     <string name="title_sort_on_hidden">Ukryta</string>
     <string name="title_sort_ascending">Od najstarszych</string>
+    <string name="title_sort_on_name">Nazwa</string>
     <string name="title_sort_on_order">Kolejność</string>
     <string name="title_sort_on_applied">Liczba zastosowanych</string>
     <string name="title_sort_on_last_applied">Ostatnio zastosowane</string>
@@ -2057,7 +2061,7 @@
     <string-array name="encryptNames">
         <item>Brak</item>
         <item>Tylko podpis PGP</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP tylko szyfrowanie</item>
         <item>Podpis PGP+szyfrowanie</item>
         <item>Tylko podpis S/MIME</item>
         <item>Podpis S/MIME+szyfrowanie</item>

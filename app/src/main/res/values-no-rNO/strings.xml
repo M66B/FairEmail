@@ -1008,6 +1008,7 @@
     <string name="title_sort_on_attachments">Tillegg</string>
     <string name="title_sort_on_hidden">Skjult</string>
     <string name="title_sort_ascending">Eldst først</string>
+    <string name="title_sort_on_name">Navn</string>
     <string name="title_sort_on_order">Rekkefølge</string>
     <string name="title_filter">Filtrere ut</string>
     <string name="title_filter_seen">Les</string>
@@ -1469,7 +1470,7 @@
     <string-array name="encryptNames">
         <item>Ingen</item>
         <item>Bare PGP-signering</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
+        <item>PGP encrypt-only</item>
         <item>PGP signer+krypter</item>
         <item>Kun S/MIME signering</item>
         <item>S/MIME signer+krypter</item>

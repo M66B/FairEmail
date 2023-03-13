@@ -332,6 +332,8 @@
     <string name="title_advanced_optimize">Avto-optimallaşdırma</string>
     <string name="title_advanced_always">Bu hesablar üçün mesajları həmişə al</string>
     <string name="title_advanced_schedule">Cədvəl</string>
+    <string name="title_advanced_schedule_workdays">İş günləri</string>
+    <string name="title_advanced_schedule_weekend">Həftəsonu</string>
     <string name="title_advanced_advanced">Qabaqcıl</string>
     <string name="title_advanced_quick_sync">Cəld sinxronlaşdırma</string>
     <string name="title_advanced_no_date">Tarixsiz mesajlar</string>
@@ -1472,6 +1474,7 @@
     <string name="title_sort_on_attachments">Qoşmalar</string>
     <string name="title_sort_on_hidden">Gizli</string>
     <string name="title_sort_ascending">Birinci köhnə</string>
+    <string name="title_sort_on_name">Ad</string>
     <string name="title_sort_on_order">Sıralama</string>
     <string name="title_sort_on_applied">Tətbiq edilən say</string>
     <string name="title_sort_on_last_applied">Son tətbiq edilmə</string>
@@ -2027,10 +2030,10 @@
     <string-array name="encryptNames">
         <item>Heç biri</item>
         <item>PGP yalnız imza</item>
-        <item comment="encryptNames&#10;&#10;Please keep this similar to &quot;PGP sign+encrypt&quot;&#10;">PGP encrypt-only</item>
-        <item>PGP imza+şifrə</item>
+        <item>PGP yalnız şifrələmə</item>
+        <item>PGP imza+şifrələmə</item>
         <item>S/MIME yalnız imza</item>
-        <item>S/MIME imza+şifrə</item>
+        <item>S/MIME imza+şifrələmə</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>
