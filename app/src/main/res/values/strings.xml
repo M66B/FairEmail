@@ -1836,7 +1836,7 @@
     <string name="title_rule_snooze">Snooze</string>
     <string name="title_rule_flag">Add star</string>
     <string name="title_rule_importance">Set importance</string>
-    <string name="title_rule_keyword">Add keyword</string>
+    <string name="title_rule_keyword">Keyword</string>
     <string name="title_rule_keyword_add">Add</string>
     <string name="title_rule_keyword_delete">Delete</string>
     <string name="title_rule_move">Move</string>
