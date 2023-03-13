@@ -5238,9 +5238,11 @@ Cloud sync is an experimental feature. It is not available for the Play Store ve
 **Setup**
 
 * Create an account [here](https://platform.openai.com/signup)
-* Create an APIkey [here](https://platform.openai.com/account/api-keys)
-* Copy the APIkey and paste it in the corresponding field of the miscellaneous settings tab page
+* Create an API key [here](https://platform.openai.com/account/api-keys)
+* Copy the API key and paste it in the corresponding field of the miscellaneous-settings tab page
 * Enable the OpenAI switch
+
+<br>
 
 **Usage**
 
@@ -5252,9 +5254,13 @@ A maximum of 1,000 characters of the message being replied to will be used to av
 
 For example: create a new draft and enter the text "*How far is the sun?*", and tap on the robot button in the top action bar.
 
+<br>
+
 OpenAI isn't very fast, so be patient.
 
-You can select the model and the [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature) in the settings.
+You can select the [model](https://platform.openai.com/docs/models/overview),
+configure the [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature)
+and enable [moderation](https://platform.openai.com/docs/api-reference/moderations) in the miscellaneous-settings tab page.
 
 Please read the [privacy policy](https://openai.com/policies/privacy-policy) of OpenAI,
 and perhaps [this article](https://katedowninglaw.com/2023/03/10/openais-massive-data-grab/) too.
