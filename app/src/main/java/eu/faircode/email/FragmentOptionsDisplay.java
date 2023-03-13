@@ -155,6 +155,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swPreviewItalic;
     private Spinner spPreviewLines;
     private TextView tvPreviewLinesHint;
+    private SwitchCompat swAlignHeader;
 
     private SwitchCompat swAddresses;
     private TextView tvMessageZoom;
@@ -208,7 +209,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "font_size_sender", "sender_ellipsize",
             "subject_top", "subject_italic", "highlight_subject", "font_size_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background",
-            "preview", "preview_italic", "preview_lines",
+            "preview", "preview_italic", "preview_lines", "align_header",
             "addresses",
             "message_zoom", "overview_mode", "override_width",
             "hyphenation", "display_font", "contrast", "monospaced_pre",
@@ -321,6 +322,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPreviewItalic = view.findViewById(R.id.swPreviewItalic);
         spPreviewLines = view.findViewById(R.id.spPreviewLines);
         tvPreviewLinesHint = view.findViewById(R.id.tvPreviewLinesHint);
+        swAlignHeader = view.findViewById(R.id.swAlignHeader);
         swAddresses = view.findViewById(R.id.swAddresses);
         tvMessageZoom = view.findViewById(R.id.tvMessageZoom);
         sbMessageZoom = view.findViewById(R.id.sbMessageZoom);
@@ -1112,6 +1114,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swAlignHeader.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("align_header", checked).apply();
+            }
+        });
+
         swAddresses.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1537,6 +1546,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swPreviewItalic.setEnabled(swPreview.isChecked());
         spPreviewLines.setSelection(prefs.getInt("preview_lines", 1) - 1);
         spPreviewLines.setEnabled(swPreview.isChecked());
+        swAlignHeader.setChecked(prefs.getBoolean("align_header", false));
 
         swAddresses.setChecked(prefs.getBoolean("addresses", false));
 

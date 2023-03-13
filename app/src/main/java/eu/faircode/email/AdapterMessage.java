@@ -298,6 +298,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean preview;
     private boolean preview_italic;
     private int preview_lines;
+    private boolean align_header;
     private boolean large_buttons;
     private int message_zoom;
     private boolean attachments_alt;
@@ -7546,6 +7547,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.preview = prefs.getBoolean("preview", false);
         this.preview_italic = prefs.getBoolean("preview_italic", true);
         this.preview_lines = prefs.getInt("preview_lines", 1);
+        this.align_header = prefs.getBoolean("align_header", false);
         this.message_zoom = prefs.getInt("message_zoom", 100);
         this.attachments_alt = prefs.getBoolean("attachments_alt", false);
         this.thumbnails = prefs.getBoolean("thumbnails", true);
@@ -8283,7 +8285,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @Override
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(inflater.inflate(viewType, parent, false), viewType);
+        View view = inflater.inflate(viewType, parent, false);
+        if (align_header) {
+            View v = view.findViewById(R.id.ibAvatar);
+            ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) v.getLayoutParams();
+            lparam.bottomToBottom = R.id.tvNotes;   // tvFolder
+            for (int id : new int[]{R.id.tvLabels, R.id.tvExpand, R.id.tvPreview, R.id.tvNotes}) {
+                v = view.findViewById(id);
+                lparam = (ConstraintLayout.LayoutParams) v.getLayoutParams();
+                lparam.startToEnd = R.id.ibAvatar;
+            }
+        }
+        return new ViewHolder(view, viewType);
     }
 
     @Override
