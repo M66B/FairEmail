@@ -19,30 +19,24 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
-import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -50,10 +44,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
-import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebViewFeature;
 
@@ -621,80 +613,5 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         String mnemonic = prefs.getString("wipe_mnemonic", null);
         swMnemonic.setChecked(mnemonic != null);
         tvMnemonic.setText(mnemonic);
-    }
-
-    public static class FragmentDialogPin extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_pin_set, null);
-            final EditText etPin = dview.findViewById(R.id.etPin);
-
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-            AlertDialog.Builder builder = new AlertDialog.Builder(getContext())
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String pin = etPin.getText().toString();
-                            if (TextUtils.isEmpty(pin))
-                                prefs.edit().remove("pin").apply();
-                            else {
-                                boolean pro = ActivityBilling.isPro(getContext());
-                                if (pro) {
-                                    Helper.setAuthenticated(getContext());
-                                    prefs.edit()
-                                            .remove("biometrics")
-                                            .putString("pin", pin)
-                                            .apply();
-                                } else
-                                    startActivity(new Intent(getContext(), ActivityBilling.class));
-                            }
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null);
-
-            String pin = prefs.getString("pin", null);
-            if (!TextUtils.isEmpty(pin))
-                builder.setNeutralButton(R.string.title_reset, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        prefs.edit().remove("pin").apply();
-                    }
-                });
-
-            final Dialog dialog = builder.create();
-
-            etPin.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                @Override
-                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                    if (actionId == EditorInfo.IME_ACTION_DONE) {
-                        ((AlertDialog) getDialog()).getButton(DialogInterface.BUTTON_POSITIVE).performClick();
-                        return true;
-                    } else
-                        return false;
-                }
-            });
-
-            etPin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-                @Override
-                public void onFocusChange(View v, boolean hasFocus) {
-                    if (hasFocus)
-                        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-                }
-            });
-
-            ApplicationEx.getMainHandler().post(new Runnable() {
-                @Override
-                public void run() {
-                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                        return;
-                    etPin.requestFocus();
-                }
-            });
-
-            return dialog;
-        }
     }
 }

@@ -22,7 +22,6 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -46,7 +45,6 @@ import android.widget.TimePicker;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.DialogFragment;
@@ -60,7 +58,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
@@ -701,41 +698,6 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
             boolean start = args.getBoolean("start");
             boolean weekend = args.getBoolean("weekend");
             return "schedule" + (start ? "_start" : "_end") + (weekend ? "_weekend" : "");
-        }
-    }
-
-    public static class FragmentDialogWeekend extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            boolean[] days = new boolean[7];
-
-            final Context context = getContext();
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-            String[] daynames = Arrays.copyOfRange(new DateFormatSymbols().getWeekdays(), 1, 8);
-
-            String weekend = prefs.getString("weekend", Calendar.SATURDAY + "," + Calendar.SUNDAY);
-            for (String day : weekend.split(","))
-                days[Integer.parseInt(day) - 1] = true;
-
-            return new AlertDialog.Builder(context)
-                    .setTitle(R.string.title_advanced_schedule_weekend)
-                    .setMultiChoiceItems(daynames, days, new DialogInterface.OnMultiChoiceClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                            StringBuilder sb = new StringBuilder();
-                            for (int i = 0; i < days.length; i++)
-                                if (days[i]) {
-                                    if (sb.length() > 0)
-                                        sb.append(",");
-                                    sb.append(i + 1);
-                                }
-                            prefs.edit().putString("weekend", sb.toString()).apply();
-                        }
-                    })
-                    .setNegativeButton(R.string.title_setup_done, null)
-                    .create();
         }
     }
 

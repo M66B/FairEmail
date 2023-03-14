@@ -25,7 +25,6 @@ import static androidx.drawerlayout.widget.DrawerLayout.LOCK_MODE_UNLOCKED;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 
 import android.annotation.SuppressLint;
-import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
@@ -2484,65 +2483,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             if (expires == null)
                 return true;
             return (expires.getTime() < new Date().getTime());
-        }
-    }
-
-    public static class FragmentDialogFirst extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            View dview = inflater.inflate(R.layout.dialog_first, null);
-            ImageButton ibBatteryInfo = dview.findViewById(R.id.ibBatteryInfo);
-            ImageButton ibReformatInfo = dview.findViewById(R.id.ibReformatInfo);
-
-            ibBatteryInfo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Helper.viewFAQ(v.getContext(), 39);
-                }
-            });
-
-            ibReformatInfo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Helper.viewFAQ(v.getContext(), 35);
-                }
-            });
-
-            return new AlertDialog.Builder(getContext())
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                            prefs.edit().putBoolean("first", false).apply();
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
-    }
-
-    public static class FragmentDialogRate extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getContext())
-                    .setMessage(R.string.title_issue)
-                    .setPositiveButton(R.string.title_yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Helper.viewFAQ(getContext(), 0);
-                        }
-                    })
-                    .setNegativeButton(R.string.title_no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Helper.view(getContext(), Helper.getIntentRate(getContext()));
-                        }
-                    })
-                    .create();
         }
     }
 

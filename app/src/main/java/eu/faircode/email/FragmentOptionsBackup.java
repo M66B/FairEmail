@@ -19,11 +19,9 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
-import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
 
-import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
 import android.app.NotificationManager;
@@ -38,19 +36,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.OperationCanceledException;
-import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.util.Pair;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -1641,183 +1634,5 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(FragmentOptionsBackup.this, args, "cloud");
-    }
-
-    public static class FragmentDialogExport extends FragmentDialogBase {
-        private TextInputLayout tilPassword1;
-        private TextInputLayout tilPassword2;
-
-        @Override
-        public void onSaveInstanceState(@NonNull Bundle outState) {
-            outState.putString("fair:password1", tilPassword1 == null ? null : tilPassword1.getEditText().getText().toString());
-            outState.putString("fair:password2", tilPassword2 == null ? null : tilPassword2.getEditText().getText().toString());
-            super.onSaveInstanceState(outState);
-        }
-
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            Context context = getContext();
-            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_export, null);
-            tilPassword1 = dview.findViewById(R.id.tilPassword1);
-            tilPassword2 = dview.findViewById(R.id.tilPassword2);
-
-            if (savedInstanceState != null) {
-                tilPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
-                tilPassword2.getEditText().setText(savedInstanceState.getString("fair:password2"));
-            }
-
-            Dialog dialog = new AlertDialog.Builder(context)
-                    .setView(dview)
-                    .setPositiveButton(R.string.title_save_file, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ViewModelExport vme = new ViewModelProvider(getActivity()).get(ViewModelExport.class);
-                            vme.setPassword(tilPassword1.getEditText().getText().toString());
-                            sendResult(RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-
-            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-
-            return dialog;
-        }
-
-        @Override
-        public void onStart() {
-            super.onStart();
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean debug = (BuildConfig.DEBUG || prefs.getBoolean("debug", false));
-
-            Button btnOk = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE);
-
-            TextWatcher w = new TextWatcher() {
-                @Override
-                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                    // Do nothing
-                }
-
-                @Override
-                public void onTextChanged(CharSequence s, int start, int before, int count) {
-                    // Do nothing
-                }
-
-                @Override
-                public void afterTextChanged(Editable s) {
-                    String p1 = tilPassword1.getEditText().getText().toString();
-                    String p2 = tilPassword2.getEditText().getText().toString();
-                    btnOk.setEnabled((debug || !TextUtils.isEmpty(p1)) && p1.equals(p2));
-                    tilPassword2.setHint(!TextUtils.isEmpty(p2) && !p2.equals(p1)
-                            ? R.string.title_setup_password_different
-                            : R.string.title_setup_password_repeat);
-                }
-            };
-
-            tilPassword1.getEditText().addTextChangedListener(w);
-            tilPassword2.getEditText().addTextChangedListener(w);
-            w.afterTextChanged(null);
-
-            tilPassword2.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                @Override
-                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                    if (actionId == EditorInfo.IME_ACTION_DONE) {
-                        btnOk.performClick();
-                        return true;
-                    } else
-                        return false;
-                }
-            });
-        }
-    }
-
-    public static class FragmentDialogImport extends FragmentDialogBase {
-        private TextInputLayout tilPassword1;
-
-        @Override
-        public void onSaveInstanceState(@NonNull Bundle outState) {
-            outState.putString("fair:password1", tilPassword1 == null ? null : tilPassword1.getEditText().getText().toString());
-            super.onSaveInstanceState(outState);
-        }
-
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            Context context = getContext();
-            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_import, null);
-            tilPassword1 = dview.findViewById(R.id.tilPassword1);
-            CheckBox cbAccounts = dview.findViewById(R.id.cbAccounts);
-            CheckBox cbDelete = dview.findViewById(R.id.cbDelete);
-            CheckBox cbRules = dview.findViewById(R.id.cbRules);
-            CheckBox cbContacts = dview.findViewById(R.id.cbContacts);
-            CheckBox cbAnswers = dview.findViewById(R.id.cbAnswers);
-            CheckBox cbSearches = dview.findViewById(R.id.cbSearches);
-            CheckBox cbSettings = dview.findViewById(R.id.cbSettings);
-
-            cbAccounts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                    cbRules.setEnabled(checked);
-                    cbContacts.setEnabled(checked);
-                }
-            });
-
-            if (savedInstanceState != null)
-                tilPassword1.getEditText().setText(savedInstanceState.getString("fair:password1"));
-
-            Dialog dialog = new AlertDialog.Builder(context)
-                    .setView(dview)
-                    .setPositiveButton(R.string.title_add_image_select, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String password1 = tilPassword1.getEditText().getText().toString();
-
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                            boolean debug = prefs.getBoolean("debug", false);
-
-                            if (TextUtils.isEmpty(password1) && !(debug || BuildConfig.DEBUG)) {
-                                ToastEx.makeText(context, R.string.title_setup_password_missing, Toast.LENGTH_LONG).show();
-                                sendResult(RESULT_CANCELED);
-                            } else {
-                                ViewModelExport vme = new ViewModelProvider(getActivity()).get(ViewModelExport.class);
-                                vme.setPassword(password1);
-                                vme.setOptions("accounts", cbAccounts.isChecked());
-                                vme.setOptions("delete", cbDelete.isChecked());
-                                vme.setOptions("rules", cbRules.isChecked());
-                                vme.setOptions("contacts", cbContacts.isChecked());
-                                vme.setOptions("answers", cbAnswers.isChecked());
-                                vme.setOptions("searches", cbSearches.isChecked());
-                                vme.setOptions("settings", cbSettings.isChecked());
-                                sendResult(RESULT_OK);
-                            }
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-
-            dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-
-            return dialog;
-        }
-
-        @Override
-        public void onStart() {
-            super.onStart();
-
-            Button btnOk = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE);
-
-            tilPassword1.getEditText().setOnEditorActionListener(new TextView.OnEditorActionListener() {
-                @Override
-                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                    if (actionId == EditorInfo.IME_ACTION_DONE) {
-                        btnOk.performClick();
-                        return true;
-                    } else
-                        return false;
-                }
-            });
-        }
     }
 }

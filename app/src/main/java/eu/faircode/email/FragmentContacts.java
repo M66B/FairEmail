@@ -21,10 +21,8 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_OK;
 
-import android.app.Dialog;
 import android.content.ContentResolver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -36,15 +34,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
@@ -322,7 +315,7 @@ public class FragmentContacts extends FragmentBase {
         args.putLong("account", account == null ? -1L : account);
         args.putBoolean("junk", junk);
 
-        FragmentDelete fragment = new FragmentDelete();
+        FragmentDialogContactDelete fragment = new FragmentDialogContactDelete();
         fragment.setArguments(args);
         fragment.show(getParentFragmentManager(), "contacts:delete");
     }
@@ -332,7 +325,7 @@ public class FragmentContacts extends FragmentBase {
         args.putInt("type", junk ? EntityContact.TYPE_JUNK : EntityContact.TYPE_TO);
         args.putLong("account", account);
 
-        FragmentDialogEditContact fragment = new FragmentDialogEditContact();
+        FragmentDialogContactEdit fragment = new FragmentDialogContactEdit();
         fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_EDIT_CONTACT);
         fragment.show(getParentFragmentManager(), "contacts:add");
@@ -685,103 +678,5 @@ public class FragmentContacts extends FragmentBase {
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "contacts:name");
-    }
-
-    public static class FragmentDelete extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getContext())
-                    .setIcon(R.drawable.twotone_warning_24)
-                    .setTitle(getString(R.string.title_delete_contacts))
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            new SimpleTask<Void>() {
-                                @Override
-                                protected Void onExecute(Context context, Bundle args) {
-                                    Long account = args.getLong("account");
-                                    boolean junk = args.getBoolean("junk");
-
-                                    if (account < 0)
-                                        account = null;
-                                    int[] types = (junk
-                                            ? new int[]{EntityContact.TYPE_JUNK, EntityContact.TYPE_NO_JUNK}
-                                            : new int[]{EntityContact.TYPE_FROM, EntityContact.TYPE_TO});
-
-                                    DB db = DB.getInstance(context);
-                                    int count = db.contact().clearContacts(account, types);
-                                    Log.i("Cleared contacts=" + count);
-                                    return null;
-                                }
-
-                                @Override
-                                protected void onException(Bundle args, Throwable ex) {
-                                    Log.unexpectedError(getParentFragmentManager(), ex);
-                                }
-                            }.execute(getContext(), getActivity(), getArguments(), "contacts:delete");
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
-    }
-
-    public static class FragmentDialogEditContact extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final Context context = getContext();
-            View view = LayoutInflater.from(context).inflate(R.layout.dialog_edit_contact, null);
-            final Spinner spType = view.findViewById(R.id.spType);
-            final EditText etEmail = view.findViewById(R.id.etEmail);
-            final EditText etName = view.findViewById(R.id.etName);
-            final EditText etGroup = view.findViewById(R.id.etGroup);
-
-            final Bundle args = getArguments();
-            int type = args.getInt("type");
-
-            boolean junk = (type == EntityContact.TYPE_JUNK || type == EntityContact.TYPE_NO_JUNK);
-            String[] values = getResources().getStringArray(R.array.contactTypes);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, R.layout.spinner_item1, android.R.id.text1, values) {
-                @Override
-                public boolean isEnabled(int position) {
-                    if (junk)
-                        return (position == EntityContact.TYPE_JUNK || position == EntityContact.TYPE_NO_JUNK);
-                    else
-                        return (position == EntityContact.TYPE_TO || position == EntityContact.TYPE_FROM);
-                }
-
-                @Override
-                public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                    View view = super.getDropDownView(position, convertView, parent);
-                    TextView tv = view.findViewById(android.R.id.text1);
-                    tv.setEnabled(isEnabled(position));
-                    return view;
-                }
-            };
-            adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-            spType.setAdapter(adapter);
-
-            spType.setSelection(args.getInt("type"));
-            etEmail.setText(args.getString("email"));
-            etName.setText(args.getString("name"));
-            etGroup.setText(args.getString("group"));
-
-            return new AlertDialog.Builder(context)
-                    .setView(view)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            args.putInt("type", spType.getSelectedItemPosition());
-                            args.putString("email", etEmail.getText().toString().trim());
-                            args.putString("name", etName.getText().toString());
-                            args.putString("group", etGroup.getText().toString().trim());
-                            sendResult(RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
     }
 }

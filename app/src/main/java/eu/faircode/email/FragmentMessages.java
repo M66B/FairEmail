@@ -37,8 +37,6 @@ import static me.everything.android.ui.overscroll.OverScrollBounceEffectDecorato
 
 import android.Manifest;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
-import android.app.Dialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
@@ -55,7 +53,6 @@ import android.content.res.ColorStateList;
 import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.graphics.Typeface;
@@ -117,10 +114,6 @@ import android.view.inputmethod.EditorInfo;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -418,7 +411,6 @@ public class FragmentMessages extends FragmentBase
     private static final int SWIPE_DISABLE_SELECT_DURATION = 1500; // milliseconds
     private static final float LUMINANCE_THRESHOLD = 0.7f;
     private static final int ITEM_CACHE_SIZE = 10; // Default: 2 items
-    private static final int MAX_QUICK_ACTIONS = 5;
 
     private static final int REQUEST_RAW = 1;
     private static final int REQUEST_OPENPGP = 4;
@@ -6371,72 +6363,72 @@ public class FragmentMessages extends FragmentBase
 
                         int count = 0;
 
-                        boolean move = (more_move && count < MAX_QUICK_ACTIONS && result.canMove());
+                        boolean move = (more_move && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canMove());
                         if (move)
                             count++;
 
-                        boolean delete = (more_delete && count < MAX_QUICK_ACTIONS && result.canDelete());
+                        boolean delete = (more_delete && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canDelete());
                         if (delete)
                             count++;
 
-                        boolean trash = (more_trash && count < MAX_QUICK_ACTIONS && result.canTrash());
+                        boolean trash = (more_trash && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canTrash());
                         if (trash)
                             count++;
 
                         if (!delete && !trash && (inTrash || inJunk) &&
-                                more_trash && count < MAX_QUICK_ACTIONS && result.canDelete()) {
+                                more_trash && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canDelete()) {
                             delete = true;
                             count++;
                         }
 
-                        boolean junk = (more_junk && count < MAX_QUICK_ACTIONS && result.canJunk());
+                        boolean junk = (more_junk && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canJunk());
                         if (junk)
                             count++;
 
-                        boolean archive = (more_archive && count < MAX_QUICK_ACTIONS && result.canArchive());
+                        boolean archive = (more_archive && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canArchive());
                         if (archive)
                             count++;
 
-                        boolean inbox = ((more_inbox || (more_junk && inJunk)) && count < MAX_QUICK_ACTIONS && result.canInbox());
+                        boolean inbox = ((more_inbox || (more_junk && inJunk)) && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.canInbox());
                         if (inbox)
                             count++;
 
-                        boolean importance_high = (more_importance_high && count < MAX_QUICK_ACTIONS &&
+                        boolean importance_high = (more_importance_high && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS &&
                                 !EntityMessage.PRIORITIY_HIGH.equals(result.importance));
                         if (importance_high)
                             count++;
 
-                        boolean importance_normal = (more_importance_normal && count < MAX_QUICK_ACTIONS &&
+                        boolean importance_normal = (more_importance_normal && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS &&
                                 !EntityMessage.PRIORITIY_NORMAL.equals(result.importance));
                         if (importance_normal)
                             count++;
 
-                        boolean importance_low = (more_importance_low && count < MAX_QUICK_ACTIONS &&
+                        boolean importance_low = (more_importance_low && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS &&
                                 !EntityMessage.PRIORITIY_LOW.equals(result.importance));
                         if (importance_low)
                             count++;
 
-                        boolean flag = (more_flag && count < MAX_QUICK_ACTIONS && result.unflagged);
+                        boolean flag = (more_flag && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.unflagged);
                         if (flag)
                             count++;
 
-                        boolean flag_color = (more_flag_color && count < MAX_QUICK_ACTIONS && (result.unflagged || result.flagged));
+                        boolean flag_color = (more_flag_color && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && (result.unflagged || result.flagged));
                         if (flag_color)
                             count++;
 
-                        boolean hide = (more_hide && count < MAX_QUICK_ACTIONS && result.visible);
+                        boolean hide = (more_hide && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.visible);
                         if (hide)
                             count++;
 
-                        boolean snooze = (more_snooze && count < MAX_QUICK_ACTIONS);
+                        boolean snooze = (more_snooze && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS);
                         if (snooze)
                             count++;
 
-                        boolean unseen = (more_unseen && count < MAX_QUICK_ACTIONS && result.seen);
+                        boolean unseen = (more_unseen && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.seen);
                         if (unseen)
                             count++;
 
-                        boolean seen = (more_seen && count < MAX_QUICK_ACTIONS && result.unseen);
+                        boolean seen = (more_seen && count < FragmentDialogQuickActions.MAX_QUICK_ACTIONS && result.unseen);
                         if (seen)
                             count++;
 
@@ -7432,7 +7424,7 @@ public class FragmentMessages extends FragmentBase
                     return;
                 }
 
-                String title = getString(R.string.title_move_undo, getNames(result, true), result.size());
+                String title = getString(R.string.title_move_undo, FragmentMoveAsk.getNames(result, true), result.size());
                 ((ActivityView) activity).undo(title, args, taskUndoMove, taskUndoShow);
 
                 if (viewType == AdapterMessage.ViewType.THREAD) {
@@ -7517,45 +7509,6 @@ public class FragmentMessages extends FragmentBase
             Log.e(ex);
         }
     };
-
-    private static String getNames(ArrayList<MessageTarget> result, boolean dest) {
-        boolean across = false;
-        for (MessageTarget target : result)
-            if (target.isAcross())
-                across = true;
-
-        Map<String, Integer> nameCount = new HashMap<>();
-        for (MessageTarget target : result) {
-            String name = "";
-            if (across)
-                name += (dest ? target.targetAccount.name : target.sourceAccount.name) + "/";
-            name += (dest ? target.targetFolder.display : target.sourceFolder.display);
-            if (!nameCount.containsKey(name))
-                nameCount.put(name, 0);
-            nameCount.put(name, nameCount.get(name) + 1);
-        }
-
-        List<String> keys = new ArrayList(nameCount.keySet());
-
-        Collator collator = Collator.getInstance(Locale.getDefault());
-        collator.setStrength(Collator.SECONDARY); // Case insensitive, process accents etc
-        Collections.sort(keys, collator);
-
-        NumberFormat NF = NumberFormat.getNumberInstance();
-
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < keys.size(); i++) {
-            if (i > 0)
-                sb.append(", ");
-            sb.append(keys.get(i));
-            if (!dest && keys.size() > 1) {
-                int count = nameCount.get(keys.get(i));
-                sb.append('(').append(NF.format(count)).append(')');
-            }
-        }
-
-        return sb.toString();
-    }
 
     static String getSort(Context context, AdapterMessage.ViewType viewType, String type) {
         if (viewType == AdapterMessage.ViewType.UNIFIED)
@@ -10721,437 +10674,6 @@ public class FragmentMessages extends FragmentBase
                 this.display = folder.getDisplayName(context);
                 this.color = folder.color;
             }
-        }
-    }
-
-    public static class FragmentDialogAskSpam extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            Bundle args = getArguments();
-            int count = args.getInt("count");
-
-            final Context context = getContext();
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-            boolean block_sender = prefs.getBoolean("block_sender", true);
-            String text = getResources().getQuantityString(R.plurals.title_ask_spam, count, count);
-
-            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_spam, null);
-            TextView tvMessage = dview.findViewById(R.id.tvMessage);
-            CheckBox cbBlockSender = dview.findViewById(R.id.cbBlockSender);
-
-            tvMessage.setText(text);
-            cbBlockSender.setChecked(block_sender);
-
-            return new AlertDialog.Builder(context)
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            boolean block = cbBlockSender.isChecked();
-                            prefs.edit().putBoolean("block_sender", block).apply();
-                            getArguments().putBoolean("block", block);
-                            sendResult(Activity.RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
-    }
-
-    public static class FragmentDialogReporting extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_error_reporting, null);
-            Button btnInfo = dview.findViewById(R.id.btnInfo);
-
-            btnInfo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Helper.viewFAQ(v.getContext(), 104);
-                }
-            });
-
-            return new AlertDialog.Builder(getContext())
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                            prefs.edit().putBoolean("crash_reports", true).apply();
-                            Log.setCrashReporting(true);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                            prefs.edit().putBoolean("crash_reports_asked", true).apply();
-                        }
-                    })
-                    .create();
-        }
-    }
-
-    public static class FragmentDialogReview extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_review, null);
-            TextView tvHelp = dview.findViewById(R.id.tvHelp);
-
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-            Dialog dialog = new AlertDialog.Builder(getContext())
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            prefs.edit().putBoolean("review_asked", true).apply();
-                            startActivity(Helper.getIntentRate(getContext()));
-                        }
-                    })
-                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            prefs.edit().putBoolean("review_asked", true).apply();
-                        }
-                    })
-                    .setNeutralButton(R.string.title_later, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            prefs.edit().putLong("review_later", new Date().getTime()).apply();
-                        }
-                    })
-                    .create();
-
-            tvHelp.setPaintFlags(tvHelp.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-            tvHelp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    dismiss();
-                    prefs.edit().putLong("review_later", new Date().getTime()).apply();
-                    startActivity(Helper.getIntentIssue(v.getContext(), "Review:issue"));
-                }
-            });
-
-            return dialog;
-        }
-
-        @Override
-        public void onCancel(@NonNull DialogInterface dialog) {
-            super.onCancel(dialog);
-            try {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-                prefs.edit().putBoolean("review_asked", true).apply();
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
-        }
-    }
-
-    public static class FragmentDialogBoundaryError extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            String error = getArguments().getString("error");
-
-            final Context context = getContext();
-            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_boundary_error, null);
-            TextView tvError = dview.findViewById(R.id.tvError);
-
-            tvError.setText(error);
-
-            return new AlertDialog.Builder(context)
-                    .setView(dview)
-                    .setPositiveButton(R.string.title_boundary_retry, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            sendResult(Activity.RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            sendResult(Activity.RESULT_CANCELED);
-                        }
-                    })
-                    .create();
-        }
-    }
-
-    public static class FragmentMoveAsk extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            String notagain = getArguments().getString("notagain");
-            ArrayList<MessageTarget> result = getArguments().getParcelableArrayList("result");
-
-            final Context context = getContext();
-            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_ask_move, null);
-            TextView tvMessages = dview.findViewById(R.id.tvMessages);
-            TextView tvSourceFolders = dview.findViewById(R.id.tvSourceFolders);
-            TextView tvTargetFolders = dview.findViewById(R.id.tvTargetFolders);
-            CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
-            TextView tvJunkLearn = dview.findViewById(R.id.tvJunkLearn);
-
-            String question = context.getResources()
-                    .getQuantityString(R.plurals.title_moving_messages,
-                            result.size(), result.size());
-
-            tvMessages.setText(question);
-            tvSourceFolders.setText(getNames(result, false));
-            tvTargetFolders.setText(getNames(result, true));
-
-            List<String> sources = new ArrayList<>();
-            List<String> targets = new ArrayList<>();
-            Integer sourceColor = null;
-            Integer targetColor = null;
-            boolean junk = false;
-            for (MessageTarget t : result) {
-                if (!sources.contains(t.sourceFolder.type))
-                    sources.add(t.sourceFolder.type);
-                if (!targets.contains(t.targetFolder.type))
-                    targets.add(t.targetFolder.type);
-                if (sourceColor == null)
-                    sourceColor = t.sourceFolder.color;
-                if (targetColor == null)
-                    targetColor = t.targetFolder.color;
-                if (!junk &&
-                        (EntityFolder.JUNK.equals(t.sourceFolder.type) ||
-                                EntityFolder.JUNK.equals(t.targetFolder.type)))
-                    junk = true;
-            }
-
-            Drawable source = null;
-            if (sources.size() == 1) {
-                source = ContextCompat.getDrawable(context, EntityFolder.getIcon(sources.get(0)));
-                if (source != null)
-                    source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
-                if (sourceColor == null)
-                    sourceColor = EntityFolder.getDefaultColor(sources.get(0), context);
-            } else {
-                source = ContextCompat.getDrawable(context, R.drawable.twotone_folders_24);
-                source.setBounds(0, 0, source.getIntrinsicWidth(), source.getIntrinsicHeight());
-                sourceColor = null;
-            }
-
-            Drawable target = null;
-            if (targets.size() == 1) {
-                target = ContextCompat.getDrawable(context, EntityFolder.getIcon(targets.get(0)));
-                if (target != null)
-                    target.setBounds(0, 0, target.getIntrinsicWidth(), target.getIntrinsicHeight());
-                if (targetColor == null)
-                    targetColor = EntityFolder.getDefaultColor(targets.get(0), context);
-            } else
-                targetColor = null;
-
-            tvSourceFolders.setCompoundDrawablesRelative(source, null, null, null);
-            tvTargetFolders.setCompoundDrawablesRelative(target, null, null, null);
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (sourceColor != null)
-                    tvSourceFolders.setCompoundDrawableTintList(ColorStateList.valueOf(sourceColor));
-                if (targetColor != null)
-                    tvTargetFolders.setCompoundDrawableTintList(ColorStateList.valueOf(targetColor));
-            }
-
-            if (notagain != null)
-                cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(buttonView.getContext());
-                        prefs.edit().putBoolean(notagain, isChecked).apply();
-                    }
-                });
-
-            tvJunkLearn.setVisibility(junk ? View.VISIBLE : View.GONE);
-
-            return new AlertDialog.Builder(context)
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            sendResult(Activity.RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            sendResult(Activity.RESULT_CANCELED);
-                        }
-                    })
-                    .create();
-        }
-    }
-
-    public static class FragmentDialogSaveSearch extends FragmentDialogBase {
-        private ViewButtonColor btnColor;
-
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final Bundle args = getArguments();
-
-            BoundaryCallbackMessages.SearchCriteria criteria =
-                    (BoundaryCallbackMessages.SearchCriteria) args.getSerializable("criteria");
-            if (criteria == null)
-                criteria = new BoundaryCallbackMessages.SearchCriteria();
-
-            final Context context = getContext();
-            View dview = LayoutInflater.from(context).inflate(R.layout.dialog_save_search, null);
-            EditText etName = dview.findViewById(R.id.etName);
-            EditText etOrder = dview.findViewById(R.id.etOrder);
-            btnColor = dview.findViewById(R.id.btnColor);
-
-            btnColor.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Helper.hideKeyboard(etName);
-
-                    Bundle args = new Bundle();
-                    args.putInt("color", btnColor.getColor());
-                    args.putString("title", getString(R.string.title_color));
-                    args.putBoolean("reset", true);
-
-                    FragmentDialogColor fragment = new FragmentDialogColor();
-                    fragment.setArguments(args);
-                    fragment.setTargetFragment(FragmentDialogSaveSearch.this, 1234);
-                    fragment.show(getParentFragmentManager(), "search:color");
-                }
-            });
-
-            etName.setText(criteria.name == null ? criteria.getTitle(context) : criteria.name);
-            etOrder.setText(criteria.order == null ? null : Integer.toString(criteria.order));
-            btnColor.setColor(criteria.color);
-
-            AlertDialog.Builder dialog = new AlertDialog.Builder(context)
-                    .setView(dview)
-                    .setPositiveButton(R.string.title_save, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            String order = etOrder.getText().toString();
-                            args.putString("name", etName.getText().toString());
-                            args.putInt("order",
-                                    !TextUtils.isEmpty(order) && TextUtils.isDigitsOnly(order)
-                                            ? Integer.parseInt(order) : -1);
-                            args.putInt("color", btnColor.getColor());
-                            sendResult(Activity.RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            sendResult(Activity.RESULT_CANCELED);
-                        }
-                    });
-
-            if (criteria.id != null)
-                dialog.setNeutralButton(R.string.title_delete, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        sendResult(Activity.RESULT_FIRST_USER);
-                    }
-                });
-
-            return dialog.create();
-        }
-
-        @Override
-        public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
-
-            try {
-                if (resultCode == RESULT_OK && data != null) {
-                    Bundle args = data.getBundleExtra("args");
-                    int color = args.getInt("color");
-                    btnColor.setColor(color);
-                }
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
-        }
-    }
-
-    public static class FragmentDialogQuickActions extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final Context context = getContext();
-            final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-
-            final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_quick_actions, null);
-            final TextView tvHint = dview.findViewById(R.id.tvHint);
-            final CheckBox cbSeen = dview.findViewById(R.id.cbSeen);
-            final CheckBox cbUnseen = dview.findViewById(R.id.cbUnseen);
-            final CheckBox cbSnooze = dview.findViewById(R.id.cbSnooze);
-            final CheckBox cbHide = dview.findViewById(R.id.cbHide);
-            final CheckBox cbFlag = dview.findViewById(R.id.cbFlag);
-            final CheckBox cbFlagColor = dview.findViewById(R.id.cbFlagColor);
-            final CheckBox cbImportanceLow = dview.findViewById(R.id.cbImportanceLow);
-            final CheckBox cbImportanceNormal = dview.findViewById(R.id.cbImportanceNormal);
-            final CheckBox cbImportanceHigh = dview.findViewById(R.id.cbImportanceHigh);
-            final CheckBox cbInbox = dview.findViewById(R.id.cbInbox);
-            final CheckBox cbArchive = dview.findViewById(R.id.cbArchive);
-            final CheckBox cbJunk = dview.findViewById(R.id.cbJunk);
-            final CheckBox cbTrash = dview.findViewById(R.id.cbTrash);
-            final CheckBox cbDelete = dview.findViewById(R.id.cbDelete);
-            final CheckBox cbMove = dview.findViewById(R.id.cbMove);
-            final CheckBox cbClear = dview.findViewById(R.id.cbClear);
-
-            tvHint.setText(getString(R.string.title_quick_actions_hint, MAX_QUICK_ACTIONS));
-            cbSeen.setChecked(prefs.getBoolean("more_seen", true));
-            cbUnseen.setChecked(prefs.getBoolean("more_unseen", false));
-            cbSnooze.setChecked(prefs.getBoolean("more_snooze", false));
-            cbHide.setChecked(prefs.getBoolean("more_hide", false));
-            cbFlag.setChecked(prefs.getBoolean("more_flag", false));
-            cbFlagColor.setChecked(prefs.getBoolean("more_flag_color", false));
-            cbImportanceLow.setChecked(prefs.getBoolean("more_importance_low", false));
-            cbImportanceNormal.setChecked(prefs.getBoolean("more_importance_normal", false));
-            cbImportanceHigh.setChecked(prefs.getBoolean("more_importance_high", false));
-            cbInbox.setChecked(prefs.getBoolean("more_inbox", true));
-            cbArchive.setChecked(prefs.getBoolean("more_archive", true));
-            cbJunk.setChecked(prefs.getBoolean("more_junk", true));
-            cbTrash.setChecked(prefs.getBoolean("more_trash", true));
-            cbDelete.setChecked(prefs.getBoolean("more_delete", false));
-            cbMove.setChecked(prefs.getBoolean("more_move", true));
-            cbClear.setChecked(prefs.getBoolean("more_clear", true));
-
-            return new AlertDialog.Builder(getContext())
-                    .setView(dview)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences.Editor editor = prefs.edit();
-                            editor.putBoolean("more_seen", cbSeen.isChecked());
-                            editor.putBoolean("more_unseen", cbUnseen.isChecked());
-                            editor.putBoolean("more_snooze", cbSnooze.isChecked());
-                            editor.putBoolean("more_hide", cbHide.isChecked());
-                            editor.putBoolean("more_flag", cbFlag.isChecked());
-                            editor.putBoolean("more_flag_color", cbFlagColor.isChecked());
-                            editor.putBoolean("more_importance_low", cbImportanceLow.isChecked());
-                            editor.putBoolean("more_importance_normal", cbImportanceNormal.isChecked());
-                            editor.putBoolean("more_importance_high", cbImportanceHigh.isChecked());
-                            editor.putBoolean("more_inbox", cbInbox.isChecked());
-                            editor.putBoolean("more_archive", cbArchive.isChecked());
-                            editor.putBoolean("more_junk", cbJunk.isChecked());
-                            editor.putBoolean("more_trash", cbTrash.isChecked());
-                            editor.putBoolean("more_delete", cbDelete.isChecked());
-                            editor.putBoolean("more_move", cbMove.isChecked());
-                            editor.putBoolean("more_clear", cbClear.isChecked());
-                            editor.apply();
-                            sendResult(Activity.RESULT_OK);
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            sendResult(Activity.RESULT_CANCELED);
-                        }
-                    })
-                    .create();
         }
     }
 }

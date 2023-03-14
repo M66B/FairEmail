@@ -24,7 +24,6 @@ import static android.app.Activity.RESULT_OK;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -1236,27 +1235,4 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             tvNoInternet.setVisibility(available ? View.GONE : View.VISIBLE);
         }
     };
-
-    public static class FragmentDialogDoze extends FragmentDialogBase {
-        @NonNull
-        @Override
-        public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getContext())
-                    .setIcon(R.drawable.twotone_info_24)
-                    .setTitle(R.string.title_setup_doze)
-                    .setMessage(R.string.title_setup_doze_instructions)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            try {
-                                startActivity(new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS));
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
-                        }
-                    })
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .create();
-        }
-    }
 }

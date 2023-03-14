@@ -325,7 +325,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
                     args.putString("name", contact.name);
                     args.putString("group", contact.group);
 
-                    FragmentContacts.FragmentDialogEditContact fragment = new FragmentContacts.FragmentDialogEditContact();
+                    FragmentDialogContactEdit fragment = new FragmentDialogContactEdit();
                     fragment.setArguments(args);
                     fragment.setTargetFragment(parentFragment, FragmentContacts.REQUEST_EDIT_CONTACT);
                     fragment.show(parentFragment.getParentFragmentManager(), "contact:edit");
