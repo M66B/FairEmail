@@ -6,11 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
 
-### Next version
+### 1.2054 - 2023-03-14
 
 * Added rule action option to delete keywords
 * Small improvements and minor bug fixes
-* Updated build tools
+* Updated build tools (NDK)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2053 - 2023-03-13
