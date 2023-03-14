@@ -2718,6 +2718,7 @@ $$lowpriority$ (since version 1.1958)
 $$highpriority$ (since version 1.1958)
 $$signed$ (since version 1.1981)
 $$encrypted$ (since version 1.1981)
+$$aligned$ (since version 1.2049)
 ```
 
 Note that *regex* should be disabled and that there should be no white space.

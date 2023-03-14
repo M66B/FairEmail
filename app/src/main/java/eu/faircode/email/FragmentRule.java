@@ -230,7 +230,8 @@ public class FragmentRule extends FragmentBase {
             "$$lowpriority$",
             "$$highpriority$",
             "$$signed$",
-            "$$encrypted$"
+            "$$encrypted$",
+            "$$aligned$"
     ));
 
     @Override
