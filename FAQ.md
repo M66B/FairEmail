@@ -5265,9 +5265,10 @@ configure the [temperature](https://platform.openai.com/docs/api-reference/chat/
 and enable [moderation](https://platform.openai.com/docs/api-reference/moderations) in the miscellaneous-settings tab page.
 
 Please read the [privacy policy](https://openai.com/policies/privacy-policy) of OpenAI,
-and perhaps [this article](https://katedowninglaw.com/2023/03/10/openais-massive-data-grab/) too.
+and perhaps [this article](https://katedowninglaw.com/2023/03/10/openais-massive-data-grab/)
+and [this article](https://www.ncsc.gov.uk/blog-post/chatgpt-and-large-language-models-whats-the-risk) too.
 
-This feature is experimental and available in the GitHub version only and requires version 1.2052 or later.
+This feature is experimental and available in the GitHub version only and requires version 1.2053 or later.
 
 <br>
 
