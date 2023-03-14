@@ -2764,22 +2764,6 @@ public class HtmlHelper {
                 }
         }
 
-        // https://tools.ietf.org/html/rfc3676#section-4.5
-        for (QuoteSpan span : ssb.getSpans(0, ssb.length(), QuoteSpan.class)) {
-            int start = ssb.getSpanStart(span);
-            int end = ssb.getSpanEnd(span);
-
-            for (int i = end - 2; i >= start; i--)
-                if (ssb.charAt(i) == '\n')
-                    if (i + 1 < ssb.length() && ssb.charAt(i + 1) == '>')
-                        ssb.insert(i + 1, ">");
-                    else
-                        ssb.insert(i + 1, "> ");
-
-            if (start < ssb.length())
-                ssb.insert(start, ssb.charAt(start) == '>' ? ">" : "> ");
-        }
-
         for (BulletSpan span : ssb.getSpans(0, ssb.length(), BulletSpan.class)) {
             int start = ssb.getSpanStart(span);
             if (span instanceof NumberSpan) {
@@ -2807,6 +2791,22 @@ public class HtmlHelper {
             int start = ssb.getSpanStart(span);
             int end = ssb.getSpanEnd(span);
             ssb.replace(start, end, LINE);
+        }
+
+        // https://tools.ietf.org/html/rfc3676#section-4.5
+        for (QuoteSpan span : ssb.getSpans(0, ssb.length(), QuoteSpan.class)) {
+            int start = ssb.getSpanStart(span);
+            int end = ssb.getSpanEnd(span);
+
+            for (int i = end - 2; i >= start; i--)
+                if (ssb.charAt(i) == '\n')
+                    if (i + 1 < ssb.length() && ssb.charAt(i + 1) == '>')
+                        ssb.insert(i + 1, ">");
+                    else
+                        ssb.insert(i + 1, "> ");
+
+            if (start < ssb.length())
+                ssb.insert(start, ssb.charAt(start) == '>' ? ">" : "> ");
         }
 
         return ssb.toString();
