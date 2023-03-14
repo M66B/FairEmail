@@ -345,6 +345,8 @@
     <string name="title_advanced_optimize">Automatski optimizuj</string>
     <string name="title_advanced_always">Uvijek primaj poruke s ovih računa</string>
     <string name="title_advanced_schedule">Raspored</string>
+    <string name="title_advanced_schedule_workdays">Radni dani</string>
+    <string name="title_advanced_schedule_weekend">Vikend</string>
     <string name="title_advanced_advanced">Napredno</string>
     <string name="title_advanced_quick_sync">Brza sinhronizacija</string>
     <string name="title_advanced_no_date">Poruke bez datuma</string>
@@ -511,6 +513,7 @@
     <string name="title_advanced_preview">Prikaži pregled poruke</string>
     <string name="title_advanced_preview_italic">Prikaži pregled poruke u kurzivu</string>
     <string name="title_advanced_preview_lines">Broj linija za pregled</string>
+    <string name="title_advanced_align_header">Vertikalno poravnaj ključne riječi, pregled teksta i bilješke</string>
     <string name="title_advanced_addresses">Proširi detalje adrese po zadanom</string>
     <string name="title_advanced_unzip">Prikaži sadržaj kompresovanih priloga</string>
     <string name="title_advanced_attachments_alt">Prikaži priloge poslije teksta poruke</string>
@@ -1544,6 +1547,7 @@
     <string name="title_rule_snooze">Odgodi</string>
     <string name="title_rule_flag">Zvjezdica</string>
     <string name="title_rule_importance">Postavi važnost</string>
+    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Ključna riječ</string>
     <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Dodaj</string>
     <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Izbriši</string>
     <string name="title_rule_move">Premjesti</string>

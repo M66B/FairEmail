@@ -1535,6 +1535,7 @@
     <string name="title_rule_snooze">Adiar</string>
     <string name="title_rule_flag">Adicionar estrela</string>
     <string name="title_rule_importance">Definir a prioridade</string>
+    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Palavra chave</string>
     <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Adicionar</string>
     <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Eliminar</string>
     <string name="title_rule_move">Mover</string>

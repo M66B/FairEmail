@@ -1535,6 +1535,7 @@
     <string name="title_rule_snooze">Reporter</string>
     <string name="title_rule_flag">Marquer comme suivi</string>
     <string name="title_rule_importance">Définir l’importance</string>
+    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Mot-clé</string>
     <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Ajouter</string>
     <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Supprimer</string>
     <string name="title_rule_move">Déplacer</string>

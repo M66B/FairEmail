@@ -81,7 +81,7 @@
     </string>
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
-    <string name="title_block_sender_domain">Domain „%1$s” sperren</string>
+    <string name="title_block_sender_domain">Domain »%1$s« sperren</string>
     <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.
         Das Sperren der Domain eines Absenders verwendet Filterregeln, 
         welche nur in der Pro-Version verfügbar sind.
@@ -731,7 +731,7 @@
     <string name="title_advanced_poll_folders_hint">Synchronisiert die Ordnerliste regelmäßig und zusätzlich nach der Verbindung mit einem Konto</string>
     <string name="title_advanced_check_authentication_hint">Damit werden die Ergebnisse der DKIM-, SPF- und DMARC-Authentifizierung geprüft, wie sie vom E-Mail-Server durchgeführt werden</string>
     <string name="title_advanced_check_tls_hint">Dies zeigt ein grünes Schild, sofern eine Nachricht von allen Servern sicher übermittelt wurde</string>
-    <string name="title_advanced_check_reply_hint">Überprüft, ob die Domain des Absenders und der Antwort-An-Adresse gleich sind</string>
+    <string name="title_advanced_check_reply_hint">Überprüft, ob die Domain des Absenders und die Antwort-An-Adresse identisch sind</string>
     <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
     <string name="title_advanced_folder_nav_hint">Damit kehren Sie von einer Nachrichtenliste immer zur Ordnerliste des betreffenden Kontos zurück.</string>
@@ -754,7 +754,7 @@
     <string name="title_advanced_cert_strict_hint">Durch das Deaktivieren dieser Option wird die Überprüfung der Serverzertifikate gelockert</string>
     <string name="title_advanced_ssl_harden_hint">Wenn dies eingeschaltet ist, werden schwache SSL-Protokolle und Chiffren deaktiviert, was zu Verbindungsproblemen führen kann</string>
     <string name="title_advanced_open_safe_hint">Das Aktivieren dieser Funktion erfordert eine sichere Verbindung zum Herunterladen von Bildern usw.</string>
-    <string name="title_advanced_roaming_hint">Die Kopfzeilen der Nachrichten werden beim Roaming immer abgerufen. Sie können die Roaming-Einstellung des Gerätes verwenden, um das Internet während des Roamings zu deaktivieren.</string>
+    <string name="title_advanced_roaming_hint">Die Kopfzeilen der Nachrichten werden beim Roaming immer abgerufen. Sie können die Roaming-Einstellung des Geräts verwenden, um das Internet während des Roamings zu deaktivieren.</string>
     <string name="title_advanced_browse_hint">Durch Herunterziehen weitere Nachrichten abholen</string>
     <string name="title_advanced_layout_hint">Das Wechseln zu einer kompakteren Darstellung und Ändern der Nachrichtentextgröße kann im oberen Aktionsleistenmenü in der Nachrichtenansicht vorgenommen werden.</string>
     <string name="title_advanced_startup_hint">Einen beliebigen Ordner in der Ordnerliste lange gedrückt halten, um ihn der Liste der Sammelordner hinzuzufügen oder ihn daraus zu entfernen</string>
@@ -834,7 +834,7 @@
     <string name="title_advanced_reply_name">Namen aus der empfangenen Nachricht kopieren</string>
     <string name="title_advanced_sender_regex">Regex zum Abgleichen des Benutzernamens von eingehenden E-Mail-Adressen</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
-    <string name="title_identity_internal">Interne Domänennamen (durch Kommata getrennt)</string>
+    <string name="title_identity_internal">Interne Domainnamen (durch Kommata getrennt)</string>
     <string name="title_identity_unicode">UTF-8 in Nachrichtenkopfzeilen zulassen</string>
     <string name="title_identity_unicode_remark">Die meisten Server unterstützen dies nicht</string>
     <string name="title_identity_octetmime">8BITMIME erlauben</string>
@@ -881,7 +881,7 @@
     <string name="title_case_sensitive">Bei Benutzernamen und Passwörtern wird normalerweise zwischen Groß- und Kleinschreibung unterschieden</string>
     <string name="title_client_certificate">Clientzertifikat</string>
     <string name="title_realm">Bereich</string>
-    <string name="title_use_ip">Lokale IP-Adresse anstelle des Domain-Namens verwenden</string>
+    <string name="title_use_ip">Lokale IP-Adresse anstelle des Hostnamens verwenden</string>
     <string name="title_ehlo">Benutzerdefinierte HELO/EHLO-Identifikation</string>
     <string name="title_primary">Primär</string>
     <string name="title_primary_account">Hauptkonto</string>
@@ -1231,8 +1231,9 @@
     <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
     <string name="title_expand_warning">Durch Erweitern dieser Nachricht werden %1$s heruntergeladen</string>
     <string name="title_download_message">wird heruntergeladen &#8230;</string>
-    <string name="title_reformatted">        Dies ist die neu formatierte Nachrichtenansicht.        Sie können auf das &#x26F6; -Symbol tippen, um die ursprüngliche Nachricht zu sehen und diese Ansicht zu verstecken.
-        Nachrichten neu formatieren dauert einige Zeit je nach Größe der Nachricht und der Geschwindigkeit Ihres Geräts.
+    <string name="title_reformatted">        Dies ist die Ansicht der umformatierten Nachricht.
+        Sie können auf das &#x26F6;-Symbol tippen, um die ursprüngliche Nachricht zu sehen und um diese Nachricht auszublenden.
+        Das Umformatieren von Nachrichten nimmt einige Zeit in Anspruch – abhängig von der Größe der Nachricht und der Geschwindigkeit Ihres Geräts.
     </string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>
@@ -1421,9 +1422,8 @@
     <string name="title_signature_store">Speichern</string>
     <string name="title_search">Suche</string>
     <string name="title_search_for_hint">Text eingeben</string>
-    <string name="title_search_hint">        Zuerst wird das Gerät durchsucht.
-        Um auch auf dem Server zu suchen,
-        tippen Sie auf »Erneut suchen«.
+    <string name="title_search_hint">        Die Suche erfolgt zunächst auf dem Gerät.
+        Um den Server ebenfalls zu durchsuchen, tippen Sie auf die Schaltfläche »Erneut suchen«.
     </string>
     <string name="title_search_index_hint">Die Suche über den Suchindex ist sehr schnell, kann aber nur ganze Wörter finden.</string>
     <string name="title_search_text_hint">Das Suchen nach Text in Nachrichten funktioniert bei einer großen Anzahl von Nachrichten auf einigen Servern möglicherweise nicht</string>
@@ -1536,6 +1536,7 @@
     <string name="title_rule_snooze">Zurückstellen</string>
     <string name="title_rule_flag">Stern hinzufügen</string>
     <string name="title_rule_importance">Wichtigkeit festlegen</string>
+    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Schlagwort</string>
     <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Hinzufügen</string>
     <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Löschen</string>
     <string name="title_rule_move">Verschieben</string>
@@ -1755,7 +1756,7 @@
     <string name="title_hint_eml">Das ist eine Zusammenfassung des Inhalts einer Rohnachrichtendatei. Speichern Sie die Rohnachricht mit dem Speichernsymbol in der Aktionsleiste, um alle Inhalte anzuzeigen.</string>
     <string name="title_open_link">Link öffnen</string>
     <string name="title_image_link">Bild-Link</string>
-    <string name="title_different_link">Titel und Link-Ziel sind unterschiedlich</string>
+    <string name="title_different_link">Titel und Linkadresse sind unterschiedlich</string>
     <string name="title_tracking_link">Diese Website könnte Sie verfolgen</string>
     <string name="title_suspicious_link">Dies ist ein verdächtiger Link</string>
     <string name="title_link_http">Datenverkehr wird nicht verschlüsselt</string>

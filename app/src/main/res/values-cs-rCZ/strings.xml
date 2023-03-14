@@ -1557,6 +1557,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_snooze">Odložit</string>
     <string name="title_rule_flag">Přidat hvězdičku</string>
     <string name="title_rule_importance">Nastavit důležitost</string>
+    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Klíčové slovo</string>
     <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Přidat</string>
     <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Odstranit</string>
     <string name="title_rule_move">Přesunout</string>

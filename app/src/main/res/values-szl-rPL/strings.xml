@@ -1557,6 +1557,7 @@
     <string name="title_rule_snooze">Odłóż</string>
     <string name="title_rule_flag">Dodaj gwiazdkę</string>
     <string name="title_rule_importance">Ustaw ważność</string>
+    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Słowo kluczowe</string>
     <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Dodaj</string>
     <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Usuń</string>
     <string name="title_rule_move">Przenieś</string>

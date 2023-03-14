@@ -359,6 +359,8 @@
     <string name="title_advanced_optimize">Аўтаматычная аптымізацыя</string>
     <string name="title_advanced_always">Заўсёды атрымліваць паведамленні для гэтых уліковых запісаў</string>
     <string name="title_advanced_schedule">Расклад</string>
+    <string name="title_advanced_schedule_workdays">Будні</string>
+    <string name="title_advanced_schedule_weekend">Выхадныя</string>
     <string name="title_advanced_advanced">Дадаткова</string>
     <string name="title_advanced_quick_sync">Хуткая сінхранізацыя</string>
     <string name="title_advanced_no_date">Паведамленні без даты</string>
@@ -525,6 +527,7 @@
     <string name="title_advanced_preview">Паказаць папярэдні выгляд паведамлення</string>
     <string name="title_advanced_preview_italic">Паказаць папярэдні выгляд паведамлення курсівам</string>
     <string name="title_advanced_preview_lines">Колькасць радкоў для папярэдняга прагляду</string>
+    <string name="title_advanced_align_header">Вертыкальнае выраўноўванне ключавых слоў, папярэдні прагляд тэксту і нататак</string>
     <string name="title_advanced_addresses">Разгортваць звесткі аб адрасе па змаўчанні</string>
     <string name="title_advanced_unzip">Паказваць змест сціснутых укладанняў</string>
     <string name="title_advanced_attachments_alt">Паказваць укладанні пасля тэксту паведамлення</string>
@@ -1560,6 +1563,7 @@
     <string name="title_rule_snooze">Адкласці</string>
     <string name="title_rule_flag">Да пазначаных</string>
     <string name="title_rule_importance">Задаць важнасць</string>
+    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Ключавое слова</string>
     <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Дадаць</string>
     <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Выдаліць</string>
     <string name="title_rule_move">Перамясціць</string>
