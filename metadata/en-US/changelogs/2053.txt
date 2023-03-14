@@ -10,6 +10,7 @@ Next version
 
 * Added rule action option to delete keywords
 * Small improvements and minor bug fixes
+* Updated build tools
 * Updated translations
 
 1.2053 - 2023-03-13

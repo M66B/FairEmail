@@ -10,6 +10,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Added rule action option to delete keywords
 * Small improvements and minor bug fixes
+* Updated build tools
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2053 - 2023-03-13
