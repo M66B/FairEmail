@@ -721,7 +721,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         // https://www.rfc-editor.org/rfc/rfc3501#section-6.4.4
         Response[] responses = protocol.command("SEARCH" + (utf8 ? " CHARSET UTF-8" : ""), args);
         if (responses != null && responses.length > 0 && !responses[responses.length - 1].isOK()) {
-            // Normally "NO"
+            // Normally "NO", but some servers respond with "BAD Could not parse command"
             if (!BuildConfig.PLAY_STORE_RELEASE)
                 Log.e(responses[responses.length - 1].toString());
             responses = protocol.command("SEARCH", args);
