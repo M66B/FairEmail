@@ -5264,6 +5264,9 @@ You can select the [model](https://platform.openai.com/docs/models/overview),
 configure the [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature)
 and enable [moderation](https://platform.openai.com/docs/api-reference/moderations) in the miscellaneous-settings tab page.
 
+If you have access to GPT-4, you can change the model name to [gpt-4](https://platform.openai.com/docs/models/gpt-4) in the miscellaneous-settings tab page.
+There is currently a [waitlist](https://openai.com/waitlist/gpt-4-api) for API GPT-4 access.
+
 Please read the [privacy policy](https://openai.com/policies/privacy-policy) of OpenAI,
 and perhaps [this article](https://katedowninglaw.com/2023/03/10/openais-massive-data-grab/)
 and [this article](https://www.ncsc.gov.uk/blog-post/chatgpt-and-large-language-models-whats-the-risk) too.
