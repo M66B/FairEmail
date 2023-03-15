@@ -27,6 +27,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
+import android.provider.CalendarContract;
 import android.system.ErrnoException;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -4091,6 +4092,7 @@ public class MessageHelper {
                     }
 
                     CalendarHelper.insert(context, icalendar, event,
+                            CalendarContract.Events.STATUS_TENTATIVE,
                             selectedAccount, selectedName, message);
                 }
             } catch (Throwable ex) {

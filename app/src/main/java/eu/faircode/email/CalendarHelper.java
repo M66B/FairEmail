@@ -70,7 +70,7 @@ public class CalendarHelper {
         return Helper.getTimeInstance(context, SimpleDateFormat.SHORT).format(cal.getTime());
     }
 
-    static void insert(Context context, ICalendar icalendar, VEvent event,
+    static void insert(Context context, ICalendar icalendar, VEvent event, int status,
                        String selectedAccount, String selectedName, EntityMessage message) {
 
         String organizer = (event.getOrganizer() == null ? null : event.getOrganizer().getEmail());
@@ -133,7 +133,7 @@ public class CalendarHelper {
                     values.put(CalendarContract.Events.DESCRIPTION, description);
                 if (!TextUtils.isEmpty(location))
                     values.put(CalendarContract.Events.EVENT_LOCATION, location);
-                values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_TENTATIVE);
+                values.put(CalendarContract.Events.STATUS, status);
 
                 Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
                 long eventId = Long.parseLong(uri.getLastPathSegment());
@@ -146,7 +146,8 @@ public class CalendarHelper {
                         " end=" + new Date(end.getTime()) +
                         " rrule=" + rrule +
                         " summary=" + summary +
-                        " location=" + location);
+                        " location=" + location +
+                        " status=" + status);
 
                 for (Attendee a : event.getAttendees())
                     try {
@@ -155,7 +156,7 @@ public class CalendarHelper {
                         String role = (a.getRole() == null ? null : a.getRole().getValue());
                         String level = (a.getParticipationLevel() == null ? null
                                 : a.getParticipationLevel().getValue(icalendar.getVersion()));
-                        String status = (a.getParticipationStatus() == null ? null : a.getParticipationStatus().getValue());
+                        String pstatus = (a.getParticipationStatus() == null ? null : a.getParticipationStatus().getValue());
 
                         ContentValues avalues = new ContentValues();
 
@@ -175,13 +176,13 @@ public class CalendarHelper {
                         else if ("REQUEST".equals(level) || "OPT-PARTICIPANT".equals(level))
                             avalues.put(CalendarContract.Attendees.ATTENDEE_TYPE, CalendarContract.Attendees.TYPE_OPTIONAL);
 
-                        if ("ACCEPTED".equals(status) || "CONFIRMED".equals(status))
+                        if ("ACCEPTED".equals(pstatus) || "CONFIRMED".equals(pstatus))
                             avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_ACCEPTED);
-                        else if ("DECLINED".equals(status))
+                        else if ("DECLINED".equals(pstatus))
                             avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_DECLINED);
-                        else if ("TENTATIVE".equals(status))
+                        else if ("TENTATIVE".equals(pstatus))
                             avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_TENTATIVE);
-                        else if ("NEEDS-ACTION".equals(status))
+                        else if ("NEEDS-ACTION".equals(pstatus))
                             avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_NONE);
 
                         avalues.put(CalendarContract.Attendees.EVENT_ID, eventId);
@@ -194,7 +195,7 @@ public class CalendarHelper {
                                 " name=" + name +
                                 " role=" + role +
                                 " level=" + level +
-                                " status=" + status);
+                                " status=" + pstatus);
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
