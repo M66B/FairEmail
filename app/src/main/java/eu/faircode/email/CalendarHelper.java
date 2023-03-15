@@ -70,7 +70,7 @@ public class CalendarHelper {
         return Helper.getTimeInstance(context, SimpleDateFormat.SHORT).format(cal.getTime());
     }
 
-    static void insert(Context context, ICalendar icalendar, VEvent event, int status,
+    static Long insert(Context context, ICalendar icalendar, VEvent event, int status,
                        String selectedAccount, String selectedName, EntityMessage message) {
         String organizer = (event.getOrganizer() == null ? null : event.getOrganizer().getEmail());
 
@@ -91,10 +91,10 @@ public class CalendarHelper {
 
         String uid = (event.getUid() == null ? null : event.getUid().getValue());
 
-        if (TextUtils.isEmpty(uid) || start == null || end == null) {
+        if (start == null || end == null) {
             EntityLog.log(context, EntityLog.Type.General, message,
-                    "Event uid=" + uid + " start=" + start + " end=" + end);
-            return;
+                    "Event start=" + start + " end=" + end);
+            return null;
         }
 
         ContentResolver resolver = context.getContentResolver();
@@ -203,8 +203,12 @@ public class CalendarHelper {
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }
+
+                return eventId;
             }
         }
+
+        return null;
     }
 
     static void update(Context context, VEvent event, EntityMessage message) {

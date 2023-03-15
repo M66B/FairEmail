@@ -4045,9 +4045,6 @@ public class MessageHelper {
         }
 
         private void decodeICalendar(Context context, EntityAttachment local) {
-            if (BuildConfig.DEBUG)
-                return;
-
             DB db = DB.getInstance(context);
             try {
                 boolean permission = Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR);

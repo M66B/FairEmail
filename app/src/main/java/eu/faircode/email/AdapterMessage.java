@@ -3691,8 +3691,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return;
             }
 
-            if (BuildConfig.DEBUG &&
-                    action == R.id.ibCalendar &&
+            if (action == R.id.ibCalendar &&
                     Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR)) {
                 Bundle args = new Bundle();
                 args.putLong("message", message.id);

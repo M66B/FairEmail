@@ -42,6 +42,7 @@ import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9615,9 +9616,9 @@ public class FragmentMessages extends FragmentBase
     }
 
     private void onInsertCalendar(Bundle args) {
-        new SimpleTask<Void>() {
+        new SimpleTask<Long>() {
             @Override
-            protected Void onExecute(Context context, Bundle args) throws Throwable {
+            protected Long onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("message");
                 int status = args.getInt("status");
                 String selectedAccount = args.getString("account");
@@ -9644,15 +9645,19 @@ public class FragmentMessages extends FragmentBase
                 ICalendar icalendar = Biweekly.parse(calendar.getFile(context)).first();
                 VEvent event = icalendar.getEvents().get(0);
 
-                CalendarHelper.insert(context, icalendar, event, status,
+                return CalendarHelper.insert(context, icalendar, event, status,
                         selectedAccount, selectedName, message);
-
-                return null;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Void data) {
-                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+            protected void onExecuted(Bundle args, Long eventId) {
+                if (eventId == null)
+                    return;
+
+                // https://developer.android.com/guide/topics/providers/calendar-provider.html#intent-view
+                Uri uri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventId);
+                Intent intent = new Intent(Intent.ACTION_VIEW).setData(uri);
+                startActivity(intent);
             }
 
             @Override
