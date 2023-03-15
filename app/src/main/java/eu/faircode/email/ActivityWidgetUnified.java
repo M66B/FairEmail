@@ -47,6 +47,7 @@ import com.flask.colorpicker.ColorPickerView;
 import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -67,6 +68,8 @@ public class ActivityWidgetUnified extends ActivityBase {
     private CheckBox cbSeparatorLines;
     private Spinner spFontSize;
     private Spinner spPadding;
+    private Spinner spSubjectLines;
+    private TextView tvSubjectLinesHint;
     private CheckBox cbAvatars;
     private CheckBox cbRefresh;
     private CheckBox cbCompose;
@@ -78,6 +81,8 @@ public class ActivityWidgetUnified extends ActivityBase {
     private ArrayAdapter<TupleFolderEx> adapterFolder;
     private ArrayAdapter<String> adapterFontSize;
     private ArrayAdapter<String> adapterPadding;
+
+    private NumberFormat NF = NumberFormat.getNumberInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,9 +110,10 @@ public class ActivityWidgetUnified extends ActivityBase {
         boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
         int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
         int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
+        int subject_lines = prefs.getInt("widget." + appWidgetId + ".subject_lines", 1);
+        boolean avatars = prefs.getBoolean("widget." + appWidgetId + ".avatars", false);
         boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
         boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
-        boolean avatars = prefs.getBoolean("widget." + appWidgetId + ".avatars", false);
 
         daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
@@ -127,6 +133,8 @@ public class ActivityWidgetUnified extends ActivityBase {
         cbSeparatorLines = findViewById(R.id.cbSeparatorLines);
         spFontSize = findViewById(R.id.spFontSize);
         spPadding = findViewById(R.id.spPadding);
+        spSubjectLines = findViewById(R.id.spSubjectLines);
+        tvSubjectLinesHint = findViewById(R.id.tvSubjectLinesHint);
         cbAvatars = findViewById(R.id.cbAvatars);
         cbRefresh = findViewById(R.id.cbRefresh);
         cbCompose = findViewById(R.id.cbCompose);
@@ -268,6 +276,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putBoolean("widget." + appWidgetId + ".separators", cbSeparatorLines.isChecked());
                 editor.putInt("widget." + appWidgetId + ".font", tinyOut(font));
                 editor.putInt("widget." + appWidgetId + ".padding", tinyOut(padding));
+                editor.putInt("widget." + appWidgetId + ".subject_lines", spSubjectLines.getSelectedItemPosition() + 1);
                 editor.putBoolean("widget." + appWidgetId + ".avatars", cbAvatars.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".refresh", cbRefresh.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".compose", cbCompose.isChecked());
@@ -399,6 +408,8 @@ public class ActivityWidgetUnified extends ActivityBase {
         spFontSize.setSelection(tinyIn(font));
         spPadding.setSelection(tinyIn(padding));
         cbAvatars.setChecked(avatars);
+        spSubjectLines.setSelection(subject_lines - 1);
+        tvSubjectLinesHint.setText(getString(R.string.title_advanced_preview_lines_hint, NF.format(HtmlHelper.PREVIEW_SIZE)));
         cbRefresh.setChecked(refresh);
         cbCompose.setChecked(compose);
 

@@ -66,6 +66,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
     private int font;
     private int padding;
     private boolean avatars;
+    private int subject_lines;
     private boolean prefer_contact;
     private boolean only_contact;
     private boolean distinguish_contacts;
@@ -116,6 +117,7 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
         font = prefs.getInt("widget." + appWidgetId + ".font", 0);
         padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
         avatars = prefs.getBoolean("widget." + appWidgetId + ".avatars", false);
+        subject_lines = prefs.getInt("widget." + appWidgetId + ".subject_lines", 1);
 
         prefer_contact = prefs.getBoolean("prefer_contact", false);
         only_contact = prefs.getBoolean("only_contact", false);
@@ -277,6 +279,12 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                 views.setTextColor(idSubject, textColor);
                 views.setTextColor(idAccount, textColor);
                 views.setInt(R.id.separator, "setBackgroundColor", colorSeparator);
+            }
+
+            try {
+                views.setInt(idSubject, "setMaxLines", subject_lines);
+            } catch (Throwable ex) {
+                Log.e(ex);
             }
 
             views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
