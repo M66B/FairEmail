@@ -70,8 +70,37 @@ public class CalendarHelper {
         return Helper.getTimeInstance(context, SimpleDateFormat.SHORT).format(cal.getTime());
     }
 
+    static Long exists(Context context, String selectedAccount, String selectedName, String uid) {
+        ContentResolver resolver = context.getContentResolver();
+        try (Cursor cursor = resolver.query(CalendarContract.Events.CONTENT_URI,
+                new String[]{CalendarContract.Events._ID},
+                CalendarContract.Calendars.ACCOUNT_NAME + " = ?" +
+                        " AND " + (selectedName == null
+                        ? "(" + CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " IS NULL" +
+                        " OR " + CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ''" +
+                        " OR " + CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ?)"
+                        : CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ?") +
+                        " AND " + CalendarContract.Events.UID_2445 + " = ?",
+                new String[]{selectedAccount, selectedName, uid},
+                null)) {
+            if (cursor.moveToNext())
+                return cursor.getLong(0);
+            else
+                return null;
+        }
+    }
+
     static Long insert(Context context, ICalendar icalendar, VEvent event, int status,
                        String selectedAccount, String selectedName, EntityMessage message) {
+        String uid = (event.getUid() == null ? null : event.getUid().getValue());
+        if (!TextUtils.isEmpty(uid)) {
+            Long existId = exists(context, selectedAccount, selectedName, uid);
+            if (existId != null) {
+                EntityLog.log(context, EntityLog.Type.General, message, "Exists uid=" + uid + " id=" + existId);
+                return existId;
+            }
+        }
+
         String organizer = (event.getOrganizer() == null ? null : event.getOrganizer().getEmail());
 
         String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
@@ -88,8 +117,6 @@ public class CalendarHelper {
             WriteContext wcontext = new WriteContext(ICalVersion.V2_0, icalendar.getTimezoneInfo(), null);
             rrule = scribe.writeText(recurrence, wcontext);
         }
-
-        String uid = (event.getUid() == null ? null : event.getUid().getValue());
 
         if (start == null || end == null) {
             EntityLog.log(context, EntityLog.Type.General, message,
