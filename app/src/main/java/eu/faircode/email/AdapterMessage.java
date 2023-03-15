@@ -3691,6 +3691,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return;
             }
 
+            if (BuildConfig.DEBUG &&
+                    action == R.id.ibCalendar &&
+                    Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR)) {
+                Bundle args = new Bundle();
+                args.putLong("message", message.id);
+                args.putInt("status", CalendarContract.Events.STATUS_TENTATIVE);
+
+                FragmentDialogCalendar fragment = new FragmentDialogCalendar();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_CALENDAR);
+                fragment.show(parentFragment.getParentFragmentManager(), "insert:calendar");
+                return;
+            }
+
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putInt("action", action);

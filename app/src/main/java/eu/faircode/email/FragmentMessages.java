@@ -74,6 +74,7 @@ import android.print.PrintAttributes;
 import android.print.PrintDocumentAdapter;
 import android.print.PrintJob;
 import android.print.PrintManager;
+import android.provider.CalendarContract;
 import android.provider.ContactsContract;
 import android.provider.Settings;
 import android.security.KeyChain;
@@ -247,6 +248,9 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import biweekly.Biweekly;
+import biweekly.ICalendar;
+import biweekly.component.VEvent;
 import me.everything.android.ui.overscroll.IOverScrollDecor;
 import me.everything.android.ui.overscroll.IOverScrollUpdateListener;
 import me.everything.android.ui.overscroll.VerticalOverScrollBounceEffectDecorator;
@@ -438,6 +442,7 @@ public class FragmentMessages extends FragmentBase
     private static final int REQUEST_SAVE_SEARCH = 26;
     private static final int REQUEST_QUICK_ACTIONS = 27;
     static final int REQUEST_BLOCK_SENDERS = 28;
+    static final int REQUEST_CALENDAR = 29;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
@@ -8208,6 +8213,10 @@ public class FragmentMessages extends FragmentBase
                     if (resultCode == RESULT_OK)
                         onBlockSenders(data.getBundleExtra("args"));
                     break;
+                case REQUEST_CALENDAR:
+                    if (resultCode == RESULT_OK)
+                        onInsertCalendar(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -9603,6 +9612,54 @@ public class FragmentMessages extends FragmentBase
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "messages:block");
+    }
+
+    private void onInsertCalendar(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("message");
+                int status = args.getInt("status");
+                String selectedAccount = args.getString("account");
+                String selectedName = args.getString("name");
+
+                DB db = DB.getInstance(context);
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null)
+                    return null;
+
+                List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                if (attachments == null)
+                    return null;
+
+                EntityAttachment calendar = null;
+                for (EntityAttachment attachment : attachments)
+                    if (attachment.available &&
+                            "text/calendar".equals(attachment.getMimeType()))
+                        calendar = attachment;
+
+                if (calendar == null)
+                    return null;
+
+                ICalendar icalendar = Biweekly.parse(calendar.getFile(context)).first();
+                VEvent event = icalendar.getEvents().get(0);
+
+                CalendarHelper.insert(context, icalendar, event, status,
+                        selectedAccount, selectedName, message);
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "insert:calendar");
     }
 
     private void onMoveAskAcross(final ArrayList<MessageTarget> result) {
