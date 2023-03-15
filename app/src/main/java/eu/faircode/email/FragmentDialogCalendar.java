@@ -152,14 +152,14 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
             this.type = type;
             this.primary = primary;
             this.visible = visible;
-            this.name = (Objects.equals(account, name) ? null : name);
+            this.name = name;
         }
 
         String getTitle() {
             return (this.visible ? "" : "(") +
                     (this.account == null ? "-" : this.account) +
                     (BuildConfig.DEBUG && false ? ":" + (this.type == null ? "-" : this.type) : "") +
-                    (TextUtils.isEmpty(this.name) ? "" : ":" + this.name) +
+                    (TextUtils.isEmpty(this.name) || Objects.equals(this.account, this.name) ? "" : ":" + this.name) +
                     (this.visible ? "" : ")") +
                     " " + (this.primary ? "*" : "");
         }
