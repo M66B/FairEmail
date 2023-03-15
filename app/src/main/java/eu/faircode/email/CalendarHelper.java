@@ -72,7 +72,6 @@ public class CalendarHelper {
 
     static void insert(Context context, ICalendar icalendar, VEvent event, int status,
                        String selectedAccount, String selectedName, EntityMessage message) {
-
         String organizer = (event.getOrganizer() == null ? null : event.getOrganizer().getEmail());
 
         String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
@@ -92,19 +91,24 @@ public class CalendarHelper {
 
         String uid = (event.getUid() == null ? null : event.getUid().getValue());
 
-        if (TextUtils.isEmpty(uid) || start == null || end == null)
+        if (TextUtils.isEmpty(uid) || start == null || end == null) {
+            EntityLog.log(context, EntityLog.Type.General, message,
+                    "Event uid=" + uid + " start=" + start + " end=" + end);
             return;
+        }
 
         ContentResolver resolver = context.getContentResolver();
         try (Cursor cursor = resolver.query(CalendarContract.Calendars.CONTENT_URI,
                 new String[]{CalendarContract.Calendars._ID},
-                CalendarContract.Calendars.VISIBLE + " <> 0 AND " +
-                        CalendarContract.Calendars.ACCOUNT_NAME + " = ?" +
-                        (selectedName == null
-                                ? ""
-                                : " AND " + CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ?"),
+                CalendarContract.Calendars.VISIBLE + " <> 0" +
+                        " AND " + CalendarContract.Calendars.ACCOUNT_NAME + " = ?" +
+                        " AND " + (selectedName == null
+                        ? "(" + CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " IS NULL" +
+                        " OR " + CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ''" +
+                        " OR " + CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ?)"
+                        : CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ?"),
                 selectedName == null
-                        ? new String[]{selectedAccount}
+                        ? new String[]{selectedAccount, selectedAccount}
                         : new String[]{selectedAccount, selectedName},
                 null)) {
             if (cursor.getCount() == 0)
