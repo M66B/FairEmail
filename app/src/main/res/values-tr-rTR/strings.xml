@@ -330,6 +330,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_optimize">Otomatik olarak optimize et</string>
     <string name="title_advanced_always">Bu hesaplardan mesajları her zaman al</string>
     <string name="title_advanced_schedule">Program</string>
+    <string name="title_advanced_schedule_workdays">İş günleri</string>
+    <string name="title_advanced_schedule_weekend">Haftasonu</string>
     <string name="title_advanced_advanced">Gelişmiş</string>
     <string name="title_advanced_quick_sync">Hızlı senkronizasyon</string>
     <string name="title_advanced_no_date">Tarihsiz mesajlar</string>
@@ -342,6 +344,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sync_folders">Klasör listesini eşzamanla</string>
     <string name="title_advanced_sync_folders_poll">Klasör listesini aktif olarak senkronize et</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan klasörlerin listesini senkronize et</string>
+    <string name="title_advanced_sync_added">Yeni kullanıcı klasörleri için senkronizasyonu etkinleştir</string>
     <string name="title_advanced_subscriptions">Dizin aboneliklerini yönet</string>
     <string name="title_advanced_check_authentication">Mesaj kimlik doğrulamasını kontrol et</string>
     <string name="title_advanced_check_tls">İletim katmanı güvenliğini (TLS) kontrol edin</string>
@@ -424,6 +427,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_caption_message_header">İleti başlığı</string>
     <string name="title_advanced_caption_message_body">İleti metni</string>
     <string name="title_advanced_caption_file">Dosya</string>
+    <string name="title_advanced_caption_integrations">Birleşmeler</string>
     <string name="title_advanced_portrait">Dikey modu</string>
     <string name="title_advanced_landscape">Yatay modu</string>
     <string name="title_advanced_two_row">İki satır kullan</string>
@@ -494,6 +498,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_preview">İleti önizlemesini göster</string>
     <string name="title_advanced_preview_italic">İleti önizlemesini italik olarak göster</string>
     <string name="title_advanced_preview_lines">Önizleme satırı sayısı</string>
+    <string name="title_advanced_align_header">Anahtar kelimeleri, önizleme metnini ve notları dikey olarak hizalayın</string>
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
     <string name="title_advanced_unzip">Sıkıştırılmış eklerin içeriğini göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
@@ -569,6 +574,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_auto_important">Yıldızlanan mesajları otomatik olarak önemli hale getir</string>
     <string name="title_advanced_cancel_snooze">Hareketli mesajlarda ertelemeyi iptal et</string>
     <string name="title_advanced_auto_block_sender">Spam bildirirken göndereni otomatik olarak engelle</string>
+    <string name="title_advanced_auto_hide_answer">Kaydırma sırasında yanıt düğmesini otomatik olarak gizle</string>
     <string name="title_advanced_swipe_reply">Genişletilmiş mesajları yanıtlamak için sağa kaydırın</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_default_folder">Varsayılan klasörü seçin</string>
@@ -679,6 +685,11 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_lt_key">API anahtarı (isteğe bağlı)</string>
     <string name="title_advanced_deepl">DeepL entegrasyonu</string>
     <string name="title_advanced_virus_total">VirüsTotal entegrasyonu</string>
+    <string name="title_advanced_send">\'Send\' entegrasyonu</string>
+    <string name="title_advanced_openai">OpenAI (ChatGPT) entegrasyonu</string>
+    <string name="title_advanced_openai_model">Model</string>
+    <string name="title_advanced_openai_temperature">Sıcaklık: %1$s</string>
+    <string name="title_advanced_openai_moderation">İçerik denetimi</string>
     <string name="title_advanced_sdcard">SD kart kullanmak istiyorum</string>
     <string name="title_advanced_watchdog">Düzenli aralıklarla FairEmail hala etkin mi diye kontrol et</string>
     <string name="title_advanced_updates">GitHub güncellemelerini kontrol et</string>
@@ -725,6 +736,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_auto_identity_hint">Bu, yeni mesajlar için bir alıcı seçerken kullanılan son kimliği seçecektir</string>
     <string name="title_advanced_send_reminders_hint">Mesaj metni veya konu boş olduğunda veya bir ek eksik olduğunda bir uyarı göster</string>
     <string name="title_advanced_reply_move_hint">E-posta sunucusu, iletileri gönderilen ileti klasörüne eklemeye devam edebilir</string>
+    <string name="title_advanced_compose_color_hint">Çok açık veya çok koyu renkler, alıcı tarafında okunaksız mesajlara neden olur</string>
     <string name="title_advanced_usenet_hint">Metin ve imza arasına \'-- \' ekle</string>
     <string name="title_advanced_remove_signature_hint">Bu, çok az veya çok fazla metnin kaldırılmasına neden olabilir</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
@@ -872,9 +884,13 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_primary_identity">Birincil (varsayılan kimlik)</string>
     <string name="title_self_identity">Yanıtlarken e-posta adresinizi kaldırın</string>
     <string name="title_leave_on_server">Mesajları sunucuda bırak</string>
+    <string name="title_client_delete">İndirdikten sonra mesajları aktif olarak sil</string>
     <string name="title_leave_deleted">Silinen mesajları sunucuda bırak</string>
     <string name="title_leave_on_device">Mesajları cihazda bırak</string>
     <string name="title_max_messages">İndirilecek mesajların maksimum sayısı (hepsi için boş)</string>
+    <string name="title_max_messages_remark">        Sondaki mesajları indirmek için pozitif bir sayı girin (en yaygın)
+        ve başlangıçta mesajları indirmek için negatif bir sayı (en az yaygın olan)
+    </string>
     <string name="title_keep_poll_interval">Anket aralığı (dakika)</string>
     <string name="title_keep_alive_interval">Canlı tutma aralığı (dakika)</string>
     <string name="title_keep_alive_noop">IMAP IDLE\'ı periyodik olarak yeniden başlat</string>
@@ -1214,6 +1230,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     </string>
     <string name="title_compose">Eposta Oluştur</string>
     <string name="title_submitter">Gönderen:</string>
+    <string name="title_signed_by">Tarafından imzalandı:</string>
     <string name="title_delivered_to">Teslim edilen:</string>
     <string name="title_from">Gönderen:</string>
     <string name="title_to">Alıcı:</string>
@@ -1454,6 +1471,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_sort_ascending">Önce en eski</string>
     <string name="title_sort_on_name">Ad</string>
     <string name="title_sort_on_order">Sıralama</string>
+    <string name="title_sort_on_applied">Başvuru sayısı</string>
+    <string name="title_sort_on_last_applied">Son başvuru</string>
     <string name="title_filter">Filtreleme</string>
     <string name="title_filter_seen">Okunmuş</string>
     <string name="title_filter_unflagged">Yıldızlı Olmayan</string>
@@ -1509,8 +1528,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_snooze">Erteleme</string>
     <string name="title_rule_flag">Yıldız Ekle</string>
     <string name="title_rule_importance">Önem derecesini ayarla</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Ekle</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Sil</string>
+    <string name="title_rule_keyword">Anahtar kelime</string>
+    <string name="title_rule_keyword_add">Ekle</string>
+    <string name="title_rule_keyword_delete">Sil</string>
     <string name="title_rule_move">Taşı</string>
     <string name="title_rule_copy">Kopyala (etiket)</string>
     <string name="title_rule_answer">Cevapla/İleri</string>
@@ -1712,6 +1732,10 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>
     <string name="title_hint_message_selection">Birden fazla ileti seçmeye başlamak için bir mesaja uzun basın; basılı tutarak ve yukarı veya aşağı kaydırın ve iletileri seçin</string>
+    <string name="title_hint_message_junk">        Bir e-posta istemcisi temel olarak mesajları bir e-posta sunucusunda görüntüler.
+        İstenmeyen e-postaları filtrelemekten bir e-posta istemcisi değil, bir e-posta sunucusu sorumludur.
+        Çok fazla spam alırsanız, lütfen e-posta sağlayıcınızla iletişime geçin ve uygulamayı suçlamayın!
+    </string>
     <string name="title_hint_important">Önemli</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
     <string name="title_hint_sync_note">Varsayılan olarak, tüm mesajlar depolama alanını, batarya ve veri kullanımını sınırlamak için indirilemez. Bunu, klasör listesinde bir klasöre uzun basarak ve \'Daha fazlasını senkronize et\' seçerek değiştirebilirsiniz.</string>
@@ -1776,6 +1800,11 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_via">Şu yol ile: %1$s</string>
     <string name="title_1hour">1 saat</string>
     <string name="title_1day">1 gün</string>
+    <string name="title_more_overflow">Daha fazla &#8230;</string>
+    <string name="title_today_at">Bugün %1$s\'de</string>
+    <string name="title_tomorrow_at">Yarın %1$s\'de</string>
+    <string name="title_day_at_time">%2$s\'de %1$s</string>
+    <string name="title_next_week">Haftaya bu zamanlar</string>
     <string name="title_now">Şimdi</string>
     <string name="title_after">%1$s\'den sonra</string>
     <string name="title_reset">Sıfırlama</string>
@@ -2004,7 +2033,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string-array name="encryptNames">
         <item>Hiçbiri</item>
         <item>PGP sadece imzala</item>
-        <item>PGP encrypt-only</item>
+        <item>PGP şifreleme sadece</item>
         <item>PGP imzala ve şifrele</item>
         <item>S/MIME yalnızca imza</item>
         <item>S/MIME imza+şifre</item>

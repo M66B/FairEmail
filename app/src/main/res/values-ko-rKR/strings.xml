@@ -774,8 +774,8 @@
     <string name="title_rule_snooze">미루기</string>
     <string name="title_rule_flag">즐겨찾기</string>
     <string name="title_rule_importance">중요도 설정</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">추가</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">삭제</string>
+    <string name="title_rule_keyword_add">추가</string>
+    <string name="title_rule_keyword_delete">삭제</string>
     <string name="title_rule_move">이동</string>
     <string name="title_rule_copy">복사 (라벨)</string>
     <string name="title_rule_answer">답장/전달</string>

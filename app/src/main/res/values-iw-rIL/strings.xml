@@ -1560,8 +1560,9 @@
     <string name="title_rule_snooze">השהיה</string>
     <string name="title_rule_flag">הוספת כוכב</string>
     <string name="title_rule_importance">הגדרת חשיבות</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">הוסף</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">מחק</string>
+    <string name="title_rule_keyword">מילת מפתח</string>
+    <string name="title_rule_keyword_add">הוסף</string>
+    <string name="title_rule_keyword_delete">מחק</string>
     <string name="title_rule_move">העברה</string>
     <string name="title_rule_copy">עותק (תווית)</string>
     <string name="title_rule_answer">תגובה/העברה</string>
@@ -1907,6 +1908,7 @@
     <string name="title_widget_separator_lines">הצגת קווים מפרידים</string>
     <string name="title_widget_semi_transparent">רקע שקוף למחצה</string>
     <string name="title_widget_count_top">להציג מניין הודעות שלא נקראו למעלה</string>
+    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">מספר שורות הנושא המרבי</string>
     <string name="title_widget_avatars">הצגת תמונות אנשי קשר</string>
     <string name="title_widget_refresh">הצגת כפתור רענון הודעות</string>
     <string name="title_widget_compose">הצגת כפתור כתיבת הודעה חדשה</string>

@@ -1563,9 +1563,9 @@
     <string name="title_rule_snooze">Адкласці</string>
     <string name="title_rule_flag">Да пазначаных</string>
     <string name="title_rule_importance">Задаць важнасць</string>
-    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Ключавое слова</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Дадаць</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Выдаліць</string>
+    <string name="title_rule_keyword">Ключавое слова</string>
+    <string name="title_rule_keyword_add">Дадаць</string>
+    <string name="title_rule_keyword_delete">Выдаліць</string>
     <string name="title_rule_move">Перамясціць</string>
     <string name="title_rule_copy">Капіраваць (ярлык)</string>
     <string name="title_rule_answer">Адказаць/пераслаць</string>

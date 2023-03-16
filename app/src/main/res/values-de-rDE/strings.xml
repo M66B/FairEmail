@@ -178,11 +178,11 @@
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
     <string name="title_setup_gmail_login">Wenn Chrome bei einem Konto angemeldet ist, kann ein neues Konto nur über Android hinzugefügt werden. Dies kann umgangen werden, indem Sie sich über die Chrome-Synchronisierungseinstellungen bei Chrome abmelden.</string>
-    <string name="title_setup_gmail_max">Im Falle der Fehlermeldung „Du bist bei der maximalen Anzahl an Konten angemeldet“ müssen Sie den Browser von allen Google-Konten abmelden.</string>
+    <string name="title_setup_gmail_max">Im Falle der Fehlermeldung »Du bist bei der maximalen Anzahl an Konten angemeldet« müssen Sie den Browser von allen Google-Konten abmelden.</string>
     <string name="title_setup_gmail_on_device">Warum muss ich ein Konto auf dem Gerät auswählen?</string>
     <string name="title_setup_gmail_password">Ich möchte ein Gmail-Konto mit einem eigenen App-Passwort anstatt über das geräteinterne Google-Konto autorisieren</string>
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
-    <string name="title_setup_office_auth_5_7_3">Bitte versuchen Sie den Schnelleinstellungs-Assistenten \'Anderer Anbieter\'.</string>
+    <string name="title_setup_office_auth_5_7_3">Bitte versuchen Sie den Schnelleinstellungs-Assistenten »Anderer Anbieter«.</string>
     <string name="title_setup_oauth_rationale">Zugriff auf Ihr %1$s -Konto autorisieren</string>
     <string name="title_setup_oauth_update">Ein bestehendes Konto erneut autorisieren (oder ein neues Konto erstellen)</string>
     <string name="title_setup_oauth_updated">Kontoautorisierung wurde aktualisiert</string>
@@ -194,7 +194,7 @@
     <string name="title_setup_no_auth_hint">Bitte überprüfen Sie Ihre E-Mail-Adresse und Ihr Passwort und stellen Sie sicher, dass der externe Zugriff (IMAP/SMTP) für Ihr Konto aktiviert ist</string>
     <string name="title_setup_app_password_hint">Dieser Anbieter verlangt ein App-Passwort anstelle des Kontenpassworts. Bitte folgen Sie den Anweisungen Ihres Anbieters.</string>
     <string name="title_setup_no_inbox">Posteingang nicht gefunden</string>
-    <string name="title_setup_advanced_protection">Wenn Sie sich in das erweiterte Schutzprogramm eingeschrieben haben, ist es nicht möglich, eine andere E-Mail-App von Dritten zu verwenden. Dies ist eine von Google auferlegte Einschränkung.</string>
+    <string name="title_setup_advanced_protection">Wenn Sie sich in das erweiterte Sicherheitsprogramm eingeschrieben haben, ist es nicht möglich, eine andere E-Mail-App von Dritten zu verwenden. Dies ist eine von Google auferlegte Einschränkung.</string>
     <string name="title_setup_quick_success">Ein Konto wurde erfolgreich hinzugefügt</string>
     <string name="title_setup_quick_no_sent">Es wurde kein Ordner für gesendete Nachrichten ausgewählt. Gesendete Nachrichten werden möglicherweise nicht gespeichert.</string>
     <string name="title_setup_quick_configure">Zum Bearbeiten des Namens, der Farbe, der Wischaktionen usw.</string>
@@ -554,10 +554,10 @@
     <string name="title_advanced_reversed">Navigationsrichtung umkehren</string>
     <string name="title_advanced_swipe_close">Zum Schließen der Unterhaltung nach unten wischen</string>
     <string name="title_advanced_swipe_move">Zum Verschieben der Unterhaltung nach oben wischen</string>
-    <string name="title_advanced_autoexpand">Nachrichten automatisch erweitern</string>
+    <string name="title_advanced_autoexpand">Nachrichten automatisch ausklappen</string>
     <string name="title_advanced_expand_first">Automatisch die erste Nachricht erweitern, wenn die Unterhaltung gelesen wird</string>
-    <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch erweitern</string>
-    <string name="title_advanced_expand_one">Jeweils nur eine Nachricht erweitern</string>
+    <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch ausklappen</string>
+    <string name="title_advanced_expand_one">Jeweils nur eine Nachricht ausklappen</string>
     <string name="title_advanced_collapse_multiple">Nachrichten in einer Unterhaltung mit mehreren Nachrichten bei »Zurück« zusammenfassen</string>
     <string name="title_advanced_autoclose">Unterhaltungen automatisch schließen</string>
     <string name="title_advanced_autoclose_send">Unterhaltungen nach dem Senden von Nachrichten automatisch schließen</string>
@@ -578,7 +578,7 @@
     <string name="title_advanced_cancel_snooze">Funktion »Zurückstellen« für verschobene Nachrichten deaktivieren</string>
     <string name="title_advanced_auto_block_sender">Absender automatisch sperren, wenn Spam gemeldet wird</string>
     <string name="title_advanced_auto_hide_answer">Beim Scrollen automatisch die Antwort-Schaltfläche ausblenden</string>
-    <string name="title_advanced_swipe_reply">Erweiterte Nachricht nach rechts wischen, um zu antworten</string>
+    <string name="title_advanced_swipe_reply">Ausgeklappte Nachricht nach rechts wischen, um zu antworten</string>
     <string name="title_advanced_default_snooze">Standardzeit für Zurückstellen/Verzögern</string>
     <string name="title_advanced_default_folder">Standardordner auswählen</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
@@ -615,7 +615,7 @@
     <string name="title_advanced_notify_subtext">Konto- oder Ordnername als Untertitel anzeigen</string>
     <string name="title_advanced_wearable_preview">Nur Benachrichtigungen mit einer Nachrichtenvorschau an Wearables senden</string>
     <string name="title_advanced_notify_messaging">Androids Benachrichtigungsformat »messaging style« verwenden</string>
-    <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt bei Nutzung der biometrischen Authentifizierung anzeigen</string>
+    <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt beim Verwenden der biometrischen Authentifizierung anzeigen</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
     <string name="title_advanced_notify_screen_on">Kurzes Einschalten des Bildschirms für Benachrichtigungen über neue Nachrichten</string>
@@ -727,7 +727,7 @@
     <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
     <string name="title_advanced_gmail_thread_hint">Dies gilt nur für neu empfangene Nachrichten und kann bestehende Gruppen zerbrechen</string>
     <string name="title_advanced_subject_threading_hint">Nur Nachrichten, die in den letzten %1$d Stunden empfangen wurden</string>
-    <string name="title_advanced_sync_folders_hint">Die Deaktivierung dieser Funktion verringert den Daten- und Akkuverbrauch etwas, deaktiviert aber auch die Aktualisierung der Ordnerliste.</string>
+    <string name="title_advanced_sync_folders_hint">Das Deaktivieren dieser Funktion verringert den Daten- und Akkuverbrauch etwas, deaktiviert aber auch das Aktualisieren der Ordnerliste</string>
     <string name="title_advanced_poll_folders_hint">Synchronisiert die Ordnerliste regelmäßig und zusätzlich nach der Verbindung mit einem Konto</string>
     <string name="title_advanced_check_authentication_hint">Damit werden die Ergebnisse der DKIM-, SPF- und DMARC-Authentifizierung geprüft, wie sie vom E-Mail-Server durchgeführt werden</string>
     <string name="title_advanced_check_tls_hint">Dies zeigt ein grünes Schild, sofern eine Nachricht von allen Servern sicher übermittelt wurde</string>
@@ -782,7 +782,7 @@
     <string name="title_advanced_restore_on_launch_hint">Letzten App-Status wiederherstellen, wenn innerhalb von %1$d Minuten über das Startsymbol neu gestartet wird</string>
     <string name="title_advanced_autoexpand_hint">Nachricht automatisch öffnen, wenn nur eine gelesene/ungelesene Nachricht in einer Unterhaltung enthalten ist</string>
     <string name="title_advanced_expandall_hint">Die Schaltfläche »Antworten« wird nicht angezeigt, wenn mehrere Nachrichten ausgeklappt sind, da unklar ist, für welche Nachricht die Schaltfläche gelten soll.</string>
-    <string name="title_advanced_autoseen_hint">Das automatische »Als gelesen kennzeichnen« von Nachrichten beim Erweitern kann in den erweiterten Kontoeinstellungen des jeweiligen Kontos deaktiviert werden</string>
+    <string name="title_advanced_autoseen_hint">Das automatische »Als gelesen Kennzeichnen« von Nachrichten beim Ausklappen kann in den erweiterten Kontoeinstellungen des jeweiligen Kontos deaktiviert werden</string>
     <string name="title_advanced_autoclose_hint">Unterhaltungen automatisch schließen, wenn alle E-Mails archiviert, gesendet oder gelöscht wurden</string>
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_bcc_hint">Die Adresse wird nicht angezeigt, wird aber beim Absenden hinzugefügt</string>
@@ -910,7 +910,7 @@
     <string name="title_no_name">Name fehlt</string>
     <string name="title_no_email">E-Mail-Adresse fehlt</string>
     <string name="title_email_invalid">E-Mail-Adresse ungültig: \'%1$s\'</string>
-    <string name="title_address_duplicate">Duplikat der Adresse „%1$s“</string>
+    <string name="title_address_duplicate">Duplikat der Adresse »%1$s«</string>
     <string name="title_address_parse_error">Adresse \'%1$s\' ungültig: %2$s</string>
     <string name="title_no_account">Konto fehlt</string>
     <string name="title_no_host">Hostname fehlt</string>
@@ -957,7 +957,7 @@
     <string name="title_service_protocol">Bitte überprüfen Sie das Protokoll (SSL/TLS oder STARTTLS)</string>
     <string name="title_service_error10">Dieses Konto muss erneut authentifiziert werden, was über den Schnelleinrichtungsassistenten erfolgen kann</string>
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
-    <string name="title_advanced_expand_read">Nachrichten beim Erweitern als gelesen markieren</string>
+    <string name="title_advanced_expand_read">Nachrichten beim Ausklappen als gelesen markieren</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_synchronize_subfolders">Unterordner</string>
     <string name="title_synchronize_more">Weitere Nachrichten abrufen</string>
@@ -1034,7 +1034,7 @@
     <string name="title_auto_classify_source">Neue Nachrichten in diesem Ordner klassifizieren</string>
     <string name="title_auto_classify_target">Für diesen Ordner klassifizierte Nachrichten automatisch in diesen Ordner verschieben</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
-    <string name="title_sync_days_remark">Eine Erhöhung dieses Werts erhöht den Akkuverbrauch und die Datennutzung</string>
+    <string name="title_sync_days_remark">Das Erhöhen dieses Wertes erhöht den Akku- und Datenverbrauch</string>
     <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
     <string name="title_keep_days_remark">Alte Nachrichten werden vom Gerät entfernt, aber auf dem Server belassen</string>
     <string name="title_keep_all">Alle E-Mails aufbewahren</string>
@@ -1229,7 +1229,7 @@
     <string name="title_need_help">Ich benötige Hilfe</string>
     <string name="title_ask_once">Diese Meldung wird nur einmal angezeigt, es sei denn, Sie wählen »Später«</string>
     <string name="title_third_party">Sie verwenden eine Version eines Drittanbieters</string>
-    <string name="title_expand_warning">Durch Erweitern dieser Nachricht werden %1$s heruntergeladen</string>
+    <string name="title_expand_warning">Durch Ausklappen dieser Nachricht werden %1$s heruntergeladen</string>
     <string name="title_download_message">wird heruntergeladen &#8230;</string>
     <string name="title_reformatted">        Dies ist die Ansicht der umformatierten Nachricht.
         Sie können auf das &#x26F6;-Symbol tippen, um die ursprüngliche Nachricht zu sehen und um diese Nachricht auszublenden.
@@ -1356,7 +1356,7 @@
     <string name="title_send_plain_text">Nur einfacher Text</string>
     <string name="title_send_dsn">Statusbericht</string>
     <string name="title_send_receipt">Bestätigung anfordern</string>
-    <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Programme ignorieren Empfangsanforderungen</string>
+    <string name="title_send_receipt_remark">Die meisten Anbieter und E-Mail-Programme ignorieren Empfangsbestätigungen</string>
     <string name="title_vt_unknown">Diese Datei ist VirusTotal noch nicht bekannt</string>
     <string name="title_vt_summary">%1$s Virenscanner melden diese Datei als schädlich</string>
     <string name="title_vt_report">Vollständiger Bericht</string>
@@ -1536,9 +1536,9 @@
     <string name="title_rule_snooze">Zurückstellen</string>
     <string name="title_rule_flag">Stern hinzufügen</string>
     <string name="title_rule_importance">Wichtigkeit festlegen</string>
-    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Schlagwort</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Hinzufügen</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Löschen</string>
+    <string name="title_rule_keyword">Schlagwort</string>
+    <string name="title_rule_keyword_add">Hinzufügen</string>
+    <string name="title_rule_keyword_delete">Löschen</string>
     <string name="title_rule_move">Verschieben</string>
     <string name="title_rule_copy">Kopieren (Label)</string>
     <string name="title_rule_answer">Antworten/Weiterleiten</string>
@@ -1593,7 +1593,7 @@
     <string name="title_rule_identity_missing">Identität fehlt</string>
     <string name="title_rule_answer_missing">Vorlage fehlt</string>
     <string name="title_rule_keyword_missing">Schlagwort fehlt</string>
-    <string name="title_rule_automation_hint">Das wird den Intent \'%1$s\' mit den Extras \'%2$s\' senden</string>
+    <string name="title_rule_automation_hint">Das wird den Intent »%1$s« mit den Extras »%2$s« senden</string>
     <string name="title_rule_delete_hint">Das dauerhafte Löschen kann nicht widerrufen werden. Stellen Sie daher sicher, dass die Bedingungen der Regel richtig sind!</string>
     <string name="title_rule_execute">Jetzt ausführen</string>
     <string name="title_rule_applied">Betroffene Nachrichten: %1$d</string>
@@ -1702,7 +1702,7 @@
     <string name="title_legend_metered">Verbindung ist getaktet</string>
     <string name="title_legend_unmetered">Verbindung ist ungetaktet</string>
     <string name="title_legend_roaming">Roaming</string>
-    <string name="title_legend_expander">Erweitern</string>
+    <string name="title_legend_expander">Ausklappen</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Zitate anzeigen</string>
     <string name="title_legend_show_junk">Als Spam behandeln</string>
@@ -1741,12 +1741,12 @@
     <string name="title_hint_message_actions">Standard: Wische links zum Papierkorb; Wische rechts zum Archiv (falls verfügbar); Diese Wischgesten können aber in den Kontoeinstellungen auch individuell anders konfiguriert werden</string>
     <string name="title_hint_message_selection">Um mehrere Nachrichten auszuwählen, drücken Sie zunächst lange auf eine Nachricht, halten und wischen Sie sodann nach oben oder unten, um weitere Nachrichten auszuwählen</string>
     <string name="title_hint_message_junk">        Ein E-Mail-Programm zeigt grundsätzlich die Nachrichten auf einem E-Mail-Server an.
-        Ein E-Mail-Server ist verantwortlich für die Filterung von Spam – nicht das E-Mail-Programm.
+        Ein E-Mail-Server ist verantwortlich für das Filtern von Spam – nicht das E-Mail-Programm.
         Wenn Sie also viel Spam erhalten, kontaktieren Sie bitte Ihren E-Mail-Anbieter und machen Sie nicht die App dafür verantwortlich!
     </string>
     <string name="title_hint_important">Wichtig</string>
-    <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen, abhängig von der Geschwindigkeit des Providers, der Internetverbindung, des Gerätes und von der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
-    <string name="title_hint_sync_note">Standardmäßig werden nicht alle Nachrichten heruntergeladen, um den Speicherplatz und die Akku- und Datennutzung zu begrenzen. Sie können das ändern, indem Sie einen Ordner in der Ordnerliste lange drücken und »Weitere Nachrichten synchronisieren« auswählen.</string>
+    <string name="title_hint_sync">Das Herunterladen von E-Mails kann einige Zeit in Anspruch nehmen – abhängig von der Geschwindigkeit des Anbieters, der Internetverbindung, des Geräts und der Anzahl der E-Mails. Beim Herunterladen der E-Mails kann die App träge reagieren.</string>
+    <string name="title_hint_sync_note">Standardmäßig werden nicht alle Nachrichten heruntergeladen, um den Speicherplatz und den Akku- und Datenverbrauch zu begrenzen. Sie können das ändern, indem Sie einen Ordner in der Ordnerliste lange drücken und »Weitere Nachrichten synchronisieren« auswählen.</string>
     <string name="title_hint_battery">Da FairEmail standardmäßig immer bereit ist, Nachrichten zu erhalten, meldet Android FairEmail als immer aktiv. Daher mag es so aussehen, als ob FairEmail immer Akkuleistung verbraucht, aber das ist nicht der Fall.</string>
     <string name="title_hint_reformat">Standardmäßig formatiert FairEmail Nachrichten aus Datenschutz- und Sicherheitsgründen neu. Um die Originalnachricht anzuzeigen, tippen Sie auf das Symbol »Original anzeigen« über dem Nachrichtentext.</string>
     <string name="title_hint_design">Das Design ist absichtlich nicht ablenkend, sondern sehr funktional gehalten. Es gibt viele Optionen, um das Erscheinungsbild individuell anzupassen, aber bitte haben Sie Verständnis dafür, dass es unmöglich ist, alle gleichzeitig glücklich zu machen.</string>
@@ -1884,6 +1884,7 @@
     <string name="title_widget_separator_lines">Trennlinien anzeigen</string>
     <string name="title_widget_semi_transparent">Halbtransparenter Hintergrund</string>
     <string name="title_widget_count_top">Anzahl ungelesener am oberen Rand anzeigen</string>
+    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Maximale Anzahl der Betreffzeilen</string>
     <string name="title_widget_avatars">Kontaktavatare anzeigen</string>
     <string name="title_widget_refresh">Schaltfläche »Nachrichten aktualisieren« anzeigen</string>
     <string name="title_widget_compose">Schaltfläche »Neue Nachricht verfassen« anzeigen</string>
@@ -1906,13 +1907,13 @@
     <string name="title_accessibility_menus">Menüs</string>
     <string name="title_accessibility_extras">Extras</string>
     <string name="title_accessibility_collapsed">Eingeklappt</string>
-    <string name="title_accessibility_expanded">Erweitert</string>
+    <string name="title_accessibility_expanded">Ausgeklappt</string>
     <string name="title_accessibility_seen">Gelesen</string>
     <string name="title_accessibility_unseen">Ungelesen</string>
     <string name="title_accessibility_flagged">Markiert</string>
     <string name="title_accessibility_unflagged">Nicht markiert</string>
     <string name="title_accessibility_collapse">Zusammenklappen</string>
-    <string name="title_accessibility_expand">Erweitern</string>
+    <string name="title_accessibility_expand">Ausklappen</string>
     <string name="title_accessibility_view_contact">Kontakt anzeigen</string>
     <string name="title_accessibility_show_authentication_result">Authentifizierungsergebnis anzeigen</string>
     <string name="title_accessibility_show_snooze_time">Zurückstellzeit anzeigen</string>

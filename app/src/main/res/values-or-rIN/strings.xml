@@ -641,8 +641,8 @@
     <string name="title_rule_snooze">ସ୍ନୁଜ୍</string>
     <string name="title_rule_flag">ତାରା ଲଗାନ୍ତୁ</string>
     <string name="title_rule_importance">ଗୁରୁତ୍ୱ ସ୍ଥିର କରିବା</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">ଯୋଡ଼ନ୍ତୁ</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">ବିଲୋପ</string>
+    <string name="title_rule_keyword_add">ଯୋଡ଼ନ୍ତୁ</string>
+    <string name="title_rule_keyword_delete">ବିଲୋପ</string>
     <string name="title_rule_move">ଘୁଞ୍ଚାନ୍ତୁ</string>
     <string name="title_rule_tts">ପାଠ୍ୟ ରୁ କଥନ</string>
     <string name="title_rule_automation">ସ୍ୱଚାଳନ</string>

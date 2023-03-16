@@ -1407,8 +1407,8 @@
     <string name="title_rule_snooze">Báo lại</string>
     <string name="title_rule_flag">Thêm sao</string>
     <string name="title_rule_importance">Đặt tầm quan trọng</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Thêm</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Xoá</string>
+    <string name="title_rule_keyword_add">Thêm</string>
+    <string name="title_rule_keyword_delete">Xoá</string>
     <string name="title_rule_move">Di chuyển</string>
     <string name="title_rule_copy">Sao chép (nhãn)</string>
     <string name="title_rule_answer">Trả lời/chuyển tiếp</string>

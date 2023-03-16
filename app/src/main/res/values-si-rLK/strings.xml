@@ -48,8 +48,8 @@
     <string name="title_attachment_audio">ශ්‍රව්‍ය පටිගතකරන්න</string>
     <string name="title_search">සොයන්න</string>
     <string name="title_language_all">සියල්ල</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">එකතු කරන්න</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">මකන්න</string>
+    <string name="title_rule_keyword_add">එකතු කරන්න</string>
+    <string name="title_rule_keyword_delete">මකන්න</string>
     <string name="title_rule_enabled">සබල කර ඇත</string>
     <string name="title_legend_section_folders">බහාලුම්</string>
     <string name="title_legend_section_messages">පණිවිඩ</string>

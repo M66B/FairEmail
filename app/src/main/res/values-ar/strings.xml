@@ -515,8 +515,8 @@
     <string name="title_rule_seen">علامة كـ مقروء</string>
     <string name="title_rule_unseen">وضع علامة كغير مقروء</string>
     <string name="title_rule_flag">إضافة نجمة</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">إضافة</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">حذف</string>
+    <string name="title_rule_keyword_add">إضافة</string>
+    <string name="title_rule_keyword_delete">حذف</string>
     <string name="title_rule_move">نقل</string>
     <string name="title_rule_name">الإسم</string>
     <string name="title_rule_order">الترتيب</string>

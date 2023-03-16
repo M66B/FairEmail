@@ -1515,9 +1515,9 @@
     <string name="title_rule_snooze">打盹</string>
     <string name="title_rule_flag">添加星标</string>
     <string name="title_rule_importance">设置重要性</string>
-    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">关键词</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">添加</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">删除</string>
+    <string name="title_rule_keyword">关键词</string>
+    <string name="title_rule_keyword_add">添加</string>
+    <string name="title_rule_keyword_delete">删除</string>
     <string name="title_rule_move">移动</string>
     <string name="title_rule_copy">复制（标签）</string>
     <string name="title_rule_answer">回复/转发</string>
@@ -1861,6 +1861,7 @@
     <string name="title_widget_separator_lines">显示分隔符行</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
     <string name="title_widget_count_top">在顶部显示未读计数</string>
+    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">最大主题行数</string>
     <string name="title_widget_avatars">显示联系人头像</string>
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>

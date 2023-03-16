@@ -987,8 +987,8 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_rule_snooze">Posposa</string>
     <string name="title_rule_flag">Afegeix a destacats</string>
     <string name="title_rule_importance">Estableix la importància</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Afegir</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Eliminar</string>
+    <string name="title_rule_keyword_add">Afegir</string>
+    <string name="title_rule_keyword_delete">Eliminar</string>
     <string name="title_rule_move">Mou</string>
     <string name="title_rule_copy">Copia (etiqueta)</string>
     <string name="title_rule_tts">Text a veu</string>

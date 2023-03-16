@@ -1535,9 +1535,9 @@
     <string name="title_rule_snooze">Udsæt</string>
     <string name="title_rule_flag">Tilføj stjerne</string>
     <string name="title_rule_importance">Angiv vigtighed</string>
-    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Nøgleord</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Tilføj</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Slet</string>
+    <string name="title_rule_keyword">Nøgleord</string>
+    <string name="title_rule_keyword_add">Tilføj</string>
+    <string name="title_rule_keyword_delete">Slet</string>
     <string name="title_rule_move">Flyt</string>
     <string name="title_rule_copy">Kopiér (etiket)</string>
     <string name="title_rule_answer">Besvar/videresend</string>
@@ -1883,6 +1883,7 @@
     <string name="title_widget_separator_lines">Vis separatorlinjer</string>
     <string name="title_widget_semi_transparent">Halvgennemsigtig baggrund</string>
     <string name="title_widget_count_top">Vis antallet af ulæste øverst</string>
+    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Maks. antal emnelinjer</string>
     <string name="title_widget_avatars">Vis kontaktavatarer</string>
     <string name="title_widget_refresh">Vis Opfrisk beskeder-knap</string>
     <string name="title_widget_compose">Vis Skriv ny besked-knap</string>

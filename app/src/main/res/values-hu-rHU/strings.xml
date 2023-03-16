@@ -1364,8 +1364,8 @@
     <string name="title_rule_snooze">Szundi</string>
     <string name="title_rule_flag">Csillagozás</string>
     <string name="title_rule_importance">Fontosság beállítása</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Hozzáadás</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Tőrlés</string>
+    <string name="title_rule_keyword_add">Hozzáadás</string>
+    <string name="title_rule_keyword_delete">Tőrlés</string>
     <string name="title_rule_move">Áthelyezés</string>
     <string name="title_rule_copy">Másolás (cím)</string>
     <string name="title_rule_answer">Válasz/Továbbítás</string>

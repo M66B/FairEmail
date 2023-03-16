@@ -101,7 +101,7 @@
     <string name="title_filter_trash">Deleted</string>
     <string name="title_rule_hide">Hide</string>
     <string name="title_rule_snooze">Snooze</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Remove</string>
+    <string name="title_rule_keyword_delete">Remove</string>
     <string name="title_rule_move">Move</string>
     <string name="title_legend_section_synchronize">Synchronise</string>
     <string name="title_legend_section_folders">Folders</string>

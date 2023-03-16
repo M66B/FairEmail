@@ -1382,8 +1382,8 @@
     <string name="title_rule_snooze">延後</string>
     <string name="title_rule_flag">加上星號</string>
     <string name="title_rule_importance">設定重要性</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">新增</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">刪除</string>
+    <string name="title_rule_keyword_add">新增</string>
+    <string name="title_rule_keyword_delete">刪除</string>
     <string name="title_rule_move">移動</string>
     <string name="title_rule_copy">複製 (標籤)</string>
     <string name="title_rule_answer">回覆/轉寄</string>

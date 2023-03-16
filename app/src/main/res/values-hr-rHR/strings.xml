@@ -1392,8 +1392,8 @@
     <string name="title_rule_snooze">Utišaj</string>
     <string name="title_rule_flag">Dodaj zvjezdicu</string>
     <string name="title_rule_importance">Postavi važnost</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Dodaj</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Izbriši</string>
+    <string name="title_rule_keyword_add">Dodaj</string>
+    <string name="title_rule_keyword_delete">Izbriši</string>
     <string name="title_rule_move">Premjesti</string>
     <string name="title_rule_copy">Kopiraj (oznaka)</string>
     <string name="title_rule_answer">Odgovori/proslijedi</string>

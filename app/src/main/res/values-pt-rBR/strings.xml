@@ -1531,9 +1531,9 @@
     <string name="title_rule_snooze">Soneca</string>
     <string name="title_rule_flag">Adicionar estrela</string>
     <string name="title_rule_importance">Definir a importância</string>
-    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Palavra-chave</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Adicionar</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Deletar</string>
+    <string name="title_rule_keyword">Palavra-chave</string>
+    <string name="title_rule_keyword_add">Adicionar</string>
+    <string name="title_rule_keyword_delete">Deletar</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
     <string name="title_rule_answer">Responder/encaminhar</string>
@@ -1878,6 +1878,7 @@
     <string name="title_widget_separator_lines">Mostrar linhas separadoras</string>
     <string name="title_widget_semi_transparent">Fundo semi-transparente</string>
     <string name="title_widget_count_top">Mostrar contagem de não lida na parte superior</string>
+    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Número máximo de linhas para o assunto</string>
     <string name="title_widget_avatars">Mostrar avatares dos contatos</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão compor nova mensagem</string>

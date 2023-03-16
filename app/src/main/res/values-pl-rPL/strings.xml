@@ -1557,9 +1557,9 @@
     <string name="title_rule_snooze">Odłóż</string>
     <string name="title_rule_flag">Dodaj gwiazdkę</string>
     <string name="title_rule_importance">Ustaw ważność</string>
-    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Słowo kluczowe</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Dodaj</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Usuń</string>
+    <string name="title_rule_keyword">Słowo kluczowe</string>
+    <string name="title_rule_keyword_add">Dodaj</string>
+    <string name="title_rule_keyword_delete">Usuń</string>
     <string name="title_rule_move">Przenieś</string>
     <string name="title_rule_copy">Kopiuj (etykieta)</string>
     <string name="title_rule_answer">Odpowiedz/prześlij dalej</string>
@@ -1903,6 +1903,7 @@
     <string name="title_widget_separator_lines">Pokaż linie rozdzielające</string>
     <string name="title_widget_semi_transparent">Półprzezroczyste tło</string>
     <string name="title_widget_count_top">Pokaż ilość nieprzeczytanych na górze</string>
+    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Maksymalna liczba wierszy tematu</string>
     <string name="title_widget_avatars">Pokaż awatary kontaktu</string>
     <string name="title_widget_refresh">Pokaż przycisk odświeżania wiadomości</string>
     <string name="title_widget_compose">Pokaż przycisk tworzenia nowej wiadomości</string>

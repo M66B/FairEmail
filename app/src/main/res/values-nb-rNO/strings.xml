@@ -1048,8 +1048,8 @@
     <string name="title_rule_snooze">Utsett</string>
     <string name="title_rule_flag">Legg til stjerne</string>
     <string name="title_rule_importance">Sett viktighet</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Legg til</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Slett</string>
+    <string name="title_rule_keyword_add">Legg til</string>
+    <string name="title_rule_keyword_delete">Slett</string>
     <string name="title_rule_move">Flytt</string>
     <string name="title_rule_copy">Kopier (etikett)</string>
     <string name="title_rule_answer">Svar/videresend</string>

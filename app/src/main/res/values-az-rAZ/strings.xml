@@ -500,6 +500,7 @@
     <string name="title_advanced_preview">Mesaj önbaxışını göstər</string>
     <string name="title_advanced_preview_italic">Mesaj önbaxışını \"italic\" göstər</string>
     <string name="title_advanced_preview_lines">Önbaxış sətir sayı</string>
+    <string name="title_advanced_align_header">Açar sözləri, önbaxış mətnlərini və qeydləri şaquli hizala</string>
     <string name="title_advanced_addresses">Ünvan təfsilatlarını ilkin olaraq göstər</string>
     <string name="title_advanced_unzip">Sıxışdırılmış qoşmaların məzmunlarını göstər</string>
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
@@ -1533,8 +1534,9 @@
     <string name="title_rule_snooze">Ertələ</string>
     <string name="title_rule_flag">Ulduz əlavə et</string>
     <string name="title_rule_importance">Vacibliyi tənzimlə</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Əlavə et</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Sil</string>
+    <string name="title_rule_keyword">Açar söz</string>
+    <string name="title_rule_keyword_add">Əlavə et</string>
+    <string name="title_rule_keyword_delete">Sil</string>
     <string name="title_rule_move">Köçürt</string>
     <string name="title_rule_copy">Kopyala (etiket)</string>
     <string name="title_rule_answer">Cavabla/yönləndir</string>

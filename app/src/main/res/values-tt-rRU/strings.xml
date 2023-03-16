@@ -60,8 +60,8 @@
     <string name="title_style_list">Исемлек</string>
     <string name="title_save_search_color">Төс</string>
     <string name="title_language_all">Бөтенесе</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Өстәү</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Бетерү</string>
+    <string name="title_rule_keyword_add">Өстәү</string>
+    <string name="title_rule_keyword_delete">Бетерү</string>
     <string name="title_rule_move">Күчермәләү</string>
     <string name="title_rule_folder">Папка</string>
     <string name="title_legend_section_folders">Папкалар</string>

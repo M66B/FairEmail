@@ -1525,9 +1525,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_snooze">Sluimeren</string>
     <string name="title_rule_flag">Ster toevoegen</string>
     <string name="title_rule_importance">Stel belang in</string>
-    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Sleutelwoord</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Voeg toe</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Verwijder</string>
+    <string name="title_rule_keyword">Sleutelwoord</string>
+    <string name="title_rule_keyword_add">Voeg toe</string>
+    <string name="title_rule_keyword_delete">Verwijder</string>
     <string name="title_rule_move">Verplaatsen</string>
     <string name="title_rule_copy">Kopiëren (label)</string>
     <string name="title_rule_answer">Beantwoorden/doorsturen</string>
@@ -1871,6 +1871,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_separator_lines">Gebruik scheidingslijnen</string>
     <string name="title_widget_semi_transparent">Semi transparante achtergrond</string>
     <string name="title_widget_count_top">Toon aantal ongelezen bovenin</string>
+    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Maximaal aantal onderwerpregels</string>
     <string name="title_widget_avatars">Toon avatars van contacten</string>
     <string name="title_widget_refresh">Toon knop voor het verversen van berichten</string>
     <string name="title_widget_compose">Toon knop voor het opstellen van een nieuw bericht</string>

@@ -1520,8 +1520,9 @@
     <string name="title_rule_snooze">Slumra</string>
     <string name="title_rule_flag">Lägg till stjärna</string>
     <string name="title_rule_importance">Sätt betydelsen</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Lägg till</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Ta bort</string>
+    <string name="title_rule_keyword">Nyckelord</string>
+    <string name="title_rule_keyword_add">Lägg till</string>
+    <string name="title_rule_keyword_delete">Ta bort</string>
     <string name="title_rule_move">Flytta</string>
     <string name="title_rule_copy">Kopiera (etikett)</string>
     <string name="title_rule_answer">Svar/vidarebefordra</string>

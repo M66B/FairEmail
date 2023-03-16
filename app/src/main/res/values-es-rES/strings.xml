@@ -1529,9 +1529,9 @@
     <string name="title_rule_snooze">Posponer</string>
     <string name="title_rule_flag">Destacar</string>
     <string name="title_rule_importance">Establecer importancia</string>
-    <string name="title_rule_keyword" comment="title_rule_keyword&#10;Filter action: (add/delete) keyword (label, tag)">Palabra clave</string>
-    <string name="title_rule_keyword_add" comment="title_rule_keyword_add&#10;Add (keyword) action/option">Añadir</string>
-    <string name="title_rule_keyword_delete" comment="title_rule_keyword_delete&#10;Delete (keyword) action/option">Eliminar</string>
+    <string name="title_rule_keyword">Palabra clave</string>
+    <string name="title_rule_keyword_add">Añadir</string>
+    <string name="title_rule_keyword_delete">Eliminar</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
     <string name="title_rule_answer">Responder/reenviar</string>
