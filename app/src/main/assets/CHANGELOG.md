@@ -6,9 +6,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
 
-### Next version
+### 1.2055 - 2023-03-16
 
-* Added option to configure number of widget subject lines
+* Added option to configure the number of widget subject lines
 * Added remembering last used folder for contacts
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
