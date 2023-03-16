@@ -368,8 +368,11 @@
     <string name="title_advanced_send_reminders">Mostrar recordatorios</string>
     <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
     <string name="title_advanced_attach_new">Añadir archivos compartidos a un nuevo borrador</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Ajustes del botón de respuesta</string>
     <string name="title_advanced_answer_default">Una pulsación corta en el botón de respuesta:</string>
     <string name="title_advanced_answer_action">Una pulsación larga en el botón de respuesta:</string>
+    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Las acciones del botón de respuesta también se pueden configurar en la pestaña de configuración de envío</string>
+    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">¡No todas las acciones son posibles sin un menú de selección!</string>
     <string name="title_advanced_send_pending">Mostrar icono de envío diferido no obtrusivo</string>
     <string name="title_advanced_auto_save_paragraph">Guardar automáticamente un borrador después de cada párrafo</string>
     <string name="title_advanced_auto_save_dot">Guardar automáticamente un borrador después de cada oración</string>
@@ -1876,6 +1879,7 @@
     <string name="title_widget_separator_lines">Mostrar líneas separadoras</string>
     <string name="title_widget_semi_transparent">Fondo semi transparente</string>
     <string name="title_widget_count_top">Mostrar cantidad de no leídos en la parte superior</string>
+    <string name="title_widget_subject_lines">Número máximo de líneas del asunto</string>
     <string name="title_widget_avatars">Mostrar avatares de contactos</string>
     <string name="title_widget_refresh">Mostrar botón de actualizar mensajes</string>
     <string name="title_widget_compose">Mostrar botón de redactar nuevo mensaje</string>

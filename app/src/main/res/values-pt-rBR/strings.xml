@@ -368,8 +368,11 @@
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
     <string name="title_advanced_attach_new">Adicionar arquivos compartilhados a um novo rascunho</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Configurações do botão de resposta</string>
     <string name="title_advanced_answer_default">Pressionar brevemente o botão de resposta irá:</string>
     <string name="title_advanced_answer_action">Pressionar longamente o botão de resposta irá:</string>
+    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">As ações do botão de resposta também podem ser configuradas na página da aba de configurações de envio</string>
+    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Nem todas as ações são possíveis sem um menu de seleção!</string>
     <string name="title_advanced_send_pending">Mostrar ícones de filtro rápido não obtrusivos</string>
     <string name="title_advanced_auto_save_paragraph">Salvar automaticamente um rascunho após cada parágrafo</string>
     <string name="title_advanced_auto_save_dot">Salvar automaticamente um rascunho após cada frase</string>
@@ -1878,7 +1881,7 @@
     <string name="title_widget_separator_lines">Mostrar linhas separadoras</string>
     <string name="title_widget_semi_transparent">Fundo semi-transparente</string>
     <string name="title_widget_count_top">Mostrar contagem de não lida na parte superior</string>
-    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Número máximo de linhas para o assunto</string>
+    <string name="title_widget_subject_lines">Número máximo de linhas para o assunto</string>
     <string name="title_widget_avatars">Mostrar avatares dos contatos</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão compor nova mensagem</string>

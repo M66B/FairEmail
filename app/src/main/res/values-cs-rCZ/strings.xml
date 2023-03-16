@@ -1904,7 +1904,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_separator_lines">Použít oddělovací čáry</string>
     <string name="title_widget_semi_transparent">Poloprůhledné pozadí</string>
     <string name="title_widget_count_top">Zobrazit počet nepřečtených zpráv v horní části</string>
-    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Maximální počet řádků předmětu</string>
+    <string name="title_widget_subject_lines">Maximální počet řádků předmětu</string>
     <string name="title_widget_avatars">Zobrazit avatary kontaktů</string>
     <string name="title_widget_refresh">Zobrazit tlačítko pro obnovení zpráv</string>
     <string name="title_widget_compose">Zobrazit tlačítko pro vytvoření nové zprávy</string>

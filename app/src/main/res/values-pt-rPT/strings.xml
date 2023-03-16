@@ -1883,7 +1883,7 @@
     <string name="title_widget_separator_lines">Mostrar linhas a separar</string>
     <string name="title_widget_semi_transparent">Fundo semitransparente</string>
     <string name="title_widget_count_top">Mostrar contagem não lida no topo</string>
-    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Número máximo de linhas de assunto</string>
+    <string name="title_widget_subject_lines">Número máximo de linhas de assunto</string>
     <string name="title_widget_avatars">Mostrar avatares dos contactos</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>

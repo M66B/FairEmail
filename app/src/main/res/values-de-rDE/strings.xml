@@ -370,8 +370,11 @@
     <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_attach_new">Freigegebene Dateien zu einem neuen Entwurf hinzufügen</string>
-    <string name="title_advanced_answer_default">Kurzes Drücken auf die Antwort-Schaltfläche wird:</string>
-    <string name="title_advanced_answer_action">Langes Drücken auf die Antwort-Schaltfläche wird:</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Einstellungen für die Schaltfläche »Antworten«</string>
+    <string name="title_advanced_answer_default">Kurzes Drücken auf die Schaltfläche »Antworten« wird:</string>
+    <string name="title_advanced_answer_action">Langes Drücken auf die Schaltfläche »Antworten« wird:</string>
+    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Aktionen der Schaltfläche »Antworten« können ebenfalls in den Einstellungen »Senden« konfiguriert werden</string>
+    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Ohne Auswahlmenü sind nicht alle Aktionen möglich!</string>
     <string name="title_advanced_send_pending">Nicht aufdringliches Symbol für verzögertes Senden anzeigen</string>
     <string name="title_advanced_auto_save_paragraph">Entwurf nach jedem Absatz automatisch speichern</string>
     <string name="title_advanced_auto_save_dot">Entwurf nach jedem Satz automatisch speichern</string>
@@ -439,10 +442,10 @@
     <string name="title_advanced_close_pane">Zeile oder Spalte beim Schließen einer Unterhaltung einklappen</string>
     <string name="title_advanced_column_width">Spaltenbreite/Zeilenhöhe der Nachricht: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Srollen von Nachrichten ausblenden</string>
-    <string name="title_advanced_nav_options">Navigationsmenü-Optionen anzeigen</string>
+    <string name="title_advanced_nav_options">Optionen für das Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_categories">Kontokategorien im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_pin">Navigationsmenü anheften</string>
-    <string name="title_advanced_nav_hide_title">Navigationsmenü-Optionen ausblenden?</string>
+    <string name="title_advanced_nav_hide_title">Optionen für das Navigationsmenü ausblenden?</string>
     <string name="title_advanced_nav_hide_message">Sie können die Optionen in den Darstellungseinstellungen wieder aktivieren</string>
     <string name="title_advanced_nav_last_sync">Letzte Synchronisationszeit im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_message_count">Anzahl der lokal gespeicherten Nachrichten im Navigationsmenü anzeigen</string>
@@ -577,7 +580,7 @@
     <string name="title_advanced_auto_important">Markierte Nachrichten automatisch wichtig machen</string>
     <string name="title_advanced_cancel_snooze">Funktion »Zurückstellen« für verschobene Nachrichten deaktivieren</string>
     <string name="title_advanced_auto_block_sender">Absender automatisch sperren, wenn Spam gemeldet wird</string>
-    <string name="title_advanced_auto_hide_answer">Beim Scrollen automatisch die Antwort-Schaltfläche ausblenden</string>
+    <string name="title_advanced_auto_hide_answer">Beim Scrollen automatisch die Schaltfläche »Antworten« ausblenden</string>
     <string name="title_advanced_swipe_reply">Ausgeklappte Nachricht nach rechts wischen, um zu antworten</string>
     <string name="title_advanced_default_snooze">Standardzeit für Zurückstellen/Verzögern</string>
     <string name="title_advanced_default_folder">Standardordner auswählen</string>
@@ -1733,7 +1736,7 @@
     <string name="title_legend_r">Antworten</string>
     <string name="title_legend_s">Aus-/Abwählen</string>
     <string name="title_legend_t">Text fokussieren</string>
-    <string name="title_hint_folder_actions">Drücken Sie lange auf einen Ordner für Optionen, wie das Hinzufügen eines Ordners in die Navigation für schnellen Zugriff</string>
+    <string name="title_hint_folder_actions">Halten Sie zum Anzeigen der Optionen einen Ordner gedrückt, um ihn z. B. zum Navigationsmenü für den Schnellzugriff hinzuzufügen</string>
     <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
     <string name="title_hint_airplane">Flugzeugmodus aktiviert</string>
     <string name="title_hint_notifications">Keine Benachrichtigungserlaubnis</string>
@@ -1884,7 +1887,7 @@
     <string name="title_widget_separator_lines">Trennlinien anzeigen</string>
     <string name="title_widget_semi_transparent">Halbtransparenter Hintergrund</string>
     <string name="title_widget_count_top">Anzahl ungelesener am oberen Rand anzeigen</string>
-    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Maximale Anzahl der Betreffzeilen</string>
+    <string name="title_widget_subject_lines">Maximale Anzahl von Betreffzeilen</string>
     <string name="title_widget_avatars">Kontaktavatare anzeigen</string>
     <string name="title_widget_refresh">Schaltfläche »Nachrichten aktualisieren« anzeigen</string>
     <string name="title_widget_compose">Schaltfläche »Neue Nachricht verfassen« anzeigen</string>

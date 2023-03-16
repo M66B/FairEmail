@@ -369,8 +369,11 @@
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
     <string name="title_advanced_attach_new">Føj delte filer til et nyt udkast</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Indstillinger for svar-knap</string>
     <string name="title_advanced_answer_default">Kort tryk på svarknappen vil:</string>
     <string name="title_advanced_answer_action">Langt tryk på svarknappen vil:</string>
+    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Handinger for svar-knappen kan også opsættes i fanen send-indstillinger</string>
+    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Ikke alle handlinger er mulige uden en valgmenu!</string>
     <string name="title_advanced_send_pending">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
     <string name="title_advanced_auto_save_paragraph">Gem automatisk udkast efter hvert afsnit</string>
     <string name="title_advanced_auto_save_dot">Gem automatisk udkast efter hver sætning</string>
@@ -1883,7 +1886,7 @@
     <string name="title_widget_separator_lines">Vis separatorlinjer</string>
     <string name="title_widget_semi_transparent">Halvgennemsigtig baggrund</string>
     <string name="title_widget_count_top">Vis antallet af ulæste øverst</string>
-    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Maks. antal emnelinjer</string>
+    <string name="title_widget_subject_lines">Maks. antal emnelinjer</string>
     <string name="title_widget_avatars">Vis kontaktavatarer</string>
     <string name="title_widget_refresh">Vis Opfrisk beskeder-knap</string>
     <string name="title_widget_compose">Vis Skriv ny besked-knap</string>

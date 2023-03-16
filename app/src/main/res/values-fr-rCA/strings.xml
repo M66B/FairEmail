@@ -369,8 +369,11 @@
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_send_delayed">Retarder l’envoi des messages</string>
     <string name="title_advanced_attach_new">Ajouter des fichiers partagés à un nouveau brouillon</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Paramètres du bouton de réponse</string>
     <string name="title_advanced_answer_default">Un appui court sur le bouton de réponse va:</string>
     <string name="title_advanced_answer_action">Un appui long sur le bouton de réponse va:</string>
+    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Les actions du bouton de réponse peuvent également être configurées dans l\'onglet Envoi des paramètres</string>
+    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Toutes les actions ne sont pas possibles sans un menu de sélection!</string>
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
     <string name="title_advanced_auto_save_paragraph">Enregistrer automatiquement un brouillon après chaque paragraphe</string>
     <string name="title_advanced_auto_save_dot">Enregistrer automatiquement un brouillon après chaque phrase</string>
@@ -1883,7 +1886,7 @@
     <string name="title_widget_separator_lines">Afficher des lignes de séparation</string>
     <string name="title_widget_semi_transparent">Arrière-plan semi-transparent</string>
     <string name="title_widget_count_top">Afficher le nombre de non-lus en haut</string>
-    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Nombre maximum de lignes de l\'objet</string>
+    <string name="title_widget_subject_lines">Nombre maximum de lignes de l\'objet</string>
     <string name="title_widget_avatars">Afficher l\'avatar des contacts</string>
     <string name="title_widget_refresh">Afficher le bouton d\'actualisation des messages</string>
     <string name="title_widget_compose">Afficher le bouton pour rédiger un nouveau message</string>

@@ -355,8 +355,11 @@
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_attach_new">将共享文件添加到新草稿</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">回复按钮设置</string>
     <string name="title_advanced_answer_default">短按回复按钮动作：</string>
     <string name="title_advanced_answer_action">长按回复按钮动作：</string>
+    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">回复按钮操作也可以在发送设置标签页中配置</string>
+    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">如果没有选中菜单，并非所有操作都是可用的</string>
     <string name="title_advanced_send_pending">显示不显眼的“延迟发送”图标（页面左下角）</string>
     <string name="title_advanced_auto_save_paragraph">在每一段后自动保存草稿</string>
     <string name="title_advanced_auto_save_dot">每句后自动保存草稿</string>
@@ -1861,7 +1864,7 @@
     <string name="title_widget_separator_lines">显示分隔符行</string>
     <string name="title_widget_semi_transparent">半透明背景</string>
     <string name="title_widget_count_top">在顶部显示未读计数</string>
-    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">最大主题行数</string>
+    <string name="title_widget_subject_lines">最大主题行数</string>
     <string name="title_widget_avatars">显示联系人头像</string>
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>

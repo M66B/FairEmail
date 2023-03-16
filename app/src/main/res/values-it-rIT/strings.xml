@@ -369,8 +369,11 @@
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
     <string name="title_advanced_attach_new">Aggiungi i file condivisi a una nuova bozza</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Impostazioni del pulsante di risposta</string>
     <string name="title_advanced_answer_default">La pressione breve del pulsante di risposta:</string>
     <string name="title_advanced_answer_action">La pressione prolungata sul pulsante di risposta:</string>
+    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Le azioni del pulsante di risposta possono anche essere configurate nella scheda Invia degli impostazioni</string>
+    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Non tutte le azioni sono possibili senza un menu di selezione!</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
     <string name="title_advanced_auto_save_paragraph">Salva automaticamente una bozza dopo ogni paragrafo</string>
     <string name="title_advanced_auto_save_dot">Salva automaticamente una bozza dopo ogni frase</string>
@@ -1883,7 +1886,7 @@
     <string name="title_widget_separator_lines">Mostra linee di separazione</string>
     <string name="title_widget_semi_transparent">Sfondo semitrasparente</string>
     <string name="title_widget_count_top">Mostra il conteggio dei messaggi non letti in alto</string>
-    <string name="title_widget_subject_lines" comment="title_widget_subject_lines&#10;Option title for message list widget">Numero massimo di righe dell\'oggetto</string>
+    <string name="title_widget_subject_lines">Numero massimo di righe dell\'oggetto</string>
     <string name="title_widget_avatars">Mostra gli avatar del contatto</string>
     <string name="title_widget_refresh">Mostra il pulsante ricarica messaggi</string>
     <string name="title_widget_compose">Mostra il pulsante componi nuovo messaggio</string>

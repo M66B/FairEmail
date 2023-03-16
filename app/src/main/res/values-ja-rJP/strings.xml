@@ -319,6 +319,8 @@
     <string name="title_advanced_optimize">自動最適化</string>
     <string name="title_advanced_always">これらのアカウントのメッセージを常に受信</string>
     <string name="title_advanced_schedule">スケジュール</string>
+    <string name="title_advanced_schedule_workdays">平日</string>
+    <string name="title_advanced_schedule_weekend">週末</string>
     <string name="title_advanced_advanced">詳細</string>
     <string name="title_advanced_quick_sync">クイック同期</string>
     <string name="title_advanced_no_date">日付のないメッセージ</string>
@@ -354,8 +356,10 @@
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
     <string name="title_advanced_attach_new">共有されたファイルを返信の下書きに追加</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">返信ボタン設定</string>
     <string name="title_advanced_answer_default">返信ボタンを短く押したときのアクション:</string>
     <string name="title_advanced_answer_action">返信ボタンを長押ししたときのアクション:</string>
+    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">返信ボタンのアクションは、設定の送信タブからも変更できます</string>
     <string name="title_advanced_send_pending">目立たない送信遅延アイコンを表示</string>
     <string name="title_advanced_auto_save_paragraph">段落ごとに下書きを自動で保存</string>
     <string name="title_advanced_auto_save_dot">文ごとに下書きを自動で保存</string>
@@ -1517,6 +1521,7 @@
     <string name="title_rule_snooze">スヌーズ</string>
     <string name="title_rule_flag">スターを付ける</string>
     <string name="title_rule_importance">重要度を設定</string>
+    <string name="title_rule_keyword">キーワード</string>
     <string name="title_rule_keyword_add">追加</string>
     <string name="title_rule_keyword_delete">削除</string>
     <string name="title_rule_move">移動</string>
