@@ -1087,6 +1087,15 @@ public class MessageHelper {
         String plainContent = HtmlHelper.getText(context, document.html());
         String plainContentType = "text/plain; charset=" + Charset.defaultCharset().name();
 
+        if (EntityMessage.PGP_SIGNONLY.equals(message.ui_encrypt)) {
+            // 550 5.6.11 SMTPSEND.BareLinefeedsAreIllegal; message contains bare linefeeds, which cannot be sent via DATA and receiving system does not support BDAT (failed)
+            // https://learn.microsoft.com/en-us/exchange/troubleshoot/email-delivery/ndr/fix-error-code-550-5-6-11-in-exchange-online
+            plainContent = plainContent
+                    .replaceAll("\r\n", "\n")
+                    .replaceAll("\r", "")
+                    .replaceAll("\n", "\r\n");
+        }
+
         if (format_flowed) {
             List<String> flowed = new ArrayList<>();
             for (String line : plainContent.split("\\r?\\n")) {
