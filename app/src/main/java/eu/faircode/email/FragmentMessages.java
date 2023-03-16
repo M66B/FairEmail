@@ -3588,6 +3588,9 @@ public class FragmentMessages extends FragmentBase
                         } else if (itemId == R.id.menu_reply_answer) {
                             onMenuAnswer(message);
                             return true;
+                        } else if (itemId == R.id.menu_settings) {
+                            onMenuAnswerSettings();
+                            return true;
                         }
                         return false;
                     }
@@ -3726,6 +3729,11 @@ public class FragmentMessages extends FragmentBase
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(getContext(), getViewLifecycleOwner(), new Bundle(), "message:answer");
+    }
+
+    private void onMenuAnswerSettings() {
+        FragmentDialogAnswerButton fragment = new FragmentDialogAnswerButton();
+        fragment.show(getParentFragmentManager(), "dialog:answer");
     }
 
     private void onMore() {
@@ -4404,6 +4412,7 @@ public class FragmentMessages extends FragmentBase
         args.putBoolean("copy", copy);
         args.putBoolean("cancopy", true);
         args.putLongArray("disabled", Helper.toLongArray(disabled));
+        args.putLongArray("messages", getSelection());
 
         FragmentDialogFolder fragment = new FragmentDialogFolder();
         fragment.setArguments(args);

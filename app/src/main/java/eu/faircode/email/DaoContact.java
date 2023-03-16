@@ -105,6 +105,12 @@ public interface DaoContact {
     @Update
     int updateContact(EntityContact contact);
 
+    @Query("UPDATE contact SET folder = :folder WHERE id=:id")
+    int setContactFolder(long id, Long folder);
+
+    @Query("UPDATE contact SET folder = NULL")
+    int clearContactFolders();
+
     @Query("DELETE FROM contact WHERE id = :id")
     int deleteContact(long id);
 

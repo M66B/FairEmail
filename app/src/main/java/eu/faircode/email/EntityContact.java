@@ -80,6 +80,7 @@ public class EntityContact implements Serializable {
     @NonNull
     public Long account;
     public Long identity; // no foreign key, no index
+    public Long folder; // last used
     @NonNull
     public int type;
     @NonNull

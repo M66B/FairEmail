@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<eu.faircode.email.ScrollViewEx xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fadeScrollbars="false"
+    android:padding="24dp"
+    android:scrollbarStyle="outsideOverlay">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvCaption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/twotone_settings_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_advanced_answer_caption"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvAnswerActionSingle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_answer_default"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCaption" />
+
+        <Spinner
+            android:id="@+id/spAnswerActionSingle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/answerNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAnswerActionSingle" />
+
+        <TextView
+            android:id="@+id/tvAnswerActionLong"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_answer_action"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spAnswerActionSingle" />
+
+        <Spinner
+            android:id="@+id/spAnswerActionLong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/answerNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAnswerActionLong" />
+
+        <TextView
+            android:id="@+id/tvAnswerActionWarning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_answer_warning"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/spAnswerActionLong" />
+
+        <TextView
+            android:id="@+id/tvAnswerActionHint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/title_advanced_answer_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAnswerActionWarning" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</eu.faircode.email.ScrollViewEx>

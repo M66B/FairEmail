@@ -441,8 +441,11 @@
     <string name="title_advanced_send_reminders">Show reminders</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
     <string name="title_advanced_attach_new">Add shared files to a new draft</string>
+    <string name="title_advanced_answer_caption">Answer button settings</string>
     <string name="title_advanced_answer_default">Short pressing on the answer button will:</string>
     <string name="title_advanced_answer_action">Long pressing on the answer button will:</string>
+    <string name="title_advanced_answer_hint">The answer button actions can also be configured in the send settings tab page</string>
+    <string name="title_advanced_answer_warning">Not all actions are possible without a selection menu!</string>
     <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>
 
     <string name="title_advanced_auto_save_paragraph">Automatically save a draft after every paragraph</string>

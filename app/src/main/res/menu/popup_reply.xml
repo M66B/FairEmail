@@ -56,4 +56,11 @@
         android:title="@string/title_reply_template">
         <menu />
     </item>
+
+    <item
+        android:id="@+id/menu_settings"
+        android:icon="@drawable/twotone_settings_24"
+        android:title="@string/menu_setup">
+        <menu />
+    </item>
 </menu>

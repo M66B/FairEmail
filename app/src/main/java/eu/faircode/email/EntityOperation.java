@@ -47,6 +47,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import javax.mail.internet.InternetAddress;
+
 @Entity(
         tableName = EntityOperation.TABLE_NAME,
         foreignKeys = {
@@ -229,6 +231,16 @@ public class EntityOperation {
                 EntityFolder target = db.folder().getFolder(jargs.getLong(0));
                 if (source == null || target == null || source.id.equals(target.id))
                     return;
+
+                if (message.from != null && message.from.length == 1 &&
+                        EntityFolder.USER.equals(target.type)) {
+                    String email = ((InternetAddress) message.from[0]).getAddress();
+                    if (!TextUtils.isEmpty(email)) {
+                        EntityContact contact = db.contact().getContact(target.account, EntityContact.TYPE_FROM, email);
+                        if (contact != null)
+                            db.contact().setContactFolder(contact.id, target.id);
+                    }
+                }
 
                 if (EntityFolder.JUNK.equals(target.type) &&
                         Objects.equals(source.account, target.account)) {

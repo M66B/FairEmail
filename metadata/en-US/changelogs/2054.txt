@@ -9,6 +9,7 @@ Rahonavis
 Next version
 
 * Added option to configure number of widget subject lines
+* Added remembering last used folder for contacts
 * Small improvements and minor bug fixes
 * Updated translations
 

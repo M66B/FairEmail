@@ -63,8 +63,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
+
+import javax.mail.internet.InternetAddress;
 
 public class FragmentDialogFolder extends FragmentDialogBase {
     private int result = 0;
@@ -83,6 +87,12 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         final long account = aargs.getLong("account");
         final long[] disabled = aargs.getLongArray("disabled");
         final boolean cancopy = aargs.getBoolean("cancopy");
+
+        long[] messages = null;
+        if (aargs.containsKey("message"))
+            messages = new long[]{aargs.getLong("message")};
+        else if (aargs.containsKey("messages"))
+            messages = aargs.getLongArray("messages");
 
         final Context context = getContext();
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -220,6 +230,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                     public void run() {
                         try {
                             db.folder().resetSelectedCount(account);
+                            db.contact().clearContactFolders();
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }
@@ -305,6 +316,8 @@ public class FragmentDialogFolder extends FragmentDialogBase {
         Bundle args = new Bundle();
         args.putLong("account", account);
         args.putLongArray("disabled", disabled);
+        if (messages != null)
+            args.putLongArray("messages", messages);
 
         new SimpleTask<Data>() {
             @Override
@@ -323,13 +336,58 @@ public class FragmentDialogFolder extends FragmentDialogBase {
             protected Data onExecute(Context context, Bundle args) {
                 long account = args.getLong("account");
                 long[] disabled = args.getLongArray("disabled");
+                long[] messages = args.getLongArray("messages");
+
+                List<EntityFolder> favorites = new ArrayList<>();
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean suggest_received = prefs.getBoolean("suggest_received", false);
 
                 DB db = DB.getInstance(context);
+
+                Map<Long, Integer> frequency = new HashMap<>();
+                if (suggest_received &&
+                        messages != null && messages.length < 100) {
+                    for (Long id : messages) {
+                        EntityMessage message = db.message().getMessage(id);
+                        if (message != null && message.from != null && message.from[0] != null) {
+                            String email = ((InternetAddress) message.from[0]).getAddress();
+                            if (!TextUtils.isEmpty(email)) {
+                                EntityContact contact =
+                                        db.contact().getContact(message.account, EntityContact.TYPE_FROM, email);
+                                if (contact != null && contact.folder != null) {
+                                    Integer freq = frequency.get(contact.folder);
+                                    freq = (freq == null ? 1 : freq + 1);
+                                    frequency.put(contact.folder, freq);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                List<Long> fs = new ArrayList<>(frequency.keySet());
+                Collections.sort(fs, new Comparator<Long>() {
+                    @Override
+                    public int compare(Long f1, Long f2) {
+                        return -Integer.compare(frequency.get(f1), frequency.get(f2));
+                    }
+                });
+                for (long fid : fs) {
+                    EntityFolder f = db.folder().getFolder(fid);
+                    if (f != null)
+                        favorites.add(f);
+                }
+
+                List<EntityFolder> ffolders = db.folder().getFavoriteFolders(account, 3, disabled);
+                if (ffolders != null)
+                    for (EntityFolder folder : ffolders)
+                        if (!frequency.containsKey(folder.id))
+                            favorites.add(folder);
 
                 Data data = new Data();
                 data.account = db.account().getAccount(account);
                 data.folders = db.folder().getFoldersEx(account);
-                data.favorites = db.folder().getFavoriteFolders(account, 3, disabled);
+                data.favorites = favorites;
 
                 return data;
             }
