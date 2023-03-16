@@ -181,6 +181,7 @@ public class MessageHelper {
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72; // characters
     private static final int MAX_DIAGNOSTIC = 250; // characters
     private static final int DKIM_MIN_TEXT = 100; // characters
+    private static final String DKIM_SIGNATURE = "DKIM-Signature";
 
     private static final String DOCTYPE = "<!DOCTYPE";
     private static final String HTML_START = "<html>";
@@ -2007,7 +2008,7 @@ public class MessageHelper {
             }
 
             // https://datatracker.ietf.org/doc/html/rfc6376/
-            String[] headers = amessage.getHeader("DKIM-Signature");
+            String[] headers = amessage.getHeader(DKIM_SIGNATURE);
             if (headers == null || headers.length < 1)
                 return signers;
 
@@ -2061,7 +2062,7 @@ public class MessageHelper {
                     if (!from)
                         throw new IllegalArgumentException("from missing: " + hs);
 
-                    keys.add("DKIM-Signature");
+                    keys.add(DKIM_SIGNATURE);
 
                     Map<String, Integer> index = new Hashtable<>();
                     for (String key : keys) {
@@ -2071,7 +2072,7 @@ public class MessageHelper {
                         idx = (idx == null ? 1 : idx + 1);
                         index.put(_key, idx);
 
-                        String[] values = ("DKIM-Signature".equals(key)
+                        String[] values = (DKIM_SIGNATURE.equals(key)
                                 ? new String[]{header}
                                 : amessage.getHeader(key));
                         if (values == null || idx > values.length) {
@@ -2082,7 +2083,7 @@ public class MessageHelper {
                         }
 
                         String value = values[values.length - idx];
-                        if ("DKIM-Signature".equals(key)) {
+                        if (DKIM_SIGNATURE.equals(key)) {
                             int b = value.lastIndexOf("b=");
                             int s = value.indexOf(";", b + 2);
                             value = value.substring(0, b + 2) + (s < 0 ? "" : value.substring(s));
@@ -2090,7 +2091,7 @@ public class MessageHelper {
                             Log.i("DKIM " + key + "=" + value.replaceAll("\\r?\\n", "|"));
 
                         if ("simple".equals(c[0])) {
-                            if ("DKIM-Signature".equals(key))
+                            if (DKIM_SIGNATURE.equals(key))
                                 head.append(key).append(": ").append(value);
                             else {
                                 // Find original header/name (case sensitive)
@@ -2114,7 +2115,7 @@ public class MessageHelper {
                         } else
                             throw new IllegalArgumentException(c[0]);
 
-                        if (!"DKIM-Signature".equals(key))
+                        if (!DKIM_SIGNATURE.equals(key))
                             head.append("\r\n");
                     }
                     Log.i("DKIM head=" + head.toString().replace("\r\n", "|"));
