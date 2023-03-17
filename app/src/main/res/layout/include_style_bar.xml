@@ -330,6 +330,21 @@
             app:tint="@color/action_foreground" />
 
         <ImageButton
+            android:id="@+id/menu_style_reverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_style_reverse"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_style_reverse"
+            app:layout_constraintStart_toEndOf="@id/menu_style_code"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/twotone_expand_24"
+            app:tint="@color/action_foreground" />
+
+        <ImageButton
             android:id="@+id/menu_style_clear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -339,7 +354,7 @@
             android:paddingVertical="6dp"
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_style_clear"
-            app:layout_constraintStart_toEndOf="@id/menu_style_code"
+            app:layout_constraintStart_toEndOf="@id/menu_style_reverse"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/twotone_format_clear_24"
             app:tint="@color/action_foreground" />

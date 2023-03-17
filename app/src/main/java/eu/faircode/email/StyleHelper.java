@@ -115,6 +115,7 @@ public class StyleHelper {
             R.id.menu_style_spell_check,
             R.id.menu_style_password,
             R.id.menu_style_code,
+            R.id.menu_style_reverse,
             R.id.menu_style_clear,
             R.id.menu_style_settings
     };
@@ -149,7 +150,7 @@ public class StyleHelper {
                 v.setVisibility(
                         !BuildConfig.PLAY_STORE_RELEASE && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O
                                 ? View.VISIBLE : View.GONE);
-            else if (id == R.id.menu_style_code)
+            else if (id == R.id.menu_style_code || id == R.id.menu_style_reverse)
                 v.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         }
 
@@ -465,6 +466,8 @@ public class StyleHelper {
                     setSize(etBody, start, end, HtmlHelper.FONT_SMALL, keep_selection);
                     setFont(etBody, start, end, "monospace", keep_selection);
                     return true;
+                } else if (itemId == R.id.menu_style_reverse) {
+                    return reverse(etBody, start, end);
                 } else if (itemId == R.id.menu_link)
                     return setLink(etBody, start, end, args);
                 else if (itemId == R.id.menu_style_clear)
@@ -1330,6 +1333,17 @@ public class StyleHelper {
         }
 
         ProtectedContent.showDialogEncrypt(context, owner, etBody);
+
+        return true;
+    }
+
+    static boolean reverse(EditText etBody, int start, int end) {
+        Log.breadcrumb("style", "action", "reverse");
+
+        Editable edit = etBody.getText();
+        List<String> lines = new ArrayList<>(Arrays.asList(edit.subSequence(start, end).toString().split("\n")));
+        Collections.reverse(lines);
+        edit.replace(start, end, TextUtils.join("\n", lines));
 
         return true;
     }
