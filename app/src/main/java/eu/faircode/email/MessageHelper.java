@@ -2104,7 +2104,8 @@ public class MessageHelper {
                     String arc = ams.get(ams.size());
                     String signer = verifySignatureHeader(context, arc, ARC_MESSAGE_SIGNATURE, amessage);
                     if (signer != null && !signers.contains(signer)) {
-                        boolean whitelisted = whitelist.contains(signer);
+                        boolean whitelisted = (whitelist.contains(signer) ||
+                                "*".equals(native_arc_whitelist));
                         Log.i("ARC signer=" + signer + " whitelisted=" + whitelisted);
                         if (whitelisted)
                             signers.add(signer);
