@@ -228,6 +228,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExactAlarms;
     private SwitchCompat swNativeDkim;
     private SwitchCompat swNativeArc;
+    private EditText etNativeArcWhitelist;
     private SwitchCompat swInfra;
     private SwitchCompat swDupMsgId;
     private EditText etKeywords;
@@ -288,7 +289,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", "use_top",
             "keep_alive_poll", "empty_pool", "idle_done", "fast_fetch",
             "max_backoff_power", "logarithmic_backoff",
-            "exact_alarms", "native_dkim", "native_arc", "infra", "dkim_verify", "dup_msgids", "global_keywords", "test_iab"
+            "exact_alarms",
+            "native_dkim", "native_arc", "native_arc_whitelist",
+            "infra", "dup_msgids", "global_keywords", "test_iab"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -464,6 +467,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExactAlarms = view.findViewById(R.id.swExactAlarms);
         swNativeDkim = view.findViewById(R.id.swNativeDkim);
         swNativeArc = view.findViewById(R.id.swNativeArc);
+        etNativeArcWhitelist = view.findViewById(R.id.etNativeArcWhitelist);
         swInfra = view.findViewById(R.id.swInfra);
         swDupMsgId = view.findViewById(R.id.swDupMsgId);
         etKeywords = view.findViewById(R.id.etKeywords);
@@ -1698,20 +1702,37 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swNativeDkim.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
         swNativeDkim.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("native_dkim", checked).apply();
                 swNativeArc.setEnabled(checked && swNativeDkim.isEnabled());
+                etNativeArcWhitelist.setEnabled(checked && swNativeDkim.isEnabled());
             }
         });
 
-        swNativeArc.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
         swNativeArc.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("native_arc", checked).apply();
+            }
+        });
+
+        etNativeArcWhitelist.setHint(TextUtils.join(",", MessageHelper.ARC_WHITELIST_DEFAULT));
+        etNativeArcWhitelist.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // Do nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                prefs.edit().putString("native_arc_whitelist", s.toString().trim()).apply();
             }
         });
 
@@ -2184,6 +2205,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("global_keywords".equals(key))
             return;
 
+        if ("native_arc_whitelist".equals(key))
+            return;
+
         setOptions();
     }
 
@@ -2435,8 +2459,12 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swLogarithmicBackoff.setChecked(prefs.getBoolean("logarithmic_backoff", true));
         swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
+        swNativeDkim.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
         swNativeDkim.setChecked(prefs.getBoolean("native_dkim", false));
+        swNativeArc.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
         swNativeArc.setChecked(prefs.getBoolean("native_arc", true));
+        etNativeArcWhitelist.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
+        etNativeArcWhitelist.setText(prefs.getString("native_arc_whitelist", null));
         swInfra.setChecked(prefs.getBoolean("infra", false));
         swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
         etKeywords.setText(prefs.getString("global_keywords", null));

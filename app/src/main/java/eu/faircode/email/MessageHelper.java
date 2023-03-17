@@ -187,7 +187,7 @@ public class MessageHelper {
     private static final String ARC_AUTHENTICATION_RESULTS = "ARC-Authentication-Results";
     private static final String ARC_MESSAGE_SIGNATURE = "ARC-Message-Signature";
 
-    static final List<String> ARC_WHITELIST = Collections.unmodifiableList(Arrays.asList(
+    static final List<String> ARC_WHITELIST_DEFAULT = Collections.unmodifiableList(Arrays.asList(
             "google.com", "microsoft.com"
     ));
 
@@ -2030,7 +2030,11 @@ public class MessageHelper {
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean native_arc = prefs.getBoolean("native_arc", true);
-            if (signers.size() == 0 && native_arc) {
+            String native_arc_whitelist = prefs.getString("native_arc_whitelist", null);
+            List<String> whitelist = (TextUtils.isEmpty(native_arc_whitelist)
+                    ? ARC_WHITELIST_DEFAULT
+                    : Arrays.asList(native_arc_whitelist.split(",")));
+            if (signers.size() == 0 && native_arc && whitelist.size() > 0) {
                 // https://datatracker.ietf.org/doc/html/rfc8617#section-5.2
                 boolean ok = true; // Until it is not
                 Map<Integer, String> as = new HashMap<>();
@@ -2100,7 +2104,7 @@ public class MessageHelper {
                     String arc = ams.get(ams.size());
                     String signer = verifySignatureHeader(context, arc, ARC_MESSAGE_SIGNATURE, amessage);
                     if (signer != null && !signers.contains(signer)) {
-                        boolean whitelisted = ARC_WHITELIST.contains(signer);
+                        boolean whitelisted = whitelist.contains(signer);
                         Log.i("ARC signer=" + signer + " whitelisted=" + whitelisted);
                         if (whitelisted)
                             signers.add(signer);
