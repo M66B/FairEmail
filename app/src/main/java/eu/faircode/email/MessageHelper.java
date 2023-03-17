@@ -2013,187 +2013,9 @@ public class MessageHelper {
                 return signers;
 
             for (String header : headers) {
-                Map<String, String> kv = getKeyValues(MimeUtility.unfold(header));
-
-                String a = kv.get("a");
-                String halgo;
-                String salgo;
-                if ("rsa-sha1".equals(a)) {
-                    halgo = "SHA-1";
-                    salgo = "SHA1withRSA";
-                } else if ("rsa-sha256".equals(a)) {
-                    halgo = "SHA-256";
-                    salgo = "SHA256withRSA";
-                } else {
-                    // TODO: Ed25519
-                    Log.i("DKIM a=" + a);
-                    continue;
-                }
-
-                try {
-                    String signer = kv.get("d");
-                    String dns = kv.get("s") + "._domainkey." + signer;
-                    Log.i("DKIM lookup " + dns);
-                    DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, dns, "txt");
-                    if (records.length == 0)
-                        continue;
-
-                    Log.i("DKIM got " + records[0].name);
-                    Map<String, String> dk = getKeyValues(records[0].name);
-
-                    String canonic = kv.get("c");
-                    Log.i("DKIM canonicalization=" + canonic);
-                    if (canonic == null)
-                        canonic = "simple/simple";
-                    String[] c = canonic.split("/");
-
-                    StringBuilder head = new StringBuilder();
-
-                    String hs = kv.get("h");
-                    Log.i("DKIM headers=" + hs);
-
-                    boolean from = false;
-                    List<String> keys = new ArrayList<>();
-                    if (hs != null)
-                        for (String key : hs.split(":")) {
-                            keys.add(key.trim());
-                            from = (from || "from".equalsIgnoreCase(key.trim()));
-                        }
-                    if (!from)
-                        throw new IllegalArgumentException("from missing: " + hs);
-
-                    keys.add(DKIM_SIGNATURE);
-
-                    Map<String, Integer> index = new Hashtable<>();
-                    for (String key : keys) {
-                        // https://datatracker.ietf.org/doc/html/rfc6376/#section-5.4.2
-                        String _key = key.toLowerCase(Locale.ROOT);
-                        Integer idx = index.get(_key);
-                        idx = (idx == null ? 1 : idx + 1);
-                        index.put(_key, idx);
-
-                        String[] values = (DKIM_SIGNATURE.equals(key)
-                                ? new String[]{header}
-                                : amessage.getHeader(key));
-                        if (values == null || idx > values.length) {
-                            // https://datatracker.ietf.org/doc/html/rfc6376/#section-5.4
-                            Log.i("DKIM missing header=" +
-                                    key + "[" + idx + "/" + (values == null ? null : values.length) + "]");
-                            continue;
-                        }
-
-                        String value = values[values.length - idx];
-                        if (DKIM_SIGNATURE.equals(key)) {
-                            int b = value.lastIndexOf("b=");
-                            int s = value.indexOf(";", b + 2);
-                            value = value.substring(0, b + 2) + (s < 0 ? "" : value.substring(s));
-                        } else
-                            Log.i("DKIM " + key + "=" + value.replaceAll("\\r?\\n", "|"));
-
-                        if ("simple".equals(c[0])) {
-                            if (DKIM_SIGNATURE.equals(key))
-                                head.append(key).append(": ").append(value);
-                            else {
-                                // Find original header/name (case sensitive)
-                                int _idx = values.length - idx;
-                                Enumeration<Header> oheaders = amessage.getAllHeaders();
-                                while (oheaders.hasMoreElements()) {
-                                    Header oheader = oheaders.nextElement();
-                                    if (key.equalsIgnoreCase(oheader.getName())) {
-                                        if (_idx-- == 0) {
-                                            head.append(oheader.getName()).append(": ")
-                                                    .append(oheader.getValue());
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                        } else if ("relaxed".equals(c[0])) {
-                            value = MimeUtility.unfold(value);
-                            head.append(_key).append(':')
-                                    .append(value.replaceAll("\\s+", " ").trim());
-                        } else
-                            throw new IllegalArgumentException(c[0]);
-
-                        if (!DKIM_SIGNATURE.equals(key))
-                            head.append("\r\n");
-                    }
-                    Log.i("DKIM head=" + head.toString().replace("\r\n", "|"));
-
-                    ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                    Helper.copy(amessage.getRawInputStream(), bos);
-                    String body = bos.toString(); // TODO: charset?
-                    if ("simple".equals(c[c.length > 1 ? 1 : 0])) {
-                        if (TextUtils.isEmpty(body))
-                            body = "\r\n";
-                        else if (!body.endsWith("\r\n"))
-                            body += "\r\n";
-                        else {
-                            while (body.endsWith("\r\n\r\n"))
-                                body = body.substring(0, body.length() - 2);
-                        }
-                    } else if ("relaxed".equals(c[c.length > 1 ? 1 : 0])) {
-                        if (TextUtils.isEmpty(body))
-                            body = "";
-                        else {
-                            body = body.replaceAll("[ \\t]+\r\n", "\r\n");
-                            body = body.replaceAll("[ \\t]+", " ");
-                            while (body.endsWith("\r\n\r\n"))
-                                body = body.substring(0, body.length() - 2);
-                            if ("\r\n".equals(body))
-                                body = "";
-                        }
-                    } else
-                        throw new IllegalArgumentException(c[1]);
-
-                    String length = kv.get("l");
-                    if (!TextUtils.isEmpty(length) && TextUtils.isDigitsOnly(length)) {
-                        int l = Integer.parseInt(length);
-                        if (l < DKIM_MIN_TEXT)
-                            throw new IllegalArgumentException("Body length " + l + " < " + DKIM_MIN_TEXT);
-                        if (l < body.length())
-                            body = body.substring(0, l);
-                    }
-
-                    Log.i("DKIM body=" + body.replace("\r\n", "|"));
-
-                    byte[] bh = MessageDigest.getInstance(halgo).digest(body.getBytes());  // TODO: charset?
-                    Log.i("DKIM bh=" + Base64.encodeToString(bh, Base64.NO_WRAP) + "/" + kv.get("bh"));
-
-                    String pubkey = dk.get("p");
-                    if (pubkey == null)
-                        continue;
-
-                    String p = pubkey.replaceAll("\\s+", "");
-                    Log.i("DKIM pubkey=" + p);
-
-                    X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(Base64.decode(p, Base64.DEFAULT));
-                    KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-                    PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
-                    Signature sig = Signature.getInstance(salgo); // a=
-
-                    String hash = kv.get("b");
-                    if (hash == null)
-                        continue;
-                    String s = hash.replaceAll("\\s+", "");
-                    Log.i("DKIM signature=" + s);
-
-                    byte[] signature = Base64.decode(s, Base64.DEFAULT);
-
-                    sig.initVerify(pubKey);
-                    sig.update(head.toString().getBytes());
-
-                    boolean verified = sig.verify(signature);
-                    Log.i("DKIM valid=" + verified +
-                            " dns=" + dns +
-                            " from=" + formatAddresses(getFrom()));
-
-                    if (verified &&
-                            !signers.contains(signer))
-                        signers.add(signer);
-                } catch (Throwable ex) {
-                    Log.e("DKIM", ex);
-                }
+                String signer = verifySignatureHeader(context, header, DKIM_SIGNATURE, amessage);
+                if (signer != null && !signers.contains(signer))
+                    signers.add(signer);
             }
 
             Log.i("DKIM signers=" + TextUtils.join(",", signers));
@@ -2202,6 +2024,191 @@ public class MessageHelper {
         }
 
         return signers;
+    }
+
+    private String verifySignatureHeader(Context context, String header, String name, MimeMessage amessage) {
+        Map<String, String> kv = getKeyValues(MimeUtility.unfold(header));
+
+        String a = kv.get("a");
+        String halgo;
+        String salgo;
+        if ("rsa-sha1".equals(a)) {
+            halgo = "SHA-1";
+            salgo = "SHA1withRSA";
+        } else if ("rsa-sha256".equals(a)) {
+            halgo = "SHA-256";
+            salgo = "SHA256withRSA";
+        } else {
+            // TODO: Ed25519
+            Log.i("DKIM a=" + a);
+            return null;
+        }
+
+        try {
+            String signer = kv.get("d");
+            String dns = kv.get("s") + "._domainkey." + signer;
+            Log.i("DKIM lookup " + dns);
+            DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, dns, "txt");
+            if (records.length == 0)
+                return null;
+
+            Log.i("DKIM got " + records[0].name);
+            Map<String, String> dk = getKeyValues(records[0].name);
+
+            String canonic = kv.get("c");
+            Log.i("DKIM canonicalization=" + canonic);
+            if (canonic == null)
+                canonic = "simple/simple";
+            String[] c = canonic.split("/");
+
+            StringBuilder head = new StringBuilder();
+
+            String hs = kv.get("h");
+            Log.i("DKIM headers=" + hs);
+
+            boolean from = false;
+            List<String> keys = new ArrayList<>();
+            if (hs != null)
+                for (String key : hs.split(":")) {
+                    keys.add(key.trim());
+                    from = (from || "from".equalsIgnoreCase(key.trim()));
+                }
+            if (!from)
+                throw new IllegalArgumentException("from missing: " + hs);
+
+            keys.add(name);
+
+            Map<String, Integer> index = new Hashtable<>();
+            for (String key : keys) {
+                // https://datatracker.ietf.org/doc/html/rfc6376/#section-5.4.2
+                String _key = key.toLowerCase(Locale.ROOT);
+                Integer idx = index.get(_key);
+                idx = (idx == null ? 1 : idx + 1);
+                index.put(_key, idx);
+
+                String[] values = (name.equals(key)
+                        ? new String[]{header}
+                        : amessage.getHeader(key));
+                if (values == null || idx > values.length) {
+                    // https://datatracker.ietf.org/doc/html/rfc6376/#section-5.4
+                    Log.i("DKIM missing header=" +
+                            key + "[" + idx + "/" + (values == null ? null : values.length) + "]");
+                    continue;
+                }
+
+                String value = values[values.length - idx];
+                if (name.equals(key)) {
+                    int b = value.lastIndexOf("b=");
+                    int s = value.indexOf(";", b + 2);
+                    value = value.substring(0, b + 2) + (s < 0 ? "" : value.substring(s));
+                } else
+                    Log.i("DKIM " + key + "=" + value.replaceAll("\\r?\\n", "|"));
+
+                if ("simple".equals(c[0])) {
+                    if (name.equals(key))
+                        head.append(key).append(": ").append(value);
+                    else {
+                        // Find original header/name (case sensitive)
+                        int _idx = values.length - idx;
+                        Enumeration<Header> oheaders = amessage.getAllHeaders();
+                        while (oheaders.hasMoreElements()) {
+                            Header oheader = oheaders.nextElement();
+                            if (key.equalsIgnoreCase(oheader.getName())) {
+                                if (_idx-- == 0) {
+                                    head.append(oheader.getName()).append(": ")
+                                            .append(oheader.getValue());
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                } else if ("relaxed".equals(c[0])) {
+                    value = MimeUtility.unfold(value);
+                    head.append(_key).append(':')
+                            .append(value.replaceAll("\\s+", " ").trim());
+                } else
+                    throw new IllegalArgumentException(c[0]);
+
+                if (!name.equals(key))
+                    head.append("\r\n");
+            }
+            Log.i("DKIM head=" + head.toString().replace("\r\n", "|"));
+
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            Helper.copy(amessage.getRawInputStream(), bos);
+            String body = bos.toString(); // TODO: charset?
+            if ("simple".equals(c[c.length > 1 ? 1 : 0])) {
+                if (TextUtils.isEmpty(body))
+                    body = "\r\n";
+                else if (!body.endsWith("\r\n"))
+                    body += "\r\n";
+                else {
+                    while (body.endsWith("\r\n\r\n"))
+                        body = body.substring(0, body.length() - 2);
+                }
+            } else if ("relaxed".equals(c[c.length > 1 ? 1 : 0])) {
+                if (TextUtils.isEmpty(body))
+                    body = "";
+                else {
+                    body = body.replaceAll("[ \\t]+\r\n", "\r\n");
+                    body = body.replaceAll("[ \\t]+", " ");
+                    while (body.endsWith("\r\n\r\n"))
+                        body = body.substring(0, body.length() - 2);
+                    if ("\r\n".equals(body))
+                        body = "";
+                }
+            } else
+                throw new IllegalArgumentException(c[1]);
+
+            String length = kv.get("l");
+            if (!TextUtils.isEmpty(length) && TextUtils.isDigitsOnly(length)) {
+                int l = Integer.parseInt(length);
+                if (l < DKIM_MIN_TEXT)
+                    throw new IllegalArgumentException("Body length " + l + " < " + DKIM_MIN_TEXT);
+                if (l < body.length())
+                    body = body.substring(0, l);
+            }
+
+            Log.i("DKIM body=" + body.replace("\r\n", "|"));
+
+            byte[] bh = MessageDigest.getInstance(halgo).digest(body.getBytes());  // TODO: charset?
+            Log.i("DKIM bh=" + Base64.encodeToString(bh, Base64.NO_WRAP) + "/" + kv.get("bh"));
+
+            String pubkey = dk.get("p");
+            if (pubkey == null)
+                return null;
+
+            String p = pubkey.replaceAll("\\s+", "");
+            Log.i("DKIM pubkey=" + p);
+
+            X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(Base64.decode(p, Base64.DEFAULT));
+            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
+            Signature sig = Signature.getInstance(salgo); // a=
+
+            String hash = kv.get("b");
+            if (hash == null)
+                return null;
+            String s = hash.replaceAll("\\s+", "");
+            Log.i("DKIM signature=" + s);
+
+            byte[] signature = Base64.decode(s, Base64.DEFAULT);
+
+            sig.initVerify(pubKey);
+            sig.update(head.toString().getBytes());
+
+            boolean verified = sig.verify(signature);
+            Log.i("DKIM valid=" + verified +
+                    " dns=" + dns +
+                    " from=" + formatAddresses(getFrom()));
+
+            if (verified)
+                return signer;
+        } catch (Throwable ex) {
+            Log.e("DKIM", ex);
+        }
+
+        return null;
     }
 
     Address[] getMailFrom(String[] headers) {
