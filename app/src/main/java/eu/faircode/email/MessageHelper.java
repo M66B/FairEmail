@@ -2028,7 +2028,9 @@ public class MessageHelper {
 
             Log.i("DKIM signers=" + TextUtils.join(",", signers));
 
-            if (signers.size() == 0) {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean native_arc = prefs.getBoolean("native_arc", true);
+            if (signers.size() == 0 && native_arc) {
                 // https://datatracker.ietf.org/doc/html/rfc8617#section-5.2
                 boolean ok = true; // Until it is not
                 Map<Integer, String> as = new HashMap<>();
@@ -2065,6 +2067,8 @@ public class MessageHelper {
                     if (!ok)
                         break;
                 }
+
+                ok = (ok && as.size() > 0);
                 Log.i("ARC as=" + as.size() + " aar=" + aar.size() + " ams=" + ams.size() + " ok=" + ok);
 
                 if (ok &&
