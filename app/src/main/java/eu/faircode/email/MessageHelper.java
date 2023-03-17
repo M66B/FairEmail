@@ -2068,13 +2068,11 @@ public class MessageHelper {
                         break;
                 }
 
-                ok = (ok && as.size() > 0);
-                Log.i("ARC as=" + as.size() + " aar=" + aar.size() + " ams=" + ams.size() + " ok=" + ok);
+                if (ok)
+                    ok = (as.size() > 0 && as.size() <= 50 &&
+                            as.size() == aar.size() && as.size() == ams.size());
 
-                if (ok &&
-                        as.size() <= 50 &&
-                        as.size() == aar.size() &&
-                        as.size() == ams.size()) {
+                if (ok)
                     for (int i = 1; i <= as.size(); i++) {
                         // 3.B. The instance values of the ARC Sets MUST form a continuous sequence from 1..N with no gaps or repetition
                         if (!as.containsKey(i) || !aar.containsKey(i) || !ams.containsKey(i)) {
@@ -2094,8 +2092,7 @@ public class MessageHelper {
                             break;
                         }
                     }
-                }
-                Log.i("ARC sets=" + ok);
+                Log.i("ARC as=" + as.size() + " aar=" + aar.size() + " ams=" + ams.size() + " ok=" + ok);
 
                 // 4. Validate the AMS with the greatest instance value (most recent).
                 //    If validation fails, then the Chain Validation Status is "fail", and the algorithm stops here.
