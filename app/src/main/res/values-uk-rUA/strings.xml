@@ -395,8 +395,11 @@
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
     <string name="title_advanced_attach_new">Додати спільні файли до нової чернетки</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Налаштування кнопки відповіді</string>
     <string name="title_advanced_answer_default">Коротке натискання на кнопку відповіді буде:</string>
     <string name="title_advanced_answer_action">Тривале натискання на кнопку відповіді для:</string>
+    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Дії кнопки відповіді можна також налаштувати на вкладці \"Відправити\"</string>
+    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Не всі дії можливі без меню вибору!</string>
     <string name="title_advanced_send_pending">Показати ненав\'язливий значок при затримці відправлення</string>
     <string name="title_advanced_auto_save_paragraph">Автоматично зберігати чернетку після кожного абзацу</string>
     <string name="title_advanced_auto_save_dot">Автоматично зберігати чернетку після кожного речення</string>

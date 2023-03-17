@@ -395,8 +395,11 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_attach_new">Přidat sdílené soubory do nového konceptu</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Nastavení tlačítka pro odpověď</string>
     <string name="title_advanced_answer_default">Krátkým stisknutím tlačítka odpovědi:</string>
     <string name="title_advanced_answer_action">Dlouhým stisknutím tlačítka odpovědi:</string>
+    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Akce tlačítka odpovědi lze také nakonfigurovat na kartě nastavení odesílání</string>
+    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Ne všechny akce jsou možné bez výběrového menu!</string>
     <string name="title_advanced_send_pending">Zobrazit neobtěžující ikonu zpožděného odeslání</string>
     <string name="title_advanced_auto_save_paragraph">Automaticky uložit koncept po každém odstavci</string>
     <string name="title_advanced_auto_save_dot">Automaticky uložit koncept po každé větě</string>

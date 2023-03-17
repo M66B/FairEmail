@@ -489,6 +489,7 @@
     <string name="title_advanced_preview">メッセージプレビューを表示</string>
     <string name="title_advanced_preview_italic">斜体でメッセージプレビューを表示</string>
     <string name="title_advanced_preview_lines">プレビューの行数</string>
+    <string name="title_advanced_align_header">キーワード、プレビューテキスト、メモを垂直方向に揃える</string>
     <string name="title_advanced_addresses">デフォルトでアドレスの詳細を展開</string>
     <string name="title_advanced_unzip">圧縮された添付ファイルの内容を表示</string>
     <string name="title_advanced_attachments_alt">本文の後に添付ファイルを表示</string>

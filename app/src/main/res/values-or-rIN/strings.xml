@@ -212,6 +212,7 @@
     <string name="title_advanced_check_authentication">ଵାର୍ତ୍ତା ପ୍ରାମାଣିକରଣ ଯାଞ୍ଚ</string>
     <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
     <string name="title_advanced_suggest_names">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">ଉତ୍ତର ବଟନ ସେଟିଂସ୍</string>
     <string name="title_advanced_answer_default">ଉତ୍ତର ବଟନ୍ ଉପରେ ହ୍ରସ୍ୱ ପ୍ରେସ୍ କଲେ:</string>
     <string name="title_advanced_answer_action">ଉତ୍ତର ବଟନ୍ ଉପରେ ଦୀର୍ଘ ପ୍ରେସ୍ କଲେ:</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
