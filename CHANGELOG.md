@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
 
+### 1.2056 - 2023-03-17
+
+* Fixed decoding of subject in some cases
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2055 - 2023-03-16
 
 * Added option to configure the number of widget subject lines
