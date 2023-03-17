@@ -8296,7 +8296,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     @NonNull
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = inflater.inflate(viewType, parent, false);
-        if (align_header) {
+        if (align_header &&
+                (viewType == R.layout.item_message_compact ||
+                        viewType == R.layout.item_message_normal)) {
             View v = view.findViewById(R.id.ibAvatar);
             ConstraintLayout.LayoutParams lparam = (ConstraintLayout.LayoutParams) v.getLayoutParams();
             lparam.bottomToBottom = R.id.tvNotes;   // tvFolder
