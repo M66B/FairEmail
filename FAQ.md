@@ -420,6 +420,7 @@ The following Android permissions are **optional**:
 * *read the contents of your shared storage (SD card)* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
 * Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
+* GitHub version only: *read and write calendar data* (READ_CALENDAR/WRITE_CALENDAR): to [auto-store invitations](#user-content-faq186)
 
 [Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only.
 On earlier Android versions you will be asked to grant the permissions on installing FairEmail.
