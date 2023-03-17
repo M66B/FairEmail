@@ -181,7 +181,15 @@ public class MessageHelper {
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72; // characters
     private static final int MAX_DIAGNOSTIC = 250; // characters
     private static final int DKIM_MIN_TEXT = 100; // characters
+
     private static final String DKIM_SIGNATURE = "DKIM-Signature";
+    private static final String ARC_SEAL = "ARC-Seal";
+    private static final String ARC_AUTHENTICATION_RESULTS = "ARC-Authentication-Results";
+    private static final String ARC_MESSAGE_SIGNATURE = "ARC-Message-Signature";
+
+    static final List<String> ARC_WHITELIST = Collections.unmodifiableList(Arrays.asList(
+            "google.com", "microsoft.com"
+    ));
 
     private static final String DOCTYPE = "<!DOCTYPE";
     private static final String HTML_START = "<html>";
@@ -2019,6 +2027,86 @@ public class MessageHelper {
             }
 
             Log.i("DKIM signers=" + TextUtils.join(",", signers));
+
+            if (signers.size() == 0) {
+                // https://datatracker.ietf.org/doc/html/rfc8617#section-5.2
+                boolean ok = true; // Until it is not
+                Map<Integer, String> as = new HashMap<>();
+                Map<Integer, String> aar = new HashMap<>();
+                Map<Integer, String> ams = new HashMap<>();
+
+                // 1. Collect all ARC Sets currently attached to the message
+                for (String n : new String[]{ARC_SEAL, ARC_AUTHENTICATION_RESULTS, ARC_MESSAGE_SIGNATURE}) {
+                    Map<Integer, String> map;
+                    if (ARC_SEAL.equals(n))
+                        map = as;
+                    else if (ARC_AUTHENTICATION_RESULTS.equals(n))
+                        map = aar;
+                    else if (ARC_MESSAGE_SIGNATURE.equals(n))
+                        map = ams;
+                    else
+                        throw new IllegalArgumentException(n);
+
+                    headers = amessage.getHeader(n);
+                    if (headers != null) {
+                        for (String header : headers) {
+                            Map<String, String> kv = getKeyValues(MimeUtility.unfold(header));
+                            Integer i = Helper.parseInt(kv.get("i"));
+                            if (i == null || map.containsKey(i)) {
+                                // 3.A. Each ARC Set MUST contain exactly one each of the three ARC header fields
+                                Log.i("ARC duplicate " + n + "@" + i);
+                                ok = false;
+                                break;
+                            }
+                            map.put(i, header);
+                        }
+                    }
+
+                    if (!ok)
+                        break;
+                }
+                Log.i("ARC as=" + as.size() + " aar=" + aar.size() + " ams=" + ams.size() + " ok=" + ok);
+
+                if (ok &&
+                        as.size() <= 50 &&
+                        as.size() == aar.size() &&
+                        as.size() == ams.size()) {
+                    for (int i = 1; i <= as.size(); i++) {
+                        // 3.B. The instance values of the ARC Sets MUST form a continuous sequence from 1..N with no gaps or repetition
+                        if (!as.containsKey(i) || !aar.containsKey(i) || !ams.containsKey(i)) {
+                            ok = false;
+                            break;
+                        }
+                        // 2. If the Chain Validation Status of the highest instance value ARC Set is "fail",
+                        //    then the Chain Validation Status is "fail"
+                        // 3.C. The "cv" value for all ARC-Seal header fields MUST NOT be "fail".
+                        //      For ARC Sets with instance values > 1, the values MUST be "pass".
+                        //      For the ARC Set with instance value = 1, the value MUST be "none".
+                        Map<String, String> kv = getKeyValues(MimeUtility.unfold(as.get(i)));
+                        String cv = kv.get("cv");
+                        if (!(i == 1 ? "none" : "pass").equalsIgnoreCase(cv)) {
+                            Log.i("ARC cv#" + i + "=" + cv);
+                            ok = false;
+                            break;
+                        }
+                    }
+                }
+                Log.i("ARC sets=" + ok);
+
+                // 4. Validate the AMS with the greatest instance value (most recent).
+                //    If validation fails, then the Chain Validation Status is "fail", and the algorithm stops here.
+                if (ok) {
+                    String arc = ams.get(ams.size());
+                    String signer = verifySignatureHeader(context, arc, ARC_MESSAGE_SIGNATURE, amessage);
+                    if (signer != null && !signers.contains(signer)) {
+                        boolean whitelisted = ARC_WHITELIST.contains(signer);
+                        Log.i("ARC signer=" + signer + " whitelisted=" + whitelisted);
+                        if (whitelisted)
+                            signers.add(signer);
+                    }
+                }
+            }
+
         } catch (Throwable ex) {
             Log.e("DKIM", ex);
         }
