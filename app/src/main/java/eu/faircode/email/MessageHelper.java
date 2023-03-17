@@ -3171,7 +3171,8 @@ public class MessageHelper {
             // https://bugzilla.mozilla.org/show_bug.cgi?id=1374149
             if (!"__ISO-2022-JP__".equalsIgnoreCase(p1.charset) &&
                     p1.charset != null && p1.charset.equalsIgnoreCase(p2.charset) &&
-                    p1.encoding != null && p1.encoding.equalsIgnoreCase(p2.encoding)) {
+                    p1.encoding != null && p1.encoding.equalsIgnoreCase(p2.encoding) &&
+                    p1.text != null && !p1.text.endsWith("=")) {
                 /*
                 try {
                     byte[] b1 = decodeWord(p1.text, p1.encoding, p1.charset);
