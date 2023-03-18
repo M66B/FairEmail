@@ -565,12 +565,14 @@ public class HtmlEx {
                 } else if (c > 0x7E || c < ' ') {
                     out.append("&#").append((int) c).append(";");
                 } else if (c == ' ') {
+                    boolean img = (i - 1 >= 0 && text.charAt(i - i) == '\uFFFC');
+
                     while (i + 1 < end && text.charAt(i + 1) == ' ') {
                         out.append("&nbsp;");
                         i++;
                     }
 
-                    out.append(' ');
+                    out.append(img ? "&nbsp;" : ' ');
                 } else {
                     out.append(c);
                 }
