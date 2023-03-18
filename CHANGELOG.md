@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
 
+### Next version
+
+* Added an option to use the monospaced font when writing a plain text only messages
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2056 - 2023-03-17
 
 * Fixed decoding of subject in some cases

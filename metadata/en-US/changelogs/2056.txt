@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Rahonavis
 
+Next version
+
+* Added an option to use the monospaced font when writing a plain text only messages
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2056 - 2023-03-17
 
 * Fixed decoding of subject in some cases
