@@ -45,6 +45,7 @@ import android.graphics.Color;
 import android.graphics.ImageDecoder;
 import android.graphics.Matrix;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
@@ -273,6 +274,7 @@ public class FragmentCompose extends FragmentBase {
 
     private int compose_color;
     private String compose_font;
+    private boolean compose_monospaced;
     private String display_font;
     private boolean dsn = true;
     private Integer encrypt = null;
@@ -337,6 +339,7 @@ public class FragmentCompose extends FragmentBase {
 
         compose_color = prefs.getInt("compose_color", Color.TRANSPARENT);
         compose_font = prefs.getString("compose_font", "");
+        compose_monospaced = prefs.getBoolean("compose_monospaced", false);
         display_font = prefs.getString("display_font", "");
         style = prefs.getBoolean("compose_style", false);
         media = prefs.getBoolean("compose_media", true);
@@ -5952,6 +5955,16 @@ public class FragmentCompose extends FragmentBase {
                         tvPlainTextOnly.setVisibility(
                                 draft.isPlainOnly() && !plain_only
                                         ? View.VISIBLE : View.GONE);
+
+                        if (compose_monospaced) {
+                            if (draft.isPlainOnly())
+                                etBody.setTypeface(Typeface.MONOSPACE);
+                            else {
+                                Typeface tf = etBody.getTypeface();
+                                if (tf == Typeface.MONOSPACE)
+                                    etBody.setTypeface(StyleHelper.getTypeface(compose_font, etBody.getContext()));
+                            }
+                        }
 
                         tvNoInternet.setTag(draft.content);
                         checkInternet();

@@ -84,6 +84,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
     private ViewButtonColor btnComposeColor;
     private Spinner spComposeFont;
+    private SwitchCompat swComposeMonospaced;
     private SwitchCompat swPrefixOnce;
     private SwitchCompat swPrefixCount;
     private RadioGroup rgRe;
@@ -124,7 +125,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "send_delayed",
             "answer_single", "answer_action",
             "sound_sent",
-            "compose_color", "compose_font",
+            "compose_color", "compose_font", "compose_monospaced",
             "prefix_once", "prefix_count", "alt_re", "alt_fwd",
             "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
             "signature_location", "signature_new", "signature_reply", "signature_reply_once", "signature_forward",
@@ -167,6 +168,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
         btnComposeColor = view.findViewById(R.id.btnComposeColor);
         spComposeFont = view.findViewById(R.id.spComposeFont);
+        swComposeMonospaced = view.findViewById(R.id.swComposeMonospaced);
         swPrefixOnce = view.findViewById(R.id.swPrefixOnce);
         swPrefixCount = view.findViewById(R.id.swPrefixCount);
         rgRe = view.findViewById(R.id.rgRe);
@@ -432,6 +434,14 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("compose_font").apply();
+            }
+        });
+
+        swComposeMonospaced.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("compose_monospaced", checked).apply();
+                swPrefixCount.setEnabled(checked);
             }
         });
 
@@ -769,6 +779,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
                 break;
             }
         }
+
+        swComposeMonospaced.setChecked(prefs.getBoolean("compose_monospaced", false));
 
         swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
         swPrefixCount.setChecked(prefs.getBoolean("prefix_count", false));
