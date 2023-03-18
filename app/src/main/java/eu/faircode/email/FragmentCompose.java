@@ -163,7 +163,9 @@ import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 import org.w3c.dom.css.CSSStyleSheet;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -3679,18 +3681,24 @@ public class FragmentCompose extends FragmentBase {
 
                                     File file = attachment.getFile(context);
 
-                                    if (OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction())) {
-                                        byte[] bytes = result.getByteArrayExtra(OpenPgpApi.RESULT_DETACHED_SIGNATURE);
-                                        Log.i("Writing " + file + " size=" + bytes.length);
-                                        try (OutputStream out = new FileOutputStream(file)) {
-                                            out.write(bytes);
+                                    // // 550 5.6.11 SMTPSEND.BareLinefeedsAreIllegal; message contains bare linefeeds, which cannot be sent via DATA and receiving system does not support BDAT (failed)
+                                    // https://learn.microsoft.com/en-us/exchange/troubleshoot/email-delivery/ndr/fix-error-code-550-5-6-11-in-exchange-online
+                                    try (InputStream is = new BufferedInputStream(
+                                            OpenPgpApi.ACTION_DETACHED_SIGN.equals(data.getAction())
+                                                    ? new ByteArrayInputStream(result.getByteArrayExtra(OpenPgpApi.RESULT_DETACHED_SIGNATURE))
+                                                    : new FileInputStream(output))) {
+                                        try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                                            int b;
+                                            while ((b = is.read()) >= 0)
+                                                if (b != '\r') {
+                                                    if (b == '\n')
+                                                        os.write('\r');
+                                                    os.write(b);
+                                                }
                                         }
-                                        db.attachment().setDownloaded(attachment.id, (long) bytes.length);
-                                    } else {
-                                        Log.i("Writing " + file + " size=" + output.length());
-                                        Helper.copy(output, file);
-                                        db.attachment().setDownloaded(attachment.id, file.length());
                                     }
+
+                                    db.attachment().setDownloaded(attachment.id, file.length());
 
                                     db.setTransactionSuccessful();
                                 } finally {
