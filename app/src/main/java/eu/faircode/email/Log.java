@@ -2424,7 +2424,7 @@ public class Log {
                 for (EntityAccount account : accounts)
                     if (account.synchronize)
                         try {
-                            String info = null;
+                            String info = "pwd";
                             if (account.auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH ||
                                     account.auth_type == ServiceAuthenticator.AUTH_TYPE_GRAPH)
                                 info = getTokenInfo(account.password, account.auth_type);
