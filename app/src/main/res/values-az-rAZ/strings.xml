@@ -368,12 +368,11 @@
     <string name="title_advanced_send_chips">Ünvan şarlarını göstər</string>
     <string name="title_advanced_send_reminders">Xatırladıcıları göstər</string>
     <string name="title_advanced_send_delayed">Göndərilən mesajların gecikməsi</string>
-    <string name="title_advanced_attach_new">Yeni bir qaralamaya paylaşılan faylları əlavə edin</string>
-    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Cavab düyməsi tənzimləmələri</string>
+    <string name="title_advanced_answer_caption">Cavab düyməsi tənzimləmələri</string>
     <string name="title_advanced_answer_default">Cavab düyməsinə qısa basanda:</string>
     <string name="title_advanced_answer_action">Cavab düyməsinə uzun basanda:</string>
-    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Cavab düyməsi əməliyyatları, göndərmə tənzimləmələri vərəq səhifəsində də konfiqurasiya edilə bilər</string>
-    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Bir seçim menyusu olmadan bütün əməliyyatlar mümkün deyil!</string>
+    <string name="title_advanced_answer_hint">Cavab düyməsi əməliyyatları, göndərmə tənzimləmələri vərəq səhifəsində də konfiqurasiya edilə bilər</string>
+    <string name="title_advanced_answer_warning">Bir seçim menyusu olmadan bütün əməliyyatlar mümkün deyil!</string>
     <string name="title_advanced_send_pending">Narahat edici olmayan gecikməli göndərmə nişanını göstər</string>
     <string name="title_advanced_auto_save_paragraph">Qaralamanı hər paraqrafdan sonra avtomatik saxla</string>
     <string name="title_advanced_auto_save_dot">Cümləni hər paraqrafdan sonra avtomatik saxla</string>

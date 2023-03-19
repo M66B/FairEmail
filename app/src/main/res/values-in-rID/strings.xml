@@ -340,7 +340,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_send_chips">Tampilkan bubbles alamat</string>
     <string name="title_advanced_send_reminders">Tampilkan Pengingat</string>
     <string name="title_advanced_send_delayed">Tunda pengiriman pesan</string>
-    <string name="title_advanced_attach_new">Tambahkan berkas berbagi ke konsep baru</string>
     <string name="title_advanced_answer_action">Menekan lama pada tombol jawab akan:</string>
     <string name="title_advanced_send_pending">Tampilkan ikon tunda kirim yang tidak mengganggu</string>
     <string name="title_advanced_auto_save_paragraph">Secara otomatis menyimpan draf setelah setiap paragraf</string>

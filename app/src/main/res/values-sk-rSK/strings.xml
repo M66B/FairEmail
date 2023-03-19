@@ -393,7 +393,6 @@
     <string name="title_advanced_send_chips">Zobraziť bubliny s adresami</string>
     <string name="title_advanced_send_reminders">Zobrazovať pripomienky</string>
     <string name="title_advanced_send_delayed">Zdržať odosielané správy</string>
-    <string name="title_advanced_attach_new">Pridať zdieľané súbory do nového konceptu</string>
     <string name="title_advanced_answer_default">Krátkym stlačením tlačidla odpovede:</string>
     <string name="title_advanced_answer_action">Akcia pri dlhom stlačení odpovedať:</string>
     <string name="title_advanced_send_pending">Zobrazovať nevtieravú ikonu oneskoreného odosielania</string>

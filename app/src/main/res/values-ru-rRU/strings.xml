@@ -393,17 +393,17 @@
     <string name="title_advanced_send_chips">Показывать пузыри адреса</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
-    <string name="title_advanced_attach_new">Создавать новый черновик для файлов, которыми поделились</string>
-    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Настройки кнопок ответа</string>
+    <string name="title_advanced_answer_caption">Настройки кнопок ответа</string>
     <string name="title_advanced_answer_default">Короткое нажатие на кнопку ответа:</string>
     <string name="title_advanced_answer_action">Долгое нажатие на кнопку ответа:</string>
-    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Действия кнопок ответа также могут быть настроены на вкладке настроек \"Отправка\"</string>
-    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Не все действия возможны без меню выбора!</string>
+    <string name="title_advanced_answer_hint">Действия кнопок ответа также могут быть настроены на вкладке настроек \"Отправка\"</string>
+    <string name="title_advanced_answer_warning">Не все действия возможны без меню выбора!</string>
     <string name="title_advanced_send_pending">Показывать ненавязчивый значок задержки отправки</string>
     <string name="title_advanced_auto_save_paragraph">Автоматически сохранять черновик после каждого абзаца</string>
     <string name="title_advanced_auto_save_dot">Автоматически сохранять черновик после каждого предложения</string>
     <string name="title_advanced_compose_color">Цвет текста по умолчанию</string>
     <string name="title_advanced_compose_font">Шрифт по умолчанию</string>
+    <string name="title_advanced_compose_monospaced">Использовать моноширинный шрифт для простого текста</string>
     <string name="title_advanced_auto_identity">Автоматически выбирать идентификаторы для новых сообщений</string>
     <string name="title_advanced_prefix_once">Добавлять только один префикс перед темой при ответе или пересылке</string>
     <string name="title_advanced_prefix_count">Добавлять счётчик в префикс ответа</string>

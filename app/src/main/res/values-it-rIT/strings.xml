@@ -368,17 +368,17 @@
     <string name="title_advanced_send_chips">Mostra le bolle degli indirizzi</string>
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
-    <string name="title_advanced_attach_new">Aggiungi i file condivisi a una nuova bozza</string>
-    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Impostazioni del pulsante di risposta</string>
+    <string name="title_advanced_answer_caption">Impostazioni del pulsante di risposta</string>
     <string name="title_advanced_answer_default">La pressione breve del pulsante di risposta:</string>
     <string name="title_advanced_answer_action">La pressione prolungata sul pulsante di risposta:</string>
-    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Le azioni del pulsante di risposta possono anche essere configurate nella scheda Invia degli impostazioni</string>
-    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Non tutte le azioni sono possibili senza un menu di selezione!</string>
+    <string name="title_advanced_answer_hint">Le azioni del pulsante di risposta possono anche essere configurate nella scheda Invia degli impostazioni</string>
+    <string name="title_advanced_answer_warning">Non tutte le azioni sono possibili senza un menu di selezione!</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
     <string name="title_advanced_auto_save_paragraph">Salva automaticamente una bozza dopo ogni paragrafo</string>
     <string name="title_advanced_auto_save_dot">Salva automaticamente una bozza dopo ogni frase</string>
     <string name="title_advanced_compose_color">Colore predefinito del testo</string>
     <string name="title_advanced_compose_font">Font predefinito</string>
+    <string name="title_advanced_compose_monospaced">Usa caratteri monospaziati per i messaggi di testo semplice</string>
     <string name="title_advanced_auto_identity">Seleziona automaticamente le identità per i nuovi messaggi</string>
     <string name="title_advanced_prefix_once">Prefissa l\'oggetto solo una volta alla risposta o l\'inoltro</string>
     <string name="title_advanced_prefix_count">Aggiungi conteggio al prefisso di risposta</string>

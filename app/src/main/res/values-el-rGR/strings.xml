@@ -367,14 +367,17 @@
     <string name="title_advanced_send_chips">Προβολή διευθύνσεων μέσα σε φυσαλίδες</string>
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση αποστολής μηνυμάτων</string>
-    <string name="title_advanced_attach_new">Προσθήκη κοινόχρηστων αρχείων σε ένα νέο πρόχειρο</string>
+    <string name="title_advanced_answer_caption">Ρυθμίσεις κουμπιού απάντησης</string>
     <string name="title_advanced_answer_default">Το σύντομο πάτημα στο κουμπί απάντησης θα:</string>
     <string name="title_advanced_answer_action">Το παρατεταμένο πάτημα στο κουμπί απάντησης θα:</string>
+    <string name="title_advanced_answer_hint">Οι ενέργειες του κουμπιού απάντησης μπορούν επίσης να ρυθμιστούν στην καρτέλα των ρυθμίσεων αποστολής</string>
+    <string name="title_advanced_answer_warning">Δεν είναι δυνατές όλες οι ενέργειες χωρίς ένα μενού επιλογών!</string>
     <string name="title_advanced_send_pending">Προβολή διακριτικού εικονιδίου για απεσταλμένα με χρονοκαθυστέρηση</string>
     <string name="title_advanced_auto_save_paragraph">Αυτόματη αποθήκευση ενός προχείρου μετά από κάθε παράγραφο</string>
     <string name="title_advanced_auto_save_dot">Αυτόματη αποθήκευση ενός προχείρου μετά από κάθε πρόταση</string>
     <string name="title_advanced_compose_color">Προεπιλεγμένο χρώμα κειμένου</string>
     <string name="title_advanced_compose_font">Προεπιλεγμένη γραμματοσειρά</string>
+    <string name="title_advanced_compose_monospaced">Χρήση γραμματοσειράς σταθερού πλάτους για μηνύματα με απλό κείμενο</string>
     <string name="title_advanced_auto_identity">Αυτόματη επιλογή ταυτοτήτων για νέα μηνύματα</string>
     <string name="title_advanced_prefix_once">Μόνο ένα πρόθεμα κατά την απάντηση ή προώθηση μηνύματος</string>
     <string name="title_advanced_prefix_count">Προσθήκη μετρητή στο πρόθεμα απάντησης</string>
@@ -1875,6 +1878,7 @@
     <string name="title_widget_separator_lines">Προβολή διαχωριστικών γραμμών</string>
     <string name="title_widget_semi_transparent">Ημιδιαφανές φόντο</string>
     <string name="title_widget_count_top">Προβολή του αριθμού των μη αναγνωσμένων στην κορυφή</string>
+    <string name="title_widget_subject_lines">Μέγιστος αριθμός γραμμών θέματος</string>
     <string name="title_widget_avatars">Προβολή άβαταρ των επαφών</string>
     <string name="title_widget_refresh">Προβολή κουμπιού ανανέωσης μηνυμάτων</string>
     <string name="title_widget_compose">Να εμφανίζεται το κουμπί σύνταξης νέου μηνύματος</string>

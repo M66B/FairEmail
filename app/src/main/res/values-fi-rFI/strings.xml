@@ -362,7 +362,6 @@
     <string name="title_advanced_send_chips">Näytä osoitteet kehyksissä</string>
     <string name="title_advanced_send_reminders">Näytä muistutukset</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
-    <string name="title_advanced_attach_new">Lisää jaetut tiedostot uuteen luonnokseen</string>
     <string name="title_advanced_answer_default">Vastausnapin lyhyesti painamisen toiminto:</string>
     <string name="title_advanced_answer_action">Vastauspainikkeen pitkän painalluksen toiminto:</string>
     <string name="title_advanced_send_pending">Näytä huomaamaton viivästetyn lähetyksen kuvake</string>

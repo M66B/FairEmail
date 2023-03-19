@@ -354,17 +354,17 @@
     <string name="title_advanced_send_chips">卡片化显示地址</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
-    <string name="title_advanced_attach_new">将共享文件添加到新草稿</string>
-    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">回复按钮设置</string>
+    <string name="title_advanced_answer_caption">回复按钮设置</string>
     <string name="title_advanced_answer_default">短按回复按钮动作：</string>
     <string name="title_advanced_answer_action">长按回复按钮动作：</string>
-    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">回复按钮操作也可以在发送设置标签页中配置</string>
-    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">如果没有选中菜单，并非所有操作都是可用的</string>
+    <string name="title_advanced_answer_hint">回复按钮操作也可以在发送设置标签页中配置</string>
+    <string name="title_advanced_answer_warning">如果没有选中菜单，并非所有操作都是可用的</string>
     <string name="title_advanced_send_pending">显示不显眼的“延迟发送”图标（页面左下角）</string>
     <string name="title_advanced_auto_save_paragraph">在每一段后自动保存草稿</string>
     <string name="title_advanced_auto_save_dot">每句后自动保存草稿</string>
     <string name="title_advanced_compose_color">默认文本颜色</string>
     <string name="title_advanced_compose_font">默认字体</string>
+    <string name="title_advanced_compose_monospaced">对纯文本消息使用等宽字体</string>
     <string name="title_advanced_auto_identity">自动选择新邮件的身份</string>
     <string name="title_advanced_prefix_once">答复或抄送邮件时, 主题前的Re或CC只出现一次</string>
     <string name="title_advanced_prefix_count">在邮件主题的前缀“回复(Re)”后显示计数</string>

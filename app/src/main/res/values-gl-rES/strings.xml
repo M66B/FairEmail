@@ -350,7 +350,6 @@
     <string name="title_advanced_send_chips">Mostrar enderezos en globos</string>
     <string name="title_advanced_send_reminders">Mostrar recordatorios</string>
     <string name="title_advanced_send_delayed">Adiar o envío de mensaxes</string>
-    <string name="title_advanced_attach_new">Engadir arquivos compartidos a un novo borrador</string>
     <string name="title_advanced_answer_action">Unha pulsación longa no botón de resposta fará:</string>
     <string name="title_advanced_send_pending">Mostrar iconas non obstruíntes de envíos adiados</string>
     <string name="title_advanced_auto_save_paragraph">Gardar automaticamente un borrador despois de cada parágrafo</string>

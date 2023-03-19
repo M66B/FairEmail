@@ -394,17 +394,17 @@
     <string name="title_advanced_send_chips">הצגת בועיות כתובות</string>
     <string name="title_advanced_send_reminders">הצגת תזכורות</string>
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
-    <string name="title_advanced_attach_new">הוספת קבצים משותפים לטיוטה חדשה</string>
-    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">הגדרות כפתור מענה</string>
+    <string name="title_advanced_answer_caption">הגדרות כפתור מענה</string>
     <string name="title_advanced_answer_default">לחיצה קצרה על כפתור המענה:</string>
     <string name="title_advanced_answer_action">לחיצה ארוכה על כפתור המענה:</string>
-    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">ניתן להגדיר את פעולות כפתור המענה בעמוד לשונית הגדרות השליחה</string>
-    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">לא כל הפעולות אפשריות ללא תפריט בחירה!</string>
+    <string name="title_advanced_answer_hint">ניתן להגדיר את פעולות כפתור המענה בעמוד לשונית הגדרות השליחה</string>
+    <string name="title_advanced_answer_warning">לא כל הפעולות אפשריות ללא תפריט בחירה!</string>
     <string name="title_advanced_send_pending">הצגת סמלי שליחה מושהית שאינם בולטים</string>
     <string name="title_advanced_auto_save_paragraph">לשמור טיוטה אוטומטית אחרי כל פרק</string>
     <string name="title_advanced_auto_save_dot">לשמור טיוטה אוטומטית אחרי כל משפט</string>
     <string name="title_advanced_compose_color">צבע טקסט כברירת מחדל</string>
     <string name="title_advanced_compose_font">גופן ברירת המחדל</string>
+    <string name="title_advanced_compose_monospaced">להשתמש בגופן ברוחב אחיד להודעות בטקסט פשוט</string>
     <string name="title_advanced_auto_identity">בחירת זהויות להודעות חדשות אוטומטית</string>
     <string name="title_advanced_prefix_once">ליצור קידומת לנושא רק פעם אחת במענה או העברה</string>
     <string name="title_advanced_prefix_count">הוספת מונה לקידומת תגובה</string>

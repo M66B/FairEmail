@@ -355,11 +355,10 @@
     <string name="title_advanced_send_chips">アドレスバルーンを表示</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
-    <string name="title_advanced_attach_new">共有されたファイルを返信の下書きに追加</string>
-    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">返信ボタン設定</string>
+    <string name="title_advanced_answer_caption">返信ボタン設定</string>
     <string name="title_advanced_answer_default">返信ボタンを短く押したときのアクション:</string>
     <string name="title_advanced_answer_action">返信ボタンを長押ししたときのアクション:</string>
-    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">返信ボタンのアクションは、設定の送信タブからも変更できます</string>
+    <string name="title_advanced_answer_hint">返信ボタンのアクションは、設定の送信タブからも変更できます</string>
     <string name="title_advanced_send_pending">目立たない送信遅延アイコンを表示</string>
     <string name="title_advanced_auto_save_paragraph">段落ごとに下書きを自動で保存</string>
     <string name="title_advanced_auto_save_dot">文ごとに下書きを自動で保存</string>
@@ -1794,6 +1793,11 @@
     <string name="title_via">経由: %1$s</string>
     <string name="title_1hour">1 時間</string>
     <string name="title_1day">1 日</string>
+    <string name="title_more_overflow">その他&#8230;</string>
+    <string name="title_today_at">今日の %1$s</string>
+    <string name="title_tomorrow_at">明日の %1$s</string>
+    <string name="title_day_at_time">%1$s の %2$s</string>
+    <string name="title_next_week">来週のこの時間</string>
     <string name="title_now">現在</string>
     <string name="title_after">%1$s 後</string>
     <string name="title_reset">リセット</string>
@@ -1865,6 +1869,7 @@
     <string name="title_widget_separator_lines">区切り線を表示</string>
     <string name="title_widget_semi_transparent">半透明の背景</string>
     <string name="title_widget_count_top">未読件数を上部に表示</string>
+    <string name="title_widget_subject_lines">件名の最大行数</string>
     <string name="title_widget_avatars">連絡先のアバターを表示</string>
     <string name="title_widget_refresh">メッセージ更新ボタンを表示</string>
     <string name="title_widget_compose">メッセージ新規作成ボタンを表示</string>

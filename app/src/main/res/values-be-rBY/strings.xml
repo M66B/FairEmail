@@ -395,7 +395,6 @@
     <string name="title_advanced_send_chips">Паказаць карткі адрасоў</string>
     <string name="title_advanced_send_reminders">Паказваць напаміны</string>
     <string name="title_advanced_send_delayed">Затрымка адпраўкі паведамленняў</string>
-    <string name="title_advanced_attach_new">Дадаваць файлы, якімі вы падзяліліся, у новы чарнавік</string>
     <string name="title_advanced_answer_default">Кароткае націсканне на кнопку адказу выкліча:</string>
     <string name="title_advanced_answer_action">Доўгае націсканне на кнопку адказу выкліча:</string>
     <string name="title_advanced_send_pending">Паказваць непрыкметны значок затрымкі адпраўкі</string>

@@ -336,7 +336,6 @@
     <string name="title_advanced_send_chips">卡片化顯示地址</string>
     <string name="title_advanced_send_reminders">顯示提醒</string>
     <string name="title_advanced_send_delayed">延後傳送訊息</string>
-    <string name="title_advanced_attach_new">將分享的檔案加至新建草稿中</string>
     <string name="title_advanced_answer_action">長按答覆按鈕以</string>
     <string name="title_advanced_send_pending">顯示低存在感的傳送延後圖示</string>
     <string name="title_advanced_auto_save_paragraph">每個段落後自動儲存草稿</string>

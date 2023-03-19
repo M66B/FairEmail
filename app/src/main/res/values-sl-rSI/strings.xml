@@ -390,7 +390,6 @@
     <string name="title_advanced_send_chips">Prikaži mehurčke za naslove</string>
     <string name="title_advanced_send_reminders">Prikaži opomnike</string>
     <string name="title_advanced_send_delayed">Odloži pošiljanje sporočil</string>
-    <string name="title_advanced_attach_new">Dodaj datoteke v souporabi k novemu osnutku</string>
     <string name="title_advanced_answer_default">Kratek pritisk na gumb za odgovor bo:</string>
     <string name="title_advanced_answer_action">Dolg pritisk na gumb za odgovor bo:</string>
     <string name="title_advanced_send_pending">Prikaži nevsiljivo ikono zakasnelega pošiljanja</string>

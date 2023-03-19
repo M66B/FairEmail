@@ -368,17 +368,17 @@
     <string name="title_advanced_send_chips">Vis adressebobler</string>
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
-    <string name="title_advanced_attach_new">Føj delte filer til et nyt udkast</string>
-    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Indstillinger for svar-knap</string>
+    <string name="title_advanced_answer_caption">Indstillinger for svar-knap</string>
     <string name="title_advanced_answer_default">Kort tryk på svarknappen vil:</string>
     <string name="title_advanced_answer_action">Langt tryk på svarknappen vil:</string>
-    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Handinger for svar-knappen kan også opsættes i fanen send-indstillinger</string>
-    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Ikke alle handlinger er mulige uden en valgmenu!</string>
+    <string name="title_advanced_answer_hint">Handinger for svar-knappen kan også opsættes i fanen send-indstillinger</string>
+    <string name="title_advanced_answer_warning">Ikke alle handlinger er mulige uden en valgmenu!</string>
     <string name="title_advanced_send_pending">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
     <string name="title_advanced_auto_save_paragraph">Gem automatisk udkast efter hvert afsnit</string>
     <string name="title_advanced_auto_save_dot">Gem automatisk udkast efter hver sætning</string>
     <string name="title_advanced_compose_color">Standardtekstfarve</string>
     <string name="title_advanced_compose_font">Standardskrifttype</string>
+    <string name="title_advanced_compose_monospaced">Brug monospace-skrifttype til alm. tekstbeskeder</string>
     <string name="title_advanced_auto_identity">Vælg automatisk identiteter for nye beskeder</string>
     <string name="title_advanced_prefix_once">Kun ét emnepræfiks ved svar eller videresendelse</string>
     <string name="title_advanced_prefix_count">Tilføj antal som svarpræfiks</string>

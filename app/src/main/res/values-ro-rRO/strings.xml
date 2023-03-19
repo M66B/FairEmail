@@ -380,12 +380,11 @@
     <string name="title_advanced_send_chips">Afișați bule de adrese</string>
     <string name="title_advanced_send_reminders">Arată mementouri</string>
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
-    <string name="title_advanced_attach_new">Adăugați fișierele partajate la o nouă ciornă</string>
-    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Setări buton de răspuns</string>
+    <string name="title_advanced_answer_caption">Setări buton de răspuns</string>
     <string name="title_advanced_answer_default">Apăsarea scurtă pe butonul de răspuns va:</string>
     <string name="title_advanced_answer_action">Apăsarea îndelungată a butonului de răspuns va:</string>
-    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Acțiunile butonului de răspuns pot fi, de asemenea, configurate în pagina filei Setări de trimitere</string>
-    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Nu toate acțiunile sunt posibile fără un meniu de selecție!</string>
+    <string name="title_advanced_answer_hint">Acțiunile butonului de răspuns pot fi, de asemenea, configurate în pagina filei Setări de trimitere</string>
+    <string name="title_advanced_answer_warning">Nu toate acțiunile sunt posibile fără un meniu de selecție!</string>
     <string name="title_advanced_send_pending">Arată pictograma neobstructivă de trimitere întârziată</string>
     <string name="title_advanced_auto_save_paragraph">Salvați automat un draft după fiecare paragraf</string>
     <string name="title_advanced_auto_save_dot">Salvați automat un proiect după fiecare propoziție</string>

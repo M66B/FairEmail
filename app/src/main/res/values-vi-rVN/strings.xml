@@ -340,7 +340,6 @@
     <string name="title_advanced_send_chips">Hiển thị bong bóng địa chỉ</string>
     <string name="title_advanced_send_reminders">Hiện lời nhắc</string>
     <string name="title_advanced_send_delayed">Trì hoãn việc gửi thư</string>
-    <string name="title_advanced_attach_new">Thêm các tệp được chia sẻ vào bản nháp mới</string>
     <string name="title_advanced_answer_action">Giữ phím trả lời sẽ:</string>
     <string name="title_advanced_send_pending">Hiện biểu tượng gửi được trì hoãn không gây phiền</string>
     <string name="title_advanced_auto_save_paragraph">Tự đông lưu bản nháp sau mỗi đoạn văn</string>

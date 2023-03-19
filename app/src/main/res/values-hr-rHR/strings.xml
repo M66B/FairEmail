@@ -344,7 +344,6 @@
     <string name="title_advanced_send_chips">Prikaži oblačiće adresa</string>
     <string name="title_advanced_send_reminders">Prikaži podsjetnike</string>
     <string name="title_advanced_send_delayed">Odgoda slanja poruka</string>
-    <string name="title_advanced_attach_new">Dodaj dijeljene datoteke u novu skicu</string>
     <string name="title_advanced_answer_action">Dugi pritisak na dugme za odgovor će:</string>
     <string name="title_advanced_send_pending">Prikaži nenametljivu ikonu odgođenog slanja</string>
     <string name="title_advanced_auto_save_paragraph">Automatski spremi skicu nakon svakog odlomka</string>

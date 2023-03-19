@@ -381,14 +381,17 @@
     <string name="title_advanced_send_chips">Prikaži balone s adresom</string>
     <string name="title_advanced_send_reminders">Prikaži podsjetnike</string>
     <string name="title_advanced_send_delayed">Odgodi slanje poruka</string>
-    <string name="title_advanced_attach_new">Dodaj dijeljene datoteke u novi nacrt</string>
+    <string name="title_advanced_answer_caption">Postavke dugmeta za odgovor</string>
     <string name="title_advanced_answer_default">Kratko pritiskanje dugmeta \'odgovor\' će:</string>
     <string name="title_advanced_answer_action">Dugo pritiskanje tipke \'odgovor\' će:</string>
+    <string name="title_advanced_answer_hint">Radnje dugmeta za odgovor mogu se podesiti i na kartici postavki za slanje</string>
+    <string name="title_advanced_answer_warning">Bez izbornog menija nisu moguće sve radnje!</string>
     <string name="title_advanced_send_pending">Prikaži nenametljivu ikonicu za odgođeno slanje</string>
     <string name="title_advanced_auto_save_paragraph">Automatski sačuvaj nacrt nakon svakog paragrafa</string>
     <string name="title_advanced_auto_save_dot">Automatski sačuvaj nacrt nakon svake rečenice</string>
     <string name="title_advanced_compose_color">Zadana boja teksta</string>
     <string name="title_advanced_compose_font">Zadani font</string>
+    <string name="title_advanced_compose_monospaced">Koristi monospace font za poruke s običnim tekstom</string>
     <string name="title_advanced_auto_identity">Automatski izbor identiteta za nove poruke</string>
     <string name="title_advanced_prefix_once">Prefiks predmeta samo jedanput pri odgovoru ili prosljeđenju</string>
     <string name="title_advanced_prefix_count">Dodaj brojač prefiksu odgovora</string>
@@ -1895,6 +1898,7 @@
     <string name="title_widget_separator_lines">Prikaži linije razdvajanja</string>
     <string name="title_widget_semi_transparent">Poluprovidna pozadina</string>
     <string name="title_widget_count_top">Prikaži nepročitane poruke na vrhu</string>
+    <string name="title_widget_subject_lines">Maksimalan broj linija za predmete</string>
     <string name="title_widget_avatars">Prikaži avatare kontakata</string>
     <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
     <string name="title_widget_compose">Prikaži dugme za pisanje nove poruke</string>

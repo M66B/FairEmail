@@ -393,17 +393,17 @@
     <string name="title_advanced_send_chips">Pokaż dymki adresowe</string>
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
-    <string name="title_advanced_attach_new">Dodaj udostępnione pliki do nowego szkicu</string>
-    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Ustawienia przycisku odpowiedzi</string>
+    <string name="title_advanced_answer_caption">Ustawienia przycisku odpowiedzi</string>
     <string name="title_advanced_answer_default">Krótkie naciśnięcie przycisku odpowiedzi spowoduje:</string>
     <string name="title_advanced_answer_action">Długie naciśnięcie przycisku odpowiedzi spowoduje:</string>
-    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">Akcje przycisku odpowiedzi można również skonfigurować w zakładce ustawień Wysyłanie</string>
-    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Nie wszystkie działania są możliwe bez menu wyboru!</string>
+    <string name="title_advanced_answer_hint">Akcje przycisku odpowiedzi można również skonfigurować w zakładce ustawień Wysyłanie</string>
+    <string name="title_advanced_answer_warning">Nie wszystkie działania są możliwe bez menu wyboru!</string>
     <string name="title_advanced_send_pending">Pokaż nieprzeszkadzającą ikonę wysłania z opóźnieniem</string>
     <string name="title_advanced_auto_save_paragraph">Automatycznie zapisuj wersję roboczą po każdym akapicie</string>
     <string name="title_advanced_auto_save_dot">Automatycznie zapisuj wersję roboczą po każdym zdaniu</string>
     <string name="title_advanced_compose_color">Domyślny kolor tekstu</string>
     <string name="title_advanced_compose_font">Domyślna czcionka</string>
+    <string name="title_advanced_compose_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_auto_identity">Automatycznie wybierz tożsamości dla nowych wiadomości</string>
     <string name="title_advanced_prefix_once">Prefiksuj temat tylko raz przy odpowiedzi lub przesyłaniu dalej</string>
     <string name="title_advanced_prefix_count">Dodaj liczbę do prefiksu odpowiedzi</string>
@@ -538,7 +538,7 @@
     <string name="title_advanced_override_width">Wyłącz stałe szerokości w oryginalnych wiadomościach</string>
     <string name="title_advanced_hyphenation">Użyj automatycznego dzielenia wyrazów</string>
     <string name="title_advanced_contrast">Użyj wysokiego kontrastu dla tekstu wiadomości</string>
-    <string name="title_advanced_monospaced">Użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
+    <string name="title_advanced_monospaced">Domyślnie użyj czcionki o stałej szerokości dla tekstu wiadomości</string>
     <string name="title_advanced_monospaced_pre">Użyj czcionki o stałej szerokości dla tekstu sformatowanego</string>
     <string name="title_advanced_background_color">Użyj kolorów tła</string>
     <string name="title_advanced_text_color">Użyj kolorów tekstu</string>

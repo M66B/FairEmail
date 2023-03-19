@@ -360,7 +360,6 @@
     <string name="title_advanced_send_chips">Visa adressbubblor</string>
     <string name="title_advanced_send_reminders">Visa påminnelser</string>
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
-    <string name="title_advanced_attach_new">Lägg till delade filer till ett nytt utkast</string>
     <string name="title_advanced_answer_default">Kort tryck på svarsknappen kommer:</string>
     <string name="title_advanced_answer_action">Långtryck på svarsknappen kommer:</string>
     <string name="title_advanced_send_pending">Visa icke-påträngande försenad leveransikon</string>

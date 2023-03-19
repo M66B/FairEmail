@@ -366,17 +366,18 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_send_chips">Toon adresballonnen</string>
     <string name="title_advanced_send_reminders">Toon herinneringen</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
-    <string name="title_advanced_attach_new">Voeg gedeelde bestanden toe aan een nieuw concept</string>
-    <string name="title_advanced_answer_caption" comment="title_advanced_answer_caption&#10;Title for dialog to configure the answer button actions">Instellingen van de antwoordknop</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Maak een nieuw conceptbericht voor gedeelde adressen en bestanden</string>
+    <string name="title_advanced_answer_caption">Instellingen van de antwoordknop</string>
     <string name="title_advanced_answer_default">Kort drukken van de antwoordknop zal:</string>
     <string name="title_advanced_answer_action">Lang drukken van de antwoordknop zal:</string>
-    <string name="title_advanced_answer_hint" comment="title_advanced_answer_hint&#10;Remark in the dialog to configure to answer button actions">De acties van de antwoordknop kunnen ook worden geconfigureerd op het tabblad verzendinstellingen</string>
-    <string name="title_advanced_answer_warning" comment="title_advanced_answer_warning&#10;Warning in the dialog to configure to answer button actions">Niet alle acties zijn mogelijk zonder een selectiemenu!</string>
+    <string name="title_advanced_answer_hint">De acties van de antwoordknop kunnen ook worden geconfigureerd op het tabblad verzendinstellingen</string>
+    <string name="title_advanced_answer_warning">Niet alle acties zijn mogelijk zonder een selectiemenu!</string>
     <string name="title_advanced_send_pending">Toon niet-opdringerig pictogram voor vertraagd verzenden</string>
     <string name="title_advanced_auto_save_paragraph">Automatisch een concept opslaan na elke alinea</string>
     <string name="title_advanced_auto_save_dot">Automatisch een concept opslaan na elke zin</string>
     <string name="title_advanced_compose_color">Standaard tekstkleur</string>
     <string name="title_advanced_compose_font">Standaard lettertype</string>
+    <string name="title_advanced_compose_monospaced">Gebruik monospaced lettertype voor eenvoudige tekstberichten</string>
     <string name="title_advanced_auto_identity">Automatisch identiteiten voor nieuwe berichten selecteren</string>
     <string name="title_advanced_prefix_once">Prefix onderwerp slechts één keer bij beantwoorden of doorsturen</string>
     <string name="title_advanced_prefix_count">Aantal toevoegen aan antwoord voorvoegsel</string>
@@ -740,6 +741,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_send_reminders_hint">Toon een waarschuwing wanneer de berichttekst of het onderwerp leeg is of wanneer een bijlage zou kunnen ontbreken</string>
     <string name="title_advanced_reply_move_hint">De e-mailserver kan de berichten nog steeds toevoegen aan de map met verzonden berichten</string>
     <string name="title_advanced_compose_color_hint">Zeer lichte of zeer donkere kleuren leiden tot onleesbare berichten aan de kant van de ontvanger</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">Voeg anders gedeelde adressen of bestanden toe aan het huidige conceptbericht</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
     <string name="title_advanced_remove_signature_hint">Dit kan ertoe leiden dat te weinig of te veel tekst wordt verwijderd</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
