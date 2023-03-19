@@ -260,11 +260,17 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         boolean attach_new = prefs.getBoolean("attach_new", true);
 
         if (!attach_new && !create &&
-                args.size() == 1 && args.containsKey("attachments")) {
+                args.size() == 1 &&
+                (args.containsKey("to") ||
+                        args.containsKey("attachments"))) {
             List<Fragment> fragments = fm.getFragments();
-            if (fragments.size() == 1) {
-                ((FragmentCompose) fragments.get(0)).onSharedAttachments(
-                        args.getParcelableArrayList("attachments"));
+            if (fragments.size() == 1 &&
+                    fragments.get(0) instanceof FragmentCompose) {
+                FragmentCompose fragment = ((FragmentCompose) fragments.get(0));
+                if (args.containsKey("to"))
+                    fragment.onAddTo(args.getString("to"));
+                else if (args.containsKey("attachments"))
+                    fragment.onSharedAttachments(args.getParcelableArrayList("attachments"));
                 return;
             }
         }

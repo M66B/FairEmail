@@ -3159,14 +3159,15 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, EntityMessage draft) {
+                if (draft == null)
+                    return;
+
                 if (requestCode == REQUEST_CONTACT_TO)
                     selectIdentityForEmail(args.getString("email"));
 
-                if (draft != null) {
-                    etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
-                    etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
-                    etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
-                }
+                etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
+                etCc.setText(MessageHelper.formatAddressesCompose(draft.cc));
+                etBcc.setText(MessageHelper.formatAddressesCompose(draft.bcc));
 
                 // After showDraft/setFocus
                 view.post(new Runnable() {
@@ -3201,6 +3202,75 @@ public class FragmentCompose extends FragmentBase {
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.serial().execute(this, args, "compose:picked");
+    }
+
+    void onAddTo(String email) {
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putString("to", etTo.getText().toString().trim());
+        args.putString("email", email);
+
+        new SimpleTask<EntityMessage>() {
+            @Override
+            protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String to = args.getString("to");
+                String email = args.getString("email");
+
+                EntityMessage draft;
+                DB db = DB.getInstance(context);
+
+                try {
+                    db.beginTransaction();
+
+                    draft = db.message().getMessage(id);
+                    if (draft == null)
+                        return null;
+
+                    List<Address> list = new ArrayList<>();
+                    Address[] _to = MessageHelper.parseAddresses(context, to);
+                    if (_to != null)
+                        list.addAll(Arrays.asList(_to));
+                    list.add(new InternetAddress(email, null, StandardCharsets.UTF_8.name()));
+
+                    draft.to = list.toArray(new Address[0]);
+
+                    db.message().updateMessage(draft);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return draft;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityMessage draft) {
+                if (draft == null)
+                    return;
+
+                selectIdentityForEmail(args.getString("email"));
+                etTo.setText(MessageHelper.formatAddressesCompose(draft.to));
+
+                // After showDraft/setFocus
+                view.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            etTo.setSelection(etTo.length());
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                    }
+                });
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.serial().execute(this, args, "compose:to");
     }
 
     @Override
