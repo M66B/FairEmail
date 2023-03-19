@@ -440,7 +440,7 @@
     <string name="title_advanced_send_chips">Show address bubbles</string>
     <string name="title_advanced_send_reminders">Show reminders</string>
     <string name="title_advanced_send_delayed">Delay sending messages</string>
-    <string name="title_advanced_attach_new">Add shared files to a new draft</string>
+    <string name="title_advanced_attach_new">Create a new draft message for shared addresses and files</string>
     <string name="title_advanced_answer_caption">Answer button settings</string>
     <string name="title_advanced_answer_default">Short pressing on the answer button will:</string>
     <string name="title_advanced_answer_action">Long pressing on the answer button will:</string>
@@ -923,6 +923,7 @@
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
     <string name="title_advanced_reply_move_hint">The email server could still add the messages to the sent message folder</string>
     <string name="title_advanced_compose_color_hint">Very light or very dark colors will result in illegible messages on the recipients\' side</string>
+    <string name="title_advanced_attach_new_hint">Otherwise, add shared addresses or files to the current draft message</string>
     <string name="title_advanced_usenet_hint">Insert \'-- \' between the text and the signature</string>
     <string name="title_advanced_remove_signature_hint">This can result in too little or too much text being removed</string>
 

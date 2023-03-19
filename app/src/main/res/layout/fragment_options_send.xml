@@ -763,6 +763,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvCaptionAdvanced"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvAttachNewHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_attach_new_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAttachNew" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAutoLink"
                     android:layout_width="0dp"
@@ -771,7 +783,7 @@
                     android:text="@string/title_advanced_auto_link"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAttachNew"
+                    app:layout_constraintTop_toBottomOf="@id/tvAttachNewHint"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
