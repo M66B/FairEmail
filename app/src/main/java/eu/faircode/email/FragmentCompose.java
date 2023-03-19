@@ -1148,7 +1148,9 @@ public class FragmentCompose extends FragmentBase {
                     if (suggest_sent)
                         items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_TO, wildcard));
                     if (suggest_received)
-                        items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_FROM, wildcard));
+                        for (EntityContact item : db.contact().searchContacts(null, EntityContact.TYPE_FROM, wildcard))
+                            if (!MessageHelper.isNoReply(item.email))
+                                items.add(item);
                     for (EntityContact item : items) {
                         EntityContact existing = map.get(item.email);
                         if (existing == null)

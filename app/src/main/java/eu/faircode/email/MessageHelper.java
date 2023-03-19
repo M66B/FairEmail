@@ -5284,21 +5284,27 @@ public class MessageHelper {
     static boolean isNoReply(Address address) {
         if (address instanceof InternetAddress) {
             String email = ((InternetAddress) address).getAddress();
-            String username = UriHelper.getEmailUser(email);
-            String domain = UriHelper.getEmailDomain(email);
+            if (isNoReply(email))
+                return true;
+        }
+        return false;
+    }
 
-            if (!TextUtils.isEmpty(username)) {
-                username = username.toLowerCase(Locale.ROOT);
-                for (String value : DO_NOT_REPLY)
-                    if (username.contains(value))
-                        return true;
-            }
-            if (!TextUtils.isEmpty(domain)) {
-                domain = domain.toLowerCase(Locale.ROOT);
-                for (String value : DO_NOT_REPLY)
-                    if (domain.startsWith(value))
-                        return true;
-            }
+    static boolean isNoReply(String email) {
+        String username = UriHelper.getEmailUser(email);
+        if (!TextUtils.isEmpty(username)) {
+            username = username.toLowerCase(Locale.ROOT);
+            for (String value : DO_NOT_REPLY)
+                if (username.contains(value))
+                    return true;
+        }
+
+        String domain = UriHelper.getEmailDomain(email);
+        if (!TextUtils.isEmpty(domain)) {
+            domain = domain.toLowerCase(Locale.ROOT);
+            for (String value : DO_NOT_REPLY)
+                if (domain.startsWith(value))
+                    return true;
         }
 
         return false;
