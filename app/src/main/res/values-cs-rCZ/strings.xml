@@ -394,6 +394,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_send_chips">Zobrazit bubliny s kontakty</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Vytvořit nový koncept zprávy pro sdílené adresy a soubory</string>
     <string name="title_advanced_answer_caption">Nastavení tlačítka pro odpověď</string>
     <string name="title_advanced_answer_default">Krátkým stisknutím tlačítka odpovědi:</string>
     <string name="title_advanced_answer_action">Dlouhým stisknutím tlačítka odpovědi:</string>
@@ -768,6 +769,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_send_reminders_hint">Zobrazí upozornění, je-li text zprávy či předmět prázdný nebo chybí-li pravděpodobně příloha</string>
     <string name="title_advanced_reply_move_hint">E-mailový server stále může zprávy ukládat i do složky odeslané</string>
     <string name="title_advanced_compose_color_hint">Velmi světlá nebo tmavá barva povede k nečitelným zprávám na straně příjemců</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">V opačném případě přidat sdílené adresy nebo soubory do aktuálního konceptu zprávy</string>
     <string name="title_advanced_usenet_hint">Vložit „-- “ mezi text a podpis</string>
     <string name="title_advanced_remove_signature_hint">To může vést k odstranění příliš malého nebo příliš velkého textu</string>
     <string name="title_advanced_metered_hint">Účtovaná připojení jsou obecně mobilní připojení nebo placené Wi-Fi hotspoty</string>

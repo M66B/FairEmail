@@ -367,6 +367,7 @@
     <string name="title_advanced_send_chips">Mostrar burbujas de dirección</string>
     <string name="title_advanced_send_reminders">Mostrar recordatorios</string>
     <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Crear un nuevo borrador de mensajes para direcciones y archivos compartidos</string>
     <string name="title_advanced_answer_caption">Ajustes del botón de respuesta</string>
     <string name="title_advanced_answer_default">Una pulsación corta en el botón de respuesta:</string>
     <string name="title_advanced_answer_action">Una pulsación larga en el botón de respuesta:</string>
@@ -740,6 +741,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar una advertencia cuando el texto del mensaje o el asunto estén vacíos o cuando un archivo adjunto pueda estar ausente</string>
     <string name="title_advanced_reply_move_hint">El servidor de correo electrónico todavía puede añadir los mensajes a la carpeta de mensajes enviados</string>
     <string name="title_advanced_compose_color_hint">Los colores muy claros o muy oscuros resultarán en mensajes ilegibles en el lado de los destinatarios</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">De lo contrario, añadir direcciones compartidas o archivos al mensaje de borrador actual</string>
     <string name="title_advanced_usenet_hint">Insertar \'-- \' entre el texto y la firma</string>
     <string name="title_advanced_remove_signature_hint">Esto puede dar lugar a que se elimine demasiado poco o demasiado texto</string>
     <string name="title_advanced_metered_hint">Las conexiones de uso medido son generalmente conexiones móviles o puntos de acceso Wi-Fi de pago</string>

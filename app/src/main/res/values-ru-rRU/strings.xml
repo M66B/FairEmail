@@ -393,6 +393,7 @@
     <string name="title_advanced_send_chips">Показывать пузыри адреса</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Создавать новый черновик сообщения для общих адресов и файлов</string>
     <string name="title_advanced_answer_caption">Настройки кнопок ответа</string>
     <string name="title_advanced_answer_default">Короткое нажатие на кнопку ответа:</string>
     <string name="title_advanced_answer_action">Долгое нажатие на кнопку ответа:</string>
@@ -768,6 +769,7 @@
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
     <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
     <string name="title_advanced_compose_color_hint">Очень светлые или очень тёмные цвета сделают сообщение неразборчивым для получателя</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">В противном случае общие адреса или файлы добавляются к текущему черновику</string>
     <string name="title_advanced_usenet_hint">Вставлять \"-- \" между текстом и подписью</string>
     <string name="title_advanced_remove_signature_hint">Может привести к слишком маленькому или большому убиранию текста</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения — это обычно мобильные сети или платные Wi-Fi</string>

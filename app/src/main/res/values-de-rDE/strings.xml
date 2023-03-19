@@ -369,6 +369,7 @@
     <string name="title_advanced_send_chips">Adressblasen anzeigen</string>
     <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Erstellen Sie einen neuen Nachrichtenentwurf für freigegebene Adressen und Dateien</string>
     <string name="title_advanced_answer_caption">Einstellungen für die Schaltfläche »Antworten«</string>
     <string name="title_advanced_answer_default">Kurzes Drücken auf die Schaltfläche »Antworten« wird:</string>
     <string name="title_advanced_answer_action">Langes Drücken auf die Schaltfläche »Antworten« wird:</string>
@@ -744,6 +745,7 @@
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
     <string name="title_advanced_reply_move_hint">Der E-Mail-Server könnte die Nachrichten trotzdem noch in den Ordner für gesendete Nachrichten hinzufügen</string>
     <string name="title_advanced_compose_color_hint">Sehr helle oder sehr dunkle Farben führen zu unleserlichen Nachrichten auf der Seite des Empfängers</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">Andernfalls fügen Sie dem aktuellen Nachrichtenentwurf freigegebene Adressen oder Dateien hinzu</string>
     <string name="title_advanced_usenet_hint">Signaturtrenner »-- « zwischen Text und Signatur einfügen</string>
     <string name="title_advanced_remove_signature_hint">Das kann dazu führen, dass zu wenig oder zu viel Text entfernt wird</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte WLAN-Zugangspunkte</string>

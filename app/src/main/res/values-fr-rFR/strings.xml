@@ -368,6 +368,7 @@
     <string name="title_advanced_send_chips">Afficher les bulles d\'adresse</string>
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Créer un nouveau brouillon pour les adresses et les fichiers partagés</string>
     <string name="title_advanced_answer_caption">Paramètres du bouton de réponse</string>
     <string name="title_advanced_answer_default">Un appui court sur le bouton de réponse va :</string>
     <string name="title_advanced_answer_action">Un appui long sur le bouton de réponse va :</string>
@@ -743,6 +744,7 @@
     <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l’objet sont vides ou quand une pièce jointe semble avoir été oubliée</string>
     <string name="title_advanced_reply_move_hint">Le serveur de messagerie pourrait tout de même ajouter les messages au dossier des messages envoyés</string>
     <string name="title_advanced_compose_color_hint">Les couleurs très claires ou très sombres rendront les messages illisibles par les destinataires</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">Sinon, ajouter les adresses ou fichiers partagés au message brouillon actuel</string>
     <string name="title_advanced_usenet_hint">Insérer \'-- \' entre le texte et la signature</string>
     <string name="title_advanced_remove_signature_hint">Ceci peut entraîner la suppression de trop peu ou trop de texte</string>
     <string name="title_advanced_metered_hint">Les connexions limitées sont généralement des connexions mobiles ou des points d\'accès Wi-Fi payants</string>
