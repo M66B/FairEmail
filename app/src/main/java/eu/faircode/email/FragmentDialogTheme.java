@@ -45,14 +45,15 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         boolean grey = (checkedId == R.id.rbThemeGrey);
         boolean bw = (checkedId == R.id.rbThemeBlackOrWhite);
         boolean solarized = (checkedId == R.id.rbThemeSolarized);
-        boolean you = (checkedId == R.id.rbThemeYou || checkedId == R.id.rbThemeYouMono);
+        boolean mono = (checkedId == R.id.rbThemeYouMono);
+        boolean you = (checkedId == R.id.rbThemeYou || mono);
         boolean colored = (grey || bw || solarized || you ||
                 checkedId == R.id.rbThemeBlueOrange ||
                 checkedId == R.id.rbThemeRedGreen ||
                 checkedId == R.id.rbThemeYellowPurple);
         int optionId = rgThemeOptions.getCheckedRadioButtonId();
 
-        swReverse.setEnabled(colored && !grey && !bw && !solarized);
+        swReverse.setEnabled(colored && !grey && !bw && !solarized && !mono);
 
         rgThemeOptions.setEnabled(colored);
         for (int i = 0; i < rgThemeOptions.getChildCount(); i++)
