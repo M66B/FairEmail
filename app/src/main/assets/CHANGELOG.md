@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
 
-### Next version
+### 1.2057 - 2023-03-19
 
 * Added an option to use the monospaced font when writing a plain text only messages
 * Small improvements and minor bug fixes
