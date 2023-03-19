@@ -2340,8 +2340,13 @@ public class Log {
 
                 String ds = ConnectionHelper.getDataSaving(context);
                 boolean vpn = ConnectionHelper.vpnActive(context);
-                boolean ng = Helper.isInstalled(context, "eu.faircode.netguard");
-                boolean tc = Helper.isInstalled(context, "net.kollnig.missioncontrol");
+                boolean ng = false;
+                try {
+                    PackageManager pm = context.getPackageManager();
+                    pm.getPackageInfo("eu.faircode.netguard", 0);
+                    ng = true;
+                } catch (Throwable ignored) {
+                }
 
                 Integer bucket = null;
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
@@ -2374,7 +2379,7 @@ public class Log {
                         "metered=" + metered + (metered ? "" : " !!!") +
                         " saving=" + ds + ("enabled".equals(ds) ? " !!!" : "") +
                         " vpn=" + vpn + (vpn ? " !!!" : "") +
-                        " ng=" + ng + " tc=" + tc + "\r\n" +
+                        " ng=" + ng + "\r\n" +
                         "optimizing=" + (ignoring == null ? null : !ignoring) + (Boolean.FALSE.equals(ignoring) ? " !!!" : "") +
                         " bucket=" + (bucket == null ? null :
                         Helper.getStandbyBucketName(bucket) +
