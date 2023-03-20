@@ -393,6 +393,7 @@
     <string name="title_advanced_send_chips">Pokaż dymki adresowe</string>
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Utwórz nowy szkic wiadomości dla udostępnianych adresów i plików</string>
     <string name="title_advanced_answer_caption">Ustawienia przycisku odpowiedzi</string>
     <string name="title_advanced_answer_default">Krótkie naciśnięcie przycisku odpowiedzi spowoduje:</string>
     <string name="title_advanced_answer_action">Długie naciśnięcie przycisku odpowiedzi spowoduje:</string>
@@ -767,6 +768,7 @@
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
     <string name="title_advanced_compose_color_hint">Bardzo jasne lub bardzo ciemne kolory spowodują, że wiadomości po stronie odbiorcy będą nieczytelne</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">W innym przypadku dodaj udostępniane adresy lub pliki do aktualnej wersji roboczej wiadomości</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
     <string name="title_advanced_remove_signature_hint">Może to spowodować usunięcie zbyt małego lub zbyt dużego tekstu</string>
     <string name="title_advanced_metered_hint">Połączenia taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>

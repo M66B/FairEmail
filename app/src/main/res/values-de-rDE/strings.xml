@@ -369,7 +369,7 @@
     <string name="title_advanced_send_chips">Adressblasen anzeigen</string>
     <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Erstellen Sie einen neuen Nachrichtenentwurf für freigegebene Adressen und Dateien</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Einen neuen Nachrichtenentwurf für freigegebene Adressen und Dateien erstellen</string>
     <string name="title_advanced_answer_caption">Einstellungen für die Schaltfläche »Antworten«</string>
     <string name="title_advanced_answer_default">Kurzes Drücken auf die Schaltfläche »Antworten« wird:</string>
     <string name="title_advanced_answer_action">Langes Drücken auf die Schaltfläche »Antworten« wird:</string>

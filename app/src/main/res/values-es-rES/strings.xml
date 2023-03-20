@@ -378,6 +378,7 @@
     <string name="title_advanced_auto_save_dot">Guardar automáticamente un borrador después de cada oración</string>
     <string name="title_advanced_compose_color">Color de texto por defecto</string>
     <string name="title_advanced_compose_font">Fuente por defecto</string>
+    <string name="title_advanced_compose_monospaced">Usar fuente monospaciada para mensajes de texto plano</string>
     <string name="title_advanced_auto_identity">Seleccionar automáticamente identidades para nuevos mensajes</string>
     <string name="title_advanced_prefix_once">Prefijar el asunto solo una vez al responder o reenviar</string>
     <string name="title_advanced_prefix_count">Añadir contador a prefijo de respuesta</string>

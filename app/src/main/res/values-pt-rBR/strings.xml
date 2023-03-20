@@ -367,6 +367,7 @@
     <string name="title_advanced_send_chips">Mostrar endereço em bolhas</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Criar um novo rascunho de mensagem para endereços e arquivos compartilhados</string>
     <string name="title_advanced_answer_caption">Configurações do botão de resposta</string>
     <string name="title_advanced_answer_default">Pressionar brevemente o botão de resposta irá:</string>
     <string name="title_advanced_answer_action">Pressionar longamente o botão de resposta irá:</string>
@@ -741,6 +742,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo puder estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de e-mail ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_compose_color_hint">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">Caso contrário, adicione endereços ou arquivos compartilhados à mensagem de rascunho atual</string>
     <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_remove_signature_hint">Isso pode resultar em muito pouco ou muito texto sendo removido</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>

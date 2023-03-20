@@ -394,6 +394,7 @@
     <string name="title_advanced_send_chips">Показати бульбашки адрес</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Створити нове повідомлення чернетки для спільних адрес та файлів</string>
     <string name="title_advanced_answer_caption">Налаштування кнопки відповіді</string>
     <string name="title_advanced_answer_default">Коротке натискання на кнопку відповіді буде:</string>
     <string name="title_advanced_answer_action">Тривале натискання на кнопку відповіді для:</string>
@@ -767,6 +768,7 @@
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_compose_color_hint">Використання дуже світлих або дуже темних кольорів може призвести до того, що отримувач не зможе прочитати ваше повідомлення</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">В іншому випадку додайте спільні адреси або файли до поточного повідомлення чернетки</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
     <string name="title_advanced_remove_signature_hint">Це може призвести до замалого або занадто багатого видалянню тексту</string>
     <string name="title_advanced_metered_hint">Лімітовані підключення - це загалом, мобільне підключення або платні Wi-Fi точки доступу</string>

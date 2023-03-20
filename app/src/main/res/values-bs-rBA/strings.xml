@@ -381,6 +381,7 @@
     <string name="title_advanced_send_chips">Prikaži balone s adresom</string>
     <string name="title_advanced_send_reminders">Prikaži podsjetnike</string>
     <string name="title_advanced_send_delayed">Odgodi slanje poruka</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Kreiraj novu skicu poruke za dijeljene adrese i datoteke</string>
     <string name="title_advanced_answer_caption">Postavke dugmeta za odgovor</string>
     <string name="title_advanced_answer_default">Kratko pritiskanje dugmeta \'odgovor\' će:</string>
     <string name="title_advanced_answer_action">Dugo pritiskanje tipke \'odgovor\' će:</string>
@@ -755,6 +756,7 @@
     <string name="title_advanced_send_reminders_hint">Prikazuje upozorenje kada su tekst poruke ili predmet prazni ili kada nedostaje prilog</string>
     <string name="title_advanced_reply_move_hint">E-mail server još može dodavati poruke u folder za poslane poruke</string>
     <string name="title_advanced_compose_color_hint">Presvijetle ili pretamne boje mogu prouzrokovati nečitke poruke s primaočeve strane</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">U suprotnom, dodaj dijeljene adrese ili datoteke u trenutni nacrt poruke</string>
     <string name="title_advanced_usenet_hint">Ubaci \'-- \' između teksta i potpisa</string>
     <string name="title_advanced_remove_signature_hint">Ovo može rezultirati premalim ili prevelikim uklanjanjem teksta</string>
     <string name="title_advanced_metered_hint">Konekcije \'s ograničenim paketom\' su općenito mobilne konekcije ili plaćeni Wi-Fi hotspot-ovi</string>

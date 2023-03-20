@@ -367,6 +367,7 @@
     <string name="title_advanced_send_chips">Προβολή διευθύνσεων μέσα σε φυσαλίδες</string>
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση αποστολής μηνυμάτων</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Δημιουργία νέου προσχεδίου μηνύματος για κοινόχρηστες διευθύνσεις και αρχεία</string>
     <string name="title_advanced_answer_caption">Ρυθμίσεις κουμπιού απάντησης</string>
     <string name="title_advanced_answer_default">Το σύντομο πάτημα στο κουμπί απάντησης θα:</string>
     <string name="title_advanced_answer_action">Το παρατεταμένο πάτημα στο κουμπί απάντησης θα:</string>
@@ -739,6 +740,7 @@
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
     <string name="title_advanced_reply_move_hint">Ο διακομιστής ηλ. ταχυδρομείου ενδέχεται να προσθέτει ακόμα τα μηνύματα στον φάκελο απεσταλμένων</string>
     <string name="title_advanced_compose_color_hint">Πολύ ανοικτά ή πολύ σκούρα χρώματα θα έχουν ως αποτέλεσμα δυσανάγνωστα μηνύματα για τους παραλήπτες</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">Διαφορετικά, προσθήκη κοινόχρηστων διευθύνσεων ή αρχείων στο τρέχον προσχέδιο μηνύματος</string>
     <string name="title_advanced_usenet_hint">Να παρεμβάλλεται ένα \'-- \' ανάμεσα στο κείμενο και την υπογραφή</string>
     <string name="title_advanced_remove_signature_hint">Αυτό μπορεί να επιφέρει την απαλοιφή είτε υπερβολικά λίγου είτε υπερβολικά πολύ κειμένου</string>
     <string name="title_advanced_metered_hint">Οι συνδέσεις με ογκοχρέωση είναι, γενικά, οι κινητές συνδέσεις διαδικτύου ή τα επί πληρωμή σημεία Wi-Fi</string>

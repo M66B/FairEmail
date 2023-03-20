@@ -394,6 +394,7 @@
     <string name="title_advanced_send_chips">הצגת בועיות כתובות</string>
     <string name="title_advanced_send_reminders">הצגת תזכורות</string>
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">יצירת הודעת טיוטה לכתובות וקבצים משותפים</string>
     <string name="title_advanced_answer_caption">הגדרות כפתור מענה</string>
     <string name="title_advanced_answer_default">לחיצה קצרה על כפתור המענה:</string>
     <string name="title_advanced_answer_action">לחיצה ארוכה על כפתור המענה:</string>
@@ -768,6 +769,7 @@
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
     <string name="title_advanced_compose_color_hint">צבעים בהירים או כהים מדי יובילו להודעות בלתי קריאות בצד המקבל</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">אם לא, להוסיף כתובות או קבצים משותפים להודעת הטיוטה הנוכחית</string>
     <string name="title_advanced_usenet_hint">להוסיף ‚--’ בין הטקסט והחתימה</string>
     <string name="title_advanced_remove_signature_hint">יכול להוביל למעט מדי או יותר מדי טקסט שיוסר</string>
     <string name="title_advanced_metered_hint">חיבורים מוגבלים הם בדרך כלל חיבורים סלולריים או רשת אלחוטית בתשלום</string>
