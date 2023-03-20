@@ -280,6 +280,9 @@ public class EntityAttachment {
         if ("pptx".equals(extension))
             return "application/vnd.openxmlformats-officedocument.presentationml.presentation";
 
+        if ("ppsx".equals(extension))
+            return "application/vnd.openxmlformats-officedocument.presentationml.slideshow";
+
         // OpenOffice
 
         if ("odt".equals(extension))
