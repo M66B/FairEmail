@@ -3119,7 +3119,7 @@ public class MessageHelper {
         return email;
     }
 
-    static String decodeMime(String text) {
+    public static String decodeMime(String text) {
         if (text == null)
             return null;
 

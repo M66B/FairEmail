@@ -253,7 +253,7 @@ public class InternetAddress extends Address implements Cloneable {
 	
 	if (encodedPersonal != null) {
 	    try {
-		personal = MimeUtility.decodeText(encodedPersonal);
+		personal = eu.faircode.email.MessageHelper.decodeMime(encodedPersonal);
 		return personal;
 	    } catch (Exception ex) {
 		// 1. ParseException: either its an unencoded string or
