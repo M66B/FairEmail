@@ -2363,8 +2363,6 @@ public class MessageHelper {
 
         header = fixEncoding(name, header);
         header = header.replaceAll("\\?=[\\r\\n\\t ]+=\\?", "\\?==\\?");
-        header = MimeUtility.unfold(header);
-        header = decodeMime(header);
         Address[] addresses = InternetAddress.parseHeader(header, false);
 
         List<Address> result = new ArrayList<>();
