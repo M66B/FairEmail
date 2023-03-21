@@ -372,7 +372,7 @@
     <string name="title_advanced_answer_caption">Paramètres du bouton de réponse</string>
     <string name="title_advanced_answer_default">Un appui court sur le bouton de réponse va :</string>
     <string name="title_advanced_answer_action">Un appui long sur le bouton de réponse va :</string>
-    <string name="title_advanced_answer_hint">Les actions du bouton de réponse peuvent également être configurées dans l\'onglet Envoi des paramètres</string>
+    <string name="title_advanced_answer_hint">Les actions du bouton de réponse peuvent également être configurées dans l\'onglet « Envoi » des paramètres</string>
     <string name="title_advanced_answer_warning">Toutes les actions ne sont pas possibles sans un menu de sélection !</string>
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
     <string name="title_advanced_auto_save_paragraph">Enregistrer automatiquement un brouillon après chaque paragraphe</string>

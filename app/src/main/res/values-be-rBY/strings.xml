@@ -395,13 +395,18 @@
     <string name="title_advanced_send_chips">Паказаць карткі адрасоў</string>
     <string name="title_advanced_send_reminders">Паказваць напаміны</string>
     <string name="title_advanced_send_delayed">Затрымка адпраўкі паведамленняў</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Ствараць новы чарнавік паведамлення для абагуленых адрасоў і файлаў</string>
+    <string name="title_advanced_answer_caption">Налады кнопкі адказу</string>
     <string name="title_advanced_answer_default">Кароткае націсканне на кнопку адказу выкліча:</string>
     <string name="title_advanced_answer_action">Доўгае націсканне на кнопку адказу выкліча:</string>
+    <string name="title_advanced_answer_hint">Дзеянні для кнопкі адказу таксама можна наладзіць на ўкладцы налад адпраўкі</string>
+    <string name="title_advanced_answer_warning">Некаторыя дзеянні будуць працаваць толькі з меню выбару!</string>
     <string name="title_advanced_send_pending">Паказваць непрыкметны значок затрымкі адпраўкі</string>
     <string name="title_advanced_auto_save_paragraph">Аўтаматычна захоўваць чарнавік пасля заканчэння кожнага абзаца</string>
     <string name="title_advanced_auto_save_dot">Аўтаматычна захоўваць чарнавік пасля заканчэння кожнага сказа</string>
     <string name="title_advanced_compose_color">Колер тэксту па змаўчанні</string>
     <string name="title_advanced_compose_font">Шрыфт па змаўчанні</string>
+    <string name="title_advanced_compose_monospaced">Выкарыстоўваць шрыфт аднолькавай шырыні для звычайных тэкставых паведамленняў</string>
     <string name="title_advanced_auto_identity">Аўтаматычна выбіраць ідэнтыфікатары для новых паведамленняў</string>
     <string name="title_advanced_prefix_once">Пры адказе або перасылцы ўстаўляць прэфікс тэмы толькі адзін раз</string>
     <string name="title_advanced_prefix_count">Дадаваць лічыльнік да прэфікса адказу</string>
@@ -765,6 +770,7 @@
     <string name="title_advanced_send_reminders_hint">Паказваць папярэджанне, калі тэкст або тэма паведамлення пустыя або калі існуе верагоднасць адсутнасці ўкладання</string>
     <string name="title_advanced_reply_move_hint">Сервер электроннай пошты ўсё яшчэ можа дадаваць паведамленні ў папку адпраўленых паведамленняў</string>
     <string name="title_advanced_compose_color_hint">Вельмі светлыя або вельмі цёмныя колеры зробяць паведамленні нечытэльнымі для атрымальнікаў</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">У адваротным выпадку дадаваць абагуленыя адрасы або файлы ў бягучы чарнавік паведамлення</string>
     <string name="title_advanced_usenet_hint">Устаўляць \'—\' паміж тэкстам і подпісам</string>
     <string name="title_advanced_remove_signature_hint">Гэта можа прывесці да таго, што будзе выдаляцца занадта малая або занадта вялікая частка тэксту</string>
     <string name="title_advanced_metered_hint">Лімітаваныя злучэнні — гэта злучэнні з выкарыстаннем мабільных даных або платныя кропкі доступу Wi-Fi</string>
@@ -1910,6 +1916,7 @@
     <string name="title_widget_separator_lines">Паказаць раздзяляльныя лініі</string>
     <string name="title_widget_semi_transparent">Напаўпразрысты фон</string>
     <string name="title_widget_count_top">Паказваць колькасць непрачытаных паведамленняў уверсе</string>
+    <string name="title_widget_subject_lines">Максімальная колькасць радкоў у тэме</string>
     <string name="title_widget_avatars">Паказваць аватары кантактаў</string>
     <string name="title_widget_refresh">Паказваць кнопку абнаўлення паведамленняў</string>
     <string name="title_widget_compose">Паказаць кнопку для стварэння новага паведамлення</string>

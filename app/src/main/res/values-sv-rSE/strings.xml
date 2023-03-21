@@ -360,13 +360,18 @@
     <string name="title_advanced_send_chips">Visa adressbubblor</string>
     <string name="title_advanced_send_reminders">Visa påminnelser</string>
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
+    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Skapa ett nytt utkast till meddelande för delade adresser och filer</string>
+    <string name="title_advanced_answer_caption">Inställningar för svarsknappen</string>
     <string name="title_advanced_answer_default">Kort tryck på svarsknappen kommer:</string>
     <string name="title_advanced_answer_action">Långtryck på svarsknappen kommer:</string>
+    <string name="title_advanced_answer_hint">Åtgärder för svarsknappen kan också konfigureras i fliken skicka inställningar</string>
+    <string name="title_advanced_answer_warning">Alla åtgärder är inte möjliga utan en urvalsmeny!</string>
     <string name="title_advanced_send_pending">Visa icke-påträngande försenad leveransikon</string>
     <string name="title_advanced_auto_save_paragraph">Spara utkast automatiskt efter varje stycke</string>
     <string name="title_advanced_auto_save_dot">Spara utkast automatiskt efter varje mening</string>
     <string name="title_advanced_compose_color">Standardfärg för text</string>
     <string name="title_advanced_compose_font">Standardtypsnitt</string>
+    <string name="title_advanced_compose_monospaced">Använd fast typsnitt för oformaterade textmeddelanden</string>
     <string name="title_advanced_auto_identity">Välj identiteter automatiskt för nya meddelanden</string>
     <string name="title_advanced_prefix_once">Prefix i ämnet endast när du svarar eller vidarebefordrar</string>
     <string name="title_advanced_prefix_count">Lägg till antal svar till svarsprefix</string>
@@ -728,6 +733,7 @@
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_reply_move_hint">E-postservern kan fortfarande lägga till meddelanden till skickade mail mappen</string>
     <string name="title_advanced_compose_color_hint">Mycket ljusa eller mycket mörka färger kommer att resultera i oläsliga meddelanden på mottagarsidan</string>
+    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">Annars, lägg till delade adresser eller filer till det aktuella utkastet</string>
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
     <string name="title_advanced_remove_signature_hint">Detta kan leda till att för lite eller för mycket text tas bort</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
@@ -1865,6 +1871,7 @@
     <string name="title_widget_separator_lines">Visa avgränsare</string>
     <string name="title_widget_semi_transparent">Semi transparent bakgrund</string>
     <string name="title_widget_count_top">Visa antalet olästa högst upp</string>
+    <string name="title_widget_subject_lines">Maximalt antal ämnesrader</string>
     <string name="title_widget_avatars">Visa kontaktavatarer</string>
     <string name="title_widget_refresh">Visa knappen för att uppdatera meddelanden</string>
     <string name="title_widget_compose">Visa knapp för nytt meddelande</string>
