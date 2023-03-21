@@ -58,6 +58,7 @@ public class EntityLog {
     public Long time;
     @NonNull
     public Type type = Type.General;
+    public Long thread;
     public Long account;
     public Long folder;
     public Long message;
@@ -127,6 +128,7 @@ public class EntityLog {
         final EntityLog entry = new EntityLog();
         entry.time = new Date().getTime();
         entry.type = type;
+        entry.thread = Thread.currentThread().getId();
         entry.account = account;
         entry.folder = folder;
         entry.message = message;
