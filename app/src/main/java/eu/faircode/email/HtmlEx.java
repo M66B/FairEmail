@@ -21,6 +21,7 @@ import static android.text.Html.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.text.Layout;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
@@ -75,8 +76,9 @@ public class HtmlEx {
      * @return string containing input converted to HTML
      */
     public /* static */ String toHtml(Spanned text, int option) {
+        SpannableStringBuilder ssb = new SpannableStringBuilderEx(text);
         StringBuilder out = new StringBuilder();
-        withinHtml(out, text, option);
+        withinHtml(out, ssb, option);
         return out.toString();
     }
 
