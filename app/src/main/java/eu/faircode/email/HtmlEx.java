@@ -76,9 +76,10 @@ public class HtmlEx {
      * @return string containing input converted to HTML
      */
     public /* static */ String toHtml(Spanned text, int option) {
-        SpannableStringBuilder ssb = new SpannableStringBuilderEx(text);
+        if (!Helper.isUiThread())
+            text = new SpannableStringBuilderEx(text);
         StringBuilder out = new StringBuilder();
-        withinHtml(out, ssb, option);
+        withinHtml(out, text, option);
         return out.toString();
     }
 
