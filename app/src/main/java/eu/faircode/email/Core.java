@@ -5291,6 +5291,11 @@ class Core {
                     remove.remove(id);
                     Log.i("Notify existing=" + id);
                 } else {
+                    EntityMessage msg = db.message().getMessage(message.id);
+                    if (msg == null || msg.ui_ignored) {
+                        Log.i("Notify skip id=" + message.id + " msg=" + (msg != null));
+                        continue;
+                    }
                     boolean existing = remove.contains(-id);
                     if (existing) {
                         if (message.content && notify_preview) {
