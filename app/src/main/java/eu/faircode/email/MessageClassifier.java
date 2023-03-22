@@ -388,14 +388,12 @@ public class MessageClassifier {
     }
 
     private static int getWordIndex(String word) {
-        synchronized (wordIndex) {
-            Integer index = wordIndex.get(word);
-            if (index == null) {
-                index = wordIndex.size();
-                wordIndex.put(word, index);
-            }
-            return index;
+        Integer index = wordIndex.get(word);
+        if (index == null) {
+            index = wordIndex.size();
+            wordIndex.put(word, index);
         }
+        return index;
     }
 
     private static String getWord(Integer index) {
