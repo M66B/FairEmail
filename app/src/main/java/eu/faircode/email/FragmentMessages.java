@@ -3404,7 +3404,11 @@ public class FragmentMessages extends FragmentBase
             String action = prefs.getString(
                     long_press ? "answer_action" : "answer_single",
                     long_press ? "reply" : "menu");
-            if ("menu".equals(action) || !message.content)
+            if ("move".equals(action)) {
+                View child = rvMessage.getChildAt(pos);
+                if (child != null && child.isEnabled())
+                    child.findViewById(R.id.ibMove).performClick();
+            } else if ("menu".equals(action) || !message.content)
                 onReply(message, selected, fabReply);
             else
                 onMenuReply(message, action);

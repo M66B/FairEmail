@@ -2618,6 +2618,7 @@
         <item>forward</item>
         <item>resend</item>
         <item>editasnew</item>
+        <item>move</item>
         <item>menu</item>
     </string-array>
 
@@ -2628,6 +2629,7 @@
         <item>@string/title_forward</item>
         <item>@string/title_resend</item>
         <item>@string/title_editasnew</item>
+        <item>@string/title_move</item>
         <item>@string/title_reply_menu</item>
     </string-array>
 
