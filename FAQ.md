@@ -5259,7 +5259,7 @@ For example: create a new draft and enter the text "*How far is the sun?*", and 
 
 <br>
 
-OpenAI isn't very fast, so be patient.
+OpenAI isn't very fast, so be patient. Sometimes a timeout error occurs because the app is not receiving a response from OpenAI.
 
 You can select the [model](https://platform.openai.com/docs/models/overview),
 configure the [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature)
