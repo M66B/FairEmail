@@ -170,5 +170,5 @@ public interface DaoOperation {
     int deleteOperation(long id);
 
     @Query("DELETE FROM operation WHERE folder = :folder AND name = :name")
-    int deleteOperation(long folder, String name);
+    int deleteOperations(long folder, String name);
 }

@@ -739,7 +739,7 @@ public class EntityOperation {
                     break;
                 }
 
-        int count = db.operation().deleteOperation(fid, SYNC);
+        int count = db.operation().deleteOperations(fid, SYNC);
 
         Map<String, String> crumb = new HashMap<>();
         crumb.put("folder", Long.toString(fid));
@@ -776,7 +776,7 @@ public class EntityOperation {
         }
 
         if (force)
-            db.operation().deleteOperation(fid, SYNC);
+            db.operation().deleteOperations(fid, SYNC);
 
         // TODO: replace sync parameters?
         if (db.operation().getOperationCount(fid, SYNC) == 0) {
@@ -848,7 +848,7 @@ public class EntityOperation {
                 try {
                     JSONArray jargs = new JSONArray(args);
                     long target = jargs.getLong(0);
-                    db.operation().deleteOperation(target, PURGE);
+                    db.operation().deleteOperations(target, PURGE);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
@@ -885,7 +885,7 @@ public class EntityOperation {
         }
 
         if (MOVE.equals(name)) {
-            int count = db.operation().deleteOperation(folder, PURGE);
+            int count = db.operation().deleteOperations(folder, PURGE);
             if (count > 0)
                 sync(context, folder, false);
         }
