@@ -3038,12 +3038,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     // Format message
                     if (show_full) {
-                        if (HtmlHelper.truncate(document, HtmlHelper.MAX_FULL_TEXT_SIZE * 2))
+                        if (HtmlHelper.truncate(document, HtmlHelper.MAX_FULL_TEXT_SIZE)) {
                             document.body()
-                                    .appendElement("br")
                                     .appendElement("p")
                                     .appendElement("em")
                                     .text(context.getString(R.string.title_truncated));
+                            document.body()
+                                    .appendElement("p")
+                                    .appendElement("big")
+                                    .appendElement("a")
+                                    .attr("href", "external:")
+                                    .text(context.getString(R.string.title_show_full));
+                        }
 
                         if (message.isPlainOnly()) {
                             document.select("body")
@@ -6058,11 +6064,47 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
                 }
             } else {
-                if ("full".equals(uri.getScheme())) {
+                String scheme = uri.getScheme();
+                if ("full".equals(scheme)) {
                     TupleMessageEx message = getMessage();
                     if (message != null)
                         onShow(message, true);
                     return (message != null);
+                } else if ("external".equals(scheme)) {
+                    TupleMessageEx message = getMessage();
+                    if (message == null)
+                        return false;
+
+                    Bundle args = new Bundle();
+                    args.putLong("id", message.id);
+
+                    new SimpleTask<Uri>() {
+                        @Override
+                        protected Uri onExecute(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+
+                            File source = EntityMessage.getFile(context, id);
+
+                            File dir = Helper.ensureExists(new File(context.getFilesDir(), "shared"));
+                            File target = new File(dir, id + ".html");
+
+                            Helper.copy(source, target);
+
+                            return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, target);
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Uri uri) {
+                            Helper.share(context, uri, "text/html", null);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "message:external");
+
+                    return true;
                 }
 
                 if ("cid".equals(uri.getScheme()) || "data".equals(uri.getScheme()))
@@ -6070,8 +6112,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 boolean confirm_links = prefs.getBoolean("confirm_links", true);
                 Uri guri = UriHelper.guessScheme(uri);
-                String scheme = guri.getScheme();
-                String host = guri.getHost();
 
                 String chost = FragmentDialogOpenLink.getConfirmHost(uri);
                 boolean sanitize_links = prefs.getBoolean("sanitize_links", false);
