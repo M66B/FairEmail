@@ -844,6 +844,15 @@ public class EntityOperation {
             if (MOVE.equals(name) || DELETE.equals(name))
                 db.message().setMessageUiHide(message, false);
 
+            if (MOVE.equals(name))
+                try {
+                    JSONArray jargs = new JSONArray(args);
+                    long target = jargs.getLong(0);
+                    db.operation().deleteOperation(target, PURGE);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+
             if (SEEN.equals(name)) {
                 EntityMessage m = db.message().getMessage(message);
                 if (m != null) {
