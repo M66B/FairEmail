@@ -56,7 +56,7 @@ public class CalendarHelper {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String weekend = prefs.getString("weekend", Calendar.SATURDAY + "," + Calendar.SUNDAY);
         for (String day : weekend.split(","))
-            if (aday == Integer.parseInt(day))
+            if (!TextUtils.isEmpty(day) && aday == Integer.parseInt(day))
                 return true;
         return false;
     }
