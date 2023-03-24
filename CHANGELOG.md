@@ -6,6 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
 
+### 1.2059 - 2023-03-24
+
+* Fixed all reported bugs
+
 ### 1.2058 - 2023-03-22
 
 * Small improvements and minor bug fixes
