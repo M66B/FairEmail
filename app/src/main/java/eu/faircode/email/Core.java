@@ -2073,8 +2073,8 @@ class Core {
             throw new IllegalArgumentException("Not INBOX");
 
         Map<EntityMessage, Message> map = findMessages(context, folder, Arrays.asList(message), istore, ifolder);
-        if (map.size() == 0)
-            throw new MessageRemovedException("Message not found");
+        if (map.get(message) == null)
+            throw new IllegalArgumentException("Message not found msgid=" + message.msgid);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean download_plain = prefs.getBoolean("download_plain", false);
@@ -2114,8 +2114,8 @@ class Core {
             return;
 
         Map<EntityMessage, Message> map = findMessages(context, folder, Arrays.asList(message), istore, ifolder);
-        if (map.size() == 0)
-            throw new MessageRemovedException("Message not found");
+        if (map.get(message) == null)
+            throw new IllegalArgumentException("Message not found msgid=" + message.msgid);
 
         MessageHelper helper = new MessageHelper((MimeMessage) map.entrySet().iterator().next().getValue(), context);
         MessageHelper.MessageParts parts = helper.getMessageParts();
