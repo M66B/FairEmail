@@ -5238,6 +5238,8 @@ Cloud sync is an experimental feature. It is not available for the Play Store ve
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq180)
 
+OpenAI can only be used if configured and enabled, and the app does not use third-party libraries to avoid tracking when OpenAI is not used.
+
 **Setup**
 
 * Create an account [here](https://platform.openai.com/signup)
