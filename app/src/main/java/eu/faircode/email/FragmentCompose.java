@@ -313,8 +313,6 @@ public class FragmentCompose extends FragmentBase {
 
     private static final int MAX_QUOTE_LEVEL = 5;
 
-    private static final int MAX_OPENAI_LEN = 1000; // characters
-
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
     private static final int REQUEST_CONTACT_BCC = 3;
@@ -2432,11 +2430,11 @@ public class FragmentCompose extends FragmentBase {
                     Document parsed = JsoupEx.parse(inreplyto.get(0).getFile(context));
                     Document document = HtmlHelper.sanitizeView(context, parsed, false);
                     Spanned spanned = HtmlHelper.fromDocument(context, document, null, null);
-                    result.add(new OpenAI.Message(role, OpenAI.truncateParagraphs(spanned.toString(), MAX_OPENAI_LEN)));
+                    result.add(new OpenAI.Message(role, OpenAI.truncateParagraphs(spanned.toString())));
                 }
 
                 if (!TextUtils.isEmpty(body))
-                    result.add(new OpenAI.Message("assistant", OpenAI.truncateParagraphs(body, MAX_OPENAI_LEN)));
+                    result.add(new OpenAI.Message("assistant", OpenAI.truncateParagraphs(body)));
 
                 if (result.size() == 0)
                     return null;

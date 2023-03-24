@@ -42,6 +42,7 @@ import java.util.Iterator;
 import java.util.List;
 
 public class OpenAI {
+    private static final int MAX_OPENAI_LEN = 1000; // characters
     private static final int TIMEOUT = 30; // seconds
 
     static boolean isAvailable(Context context) {
@@ -227,6 +228,10 @@ public class OpenAI {
             long elapsed = new Date().getTime() - start;
             Log.i("OpenAI elapsed=" + (elapsed / 1000f));
         }
+    }
+
+    static String truncateParagraphs(@NonNull String text) {
+        return truncateParagraphs(text, MAX_OPENAI_LEN);
     }
 
     static String truncateParagraphs(@NonNull String text, int maxlen) {
