@@ -774,6 +774,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etInternal" />
 
+        <Button
+            android:id="@+id/btnUri"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_person_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_identity_uri"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvInternalHint" />
+
+        <TextView
+            android:id="@+id/tvUri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact URI"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnUri" />
+
         <TextView
             android:id="@+id/tvE2Encryption"
             android:layout_width="wrap_content"
@@ -782,7 +803,7 @@
             android:text="@string/title_advanced_e2e_encryption"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvInternalHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvUri" />
 
         <CheckBox
             android:id="@+id/cbSignDefault"
@@ -986,6 +1007,7 @@
                 cbSenderExtra,cbSenderExtraName,cbReplyExtraName,tvSenderExtra,etSenderExtra,ibSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,
                 tvInternal,etInternal,tvInternalHint,
+                btnUri,tvUri,
                 tvE2Encryption,cbSignDefault,cbEncryptDefault,
                 cbUnicode,tvUnicodeHint,cbOctetMime,tvMaxSize,etMaxSize" />
 

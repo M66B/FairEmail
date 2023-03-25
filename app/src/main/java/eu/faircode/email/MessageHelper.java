@@ -22,12 +22,15 @@ package eu.faircode.email;
 import static android.system.OsConstants.ENOSPC;
 
 import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.CalendarContract;
+import android.provider.ContactsContract;
 import android.system.ErrnoException;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
@@ -148,6 +151,11 @@ import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Method;
+import ezvcard.VCard;
+import ezvcard.VCardVersion;
+import ezvcard.io.text.VCardWriter;
+import ezvcard.parameter.AddressType;
+import ezvcard.parameter.TelephoneType;
 
 public class MessageHelper {
     private boolean ensuredEnvelope = false;
@@ -1025,6 +1033,7 @@ public class MessageHelper {
                 reply.removeAttr("fairemail");
 
                 DB db = DB.getInstance(context);
+
                 try {
                     db.beginTransaction();
 
@@ -1078,6 +1087,161 @@ public class MessageHelper {
                     Log.w(ex);
                 } finally {
                     db.endTransaction();
+                }
+
+                if (BuildConfig.DEBUG) {
+                    VCard vcard = null;
+
+                    if (identity.uri != null &&
+                            Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
+                        vcard = new VCard();
+                        vcard.addEmail(identity.email);
+                        if (!TextUtils.isEmpty(identity.name))
+                            vcard.setFormattedName(identity.name);
+
+                        ContentResolver resolver = context.getContentResolver();
+                        try (Cursor cursor = resolver.query(Uri.parse(identity.uri),
+                                new String[]{
+                                        ContactsContract.Contacts._ID
+                                }, null, null, null)) {
+                            if (cursor.moveToFirst()) {
+                                String contactId = cursor.getString(0);
+
+                                try (Cursor address = resolver.query(ContactsContract.CommonDataKinds.StructuredPostal.CONTENT_URI,
+                                        new String[]{
+                                                ContactsContract.CommonDataKinds.StructuredPostal.TYPE,
+                                                ContactsContract.CommonDataKinds.StructuredPostal.STREET,
+                                                ContactsContract.CommonDataKinds.StructuredPostal.POBOX,
+                                                ContactsContract.CommonDataKinds.StructuredPostal.CITY,
+                                                ContactsContract.CommonDataKinds.StructuredPostal.POSTCODE,
+                                                ContactsContract.CommonDataKinds.StructuredPostal.COUNTRY,
+                                                ContactsContract.CommonDataKinds.StructuredPostal.FORMATTED_ADDRESS,
+                                        },
+                                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = ?",
+                                        new String[]{contactId}, null)) {
+                                    while (address.moveToNext()) {
+                                        int type = address.getInt(0);
+                                        if (type != ContactsContract.CommonDataKinds.StructuredPostal.TYPE_HOME &&
+                                                type != ContactsContract.CommonDataKinds.StructuredPostal.TYPE_WORK)
+                                            continue;
+
+                                        ezvcard.property.Address a = new ezvcard.property.Address();
+                                        if (!address.isNull(1))
+                                            a.setStreetAddress(address.getString(1));
+                                        if (!address.isNull(2))
+                                            a.setPoBox(address.getString(2));
+                                        if (!address.isNull(3))
+                                            a.setLocality(address.getString(3));
+                                        if (!address.isNull(4))
+                                            a.setPostalCode(address.getString(4));
+                                        if (!address.isNull(5))
+                                            a.setCountry(address.getString(5));
+                                        if (!address.isNull(6))
+                                            a.setLabel(address.getString(6));
+
+                                        switch (type) {
+                                            case ContactsContract.CommonDataKinds.StructuredPostal.TYPE_HOME:
+                                                a.setParameter("TYPE", AddressType.HOME.getValue());
+                                                break;
+                                            case ContactsContract.CommonDataKinds.StructuredPostal.TYPE_WORK:
+                                                a.setParameter("TYPE", AddressType.WORK.getValue());
+                                                break;
+                                        }
+
+                                        vcard.addAddress(a);
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+
+                                try (Cursor web = resolver.query(ContactsContract.Data.CONTENT_URI,
+                                        new String[]{
+                                                ContactsContract.CommonDataKinds.Website.TYPE,
+                                                ContactsContract.CommonDataKinds.Website.URL
+                                        },
+                                        ContactsContract.Data.CONTACT_ID + " = " + contactId +
+                                                " AND " + ContactsContract.Contacts.Data.MIMETYPE + " = '" + ContactsContract.CommonDataKinds.Website.CONTENT_ITEM_TYPE + "'",
+                                        null, null)) {
+                                    while (web.moveToNext()) {
+                                        int type = web.getInt(0);
+                                        String url = web.getString(1);
+                                        vcard.addUrl(url);
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+
+                                try (Cursor phones = resolver.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                                        new String[]{
+                                                ContactsContract.CommonDataKinds.Phone.TYPE,
+                                                ContactsContract.CommonDataKinds.Phone.NUMBER
+                                        },
+                                        ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + contactId,
+                                        null, null)) {
+                                    while (phones.moveToNext()) {
+                                        int type = phones.getInt(0);
+                                        String number = phones.getString(1);
+                                        switch (type) {
+                                            case ContactsContract.CommonDataKinds.Phone.TYPE_HOME:
+                                                vcard.addTelephoneNumber(number, TelephoneType.HOME);
+                                                break;
+                                            case ContactsContract.CommonDataKinds.Phone.TYPE_WORK:
+                                                vcard.addTelephoneNumber(number, TelephoneType.WORK);
+                                                break;
+                                            case ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE:
+                                                vcard.addTelephoneNumber(number, TelephoneType.CELL);
+                                                break;
+                                        }
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+                            }
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                    }
+
+                    try {
+                        db.beginTransaction();
+
+                        for (EntityAttachment attachment : new ArrayList<>(attachments))
+                            if (attachment.cid != null && attachment.cid.startsWith(EntityAttachment.VCARD_PREFIX)) {
+                                db.attachment().deleteAttachment(attachment.id);
+                                attachments.remove(attachment);
+                            }
+
+                        if (vcard != null) {
+                            EntityAttachment attachment = new EntityAttachment();
+                            attachment.message = message.id;
+                            attachment.sequence = db.attachment().getAttachmentSequence(message.id) + 1;
+                            attachment.name = "contact.vcf";
+                            attachment.type = "text/vcard";
+                            attachment.disposition = Part.ATTACHMENT;
+                            attachment.cid = EntityAttachment.VCARD_PREFIX + Math.abs(identity.uri.hashCode());
+                            attachment.size = null;
+                            attachment.progress = 0;
+                            attachment.id = db.attachment().insertAttachment(attachment);
+
+                            File file = attachment.getFile(context);
+                            try (VCardWriter writer = new VCardWriter(file, VCardVersion.V3_0)) {
+                                writer.write(vcard);
+                            }
+
+                            attachment.size = file.length();
+                            attachment.progress = null;
+                            attachment.available = true;
+                            db.attachment().setDownloaded(attachment.id, attachment.size);
+
+                            attachments.add(attachment);
+                        }
+
+                        db.setTransactionSuccessful();
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    } finally {
+                        db.endTransaction();
+                    }
                 }
             }
         }

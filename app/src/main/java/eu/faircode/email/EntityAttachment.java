@@ -74,6 +74,8 @@ public class EntityAttachment {
     static final Integer SMIME_SIGNED_DATA = 7;
     static final Integer SMIME_CONTENT = 8;
 
+    static final String VCARD_PREFIX = BuildConfig.APPLICATION_ID + ".vcard.";
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
     @NonNull
