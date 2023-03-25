@@ -3,7 +3,7 @@
 
     <style name="AppThemeYouLight" parent="AppThemeBaseLight">
         <item name="colorPrimary">@android:color/system_accent1_500</item>
-        <item name="colorPrimaryDark">@android:color/system_accent1_700</item>
+        <item name="colorPrimaryDark">@android:color/system_accent1_500</item>
         <item name="colorAccent">@android:color/system_accent3_500</item>
 
         <item name="colorUnreadHighlight">@android:color/system_accent3_700</item>
@@ -18,7 +18,7 @@
 
     <style name="AppThemeYouDark" parent="AppThemeBaseDark">
         <item name="colorPrimary">@android:color/system_accent1_500</item>
-        <item name="colorPrimaryDark">@android:color/system_accent1_700</item>
+        <item name="colorPrimaryDark">@android:color/system_accent1_500</item>
         <item name="colorAccent">@android:color/system_accent3_300</item>
 
         <item name="colorUnreadHighlight">@android:color/system_accent3_300</item>
@@ -39,7 +39,7 @@
 
     <style name="AppThemeYouReversedLight" parent="AppThemeBaseLight">
         <item name="colorPrimary">@android:color/system_accent3_500</item>
-        <item name="colorPrimaryDark">@android:color/system_accent3_700</item>
+        <item name="colorPrimaryDark">@android:color/system_accent3_500</item>
         <item name="colorAccent">@android:color/system_accent1_500</item>
 
         <item name="colorUnreadHighlight">@android:color/system_accent1_700</item>
@@ -54,7 +54,7 @@
 
     <style name="AppThemeYouReversedDark" parent="AppThemeBaseDark">
         <item name="colorPrimary">@android:color/system_accent3_500</item>
-        <item name="colorPrimaryDark">@android:color/system_accent3_700</item>
+        <item name="colorPrimaryDark">@android:color/system_accent3_500</item>
         <item name="colorAccent">@android:color/system_accent1_300</item>
 
         <item name="colorUnreadHighlight">@android:color/system_accent1_300</item>
@@ -75,7 +75,7 @@
 
     <style name="AppThemeYouMonoLight" parent="AppThemeBaseLight">
         <item name="colorPrimary">@android:color/system_accent1_500</item>
-        <item name="colorPrimaryDark">@android:color/system_accent1_700</item>
+        <item name="colorPrimaryDark">@android:color/system_accent1_500</item>
         <item name="colorAccent">@android:color/system_accent1_500</item>
 
         <item name="colorUnreadHighlight">@android:color/system_accent1_700</item>
@@ -90,7 +90,7 @@
 
     <style name="AppThemeYouMonoDark" parent="AppThemeBaseDark">
         <item name="colorPrimary">@android:color/system_accent1_500</item>
-        <item name="colorPrimaryDark">@android:color/system_accent1_700</item>
+        <item name="colorPrimaryDark">@android:color/system_accent1_500</item>
         <item name="colorAccent">@android:color/system_accent1_300</item>
 
         <item name="colorUnreadHighlight">@android:color/system_accent1_300</item>
@@ -111,7 +111,7 @@
 
     <style name="AppThemeYouMonoReversedLight" parent="AppThemeBaseLight">
         <item name="colorPrimary">@android:color/system_accent3_500</item>
-        <item name="colorPrimaryDark">@android:color/system_accent3_700</item>
+        <item name="colorPrimaryDark">@android:color/system_accent3_500</item>
         <item name="colorAccent">@android:color/system_accent3_500</item>
 
         <item name="colorUnreadHighlight">@android:color/system_accent3_700</item>
@@ -126,7 +126,7 @@
 
     <style name="AppThemeYouMonoReversedDark" parent="AppThemeBaseDark">
         <item name="colorPrimary">@android:color/system_accent3_500</item>
-        <item name="colorPrimaryDark">@android:color/system_accent3_700</item>
+        <item name="colorPrimaryDark">@android:color/system_accent3_500</item>
         <item name="colorAccent">@android:color/system_accent3_300</item>
 
         <item name="colorUnreadHighlight">@android:color/system_accent3_300</item>
