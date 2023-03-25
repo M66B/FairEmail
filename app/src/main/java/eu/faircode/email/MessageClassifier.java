@@ -67,6 +67,9 @@ public class MessageClassifier {
             if (!folder.auto_classify_source)
                 return;
 
+            if (message.ui_hide)
+                return;
+
             long start = new Date().getTime();
 
             // Build text to classify
