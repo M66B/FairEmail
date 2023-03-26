@@ -504,7 +504,9 @@ public class ActivityEML extends ActivityBase {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        menu.findItem(R.id.menu_junk).setVisible(BuildConfig.DEBUG);
+        menu.findItem(R.id.menu_junk)
+                .setVisible(BuildConfig.DEBUG)
+                .setChecked(junk);
         menu.findItem(R.id.menu_save).setIcon(junk
                 ? R.drawable.twotone_report_24
                 : R.drawable.twotone_move_to_inbox_24);
