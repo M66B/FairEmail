@@ -24,9 +24,12 @@ import static com.google.android.material.textfield.TextInputLayout.END_ICON_PAS
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_OAUTH;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
+import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.net.Uri;
@@ -122,7 +125,8 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etBcc;
     private EditText etInternal;
     private Button btnUri;
-    private TextView tvUri;
+    private TextView tvUriInfo;
+    private TextView tvUriPro;
     private CheckBox cbSignDefault;
     private CheckBox cbEncryptDefault;
     private CheckBox cbUnicode;
@@ -225,7 +229,8 @@ public class FragmentIdentity extends FragmentBase {
         etBcc = view.findViewById(R.id.etBcc);
         etInternal = view.findViewById(R.id.etInternal);
         btnUri = view.findViewById(R.id.btnUri);
-        tvUri = view.findViewById(R.id.tvUri);
+        tvUriInfo = view.findViewById(R.id.tvUriInfo);
+        tvUriPro = view.findViewById(R.id.tvUriPro);
         cbSignDefault = view.findViewById(R.id.cbSignDefault);
         cbEncryptDefault = view.findViewById(R.id.cbEncryptDefault);
         cbUnicode = view.findViewById(R.id.cbUnicode);
@@ -496,6 +501,8 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
+        Helper.linkPro(tvUriPro);
+
         cbEncryptDefault.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -542,10 +549,6 @@ public class FragmentIdentity extends FragmentBase {
         cbInsecure.setVisibility(View.GONE);
 
         btnAdvanced.setVisibility(View.GONE);
-        if (!BuildConfig.DEBUG) {
-            Helper.hide(btnUri);
-            Helper.hide(tvUri);
-        }
 
         etEhlo.setHint(EmailService.getDefaultEhlo());
 
@@ -729,7 +732,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
         args.putString("internal", etInternal.getText().toString().replaceAll(" ", ""));
-        args.putString("uri", tvUri.getText().toString());
+        args.putString("uri", (String) btnUri.getTag());
         args.putBoolean("sign_default", cbSignDefault.isChecked());
         args.putBoolean("encrypt_default", cbEncryptDefault.isChecked());
         args.putBoolean("unicode", cbUnicode.isChecked());
@@ -1184,6 +1187,7 @@ public class FragmentIdentity extends FragmentBase {
         outState.putInt("fair:auth", auth);
         outState.putString("fair:authprovider", provider);
         outState.putString("fair:html", signature);
+        outState.putString("fair:uri", (String) btnUri.getTag());
         super.onSaveInstanceState(outState);
     }
 
@@ -1265,7 +1269,8 @@ public class FragmentIdentity extends FragmentBase {
                     etCc.setText(identity == null ? null : identity.cc);
                     etBcc.setText(identity == null ? null : identity.bcc);
                     etInternal.setText(identity == null ? null : identity.internal);
-                    tvUri.setText(identity == null ? null : identity.uri);
+                    btnUri.setTag(identity == null ? null : identity.uri);
+                    tvUriInfo.setText(identity == null ? null : getUriInfo(identity.uri));
                     cbSignDefault.setChecked(identity != null && identity.sign_default);
                     cbEncryptDefault.setChecked(identity != null && identity.encrypt_default);
                     cbUnicode.setChecked(identity != null && identity.unicode);
@@ -1301,6 +1306,7 @@ public class FragmentIdentity extends FragmentBase {
                     provider = savedInstanceState.getString("fair:authprovider");
                     if (signature == null)
                         signature = savedInstanceState.getString("fair:html");
+                    btnUri.setTag(savedInstanceState.getString("fair:uri"));
                 }
 
                 Helper.setViewsEnabled(view, true);
@@ -1522,6 +1528,30 @@ public class FragmentIdentity extends FragmentBase {
 
     private void onPickUri(Intent intent) {
         Uri uri = (intent == null ? null : intent.getData());
-        tvUri.setText(uri == null ? null : uri.toString());
+        btnUri.setTag(uri == null ? null : uri.toString());
+        tvUriInfo.setText(uri == null ? null : getUriInfo(uri.toString()));
+    }
+
+    private String getUriInfo(String uri) {
+        if (uri == null)
+            return null;
+        if (!hasPermission(Manifest.permission.READ_CONTACTS))
+            return null;
+
+        try {
+            ContentResolver resolver = getContext().getContentResolver();
+            try (Cursor cursor = resolver.query(Uri.parse(uri),
+                    new String[]{
+                            ContactsContract.Contacts.DISPLAY_NAME_PRIMARY
+                    },
+                    null, null, null)) {
+                if (cursor.moveToNext())
+                    return cursor.getString(0);
+            }
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        return uri;
     }
 }

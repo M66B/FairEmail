@@ -1089,7 +1089,7 @@ public class MessageHelper {
                     db.endTransaction();
                 }
 
-                if (BuildConfig.DEBUG) {
+                if (ActivityBilling.isPro(context)) {
                     VCard vcard = null;
 
                     if (identity.uri != null &&

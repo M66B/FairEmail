@@ -787,13 +787,36 @@
             app:layout_constraintTop_toBottomOf="@id/tvInternalHint" />
 
         <TextView
-            android:id="@+id/tvUri"
+            android:id="@+id/tvUriHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Contact URI"
+            android:text="@string/title_advanced_uri"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnUri" />
+
+        <TextView
+            android:id="@+id/tvUriInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Contact URI"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUriHint" />
+
+        <TextView
+            android:id="@+id/tvUriPro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_pro_feature"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvUriInfo" />
 
         <TextView
             android:id="@+id/tvE2Encryption"
@@ -803,7 +826,7 @@
             android:text="@string/title_advanced_e2e_encryption"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvUri" />
+            app:layout_constraintTop_toBottomOf="@id/tvUriPro" />
 
         <CheckBox
             android:id="@+id/cbSignDefault"
@@ -1007,7 +1030,7 @@
                 cbSenderExtra,cbSenderExtraName,cbReplyExtraName,tvSenderExtra,etSenderExtra,ibSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,
                 tvInternal,etInternal,tvInternalHint,
-                btnUri,tvUri,
+                btnUri,tvUriHint,tvUriInfo,tvUriPro,
                 tvE2Encryption,cbSignDefault,cbEncryptDefault,
                 cbUnicode,tvUnicodeHint,cbOctetMime,tvMaxSize,etMaxSize" />
 
