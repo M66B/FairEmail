@@ -60,6 +60,7 @@ import org.json.JSONException;
 
 import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -338,6 +339,9 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 long[] disabled = args.getLongArray("disabled");
                 long[] messages = args.getLongArray("messages");
 
+                if (disabled == null)
+                    disabled = new long[0];
+
                 List<EntityFolder> favorites = new ArrayList<>();
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
@@ -348,6 +352,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                 Map<Long, Integer> frequency = new HashMap<>();
                 if (suggest_received &&
                         messages != null && messages.length < 100) {
+                    List<Long> list = Helper.fromLongArray(disabled);
                     for (Long id : messages) {
                         EntityMessage message = db.message().getMessage(id);
                         if (message != null && message.from != null && message.from[0] != null) {
@@ -355,7 +360,9 @@ public class FragmentDialogFolder extends FragmentDialogBase {
                             if (!TextUtils.isEmpty(email)) {
                                 EntityContact contact =
                                         db.contact().getContact(message.account, EntityContact.TYPE_FROM, email);
-                                if (contact != null && contact.folder != null) {
+                                if (contact != null &&
+                                        contact.folder != null &&
+                                        !list.contains(contact.folder)) {
                                     Integer freq = frequency.get(contact.folder);
                                     freq = (freq == null ? 1 : freq + 1);
                                     frequency.put(contact.folder, freq);
