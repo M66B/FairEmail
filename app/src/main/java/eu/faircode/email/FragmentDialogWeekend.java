@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -47,7 +48,8 @@ public class FragmentDialogWeekend extends FragmentDialogBase {
 
         String weekend = prefs.getString("weekend", Calendar.SATURDAY + "," + Calendar.SUNDAY);
         for (String day : weekend.split(","))
-            days[Integer.parseInt(day) - 1] = true;
+            if (!TextUtils.isEmpty(day))
+                days[Integer.parseInt(day) - 1] = true;
 
         return new AlertDialog.Builder(context)
                 .setTitle(R.string.title_advanced_schedule_weekend)
