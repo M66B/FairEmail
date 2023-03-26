@@ -6,6 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
 
+### Next version
+
+* Added linking contacts to identities to attach vCards
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2059 - 2023-03-24
 
 * Fixed all reported bugs
