@@ -2140,7 +2140,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         args.putString("title", getString(R.string.title_select));
         args.putLongArray("disabled", new long[0]);
 
-        FragmentDialogFolder fragment = new FragmentDialogFolder();
+        FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
         fragment.setArguments(args);
         fragment.setTargetActivity(this, REQUEST_RULES_FOLDER);
         fragment.show(getSupportFragmentManager(), "rules:folder");

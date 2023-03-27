@@ -60,7 +60,6 @@ import org.json.JSONException;
 
 import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -71,7 +70,7 @@ import java.util.Map;
 
 import javax.mail.internet.InternetAddress;
 
-public class FragmentDialogFolder extends FragmentDialogBase {
+public class FragmentDialogSelectFolder extends FragmentDialogBase {
     private int result = 0;
     private AdapterFolder adapter;
     private LinearLayoutManager llm;
@@ -309,7 +308,7 @@ public class FragmentDialogFolder extends FragmentDialogBase {
 
                 FragmentDialogEditName fragment = new FragmentDialogEditName();
                 fragment.setArguments(args);
-                fragment.setTargetFragment(FragmentDialogFolder.this, REQUEST_FOLDER_NAME);
+                fragment.setTargetFragment(FragmentDialogSelectFolder.this, REQUEST_FOLDER_NAME);
                 fragment.show(getParentFragmentManager(), "folder:name");
             }
         });

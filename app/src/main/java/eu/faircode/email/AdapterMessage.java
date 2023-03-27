@@ -5664,7 +5664,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             args.putBoolean("cancopy", true);
             args.putBoolean("similar", false);
 
-            FragmentDialogFolder fragment = new FragmentDialogFolder();
+            FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
             fragment.setArguments(args);
             fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_MESSAGE_MOVE);
             fragment.show(parentFragment.getParentFragmentManager(), "message:move");

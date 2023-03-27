@@ -1771,7 +1771,7 @@ public class FragmentMessages extends FragmentBase
                         aargs.putLongArray("disabled", new long[]{});
                         aargs.putSerializable("criteria", criteria);
 
-                        FragmentDialogFolder fragment = new FragmentDialogFolder();
+                        FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
                         fragment.setArguments(aargs);
                         fragment.setTargetFragment(FragmentMessages.this, REQUEST_SEARCH);
                         fragment.show(getParentFragmentManager(), "messages:search");
@@ -2122,7 +2122,7 @@ public class FragmentMessages extends FragmentBase
                                 args.putBoolean("filter_archive", filter_archive);
                                 args.putLongArray("disabled", new long[]{folder});
 
-                                FragmentDialogFolder fragment = new FragmentDialogFolder();
+                                FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
                                 fragment.setArguments(args);
                                 fragment.setTargetFragment(FragmentMessages.this, REQUEST_THREAD_MOVE);
                                 fragment.show(getParentFragmentManager(), "overscroll:move");
@@ -3234,7 +3234,7 @@ public class FragmentMessages extends FragmentBase
             args.putBoolean("copy", false);
             args.putBoolean("similar", true);
 
-            FragmentDialogFolder fragment = new FragmentDialogFolder();
+            FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
             fragment.setArguments(args);
             fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGE_MOVE);
             fragment.show(getParentFragmentManager(), "swipe:move");
@@ -4418,7 +4418,7 @@ public class FragmentMessages extends FragmentBase
         args.putLongArray("disabled", Helper.toLongArray(disabled));
         args.putLongArray("messages", getSelection());
 
-        FragmentDialogFolder fragment = new FragmentDialogFolder();
+        FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
         fragment.setArguments(args);
         fragment.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_MOVE);
         fragment.show(getParentFragmentManager(), "messages:move");

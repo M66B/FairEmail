@@ -468,7 +468,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     args.putLongArray("disabled", new long[]{rule.folder});
                     args.putLong("rule", rule.id);
 
-                    FragmentDialogFolder fragment = new FragmentDialogFolder();
+                    FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
                     fragment.setArguments(args);
                     fragment.setTargetFragment(parentFragment, FragmentRules.REQUEST_MOVE);
                     fragment.show(parentFragment.getParentFragmentManager(), "rule:move");

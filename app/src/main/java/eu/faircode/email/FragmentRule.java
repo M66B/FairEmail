@@ -536,7 +536,7 @@ public class FragmentRule extends FragmentBase {
                         args.putLong("account", account);
                         args.putLongArray("disabled", new long[]{});
 
-                        FragmentDialogFolder fragment = new FragmentDialogFolder();
+                        FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
                         fragment.setArguments(args);
                         fragment.setTargetFragment(FragmentRule.this, REQUEST_FOLDER);
                         fragment.show(getParentFragmentManager(), "rule:folder");
