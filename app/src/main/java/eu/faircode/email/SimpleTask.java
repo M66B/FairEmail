@@ -25,6 +25,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.text.Spanned;
 import android.view.ContextThemeWrapper;
 
 import androidx.annotation.NonNull;
@@ -166,6 +167,12 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
     private void run(final Context context, final LifecycleOwner owner, final Bundle args, final String name) {
         this.name = name;
         this.started = new Date().getTime();
+
+        for (String key : args.keySet()) {
+            Object value = args.get(key);
+            if (value instanceof Spanned)
+                args.putCharSequence(key, new SpannableStringBuilderEx((Spanned) value));
+        }
 
         if (owner instanceof TwoStateOwner)
             Log.e(new Throwable("SimpleTask/TwoStateOwner"));
