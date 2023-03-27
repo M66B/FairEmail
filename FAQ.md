@@ -181,7 +181,7 @@ The cause might be [changes in Android 7 Nougat](https://ericsink.com/entries/sq
 * &#x2714; ~~Pinch zoom~~
 * &#x2714; ~~More compact folder view~~
 * &#x2714; ~~Compose lists~~
-* &#x274C; ~~Compose tables~~ (the Android editor doesn't suppor tables)
+* &#x274C; ~~Compose tables~~ (the Android editor doesn't support tables)
 * &#x2714; ~~Pinch zoom text size~~
 * &#x2714; ~~Display GIFs~~
 * &#x2714; ~~Themes~~
