@@ -1325,7 +1325,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(FragmentCompose.this, args, "compose:contact");
+        }.serial().execute(FragmentCompose.this, args, "compose:contact");
     }
 
     private void updateEncryption(EntityIdentity identity) {
@@ -2045,7 +2045,7 @@ public class FragmentCompose extends FragmentBase {
                                 protected void onException(Bundle args, Throwable ex) {
                                     Log.unexpectedError(getParentFragmentManager(), ex);
                                 }
-                            }.execute(FragmentCompose.this, new Bundle(), "encrypt: fix");
+                            }.serial().execute(FragmentCompose.this, new Bundle(), "encrypt:fix");
                         }
                     })
                     .show();
@@ -2502,7 +2502,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
             }
-        }.execute(this, args, "openai");
+        }.serial().execute(this, args, "openai");
     }
 
     private void onTranslate(View anchor) {
@@ -2756,7 +2756,7 @@ public class FragmentCompose extends FragmentBase {
                     Log.unexpectedError(getParentFragmentManager(), exex, false);
                 }
             }
-        }.execute(this, args, "compose:lt");
+        }.serial().execute(this, args, "compose:lt");
     }
 
     private void onActionRecordAudio() {
@@ -3536,7 +3536,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 handleException(ex);
             }
-        }.execute(this, args, "compose:shared");
+        }.serial().execute(this, args, "compose:shared");
     }
 
     private List<Uri> getUris(Intent data) {
@@ -4524,7 +4524,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(this, args, "select:identity");
+        }.serial().execute(this, args, "select:identity");
     }
 
     private void onLinkSelected(Bundle args) {
@@ -4560,7 +4560,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
-        }.execute(FragmentCompose.this, args, "attachments:remove");
+        }.serial().execute(FragmentCompose.this, args, "attachments:remove");
     }
 
     private void onExit() {
