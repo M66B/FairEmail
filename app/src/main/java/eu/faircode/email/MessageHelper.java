@@ -155,7 +155,9 @@ import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.io.text.VCardWriter;
 import ezvcard.parameter.AddressType;
+import ezvcard.parameter.EmailType;
 import ezvcard.parameter.TelephoneType;
+import ezvcard.property.Email;
 
 public class MessageHelper {
     private boolean ensuredEnvelope = false;
@@ -1095,17 +1097,45 @@ public class MessageHelper {
                     if (identity.uri != null &&
                             Helper.hasPermission(context, Manifest.permission.READ_CONTACTS)) {
                         vcard = new VCard();
-                        vcard.addEmail(identity.email);
-                        if (!TextUtils.isEmpty(identity.name))
-                            vcard.setFormattedName(identity.name);
 
                         ContentResolver resolver = context.getContentResolver();
                         try (Cursor cursor = resolver.query(Uri.parse(identity.uri),
                                 new String[]{
-                                        ContactsContract.Contacts._ID
+                                        ContactsContract.Contacts._ID,
+                                        ContactsContract.Contacts.DISPLAY_NAME_PRIMARY,
                                 }, null, null, null)) {
                             if (cursor.moveToFirst()) {
                                 String contactId = cursor.getString(0);
+                                String display = cursor.getString(1);
+
+                                vcard.setFormattedName(display);
+
+                                try (Cursor email = resolver.query(ContactsContract.CommonDataKinds.Email.CONTENT_URI,
+                                        new String[]{
+                                                ContactsContract.CommonDataKinds.Email.TYPE,
+                                                ContactsContract.CommonDataKinds.Email.ADDRESS
+                                        },
+                                        ContactsContract.CommonDataKinds.Email.CONTACT_ID + " = ?",
+                                        new String[]{contactId}, null)) {
+                                    while (email.moveToNext()) {
+                                        int type = email.getInt(0);
+                                        String address = email.getString(1);
+
+                                        switch (type) {
+                                            case ContactsContract.CommonDataKinds.Email.TYPE_HOME:
+                                                vcard.addEmail(address, EmailType.HOME);
+                                                break;
+                                            case ContactsContract.CommonDataKinds.Email.TYPE_WORK:
+                                                vcard.addEmail(address, EmailType.WORK);
+                                                break;
+                                            case ContactsContract.CommonDataKinds.Email.TYPE_MOBILE:
+                                                vcard.addEmail(new Email(address));
+                                                break;
+                                        }
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
 
                                 try (Cursor address = resolver.query(ContactsContract.CommonDataKinds.StructuredPostal.CONTENT_URI,
                                         new String[]{
