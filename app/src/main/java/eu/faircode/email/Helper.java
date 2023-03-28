@@ -191,7 +191,8 @@ public class Helper {
     static final long MIN_REQUIRED_SPACE = 100 * 1000L * 1000L;
     static final long AUTH_AUTOCANCEL_TIMEOUT = 60 * 1000L; // milliseconds
     static final int AUTH_AUTOLOCK_GRACE = 15; // seconds
-    static final long PIN_FAILURE_DELAY = 3; // seconds
+    static final int PIN_FAILURE_DELAY = 3; // seconds
+    static final long PIN_FAILURE_DELAY_MAX = 20 * 60 * 1000L; // milliseconds
 
     static final String PGP_OPENKEYCHAIN_PACKAGE = "org.sufficientlysecure.keychain";
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
@@ -2926,11 +2927,13 @@ public class Helper {
                                         setAuthenticated(activity);
                                         ApplicationEx.getMainHandler().post(authenticated);
                                     } else {
-                                        int count = prefs.getInt("pin_failure_count", 0) + 1;
-                                        prefs.edit()
-                                                .putLong("pin_failure_at", new Date().getTime())
-                                                .putInt("pin_failure_count", count)
-                                                .apply();
+                                        if (!TextUtils.isEmpty(entered)) {
+                                            int count = prefs.getInt("pin_failure_count", 0) + 1;
+                                            prefs.edit()
+                                                    .putLong("pin_failure_at", new Date().getTime())
+                                                    .putInt("pin_failure_count", count)
+                                                    .apply();
+                                        }
                                         ApplicationEx.getMainHandler().post(cancelled);
                                     }
                                 }
@@ -2970,6 +2973,8 @@ public class Helper {
                         long pin_failure_at = prefs.getLong("pin_failure_at", 0);
                         int pin_failure_count = prefs.getInt("pin_failure_count", 0);
                         long wait = (long) Math.pow(PIN_FAILURE_DELAY, pin_failure_count) * 1000L;
+                        if (wait > PIN_FAILURE_DELAY_MAX)
+                            wait = PIN_FAILURE_DELAY_MAX;
                         long delay = pin_failure_at + wait - new Date().getTime();
                         Log.i("PIN wait=" + wait + " delay=" + delay);
                         dview.postDelayed(new Runnable() {
