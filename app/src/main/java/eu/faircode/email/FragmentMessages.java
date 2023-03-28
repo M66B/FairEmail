@@ -3374,7 +3374,10 @@ public class FragmentMessages extends FragmentBase
 
                 @Override
                 protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
-                    moveUndo(result);
+                    if (result == null || result.size() == 0)
+                        redraw(NO_POSITION);
+                    else
+                        moveUndo(result);
                 }
 
                 @Override
