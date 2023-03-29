@@ -1828,52 +1828,68 @@ public class StyleHelper {
                     .replace("'", "")
                     .replace("\"", ""));
 
-        if (faces.contains("fairemail"))
-            return ResourcesCompat.getFont(context.getApplicationContext(), R.font.fantasy);
+        try {
 
-        if (bundled_fonts) {
-            if (faces.contains("montserrat") ||
-                    faces.contains("gotham") ||
-                    faces.contains("proxima nova"))
-                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.montserrat);
+            if (faces.contains("fairemail"))
+                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.fantasy);
 
-            if (faces.contains("arimo") ||
-                    faces.contains("arial") ||
-                    faces.contains("verdana") ||
-                    faces.contains("helvetica") ||
-                    faces.contains("helvetica neue"))
-                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.arimo);
+            if (bundled_fonts) {
+                if (faces.contains("montserrat") ||
+                        faces.contains("gotham") ||
+                        faces.contains("proxima nova"))
+                    return ResourcesCompat.getFont(context.getApplicationContext(), R.font.montserrat);
 
-            if (faces.contains("tinos") ||
-                    faces.contains("times") ||
-                    faces.contains("times new roman"))
-                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.tinos);
+                if (faces.contains("arimo") ||
+                        faces.contains("arial") ||
+                        faces.contains("verdana") ||
+                        faces.contains("helvetica") ||
+                        faces.contains("helvetica neue"))
+                    return ResourcesCompat.getFont(context.getApplicationContext(), R.font.arimo);
 
-            if (faces.contains("cousine") ||
-                    faces.contains("courier") ||
-                    faces.contains("courier new"))
-                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.cousine);
+                if (faces.contains("tinos") ||
+                        faces.contains("times") ||
+                        faces.contains("times new roman"))
+                    return ResourcesCompat.getFont(context.getApplicationContext(), R.font.tinos);
 
-            if (faces.contains("lato") ||
-                    faces.contains("carlito") ||
-                    faces.contains("calibri"))
-                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.lato);
+                if (faces.contains("cousine") ||
+                        faces.contains("courier") ||
+                        faces.contains("courier new"))
+                    return ResourcesCompat.getFont(context.getApplicationContext(), R.font.cousine);
 
-            if (faces.contains("caladea") ||
-                    faces.contains("cambo") ||
-                    faces.contains("cambria"))
-                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.caladea);
+                if (faces.contains("lato") ||
+                        faces.contains("carlito") ||
+                        faces.contains("calibri"))
+                    return ResourcesCompat.getFont(context.getApplicationContext(), R.font.lato);
 
-            if (faces.contains("opendyslexic") ||
-                    faces.contains("comic sans") ||
-                    faces.contains("comic sans ms"))
-                return ResourcesCompat.getFont(context.getApplicationContext(), R.font.opendyslexic);
-        }
+                if (faces.contains("caladea") ||
+                        faces.contains("cambo") ||
+                        faces.contains("cambria"))
+                    return ResourcesCompat.getFont(context.getApplicationContext(), R.font.caladea);
 
-        for (String face : faces) {
-            Typeface tf = Typeface.create(face, Typeface.NORMAL);
-            if (!tf.equals(Typeface.DEFAULT))
-                return tf;
+                if (faces.contains("opendyslexic") ||
+                        faces.contains("comic sans") ||
+                        faces.contains("comic sans ms"))
+                    return ResourcesCompat.getFont(context.getApplicationContext(), R.font.opendyslexic);
+            }
+
+            for (String face : faces) {
+                Typeface tf = Typeface.create(face, Typeface.NORMAL);
+                if (!tf.equals(Typeface.DEFAULT))
+                    return tf;
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'java.lang.Object java.lang.reflect.Constructor.newInstance(java.lang.Object[])' on a null object reference
+                    at androidx.core.graphics.TypefaceCompatApi21Impl.newFamily(SourceFile:9)
+                    at androidx.core.graphics.TypefaceCompatApi21Impl.createFromFontFamilyFilesResourceEntry(SourceFile:1)
+                    at androidx.core.graphics.TypefaceCompat.createFromResourcesFamilyXml(SourceFile:86)
+                    at androidx.core.content.res.ResourcesCompat.loadFont(SourceFile:17)
+                    at androidx.core.content.res.ResourcesCompat.loadFont(SourceFile:3)
+                    at androidx.core.content.res.ResourcesCompat.getFont(SourceFile:2)
+                    at eu.faircode.email.StyleHelper.getTypeface(SourceFile:316)
+                    at eu.faircode.email.StyleHelper.getTypefaceSpan(SourceFile:7)
+             */
         }
 
         return Typeface.DEFAULT;
