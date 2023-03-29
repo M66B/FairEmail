@@ -723,15 +723,25 @@
                     app:layout_constraintTop_toBottomOf="@id/tvLanguageTool"
                     app:srcCompat="@drawable/twotone_info_24" />
 
+                <View
+                    android:id="@+id/vSeparatorDeepL"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibLanguageTool" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swDeepL"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_deepl"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibLanguageTool"
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorDeepL"
                     app:switchPadding="12dp" />
 
                 <TextView
@@ -773,15 +783,25 @@
                     app:layout_constraintTop_toBottomOf="@id/tvDeepLPrivacy"
                     app:srcCompat="@drawable/twotone_settings_24" />
 
+                <View
+                    android:id="@+id/vSeparatorVirusTotal"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibDeepL" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swVirusTotal"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_virus_total"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibDeepL"
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorVirusTotal"
                     app:switchPadding="12dp" />
 
                 <TextView
@@ -843,15 +863,25 @@
                     app:layout_constraintTop_toBottomOf="@id/tilVirusTotal"
                     app:srcCompat="@drawable/twotone_info_24" />
 
+                <View
+                    android:id="@+id/vSeparatorSend"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibVirusTotal" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swSend"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_send"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibVirusTotal"
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorSend"
                     app:switchPadding="12dp" />
 
                 <EditText
@@ -878,15 +908,25 @@
                     app:layout_constraintTop_toBottomOf="@id/etSend"
                     app:srcCompat="@drawable/twotone_info_24" />
 
+                <View
+                    android:id="@+id/vSeparatorOpenAi"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="24dp"
+                    android:background="?attr/colorSeparator"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ibSend" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swOpenAi"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="12dp"
                     android:text="@string/title_advanced_openai"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/ibSend"
+                    app:layout_constraintTop_toBottomOf="@id/vSeparatorOpenAi"
                     app:switchPadding="12dp" />
 
                 <TextView
