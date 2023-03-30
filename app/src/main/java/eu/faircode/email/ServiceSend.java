@@ -830,8 +830,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     throw new IOException("Test");
                 db.identity().setIdentityState(ident.id, "connected");
 
-                if (ident.max_size == null)
-                    max_size = iservice.getMaxSize();
+                max_size = iservice.getMaxSize();
 
                 List<Address> recipients = new ArrayList<>();
                 if (message.headers == null || !Boolean.TRUE.equals(message.resend)) {
@@ -961,8 +960,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             }
 
             // Update identity
-            if (max_size != null)
-                db.identity().setIdentityMaxSize(ident.id, max_size);
+            db.identity().setIdentityMaxSize(ident.id, max_size);
             db.identity().setIdentityConnected(ident.id, new Date().getTime());
             db.identity().setIdentityError(ident.id, null);
 
