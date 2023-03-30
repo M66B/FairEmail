@@ -1434,10 +1434,11 @@ public class HtmlHelper {
                             alt = context.getString(R.string.title_image_link);
                     }
                     if (!TextUtils.isEmpty(alt)) {
-                        Element span = document.createElement("span")
+                        Element a = document.createElement("a")
+                                .attr("href", src)
                                 .text("[" + alt + "]")
                                 .attr("x-font-size-abs", Integer.toString(textSizeSmall));
-                        img.appendChild(span);
+                        img.appendChild(a);
                     }
                 } else if (!TextUtils.isEmpty(alt)) {
                     Element a = document.createElement("a")
