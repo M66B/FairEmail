@@ -753,8 +753,13 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (UriHelper.isHyperLink(uri))
-                            prefs.edit().putBoolean(chost + ".sanitize", cbNotAgain.isChecked()).apply();
+                        if (chost != null &&
+                                cbNotAgain.getVisibility() == View.VISIBLE && cbNotAgain.isChecked())
+                            prefs.edit()
+                                    .putBoolean(chost + ".link_view", false)
+                                    .putBoolean(chost + ".link_sanitize",
+                                            cbSanitize.getVisibility() == View.VISIBLE && cbSanitize.isChecked())
+                                    .apply();
 
                         Uri theUri = Uri.parse(etLink.getText().toString());
                         Package pkg = (Package) spOpenWith.getSelectedItem();
@@ -772,6 +777,14 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 .setNeutralButton(R.string.title_browse, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        if (chost != null &&
+                                cbNotAgain.getVisibility() == View.VISIBLE && cbNotAgain.isChecked())
+                            prefs.edit()
+                                    .putBoolean(chost + ".link_view", true)
+                                    .putBoolean(chost + ".link_sanitize",
+                                            cbSanitize.getVisibility() == View.VISIBLE && cbSanitize.isChecked())
+                                    .apply();
+
                         // https://developer.android.com/training/basics/intents/sending#AppChooser
                         Uri theUri = Uri.parse(etLink.getText().toString());
                         Log.i("Open link with uri=" + theUri);

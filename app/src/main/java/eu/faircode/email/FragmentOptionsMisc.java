@@ -2256,7 +2256,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                     (key.startsWith("announcement.") && cbGeneral.isChecked()) ||
                                     (key.endsWith(".show_full") && cbFull.isChecked()) ||
                                     (key.endsWith(".show_images") && cbImages.isChecked()) ||
-                                    (key.endsWith(".confirm_link") && cbLinks.isChecked())) {
+                                    (key.endsWith(".confirm_link") && cbLinks.isChecked())||
+                                    (key.endsWith(".link_view") && cbLinks.isChecked())||
+                                    (key.endsWith(".link_sanitize") && cbLinks.isChecked())) {
                                 Log.i("Removing option=" + key);
                                 editor.remove(key);
                             }

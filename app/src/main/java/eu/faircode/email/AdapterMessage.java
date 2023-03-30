@@ -30,6 +30,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.RemoteAction;
+import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.ContentResolver;
@@ -6125,15 +6126,30 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     fragment.setArguments(args);
                     fragment.show(parentFragment.getParentFragmentManager(), "open:link");
                 } else {
-                    boolean sanitize = prefs.getBoolean(chost + ".sanitize", false);
-                    if (sanitize && UriHelper.isHyperLink(uri)) {
+                    boolean link_view = prefs.getBoolean(chost + ".link_view", false);
+                    boolean link_sanitize = prefs.getBoolean(chost + ".link_sanitize", false);
+
+                    if (link_sanitize && UriHelper.isHyperLink(uri)) {
                         Uri sanitized = UriHelper.sanitize(uri);
                         if (sanitized != null)
                             uri = sanitized;
                         Log.i("Open sanitized=" + uri);
                     }
-                    boolean tabs = prefs.getBoolean("open_with_tabs", true);
-                    Helper.view(context, UriHelper.guessScheme(uri), !tabs, !tabs);
+
+                    if (link_view) {
+                        Log.i("Open view=" + uri);
+                        Intent view = new Intent(Intent.ACTION_VIEW, UriHelper.fix(uri));
+                        Intent chooser = Intent.createChooser(view, context.getString(R.string.title_select_app));
+                        try {
+                            context.startActivity(chooser);
+                        } catch (ActivityNotFoundException ex) {
+                            Log.w(ex);
+                            Helper.view(context, uri, true, true);
+                        }
+                    } else {
+                        boolean tabs = prefs.getBoolean("open_with_tabs", true);
+                        Helper.view(context, UriHelper.guessScheme(uri), !tabs, !tabs);
+                    }
                 }
             }
 
