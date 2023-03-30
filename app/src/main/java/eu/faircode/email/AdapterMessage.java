@@ -6111,7 +6111,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return false;
 
                 boolean confirm_links = prefs.getBoolean("confirm_links", true);
-                Uri guri = UriHelper.guessScheme(uri);
 
                 String chost = FragmentDialogOpenLink.getConfirmHost(uri);
                 boolean sanitize_links = prefs.getBoolean("sanitize_links", false);
@@ -6126,6 +6125,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     fragment.setArguments(args);
                     fragment.show(parentFragment.getParentFragmentManager(), "open:link");
                 } else {
+                    boolean sanitize = prefs.getBoolean(chost + ".sanitize", false);
+                    if (sanitize && UriHelper.isHyperLink(uri)) {
+                        Uri sanitized = UriHelper.sanitize(uri);
+                        if (sanitized != null)
+                            uri = sanitized;
+                        Log.i("Open sanitized=" + uri);
+                    }
                     boolean tabs = prefs.getBoolean("open_with_tabs", true);
                     Helper.view(context, UriHelper.guessScheme(uri), !tabs, !tabs);
                 }

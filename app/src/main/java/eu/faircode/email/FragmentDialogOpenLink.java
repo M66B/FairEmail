@@ -753,11 +753,14 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Uri uri = Uri.parse(etLink.getText().toString());
+                        if (UriHelper.isHyperLink(uri))
+                            prefs.edit().putBoolean(chost + ".sanitize", cbNotAgain.isChecked()).apply();
+
+                        Uri theUri = Uri.parse(etLink.getText().toString());
                         Package pkg = (Package) spOpenWith.getSelectedItem();
-                        Log.i("Open link uri=" + uri + " with=" + pkg);
+                        Log.i("Open link uri=" + theUri + " with=" + pkg);
                         boolean tabs = (pkg != null && pkg.tabs);
-                        Helper.view(context, uri, !tabs, !tabs);
+                        Helper.view(context, theUri, !tabs, !tabs);
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
@@ -770,15 +773,15 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         // https://developer.android.com/training/basics/intents/sending#AppChooser
-                        Uri uri = Uri.parse(etLink.getText().toString());
-                        Log.i("Open link with uri=" + uri);
-                        Intent view = new Intent(Intent.ACTION_VIEW, UriHelper.fix(uri));
+                        Uri theUri = Uri.parse(etLink.getText().toString());
+                        Log.i("Open link with uri=" + theUri);
+                        Intent view = new Intent(Intent.ACTION_VIEW, UriHelper.fix(theUri));
                         Intent chooser = Intent.createChooser(view, context.getString(R.string.title_select_app));
                         try {
                             startActivity(chooser);
                         } catch (ActivityNotFoundException ex) {
                             Log.w(ex);
-                            Helper.view(context, uri, true, true);
+                            Helper.view(context, theUri, true, true);
                         }
                     }
                 })
