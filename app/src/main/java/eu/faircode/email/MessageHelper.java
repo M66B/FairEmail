@@ -2160,41 +2160,6 @@ public class MessageHelper {
         return (spf.trim().toLowerCase(Locale.ROOT).startsWith("pass"));
     }
 
-    boolean checkDKIMRequirements() throws MessagingException {
-        ensureHeaders();
-
-        // https://datatracker.ietf.org/doc/html/rfc6376/
-        String[] headers = imessage.getHeader("DKIM-Signature");
-        if (headers == null || headers.length < 1)
-            return false;
-
-        for (String header : headers) {
-            Map<String, String> kv = getKeyValues(MimeUtility.unfold(header));
-
-            // Algorithm
-            // https://tools.ietf.org/id/draft-ietf-dcrup-dkim-usage-03.html#rfc.section.4.3
-            String a = kv.get("a");
-            if ("rsa-sha1".equals(a))
-                return false;
-
-            // Hashed body length
-            Integer l = Helper.parseInt(kv.get("l"));
-            if (l != null && l == 0) {
-                Log.w("DKIM body length=" + l);
-                return false;
-            }
-
-            // Hashed header fields
-            String h = kv.get("h");
-            if (h == null) {
-                Log.w("DKIM header fields missing");
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     @NonNull
     List<String> verifyDKIM(Context context) {
         List<String> signers = new ArrayList<>();

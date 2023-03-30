@@ -3201,13 +3201,10 @@ class Core {
 
                         message.tls = helper.getTLS();
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
-                        if (Boolean.TRUE.equals(message.dkim)) {
-                            if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
-                                if (TextUtils.isEmpty(message.signedby))
-                                    message.dkim = false;
-                            } else
-                                message.dkim = helper.checkDKIMRequirements();
-                        }
+                        if (Boolean.TRUE.equals(message.dkim) &&
+                                native_dkim && !BuildConfig.PLAY_STORE_RELEASE &&
+                                TextUtils.isEmpty(message.signedby))
+                            message.dkim = false;
                         message.spf = MessageHelper.getAuthentication("spf", authentication);
                         if (message.spf == null && helper.getSPF())
                             message.spf = true;
@@ -4305,8 +4302,10 @@ class Core {
 
             message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
-            if (Boolean.TRUE.equals(message.dkim))
-                message.dkim = helper.checkDKIMRequirements();
+            if (Boolean.TRUE.equals(message.dkim) &&
+                    native_dkim && !BuildConfig.PLAY_STORE_RELEASE &&
+                    TextUtils.isEmpty(message.signedby))
+                message.dkim = false;
             message.spf = MessageHelper.getAuthentication("spf", authentication);
             if (message.spf == null && helper.getSPF())
                 message.spf = true;
