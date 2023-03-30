@@ -1396,7 +1396,6 @@ public class HtmlHelper {
             // Remove spacer, etc
             if (!show_images && !(inline_images && isInline) &&
                     TextUtils.isEmpty(img.attr("x-tracking"))) {
-                Log.i("Removing small image");
                 Integer width = Helper.parseInt(img.attr("width").trim());
                 Integer height = Helper.parseInt(img.attr("height").trim());
                 if (width != null && height != null) {
@@ -1407,6 +1406,7 @@ public class HtmlHelper {
                 }
                 if ((width != null && width <= SMALL_IMAGE_SIZE) ||
                         (height != null && height <= SMALL_IMAGE_SIZE)) {
+                    Log.i("Removing small image src=" + src);
                     img.remove();
                     continue;
                 }
