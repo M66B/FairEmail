@@ -98,6 +98,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.PublicKey;
 import java.security.Signature;
+import java.security.interfaces.RSAPublicKey;
 import java.security.spec.X509EncodedKeySpec;
 import java.text.Normalizer;
 import java.text.ParsePosition;
@@ -191,6 +192,7 @@ public class MessageHelper {
     private static final int FORMAT_FLOWED_LINE_LENGTH = 72; // characters
     private static final int MAX_DIAGNOSTIC = 250; // characters
     private static final int DKIM_MIN_TEXT = 100; // characters
+    private static final int DKIM_MIN_KEY_LENGTH = 1024; //  bits
 
     private static final String DKIM_SIGNATURE = "DKIM-Signature";
     private static final String ARC_SEAL = "ARC-Seal";
@@ -2438,6 +2440,17 @@ public class MessageHelper {
             KeyFactory keyFactory = KeyFactory.getInstance("RSA");
             PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
             Signature sig = Signature.getInstance(salgo); // a=
+
+            // https://stackoverflow.com/a/43984402/1794097
+            if (pubKey instanceof RSAPublicKey)
+                try {
+                    int keylen = ((RSAPublicKey) pubKey).getModulus().bitLength();
+                    Log.i("DKIM RSA pubkey length=" + keylen);
+                    if (keylen < DKIM_MIN_KEY_LENGTH)
+                        throw new IllegalArgumentException("RSA pubkey length " + keylen + " < " + DKIM_MIN_KEY_LENGTH);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
 
             String hash = kv.get("b");
             if (hash == null)
