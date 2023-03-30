@@ -417,7 +417,7 @@ configurations.all {
         } else if (details.requested.group == "androidx.lifecycle" &&
                 details.requested.name != "lifecycle-extensions") {
             print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
-            details.useVersion "2.6.0"
+            details.useVersion "2.6.1"
         } else if (details.requested.group == "org.apache.poi") {
             print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
             details.useVersion "3.17"
