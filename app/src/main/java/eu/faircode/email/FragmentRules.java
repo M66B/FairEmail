@@ -46,6 +46,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.OnLifecycleEvent;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -87,7 +88,9 @@ public class FragmentRules extends FragmentBase {
     private static final int REQUEST_EXPORT = 1;
     private static final int REQUEST_IMPORT = 2;
     static final int REQUEST_MOVE = 3;
-    private static final int REQUEST_CLEAR = 4;
+    static final int REQUEST_RULE_COPY_ACCOUNT = 4;
+    static final int REQUEST_RULE_COPY_FOLDER = 5;
+    private static final int REQUEST_CLEAR = 6;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -209,6 +212,14 @@ public class FragmentRules extends FragmentBase {
                 case REQUEST_MOVE:
                     if (resultCode == RESULT_OK && data != null)
                         onMove(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_RULE_COPY_ACCOUNT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onRuleCopyAccount(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_RULE_COPY_FOLDER:
+                    if (resultCode == RESULT_OK && data != null)
+                        onRuleCopyFolder(data.getBundleExtra("args"));
                     break;
                 case REQUEST_CLEAR:
                     if (resultCode == RESULT_OK && data != null)
@@ -603,6 +614,28 @@ public class FragmentRules extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rule:move");
+    }
+
+    private void onRuleCopyAccount(Bundle args) {
+        args.putString("title", getString(R.string.title_copy_to));
+        args.putLongArray("disabled", new long[0]);
+        args.putBoolean("cancopy", false);
+
+        FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_RULE_COPY_FOLDER);
+        fragment.show(getParentFragmentManager(), "rule:copy:folder");
+    }
+
+    private void onRuleCopyFolder(Bundle args) {
+        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+        lbm.sendBroadcast(
+                new Intent(ActivityView.ACTION_EDIT_RULE)
+                        .putExtra("id", args.getLong("rule"))
+                        .putExtra("account", args.getLong("account"))
+                        .putExtra("folder", args.getLong("folder"))
+                        .putExtra("protocol", args.getInt("protocol"))
+                        .putExtra("copy", true));
     }
 
     private void onClear(Bundle args) {

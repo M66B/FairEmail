@@ -475,14 +475,14 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                 }
 
                 private void onActionCopy() {
-                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                    lbm.sendBroadcast(
-                            new Intent(ActivityView.ACTION_EDIT_RULE)
-                                    .putExtra("id", rule.id)
-                                    .putExtra("account", rule.account)
-                                    .putExtra("folder", rule.folder)
-                                    .putExtra("protocol", protocol)
-                                    .putExtra("copy", true));
+                    Bundle args = new Bundle();
+                    args.putLong("rule", rule.id);
+                    args.putInt("type", protocol); // account selector
+
+                    FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(parentFragment, FragmentRules.REQUEST_RULE_COPY_ACCOUNT);
+                    fragment.show(parentFragment.getParentFragmentManager(), "rule:copy:account");
                 }
             });
 
