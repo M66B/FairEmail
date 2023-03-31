@@ -81,7 +81,9 @@ public class CalendarHelper {
                         " OR " + CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ?)"
                         : CalendarContract.Calendars.CALENDAR_DISPLAY_NAME + " = ?") +
                         " AND " + CalendarContract.Events.UID_2445 + " = ?",
-                new String[]{selectedAccount, selectedName, uid},
+                selectedName == null
+                        ? new String[]{selectedAccount, selectedAccount, uid}
+                        : new String[]{selectedAccount, selectedName, uid},
                 null)) {
             if (cursor.moveToNext())
                 return cursor.getLong(0);
