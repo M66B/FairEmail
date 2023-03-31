@@ -1255,8 +1255,10 @@ public class FragmentRule extends FragmentBase {
 
                                 case EntityRule.TYPE_MOVE:
                                 case EntityRule.TYPE_COPY:
-                                    long target = jaction.optLong("target", -1);
-                                    showFolder(target);
+                                    if (copy < 0 || rule.account == account) {
+                                        long target = jaction.optLong("target", -1);
+                                        showFolder(target);
+                                    }
                                     if (type == EntityRule.TYPE_MOVE) {
                                         etMoveCreate.setText(jaction.optString("create"));
                                         cbMoveSeen.setChecked(jaction.optBoolean("seen"));
@@ -1265,12 +1267,14 @@ public class FragmentRule extends FragmentBase {
                                     break;
 
                                 case EntityRule.TYPE_ANSWER:
-                                    long identity = jaction.optLong("identity", -1);
-                                    for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
-                                        if (adapterIdentity.getItem(pos).id.equals(identity)) {
-                                            spIdent.setSelection(pos);
-                                            break;
-                                        }
+                                    if (copy < 0 || rule.account == account) {
+                                        long identity = jaction.optLong("identity", -1);
+                                        for (int pos = 0; pos < adapterIdentity.getCount(); pos++)
+                                            if (adapterIdentity.getItem(pos).id.equals(identity)) {
+                                                spIdent.setSelection(pos);
+                                                break;
+                                            }
+                                    }
 
                                     long answer = jaction.optLong("answer", -1);
                                     for (int pos = 1; pos < adapterAnswer.getCount(); pos++)
