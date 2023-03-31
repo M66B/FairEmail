@@ -495,29 +495,41 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spMessageSize" />
 
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_date"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
+
         <Button
             android:id="@+id/btnAfter"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
             android:minWidth="120dp"
             android:text="@string/title_search_with_after"
             app:layout_constraintEnd_toStartOf="@id/btnBefore"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvDate" />
 
         <Button
             android:id="@+id/btnBefore"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
             android:minWidth="120dp"
             android:text="@string/title_search_with_before"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnAfter"
-            app:layout_constraintTop_toBottomOf="@id/tvSizeHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvDate" />
 
         <TextView
             android:id="@+id/tvAfter"
@@ -559,6 +571,6 @@
             app:constraint_referenced_ids="
             cbSearchIndex,tvSearchIndexHint,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,tvSearchTextHint,tvSearchTextUnsupported,cbNotes,
             tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments,
-            btnAfter,btnBefore,tvBefore,tvAfter,cbSearchDevice" />
+            tvDate,btnAfter,btnBefore,tvBefore,tvAfter,cbSearchDevice" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
