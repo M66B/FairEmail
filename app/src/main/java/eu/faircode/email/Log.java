@@ -2698,11 +2698,30 @@ public class Log {
                 size += write(os, "Connected=" + state.isConnected() + "\r\n");
                 size += write(os, "Suitable=" + state.isSuitable() + "\r\n");
                 size += write(os, "Unmetered=" + state.isUnmetered() + "\r\n");
-                size += write(os, "Roaming=" + state.isRoaming() + "\r\n\r\n");
+                size += write(os, "Roaming=" + state.isRoaming() + "\r\n");
+                size += write(os, "\r\n");
 
                 size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n");
                 size += write(os, "Data saving=" + ConnectionHelper.isDataSaving(context) + "\r\n");
                 size += write(os, "Airplane=" + ConnectionHelper.airplaneMode(context) + "\r\n");
+                size += write(os, "\r\n");
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean metered = prefs.getBoolean("metered", true);
+                boolean roaming = prefs.getBoolean("roaming", true);
+                boolean rlah = prefs.getBoolean("rlah", true);
+                boolean standalone_vpn = prefs.getBoolean("standalone_vpn", false);
+                boolean require_validated = prefs.getBoolean("require_validated", false);
+                boolean require_validated_captive = prefs.getBoolean("require_validated_captive", true);
+                boolean vpn_only = prefs.getBoolean("vpn_only", false);
+
+                size += write(os, "metered=" + metered + (metered ? "" : " !!!") + "\r\n");
+                size += write(os, "roaming=" + roaming + (roaming ? "" : " !!!") + "\r\n");
+                size += write(os, "rlah=" + rlah + (rlah ? "" : " !!!") + "\r\n");
+                size += write(os, "standalone_vpn=" + standalone_vpn + (standalone_vpn ? " !!!" : "") + "\r\n");
+                size += write(os, "validated=" + require_validated + (require_validated ? " !!!" : "") + "\r\n");
+                size += write(os, "validated/captive=" + require_validated_captive + (require_validated_captive ? "" : " !!!") + "\r\n");
+                size += write(os, "vpn_only=" + vpn_only + (vpn_only ? " !!!" : "") + "\r\n");
 
                 size += write(os, "\r\n");
                 size += write(os, getCiphers().toString());
