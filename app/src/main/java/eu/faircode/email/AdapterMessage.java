@@ -3733,6 +3733,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (attachment.available && "text/calendar".equals(attachment.getMimeType())) {
                             File file = attachment.getFile(context);
                             ICalendar icalendar = Biweekly.parse(file).first();
+                            CalendarScale scale = (icalendar.getCalendarScale() == null
+                                    ? CalendarScale.gregorian()
+                                    : icalendar.getCalendarScale());
                             VEvent event = icalendar.getEvents().get(0);
 
                             if (action == R.id.ibCalendar) {
@@ -3912,7 +3915,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             // https://icalendar.org/validator.html
                             ICalendar response = new ICalendar();
-                            response.setCalendarScale(CalendarScale.gregorian());
+                            response.setCalendarScale(scale);
                             response.setMethod(Method.REPLY);
                             response.addEvent(ev);
 
