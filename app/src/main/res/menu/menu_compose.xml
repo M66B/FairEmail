@@ -131,6 +131,12 @@
             android:icon="@drawable/twotone_format_clear_24"
             android:title="@string/title_style_clear"
             app:showAsAction="never" />
+
+        <item
+            android:id="@+id/menu_print"
+            android:icon="@drawable/twotone_print_24"
+            android:title="@string/title_print"
+            app:showAsAction="never" />
     </group>
 
     <item

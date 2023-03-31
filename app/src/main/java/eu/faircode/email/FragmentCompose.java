@@ -325,10 +325,11 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_OPENPGP = 10;
     private static final int REQUEST_CONTACT_GROUP = 11;
     private static final int REQUEST_SELECT_IDENTITY = 12;
-    private static final int REQUEST_LINK = 13;
-    private static final int REQUEST_DISCARD = 14;
-    private static final int REQUEST_SEND = 15;
-    private static final int REQUEST_REMOVE_ATTACHMENTS = 16;
+    private static final int REQUEST_PRINT = 13;
+    private static final int REQUEST_LINK = 14;
+    private static final int REQUEST_DISCARD = 15;
+    private static final int REQUEST_SEND = 16;
+    private static final int REQUEST_REMOVE_ATTACHMENTS = 17;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -1804,6 +1805,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_answer_insert).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_answer_create).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_clear).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_print).setEnabled(state == State.LOADED);
 
         SpannableStringBuilder ssbZoom = new SpannableStringBuilder(getString(R.string.title_zoom));
         ssbZoom.append(' ');
@@ -1961,6 +1963,9 @@ public class FragmentCompose extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_clear) {
             StyleHelper.apply(R.id.menu_clear, getViewLifecycleOwner(), null, etBody);
+            return true;
+        } else if (itemId == R.id.menu_print) {
+            onMenuPrint();
             return true;
         } else if (itemId == R.id.menu_legend) {
             onMenuLegend();
@@ -2379,6 +2384,66 @@ public class FragmentCompose extends FragmentBase {
         fragment.setArguments(new Bundle());
         fragment.setTargetFragment(this, REQUEST_SELECT_IDENTITY);
         fragment.show(getParentFragmentManager(), "select:identity");
+    }
+
+    private void onMenuPrint() {
+        Bundle extras = new Bundle();
+        extras.putBoolean("silent", true);
+        onAction(R.id.action_save, extras, "paragraph");
+
+        CharSequence selected = null;
+        int start = etBody.getSelectionStart();
+        int end = etBody.getSelectionEnd();
+
+        if (start < 0)
+            start = 0;
+        if (end < 0)
+            end = 0;
+
+        if (start != end) {
+            if (start > end) {
+                int tmp = start;
+                start = end;
+                end = tmp;
+            }
+
+            selected = etBody.getText().subSequence(start, end);
+        }
+
+        Bundle args = new Bundle();
+        args.putLong("id", working);
+        args.putBoolean("headers", false);
+        args.putCharSequence("selected", selected);
+        args.putBoolean("draft", true);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                // Do nothing: serialize
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void dummy) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                if (prefs.getBoolean("print_html_confirmed", false)) {
+                    Intent data = new Intent();
+                    data.putExtra("args", args);
+                    onActivityResult(REQUEST_PRINT, RESULT_OK, data);
+                    return;
+                }
+
+                FragmentDialogPrint ask = new FragmentDialogPrint();
+                ask.setArguments(args);
+                ask.setTargetFragment(FragmentCompose.this, REQUEST_PRINT);
+                ask.show(getParentFragmentManager(), "compose:print");
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.serial().execute(this, args, "compose:print");
     }
 
     private void onOpenAi() {
@@ -3027,6 +3092,10 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_SELECT_IDENTITY:
                     if (resultCode == RESULT_OK && data != null)
                         onSelectIdentity(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_PRINT:
+                    if (resultCode == RESULT_OK && data != null)
+                        onPrint(data.getBundleExtra("args"));
                     break;
                 case REQUEST_LINK:
                     if (resultCode == RESULT_OK && data != null)
@@ -4525,6 +4594,10 @@ public class FragmentCompose extends FragmentBase {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.serial().execute(this, args, "select:identity");
+    }
+
+    private void onPrint(Bundle args) {
+        FragmentDialogPrint.print((ActivityBase) getActivity(), getParentFragmentManager(), args);
     }
 
     private void onLinkSelected(Bundle args) {

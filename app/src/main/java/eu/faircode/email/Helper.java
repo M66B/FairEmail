@@ -1688,6 +1688,12 @@ public class Helper {
                     continue;
                 }
 
+                if (instance instanceof FragmentDialogPrint &&
+                        WebView.class.isAssignableFrom(type)) {
+                    Log.i(fname + " clear skip");
+                    continue;
+                }
+
                 if (View.class.isAssignableFrom(type) ||
                         Animator.class.isAssignableFrom(type) ||
                         Snackbar.class.isAssignableFrom(type) ||

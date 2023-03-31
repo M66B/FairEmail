@@ -9,6 +9,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### Next version
 
 * Added linking contacts to identities to attach vCards
+* Added draft message printing
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated [translations](https://crowdin.com/project/open-source-email)
