@@ -835,6 +835,7 @@ public class FragmentRule extends FragmentBase {
                 RefData data = new RefData();
 
                 DB db = DB.getInstance(context);
+                data.account = db.account().getAccount(aid);
                 data.folder = db.folder().getFolder(fid);
                 data.identities = db.identity().getSynchronizingIdentities(aid);
                 data.answers = db.answer().getAnswers(false);
@@ -844,7 +845,9 @@ public class FragmentRule extends FragmentBase {
 
             @Override
             protected void onExecuted(Bundle args, RefData data) {
-                tvFolder.setText(data.folder.getDisplayName(getContext()));
+                tvFolder.setText(String.format("%s:%s",
+                        data.account == null ? "" : data.account.name,
+                        data.folder.getDisplayName(getContext())));
 
                 adapterIdentity.clear();
                 adapterIdentity.addAll(data.identities);
@@ -1673,6 +1676,7 @@ public class FragmentRule extends FragmentBase {
     }
 
     private static class RefData {
+        EntityAccount account;
         EntityFolder folder;
         List<EntityIdentity> identities;
         List<EntityAnswer> answers;
