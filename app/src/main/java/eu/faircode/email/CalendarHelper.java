@@ -40,6 +40,8 @@ import java.util.TimeZone;
 import biweekly.ICalVersion;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
+import biweekly.io.TimezoneAssignment;
+import biweekly.io.TimezoneInfo;
 import biweekly.io.WriteContext;
 import biweekly.io.scribe.property.RecurrenceRuleScribe;
 import biweekly.parameter.ParticipationStatus;
@@ -98,7 +100,7 @@ public class CalendarHelper {
         if (!TextUtils.isEmpty(uid)) {
             Long existId = exists(context, selectedAccount, selectedName, uid);
             if (existId != null) {
-                EntityLog.log(context, EntityLog.Type.General, message, "Exists uid=" + uid + " id=" + existId);
+                EntityLog.log(context, EntityLog.Type.General, message, "Event exists uid=" + uid + " id=" + existId);
                 return existId;
             }
         }
@@ -155,11 +157,20 @@ public class CalendarHelper {
                     values.put(CalendarContract.Events.UID_2445, uid);
                 if (!TextUtils.isEmpty(organizer))
                     values.put(CalendarContract.Events.ORGANIZER, organizer);
-                values.put(CalendarContract.Events.EVENT_TIMEZONE, TimeZone.getDefault().getID());
+
+                // Assume one time zone
+                TimezoneInfo tzinfo = icalendar.getTimezoneInfo();
+                TimezoneAssignment tza = (tzinfo == null ? null : tzinfo.getTimezone(event.getDateStart()));
+                TimeZone tz = (tza == null ? null : tza.getTimeZone());
+                if (tz != null)
+                    values.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getID());
+
                 values.put(CalendarContract.Events.DTSTART, start.getTime());
                 values.put(CalendarContract.Events.DTEND, end.getTime());
+
                 if (rrule != null)
                     values.put(CalendarContract.Events.RRULE, rrule);
+
                 if (!TextUtils.isEmpty(summary))
                     values.put(CalendarContract.Events.TITLE, summary);
                 if (!TextUtils.isEmpty(description))
@@ -174,7 +185,7 @@ public class CalendarHelper {
                         " id=" + calId + ":" + eventId +
                         " uid=" + uid +
                         " organizer=" + organizer +
-                        " tz=" + TimeZone.getDefault().getID() +
+                        " tz=" + (tz == null ? null : tz.getID()) +
                         " start=" + new Date(start.getTime()) +
                         " end=" + new Date(end.getTime()) +
                         " rrule=" + rrule +
