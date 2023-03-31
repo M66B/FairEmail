@@ -7257,13 +7257,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             int start = tvBody.getSelectionStart();
             int end = tvBody.getSelectionEnd();
-            if (start == end)
-                return null;
 
             if (start < 0)
                 start = 0;
             if (end < 0)
                 end = 0;
+
+            if (start == end)
+                return null;
 
             if (start > end) {
                 int tmp = start;
