@@ -21,6 +21,10 @@ package eu.faircode.email;
 
 import android.text.SpannableStringBuilder;
 
+import androidx.annotation.Nullable;
+
+import java.lang.reflect.Array;
+
 public class SpannableStringBuilderEx extends SpannableStringBuilder {
     public SpannableStringBuilderEx() {
         super();
@@ -65,6 +69,81 @@ public class SpannableStringBuilderEx extends SpannableStringBuilder {
                         at android.os.Looper.loop(Looper.java:236)
                         at android.app.ActivityThread.main(ActivityThread.java:7861)
              */
+            /*
+                java.lang.IndexOutOfBoundsException: setSpan (196 ... 203) ends beyond length 202
+                        at android.text.SpannableStringBuilder.checkRange(SpannableStringBuilder.java:1326)
+                        at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:685)
+                        at android.text.SpannableStringBuilder.setSpan(SpannableStringBuilder.java:677)
+                        at androidx.emoji2.text.SpannableBuilder.setSpan(SourceFile:18)
+                        at android.widget.Editor$SuggestionsPopupWindow.updateSuggestions(Editor.java:4123)
+             */
+        }
+    }
+
+    @Override
+    public <T> T[] getSpans(int queryStart, int queryEnd, @Nullable Class<T> kind) {
+        try {
+            return super.getSpans(queryStart, queryEnd, kind);
+        } catch (Throwable ex) {
+            /*
+                java.lang.ArrayIndexOutOfBoundsException: length=...; index=...
+                        at android.text.SpannableStringBuilder.getSpansRec(SpannableStringBuilder.java:984)
+                        at android.text.SpannableStringBuilder.getSpansRec(SpannableStringBuilder.java:988)
+                        at android.text.SpannableStringBuilder.getSpans(SpannableStringBuilder.java:877)
+                        at android.text.SpannableStringBuilder.getSpans(SpannableStringBuilder.java:847)
+                        at androidx.emoji2.text.SpannableBuilder.getSpans(SpannableBuilder:160)
+             */
+            /*
+                java.lang.ArrayStoreException: android.text.Selection$START cannot be stored in an array of type android.text.style.CharacterStyle[]
+                        at android.text.SpannableStringBuilder.getSpansRec(SpannableStringBuilder.java:987)
+                        at android.text.SpannableStringBuilder.getSpansRec(SpannableStringBuilder.java:991)
+                        at android.text.SpannableStringBuilder.getSpansRec(SpannableStringBuilder.java:991)
+                        at android.text.SpannableStringBuilder.getSpansRec(SpannableStringBuilder.java:954)
+                        at android.text.SpannableStringBuilder.getSpans(SpannableStringBuilder.java:880)
+                        at android.text.SpannableStringBuilder.getSpans(SpannableStringBuilder.java:849)
+                        at androidx.emoji2.text.SpannableBuilder.getSpans(SpannableBuilder:160)
+             */
+            Log.e(ex);
+            return (T[]) Array.newInstance(kind, 0);
+        }
+    }
+
+    @Override
+    public SpannableStringBuilder replace(int start, int end, CharSequence tb, int tbstart, int tbend) {
+        try {
+            // https://issuetracker.google.com/issues/233525229
+            return super.replace(start, end, tb, tbstart, tbend);
+        } catch (Throwable ex) {
+            /*
+                java.lang.IllegalArgumentException: Invalid offset: 95. Valid range is [0, 53]
+                        at android.text.method.WordIterator.checkOffsetIsValid(WordIterator.java:401)
+                        at android.text.method.WordIterator.isBoundary(WordIterator.java:101)
+                        at android.widget.Editor$SelectionHandleView.positionAtCursorOffset(Editor.java:6044)
+                        at android.widget.Editor$HandleView.invalidate(Editor.java:4881)
+                        at android.widget.Editor$SelectionModifierCursorController.invalidateHandles(Editor.java:6906)
+                        at android.widget.Editor.invalidateHandlesAndActionMode(Editor.java:2241)
+                        at android.widget.TextView.spanChange(TextView.java:10979)
+                        at android.widget.TextView$ChangeWatcher.onSpanRemoved(TextView.java:13846)
+                        at android.text.SpannableStringBuilder.sendSpanRemoved(SpannableStringBuilder.java:1297)
+                        at android.text.SpannableStringBuilder.removeSpan(SpannableStringBuilder.java:502)
+                        at android.text.SpannableStringBuilder.removeSpan(SpannableStringBuilder.java:802)
+                        at android.text.SpannableStringBuilder.removeSpan(SpannableStringBuilder.java:790)
+                        at androidx.emoji2.text.SpannableBuilder.removeSpan(SpannableBuilder:179)
+                        at android.widget.TextView.removeAdjacentSuggestionSpans(TextView.java:10774)
+                        at android.widget.Editor.updateSpellCheckSpans(Editor.java:1000)
+                        at android.widget.Editor.sendOnTextChanged(Editor.java:1610)
+                        at android.widget.TextView.sendOnTextChanged(TextView.java:10793)
+                        at android.widget.TextView.handleTextChanged(TextView.java:10904)
+                        at android.widget.TextView$ChangeWatcher.onTextChanged(TextView.java:13807)
+                        at android.text.SpannableStringBuilder.sendTextChanged(SpannableStringBuilder.java:1268)
+                        at android.text.SpannableStringBuilder.replace(SpannableStringBuilder.java:577)
+                        at androidx.emoji2.text.SpannableBuilder.replace(SpannableBuilder:315)
+                        at android.text.SpannableStringBuilder.insert(SpannableStringBuilder.java:226)
+                        at androidx.emoji2.text.SpannableBuilder.insert(SpannableBuilder:323)
+                        at androidx.emoji2.text.SpannableBuilder.insert(SpannableBuilder:49)
+             */
+            Log.e(ex);
+            return this;
         }
     }
 }
