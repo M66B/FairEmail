@@ -4,15 +4,18 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
+### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
-### Next version
+### 1.2060 - 2023-04-01
 
-* Added linking contacts to identities to attach vCards
 * Added draft message printing
+* Added copy filter rule to another account/folder
+* Added linking contacts to identities to attach vCards
 * Small improvements and minor bug fixes
-* Updated AndroidX
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
+
+### [Rahonavis](https://en.wikipedia.org/wiki/Rahonavis)
 
 ### 1.2059 - 2023-03-24
 

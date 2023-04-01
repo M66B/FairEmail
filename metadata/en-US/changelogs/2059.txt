@@ -4,15 +4,18 @@ Changelog
 
 For support you can use the contact form.
 
-Rahonavis
+Saltopus
 
-Next version
+1.2060 - 2023-04-01
 
-* Added linking contacts to identities to attach vCards
 * Added draft message printing
+* Added copy filter rule to another account/folder
+* Added linking contacts to identities to attach vCards
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
+
+Rahonavis
 
 1.2059 - 2023-03-24
 

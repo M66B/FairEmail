@@ -3,9 +3,9 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 2059 }
+def getVersionCode = { -> return 2060 }
 def getRevision = { -> return "a" }
-def getReleaseName = { -> return "Rahonavis" }
+def getReleaseName = { -> return "Saltopus" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
 def keystoreProperties = new Properties()
@@ -400,6 +400,7 @@ configurations.all {
     // Workaround https://issuetracker.google.com/issues/138441698
     // Support @69c481c39a17d4e1e44a4eb298bb81c48f226eef
     exclude group: "androidx.room", module: "room-runtime"
+
     // Workaround https://issuetracker.google.com/issues/134685570
     exclude group: "androidx.lifecycle", module: "lifecycle-livedata"
     exclude group: "androidx.lifecycle", module: "lifecycle-livedata-core"
