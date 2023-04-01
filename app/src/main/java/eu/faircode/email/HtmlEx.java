@@ -21,8 +21,6 @@ import static android.text.Html.TO_HTML_PARAGRAPH_LINES_CONSECUTIVE;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.text.Layout;
-import android.text.Spannable;
-import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
@@ -44,7 +42,6 @@ import android.text.style.SuperscriptSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
-import android.view.inputmethod.BaseInputConnection;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

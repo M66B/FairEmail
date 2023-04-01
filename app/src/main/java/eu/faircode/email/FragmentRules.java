@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import static android.app.Activity.RESULT_OK;
-
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 
 import android.content.ContentResolver;
