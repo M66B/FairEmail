@@ -2582,6 +2582,10 @@ You'll need to give a rule a name and you'll need to define the order in which a
 
 You can disable a rule and you can stop processing other rules after a rule has been executed, which can be used to create a *not* condition.
 
+Since version 1.2061 rules can be part of a named group.
+Group names will be displayed in the list of rules.
+If a rule is part of a group, stop processing means stop processing the group.
+
 Since version 1.2018 there is a rule option to run rules daily on messages older than defined.
 
 The following rule conditions are available:
