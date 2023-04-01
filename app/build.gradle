@@ -407,6 +407,8 @@ configurations.all {
     // lifecycle-livedata: ComputableLiveData, MediatorLiveData, Transformations
     // lifecycle-livedata-core: LiveData, MutableLiveData, Observer
     // paging-runtime: AsyncPagedListDiffer, LivePagedListBuilder, PagedListAdapter, PagedStorageDiffHelper
+
+    exclude group: "androidx.emoji2", module: "emoji2"
 }
 
 configurations.all {
