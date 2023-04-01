@@ -367,7 +367,7 @@
     <string name="title_advanced_send_chips">Mostrar endereço em bolhas</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Criar um novo rascunho de mensagem para endereços e arquivos compartilhados</string>
+    <string name="title_advanced_attach_new">Criar um novo rascunho de mensagem para endereços e arquivos compartilhados</string>
     <string name="title_advanced_answer_caption">Configurações do botão de resposta</string>
     <string name="title_advanced_answer_default">Pressionar brevemente o botão de resposta irá:</string>
     <string name="title_advanced_answer_action">Pressionar longamente o botão de resposta irá:</string>
@@ -742,7 +742,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo puder estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de e-mail ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_compose_color_hint">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">Caso contrário, adicione endereços ou arquivos compartilhados à mensagem de rascunho atual</string>
+    <string name="title_advanced_attach_new_hint">Caso contrário, adicione endereços ou arquivos compartilhados à mensagem de rascunho atual</string>
     <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_remove_signature_hint">Isso pode resultar em muito pouco ou muito texto sendo removido</string>
     <string name="title_advanced_metered_hint">Conexões limitadas são geralmente conexões móveis ou hotspots Wi-Fi pagos</string>
@@ -789,6 +789,7 @@
     <string name="title_advanced_sender_hint">A maioria dos provedores não permite endereços de remetente modificados</string>
     <string name="title_advanced_bcc_hint">O endereço não será mostrado, mas será adicionado no envio</string>
     <string name="title_advanced_internal_hint">Haverá um aviso quando for enviar para outro domínio</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Os detalhes do contato selecionado serão usados ​​para anexos vCard</string>
     <string name="title_advanced_e2e_encryption">Opções para criptografia de ponta a ponta</string>
     <string name="title_advanced_display_harmful_hint">Desativar esta opção pode prejudicar sua privacidade</string>
     <string name="title_advanced_display_hidden_hint">Isso pode resultar em textos estranhos e duplos</string>
@@ -837,6 +838,7 @@
     <string name="title_advanced_sender_regex">Regex para corresponder ao nome de usuário de endereços de e-mail recebidos</string>
     <string name="title_identity_reply_to">Resposta para o endereço</string>
     <string name="title_identity_internal">Nomes de domínio internos (separados por vírgula)</string>
+    <string name="title_identity_uri">Link de contato</string>
     <string name="title_identity_unicode">Permitir UTF-8 nos cabeçalhos da mensagem</string>
     <string name="title_identity_unicode_remark">A maioria dos servidores não suporta isso</string>
     <string name="title_identity_octetmime">Permitir 8BITMIME</string>

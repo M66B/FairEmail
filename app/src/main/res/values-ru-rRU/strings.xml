@@ -393,7 +393,7 @@
     <string name="title_advanced_send_chips">Показывать пузыри адреса</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Создавать новый черновик сообщения для общих адресов и файлов</string>
+    <string name="title_advanced_attach_new">Создавать новый черновик сообщения для общих адресов и файлов</string>
     <string name="title_advanced_answer_caption">Настройки кнопок ответа</string>
     <string name="title_advanced_answer_default">Короткое нажатие на кнопку ответа:</string>
     <string name="title_advanced_answer_action">Долгое нажатие на кнопку ответа:</string>
@@ -769,7 +769,7 @@
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
     <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
     <string name="title_advanced_compose_color_hint">Очень светлые или очень тёмные цвета сделают сообщение неразборчивым для получателя</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">В противном случае общие адреса или файлы добавляются к текущему черновику</string>
+    <string name="title_advanced_attach_new_hint">В противном случае общие адреса или файлы добавляются к текущему черновику</string>
     <string name="title_advanced_usenet_hint">Вставлять \"-- \" между текстом и подписью</string>
     <string name="title_advanced_remove_signature_hint">Может привести к слишком маленькому или большому убиранию текста</string>
     <string name="title_advanced_metered_hint">Лимитированные подключения — это обычно мобильные сети или платные Wi-Fi</string>
@@ -816,6 +816,7 @@
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_advanced_bcc_hint">Адрес не будет показан, но будет добавлен при отправке</string>
     <string name="title_advanced_internal_hint">Будет предупреждение при отправке на другой домен</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Данные выбранного контакта будут использоваться для вложений vCard</string>
     <string name="title_advanced_e2e_encryption">Настройки сквозного шифрования</string>
     <string name="title_advanced_display_harmful_hint">Отключение может навредить вашей конфиденциальности</string>
     <string name="title_advanced_display_hidden_hint">Может вызвать странное отображение и дублирование текста</string>
@@ -864,6 +865,7 @@
     <string name="title_advanced_sender_regex">Регулярное выражение для имени в адресе входящей электронной почты</string>
     <string name="title_identity_reply_to">Обратный адрес</string>
     <string name="title_identity_internal">Внутренние доменные имена (через запятую)</string>
+    <string name="title_identity_uri">Связать контакт</string>
     <string name="title_identity_unicode">Использовать UTF-8 в заголовках сообщений</string>
     <string name="title_identity_unicode_remark">Большинство серверов это не поддерживают</string>
     <string name="title_identity_octetmime">Использовать 8BITMIME</string>

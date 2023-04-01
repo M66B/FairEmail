@@ -368,7 +368,7 @@
     <string name="title_advanced_send_chips">Ünvan şarlarını göstər</string>
     <string name="title_advanced_send_reminders">Xatırladıcıları göstər</string>
     <string name="title_advanced_send_delayed">Göndərilən mesajların gecikməsi</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Paylaşılan ünvanlar və fayllar üçün yeni bir qaralama mesajı yaradın</string>
+    <string name="title_advanced_attach_new">Paylaşılan ünvanlar və fayllar üçün yeni bir qaralama mesajı yaradın</string>
     <string name="title_advanced_answer_caption">Cavab düyməsi tənzimləmələri</string>
     <string name="title_advanced_answer_default">Cavab düyməsinə qısa basanda:</string>
     <string name="title_advanced_answer_action">Cavab düyməsinə uzun basanda:</string>
@@ -743,7 +743,7 @@
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
     <string name="title_advanced_compose_color_hint">Çox açıq və ya çox tünd rənglər, alıcının mesajları oxuya bilməməsi ilə nəticələnir</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">Əks halda, paylaşılan ünvanları və ya faylları hazırkı qaralama mesajına əlavə edin</string>
+    <string name="title_advanced_attach_new_hint">Əks halda, paylaşılan ünvanları və ya faylları hazırkı qaralama mesajına əlavə edin</string>
     <string name="title_advanced_usenet_hint">Mətn və imza arasına \'-- \' əlavə et</string>
     <string name="title_advanced_remove_signature_hint">Bu, həddindən az və ya çox mətnin silinməsinə səbəb ola bilər</string>
     <string name="title_advanced_metered_hint">Ümumiyyətlə ölçülmüş bağlantılar, mobil və ya ödənişli Wi-Fi bağlantılarıdır</string>
@@ -790,6 +790,7 @@
     <string name="title_advanced_sender_hint">Əksər provayderlər göndərən ünvanını dəyişdirməyə icazə vermir</string>
     <string name="title_advanced_bcc_hint">Ünvan göstərilməyəcək, ancaq göndərişə əlavə ediləcək</string>
     <string name="title_advanced_internal_hint">Başqa bir domenə göndəriləndə bir xəbərdarlıq olacaq</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Seçilmiş kontaktın detalları vCard qoşmaları üçün istifadə olunacaq</string>
     <string name="title_advanced_e2e_encryption">Bir ucdan digər uca kimi şifrələmə üçün seçimlər</string>
     <string name="title_advanced_display_harmful_hint">Bu seçimi sıradan çıxartmaq, gizliliyiniz üçün zərərli ola bilər</string>
     <string name="title_advanced_display_hidden_hint">Bu, qəribə görünən və təkrarlanan mətnlərə səbəb ola bilər</string>
@@ -838,6 +839,7 @@
     <string name="title_advanced_sender_regex">Gələn e-poçt ünvanlarının istifadəçi adını uyğunlaşdırmaq üçün normal ifadə</string>
     <string name="title_identity_reply_to">Cavablama ünvanı</string>
     <string name="title_identity_internal">Daxili domen adları (vergüllə ayrılan)</string>
+    <string name="title_identity_uri">Kontaktı əlaqələndir</string>
     <string name="title_identity_unicode">Mesaj başlığında \"UTF-8\"ə icazə ver</string>
     <string name="title_identity_unicode_remark">Əksər server bunu dəstəkləmir</string>
     <string name="title_identity_octetmime">8BITMIME-ə icazə ver</string>

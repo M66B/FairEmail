@@ -18,6 +18,7 @@
     <string name="channel_notification">ایمیل</string>
     <string name="channel_progress">پیش رفتن</string>
     <string name="channel_update">به‌روزرسانی‌ها</string>
+    <string name="channel_announcements">اطلاعیه ها</string>
     <string name="channel_warning">هشدارها</string>
     <string name="channel_error">خطاها</string>
     <string name="channel_alert">هشدارهای سرور</string>

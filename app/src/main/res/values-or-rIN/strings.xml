@@ -246,6 +246,7 @@
     <string name="title_advanced_tabular_dividers">ଟାବୁଲାର୍ ଶୈଳୀ ଵ୍ୟଵହାର କଲାଵେଳେ ଵିଭାଜକ ରେଖା ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_date_header">ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_advanced_avatars">ସମ୍ପର୍କର ଫଟୋସବୁ ଦେଖାଇବା</string>
     <string name="title_advanced_gravatars">ଗ୍ରାଵତାରସବୁ ଦେଖାଇବା</string>
     <string name="title_advanced_libravatars">ଲିବ୍ରାଵତାରସବୁ ଦେଖାଇବା</string>
     <string name="title_advanced_favicons_partial">ୱେବ୍ ପୃଷ୍ଠାର କେବଳ ପ୍ରଥମ %1$s ସ୍କେନ୍ କରନ୍ତୁ</string>
@@ -348,6 +349,7 @@
     <string name="title_identity_tenant_hint">ଅଧିକାଂଶ ସ୍ଥିତିରେ ଏହି କ୍ଷେତ୍ର ଖାଲି ରହିବା ଉଚିତ୍</string>
     <string name="title_advanced_sender">ପ୍ରେରକଙ୍କ ଠିକଣା ସମ୍ପାଦନ କରିବା ଅନୁମତି ଦେବା</string>
     <string name="title_advanced_reply_name">ପ୍ରାପ୍ତ ହୋଇଥିବା ଵାର୍ତ୍ତାରୁ ନାମ କପି କରିନେବା</string>
+    <string name="title_identity_uri">ସମ୍ପର୍କକୁ ଲିଙ୍କ୍ କରିବା</string>
     <string name="title_identity_unicode_remark">ଅଧିକାଂଶ ସର୍ଵର୍ ଏହାକୁ ସମର୍ଥନ କରନ୍ତି ନାହିଁ</string>
     <string name="title_identity_max_size">ସର୍ବାଧିକ ବାର୍ତ୍ତା ଆକାର (MB)</string>
     <string name="title_identity_receipt">ଡିଫଲ୍ଟ ଭାଵେ ଵିତରଣ/ପଠନ ପାଉତି ଅନୁରୋଧ କରିବା</string>
@@ -419,6 +421,8 @@
     <string name="title_expunge_remark">ଏହା ବିଲୋପ ପାଇଁ ଚିହ୍ନିତ ସମସ୍ତ ବାର୍ତ୍ତାକୁ ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବ</string>
     <string name="title_empty_trash">ଆବର୍ଜନା ପାତ୍ର ଖାଲି କରନ୍ତୁ</string>
     <string name="title_edit_properties">ଗୁଣଧର୍ମ ସମ୍ପାଦନା</string>
+    <string name="title_insert_contact">ସମ୍ପର୍କ ଯୋଡ଼ନ୍ତୁ</string>
+    <string name="title_edit_contact">ସମ୍ପର୍କ ସମ୍ପାଦନା</string>
     <string name="title_contact_email">ଇମେଲ୍</string>
     <string name="title_contact_name">ନାମ</string>
     <string name="title_contact_group">ଗୋଷ୍ଠୀ</string>
@@ -652,6 +656,7 @@
     <string name="title_rule_name">ନାମ</string>
     <string name="title_rule_order">କ୍ରମ</string>
     <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
+    <string name="title_rule_sender_known">ପ୍ରେରକ ଜଣେ ସମ୍ପର୍କ ଅଟନ୍ତି</string>
     <string name="title_rule_body">ପାଠ୍ୟ ଧାରଣ କରେ</string>
     <string name="title_rule_body_remark">ଏହି ସର୍ତ୍ତ ଵ୍ୟଵହାର କରିବା ଦ୍ୱାରା ସର୍ଵଦା ଵାର୍ତ୍ତାର ପାଠ୍ୟ ଡାଉନଲୋଡ୍ ହେବ, ଯାହା ଵାର୍ତ୍ତା ତାଲିକାର ସିଙ୍କ୍ରୋନାଇଜେଶନ୍ ମନ୍ଥର କରିପାରେ</string>
     <string name="title_rule_time_every_day">ପ୍ରତିଦିନ</string>
@@ -690,6 +695,7 @@
     <string name="title_legend_sensitivity_private">ଘରୋଇ ଅଟେ</string>
     <string name="title_legend_sensitivity_confidential">ଗୋପନୀୟ ଅଟେ</string>
     <string name="title_legend_receipt">ପାଉତି ଅନୁରୋଧ କରାଯାଇଥିଲା</string>
+    <string name="title_legend_contacts">ସମ୍ପର୍କ ପରିଚାଳନା</string>
     <string name="title_legend_open_external">ଆପ୍ ବାହାରେ ଖୋଲନ୍ତୁ</string>
     <string name="title_legend_cc">CC/BCC ଦେଖାଅ</string>
     <string name="title_legend_link">ଲିଙ୍କ୍ ସନ୍ନିଵେଶ କର</string>
@@ -766,6 +772,7 @@
     <string name="title_accessibility_flagged">ତାରାଙ୍କିତ</string>
     <string name="title_accessibility_collapse">ସଙ୍କୋଚନ</string>
     <string name="title_accessibility_expand">ପ୍ରସାରଣ</string>
+    <string name="title_accessibility_view_contact">ସମ୍ପର୍କ ଦେଖନ୍ତୁ</string>
     <string name="title_accessibility_view_help">ସହାୟତା ଦେଖନ୍ତୁ</string>
     <string name="title_accessibility_edit">ସମ୍ପାଦନ</string>
     <string name="title_accessibility_attachment">ସଂଲଗ୍ନକରଣ</string>

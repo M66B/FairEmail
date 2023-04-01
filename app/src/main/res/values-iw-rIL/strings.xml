@@ -394,7 +394,7 @@
     <string name="title_advanced_send_chips">הצגת בועיות כתובות</string>
     <string name="title_advanced_send_reminders">הצגת תזכורות</string>
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">יצירת הודעת טיוטה לכתובות וקבצים משותפים</string>
+    <string name="title_advanced_attach_new">יצירת הודעת טיוטה לכתובות וקבצים משותפים</string>
     <string name="title_advanced_answer_caption">הגדרות כפתור מענה</string>
     <string name="title_advanced_answer_default">לחיצה קצרה על כפתור המענה:</string>
     <string name="title_advanced_answer_action">לחיצה ארוכה על כפתור המענה:</string>
@@ -769,7 +769,7 @@
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
     <string name="title_advanced_compose_color_hint">צבעים בהירים או כהים מדי יובילו להודעות בלתי קריאות בצד המקבל</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">אם לא, להוסיף כתובות או קבצים משותפים להודעת הטיוטה הנוכחית</string>
+    <string name="title_advanced_attach_new_hint">אם לא, להוסיף כתובות או קבצים משותפים להודעת הטיוטה הנוכחית</string>
     <string name="title_advanced_usenet_hint">להוסיף ‚--’ בין הטקסט והחתימה</string>
     <string name="title_advanced_remove_signature_hint">יכול להוביל למעט מדי או יותר מדי טקסט שיוסר</string>
     <string name="title_advanced_metered_hint">חיבורים מוגבלים הם בדרך כלל חיבורים סלולריים או רשת אלחוטית בתשלום</string>
@@ -816,6 +816,7 @@
     <string name="title_advanced_sender_hint">רוב הספקים לא מאפשרים כתובות מוען שעברו שינוי</string>
     <string name="title_advanced_bcc_hint">הכתובת לא תופיע אך תתווסף בעת השליחה</string>
     <string name="title_advanced_internal_hint">תופיע אזהרה בעת שליחה לשם תחום אחר</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">פרטי הקשר הנבחרים ישמשו כקובצי vCard מצורפים</string>
     <string name="title_advanced_e2e_encryption">אפשרויות להצפנה מקצה לקצה</string>
     <string name="title_advanced_display_harmful_hint">השבתת האפשרות הזאת עלולה לפגוע בפרטיות שלך</string>
     <string name="title_advanced_display_hidden_hint">יכול להוביל לטקסטים שנראים מוזר או משוכפלים</string>
@@ -864,6 +865,7 @@
     <string name="title_advanced_sender_regex">ביטוי רגולרי ללכידת שם המשתמש של כתובות דוא״ל נכנסות</string>
     <string name="title_identity_reply_to">כתובת למענה</string>
     <string name="title_identity_internal">שמות תחום פנימיים (עם פסיקים מפרידים)</string>
+    <string name="title_identity_uri">קישור פרטי קשר</string>
     <string name="title_identity_unicode">לאפשר UTF-8 בכותרות הודעות</string>
     <string name="title_identity_unicode_remark">רוב השרתים לא תומכים בזה</string>
     <string name="title_identity_octetmime">לאפשר 8BITMIME</string>

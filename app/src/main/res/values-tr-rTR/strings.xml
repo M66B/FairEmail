@@ -37,7 +37,7 @@
     </plurals>
     <string name="page_folders">Klasörler</string>
     <string name="page_compose">Eposta Oluştur</string>
-    <string name="tile_synchronize">Eşzamanlama</string>
+    <string name="tile_synchronize">Senkronize et</string>
     <string name="tile_unseen">Yeni iletiler</string>
     <string name="shortcut_refresh">Yenile</string>
     <string name="shortcut_compose">Eposta Oluştur</string>
@@ -218,7 +218,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_doze_why">Pil optimizasyonları neden devre dışı bırakılmalı?</string>
     <string name="title_setup_doze_instructions">Bir sonraki Android iletişim kutusunda \"Optimize edilmemiş\" i \"Tüm uygulamalar\" olarak değiştirin, bu uygulamayı seçin ve \"Optimize etme\" yi seçin</string>
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
-    <string name="title_setup_doze_stopped">Eşzamanlama durdu mu?</string>
+    <string name="title_setup_doze_stopped">Senkronizasyon durdu mu?</string>
     <string name="title_setup_doze_device">Bu muhtemelen bu cihaz için gereklidir</string>
     <string name="title_setup_alarm_12">Uygulama çalışmayacak</string>
     <string name="title_setup_inexact">Alarmlar &amp; hatırlatıcılar devre dışı bırakıldı</string>
@@ -341,7 +341,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_kept_removed">Eski iletilerin sunucudan kaldırılıp kaldırılmadığını denetleyin</string>
     <string name="title_advanced_gmail_thread">Gmail hesapları için Gmail stili gruplama</string>
     <string name="title_advanced_subject_threading">İletileri gönderene ve konuya göre gruplandır</string>
-    <string name="title_advanced_sync_folders">Klasör listesini eşzamanla</string>
+    <string name="title_advanced_sync_folders">Klasör listesini senkronize et</string>
     <string name="title_advanced_sync_folders_poll">Klasör listesini aktif olarak senkronize et</string>
     <string name="title_advanced_sync_shared_folders">Paylaşılan klasörlerin listesini senkronize et</string>
     <string name="title_advanced_sync_added">Yeni kullanıcı klasörleri için senkronizasyonu etkinleştir</string>
@@ -349,7 +349,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_check_authentication">Mesaj kimlik doğrulamasını kontrol et</string>
     <string name="title_advanced_check_tls">İletim katmanı güvenliğini (TLS) kontrol edin</string>
     <string name="title_advanced_check_reply_domain">Mesajları senkronize ederken yanıt adresini kontrol edin</string>
-    <string name="title_advanced_check_mx">İletilerin eşzamanlanmasında gönderen e-posta adreslerini kontrol et</string>
+    <string name="title_advanced_check_mx">İletilerin senkronizasyonunda gönderen e-posta adreslerini kontrol et</string>
     <string name="title_advanced_check_blocklist">Gönderenin alan adının spam engelleme listesinde olup olmadığını kontrol et</string>
     <string name="title_advanced_use_blocklist">Engellenenler listesindeki alanlardan gelen iletileri spam klasörüne taşıyın</string>
     <string name="title_advanced_use_blocklist_pop3">Engellenenler listesindeki alanlardan gelen mesajları atla (yalnızca POP3)</string>
@@ -366,13 +366,18 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_send_chips">Adres balonlarını göster</string>
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
+    <string name="title_advanced_attach_new">Paylaşılan adresler ve dosyalar için yeni bir taslak mesaj oluştur</string>
+    <string name="title_advanced_answer_caption">Cevap düğmesi ayarları</string>
     <string name="title_advanced_answer_default">Cevap düğmesine kısa basıldığında:</string>
     <string name="title_advanced_answer_action">Cevap düğmesine uzun basmak:</string>
+    <string name="title_advanced_answer_hint">Cevap düğmesi eylemleri, gönderme ayarları sekme sayfasında da yapılandırılabilir</string>
+    <string name="title_advanced_answer_warning">Bir seçim menüsü olmadan tüm eylemler mümkün değildir!</string>
     <string name="title_advanced_send_pending">Rahatsız edici olmayan gecikmeli gönderme simgesini göster</string>
     <string name="title_advanced_auto_save_paragraph">Her paragraftan sonra bir taslağı otomatik olarak kaydet</string>
     <string name="title_advanced_auto_save_dot">Her cümleden sonra bir taslağı otomatik olarak kaydet</string>
     <string name="title_advanced_compose_color">Varsayılan metin rengi</string>
     <string name="title_advanced_compose_font">Varsayılan yazı tipi</string>
+    <string name="title_advanced_compose_monospaced">Düz metin mesajları için tek aralıklı yazı tipini kullan</string>
     <string name="title_advanced_auto_identity">Yeni mesajlar için kimlikleri otomatik olarak seç</string>
     <string name="title_advanced_prefix_once">Önek konu sadece bir kez yanıtlarken veya yönlendirme</string>
     <string name="title_advanced_prefix_count">Yanıt önekine sayım ekle</string>
@@ -728,7 +733,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_check_tls_hint">Bu, yalnızca bir mesaj tüm sunucular tarafından güvenli bir şekilde taşınmışsa yeşil bir kalkan gösterecektir</string>
     <string name="title_advanced_check_reply_hint">Bu, gönderenin alan adının ve yanıt adresinin aynı olup olmadığını kontrol edecektir</string>
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
-    <string name="title_advanced_sync_delay_hint">Bu, iletilerin eşzamanlamasını yavaşlatır</string>
+    <string name="title_advanced_sync_delay_hint">Bu, iletilerin senkronizasyonunu yavaşlatır</string>
     <string name="title_advanced_folder_nav_hint">Bu, her zaman bir mesaj listesinden ilgili hesabın klasör listesine dönecektir</string>
     <string name="title_advanced_suggest_names_hint">Devre dışı bırakılırsa, kişileri seçerken yalnızca e-posta adresleri kullanılacaktır</string>
     <string name="title_advanced_suggest_local_hint">Android tarafından sağlanan kişilere ek olarak. Kişi verileri yeni gönderilen veya alınan mesajlar için yalnızca etkin olduğunda saklanacaktır.</string>
@@ -736,6 +741,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_send_reminders_hint">Mesaj metni veya konu boş olduğunda veya bir ek eksik olduğunda bir uyarı göster</string>
     <string name="title_advanced_reply_move_hint">E-posta sunucusu, iletileri gönderilen ileti klasörüne eklemeye devam edebilir</string>
     <string name="title_advanced_compose_color_hint">Çok açık veya çok koyu renkler, alıcı tarafında okunaksız mesajlara neden olur</string>
+    <string name="title_advanced_attach_new_hint">Aksi takdirde, paylaşılan adresleri veya dosyaları mevcut taslak mesaja ekle</string>
     <string name="title_advanced_usenet_hint">Metin ve imza arasına \'-- \' ekle</string>
     <string name="title_advanced_remove_signature_hint">Bu, çok az veya çok fazla metnin kaldırılmasına neden olabilir</string>
     <string name="title_advanced_metered_hint">Ölçülü bağlantılar genellikle mobil bağlantılar veya ücretli Wi-Fi noktalarıdır</string>
@@ -782,6 +788,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_advanced_bcc_hint">Adres gösterilmeyecek, ancak gönderime eklenecek</string>
     <string name="title_advanced_internal_hint">Başka bir alana gönderirken bir uyarı olacak</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Seçilen kişinin ayrıntıları vCard ekleri için kullanılacaktır</string>
     <string name="title_advanced_e2e_encryption">Uçtan uca şifreleme seçenekleri</string>
     <string name="title_advanced_display_harmful_hint">Bu seçeneği devre dışı bırakmak gizliliğiniz için zararlı olabilir</string>
     <string name="title_advanced_display_hidden_hint">Bu tuhaf görünümlü ve tekrarlanmış metinlere neden olabilir</string>
@@ -830,6 +837,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sender_regex">Gelen e-posta adreslerinin kullanıcı adı bölümünü eşleştirmek için düzenli ifade</string>
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
     <string name="title_identity_internal">Dahili alan adları (virgülle ayrılmış)</string>
+    <string name="title_identity_uri">Kişiyi bağla</string>
     <string name="title_identity_unicode">Mesaj başlıklarında UTF-8\'e izin ver</string>
     <string name="title_identity_unicode_remark">Çoğu sunucu bunu desteklemiyor</string>
     <string name="title_identity_octetmime">8BITMIME\'e izin ver</string>
@@ -919,7 +927,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_no_standard">Bu sağlayıcı, açık olmayan bir e-posta protokolü kullanıyor ve bu nedenle üçüncü taraf e-posta istemcilerini kullanmak mümkün değil</string>
     <string name="title_no_idle">Bu sağlayıcı anlık mesajları desteklemiyor. Bu, yeni mesajların alınmasını geciktirecek ve pil kullanımını artıracaktır.</string>
     <string name="title_no_utf8">Bu sağlayıcı UTF-8\'i desteklemiyor</string>
-    <string name="title_no_sync">%1$s\'den beri eşzamanlama hataları</string>
+    <string name="title_no_sync">%1$s\'den beri senkronizasyon hataları</string>
     <string name="title_reply_domain">Gönderen (%1$s) ve yanıtlama alan adı (%2$s) farklı</string>
     <string name="title_identity_required">İleti göndermek için bir kimlik gerekli</string>
     <string name="title_drafts_required">İleti göndermek için taslaklar klasörü gerekir</string>
@@ -961,7 +969,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
         Sınırlayıcı faktör genellikle cihazın dahili depolama alanının hızıdır.
        </string>
     <string name="title_synchronize_more_hint3">Cihazınızda çok sayıda (on bin veya daha fazla) mesaj saklamanın dahili depolama alanı sonsuz hızlı olmadığı için gecikmelere neden olabileceğini lütfen unutmayın.</string>
-    <string name="title_synchronize_enabled">Eşzamanlama</string>
+    <string name="title_synchronize_enabled">Senkronize et</string>
     <string name="title_synchronize_batch_enable">Senkronizasyonunu Etkinleştir</string>
     <string name="title_synchronize_batch_disable">Senkronizasyonunu Devre Dışı Bırak</string>
     <string name="title_notify_batch_enable">Yeni mesaj bildirimlerini etkinleştir</string>
@@ -1022,13 +1030,13 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>
     <string name="title_navigation_folder_hide">Gezinme menüsünde gizle</string>
     <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
-    <string name="title_poll_folder">Sürekli eşzamanlama yerine belirli aralıklarla bakın</string>
+    <string name="title_poll_folder">Sürekli senkronizasyon yerine belirli aralıklarla kontrol et</string>
     <string name="title_poll_folder_remark">Çoğu e-posta sunucusu push mesajlarına yalnızca birkaç klasör için izin verir!</string>
     <string name="title_download_folder">İleti metinlerini ve eklerini otomatik olarak indir</string>
     <string name="title_notify_folder">Yeni iletileri bildir</string>
     <string name="title_auto_classify_source">Bu klasördeki yeni iletileri sınıflandır</string>
     <string name="title_auto_classify_target">Sınıflandırılmış iletileri otomatik olarak bu klasöre taşı</string>
-    <string name="title_sync_days">İletileri eşzamanla (gün)</string>
+    <string name="title_sync_days">İletileri senkronize et (gün)</string>
     <string name="title_sync_days_remark">Bu değerin artırılması, pil ve veri kullanımını artıracak</string>
     <string name="title_keep_days">İletileri sakla (günler)</string>
     <string name="title_keep_days_remark">Eski mesajlar cihazdan silinecek, fakat sunucuda kalmaya devam edecektir</string>
@@ -1380,7 +1388,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_verify">Doğrulama</string>
     <string name="title_encrypt">Şifrele</string>
     <string name="title_decrypt">Şifreyi çöz</string>
-    <string name="title_resync">Yeniden eşzamanla</string>
+    <string name="title_resync">Tekrar senkronize et</string>
     <string name="title_charset">Metin kodlaması</string>
     <string name="title_charset_auto">Otomatik</string>
     <string name="title_alternative_text">Düzen metni yükle</string>
@@ -1489,7 +1497,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_select_found">Bulunanları seç</string>
     <string name="title_mark_all_read">Hepsini okundu olarak işaretle</string>
     <string name="title_view_thread">Konuşmayı göster</string>
-    <string name="title_force_sync">Eşzamanlamaya zorla</string>
+    <string name="title_force_sync">Senkronizasyona zorla</string>
     <string name="title_force_send">Göndermeye zorla</string>
     <string name="title_language_all">Tümü</string>
     <string name="title_previous">Önceki</string>
@@ -1604,7 +1612,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_use_as_alarm">Alarm olarak kullan</string>
     <string name="title_rule_alarm_hint">Bu, \"rahatsız etmeyin\" kurallarını yok sayar</string>
     <string name="title_rule_alarm_duration">Maksimum alarm süresi (saniye)</string>
-    <string name="title_legend_section_synchronize">Eşzamanlama</string>
+    <string name="title_legend_section_synchronize">Senkronize et</string>
     <string name="title_legend_section_folders">Klasörler</string>
     <string name="title_legend_section_messages">İletiler</string>
     <string name="title_legend_section_compose">Eposta Oluştur</string>
@@ -1614,8 +1622,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_legend_folder_disconnected">Klasör bağlantısı kesildi</string>
     <string name="title_legend_download_on">İleti içeriğini otomatik olarak indir</string>
     <string name="title_legend_download_off">İleti içeriğini istendiğinde indir</string>
-    <string name="title_legend_synchronize_on">Eşzamanlama açık</string>
-    <string name="title_legend_synchronize_off">Eşzamanlama kapalı</string>
+    <string name="title_legend_synchronize_on">Senkronizasyon açık</string>
+    <string name="title_legend_synchronize_off">Senkronizasyon kapalı</string>
     <string name="title_legend_synchronize_poll">Periyodik olarak senkronize et</string>
     <string name="title_legend_disconnected">Bağlantı kesildi</string>
     <string name="title_legend_connecting">Bağlanıyor</string>
@@ -1725,7 +1733,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_legend_s">Seç/seçimi kaldır</string>
     <string name="title_legend_t">Metine odaklan</string>
     <string name="title_hint_folder_actions">Hızlı erişim için navigasyon menüsüne klasör eklerkenki gibi, seçenekler için bir klasöre uzun basın</string>
-    <string name="title_hint_folder_sync">Pil ve ağ kullanımını sınırlamak için, öntanımlı olarak tüm klasörler ve tüm iletilere eşzamanlama yapılmayacak</string>
+    <string name="title_hint_folder_sync">Pil ve ağ kullanımını sınırlamak için tüm klasörler ve tüm mesajlar varsayılan olarak senkronize edilmeyecektir</string>
     <string name="title_hint_airplane">Uçak modu açık</string>
     <string name="title_hint_notifications">Bildirim izni yok</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
@@ -1874,6 +1882,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_widget_separator_lines">Ayırıcı çizgileri göster</string>
     <string name="title_widget_semi_transparent">Yarı saydam arka plan</string>
     <string name="title_widget_count_top">Okunmamış sayıyı en üstte göster</string>
+    <string name="title_widget_subject_lines">Maksimum konu satırı sayısı</string>
     <string name="title_widget_avatars">Kişi avatarlarını göster</string>
     <string name="title_widget_refresh">Mesajları yenile düğmesini göster</string>
     <string name="title_widget_compose">Yeni mesaj oluştur düğmesini göster</string>

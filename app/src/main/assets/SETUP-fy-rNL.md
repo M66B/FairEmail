@@ -1,28 +1,28 @@
 # Ynstellingshelp
 
-FairEmail ynstelle is frij simpel. Do moast teminsten ien akkount tafoegje om email te ûntfangen en op syn minst ien identiteit asto email stjoere wolst. Foar de measte grutte oanbieders kinst gau in iin kear in akkount en identiteit tafoegje.
+FairEmail ynstelle is frij simpel. Do moast op syn minst ien account tafoegje om e-mailberjochten te ûntfangen en op syn minst ien identiteit asto e-mailberjochten stjoere wolst. Foar de measte grutte oanbieders kinst gau in ien kear in account en identiteit tafoegje.
 
-## Fereasken
+## Easken
 
-In ynternetferbining is nedich om akkounts en identiteiten yn te stellen.
+In ynternetferbining is nedich om accounts en identiteiten yn te stellen.
 
 ## Flugge opset
 
-Kies dyn provider as *Oare oanbieder* út en fol dyn namme, emailadres en kaaiwurd in en tik op *Kontrolearje*.
+Kies dyn provider as *Oare oanbieder* út en fol dyn namme, e-mailadres en kaaiwurd in en tik op *Kontrolearje*.
 
-Dit slachet foar de mease emailoanbieders.
+Dit slagget foar de measte e-mailproviders.
 
-At it ynstelle net fansels slachet, moast sels dyn akkount en identiteit ynstelle. Sjoch hjirûnder hoe dat moat.
+As it ynstellen net fansels slagget, moatst dyn account en identiteit hânmjitich ynstelle. Sjoch hjirûnder hoe’t dat moat.
 
-## Akkount ynstelle - om email te ûntfangen
+## Account ynstelle – om e-mailberjochten te ûntfangen
 
-Om in akkount ta te foegjen, tik op *Sels ynstelle en akkountopsjes*, op *Akkounts* en dearny op 'e 'plus' ûnderoan en selektearje IMAP (of POP3). Selektearje in provider út 'e list, fier de brûkersnamme yn, lykwols dyn emailadres, en fier dyn kaaiwurd yn. Tik op *Kontrolearje* om FairEmail in ferbining meitsje te litten mei de emailserver en in list mei systeemmappen op te heljen. Nei it kontrolearjen fan 'e seleksje fan systeemmappen kinsto it akkount tafoegje troch op *Bewarje * te tikjen.
+Om in account ta te foegjen, tik op *Sels ynstelle en accountopsjes*, op *Accounts* en derny op de ‘plus’ ûnderoan en selektearje IMAP (of POP3). Selektearje in provider út de list, fier de brûkersnamme yn, lykwols dyn e-mailadres, en fier dyn wachtwurd yn. Tik op *Kontrolearje* om FairEmail in ferbining meitsje te litten mei de e-mailserver en in list mei systeemmappen op te heljen. Nei it kontrolearjen fan de seleksje fan systeemmappen kinsto de account tafoegje troch op *Bewarje * te tikjen.
 
-As dy emailoanbieder net iin 'e list stiet, der binne tûzenen, kies *Oanpast*. Fier de domeinnamme yn, bygelyks *gmail.com* en tikje *Krij ynstellings*. As dyn ynternetoanbieder [auto-discovery](https://tools.ietf.org/html/rfc6186) stipet, sil FairEmail de hostnamme en poartenûmer ynfolje, oars kontrolearje de ynstallaasje-ynstruksjes fan jo ynternetoanbieder foar de juste IMAP-hostnamme, poartenûmer en protokol (SSL/TLS of STARTTLS). Sjoch [hjir](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts) foar mear hjiroer.
+As dy e-mailprovider net yn de list stiet, der binne tûzenen, kies dan *Oanpast*. Fier de domeinnamme yn, bygelyks *gmail.com* en tik op *Ynstellingen ophelje*. As dyn provider [auto-discovery](https://tools.ietf.org/html/rfc6186) stipet, sil FairEmail de hostnamme en it poartenûmer ynfolje, oars kontrolearje de ynstallaasje-ynstruksjes fan jo provider foar de krekte IMAP-hostnamme, poartenûmer en protokol (SSL/TLS of STARTTLS). Foar mear ynformaasje, sjoch [hjir](https://github.com/M66B/FairEmail/blob/master/FAQ.md#authorizing-accounts).
 
-## Identiteit ynstelle - om email te ferstjoeren
+## Identiteit ynstelle – om e-mailberjochten te ferstjoeren
 
-Likegoed om in identiteit ta te foegjen, tik op *Sels ynstelle en akkountopsjes*, op *Identiteiten* en dearny op 'e 'plus' ûnderoan. Fier de namme yn dasto wost sjen as ferstjoerderadres fan de emailberjochten dy'sto stjoerst en selektearje in keppele akkount. Tikje op *Bewarje* om de identiteit ta te foegjen.
+Likegoed om in identiteit ta te foegjen, tik op *Sels ynstelle en accountopsjes*, op *Identiteiten* en dernei op de 'plus' ûnderoan. Fier de namme yn dasto wost sjen as ferstjoerderadres fan de emailberjochten dy'sto stjoerst en selektearje in keppele akkount. Tikje op *Bewarje* om de identiteit ta te foegjen.
 
 As it akkount hânmjittich ynstelle waard, dan soesto wierskynlik dyn identiteit ek mei de hân ynstelle moatte. Fier de domeinnamme yn, bygelyks *gmail.com* en tikje op *Krij ynstellings*. As dyn ynternetoanbieder [auto-discovery](https://tools.ietf.org/html/rfc6186) stipet, sil FairEmail de hostnamme en poartenûmer ynfolje, oars kontrolearje de ynstallaasje-ynstruksjes fan jo ynternetoanbieder foar de juste IMAP-hostnamme, poartenûmer en protokol (SSL/TLS of STARTTLS).
 

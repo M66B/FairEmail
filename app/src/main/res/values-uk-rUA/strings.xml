@@ -394,7 +394,7 @@
     <string name="title_advanced_send_chips">Показати бульбашки адрес</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Створити нове повідомлення чернетки для спільних адрес та файлів</string>
+    <string name="title_advanced_attach_new">Створити нове повідомлення чернетки для спільних адрес та файлів</string>
     <string name="title_advanced_answer_caption">Налаштування кнопки відповіді</string>
     <string name="title_advanced_answer_default">Коротке натискання на кнопку відповіді буде:</string>
     <string name="title_advanced_answer_action">Тривале натискання на кнопку відповіді для:</string>
@@ -768,7 +768,7 @@
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_compose_color_hint">Використання дуже світлих або дуже темних кольорів може призвести до того, що отримувач не зможе прочитати ваше повідомлення</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">В іншому випадку додайте спільні адреси або файли до поточного повідомлення чернетки</string>
+    <string name="title_advanced_attach_new_hint">В іншому випадку додайте спільні адреси або файли до поточного повідомлення чернетки</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
     <string name="title_advanced_remove_signature_hint">Це може призвести до замалого або занадто багатого видалянню тексту</string>
     <string name="title_advanced_metered_hint">Лімітовані підключення - це загалом, мобільне підключення або платні Wi-Fi точки доступу</string>
@@ -815,6 +815,7 @@
     <string name="title_advanced_sender_hint">Більшість провайдерів не дозволяють змінювати адреси відправника</string>
     <string name="title_advanced_bcc_hint">Адреса не буде показана, але буде додана при відправленні</string>
     <string name="title_advanced_internal_hint">При надсиланні на інший домен буде попередження</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Деталі вибраного контакту буде використовуватися для вкладених файлів з vCard</string>
     <string name="title_advanced_e2e_encryption">Параметри наскрізного шифрування</string>
     <string name="title_advanced_display_harmful_hint">Вимкнення цієї опції може зашкодити вашій конфіденційності</string>
     <string name="title_advanced_display_hidden_hint">Це може призвести до дивного вигляду та подвійних текстів</string>
@@ -863,6 +864,7 @@
     <string name="title_advanced_sender_regex">Регулярний вираз, що застосовується до імені користувача з вхідних адрес електронної пошти</string>
     <string name="title_identity_reply_to">Відповісти на адресу</string>
     <string name="title_identity_internal">Внутрішні доменні імена (розділені комами)</string>
+    <string name="title_identity_uri">Прив\'язати контакт</string>
     <string name="title_identity_unicode">Дозволити UTF-8 у заголовках повідомлень</string>
     <string name="title_identity_unicode_remark">Більшість серверів не підтримують це</string>
     <string name="title_identity_octetmime">Дозволити 8BITMIME</string>

@@ -380,7 +380,7 @@
     <string name="title_advanced_send_chips">Afișați bule de adrese</string>
     <string name="title_advanced_send_reminders">Arată mementouri</string>
     <string name="title_advanced_send_delayed">Amână trimiterea mesajelor</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Creați un mesaj ciornă nou pentru adresele și fișierele partajate</string>
+    <string name="title_advanced_attach_new">Creați un mesaj ciornă nou pentru adresele și fișierele partajate</string>
     <string name="title_advanced_answer_caption">Setări buton de răspuns</string>
     <string name="title_advanced_answer_default">Apăsarea scurtă pe butonul de răspuns va:</string>
     <string name="title_advanced_answer_action">Apăsarea îndelungată a butonului de răspuns va:</string>
@@ -755,7 +755,7 @@
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
     <string name="title_advanced_reply_move_hint">Serverul de e-mail ar putea adăuga mesajele la folderul de mesaje trimise</string>
     <string name="title_advanced_compose_color_hint">Culorile foarte deschise sau foarte închise vor avea ca rezultat mesaje ilizibile pe partea destinatarilor</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">În caz contrar, adăugați adrese sau fișiere partajate la proiectul de mesaj curent</string>
+    <string name="title_advanced_attach_new_hint">În caz contrar, adăugați adrese sau fișiere partajate la proiectul de mesaj curent</string>
     <string name="title_advanced_usenet_hint">Inserează \'-- \' între text și semnătură</string>
     <string name="title_advanced_remove_signature_hint">Acest lucru poate duce la eliminarea unui text prea scurt sau prea mare</string>
     <string name="title_advanced_metered_hint">Conexiunile contorizate sunt în general cele mobile sau punctele de acces Wi-Fi cu plată</string>
@@ -802,6 +802,7 @@
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_bcc_hint">Adresa nu va fi afișată, dar va fi adăugată la trimitere</string>
     <string name="title_advanced_internal_hint">Va exista un avertisment la trimiterea către un alt domeniu</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Detaliile contactului selectat vor fi folosite pentru atașamentele vCard</string>
     <string name="title_advanced_e2e_encryption">Opțiuni pentru criptarea end-to-end</string>
     <string name="title_advanced_display_harmful_hint">Dezactivarea poate fi dăunătoare pentru intimitatea dumneavoastră</string>
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
@@ -850,6 +851,7 @@
     <string name="title_advanced_sender_regex">Regex pentru a potrivi numele de utilizator al adreselor de e-mail primite</string>
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_internal">Nume de domenii interne (separate prin virgulă)</string>
+    <string name="title_identity_uri">Asociați contact</string>
     <string name="title_identity_unicode">Permite UTF-8 în antetul mesajelor</string>
     <string name="title_identity_unicode_remark">Majoritatea serverelor nu acceptă acest lucru</string>
     <string name="title_identity_octetmime">Permite 8BITMIMIME</string>

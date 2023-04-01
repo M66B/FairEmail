@@ -381,7 +381,7 @@
     <string name="title_advanced_send_chips">Prikaži balone s adresom</string>
     <string name="title_advanced_send_reminders">Prikaži podsjetnike</string>
     <string name="title_advanced_send_delayed">Odgodi slanje poruka</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Kreiraj novu skicu poruke za dijeljene adrese i datoteke</string>
+    <string name="title_advanced_attach_new">Kreiraj novu skicu poruke za dijeljene adrese i datoteke</string>
     <string name="title_advanced_answer_caption">Postavke dugmeta za odgovor</string>
     <string name="title_advanced_answer_default">Kratko pritiskanje dugmeta \'odgovor\' će:</string>
     <string name="title_advanced_answer_action">Dugo pritiskanje tipke \'odgovor\' će:</string>
@@ -756,7 +756,7 @@
     <string name="title_advanced_send_reminders_hint">Prikazuje upozorenje kada su tekst poruke ili predmet prazni ili kada nedostaje prilog</string>
     <string name="title_advanced_reply_move_hint">E-mail server još može dodavati poruke u folder za poslane poruke</string>
     <string name="title_advanced_compose_color_hint">Presvijetle ili pretamne boje mogu prouzrokovati nečitke poruke s primaočeve strane</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">U suprotnom, dodaj dijeljene adrese ili datoteke u trenutni nacrt poruke</string>
+    <string name="title_advanced_attach_new_hint">U suprotnom, dodaj dijeljene adrese ili datoteke u trenutni nacrt poruke</string>
     <string name="title_advanced_usenet_hint">Ubaci \'-- \' između teksta i potpisa</string>
     <string name="title_advanced_remove_signature_hint">Ovo može rezultirati premalim ili prevelikim uklanjanjem teksta</string>
     <string name="title_advanced_metered_hint">Konekcije \'s ograničenim paketom\' su općenito mobilne konekcije ili plaćeni Wi-Fi hotspot-ovi</string>
@@ -803,6 +803,7 @@
     <string name="title_advanced_sender_hint">Većina provajdera ne dopušta modifikovane adrese pošiljaoca</string>
     <string name="title_advanced_bcc_hint">Adresa se neće prikazivati, ali će biti dodana tokom slanja</string>
     <string name="title_advanced_internal_hint">Pojavit će se upozorenje tokom slanja na drugu domenu</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Detalji izabranog kontakta koristit če se za vCard priloge</string>
     <string name="title_advanced_e2e_encryption">Opcija za E2E (end-to-end) šifriranje</string>
     <string name="title_advanced_display_harmful_hint">Isključivanje ove opcije može biti štetno po vašu privatnost</string>
     <string name="title_advanced_display_hidden_hint">Ovo može rezultirati u čudnom izgledu i duplim tekstovima</string>
@@ -851,6 +852,7 @@
     <string name="title_advanced_sender_regex">Regularni izrazi za podudaranje korisničkog imena dolaznih e-mail adresa</string>
     <string name="title_identity_reply_to">Odgovori na adresu</string>
     <string name="title_identity_internal">Interni nazivi domena (razdvojeni zarezima)</string>
+    <string name="title_identity_uri">Poveži kontakt</string>
     <string name="title_identity_unicode">Dopusti UTF-8 standard u zaglavljima poruka</string>
     <string name="title_identity_unicode_remark">Većina servera ne podržava ovo</string>
     <string name="title_identity_octetmime">Dopusti 8BITMIME</string>

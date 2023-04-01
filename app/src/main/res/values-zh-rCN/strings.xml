@@ -183,7 +183,7 @@
     <string name="title_setup_advanced_protection">当加入了高级保护程序后，将无法使用第三方电子邮件APP, 这是 Google 强加的限制</string>
     <string name="title_setup_quick_success">账户已成功添加</string>
     <string name="title_setup_quick_no_sent">没有选择发件箱文件夹。发送的消息可能不会存储。</string>
-    <string name="title_setup_quick_configure">编辑名称、颜色、滑动动动作等</string>
+    <string name="title_setup_quick_configure">编辑名称、颜色、滑动操作等</string>
     <string name="title_setup_manage">管理</string>
     <string name="title_setup_grant">授权</string>
     <string name="title_setup_grant_again">授予所需权限</string>
@@ -354,12 +354,12 @@
     <string name="title_advanced_send_chips">卡片化显示地址</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">为共享地址和文件创建新的消息草稿</string>
+    <string name="title_advanced_attach_new">为共享地址和文件创建新的消息草稿</string>
     <string name="title_advanced_answer_caption">回复按钮设置</string>
-    <string name="title_advanced_answer_default">短按回复按钮动作：</string>
-    <string name="title_advanced_answer_action">长按回复按钮动作：</string>
-    <string name="title_advanced_answer_hint">回复按钮操作也可以在发送设置标签页中配置</string>
-    <string name="title_advanced_answer_warning">如果没有选中菜单，并非所有操作都是可用的</string>
+    <string name="title_advanced_answer_default">短按回复按钮操作：</string>
+    <string name="title_advanced_answer_action">长按回复按钮操作：</string>
+    <string name="title_advanced_answer_hint">回复按钮操作也可以在“发送”设置标签页中配置</string>
+    <string name="title_advanced_answer_warning">如果没有选择菜单，则无法执行菜单中的其他操作！</string>
     <string name="title_advanced_send_pending">显示不显眼的“延迟发送”图标（页面左下角）</string>
     <string name="title_advanced_auto_save_paragraph">在每一段后自动保存草稿</string>
     <string name="title_advanced_auto_save_dot">每句后自动保存草稿</string>
@@ -729,7 +729,7 @@
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
     <string name="title_advanced_compose_color_hint">非常浅或非常深的颜色会导致收件人处的信息难以辨认</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">否则，将共享地址或文件添加到当前草稿消息</string>
+    <string name="title_advanced_attach_new_hint">否则，将共享地址或文件添加到当前草稿消息</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_remove_signature_hint">这可能会导致删除太少或太多文本</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>
@@ -776,6 +776,7 @@
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_bcc_hint">地址不会显示，但会在发送时添加</string>
     <string name="title_advanced_internal_hint">发送到另一个域时会有警告</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">所选联系人的详细信息将用于 vCard 附件</string>
     <string name="title_advanced_e2e_encryption">端到端加密选项</string>
     <string name="title_advanced_display_harmful_hint">禁用此选项可能会危害您的隐私</string>
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
@@ -824,6 +825,7 @@
     <string name="title_advanced_sender_regex">用正则表达式来匹配收到的邮箱地址的用户名</string>
     <string name="title_identity_reply_to">回复给该地址</string>
     <string name="title_identity_internal">内部域名(逗号分隔)</string>
+    <string name="title_identity_uri">关联联系人</string>
     <string name="title_identity_unicode">在消息头中允许 UTF-8</string>
     <string name="title_identity_unicode_remark">大多数服务器不支持这一功能</string>
     <string name="title_identity_octetmime">允许 8BITMIME</string>

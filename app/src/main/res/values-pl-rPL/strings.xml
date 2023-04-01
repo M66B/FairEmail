@@ -393,7 +393,7 @@
     <string name="title_advanced_send_chips">Pokaż dymki adresowe</string>
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Utwórz nowy szkic wiadomości dla udostępnianych adresów i plików</string>
+    <string name="title_advanced_attach_new">Utwórz nowy szkic wiadomości dla udostępnianych adresów i plików</string>
     <string name="title_advanced_answer_caption">Ustawienia przycisku odpowiedzi</string>
     <string name="title_advanced_answer_default">Krótkie naciśnięcie przycisku odpowiedzi spowoduje:</string>
     <string name="title_advanced_answer_action">Długie naciśnięcie przycisku odpowiedzi spowoduje:</string>
@@ -768,7 +768,7 @@
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
     <string name="title_advanced_compose_color_hint">Bardzo jasne lub bardzo ciemne kolory spowodują, że wiadomości po stronie odbiorcy będą nieczytelne</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">W innym przypadku dodaj udostępniane adresy lub pliki do aktualnej wersji roboczej wiadomości</string>
+    <string name="title_advanced_attach_new_hint">W innym przypadku dodaj udostępniane adresy lub pliki do aktualnej wersji roboczej wiadomości</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
     <string name="title_advanced_remove_signature_hint">Może to spowodować usunięcie zbyt małego lub zbyt dużego tekstu</string>
     <string name="title_advanced_metered_hint">Połączenia taryfowe to głównie połączenia komórkowe lub płatne hotspoty Wi-Fi</string>
@@ -815,6 +815,7 @@
     <string name="title_advanced_sender_hint">Większość dostawców nie zezwala na modyfikowane adresy nadawcy</string>
     <string name="title_advanced_bcc_hint">Adres nie zostanie wyświetlony, ale zostanie dodany podczas wysyłania</string>
     <string name="title_advanced_internal_hint">Będzie ostrzeżenie podczas wysyłania do innej domeny</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Szczegóły wybranego kontaktu zostaną użyte do załączników vCard</string>
     <string name="title_advanced_e2e_encryption">Opcje szyfrowania end-to-end</string>
     <string name="title_advanced_display_harmful_hint">Wyłączenie tej opcji może być szkodliwe dla prywatności</string>
     <string name="title_advanced_display_hidden_hint">Może to powodować dziwne i podwójne teksty</string>
@@ -863,6 +864,7 @@
     <string name="title_advanced_sender_regex">Regex, aby dopasować nazwę użytkownika dla przychodzących adresów e-mail</string>
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_internal">Wewnętrzne nazwy domen (oddzielone przecinkami)</string>
+    <string name="title_identity_uri">Połącz kontakt</string>
     <string name="title_identity_unicode">Zezwalaj na UTF-8 w nagłówkach wiadomości</string>
     <string name="title_identity_unicode_remark">Większość serwerów nie wspiera tego</string>
     <string name="title_identity_octetmime">Zezwalaj na 8BITMIME</string>

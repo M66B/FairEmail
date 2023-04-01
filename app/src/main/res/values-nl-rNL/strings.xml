@@ -366,7 +366,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_send_chips">Toon adresballonnen</string>
     <string name="title_advanced_send_reminders">Toon herinneringen</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Maak een nieuw conceptbericht voor gedeelde adressen en bestanden</string>
+    <string name="title_advanced_attach_new">Maak een nieuw conceptbericht voor gedeelde adressen en bestanden</string>
     <string name="title_advanced_answer_caption">Instellingen van de antwoordknop</string>
     <string name="title_advanced_answer_default">Kort drukken van de antwoordknop zal:</string>
     <string name="title_advanced_answer_action">Lang drukken van de antwoordknop zal:</string>
@@ -741,7 +741,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_send_reminders_hint">Toon een waarschuwing wanneer de berichttekst of het onderwerp leeg is of wanneer een bijlage zou kunnen ontbreken</string>
     <string name="title_advanced_reply_move_hint">De e-mailserver kan de berichten nog steeds toevoegen aan de map met verzonden berichten</string>
     <string name="title_advanced_compose_color_hint">Zeer lichte of zeer donkere kleuren leiden tot onleesbare berichten aan de kant van de ontvanger</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">Voeg anders gedeelde adressen of bestanden toe aan het huidige conceptbericht</string>
+    <string name="title_advanced_attach_new_hint">Voeg anders gedeelde adressen of bestanden toe aan het huidige conceptbericht</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
     <string name="title_advanced_remove_signature_hint">Dit kan ertoe leiden dat te weinig of te veel tekst wordt verwijderd</string>
     <string name="title_advanced_metered_hint">Gemeten verbindingen zijn over het algemeen mobiele verbindingen of betaalde Wi-Fi hotspots</string>
@@ -788,6 +788,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_sender_hint">De meeste providers staan gemodificeerde verzendadressen niet toe</string>
     <string name="title_advanced_bcc_hint">Het adres wordt niet weergegeven, maar wordt bij het verzenden toegevoegd</string>
     <string name="title_advanced_internal_hint">Er wordt een waarschuwing gegeven bij het versturen naar een ander domein</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">De gegevens van het geselecteerde contact worden gebruikt voor vCard-bijlagen</string>
     <string name="title_advanced_e2e_encryption">Opties voor end-to-end encryptie</string>
     <string name="title_advanced_display_harmful_hint">Het uitschakelen van deze optie kan schadelijk zijn voor uw privacy</string>
     <string name="title_advanced_display_hidden_hint">Dit kan leiden tot vreemd uitziende en dubbele teksten</string>
@@ -836,6 +837,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_sender_regex">Regex om gebruikersnaam deel van inkomende e-mailadressen te matchen</string>
     <string name="title_identity_reply_to">Antwoord op adres</string>
     <string name="title_identity_internal">Interne domeinnamen (komma gescheiden)</string>
+    <string name="title_identity_uri">Koppel contact</string>
     <string name="title_identity_unicode">UTF-8 in berichtkoppen toestaan</string>
     <string name="title_identity_unicode_remark">De meeste servers ondersteunen dit niet</string>
     <string name="title_identity_octetmime">8BITMIME toestaan</string>

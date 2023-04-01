@@ -360,7 +360,7 @@
     <string name="title_advanced_send_chips">Visa adressbubblor</string>
     <string name="title_advanced_send_reminders">Visa påminnelser</string>
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">Skapa ett nytt utkast till meddelande för delade adresser och filer</string>
+    <string name="title_advanced_attach_new">Skapa ett nytt utkast till meddelande för delade adresser och filer</string>
     <string name="title_advanced_answer_caption">Inställningar för svarsknappen</string>
     <string name="title_advanced_answer_default">Kort tryck på svarsknappen kommer:</string>
     <string name="title_advanced_answer_action">Långtryck på svarsknappen kommer:</string>
@@ -733,7 +733,7 @@
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_reply_move_hint">E-postservern kan fortfarande lägga till meddelanden till skickade mail mappen</string>
     <string name="title_advanced_compose_color_hint">Mycket ljusa eller mycket mörka färger kommer att resultera i oläsliga meddelanden på mottagarsidan</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">Annars, lägg till delade adresser eller filer till det aktuella utkastet</string>
+    <string name="title_advanced_attach_new_hint">Annars, lägg till delade adresser eller filer till det aktuella utkastet</string>
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
     <string name="title_advanced_remove_signature_hint">Detta kan leda till att för lite eller för mycket text tas bort</string>
     <string name="title_advanced_metered_hint">Uppmätta anslutningar är generellt mobila anslutningar eller betalda Wi-Fi-hotspots</string>
@@ -780,6 +780,7 @@
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
     <string name="title_advanced_bcc_hint">Adressen kommer inte att visas, men kommer att läggas till vid sändning</string>
     <string name="title_advanced_internal_hint">En varning kommer att visas när du skickar till en annan domän</string>
+    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Information från den valda kontakten kommer att användas för vCard-bilagor</string>
     <string name="title_advanced_e2e_encryption">Alternativ för ändpunktskryptering</string>
     <string name="title_advanced_display_harmful_hint">Inaktivera detta alternativ kan vara skadligt för din integritet</string>
     <string name="title_advanced_display_hidden_hint">Detta kan resultera i udda utseende och dubbla texter</string>
@@ -828,6 +829,7 @@
     <string name="title_advanced_sender_regex">Regex för att matcha användarnamn för inkommande e-postadresser</string>
     <string name="title_identity_reply_to">Svara till adress</string>
     <string name="title_identity_internal">Interna domännamn (kommaseparerade)</string>
+    <string name="title_identity_uri">Koppla kontakt</string>
     <string name="title_identity_unicode">Tillåt UTF-8 i meddelandehuvuden</string>
     <string name="title_identity_unicode_remark">De flesta servrar stöder inte detta</string>
     <string name="title_identity_octetmime">Tillåt 8BITMIME</string>

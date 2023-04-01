@@ -355,7 +355,7 @@
     <string name="title_advanced_send_chips">アドレスバルーンを表示</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
-    <string name="title_advanced_attach_new" comment="title_advanced_attach_new&#10;Title for option in the send-settings tab page">アドレスやファイルをアプリに共有したとき、新しい下書きを作成</string>
+    <string name="title_advanced_attach_new">アドレスやファイルをアプリに共有したとき、新しい下書きを作成</string>
     <string name="title_advanced_answer_caption">返信ボタン設定</string>
     <string name="title_advanced_answer_default">返信ボタンを短く押したときのアクション:</string>
     <string name="title_advanced_answer_action">返信ボタンを長押ししたときのアクション:</string>
@@ -686,8 +686,8 @@
     <string name="title_advanced_openai_moderation">コンテンツモデレーション</string>
     <string name="title_advanced_sdcard">SD カードを使用できますか？</string>
     <string name="title_advanced_watchdog">FairEmail がアクティブか定期的に確認</string>
-    <string name="title_advanced_updates">GitHub のアップデートを確認</string>
-    <string name="title_advanced_check_weekly">アップデートの確認頻度を毎日から毎週へ変更</string>
+    <string name="title_advanced_updates">GitHub で更新を確認</string>
+    <string name="title_advanced_check_weekly">更新の確認頻度を毎日から毎週へ変更</string>
     <string name="title_advanced_beta">BitBucket でテスト版を確認</string>
     <string name="title_advanced_changelog">更新後に更新履歴を表示</string>
     <string name="title_advanced_announcements">お知らせを確認</string>
@@ -730,7 +730,7 @@
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
     <string name="title_advanced_compose_color_hint">極端に明るいまたは暗い色を設定すると、受信者がメッセージを判読できなくなることがあります</string>
-    <string name="title_advanced_attach_new_hint" comment="title_advanced_attach_new_hint&#10;Remark text for option in the send-settings tab page">OFF にすると、作成中の下書きメッセージに共有されたアドレスやファイルを追加します</string>
+    <string name="title_advanced_attach_new_hint">OFF にすると、作成中の下書きメッセージに共有されたアドレスやファイルを追加します</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「--」を挿入します</string>
     <string name="title_advanced_remove_signature_hint">一部のテキストが削除されなかったり、テキストが削除されすぎたりする可能性があります</string>
     <string name="title_advanced_metered_hint">一般にモバイルネットワークまたは有料 Wi-Fi ホットスポットが従量制課金接続に該当します</string>
@@ -919,7 +919,7 @@
     <string name="title_identity_required">メールを送信するにはユーザー ID が必要です</string>
     <string name="title_drafts_required">メールを送信するには下書きフォルダーが必要です</string>
     <string name="title_drafts_select">メールを送信するには、アカウント設定で下書きフォルダーを選択する必要があります</string>
-    <string name="title_account_auth_update">認証をアップデート</string>
+    <string name="title_account_auth_update">認証を更新</string>
     <string name="title_account_auth_password">パスワード認証に変更する</string>
     <string name="title_change_password">パスワードを変更</string>
     <string name="title_delete_account">アカウントを削除</string>
@@ -1759,8 +1759,8 @@
     <string name="title_default_apps">デフォルトのアプリ</string>
     <string name="title_reset_open">デフォルトのアプリを設定またはクリア</string>
     <string name="title_select_app">アプリを選択</string>
-    <string name="title_updated">バージョン %1$s へアップデートできます</string>
-    <string name="title_no_update">利用可能なアップデートはありません</string>
+    <string name="title_updated">バージョン %1$s へ更新できます</string>
+    <string name="title_no_update">利用できる更新はありません</string>
     <string name="title_issue">質問や問題がありますか？</string>
     <string name="title_yes">はい</string>
     <string name="title_no">いいえ</string>
