@@ -71,6 +71,27 @@
                     app:layout_constraintTop_toBottomOf="@id/tvName" />
 
                 <TextView
+                    android:id="@+id/tvGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:labelFor="@+id/etName"
+                    android:text="@string/title_rule_group"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etName" />
+
+                <eu.faircode.email.EditTextPlain
+                    android:id="@+id/etGroup"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="textCapSentences|textAutoCorrect"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvGroup" />
+
+                <TextView
                     android:id="@+id/tvOrder"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -78,7 +99,7 @@
                     android:text="@string/title_rule_order"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etName" />
+                    app:layout_constraintTop_toBottomOf="@id/etGroup" />
 
                 <eu.faircode.email.EditTextPlain
                     android:id="@+id/etOrder"

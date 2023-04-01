@@ -21,10 +21,14 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_OK;
 
+import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Canvas;
+import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -34,6 +38,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -67,6 +72,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class FragmentRules extends FragmentBase {
     private long account;
@@ -75,6 +81,7 @@ public class FragmentRules extends FragmentBase {
     private String type;
 
     private boolean cards;
+    private boolean dividers;
 
     private View view;
     private RecyclerView rvRule;
@@ -105,6 +112,7 @@ public class FragmentRules extends FragmentBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         cards = prefs.getBoolean("cards", true);
+        dividers = prefs.getBoolean("dividers", true);
     }
 
     @Override
@@ -126,6 +134,77 @@ public class FragmentRules extends FragmentBase {
         rvRule.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         rvRule.setLayoutManager(llm);
+
+        DividerItemDecoration groupDecorator = new DividerItemDecoration(getContext(), llm.getOrientation()) {
+            @Override
+            public void onDraw(@NonNull Canvas canvas, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+                int count = parent.getChildCount();
+                for (int i = 0; i < count; i++) {
+                    View view = parent.getChildAt(i);
+                    int pos = parent.getChildAdapterPosition(view);
+
+                    View header = getView(view, parent, pos);
+                    if (header != null) {
+                        canvas.save();
+                        canvas.translate(0, parent.getChildAt(i).getTop() - header.getMeasuredHeight());
+                        header.draw(canvas);
+                        canvas.restore();
+                    }
+                }
+            }
+
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+                int pos = parent.getChildAdapterPosition(view);
+                View header = getView(view, parent, pos);
+                if (header == null)
+                    outRect.setEmpty();
+                else
+                    outRect.top = header.getMeasuredHeight();
+            }
+
+            private View getView(View view, RecyclerView parent, int pos) {
+                if (pos == NO_POSITION)
+                    return null;
+
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return null;
+
+                EntityRule prev = adapter.getItemAtPosition(pos - 1);
+                EntityRule rule = adapter.getItemAtPosition(pos);
+                if (pos > 0 && prev == null)
+                    return null;
+                if (rule == null)
+                    return null;
+
+                if (pos > 0) {
+                    if (Objects.equals(prev.group, rule.group))
+                        return null;
+                } else {
+                    if (rule.group == null)
+                        return null;
+                }
+
+                View header = inflater.inflate(R.layout.item_group, parent, false);
+                TextView tvCategory = header.findViewById(R.id.tvCategory);
+                TextView tvDate = header.findViewById(R.id.tvDate);
+
+                if (cards || !dividers) {
+                    View vSeparator = header.findViewById(R.id.vSeparator);
+                    vSeparator.setVisibility(View.GONE);
+                }
+
+                tvCategory.setText(rule.group);
+                tvDate.setVisibility(View.GONE);
+
+                header.measure(View.MeasureSpec.makeMeasureSpec(parent.getWidth(), View.MeasureSpec.EXACTLY),
+                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+                header.layout(0, 0, header.getMeasuredWidth(), header.getMeasuredHeight());
+
+                return header;
+            }
+        };
+        rvRule.addItemDecoration(groupDecorator);
 
         adapter = new AdapterRule(this);
         rvRule.setAdapter(adapter);

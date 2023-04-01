@@ -1860,6 +1860,7 @@
     <string name="title_rule_caption">Edit rule</string>
     <string name="title_rule_title">Rule applies to</string>
     <string name="title_rule_name">Name</string>
+    <string name="title_rule_group">Group</string>
     <string name="title_rule_order">Order</string>
     <string name="title_rule_enabled">Enabled</string>
     <string name="title_rule_daily">Run daily (only)</string>

@@ -709,6 +709,13 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         return selected.get(position).id;
     }
 
+    public EntityRule getItemAtPosition(int pos) {
+        if (pos >= 0 && pos < selected.size())
+            return selected.get(pos);
+        else
+            return null;
+    }
+
     @Override
     public int getItemCount() {
         return selected.size();
