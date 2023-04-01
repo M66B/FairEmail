@@ -165,6 +165,16 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/etAge" />
 
+                <TextView
+                    android:id="@+id/tvStopRemark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title_rule_stop_remark"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cbStop" />
+
                 <!-- condition -->
 
                 <TextView
@@ -177,7 +187,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cbStop" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvStopRemark" />
 
                 <View
                     android:id="@+id/vSeparatorSender"

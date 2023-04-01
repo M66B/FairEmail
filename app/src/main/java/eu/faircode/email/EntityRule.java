@@ -159,6 +159,31 @@ public class EntityRule {
         return false;
     }
 
+    static int run(Context context, List<EntityRule> rules,
+                   EntityMessage message, List<Header> headers, String html)
+            throws JSONException, MessagingException {
+        int applied = 0;
+
+        List<String> stopped = new ArrayList<>();
+        for (EntityRule rule : rules) {
+            if (rule.group != null && stopped.contains(rule.group))
+                continue;
+            if (rule.matches(context, message, headers, html)) {
+                if (rule.execute(context, message))
+                    applied++;
+                if (rule.stop)
+                    if (rule.group == null)
+                        break;
+                    else {
+                        if (!stopped.contains(rule.group))
+                            stopped.add(rule.group);
+                    }
+            }
+        }
+
+        return applied;
+    }
+
     boolean matches(Context context, EntityMessage message, List<Header> headers, String html) throws MessagingException {
         try {
             JSONObject jcondition = new JSONObject(condition);

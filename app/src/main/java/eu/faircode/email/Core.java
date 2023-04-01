@@ -2917,24 +2917,27 @@ class Core {
         // Deferred rule (download headers, body, etc)
         DB db = DB.getInstance(context);
 
-        long id = jargs.getLong(0);
-        if (id < 0) {
-            List<EntityRule> rules = db.rule().getEnabledRules(message.folder, true);
-            for (EntityRule rule : rules)
-                if (rule.matches(context, message, null, null)) {
-                    rule.execute(context, message);
-                    if (rule.stop)
-                        break;
-                }
-        } else {
-            EntityRule rule = db.rule().getRule(id);
-            if (rule == null)
-                throw new IllegalArgumentException("Rule not found id=" + id);
+        try {
+            db.beginTransaction();
 
-            if (!message.content)
-                throw new IllegalArgumentException("Message without content id=" + rule.id + ":" + rule.name);
+            long id = jargs.getLong(0);
+            if (id < 0) {
+                List<EntityRule> rules = db.rule().getEnabledRules(message.folder, true);
+                EntityRule.run(context, rules, message, null, null);
+            } else {
+                EntityRule rule = db.rule().getRule(id);
+                if (rule == null)
+                    throw new IllegalArgumentException("Rule not found id=" + id);
 
-            rule.execute(context, message);
+                if (!message.content)
+                    throw new IllegalArgumentException("Message without content id=" + rule.id + ":" + rule.name);
+
+                rule.execute(context, message);
+            }
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
         }
     }
 
@@ -4952,14 +4955,10 @@ class Core {
         DB db = DB.getInstance(context);
         try {
             boolean executed = false;
-            if (pro)
-                for (EntityRule rule : rules)
-                    if (rule.matches(context, message, headers, html)) {
-                        rule.execute(context, message);
-                        executed = true;
-                        if (rule.stop)
-                            break;
-                    }
+            if (pro) {
+                int applied = EntityRule.run(context, rules, message, headers, html);
+                executed = (applied > 0);
+            }
 
             if (EntityFolder.INBOX.equals(folder.type))
                 if (message.from != null) {

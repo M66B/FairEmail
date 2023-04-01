@@ -77,6 +77,8 @@ public class WorkerDailyRules extends Worker {
                     List<Long> mids = db.message().getMessageIdsByFolder(folder.id);
                     for (long mid : mids)
                         try {
+                            db.beginTransaction();
+
                             EntityMessage message = db.message().getMessage(mid);
                             if (message == null || message.ui_hide)
                                 continue;
@@ -101,14 +103,13 @@ public class WorkerDailyRules extends Worker {
                                 continue;
                             }
 
-                            for (EntityRule rule : rules)
-                                if (rule.matches(context, message, null, null)) {
-                                    rule.execute(context, message);
-                                    if (rule.stop)
-                                        break;
-                                }
+                            EntityRule.run(context, rules, message, null, null);
+
+                            db.setTransactionSuccessful();
                         } catch (Throwable ex) {
                             Log.e(ex);
+                        } finally {
+                            db.endTransaction();
                         }
 
                     EntityLog.log(context, EntityLog.Type.Rules, folder,

@@ -1217,19 +1217,7 @@ public class FragmentFolders extends FragmentBase {
                             continue;
 
                         EntityLog.log(context, "Executing rules message=" + message.id);
-
-                        for (EntityRule rule : rules) {
-                            EntityLog.log(context, "Executing rules evaluating=" + rule.name);
-                            if (rule.matches(context, message, null, null)) {
-                                EntityLog.log(context, "Executing rules matches=" + rule.name);
-                                if (rule.execute(context, message)) {
-                                    EntityLog.log(context, "Executing rules applied=" + rule.name);
-                                    applied++;
-                                }
-                                if (rule.stop)
-                                    break;
-                            }
-                        }
+                        applied = EntityRule.run(context, rules, message, null, null);
 
                         db.setTransactionSuccessful();
                     } finally {
