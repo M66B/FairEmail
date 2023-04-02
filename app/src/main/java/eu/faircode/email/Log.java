@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
+
 import android.app.ActivityManager;
 import android.app.ApplicationExitInfo;
 import android.app.Dialog;
@@ -38,6 +40,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
+import android.content.pm.ResolveInfo;
 import android.content.pm.verify.domain.DomainVerificationManager;
 import android.content.pm.verify.domain.DomainVerificationUserState;
 import android.content.res.Configuration;
@@ -155,6 +158,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.Set;
 import java.util.TimeZone;
@@ -2981,6 +2985,7 @@ public class Log {
             attachment.id = db.attachment().insertAttachment(attachment);
 
             long now = new Date().getTime();
+            PackageManager pm = context.getPackageManager();
 
             long size = 0;
             File file = attachment.getFile(context);
@@ -3001,8 +3006,7 @@ public class Log {
                 size += write(os, "\r\n");
 
                 try {
-                    PackageInfo pi = context.getPackageManager()
-                            .getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
+                    PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
                     for (int i = 0; i < pi.requestedPermissions.length; i++)
                         if (pi.requestedPermissions[i] != null &&
                                 pi.requestedPermissions[i].startsWith("android.permission.")) {
@@ -3047,6 +3051,39 @@ public class Log {
                 }
 
                 size += write(os, "\r\n");
+
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW)
+                            .addCategory(Intent.CATEGORY_BROWSABLE)
+                            .setData(Uri.parse("http://example.com/"));
+                    ResolveInfo main = pm.resolveActivity(intent, 0);
+
+                    int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
+                    intent.setData(Uri.parse("http://example.com"));
+                    List<ResolveInfo> browsers = pm.queryIntentActivities(intent, flags);
+
+                    for (ResolveInfo ri : browsers) {
+                        Intent serviceIntent = new Intent();
+                        serviceIntent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
+                        serviceIntent.setPackage(ri.activityInfo.packageName);
+                        CharSequence label = pm.getApplicationLabel(ri.activityInfo.applicationInfo);
+                        boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
+                        boolean def = (main != null &&
+                                Objects.equals(ri.activityInfo.packageName, main.activityInfo.packageName));
+                        size += write(os, String.format("Browser: %s (%s) tabs=%b default=%b\r\n",
+                                ri.activityInfo.packageName, label, tabs, def));
+                    }
+
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    String open_with_pkg = prefs.getString("open_with_pkg", null);
+                    boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
+                    size += write(os, String.format("Selected: %s tabs=%b\r\n",
+                            open_with_pkg, open_with_tabs));
+
+                    size += write(os, "\r\n");
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                     try {
@@ -3210,7 +3247,6 @@ public class Log {
                     }
 
                 try {
-                    PackageManager pm = context.getPackageManager();
                     List<PermissionGroupInfo> groups = pm.getAllPermissionGroups(0);
                     groups.add(0, null); // Ungrouped
 
