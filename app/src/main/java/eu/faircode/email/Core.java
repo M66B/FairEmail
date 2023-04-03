@@ -3430,8 +3430,8 @@ class Core {
             }
 
             if (account.max_messages != null && !account.leave_on_device) {
-                int hidden = db.message().setMessagesUiHide(folder.id, Math.abs(account.max_messages) + flagged, reversed);
-                int deleted = db.message().deleteMessagesKeep(folder.id, Math.abs(account.max_messages) + flagged + 100, reversed);
+                int hidden = db.message().setMessagesUiHide(folder.id, Math.abs(account.max_messages) + flagged);
+                int deleted = db.message().deleteMessagesKeep(folder.id, Math.abs(account.max_messages) + flagged + 100);
                 EntityLog.log(context, account.name + " POP" +
                         " cleanup max=" + account.max_messages + "" +
                         " hidden=" + hidden + " deleted=" + deleted);

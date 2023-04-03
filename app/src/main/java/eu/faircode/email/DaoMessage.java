@@ -792,9 +792,9 @@ public interface DaoMessage {
             " AND id NOT IN (" +
             "    SELECT id FROM message" +
             "    WHERE folder = :folder" +
-            "    ORDER BY CASE WHEN :reversed THEN -received ELSE received END DESC" +
+            "    ORDER BY received DESC" +
             "    LIMIT :keep)")
-    int setMessagesUiHide(long folder, int keep, boolean reversed);
+    int setMessagesUiHide(long folder, int keep);
 
     @Transaction
     @Query("UPDATE message SET ui_ignored = :ui_ignored WHERE id = :id AND NOT (ui_ignored IS :ui_ignored)")
@@ -1018,7 +1018,7 @@ public interface DaoMessage {
             " AND id NOT IN (" +
             "    SELECT id FROM message" +
             "    WHERE folder = :folder" +
-            "    ORDER BY CASE WHEN :reversed THEN -received ELSE received END DESC" +
+            "    ORDER BY received DESC" +
             "    LIMIT :keep)")
-    int deleteMessagesKeep(long folder, int keep, boolean reversed);
+    int deleteMessagesKeep(long folder, int keep);
 }
