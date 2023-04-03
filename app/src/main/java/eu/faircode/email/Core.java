@@ -3025,9 +3025,33 @@ class Core {
                 }
             }
 
+            // Index IDs
+            int flagged = 0;
+            Map<String, TupleUidl> uidlTuple = new HashMap<>();
+            Map<String, TupleUidl> msgIdTuple = new HashMap<>();
+            for (TupleUidl id : ids) {
+                if (id.ui_flagged && !id.ui_hide)
+                    flagged++;
+
+                if (id.uidl != null) {
+                    if (uidlTuple.containsKey(id.uidl))
+                        Log.w(account.name + " POP duplicate uidl/msgid=" + id.uidl + "/" + id.msgid);
+                    uidlTuple.put(id.uidl, id);
+                }
+
+                if (id.msgid != null) {
+                    if (msgIdTuple.containsKey(id.msgid))
+                        Log.w(account.name + " POP duplicate msgid/uidl=" + id.msgid + "/" + id.uidl);
+                    msgIdTuple.put(id.msgid, id);
+                }
+            }
+
+            max = Math.min(max + flagged, imessages.length);
+
             EntityLog.log(context, account.name + " POP" +
                     " device=" + ids.size() +
                     " server=" + imessages.length +
+                    " flagged=" + flagged +
                     " max=" + max + "/" + account.max_messages +
                     " reversed=" + reversed +
                     " last=" + folder.last_sync_count +
@@ -3035,24 +3059,6 @@ class Core {
                     " uidl=" + hasUidl);
 
             if (sync) {
-                // Index IDs
-                Map<String, TupleUidl> uidlTuple = new HashMap<>();
-                for (TupleUidl id : ids) {
-                    if (id.uidl != null) {
-                        if (uidlTuple.containsKey(id.uidl))
-                            Log.w(account.name + " POP duplicate uidl/msgid=" + id.uidl + "/" + id.msgid);
-                        uidlTuple.put(id.uidl, id);
-                    }
-                }
-
-                Map<String, TupleUidl> msgIdTuple = new HashMap<>();
-                for (TupleUidl id : ids)
-                    if (id.msgid != null) {
-                        if (msgIdTuple.containsKey(id.msgid))
-                            Log.w(account.name + " POP duplicate msgid/uidl=" + id.msgid + "/" + id.uidl);
-                        msgIdTuple.put(id.msgid, id);
-                    }
-
                 // Fetch UIDLs
                 if (hasUidl) {
                     FetchProfile ifetch = new FetchProfile();
@@ -3424,8 +3430,8 @@ class Core {
             }
 
             if (account.max_messages != null && !account.leave_on_device) {
-                int hidden = db.message().setMessagesUiHide(folder.id, Math.abs(account.max_messages));
-                int deleted = db.message().deleteMessagesKeep(folder.id, Math.abs(account.max_messages) + 100);
+                int hidden = db.message().setMessagesUiHide(folder.id, Math.abs(account.max_messages) + flagged);
+                int deleted = db.message().deleteMessagesKeep(folder.id, Math.abs(account.max_messages) + flagged + 100);
                 EntityLog.log(context, account.name + " POP" +
                         " cleanup max=" + account.max_messages + "" +
                         " hidden=" + hidden + " deleted=" + deleted);
