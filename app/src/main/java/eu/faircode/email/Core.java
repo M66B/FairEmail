@@ -3433,8 +3433,10 @@ class Core {
                 int hidden = db.message().setMessagesUiHide(folder.id, Math.abs(account.max_messages) + flagged);
                 int deleted = db.message().deleteMessagesKeep(folder.id, Math.abs(account.max_messages) + flagged + 100);
                 EntityLog.log(context, account.name + " POP" +
-                        " cleanup max=" + account.max_messages + "" +
-                        " hidden=" + hidden + " deleted=" + deleted);
+                        " cleanup max=" + account.max_messages +
+                        " flagged=" + flagged +
+                        " hidden=" + hidden +
+                        " deleted=" + deleted);
             }
 
             folder.last_sync_count = imessages.length;
