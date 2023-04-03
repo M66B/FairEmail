@@ -189,6 +189,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvError" />
 
+        <Button
+            android:id="@+id/btnManual"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:drawableEnd="@drawable/twotone_settings_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_setup_manual_setup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
+
         <TextView
             android:id="@+id/tvErrorRemark"
             android:layout_width="wrap_content"
@@ -199,7 +211,7 @@
             android:textColor="?android:attr/textColorPrimary"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
+            app:layout_constraintTop_toBottomOf="@id/btnManual" />
 
         <TextView
             android:id="@+id/tvInstructions"

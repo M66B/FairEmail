@@ -49,6 +49,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -80,6 +81,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
     private TextView tvError;
     private TextView tvErrorHint;
+    private Button btnManual;
     private TextView tvInstructions;
     private Button btnHelp;
     private Button btnSupport;
@@ -148,6 +150,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
         tvError = view.findViewById(R.id.tvError);
         tvErrorHint = view.findViewById(R.id.tvErrorHint);
+        btnManual = view.findViewById(R.id.btnManual);
         tvInstructions = view.findViewById(R.id.tvInstructions);
         btnHelp = view.findViewById(R.id.btnHelp);
         btnSupport = view.findViewById(R.id.btnSupport);
@@ -239,6 +242,18 @@ public class FragmentQuickSetup extends FragmentBase {
             }
         });
 
+        btnManual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentBase fragment = new FragmentAccount();
+                fragment.setArguments(new Bundle());
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
+                fragmentTransaction.commit();
+                finish();
+            }
+        });
+
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -256,6 +271,7 @@ public class FragmentQuickSetup extends FragmentBase {
         pbSave.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
+        btnManual.setVisibility(View.GONE);
         btnHelp.setVisibility(View.GONE);
         cbUpdate.setChecked(update);
         cbUpdate.setVisibility(View.GONE);
@@ -294,6 +310,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 pbSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 grpError.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
+                btnManual.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
                 cbUpdate.setVisibility(check ? View.GONE : View.VISIBLE);
                 btnSave.setVisibility(check ? View.GONE : View.VISIBLE);
@@ -679,8 +696,10 @@ public class FragmentQuickSetup extends FragmentBase {
                     if (provider != null && provider.appPassword)
                         message += "\n\n" + getString(R.string.title_setup_app_password_hint);
                     tvErrorHint.setText(message);
-                } else
+                } else {
                     tvErrorHint.setText(R.string.title_setup_no_settings_hint);
+                    btnManual.setVisibility(View.VISIBLE);
+                }
 
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException) {
                     tvError.setText(ex.getMessage());

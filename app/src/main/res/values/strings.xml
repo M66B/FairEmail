@@ -283,6 +283,7 @@
     <string name="title_setup_done">Done</string>
     <string name="title_setup_still">Still to do</string>
     <string name="title_setup_error">Error</string>
+    <string name="title_setup_manual_setup">Manual setup</string>
     <string name="title_setup_pop">Use POP3 (not recommended)</string>
     <string name="title_setup_recent">Use \'recent\' for multiple email clients</string>
     <string name="title_setup_configuring">Configuring account &#8230;</string>
