@@ -79,6 +79,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private TextView tvPatience;
     private TextView tvProgress;
 
+    private TextView tvArgument;
     private TextView tvError;
     private TextView tvErrorHint;
     private Button btnManual;
@@ -148,6 +149,7 @@ public class FragmentQuickSetup extends FragmentBase {
         tvPatience = view.findViewById(R.id.tvPatience);
         tvProgress = view.findViewById(R.id.tvProgress);
 
+        tvArgument = view.findViewById(R.id.tvArgument);
         tvError = view.findViewById(R.id.tvError);
         tvErrorHint = view.findViewById(R.id.tvErrorHint);
         btnManual = view.findViewById(R.id.btnManual);
@@ -269,6 +271,7 @@ public class FragmentQuickSetup extends FragmentBase {
         tvPatience.setVisibility(View.GONE);
         tvProgress.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
+        tvArgument.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
         btnManual.setVisibility(View.GONE);
@@ -309,6 +312,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 tvPatience.setVisibility(check ? View.VISIBLE : View.GONE);
                 pbSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 grpError.setVisibility(View.GONE);
+                tvArgument.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
                 btnManual.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
@@ -337,13 +341,13 @@ public class FragmentQuickSetup extends FragmentBase {
                 EmailProvider best = args.getParcelable("best");
 
                 if (TextUtils.isEmpty(name))
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_name));
+                    throw new ArgumentException(context.getString(R.string.title_no_name));
                 if (TextUtils.isEmpty(email))
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_email));
+                    throw new ArgumentException(context.getString(R.string.title_no_email));
                 if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
-                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
+                    throw new ArgumentException(context.getString(R.string.title_email_invalid, email));
                 if (TextUtils.isEmpty(password))
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_password));
+                    throw new ArgumentException(context.getString(R.string.title_no_password));
 
                 int at = email.indexOf('@');
                 String username = email.substring(0, at);
@@ -351,7 +355,7 @@ public class FragmentQuickSetup extends FragmentBase {
                 ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
                 NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
                 if (ani == null || !ani.isConnected())
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
+                    throw new ArgumentException(context.getString(R.string.title_no_internet));
 
                 Throwable fail = null;
                 List<EmailProvider> providers;
@@ -691,6 +695,20 @@ public class FragmentQuickSetup extends FragmentBase {
                 etEmail.clearFocus();
                 Helper.hideKeyboard(view);
 
+                if (ex instanceof ArgumentException) {
+                    tvArgument.setText(ex.getMessage());
+                    tvArgument.setVisibility(View.VISIBLE);
+                    getMainHandler().post(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                return;
+                            scroll.smoothScrollTo(0, tvArgument.getBottom());
+                        }
+                    });
+                    return;
+                }
+
                 if (ex instanceof AuthenticationFailedException) {
                     String message = getString(R.string.title_setup_no_auth_hint);
                     if (provider != null && provider.appPassword)
@@ -818,6 +836,12 @@ public class FragmentQuickSetup extends FragmentBase {
             }
         } catch (Throwable ex) {
             Log.e(ex);
+        }
+    }
+
+    private static class ArgumentException extends IllegalArgumentException {
+        public ArgumentException(String text) {
+            super(text);
         }
     }
 }
