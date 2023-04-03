@@ -210,7 +210,7 @@ public class DnsHelper {
                         result.add(new DnsRecord(soa.getHost().toString(true)));
                     } else if (record instanceof SRVRecord) {
                         SRVRecord srv = (SRVRecord) record;
-                        result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort()));
+                        result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort(), srv.getPriority(), srv.getWeight()));
                     } else if (record instanceof TXTRecord) {
                         TXTRecord txt = (TXTRecord) record;
                         for (Object content : txt.getStrings()) {
@@ -240,6 +240,9 @@ public class DnsHelper {
                     } else
                         throw new IllegalArgumentException(record.getClass().getName());
                 }
+
+            for (DnsRecord record : result)
+                record.query = name;
 
             return result.toArray(new DnsRecord[0]);
         } catch (TextParseException ex) {
@@ -283,8 +286,11 @@ public class DnsHelper {
     }
 
     static class DnsRecord {
+        String query;
         String name;
         Integer port;
+        Integer priority;
+        Integer weight;
 
         DnsRecord(String name) {
             this.name = name;
@@ -293,6 +299,19 @@ public class DnsHelper {
         DnsRecord(String name, int port) {
             this.name = name;
             this.port = port;
+        }
+
+        DnsRecord(String name, int port, int priority, int weight) {
+            this.name = name;
+            this.port = port;
+            this.priority = priority;
+            this.weight = weight;
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return query + "=" + name + ":" + port + " " + priority + "/" + weight;
         }
     }
 }
