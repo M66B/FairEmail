@@ -247,12 +247,13 @@ public class FragmentQuickSetup extends FragmentBase {
         btnManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentBase fragment = new FragmentAccount();
+                finish();
+
+                FragmentAccount fragment = new FragmentAccount();
                 fragment.setArguments(new Bundle());
                 FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
                 fragmentTransaction.commit();
-                finish();
             }
         });
 
@@ -294,10 +295,43 @@ public class FragmentQuickSetup extends FragmentBase {
     }
 
     private void onSave(boolean check) {
+        String name = etName.getText().toString().trim();
+        String email = etEmail.getText().toString().trim();
+        String password = tilPassword.getEditText().getText().toString();
+        String warning = null;
+        if (TextUtils.isEmpty(name))
+            warning = getString(R.string.title_no_name);
+        else if (TextUtils.isEmpty(email))
+            warning = getString(R.string.title_no_email);
+        else if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
+            warning = getString(R.string.title_email_invalid, email);
+        else if (TextUtils.isEmpty(password))
+            warning = getString(R.string.title_no_password);
+        else {
+            ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
+            NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
+            if (ani == null || !ani.isConnected())
+                warning = getString(R.string.title_no_internet);
+        }
+
+        if (warning != null) {
+            tvArgument.setText(warning);
+            tvArgument.setVisibility(View.VISIBLE);
+            getMainHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+                    scroll.smoothScrollTo(0, tvArgument.getBottom());
+                }
+            });
+            return;
+        }
+
         Bundle args = new Bundle();
-        args.putString("name", etName.getText().toString().trim());
-        args.putString("email", etEmail.getText().toString().trim());
-        args.putString("password", tilPassword.getEditText().getText().toString());
+        args.putString("name", name);
+        args.putString("email", email);
+        args.putString("password", password);
         args.putBoolean("update", cbUpdate.isChecked());
         args.putBoolean("check", check);
         args.putParcelable("best", bestProvider);
@@ -340,22 +374,8 @@ public class FragmentQuickSetup extends FragmentBase {
                 boolean check = args.getBoolean("check");
                 EmailProvider best = args.getParcelable("best");
 
-                if (TextUtils.isEmpty(name))
-                    throw new ArgumentException(context.getString(R.string.title_no_name));
-                if (TextUtils.isEmpty(email))
-                    throw new ArgumentException(context.getString(R.string.title_no_email));
-                if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
-                    throw new ArgumentException(context.getString(R.string.title_email_invalid, email));
-                if (TextUtils.isEmpty(password))
-                    throw new ArgumentException(context.getString(R.string.title_no_password));
-
                 int at = email.indexOf('@');
                 String username = email.substring(0, at);
-
-                ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
-                NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
-                if (ani == null || !ani.isConnected())
-                    throw new ArgumentException(context.getString(R.string.title_no_internet));
 
                 Throwable fail = null;
                 List<EmailProvider> providers;
@@ -695,24 +715,12 @@ public class FragmentQuickSetup extends FragmentBase {
                 etEmail.clearFocus();
                 Helper.hideKeyboard(view);
 
-                if (ex instanceof ArgumentException) {
-                    tvArgument.setText(ex.getMessage());
-                    tvArgument.setVisibility(View.VISIBLE);
-                    getMainHandler().post(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                                return;
-                            scroll.smoothScrollTo(0, tvArgument.getBottom());
-                        }
-                    });
-                    return;
-                }
-
                 if (ex instanceof AuthenticationFailedException) {
                     String message = getString(R.string.title_setup_no_auth_hint);
                     if (provider != null && provider.appPassword)
                         message += "\n\n" + getString(R.string.title_setup_app_password_hint);
+                    else
+                        btnManual.setVisibility(View.VISIBLE);
                     tvErrorHint.setText(message);
                 } else {
                     tvErrorHint.setText(R.string.title_setup_no_settings_hint);
@@ -836,12 +844,6 @@ public class FragmentQuickSetup extends FragmentBase {
             }
         } catch (Throwable ex) {
             Log.e(ex);
-        }
-    }
-
-    private static class ArgumentException extends IllegalArgumentException {
-        public ArgumentException(String text) {
-            super(text);
         }
     }
 }

@@ -159,7 +159,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:autoLink="web"
-            android:text="Error message"
+            android:text="Argument"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textIsSelectable="true"
