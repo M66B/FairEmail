@@ -719,7 +719,7 @@ public class FragmentQuickSetup extends FragmentBase {
                     String message = getString(R.string.title_setup_no_auth_hint);
                     if (provider != null && provider.appPassword)
                         message += "\n\n" + getString(R.string.title_setup_app_password_hint);
-                    else
+                    else if (provider == null)
                         btnManual.setVisibility(View.VISIBLE);
                     tvErrorHint.setText(message);
                 } else {
