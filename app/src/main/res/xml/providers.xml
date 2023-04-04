@@ -2050,4 +2050,18 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="FREE!"
+        appPassword="true"
+        domain="free\\.de"
+        link="https://faq.free.de/content/310251/44/de/wie-lauten-die-einstellungen-fuer-den-zugriff-auf-mein-free-@freede-mailkonto.html">
+        <imap
+            host="pop.free.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.free.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
