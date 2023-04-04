@@ -3014,7 +3014,7 @@ class Core {
                     imessages.length > 0 && folder.last_sync_count != null &&
                     imessages.length == folder.last_sync_count) {
                 // Check if last message known as new messages indicator
-                MessageHelper helper = new MessageHelper((MimeMessage) imessages[imessages.length - 1], context);
+                MessageHelper helper = new MessageHelper((MimeMessage) imessages[reversed ? 0 : imessages.length - 1], context);
                 String msgid = helper.getPOP3MessageID();
                 if (msgid != null) {
                     int count = db.message().countMessageByMsgId(folder.id, msgid, true);
@@ -3430,11 +3430,10 @@ class Core {
             }
 
             if (account.max_messages != null && !account.leave_on_device) {
-                int hidden = db.message().setMessagesUiHide(folder.id, Math.abs(account.max_messages) + flagged);
-                int deleted = db.message().deleteMessagesKeep(folder.id, Math.abs(account.max_messages) + flagged + 100);
+                int hidden = db.message().setMessagesUiHide(folder.id, Math.abs(account.max_messages));
+                int deleted = db.message().deleteMessagesKeep(folder.id, Math.abs(account.max_messages) + 100);
                 EntityLog.log(context, account.name + " POP" +
                         " cleanup max=" + account.max_messages +
-                        " flagged=" + flagged +
                         " hidden=" + hidden +
                         " deleted=" + deleted);
             }

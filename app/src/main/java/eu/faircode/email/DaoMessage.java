@@ -789,6 +789,7 @@ public interface DaoMessage {
     @Transaction
     @Query("UPDATE message SET ui_hide = 1" +
             " WHERE folder = :folder" +
+            " AND NOT ui_flagged" +
             " AND id NOT IN (" +
             "    SELECT id FROM message" +
             "    WHERE folder = :folder" +
@@ -1015,6 +1016,7 @@ public interface DaoMessage {
     @Transaction
     @Query("DELETE FROM message" +
             " WHERE folder = :folder" +
+            " AND NOT ui_flagged" +
             " AND id NOT IN (" +
             "    SELECT id FROM message" +
             "    WHERE folder = :folder" +
