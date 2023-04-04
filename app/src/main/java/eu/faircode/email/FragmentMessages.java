@@ -2652,6 +2652,8 @@ public class FragmentMessages extends FragmentBase
 
         @Override
         public void layoutChanged() {
+            if (rvMessage == null)
+                return;
             rvMessage.post(new Runnable() {
                 @Override
                 public void run() {
