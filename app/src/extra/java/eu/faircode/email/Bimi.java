@@ -101,7 +101,7 @@ public class Bimi {
         }
 
         // Process DNS record
-        Map<String, String> values = MessageHelper.getKeyValues(record.name);
+        Map<String, String> values = MessageHelper.getKeyValues(record.response);
         List<String> tags = new ArrayList<>(values.keySet());
         Collections.sort(tags); // process certificate first
         for (String tag : tags) {
@@ -337,9 +337,9 @@ public class Bimi {
                         }
                         if (records.length == 0)
                             throw new IllegalArgumentException("DMARC missing");
-                        Log.i("BIMI got TXT " + records[0].name);
+                        Log.i("BIMI got TXT " + records[0].response);
 
-                        Map<String, String> dmarc = MessageHelper.getKeyValues(records[0].name);
+                        Map<String, String> dmarc = MessageHelper.getKeyValues(records[0].response);
 
                         String p = dmarc.get("p");
                         if (p == null ||
@@ -376,7 +376,7 @@ public class Bimi {
             DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, txt, "txt");
             if (records.length == 0)
                 return null;
-            Log.i("BIMI got TXT " + records[0].name);
+            Log.i("BIMI got TXT " + records[0].response);
             return records[0];
         } catch (Throwable ex) {
             Log.i(ex);

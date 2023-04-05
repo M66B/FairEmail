@@ -227,7 +227,7 @@ public class DnsHelper {
                                 slash = text.indexOf('\\', i);
                             }
                             if (result.size() > 0)
-                                result.get(0).name += text;
+                                result.get(0).response += text;
                             else
                                 result.add(new DnsRecord(text, 0));
                         }
@@ -287,22 +287,22 @@ public class DnsHelper {
 
     static class DnsRecord {
         String query;
-        String name;
+        String response;
         Integer port;
         Integer priority;
         Integer weight;
 
-        DnsRecord(String name) {
-            this.name = name;
+        DnsRecord(String response) {
+            this.response = response;
         }
 
-        DnsRecord(String name, int port) {
-            this.name = name;
+        DnsRecord(String response, int port) {
+            this.response = response;
             this.port = port;
         }
 
-        DnsRecord(String name, int port, int priority, int weight) {
-            this.name = name;
+        DnsRecord(String response, int port, int priority, int weight) {
+            this.response = response;
             this.port = port;
             this.priority = priority;
             this.weight = weight;
@@ -311,7 +311,7 @@ public class DnsHelper {
         @NonNull
         @Override
         public String toString() {
-            return query + "=" + name + ":" + port + " " + priority + "/" + weight;
+            return query + "=" + response + ":" + port + " " + priority + "/" + weight;
         }
     }
 }

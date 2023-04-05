@@ -2307,8 +2307,8 @@ public class MessageHelper {
             if (records.length == 0)
                 return null;
 
-            Log.i("DKIM got " + records[0].name);
-            Map<String, String> dk = getKeyValues(records[0].name);
+            Log.i("DKIM got " + records[0].response);
+            Map<String, String> dk = getKeyValues(records[0].response);
 
             String canonic = kv.get("c");
             Log.i("DKIM canonicalization=" + canonic);

@@ -83,7 +83,7 @@ public class Avatar {
                 for (String dns : LIBRAVATAR_DNS.split(",")) {
                     DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, dns + "." + domain, "srv");
                     if (records.length > 0) {
-                        baseUrl = (records[0].port == 443 ? "https" : "http") + "://" + records[0].name + "/avatar/";
+                        baseUrl = (records[0].port == 443 ? "https" : "http") + "://" + records[0].response + "/avatar/";
                         break;
                     }
                 }

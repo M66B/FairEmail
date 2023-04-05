@@ -427,7 +427,7 @@ public class EmailProvider implements Parcelable {
                 for (EmailProvider provider : providers)
                     if (provider.mx != null)
                         for (String mx : provider.mx)
-                            if (record.name.matches(mx))
+                            if (record.response.matches(mx))
                                 return Arrays.asList(provider);
         } catch (Throwable ex) {
             Log.w(ex);
@@ -477,8 +477,8 @@ public class EmailProvider implements Parcelable {
             }
 
             for (DnsHelper.DnsRecord record : records)
-                if (!TextUtils.isEmpty(record.name)) {
-                    String target = record.name.toLowerCase(Locale.ROOT);
+                if (!TextUtils.isEmpty(record.response)) {
+                    String target = record.response.toLowerCase(Locale.ROOT);
                     EntityLog.log(context, "MX target=" + target);
 
                     for (EmailProvider provider : providers) {
@@ -510,7 +510,7 @@ public class EmailProvider implements Parcelable {
 
             for (DnsHelper.DnsRecord record : records)
                 try {
-                    String target = record.name.toLowerCase(Locale.ROOT);
+                    String target = record.response.toLowerCase(Locale.ROOT);
                     InetAddress.getByName(target);
 
                     EmailProvider mx1 = new EmailProvider(domain);
@@ -866,7 +866,7 @@ public class EmailProvider implements Parcelable {
 
             // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
             for (DnsHelper.DnsRecord record : new ArrayList<>(list))
-                if (TextUtils.isEmpty(record.name) || ".".equals(record.name))
+                if (TextUtils.isEmpty(record.response) || ".".equals(record.response))
                     list.remove(record);
 
             if (list.size() == 0)
@@ -888,7 +888,7 @@ public class EmailProvider implements Parcelable {
             DnsHelper.DnsRecord pref = list.get(0);
 
             provider.imap.score = 50;
-            provider.imap.host = pref.name;
+            provider.imap.host = pref.response;
             provider.imap.port = pref.port;
             provider.imap.starttls = (!pref.query.startsWith("_imaps._tcp.") && pref.port == 143);
             EntityLog.log(context, pref.query + "=" + provider.imap);
@@ -904,7 +904,7 @@ public class EmailProvider implements Parcelable {
             list.addAll(Arrays.asList(DnsHelper.lookup(context, "_submissions._tcp." + domain, "srv")));
 
             for (DnsHelper.DnsRecord record : new ArrayList<>(list))
-                if (TextUtils.isEmpty(record.name) || ".".equals(record.name))
+                if (TextUtils.isEmpty(record.response) || ".".equals(record.response))
                     list.remove(record);
 
             if (list.size() == 0)
@@ -927,7 +927,7 @@ public class EmailProvider implements Parcelable {
             DnsHelper.DnsRecord pref = list.get(0);
 
             provider.smtp.score = 50;
-            provider.smtp.host = pref.name;
+            provider.smtp.host = pref.response;
             provider.smtp.port = pref.port;
             provider.smtp.starttls = (!pref.query.startsWith("_submissions._tcp.") && pref.port == 587);
             EntityLog.log(context, pref.query + "=" + provider.smtp);
