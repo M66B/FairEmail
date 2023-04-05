@@ -202,23 +202,33 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvError" />
 
+        <TextView
+            android:id="@+id/tvManualHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_no_settings_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
+
         <Button
             android:id="@+id/btnManual"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:drawableEnd="@drawable/twotone_settings_24"
+            android:drawableEnd="@drawable/twotone_edit_24"
             android:drawablePadding="6dp"
             android:text="@string/title_setup_manual_setup"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
+            app:layout_constraintTop_toBottomOf="@id/tvManualHint" />
 
         <TextView
             android:id="@+id/tvErrorRemark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:text="@string/title_setup_quick_support"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
@@ -441,6 +451,12 @@
             android:id="@+id/grpError"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvErrorTitle,tvError,tvErrorHint,tvErrorRemark,btnSupport" />
+            app:constraint_referenced_ids="tvErrorTitle,tvError,tvErrorRemark,btnSupport" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpManual"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvManualHint,btnManual" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
