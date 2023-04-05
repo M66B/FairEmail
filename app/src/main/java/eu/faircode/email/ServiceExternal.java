@@ -37,17 +37,21 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 public class ServiceExternal extends Service {
     private static final String ACTION_POLL = BuildConfig.APPLICATION_ID + ".POLL";
     private static final String ACTION_ENABLE = BuildConfig.APPLICATION_ID + ".ENABLE";
     private static final String ACTION_DISABLE = BuildConfig.APPLICATION_ID + ".DISABLE";
     private static final String ACTION_INTERVAL = BuildConfig.APPLICATION_ID + ".INTERVAL";
+    private static final String ACTION_RULE = BuildConfig.APPLICATION_ID + ".RULE";
     private static final String ACTION_DISCONNECT_ME = BuildConfig.APPLICATION_ID + ".DISCONNECT.ME";
 
     // adb shell am start-foreground-service -a eu.faircode.email.POLL --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.ENABLE --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.DISABLE --es account Gmail
     // adb shell am start-foreground-service -a eu.faircode.email.INTERVAL --ei minutes {0, 15, 30, 60, 120, 240, 480, 1440}
+    // adb shell am start-foreground-service -a eu.faircode.email.RULE --es account Gmail -e rule Test
     // adb shell am start-foreground-service -a eu.faircode.email.DISCONNECT
 
     @Override
@@ -95,6 +99,9 @@ public class ServiceExternal extends Service {
                                 break;
                             case ACTION_INTERVAL:
                                 interval(context, intent);
+                                break;
+                            case ACTION_RULE:
+                                rule(context, intent);
                                 break;
                             case ACTION_DISCONNECT_ME:
                                 disconnect(context, intent);
@@ -194,6 +201,53 @@ public class ServiceExternal extends Service {
         }
 
         ServiceSynchronize.eval(context, "external account=" + accountName + " enabled=" + enabled);
+    }
+
+    private static void rule(Context context, Intent intent) throws IOException, JSONException, MessagingException {
+        String accountName = intent.getStringExtra("account");
+        String ruleName = intent.getStringExtra("rule");
+
+        DB db = DB.getInstance(context);
+        EntityAccount account = db.account().getAccount(accountName);
+        if (account == null)
+            throw new IllegalArgumentException("Account not found name=" + accountName);
+
+        List<EntityRule> rules = db.rule().getRuleByName(account.id, ruleName);
+        if (rules == null || rules.size() == 0)
+            throw new IllegalArgumentException("Rule not found name=" + ruleName);
+        if (rules.size() != 1)
+            throw new IllegalArgumentException("Rule ambiguous name=" + ruleName);
+
+        EntityRule rule = rules.get(0);
+        List<Long> ids = db.message().getMessageIdsByFolder(rule.folder);
+        if (ids == null || ids.size() == 0)
+            return;
+
+        // Check header conditions
+        for (long mid : ids) {
+            EntityMessage message = db.message().getMessage(mid);
+            if (message == null || message.ui_hide)
+                continue;
+            rule.matches(context, message, null, null);
+        }
+
+        int applied = 0;
+        for (long mid : ids)
+            try {
+                db.beginTransaction();
+
+                EntityMessage message = db.message().getMessage(mid);
+                if (message == null || message.ui_hide)
+                    continue;
+
+                EntityLog.log(context, "Executing rules message=" + message.id);
+                applied = EntityRule.run(context, rules, message, null, null);
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+        EntityLog.log(context, "Executing rule=" + rule.name + " applied=" + applied);
     }
 
     private static void disconnect(Context context, Intent intent) throws IOException, JSONException {

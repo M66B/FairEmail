@@ -2768,6 +2768,15 @@ The filter rules will move the messages to a (sub) archive folder as a second st
 
 The POP3 protocol does not support setting keywords and moving or copying messages.
 
+<br />
+
+Since version 1.2061 it is possible to execute rules with an automation app, like for example Tasker.
+
+
+```
+(adb shell) am start-foreground-service -a eu.faircode.email.RULE --es account <account name> -e rule <unique rule name>
+```
+
 Using rules is a pro feature.
 
 <br />
