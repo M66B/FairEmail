@@ -439,18 +439,18 @@ dependencies {
 
     def startup_version = "1.1.1" // 1.2.0-alpha02
     def annotation_version_experimental = "1.3.0"
-    def core_version = "1.10.0-rc01" // 1.11.0-alpha01
+    def core_version = "1.10.0"
     def appcompat_version = "1.6.1" // 1.7.0-alpha02
-    def emoji_version = "1.3.0" // 1.4.0-alpha01
+    def emoji_version = "1.3.0" // 1.4.0-beta01
     def flatbuffers_version = "2.0.0"
     def activity_version = "1.7.0"
-    def fragment_version = "1.5.6" // 1.6.0-alpha08
-    def windows_version = "1.0.0" // 1.1.0-alpha06
-    def webkit_version = "1.6.1" // 1.7.0-alpha03
+    def fragment_version = "1.5.6" // 1.6.0-alpha09
+    def windows_version = "1.0.0" // 1.1.0-beta02
+    def webkit_version = "1.6.1" // 1.7.0-beta01
     def recyclerview_version = "1.3.0"
     def coordinatorlayout_version = "1.2.0"
     def constraintlayout_version = "2.1.4" // 2.2.0-alpha09
-    def material_version = "1.8.0"
+    def material_version = "1.9.0-beta01" // 1.10.0-alpha01
     def browser_version = "1.5.0"
     def lbm_version = "1.1.0"
     def swiperefresh_version = "1.2.0-alpha01"
