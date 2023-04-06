@@ -57,6 +57,7 @@ import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
+import android.util.Pair;
 import android.util.Patterns;
 import android.view.View;
 
@@ -114,6 +115,7 @@ import java.text.ParsePosition;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -873,17 +875,8 @@ public class HtmlHelper {
                             break;
 
                         case "font-weight":
-                            if (element.parent() != null) {
-                                Integer fweight = getFontWeight(value);
-                                if (fweight != null && fweight >= 600) {
-                                    Element strong = new Element("strong");
-                                    for (Node child : new ArrayList<>(element.childNodes())) {
-                                        child.remove();
-                                        strong.appendChild(child);
-                                    }
-                                    element.appendChild(strong);
-                                }
-                            }
+                            // https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight
+                            sb.append(key).append(":").append(value).append(";");
                             break;
 
                         case "font-family":
@@ -1889,6 +1882,8 @@ public class HtmlHelper {
                 return 300;
             case "normal":
             case "regular":
+            case "unset":
+            case "initial":
                 return 400;
             case "bolder":
             case "strong":
@@ -1899,8 +1894,6 @@ public class HtmlHelper {
                 return 900;
             case "none":
             case "auto":
-            case "unset":
-            case "initial":
             case "inherit":
                 return null;
         }
@@ -3325,6 +3318,34 @@ public class HtmlHelper {
                                         } catch (Throwable ex) {
                                             Log.i(ex);
                                         }
+                                    break;
+                                case "font-weight":
+                                    Integer fweight = getFontWeight(value);
+                                    if (fweight != null)
+                                        if (fweight >= 600) {
+                                            List<StyleSpan> spans = new ArrayList<>(Arrays.asList(ssb.getSpans(start, ssb.length(), StyleSpan.class)));
+                                            if (spans != null) {
+                                                Collections.sort(spans, new Comparator<StyleSpan>() {
+                                                    @Override
+                                                    public int compare(StyleSpan s1, StyleSpan s2) {
+                                                        int s = Integer.compare(ssb.getSpanStart(s1), ssb.getSpanStart(s2));
+                                                        if (s != 0)
+                                                            return s;
+                                                        return -Integer.compare(ssb.getSpanEnd(s1), ssb.getSpanEnd(s2));
+                                                    }
+                                                });
+                                                for (StyleSpan span : spans) {
+                                                    int s = ssb.getSpanStart(span);
+                                                    if (s > start && span.getStyle() == Typeface.NORMAL) {
+                                                        setSpan(ssb, new StyleSpan(Typeface.BOLD), start, s);
+                                                        start = ssb.getSpanEnd(span);
+                                                    }
+                                                }
+                                            }
+                                            if (start < ssb.length())
+                                                setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
+                                        } else
+                                            setSpan(ssb, new StyleSpan(Typeface.NORMAL), start, ssb.length());
                                     break;
                                 case "font-family":
                                     if ("wingdings".equalsIgnoreCase(value)) {
