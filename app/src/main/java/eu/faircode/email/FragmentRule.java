@@ -43,6 +43,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -86,7 +87,7 @@ public class FragmentRule extends FragmentBase {
 
     private TextView tvFolder;
     private EditText etName;
-    private EditText etGroup;
+    private AutoCompleteTextView etGroup;
     private EditText etOrder;
     private CheckBox cbEnabled;
     private CheckBox cbDaily;
@@ -185,6 +186,7 @@ public class FragmentRule extends FragmentBase {
     private Group grpDelete;
     private Group grpLocalOnly;
 
+    private ArrayAdapter<String> adapterGroup;
     private ArrayAdapter<String> adapterDay;
     private ArrayAdapter<Action> adapterAction;
     private ArrayAdapter<EntityIdentity> adapterIdentity;
@@ -368,6 +370,10 @@ public class FragmentRule extends FragmentBase {
         grpAutomation = view.findViewById(R.id.grpAutomation);
         grpDelete = view.findViewById(R.id.grpDelete);
         grpLocalOnly = view.findViewById(R.id.grpLocalOnly);
+
+        adapterGroup = new ArrayAdapter<>(getContext(), R.layout.spinner_item1_dropdown, android.R.id.text1);
+        etGroup.setThreshold(1);
+        etGroup.setAdapter(adapterGroup);
 
         cbDaily.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -839,6 +845,7 @@ public class FragmentRule extends FragmentBase {
                 DB db = DB.getInstance(context);
                 data.account = db.account().getAccount(aid);
                 data.folder = db.folder().getFolder(fid);
+                data.groups = db.rule().getGroups();
                 data.identities = db.identity().getSynchronizingIdentities(aid);
                 data.answers = db.answer().getAnswers(false);
 
@@ -850,6 +857,9 @@ public class FragmentRule extends FragmentBase {
                 tvFolder.setText(String.format("%s:%s",
                         data.account == null ? "" : data.account.name,
                         data.folder.getDisplayName(getContext())));
+
+                adapterGroup.clear();
+                adapterGroup.addAll(data.groups);
 
                 adapterIdentity.clear();
                 adapterIdentity.addAll(data.identities);
@@ -1692,6 +1702,7 @@ public class FragmentRule extends FragmentBase {
     private static class RefData {
         EntityAccount account;
         EntityFolder folder;
+        List<String> groups;
         List<EntityIdentity> identities;
         List<EntityAnswer> answers;
     }

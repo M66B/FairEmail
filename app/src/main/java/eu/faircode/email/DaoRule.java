@@ -62,6 +62,11 @@ public interface DaoRule {
             " WHERE rule.folder = :folder")
     LiveData<List<TupleRuleEx>> liveRules(long folder);
 
+    @Query("SELECT DISTINCT `group` FROM rule" +
+            " WHERE NOT `group` IS NULL" +
+            " ORDER by `group` COLLATE NOCASE")
+    List<String> getGroups();
+
     @Query("SELECT COUNT(*) FROM rule")
     int countTotal();
 
