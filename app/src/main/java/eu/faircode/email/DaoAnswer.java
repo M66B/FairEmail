@@ -74,6 +74,11 @@ public interface DaoAnswer {
             " AND (:favorite OR NOT favorite)")
     Integer getAnswerCount(boolean favorite);
 
+    @Query("SELECT DISTINCT `group` FROM answer" +
+            " WHERE NOT `group` IS NULL" +
+            " ORDER by `group` COLLATE NOCASE")
+    List<String> getGroups();
+
     @Insert
     long insertAnswer(EntityAnswer answer);
 

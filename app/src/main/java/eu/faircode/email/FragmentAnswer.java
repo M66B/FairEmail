@@ -42,6 +42,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
@@ -58,13 +60,14 @@ import com.google.android.material.snackbar.Snackbar;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentAnswer extends FragmentBase {
     private ViewGroup view;
     private EditText etName;
     private EditText etLabel;
-    private EditText etGroup;
+    private AutoCompleteTextView etGroup;
     private CheckBox cbStandard;
     private CheckBox cbReceipt;
     private CheckBox cbFavorite;
@@ -77,6 +80,8 @@ public class FragmentAnswer extends FragmentBase {
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
+
+    private ArrayAdapter<String> adapterGroup;
 
     private long id = -1;
     private long copy = -1;
@@ -132,6 +137,10 @@ public class FragmentAnswer extends FragmentBase {
 
         pbWait = view.findViewById(R.id.pbWait);
         grpReady = view.findViewById(R.id.grpReady);
+
+        adapterGroup = new ArrayAdapter<>(getContext(), R.layout.spinner_item1_dropdown, android.R.id.text1);
+        etGroup.setThreshold(1);
+        etGroup.setAdapter(adapterGroup);
 
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -248,6 +257,8 @@ public class FragmentAnswer extends FragmentBase {
                     args.putCharSequence("spanned", spanned);
                 }
 
+                args.putStringArrayList("groups", new ArrayList<>(db.answer().getGroups()));
+
                 return answer;
             }
 
@@ -273,6 +284,9 @@ public class FragmentAnswer extends FragmentBase {
                     btnColor.setColor(answer == null ? null : answer.color);
                     etText.setText((Spanned) args.getCharSequence("spanned"));
                 }
+
+                adapterGroup.clear();
+                adapterGroup.addAll(args.getStringArrayList("groups"));
 
                 if (answer == null)
                     bottom_navigation.getMenu().removeItem(R.id.action_delete);
