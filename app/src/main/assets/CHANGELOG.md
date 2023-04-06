@@ -6,6 +6,17 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
+### Next version
+
+* Added filter rule groups
+* Added executing of filter rules by automation apps, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71)
+* Added auto completion for reply template groups and filter rule groups
+* Improved auto-discovery via DNS SRV records
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2060 - 2023-04-01
 
 * Added draft message printing
