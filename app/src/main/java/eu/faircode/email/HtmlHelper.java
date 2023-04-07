@@ -3322,30 +3322,7 @@ public class HtmlHelper {
                                 case "font-weight":
                                     Integer fweight = getFontWeight(value);
                                     if (fweight != null)
-                                        if (fweight >= 600) {
-                                            List<StyleSpan> spans = new ArrayList<>(Arrays.asList(ssb.getSpans(start, ssb.length(), StyleSpan.class)));
-                                            if (spans != null) {
-                                                Collections.sort(spans, new Comparator<StyleSpan>() {
-                                                    @Override
-                                                    public int compare(StyleSpan s1, StyleSpan s2) {
-                                                        int s = Integer.compare(ssb.getSpanStart(s1), ssb.getSpanStart(s2));
-                                                        if (s != 0)
-                                                            return s;
-                                                        return -Integer.compare(ssb.getSpanEnd(s1), ssb.getSpanEnd(s2));
-                                                    }
-                                                });
-                                                for (StyleSpan span : spans) {
-                                                    int s = ssb.getSpanStart(span);
-                                                    if (s > start && span.getStyle() == Typeface.NORMAL) {
-                                                        setSpan(ssb, new StyleSpan(Typeface.BOLD), start, s);
-                                                        start = ssb.getSpanEnd(span);
-                                                    }
-                                                }
-                                            }
-                                            if (start < ssb.length())
-                                                setSpan(ssb, new StyleSpan(Typeface.BOLD), start, ssb.length());
-                                        } else
-                                            setSpan(ssb, new StyleSpan(Typeface.NORMAL), start, ssb.length());
+                                        setSpan(ssb, new StyleSpan(fweight >= 600 ? Typeface.BOLD : Typeface.NORMAL), start, ssb.length());
                                     break;
                                 case "font-family":
                                     if ("wingdings".equalsIgnoreCase(value)) {
@@ -3792,6 +3769,46 @@ public class HtmlHelper {
                     f |= Spanned.SPAN_PARAGRAPH;
             }
             ssb.setSpan(spans[i], s, e, f);
+        }
+
+        for (Object bold : spans) {
+            if (bold instanceof StyleSpan) {
+                int style = ((StyleSpan) bold).getStyle();
+                if (style == Typeface.BOLD) {
+                    int bs = start.get(bold);
+                    int be = end.get(bold);
+
+                    List<StyleSpan> normal = new ArrayList<>();
+                    for (StyleSpan ss : ssb.getSpans(bs, be, StyleSpan.class))
+                        if (ss.getStyle() == Typeface.NORMAL)
+                            normal.add(ss);
+
+                    if (normal.size() > 0) {
+                        ssb.removeSpan(bold);
+
+                        Collections.sort(normal, new Comparator<StyleSpan>() {
+                            @Override
+                            public int compare(StyleSpan s1, StyleSpan s2) {
+                                int s = Integer.compare(ssb.getSpanStart(s1), ssb.getSpanStart(s2));
+                                if (s != 0)
+                                    return s;
+                                return -Integer.compare(ssb.getSpanEnd(s1), ssb.getSpanEnd(s2));
+                            }
+                        });
+
+                        for (StyleSpan n : normal) {
+                            int ns = start.get(n);
+                            if (ns > bs) {
+                                ssb.setSpan(new StyleSpan(Typeface.BOLD), bs, ns, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                bs = end.get(n);
+                            }
+                        }
+
+                        if (bs < be)
+                            ssb.setSpan(new StyleSpan(Typeface.BOLD), bs, be, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    }
+                }
+            }
         }
 
         return ssb;
