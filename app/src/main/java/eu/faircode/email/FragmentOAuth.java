@@ -943,13 +943,8 @@ public class FragmentOAuth extends FragmentBase {
                         if (pop) {
                             account.swipe_left = EntityMessage.SWIPE_ACTION_DELETE;
                             account.swipe_right = EntityMessage.SWIPE_ACTION_SEEN;
-                        } else {
-                            for (EntityFolder folder : folders)
-                                if (EntityFolder.TRASH.equals(folder.type))
-                                    account.swipe_left = folder.id;
-                                else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                    account.swipe_right = folder.id;
-                        }
+                        } else
+                            FragmentDialogSwipes.setDefaultFolderActions(context, account.id);
 
                         db.account().updateAccount(account);
 

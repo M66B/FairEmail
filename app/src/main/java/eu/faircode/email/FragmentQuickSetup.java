@@ -33,6 +33,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -621,13 +622,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                 }
 
                                 // Set swipe left/right folder
-                                for (EntityFolder folder : folders)
-                                    if (EntityFolder.TRASH.equals(folder.type))
-                                        account.swipe_left = folder.id;
-                                    else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                        account.swipe_right = folder.id;
-
-                                db.account().updateAccount(account);
+                                FragmentDialogSwipes.setDefaultFolderActions(context, account.id);
 
                                 // Create identity
                                 EntityIdentity identity = new EntityIdentity();
