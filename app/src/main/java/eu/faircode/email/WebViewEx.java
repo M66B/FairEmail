@@ -188,7 +188,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                 @Override
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                     Log.i("Scroll (x,y)=" + scrollX + "," + scrollY);
-                    intf.onScrollChange(scrollX, scrollY);
+                    intf.onScrollChange(scrollX - oldScrollX, scrollY - oldScrollY, scrollX, scrollY);
                 }
             });
     }
@@ -412,7 +412,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         void onScaleChanged(float newScale);
 
-        void onScrollChange(int scrollX, int scrollY);
+        void onScrollChange(int dx, int dy, int scrollX, int scrollY);
 
         boolean onOpenLink(String url);
     }

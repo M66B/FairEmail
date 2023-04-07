@@ -2839,8 +2839,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 }
 
                                 @Override
-                                public void onScrollChange(int scrollX, int scrollY) {
-                                    properties.setPosition(message.id, new Pair<Integer, Integer>(scrollX, scrollY));
+                                public void onScrollChange(int dx, int dy, int scrollX, int scrollY) {
+                                    properties.setPosition(message.id, new Pair<>(dx, dy), new Pair<>(scrollX, scrollY));
                                 }
 
                                 @Override
@@ -4500,7 +4500,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             properties.setSize(message.id, null);
                             properties.setHeight(message.id, null);
-                            properties.setPosition(message.id, null);
+                            properties.setPosition(message.id, null, null);
 
                             if (itemId == R.string.title_fit_width && wvBody instanceof WebView)
                                 ((WebView) wvBody).getSettings().setLoadWithOverviewMode(enabled);
@@ -5371,7 +5371,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             properties.setSize(message.id, null);
             properties.setHeight(message.id, null);
-            properties.setPosition(message.id, null);
+            properties.setPosition(message.id, null, null);
 
             if (full)
                 setupTools(message, false, false);
@@ -6589,7 +6589,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         public boolean onMenuItemClick(MenuItem item) {
                             properties.setSize(message.id, null);
                             properties.setHeight(message.id, null);
-                            properties.setPosition(message.id, null);
+                            properties.setPosition(message.id, null, null);
 
                             args.putString("charset", item.getIntent().getStringExtra("charset"));
 
@@ -6642,7 +6642,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onMenuAlt(TupleMessageEx message) {
             properties.setSize(message.id, null);
             properties.setHeight(message.id, null);
-            properties.setPosition(message.id, null);
+            properties.setPosition(message.id, null, null);
 
             Bundle args = new Bundle();
             args.putLong("id", message.id);
@@ -8571,7 +8571,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         int getHeight(long id, int defaultHeight);
 
-        void setPosition(long id, Pair<Integer, Integer> position);
+        void setPosition(long id, Pair<Integer, Integer> delta, Pair<Integer, Integer> position);
 
         Pair<Integer, Integer> getPosition(long id);
 
