@@ -4922,7 +4922,8 @@ public class FragmentMessages extends FragmentBase
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if ("pro".equals(key) || "banner_hidden".equals(key)) {
+        if (grpSupport != null &&
+                ("pro".equals(key) || "banner_hidden".equals(key))) {
             boolean pro = ActivityBilling.isPro(getContext());
             long banner_hidden = prefs.getLong("banner_hidden", 0);
             grpSupport.setVisibility(
