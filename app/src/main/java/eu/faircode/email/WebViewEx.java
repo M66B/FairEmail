@@ -90,7 +90,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     void init(int height, int maxHeight, float size, Pair<Integer, Integer> position, boolean force_light, IWebView intf) {
-        Log.i("Init height=" + height + "/" + maxHeight + " size=" + size);
+        Log.i("Init height=" + height + "/" + maxHeight + " size=" + size + " accelerated=" + isHardwareAccelerated());
 
         if (maxHeight == 0) {
             Log.e("WebView max height zero");
