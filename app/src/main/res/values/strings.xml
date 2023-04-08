@@ -1867,7 +1867,7 @@
     <string name="title_rule_daily">Run daily (only)</string>
     <string name="title_rule_age">Messages older than (days)</string>
     <string name="title_rule_stop">Stop processing rules after executing this rule</string>
-    <string name="title_rule_stop_remark">If the rule is part of a group, only the processing of the group will be stopped</string>
+    <string name="title_rule_stop_remark">If the rule is part of a group, the processing of all rules of this group will be stopped</string>
     <string name="title_rule_sender">Sender contains</string>
     <string name="title_rule_sender_known">Sender is a contact</string>
     <string name="title_rule_recipient">Recipient contains</string>
