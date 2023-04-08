@@ -262,6 +262,7 @@
     <string name="title_advanced_optimize">자동으로 최적화</string>
     <string name="title_advanced_always">이 계정들의 메시지를 항상 수신</string>
     <string name="title_advanced_schedule">일정</string>
+    <string name="title_advanced_schedule_weekend">주말</string>
     <string name="title_advanced_advanced">고급</string>
     <string name="title_advanced_quick_sync">빠른 동기화</string>
     <string name="title_advanced_no_date">날짜 없는 메시지</string>
@@ -273,6 +274,8 @@
     <string name="title_advanced_sync_folders">동기화 폴더 목록</string>
     <string name="title_advanced_sync_folders_poll">폴더 목록을 동적으로 동기화</string>
     <string name="title_advanced_sync_shared_folders">동기화 공유 폴더 목록</string>
+    <string name="title_advanced_sync_added">새 사용자 폴더에 대해 동기화 사용</string>
+    <string name="title_advanced_subscriptions">폴더 구독 관리</string>
     <string name="title_advanced_check_authentication">메시지 인증 확인하기</string>
     <string name="title_advanced_use_blocklist_pop3">차단 목록의 도메인에서 온 메시지 건너뛰기 (POP3 전용)</string>
     <string name="title_advanced_keyboard">키보드를 기본으로 표시</string>
@@ -300,12 +303,15 @@
     <string name="title_advanced_rlah">EU 내 무제한 로밍</string>
     <string name="title_advanced_download_headers">모든 메시지 제목 다운로드</string>
     <string name="title_advanced_download_eml">RAW 메시지 파일 다운로드</string>
+    <string name="title_advanced_validated">검증된 (확인된) 연결 필요</string>
+    <string name="title_advanced_validated_captive">검증된 캡티브 포탈 연결 필요</string>
     <string name="title_advanced_vpn_only">VPN을 통해서만 연결</string>
     <string name="title_advanced_timeout">연결 제한 시간 (초)</string>
     <string name="title_advanced_prefer_ip4">IPv6보다 IPv4 우선</string>
     <string name="title_advanced_ssl_harden">강화된 SSL 연결</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 필요</string>
     <string name="title_advanced_cert_strict">엄격한 인증서 확인</string>
+    <string name="title_advanced_open_safe">보안 연결만 여시오.</string>
     <string name="title_advanced_manage_connectivity">연결 관리</string>
     <string name="title_advanced_caption_general">일반</string>
     <string name="title_advanced_caption_navigation">메뉴</string>
@@ -315,6 +321,8 @@
     <string name="title_advanced_caption_message">메시지</string>
     <string name="title_advanced_caption_message_header">메시지 제목</string>
     <string name="title_advanced_caption_message_body">메시지 본문</string>
+    <string name="title_advanced_caption_file">파일</string>
+    <string name="title_advanced_caption_integrations">통합</string>
     <string name="title_advanced_portrait">세로 모드</string>
     <string name="title_advanced_landscape">가로 모드</string>
     <string name="title_advanced_two_row">2행으로 표시</string>

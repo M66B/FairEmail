@@ -234,6 +234,7 @@
     <string name="title_setup_done">Hecho</string>
     <string name="title_setup_still">Aún por hacer</string>
     <string name="title_setup_error">Error</string>
+    <string name="title_setup_manual_setup">Configuración manual</string>
     <string name="title_setup_pop">Usar POP3 (no recomendado)</string>
     <string name="title_setup_recent">Usar \'reciente\' para varios clientes de correo electrónico</string>
     <string name="title_setup_configuring">Configurando cuenta &#8230;</string>
@@ -789,7 +790,7 @@
     <string name="title_advanced_sender_hint">La mayoría de los proveedores no permiten direcciones de remitente modificadas</string>
     <string name="title_advanced_bcc_hint">La dirección no se mostrará, pero se añadirá al enviar</string>
     <string name="title_advanced_internal_hint">Habrá una advertencia al enviar a otro dominio</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Los detalles del contacto seleccionado se utilizarán para los archivos adjuntos de vCard</string>
+    <string name="title_advanced_uri">Los detalles del contacto seleccionado se utilizarán para los archivos adjuntos de vCard</string>
     <string name="title_advanced_e2e_encryption">Opciones para el cifrado de extremo a extremo</string>
     <string name="title_advanced_display_harmful_hint">Desactivar esta opción podría ser perjudicial para su privacidad</string>
     <string name="title_advanced_display_hidden_hint">Esto puede resultar en textos dobles o de apariencia extraña</string>
@@ -1446,6 +1447,7 @@
     <string name="title_search_with_size">Tamaño del mensaje mayor que</string>
     <string name="title_search_in_trash">En la papelera</string>
     <string name="title_search_in_junk">En spam</string>
+    <string name="title_search_with_range">Rango de fechas</string>
     <string name="title_search_with_before">Antes de</string>
     <string name="title_search_with_after">Después de</string>
     <string name="title_search_device_first">Buscar primero en el dispositivo</string>
@@ -1549,11 +1551,13 @@
     <string name="title_rule_caption">Editar regla</string>
     <string name="title_rule_title">Regla aplicable a</string>
     <string name="title_rule_name">Nombre</string>
+    <string name="title_rule_group">Grupo</string>
     <string name="title_rule_order">Orden</string>
     <string name="title_rule_enabled">Activada</string>
     <string name="title_rule_daily">Ejecutar diariamente (solamente)</string>
     <string name="title_rule_age">Mensajes de más de (días)</string>
     <string name="title_rule_stop">Detener procesamiento de reglas después de ejecutar esta regla</string>
+    <string name="title_rule_stop_remark">Si la regla es parte de un grupo, se detendrá el procesamiento de todas las reglas de este grupo</string>
     <string name="title_rule_sender">Remitente contiene</string>
     <string name="title_rule_sender_known">El remitente es un contacto</string>
     <string name="title_rule_recipient">El destinatario contiene</string>

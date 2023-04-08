@@ -1192,6 +1192,7 @@
     <string name="title_rule_caption">Editatu araua</string>
     <string name="title_rule_title">Araua honi aplikatzen zaio</string>
     <string name="title_rule_name">Izena</string>
+    <string name="title_rule_group">Taldea</string>
     <string name="title_rule_order">Ordena</string>
     <string name="title_rule_enabled">Gaituta</string>
     <string name="title_rule_stop">Utzi arauak prozesatzeari behi arau hau exekutatuta</string>

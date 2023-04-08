@@ -173,8 +173,8 @@
     <string name="title_setup_quick">Хуткае наладжванне</string>
     <string name="title_setup_intro">Наладжванне ўліковага запісу складаецца ўсяго з трох крокаў, пасля чаго вы можаце адпраўляць і атрымліваць электронную пошту</string>
     <string name="title_setup_simple">Іншыя параметры мяняць не трэба</string>
-    <string name="title_setup_issue">FairEmail быў распрацаваны, каб дапамагчы вам абараніць вашу канфідэнцыяльнасць, праца па яго стварэнні заняла літаральна тысячы гадзін. Калі ў вас узніклі праблемы, перш чым пакінуць дрэнны водгук, звярніцеся да мяне па падтрымку. Я рады дапамагчы!</string>
-    <string name="title_setup_analytics">FairEmail не паказвае рэкламу, не адсочвае і не аналізуе вашы паводзіны. Bugsnag выкарыстоўваецца для справаздач аб памылках і адключана па змаўчанні.</string>
+    <string name="title_setup_issue">FairEmail быў распрацаваны, каб дапамагчы вам абараніць вашу канфідэнцыяльнасць, праца па яго стварэнні заняла літаральна тысячы гадзін. Калі ў вас узніклі праблемы, перш чым пакінуць адмоўны водгук, звярніцеся да мяне па падтрымку. Я рады дапамагчы!</string>
+    <string name="title_setup_analytics">FairEmail не паказвае рэкламу, не адсочвае і не аналізуе вашы паводзіны. Bugsnag выкарыстоўваецца для справаздач аб памылках і адключаны па змаўчанні.</string>
     <string name="title_setup_quick_accounts">Дадаванне або змяненне ўліковых запісаў</string>
     <string name="title_setup_quick_support">Некаторыя правайдары абцяжарваюць дадаванне ўліковага запісу. Калі ласка, не абвінавачвайце ў гэтым FairEmail — вы можаце звярнуцца па дапамогу.</string>
     <string name="title_setup_quick_hint">Уведзены адрас электроннай пошты выкарыстоўваецца для адпраўкі запытаў на сервер электроннай пошты і атрымання інфармацыі аб канфігурацыі з autoconfig.thunderbird.net</string>
@@ -818,6 +818,7 @@
     <string name="title_advanced_sender_hint">Большасць правайдараў не дазваляюць змяняць адрасы адпраўнікоў</string>
     <string name="title_advanced_bcc_hint">Адрас не будзе паказвацца, але будзе дададзены пры адпраўцы</string>
     <string name="title_advanced_internal_hint">Пры адпраўцы на іншы дамен з\'явіцца папярэджанне</string>
+    <string name="title_advanced_uri">Звесткі аб выбраным кантакце будуць выкарыстоўвацца для ўкладання vCard</string>
     <string name="title_advanced_e2e_encryption">Параметры скразнога шыфравання</string>
     <string name="title_advanced_display_harmful_hint">Адключэнне гэтай опцыі можа нашкодзіць вашай канфідэнцыяльнасці</string>
     <string name="title_advanced_display_hidden_hint">Уключэнне гэтай опцыі можа прывесці да дзіўнага выгляду і падвойных тэкстаў</string>
@@ -866,6 +867,7 @@
     <string name="title_advanced_sender_regex">Рэгулярны выраз, які адпавядае імю карыстальніка з уваходных адрасоў электроннай пошты</string>
     <string name="title_identity_reply_to">Адрас адказу</string>
     <string name="title_identity_internal">Унутраныя даменныя імёны (падзеленыя коскамі)</string>
+    <string name="title_identity_uri">Звязаць кантакт</string>
     <string name="title_identity_unicode">Дазволіць фармат UTF-8 у загалоўках паведамленняў</string>
     <string name="title_identity_unicode_remark">Большасць сервераў не падтрымліваюць гэту опцыю</string>
     <string name="title_identity_octetmime">Дазволіць 8BITMIME</string>
@@ -1478,6 +1480,7 @@
     <string name="title_search_with_size">Памер паведамлення перавышае</string>
     <string name="title_search_in_trash">У выдаленых</string>
     <string name="title_search_in_junk">У спаме</string>
+    <string name="title_search_with_range">Перыяд</string>
     <string name="title_search_with_before">Да</string>
     <string name="title_search_with_after">Пасля</string>
     <string name="title_search_device_first">Спачатку шукаць на прыладзе</string>
@@ -1581,6 +1584,7 @@
     <string name="title_rule_caption">Рэдагаваць правіла</string>
     <string name="title_rule_title">Ужываць правіла да</string>
     <string name="title_rule_name">Імя</string>
+    <string name="title_rule_group">Група</string>
     <string name="title_rule_order">Парадак</string>
     <string name="title_rule_enabled">Уключана</string>
     <string name="title_rule_daily">Выконваць штодня (аднаразова)</string>

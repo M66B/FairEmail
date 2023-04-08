@@ -261,6 +261,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_done">Hotovo</string>
     <string name="title_setup_still">Zbývá dokončit</string>
     <string name="title_setup_error">Chyba</string>
+    <string name="title_setup_manual_setup">Ruční nastavení</string>
     <string name="title_setup_pop">Použít POP3 (nedoporučeno)</string>
     <string name="title_setup_recent">Použijte položku \'recent\' pro více e-mailových klientů</string>
     <string name="title_setup_configuring">Probíhá konfigurace účtu &#8230;</string>
@@ -816,7 +817,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_sender_hint">Většina poskytovatelů nepovoluje pozměněné adresy odesílatele</string>
     <string name="title_advanced_bcc_hint">Adresa nebude zobrazena, ale bude přidána při odesílání</string>
     <string name="title_advanced_internal_hint">Při odesílání na jinou doménu se zobrazí varování</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Údaje vybraného kontaktu se použijí pro přílohy vCard</string>
+    <string name="title_advanced_uri">Údaje vybraného kontaktu se použijí pro přílohy vCard</string>
     <string name="title_advanced_e2e_encryption">Možnosti end-to-end šifrování</string>
     <string name="title_advanced_display_harmful_hint">Zákazem této volby můžete uškodit svému soukromí</string>
     <string name="title_advanced_display_hidden_hint">Může mít za následek neobvykle vypadající a zdvojené texty</string>
@@ -1474,6 +1475,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_search_with_size">Velikost zprávy větší než</string>
     <string name="title_search_in_trash">V koši</string>
     <string name="title_search_in_junk">V nevyžádaných</string>
+    <string name="title_search_with_range">Časový rozsah</string>
     <string name="title_search_with_before">Před</string>
     <string name="title_search_with_after">Po</string>
     <string name="title_search_device_first">Nejprve hledat na zařízení</string>
@@ -1577,11 +1579,13 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_caption">Upravit pravidlo</string>
     <string name="title_rule_title">Pravidlo platí pro</string>
     <string name="title_rule_name">Název</string>
+    <string name="title_rule_group">Skupina</string>
     <string name="title_rule_order">Pořadí</string>
     <string name="title_rule_enabled">Zapnuto</string>
     <string name="title_rule_daily">Spouštět denně (pouze)</string>
     <string name="title_rule_age">Zprávy starší než (dnů)</string>
     <string name="title_rule_stop">Zastavit zpracování pravidel po provedení tohoto pravidla</string>
+    <string name="title_rule_stop_remark">Pokud je pravidlo součástí skupiny, zpracování všech pravidel této skupiny bude zastaveno</string>
     <string name="title_rule_sender">Odesílatel obsahuje</string>
     <string name="title_rule_sender_known">Odesílatel je kontakt</string>
     <string name="title_rule_recipient">Příjemce obsahuje</string>

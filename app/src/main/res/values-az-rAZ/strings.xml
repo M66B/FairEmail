@@ -234,6 +234,7 @@
     <string name="title_setup_done">Hazırdır</string>
     <string name="title_setup_still">Hələ ediləcəklər var</string>
     <string name="title_setup_error">Xəta</string>
+    <string name="title_setup_manual_setup">Əllə quraşdır</string>
     <string name="title_setup_pop">POP3 istifadə et (tövsiyə edilmir)</string>
     <string name="title_setup_recent">Çoxlu e-poçt müştəriləri üçün \'güncəl\'i istifadə et</string>
     <string name="title_setup_configuring">Konfiqurasiya edilir &#8230;</string>
@@ -790,7 +791,7 @@
     <string name="title_advanced_sender_hint">Əksər provayderlər göndərən ünvanını dəyişdirməyə icazə vermir</string>
     <string name="title_advanced_bcc_hint">Ünvan göstərilməyəcək, ancaq göndərişə əlavə ediləcək</string>
     <string name="title_advanced_internal_hint">Başqa bir domenə göndəriləndə bir xəbərdarlıq olacaq</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Seçilmiş kontaktın detalları vCard qoşmaları üçün istifadə olunacaq</string>
+    <string name="title_advanced_uri">Seçilmiş kontaktın detalları vCard qoşmaları üçün istifadə olunacaq</string>
     <string name="title_advanced_e2e_encryption">Bir ucdan digər uca kimi şifrələmə üçün seçimlər</string>
     <string name="title_advanced_display_harmful_hint">Bu seçimi sıradan çıxartmaq, gizliliyiniz üçün zərərli ola bilər</string>
     <string name="title_advanced_display_hidden_hint">Bu, qəribə görünən və təkrarlanan mətnlərə səbəb ola bilər</string>
@@ -1451,6 +1452,7 @@
     <string name="title_search_with_size">Mesaj həcmi daha böyükdür</string>
     <string name="title_search_in_trash">Tullantı qutusunda</string>
     <string name="title_search_in_junk">Spam qovluğunda</string>
+    <string name="title_search_with_range">Vaxt aralığı</string>
     <string name="title_search_with_before">Əvvəl</string>
     <string name="title_search_with_after">Sonra</string>
     <string name="title_search_device_first">Əvvəlcə cihazda axtar</string>
@@ -1554,11 +1556,13 @@
     <string name="title_rule_caption">Qaydaya düzəliş et</string>
     <string name="title_rule_title">Qayda tətbiq olunur</string>
     <string name="title_rule_name">Ad</string>
+    <string name="title_rule_group">Qrup</string>
     <string name="title_rule_order">Sifariş</string>
     <string name="title_rule_enabled">Fəallaşdırıldı</string>
     <string name="title_rule_daily">Gündəlik işlət (yalnız)</string>
     <string name="title_rule_age">Bundan daha köhnə mesajlar (gün)</string>
     <string name="title_rule_stop">Bu qaydanı icra edəndən sonra qaydaların emalını dayandır</string>
+    <string name="title_rule_stop_remark">Əgər qayda qrupun bir hissəsidirsə, bu qrupun bütün qaydalarının işləməsi dayandırılacaq</string>
     <string name="title_rule_sender">Göndərən ehtiva edir</string>
     <string name="title_rule_sender_known">Göndərən telefon kitabçanızda olan biridir</string>
     <string name="title_rule_recipient">Alıcı məzmunu</string>

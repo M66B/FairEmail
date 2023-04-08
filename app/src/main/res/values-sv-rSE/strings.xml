@@ -780,7 +780,7 @@
     <string name="title_advanced_sender_hint">De flesta leverantörer tillåter inte ändrade avsändaradresser</string>
     <string name="title_advanced_bcc_hint">Adressen kommer inte att visas, men kommer att läggas till vid sändning</string>
     <string name="title_advanced_internal_hint">En varning kommer att visas när du skickar till en annan domän</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Information från den valda kontakten kommer att användas för vCard-bilagor</string>
+    <string name="title_advanced_uri">Information från den valda kontakten kommer att användas för vCard-bilagor</string>
     <string name="title_advanced_e2e_encryption">Alternativ för ändpunktskryptering</string>
     <string name="title_advanced_display_harmful_hint">Inaktivera detta alternativ kan vara skadligt för din integritet</string>
     <string name="title_advanced_display_hidden_hint">Detta kan resultera i udda utseende och dubbla texter</string>
@@ -1437,6 +1437,7 @@
     <string name="title_search_with_size">Meddelandets storlek större än</string>
     <string name="title_search_in_trash">I papperskorgen</string>
     <string name="title_search_in_junk">I skräpposten</string>
+    <string name="title_search_with_range">Datumintervall</string>
     <string name="title_search_with_before">Före</string>
     <string name="title_search_with_after">Efter</string>
     <string name="title_search_device_first">Sök på enheten först</string>
@@ -1540,6 +1541,7 @@
     <string name="title_rule_caption">Redigera regel</string>
     <string name="title_rule_title">Regeln gäller</string>
     <string name="title_rule_name">Namn</string>
+    <string name="title_rule_group">Grupp</string>
     <string name="title_rule_order">Ordning</string>
     <string name="title_rule_enabled">Aktiverad</string>
     <string name="title_rule_daily">Kör dagligen (endast)</string>

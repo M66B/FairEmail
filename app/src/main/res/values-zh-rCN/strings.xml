@@ -221,6 +221,7 @@
     <string name="title_setup_done">完成</string>
     <string name="title_setup_still">仍待处理</string>
     <string name="title_setup_error">出错</string>
+    <string name="title_setup_manual_setup">手动设置</string>
     <string name="title_setup_pop">使用 POP3（不推荐）</string>
     <string name="title_setup_recent">对多个电子邮件客户端使用 \'recent\'</string>
     <string name="title_setup_configuring">正在配置账户 &#8230;</string>
@@ -776,7 +777,7 @@
     <string name="title_advanced_sender_hint">大多数提供商不允许修改发件人地址</string>
     <string name="title_advanced_bcc_hint">地址不会显示，但会在发送时添加</string>
     <string name="title_advanced_internal_hint">发送到另一个域时会有警告</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">所选联系人的详细信息将用于 vCard 附件</string>
+    <string name="title_advanced_uri">所选联系人的详细信息将用于 vCard 附件</string>
     <string name="title_advanced_e2e_encryption">端到端加密选项</string>
     <string name="title_advanced_display_harmful_hint">禁用此选项可能会危害您的隐私</string>
     <string name="title_advanced_display_hidden_hint">这可能导致古怪的外观和双重文本</string>
@@ -1432,6 +1433,7 @@
     <string name="title_search_with_size">消息大小大于</string>
     <string name="title_search_in_trash">在回收站</string>
     <string name="title_search_in_junk">在垃圾邮件箱</string>
+    <string name="title_search_with_range">日期范围</string>
     <string name="title_search_with_before">早于</string>
     <string name="title_search_with_after">晚于</string>
     <string name="title_search_device_first">先在设备上搜索</string>
@@ -1535,11 +1537,13 @@
     <string name="title_rule_caption">编辑规则</string>
     <string name="title_rule_title">规则应用于</string>
     <string name="title_rule_name">名称</string>
+    <string name="title_rule_group">组</string>
     <string name="title_rule_order">顺序</string>
     <string name="title_rule_enabled">启用</string>
     <string name="title_rule_daily">每天运行 (而非每次接收邮件时)</string>
     <string name="title_rule_age">超过(天) 的信息</string>
     <string name="title_rule_stop">执行此规则后停止处理规则</string>
+    <string name="title_rule_stop_remark">如果此规则是某个组的一部分，则将停止处理该组的所有规则</string>
     <string name="title_rule_sender">发件人包含</string>
     <string name="title_rule_sender_known">发件人是联系人</string>
     <string name="title_rule_recipient">收件人包含</string>

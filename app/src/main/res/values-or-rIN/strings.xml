@@ -654,6 +654,7 @@
     <string name="title_rule_delete">ସବୁଦିନ ପାଇଁ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_rule_sound">ଧ୍ୱନି ବଜାନ୍ତୁ</string>
     <string name="title_rule_name">ନାମ</string>
+    <string name="title_rule_group">ଗୋଷ୍ଠୀ</string>
     <string name="title_rule_order">କ୍ରମ</string>
     <string name="title_rule_enabled">ସକ୍ଷମ ହୋଇଛି</string>
     <string name="title_rule_sender_known">ପ୍ରେରକ ଜଣେ ସମ୍ପର୍କ ଅଟନ୍ତି</string>

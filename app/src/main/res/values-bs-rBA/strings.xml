@@ -803,7 +803,7 @@
     <string name="title_advanced_sender_hint">Većina provajdera ne dopušta modifikovane adrese pošiljaoca</string>
     <string name="title_advanced_bcc_hint">Adresa se neće prikazivati, ali će biti dodana tokom slanja</string>
     <string name="title_advanced_internal_hint">Pojavit će se upozorenje tokom slanja na drugu domenu</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Detalji izabranog kontakta koristit če se za vCard priloge</string>
+    <string name="title_advanced_uri">Detalji izabranog kontakta koristit če se za vCard priloge</string>
     <string name="title_advanced_e2e_encryption">Opcija za E2E (end-to-end) šifriranje</string>
     <string name="title_advanced_display_harmful_hint">Isključivanje ove opcije može biti štetno po vašu privatnost</string>
     <string name="title_advanced_display_hidden_hint">Ovo može rezultirati u čudnom izgledu i duplim tekstovima</string>
@@ -1567,6 +1567,7 @@
     <string name="title_rule_caption">Uredi pravilo</string>
     <string name="title_rule_title">Pravilo se primjenjuje na</string>
     <string name="title_rule_name">Naziv</string>
+    <string name="title_rule_group">Grupa</string>
     <string name="title_rule_order">Redoslijed</string>
     <string name="title_rule_enabled">Uključeno</string>
     <string name="title_rule_daily">Pokreni dnevno</string>

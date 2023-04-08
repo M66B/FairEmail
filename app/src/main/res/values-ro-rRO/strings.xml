@@ -247,6 +247,7 @@
     <string name="title_setup_done">Gata</string>
     <string name="title_setup_still">Încă de făcut</string>
     <string name="title_setup_error">Eroare</string>
+    <string name="title_setup_manual_setup">Setare manuală</string>
     <string name="title_setup_pop">Utilizați POP3 (nerecomandat)</string>
     <string name="title_setup_recent">Folosește \'recent\' pentru mai mulți clienți de e-mail</string>
     <string name="title_setup_configuring">Configurare cont &#8230;</string>
@@ -802,7 +803,7 @@
     <string name="title_advanced_sender_hint">Majoritatea furnizorilor nu permit modificarea adresei expeditorului</string>
     <string name="title_advanced_bcc_hint">Adresa nu va fi afișată, dar va fi adăugată la trimitere</string>
     <string name="title_advanced_internal_hint">Va exista un avertisment la trimiterea către un alt domeniu</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Detaliile contactului selectat vor fi folosite pentru atașamentele vCard</string>
+    <string name="title_advanced_uri">Detaliile contactului selectat vor fi folosite pentru atașamentele vCard</string>
     <string name="title_advanced_e2e_encryption">Opțiuni pentru criptarea end-to-end</string>
     <string name="title_advanced_display_harmful_hint">Dezactivarea poate fi dăunătoare pentru intimitatea dumneavoastră</string>
     <string name="title_advanced_display_hidden_hint">Se poate ca rezultatul să arate ciudat și textul să fie dublat</string>
@@ -1460,6 +1461,7 @@
     <string name="title_search_with_size">Dimensiune mesaj mai mare decât</string>
     <string name="title_search_in_trash">În coșul de gunoi</string>
     <string name="title_search_in_junk">În spam</string>
+    <string name="title_search_with_range">Date range</string>
     <string name="title_search_with_before">Înainte de</string>
     <string name="title_search_with_after">După</string>
     <string name="title_search_device_first">Căutați mai întâi pe dispozitiv</string>
@@ -1563,11 +1565,13 @@
     <string name="title_rule_caption">Editare regulă</string>
     <string name="title_rule_title">Regula se aplică la</string>
     <string name="title_rule_name">Nume</string>
+    <string name="title_rule_group">Grup</string>
     <string name="title_rule_order">Ordine</string>
     <string name="title_rule_enabled">Activată</string>
     <string name="title_rule_daily">Rulează zilnic (doar)</string>
     <string name="title_rule_age">Mesaje mai vechi decât (zile)</string>
     <string name="title_rule_stop">Oprește procesarea regulilor după ce se execută acesta</string>
+    <string name="title_rule_stop_remark">Dacă regula face parte dintr-un grup, procesarea tuturor regulilor acestui grup va fi oprită</string>
     <string name="title_rule_sender">Expeditorul conține</string>
     <string name="title_rule_sender_known">Expeditorul este un contact</string>
     <string name="title_rule_recipient">Destinatarul conține</string>

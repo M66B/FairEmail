@@ -1418,6 +1418,7 @@
     <string name="title_rule_caption">Chỉnh sửa quy tắc</string>
     <string name="title_rule_title">Quy tắc áp dụng cho</string>
     <string name="title_rule_name">Tên</string>
+    <string name="title_rule_group">Nhóm</string>
     <string name="title_rule_order">Thứ tự</string>
     <string name="title_rule_enabled">Bật</string>
     <string name="title_rule_stop">Dừng việc xử lý các quy tắc sau khi thực thi quy tắc này</string>

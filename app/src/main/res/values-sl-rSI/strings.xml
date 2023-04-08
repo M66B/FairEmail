@@ -1548,6 +1548,7 @@
     <string name="title_rule_caption">Uredi pravilo</string>
     <string name="title_rule_title">Pravilo velja za</string>
     <string name="title_rule_name">Ime</string>
+    <string name="title_rule_group">Skupina</string>
     <string name="title_rule_order">Vrstni red</string>
     <string name="title_rule_enabled">Omogočeno</string>
     <string name="title_rule_daily">Zaženi (samo) dnevno</string>

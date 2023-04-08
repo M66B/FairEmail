@@ -219,6 +219,7 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_done">Selesai</string>
     <string name="title_setup_still">Masih harus dilakukan</string>
     <string name="title_setup_error">Kesalahan/Error</string>
+    <string name="title_setup_manual_setup">Pengaturan manual</string>
     <string name="title_setup_pop">Gunakan POP3 (tidak direkomendasikan)</string>
     <string name="title_setup_recent">Gunakan \'recent\' untuk beberapa klien email</string>
     <string name="title_setup_configuring">Mengonfigurasi akun &#8230;</string>
@@ -1360,6 +1361,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_search_with_size">Ukuran pesan lebih besar dari</string>
     <string name="title_search_in_trash">Di tempat sampah</string>
     <string name="title_search_in_junk">Di spam</string>
+    <string name="title_search_with_range">Rentang tanggal</string>
     <string name="title_search_with_before">Sebelum</string>
     <string name="title_search_with_after">Sesudah</string>
     <string name="title_search_flag_unseen">belum dibaca</string>
@@ -1448,6 +1450,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_caption">Sunting aturan</string>
     <string name="title_rule_title">Aturan berlaku untuk</string>
     <string name="title_rule_name">Nama</string>
+    <string name="title_rule_group">Kelompok</string>
     <string name="title_rule_order">Urutan</string>
     <string name="title_rule_enabled">Diaktifkan</string>
     <string name="title_rule_stop">Hentikan pemrosesan aturan setelah menjalankan aturan ini</string>
@@ -1843,7 +1846,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     </string-array>
     <string-array name="resizeNames">
         <item>Sangat Kecil</item>
-        <item>Extra small</item>
+        <item>Sangat kecil</item>
         <item>Kecil</item>
         <item>Sedang</item>
         <item>Besar</item>

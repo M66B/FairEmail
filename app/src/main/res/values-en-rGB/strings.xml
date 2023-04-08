@@ -2,8 +2,12 @@
 <resources>
     <string name="app_search">Fair Email search</string>
     <string name="app_changelog">Changelog</string>
+    <string name="app_welcome">FairEmail is an open source email app focused on privacy and security. For this reason some features might work differently from what you are used to.</string>
+    <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
+    <string name="app_data_loss">All data may be lost</string>
     <string name="channel_service_description">Synchronising and monitoring of accounts</string>
     <string name="tile_synchronize">Synchronise</string>
+    <string name="title_ask_spam_who">Treat message from %1$s as spam?</string>
     <string name="menu_faq">Support</string>
     <string name="menu_privacy">Privacy</string>
     <string name="title_list_accounts">Accounts</string>

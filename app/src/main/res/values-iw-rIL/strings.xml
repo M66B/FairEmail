@@ -260,6 +260,7 @@
     <string name="title_setup_done">בוצע</string>
     <string name="title_setup_still">עדיין לא בוצע</string>
     <string name="title_setup_error">שגיאה</string>
+    <string name="title_setup_manual_setup">הגדרה ידנית</string>
     <string name="title_setup_pop">להשתמש ב־POP3 (לא מומלץ)</string>
     <string name="title_setup_recent">להשתמש ב‚אחרונים’ למגוון לקוחות דוא״ל</string>
     <string name="title_setup_configuring">חשבון מוגדר &#8230;</string>
@@ -816,7 +817,7 @@
     <string name="title_advanced_sender_hint">רוב הספקים לא מאפשרים כתובות מוען שעברו שינוי</string>
     <string name="title_advanced_bcc_hint">הכתובת לא תופיע אך תתווסף בעת השליחה</string>
     <string name="title_advanced_internal_hint">תופיע אזהרה בעת שליחה לשם תחום אחר</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">פרטי הקשר הנבחרים ישמשו כקובצי vCard מצורפים</string>
+    <string name="title_advanced_uri">פרטי הקשר הנבחרים ישמשו כקובצי vCard מצורפים</string>
     <string name="title_advanced_e2e_encryption">אפשרויות להצפנה מקצה לקצה</string>
     <string name="title_advanced_display_harmful_hint">השבתת האפשרות הזאת עלולה לפגוע בפרטיות שלך</string>
     <string name="title_advanced_display_hidden_hint">יכול להוביל לטקסטים שנראים מוזר או משוכפלים</string>
@@ -1477,6 +1478,7 @@
     <string name="title_search_with_size">גודל ההודעה עובר את</string>
     <string name="title_search_in_trash">באשפה</string>
     <string name="title_search_in_junk">בספאם</string>
+    <string name="title_search_with_range">טווח תאריכים</string>
     <string name="title_search_with_before">לפני</string>
     <string name="title_search_with_after">אחרי</string>
     <string name="title_search_device_first">חיפוש במכשיר תחילה</string>
@@ -1580,11 +1582,13 @@
     <string name="title_rule_caption">עריכת כלל</string>
     <string name="title_rule_title">הכלל חל על</string>
     <string name="title_rule_name">שם</string>
+    <string name="title_rule_group">קבוצה</string>
     <string name="title_rule_order">סדר</string>
     <string name="title_rule_enabled">פעיל</string>
     <string name="title_rule_daily">להריץ יומית (בלבד)</string>
     <string name="title_rule_age">הודעות מלפני (ימים)</string>
     <string name="title_rule_stop">להפסיק לעבד כללים אחרי הפעלת הכלל הזה</string>
+    <string name="title_rule_stop_remark">אם הכלל הזה הוא חלק מקבוצה, עיבוד כל הכללים בקבוצה הזאת ייעצר</string>
     <string name="title_rule_sender">המוען מכיל</string>
     <string name="title_rule_sender_known">המוען באנשי הקשר</string>
     <string name="title_rule_recipient">הנמען מכיל</string>

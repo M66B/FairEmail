@@ -234,6 +234,7 @@
     <string name="title_setup_done">Fatto</string>
     <string name="title_setup_still">Ancora da fare</string>
     <string name="title_setup_error">Errore</string>
+    <string name="title_setup_manual_setup">Configurazione manuale</string>
     <string name="title_setup_pop">Usa POP3 (sconsigliato)</string>
     <string name="title_setup_recent">Usa \'recent\' per più client email</string>
     <string name="title_setup_configuring">Configurazione del profilo&#8230;</string>
@@ -791,7 +792,7 @@
     <string name="title_advanced_sender_hint">Gran parte dei provider non consentono gli indirizzi modificati del mittente</string>
     <string name="title_advanced_bcc_hint">L\'indirizzo non sarà mostrato, ma aggiunto all\'invio</string>
     <string name="title_advanced_internal_hint">Ci sarà un avviso inviando a un altro dominio</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Le informazioni del contatto selezionato verranno utilizzati per gli allegati vCard</string>
+    <string name="title_advanced_uri">Le informazioni del contatto selezionato verranno utilizzati per gli allegati vCard</string>
     <string name="title_advanced_e2e_encryption">Opzioni per la crittografia end-to-end</string>
     <string name="title_advanced_display_harmful_hint">Disabilitare quest\'opzione potrebbe esser dannoso per la tua privacy</string>
     <string name="title_advanced_display_hidden_hint">Questo può risultare in testi strani e doppi</string>
@@ -808,7 +809,7 @@
     <string name="title_advanced_notify_manage_service_hint">Per disabilitare la notifica di \'monitoraggio\'</string>
     <string name="title_advanced_notify_separate_hint">Come configuro le notifiche per i profili, le cartelle e i mittenti?</string>
     <string name="title_advanced_notify_preview_all_hint">Per gli indossabili che possono mostrare il testo completo (fino a 5.000 caratteri)</string>
-    <string name="title_advanced_notify_preview_only_hint">Questo ritarda la visualizzazione delle notifiche fino al download del teso del messaggio</string>
+    <string name="title_advanced_notify_preview_only_hint">Questo ritarda la visualizzazione delle notifiche fino al download del testo del messaggio</string>
     <string name="title_advanced_wearable_hint">Le notifiche sono inviate a un indossabile solo dopo che il testo del messaggio è stato scaricato</string>
     <string name="title_advanced_messaging_hint">Questo è necessario per il supporto di Android Auto</string>
     <string name="title_advanced_move_hint">La cartella di destinazione è configurabile nelle impostazioni del profilo</string>
@@ -1452,6 +1453,7 @@
     <string name="title_search_with_size">Dimensione del messaggio maggiore di</string>
     <string name="title_search_in_trash">Nel cestino</string>
     <string name="title_search_in_junk">Nello spam</string>
+    <string name="title_search_with_range">Periodo</string>
     <string name="title_search_with_before">Prima</string>
     <string name="title_search_with_after">Dopo</string>
     <string name="title_search_device_first">Cerca prima sul dispositivo</string>
@@ -1555,11 +1557,13 @@
     <string name="title_rule_caption">Modifica regola</string>
     <string name="title_rule_title">La regola si applica a</string>
     <string name="title_rule_name">Nome</string>
+    <string name="title_rule_group">Gruppo</string>
     <string name="title_rule_order">Ordine</string>
     <string name="title_rule_enabled">Abilitato</string>
     <string name="title_rule_daily">Esegui giornalmente (solo)</string>
     <string name="title_rule_age">Messaggi precedenti a (giorni)</string>
     <string name="title_rule_stop">Ferma l\'elaborazione delle regole dopo l\'esecuzione di questa regola</string>
+    <string name="title_rule_stop_remark">Se la regola fa parte di un gruppo, l\'elaborazione di tutte le regole di questo gruppo sarà interrotta</string>
     <string name="title_rule_sender">Il mittente contiene</string>
     <string name="title_rule_sender_known">Il mittente è un contatto</string>
     <string name="title_rule_recipient">Il destinatario contiene</string>
@@ -1656,7 +1660,7 @@
     <string name="title_legend_notify">Notifica ai nuovi messaggi</string>
     <string name="title_legend_sync_keep">Numero di giorni per sincronizzare / mantenere i messaggi</string>
     <string name="title_legend_download_fetch">Numero di messaggi scaricati / intestazioni recuperati</string>
-    <string name="title_legend_stop">Interrompi le regole di elaborazione</string>
+    <string name="title_legend_stop">Interrompi l\'elaborazione delle regole</string>
     <string name="title_legend_thread">Conversazione</string>
     <string name="title_legend_bookmark">Ultima conversazione aperta</string>
     <string name="title_legend_zoom">Cambia dimensione del testo</string>

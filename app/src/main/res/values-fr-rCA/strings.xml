@@ -234,6 +234,7 @@
     <string name="title_setup_done">Effectué</string>
     <string name="title_setup_still">Encore à faire</string>
     <string name="title_setup_error">Erreur</string>
+    <string name="title_setup_manual_setup">Configuration manuelle</string>
     <string name="title_setup_pop">Utiliser POP3 (non recommandé)</string>
     <string name="title_setup_recent">Utiliser « recent » pour plusieurs clients de messagerie</string>
     <string name="title_setup_configuring">Configuration du compte&#8230;</string>
@@ -791,7 +792,7 @@
     <string name="title_advanced_sender_hint">La plupart des fournisseurs n’autorisent pas les adresses d’expéditeur modifiées</string>
     <string name="title_advanced_bcc_hint">L’adresse ne sera pas affichée mais sera ajoutée lors de l’envoi</string>
     <string name="title_advanced_internal_hint">Il y aura un avertissement lors de l\'envoi vers un autre domaine</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Les informations du contact sélectionné seront utilisées pour les pièces jointes vCard</string>
+    <string name="title_advanced_uri">Les informations du contact sélectionné seront utilisées pour les pièces jointes vCard</string>
     <string name="title_advanced_e2e_encryption">Options pour le chiffrement de bout en bout</string>
     <string name="title_advanced_display_harmful_hint">La désactivation de cette option peut nuire à votre vie privée</string>
     <string name="title_advanced_display_hidden_hint">Ceci peut engendrer des problèmes d’affichage et de dédoublement du texte</string>
@@ -1452,6 +1453,7 @@
     <string name="title_search_with_size">Taille de message supérieure à</string>
     <string name="title_search_in_trash">Dans la corbeille</string>
     <string name="title_search_in_junk">Dans les indésirables</string>
+    <string name="title_search_with_range">Période</string>
     <string name="title_search_with_before">Avant</string>
     <string name="title_search_with_after">Après</string>
     <string name="title_search_device_first">Rechercher d\'abord sur l\'appareil</string>
@@ -1555,11 +1557,13 @@
     <string name="title_rule_caption">Modifier la règle</string>
     <string name="title_rule_title">La règle s’applique à</string>
     <string name="title_rule_name">Nom</string>
+    <string name="title_rule_group">Groupe</string>
     <string name="title_rule_order">Ordre</string>
     <string name="title_rule_enabled">Activée</string>
     <string name="title_rule_daily">Exécuter tous les jours (seulement)</string>
     <string name="title_rule_age">Messages antérieurs à (jours)</string>
     <string name="title_rule_stop">Arrêter le traitement des règles après avoir exécuté celle-ci</string>
+    <string name="title_rule_stop_remark">Si la règle fait partie d\'un groupe, le traitement de toutes les règles de ce groupe sera arrêté</string>
     <string name="title_rule_sender">L’expéditeur contient</string>
     <string name="title_rule_sender_known">L’expéditeur est un contact</string>
     <string name="title_rule_recipient">Le destinataire contient</string>

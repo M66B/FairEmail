@@ -41,7 +41,7 @@
     <string name="shortcut_compose">作成</string>
     <string name="shortcut_setup">設定</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="other">%1$d アカウントをモニター中</item>
+        <item quantity="other">%1$d 件のアカウントをモニター中</item>
     </plurals>
     <plurals name="title_notification_operations">
         <item quantity="other">%1$d 件の操作が保留されています</item>
@@ -777,6 +777,7 @@
     <string name="title_advanced_sender_hint">ほとんどのプロバイダーは差出人アドレスの編集を許可しません</string>
     <string name="title_advanced_bcc_hint">アドレスは表示されませんが送信するときに追加されます</string>
     <string name="title_advanced_internal_hint">別のドメインに送信するときに警告が表示されます</string>
+    <string name="title_advanced_uri">選択した連絡先の詳細が、vCard として添付されます</string>
     <string name="title_advanced_e2e_encryption">エンドツーエンド暗号化のオプション</string>
     <string name="title_advanced_display_harmful_hint">無効にするとあなたのプライバシーを危険にさらす可能性があります</string>
     <string name="title_advanced_display_hidden_hint">奇妙な見た目になったり、二重にテキストが生成される可能性があります</string>
@@ -825,6 +826,7 @@
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名を参照する正規表現</string>
     <string name="title_identity_reply_to">返信先 (Reply to)</string>
     <string name="title_identity_internal">内部ドメイン名 (カンマ区切り)</string>
+    <string name="title_identity_uri">連絡先をリンク</string>
     <string name="title_identity_unicode">メッセージヘッダーで UTF-8 を許可</string>
     <string name="title_identity_unicode_remark">ほとんどのサーバーが対応していません</string>
     <string name="title_identity_octetmime">8BITMIME を許可</string>
@@ -1174,7 +1176,7 @@
     <string name="title_no_stream_help">これは、よりモダンなファイルマネージャーアプリからファイルを選択するか、ファイルを読み取る権限を付与することで解決できます</string>
     <string name="title_no_permissions">ファイルを選択するために使用されたアプリに、読み取り権限が付与されていませんでした</string>
     <string name="title_no_internet">安定したインターネット接続を確立できません</string>
-    <string name="title_no_connection">1 つ以上のアカウントへ接続しています&#8230;</string>
+    <string name="title_no_connection">アカウントに接続しています&#8230;</string>
     <string name="title_no_folder">フォルダーが存在しません</string>
     <string name="title_no_format">受信したメッセージを引用しています</string>
     <string name="title_no_search">サーバー検索はこのアカウントでは利用できません</string>
@@ -1436,6 +1438,7 @@
     <string name="title_search_with_size">メッセージのサイズが次より大きい</string>
     <string name="title_search_in_trash">ゴミ箱を検索</string>
     <string name="title_search_in_junk">迷惑メールを検索</string>
+    <string name="title_search_with_range">日付の範囲</string>
     <string name="title_search_with_before">以前</string>
     <string name="title_search_with_after">以降</string>
     <string name="title_search_device_first">最初にデバイス上を検索</string>
@@ -1539,6 +1542,7 @@
     <string name="title_rule_caption">ルールを編集</string>
     <string name="title_rule_title">ルールの適用先</string>
     <string name="title_rule_name">名前</string>
+    <string name="title_rule_group">グループ</string>
     <string name="title_rule_order">順番</string>
     <string name="title_rule_enabled">有効</string>
     <string name="title_rule_daily">常に実行 (のみ)</string>

@@ -156,6 +156,7 @@
     <string name="title_setup_account_identity_hint">شما می‌توانید نام، رنگ و اقدام کشیدن را در تنظیمات حساب کاربری، و امضای خود را در تنظیمات هویت تنظیم کنید</string>
     <string name="title_setup_accounts">حساب‌ها</string>
     <string name="title_setup_identities">هویت‌ها</string>
+    <string name="title_setup_google_sign_in">ورود با گوگل</string>
     <string name="title_setup_other">فراهم کننده دیگر</string>
     <string name="title_setup_inbound">فقط ایمیل دریافتی (نمی‌توان ایمیل فرستاد!)</string>
     <string name="title_setup_pop3">حساب POP3</string>
@@ -1023,6 +1024,7 @@
     <string name="title_rule_caption">ویرایش قانون</string>
     <string name="title_rule_title">قانون اعمال می‌شود بر</string>
     <string name="title_rule_name">نام</string>
+    <string name="title_rule_group">گروه</string>
     <string name="title_rule_order">سفارش</string>
     <string name="title_rule_enabled">فعال شده</string>
     <string name="title_rule_sender">فرستنده دارای</string>

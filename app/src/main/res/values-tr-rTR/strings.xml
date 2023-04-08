@@ -788,7 +788,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sender_hint">Çoğu sağlayıcı değiştirilmiş gönderici adreslerine izin vermiyor</string>
     <string name="title_advanced_bcc_hint">Adres gösterilmeyecek, ancak gönderime eklenecek</string>
     <string name="title_advanced_internal_hint">Başka bir alana gönderirken bir uyarı olacak</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Seçilen kişinin ayrıntıları vCard ekleri için kullanılacaktır</string>
+    <string name="title_advanced_uri">Seçilen kişinin ayrıntıları vCard ekleri için kullanılacaktır</string>
     <string name="title_advanced_e2e_encryption">Uçtan uca şifreleme seçenekleri</string>
     <string name="title_advanced_display_harmful_hint">Bu seçeneği devre dışı bırakmak gizliliğiniz için zararlı olabilir</string>
     <string name="title_advanced_display_hidden_hint">Bu tuhaf görünümlü ve tekrarlanmış metinlere neden olabilir</string>
@@ -1548,6 +1548,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_caption">Kuralı düzenle</string>
     <string name="title_rule_title">Kural geçerlidir</string>
     <string name="title_rule_name">Ad</string>
+    <string name="title_rule_group">Grup</string>
     <string name="title_rule_order">Sıralama</string>
     <string name="title_rule_enabled">Etkin</string>
     <string name="title_rule_daily">Günlük çalıştır (yalnızca)</string>

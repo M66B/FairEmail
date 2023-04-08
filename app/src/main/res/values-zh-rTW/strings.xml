@@ -1393,6 +1393,7 @@
     <string name="title_rule_caption">編輯規則</string>
     <string name="title_rule_title">規則套用至</string>
     <string name="title_rule_name">名稱</string>
+    <string name="title_rule_group">群組</string>
     <string name="title_rule_order">順序</string>
     <string name="title_rule_enabled">啟用</string>
     <string name="title_rule_stop">在執行此規則後停止後續規則的處理</string>

@@ -235,6 +235,7 @@
     <string name="title_setup_done">Fertig</string>
     <string name="title_setup_still">Noch zu tun</string>
     <string name="title_setup_error">Fehler</string>
+    <string name="title_setup_manual_setup">Manuelle Einrichtung</string>
     <string name="title_setup_pop">POP3 verwenden (nicht empfohlen)</string>
     <string name="title_setup_recent">\'Recent\' für mehrere E-Mail-Clients verwenden</string>
     <string name="title_setup_configuring">Konto wird konfiguriert &#8230;</string>
@@ -792,7 +793,7 @@
     <string name="title_advanced_sender_hint">Die meisten Anbieter erlauben keine veränderten Absenderadressen</string>
     <string name="title_advanced_bcc_hint">Die Adresse wird nicht angezeigt, wird aber beim Absenden hinzugefügt</string>
     <string name="title_advanced_internal_hint">Beim Senden an eine andere Domain wird ein Warnhinweis ausgegeben</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Die Details des ausgewählten Kontakts werden für vCard-Anhänge verwendet</string>
+    <string name="title_advanced_uri">Die Details des ausgewählten Kontakts werden für vCard-Anhänge verwendet</string>
     <string name="title_advanced_e2e_encryption">Optionen für Ende-zu-Ende-Verschlüsselung</string>
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
     <string name="title_advanced_display_hidden_hint">Dies kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
@@ -1453,6 +1454,7 @@
     <string name="title_search_with_size">Nachrichtengröße größer als</string>
     <string name="title_search_in_trash">Im Papierkorb</string>
     <string name="title_search_in_junk">Im Spam-Ordner</string>
+    <string name="title_search_with_range">Zeitraum</string>
     <string name="title_search_with_before">Vor</string>
     <string name="title_search_with_after">Nach</string>
     <string name="title_search_device_first">Zuerst auf dem Gerät suchen</string>
@@ -1556,11 +1558,13 @@
     <string name="title_rule_caption">Regel bearbeiten</string>
     <string name="title_rule_title">Regel gilt für</string>
     <string name="title_rule_name">Name</string>
+    <string name="title_rule_group">Gruppe</string>
     <string name="title_rule_order">Reihenfolge</string>
     <string name="title_rule_enabled">Aktiviert</string>
     <string name="title_rule_daily">Nur 1x täglich ausführen</string>
     <string name="title_rule_age">Nachrichten älter als (Tage)</string>
     <string name="title_rule_stop">Regeln nach der Ausführung dieser Regel beenden</string>
+    <string name="title_rule_stop_remark">Wenn die Regel Teil einer Gruppe ist, dann wird das Verarbeiten aller Regeln dieser Gruppe angehalten</string>
     <string name="title_rule_sender">Absender enthält</string>
     <string name="title_rule_sender_known">Absender ist in den Kontakten</string>
     <string name="title_rule_recipient">Empfänger enthält</string>

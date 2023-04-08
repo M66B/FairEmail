@@ -1375,6 +1375,7 @@
     <string name="title_rule_caption">Szabály szerkesztése</string>
     <string name="title_rule_title">A szabály érvényes erre</string>
     <string name="title_rule_name">Név</string>
+    <string name="title_rule_group">Csoport</string>
     <string name="title_rule_order">Rendezés</string>
     <string name="title_rule_enabled">Engedélyezve</string>
     <string name="title_rule_stop">Szabályok feldolgozásának leállítása e szabály végrehajtása után</string>

@@ -1521,6 +1521,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_caption">Upraviť pravidlo</string>
     <string name="title_rule_title">Pravidlo sa vzťahuje na</string>
     <string name="title_rule_name">Názov</string>
+    <string name="title_rule_group">Skupina</string>
     <string name="title_rule_order">Poradie</string>
     <string name="title_rule_enabled">Zapnuté</string>
     <string name="title_rule_stop">Zastaviť spracovávanie pravidiel po spustení tohto pravidla</string>

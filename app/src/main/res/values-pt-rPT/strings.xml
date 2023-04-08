@@ -791,7 +791,7 @@
     <string name="title_advanced_sender_hint">A maioria dos fornecedores não permite endereços de remetente modificados</string>
     <string name="title_advanced_bcc_hint">O endereço não será mostrado, mas será adicionado ao enviar</string>
     <string name="title_advanced_internal_hint">Haverá um aviso quando enviar para outro domínio</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Os detalhes do contato selecionado serão usados para anexos vCard</string>
+    <string name="title_advanced_uri">Os detalhes do contato selecionado serão usados para anexos vCard</string>
     <string name="title_advanced_e2e_encryption">Opções para \'encriptação ponta-a-ponta\'</string>
     <string name="title_advanced_display_harmful_hint">A desactivação desta opção pode ser lesiva para a sua privacidade</string>
     <string name="title_advanced_display_hidden_hint">Pode resultar em textos mal formatados e em duplicado</string>
@@ -1452,6 +1452,7 @@
     <string name="title_search_with_size">Tamanho da mensagem maior do que</string>
     <string name="title_search_in_trash">No lixo</string>
     <string name="title_search_in_junk">No spam</string>
+    <string name="title_search_with_range">Intervalo de dados</string>
     <string name="title_search_with_before">Anterior a</string>
     <string name="title_search_with_after">Depois de</string>
     <string name="title_search_device_first">Pesquisar no dispositivo primeiro</string>
@@ -1555,6 +1556,7 @@
     <string name="title_rule_caption">Editar regra</string>
     <string name="title_rule_title">Regra aplica-se a</string>
     <string name="title_rule_name">Nome</string>
+    <string name="title_rule_group">Grupo</string>
     <string name="title_rule_order">Ordenar</string>
     <string name="title_rule_enabled">Activada</string>
     <string name="title_rule_daily">Executar diariamente (somente)</string>

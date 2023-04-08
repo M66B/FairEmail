@@ -1513,6 +1513,7 @@
     <string name="title_rule_caption">Muokkaa sääntöä</string>
     <string name="title_rule_title">Säännön käyttökohde on</string>
     <string name="title_rule_name">Nimi</string>
+    <string name="title_rule_group">Ryhmä</string>
     <string name="title_rule_order">Järjestys</string>
     <string name="title_rule_enabled">Käytössä</string>
     <string name="title_rule_daily">Suorita päivittäin (ainoastaan)</string>

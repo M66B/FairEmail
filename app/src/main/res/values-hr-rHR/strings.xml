@@ -1403,6 +1403,7 @@
     <string name="title_rule_caption">Uredi pravilo</string>
     <string name="title_rule_title">Pravilo se primjenjuje na</string>
     <string name="title_rule_name">Ime</string>
+    <string name="title_rule_group">Grupa</string>
     <string name="title_rule_order">Redoslijed</string>
     <string name="title_rule_enabled">Omogućeno</string>
     <string name="title_rule_stop">Zaustavite pravila obrade nakon izvršavanja ovog pravila</string>

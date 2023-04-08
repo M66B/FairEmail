@@ -1448,6 +1448,7 @@
     <string name="title_search_with_size">Beskedstørrelse over</string>
     <string name="title_search_in_trash">I papirkurven</string>
     <string name="title_search_in_junk">I Spam</string>
+    <string name="title_search_with_range">Datointerval</string>
     <string name="title_search_with_before">Før</string>
     <string name="title_search_with_after">Efter</string>
     <string name="title_search_device_first">Søg på enhed først</string>
@@ -1551,6 +1552,7 @@
     <string name="title_rule_caption">Redigér regel</string>
     <string name="title_rule_title">Regel gælder for</string>
     <string name="title_rule_name">Navn</string>
+    <string name="title_rule_group">Gruppe</string>
     <string name="title_rule_order">Rækkefølge</string>
     <string name="title_rule_enabled">Aktiveret</string>
     <string name="title_rule_daily">Kør kun dagligt</string>

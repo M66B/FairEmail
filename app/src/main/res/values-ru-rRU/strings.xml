@@ -260,6 +260,7 @@
     <string name="title_setup_done">Готово</string>
     <string name="title_setup_still">Осталось сделать</string>
     <string name="title_setup_error">Ошибка</string>
+    <string name="title_setup_manual_setup">Ручная настройка</string>
     <string name="title_setup_pop">Использовать POP3 (не рекомендуется)</string>
     <string name="title_setup_recent">Использовать \"recent\" для нескольких клиентов электронной почты</string>
     <string name="title_setup_configuring">Настройка учётной записи&#8230;</string>
@@ -816,7 +817,7 @@
     <string name="title_advanced_sender_hint">Большинство провайдеров не разрешают изменять адреса отправителей</string>
     <string name="title_advanced_bcc_hint">Адрес не будет показан, но будет добавлен при отправке</string>
     <string name="title_advanced_internal_hint">Будет предупреждение при отправке на другой домен</string>
-    <string name="title_advanced_uri" comment="title_advanced_uri&#10;Remark for button to link contact to identity">Данные выбранного контакта будут использоваться для вложений vCard</string>
+    <string name="title_advanced_uri">Данные выбранного контакта будут использоваться для вложений vCard</string>
     <string name="title_advanced_e2e_encryption">Настройки сквозного шифрования</string>
     <string name="title_advanced_display_harmful_hint">Отключение может навредить вашей конфиденциальности</string>
     <string name="title_advanced_display_hidden_hint">Может вызвать странное отображение и дублирование текста</string>
@@ -1476,6 +1477,7 @@
     <string name="title_search_with_size">Размер сообщения больше</string>
     <string name="title_search_in_trash">В корзине</string>
     <string name="title_search_in_junk">В спаме</string>
+    <string name="title_search_with_range">Период</string>
     <string name="title_search_with_before">Перед</string>
     <string name="title_search_with_after">После</string>
     <string name="title_search_device_first">Сначала поиск на устройстве</string>
@@ -1579,11 +1581,13 @@
     <string name="title_rule_caption">Изменить правило</string>
     <string name="title_rule_title">Правило применяется к</string>
     <string name="title_rule_name">Название</string>
+    <string name="title_rule_group">Группа</string>
     <string name="title_rule_order">Порядок</string>
     <string name="title_rule_enabled">Включено</string>
     <string name="title_rule_daily">Запускать раз в день</string>
     <string name="title_rule_age">Письма старше (дн.)</string>
     <string name="title_rule_stop">Остановить обработку правил после выполнения этого правила</string>
+    <string name="title_rule_stop_remark">Если правило является частью группы, обработка всех правил этой группы будет остановлена</string>
     <string name="title_rule_sender">\"Отправитель\" содержит</string>
     <string name="title_rule_sender_known">Отправитель — это контакт</string>
     <string name="title_rule_recipient">\"Получатель\" содержит</string>
