@@ -1420,7 +1420,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 time = new SpannableStringBuilderEx(Helper.getRelativeDateSpanString(context, message.received));
             else
                 time = new SpannableStringBuilderEx(
-                        (date || date_fixed) && FragmentMessages.SORT_DATE_HEADER.contains(sort)
+                        (date && !date_fixed && FragmentMessages.SORT_DATE_HEADER.contains(sort)) ||
+                                (date_fixed && "time".equals(sort))
                                 ? TF.format(message.received)
                                 : Helper.getRelativeTimeSpanString(context, message.received));
             if (show_recent && message.recent)
