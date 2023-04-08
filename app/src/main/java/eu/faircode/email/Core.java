@@ -3014,7 +3014,7 @@ class Core {
                     imessages.length > 0 && folder.last_sync_count != null &&
                     imessages.length == folder.last_sync_count) {
                 // Check if last message known as new messages indicator
-                MessageHelper helper = new MessageHelper((MimeMessage) imessages[imessages.length - 1], context);
+                MessageHelper helper = new MessageHelper((MimeMessage) imessages[reversed ? 0 : imessages.length - 1], context);
                 String msgid = helper.getPOP3MessageID();
                 if (msgid != null) {
                     int count = db.message().countMessageByMsgId(folder.id, msgid, true);
@@ -3025,9 +3025,33 @@ class Core {
                 }
             }
 
+            // Index IDs
+            int flagged = 0;
+            Map<String, TupleUidl> uidlTuple = new HashMap<>();
+            Map<String, TupleUidl> msgIdTuple = new HashMap<>();
+            for (TupleUidl id : ids) {
+                if (id.ui_flagged && !id.ui_hide)
+                    flagged++;
+
+                if (id.uidl != null) {
+                    if (uidlTuple.containsKey(id.uidl))
+                        Log.w(account.name + " POP duplicate uidl/msgid=" + id.uidl + "/" + id.msgid);
+                    uidlTuple.put(id.uidl, id);
+                }
+
+                if (id.msgid != null) {
+                    if (msgIdTuple.containsKey(id.msgid))
+                        Log.w(account.name + " POP duplicate msgid/uidl=" + id.msgid + "/" + id.uidl);
+                    msgIdTuple.put(id.msgid, id);
+                }
+            }
+
+            max = Math.min(max + flagged, imessages.length);
+
             EntityLog.log(context, account.name + " POP" +
                     " device=" + ids.size() +
                     " server=" + imessages.length +
+                    " flagged=" + flagged +
                     " max=" + max + "/" + account.max_messages +
                     " reversed=" + reversed +
                     " last=" + folder.last_sync_count +
@@ -3035,24 +3059,6 @@ class Core {
                     " uidl=" + hasUidl);
 
             if (sync) {
-                // Index IDs
-                Map<String, TupleUidl> uidlTuple = new HashMap<>();
-                for (TupleUidl id : ids) {
-                    if (id.uidl != null) {
-                        if (uidlTuple.containsKey(id.uidl))
-                            Log.w(account.name + " POP duplicate uidl/msgid=" + id.uidl + "/" + id.msgid);
-                        uidlTuple.put(id.uidl, id);
-                    }
-                }
-
-                Map<String, TupleUidl> msgIdTuple = new HashMap<>();
-                for (TupleUidl id : ids)
-                    if (id.msgid != null) {
-                        if (msgIdTuple.containsKey(id.msgid))
-                            Log.w(account.name + " POP duplicate msgid/uidl=" + id.msgid + "/" + id.uidl);
-                        msgIdTuple.put(id.msgid, id);
-                    }
-
                 // Fetch UIDLs
                 if (hasUidl) {
                     FetchProfile ifetch = new FetchProfile();
@@ -3427,8 +3433,9 @@ class Core {
                 int hidden = db.message().setMessagesUiHide(folder.id, Math.abs(account.max_messages));
                 int deleted = db.message().deleteMessagesKeep(folder.id, Math.abs(account.max_messages) + 100);
                 EntityLog.log(context, account.name + " POP" +
-                        " cleanup max=" + account.max_messages + "" +
-                        " hidden=" + hidden + " deleted=" + deleted);
+                        " cleanup max=" + account.max_messages +
+                        " hidden=" + hidden +
+                        " deleted=" + deleted);
             }
 
             folder.last_sync_count = imessages.length;
@@ -5256,6 +5263,13 @@ class Core {
                         " ignored=" + message.ui_ignored +
                         " hide=" + message.ui_hide);
             else {
+                // Prevent reappearing notifications
+                EntityMessage msg = db.message().getMessage(message.id);
+                if (msg == null || msg.ui_ignored) {
+                    Log.i("Notify skip id=" + message.id + " msg=" + (msg != null));
+                    continue;
+                }
+
                 Integer current = newMessages.get(group);
                 newMessages.put(group, current == null ? 1 : current + 1);
 
@@ -5289,11 +5303,6 @@ class Core {
                     remove.remove(id);
                     Log.i("Notify existing=" + id);
                 } else {
-                    EntityMessage msg = db.message().getMessage(message.id);
-                    if (msg == null || msg.ui_ignored) {
-                        Log.i("Notify skip id=" + message.id + " msg=" + (msg != null));
-                        continue;
-                    }
                     boolean existing = remove.contains(-id);
                     if (existing) {
                         if (message.content && notify_preview) {

@@ -47,6 +47,12 @@ public interface DaoRule {
             " WHERE rule.id = :id")
     TupleRuleEx getRule(long id);
 
+    @Query("SELECT rule.* FROM rule" +
+            " JOIN folder ON folder.id = rule.folder" +
+            " WHERE folder.account = :account" +
+            " AND rule.name = :name")
+    List<EntityRule> getRuleByName(long account, String name);
+
     @Query("SELECT * FROM rule WHERE uuid = :uuid")
     EntityRule getRuleByUUID(String uuid);
 
@@ -55,6 +61,11 @@ public interface DaoRule {
             " JOIN account ON account.id = folder.account" +
             " WHERE rule.folder = :folder")
     LiveData<List<TupleRuleEx>> liveRules(long folder);
+
+    @Query("SELECT DISTINCT `group` FROM rule" +
+            " WHERE NOT `group` IS NULL" +
+            " ORDER by `group` COLLATE NOCASE")
+    List<String> getGroups();
 
     @Query("SELECT COUNT(*) FROM rule")
     int countTotal();

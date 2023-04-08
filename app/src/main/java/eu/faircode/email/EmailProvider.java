@@ -427,7 +427,7 @@ public class EmailProvider implements Parcelable {
                 for (EmailProvider provider : providers)
                     if (provider.mx != null)
                         for (String mx : provider.mx)
-                            if (record.name.matches(mx))
+                            if (record.response.matches(mx))
                                 return Arrays.asList(provider);
         } catch (Throwable ex) {
             Log.w(ex);
@@ -477,8 +477,8 @@ public class EmailProvider implements Parcelable {
             }
 
             for (DnsHelper.DnsRecord record : records)
-                if (!TextUtils.isEmpty(record.name)) {
-                    String target = record.name.toLowerCase(Locale.ROOT);
+                if (!TextUtils.isEmpty(record.response)) {
+                    String target = record.response.toLowerCase(Locale.ROOT);
                     EntityLog.log(context, "MX target=" + target);
 
                     for (EmailProvider provider : providers) {
@@ -510,7 +510,7 @@ public class EmailProvider implements Parcelable {
 
             for (DnsHelper.DnsRecord record : records)
                 try {
-                    String target = record.name.toLowerCase(Locale.ROOT);
+                    String target = record.response.toLowerCase(Locale.ROOT);
                     InetAddress.getByName(target);
 
                     EmailProvider mx1 = new EmailProvider(domain);
@@ -857,56 +857,81 @@ public class EmailProvider implements Parcelable {
         EmailProvider provider = new EmailProvider(domain);
 
         if (discover == Discover.ALL || discover == Discover.IMAP) {
-            try {
-                // Identifies an IMAP server where TLS is initiated directly upon connection to the IMAP server.
-                intf.onStatus("SRV imaps " + domain);
-                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_imaps._tcp." + domain, "srv");
-                if (records.length == 0)
-                    throw new UnknownHostException(domain);
-                // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
-                provider.imap.score = 50;
-                provider.imap.host = records[0].name;
-                provider.imap.port = records[0].port;
-                provider.imap.starttls = false;
-                EntityLog.log(context, "_imaps._tcp." + domain + "=" + provider.imap);
-            } catch (UnknownHostException ignored) {
-                // Identifies an IMAP server that MAY ... require the MUA to use the "STARTTLS" command
-                intf.onStatus("SRV imap " + domain);
-                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_imap._tcp." + domain, "srv");
-                if (records.length == 0)
-                    throw new UnknownHostException(domain);
-                provider.imap.score = 50;
-                provider.imap.host = records[0].name;
-                provider.imap.port = records[0].port;
-                provider.imap.starttls = (provider.imap.port == 143);
-                EntityLog.log(context, "_imap._tcp." + domain + "=" + provider.imap);
-            }
+            intf.onStatus("SRV imap " + domain);
+
+            // Identifies an IMAP server where TLS is initiated directly upon connection to the IMAP server.
+            List<DnsHelper.DnsRecord> list = new ArrayList<>();
+            list.addAll(Arrays.asList(DnsHelper.lookup(context, "_imap._tcp." + domain, "srv")));
+            list.addAll(Arrays.asList(DnsHelper.lookup(context, "_imaps._tcp." + domain, "srv")));
+
+            // ... service is not supported at all at a particular domain by setting the target of an SRV RR to "."
+            for (DnsHelper.DnsRecord record : new ArrayList<>(list))
+                if (TextUtils.isEmpty(record.response) || ".".equals(record.response))
+                    list.remove(record);
+
+            if (list.size() == 0)
+                throw new UnknownHostException(domain);
+
+            Collections.sort(list, new Comparator<DnsHelper.DnsRecord>() {
+                @Override
+                public int compare(DnsHelper.DnsRecord d1, DnsHelper.DnsRecord d2) {
+                    int p = -Integer.compare(d1.priority, d2.priority);
+                    if (p != 0)
+                        return p;
+                    int w = -Integer.compare(d1.weight, d2.weight);
+                    if (w != 0)
+                        return w;
+                    return -Boolean.compare(d1.query.startsWith("_imaps._tcp."), d2.query.startsWith("_imaps._tcp."));
+                }
+            });
+
+            DnsHelper.DnsRecord pref = list.get(0);
+
+            provider.imap.score = 50;
+            provider.imap.host = pref.response;
+            provider.imap.port = pref.port;
+            provider.imap.starttls = (!pref.query.startsWith("_imaps._tcp.") && pref.port == 143);
+            EntityLog.log(context, pref.query + "=" + provider.imap);
         }
 
-        if (discover == Discover.ALL || discover == Discover.SMTP)
-            try {
-                // Note that this covers connections both with and without Transport Layer Security (TLS)
-                intf.onStatus("SRV smtp " + domain);
-                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submission._tcp." + domain, "srv");
-                if (records.length == 0)
-                    throw new UnknownHostException(domain);
-                provider.smtp.score = 50;
-                provider.smtp.host = records[0].name;
-                provider.smtp.port = records[0].port;
-                provider.smtp.starttls = (provider.smtp.port == 587);
-                EntityLog.log(context, "_submission._tcp." + domain + "=" + provider.smtp);
-            } catch (UnknownHostException ignored) {
-                // https://tools.ietf.org/html/rfc8314
-                intf.onStatus("SRV smtps " + domain);
-                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, "_submissions._tcp." + domain, "srv");
-                if (records.length == 0)
-                    throw new UnknownHostException(domain);
-                provider.smtp.score = 50;
-                provider.smtp.host = records[0].name;
-                provider.smtp.port = records[0].port;
-                provider.smtp.starttls = false;
-                EntityLog.log(context, "_submissions._tcp." + domain + "=" + provider.smtp);
-            }
+        if (discover == Discover.ALL || discover == Discover.SMTP) {
+            intf.onStatus("SRV smtp " + domain);
+            // https://tools.ietf.org/html/rfc8314
+
+            List<DnsHelper.DnsRecord> list = new ArrayList<>();
+            // Note that this covers connections both with and without Transport Layer Security (TLS)
+            list.addAll(Arrays.asList(DnsHelper.lookup(context, "_submission._tcp." + domain, "srv")));
+            list.addAll(Arrays.asList(DnsHelper.lookup(context, "_submissions._tcp." + domain, "srv")));
+
+            for (DnsHelper.DnsRecord record : new ArrayList<>(list))
+                if (TextUtils.isEmpty(record.response) || ".".equals(record.response))
+                    list.remove(record);
+
+            if (list.size() == 0)
+                throw new UnknownHostException(domain);
+
+            Collections.sort(list, new Comparator<DnsHelper.DnsRecord>() {
+                @Override
+                public int compare(DnsHelper.DnsRecord d1, DnsHelper.DnsRecord d2) {
+                    int p = -Integer.compare(d1.priority, d2.priority);
+                    if (p != 0)
+                        return p;
+                    int w = -Integer.compare(d1.weight, d2.weight);
+                    if (w != 0)
+                        return w;
+                    // submission is being preferred
+                    return -Boolean.compare(d1.query.startsWith("_submission._tcp."), d2.query.startsWith("_submission._tcp."));
+                }
+            });
+
+            DnsHelper.DnsRecord pref = list.get(0);
+
+            provider.smtp.score = 50;
+            provider.smtp.host = pref.response;
+            provider.smtp.port = pref.port;
+            provider.smtp.starttls = (!pref.query.startsWith("_submissions._tcp.") && pref.port == 587);
+            EntityLog.log(context, pref.query + "=" + provider.smtp);
+        }
 
         provider.validate();
 

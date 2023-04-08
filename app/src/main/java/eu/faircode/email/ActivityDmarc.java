@@ -268,7 +268,7 @@ public class ActivityDmarc extends ActivityBase {
                                                 boolean valid = false;
                                                 if (spf != null)
                                                     for (Pair<String, DnsHelper.DnsRecord> p : spf) {
-                                                        for (String ip : p.second.name.split("\\s+")) {
+                                                        for (String ip : p.second.response.split("\\s+")) {
                                                             ip = ip.toLowerCase(Locale.ROOT);
                                                             if (ip.startsWith("ip4:") || ip.startsWith("ip6:")) {
                                                                 String[] net = ip.substring(4).split("/");
@@ -290,15 +290,15 @@ public class ActivityDmarc extends ActivityBase {
                                                                     for (DnsHelper.DnsRecord mx : mxs) {
                                                                         List<DnsHelper.DnsRecord> as = new ArrayList<>();
                                                                         try {
-                                                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.name, "a")));
+                                                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "a")));
                                                                         } catch (UnknownHostException ignored) {
                                                                         }
                                                                         try {
-                                                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.name, "aaaa")));
+                                                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "aaaa")));
                                                                         } catch (UnknownHostException ignored) {
                                                                         }
                                                                         for (DnsHelper.DnsRecord a : as)
-                                                                            if (text.equals(a.name)) {
+                                                                            if (text.equals(a.response)) {
                                                                                 valid = true;
                                                                                 break;
                                                                             }
@@ -431,7 +431,7 @@ public class ActivityDmarc extends ActivityBase {
                                         spf = lookupSpf(context, lastDomain, extra);
                                         for (Pair<String, DnsHelper.DnsRecord> p : spf) {
                                             ssb.append(p.first).append(' ')
-                                                    .append(p.second.name).append("\n");
+                                                    .append(p.second.response).append("\n");
                                             if (start == null) {
                                                 start = ssb.length();
                                                 ssb.append("\n");
@@ -455,7 +455,7 @@ public class ActivityDmarc extends ActivityBase {
                                         } catch (UnknownHostException ignored) {
                                         }
                                         for (DnsHelper.DnsRecord r : records)
-                                            ssb.append(r.name).append("\n");
+                                            ssb.append(r.response).append("\n");
                                         ssb.append("\n");
                                     }
                                 }
@@ -528,9 +528,9 @@ public class ActivityDmarc extends ActivityBase {
                     ssb.append(domain).append('=')
                             .append(Integer.toString(records.length)).append('\n');
                     for (DnsHelper.DnsRecord r : records)
-                        if (r.name.contains("spf")) {
+                        if (r.response.contains("spf")) {
                             result.add(new Pair<>(domain, r));
-                            for (String part : r.name.split("\\s+"))
+                            for (String part : r.response.split("\\s+"))
                                 if (part.toLowerCase(Locale.ROOT).startsWith("include:")) {
                                     String sub = part.substring("include:".length());
                                     result.addAll(lookupSpf(context, sub, ssb));

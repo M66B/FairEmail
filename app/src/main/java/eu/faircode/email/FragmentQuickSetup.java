@@ -33,6 +33,7 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -49,6 +50,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -78,8 +80,10 @@ public class FragmentQuickSetup extends FragmentBase {
     private TextView tvPatience;
     private TextView tvProgress;
 
+    private TextView tvArgument;
     private TextView tvError;
     private TextView tvErrorHint;
+    private Button btnManual;
     private TextView tvInstructions;
     private Button btnHelp;
     private Button btnSupport;
@@ -100,6 +104,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private Group grpSetup;
     private Group grpCertificate;
     private Group grpError;
+    private Group grpManual;
 
     private int title;
     private boolean update;
@@ -146,8 +151,10 @@ public class FragmentQuickSetup extends FragmentBase {
         tvPatience = view.findViewById(R.id.tvPatience);
         tvProgress = view.findViewById(R.id.tvProgress);
 
+        tvArgument = view.findViewById(R.id.tvArgument);
         tvError = view.findViewById(R.id.tvError);
         tvErrorHint = view.findViewById(R.id.tvErrorHint);
+        btnManual = view.findViewById(R.id.btnManual);
         tvInstructions = view.findViewById(R.id.tvInstructions);
         btnHelp = view.findViewById(R.id.btnHelp);
         btnSupport = view.findViewById(R.id.btnSupport);
@@ -168,6 +175,7 @@ public class FragmentQuickSetup extends FragmentBase {
         grpSetup = view.findViewById(R.id.grpSetup);
         grpCertificate = view.findViewById(R.id.grpCertificate);
         grpError = view.findViewById(R.id.grpError);
+        grpManual = view.findViewById(R.id.grpManual);
 
         // Wire controls
 
@@ -239,6 +247,19 @@ public class FragmentQuickSetup extends FragmentBase {
             }
         });
 
+        btnManual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+
+                FragmentAccount fragment = new FragmentAccount();
+                fragment.setArguments(new Bundle());
+                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
+                fragmentTransaction.commit();
+            }
+        });
+
         btnSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -254,6 +275,8 @@ public class FragmentQuickSetup extends FragmentBase {
         tvPatience.setVisibility(View.GONE);
         tvProgress.setVisibility(View.GONE);
         pbSave.setVisibility(View.GONE);
+        tvArgument.setVisibility(View.GONE);
+        tvErrorHint.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
         tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
         btnHelp.setVisibility(View.GONE);
@@ -263,6 +286,7 @@ public class FragmentQuickSetup extends FragmentBase {
         grpSetup.setVisibility(View.GONE);
         grpCertificate.setVisibility(View.GONE);
         grpError.setVisibility(View.GONE);
+        grpManual.setVisibility(View.GONE);
 
         if (savedInstanceState != null) {
             tilPassword.getEditText().setText(savedInstanceState.getString("fair:password"));
@@ -275,10 +299,43 @@ public class FragmentQuickSetup extends FragmentBase {
     }
 
     private void onSave(boolean check) {
+        String name = etName.getText().toString().trim();
+        String email = etEmail.getText().toString().trim();
+        String password = tilPassword.getEditText().getText().toString();
+        String warning = null;
+        if (TextUtils.isEmpty(name))
+            warning = getString(R.string.title_no_name);
+        else if (TextUtils.isEmpty(email))
+            warning = getString(R.string.title_no_email);
+        else if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
+            warning = getString(R.string.title_email_invalid, email);
+        else if (TextUtils.isEmpty(password))
+            warning = getString(R.string.title_no_password);
+        else {
+            ConnectivityManager cm = Helper.getSystemService(getContext(), ConnectivityManager.class);
+            NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
+            if (ani == null || !ani.isConnected())
+                warning = getString(R.string.title_no_internet);
+        }
+
+        if (warning != null) {
+            tvArgument.setText(warning);
+            tvArgument.setVisibility(View.VISIBLE);
+            getMainHandler().post(new Runnable() {
+                @Override
+                public void run() {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+                    scroll.smoothScrollTo(0, tvArgument.getBottom());
+                }
+            });
+            return;
+        }
+
         Bundle args = new Bundle();
-        args.putString("name", etName.getText().toString().trim());
-        args.putString("email", etEmail.getText().toString().trim());
-        args.putString("password", tilPassword.getEditText().getText().toString());
+        args.putString("name", name);
+        args.putString("email", email);
+        args.putString("password", password);
         args.putBoolean("update", cbUpdate.isChecked());
         args.putBoolean("check", check);
         args.putParcelable("best", bestProvider);
@@ -293,6 +350,9 @@ public class FragmentQuickSetup extends FragmentBase {
                 tvPatience.setVisibility(check ? View.VISIBLE : View.GONE);
                 pbSave.setVisibility(check ? View.GONE : View.VISIBLE);
                 grpError.setVisibility(View.GONE);
+                grpManual.setVisibility(View.GONE);
+                tvArgument.setVisibility(View.GONE);
+                tvErrorHint.setVisibility(View.GONE);
                 tvInstructions.setVisibility(View.GONE);
                 btnHelp.setVisibility(View.GONE);
                 cbUpdate.setVisibility(check ? View.GONE : View.VISIBLE);
@@ -319,22 +379,8 @@ public class FragmentQuickSetup extends FragmentBase {
                 boolean check = args.getBoolean("check");
                 EmailProvider best = args.getParcelable("best");
 
-                if (TextUtils.isEmpty(name))
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_name));
-                if (TextUtils.isEmpty(email))
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_email));
-                if (!Helper.EMAIL_ADDRESS.matcher(email).matches())
-                    throw new IllegalArgumentException(context.getString(R.string.title_email_invalid, email));
-                if (TextUtils.isEmpty(password))
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_password));
-
                 int at = email.indexOf('@');
                 String username = email.substring(0, at);
-
-                ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
-                NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
-                if (ani == null || !ani.isConnected())
-                    throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
                 Throwable fail = null;
                 List<EmailProvider> providers;
@@ -576,13 +622,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                 }
 
                                 // Set swipe left/right folder
-                                for (EntityFolder folder : folders)
-                                    if (EntityFolder.TRASH.equals(folder.type))
-                                        account.swipe_left = folder.id;
-                                    else if (EntityFolder.ARCHIVE.equals(folder.type))
-                                        account.swipe_right = folder.id;
-
-                                db.account().updateAccount(account);
+                                FragmentDialogSwipes.setDefaultFolderActions(context, account.id);
 
                                 // Create identity
                                 EntityIdentity identity = new EntityIdentity();
@@ -679,8 +719,11 @@ public class FragmentQuickSetup extends FragmentBase {
                     if (provider != null && provider.appPassword)
                         message += "\n\n" + getString(R.string.title_setup_app_password_hint);
                     tvErrorHint.setText(message);
+                    tvErrorHint.setVisibility(View.VISIBLE);
+                    if (provider == null)
+                        grpManual.setVisibility(View.VISIBLE);
                 } else
-                    tvErrorHint.setText(R.string.title_setup_no_settings_hint);
+                    grpManual.setVisibility(View.VISIBLE);
 
                 if (ex instanceof IllegalArgumentException || ex instanceof UnknownHostException) {
                     tvError.setText(ex.getMessage());

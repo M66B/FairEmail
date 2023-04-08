@@ -179,13 +179,13 @@ public class FragmentDialogAccount extends FragmentDialogBase {
                 if (swipes != null && swipes.size() == 1) {
                     String left;
                     if (swipes.get(0).swipe_left != null && swipes.get(0).swipe_left < 0)
-                        left = getSwipeTitle(context, (long) swipes.get(0).swipe_left);
+                        left = FragmentDialogSwipes.getActionTitle(context, swipes.get(0).swipe_left);
                     else
                         left = swipes.get(0).left_name;
 
                     String right;
                     if (swipes.get(0).swipe_right != null && swipes.get(0).swipe_right < 0)
-                        right = getSwipeTitle(context, (long) swipes.get(0).swipe_right);
+                        right = FragmentDialogSwipes.getActionTitle(context, swipes.get(0).swipe_right);
                     else
                         right = swipes.get(0).right_name;
 
@@ -195,16 +195,6 @@ public class FragmentDialogAccount extends FragmentDialogBase {
                     tvLeft.setText("?");
                     tvRight.setText("?");
                 }
-            }
-
-            private String getSwipeTitle(Context context, long type) {
-                if (type == EntityMessage.SWIPE_ACTION_SEEN)
-                    return context.getString(R.string.title_seen);
-
-                if (type == EntityMessage.SWIPE_ACTION_DELETE)
-                    return context.getString(R.string.title_delete_permanently);
-
-                return "???";
             }
         });
 

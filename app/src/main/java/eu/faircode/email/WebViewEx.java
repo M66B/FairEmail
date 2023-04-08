@@ -90,7 +90,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     void init(int height, int maxHeight, float size, Pair<Integer, Integer> position, boolean force_light, IWebView intf) {
-        Log.i("Init height=" + height + "/" + maxHeight + " size=" + size);
+        Log.i("Init height=" + height + "/" + maxHeight + " size=" + size + " accelerated=" + isHardwareAccelerated());
 
         if (maxHeight == 0) {
             Log.e("WebView max height zero");
@@ -188,7 +188,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                 @Override
                 public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
                     Log.i("Scroll (x,y)=" + scrollX + "," + scrollY);
-                    intf.onScrollChange(scrollX, scrollY);
+                    intf.onScrollChange(scrollX - oldScrollX, scrollY - oldScrollY, scrollX, scrollY);
                 }
             });
     }
@@ -316,18 +316,20 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                 intercept = (yoff > 0 || dy >= 0) && (yoff < bottom || dy <= 0);
             }
 
-            int xrange = computeHorizontalScrollRange();
-            int xextend = computeHorizontalScrollExtent();
-            boolean canScrollHorizontal = (xrange > xextend);
-            if (canScrollHorizontal) {
-                int right = xrange - xextend;
-                int xoff = computeHorizontalScrollOffset();
-                int ldx = xoff - lastXoff;
-                float dx = lastX - event.getX();
-                intercept = (xoff > 0 || dx >= 0) &&
-                        (xoff < right || dx <= 0) &&
-                        (Math.signum(dx) == Math.signum(ldx));
-                lastXoff = xoff;
+            if (!intercept) {
+                int xrange = computeHorizontalScrollRange();
+                int xextend = computeHorizontalScrollExtent();
+                boolean canScrollHorizontal = (xrange > xextend);
+                if (canScrollHorizontal) {
+                    int right = xrange - xextend;
+                    int xoff = computeHorizontalScrollOffset();
+                    int ldx = xoff - lastXoff;
+                    float dx = lastX - event.getX();
+                    intercept = (xoff > 0 || dx >= 0) &&
+                            (xoff < right || dx <= 0) &&
+                            (Math.signum(dx) == Math.signum(ldx));
+                    lastXoff = xoff;
+                }
             }
         }
         getParent().requestDisallowInterceptTouchEvent(intercept || event.getPointerCount() > 1);
@@ -410,7 +412,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
         void onScaleChanged(float newScale);
 
-        void onScrollChange(int scrollX, int scrollY);
+        void onScrollChange(int dx, int dy, int scrollX, int scrollY);
 
         boolean onOpenLink(String url);
     }

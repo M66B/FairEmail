@@ -24,6 +24,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -46,38 +47,27 @@ public class FragmentDialogSwipes extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        View dview = LayoutInflater.from(getContext()).inflate(R.layout.dialog_swipes, null);
+        final Context context = getContext();
+        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_swipes, null);
         spLeft = dview.findViewById(R.id.spLeft);
         spRight = dview.findViewById(R.id.spRight);
 
-        adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
+        adapter = new ArrayAdapter<>(context, R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>());
         adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
 
         spLeft.setAdapter(adapter);
         spRight.setAdapter(adapter);
 
-        List<EntityFolder> folders = FragmentAccount.getFolderActions(getContext());
+        adapter.addAll(getFolderActions(context));
 
-        EntityFolder trash = new EntityFolder();
-        trash.id = 2L;
-        trash.name = getString(R.string.title_trash);
-        folders.add(1, trash);
-
-        EntityFolder archive = new EntityFolder();
-        archive.id = 1L;
-        archive.name = getString(R.string.title_archive);
-        folders.add(1, archive);
-
-        adapter.addAll(folders);
-
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         int leftPos = prefs.getInt("swipe_left_default", 2); // Trash
         int rightPos = prefs.getInt("swipe_right_default", 1); // Archive
 
         spLeft.setSelection(leftPos);
         spRight.setSelection(rightPos);
 
-        return new AlertDialog.Builder(getContext())
+        return new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -97,16 +87,9 @@ public class FragmentDialogSwipes extends FragmentDialogBase {
                                     .putBoolean("button_hide", true)
                                     .apply();
 
-                        Bundle args = new Bundle();
-                        args.putLong("left", left == null ? 0 : left.id);
-                        args.putLong("right", right == null ? 0 : right.id);
-
                         new SimpleTask<Void>() {
                             @Override
                             protected Void onExecute(Context context, Bundle args) {
-                                long left = args.getLong("left");
-                                long right = args.getLong("right");
-
                                 DB db = DB.getInstance(context);
                                 try {
                                     db.beginTransaction();
@@ -114,10 +97,7 @@ public class FragmentDialogSwipes extends FragmentDialogBase {
                                     List<EntityAccount> accounts = db.account().getAccounts();
                                     for (EntityAccount account : accounts)
                                         if (account.protocol == EntityAccount.TYPE_IMAP)
-                                            db.account().setAccountSwipes(
-                                                    account.id,
-                                                    getAction(context, left, account.id),
-                                                    getAction(context, right, account.id));
+                                            setDefaultFolderActions(context, account.id);
 
                                     db.setTransactionSuccessful();
                                 } finally {
@@ -129,30 +109,69 @@ public class FragmentDialogSwipes extends FragmentDialogBase {
 
                             @Override
                             protected void onExecuted(Bundle args, Void data) {
-                                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                                ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
                             }
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
                                 Log.unexpectedError(getParentFragmentManager(), ex);
                             }
-
-                            private Long getAction(Context context, long selection, long account) {
-                                if (selection < 0)
-                                    return selection;
-                                else if (selection == 0)
-                                    return null;
-                                else {
-                                    DB db = DB.getInstance(context);
-                                    String type = (selection == 2 ? EntityFolder.TRASH : EntityFolder.ARCHIVE);
-                                    EntityFolder archive = db.folder().getFolderByType(account, type);
-                                    return (archive == null ? null : archive.id);
-                                }
-                            }
-                        }.execute(getContext(), getViewLifecycleOwner(), args, "dialog:swipe");
+                        }.execute(context, getViewLifecycleOwner(), new Bundle(), "dialog:swipe");
                     }
                 })
                 .setNegativeButton(android.R.string.cancel, null)
                 .create();
+    }
+
+    static void setDefaultFolderActions(Context context, long account) {
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int leftPos = prefs.getInt("swipe_left_default", 2); // Trash
+        int rightPos = prefs.getInt("swipe_right_default", 1); // Archive
+
+        List<EntityFolder> actions = getFolderActions(context);
+        EntityFolder left = (leftPos < 0 || leftPos >= actions.size() ? null : actions.get(leftPos));
+        EntityFolder right = (rightPos < 0 || rightPos >= actions.size() ? null : actions.get(rightPos));
+
+        DB db = DB.getInstance(context);
+        db.account().setAccountSwipes(account,
+                getAction(context, left == null ? 0 : left.id, account),
+                getAction(context, right == null ? 0 : right.id, account));
+    }
+
+    static List<EntityFolder> getFolderActions(Context context) {
+        List<EntityFolder> folders = FragmentAccount.getFolderActions(context);
+
+        EntityFolder trash = new EntityFolder();
+        trash.id = 2L;
+        trash.name = context.getString(R.string.title_trash);
+        folders.add(1, trash);
+
+        EntityFolder archive = new EntityFolder();
+        archive.id = 1L;
+        archive.name = context.getString(R.string.title_archive);
+        folders.add(1, archive);
+
+        return folders;
+    }
+
+    static String getActionTitle(Context context, long id) {
+        for (EntityFolder action : getFolderActions(context))
+            if (action.id.equals(id))
+                return action.name;
+
+        return "???";
+    }
+
+    private static Long getAction(Context context, long selection, long account) {
+        if (selection < 0)
+            return selection;
+        else if (selection == 0)
+            return null;
+        else {
+            DB db = DB.getInstance(context);
+            String type = (selection == 2 ? EntityFolder.TRASH : EntityFolder.ARCHIVE);
+            EntityFolder folder = db.folder().getFolderByType(account, type);
+            return (folder == null ? null : folder.id);
+        }
     }
 }

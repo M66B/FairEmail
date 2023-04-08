@@ -2768,6 +2768,15 @@ The filter rules will move the messages to a (sub) archive folder as a second st
 
 The POP3 protocol does not support setting keywords and moving or copying messages.
 
+<br />
+
+Since version 1.2061 it is possible to execute rules with an automation app, like for example Tasker.
+
+
+```
+(adb shell) am start-foreground-service -a eu.faircode.email.RULE --es account <account name> -e rule <unique rule name>
+```
+
 Using rules is a pro feature.
 
 <br />
@@ -3862,7 +3871,7 @@ FairEmail fetches a message in two steps:
 
 Directly after the first step new messages will be notified.
 However, only until after the second step the message text will be available.
-FairEmail updates exiting notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
+FairEmail updates existing notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.
 
 Since there is no guarantee that a message text will always be fetched directly after a message header,
 it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.
@@ -4038,7 +4047,7 @@ Individual messages will rarely be trashed and mostly this happens by accident.
 Showing trashed messages in conversations makes it easier to find them back.
 
 You can permanently delete a message using the message three-dots *delete* menu, which will remove the message from the conversation.
-Note that this irreversible.
+Note that this is irreversible.
 
 Similarly, drafts are shown in conversations to find them back in the context where they belong.
 It is easy to read through the received messages before continuing to write the draft later.

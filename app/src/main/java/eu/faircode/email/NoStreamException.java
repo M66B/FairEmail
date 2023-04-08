@@ -77,7 +77,9 @@ public class NoStreamException extends SecurityException {
         builder.setView(dview);
         builder.setNegativeButton(android.R.string.cancel, null);
 
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M)
+        // https://developer.android.com/about/versions/13/behavior-changes-13#granular-media-permissions
+        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M &&
+                Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
             builder.setPositiveButton(R.string.title_setup_grant, new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {

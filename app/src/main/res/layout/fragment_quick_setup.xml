@@ -154,6 +154,19 @@
             app:layout_constraintTop_toBottomOf="@id/tvPatience" />
 
         <TextView
+            android:id="@+id/tvArgument"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:autoLink="web"
+            android:text="Argument"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            android:textIsSelectable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProgress" />
+
+        <TextView
             android:id="@+id/tvErrorTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -162,7 +175,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvProgress" />
+            app:layout_constraintTop_toBottomOf="@id/tvArgument" />
 
         <TextView
             android:id="@+id/tvError"
@@ -190,16 +203,38 @@
             app:layout_constraintTop_toBottomOf="@id/tvError" />
 
         <TextView
+            android:id="@+id/tvManualHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_no_settings_hint"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
+
+        <Button
+            android:id="@+id/btnManual"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/twotone_edit_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_setup_manual_setup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvManualHint" />
+
+        <TextView
             android:id="@+id/tvErrorRemark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="12dp"
             android:text="@string/title_setup_quick_support"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorPrimary"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvErrorHint" />
+            app:layout_constraintTop_toBottomOf="@id/btnManual" />
 
         <TextView
             android:id="@+id/tvInstructions"
@@ -416,6 +451,12 @@
             android:id="@+id/grpError"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvErrorTitle,tvError,tvErrorHint,tvErrorRemark,btnSupport" />
+            app:constraint_referenced_ids="tvErrorTitle,tvError,tvErrorRemark,btnSupport" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpManual"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="tvManualHint,btnManual" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

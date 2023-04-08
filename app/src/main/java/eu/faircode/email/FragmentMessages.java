@@ -26,6 +26,8 @@ import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 import static android.view.KeyEvent.ACTION_DOWN;
 import static android.view.KeyEvent.ACTION_UP;
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
@@ -2480,7 +2482,16 @@ public class FragmentMessages extends FragmentBase
         }
 
         @Override
-        public void setPosition(long id, Pair<Integer, Integer> position) {
+        public void setPosition(long id, Pair<Integer, Integer> delta, Pair<Integer, Integer> position) {
+            if (delta != null && delta.second != 0) {
+                boolean down = (delta.second > 0);
+                if (scrolling != down) {
+                    scrolling = down;
+                    updateCompose();
+                    updateExpanded();
+                }
+            }
+
             if (position == null)
                 positions.remove(id);
             else
@@ -2652,6 +2663,8 @@ public class FragmentMessages extends FragmentBase
 
         @Override
         public void layoutChanged() {
+            if (rvMessage == null)
+                return;
             rvMessage.post(new Runnable() {
                 @Override
                 public void run() {
@@ -4909,7 +4922,8 @@ public class FragmentMessages extends FragmentBase
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if ("pro".equals(key) || "banner_hidden".equals(key)) {
+        if (grpSupport != null &&
+                ("pro".equals(key) || "banner_hidden".equals(key))) {
             boolean pro = ActivityBilling.isPro(getContext());
             long banner_hidden = prefs.getLong("banner_hidden", 0);
             grpSupport.setVisibility(

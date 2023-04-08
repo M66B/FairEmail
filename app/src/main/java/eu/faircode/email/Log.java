@@ -3074,6 +3074,12 @@ public class Log {
                                 ri.activityInfo.packageName, label, tabs, def));
                     }
 
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    String open_with_pkg = prefs.getString("open_with_pkg", null);
+                    boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
+                    size += write(os, String.format("Selected: %s tabs=%b\r\n",
+                            open_with_pkg, open_with_tabs));
+
                     size += write(os, "\r\n");
                 } catch (Throwable ex) {
                     size += write(os, String.format("%s\r\n", ex));
