@@ -844,7 +844,17 @@ public class IMAPStore extends Store
 	// if server supports UTF-8, enable it for client use
 	// note that this is safe to enable even if mail.mime.allowutf8=false
 	if (p.hasCapability("UTF8=ACCEPT") || p.hasCapability("UTF8=ONLY"))
-	    p.enable("UTF8=ACCEPT");
+	    try {
+		    p.enable("UTF8=ACCEPT");
+	    } catch (BadCommandException ex) {
+		    eu.faircode.email.Log.e(ex);
+		    /*
+				Caused by: com.sun.mail.iap.BadCommandException: ENABLE not supported
+					at com.sun.mail.imap.protocol.IMAPProtocol.enable(SourceFile:55)
+					at com.sun.mail.imap.IMAPStore.login(SourceFile:191)
+					at com.sun.mail.imap.IMAPStore.protocolConnect(SourceFile:246)
+		    */
+	    }
     }
 
     /**
