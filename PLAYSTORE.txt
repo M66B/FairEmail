@@ -8,7 +8,7 @@ FairEmail might be for you if you value your privacy.
 
 <i>FairEmail is simple to use, but if you are looking for a very simple email app, FairEmail might not be the right choice.</i>
 
-<i>FairEmail is an email client only, so you need to bring your own email address.</i>
+<i>FairEmail is an email client only, so you need to bring your own email address. FairEmail is not a calendar/contact/task/note manager and cannot make you coffee.</i>
 
 <i>FairEmail does not support non-standard protocols, like Microsoft Exchange Web Services and Microsoft ActiveSync.</i>
 
