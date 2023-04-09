@@ -622,7 +622,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                 }
 
                                 // Set swipe left/right folder
-                                FragmentDialogSwipes.setDefaultFolderActions(context, account.id);
+                                FragmentDialogSwipes.setDefaultFolderActions(context, account);
 
                                 // Create identity
                                 EntityIdentity identity = new EntityIdentity();

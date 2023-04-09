@@ -97,7 +97,7 @@ public class FragmentDialogSwipes extends FragmentDialogBase {
                                     List<EntityAccount> accounts = db.account().getAccounts();
                                     for (EntityAccount account : accounts)
                                         if (account.protocol == EntityAccount.TYPE_IMAP)
-                                            setDefaultFolderActions(context, account.id);
+                                            setDefaultFolderActions(context, account);
 
                                     db.setTransactionSuccessful();
                                 } finally {
@@ -123,19 +123,20 @@ public class FragmentDialogSwipes extends FragmentDialogBase {
                 .create();
     }
 
-    static void setDefaultFolderActions(Context context, long account) {
+    static void setDefaultFolderActions(Context context, @NonNull EntityAccount account) {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int leftPos = prefs.getInt("swipe_left_default", 2); // Trash
-        int rightPos = prefs.getInt("swipe_right_default", 1); // Archive
+        final int leftPos = prefs.getInt("swipe_left_default", 2); // Trash
+        final int rightPos = prefs.getInt("swipe_right_default", 1); // Archive
 
         List<EntityFolder> actions = getFolderActions(context);
         EntityFolder left = (leftPos < 0 || leftPos >= actions.size() ? null : actions.get(leftPos));
         EntityFolder right = (rightPos < 0 || rightPos >= actions.size() ? null : actions.get(rightPos));
 
+        account.swipe_left = getAction(context, left == null ? 0 : left.id, account.id);
+        account.swipe_right = getAction(context, right == null ? 0 : right.id, account.id);
+
         DB db = DB.getInstance(context);
-        db.account().setAccountSwipes(account,
-                getAction(context, left == null ? 0 : left.id, account),
-                getAction(context, right == null ? 0 : right.id, account));
+        db.account().setAccountSwipes(account.id, account.swipe_left, account.swipe_right);
     }
 
     static List<EntityFolder> getFolderActions(Context context) {

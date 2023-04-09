@@ -558,7 +558,7 @@ public class FragmentGmail extends FragmentBase {
                             account.swipe_left = EntityMessage.SWIPE_ACTION_DELETE;
                             account.swipe_right = EntityMessage.SWIPE_ACTION_SEEN;
                         } else
-                            FragmentDialogSwipes.setDefaultFolderActions(context, account.id);
+                            FragmentDialogSwipes.setDefaultFolderActions(context, account);
 
                         db.account().updateAccount(account);
 
