@@ -247,6 +247,7 @@
     <string name="title_setup_done">Gotovo</string>
     <string name="title_setup_still">Još treba uraditi</string>
     <string name="title_setup_error">Greška</string>
+    <string name="title_setup_manual_setup">Ručno postavljanje</string>
     <string name="title_setup_pop">Koristi POP3 (nije preporučeno)</string>
     <string name="title_setup_recent">Koristi \'recent\' za višestruke e-mail klijente</string>
     <string name="title_setup_configuring">Podešavanje računa &#8230;</string>
@@ -1464,6 +1465,7 @@
     <string name="title_search_with_size">Poruke veličine preko</string>
     <string name="title_search_in_trash">U otpadu</string>
     <string name="title_search_in_junk">U spamu</string>
+    <string name="title_search_with_range">Raspon datuma</string>
     <string name="title_search_with_before">Prije</string>
     <string name="title_search_with_after">Poslije</string>
     <string name="title_search_device_first">Prvo traži na uređaju</string>
@@ -1573,6 +1575,7 @@
     <string name="title_rule_daily">Pokreni dnevno</string>
     <string name="title_rule_age">Poruke starije od (dana)</string>
     <string name="title_rule_stop">Zaustavi obradu pravila nakon izvršavanja ovog pravila</string>
+    <string name="title_rule_stop_remark">Ako je pravilo dio neke grupe, zaustavit će se obrada svih pravila ove grupe</string>
     <string name="title_rule_sender">Pošiljalac sadrži</string>
     <string name="title_rule_sender_known">Pošiljalac je u kontaktima</string>
     <string name="title_rule_recipient">Primalac sadrži</string>

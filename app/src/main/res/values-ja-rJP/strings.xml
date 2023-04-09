@@ -221,6 +221,7 @@
     <string name="title_setup_done">完了</string>
     <string name="title_setup_still">実行中です</string>
     <string name="title_setup_error">エラー</string>
+    <string name="title_setup_manual_setup">手動設定</string>
     <string name="title_setup_pop">POP3 を使用 (非推奨)</string>
     <string name="title_setup_recent">複数のメールクライアントを使用するために最新モード (recent) を使用</string>
     <string name="title_setup_configuring">アカウントを設定しています&#8230;</string>
@@ -1548,6 +1549,7 @@
     <string name="title_rule_daily">常に実行 (のみ)</string>
     <string name="title_rule_age">…日以上経過したメッセージ</string>
     <string name="title_rule_stop">ルールの実行後に処理を停止</string>
+    <string name="title_rule_stop_remark">ルールがグループの一部である場合、このグループのすべてのルールの処理が停止されます</string>
     <string name="title_rule_sender">差出人に以下の語句を含む</string>
     <string name="title_rule_sender_known">連絡先から送信</string>
     <string name="title_rule_recipient">宛先に以下の語句を含む</string>

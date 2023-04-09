@@ -234,6 +234,7 @@
     <string name="title_setup_done">Έγινε</string>
     <string name="title_setup_still">Απομένουν να γίνουν</string>
     <string name="title_setup_error">Σφάλμα</string>
+    <string name="title_setup_manual_setup">Χειροκίνητη ρύθμιση</string>
     <string name="title_setup_pop">Χρήση POP3 (δεν συνιστάται)</string>
     <string name="title_setup_recent">Χρήση \"recent\" για πολλαπλούς πελάτες ηλ. ταχυδρομείου</string>
     <string name="title_setup_configuring">Ρύθμιση λογαριασμού &#8230;</string>
@@ -1555,6 +1556,7 @@
     <string name="title_rule_daily">Εκτέλεση μόνο μία φορά κάθε ημέρα</string>
     <string name="title_rule_age">Μηνύματα παλαιότερα από (ημέρες)</string>
     <string name="title_rule_stop">Διακοπή επεξεργασίας κανόνων μετά την εκτέλεση αυτού του κανόνα</string>
+    <string name="title_rule_stop_remark">Εάν ο κανόνας είναι μέρος μιας ομάδας, η επεξεργασία όλων των κανόνων αυτής της ομάδας θα διακοπεί</string>
     <string name="title_rule_sender">Ο αποστολέας περιέχει</string>
     <string name="title_rule_sender_known">Ο αποστολέας είναι μια επαφή</string>
     <string name="title_rule_recipient">Ο παραλήπτης περιέχει</string>

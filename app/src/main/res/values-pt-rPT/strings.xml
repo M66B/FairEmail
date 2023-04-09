@@ -236,6 +236,7 @@
     <string name="title_setup_done">Concluído</string>
     <string name="title_setup_still">Ainda por fazer</string>
     <string name="title_setup_error">Erro</string>
+    <string name="title_setup_manual_setup">Configuração manual</string>
     <string name="title_setup_pop">Usar POP3 (não recomendado)</string>
     <string name="title_setup_recent">Use \'recente\' para vários clientes de e-mail</string>
     <string name="title_setup_configuring">A configurar conta &#8230;</string>
@@ -1562,6 +1563,7 @@
     <string name="title_rule_daily">Executar diariamente (somente)</string>
     <string name="title_rule_age">Mensagens com mais de (dias)</string>
     <string name="title_rule_stop">Parar o processamento de regras após a execução desta regra</string>
+    <string name="title_rule_stop_remark">Se a regra for parte de um grupo, o processamento de todas as regras deste grupo será interrompido</string>
     <string name="title_rule_sender">Remetente contém</string>
     <string name="title_rule_sender_known">Remetente é um contacto</string>
     <string name="title_rule_recipient">Destinatário contém</string>
