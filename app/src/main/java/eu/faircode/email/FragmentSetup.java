@@ -985,18 +985,23 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     }
 
     private void updateManual() {
+        boolean scroll = false;
         FragmentActivity activity = getActivity();
         if (activity != null) {
             Intent intent = activity.getIntent();
             if (intent.hasExtra("manual")) {
                 manual = intent.getBooleanExtra("manual", false);
+                scroll = intent.getBooleanExtra("scroll", false);
                 intent.removeExtra("manual");
+                intent.removeExtra("scroll");
                 activity.setIntent(intent);
             }
         }
 
         ibManual.setImageLevel(manual ? 0 /* less */ : 1 /* more */);
         cardManual.setVisibility(manual ? View.VISIBLE : View.GONE);
+        if (scroll)
+            ensureVisible(cardManual);
     }
 
     private void updateExtra() {

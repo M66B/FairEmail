@@ -250,13 +250,10 @@ public class FragmentQuickSetup extends FragmentBase {
         btnManual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
-
-                FragmentAccount fragment = new FragmentAccount();
-                fragment.setArguments(new Bundle());
-                FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("account");
-                fragmentTransaction.commit();
+                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        .putExtra("manual", true)
+                        .putExtra("scroll", true));
             }
         });
 
