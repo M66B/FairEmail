@@ -162,8 +162,8 @@ public class CalendarHelper {
                 TimezoneInfo tzinfo = icalendar.getTimezoneInfo();
                 TimezoneAssignment tza = (tzinfo == null ? null : tzinfo.getTimezone(event.getDateStart()));
                 TimeZone tz = (tza == null ? null : tza.getTimeZone());
-                if (tz != null)
-                    values.put(CalendarContract.Events.EVENT_TIMEZONE, tz.getID());
+                values.put(CalendarContract.Events.EVENT_TIMEZONE,
+                        tz == null ? TimeZone.getDefault().getID() : tz.getID());
 
                 values.put(CalendarContract.Events.DTSTART, start.getTime());
                 values.put(CalendarContract.Events.DTEND, end.getTime());
