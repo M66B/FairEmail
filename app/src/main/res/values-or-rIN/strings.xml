@@ -22,7 +22,7 @@
     <string name="tile_unseen">ନୂଆ ଵାର୍ତ୍ତା</string>
     <string name="shortcut_refresh">ସତେଜ କରନ୍ତୁ</string>
     <string name="shortcut_compose">ରଚନା କରନ୍ତୁ</string>
-    <string name="shortcut_setup">ସେଟିଂସମୂହ</string>
+    <string name="shortcut_setup">ସେଟିଂ</string>
     <plurals name="title_notification_operations">
         <item quantity="one">%1$dଟିଏ ପ୍ରକ୍ରିୟା ବାକି ରହିଛି</item>
         <item quantity="other">%1$dଟି ପ୍ରକ୍ରିୟା ବାକି ରହିଛି</item>
@@ -60,7 +60,7 @@
     <string name="title_factor_minutes">%1$d ମିନିଟ୍</string>
     <string name="menu_rules">ନିୟମ</string>
     <string name="menu_operations">ପ୍ରକ୍ରିୟା</string>
-    <string name="menu_setup">ସେଟିଂସମୂହ</string>
+    <string name="menu_setup">ସେଟିଂ</string>
     <string name="menu_faq">ସମର୍ଥନ</string>
     <string name="menu_translate">ଅନୁଵାଦ କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ</string>
     <string name="menu_issue">ସମସ୍ୟା ରିପୋର୍ଟ କରନ୍ତୁ</string>
@@ -82,7 +82,7 @@
     <string name="title_edit_identity">ପରିଚୟ ସମ୍ପାଦନା</string>
     <string name="title_edit_folder">ଫୋଲ୍ଡର୍ ସମ୍ପାଦନା</string>
     <string name="title_disable_gmail">Gmail ଆପ୍ ଅକ୍ଷମ କରନ୍ତୁ</string>
-    <string name="title_setup">ସେଟିଂସମୂହ</string>
+    <string name="title_setup">ସେଟିଂ</string>
     <string name="title_setup_help">ସହାୟତା</string>
     <string name="title_setup_quick">ଦ୍ରୁତ ସେଟଅପ୍</string>
     <string name="title_setup_quick_accounts">ଆକାଉଣ୍ଟ୍ ଯୋଡ଼ନ୍ତୁ ବା ବଦଳାନ୍ତୁ</string>
@@ -131,11 +131,11 @@
     <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ଵିନ୍ୟାସ କରୁଅଛି &#8230;</string>
     <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱାର୍ଡ଼ ଵ୍ୟଵହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
     <string name="title_setup_extra">ଅତିରିକ୍ତ</string>
-    <string name="title_setup_close">ସେଟିଂସ୍ ବନ୍ଦ କରନ୍ତୁ</string>
-    <string name="title_setup_export">ସେଟିଂସ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
-    <string name="title_setup_import">ସେଟିଂସ୍ ଆମଦାନୀ କରନ୍ତୁ</string>
-    <string name="title_setup_export_remark">        ଯେହେତୁ ସେଟିଂସ୍ ଫାଇଲ୍ ସମସ୍ତ ସେଟିଂସ୍ ଏବଂ ଆକାଉଣ୍ଟ୍ ସୂଚନା ଧାରଣ କରେ, ଏହା ଏକ ପାସ୍‍ୱାର୍ଡ଼ ସହିତ ଏନକ୍ରିପ୍ଟ ହୋଇଛି।
-        ସେଟିଂସ୍ ପୁଣି ଆମଦାନୀ କରିବାକୁ ପାସ୍‍ୱାର୍ଡ଼ ଆବଶ୍ୟକ, ତେଣୁ ଦୟାକରି ଏହାକୁ ଭୁଲନ୍ତୁ ନାହିଁ!
+    <string name="title_setup_close">ସେଟିଂ ବନ୍ଦ କରିବା</string>
+    <string name="title_setup_export">ସେଟିଂ ରପ୍ତାନି କରିବା</string>
+    <string name="title_setup_import">ସେଟିଂ ଆମଦାନୀ କରିବା</string>
+    <string name="title_setup_export_remark">        ଯେହେତୁ ସେଟିଂ ଫାଇଲ୍ ସମସ୍ତ ସେଟିଂ ଏଵଂ ଆକାଉଣ୍ଟ୍ ସୂଚନା ଧାରଣ କରେ, ଏହା ଏକ ପାସ୍‍ୱର୍ଡ଼ ସହିତ ଏନକ୍ରିପ୍ଟ ହୋଇଛି।
+        ସେଟିଂ ପୁଣି ଆମଦାନୀ କରିବାକୁ ପାସ୍‍ୱର୍ଡ଼ ଆଵଶ୍ୟକ, ତେଣୁ ଦୟାକରି ଏହାକୁ ଭୁଲନ୍ତୁ ନାହିଁ!
     </string>
     <string name="title_setup_backup">ଵାର୍ତ୍ତାଗୁଡ଼ିକର ବ୍ୟାକଅପ୍ କିପରି ନେବେ?</string>
     <string name="title_setup_password">ପାସ୍‍ୱାର୍ଡ଼</string>
@@ -143,10 +143,10 @@
     <string name="title_setup_password_missing">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
     <string name="title_setup_password_different">ପାସ୍‍ୱାର୍ଡ଼ଗୁଡ଼ିକ ମେଳ ଖାଉନାହିଁ</string>
     <string name="title_setup_import_delete">ପ୍ରଥମେ ବିଦ୍ୟମାନ ଆକାଉଣ୍ଟଗୁଡ଼ିକୁ ବିଲୋପ କରନ୍ତୁ</string>
-    <string name="title_setup_import_settings">ଆମଦାନୀ ବିକଳ୍ପଗୁଡ଼ିକ</string>
-    <string name="title_setup_exported">ସେଟିଂସ୍ ରପ୍ତାନି ହୋଇଛି</string>
-    <string name="title_setup_imported">ସେଟିଂସ୍ ଆମଦାନୀ ହୋଇଛି</string>
-    <string name="title_setup_import_invalid">ଅବୈଧ ସେଟିଂସ୍ ଫାଇଲ୍</string>
+    <string name="title_setup_import_settings">ଆମଦାନୀ ଵିକଳ୍ପ</string>
+    <string name="title_setup_exported">ସେଟିଂ ରପ୍ତାନି ହୋଇଛି</string>
+    <string name="title_setup_imported">ସେଟିଂ ଆମଦାନୀ ହୋଇଛି</string>
+    <string name="title_setup_import_invalid">ଅଵୈଧ ସେଟିଂ ଫାଇଲ୍</string>
     <string name="title_importing_account">ଆକାଉଣ୍ଟ୍ %1$s</string>
     <string name="title_importing_identity">ପରିଚୟ %1$s</string>
     <string name="title_importing_exists">ବାଦ୍ ଦିଆଗଲା: ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି</string>
@@ -172,7 +172,7 @@
     <string name="title_setup_theme_black_background">କଳା ପୃଷ୍ଠପଟ</string>
     <string name="title_setup_theme_html_light">ମୂଳ ଵାର୍ତ୍ତା ଦର୍ଶନ ପାଇଁ ହାଲୁକା ପୃଷ୍ଠପଟ</string>
     <string name="title_setup_theme_composer_light">ଵାର୍ତ୍ତା ସମ୍ପାଦକ ପାଇଁ ହାଲୁକା ପୃଷ୍ଠପଟ</string>
-    <string name="title_setup_theme_you_hint">Material You ରଙ୍ଗଗୁଡ଼ିକ ଆଣ୍ଡ୍ରଏଡ୍ ୱାଲପେପର୍ ଓ ଷ୍ଟାଇଲ୍ ସେଟିଂସରେ ଵିନ୍ୟାସ କରାଯାଇପାରିବ</string>
+    <string name="title_setup_theme_you_hint">Material You ରଙ୍ଗଗୁଡ଼ିକ ଆଣ୍ଡ୍ରଏଡ୍ ୱାଲପେପର୍ ଓ ଷ୍ଟାଇଲ୍ ସେଟିଂରେ ଵିନ୍ୟାସ କରାଯାଇପାରିବ</string>
     <string name="title_setup_theme_system_hint">ଆଣ୍ଡ୍ରଏଡ୍ ସମର୍ଥନ ପାଇଲେ ଏହା ସ୍ୱଚାଳିତ ଭାଵେ ଦିନ/ରାତ୍ରି ମୋଡ୍ ରେ ଏକ ହାଲୁକା/ଗାଢ଼ ଥିମ୍ କୁ ବଦଳିଯିବ</string>
     <string name="title_setup_theme_more_colors">ମୁଁ ଅଧିକ ରଙ୍ଗ ଚାହୁଁଛି</string>
     <string name="title_setup_advanced">ବିକଶିତ</string>
@@ -212,7 +212,7 @@
     <string name="title_advanced_check_authentication">ଵାର୍ତ୍ତା ପ୍ରାମାଣିକରଣ ଯାଞ୍ଚ</string>
     <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
     <string name="title_advanced_suggest_names">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଵ୍ୟଵହାର କରିବା</string>
-    <string name="title_advanced_answer_caption">ଉତ୍ତର ବଟନ ସେଟିଂସ୍</string>
+    <string name="title_advanced_answer_caption">ଉତ୍ତର ବଟନ ସେଟିଂ</string>
     <string name="title_advanced_answer_default">ଉତ୍ତର ବଟନ୍ ଉପରେ ହ୍ରସ୍ୱ ପ୍ରେସ୍ କଲେ:</string>
     <string name="title_advanced_answer_action">ଉତ୍ତର ବଟନ୍ ଉପରେ ଦୀର୍ଘ ପ୍ରେସ୍ କଲେ:</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
@@ -227,6 +227,7 @@
     <string name="title_advanced_caption_navigation">ନେଵିଗେଶନ୍</string>
     <string name="title_advanced_caption_conversation">ଵାର୍ତ୍ତାଳାପ</string>
     <string name="title_advanced_caption_message">ଵାର୍ତ୍ତା</string>
+    <string name="title_advanced_caption_file">ଫାଇଲ୍</string>
     <string name="title_advanced_portrait">ପୋଟ୍ରେଟ୍ ମୋଡ୍</string>
     <string name="title_advanced_landscape">ଲ୍ୟାଣ୍ଡସ୍କେପ୍ ମୋଡ୍</string>
     <string name="title_advanced_min_screen_size">ସ୍କ୍ରିନ୍ ବିଭାଜନ ପାଇଁ ସର୍ବନିମ୍ନ ସ୍କ୍ରିନ୍ ଆକାର</string>
@@ -299,7 +300,7 @@
     <string name="title_advanced_autolock_nav">ଆପ୍ ଛାଡ଼ିବା ମାତ୍ରେ ଲକ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_load_emoji">Google Play Servicesରୁ ଅପଡେଟ୍ ହୋଇଥିବା Emoji ଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_disconnect_auto_update">ସାପ୍ତାହିକ ତାଲିକାଗୁଡ଼ିକୁ ସ୍ୱଚାଳିତ ଭାଵେ ଅଦ୍ୟତନ କରାଯାଉ</string>
-    <string name="title_advanced_clear_all_hint">ଏହା ଆପଣଙ୍କ ଡିଵାଇସରୁ ସବୁ ଆପ୍ ଡାଟା, ଯେଉଁଥିରେ କି ଵିନ୍ୟାସିତ ଇମେଲ୍ ଆକାଉଣ୍ଟଗୁଡ଼ିକ, ଵାର୍ତ୍ତା, ସେଟିଂସ୍, ଏଵଂ ଅନ୍ୟ ଯେକୌଣସି ସଂଗୃହିତ ଡାଟା ଅନ୍ତର୍ଭୁକ୍ତ, ଵିଲୋପ କରିଦେବ।</string>
+    <string name="title_advanced_clear_all_hint">ଏହା ଆପଣଙ୍କ ଡିଵାଇସରୁ ସବୁ ଆପ୍ ଡାଟା, ଯେଉଁଥିରେ କି ଵିନ୍ୟାସିତ ଇମେଲ୍ ଆକାଉଣ୍ଟଗୁଡ଼ିକ, ଵାର୍ତ୍ତା, ସେଟିଂ, ଏଵଂ ଅନ୍ୟ ଯେକୌଣସି ସଂଗୃହିତ ଡାଟା ଅନ୍ତର୍ଭୁକ୍ତ, ଵିଲୋପ କରିଦେବ।</string>
     <string name="title_advanced_mnemonic">ସୁଦୂରରୁ ଡାଟା ଵିଲୋପ କରିବେ</string>
     <string name="title_advanced_mnemonic_hint">ଵିଷୟ ଧାଡ଼ିରେ ନିମ୍ନଲିଖିତ ଶବ୍ଦ ସହିତ ଆସିଥିବା ଯେକୌଣସି ଇମେଲ୍ ସ୍ୱଚାଳିତ ଭାଵେ ଏଵଂ ତୁରନ୍ତ ଆପ୍ ଡାଟା ଵିଲୋପ କରିଦେବ</string>
     <string name="title_advanced_clear_all">ଆପ୍ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
@@ -318,7 +319,7 @@
     <string name="title_advanced_check_weekly">ଦୈନିକ ବଦଳରେ ସାପ୍ତାହିକ ଯାଞ୍ଚ କରନ୍ତୁ</string>
     <string name="title_advanced_changelog">ଅପଡେଟ୍ ପରେ ପରିଵର୍ତ୍ତନ ଲଗ୍ ଦେଖାଇବା</string>
     <string name="title_advanced_crash_reports">ତ୍ରୁଟି ରିପୋର୍ଟ ପଠାନ୍ତୁ</string>
-    <string name="title_advanced_app">ଆପ୍ ସେଟିଂସ୍</string>
+    <string name="title_advanced_app">ଆପ୍ ସେଟିଂ</string>
     <string name="title_advanced_more">ଅଧିକ ବିକଳ୍ପ</string>
     <string name="title_advanced_main_log">ମୁଖ୍ୟ ଲଗିଂ</string>
     <string name="title_advanced_poll_battery">ଏହା ଅଧିକ ବ୍ୟାଟେରୀ ବ୍ୟବହାର ର କାରଣ ହୋଇପାରେ!</string>
@@ -370,7 +371,7 @@
     <string name="title_account_left">ବାମକୁ ସ୍ୱାଇପ୍</string>
     <string name="title_account_right">ଡାହାଣକୁ ସ୍ୱାଇପ୍</string>
     <string name="title_domain">ଡୋମେନ୍ ନାମ</string>
-    <string name="title_autoconfig">ସେଟିଂସ୍ ପାଆନ୍ତୁ</string>
+    <string name="title_autoconfig">ସେଟିଂ ପାଆନ୍ତୁ</string>
     <string name="title_provider">ପ୍ରଦାନକାରୀ</string>
     <string name="title_custom">କଷ୍ଟମ୍</string>
     <string name="title_host">ହୋଷ୍ଟ ନାମ</string>
