@@ -572,6 +572,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbNotify" />
 
+        <CheckBox
+            android:id="@+id/cbSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_advanced_notify_summary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNotifyRemark" />
+
         <TextView
             android:id="@+id/tvNotifyPro"
             android:layout_width="wrap_content"
@@ -581,7 +591,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNotifyRemark" />
+            app:layout_constraintTop_toBottomOf="@id/cbSummary" />
 
         <CheckBox
             android:id="@+id/cbBrowse"
@@ -1176,7 +1186,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-                cbNotify,tvNotifyRemark,tvNotifyPro,
+                cbNotify,tvNotifyRemark,cbSummary,tvNotifyPro,
                 cbSynchronize,cbIgnoreSchedule,cbOnDemand,tvLeave,cbPrimary,
                 cbBrowse,tvBrowseHint,
                 cbAutoSeen,

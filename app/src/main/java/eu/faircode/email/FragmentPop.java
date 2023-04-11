@@ -93,6 +93,8 @@ public class FragmentPop extends FragmentBase {
     private CheckBox cbOnDemand;
     private CheckBox cbPrimary;
     private CheckBox cbNotify;
+    private TextView tvNotifyRemark;
+    private CheckBox cbSummary;
     private TextView tvNotifyPro;
     private CheckBox cbAutoSeen;
     private CheckBox cbLeaveServer;
@@ -169,6 +171,8 @@ public class FragmentPop extends FragmentBase {
         cbOnDemand = view.findViewById(R.id.cbOnDemand);
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbNotify = view.findViewById(R.id.cbNotify);
+        tvNotifyRemark = view.findViewById(R.id.tvNotifyRemark);
+        cbSummary = view.findViewById(R.id.cbSummary);
         tvNotifyPro = view.findViewById(R.id.tvNotifyPro);
         cbAutoSeen = view.findViewById(R.id.cbAutoSeen);
         cbLeaveServer = view.findViewById(R.id.cbLeaveServer);
@@ -288,10 +292,25 @@ public class FragmentPop extends FragmentBase {
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             Helper.hide(cbNotify);
+            Helper.hide(tvNotifyRemark);
             Helper.hide(view.findViewById(R.id.tvNotifyPro));
         }
 
+        tvNotifyRemark.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 145);
+            }
+        });
+
         Helper.linkPro(tvNotifyPro);
+
+        cbNotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                cbSummary.setEnabled(cbNotify.isEnabled() && isChecked);
+            }
+        });
 
         cbLeaveServer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -369,6 +388,7 @@ public class FragmentPop extends FragmentBase {
         args.putBoolean("ondemand", cbOnDemand.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
         args.putBoolean("notify", cbNotify.isChecked());
+        args.putBoolean("summary", cbSummary.isChecked());
         args.putBoolean("auto_seen", cbAutoSeen.isChecked());
 
         args.putBoolean("leave_server", cbLeaveServer.isChecked());
@@ -425,6 +445,7 @@ public class FragmentPop extends FragmentBase {
                 boolean ondemand = args.getBoolean("ondemand");
                 boolean primary = args.getBoolean("primary");
                 boolean notify = args.getBoolean("notify");
+                boolean summary = args.getBoolean("summary");
                 boolean auto_seen = args.getBoolean("auto_seen");
                 boolean leave_server = args.getBoolean("leave_server");
                 boolean client_delete = args.getBoolean("client_delete");
@@ -466,8 +487,10 @@ public class FragmentPop extends FragmentBase {
                     category = null;
                 if (color == Color.TRANSPARENT || !pro)
                     color = null;
-                if (!pro)
+                if (!pro) {
                     notify = false;
+                    summary = false;
+                }
 
                 long now = new Date().getTime();
 
@@ -515,6 +538,8 @@ public class FragmentPop extends FragmentBase {
                     if (!Objects.equals(account.primary, account.synchronize && primary))
                         return true;
                     if (!Objects.equals(account.notify, notify))
+                        return true;
+                    if (!Objects.equals(account.summary, summary))
                         return true;
                     if (!Objects.equals(account.auto_seen, auto_seen))
                         return true;
@@ -608,6 +633,7 @@ public class FragmentPop extends FragmentBase {
                     account.ondemand = ondemand;
                     account.primary = (account.synchronize && primary);
                     account.notify = notify;
+                    account.summary = summary;
                     account.auto_seen = auto_seen;
                     account.leave_on_server = leave_server;
                     account.client_delete = client_delete;
@@ -799,9 +825,8 @@ public class FragmentPop extends FragmentBase {
                     cbOnDemand.setChecked(account == null ? false : account.ondemand);
                     cbPrimary.setChecked(account == null ? false : account.primary);
 
-                    boolean pro = ActivityBilling.isPro(getContext());
-                    cbNotify.setChecked(account != null && account.notify && pro);
-                    cbNotify.setEnabled(pro);
+                    cbNotify.setChecked(account != null && account.notify);
+                    cbSummary.setChecked(account != null && account.summary);
 
                     cbAutoSeen.setChecked(account == null ? true : account.auto_seen);
 
@@ -863,6 +888,9 @@ public class FragmentPop extends FragmentBase {
                 }
 
                 Helper.setViewsEnabled(view, true);
+                boolean pro = ActivityBilling.isPro(getContext());
+                cbNotify.setEnabled(pro);
+                cbSummary.setEnabled(pro && cbNotify.isChecked());
 
                 if (auth != AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);

@@ -123,6 +123,7 @@ public class FragmentAccount extends FragmentBase {
     private CheckBox cbPrimary;
     private CheckBox cbNotify;
     private TextView tvNotifyRemark;
+    private CheckBox cbSummary;
     private TextView tvNotifyPro;
     private CheckBox cbBrowse;
     private CheckBox cbAutoSeen;
@@ -243,6 +244,7 @@ public class FragmentAccount extends FragmentBase {
         cbPrimary = view.findViewById(R.id.cbPrimary);
         cbNotify = view.findViewById(R.id.cbNotify);
         tvNotifyRemark = view.findViewById(R.id.tvNotifyRemark);
+        cbSummary = view.findViewById(R.id.cbSummary);
         tvNotifyPro = view.findViewById(R.id.tvNotifyPro);
         cbBrowse = view.findViewById(R.id.cbBrowse);
         cbAutoSeen = view.findViewById(R.id.cbAutoSeen);
@@ -502,6 +504,13 @@ public class FragmentAccount extends FragmentBase {
             Helper.hide(tvNotifyRemark);
             Helper.hide(view.findViewById(R.id.tvNotifyPro));
         }
+
+        cbNotify.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                cbSummary.setEnabled(cbNotify.isEnabled() && isChecked);
+            }
+        });
 
         tvNotifyRemark.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -938,6 +947,7 @@ public class FragmentAccount extends FragmentBase {
         args.putBoolean("ondemand", cbOnDemand.isChecked());
         args.putBoolean("primary", cbPrimary.isChecked());
         args.putBoolean("notify", cbNotify.isChecked());
+        args.putBoolean("summary", cbSummary.isChecked());
         args.putBoolean("browse", cbBrowse.isChecked());
         args.putBoolean("auto_seen", cbAutoSeen.isChecked());
         args.putString("interval", etInterval.getText().toString());
@@ -1014,6 +1024,7 @@ public class FragmentAccount extends FragmentBase {
                 boolean ondemand = args.getBoolean("ondemand");
                 boolean primary = args.getBoolean("primary");
                 boolean notify = args.getBoolean("notify");
+                boolean summary = args.getBoolean("summary");
                 boolean browse = args.getBoolean("browse");
                 boolean auto_seen = args.getBoolean("auto_seen");
                 String interval = args.getString("interval");
@@ -1062,8 +1073,10 @@ public class FragmentAccount extends FragmentBase {
                     category = null;
                 if (color == Color.TRANSPARENT || !pro)
                     color = null;
-                if (!pro)
+                if (!pro) {
                     notify = false;
+                    summary = false;
+                }
 
                 long now = new Date().getTime();
 
@@ -1119,6 +1132,8 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.primary, account.synchronize && primary))
                         return true;
                     if (!Objects.equals(account.notify, notify))
+                        return true;
+                    if (!Objects.equals(account.summary, summary))
                         return true;
                     if (!Objects.equals(account.browse, browse))
                         return true;
@@ -1271,6 +1286,7 @@ public class FragmentAccount extends FragmentBase {
                     account.ondemand = ondemand;
                     account.primary = (account.synchronize && primary);
                     account.notify = notify;
+                    account.summary = summary;
                     account.browse = browse;
                     account.auto_seen = auto_seen;
 
@@ -1647,9 +1663,8 @@ public class FragmentAccount extends FragmentBase {
                     etCategory.setText(account == null ? null : account.category);
                     btnColor.setColor(account == null ? null : account.color);
 
-                    boolean pro = ActivityBilling.isPro(context);
-                    cbNotify.setChecked(account != null && account.notify && pro);
-                    cbNotify.setEnabled(pro);
+                    cbNotify.setChecked(account != null && account.notify);
+                    cbSummary.setChecked(account != null && account.summary);
 
                     cbSynchronize.setChecked(account == null ? true : account.synchronize);
                     cbIgnoreSchedule.setChecked(jcondition.optBoolean("ignore_schedule"));
@@ -1710,6 +1725,9 @@ public class FragmentAccount extends FragmentBase {
                 }
 
                 Helper.setViewsEnabled(view, true);
+                boolean pro = ActivityBilling.isPro(context);
+                cbNotify.setEnabled(pro);
+                cbSummary.setEnabled(pro && cbNotify.isChecked());
 
                 if (auth != AUTH_TYPE_PASSWORD) {
                     etUser.setEnabled(false);

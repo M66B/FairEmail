@@ -7978,6 +7978,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     log("accountColor changed", next.id);
                 }
                 // accountNotify
+                // accountSummary
                 // accountAutoSeen
                 if (!prev.folderName.equals(next.folderName)) {
                     same = false;

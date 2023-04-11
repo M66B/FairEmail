@@ -5331,10 +5331,15 @@ class Core {
                 continue;
             }
 
+            boolean summary = (notify_summary ||
+                    (group != 0 &&
+                            groupMessages.get(group).size() > 0 &&
+                            groupMessages.get(group).get(0).accountSummary));
+
             // Build notifications
             List<NotificationCompat.Builder> notifications = getNotificationUnseen(context,
                     group, groupMessages.get(group),
-                    notify_summary, current - prev, current,
+                    summary, current - prev, current,
                     redacted);
 
             Log.i("Notify group=" + group +
@@ -5373,7 +5378,7 @@ class Core {
                 if ((id == 0 && !prev.equals(current)) || add.contains(id)) {
                     // https://developer.android.com/training/wearables/notifications/bridger#non-bridged
                     if (id == 0) {
-                        if (!notify_summary)
+                        if (!summary)
                             builder.setLocalOnly(true);
                     } else {
                         if (wearable_preview ? id < 0 : update.contains(id))
@@ -5536,6 +5541,9 @@ class Core {
                                     ? NotificationCompat.CATEGORY_EMAIL : NotificationCompat.CATEGORY_STATUS)
                             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                             .setAllowSystemGeneratedContextualActions(false);
+
+            if (group != 0 && messages.size() > 0)
+                builder.setSubText(messages.get(0).accountName);
 
             if (notify_summary) {
                 builder.setOnlyAlertOnce(new_messages <= 0);

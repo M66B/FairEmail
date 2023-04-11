@@ -112,6 +112,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     @NonNull
     public Boolean notify = false;
     @NonNull
+    public Boolean summary = false;
+    @NonNull
     public Boolean browse = true;
     @NonNull
     public Boolean leave_on_server = true;

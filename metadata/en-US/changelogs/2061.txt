@@ -6,6 +6,10 @@ For support you can use the contact form.
 
 Saltopus
 
+Next version
+
+* Added advanced account option for summary only notifications
+
 1.2061 - 2023-04-10
 
 * Added filter rule groups (stop processing per group)

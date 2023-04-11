@@ -408,6 +408,31 @@
             app:layout_constraintTop_toBottomOf="@id/cbPrimary" />
 
         <TextView
+            android:id="@+id/tvNotifyRemark"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:drawableEnd="@drawable/twotone_info_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_notify_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotify" />
+
+        <CheckBox
+            android:id="@+id/cbSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:tag="ignore"
+            android:text="@string/title_advanced_notify_summary"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvNotifyRemark" />
+
+        <TextView
             android:id="@+id/tvNotifyPro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -416,7 +441,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotify" />
+            app:layout_constraintTop_toBottomOf="@id/cbSummary" />
 
         <CheckBox
             android:id="@+id/cbAutoSeen"
