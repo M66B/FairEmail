@@ -1485,7 +1485,8 @@ public class EntityRule {
         if (json.has("uuid"))
             rule.uuid = json.getString("uuid");
         rule.name = json.getString("name");
-        rule.group = json.getString("group");
+        if (json.has("group") && !json.isNull("group"))
+            rule.group = json.getString("group");
         rule.order = json.getInt("order");
         rule.enabled = json.getBoolean("enabled");
         rule.daily = json.optBoolean("daily");
