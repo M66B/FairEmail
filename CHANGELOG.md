@@ -6,9 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
-### Next version
+### 1.2062 - 2023-04-12
 
+* Fixed importing settings
 * Added advanced account option for summary only notifications
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2061 - 2023-04-10
 
