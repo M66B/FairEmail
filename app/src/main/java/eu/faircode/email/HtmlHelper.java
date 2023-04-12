@@ -672,7 +672,7 @@ public class HtmlHelper {
                     // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
                     String align = element.attr("align");
                     if (!TextUtils.isEmpty(align))
-                        style = mergeStyles(style, "text-align:" + align);
+                        style = mergeStyles("text-align:" + align, style);
                 }
             }
 
