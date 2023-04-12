@@ -1282,7 +1282,7 @@ public class FragmentCompose extends FragmentBase {
             protected Long onExecute(Context context, Bundle args) throws Throwable {
                 String email = args.getString("email");
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean auto_identity = prefs.getBoolean("auto_identity", false);
                 boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
                 boolean suggest_received = prefs.getBoolean("suggest_received", false);
