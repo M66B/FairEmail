@@ -72,7 +72,7 @@ public class Send {
 
     static final int DEFAULT_DLIMIT = 10;
     static final int DEFAULT_TLIMIT = 24; // hours
-    static final String DEFAULT_SERVER = "https://send.vis.ee/";
+    static final String DEFAULT_SERVER = "https://send.zcyph.cc/";
 
     private static final int TIMEOUT = 20 * 1000; // milliseconds
 
