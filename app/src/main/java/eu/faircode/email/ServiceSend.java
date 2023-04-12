@@ -60,6 +60,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -782,13 +783,28 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     EntityLog.log(this, "Sending via Graph user=" + ident.user);
 
                     start = new Date().getTime();
-                    imessage.writeTo(new Base64OutputStream(connection.getOutputStream(), Base64.DEFAULT));
+                    try (OutputStream out = new Base64OutputStream(connection.getOutputStream(), Base64.DEFAULT | Base64.NO_CLOSE)) {
+                        imessage.writeTo(out);
+                    }
                     end = new Date().getTime();
 
                     int status = connection.getResponseCode();
-                    if (status == HttpURLConnection.HTTP_ACCEPTED)
-                        EntityLog.log(this, "Sent via Graph" + ident.user + " elapse=" + (end - start) + " ms");
-                    else {
+                    if (status == HttpURLConnection.HTTP_ACCEPTED) {
+                        EntityLog.log(this, "Sent via Graph " + ident.user + " elapse=" + (end - start) + " ms");
+                        boolean log = prefs.getBoolean("protocol", false);
+                        if (log || BuildConfig.DEBUG)
+                            try {
+                                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                                imessage.writeTo(bos);
+                                for (String line : bos.toString().split("\\r?\\n"))
+                                    if (log)
+                                        EntityLog.log(this, line);
+                                    else
+                                        Log.i("graph", ident.user + " " + line);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
+                    } else {
                         String error = "Error " + status + ": " + connection.getResponseMessage();
                         try {
                             InputStream is = connection.getErrorStream();
