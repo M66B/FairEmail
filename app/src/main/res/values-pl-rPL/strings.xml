@@ -260,6 +260,7 @@
     <string name="title_setup_done">Gotowe</string>
     <string name="title_setup_still">Nadal do wykonania</string>
     <string name="title_setup_error">Błąd</string>
+    <string name="title_setup_manual_setup">Konfiguracja ręczna</string>
     <string name="title_setup_pop">Użyj POP3 (nie zalecane)</string>
     <string name="title_setup_recent">Użyj \'recent\' dla wielu klientów e-mail</string>
     <string name="title_setup_configuring">Konfigurowanie konta &#8230;</string>
@@ -1584,6 +1585,7 @@
     <string name="title_rule_daily">Uruchom codziennie (tylko)</string>
     <string name="title_rule_age">Wiadomości starsze niż (dni)</string>
     <string name="title_rule_stop">Zatrzymaj przetwarzanie reguł po uruchomieniu tej reguły</string>
+    <string name="title_rule_stop_remark">Jeśli reguła jest częścią grupy, przetwarzanie wszystkich reguł tej grupy zostanie zatrzymane</string>
     <string name="title_rule_sender">Nadawca zawiera</string>
     <string name="title_rule_sender_known">Nadawca jest kontaktem</string>
     <string name="title_rule_recipient">Odbiorca zawiera</string>
