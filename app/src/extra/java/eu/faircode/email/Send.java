@@ -72,7 +72,7 @@ public class Send {
 
     static final int DEFAULT_DLIMIT = 10;
     static final int DEFAULT_TLIMIT = 24; // hours
-    static final String DEFAULT_SERVER = "https://send.zcyph.cc/";
+    static final String DEFAULT_SERVER = "https://send.vis.ee/";
 
     private static final int TIMEOUT = 20 * 1000; // milliseconds
 
@@ -116,8 +116,12 @@ public class Send {
             JSONObject jreply = new JSONObject(queue.remove(0));
             Log.i("Send reply=" + jreply);
 
-            if (jreply.has("error"))
-                throw new IOException("Error: " + jreply.getString("error"));
+            if (jreply.has("error")) {
+                String error = jreply.getString("error");
+                if ("400".equals(error))
+                    error += " - try lower limits";
+                throw new IOException("Error: " + error);
+            }
 
             result = jreply.getString("url") +
                     "#" + Base64.encodeToString(secret, Base64.URL_SAFE | Base64.NO_PADDING | Base64.NO_WRAP);

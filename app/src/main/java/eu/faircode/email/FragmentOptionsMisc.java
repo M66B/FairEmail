@@ -274,7 +274,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "lt_enabled", "lt_auto", "lt_picky", "lt_uri", "lt_user", "lt_key",
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
-            "send_enabled", "send_host",
+            "send_enabled", "send_host", "send_dlimit", "send_tlimit",
             "openai_enabled", "openai_apikey", "openai_model", "openai_temperature", "openai_moderation",
             "updates", "weekly", "beta", "show_changelog", "announcements",
             "crash_reports", "cleanup_attachments",
@@ -2256,8 +2256,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                     (key.startsWith("announcement.") && cbGeneral.isChecked()) ||
                                     (key.endsWith(".show_full") && cbFull.isChecked()) ||
                                     (key.endsWith(".show_images") && cbImages.isChecked()) ||
-                                    (key.endsWith(".confirm_link") && cbLinks.isChecked())||
-                                    (key.endsWith(".link_view") && cbLinks.isChecked())||
+                                    (key.endsWith(".confirm_link") && cbLinks.isChecked()) ||
+                                    (key.endsWith(".link_view") && cbLinks.isChecked()) ||
                                     (key.endsWith(".link_sanitize") && cbLinks.isChecked())) {
                                 Log.i("Removing option=" + key);
                                 editor.remove(key);
