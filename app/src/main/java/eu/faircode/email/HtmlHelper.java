@@ -666,9 +666,10 @@ public class HtmlHelper {
                 if ("center".equals(element.tagName())) {
                     style = mergeStyles(style, "text-align:center");
                     element.tagName("div");
-                } else if ("table".equals(element.tagName()))
-                    style = mergeStyles(style, "text-align:left");
-                else {
+                } else if ("table".equals(element.tagName())) {
+                    if (!element.attr("style").contains("text-align"))
+                        style = mergeStyles(style, "text-align:left");
+                } else {
                     // https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes
                     String align = element.attr("align");
                     if (!TextUtils.isEmpty(align))
