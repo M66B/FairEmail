@@ -703,9 +703,11 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_poll_hint">Secara berkala memeriksa pesan baru yang akan membandingkan pesan lokal dan server setiap saat, operasi ini bisa memakai penggunaan baterai secara ekstra, terutama jika ada banyak pesan. Selalu menerima akan mencegah hal ini dengan terus mengikuti perubahan.</string>
     <string name="title_advanced_optimize_hint">Ini mungkin mengubah frekuensi sinkronisasi untuk menghemat penggunaan baterai tergantung pada kemampuan dan perilaku server email</string>
     <string name="title_advanced_schedule_hint">Ketuk waktu untuk pengaturan waktu</string>
+    <string name="title_advanced_schedule_ignore">Jadwal dapat dimatikan dalam pengaturan akun tingkat lanjut</string>
     <string name="title_advanced_quick_sync_hint">Ini dapat mengurangi penggunaan data, tetapi pesan baru dapat terlewatkan jika server surel tidak menggunakan standar</string>
     <string name="title_advanced_no_date_hint">Beberapa penyedia email menyimpan pesan dengan tanggal yang tidak diketahui, tidak valid, atau pesan masa depan sebagai pesan tanpa tanggal</string>
     <string name="title_advanced_unseen_hint">Beberapa penyedia email tidak mendukung ini dengan benar, yang bisa menyebabkan pesan tidak tersinkronisasi atau semua pesan tersinkronisasi</string>
+    <string name="title_advanced_data_usage">Ini dapat mengakibatkan penggunaan data yang tinggi!</string>
     <string name="title_advanced_deleted_unseen">Ketika dinonaktifkan, pesan yang belum dibaca disimpan pada perangkat untuk selamanya</string>
     <string name="title_advanced_sync_kept_hint">Ini akan mentransfer data tambahan dan mengkonsumsi daya baterai ekstra, terutama jika banyak pesan disimpan pada perangkat</string>
     <string name="title_advanced_gmail_thread_hint">Ini hanya berlaku untuk pesan yang baru diterima dan dapat memecahkan grup yang ada</string>
@@ -713,22 +715,31 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_sync_folders_hint">Menonaktifkan ini akan mengurangi penggunaan data dan sedikit baterai, tetapi juga akan menonaktifkan pembaruan daftar folder</string>
     <string name="title_advanced_poll_folders_hint">Sinkronisasi daftar map secara berkala sebagai tambahan setelah menyambungkan sebuah akun</string>
     <string name="title_advanced_check_authentication_hint">Ini akan memeriksa hasil dari keaslian DKIM, SPF, dan DMARC yang dilakukan oleh server surel</string>
+    <string name="title_advanced_check_tls_hint">Ini akan menampilkan perisai hijau hanya jika pesan telah dikirim dengan aman melalui semua server</string>
     <string name="title_advanced_check_reply_hint">Ini akan memeriksa apakah nama domain dari alamat pengirim dan balasannya sama</string>
     <string name="title_advanced_lookup_mx_hint">Ini akan memeriksa apakah catatan DNS MX ada</string>
     <string name="title_advanced_sync_delay_hint">Ini akan memperlambat sinkronisasi pesan</string>
+    <string name="title_advanced_folder_nav_hint">Hal ini akan selalu kembali ke list folder dari akun terkait dari list pesan</string>
     <string name="title_advanced_suggest_names_hint">Jika dinonaktifkan, hanya alamat email yang akan digunakan saat memilih kontak</string>
     <string name="title_advanced_suggest_local_hint">Selain kontak yang disediakan oleh Android. Data kontak akan disimpan untuk pesan yang baru dikirim atau diterima hanya ketika diaktifkan.</string>
+    <string name="title_advanced_auto_identity_hint">Hal ini akan memilih identitas yang terakhir difunakan saat memilih penerima untuk pesan baru</string>
     <string name="title_advanced_send_reminders_hint">Menampilkan peringatan ketika teks pesan atau subjek kosong atau mungkin ketika lampiran pesan hilang</string>
     <string name="title_advanced_reply_move_hint">Server email bisa menambahkan pesan pada folder pesan terkirim</string>
+    <string name="title_advanced_compose_color_hint">Warna yang terlalu terang atau terlalu gelap akan mengakibatkan pesan yang sulit dibaca pada sisi penerima</string>
+    <string name="title_advanced_attach_new_hint">Jika tidak, tambahkan alamat atau file bersama ke draf pesan saat ini</string>
     <string name="title_advanced_usenet_hint">Sisipkan \'-- \' antara teks dan tanda tangan</string>
     <string name="title_advanced_remove_signature_hint">Ini dapat berakibat terlalu sedikit atau terlalu banyak teks yang disingkirkan</string>
     <string name="title_advanced_metered_hint">Koneksi yang diukur umumnya koneksi data seluler atau hotspot Wi-Fi berbayar</string>
     <string name="title_advanced_metered_warning">Menonaktifkan opsi ini akan menonaktifkan menerima dan mengirim pesan ketika memakai koneksi internet seluler</string>
     <string name="title_advanced_rlah_hint">Dengan asumsi tidak ada roaming di Uni Eropa</string>
     <string name="title_advanced_usage_hint">Akan meningkatkan penggunaan baterai, dan penyimpanan data</string>
+    <string name="title_advanced_plain_hint">Mengaktifkan ini akan membatasi penggunaan data, namun pesan akan ditampilkan tanpa pengaturan style</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Mengaktifkan ini dapat mengakibatkan masalah koneksi pada beberapa perangkat dan dapat meningkatkan penggunaan baterai</string>
     <string name="title_advanced_validate_hint">Ini dapat mengakibatkan pesan tidak tersinkronasi, contohnya ketika menggunakan VPN, tetapi juga dalam situasi lain</string>
     <string name="title_advanced_timeout_hint">Pengaturan batas waktu baca/tulis akan digandakan. Nilai yang lebih tinggi akan menghasilkan lebih banyak penggunaan baterai.</string>
+    <string name="title_advanced_cert_strict_hint">Menonaktifkan ini akan melonggarkan pemeriksaan sertifikat server</string>
     <string name="title_advanced_ssl_harden_hint">Mengaktifkan ini akan menonaktifkan protokol dan cipher SSL yang lemah, yang biasanya menyebabkan masalah koneksi</string>
+    <string name="title_advanced_open_safe_hint">Mengaktifkan ini akan membutuh kan koneksi yang aman untuk mengunduh gambar, dll.</string>
     <string name="title_advanced_roaming_hint">Header pesan akan selalu diambil saat roaming. Anda dapat menggunakan pengaturan roaming perangkat untuk menonaktifkan Internet saat roaming.</string>
     <string name="title_advanced_browse_hint">Ambil lebih banyak pesan saat menggulir ke bawah</string>
     <string name="title_advanced_layout_hint">Beralih ke tata letak yang lebih kompak dan mengubah ukuran teks, ukuran teks bisa dirubah pada menu bilah aksi atas di tampilan pesan</string>
@@ -746,9 +757,14 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_preview_issue">Scrolling/menggulir bisa terasa lambat karena bug dalam beberapa versi Android ketika jumlah garis lebih dari satu</string>
     <string name="title_advanced_overview_mode_hint">Hal ini bisa membuat huruf yang sangat kecil</string>
     <string name="title_advanced_override_width_hint">Ini dapat membuat pesan menjadi lebih sempit, tetapi tampilan menjadi aneh</string>
+    <string name="title_advanced_monospaced_pre_hint">Pesan teks biasa akan dianggap telah diformat sebelumnya</string>
     <string name="title_advanced_placeholders_hint">Ini berlaku untuk pesan yang diformat ulang</string>
     <string name="title_advanced_inline_hint">Gambar inline akan menyisipkan gambar dalam pesan</string>
+    <string name="compressed">Konten file terkompresi (%1$s) dengan lebih dari %2$s file atau dengan file lebih besar dari %3$s tidak akan ditampilkan</string>
     <string name="title_advanced_parse_classes_hint">Ini akan lebih akurat menampilkan pesan, tapi mungkin dengan penundaan</string>
+    <string name="title_advanced_default_folder_hint">        Android mungkin akan menanyakan untuk perizinan untuk mengakses folder yang dipilih, meskipun aplikasi tidak membutuhkannya.
+        Anda dapat membatalkan dialog pemilihan untuk mengembalikan folder default (biasanya folder \'Download\').
+    </string>
     <string name="title_advanced_autoexpand_hint">Secara otomatis membuka pesan ketika hanya ada satu pesan atau hanya satu pesan yang belum dibaca dalam percakapan</string>
     <string name="title_advanced_expandall_hint">Tombol balas tidak ditampilkan saat beberapa pesan dilebarkan karena tombol pesan menjadi tidak jelas pesan mana yang dituju</string>
     <string name="title_advanced_autoseen_hint">Secara otomatis menandai pesan sebagai telah dibaca ketika memperluasnya, bisa dinonaktifkan pada pengaturan akun setiap individu</string>
@@ -1655,6 +1671,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_later">Nanti</string>
     <string name="title_undo">Undo</string>
     <string name="title_redo">Ulangi</string>
+    <string name="title_select_block">Pilih blokir</string>
     <string name="title_insert_brackets">Tanda kurung</string>
     <string name="title_insert_quotes">Tanda petik</string>
     <string name="title_lt_add">Tambah kata</string>
@@ -1759,9 +1776,12 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_widget_semi_transparent">Latar belakang semi bening</string>
     <string name="title_widget_count_top">Tampilkan jumlah yang belum dibaca di atas</string>
     <string name="title_widget_subject_lines">Jumlah garis subjek maksimal</string>
+    <string name="title_widget_avatars">Tampilkan foto kontak</string>
     <string name="title_widget_refresh">Tampilkan tombol penyegaran pesan</string>
     <string name="title_widget_compose">Tampilkan tombol pesan baru</string>
     <string name="title_widget_background">Warna latar belakang</string>
+    <string name="title_widget_day_night">Ikuti tema sistem gelap</string>
+    <string name="title_compat_dark">Google menghilangkan dark mode untuk versi Android sebelum 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Penting</string>
     <string name="title_keyword_label2">Kerja</string>
@@ -1773,6 +1793,9 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     </plurals>
     <string name="title_accessibility_accounts">Akun</string>
     <string name="title_accessibility_folders">Folder</string>
+    <string name="title_accessibility_searches">Pencarian</string>
+    <string name="title_accessibility_menus">Menu</string>
+    <string name="title_accessibility_extras">Ekstra</string>
     <string name="title_accessibility_collapsed">Ringkaskan</string>
     <string name="title_accessibility_expanded">Perluas</string>
     <string name="title_accessibility_seen">Sudah dibaca</string>
@@ -1880,8 +1903,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string-array name="sensitivityNames">
         <item>Normal</item>
         <item>Pribadi</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>Tertutup</item>
+        <item>Rahasia</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>
@@ -1910,7 +1933,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string-array name="encryptNames">
         <item>Tidak ada</item>
         <item>PGP sign-only</item>
-        <item>PGP encrypt-only</item>
+        <item>Hanya enkirpsi PGP</item>
         <item>PGP sign+encrypt</item>
         <item>S/MIME sign-only</item>
         <item>S/MIME sign+encrypt</item>
@@ -1960,11 +1983,11 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
         <item>Penerima</item>
         <item>Pengirim</item>
         <item>Diblokir</item>
-        <item>Not blocked</item>
+        <item>Tidak di Blokir</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item>Any</item>
-        <item>Home</item>
+        <item>Apa saja</item>
+        <item>Beranda</item>
         <item>Kerja</item>
         <item>Lainnya</item>
         <item>Mobile</item>
