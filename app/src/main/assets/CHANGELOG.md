@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
+### 1.2063 - 2023-04-13
+
+* Fixed sending via Outlook graph in some cases
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2062 - 2023-04-12
 
 * Fixed importing settings
