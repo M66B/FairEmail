@@ -2610,6 +2610,8 @@ Note that email addresses are formatted like this:
 "Somebody" <somebody@example.org>
 ``
 
+When using a regex, you need to take care to match the complete address.
+
 Note that message texts are normalized when not using a regex, which means that all whitespaces (spaces, tabs, line breaks, etc) are replaced by a single space.
 This makes it easier to match texts on multiple lines or when the line break is at different places.
 
