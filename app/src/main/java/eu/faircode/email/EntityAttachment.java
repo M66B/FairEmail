@@ -234,6 +234,10 @@ public class EntityAttachment {
                 (type.endsWith("/pdf") || type.endsWith("/x-pdf")))
             return "application/pdf";
 
+        if ("text/v-calendar".equals(type) ||
+                "text/x-vcalendar".equals(type))
+            return "text/calendar";
+
         String extension = Helper.getExtension(name);
         if (extension == null)
             return type;
