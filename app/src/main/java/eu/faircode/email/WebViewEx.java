@@ -51,6 +51,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     private IWebView intf;
     private Runnable onPageLoaded;
     private String hash;
+    private Boolean images;
 
     private static String userAgent = null;
 
@@ -224,10 +225,14 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     public void loadDataWithBaseURL(String baseUrl, String data, String mimeType, String encoding, String historyUrl) {
         try {
             // Prevent flickering
-            String h = (data == null ? null : Helper.md5(data.getBytes()));
-            if (Objects.equals(hash, h))
-                return;
-            this.hash = h;
+            boolean i = getSettings().getLoadsImagesAutomatically();
+            if (Objects.equals(this.images, i)) {
+                String h = (data == null ? null : Helper.md5(data.getBytes()));
+                if (Objects.equals(this.hash, h))
+                    return;
+                this.hash = h;
+            } else
+                this.images = i;
         } catch (Throwable ex) {
             Log.w(ex);
         }
