@@ -87,6 +87,11 @@ public interface DaoRule {
     int setRuleEnabled(long id, boolean enabled);
 
     @Query("UPDATE rule" +
+            " SET `group` = :group" +
+            " WHERE id = :id AND NOT (`group` IS :group)")
+    int setRuleGroup(long id, String group);
+
+    @Query("UPDATE rule" +
             " SET applied = applied + 1, last_applied = :time" +
             " WHERE id = :id")
     int applyRule(long id, long time);

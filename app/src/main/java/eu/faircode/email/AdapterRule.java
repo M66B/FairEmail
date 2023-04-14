@@ -299,9 +299,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_execute, 2, R.string.title_rule_execute)
                     .setEnabled(ActivityBilling.isPro(context));
             popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 3, R.string.title_reset);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_group, 4, R.string.title_rule_group);
             if (protocol == EntityAccount.TYPE_IMAP) {
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_folder, 4, R.string.title_move_to_folder);
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 5, R.string.title_copy);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_folder, 5, R.string.title_move_to_folder);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 6, R.string.title_copy);
             }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -316,6 +317,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                         return true;
                     } else if (itemId == R.string.title_reset) {
                         onActionReset();
+                        return true;
+                    } else if (itemId == R.string.title_rule_group) {
+                        onActionGroup();
                         return true;
                     } else if (itemId == R.string.title_move_to_folder) {
                         onActionMove();
@@ -458,6 +462,17 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "rule:reset");
+                }
+
+                private void onActionGroup() {
+                    Bundle args = new Bundle();
+                    args.putLong("rule", rule.id);
+                    args.putString("name", rule.group);
+
+                    FragmentDialogRuleGroup fragment = new FragmentDialogRuleGroup();
+                    fragment.setArguments(args);
+                    fragment.setTargetFragment(parentFragment, FragmentRules.REQUEST_GROUP);
+                    fragment.show(parentFragment.getParentFragmentManager(), "rule:group");
                 }
 
                 private void onActionMove() {

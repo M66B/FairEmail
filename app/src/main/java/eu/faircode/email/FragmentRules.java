@@ -93,10 +93,11 @@ public class FragmentRules extends FragmentBase {
 
     private static final int REQUEST_EXPORT = 1;
     private static final int REQUEST_IMPORT = 2;
-    static final int REQUEST_MOVE = 3;
-    static final int REQUEST_RULE_COPY_ACCOUNT = 4;
-    static final int REQUEST_RULE_COPY_FOLDER = 5;
-    private static final int REQUEST_CLEAR = 6;
+    static final int REQUEST_GROUP = 3;
+    static final int REQUEST_MOVE = 4;
+    static final int REQUEST_RULE_COPY_ACCOUNT = 5;
+    static final int REQUEST_RULE_COPY_FOLDER = 6;
+    private static final int REQUEST_CLEAR = 7;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -266,6 +267,7 @@ public class FragmentRules extends FragmentBase {
                 String sort = prefs.getString("rule_sort", "order");
 
                 adapter.set(protocol, sort, rules);
+                rvRule.invalidateItemDecorations();
 
                 pbWait.setVisibility(View.GONE);
                 grpReady.setVisibility(View.VISIBLE);
@@ -286,6 +288,10 @@ public class FragmentRules extends FragmentBase {
                 case REQUEST_IMPORT:
                     if (resultCode == RESULT_OK && data != null)
                         onImport(data);
+                    break;
+                case REQUEST_GROUP:
+                    if (resultCode == RESULT_OK && data != null)
+                        onGroup(data.getBundleExtra("args"));
                     break;
                 case REQUEST_MOVE:
                     if (resultCode == RESULT_OK && data != null)
@@ -673,6 +679,25 @@ public class FragmentRules extends FragmentBase {
                     Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "rules:import");
+    }
+
+    private void onGroup(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) {
+                long id = args.getLong("rule");
+                String name = args.getString("name");
+
+                DB db = DB.getInstance(context);
+                db.rule().setRuleGroup(id, name);
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "rule:group");
     }
 
     private void onMove(Bundle args) {
