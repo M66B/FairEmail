@@ -1911,6 +1911,7 @@
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
     <string name="title_rule_delete_hint">Permanent deletion is irreversible, so make sure the rule conditions are correct!</string>
     <string name="title_rule_local_only_hint" translatable="false">Try to avoid bridging notifications to other devices, such as smartwatches. Not all devices support this.</string>
+    <string name="title_rule_edit_group">Edit group &#8230;</string>
 
     <string name="title_rule_execute">Execute now</string>
     <string name="title_rule_applied">Affected messages: %1$d</string>

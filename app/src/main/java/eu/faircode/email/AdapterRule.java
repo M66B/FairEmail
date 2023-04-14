@@ -299,7 +299,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
             popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_execute, 2, R.string.title_rule_execute)
                     .setEnabled(ActivityBilling.isPro(context));
             popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, 3, R.string.title_reset);
-            popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_group, 4, R.string.title_rule_group);
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_rule_edit_group, 4, R.string.title_rule_edit_group);
             if (protocol == EntityAccount.TYPE_IMAP) {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_move_to_folder, 5, R.string.title_move_to_folder);
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, 6, R.string.title_copy);
@@ -318,7 +318,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     } else if (itemId == R.string.title_reset) {
                         onActionReset();
                         return true;
-                    } else if (itemId == R.string.title_rule_group) {
+                    } else if (itemId == R.string.title_rule_edit_group) {
                         onActionGroup();
                         return true;
                     } else if (itemId == R.string.title_move_to_folder) {
