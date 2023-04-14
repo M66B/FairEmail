@@ -5348,4 +5348,4 @@ GitHub issues are disabled due to frequent misusage.
 
 <br />
 
-Copyright &copy; 2018-2022 Marcel Bokhorst.
+Copyright &copy; 2018-2023 Marcel Bokhorst.
