@@ -5069,15 +5069,18 @@ This feature was added in version 1.1942 and is available in non Play store vers
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq182)
 
-When clicking on a link, a confirmation dialog will be shown. You can select how to open a link below *Open with*.
+When clicking on a link, by default, a confirmation dialog will be shown.
 The available browser(s) will be listed and if a browser supports [Custom Tabs](https://developer.chrome.com/docs/android/custom-tabs/), it will be listed twice,
 once with an "open external" icon (the browser will be started standalone, independent of the app)
-and once without this icon (the browser will be started embedded as "Custom Tab", dependent of the app).
+and once without this icon (the browser will be started embedded as "Custom Tab", dependent on the app).
+
 In addition, *Select app* will be listed, which means that the link will be handed over to Android, which will select how to open the link.
 In most cases, this will be with the default browser, which you can select in the Android settings.
 If there is choice, Android will ask you how to open the link. You can select *Always* or *Just Once*.
 If you want to reset *Always*, please [see here](https://support.google.com/pixelphone/answer/6271667) about how to.
 Note that Android will always use the default browser as selected in the Android settings and therefore will never ask which browser to use.
+
+You can confirm with *Ok* or select *Open with*, which behaves in the same way as the *Select app* option.
 
 If you ticked *Do not ask this again for [domain name]*, you can undo this by using the *Reset questions* button in the miscellaneous settings tab page of the app.
 
