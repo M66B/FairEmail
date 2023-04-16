@@ -3268,6 +3268,7 @@ public class HtmlHelper {
                             ssb.append('\n');
 
                     if ("true".equals(element.attr("x-line-before")) &&
+                            !"true".equals(element.attr("x-paragraph")) &&
                             (prev == null || !"true".equals(prev.attr("x-line-after"))) &&
                             ssb.length() > 0 && ssb.charAt(ssb.length() - 1) == '\n')
                         ssb.append('\n');
@@ -3696,6 +3697,7 @@ public class HtmlHelper {
                             ssb.append('\n');
 
                     if ("true".equals(element.attr("x-line-after")) &&
+                            !"true".equals(element.attr("x-paragraph")) &&
                             ssb.length() > 0 && ssb.charAt(ssb.length() - 1) == '\n')
                         ssb.append('\n');
 
