@@ -97,6 +97,7 @@ All pro features are convenience or advanced features.
 * Reply templates ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq179))
 * Accept/decline calendar invitations
 * Add message to calendar
+* Automatically generate vCard attachments
 * Filter rules ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
 * Automatic message classification ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq163))
 * Search indexing ([instructions](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq13))
