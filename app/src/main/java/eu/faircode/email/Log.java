@@ -2491,7 +2491,7 @@ public class Log {
                                 " sync=" + account.synchronize +
                                 " exempted=" + account.poll_exempted +
                                 " poll=" + account.poll_interval +
-                                " ondemand=" + account.ondemand +
+                                " ondemand=" + account.ondemand + (account.ondemand ? " !!!" : "") +
                                 " msgs=" + content + "/" + messages + " max=" + account.max_messages +
                                 " ops=" + db.operation().getOperationCount(account.id) +
                                 " schedule=" + (!ignore_schedule) + (ignore_schedule ? " !!!" : "") +
