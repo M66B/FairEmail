@@ -1003,7 +1003,7 @@ public class HtmlHelper {
 
                                 if (p[0] != null)
                                     element.attr("x-line-before", Boolean.toString(p[0] > 0.5));
-                                if (p[2] != null && !"p".equals(element.tagName()))
+                                if (p[2] != null)
                                     element.attr("x-line-after", Boolean.toString(p[2] > 0.5));
                             }
                             break;
