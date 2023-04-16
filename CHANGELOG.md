@@ -6,6 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
+### 1.2065 - 2023-04-16
+
+* Fixed extra new lines
+* Small improvements and minor bug fixes
+
 ### 1.2064 - 2023-04-15
 
 * Fixed all reported bugs
