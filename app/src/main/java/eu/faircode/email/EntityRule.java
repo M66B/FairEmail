@@ -1339,6 +1339,9 @@ public class EntityRule {
             if (block_domain) {
                 String domain = UriHelper.getEmailDomain(sender);
                 if (!TextUtils.isEmpty(domain) && !domains.contains(domain)) {
+                    String parent = UriHelper.getParentDomain(context, domain);
+                    if (parent != null)
+                        domain = parent;
                     domains.add(domain);
                     regex = true;
                     sender = ".*@.*" + Pattern.quote(domain) + ".*";

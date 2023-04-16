@@ -344,6 +344,9 @@ public class FragmentDialogJunk extends FragmentDialogBase {
                 String domain = UriHelper.getEmailDomain(email);
                 if (TextUtils.isEmpty(domain) || domains.contains(domain))
                     continue;
+                String parent = UriHelper.getParentDomain(context, domain);
+                if (parent != null)
+                    domain = parent;
 
                 domains.add(domain);
 
