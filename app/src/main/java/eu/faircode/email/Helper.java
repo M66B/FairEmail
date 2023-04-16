@@ -1216,6 +1216,14 @@ public class Helper {
                 .build();
     }
 
+    private static String getAnnotatedVersion(Context context) {
+        return BuildConfig.VERSION_NAME + BuildConfig.REVISION + "/" +
+                (Helper.hasValidFingerprint(context) ? "1" : "3") +
+                (BuildConfig.PLAY_STORE_RELEASE ? "p" : "") +
+                (BuildConfig.DEBUG ? "d" : "") +
+                (ActivityBilling.isPro(context) ? "+" : "");
+    }
+
     static Uri getSupportUri(Context context, String reference) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String language = prefs.getString("language", null);
@@ -1223,7 +1231,7 @@ public class Helper {
 
         return Uri.parse(SUPPORT_URI)
                 .buildUpon()
-                .appendQueryParameter("version", BuildConfig.VERSION_NAME + BuildConfig.REVISION)
+                .appendQueryParameter("version", getAnnotatedVersion(context))
                 .appendQueryParameter("locale", slocale.toString())
                 .appendQueryParameter("language", language == null ? "" : language)
                 .appendQueryParameter("installed", Helper.hasValidFingerprint(context) ? "" : "Other")
@@ -1233,11 +1241,7 @@ public class Helper {
 
     static Intent getIntentIssue(Context context, String reference) {
         if (ActivityBilling.isPro(context) && false) {
-            String version = BuildConfig.VERSION_NAME + BuildConfig.REVISION + "/" +
-                    (Helper.hasValidFingerprint(context) ? "1" : "3") +
-                    (BuildConfig.PLAY_STORE_RELEASE ? "p" : "") +
-                    (BuildConfig.DEBUG ? "d" : "") +
-                    (ActivityBilling.isPro(context) ? "+" : "");
+            String version = getAnnotatedVersion(context);
             Intent intent = new Intent(Intent.ACTION_SEND);
             //intent.setPackage(BuildConfig.APPLICATION_ID);
             intent.setType("text/plain");
