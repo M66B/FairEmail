@@ -2322,8 +2322,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             if (unified && "unified".equals(startup)) {
                 getSupportFragmentManager().popBackStack("unified", 0);
                 return;
-            } else
+            } else {
+                getSupportFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
                 getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+            }
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean foldernav = prefs.getBoolean("foldernav", false);
