@@ -328,23 +328,40 @@ public class ApplicationEx extends Application
 
     @Override
     public void onTrimMemory(int level) {
-        Log.logMemory(this, "Trim memory level=" + level);
-        Map<String, String> crumb = new HashMap<>();
-        crumb.put("level", Integer.toString(level));
-        Log.breadcrumb("trim", crumb);
-        super.onTrimMemory(level);
+        try {
+            /*
+                java.lang.NoClassDefFoundError: Not a primitive type: '\u0000'
+                    at androidx.core.content.ContextCompat$Api23Impl.getSystemService(Unknown Source:0)
+                    at androidx.core.content.ContextCompat.getSystemService(SourceFile:7)
+                    at eu.faircode.email.Helper.getSystemService(Unknown Source:4)
+                    at eu.faircode.email.Log.logMemory(SourceFile:8)
+                    at eu.faircode.email.ApplicationEx.onTrimMemory(SourceFile:18)
+                    at android.app.ActivityThread.handleTrimMemory(ActivityThread.java:5453)
+             */
+            Log.logMemory(this, "Trim memory level=" + level);
+            Map<String, String> crumb = new HashMap<>();
+            crumb.put("level", Integer.toString(level));
+            Log.breadcrumb("trim", crumb);
+            super.onTrimMemory(level);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     @Override
     public void onLowMemory() {
-        Log.logMemory(this, "Low memory");
-        Map<String, String> crumb = new HashMap<>();
-        crumb.put("free", Integer.toString(Log.getFreeMemMb()));
-        Log.breadcrumb("low", crumb);
+        try {
+            Log.logMemory(this, "Low memory");
+            Map<String, String> crumb = new HashMap<>();
+            crumb.put("free", Integer.toString(Log.getFreeMemMb()));
+            Log.breadcrumb("low", crumb);
 
-        ContactInfo.clearCache(this, false);
+            ContactInfo.clearCache(this, false);
 
-        super.onLowMemory();
+            super.onLowMemory();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     static void upgrade(Context context) {
