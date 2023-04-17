@@ -24,7 +24,7 @@
         android:singleLine="true"
         android:text="Text1"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvExtra1"
         app:layout_constraintStart_toEndOf="@id/vwColor"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -40,20 +40,33 @@
         android:text="Text2"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/tvExtra"
+        app:layout_constraintEnd_toStartOf="@+id/tvExtra2"
         app:layout_constraintStart_toEndOf="@id/vwColor"
         app:layout_constraintTop_toBottomOf="@android:id/text1" />
 
     <TextView
-        android:id="@+id/tvExtra"
+        android:id="@+id/tvExtra1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
         android:layout_marginEnd="6dp"
         android:layout_marginBottom="6dp"
-        android:text="Text2"
+        android:text="Extra1"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@android:id/text1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@android:id/text1" />
+        app:layout_constraintTop_toTopOf="@android:id/text1" />
+
+    <TextView
+        android:id="@+id/tvExtra2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginBottom="6dp"
+        android:text="Extra2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintBottom_toBottomOf="@android:id/text2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@android:id/text2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
