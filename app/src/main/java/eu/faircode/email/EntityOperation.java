@@ -795,6 +795,18 @@ public class EntityOperation {
         if (foreground && folder.sync_state == null) // Show spinner
             db.folder().setFolderSyncState(fid, "requested");
 
+        if (force && foreground && EntityFolder.DRAFTS.equals(folder.type)) {
+            EntityAccount account = db.account().getAccount(folder.account);
+            if (account.protocol == EntityAccount.TYPE_IMAP) {
+                List<EntityMessage> orphans = db.message().getDraftOrphans(folder.id);
+                if (orphans != null) {
+                    EntityLog.log(context, "Draft orphans=" + orphans.size());
+                    for (EntityMessage orphan : orphans)
+                        EntityOperation.queue(context, orphan, EntityOperation.ADD);
+                }
+            }
+        }
+
         if (foreground && EntityFolder.SENT.equals(folder.type)) {
             EntityAccount account = db.account().getAccount(folder.account);
             if (account.protocol == EntityAccount.TYPE_IMAP) {

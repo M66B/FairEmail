@@ -989,6 +989,14 @@ public interface DaoMessage {
             " AND uid IS NULL" +
             " AND NOT EXISTS" +
             "  (SELECT * FROM operation" +
+            "  WHERE operation.message = message.id)")
+    List<EntityMessage> getDraftOrphans(long folder);
+
+    @Query("SELECT * FROM message" +
+            " WHERE folder = :folder" +
+            " AND uid IS NULL" +
+            " AND NOT EXISTS" +
+            "  (SELECT * FROM operation" +
             "  WHERE operation.message = message.id" +
             "  AND operation.name = '" + EntityOperation.EXISTS + "')")
     List<EntityMessage> getSentOrphans(long folder);
