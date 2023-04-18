@@ -1524,6 +1524,29 @@ public class FragmentIdentity extends FragmentBase {
 
     private void onHtml(Bundle args) {
         signature = args.getString("html");
+
+        if (id < 0)
+            return;
+
+        args.putLong("id", id);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String html = args.getString("html");
+
+                DB db = DB.getInstance(context);
+                db.identity().setIdentitySignature(id, html);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "identity:signature");
     }
 
     private void onPickUri(Intent intent) {
