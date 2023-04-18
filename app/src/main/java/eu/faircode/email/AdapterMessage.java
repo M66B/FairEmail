@@ -3233,9 +3233,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     // Show images
                     ibImages.setVisibility(has_images && !(show_full && always_images) ? View.VISIBLE : View.INVISIBLE);
 
-                    boolean verifiable = message.isVerifiable();
-                    boolean encrypted = message.isEncrypted() || args.getBoolean("inline_encrypted");
-                    boolean unlocked = message.isUnlocked();
+                    boolean inline = args.getBoolean("inline_encrypted");
+                    boolean verifiable = message.isVerifiable() && !inline;
+                    boolean encrypted = message.isEncrypted() || inline;
+                    boolean unlocked = message.isUnlocked() && !inline;
+                    properties.setValue("inline_encrypted", message.id, inline);
 
                     // Show AMP
                     boolean has_amp = args.getBoolean("has_amp");
@@ -5566,7 +5568,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onActionDecrypt(TupleMessageEx message, boolean auto) {
-            int encrypt = (message.encrypt == null ? EntityMessage.PGP_SIGNENCRYPT /* Inline */ : message.encrypt);
+            boolean inline = properties.getValue("inline_encrypted", message.id);
+            int encrypt = (message.encrypt == null || inline ? EntityMessage.PGP_SIGNENCRYPT /* Inline */ : message.encrypt);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
