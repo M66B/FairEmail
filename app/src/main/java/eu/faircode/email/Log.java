@@ -2602,6 +2602,8 @@ public class Log {
                                 jfolder.put("selectable", folder.selectable);
                                 jfolder.put("inferiors", folder.inferiors);
                                 jfolder.put("auto_add", folder.auto_add);
+                                jfolder.put("flags", folder.flags == null ? null : TextUtils.join(",", folder.flags));
+                                jfolder.put("keywords", folder.keywords == null ? null : TextUtils.join(",", folder.keywords));
                                 jfolder.put("tbc", Boolean.TRUE.equals(folder.tbc));
                                 jfolder.put("rename", folder.rename);
                                 jfolder.put("tbd", Boolean.TRUE.equals(folder.tbd));

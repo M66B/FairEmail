@@ -359,6 +359,9 @@ public interface DaoFolder {
             " AND NOT (sync_days IS :sync_days AND keep_days IS :keep_days)")
     int setFolderProperties(long id, int sync_days, int keep_days);
 
+    @Query("UPDATE folder SET flags = :flags WHERE id = :id AND NOT (flags IS :flags)")
+    int setFolderFlags(long id, String flags);
+
     @Query("UPDATE folder SET keywords = :keywords WHERE id = :id AND NOT (keywords IS :keywords)")
     int setFolderKeywords(long id, String keywords);
 

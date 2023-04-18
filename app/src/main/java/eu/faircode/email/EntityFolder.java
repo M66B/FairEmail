@@ -125,7 +125,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
     public Boolean notify = false;
 
     public Integer total; // messages on server
-    public String[] keywords;
+    public String[] flags; // system flags
+    public String[] keywords; // user flags
 
     @NonNull
     public Long selected_last = 0L;

@@ -419,6 +419,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 tvKeywords.setText(BuildConfig.DEBUG ?
                         (folder.separator == null ? "" : folder.separator + " ") +
                                 (folder.namespace == null ? "" : folder.namespace + " ") +
+                                (folder.flags == null ? null : TextUtils.join(" ", folder.flags) + " ") +
                                 TextUtils.join(" ", folder.keywords) : null);
                 tvKeywords.setVisibility(show_flagged ? View.VISIBLE : View.GONE);
 
