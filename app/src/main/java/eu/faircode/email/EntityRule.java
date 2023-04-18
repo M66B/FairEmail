@@ -1331,8 +1331,7 @@ public class EntityRule {
             String sender = ((InternetAddress) from).getAddress();
             String name = MessageHelper.formatAddresses(new Address[]{from});
 
-            if (TextUtils.isEmpty(sender) ||
-                    !Helper.EMAIL_ADDRESS.matcher(sender).matches())
+            if (TextUtils.isEmpty(sender))
                 continue;
 
             boolean regex = false;
