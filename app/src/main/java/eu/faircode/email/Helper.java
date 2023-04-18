@@ -941,7 +941,7 @@ public class Helper {
             else
                 return Intent.createChooser(intent, context.getString(R.string.title_select_app));
         } else
-            return intent;
+            return Intent.createChooser(intent, context.getString(R.string.title_select_app));
     }
 
     static void share(Context context, File file, String type, String name) {
