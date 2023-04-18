@@ -4711,7 +4711,7 @@ class Core {
 
             if (!Helper.equal(message.keywords, keywords) &&
                     !folder.read_only &&
-                    ifolder.getPermanentFlags().contains(Flags.Flag.USER)) {
+                    (ifolder.getPermanentFlags().contains(Flags.Flag.USER) || keywords.length > 0)) {
                 update = true;
                 message.keywords = keywords;
                 Log.i(folder.name + " updated id=" + message.id + " uid=" + message.uid +
