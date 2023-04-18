@@ -3505,24 +3505,28 @@ class Core {
 
             Flags flags = ifolder.getPermanentFlags();
 
-            List<String> f = new ArrayList<>();
-            if (flags != null) {
-                if (flags.contains(Flags.Flag.ANSWERED))
-                    f.add("\\Answered");
-                if (flags.contains(Flags.Flag.DELETED))
-                    f.add("\\Deleted");
-                if (flags.contains(Flags.Flag.DRAFT))
-                    f.add("\\Draft");
-                if (flags.contains(Flags.Flag.FLAGGED))
-                    f.add("\\Flagged");
-                if (flags.contains(Flags.Flag.RECENT))
-                    f.add("\\Recent");
-                if (flags.contains(Flags.Flag.SEEN))
-                    f.add("\\Seen");
-                if (flags.contains(Flags.Flag.USER))
-                    f.add("\\*");
+            try {
+                List<String> f = new ArrayList<>();
+                if (flags != null) {
+                    if (flags.contains(Flags.Flag.ANSWERED))
+                        f.add("\\Answered");
+                    if (flags.contains(Flags.Flag.DELETED))
+                        f.add("\\Deleted");
+                    if (flags.contains(Flags.Flag.DRAFT))
+                        f.add("\\Draft");
+                    if (flags.contains(Flags.Flag.FLAGGED))
+                        f.add("\\Flagged");
+                    if (flags.contains(Flags.Flag.RECENT))
+                        f.add("\\Recent");
+                    if (flags.contains(Flags.Flag.SEEN))
+                        f.add("\\Seen");
+                    if (flags.contains(Flags.Flag.USER))
+                        f.add("\\*");
+                }
+                db.folder().setFolderFlags(folder.id, DB.Converters.fromStringArray(f.toArray(new String[0])));
+            } catch (Throwable ex) {
+                Log.e(ex);
             }
-            db.folder().setFolderFlags(folder.id, DB.Converters.fromStringArray(f.toArray(new String[0])));
 
             String[] userFlags = flags.getUserFlags();
             if (userFlags != null && userFlags.length > 0) {
