@@ -2064,4 +2064,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Greensta.de"
+        link="https://support.greensta.de/help/de-de/4-e-mail/55-wie-kann-ich-mein-e-mail-programm-z-b-outlook-thunderbird-einrichten"
+        mx=".*\\.greensta\\.de">
+        <imap
+            host="mail.greensta.de"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.greensta.de"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>

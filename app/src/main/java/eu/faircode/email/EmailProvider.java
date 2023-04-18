@@ -554,9 +554,15 @@ public class EmailProvider implements Parcelable {
                 if (provider.enabled &&
                         provider.imap.host.equals(candidate.imap.host) ||
                         provider.smtp.host.equals(candidate.smtp.host)) {
-                    EntityLog.log(context, "Replacing auto config by profile=" + provider.name);
+                    EntityLog.log(context, "Replacing auto config host by profile=" + provider.name);
                     return Arrays.asList(provider);
-                }
+                } else if (provider.enabled && provider.mx != null)
+                    for (String mx : provider.mx)
+                        if ((candidate.imap.host != null && candidate.imap.host.matches(mx)) ||
+                                (candidate.smtp.host != null && candidate.smtp.host.matches(mx))) {
+                            EntityLog.log(context, "Replacing auto config MC by profile=" + provider.name);
+                            return Arrays.asList(provider);
+                        }
 
             // https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview
             if (candidate.imap.host != null &&
