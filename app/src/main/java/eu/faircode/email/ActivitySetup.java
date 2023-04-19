@@ -479,7 +479,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         new SimpleTask<Long>() {
             @Override
             protected Long onExecute(Context context, Bundle args) throws IOException, JSONException {
-                return Log.getDebugInfo(context, R.string.title_debug_info_remark, null, null).id;
+                return Log.getDebugInfo(context, "setup", R.string.title_debug_info_remark, null, null).id;
             }
 
             @Override

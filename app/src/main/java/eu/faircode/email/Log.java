@@ -1780,7 +1780,7 @@ public class Log {
         }
     }
 
-    static EntityMessage getDebugInfo(Context context, int title, Throwable ex, String log) throws IOException, JSONException {
+    static EntityMessage getDebugInfo(Context context, String source, int title, Throwable ex, String log) throws IOException, JSONException {
         StringBuilder sb = new StringBuilder();
         sb.append(context.getString(title)).append("\n\n\n\n");
         sb.append(getAppInfo(context));
@@ -1813,7 +1813,8 @@ public class Log {
             draft.thread = draft.msgid;
             draft.to = new Address[]{myAddress()};
             draft.subject = context.getString(R.string.app_name) + " " +
-                    BuildConfig.VERSION_NAME + BuildConfig.REVISION + " debug info";
+                    BuildConfig.VERSION_NAME + BuildConfig.REVISION +
+                    " debug info - " + source;
             draft.received = new Date().getTime();
             draft.seen = true;
             draft.ui_seen = true;
@@ -1935,7 +1936,7 @@ public class Log {
                         new SimpleTask<Long>() {
                             @Override
                             protected Long onExecute(Context context, Bundle args) throws Throwable {
-                                return Log.getDebugInfo(context, R.string.title_unexpected_info_remark, ex, null).id;
+                                return Log.getDebugInfo(context, "report", R.string.title_unexpected_info_remark, ex, null).id;
                             }
 
                             @Override

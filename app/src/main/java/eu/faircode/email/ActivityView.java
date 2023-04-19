@@ -1481,7 +1481,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 sb.append(line).append("\r\n");
                         }
 
-                        return Log.getDebugInfo(context, R.string.title_crash_info_remark, null, sb.toString()).id;
+                        return Log.getDebugInfo(context, "crash", R.string.title_crash_info_remark, null, sb.toString()).id;
                     } finally {
                         file.delete();
                     }
@@ -2210,7 +2210,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected Long onExecute(Context context, Bundle args) throws IOException, JSONException {
-                return Log.getDebugInfo(context, R.string.title_debug_info_remark, null, null).id;
+                return Log.getDebugInfo(context, "main", R.string.title_debug_info_remark, null, null).id;
             }
 
             @Override
