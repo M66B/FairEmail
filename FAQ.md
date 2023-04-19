@@ -2747,7 +2747,7 @@ Note that not all email servers support IMAP keywords.
 
 The automation action will broadcast the intent *eu.faircode.email.AUTOMATION* with the following string extras:
 
-* *name*
+* *rule*
 * *sender*
 * *subject*
 * *received* (ISO 8601 date/time)
