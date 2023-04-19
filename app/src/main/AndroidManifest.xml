@@ -686,7 +686,8 @@
             android:name=".ReceiverAutoStart"
             android:exported="true">
 
-            <intent-filter>
+            <!-- https://developer.android.com/guide/topics/manifest/intent-filter-element.html#priority -->
+            <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
 
