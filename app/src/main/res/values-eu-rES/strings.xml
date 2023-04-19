@@ -1370,7 +1370,6 @@
     <string name="title_hint_message_selection">Sakatu luze mezu bat hainbat mezu hautatzen hasteko. Mantendu eta pasatu hatza gora edo behera mezu gehiago hautatzeko</string>
     <string name="title_hint_important">Garrantzitsua</string>
     <string name="title_hint_sync">Mezuak deskargatzeak denbora hartu dezake, hornitzailearen abiadura, internet konexioa, gailua eta mezu kopuruaren arabera. Mezuak deskargatu bitartean aplikazioa motel erantzun lezake.</string>
-    <string name="title_hint_sync_note">Lehenespenez, mezu guztiak ez dira deskargatuko biltegiratzeko espazioaren, bateriaren eta datuen erabilera mugatzeko. Hau alda dezakezu karpeten zerrendan dagoen karpeta baten gainean luze sakatuta eta \'Sinkronizatu gehiago\' aukeratuta.</string>
     <string name="title_hint_battery">FairEmail-ek berez mezuak beti jasotzen dituenez, Android-ek esaten du FairEmai beti aktibo dagoela. Ematen du FairEmail bateriako energia beti erabiltzen ari dela, baina hori ez da horrela.</string>
     <string name="title_hint_reformat">Besterik esan ezean, FairEmail-ek mezuen formatua aldatzen du pribatutasuna eta segurtasuna babesteko. Jatorrizko mezua ikusteko, sakatu mezuaren gaineko \'pantaila osoa\' ikonoa.</string>
     <string name="title_hint_design">Diseinuak ez du arreta galarazten, baina oso funtzionala da. Itxura pertsonalizatzeko aukera asko daude, baina, mesedez, uler ezazu ezinezkoa dela denak aldi berean zoriontsu egitea.</string>

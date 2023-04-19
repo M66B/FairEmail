@@ -1608,7 +1608,6 @@
     <string name="title_hint_message_selection">Nhấn giữ một thư để bắt đầu chọn nhiều thư; Giữ và vuốt lên hoặc xuống để chọn thêm thư</string>
     <string name="title_hint_important">Quan trọng</string>
     <string name="title_hint_sync">Việc tải xuống thư có thể mất một ít thời gian, tùy vào tốc độ của nhà cung cấp, kết nối internet, thiết bị và số lượng thư. Trong khi đang tải xuống thư, ứng dụng có thể sẽ phản hồi chậm hơn.</string>
-    <string name="title_hint_sync_note">Theo mặc định, không phải tất cả thư sẽ được tải xuống để giới hạn sử dụng không gian bộ nhớ, pin và dữ liệu. Bạn có thể thay đổi điều này bằng cách nhấn giữ một thư mục trong danh sách thư mục và chọn \'Đồng bộ hoá thêm\'.</string>
     <string name="title_hint_battery">Vì FairEmail theo mặc định luôn nhận thư, Android sẽ báo cáo FairEmail là luôn hoạt động. Do đó, FairEmail có thể trông như là luôn tiêu hao pin mặc dù không phải vậy.</string>
     <string name="title_hint_reformat">Theo mặc định, FairEmail định dạng lại các thư vì lý do riêng tư và bảo mật. Để xem thư gốc, hãy nhấn biểu tượng \'toàn màn hình\' trên văn bản thư.</string>
     <string name="title_hint_design">Thiết kế này có chủ ý không gây xao lãng, nhưng vẫn rất hữu dụng. Có nhiều tuỳ chọn để tuỳ biến ngoại hình, nhưng hãy hiểu rằng không thể nào làm cho mọi người hoàn toàn vui cùng lúc.</string>

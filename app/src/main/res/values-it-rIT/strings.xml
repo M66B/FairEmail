@@ -373,7 +373,7 @@
     <string name="title_advanced_answer_caption">Impostazioni del pulsante di risposta</string>
     <string name="title_advanced_answer_default">La pressione breve del pulsante di risposta:</string>
     <string name="title_advanced_answer_action">La pressione prolungata sul pulsante di risposta:</string>
-    <string name="title_advanced_answer_hint">Le azioni del pulsante di risposta possono anche essere configurate nella scheda Invia degli impostazioni</string>
+    <string name="title_advanced_answer_hint">Le azioni del pulsante di risposta possono essere configurate anche nella pagina della scheda Impostazioni di invio</string>
     <string name="title_advanced_answer_warning">Non tutte le azioni sono possibili senza un menu di selezione!</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
     <string name="title_advanced_auto_save_paragraph">Salva automaticamente una bozza dopo ogni paragrafo</string>
@@ -693,7 +693,7 @@
     <string name="title_advanced_lt_key">Chiave API (facoltativa)</string>
     <string name="title_advanced_deepl">Integrazione con DeepL</string>
     <string name="title_advanced_virus_total">Integrazione di VirusTotal</string>
-    <string name="title_advanced_send">Integrazione di Send</string>
+    <string name="title_advanced_send">Integrazione di \'Send\'</string>
     <string name="title_advanced_openai">Integrazione di OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Modello</string>
     <string name="title_advanced_openai_temperature">Alea: %1$s</string>
@@ -745,6 +745,7 @@
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo o l\'oggetto del messaggio sono vuoti o quando un allegato potrebbe mancare</string>
     <string name="title_advanced_reply_move_hint">Il server email potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_compose_color_hint">Colori molto chiari o molto scuri renderanno i messaggi illeggibili dai destinatari</string>
+    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Un destinatario potrebbe perdere la risposta, ad esempio quando un messaggio troppo lungo viene troncato</string>
     <string name="title_advanced_attach_new_hint">Altrimenti, aggiungi indirizzi o file condivisi al messaggio di bozza corrente</string>
     <string name="title_advanced_usenet_hint">Inserisci \'--\' tra il testo e la firma</string>
     <string name="title_advanced_remove_signature_hint">Questo può risultare nella rimozione di troppo o troppo poco testo</string>
@@ -1381,6 +1382,7 @@
     <string name="title_attachment_keywords">allegato,allegati,incluso,inclusi</string>
     <string name="title_attachment_reminder">Desideravi aggiungere un allegato?</string>
     <string name="title_attachment_warning">Potenzialmente pericoloso: %1$s</string>
+    <string name="title_attachment_filename">Alcuni altri client email non possono gestire nomi di file più lunghi di 60 caratteri</string>
     <string name="title_plain_reminder">Tutta la formattazione sarà perduta</string>
     <string name="title_dsn_reminder">Gli hard bounce danneggiano la reputazione dell\'email del mittente originale!</string>
     <string name="title_size_reminder">Messaggio (%1$s) più grande del limite del server (%2$s)</string>
@@ -1605,6 +1607,7 @@
     <string name="title_rule_keyword_missing">Parola chiave mancante</string>
     <string name="title_rule_automation_hint">Questo invierà l\'intento \'%1$s\' con \'%2$s\' extra</string>
     <string name="title_rule_delete_hint">L\'eliminazione permanente è irreversibile, quindi assicurati che le condizioni della regola siano corrette!</string>
+    <string name="title_rule_edit_group">Modifica gruppo&#8230;</string>
     <string name="title_rule_execute">Esegui ora</string>
     <string name="title_rule_applied">Messaggi interessati: %1$d</string>
     <string name="title_rule_check">Verifica</string>
@@ -1756,7 +1759,7 @@
     </string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Scaricare i messaggi può richiedere un po\' di tempo, in base alla velocità del provider, la connessione internet, il dispositivo e il numero di messaggi. Durante il download dei messaggi l\'app potrebbe rispondere più lentamente.</string>
-    <string name="title_hint_sync_note">Di default, non tutti i messaggi saranno scaricati per limitare l\'uso dello spazio d\'archiviazione, della batteria e dei dati. Puoi modificare ciò tenendo premuta una cartella nell\'elenco delle cartelle e selezionando \'Sincronizza altri\'.</string>
+    <string name="title_hint_sync_note">Di default, non tutti i messaggi saranno scaricati per limitare l\'uso dello spazio d\'archiviazione, della batteria e dei dati. Puoi modificare ciò tenendo premuta una cartella nell\'elenco delle cartelle e selezionando \'Recupera altri messaggi\'.</string>
     <string name="title_hint_battery">Poiché FairEmail di default riceve sempre i messaggi, Android la segnalerà sempre come attiva. Dunque potrebbe sembrare che FairEmail stia sempre consumando energia della batteria sebbene difatti non sia il caso.</string>
     <string name="title_hint_reformat">Di default, FairEmail riformatta i messaggi per motivi di privacy e sicurezza. Per vedere il messaggio originale, tocca l\'icona \'schermo interno\' sul testo del messaggio.</string>
     <string name="title_hint_design">Il design è intenzionalmente non distraente, ma mantenuto altamente funzionale. Ci sono molte opzioni per personalizzare l\'aspetto, ma sei pregato di comprendere che sia impossibile per rendere tutti completamente felici allo stesso tempo.</string>

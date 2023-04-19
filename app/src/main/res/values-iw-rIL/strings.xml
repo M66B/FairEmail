@@ -1570,8 +1570,8 @@
     <string name="title_rule_flag">הוספת כוכב</string>
     <string name="title_rule_importance">הגדרת חשיבות</string>
     <string name="title_rule_keyword">מילת מפתח</string>
-    <string name="title_rule_keyword_add">הוסף</string>
-    <string name="title_rule_keyword_delete">מחק</string>
+    <string name="title_rule_keyword_add">הוספה</string>
+    <string name="title_rule_keyword_delete">מחיקה</string>
     <string name="title_rule_move">העברה</string>
     <string name="title_rule_copy">עותק (תווית)</string>
     <string name="title_rule_answer">תגובה/העברה</string>
@@ -1630,6 +1630,7 @@
     <string name="title_rule_keyword_missing">מילת מפתח חסרה</string>
     <string name="title_rule_automation_hint">פעולה זו תשלח את ה־intent‏ ‚%1$s’ עם התוספות ‚%2$s’</string>
     <string name="title_rule_delete_hint">מחיקה לצמיתות היא בלתי הפיכה, לכן כדאי לוודא שתנאי הכלל נכונים!</string>
+    <string name="title_rule_edit_group">עריכת קבוצה&#8230;</string>
     <string name="title_rule_execute">לבצע כעת</string>
     <string name="title_rule_applied">הודעות שיושפעו: %1$d</string>
     <string name="title_rule_check">בדיקה</string>
@@ -1781,7 +1782,7 @@
     </string>
     <string name="title_hint_important">חשוב</string>
     <string name="title_hint_sync">משיכת הודעות עשויה לארוך זמן מה כתלות במהירות הספק, חיבור האינטרנט, המכשיר ומספר ההודעות. היישומון עשוי להגיב בכבדות בזמן משיכת ההודעות.</string>
-    <string name="title_hint_sync_note">כבררת מחדל, לא כל ההודעות תימשכנה כדי להגביל את ניצולת האחסון והסוללה. אפשר לשנות את זה בלחיצה ארוכה על תיקייה ברשימת התיקיות ובחירה ב‚סנכרון עוד’.</string>
+    <string name="title_hint_sync_note">כבררת מחדל, לא כל ההודעות תימשכנה כדי להגביל את ניצולת האחסון והסוללה. אפשר לשנות את זה בלחיצה ארוכה על תיקייה ברשימת התיקיות ובחירה ב‚משיכת הודעות נוספות’.</string>
     <string name="title_hint_battery">מאחר ש־FairEmail כבררת מחדל תמיד מקבל הודעות, Android ידווח על FairEmail כפעיל תמיד. לכן זה עשוי להיראות כאילו FairEmail תמיד צורך סוללה למרות שזה לא המצב.</string>
     <string name="title_hint_reformat">כבררת מחדל, FairEmail מעצבת מחדש הודעות למטרות פרטיות ואבטחה. כדי לצפות בהודעה המקורית, יש לגעת בסמל ‚מסך מלא’ מעל לטקסט ההודעה.</string>
     <string name="title_hint_design">העיצוב אינו מפריע אלא מאפשר יעילות גבוהה באופן מכוון. יש מגוון אפשרויות להתאים את המראה, אך לדאבוננו לא ניתן לדאוג לרווחתם של כולם בו־זמנית.</string>

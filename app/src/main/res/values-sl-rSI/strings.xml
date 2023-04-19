@@ -1742,7 +1742,6 @@
     <string name="title_hint_message_selection">Dolg pritisk na sporočilo omogoča izbiro več sporočil; držite in povlecite gor in dol za izbiro več sporočil.</string>
     <string name="title_hint_important">Pomembno</string>
     <string name="title_hint_sync">Prejemanje sporočil lahko traja nekaj časa, odvisno od hitrosti ponudnika, internetne povezave, naprave in števila sporočil.  Med prejemanjem sporočil se lahko program počasneje odziva.</string>
-    <string name="title_hint_sync_note">Privzeto vsa sporočila ne bodo prejeta zaradi omejitve porabe prostora, energije in podatkov.  To lahko spremenite z dolgim pritiskom na mapo na seznamu map in pritiskom na \'Sinhroniziraj več\'.</string>
     <string name="title_hint_battery">Ker FairEmail privzeto vedno prejema sporočila, ga bo Android obravnaval kot vedno dejavnega.  Zato je lahko videti, da FairEmail vedno porablja energijo, kar pa seveda ni res.</string>
     <string name="title_hint_reformat">Privzeto FairEmail preoblikuje sporočila zaradi zaščite zasebnosti in varnosti.  Za ogled izvirnega sporočila se dotaknite ikone \'Celoten zaslon\' nad besedilom sporočila.</string>
     <string name="title_hint_design">Oblika namerno ni moteča in je zelo funkcionalna.  Ostaja veliko možnosti za prilagajanje videza, vendar je treba razumeti, da je nemogoče ustreči vsem.</string>

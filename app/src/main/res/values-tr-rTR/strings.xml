@@ -233,6 +233,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_done">Bitti</string>
     <string name="title_setup_still">Hala yapılacaklar var</string>
     <string name="title_setup_error">Hata</string>
+    <string name="title_setup_manual_setup">El ile ayar</string>
     <string name="title_setup_pop">POP3 kullan (önerilmez)</string>
     <string name="title_setup_recent">Birden çok e-posta istemcisi için \'güncel\'i kullan</string>
     <string name="title_setup_configuring">&#8230; hesabı yapılandırılıyor</string>
@@ -1445,6 +1446,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_search_with_size">Mesaj boyutu daha büyük</string>
     <string name="title_search_in_trash">Çöp içinde</string>
     <string name="title_search_in_junk">Spam içinde</string>
+    <string name="title_search_with_range">Tarih aralığı</string>
     <string name="title_search_with_before">Önce</string>
     <string name="title_search_with_after">Sonra</string>
     <string name="title_search_device_first">Önce cihazda ara</string>
@@ -1554,6 +1556,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_daily">Günlük çalıştır (yalnızca)</string>
     <string name="title_rule_age">Şundan daha eski mesajlar: (gün)</string>
     <string name="title_rule_stop">Bu kuralı yürüttükten sonra kuralları işlemeyi durdur</string>
+    <string name="title_rule_stop_remark">Kural bir grubun parçasıysa bu grubun tüm kurallarının işlenmesi durdurulur</string>
     <string name="title_rule_sender">Gönderici içeriği</string>
     <string name="title_rule_sender_known">Gönderen rehberden birisi</string>
     <string name="title_rule_recipient">Alıcı içeriği</string>
@@ -1595,6 +1598,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_keyword_missing">Anahtar kelime eksik</string>
     <string name="title_rule_automation_hint">%1$s gönderme isteğinizi %2$s ekleyerek gönderecek</string>
     <string name="title_rule_delete_hint">Kalıcı silme işlemi geri alınamaz, bu nedenle kural koşullarının doğru olduğundan emin olun!</string>
+    <string name="title_rule_edit_group">Grubu düzenle &#8230;</string>
     <string name="title_rule_execute">Şimdi çalıştır</string>
     <string name="title_rule_applied">Etkilenen iletiler: %1$d</string>
     <string name="title_rule_check">Denetle</string>
@@ -1746,7 +1750,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     </string>
     <string name="title_hint_important">Önemli</string>
     <string name="title_hint_sync">Mesajların indirilmesi, sağlayıcının hızına, internet bağlantısına ve cihazın hızına ve mesaj sayısına bağlı olarak biraz zaman alabilir. Mesajları indirirken uygulama daha yavaş yanıt verebilir.</string>
-    <string name="title_hint_sync_note">Varsayılan olarak, tüm mesajlar depolama alanını, batarya ve veri kullanımını sınırlamak için indirilemez. Bunu, klasör listesinde bir klasöre uzun basarak ve \'Daha fazlasını senkronize et\' seçerek değiştirebilirsiniz.</string>
+    <string name="title_hint_sync_note">Varsayılan olarak, depolama alanı ile pil ve veri kullanımını sınırlamak için tüm mesajlar indirilmez. Klasör listesindeki bir klasöre uzun basarak ve \'Daha fazla mesaj getir\'i seçerek bunu değiştirebilirsiniz.</string>
     <string name="title_hint_battery">FairEmail varsayılan olarak her zaman mesaj aldığından, Android FairEmail\'in her zaman etkin olduğunu bildirecektir. Bu nedenle, FairEmail sürekli pil gücünü kullanıyor gibi görünebilir, ancak aslında durum böyle değildir.</string>
     <string name="title_hint_reformat">Varsayılan olarak, FairEmail gizlilik ve güvenlik nedeniyle mesajları yeniden biçimlendirir. Orijinal mesajı görüntülemek için, mesaj metninin üstündeki \'tam ekran\' simgesine dokunun.</string>
     <string name="title_hint_design">Tasarım kasıtlı olarak rahatsız edici değil, ancak çok işlevsel tutulur. Görünüşü özelleştirmek için birçok seçenek vardır, ancak lütfen herkesi aynı anda mutlu etmenin imkansız olduğunu anlayın.</string>

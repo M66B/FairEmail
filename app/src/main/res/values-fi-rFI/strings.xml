@@ -1707,7 +1707,6 @@
     <string name="title_hint_message_selection">Aloita useamman viestin valinta painamalla viestiä pitkään; Valitse useampi pitkään painamalla ja pyyhkäisemällä ylös tai alas</string>
     <string name="title_hint_important">Tärkeä</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
-    <string name="title_hint_sync_note">Oletuksena kaikkia viestejä ei ladata tallennustilan ja akun käytön sekä tiedonsiirron rajoittamiseksi. Voit muuttaa tätä painamalla kansiota pitkään kansiolistassa ja valitsemalla \'Synkronoi lisää\'.</string>
     <string name="title_hint_battery">Koska FairEmail vastaanottaa viestit oletusarvoisesti aina, Android ilmoittaa FairEmailin olevan aina aktviininen. Saattaa vaikuttaa, että FairEmail käyttäisi aina akkua, vaikka niin ei olekaan.</string>
     <string name="title_hint_reformat">FairEmail oletusarvoisesti uudelleenmuotoilee viestit yksityisyyden ja turvallisuuden takaamiseksi. Näet alkuperäisen viestin näpäyttämällä koko näytön kuvaketta viestin tekstin yläpuolella.</string>
     <string name="title_hint_design">Ulkoasu on tarkoituksella tehty sellaiseksi, ettei se vie huomiota, mutta on hyvin toiminnallinen. Ulkoasun muokkaamiseen on paljon asetuksia, mutta on mahdotonta tehdä kaikki onnelliseksi samaan aikaan.</string>

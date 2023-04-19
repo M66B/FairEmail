@@ -1711,7 +1711,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_message_selection">Pridržaním správy začnete viac násobný výber, držte a posúvajte hore alebo dolu, a vyberiete viac správ</string>
     <string name="title_hint_important">Dôležité</string>
     <string name="title_hint_sync">Preberanie správ zaberie určitý čas v závislosti od rýchlosti poskytovateľa, pripojenia na internet, zariadenia a množstva správ. Počas preberania môže aplikácia reagovať pomalšie.</string>
-    <string name="title_hint_sync_note">S cieľom ušetriť úložný priestor, prenos dát a napájanie z batérie sa štandardne nebudú preberať všetky správy. Môžete to zmeniť dlhým stlačením priečinka v zozname a zvolením \'Synchronizovať viac\'.</string>
     <string name="title_hint_battery">Keďže FairEmail v predvolenej konfigurácii neustále prijíma správy, operačný systém bude aplikáciu považovať za vždy aktívnu. Môže sa zdať, že FairEmail neustále vybíja batériu, aj keď v skutočnosti to tak nie je.</string>
     <string name="title_hint_reformat">V predvolenej konfigurácii FairEmail zobrazuje preformátované správy s cieľom zachovať maximálnu bezpečnosť a chrániť vaše súkromie. Klepnutím na ikonu \'Celá obrazovka\' nad telom textu zobrazíte pôvodné formátovanie správy.</string>
     <string name="title_hint_design">Dizajn je schválne navrhnutý, aby ostal čo možno najlepšie funkčný a bol najmenej vtieravý. Dostupných je množstvo volieb na prispôsobenie vzhľadu, ale pochopte prosím, že nie je možné úplne vyhovieť všetkým.</string>

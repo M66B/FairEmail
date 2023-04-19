@@ -1591,6 +1591,7 @@
     <string name="title_rule_keyword_missing">キーワードがありません</string>
     <string name="title_rule_automation_hint">インテント「%1$s」とエクストラ「%2$s」が送信されます</string>
     <string name="title_rule_delete_hint">完全削除は取り消せませんので、ルール条件が正しいことを確認してください！</string>
+    <string name="title_rule_edit_group">グループを編集&#8230;</string>
     <string name="title_rule_execute">今すぐ実行</string>
     <string name="title_rule_applied">影響を受けるメッセージ: %1$d</string>
     <string name="title_rule_check">確認</string>

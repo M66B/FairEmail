@@ -1605,6 +1605,7 @@
     <string name="title_rule_keyword_missing">Palavra-chave em falta</string>
     <string name="title_rule_automation_hint">Isto enviará o \"intent\" (objecto de mensagem) \'%1$s\' com os extras \'%2$s\'</string>
     <string name="title_rule_delete_hint">A eliminação permanente é irreversível, por isso certifique-se de que as condições da regra estão corretas!</string>
+    <string name="title_rule_edit_group">Editar grupo &#8230;</string>
     <string name="title_rule_execute">Executar agora</string>
     <string name="title_rule_applied">Mensagens afectadas: %1$d</string>
     <string name="title_rule_check">Verificar</string>
@@ -1756,7 +1757,7 @@
     </string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Transferir mensagens pode levar algum tempo, dependendo da velocidade do provedor, da ligação à Internet, do dispositivo e do número de mensagens. Enquanto decorra a transferência das mensagens, a aplicação poderá responder mais lentamente.</string>
-    <string name="title_hint_sync_note">Por padrão, nem todas as mensagens serão transferidas para limitar a utilização de espaço de armazenamento, de bateria e de dados. Pode alterar isto pressionando e segurando numa pasta na lista de pastas e seleccionando \"Sincronizar mais\".</string>
+    <string name="title_hint_sync_note">Por padrão, nem todas as mensagens serão transmitidas, para limitar o espaço de armazenamento e o uso de bateria e dados. Você pode alterar isso pressionando longamente uma pasta na lista de pastas e selecionando \"Obter mais mensagens\".</string>
     <string name="title_hint_battery">Visto que o FairEmail, por padrão, recebe sempre as mensagens, o Android reportará sempre esta aplicação como sendo activa. Portanto, pode parecer que o FairEmail está sempre a consumir bateria, embora não seja esse o caso.</string>
     <string name="title_hint_reformat">Por padrão, o FairEmail reformata as mensagens por razões de privacidade e segurança. Para ver a mensagem original, toque no ícone \'ecrã completo\' acima do texto da mensagem.</string>
     <string name="title_hint_design">O design é intencionalmente simples, mas com o foco de ser altamente funcional. Existem muitas opções para personalizar a aparência, mas compreenda ser impossível agradar totalmente, e em simultâneo, todas as pessoas.</string>

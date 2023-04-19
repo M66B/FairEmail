@@ -730,6 +730,7 @@
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
     <string name="title_advanced_compose_color_hint">非常浅或非常深的颜色会导致收件人处的信息难以辨认</string>
+    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">收件人可能会错过您的回复，例如当邮件较长被截断时</string>
     <string name="title_advanced_attach_new_hint">否则，将共享地址或文件添加到当前草稿消息</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_remove_signature_hint">这可能会导致删除太少或太多文本</string>
@@ -1361,6 +1362,7 @@
     <string name="title_attachment_keywords">至少包含一个附件</string>
     <string name="title_attachment_reminder">您是否打算添加一个附件？</string>
     <string name="title_attachment_warning">潜在危险： %1$s</string>
+    <string name="title_attachment_filename">其他一些电子邮件客户端无法处理超过 60 个字符的文件名</string>
     <string name="title_plain_reminder">所有文本格式都将丢失</string>
     <string name="title_dsn_reminder">“硬退信”会损害原发件人的邮件声誉！</string>
     <string name="title_size_reminder">消息 (%1$s) 超出服务器限制 (%2$s)</string>
@@ -1585,6 +1587,7 @@
     <string name="title_rule_keyword_missing">缺少关键词</string>
     <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
     <string name="title_rule_delete_hint">永久删除是不可逆的，所以请确保规则条件的正确性！</string>
+    <string name="title_rule_edit_group">编辑组&#8230;</string>
     <string name="title_rule_execute">立即执行</string>
     <string name="title_rule_applied">受影响的消息: %1$d</string>
     <string name="title_rule_check">检查</string>
@@ -1736,7 +1739,7 @@
     </string>
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">下载邮件可能需要一些时间, 具体取决于提供商的速度、网络连接、设备以及邮件数量。在下载邮件时, 应用的响应速度可能会变慢。</string>
-    <string name="title_hint_sync_note">默认情况下，本应用不会下载所有的消息，以减少存储空间、电量和流量的使用。当然，您可以通过长按文件夹列表中的相应文件夹，并选择弹出菜单的“同步更多”来改变这一点</string>
+    <string name="title_hint_sync_note">默认情况下，本应用不会下载所有的消息，以减少存储空间、电量和流量的使用。当然，您可以通过长按文件夹列表中的相应文件夹，并选择弹出菜单的“获取更多邮件”来改变这一点</string>
     <string name="title_hint_battery">由于 FairEmail 默认总是接受消息，安卓系统会报告它始终处于活动状态。 因此，这看起来好像总在耗电，但事实上情况并非如此。</string>
     <string name="title_hint_reformat">默认情况下，FairEmail 会基于隐私和安全原因重新格式化消息。要查看原始消息，请点击消息文本上方的“全屏”图标</string>
     <string name="title_hint_design">本应用在设计上旨在不让用户分散注意力，更着眼实用性。设置中已有很多自定义外观的选项，请谅解，我没法让所有人都完全满意。</string>

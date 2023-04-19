@@ -1764,7 +1764,6 @@
     </string>
     <string name="title_hint_important">Important</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
-    <string name="title_hint_sync_note">În mod implicit, nu vor fi descărcate toate mesajele pentru a limita spațiul de stocare și bateria și consumul de date. Puteți schimba acest lucru apăsând lung un folder din lista de dosare și selectând \'Sincronizează mai mult\'.</string>
     <string name="title_hint_battery">Deoarece FairEmail primește, în mod implicit, mereu mesaje, Android va raporta FairEmail ca fiind întotdeauna activ. Prin urmare, ar putea părea că FairEmail consumă bateria în mod continuu deși acest lucru nu este de fapt adevărat.</string>
     <string name="title_hint_reformat">În mod implicit, FairEmail reformatează mesajele din motive de confidenţialitate şi securitate. Pentru a vizualiza mesajul original, apăsaţi pictograma \"ecran complet\" deasupra textului mesajului.</string>
     <string name="title_hint_design">Designul este intenționat ca să nu distragă, ci este păstrat foarte funcțional. Există multe opțiuni pentru a personaliza aspectul, dar vă rugăm să înțelegeți că este imposibil să facem pe toată lumea fericită în același timp.</string>

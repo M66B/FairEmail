@@ -11,6 +11,7 @@
     <string name="channel_send">ପଠାନ୍ତୁ</string>
     <string name="channel_notification">ଇମେଲ୍</string>
     <string name="channel_progress">ପ୍ରଗତି</string>
+    <string name="channel_error">ତ୍ରୁଟି</string>
     <string name="channel_notification_description">ନୂଆ ଵାର୍ତ୍ତା ଵିଜ୍ଞପ୍ତି</string>
     <plurals name="page_message">
         <item quantity="one">ଵାର୍ତ୍ତା</item>
@@ -106,7 +107,7 @@
     <string name="title_setup_oauth_permission">ଇମେଲ୍ ପ୍ରଦାନକାରୀ କେବଳ Play Store ଏବଂ GitHub ସଂସ୍କରଣ ପାଇଁ OAuth ଅନୁମୋଦନ କରିଛନ୍ତି</string>
     <string name="title_setup_gmail_support">Google ଆକାଉଣ୍ଟଗୁଡ଼ିକର ପ୍ରାଧିକରଣ କେବଳ Play Store ଏବଂ GitHub ସଂସ୍କରଣରେ କାମ କରିବ କାରଣ ଆଣ୍ଡ୍ରଏଡ୍ ଡିଜିଟାଲ୍ ଆପ୍ ସ୍ବାକ୍ଷର ଯାଞ୍ଚ କରେ</string>
     <string name="title_setup_gmail_on_device">ମୋତେ କାହିଁକି ଯେ ଗୋଟିଏ ଡିଵାଇସରେ-ଥିବା ଆକାଉଣ୍ଟକୁ ଚୟନ କରିବାକୁ ପଡ଼ିବ?</string>
-    <string name="title_setup_gmail_password">ମୁଁ ଏକ ଡିଵାଇସରେ-ଥିବା ଆକାଉଣ୍ଟ୍ ବଦଳରେ ପାସ୍‍ୱାର୍ଡ଼ ସହିତ ଗୋଟିଏ ଆକାଉଣ୍ଟକୁ ପ୍ରାଧିକରଣ କରିବାକୁ ଚାହୁଁଛି</string>
+    <string name="title_setup_gmail_password">ମୁଁ ଏକ ଡିଵାଇସରେ-ଥିବା ଆକାଉଣ୍ଟ୍ ବଦଳରେ ପାସ୍‍ୱର୍ଡ଼ ସହିତ ଗୋଟିଏ ଆକାଉଣ୍ଟକୁ ପ୍ରାଧିକରଣ କରିବାକୁ ଚାହୁଁଅଛି</string>
     <string name="title_setup_oauth_updated">ଆକାଉଣ୍ଟ୍ ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରାଯାଇଥିଲା</string>
     <string name="title_setup_oauth_authorize">ପ୍ରାଧିକୃତ କରନ୍ତୁ</string>
     <string name="title_setup_select_account">ଆକାଉଣ୍ଟ୍ ବାଛନ୍ତୁ</string>
@@ -129,7 +130,7 @@
     <string name="title_setup_error">ତ୍ରୁଟି</string>
     <string name="title_setup_pop">POP3 ଵ୍ୟଵହାର କରିବା (ସୁପାରିଶ କରୁନାହୁଁ)</string>
     <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ଵିନ୍ୟାସ କରୁଅଛି &#8230;</string>
-    <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱାର୍ଡ଼ ଵ୍ୟଵହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
+    <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‍ୱର୍ଡ଼ ଵ୍ୟଵହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
     <string name="title_setup_extra">ଅତିରିକ୍ତ</string>
     <string name="title_setup_close">ସେଟିଂ ବନ୍ଦ କରିବା</string>
     <string name="title_setup_export">ସେଟିଂ ରପ୍ତାନି କରିବା</string>
@@ -138,10 +139,10 @@
         ସେଟିଂ ପୁଣି ଆମଦାନୀ କରିବାକୁ ପାସ୍‍ୱର୍ଡ଼ ଆଵଶ୍ୟକ, ତେଣୁ ଦୟାକରି ଏହାକୁ ଭୁଲନ୍ତୁ ନାହିଁ!
     </string>
     <string name="title_setup_backup">ଵାର୍ତ୍ତାଗୁଡ଼ିକର ବ୍ୟାକଅପ୍ କିପରି ନେବେ?</string>
-    <string name="title_setup_password">ପାସ୍‍ୱାର୍ଡ଼</string>
-    <string name="title_setup_password_repeat">ପାସ୍‍ୱାର୍ଡ଼ ପୁନରାବୃତ୍ତି କରନ୍ତୁ</string>
-    <string name="title_setup_password_missing">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
-    <string name="title_setup_password_different">ପାସ୍‍ୱାର୍ଡ଼ଗୁଡ଼ିକ ମେଳ ଖାଉନାହିଁ</string>
+    <string name="title_setup_password">ପାସ୍‍ୱର୍ଡ଼</string>
+    <string name="title_setup_password_repeat">ପାସ୍‍ୱର୍ଡ଼ ପୁନରାବୃତ୍ତି କରନ୍ତୁ</string>
+    <string name="title_setup_password_missing">ପାସ୍‍ୱର୍ଡ଼ ନିଖୋଜ</string>
+    <string name="title_setup_password_different">ପାସ୍‍ୱର୍ଡ଼ଗୁଡ଼ିକ ମେଳ ଖାଉନାହିଁ</string>
     <string name="title_setup_import_delete">ପ୍ରଥମେ ବିଦ୍ୟମାନ ଆକାଉଣ୍ଟଗୁଡ଼ିକୁ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_setup_import_settings">ଆମଦାନୀ ଵିକଳ୍ପ</string>
     <string name="title_setup_exported">ସେଟିଂ ରପ୍ତାନି ହୋଇଛି</string>
@@ -378,8 +379,8 @@
     <string name="title_encryption">ଗୂଢ଼ଲିଖନ</string>
     <string name="title_port">ପୋର୍ଟ ନମ୍ଵର୍</string>
     <string name="title_user">ଉପଭୋକ୍ତା ନାମ</string>
-    <string name="title_password">ପାସ୍‍ୱାର୍ଡ଼</string>
-    <string name="title_password_storage">ପାସ୍‍ୱାର୍ଡ଼ଗୁଡ଼ିକ କିପରି ଗଚ୍ଛିତ କରାଯାଏ?</string>
+    <string name="title_password">ପାସ୍‍ୱର୍ଡ଼</string>
+    <string name="title_password_storage">ପାସ୍‍ୱର୍ଡ଼ଗୁଡ଼ିକ କିପରି ଗଚ୍ଛିତ ହୁଏ?</string>
     <string name="title_primary">ପ୍ରାଥମିକ</string>
     <string name="title_primary_account">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ଆକାଉଣ୍ଟ୍)</string>
     <string name="title_primary_identity">ପ୍ରାଥମିକ (ଡିଫଲ୍ଟ ପରିଚୟ)</string>
@@ -398,11 +399,11 @@
     <string name="title_no_account">ଆକାଉଣ୍ଟ୍ ନିଖୋଜ</string>
     <string name="title_no_host">ହୋଷ୍ଟ ନାମ ନିଖୋଜ</string>
     <string name="title_no_user">ଉପଭୋକ୍ତା ନାମ ନିଖୋଜ</string>
-    <string name="title_no_password">ପାସ୍‍ୱାର୍ଡ଼ ନିଖୋଜ</string>
+    <string name="title_no_password">ପାସ୍‍ୱର୍ଡ଼ ନିଖୋଜ</string>
     <string name="title_no_inbox">ଇନବକ୍ସ ମିଳିଲା ନାହିଁ</string>
     <string name="title_account_auth_update">ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରିବା</string>
-    <string name="title_account_auth_password">ପାସ୍‍ୱାର୍ଡ଼ ପ୍ରାମାଣିକିକରଣକୁ ସୁଇଚ୍ କରନ୍ତୁ</string>
-    <string name="title_change_password">ପାସ୍‍ୱାର୍ଡ଼ ବଦଳାନ୍ତୁ</string>
+    <string name="title_account_auth_password">ପାସ୍‍ୱର୍ଡ଼ ପ୍ରାମାଣିକିକରଣକୁ ଯିବା</string>
+    <string name="title_change_password">ପାସ୍‍ୱର୍ଡ଼ ବଦଳାନ୍ତୁ</string>
     <string name="title_delete_account">ଆକାଉଣ୍ଟ୍ ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_edit_html">HTML ଭାବରେ ସମ୍ପାଦନ କରନ୍ତୁ</string>
     <string name="title_check_html">HTML ଯାଞ୍ଚ କରିବା</string>
@@ -713,7 +714,6 @@
     <string name="title_legend_p">ପୂର୍ବବର୍ତ୍ତୀ</string>
     <string name="title_legend_r">ପ୍ରତ୍ୟୁତ୍ତର</string>
     <string name="title_hint_important">ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ</string>
-    <string name="title_hint_sync_note">ଡିଫଲ୍ଟ ଭାଵେ, ଷ୍ଟୋରେଜ୍ ଜାଗା, ବ୍ୟାଟେରୀ ଓ ଡାଟା ଵ୍ୟଵହାର ସୀମିତ କରିବାକୁ ସମସ୍ତ ଵାର୍ତ୍ତା ଡାଉନଲୋଡ୍ ହେବ ନାହିଁ। ଆପଣ ଫୋଲ୍ଡର୍ ତାଲିକାରେ ଗୋଟେ ଫୋଲ୍ଡରରେ ଦୀର୍ଘ ସମୟ ଦବାଇ \'ଅଧିକ ସୀଙ୍କ୍ରୋନାଇଜ୍\' ଚୟନ କରି ଏହାକୁ ବଦଳାଇପାରିବେ।</string>
     <string name="title_hint_battery">ଯେହେତୁ FairEmail ଡିଫଲ୍ଟ ଭାବରେ ସର୍ଵଦା ଵାର୍ତ୍ତା ଗ୍ରହଣ କରେ, ଆଣ୍ଡ୍ରଏଡ୍ ସବୁଵେଳେ ସକ୍ରିୟ ଥିବା ଭଳି FairEmailକୁ ରିପୋର୍ଟ କରିବ। ତେଣୁ ଏହା ଦେଖାଯାଏ ଯେପରି FairEmail ସର୍ଵଦା ବ୍ୟାଟେରୀ ପାୱାର ଵ୍ୟଵହାର କରୁଛି ଯଦିଓ ଵାସ୍ତଵରେ ଏହା ନୁହେଁ।</string>
     <string name="title_hint_contact_actions">ବିକଳ୍ପ ପାଇଁ ଲମ୍ବା ସ୍ପର୍ଶ କରନ୍ତୁ</string>
     <string name="title_remark_owner"><a href="https://ipinfo.io/">ipinfo.io</a>ରୁ ସୂଚନା ଆଦୟ କରାଯିବ</string>

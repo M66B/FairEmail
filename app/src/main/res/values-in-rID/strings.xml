@@ -939,6 +939,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_edit_contact">Ubah kontak</string>
     <string name="title_contact_email">Surel</string>
     <string name="title_contact_name">Nama</string>
+    <string name="title_contact_group">Kelompok</string>
     <string name="title_import_contacts">Impor vCard</string>
     <string name="title_export_contacts">Ekspor vCard</string>
     <string name="title_create_sub_folder">Buat sub folder</string>
@@ -1641,7 +1642,6 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_hint_message_selection">Ketuk dan tahan sebuah pesan untuk memilih banyak pesan; tahan dan usap keatas atau kebawah untuk memilih lebih banyak pesan</string>
     <string name="title_hint_important">Penting</string>
     <string name="title_hint_sync">Mendownload pesan dapat memakan waktu lama, tergantung pada kecepatan penyedia layanan, koneksi internet, perangkat dan jumlah pesan. Saat mengunduh pesan, mungkin aplikasi merespons lebih lambat.</string>
-    <string name="title_hint_sync_note">Secara bawaan, tidak semua pesan diunduh untuk menghemat ruang penyimpanan, baterai, dan penggunaan data. Anda dapat merubah ini tekan dan tahan sebuah folder di daftar folder dan pilih \'sinkronisasikan lebih banyak\'.</string>
     <string name="title_hint_battery">Karena FairEmail secara bawaan selalu menerima pesan, Android akan melaporkan FairEmail selalu aktif. Maka FairEmail terlihat selalu menggunakan daya baterai meskipun nyatanya tidak demikian.</string>
     <string name="title_hint_reformat">Secara bawaan, FairEmail memformat ulang untuk alasan privasi dan keamanan. Untuk melihat pesan asli, ketuk ikon \'layar penuh\' diatas teks pesan.</string>
     <string name="title_hint_design">Desain sengaja dibuat sederhana, tetapi sangat berfungsi maksimal. Terdapat banyak pilihan untuk mengubah penampilan, tetapi harap dipahami bahwa tidak mungkin membuat setiap orang senang disaat bersamaan.</string>

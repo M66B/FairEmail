@@ -769,6 +769,7 @@
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
     <string name="title_advanced_compose_color_hint">Bardzo jasne lub bardzo ciemne kolory spowodują, że wiadomości po stronie odbiorcy będą nieczytelne</string>
+    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Odbiorca może przegapić Twoją odpowiedź, np. gdy dłuższa wiadomość zostanie skrócona</string>
     <string name="title_advanced_attach_new_hint">W innym przypadku dodaj udostępniane adresy lub pliki do aktualnej wersji roboczej wiadomości</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
     <string name="title_advanced_remove_signature_hint">Może to spowodować usunięcie zbyt małego lub zbyt dużego tekstu</string>
@@ -1402,6 +1403,7 @@
     <string name="title_attachment_keywords">załączony, załącznik, załączniki, w zestawie, w załączonym</string>
     <string name="title_attachment_reminder">Czy zamierzałeś dodać załącznik?</string>
     <string name="title_attachment_warning">Potencjalnie niebezpieczne: %1$s</string>
+    <string name="title_attachment_filename">Niektóre inne programy poczty elektronicznej nie radzą sobie z nazwami plików dłuższymi niż 60 znaków</string>
     <string name="title_plain_reminder">Całe formatowanie zostanie utracone</string>
     <string name="title_dsn_reminder">\"Twarde odbicia\" szkodzą reputacji e-mail odbiorcy!</string>
     <string name="title_size_reminder">Wiadomość (%1$s) większa niż limit serwera (%2$s)</string>
@@ -1627,6 +1629,7 @@
     <string name="title_rule_keyword_missing">Brak słowa kluczowego</string>
     <string name="title_rule_automation_hint">Zostanie wysłany zamiar (intent) \'%1$s\' z dodatkami (extras) \'%2$s\'</string>
     <string name="title_rule_delete_hint">Trwałe usunięcie jest nieodwracalne, więc upewnij się, że warunki reguły są poprawne!</string>
+    <string name="title_rule_edit_group">Edytuj grupę &#8230;</string>
     <string name="title_rule_execute">Wykonaj teraz</string>
     <string name="title_rule_applied">Problematycznych wiadomości: %1$d</string>
     <string name="title_rule_check">Sprawdź</string>
@@ -1778,7 +1781,7 @@
     </string>
     <string name="title_hint_important">Ważne</string>
     <string name="title_hint_sync">Pobieranie wiadomości może trochę potrwać, zależnie od prędkości dostawcy, połączenie internetowego i urządzenia oraz liczby wiadomości. Podczas pobierania wiadomości aplikacja może odpowiadać wolniej.</string>
-    <string name="title_hint_sync_note">Domyślnie nie wszystkie wiadomości zostaną pobrane w celu ograniczenia przestrzeni dyskowej oraz użycia baterii i danych. Możesz to zmienić przez długie naciśnięcie folderu na liście folderów i wybranie opcji \'Synchronizuj więcej\'.</string>
+    <string name="title_hint_sync_note">Domyślnie nie wszystkie wiadomości zostaną pobrane w celu ograniczenia przestrzeni dyskowej oraz użycia baterii i danych. Możesz to zmienić przez długie naciśnięcie folderu, w liście folderów i wybranie \"Pobierz więcej wiadomości\".</string>
     <string name="title_hint_battery">Ponieważ FairEmail domyślnie zawsze odbiera wiadomości, Android zgłasza, że FairEmail jest zawsze aktywny. Dlatego może się wydawać, że FairEmail ciągle zużywa energię baterii, ale w rzeczywistości tak nie jest.</string>
     <string name="title_hint_reformat">Domyślnie FairEmail przeformatowuje wiadomości ze względu na prywatność i bezpieczeństwo. Aby wyświetlić oryginalną wiadomość, dotknij ikonę \"pełny ekran\" nad tekstem wiadomości.</string>
     <string name="title_hint_design">Projekt celowo nie rozprasza, ale jest bardzo funkcjonalny. Istnieje wiele opcji dostosowania wyglądu, ale proszę zrozumieć, że nie da się uszczęśliwić wszystkich jednocześnie.</string>

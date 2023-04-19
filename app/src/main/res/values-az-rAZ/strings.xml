@@ -1604,6 +1604,7 @@
     <string name="title_rule_keyword_missing">Açar söz əskikdir</string>
     <string name="title_rule_automation_hint">Bu, \"%2$s\" əlavələri ilə \"%1$s\" hədəfini göndərəcək</string>
     <string name="title_rule_delete_hint">Birdəfəlik silmə əməliyyatının geri dönüşü yoxdur, ona görə də qayda şərtlərinin doğru olduğuna əmin olun!</string>
+    <string name="title_rule_edit_group">Qrupa düzəliş et &#8230;</string>
     <string name="title_rule_execute">İndi icra et</string>
     <string name="title_rule_applied">Təsirlənən mesajlar: %1$d</string>
     <string name="title_rule_check">Yoxla</string>
@@ -1755,7 +1756,7 @@
     </string>
     <string name="title_hint_important">Vacib</string>
     <string name="title_hint_sync">Mesajların endirilməsi provayderinizin sürətindən, internet bağlantınızdan və mesaj sayından asılı olaraq bir az vaxt apara bilər. Mesajları endirərkən tətbiq yavaş cavab verə bilər.</string>
-    <string name="title_hint_sync_note">İlkin olaraq, anbar sahəsini, batareya və verilənlər istifadəsini məhdudlaşdırmaq üçün bütün mesajlar endirilmir. Bunu, qovluq siyahınızda bir qovluğa uzun basaraq və \"Daha çox sinxronlaşdır\"ı seçərək dəyişdirə bilərsiniz.</string>
+    <string name="title_hint_sync_note">İlkin olaraq, anbar sahəsini, batareya və verilənlər istifadəsini məhdudlaşdırmaq üçün bütün mesajlar endirilmir. Bunu, qovluq siyahınızda bir qovluğa uzun basaraq və \"Daha çox mesaj yüklə\"ni seçərək dəyişdirə bilərsiniz.</string>
     <string name="title_hint_battery">FairEmail ilkin olaraq həmişə mesajları aldığı üçün, Android \"FairEmail\"in həmişə aktiv olduğunu bildirəcək. Buna görə də, FairEmail həmişə batareyanın enerjisini istehlak edirmiş kimi görünür, ancaq əslində bu belə deyil.</string>
     <string name="title_hint_reformat">İlkin olaraq, FairEmail, mesajları gizlilik və güvənlik səbəbinə görə yenidən format edir. Orijinal mesaja baxmaq üçün, mesaj mətninin üstündəki \"tam ekran\" nişanına toxunun.</string>
     <string name="title_hint_design">Dizayn qəsdən diqqəti yayındırmır, lakin yüksək dərəcədə funksional saxlayır. Görünüşü özəlləşdirmək üçün bir neçə seçim var, ancaq hər kəsi eyni anda xoşbəxt etməyin mümkün olmadığını anlamağınızı istəyirik.</string>

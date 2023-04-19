@@ -757,6 +757,7 @@
     <string name="title_advanced_send_reminders_hint">Prikazuje upozorenje kada su tekst poruke ili predmet prazni ili kada nedostaje prilog</string>
     <string name="title_advanced_reply_move_hint">E-mail server još može dodavati poruke u folder za poslane poruke</string>
     <string name="title_advanced_compose_color_hint">Presvijetle ili pretamne boje mogu prouzrokovati nečitke poruke s primaočeve strane</string>
+    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Primalac može propustiti vaš odgovor, npr. kada se duža poruka skrati</string>
     <string name="title_advanced_attach_new_hint">U suprotnom, dodaj dijeljene adrese ili datoteke u trenutni nacrt poruke</string>
     <string name="title_advanced_usenet_hint">Ubaci \'-- \' između teksta i potpisa</string>
     <string name="title_advanced_remove_signature_hint">Ovo može rezultirati premalim ili prevelikim uklanjanjem teksta</string>
@@ -1393,6 +1394,7 @@
     <string name="title_attachment_keywords">priložen,priložena,priloženo,priloženi,priložene,prilozi,uključen,uključena,uključeno,uključeni,uključene</string>
     <string name="title_attachment_reminder">Da li ste željeli dodati prilog?</string>
     <string name="title_attachment_warning">Potencijalno opasno: %1$s</string>
+    <string name="title_attachment_filename">Neki drugi e-mail klijenti ne mogu raditi s nazivima datoteka dužim od 60 znakova</string>
     <string name="title_plain_reminder">Cijelo formatiranje će biti izgubljeno</string>
     <string name="title_dsn_reminder">\'Hard bounces\' narušavaju e-poštansku reputaciju pošiljaoca originala!</string>
     <string name="title_size_reminder">Poruka (%1$s) je veća od ograničenja servera (%2$s)</string>
@@ -1617,6 +1619,7 @@
     <string name="title_rule_keyword_missing">Nedostaje ključna riječ</string>
     <string name="title_rule_automation_hint">Ovo će poslati opis zadatka \'%1$s\' sa dodacima \'%2$s\'</string>
     <string name="title_rule_delete_hint">Trajno brisanje je nepovratna radnja, zato osigurajte da su uvjeti ispravni!</string>
+    <string name="title_rule_edit_group">Uredi grupu &#8230;</string>
     <string name="title_rule_execute">Izvrši sada</string>
     <string name="title_rule_applied">Zahvaćene poruke: %1$d</string>
     <string name="title_rule_check">Provjeri</string>
@@ -1768,7 +1771,7 @@
     </string>
     <string name="title_hint_important">Važno</string>
     <string name="title_hint_sync">Preuzimanje poruka može potrajati neko vrijeme, a to zavisi od brzine provajdera, internet konekcije, samog uređaja te broja poruka. Prilikom preuzimanja poruka aplikacija će možda sporije reagovati.</string>
-    <string name="title_hint_sync_note">Po zadanom, sve poruke neće biti preuzete da bi se ograničili zauzeće prostora, potrošnja baterije i podataka. Ovo možete promijeniti dugim dodirom na folder sa spiska i biranjem opcije \'Sinhronizuj više\'.</string>
+    <string name="title_hint_sync_note">Po zadanom, sve poruke neće biti preuzete da bi se ograničili zauzeće prostora, potrošnja baterije i podataka. Ovo možete promijeniti dugim dodirom na folder sa spiska i biranjem opcije \'Dohvati više poruka\'.</string>
     <string name="title_hint_battery">Pošto FairEmail po zadanom uvijek prima poruke, Android će označiti FairEmail kao stalno aktivnu aplikaciju. Prema tome, FairEmail možda izgleda kao da stalno troši bateriju, iako to u stvari nije slučaj.</string>
     <string name="title_hint_reformat">Po zadanom, FairEmail preformatira poruke zbog privatnosti i sigurnosti. Da bi vidjeli izvornu poruku, dodirnite ikonicu \'cijeli ekran\' iznad teksta poruke.</string>
     <string name="title_hint_design">Dizajn je namjerno takav da ne odvlači pažnju, ali je veoma funkcionalan. Postoje brojne opcije za podešavanje izgleda, ali trebate razumjeti da je istovremeno nemoguće zadovoljiti svačije želje.</string>

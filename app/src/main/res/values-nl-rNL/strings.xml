@@ -742,6 +742,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_send_reminders_hint">Toon een waarschuwing wanneer de berichttekst of het onderwerp leeg is of wanneer een bijlage zou kunnen ontbreken</string>
     <string name="title_advanced_reply_move_hint">De e-mailserver kan de berichten nog steeds toevoegen aan de map met verzonden berichten</string>
     <string name="title_advanced_compose_color_hint">Zeer lichte of zeer donkere kleuren leiden tot onleesbare berichten aan de kant van de ontvanger</string>
+    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Een ontvanger mist mogelijk uw antwoord, bijvoorbeeld wanneer een langer bericht wordt ingekort</string>
     <string name="title_advanced_attach_new_hint">Voeg anders gedeelde adressen of bestanden toe aan het huidige conceptbericht</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
     <string name="title_advanced_remove_signature_hint">Dit kan ertoe leiden dat te weinig of te veel tekst wordt verwijderd</string>
@@ -1374,6 +1375,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_attachment_keywords">bijlage,bijlagen</string>
     <string name="title_attachment_reminder">Was u van plan een bijlage toe te voegen?</string>
     <string name="title_attachment_warning">Mogelijk gevaarlijk: %1$s</string>
+    <string name="title_attachment_filename">Sommige andere e-mailprogramma\'s kunnen bestandsnamen langer dan 60 tekens niet afhandelen</string>
     <string name="title_plain_reminder">Alle opmaak zal verloren gaan</string>
     <string name="title_dsn_reminder">Hard bounces schaden de e-mailreputatie van de oorspronkelijke afzender!</string>
     <string name="title_size_reminder">Bericht (%1$s) groter dan de serverlimiet (%2$s)</string>
@@ -1595,6 +1597,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_keyword_missing">Sleutelwoord ontbreekt</string>
     <string name="title_rule_automation_hint">Dit zal de intent \'%1$s\' sturen met de extra\'s \'%2$s\'</string>
     <string name="title_rule_delete_hint">Definitieve verwijdering is onomkeerbaar, dus zorg ervoor dat de voorwaarden van de regel correct zijn!</string>
+    <string name="title_rule_edit_group">Groep bewerken &#8230;</string>
     <string name="title_rule_execute">Nu uitvoeren</string>
     <string name="title_rule_applied">Beïnvloede berichten: %1$d</string>
     <string name="title_rule_check">Controleer</string>
@@ -1746,7 +1749,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     </string>
     <string name="title_hint_important">Belangrijk</string>
     <string name="title_hint_sync">Het downloaden van berichten kan enige tijd duren, afhankelijk van de snelheid van de provider, de internet-verbinding en het apparaat en van het aantal berichten. Tijdens het downloaden van berichten kan de app trager reageren.</string>
-    <string name="title_hint_sync_note">Standaard worden niet alle berichten gedownload om de opslagruimte en het batterij- en gegevensgebruik te beperken. U kunt dit wijzigen door lang op een map in de mappenlijst te drukken en \'Meer synchroniseren\' te selecteren.</string>
+    <string name="title_hint_sync_note">Standaard worden niet alle berichten gedownload om de opslagruimte en het batterij- en gegevensgebruik te beperken. U kunt dit wijzigen door lang op een map in de folderlijst te drukken en de optie \'Meer berichten ophalen\' te selecteren.</string>
     <string name="title_hint_battery">Aangezien FairEmail standaard altijd berichten ontvangt, meldt Android dat FairEmail altijd actief is. Daarom lijkt het erop dat FairEmail altijd batterijvermogen gebruikt, maar in feite is dit niet het geval.</string>
     <string name="title_hint_reformat">Standaard maakt FairEmail berichten opnieuw op om privacy- en veiligheidsredenen. Tik op het \'volledig scherm\' pictogram boven de berichttekst om het oorspronkelijke bericht te bekijken.</string>
     <string name="title_hint_design">Het ontwerp is opzettelijk niet afleidend, maar zeer functioneel gehouden. Er zijn veel opties om het uiterlijk aan te passen, maar begrijp alsjeblieft dat het onmogelijk is om iedereen tegelijkertijd helemaal gelukkig te maken.</string>

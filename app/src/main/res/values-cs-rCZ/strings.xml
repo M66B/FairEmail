@@ -770,6 +770,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_send_reminders_hint">Zobrazí upozornění, je-li text zprávy či předmět prázdný nebo chybí-li pravděpodobně příloha</string>
     <string name="title_advanced_reply_move_hint">E-mailový server stále může zprávy ukládat i do složky odeslané</string>
     <string name="title_advanced_compose_color_hint">Velmi světlá nebo tmavá barva povede k nečitelným zprávám na straně příjemců</string>
+    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Příjemce může ztratit vaši odpověď, například když je delší zpráva zkrácena</string>
     <string name="title_advanced_attach_new_hint">V opačném případě přidat sdílené adresy nebo soubory do aktuálního konceptu zprávy</string>
     <string name="title_advanced_usenet_hint">Vložit „-- “ mezi text a podpis</string>
     <string name="title_advanced_remove_signature_hint">To může vést k odstranění příliš malého nebo příliš velkého textu</string>
@@ -1403,6 +1404,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_attachment_keywords">příloha,přílohy,příloze,přílohu,přiložené,přiloženém,přiložený,přiložená,připojené,připojeném,připojený,připojená</string>
     <string name="title_attachment_reminder">Měl jste v úmyslu přidat přílohu?</string>
     <string name="title_attachment_warning">Potenciálně nebezpečné: %1$s</string>
+    <string name="title_attachment_filename">Někteří další e-mailoví klienti nemohou zpracovávat jména souborů delší než 60 znaků</string>
     <string name="title_plain_reminder">Veškeré formátování bude ztraceno</string>
     <string name="title_dsn_reminder">Oznámení o nedoručitelnosti (hard bounce) poškozují e-mailovou reputaci původního odesílatele!</string>
     <string name="title_size_reminder">Zpráva (%1$s) je větší než limit serveru (%2$s)</string>
@@ -1627,6 +1629,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_keyword_missing">Chybí klíčové slovo</string>
     <string name="title_rule_automation_hint">Bude odesláno volání (intent) „%1$s“ s doplňujícími informacemi (extras) „%2$s“</string>
     <string name="title_rule_delete_hint">Trvalé smazání je nevratné, takže se ujistěte, že jsou podmínky pravidla správné!</string>
+    <string name="title_rule_edit_group">Upravit skupinu &#8230;</string>
     <string name="title_rule_execute">Provést nyní</string>
     <string name="title_rule_applied">Ovlivněné zprávy: %1$d</string>
     <string name="title_rule_check">Zkontrolovat</string>
@@ -1778,7 +1781,7 @@ v prohlížeči ze všech Google účtů.</string>
     </string>
     <string name="title_hint_important">Důležité</string>
     <string name="title_hint_sync">Stažení zpráv může nějakou dobu trvat, v závislosti na rychlosti poskytovatele, internetového připojení a zařízení a na počtu zpráv. V průběhu stahování může aplikace reagovat pomaleji.</string>
-    <string name="title_hint_sync_note">Ve výchozím nastavení nebudou stahovány všechny zprávy, aby se omezilo zabrané místo v úložišti, využití baterie a dat. Můžete to změnit dlouhým podržením složky v seznamu složek a zvolením \'Synchronizovat více\'.</string>
+    <string name="title_hint_sync_note">Ve výchozím nastavení nebudou stahovány všechny zprávy, aby se omezilo místo v úložišti, využití baterie a dat. Můžete to změnit dlouhým stiskem složky v seznamu složek a výběrem \"Načíst více zpráv\".</string>
     <string name="title_hint_battery">Neboť FairEmail ve výchozím nastavení přijímá zprávy neustále, Android bude hlásit, že je stále aktivní. Díky tomu se může zdát, jako by FairEmail konstantně spotřebovával baterii, ačkoli tomu tak ve skutečnosti není.</string>
     <string name="title_hint_reformat">FairEmail ve výchozím nastavení přeformátuje zprávy z důvodů bezpečnosti a ochrany soukromí. Pro zobrazení původní zprávy, stiskněte ikonu \'zobrazení na celou obrazovku\' nad textem zprávy.</string>
     <string name="title_hint_design">Design záměrně není rozptylující, nýbrž je udržován vysoce funkčním. Pro přizpůsobení vzhledu je zde mnoho nastavení, avšak prosím pochopte, že není možné každého zároveň kompletně uspokojit.</string>

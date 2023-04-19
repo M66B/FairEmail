@@ -4,6 +4,7 @@
     <string name="app_changelog">Changelog</string>
     <string name="app_welcome">FairEmail is an open source email app focused on privacy and security. For this reason some features might work differently from what you are used to.</string>
     <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
+    <string name="app_unsupported">Bugs present in the Android version of this specific device can lead to system crashes</string>
     <string name="app_data_loss">All data may be lost</string>
     <string name="channel_service_description">Synchronising and monitoring of accounts</string>
     <string name="tile_synchronize">Synchronise</string>
@@ -129,7 +130,6 @@
     <string name="title_legend_r">Reply</string>
     <string name="title_hint_folder_sync">To limit battery and network usage not all folders and not all messages will be synchronised by default</string>
     <string name="title_hint_message_actions">Swipe left to delete; Swipe right to archive (if available); The swipe actions can be configured in the account settings</string>
-    <string name="title_hint_sync_note">By default, not all messages will be downloaded to limit storage space and battery and data usage. You can change this by long pressing a folder in the folder list and selecting \'Synchronise more\'.</string>
     <string name="title_enable">Enable</string>
     <string name="title_disable">Disable</string>
     <string name="title_snooze_now">Snooze</string>

@@ -1558,7 +1558,6 @@
     <string name="title_hint_message_selection">Tarts hosszan egy üzenetet több üzenet kiválasztásának elkezdéséhez; Tartsd és görgess fel vagy le több üzenet kiválasztásához</string>
     <string name="title_hint_important">Fontos</string>
     <string name="title_hint_sync">Az üzenetek letöltése eltarthat egy ideig, és alapul a szolgáltató sebességén, az internetkapcsolaton, az eszközön és az üzenetek számán. Üzenetek letöltése alatt az alkalmazás lassabban válaszolhat.</string>
-    <string name="title_hint_sync_note">Alapból nem minden üzenet kerül letöltésre visszafogva ezzel a tárhely, akkumulátor, és adat használatot. Változtathat ezen ha rányom hosszan a megfelelő könyvtárra és kiválasztja a \"Szinkronizáljon többet\" panelt.</string>
     <string name="title_hint_battery">Mivel a FairEmail alapértelmezésből mindig fogad leveleket, az Android mindig aktívként fogja jelenteni. Ezáltal úgy látszódhat hogy a FairEmail mindig fogyaszt energiát habár valójában ez nem így van.</string>
     <string name="title_hint_reformat">Alapértelmezésből a FairEmail újraformázza az üzeneteket adatvédelmi és biztonsági okokból. Az eredeti üzenet megtekintéséhez koppintson a \'Teljes képernyő\' ikonra az üzenetszöveg fölött.</string>
     <string name="title_hint_design">A megjelenítés független a nyelvi beállításoktól. Számos testreszabási lehetőség áll rendelkezésre, viszont kérjük vegye figyelembe, hogy kivitelezhetetlen minden igényt maradéktalanul kielégíteni.</string>

@@ -769,6 +769,7 @@
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_compose_color_hint">Використання дуже світлих або дуже темних кольорів може призвести до того, що отримувач не зможе прочитати ваше повідомлення</string>
+    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Одержувач може пропустити вашу відповідь, наприклад, коли довге повідомлення скорочується</string>
     <string name="title_advanced_attach_new_hint">В іншому випадку додавати поширювані адреси чи файли до чернетки поточного повідомлення</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
     <string name="title_advanced_remove_signature_hint">Це може призвести до замалого або занадто багатого видалянню тексту</string>
@@ -1403,6 +1404,7 @@
     <string name="title_attachment_keywords">вкладені, вкладення, вкладення, включене</string>
     <string name="title_attachment_reminder">Ви мали намір додати вкладення?</string>
     <string name="title_attachment_warning">Потенційна небезпека: %1$s</string>
+    <string name="title_attachment_filename">Деякі інші поштові клієнти не можуть обробляти імена файлів довшими за 60 символів</string>
     <string name="title_plain_reminder">Все форматування буде втрачено</string>
     <string name="title_dsn_reminder">Постійні, або жорсткі, відмови від повідомлень про стан доставлення шкодять репутації оригінальному відправнику електронної пошти!</string>
     <string name="title_size_reminder">Розмір повідомлення (%1$s) більше за ліміт встановлений сервером (%2$s)</string>
@@ -1627,6 +1629,7 @@
     <string name="title_rule_keyword_missing">Відсутнє ключове слово</string>
     <string name="title_rule_automation_hint">Це надішле intent \'%1$s\' з доповненнями \'%2$s</string>
     <string name="title_rule_delete_hint">Постійне видалення є незворотнім, тому переконайтеся, що умови правила правильні!</string>
+    <string name="title_rule_edit_group">Редагувати групу &#8230;</string>
     <string name="title_rule_execute">Виконати зараз</string>
     <string name="title_rule_applied">Повідомлення котрі підлягають: %1$d</string>
     <string name="title_rule_check">Перевірити</string>
@@ -1777,7 +1780,7 @@
 Якщо ви отримуєте багато спаму, зверніться до служби підтримки вашого поштового сервісу і не звинувачуйте додаток!    </string>
     <string name="title_hint_important">Важливо</string>
     <string name="title_hint_sync">Завантаження повідомлень може зайняти деякий час, в залежності від пристрою, швидкості провайдера, інтернет-з\'єднання та кількості повідомлень. При завантаженні повідомлень, додаток може реагувати повільніше.</string>
-    <string name="title_hint_sync_note">За замовчуванням, не всі повідомлення будуть завантажені щоб обмежити об\'єм використаної пам\'яті, а також використання акумулятора. Це можна змінити, довго натискаючи на теку в списку тек і вибравши \"Синхронізувати більше\".</string>
+    <string name="title_hint_sync_note">За замовчуванням, не всі повідомлення будуть завантажені, щоб обмежити обсяг використаної пам\'яті, а також використання акумулятора. Це можна змінити, довго натискаючи на теку в списку тек і вибравши \"Отримати більше повідомлень\".</string>
     <string name="title_hint_battery">Оскільки FairEmail по замовчуванню завжди отримує повідомлення, Android буде повідомляти про роботу з FairEmail як завжди активну. Тому ситуація виглядає так, ніби FairEmail завжди споживає заряд акумулятора, хоча насправді це не так.</string>
     <string name="title_hint_reformat">За замовчуванням FairEmail переформатує повідомлення з міркувань конфіденційності та безпеки. Для перегляду оригінального повідомлення натисніть на іконку \"Повний екран\" над текстом повідомлення.</string>
     <string name="title_hint_design">Дизайн навмисно створено так щоб не відволікав, але залишався високо функціональним. Існує багато варіантів для налаштування зовнішнього вигляду, але будь ласка, розумійте, що неможливо зробити всіх повністю задоволеними одночасно.</string>

@@ -260,6 +260,7 @@
     <string name="title_setup_done">Гатова</string>
     <string name="title_setup_still">Засталося зрабіць</string>
     <string name="title_setup_error">Памылка</string>
+    <string name="title_setup_manual_setup">Ручное наладжванне</string>
     <string name="title_setup_pop">Выкарыстоўваць POP3 (не рэкамендуецца)</string>
     <string name="title_setup_recent">Выкарыстоўваць \'recent\' для некалькіх паштовых кліентаў</string>
     <string name="title_setup_configuring">Наладжванне ўліковага запісу &#8230;</string>
@@ -770,6 +771,7 @@
     <string name="title_advanced_send_reminders_hint">Паказваць папярэджанне, калі тэкст або тэма паведамлення пустыя або калі існуе верагоднасць адсутнасці ўкладання</string>
     <string name="title_advanced_reply_move_hint">Сервер электроннай пошты ўсё яшчэ можа дадаваць паведамленні ў папку адпраўленых паведамленняў</string>
     <string name="title_advanced_compose_color_hint">Вельмі светлыя або вельмі цёмныя колеры зробяць паведамленні нечытэльнымі для атрымальнікаў</string>
+    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Атрымальнік можа прапусціць ваш адказ, напрыклад, пры скарачэнні доўгага паведамлення</string>
     <string name="title_advanced_attach_new_hint">У адваротным выпадку дадаваць абагуленыя адрасы або файлы ў бягучы чарнавік паведамлення</string>
     <string name="title_advanced_usenet_hint">Устаўляць \'—\' паміж тэкстам і подпісам</string>
     <string name="title_advanced_remove_signature_hint">Гэта можа прывесці да таго, што будзе выдаляцца занадта малая або занадта вялікая частка тэксту</string>
@@ -1408,6 +1410,7 @@
     <string name="title_attachment_keywords">укладзена,укладанне,укладанні,уключана</string>
     <string name="title_attachment_reminder">Вы збіраліся дадаць укладанне?</string>
     <string name="title_attachment_warning">Патэнцыяльная небяспека: %1$s</string>
+    <string name="title_attachment_filename">Некаторыя іншыя паштовыя кліенты не могуць апрацоўваць імёны файлаў, даўжэйшыя за 60 сімвалаў</string>
     <string name="title_plain_reminder">Усё фарматаванне будзе страчана</string>
     <string name="title_dsn_reminder">Жорсткія адмовы шкодзяць рэпутацыі электроннай пошты першапачатковага адпраўніка!</string>
     <string name="title_size_reminder">Памер паведамлення (%1$s) перавышае ліміт сервера (%2$s)</string>
@@ -1590,6 +1593,7 @@
     <string name="title_rule_daily">Выконваць штодня (аднаразова)</string>
     <string name="title_rule_age">Паведамленні, старэйшыя за (дні)</string>
     <string name="title_rule_stop">Спыніць апрацоўку правілаў пасля выканання гэтага правіла</string>
+    <string name="title_rule_stop_remark">Калі правіла ўваходзіць у групу, апрацоўка ўсіх правілаў у гэтай групе будзе спынена</string>
     <string name="title_rule_sender">Адпраўнік змяшчае</string>
     <string name="title_rule_sender_known">Адпраўшчык з\'яўляецца кантактам</string>
     <string name="title_rule_recipient">Атрымальнік змяшчае</string>
@@ -1631,6 +1635,7 @@
     <string name="title_rule_keyword_missing">Адсутнічае ключавое слова</string>
     <string name="title_rule_automation_hint">Гэта адправіць мэту \'%1$s\' з дадатковымі элементамі \'%2$s\'</string>
     <string name="title_rule_delete_hint">Канчатковае выдаленне з\'яўляецца незваротным, таму пераканайцеся, што ўмовы правіла правільныя!</string>
+    <string name="title_rule_edit_group">Рэдагаваць групу &#8230;</string>
     <string name="title_rule_execute">Выканаць зараз</string>
     <string name="title_rule_applied">Закранутыя паведамленні: %1$d</string>
     <string name="title_rule_check">Праверыць</string>
@@ -1782,7 +1787,7 @@
     </string>
     <string name="title_hint_important">Важна</string>
     <string name="title_hint_sync">Загрузка паведамленняў можа заняць некаторы час, у залежнасці ад хуткасці правайдара, інтэрнэт-злучэння, прылады і колькасці паведамленняў. Падчас загрузкі паведамленняў праграма можа адказваць павольней.</string>
-    <string name="title_hint_sync_note">З мэтай абмежавання месца ў сховішчы, выкарыстання батарэі і даных, па змаўчанні будуць загружацца не ўсе паведамленні. Вы можаце змяніць гэта доўгім націсканнем на папку ў спісе папак і выбраць пункт \'Сінхранізаваць больш\' у меню.</string>
+    <string name="title_hint_sync_note">З мэтай абмежавання месца ў сховішчы, выкарыстання батарэі і даных, па змаўчанні будуць загружацца не ўсе паведамленні. Вы можаце змяніць гэта доўгім націсканнем на папку ў спісе папак і выбраць пункт \'Атрымаць больш паведамленняў\' у меню.</string>
     <string name="title_hint_battery">Паколькі FairEmail па змаўчанні заўсёды атрымлівае паведамленні, Android будзе паведамляць, што праграма FairEmail заўсёды актыўная. Такім чынам, можа выглядаць так, быццам FairEmail заўсёды спажывае зарад батарэі, хоць насамрэч гэта не так.</string>
     <string name="title_hint_reformat">Па змаўчанні FairEmail перафарматоўвае паведамленні з меркаванняў прыватнасці і бяспекі. Каб праглядзець зыходнае паведамленне, дакраніцеся да значка \'на ўвесь экран\' над тэкстам паведамлення.</string>
     <string name="title_hint_design">Дызайн праграмы наўмысна не адцягвае ўвагу, але захоўвае высокую функцыянальнасць. Існуе вялікая колькасць варыянтаў афармлення знешняга выгляду, але, калі ласка, зразумейце, што немагчыма зрабіць усіх цалкам задаволенымі адначасова.</string>

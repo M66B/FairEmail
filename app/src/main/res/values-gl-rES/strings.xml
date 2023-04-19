@@ -1605,7 +1605,6 @@
     <string name="title_hint_message_selection">Faga unha pulsación longa para comezar a seleccionar múltiples mensaxes; manteña e esvare cara arriba ou abaixo para seleccionar máis mensaxes</string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Baixar mensaxes pode levar certo tempo, dependendo da velocidade do provedor, da conexión a internet, o dispositivo e o número de mensaxes. Mentres a aplicación estea baixando mensaxes, pode responder máis lentamente.</string>
-    <string name="title_hint_sync_note">Por defecto, non todas as mensaxes van ser descargadas para limitar o espazo de almacenamento e o uso de datos e batería. Pode cambiar isto premendo un intre na lista de cartafoles e seleccionando \'Sincronizar máis\'.</string>
     <string name="title_hint_battery">Como FairEmail sempre está a recibir mensaxes, Android considerará que sempre está activa. Polo tanto podería parecer que FairEmail está sempre a consumir batería cando en realidade non é así.</string>
     <string name="title_hint_reformat">Por defecto, FairEmail reformata as mensaxes por razóns de privacidade e de seguridade. Para ver a mensaxe orixinal, prema na icona de \'pantalla completa\' sobre o texto da mensaxe.</string>
     <string name="title_hint_design">O deseño pretende non distraer e aínda manterse altamente funcional. Hai moitas opcións para personalizar a aparencia, pero comprenda que non é posible contentar a todas as persoas ao mesmo tempo.</string>

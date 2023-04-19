@@ -1577,7 +1577,6 @@
     <string name="title_hint_message_selection">長按一則訊息以開始選擇多則訊息； 按住並向上或向下滑動以選擇更多訊息</string>
     <string name="title_hint_important">重要</string>
     <string name="title_hint_sync">下載訊息可能會花費一些時間，具體取決於供應商的速度、互聯網連線、使用的裝置和訊息的數量。在下載訊息期間，應用程式的響應可能會變慢。</string>
-    <string name="title_hint_sync_note">出於限制儲存空間、電池以及數據用量的目的，預設情況下只有部分訊息會被下載。 此情況可藉由長按資料夾清單中的資料夾項並選擇\"提取更多訊息\"來改變。</string>
     <string name="title_hint_battery">由於預設情況下 FairEmail 會時刻接收訊息，因此 Android 會將 FairEmail 回報為始終處於活動中。看似 FairEmail 一直在消耗電量，但事實並非如此 。</string>
     <string name="title_hint_reformat">出於隱私和安全原因，FairEmail 預設重排訊息。 要檢視原始訊息，請輕觸訊息本文上方的“鋪滿螢幕”圖示。</string>
     <string name="title_hint_design">本程式介面設計並非意圖使您分心，而是意圖保持高度的實用性。 程式內有許多可供自訂外觀的選項，但請您理解，這些自訂項所提供的內容不可能令得每個人都完全滿意。</string>

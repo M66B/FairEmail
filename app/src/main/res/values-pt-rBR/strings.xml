@@ -743,6 +743,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo puder estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de e-mail ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_compose_color_hint">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
+    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Um destinatário pode perder a sua resposta, por exemplo, quando uma mensagem mais longa estiver sendo truncada</string>
     <string name="title_advanced_attach_new_hint">Caso contrário, adicione endereços ou arquivos compartilhados à mensagem de rascunho atual</string>
     <string name="title_advanced_usenet_hint">Inserir \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_remove_signature_hint">Isso pode resultar em muito pouco ou muito texto sendo removido</string>
@@ -1377,6 +1378,7 @@
     <string name="title_attachment_keywords">anexado,anexo,anexos,incluídos</string>
     <string name="title_attachment_reminder">Você quis adicionar um anexo?</string>
     <string name="title_attachment_warning">Potencialmente perigoso: %1$s</string>
+    <string name="title_attachment_filename">Alguns outros clientes de e-mail não podem lidar com nomes de arquivos com mais de 60 caracteres</string>
     <string name="title_plain_reminder">Todas as formatações serão perdidas</string>
     <string name="title_dsn_reminder">Saltos demais atrapalham a reputação do email do remetente original!</string>
     <string name="title_size_reminder">A mensagem (%1$s) é maior que o limite do servidor (%2$s)</string>
@@ -1601,6 +1603,7 @@
     <string name="title_rule_keyword_missing">Palavra-chave faltando</string>
     <string name="title_rule_automation_hint">Isto enviará a intenção \'%1$s\' com os extras \'%2$s\'</string>
     <string name="title_rule_delete_hint">A exclusão permanente é irreversível, por isso certifique-se de que as condições de regra estão corretas!</string>
+    <string name="title_rule_edit_group">Editar grupo &#8230;</string>
     <string name="title_rule_execute">Execute agora</string>
     <string name="title_rule_applied">Mensagens afetadas: %1$d</string>
     <string name="title_rule_check">Verificar</string>
@@ -1752,7 +1755,7 @@
     </string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Baixar mensagens pode levar algum tempo, dependendo da velocidade do provedor, da conexão de internet e do dispositivo, e o número de mensagens. Enquanto estiver baixando as mensagens o app pode responder mais devagar.</string>
-    <string name="title_hint_sync_note">Por padrão, nem todas as mensagens serão baixadas para limitar o espaço de armazenamento e o uso de bateria e dados. Você pode alterar isso pressionando longamente uma pasta na lista de pastas e selecionando \'Sincronizar mais\'.</string>
+    <string name="title_hint_sync_note">Por padrão, nem todas as mensagens serão baixadas para limitar o espaço de armazenamento e o uso de bateria e dados. Você pode alterar isso pressionando longamente uma pasta na lista de pastas e selecionando \'Buscar mais mensagens\'.</string>
     <string name="title_hint_battery">Uma vez que o FairEmail por padrão sempre recebe mensagens, o Android reportará o FairEmail como sempre ativo. Por conseguinte, pode parecer que o FairEmail está sempre a consumir bateria, embora não seja esse o caso.</string>
     <string name="title_hint_reformat">Por padrão, o FairEmail reformata as mensagens por razões de privacidade e segurança. Para ver a mensagem original, toque no ícone de \'tela cheia\' acima do texto da mensagem.</string>
     <string name="title_hint_design">O design é intencionalmente simples, mas mantém-se altamente funcional. Existem muitas opções para personalizar a aparência, mas, por favor, entenda que é impossível deixar todos completamente felizes ao mesmo tempo.</string>

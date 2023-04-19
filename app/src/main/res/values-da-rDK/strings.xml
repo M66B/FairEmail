@@ -1601,6 +1601,7 @@
     <string name="title_rule_keyword_missing">Nøgleord mangler</string>
     <string name="title_rule_automation_hint">Dette vil sende intent \'%1$s\' med ekstra \'%2$s\'</string>
     <string name="title_rule_delete_hint">Permanent sletning er irreversibel, så sørg for, at regelbetingelserne er korrekte!</string>
+    <string name="title_rule_edit_group">Redigér gruppe &#8230;</string>
     <string name="title_rule_execute">Eksekvér nu</string>
     <string name="title_rule_applied">Berørte beskeder: %1$d</string>
     <string name="title_rule_check">Tjek</string>
@@ -1752,7 +1753,7 @@
     </string>
     <string name="title_hint_important">Vigtigt</string>
     <string name="title_hint_sync">Download af beskeder kan tage noget tid afhængigt af hastigheden hos udbyderen, dataforbindelsen, enheden samt beskedantallet. Under besked-download kan app\'en muligvis reagerer langsommere.</string>
-    <string name="title_hint_sync_note">For at begrænse lagerplads- samt batteri- og dataforbrug, downloades ikke alle beskeder som standard. Dette kan ændres med at langt tryk på en mappe i mappelisten, vælg dernæst \'Synkronisér flere\'.</string>
+    <string name="title_hint_sync_note">For at begrænse lagerplads-, batteri- og dataforbrug downloades ikke alle beskeder som standard. Dette kan ændres med at langt tryk på en mappe i mappelisten, vælg dernæst \'Hent flere beskeder\'.</string>
     <string name="title_hint_battery">Da FairEmail som standard altid modtager beskeder, rapporterer Android FairEmail som altid aktiv. Det kan derfor se ud som om FairEmail altid forbruger batteristrøm, selvom dette faktisk ikke er tilfældet.</string>
     <string name="title_hint_reformat">Af fortrolighedshensyn og sikkerhedsårsager omformaterer FairEmail som standard beskeder. For at se den originale besked, tryk på ikonet \"fuldskærm\" over beskedteksten.</string>
     <string name="title_hint_design">Designet er bevidst ikke-distraherende, men holdt meget funktionel. Der er mange muligheder for at tilpasse udseende, men vær opmærksom på, at det er umuligt at gøre alle glade.</string>
