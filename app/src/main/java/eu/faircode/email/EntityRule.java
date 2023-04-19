@@ -680,6 +680,11 @@ public class EntityRule {
 
     private boolean onActionHide(Context context, EntityMessage message) {
         DB db = DB.getInstance(context);
+
+        EntityFolder folder = db.folder().getFolder(message.folder);
+        if (EntityFolder.DRAFTS.equals(folder.type))
+            return false;
+
         db.message().setMessageSnoozed(message.id, Long.MAX_VALUE);
         db.message().setMessageUiIgnored(message.id, true);
         EntityMessage.snooze(context, message.id, Long.MAX_VALUE);
