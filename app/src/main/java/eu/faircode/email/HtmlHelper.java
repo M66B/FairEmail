@@ -2946,7 +2946,9 @@ public class HtmlHelper {
                     if (node instanceof TextNode)
                         try {
                             TextNode tnode = (TextNode) node;
-                            String text = Fts4DbHelper.preprocessText(tnode.getWholeText());
+                            String whole = tnode.getWholeText();
+                            String text = Fts4DbHelper.preprocessText(whole);
+                            String ref = (whole.length() == text.length() ? whole : text);
 
                             Matcher result = p.matcher(text);
 
@@ -2956,7 +2958,7 @@ public class HtmlHelper {
                                 int start = result.start(1);
                                 int end = result.end(1);
 
-                                holder.appendText(text.substring(prev, start));
+                                holder.appendText(ref.substring(prev, start));
 
                                 Element span = document.createElement("span");
                                 span.attr("style", mergeStyles(
@@ -2964,9 +2966,7 @@ public class HtmlHelper {
                                         "font-size:larger !important;" +
                                                 "font-weight:bold !important;" +
                                                 "background-color:" + encodeWebColor(color) + " !important"));
-                                span.text(tnode.getWholeText().length() == text.length()
-                                        ? tnode.getWholeText().substring(start, end)
-                                        : text.substring(start, end));
+                                span.text(ref.substring(start, end));
                                 holder.appendChild(span);
 
                                 prev = end;
@@ -2976,7 +2976,7 @@ public class HtmlHelper {
                                 return;
 
                             if (prev < text.length())
-                                holder.appendText(text.substring(prev));
+                                holder.appendText(ref.substring(prev));
 
                             tnode.before(holder);
                             tnode.text("");
