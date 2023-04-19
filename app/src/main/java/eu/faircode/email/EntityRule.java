@@ -499,6 +499,14 @@ public class EntityRule {
                     return false;
             }
 
+            if (jcondition.has("younger")) {
+                int younger = jcondition.getInt("younger");
+                Calendar y = Calendar.getInstance();
+                y.add(Calendar.HOUR_OF_DAY, -younger);
+                if (message.received < y.getTimeInMillis())
+                    return false;
+            }
+
             // Safeguard
             if (jsender == null &&
                     jrecipient == null &&
@@ -507,7 +515,8 @@ public class EntityRule {
                     jheader == null &&
                     jbody == null &&
                     jdate == null &&
-                    jschedule == null)
+                    jschedule == null &&
+                    !jcondition.has("younger"))
                 return false;
         } catch (JSONException ex) {
             Log.e(ex);

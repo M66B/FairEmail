@@ -127,6 +127,7 @@ public class FragmentRule extends FragmentBase {
     private TextView tvScheduleHourStart;
     private TextView tvScheduleHourEnd;
     private CheckBox cbEveryDay;
+    private EditText etYounger;
 
     private Spinner spAction;
     private TextView tvActionRemark;
@@ -311,6 +312,7 @@ public class FragmentRule extends FragmentBase {
         tvScheduleHourStart = view.findViewById(R.id.tvScheduleHourStart);
         tvScheduleHourEnd = view.findViewById(R.id.tvScheduleHourEnd);
         cbEveryDay = view.findViewById(R.id.cbEveryDay);
+        etYounger = view.findViewById(R.id.etYounger);
 
         spAction = view.findViewById(R.id.spAction);
         tvActionRemark = view.findViewById(R.id.tvActionRemark);
@@ -1224,6 +1226,8 @@ public class FragmentRule extends FragmentBase {
                         int end = (jschedule != null && jschedule.has("end") ? jschedule.getInt("end") : 0);
 
                         cbEveryDay.setChecked(jschedule != null && jschedule.optBoolean("all"));
+                        etYounger.setText(jcondition.has("younger")
+                                ? Integer.toString(jcondition.optInt("younger")) : null);
 
                         spScheduleDayStart.setSelection(start / (24 * 60));
                         spScheduleDayEnd.setSelection(end / (24 * 60));
@@ -1624,6 +1628,14 @@ public class FragmentRule extends FragmentBase {
             jschedule.put("all", all);
             jcondition.put("schedule", jschedule);
         }
+
+        String younger = etYounger.getText().toString().trim();
+        if (!TextUtils.isEmpty(younger) && TextUtils.isDigitsOnly(younger))
+            try {
+                jcondition.put("younger", Integer.parseInt(younger));
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         return jcondition;
     }
