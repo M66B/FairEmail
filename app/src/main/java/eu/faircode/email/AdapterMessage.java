@@ -1083,6 +1083,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTrash.setOnLongClickListener(this);
                 ibJunk.setOnClickListener(this);
                 ibInbox.setOnClickListener(this);
+                ibInbox.setOnLongClickListener(this);
                 ibMore.setOnClickListener(this);
                 ibTools.setOnClickListener(this);
 
@@ -1199,6 +1200,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibTrash.setOnLongClickListener(null);
                 ibJunk.setOnClickListener(null);
                 ibInbox.setOnClickListener(null);
+                ibInbox.setOnLongClickListener(null);
                 ibMore.setOnClickListener(null);
                 ibTools.setOnClickListener(null);
 
@@ -4446,6 +4448,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else if (id == R.id.tvFolder) {
                 onGotoFolder(message);
                 return true;
+            } else if (id == R.id.ibInbox) {
+                boolean inJunk = EntityFolder.JUNK.equals(message.folderType);
+                if (inJunk)
+                    onActionJunk(message);
+                return inJunk;
             } else if (id == R.id.ibImportance) {
                 int importance = (((message.ui_importance == null ? 1 : message.ui_importance) + 2) % 3);
                 onMenuSetImportance(message, importance);
