@@ -4881,6 +4881,10 @@ public class FragmentCompose extends FragmentBase {
                     Log.i(ex);
                 }
 
+            // https://www.rfc-editor.org/rfc/rfc2231
+            if (attachment.name != null && attachment.name.length() > 60)
+                db.attachment().setError(attachment.id, context.getString(R.string.title_attachment_filename));
+
         } catch (Throwable ex) {
             // Reset progress on failure
             Log.e(ex);

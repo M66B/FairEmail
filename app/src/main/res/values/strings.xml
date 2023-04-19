@@ -1661,6 +1661,7 @@
     <string name="title_attachment_keywords">attached,attachment,attachments,included</string>
     <string name="title_attachment_reminder">Did you intend to add an attachment?</string>
     <string name="title_attachment_warning">Potentially dangerous: %1$s</string>
+    <string name="title_attachment_filename">Some other email clients cannot handle file names longer than 60 characters</string>
     <string name="title_plain_reminder">All formatting will be lost</string>
     <string name="title_dsn_reminder">Hard bounces damage the email reputation of the original sender!</string>
     <string name="title_size_reminder">Message (%1$s) larger than server limit (%2$s)</string>
