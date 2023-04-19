@@ -5219,6 +5219,10 @@ class Core {
         boolean redacted = ((biometrics || !TextUtils.isEmpty(pin)) && !biometric_notify);
         if (redacted)
             notify_summary = true;
+        if (notify_screen_on &&
+                !(Build.VERSION.SDK_INT <= Build.VERSION_CODES.TIRAMISU ||
+                        Helper.hasPermission(context, "android.permission.TURN_SCREEN_ON")))
+            notify_screen_on = false;
 
         Log.i("Notify messages=" + messages.size() +
                 " biometrics=" + biometrics + "/" + biometric_notify +

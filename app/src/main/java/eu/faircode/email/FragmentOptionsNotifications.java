@@ -126,6 +126,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
     private Group grpChannel;
     private Group grpProperties;
+    private Group grpScreenOn;
     private Group grpBackground;
     private Group grpTiles;
 
@@ -214,6 +215,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
         grpChannel = view.findViewById(R.id.grpChannel);
         grpProperties = view.findViewById(R.id.grpProperties);
+        grpScreenOn = view.findViewById(R.id.grpScreenOn);
         grpBackground = view.findViewById(R.id.grpBackground);
         grpTiles = view.findViewById(R.id.grpTiles);
 
@@ -499,6 +501,10 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        grpScreenOn.setVisibility(
+                Build.VERSION.SDK_INT <= Build.VERSION_CODES.TIRAMISU ||
+                        hasPermission("android.permission.TURN_SCREEN_ON")
+                        ? View.VISIBLE : View.GONE);
         swNotifyScreenOn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {

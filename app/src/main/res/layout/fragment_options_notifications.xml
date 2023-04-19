@@ -441,6 +441,12 @@
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     app:constraint_referenced_ids="swLight,btnSound" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpScreenOn"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="swNotifyScreenOn,tvNotifyScreenOnHint" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
