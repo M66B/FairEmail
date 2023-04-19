@@ -596,6 +596,18 @@
                     app:layout_constraintTop_toBottomOf="@id/swExtendedReply"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvWriteBelowHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_write_below_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swWriteBelow" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swQuoteReply"
                     android:layout_width="0dp"
@@ -605,7 +617,7 @@
                     android:text="@string/title_advanced_quote_reply"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swWriteBelow"
+                    app:layout_constraintTop_toBottomOf="@id/tvWriteBelowHint"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
