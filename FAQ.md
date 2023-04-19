@@ -3892,6 +3892,10 @@ Some companion apps ignore [local only](https://developer.android.com/training/w
 causing the summary notification (*nnn new messages*) to be bridged.
 Unfortunately, it is not possible to workaround this problem.
 
+Ongoing notifications shouldn't be bridged, but some companion apps bridge all notifications.
+This results in the "monitoring" status bar notification to be bridged.
+The workaround is to disable this notification, see [this FAQ](#user-content-faq2).
+
 <br />
 
 <a name="faq127"></a>
