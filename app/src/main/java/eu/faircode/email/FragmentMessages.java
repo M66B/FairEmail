@@ -1577,6 +1577,22 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
+        ibInbox.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                MoreResult result = (MoreResult) cardMore.getTag();
+                if (result == null || !result.isJunk)
+                    return false;
+
+                if (result.hasPop && !result.hasImap)
+                    onActionBlockSender();
+                else if (!result.hasPop && result.hasImap)
+                    onActionJunkSelection();
+
+                return true;
+            }
+        });
+
         ibArchive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
