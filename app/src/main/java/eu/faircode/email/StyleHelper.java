@@ -1344,6 +1344,7 @@ public class StyleHelper {
         List<String> lines = new ArrayList<>(Arrays.asList(edit.subSequence(start, end).toString().split("\n")));
         Collections.reverse(lines);
         edit.replace(start, end, TextUtils.join("\n", lines));
+        etBody.setSelection(start, end);
 
         return true;
     }
