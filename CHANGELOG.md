@@ -6,6 +6,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
+### Next version
+
+* Added younger than rule condition
+* Added option to show filter icon when rules were applied
+* Added warning for long attachment file names
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2065 - 2023-04-16
 
 * Fixed extra new lines
