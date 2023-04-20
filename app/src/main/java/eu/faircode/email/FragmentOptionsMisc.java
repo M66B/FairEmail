@@ -119,6 +119,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SeekBar sbClassMinProbability;
     private TextView tvClassMinDifference;
     private SeekBar sbClassMinDifference;
+    private SwitchCompat swShowFiltered;
     private ImageButton ibClassification;
     private TextView tvFtsIndexed;
     private TextView tvFtsPro;
@@ -270,6 +271,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private final static String[] RESET_OPTIONS = new String[]{
             "sort_answers", "shortcuts", "fts",
             "classification", "class_min_probability", "class_min_difference",
+            "show_filtered",
             "language",
             "lt_enabled", "lt_auto", "lt_picky", "lt_uri", "lt_user", "lt_key",
             "deepl_enabled",
@@ -359,6 +361,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         sbClassMinProbability = view.findViewById(R.id.sbClassMinProbability);
         tvClassMinDifference = view.findViewById(R.id.tvClassMinDifference);
         sbClassMinDifference = view.findViewById(R.id.sbClassMinDifference);
+        swShowFiltered = view.findViewById(R.id.swShowFiltered);
         tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
         tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
@@ -644,6 +647,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
                 // Do nothing
+            }
+        });
+
+        swShowFiltered.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("show_filtered", isChecked).apply();
             }
         });
 
@@ -2338,6 +2348,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         int class_min_difference = prefs.getInt("class_min_difference", 40);
         tvClassMinDifference.setText(getString(R.string.title_advanced_class_min_difference, NF.format(class_min_difference)));
         sbClassMinDifference.setProgress(class_min_difference);
+
+        swShowFiltered.setChecked(prefs.getBoolean("show_filtered", false));
 
         int selected = -1;
         String language = prefs.getString("language", null);

@@ -137,6 +137,7 @@ public class FragmentOptions extends FragmentBase {
             "column_width",
             "hide_toolbar", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
             "indentation", "date", "date_week", "date_fixed", "date_bold", "threading", "threading_unread",
+            "show_filtered",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
             "avatars", "bimi", "favicons", "generated_icons", "identicons", "circular", "saturation", "brightness", "threshold",
             "authentication", "authentication_indicator",

@@ -289,6 +289,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private String sender_ellipsize;
     private String subject_ellipsize;
 
+    private boolean show_filtered;
     private boolean keywords_header;
     private boolean labels_header;
     private boolean flags;
@@ -1460,7 +1461,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }
 
             ivFound.setVisibility(message.ui_found && found ? View.VISIBLE : View.GONE);
-            ivClassified.setVisibility(message.auto_classified ? View.VISIBLE : View.GONE);
+            ivClassified.setImageResource(message.isFiltered()
+                    ? R.drawable.twotone_filter_alt_24 : R.drawable.twotone_push_pin_24);
+            ivClassified.setVisibility(message.auto_classified || (show_filtered && message.isFiltered())
+                    ? View.VISIBLE : View.GONE);
 
             int snoozy = (message.ui_snoozed != null && message.ui_snoozed == Long.MAX_VALUE
                     ? R.drawable.twotone_visibility_off_24
@@ -7627,6 +7631,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.subject_italic = prefs.getBoolean("subject_italic", true);
         this.sender_ellipsize = prefs.getString("sender_ellipsize", "end");
         this.subject_ellipsize = prefs.getString("subject_ellipsize", "full");
+        this.show_filtered = prefs.getBoolean("show_filtered", false);
         this.keywords_header = prefs.getBoolean("keywords_header", false);
         this.labels_header = prefs.getBoolean("labels_header", true);
         this.flags = prefs.getBoolean("flags", true);

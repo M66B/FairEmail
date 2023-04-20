@@ -361,6 +361,10 @@ public class EntityMessage implements Serializable {
         return hasKeyword(MessageHelper.FLAG_FORWARDED);
     }
 
+    boolean isFiltered() {
+        return hasKeyword(MessageHelper.FLAG_FILTERED);
+    }
+
     boolean isSigned() {
         return (EntityMessage.PGP_SIGNONLY.equals(ui_encrypt) ||
                 EntityMessage.SMIME_SIGNONLY.equals(ui_encrypt));
