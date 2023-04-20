@@ -712,6 +712,7 @@
     <string name="title_advanced_classification">Класіфікаваць паведамленні</string>
     <string name="title_advanced_class_min_chance">Мінімальная верагоднасць класа: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Мінімальная розніца паміж класамі: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Паказваць значок фільтра пры ўжыванні правіл</string>
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Сістэмная</string>
     <string name="title_advanced_lt">Інтэграцыя з LanguageTool</string>

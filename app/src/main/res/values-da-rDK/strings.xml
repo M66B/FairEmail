@@ -684,6 +684,7 @@
     <string name="title_advanced_classification">Klassificér beskeder</string>
     <string name="title_advanced_class_min_chance">Minimumsklassesandsynlighed: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimumsklassedifferens: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Vis et filterikon, når regler er anvendt</string>
     <string name="title_advanced_language">Sprog</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">LanguageTool-integration</string>
@@ -1576,6 +1577,7 @@
     <string name="title_rule_time_before">Modtaget før</string>
     <string name="title_rule_time_rel">Absolut tid (modtaget) mellem</string>
     <string name="title_rule_time_every_day">Dagligt</string>
+    <string name="title_rule_younger">Beskeder nyere end (timer)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OG</string>
     <string name="title_rule_action">Handling</string>

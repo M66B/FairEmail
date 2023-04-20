@@ -710,6 +710,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_classification">Klasifikovat zprávy</string>
     <string name="title_advanced_class_min_chance">Minimální pravděpodobnost pro klasifikaci: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimální rozdíl pro klasifikaci: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Zobrazit ikonu filtru při použití pravidel</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_lt">Integrace LanguageTool</string>

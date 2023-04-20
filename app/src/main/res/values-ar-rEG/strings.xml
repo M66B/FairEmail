@@ -12,8 +12,8 @@
     <string name="app_cake_remaining">مساحة التخزين المتبقية على الجهاز: %1$s</string>
     <string name="app_cake_required">الحد الأدنى لمساحة التخزين المطلوبة: %1$s</string>
     <string name="app_updated">آخر تحديث: %1$s</string>
-    <string name="app_download">نُزّل من: %1$s</string>
-    <string name="channel_service">المتابع</string>
+    <string name="app_download">تم التحميل من: %1$s</string>
+    <string name="channel_service">مراقبة</string>
     <string name="channel_send">أرسل</string>
     <string name="channel_notification">البريد الإلكتروني</string>
     <string name="channel_progress">التفدم</string>
@@ -34,6 +34,22 @@
     <string name="shortcut_refresh">تحديث</string>
     <string name="shortcut_compose">تحرير</string>
     <string name="shortcut_setup">الإعدادات</string>
+    <plurals name="title_notification_synchronizing">
+        <item quantity="zero">مزامنة الحساب %1$d</item>
+        <item quantity="one">مزامنة الحساب %1$d</item>
+        <item quantity="two">مزامنة الحساب %1$d</item>
+        <item quantity="few">مزامنة الحساب %1$d</item>
+        <item quantity="many">مزامنة الحساب %1$d</item>
+        <item quantity="other">مزامنة الحساب %1$d</item>
+    </plurals>
+    <plurals name="title_notification_operations">
+        <item quantity="zero">%1$d العملية معلقة</item>
+        <item quantity="one">%1$d العملية معلقة</item>
+        <item quantity="two">%1$d العملية معلقة</item>
+        <item quantity="few">%1$d العملية معلقة</item>
+        <item quantity="many">%1$d العملية معلقة</item>
+        <item quantity="other">%1$d العملية معلقة</item>
+    </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="zero">%1$d رسائل جديدة</item>
         <item quantity="one">%1$d رسالة جديدة</item>

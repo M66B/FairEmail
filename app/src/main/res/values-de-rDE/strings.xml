@@ -248,7 +248,7 @@
     <string name="title_setup_export_remark">        Da die Einstellungsdatei alle Einstellungen und Kontoinformationen enthält, wird sie mit einem Passwort verschlüsselt.
         Das Passwort wird benötigt, um die Einstellungen erneut zu importieren. Bitte vergessen Sie es daher nicht!
     </string>
-    <string name="title_setup_export_do">Die Exportdatei enthält alle Einstellungen und Daten, aber keine Nachrichten und keine in Signaturen eingebetteten Bilder.</string>
+    <string name="title_setup_export_do">Die Exportdatei enthält alle Einstellungen und Daten, aber keine Nachrichten und keine in Signaturen eingebetteten Bilder</string>
     <string name="title_setup_scroll">Die Eingabedialoge können scrollbar sein!</string>
     <string name="title_setup_backup">Wie können Nachrichten gesichert werden?</string>
     <string name="title_setup_password">Passwort</string>
@@ -722,7 +722,7 @@
     <string name="title_advanced_manual_hint">Wenn der Nachrichtenempfang deaktiviert ist, ist es immer noch möglich, Nachrichten manuell zu empfangen, indem Sie die Nachrichtenliste nach unten ziehen</string>
     <string name="title_advanced_poll_battery">Dies kann zu einem hohen Akkuverbrauch führen!</string>
     <string name="title_advanced_poll_hint">Bei der regelmäßigen Überprüfung auf neue Nachrichten werden jedes Mal lokale und entfernte Nachrichten verglichen, was ein aufwendiger Vorgang ist, der zu einem zusätzlichen Akkuverbrauch führen kann, insbesondere wenn viele Nachrichten vorhanden sind. Nachrichten immer empfangen verhindert das durch fortlaufendes Verfolgen von Änderungen.</string>
-    <string name="title_advanced_optimize_hint">Das kann die Synchronisierungsfrequenz ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers.</string>
+    <string name="title_advanced_optimize_hint">Das kann die Synchronisierungsfrequenz ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers</string>
     <string name="title_advanced_schedule_hint">Auf eine Zeit tippen, um eine Zeit festzulegen</string>
     <string name="title_advanced_schedule_ignore">Zeitpläne können in den erweiterten Konteneinstellungen deaktiviert werden</string>
     <string name="title_advanced_quick_sync_hint">Dies reduziert den Datenverbrauch, aber neue Nachrichten könnten verpasst werden, wenn der E-Mail-Server die Standards nicht einhält</string>
@@ -1582,7 +1582,7 @@
     <string name="title_rule_time_before">Erhalten bis</string>
     <string name="title_rule_time_rel">Relative Zeit (empfangen) zwischen</string>
     <string name="title_rule_time_every_day">Täglich</string>
-    <string name="title_rule_younger">Nachrichten nicht älter als (Stunden)</string>
+    <string name="title_rule_younger">Nachrichten jünger als (Stunden)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">UND</string>
     <string name="title_rule_action">Aktion</string>

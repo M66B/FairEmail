@@ -1581,6 +1581,7 @@
     <string name="title_rule_time_before">Ricevuto prima</string>
     <string name="title_rule_time_rel">Tempo relativo (di ricezione) tra</string>
     <string name="title_rule_time_every_day">Ogni giorno</string>
+    <string name="title_rule_younger">Messaggi più recenti di (ore)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">E</string>
     <string name="title_rule_action">Azione</string>

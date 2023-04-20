@@ -683,6 +683,7 @@
     <string name="title_advanced_classification">Clasificar mensajes</string>
     <string name="title_advanced_class_min_chance">Probabilidad mínima de la clase: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Diferencia mínima de la clase: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Mostrar un icono de filtro cuando se aplicaron reglas</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integración con LanguageTool</string>
@@ -743,6 +744,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar una advertencia cuando el texto del mensaje o el asunto estén vacíos o cuando un archivo adjunto pueda estar ausente</string>
     <string name="title_advanced_reply_move_hint">El servidor de correo electrónico todavía puede añadir los mensajes a la carpeta de mensajes enviados</string>
     <string name="title_advanced_compose_color_hint">Los colores muy claros o muy oscuros resultarán en mensajes ilegibles en el lado de los destinatarios</string>
+    <string name="title_advanced_write_below_hint">Un destinatario puede perderse su respuesta, por ejemplo cuando un mensaje más largo está siendo truncado</string>
     <string name="title_advanced_attach_new_hint">De lo contrario, añadir direcciones compartidas o archivos al mensaje de borrador actual</string>
     <string name="title_advanced_usenet_hint">Insertar \'-- \' entre el texto y la firma</string>
     <string name="title_advanced_remove_signature_hint">Esto puede dar lugar a que se elimine demasiado poco o demasiado texto</string>
@@ -1376,6 +1378,7 @@
     <string name="title_attachment_keywords">adjunto,adjunta,adjuntos,incluido,incluida,adjuntas</string>
     <string name="title_attachment_reminder">¿Tuvo la intención de añadir un archivo adjunto?</string>
     <string name="title_attachment_warning">Potencialmente peligroso: %1$s</string>
+    <string name="title_attachment_filename">Otros clientes de correo electrónico no pueden manejar nombres de archivos de más de 60 caracteres</string>
     <string name="title_plain_reminder">Todo el formato se perderá</string>
     <string name="title_dsn_reminder">¡Los rebotes duros dañan la reputación de correo del remitente original!</string>
     <string name="title_size_reminder">Mensaje (%1$s) más grande que el límite del servidor (%2$s)</string>
@@ -1572,6 +1575,7 @@
     <string name="title_rule_time_before">Recibido antes de</string>
     <string name="title_rule_time_rel">Tiempo relativo (recibido) entre</string>
     <string name="title_rule_time_every_day">Todos los días</string>
+    <string name="title_rule_younger">Mensajes menores de (horas)</string>
     <string name="title_rule_regex">Expresión regular</string>
     <string name="title_rule_and">Y</string>
     <string name="title_rule_action">Acción</string>
@@ -1751,6 +1755,7 @@
     </string>
     <string name="title_hint_important">Importante</string>
     <string name="title_hint_sync">Descargar mensajes puede llevar algún tiempo, dependiendo de la velocidad del proveedor, la conexión a internet, dispositivo y el número de mensajes. Mientras se descargan mensajes, la aplicación puede responder más lentamente.</string>
+    <string name="title_hint_sync_note">De forma predeterminada, no todos los mensajes se descargarán para limitar el uso de la batería, datos y almacenamiento. Puede cambiar esto manteniendo presionada una carpeta en la lista de carpetas y seleccionando \'Buscar más mensajes\'.</string>
     <string name="title_hint_battery">Dado que por defecto FairEmail recibe mensajes permanentemente, Android reportará a FairEmail como siempre activo. Por lo tanto, puede parecer que FairEmail siempre está usando la batería, pero de hecho no es así.</string>
     <string name="title_hint_reformat">Por defecto, FairEmail reformatea los mensajes por razones de privacidad y seguridad. Para ver el mensaje original, pulse el icono \'pantalla completa\' sobre el texto del mensaje.</string>
     <string name="title_hint_design">El diseño intencionalmente no distrae, pero se mantiene altamente funcional. Hay muchas opciones para personalizar la apariencia, pero por favor entienda que es imposible hacer felices a todos al mismo tiempo.</string>
