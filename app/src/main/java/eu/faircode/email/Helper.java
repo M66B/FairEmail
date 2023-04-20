@@ -2986,12 +2986,14 @@ public class Helper {
                         if (wait > PIN_FAILURE_DELAY_MAX)
                             wait = PIN_FAILURE_DELAY_MAX;
                         long delay = pin_failure_at + wait - new Date().getTime();
+                        etPin.setHint(getDateTimeInstance(activity).format(pin_failure_at + wait));
                         Log.i("PIN wait=" + wait + " delay=" + delay);
                         dview.postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 try {
                                     etPin.setCompoundDrawables(null, null, null, null);
+                                    etPin.setHint(R.string.title_advanced_pin);
                                     etPin.setEnabled(true);
                                     etPin.requestFocus();
                                     showKeyboard(etPin);
