@@ -696,6 +696,7 @@
     <string name="title_advanced_classification">Clasifică mesajele</string>
     <string name="title_advanced_class_min_chance">Probabilitate de clasă minimă: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Diferenţa minimă a clasei: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Arată o pictogramă filtru atunci când regulile au fost aplicate</string>
     <string name="title_advanced_language">Limba</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Integrare cu LanguageTool</string>
@@ -756,6 +757,7 @@
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
     <string name="title_advanced_reply_move_hint">Serverul de e-mail ar putea adăuga mesajele la folderul de mesaje trimise</string>
     <string name="title_advanced_compose_color_hint">Culorile foarte deschise sau foarte închise vor avea ca rezultat mesaje ilizibile pe partea destinatarilor</string>
+    <string name="title_advanced_write_below_hint">Un destinatar poate rata răspunsul dvs., de exemplu atunci când un mesaj mai lung este trunchiat</string>
     <string name="title_advanced_attach_new_hint">În caz contrar, adăugați adrese sau fișiere partajate la proiectul de mesaj curent</string>
     <string name="title_advanced_usenet_hint">Inserează \'-- \' între text și semnătură</string>
     <string name="title_advanced_remove_signature_hint">Acest lucru poate duce la eliminarea unui text prea scurt sau prea mare</string>
@@ -1389,6 +1391,7 @@
     <string name="title_attachment_keywords">atasez,atasat,atasate,atsament,atașez,atașat,atașament</string>
     <string name="title_attachment_reminder">Ați intenționat să adăugați un atașament?</string>
     <string name="title_attachment_warning">Potențial periculos: %1$s</string>
+    <string name="title_attachment_filename">Alți clienți de e-mail nu pot manipula numele fișierelor mai lungi de 60 de caractere</string>
     <string name="title_plain_reminder">Toate formatările vor fi pierdute</string>
     <string name="title_dsn_reminder">Mesajul de eroare serios deteriorează reputația expeditorului e-mailului original!</string>
     <string name="title_size_reminder">Mesajul (%1$s) mai mare decât limita serverului (%2$s)</string>
@@ -1586,6 +1589,7 @@
     <string name="title_rule_time_before">Primit înainte</string>
     <string name="title_rule_time_rel">Timp relativ (primit) între</string>
     <string name="title_rule_time_every_day">În fiecare zi</string>
+    <string name="title_rule_younger">Mesaje mai noi de (ore)</string>
     <string name="title_rule_regex">Expresie regulată (regex)</string>
     <string name="title_rule_and">ȘI</string>
     <string name="title_rule_action">Acțiune</string>
@@ -1613,6 +1617,7 @@
     <string name="title_rule_keyword_missing">Lipsește cuvântul cheie</string>
     <string name="title_rule_automation_hint">Aceasta va trimite intenția \'%1$s\' și extra \'%2$s\'</string>
     <string name="title_rule_delete_hint">Ștergerea permanentă este ireversibilă, așa că asigurați-vă că condițiile regulii sunt corecte!</string>
+    <string name="title_rule_edit_group">Editează grupul &#8230;</string>
     <string name="title_rule_execute">Execută acum</string>
     <string name="title_rule_applied">Mesaje afectate: %1$d</string>
     <string name="title_rule_check">Verifică</string>
@@ -1764,6 +1769,7 @@
     </string>
     <string name="title_hint_important">Important</string>
     <string name="title_hint_sync">Descărcarea mesajelor poate dura ceva timp, în funcție de viteza furnizorului, conexiunea la internet, de dispozitiv precum și de numărul de mesaje. În timpul descărcării mesajelor aplicația ar putea răspunde mai lent.</string>
+    <string name="title_hint_sync_note">În mod implicit, nu vor fi descărcate toate mesajele pentru a limita spațiul de stocare și bateria și consumul de date. Puteți schimba acest lucru apăsând lung un folder din lista de dosare și selectând \'Preia mai multe mesaje\'.</string>
     <string name="title_hint_battery">Deoarece FairEmail primește, în mod implicit, mereu mesaje, Android va raporta FairEmail ca fiind întotdeauna activ. Prin urmare, ar putea părea că FairEmail consumă bateria în mod continuu deși acest lucru nu este de fapt adevărat.</string>
     <string name="title_hint_reformat">În mod implicit, FairEmail reformatează mesajele din motive de confidenţialitate şi securitate. Pentru a vizualiza mesajul original, apăsaţi pictograma \"ecran complet\" deasupra textului mesajului.</string>
     <string name="title_hint_design">Designul este intenționat ca să nu distragă, ci este păstrat foarte funcțional. Există multe opțiuni pentru a personaliza aspectul, dar vă rugăm să înțelegeți că este imposibil să facem pe toată lumea fericită în același timp.</string>

@@ -682,6 +682,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_classification">Berichten classificeren</string>
     <string name="title_advanced_class_min_chance">Minimale klasse waarschijnlijkheid: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimale klasse verschil: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Toon een filterpictogram wanneer regels werden toegepast</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_lt">LanguageTool integratie</string>
@@ -742,7 +743,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_send_reminders_hint">Toon een waarschuwing wanneer de berichttekst of het onderwerp leeg is of wanneer een bijlage zou kunnen ontbreken</string>
     <string name="title_advanced_reply_move_hint">De e-mailserver kan de berichten nog steeds toevoegen aan de map met verzonden berichten</string>
     <string name="title_advanced_compose_color_hint">Zeer lichte of zeer donkere kleuren leiden tot onleesbare berichten aan de kant van de ontvanger</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Een ontvanger mist mogelijk uw antwoord, bijvoorbeeld wanneer een langer bericht wordt ingekort</string>
+    <string name="title_advanced_write_below_hint">Een ontvanger mist mogelijk uw antwoord, bijvoorbeeld wanneer een langer bericht wordt ingekort</string>
     <string name="title_advanced_attach_new_hint">Voeg anders gedeelde adressen of bestanden toe aan het huidige conceptbericht</string>
     <string name="title_advanced_usenet_hint">Voeg \'-- \' in tussen de tekst en de handtekening</string>
     <string name="title_advanced_remove_signature_hint">Dit kan ertoe leiden dat te weinig of te veel tekst wordt verwijderd</string>
@@ -1570,6 +1571,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_time_before">Ontvangen voor</string>
     <string name="title_rule_time_rel">Relatieve tijd (ontvangen) tussen</string>
     <string name="title_rule_time_every_day">Iedere dag</string>
+    <string name="title_rule_younger">Berichten jonger dan (uren)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Actie</string>

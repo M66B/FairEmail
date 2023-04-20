@@ -770,7 +770,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_send_reminders_hint">Zobrazí upozornění, je-li text zprávy či předmět prázdný nebo chybí-li pravděpodobně příloha</string>
     <string name="title_advanced_reply_move_hint">E-mailový server stále může zprávy ukládat i do složky odeslané</string>
     <string name="title_advanced_compose_color_hint">Velmi světlá nebo tmavá barva povede k nečitelným zprávám na straně příjemců</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Příjemce může ztratit vaši odpověď, například když je delší zpráva zkrácena</string>
+    <string name="title_advanced_write_below_hint">Příjemce může ztratit vaši odpověď, například když je delší zpráva zkrácena</string>
     <string name="title_advanced_attach_new_hint">V opačném případě přidat sdílené adresy nebo soubory do aktuálního konceptu zprávy</string>
     <string name="title_advanced_usenet_hint">Vložit „-- “ mezi text a podpis</string>
     <string name="title_advanced_remove_signature_hint">To může vést k odstranění příliš malého nebo příliš velkého textu</string>
@@ -1602,6 +1602,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_time_before">Přijato před</string>
     <string name="title_rule_time_rel">Relativní čas (přijatý) mezi</string>
     <string name="title_rule_time_every_day">Každý den</string>
+    <string name="title_rule_younger">Zprávy mladší než (hodin)</string>
     <string name="title_rule_regex">Regulární výraz</string>
     <string name="title_rule_and">A</string>
     <string name="title_rule_action">Akce</string>

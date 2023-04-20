@@ -769,7 +769,7 @@
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
     <string name="title_advanced_compose_color_hint">Bardzo jasne lub bardzo ciemne kolory spowodują, że wiadomości po stronie odbiorcy będą nieczytelne</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Odbiorca może przegapić Twoją odpowiedź, np. gdy dłuższa wiadomość zostanie skrócona</string>
+    <string name="title_advanced_write_below_hint">Odbiorca może przegapić Twoją odpowiedź, np. gdy dłuższa wiadomość zostanie skrócona</string>
     <string name="title_advanced_attach_new_hint">W innym przypadku dodaj udostępniane adresy lub pliki do aktualnej wersji roboczej wiadomości</string>
     <string name="title_advanced_usenet_hint">Wstaw \'-- \' między tekstem a podpisem</string>
     <string name="title_advanced_remove_signature_hint">Może to spowodować usunięcie zbyt małego lub zbyt dużego tekstu</string>
@@ -1602,6 +1602,7 @@
     <string name="title_rule_time_before">Otrzymane przed</string>
     <string name="title_rule_time_rel">Względny czas (otrzymany) między</string>
     <string name="title_rule_time_every_day">Codziennie</string>
+    <string name="title_rule_younger">Wiadomości młodsze niż (godziny)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">I</string>
     <string name="title_rule_action">Akcja</string>

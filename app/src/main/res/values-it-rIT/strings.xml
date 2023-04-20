@@ -685,6 +685,7 @@
     <string name="title_advanced_classification">Classifica i messaggi</string>
     <string name="title_advanced_class_min_chance">Probabilità minima di classe: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Differenza minima di classe: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Mostra un\'icona di filtro quando sono state applicate le regole</string>
     <string name="title_advanced_language">Lingua</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integrazione di LanguageTool</string>
@@ -745,7 +746,7 @@
     <string name="title_advanced_send_reminders_hint">Mostra un avviso quando il testo o l\'oggetto del messaggio sono vuoti o quando un allegato potrebbe mancare</string>
     <string name="title_advanced_reply_move_hint">Il server email potrebbe ancora aggiungere i messaggi alla cartella dei messaggi inviati</string>
     <string name="title_advanced_compose_color_hint">Colori molto chiari o molto scuri renderanno i messaggi illeggibili dai destinatari</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Un destinatario potrebbe perdere la risposta, ad esempio quando un messaggio troppo lungo viene troncato</string>
+    <string name="title_advanced_write_below_hint">Un destinatario potrebbe perdere la risposta, ad esempio quando un messaggio troppo lungo viene troncato</string>
     <string name="title_advanced_attach_new_hint">Altrimenti, aggiungi indirizzi o file condivisi al messaggio di bozza corrente</string>
     <string name="title_advanced_usenet_hint">Inserisci \'--\' tra il testo e la firma</string>
     <string name="title_advanced_remove_signature_hint">Questo può risultare nella rimozione di troppo o troppo poco testo</string>

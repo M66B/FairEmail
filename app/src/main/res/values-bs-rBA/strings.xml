@@ -757,7 +757,7 @@
     <string name="title_advanced_send_reminders_hint">Prikazuje upozorenje kada su tekst poruke ili predmet prazni ili kada nedostaje prilog</string>
     <string name="title_advanced_reply_move_hint">E-mail server još može dodavati poruke u folder za poslane poruke</string>
     <string name="title_advanced_compose_color_hint">Presvijetle ili pretamne boje mogu prouzrokovati nečitke poruke s primaočeve strane</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Primalac može propustiti vaš odgovor, npr. kada se duža poruka skrati</string>
+    <string name="title_advanced_write_below_hint">Primalac može propustiti vaš odgovor, npr. kada se duža poruka skrati</string>
     <string name="title_advanced_attach_new_hint">U suprotnom, dodaj dijeljene adrese ili datoteke u trenutni nacrt poruke</string>
     <string name="title_advanced_usenet_hint">Ubaci \'-- \' između teksta i potpisa</string>
     <string name="title_advanced_remove_signature_hint">Ovo može rezultirati premalim ili prevelikim uklanjanjem teksta</string>
@@ -1592,6 +1592,7 @@
     <string name="title_rule_time_before">Primljeno prije</string>
     <string name="title_rule_time_rel">Relativno vrijeme (primljeno) između</string>
     <string name="title_rule_time_every_day">Svakog dana</string>
+    <string name="title_rule_younger">Poruke koje nisu starije od (sati)</string>
     <string name="title_rule_regex">Regularni izraz</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">Radnja</string>

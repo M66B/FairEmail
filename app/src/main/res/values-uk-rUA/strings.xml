@@ -710,6 +710,7 @@
     <string name="title_advanced_classification">Класифікувати повідомлення</string>
     <string name="title_advanced_class_min_chance">Мінімальна ймовірність класу: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Мінімальна різниця у класі: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Показувати значок фільтру при застосуванні правил</string>
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Системи</string>
     <string name="title_advanced_lt">Інтеграція з LanguageTool</string>
@@ -769,7 +770,7 @@
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_compose_color_hint">Використання дуже світлих або дуже темних кольорів може призвести до того, що отримувач не зможе прочитати ваше повідомлення</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Одержувач може пропустити вашу відповідь, наприклад, коли довге повідомлення скорочується</string>
+    <string name="title_advanced_write_below_hint">Одержувач може пропустити вашу відповідь, наприклад, коли довге повідомлення скорочується</string>
     <string name="title_advanced_attach_new_hint">В іншому випадку додавати поширювані адреси чи файли до чернетки поточного повідомлення</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
     <string name="title_advanced_remove_signature_hint">Це може призвести до замалого або занадто багатого видалянню тексту</string>
@@ -1602,6 +1603,7 @@
     <string name="title_rule_time_before">Отримано до</string>
     <string name="title_rule_time_rel">Відносний час (отримано) між</string>
     <string name="title_rule_time_every_day">Щодня</string>
+    <string name="title_rule_younger">Повідомлення, молодші за (години)</string>
     <string name="title_rule_regex">Регулярний вираз</string>
     <string name="title_rule_and">ТА</string>
     <string name="title_rule_action">Дія</string>

@@ -741,6 +741,7 @@
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
     <string name="title_advanced_reply_move_hint">Ο διακομιστής ηλ. ταχυδρομείου ενδέχεται να προσθέτει ακόμα τα μηνύματα στον φάκελο απεσταλμένων</string>
     <string name="title_advanced_compose_color_hint">Πολύ ανοικτά ή πολύ σκούρα χρώματα θα έχουν ως αποτέλεσμα δυσανάγνωστα μηνύματα για τους παραλήπτες</string>
+    <string name="title_advanced_write_below_hint">Ένας παραλήπτης μπορεί να χάσει την απάντησή σας, για παράδειγμα, όταν ένα μακρύτερο μήνυμα περικόπτεται</string>
     <string name="title_advanced_attach_new_hint">Διαφορετικά, προσθήκη κοινόχρηστων διευθύνσεων ή αρχείων στο τρέχον προσχέδιο μηνύματος</string>
     <string name="title_advanced_usenet_hint">Να παρεμβάλλεται ένα \'-- \' ανάμεσα στο κείμενο και την υπογραφή</string>
     <string name="title_advanced_remove_signature_hint">Αυτό μπορεί να επιφέρει την απαλοιφή είτε υπερβολικά λίγου είτε υπερβολικά πολύ κειμένου</string>
@@ -1374,6 +1375,7 @@
     <string name="title_attachment_keywords">συνημμένο, συνημμένα, επισυνάπτω, επισυνάπτεται, επισυνάπονται, έγγραφο, έγγραφα, αρχείο, αρχεία, έντυπο, έντυπα, δικαιολογητικό, δικαιολογητικά, πιστοποιητικό, πιστοποιητικά, βιογραφικό, συνοδευτική επιστολή</string>
     <string name="title_attachment_reminder">Θα θέλατε να προσθέσετε ένα συνημμένο;</string>
     <string name="title_attachment_warning">Δυνητικά επικίνδυνο: %1$s</string>
+    <string name="title_attachment_filename">Κάποιοι άλλοι πελάτες ηλεκτρονικού ταχυδρομείου δεν μπορούν να χειριστούν ονόματα αρχείων άνω των 60 χαρακτήρων</string>
     <string name="title_plain_reminder">Όλη η μορφοποίηση θα χαθεί</string>
     <string name="title_dsn_reminder">Οι σκληρές αναπηδήσεις (hard bounces) βλάπτουν την αξιοπιστία της ηλ. διεύθυνσης του αρχικού αποστολέα!</string>
     <string name="title_size_reminder">Μήνυμα (%1$s) πιο μεγάλο από το όριο του διακομιστή (%2$s)</string>
@@ -1571,6 +1573,7 @@
     <string name="title_rule_time_before">Λήφθηκε πριν από</string>
     <string name="title_rule_time_rel">Σχετικός χρόνος (λήψης) μεταξύ</string>
     <string name="title_rule_time_every_day">Καθημερινά</string>
+    <string name="title_rule_younger">Μηνύματα νεότερα από (ώρες)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">ΚΑΙ</string>
     <string name="title_rule_action">Ενέργεια</string>

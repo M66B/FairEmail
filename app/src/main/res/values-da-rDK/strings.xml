@@ -744,6 +744,7 @@
     <string name="title_advanced_send_reminders_hint">Vis en advarsel, når beskedtekst eller emne er tomt, eller en vedhæftet fil muligvis mangler</string>
     <string name="title_advanced_reply_move_hint">E-mailserveren kan dog stadig føje beskederne til beskedafsendelsesmappen</string>
     <string name="title_advanced_compose_color_hint">Meget lyse eller mørke farver vil gøre meddelelser ulæselige for modtageren</string>
+    <string name="title_advanced_write_below_hint">En modtager kan gå glip af dit svar, når eksempelvis en længere besked afkortes</string>
     <string name="title_advanced_usenet_hint">Indsæt \'-- \' mellem teksten og signaturen</string>
     <string name="title_advanced_remove_signature_hint">Dette kan resultere i, at for lidt/meget tekst fjernes</string>
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>
@@ -1377,6 +1378,7 @@
     <string name="title_attachment_keywords">vedhæft,vedhæftet,vedhæftede,vedhæftning,vedhæftninger,vedhæftningen</string>
     <string name="title_attachment_reminder">Ville du tilføje en vedhæftning?</string>
     <string name="title_attachment_warning">Potentiel fare: %1$s</string>
+    <string name="title_attachment_filename">Visse andre e-mailklienter kan ikke håndtere filnavne på flere end 60 tegn</string>
     <string name="title_plain_reminder">Al formatering vil gå tabt</string>
     <string name="title_dsn_reminder">Hard bounces skader den oprindelige afsenders e-mailomdømme!</string>
     <string name="title_size_reminder">Besked (%1$s) større end servergrænsen (%2$s)</string>

@@ -730,7 +730,7 @@
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
     <string name="title_advanced_compose_color_hint">非常浅或非常深的颜色会导致收件人处的信息难以辨认</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">收件人可能会错过您的回复，例如当邮件较长被截断时</string>
+    <string name="title_advanced_write_below_hint">收件人可能会错过您的回复，例如当邮件较长被截断时</string>
     <string name="title_advanced_attach_new_hint">否则，将共享地址或文件添加到当前草稿消息</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_remove_signature_hint">这可能会导致删除太少或太多文本</string>
@@ -1560,6 +1560,7 @@
     <string name="title_rule_time_before">接收时间早于</string>
     <string name="title_rule_time_rel">相对时间间隔 (收信)</string>
     <string name="title_rule_time_every_day">每天</string>
+    <string name="title_rule_younger">不到多少(小时) 前的消息</string>
     <string name="title_rule_regex">正则表达式</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">操作</string>

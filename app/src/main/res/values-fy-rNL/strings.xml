@@ -669,7 +669,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_suggest_local_hint">Neist kontakten levere troch Android. Kontaktgegevens wurde allinich opslein foar nij ferstjoerde of ûntfange berjochten as dizze ynskeakele is.</string>
     <string name="title_advanced_send_reminders_hint">Toan in warskôging as de tekst fan it berjocht as it ûnderwerp leech is of as in bylage miskien mist</string>
     <string name="title_advanced_reply_move_hint">De emailserver koe de berjochten noch tafoegje oan \'e ferstjoerde berjochtenmap</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">In ûntfanger mist mooglik jo antwurd, bygelyks wannear’t in langer berjocht ynkoarte wurdt</string>
+    <string name="title_advanced_write_below_hint">In ûntfanger mist mooglik jo antwurd, bygelyks wannear’t in langer berjocht ynkoarte wurdt</string>
     <string name="title_advanced_usenet_hint">Foegje \'-\' yn tusken de tekst en de hantekening</string>
     <string name="title_advanced_metered_hint">Metereare ferbiningen binne oer it algemien mobile ferbiningen as betelle Wi-Fi-hotspots</string>
     <string name="title_advanced_metered_warning">Dizze opsje útsette sil it ûntfangen en ferstjoeren fan berjochten op mobile ynternetferbiningen útskeakelje</string>
@@ -1310,6 +1310,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_rule_time_before">Ûntfangen foardat</string>
     <string name="title_rule_time_rel">Relative tiid tusken (ûntfongen)</string>
     <string name="title_rule_time_every_day">Eltse dei</string>
+    <string name="title_rule_younger">Berjochten jonger as (oeren)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Aksje</string>

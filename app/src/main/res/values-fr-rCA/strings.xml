@@ -685,6 +685,7 @@
     <string name="title_advanced_classification">Classer les messages</string>
     <string name="title_advanced_class_min_chance">Probabilité minimale de classe : %1$s %%</string>
     <string name="title_advanced_class_min_difference">Différence minimale de classe : %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Afficher une icône de filtre lorsque les règles ont été appliquées</string>
     <string name="title_advanced_language">Langue</string>
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_lt">Intégration de LanguageTool</string>
@@ -745,7 +746,7 @@
     <string name="title_advanced_send_reminders_hint">Afficher un avertissement quand le texte du message ou l’objet sont vides ou quand une pièce jointe semble avoir été oubliée</string>
     <string name="title_advanced_reply_move_hint">Le serveur de messagerie pourrait tout de même ajouter les messages au dossier des messages envoyés</string>
     <string name="title_advanced_compose_color_hint">Les couleurs très claires ou très sombres rendront les messages illisibles par les destinataires</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Un destinataire peut manquer votre réponse, par exemple lorsqu\'un message trop long est tronqué</string>
+    <string name="title_advanced_write_below_hint">Un destinataire peut manquer votre réponse, par exemple lorsqu\'un message trop long est tronqué</string>
     <string name="title_advanced_attach_new_hint">Sinon, ajouter les adresses ou fichiers partagés au message brouillon actuel</string>
     <string name="title_advanced_usenet_hint">Insérer -- entre le texte et la signature</string>
     <string name="title_advanced_remove_signature_hint">Ceci peut entraîner la suppression de trop peu ou de beaucoup trop de texte</string>
@@ -1580,6 +1581,7 @@
     <string name="title_rule_time_before">Reçu avant</string>
     <string name="title_rule_time_rel">Temps relatif (reçu) entre</string>
     <string name="title_rule_time_every_day">Tous les jours</string>
+    <string name="title_rule_younger">Messages antérieurs à (heures)</string>
     <string name="title_rule_regex">Expression régulière</string>
     <string name="title_rule_and">ET</string>
     <string name="title_rule_action">Action</string>

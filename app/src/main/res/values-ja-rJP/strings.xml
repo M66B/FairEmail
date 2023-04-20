@@ -731,6 +731,7 @@
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
     <string name="title_advanced_compose_color_hint">極端に明るいまたは暗い色を設定すると、受信者がメッセージを判読できなくなることがあります</string>
+    <string name="title_advanced_write_below_hint">受信者が長いメッセージをよく読まないなどの理由で、あなたの返信が見落とされる場合があります</string>
     <string name="title_advanced_attach_new_hint">OFF にすると、作成中の下書きメッセージに共有されたアドレスやファイルを追加します</string>
     <string name="title_advanced_usenet_hint">テキストと署名の間に「--」を挿入します</string>
     <string name="title_advanced_remove_signature_hint">一部のテキストが削除されなかったり、テキストが削除されすぎたりする可能性があります</string>
@@ -1367,6 +1368,7 @@
     <string name="title_attachment_keywords">添付,付属</string>
     <string name="title_attachment_reminder">添付ファイルを追加しましたか？</string>
     <string name="title_attachment_warning">潜在的に危険な形式: %1$s</string>
+    <string name="title_attachment_filename">一部メールクライアントでは、60 文字以上の名前がついたファイルをうまく取り扱えないことがあります。</string>
     <string name="title_plain_reminder">すべての書式が失われます</string>
     <string name="title_dsn_reminder">ハードバウンスは、送信元のメールアドレスの評判を損ないます！</string>
     <string name="title_size_reminder">メッセージの大きさ (%1$s) がサーバーの制限 (%2$s) を超えています</string>
@@ -1564,6 +1566,7 @@
     <string name="title_rule_time_before">まで</string>
     <string name="title_rule_time_rel">以下の曜日に受信</string>
     <string name="title_rule_time_every_day">毎日</string>
+    <string name="title_rule_younger">…時間以内のメッセージ</string>
     <string name="title_rule_regex">正規表現</string>
     <string name="title_rule_and">AND</string>
     <string name="title_rule_action">アクション</string>

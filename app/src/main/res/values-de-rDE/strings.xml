@@ -686,6 +686,7 @@
     <string name="title_advanced_classification">Nachrichten klassifizieren</string>
     <string name="title_advanced_class_min_chance">Minimale Wahrscheinlichkeit für einen Klassentreffer: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimaler Unterschied zur nächsten Klasse: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Filtersymbol anzeigen, wenn Regeln angewendet wurden</string>
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">LanguageTool-Integration</string>
@@ -746,7 +747,7 @@
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
     <string name="title_advanced_reply_move_hint">Der E-Mail-Server könnte die Nachrichten trotzdem noch in den Ordner für gesendete Nachrichten hinzufügen</string>
     <string name="title_advanced_compose_color_hint">Sehr helle oder sehr dunkle Farben führen zu unleserlichen Nachrichten auf der Seite des Empfängers</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Ein Empfänger könnte Ihre Antwort verpassen, wenn zum Beispiel eine längere Nachricht abgeschnitten wird</string>
+    <string name="title_advanced_write_below_hint">Ein Empfänger könnte Ihre Antwort verpassen, wenn zum Beispiel eine längere Nachricht abgeschnitten wird</string>
     <string name="title_advanced_attach_new_hint">Andernfalls dem aktuellen Nachrichtenentwurf freigegebene Adressen oder Dateien hinzufügen</string>
     <string name="title_advanced_usenet_hint">Signaturtrenner »-- « zwischen Text und Signatur einfügen</string>
     <string name="title_advanced_remove_signature_hint">Das kann dazu führen, dass zu wenig oder zu viel Text entfernt wird</string>
@@ -1581,6 +1582,7 @@
     <string name="title_rule_time_before">Erhalten bis</string>
     <string name="title_rule_time_rel">Relative Zeit (empfangen) zwischen</string>
     <string name="title_rule_time_every_day">Täglich</string>
+    <string name="title_rule_younger">Nachrichten nicht älter als (Stunden)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">UND</string>
     <string name="title_rule_action">Aktion</string>

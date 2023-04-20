@@ -745,6 +745,7 @@
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de correio electrónico ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
     <string name="title_advanced_compose_color_hint">Cores muito claras ou muito escuras resultarão em mensagens ilegíveis do lado dos destinatários</string>
+    <string name="title_advanced_write_below_hint">Um destinatário pode perder a sua resposta, por exemplo, quando uma mensagem mais longa estiver sendo encurtada</string>
     <string name="title_advanced_attach_new_hint">Caso contrário, adicionar endereços ou arquivos partilhados à mensagem rascunho atual</string>
     <string name="title_advanced_usenet_hint">Coloca \'-- \' entre o texto e a assinatura</string>
     <string name="title_advanced_remove_signature_hint">Pode resultar na remoção de pouco ou de demasiado texto</string>
@@ -1381,6 +1382,7 @@
     <string name="title_attachment_keywords">anexado,anexo,anexos,incluído</string>
     <string name="title_attachment_reminder">Tinha a intenção de adicionar um anexo?</string>
     <string name="title_attachment_warning">Potencialmente perigoso: %1$s</string>
+    <string name="title_attachment_filename">Outros clientes de e-mail podem não lidar com nomes de arquivos com mais de 60 caracteres</string>
     <string name="title_plain_reminder">Todas as formatações serão perdidas</string>
     <string name="title_dsn_reminder">Mensagens devolvidas (Hard Bounce) destrui a reputação do remetente original!</string>
     <string name="title_size_reminder">Mensagem (%1$s) é maior do que o limite de servidor (%2$s)</string>
@@ -1578,6 +1580,7 @@
     <string name="title_rule_time_before">Recebida antes de</string>
     <string name="title_rule_time_rel">Tempo relativo (recebido) entre</string>
     <string name="title_rule_time_every_day">Todos os dias</string>
+    <string name="title_rule_younger">Mensagens mais novas que (horas)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OU</string>
     <string name="title_rule_action">Acção</string>

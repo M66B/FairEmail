@@ -710,6 +710,7 @@
     <string name="title_advanced_classification">Классифицировать сообщения</string>
     <string name="title_advanced_class_min_chance">Минимальная вероятность класса: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Минимальная разница между классами: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Показывать значок фильтра при применении правил</string>
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_lt">Интеграция с LanguageTool</string>
@@ -770,7 +771,7 @@
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
     <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
     <string name="title_advanced_compose_color_hint">Очень светлые или очень тёмные цвета сделают сообщение неразборчивым для получателя</string>
-    <string name="title_advanced_write_below_hint" comment="title_advanced_write_below_hint&#10;Remark for send options to reply below the message of the sender">Получатель может пропустить ваш ответ, например, при сокращении длинного сообщения</string>
+    <string name="title_advanced_write_below_hint">Получатель может пропустить ваш ответ, например, при сокращении длинного сообщения</string>
     <string name="title_advanced_attach_new_hint">В противном случае общие адреса или файлы добавляются к текущему черновику</string>
     <string name="title_advanced_usenet_hint">Вставлять \"-- \" между текстом и подписью</string>
     <string name="title_advanced_remove_signature_hint">Может привести к слишком маленькому или большому убиранию текста</string>
@@ -1604,6 +1605,7 @@
     <string name="title_rule_time_before">Получено до</string>
     <string name="title_rule_time_rel">Относительное время (получения) между</string>
     <string name="title_rule_time_every_day">Ежедневно</string>
+    <string name="title_rule_younger">Письма новее (час.)</string>
     <string name="title_rule_regex">Регулярное выражение</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>

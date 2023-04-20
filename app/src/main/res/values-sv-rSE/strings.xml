@@ -734,6 +734,7 @@
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_reply_move_hint">E-postservern kan fortfarande lägga till meddelanden till skickade mail mappen</string>
     <string name="title_advanced_compose_color_hint">Mycket ljusa eller mycket mörka färger kommer att resultera i oläsliga meddelanden på mottagarsidan</string>
+    <string name="title_advanced_write_below_hint">En mottagare kan missa ditt svar, till exempel när ett längre meddelande trunkeras</string>
     <string name="title_advanced_attach_new_hint">Annars, lägg till delade adresser eller filer till det aktuella utkastet</string>
     <string name="title_advanced_usenet_hint">Infoga \'-- \' mellan texten och signaturen</string>
     <string name="title_advanced_remove_signature_hint">Detta kan leda till att för lite eller för mycket text tas bort</string>
@@ -1366,6 +1367,7 @@
     <string name="title_attachment_keywords">bifogad,bilaga,bilaga,inkluderat</string>
     <string name="title_attachment_reminder">Hade du för avsikt att lägga till en bifogad fil?</string>
     <string name="title_attachment_warning">Potentiellt farligt: %1$s</string>
+    <string name="title_attachment_filename">Vissa andra e-postklienter kan inte hantera filnamn längre än 60 tecken</string>
     <string name="title_plain_reminder">All formatering kommer att förloras</string>
     <string name="title_dsn_reminder">Hard bounce skadar den ursprungliga sändaren e-postomdömme!</string>
     <string name="title_size_reminder">Meddelande (%1$s) större än gränsen på servern (%2$s)</string>
@@ -1562,6 +1564,7 @@
     <string name="title_rule_time_before">Mottagits före</string>
     <string name="title_rule_time_rel">Relativ tid (mottagen) mellan</string>
     <string name="title_rule_time_every_day">Varje dag</string>
+    <string name="title_rule_younger">Meddelanden inte äldre än (timmar)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">OCH</string>
     <string name="title_rule_action">Åtgärd</string>
@@ -1589,6 +1592,7 @@
     <string name="title_rule_keyword_missing">Nyckelord saknas</string>
     <string name="title_rule_automation_hint">Detta kommer att skicka avsikten \'%1$s\' med extramaterial \'%2$s\'</string>
     <string name="title_rule_delete_hint">Permanent borttagning är oåterkallelig, så se till att regelvillkoren är korrekta!</string>
+    <string name="title_rule_edit_group">Redigera grupp &#8230;</string>
     <string name="title_rule_execute">Verkställ nu</string>
     <string name="title_rule_applied">Berörda meddelanden: %1$d</string>
     <string name="title_rule_check">Kontrollera</string>
