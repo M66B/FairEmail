@@ -682,6 +682,7 @@
     <string name="title_advanced_classification">Ταξινόμηση μηνυμάτων</string>
     <string name="title_advanced_class_min_chance">Ελάχιστη πιθανότητα για ορισμένη ταξινόμηση: %1$s%%</string>
     <string name="title_advanced_class_min_difference">Ελάχιστη διαφορά για την επόμενη τάξη: %1$s%%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Προβολή ενός εικονιδίου φίλτρου εφόσον έχουν εφαρμοστεί κανόνες</string>
     <string name="title_advanced_language">Γλώσσα</string>
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_lt">Ενσωμάτωση του LanguageTool</string>

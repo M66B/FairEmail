@@ -670,6 +670,7 @@
     <string name="title_advanced_classification">消息分类</string>
     <string name="title_advanced_class_min_chance">是否分类的最低概率：%1$s %%</string>
     <string name="title_advanced_class_min_difference">不同分类的最小差异：%1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">应用规则时显示过滤器图标</string>
     <string name="title_advanced_language">界面语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_lt">LanguageTool 集成</string>

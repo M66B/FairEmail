@@ -698,6 +698,7 @@
     <string name="title_advanced_classification">Klasifikacija poruka</string>
     <string name="title_advanced_class_min_chance">Minimum vjerovatnosti klase: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimalna razlika klasa: %1$s %%</string>
+    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Prikaži ikonicu za filtriranje kada su pravila primijenjena</string>
     <string name="title_advanced_language">Jezik</string>
     <string name="title_advanced_language_system">Sistemski</string>
     <string name="title_advanced_lt">LanguageTool integracija</string>
