@@ -6,8 +6,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
-### Next version
+### 1.2066 - 2023-04-21
 
+* Fixed all reported bugs
 * Added younger than rule condition
 * Added option to show filter icon when rules were applied
 * Added warning for long attachment file names
