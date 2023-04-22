@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
-### 1.2066 - 2023-04-22
+### 1.2067 - 2023-04-22
 
 * Fixed attaching files with a long name
 * Small improvements and minor bug fixes
