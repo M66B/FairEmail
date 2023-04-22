@@ -206,6 +206,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             tvType.setText(sb.toString());
 
             tvError.setText(attachment.error);
+            tvError.setTextColor(Helper.resolveColor(context, attachment.available ? R.attr.colorWarning : R.attr.colorError));
             tvError.setVisibility(attachment.error == null ? View.GONE : View.VISIBLE);
 
             if (properties != null) {
