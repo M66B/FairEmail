@@ -2942,7 +2942,7 @@ public class MessageHelper {
 
         // Check Microsoft front end transport (proxy)
         // https://social.technet.microsoft.com/wiki/contents/articles/50370.exchange-2016-what-is-the-front-end-transport-service-on-the-mailbox-role.aspx
-        if (kv.containsKey("via")) {
+        if (kv.containsKey("via") && false) {
             String via = kv.get("via").toString();
             if ("Frontend Transport".equals(via)) {
                 Log.i("--- frontend via=" + via);
