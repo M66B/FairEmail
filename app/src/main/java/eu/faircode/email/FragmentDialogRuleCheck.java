@@ -44,6 +44,7 @@ public class FragmentDialogRuleCheck extends FragmentDialogBase {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         long folder = getArguments().getLong("folder");
+        String name = getArguments().getString("name");
         boolean daily = getArguments().getBoolean("daily");
         String condition = getArguments().getString("condition");
         String action = getArguments().getString("action");
@@ -67,6 +68,7 @@ public class FragmentDialogRuleCheck extends FragmentDialogBase {
 
         final Bundle args = new Bundle();
         args.putLong("folder", folder);
+        args.putString("name", name);
         args.putBoolean("daily", daily);
         args.putString("condition", condition);
         args.putString("action", action);
@@ -92,6 +94,7 @@ public class FragmentDialogRuleCheck extends FragmentDialogBase {
                     @Override
                     protected Integer onExecute(Context context, Bundle args) throws Throwable {
                         EntityRule rule = new EntityRule();
+                        rule.name = args.getString("name");
                         rule.folder = args.getLong("folder");
                         rule.daily = args.getBoolean("daily");
                         rule.condition = args.getString("condition");

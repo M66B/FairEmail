@@ -1396,6 +1396,7 @@ public class FragmentRule extends FragmentBase {
 
             Bundle args = new Bundle();
             args.putLong("folder", folder);
+            args.putString("name", etName.getText().toString());
             args.putBoolean("daily", cbDaily.isChecked());
             args.putString("condition", jcondition.toString());
             args.putString("action", jaction.toString());
