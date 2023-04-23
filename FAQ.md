@@ -2776,7 +2776,7 @@ Since version 1.2061 it is possible to execute rules with an automation app, lik
 
 
 ```
-(adb shell) am start-foreground-service -a eu.faircode.email.RULE --es account <account name> -e rule <unique rule name>
+(adb shell) am start-foreground-service -a eu.faircode.email.RULE --es account <account name> -es rule <unique rule name>
 ```
 
 Using rules is a pro feature.
