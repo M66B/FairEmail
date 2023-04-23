@@ -104,6 +104,7 @@
     <string name="title_block">Block %1$s</string>
     <string name="title_block_sender">Block sender</string>
     <string name="title_block_sender_domain">Block domain \'%1$s\'</string>
+    <string name="title_block_sender_remark">Blocking means automatically moving to the spam folder</string>
     <string name="title_block_sender_hint">
         Blocking a sender is a free feature.
         Blocking a sender domain uses filter rules, which is a pro feature.
