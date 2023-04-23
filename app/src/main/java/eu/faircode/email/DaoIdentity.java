@@ -89,6 +89,9 @@ public interface DaoIdentity {
     @Query("SELECT * FROM identity WHERE uuid = :uuid")
     EntityIdentity getIdentityByUUID(String uuid);
 
+    @Query("SELECT * FROM identity WHERE display = :display")
+    List<EntityIdentity> getIdentityByDisplayName(String display);
+
     @Insert
     long insertIdentity(EntityIdentity identity);
 
