@@ -239,6 +239,8 @@ import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import me.everything.android.ui.overscroll.IOverScrollDecor;
+import me.everything.android.ui.overscroll.IOverScrollState;
+import me.everything.android.ui.overscroll.IOverScrollStateListener;
 import me.everything.android.ui.overscroll.IOverScrollUpdateListener;
 import me.everything.android.ui.overscroll.VerticalOverScrollBounceEffectDecorator;
 import me.everything.android.ui.overscroll.adapters.RecyclerViewOverScrollDecorAdapter;
@@ -2093,26 +2095,25 @@ public class FragmentMessages extends FragmentBase
                         DEFAULT_TOUCH_DRAG_MOVE_RATIO_BCK,
                         DEFAULT_DECELERATE_FACTOR
                 );
-                decor.setOverScrollUpdateListener(new IOverScrollUpdateListener() {
-                    private boolean triggered = false;
 
+                ObjectHolder<Boolean> otriggered = new ObjectHolder<>(false);
+
+                decor.setOverScrollUpdateListener(new IOverScrollUpdateListener() {
                     @Override
                     public void onOverScrollUpdate(IOverScrollDecor decor, int state, float offset) {
                         float height = decor.getView().getHeight();
                         if (height == 0)
                             return;
 
-                        if (offset == 0)
-                            triggered = false;
-                        else if (!triggered) {
+                        if (!otriggered.value) {
                             float dx = Math.abs(offset * DEFAULT_TOUCH_DRAG_MOVE_RATIO_FWD);
                             if (offset > 0 && dx > height / 4) {
-                                triggered = true;
+                                otriggered.value = true;
                                 handleAutoClose();
                             }
 
                             if (offset < 0 && dx > height / 8) {
-                                triggered = true;
+                                otriggered.value = true;
 
                                 Bundle args = new Bundle();
                                 args.putInt("icon", R.drawable.twotone_drive_file_move_24);
@@ -2129,6 +2130,15 @@ public class FragmentMessages extends FragmentBase
                                 fragment.show(getParentFragmentManager(), "overscroll:move");
                             }
                         }
+                    }
+                });
+
+                decor.setOverScrollStateListener(new IOverScrollStateListener() {
+                    @Override
+                    public void onOverScrollStateChange(IOverScrollDecor decor, int oldState, int newState) {
+                        // offset is unreliable
+                        if (newState == IOverScrollState.STATE_IDLE)
+                            otriggered.value = false;
                     }
                 });
             } catch (Throwable ex) {
