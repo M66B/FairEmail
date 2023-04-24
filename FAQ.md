@@ -2213,7 +2213,9 @@ and within an account with special, system folders on top, followed by folders s
 Within each category the folders are sorted on (display) name.
 You can set the display name by long pressing a folder in the folder list and selecting *Edit properties*.
 
-The navigation (hamburger) menu item *Order folders* in the settings can be used to manually order the folders.
+The navigation (hamburger) menu item *Order folders* in the settings, or,
+alternatively, a button in the *Extra* section at the bottom of the main settings tab page,
+can be used to manually order the folders.
 
 <br />
 
