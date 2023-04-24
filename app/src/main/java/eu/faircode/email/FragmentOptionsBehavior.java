@@ -100,6 +100,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoBlockSender;
     private SwitchCompat swAutoHideAnswer;
     private SwitchCompat swSwipeReply;
+    private SwitchCompat swMoveThreadSent;
     private Button btnDefaultFolder;
     private TextView tvDefaultFolder;
 
@@ -119,7 +120,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "autoclose", "onclose", "autoclose_unseen", "autoclose_send", "collapse_marked",
             "undo_timeout",
             "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "thread_sent_trash",
-            "reset_snooze", "auto_block_sender", "auto_hide_answer", "swipe_reply", "default_folder"
+            "reset_snooze", "auto_block_sender", "auto_hide_answer", "swipe_reply", "move_thread_sent", "default_folder"
     };
 
     @Override
@@ -179,6 +180,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoBlockSender = view.findViewById(R.id.swAutoBlockSender);
         swAutoHideAnswer = view.findViewById(R.id.swAutoHideAnswer);
         swSwipeReply = view.findViewById(R.id.swSwipeReply);
+        swMoveThreadSent = view.findViewById(R.id.swMoveThreadSent);
         btnDefaultFolder = view.findViewById(R.id.btnDefaultFolder);
         tvDefaultFolder = view.findViewById(R.id.tvDefaultFolder);
 
@@ -562,6 +564,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swMoveThreadSent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("move_thread_sent", checked).apply();
+            }
+        });
+
         Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         Helper.openAdvanced(getContext(), tree);
         PackageManager pm = getContext().getPackageManager();
@@ -711,6 +720,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoBlockSender.setChecked(prefs.getBoolean("auto_block_sender", true));
         swAutoHideAnswer.setChecked(prefs.getBoolean("auto_hide_answer", !accessibility));
         swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
+        swMoveThreadSent.setChecked(prefs.getBoolean("move_thread_sent", false));
         tvDefaultFolder.setText(prefs.getString("default_folder", null));
     }
 

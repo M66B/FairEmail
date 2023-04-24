@@ -4520,6 +4520,9 @@ public class FragmentMessages extends FragmentBase
                 boolean filter_archive = args.getBoolean("filter_archive");
                 long tid = args.getLong("folder");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean move_thread_sent = prefs.getBoolean("move_thread_sent", false);
+
                 ArrayList<MessageTarget> result = new ArrayList<>();
 
                 DB db = DB.getInstance(context);
@@ -4540,7 +4543,8 @@ public class FragmentMessages extends FragmentBase
                         EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
                         if (sourceFolder != null && !sourceFolder.read_only &&
                                 !targetFolder.id.equals(threaded.folder) &&
-                                !EntityFolder.isOutgoing(sourceFolder.type) &&
+                                (!EntityFolder.isOutgoing(sourceFolder.type) ||
+                                        (EntityFolder.SENT.equals(sourceFolder.type) && move_thread_sent)) &&
                                 (!filter_archive || !EntityFolder.ARCHIVE.equals(sourceFolder.type)))
                             result.add(new MessageTarget(context, threaded, account, sourceFolder, account, targetFolder));
                     }

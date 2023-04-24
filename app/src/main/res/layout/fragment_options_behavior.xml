@@ -818,6 +818,17 @@
                     app:layout_constraintTop_toBottomOf="@id/swAutoHideAnswer"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swMoveThreadSent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_move_thread_sent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swSwipeReply"
+                    app:switchPadding="12dp" />
+
                 <Button
                     android:id="@+id/btnDefaultFolder"
                     style="?android:attr/buttonStyleSmall"
@@ -829,7 +840,7 @@
                     android:tag="disable"
                     android:text="@string/title_advanced_default_folder"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swSwipeReply" />
+                    app:layout_constraintTop_toBottomOf="@id/swMoveThreadSent" />
 
                 <TextView
                     android:id="@+id/tvDefaultFolderHint"
