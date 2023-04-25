@@ -28,6 +28,7 @@ import android.database.sqlite.SQLiteConstraintException;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -276,8 +277,10 @@ public class FragmentFolder extends FragmentBase {
 
         Bundle args = new Bundle();
         args.putLong("id", id);
+        args.putLong("account", account);
+        args.putString("parent", parent);
 
-        new SimpleTask<EntityFolder>() {
+        new SimpleTask<Pair<EntityFolder, EntityFolder>>() {
             @Override
             protected void onPreExecute(Bundle args) {
                 pbWait.setVisibility(View.VISIBLE);
@@ -290,10 +293,13 @@ public class FragmentFolder extends FragmentBase {
             }
 
             @Override
-            protected EntityFolder onExecute(Context context, Bundle args) {
+            protected Pair<EntityFolder, EntityFolder> onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
+                long aid = args.getLong("account");
+                String parentName = args.getString("parent");
 
                 DB db = DB.getInstance(context);
+                EntityFolder parent = db.folder().getFolderByName(aid, parentName);
                 EntityFolder folder = db.folder().getFolder(id);
 
                 if (folder != null) {
@@ -303,11 +309,13 @@ public class FragmentFolder extends FragmentBase {
                     }
                 }
 
-                return folder;
+                return new Pair<>(parent, folder);
             }
 
             @Override
-            protected void onExecuted(Bundle args, EntityFolder folder) {
+            protected void onExecuted(Bundle args, Pair<EntityFolder, EntityFolder> data) {
+                EntityFolder parent = data.first;
+                EntityFolder folder = data.second;
                 int interval = args.getInt("interval", EntityAccount.DEFAULT_KEEP_ALIVE_INTERVAL);
 
                 if (savedInstanceState == null) {
@@ -320,7 +328,7 @@ public class FragmentFolder extends FragmentBase {
                     cbUnified.setChecked(folder == null ? false : folder.unified);
                     cbNavigation.setChecked(folder == null ? false : folder.navigation);
                     cbCountUnread.setChecked(folder == null ? true : folder.count_unread);
-                    cbNotify.setChecked(folder == null ? false : folder.notify);
+                    cbNotify.setChecked(folder == null ? parent != null && parent.notify : folder.notify);
                     cbSynchronize.setChecked(folder == null || folder.synchronize);
                     cbPoll.setChecked(folder == null ? true : folder.poll);
                     etPoll.setText(folder == null ? null : Integer.toString(folder.poll_factor));
