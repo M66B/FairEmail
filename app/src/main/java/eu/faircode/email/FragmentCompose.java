@@ -107,6 +107,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.PickVisualMediaRequest;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -331,6 +334,8 @@ public class FragmentCompose extends FragmentBase {
     private static final int REQUEST_SEND = 16;
     private static final int REQUEST_REMOVE_ATTACHMENTS = 17;
 
+    ActivityResultLauncher<PickVisualMediaRequest> pickImages;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -355,6 +360,16 @@ public class FragmentCompose extends FragmentBase {
 
         setTitle(R.string.page_compose);
         setSubtitle(getResources().getQuantityString(R.plurals.page_message, 1));
+
+        int max = (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
+                ? Integer.MAX_VALUE
+                : MediaStore.getPickImagesMaxLimit());
+
+        pickImages =
+                registerForActivityResult(new ActivityResultContracts.PickMultipleVisualMedia(max), uris -> {
+                    if (!uris.isEmpty())
+                        onAddImageFile(uris, false);
+                });
     }
 
     @Override
@@ -3379,17 +3394,15 @@ public class FragmentCompose extends FragmentBase {
                 }
             }
         } else {
+            // https://developer.android.com/training/data-storage/shared/photopicker#device-availability
             // https://developer.android.com/reference/android/provider/MediaStore#ACTION_PICK_IMAGES
-            // Android 12: cmd device_config put storage_native_boot picker_intent_enabled true
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean photo_picker = prefs.getBoolean("photo_picker", false);
-            Intent picker = new Intent(MediaStore.ACTION_PICK_IMAGES);
-            picker.setType("image/*");
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
-                    photo_picker && picker.resolveActivity(pm) != null) {
+            if (photo_picker) {
                 Log.i("Using photo picker");
-                picker.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, MediaStore.getPickImagesMaxLimit());
-                startActivityForResult(picker, REQUEST_IMAGE_FILE);
+                pickImages.launch(new PickVisualMediaRequest.Builder()
+                        .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
+                        .build());
             } else {
                 Log.i("Using file picker");
                 Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
