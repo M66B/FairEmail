@@ -620,6 +620,11 @@
             </intent-filter>
         </service>
 
+        <service
+            android:name="WidgetUnifiedService"
+            android:exported="true"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
         <provider
             android:name=".FileProviderEx"
             android:authorities="${applicationId}"
@@ -685,11 +690,6 @@
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
         </receiver>
-
-        <service
-            android:name="WidgetUnifiedService"
-            android:exported="true"
-            android:permission="android.permission.BIND_REMOTEVIEWS" />
 
         <receiver
             android:name=".ReceiverAutoStart"
