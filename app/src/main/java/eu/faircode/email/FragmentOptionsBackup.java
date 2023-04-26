@@ -1187,8 +1187,14 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                         editor.putLong(key, (Long) value);
                                     else if (value instanceof String)
                                         editor.putString(key, (String) value);
-                                    else
-                                        throw new IllegalArgumentException("Unknown settings type key=" + key);
+                                    else {
+                                        String msg = "Unknown settings type" +
+                                                " key=" + key +
+                                                " value=" + value +
+                                                " type=" + (value == null ? null : value.getClass());
+                                        Log.e(msg);
+                                        postProgress(msg);
+                                    }
                             }
 
                             Log.i("Imported setting=" + key);
