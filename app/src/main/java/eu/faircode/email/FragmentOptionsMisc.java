@@ -1085,7 +1085,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         sbOpenAiTemperature.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                prefs.edit().putFloat("openai_temperature", progress / 10f).apply();
+                prefs.edit().putFloat("openai_temperature", (float) progress / 10f).apply();
             }
 
             @Override
@@ -2320,203 +2320,207 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     }
 
     private void setOptions() {
-        if (view == null || getContext() == null)
-            return;
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-
-        ActivityManager am = Helper.getSystemService(getContext(), ActivityManager.class);
-        int class_mb = am.getMemoryClass();
-        int class_large_mb = am.getLargeMemoryClass();
-        ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
-        am.getMemoryInfo(mi);
-
-        swSortAnswers.setChecked(prefs.getBoolean("sort_answers", false));
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
-            swPowerMenu.setChecked(Helper.isComponentEnabled(getContext(), ServicePowerControl.class));
-        swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));
-        swExternalAnswer.setChecked(Helper.isComponentEnabled(getContext(), ActivityAnswer.class));
-        swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
-        swFts.setChecked(prefs.getBoolean("fts", false));
-
-        swClassification.setChecked(prefs.getBoolean("classification", false));
-
-        int class_min_chance = prefs.getInt("class_min_probability", 5);
-        tvClassMinProbability.setText(getString(R.string.title_advanced_class_min_chance, NF.format(class_min_chance)));
-        sbClassMinProbability.setProgress(class_min_chance);
-
-        int class_min_difference = prefs.getInt("class_min_difference", 40);
-        tvClassMinDifference.setText(getString(R.string.title_advanced_class_min_difference, NF.format(class_min_difference)));
-        sbClassMinDifference.setProgress(class_min_difference);
-
-        swShowFiltered.setChecked(prefs.getBoolean("show_filtered", false));
-
-        int selected = -1;
-        String language = prefs.getString("language", null);
-        List<String> display = new ArrayList<>();
-        display.add(getString(R.string.title_advanced_language_system));
-        for (int pos = 0; pos < languages.size(); pos++) {
-            Pair<String, String> lang = languages.get(pos);
-            display.add(lang.second);
-            if (lang.first.equals(language))
-                selected = pos + 1;
-        }
-
-        swUpdates.setChecked(prefs.getBoolean("updates", true));
-        swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
-        swCheckWeekly.setEnabled(swUpdates.isChecked());
-        swBeta.setChecked(prefs.getBoolean("beta", false));
-        swBeta.setEnabled(swUpdates.isChecked());
-        swChangelog.setChecked(prefs.getBoolean("show_changelog", !BuildConfig.PLAY_STORE_RELEASE));
-        swAnnouncements.setChecked(prefs.getBoolean("announcements", true));
-        swExperiments.setChecked(prefs.getBoolean("experiments", false));
-        swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
-        tvUuid.setText(prefs.getString("uuid", null));
-        swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, display);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spLanguage.setAdapter(adapter);
-        if (selected >= 0)
-            spLanguage.setSelection(selected);
-
-        swLanguageTool.setChecked(prefs.getBoolean("lt_enabled", false));
-        swLanguageToolAuto.setChecked(prefs.getBoolean("lt_auto", true));
-        swLanguageToolAuto.setEnabled(swLanguageTool.isChecked());
-        swLanguageToolPicky.setChecked(prefs.getBoolean("lt_picky", false));
-        swLanguageToolPicky.setEnabled(swLanguageTool.isChecked());
-        etLanguageTool.setText(prefs.getString("lt_uri", null));
-        etLanguageToolUser.setText(prefs.getString("lt_user", null));
-        tilLanguageToolKey.getEditText().setText(prefs.getString("lt_key", null));
-        swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
-        swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
-        tilVirusTotal.getEditText().setText(prefs.getString("vt_apikey", null));
-        swSend.setChecked(prefs.getBoolean("send_enabled", false));
-        etSend.setText(prefs.getString("send_host", null));
-        swOpenAi.setChecked(prefs.getBoolean("openai_enabled", false));
-        tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
-        etOpenAiModel.setText(prefs.getString("openai_model", null));
-
-        float temperature = prefs.getFloat("openai_temperature", 0.5f);
-        tvOpenAiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
-        sbOpenAiTemperature.setProgress(Math.round(temperature * 10));
-        swOpenAiModeration.setChecked(prefs.getBoolean("openai_moderation", false));
-
-        swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
-        swMainLog.setChecked(prefs.getBoolean("main_log", true));
-        swMainLogMem.setChecked(prefs.getBoolean("main_log_memory", false));
-        swMainLogMem.setEnabled(swMainLog.isChecked());
-        swProtocol.setChecked(prefs.getBoolean("protocol", false));
-        swLogInfo.setChecked(prefs.getInt("log_level", android.util.Log.WARN) <= android.util.Log.INFO);
-        swDebug.setChecked(prefs.getBoolean("debug", false));
-        swCanary.setChecked(prefs.getBoolean("leak_canary", false));
-        swTest1.setChecked(prefs.getBoolean("test1", false));
-        swTest2.setChecked(prefs.getBoolean("test2", false));
-        swTest3.setChecked(prefs.getBoolean("test3", false));
-        swTest4.setChecked(prefs.getBoolean("test4", false));
-        swTest5.setChecked(prefs.getBoolean("test5", false));
-
-        swAutostart.setChecked(Helper.isComponentEnabled(getContext(), ReceiverAutoStart.class));
-        swEmergency.setChecked(prefs.getBoolean("emergency_file", true));
-        swWorkManager.setChecked(prefs.getBoolean("work_manager", true));
-        swExternalStorage.setChecked(prefs.getBoolean("external_storage", false));
-
-        swIntegrity.setChecked(prefs.getBoolean("sqlite_integrity_check", true));
-        swWal.setChecked(prefs.getBoolean("wal", true));
-        swCheckpoints.setChecked(prefs.getBoolean("sqlite_checkpoints", true));
-        swAnalyze.setChecked(prefs.getBoolean("sqlite_analyze", true));
-        swAutoVacuum.setChecked(prefs.getBoolean("sqlite_auto_vacuum", false));
-        swSyncExtra.setChecked(prefs.getBoolean("sqlite_sync_extra", true));
-
-        int sqlite_cache = prefs.getInt("sqlite_cache", DB.DEFAULT_CACHE_SIZE);
-        Integer cache_size = DB.getCacheSizeKb(getContext());
-        if (cache_size == null)
-            cache_size = 2000;
-        tvSqliteCache.setText(getString(R.string.title_advanced_sqlite_cache,
-                NF.format(sqlite_cache),
-                Helper.humanReadableByteCount(cache_size * 1024L)));
-        sbSqliteCache.setProgress(sqlite_cache);
-
-        int chunk_size = prefs.getInt("chunk_size", Core.DEFAULT_CHUNK_SIZE);
-        tvChunkSize.setText(getString(R.string.title_advanced_chunk_size, chunk_size));
-        sbChunkSize.setProgress(chunk_size);
-
-        int thread_range = prefs.getInt("thread_range", MessageHelper.DEFAULT_THREAD_RANGE);
-        int range = (int) Math.pow(2, thread_range);
-        tvThreadRange.setText(getString(R.string.title_advanced_thread_range, range));
-        sbThreadRange.setProgress(thread_range);
-
-        swUndoManager.setChecked(prefs.getBoolean("undo_manager", false));
-        swBrowserZoom.setChecked(prefs.getBoolean("browser_zoom", false));
-        swFakeDark.setChecked(prefs.getBoolean("fake_dark", false));
-        swShowRecent.setChecked(prefs.getBoolean("show_recent", false));
-        swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
-        swPreamble.setChecked(prefs.getBoolean("preamble", false));
-        swUid.setChecked(prefs.getBoolean("uid_command", false));
-        swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
-        swUidExpunge.setChecked(prefs.getBoolean("uid_expunge", false));
-        swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
-        swAuthLogin.setChecked(prefs.getBoolean("auth_login", true));
-        swAuthNtlm.setChecked(prefs.getBoolean("auth_ntlm", true));
-        swAuthSasl.setChecked(prefs.getBoolean("auth_sasl", true));
-        swAuthApop.setChecked(prefs.getBoolean("auth_apop", false));
-        swUseTop.setChecked(prefs.getBoolean("use_top", true));
-        swKeepAlivePoll.setChecked(prefs.getBoolean("keep_alive_poll", false));
-        swEmptyPool.setChecked(prefs.getBoolean("empty_pool", true));
-        swIdleDone.setChecked(prefs.getBoolean("idle_done", true));
-        swFastFetch.setChecked(prefs.getBoolean("fast_fetch", false));
-
-        int max_backoff_power = prefs.getInt("max_backoff_power", ServiceSynchronize.DEFAULT_BACKOFF_POWER - 3);
-        int max_backoff = (int) Math.pow(2, max_backoff_power + 3);
-        tvMaxBackoff.setText(getString(R.string.title_advanced_max_backoff, max_backoff));
-        sbMaxBackOff.setProgress(max_backoff_power);
-
-        swLogarithmicBackoff.setChecked(prefs.getBoolean("logarithmic_backoff", true));
-        swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
-        swNativeDkim.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
-        swNativeDkim.setChecked(prefs.getBoolean("native_dkim", false));
-        swNativeArc.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
-        swNativeArc.setChecked(prefs.getBoolean("native_arc", true));
-        etNativeArcWhitelist.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
-        etNativeArcWhitelist.setText(prefs.getString("native_arc_whitelist", null));
-        swInfra.setChecked(prefs.getBoolean("infra", false));
-        swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
-        etKeywords.setText(prefs.getString("global_keywords", null));
-        swTestIab.setChecked(prefs.getBoolean("test_iab", false));
-
-        tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));
-        tvMemoryClass.setText(getString(R.string.title_advanced_memory_class,
-                class_mb + " MB",
-                class_large_mb + " MB",
-                Helper.humanReadableByteCount(mi.totalMem)));
-
-        String android_id;
         try {
-            android_id = Settings.Secure.getString(
-                    getContext().getContentResolver(),
-                    Settings.Secure.ANDROID_ID);
-            if (android_id == null)
-                android_id = "<null>";
+            if (view == null || getContext() == null)
+                return;
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+
+            ActivityManager am = Helper.getSystemService(getContext(), ActivityManager.class);
+            int class_mb = am.getMemoryClass();
+            int class_large_mb = am.getLargeMemoryClass();
+            ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
+            am.getMemoryInfo(mi);
+
+            swSortAnswers.setChecked(prefs.getBoolean("sort_answers", false));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
+                swPowerMenu.setChecked(Helper.isComponentEnabled(getContext(), ServicePowerControl.class));
+            swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));
+            swExternalAnswer.setChecked(Helper.isComponentEnabled(getContext(), ActivityAnswer.class));
+            swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
+            swFts.setChecked(prefs.getBoolean("fts", false));
+
+            swClassification.setChecked(prefs.getBoolean("classification", false));
+
+            int class_min_chance = prefs.getInt("class_min_probability", 5);
+            tvClassMinProbability.setText(getString(R.string.title_advanced_class_min_chance, NF.format(class_min_chance)));
+            sbClassMinProbability.setProgress(class_min_chance);
+
+            int class_min_difference = prefs.getInt("class_min_difference", 40);
+            tvClassMinDifference.setText(getString(R.string.title_advanced_class_min_difference, NF.format(class_min_difference)));
+            sbClassMinDifference.setProgress(class_min_difference);
+
+            swShowFiltered.setChecked(prefs.getBoolean("show_filtered", false));
+
+            int selected = -1;
+            String language = prefs.getString("language", null);
+            List<String> display = new ArrayList<>();
+            display.add(getString(R.string.title_advanced_language_system));
+            for (int pos = 0; pos < languages.size(); pos++) {
+                Pair<String, String> lang = languages.get(pos);
+                display.add(lang.second);
+                if (lang.first.equals(language))
+                    selected = pos + 1;
+            }
+
+            swUpdates.setChecked(prefs.getBoolean("updates", true));
+            swCheckWeekly.setChecked(prefs.getBoolean("weekly", Helper.hasPlayStore(getContext())));
+            swCheckWeekly.setEnabled(swUpdates.isChecked());
+            swBeta.setChecked(prefs.getBoolean("beta", false));
+            swBeta.setEnabled(swUpdates.isChecked());
+            swChangelog.setChecked(prefs.getBoolean("show_changelog", !BuildConfig.PLAY_STORE_RELEASE));
+            swAnnouncements.setChecked(prefs.getBoolean("announcements", true));
+            swExperiments.setChecked(prefs.getBoolean("experiments", false));
+            swCrashReports.setChecked(prefs.getBoolean("crash_reports", false));
+            tvUuid.setText(prefs.getString("uuid", null));
+            swCleanupAttachments.setChecked(prefs.getBoolean("cleanup_attachments", false));
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item, android.R.id.text1, display);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spLanguage.setAdapter(adapter);
+            if (selected >= 0)
+                spLanguage.setSelection(selected);
+
+            swLanguageTool.setChecked(prefs.getBoolean("lt_enabled", false));
+            swLanguageToolAuto.setChecked(prefs.getBoolean("lt_auto", true));
+            swLanguageToolAuto.setEnabled(swLanguageTool.isChecked());
+            swLanguageToolPicky.setChecked(prefs.getBoolean("lt_picky", false));
+            swLanguageToolPicky.setEnabled(swLanguageTool.isChecked());
+            etLanguageTool.setText(prefs.getString("lt_uri", null));
+            etLanguageToolUser.setText(prefs.getString("lt_user", null));
+            tilLanguageToolKey.getEditText().setText(prefs.getString("lt_key", null));
+            swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
+            swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
+            tilVirusTotal.getEditText().setText(prefs.getString("vt_apikey", null));
+            swSend.setChecked(prefs.getBoolean("send_enabled", false));
+            etSend.setText(prefs.getString("send_host", null));
+            swOpenAi.setChecked(prefs.getBoolean("openai_enabled", false));
+            tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
+            etOpenAiModel.setText(prefs.getString("openai_model", null));
+
+            float temperature = prefs.getFloat("openai_temperature", 0.5f);
+            tvOpenAiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
+            sbOpenAiTemperature.setProgress(Math.round(temperature * 10));
+            swOpenAiModeration.setChecked(prefs.getBoolean("openai_moderation", false));
+
+            swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
+            swMainLog.setChecked(prefs.getBoolean("main_log", true));
+            swMainLogMem.setChecked(prefs.getBoolean("main_log_memory", false));
+            swMainLogMem.setEnabled(swMainLog.isChecked());
+            swProtocol.setChecked(prefs.getBoolean("protocol", false));
+            swLogInfo.setChecked(prefs.getInt("log_level", android.util.Log.WARN) <= android.util.Log.INFO);
+            swDebug.setChecked(prefs.getBoolean("debug", false));
+            swCanary.setChecked(prefs.getBoolean("leak_canary", false));
+            swTest1.setChecked(prefs.getBoolean("test1", false));
+            swTest2.setChecked(prefs.getBoolean("test2", false));
+            swTest3.setChecked(prefs.getBoolean("test3", false));
+            swTest4.setChecked(prefs.getBoolean("test4", false));
+            swTest5.setChecked(prefs.getBoolean("test5", false));
+
+            swAutostart.setChecked(Helper.isComponentEnabled(getContext(), ReceiverAutoStart.class));
+            swEmergency.setChecked(prefs.getBoolean("emergency_file", true));
+            swWorkManager.setChecked(prefs.getBoolean("work_manager", true));
+            swExternalStorage.setChecked(prefs.getBoolean("external_storage", false));
+
+            swIntegrity.setChecked(prefs.getBoolean("sqlite_integrity_check", true));
+            swWal.setChecked(prefs.getBoolean("wal", true));
+            swCheckpoints.setChecked(prefs.getBoolean("sqlite_checkpoints", true));
+            swAnalyze.setChecked(prefs.getBoolean("sqlite_analyze", true));
+            swAutoVacuum.setChecked(prefs.getBoolean("sqlite_auto_vacuum", false));
+            swSyncExtra.setChecked(prefs.getBoolean("sqlite_sync_extra", true));
+
+            int sqlite_cache = prefs.getInt("sqlite_cache", DB.DEFAULT_CACHE_SIZE);
+            Integer cache_size = DB.getCacheSizeKb(getContext());
+            if (cache_size == null)
+                cache_size = 2000;
+            tvSqliteCache.setText(getString(R.string.title_advanced_sqlite_cache,
+                    NF.format(sqlite_cache),
+                    Helper.humanReadableByteCount(cache_size * 1024L)));
+            sbSqliteCache.setProgress(sqlite_cache);
+
+            int chunk_size = prefs.getInt("chunk_size", Core.DEFAULT_CHUNK_SIZE);
+            tvChunkSize.setText(getString(R.string.title_advanced_chunk_size, chunk_size));
+            sbChunkSize.setProgress(chunk_size);
+
+            int thread_range = prefs.getInt("thread_range", MessageHelper.DEFAULT_THREAD_RANGE);
+            int range = (int) Math.pow(2, thread_range);
+            tvThreadRange.setText(getString(R.string.title_advanced_thread_range, range));
+            sbThreadRange.setProgress(thread_range);
+
+            swUndoManager.setChecked(prefs.getBoolean("undo_manager", false));
+            swBrowserZoom.setChecked(prefs.getBoolean("browser_zoom", false));
+            swFakeDark.setChecked(prefs.getBoolean("fake_dark", false));
+            swShowRecent.setChecked(prefs.getBoolean("show_recent", false));
+            swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
+            swPreamble.setChecked(prefs.getBoolean("preamble", false));
+            swUid.setChecked(prefs.getBoolean("uid_command", false));
+            swExpunge.setChecked(prefs.getBoolean("perform_expunge", true));
+            swUidExpunge.setChecked(prefs.getBoolean("uid_expunge", false));
+            swAuthPlain.setChecked(prefs.getBoolean("auth_plain", true));
+            swAuthLogin.setChecked(prefs.getBoolean("auth_login", true));
+            swAuthNtlm.setChecked(prefs.getBoolean("auth_ntlm", true));
+            swAuthSasl.setChecked(prefs.getBoolean("auth_sasl", true));
+            swAuthApop.setChecked(prefs.getBoolean("auth_apop", false));
+            swUseTop.setChecked(prefs.getBoolean("use_top", true));
+            swKeepAlivePoll.setChecked(prefs.getBoolean("keep_alive_poll", false));
+            swEmptyPool.setChecked(prefs.getBoolean("empty_pool", true));
+            swIdleDone.setChecked(prefs.getBoolean("idle_done", true));
+            swFastFetch.setChecked(prefs.getBoolean("fast_fetch", false));
+
+            int max_backoff_power = prefs.getInt("max_backoff_power", ServiceSynchronize.DEFAULT_BACKOFF_POWER - 3);
+            int max_backoff = (int) Math.pow(2, max_backoff_power + 3);
+            tvMaxBackoff.setText(getString(R.string.title_advanced_max_backoff, max_backoff));
+            sbMaxBackOff.setProgress(max_backoff_power);
+
+            swLogarithmicBackoff.setChecked(prefs.getBoolean("logarithmic_backoff", true));
+            swExactAlarms.setChecked(prefs.getBoolean("exact_alarms", true));
+            swNativeDkim.setEnabled(!BuildConfig.PLAY_STORE_RELEASE);
+            swNativeDkim.setChecked(prefs.getBoolean("native_dkim", false));
+            swNativeArc.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
+            swNativeArc.setChecked(prefs.getBoolean("native_arc", true));
+            etNativeArcWhitelist.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
+            etNativeArcWhitelist.setText(prefs.getString("native_arc_whitelist", null));
+            swInfra.setChecked(prefs.getBoolean("infra", false));
+            swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
+            etKeywords.setText(prefs.getString("global_keywords", null));
+            swTestIab.setChecked(prefs.getBoolean("test_iab", false));
+
+            tvProcessors.setText(getString(R.string.title_advanced_processors, Runtime.getRuntime().availableProcessors()));
+            tvMemoryClass.setText(getString(R.string.title_advanced_memory_class,
+                    class_mb + " MB",
+                    class_large_mb + " MB",
+                    Helper.humanReadableByteCount(mi.totalMem)));
+
+            String android_id;
+            try {
+                android_id = Settings.Secure.getString(
+                        getContext().getContentResolver(),
+                        Settings.Secure.ANDROID_ID);
+                if (android_id == null)
+                    android_id = "<null>";
+            } catch (Throwable ex) {
+                Log.w(ex);
+                android_id = "?";
+            }
+            tvAndroidId.setText(getString(R.string.title_advanced_android_id, android_id));
+
+            tvFingerprint.setText(Helper.getFingerprint(getContext()));
+
+            Integer cursorWindowSize = null;
+            try {
+                //Field fCursorWindowSize = android.database.CursorWindow.class.getDeclaredField("sDefaultCursorWindowSize");
+                //fCursorWindowSize.setAccessible(true);
+                //cursorWindowSize = fCursorWindowSize.getInt(null);
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+            tvCursorWindow.setText(getString(R.string.title_advanced_cursor_window,
+                    cursorWindowSize == null ? "?" : Helper.humanReadableByteCount(cursorWindowSize, false)));
+
+            cardDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
         } catch (Throwable ex) {
-            Log.w(ex);
-            android_id = "?";
+            Log.e(ex);
         }
-        tvAndroidId.setText(getString(R.string.title_advanced_android_id, android_id));
-
-        tvFingerprint.setText(Helper.getFingerprint(getContext()));
-
-        Integer cursorWindowSize = null;
-        try {
-            //Field fCursorWindowSize = android.database.CursorWindow.class.getDeclaredField("sDefaultCursorWindowSize");
-            //fCursorWindowSize.setAccessible(true);
-            //cursorWindowSize = fCursorWindowSize.getInt(null);
-        } catch (Throwable ex) {
-            Log.w(ex);
-        }
-        tvCursorWindow.setText(getString(R.string.title_advanced_cursor_window,
-                cursorWindowSize == null ? "?" : Helper.humanReadableByteCount(cursorWindowSize, false)));
-
-        cardDebug.setVisibility(swDebug.isChecked() || BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
     }
 
     private void updateUsage() {

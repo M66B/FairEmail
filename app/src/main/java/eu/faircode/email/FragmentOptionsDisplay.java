@@ -1394,207 +1394,211 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     }
 
     private void setOptions() {
-        if (view == null || getContext() == null)
-            return;
+        try {
+            if (view == null || getContext() == null)
+                return;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        String startup = prefs.getString("startup", "unified");
-        String[] startupValues = getResources().getStringArray(R.array.startupValues);
-        for (int pos = 0; pos < startupValues.length; pos++)
-            if (startupValues[pos].equals(startup)) {
-                spStartup.setSelection(pos);
-                break;
+            String startup = prefs.getString("startup", "unified");
+            String[] startupValues = getResources().getStringArray(R.array.startupValues);
+            for (int pos = 0; pos < startupValues.length; pos++)
+                if (startupValues[pos].equals(startup)) {
+                    spStartup.setSelection(pos);
+                    break;
+                }
+
+            swDate.setChecked(prefs.getBoolean("date", true));
+            swDateWeek.setChecked(prefs.getBoolean("date_week", false));
+            swDateWeek.setEnabled(swDate.isChecked());
+            swDateFixed.setChecked(prefs.getBoolean("date_fixed", false));
+            swDateFixed.setEnabled(!swDate.isChecked());
+            swDateBold.setChecked(prefs.getBoolean("date_bold", false));
+            swDateBold.setEnabled(swDate.isChecked() || swDateFixed.isChecked());
+            swCategory.setChecked(prefs.getBoolean("group_category", false));
+            swCards.setChecked(prefs.getBoolean("cards", true));
+            swBeige.setChecked(prefs.getBoolean("beige", true));
+            swTabularBackground.setChecked(prefs.getBoolean("tabular_card_bg", false));
+            swShadow.setChecked(prefs.getBoolean("shadow_unread", false));
+            swShadowBorder.setChecked(prefs.getBoolean("shadow_border", true));
+            swShadowHighlight.setChecked(prefs.getBoolean("shadow_highlight", false));
+            swBeige.setEnabled(swCards.isChecked());
+            swTabularBackground.setEnabled(!swCards.isChecked());
+            swShadow.setEnabled(swCards.isChecked());
+            swShadowBorder.setEnabled(swShadow.isEnabled() && swShadow.isChecked());
+            swShadowHighlight.setEnabled(swShadow.isEnabled() && swShadow.isChecked());
+            swTabularDividers.setChecked(prefs.getBoolean("dividers", true));
+            swTabularDividers.setEnabled(!swCards.isChecked());
+            swPortrait2.setChecked(prefs.getBoolean("portrait2", false));
+            swPortrait2c.setChecked(prefs.getBoolean("portrait2c", false) && !swPortrait2.isChecked());
+            spPortraitMinSize.setSelection(prefs.getInt("portrait_min_size", 0));
+            swLandscape.setChecked(prefs.getBoolean("landscape", true));
+            spLandscapeMinSize.setSelection(prefs.getInt("landscape_min_size", 0));
+            swClosePane.setChecked(prefs.getBoolean("close_pane", !Helper.isSurfaceDuo()));
+
+            int column_width = prefs.getInt("column_width", 67);
+            tvColumnWidth.setText(getString(R.string.title_advanced_column_width, NF.format(column_width)));
+            sbColumnWidth.setProgress(column_width);
+
+            swHideToolbar.setChecked(prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE));
+            swNavOptions.setChecked(prefs.getBoolean("nav_options", true));
+            swNavCategories.setChecked(prefs.getBoolean("nav_categories", false));
+            swNavLastSync.setChecked(prefs.getBoolean("nav_last_sync", true));
+            swNavMessageCount.setChecked(prefs.getBoolean("nav_count", false));
+            swNavUnseenDrafts.setChecked(prefs.getBoolean("nav_unseen_drafts", false));
+            swNavPinnedCount.setChecked(prefs.getBoolean("nav_count_pinned", false));
+            swNavBarColorize.setChecked(prefs.getBoolean("navbar_colorize", false));
+
+            swThreading.setChecked(prefs.getBoolean("threading", true));
+            swThreadingUnread.setChecked(prefs.getBoolean("threading_unread", false));
+            swThreadingUnread.setEnabled(swThreading.isChecked());
+            swIndentation.setChecked(prefs.getBoolean("indentation", false));
+            swIndentation.setEnabled(swCards.isChecked() && swThreading.isChecked());
+            swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
+            swActionbar.setChecked(prefs.getBoolean("actionbar", true));
+            swActionbarSwap.setChecked(prefs.getBoolean("actionbar_swap", false));
+            swActionbarSwap.setEnabled(swActionbar.isChecked());
+            swActionbarColor.setChecked(prefs.getBoolean("actionbar_color", false));
+            swActionbarColor.setEnabled(swActionbar.isChecked());
+
+            swHighlightUnread.setChecked(prefs.getBoolean("highlight_unread", true));
+
+            btnHighlightColor.setColor(prefs.getInt("highlight_color",
+                    Helper.resolveColor(getContext(), R.attr.colorUnreadHighlight)));
+
+            swColorStripe.setChecked(prefs.getBoolean("color_stripe", true));
+            swColorStripeWide.setChecked(prefs.getBoolean("color_stripe_wide", false));
+            //swColorStripeWide.setEnabled(swColorStripe.isChecked());
+            swAvatars.setChecked(prefs.getBoolean("avatars", true));
+            swBimi.setChecked(prefs.getBoolean("bimi", false));
+            swGravatars.setChecked(prefs.getBoolean("gravatars", false));
+            swLibravatars.setChecked(prefs.getBoolean("libravatars", false));
+            swFavicons.setChecked(prefs.getBoolean("favicons", false));
+            swFaviconsPartial.setChecked(prefs.getBoolean("favicons_partial", true));
+            swFaviconsPartial.setEnabled(swFavicons.isChecked());
+            swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
+            swIdenticons.setChecked(prefs.getBoolean("identicons", false));
+            swIdenticons.setEnabled(swGeneratedIcons.isChecked());
+            swCircular.setChecked(prefs.getBoolean("circular", true));
+
+            int saturation = prefs.getInt("saturation", 100);
+            tvSaturation.setText(getString(R.string.title_advanced_color_saturation, NF.format(saturation)));
+            sbSaturation.setProgress(saturation);
+            sbSaturation.setEnabled(swGeneratedIcons.isChecked());
+
+            int brightness = prefs.getInt("brightness", 100);
+            tvBrightness.setText(getString(R.string.title_advanced_color_value, NF.format(brightness)));
+            sbBrightness.setProgress(brightness);
+            sbBrightness.setEnabled(swGeneratedIcons.isChecked());
+
+            int threshold = prefs.getInt("threshold", 50);
+            tvThreshold.setText(getString(R.string.title_advanced_color_threshold, NF.format(threshold)));
+            sbThreshold.setProgress(threshold);
+            sbThreshold.setEnabled(swGeneratedIcons.isChecked());
+
+            MessageHelper.AddressFormat email_format = MessageHelper.getAddressFormat(getContext());
+            spNameEmail.setSelection(email_format.ordinal());
+            swPreferContact.setChecked(prefs.getBoolean("prefer_contact", false));
+            swOnlyContact.setChecked(prefs.getBoolean("only_contact", false));
+            swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
+            swShowRecipients.setChecked(prefs.getBoolean("show_recipients", false));
+
+            swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
+            swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
+            swHighlightSubject.setChecked(prefs.getBoolean("highlight_subject", false));
+
+            int[] fontSizeValues = getResources().getIntArray(R.array.fontSizeValues);
+            String[] ellipsizeValues = getResources().getStringArray(R.array.ellipsizeValues);
+
+            int font_size_sender = prefs.getInt("font_size_sender", -1);
+            for (int pos = 0; pos < fontSizeValues.length; pos++)
+                if (fontSizeValues[pos] == font_size_sender) {
+                    spFontSizeSender.setSelection(pos);
+                    break;
+                }
+
+            int font_size_subject = prefs.getInt("font_size_subject", -1);
+            for (int pos = 0; pos < fontSizeValues.length; pos++)
+                if (fontSizeValues[pos] == font_size_subject) {
+                    spFontSizeSubject.setSelection(pos);
+                    break;
+                }
+
+            String sender_ellipsize = prefs.getString("sender_ellipsize", "end");
+            for (int pos = 0; pos < ellipsizeValues.length; pos++)
+                if (ellipsizeValues[pos].equals(sender_ellipsize)) {
+                    spSenderEllipsize.setSelection(pos);
+                    break;
+                }
+
+            String subject_ellipsize = prefs.getString("subject_ellipsize", "full");
+            for (int pos = 0; pos < ellipsizeValues.length; pos++)
+                if (ellipsizeValues[pos].equals(subject_ellipsize)) {
+                    spSubjectEllipsize.setSelection(pos);
+                    break;
+                }
+
+            swKeywords.setChecked(prefs.getBoolean("keywords_header", false));
+            swLabels.setChecked(prefs.getBoolean("labels_header", true));
+            swFlags.setChecked(prefs.getBoolean("flags", true));
+            swFlagsBackground.setChecked(prefs.getBoolean("flags_background", false));
+            swPreview.setChecked(prefs.getBoolean("preview", false));
+            swPreviewItalic.setChecked(prefs.getBoolean("preview_italic", true));
+            swPreviewItalic.setEnabled(swPreview.isChecked());
+            spPreviewLines.setSelection(prefs.getInt("preview_lines", 1) - 1);
+            spPreviewLines.setEnabled(swPreview.isChecked());
+            swAlignHeader.setChecked(prefs.getBoolean("align_header", false));
+
+            swAddresses.setChecked(prefs.getBoolean("addresses", false));
+
+            int message_zoom = prefs.getInt("message_zoom", 100);
+            tvMessageZoom.setText(getString(R.string.title_advanced_message_text_zoom2, NF.format(message_zoom)));
+            if (message_zoom >= 50 && message_zoom <= 250)
+                sbMessageZoom.setProgress(message_zoom - 50);
+
+            swOverviewMode.setChecked(prefs.getBoolean("overview_mode", false));
+            swOverrideWidth.setChecked(prefs.getBoolean("override_width", false));
+
+            swContrast.setChecked(prefs.getBoolean("contrast", false));
+            swHyphenation.setChecked(prefs.getBoolean("hyphenation", false));
+
+            String display_font = prefs.getString("display_font", "");
+            List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
+            for (int pos = 0; pos < fonts.size(); pos++) {
+                StyleHelper.FontDescriptor font = fonts.get(pos);
+                if (font.type.equals(display_font)) {
+                    spDisplayFont.setSelection(pos + 1);
+                    break;
+                }
             }
 
-        swDate.setChecked(prefs.getBoolean("date", true));
-        swDateWeek.setChecked(prefs.getBoolean("date_week", false));
-        swDateWeek.setEnabled(swDate.isChecked());
-        swDateFixed.setChecked(prefs.getBoolean("date_fixed", false));
-        swDateFixed.setEnabled(!swDate.isChecked());
-        swDateBold.setChecked(prefs.getBoolean("date_bold", false));
-        swDateBold.setEnabled(swDate.isChecked() || swDateFixed.isChecked());
-        swCategory.setChecked(prefs.getBoolean("group_category", false));
-        swCards.setChecked(prefs.getBoolean("cards", true));
-        swBeige.setChecked(prefs.getBoolean("beige", true));
-        swTabularBackground.setChecked(prefs.getBoolean("tabular_card_bg", false));
-        swShadow.setChecked(prefs.getBoolean("shadow_unread", false));
-        swShadowBorder.setChecked(prefs.getBoolean("shadow_border", true));
-        swShadowHighlight.setChecked(prefs.getBoolean("shadow_highlight", false));
-        swBeige.setEnabled(swCards.isChecked());
-        swTabularBackground.setEnabled(!swCards.isChecked());
-        swShadow.setEnabled(swCards.isChecked());
-        swShadowBorder.setEnabled(swShadow.isEnabled() && swShadow.isChecked());
-        swShadowHighlight.setEnabled(swShadow.isEnabled() && swShadow.isChecked());
-        swTabularDividers.setChecked(prefs.getBoolean("dividers", true));
-        swTabularDividers.setEnabled(!swCards.isChecked());
-        swPortrait2.setChecked(prefs.getBoolean("portrait2", false));
-        swPortrait2c.setChecked(prefs.getBoolean("portrait2c", false) && !swPortrait2.isChecked());
-        spPortraitMinSize.setSelection(prefs.getInt("portrait_min_size", 0));
-        swLandscape.setChecked(prefs.getBoolean("landscape", true));
-        spLandscapeMinSize.setSelection(prefs.getInt("landscape_min_size", 0));
-        swClosePane.setChecked(prefs.getBoolean("close_pane", !Helper.isSurfaceDuo()));
+            swMonospacedPre.setChecked(prefs.getBoolean("monospaced_pre", false));
+            swTextSeparators.setChecked(prefs.getBoolean("text_separators", true));
+            swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
+            swImagesPlaceholders.setChecked(prefs.getBoolean("image_placeholders", true));
+            swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
+            swButtonExtra.setChecked(prefs.getBoolean("button_extra", false));
+            swUnzip.setChecked(prefs.getBoolean("unzip", !BuildConfig.PLAY_STORE_RELEASE));
+            swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
+            swThumbnails.setChecked(prefs.getBoolean("thumbnails", true));
 
-        int column_width = prefs.getInt("column_width", 67);
-        tvColumnWidth.setText(getString(R.string.title_advanced_column_width, NF.format(column_width)));
-        sbColumnWidth.setProgress(column_width);
+            swListCount.setChecked(prefs.getBoolean("list_count", false));
+            swBundledFonts.setChecked(prefs.getBoolean("bundled_fonts", true));
+            swParseClasses.setChecked(prefs.getBoolean("parse_classes", true));
+            swBackgroundColor.setChecked(prefs.getBoolean("background_color", false));
+            swTextColor.setChecked(prefs.getBoolean("text_color", true));
+            swTextSize.setChecked(prefs.getBoolean("text_size", true));
+            swTextFont.setChecked(prefs.getBoolean("text_font", true));
+            swTextAlign.setChecked(prefs.getBoolean("text_align", true));
+            swTextTitles.setChecked(prefs.getBoolean("text_titles", false));
+            swAuthentication.setChecked(prefs.getBoolean("authentication", true));
+            swAuthenticationIndicator.setChecked(prefs.getBoolean("authentication_indicator", false));
+            swAuthenticationIndicator.setEnabled(swAuthentication.isChecked());
 
-        swHideToolbar.setChecked(prefs.getBoolean("hide_toolbar", !BuildConfig.PLAY_STORE_RELEASE));
-        swNavOptions.setChecked(prefs.getBoolean("nav_options", true));
-        swNavCategories.setChecked(prefs.getBoolean("nav_categories", false));
-        swNavLastSync.setChecked(prefs.getBoolean("nav_last_sync", true));
-        swNavMessageCount.setChecked(prefs.getBoolean("nav_count", false));
-        swNavUnseenDrafts.setChecked(prefs.getBoolean("nav_unseen_drafts", false));
-        swNavPinnedCount.setChecked(prefs.getBoolean("nav_count_pinned", false));
-        swNavBarColorize.setChecked(prefs.getBoolean("navbar_colorize", false));
-
-        swThreading.setChecked(prefs.getBoolean("threading", true));
-        swThreadingUnread.setChecked(prefs.getBoolean("threading_unread", false));
-        swThreadingUnread.setEnabled(swThreading.isChecked());
-        swIndentation.setChecked(prefs.getBoolean("indentation", false));
-        swIndentation.setEnabled(swCards.isChecked() && swThreading.isChecked());
-        swSeekbar.setChecked(prefs.getBoolean("seekbar", false));
-        swActionbar.setChecked(prefs.getBoolean("actionbar", true));
-        swActionbarSwap.setChecked(prefs.getBoolean("actionbar_swap", false));
-        swActionbarSwap.setEnabled(swActionbar.isChecked());
-        swActionbarColor.setChecked(prefs.getBoolean("actionbar_color", false));
-        swActionbarColor.setEnabled(swActionbar.isChecked());
-
-        swHighlightUnread.setChecked(prefs.getBoolean("highlight_unread", true));
-
-        btnHighlightColor.setColor(prefs.getInt("highlight_color",
-                Helper.resolveColor(getContext(), R.attr.colorUnreadHighlight)));
-
-        swColorStripe.setChecked(prefs.getBoolean("color_stripe", true));
-        swColorStripeWide.setChecked(prefs.getBoolean("color_stripe_wide", false));
-        //swColorStripeWide.setEnabled(swColorStripe.isChecked());
-        swAvatars.setChecked(prefs.getBoolean("avatars", true));
-        swBimi.setChecked(prefs.getBoolean("bimi", false));
-        swGravatars.setChecked(prefs.getBoolean("gravatars", false));
-        swLibravatars.setChecked(prefs.getBoolean("libravatars", false));
-        swFavicons.setChecked(prefs.getBoolean("favicons", false));
-        swFaviconsPartial.setChecked(prefs.getBoolean("favicons_partial", true));
-        swFaviconsPartial.setEnabled(swFavicons.isChecked());
-        swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
-        swIdenticons.setChecked(prefs.getBoolean("identicons", false));
-        swIdenticons.setEnabled(swGeneratedIcons.isChecked());
-        swCircular.setChecked(prefs.getBoolean("circular", true));
-
-        int saturation = prefs.getInt("saturation", 100);
-        tvSaturation.setText(getString(R.string.title_advanced_color_saturation, NF.format(saturation)));
-        sbSaturation.setProgress(saturation);
-        sbSaturation.setEnabled(swGeneratedIcons.isChecked());
-
-        int brightness = prefs.getInt("brightness", 100);
-        tvBrightness.setText(getString(R.string.title_advanced_color_value, NF.format(brightness)));
-        sbBrightness.setProgress(brightness);
-        sbBrightness.setEnabled(swGeneratedIcons.isChecked());
-
-        int threshold = prefs.getInt("threshold", 50);
-        tvThreshold.setText(getString(R.string.title_advanced_color_threshold, NF.format(threshold)));
-        sbThreshold.setProgress(threshold);
-        sbThreshold.setEnabled(swGeneratedIcons.isChecked());
-
-        MessageHelper.AddressFormat email_format = MessageHelper.getAddressFormat(getContext());
-        spNameEmail.setSelection(email_format.ordinal());
-        swPreferContact.setChecked(prefs.getBoolean("prefer_contact", false));
-        swOnlyContact.setChecked(prefs.getBoolean("only_contact", false));
-        swDistinguishContacts.setChecked(prefs.getBoolean("distinguish_contacts", false));
-        swShowRecipients.setChecked(prefs.getBoolean("show_recipients", false));
-
-        swSubjectTop.setChecked(prefs.getBoolean("subject_top", false));
-        swSubjectItalic.setChecked(prefs.getBoolean("subject_italic", true));
-        swHighlightSubject.setChecked(prefs.getBoolean("highlight_subject", false));
-
-        int[] fontSizeValues = getResources().getIntArray(R.array.fontSizeValues);
-        String[] ellipsizeValues = getResources().getStringArray(R.array.ellipsizeValues);
-
-        int font_size_sender = prefs.getInt("font_size_sender", -1);
-        for (int pos = 0; pos < fontSizeValues.length; pos++)
-            if (fontSizeValues[pos] == font_size_sender) {
-                spFontSizeSender.setSelection(pos);
-                break;
-            }
-
-        int font_size_subject = prefs.getInt("font_size_subject", -1);
-        for (int pos = 0; pos < fontSizeValues.length; pos++)
-            if (fontSizeValues[pos] == font_size_subject) {
-                spFontSizeSubject.setSelection(pos);
-                break;
-            }
-
-        String sender_ellipsize = prefs.getString("sender_ellipsize", "end");
-        for (int pos = 0; pos < ellipsizeValues.length; pos++)
-            if (ellipsizeValues[pos].equals(sender_ellipsize)) {
-                spSenderEllipsize.setSelection(pos);
-                break;
-            }
-
-        String subject_ellipsize = prefs.getString("subject_ellipsize", "full");
-        for (int pos = 0; pos < ellipsizeValues.length; pos++)
-            if (ellipsizeValues[pos].equals(subject_ellipsize)) {
-                spSubjectEllipsize.setSelection(pos);
-                break;
-            }
-
-        swKeywords.setChecked(prefs.getBoolean("keywords_header", false));
-        swLabels.setChecked(prefs.getBoolean("labels_header", true));
-        swFlags.setChecked(prefs.getBoolean("flags", true));
-        swFlagsBackground.setChecked(prefs.getBoolean("flags_background", false));
-        swPreview.setChecked(prefs.getBoolean("preview", false));
-        swPreviewItalic.setChecked(prefs.getBoolean("preview_italic", true));
-        swPreviewItalic.setEnabled(swPreview.isChecked());
-        spPreviewLines.setSelection(prefs.getInt("preview_lines", 1) - 1);
-        spPreviewLines.setEnabled(swPreview.isChecked());
-        swAlignHeader.setChecked(prefs.getBoolean("align_header", false));
-
-        swAddresses.setChecked(prefs.getBoolean("addresses", false));
-
-        int message_zoom = prefs.getInt("message_zoom", 100);
-        tvMessageZoom.setText(getString(R.string.title_advanced_message_text_zoom2, NF.format(message_zoom)));
-        if (message_zoom >= 50 && message_zoom <= 250)
-            sbMessageZoom.setProgress(message_zoom - 50);
-
-        swOverviewMode.setChecked(prefs.getBoolean("overview_mode", false));
-        swOverrideWidth.setChecked(prefs.getBoolean("override_width", false));
-
-        swContrast.setChecked(prefs.getBoolean("contrast", false));
-        swHyphenation.setChecked(prefs.getBoolean("hyphenation", false));
-
-        String display_font = prefs.getString("display_font", "");
-        List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
-        for (int pos = 0; pos < fonts.size(); pos++) {
-            StyleHelper.FontDescriptor font = fonts.get(pos);
-            if (font.type.equals(display_font)) {
-                spDisplayFont.setSelection(pos + 1);
-                break;
-            }
+            updateColor();
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
-
-        swMonospacedPre.setChecked(prefs.getBoolean("monospaced_pre", false));
-        swTextSeparators.setChecked(prefs.getBoolean("text_separators", true));
-        swCollapseQuotes.setChecked(prefs.getBoolean("collapse_quotes", false));
-        swImagesPlaceholders.setChecked(prefs.getBoolean("image_placeholders", true));
-        swImagesInline.setChecked(prefs.getBoolean("inline_images", false));
-        swButtonExtra.setChecked(prefs.getBoolean("button_extra", false));
-        swUnzip.setChecked(prefs.getBoolean("unzip", !BuildConfig.PLAY_STORE_RELEASE));
-        swAttachmentsAlt.setChecked(prefs.getBoolean("attachments_alt", false));
-        swThumbnails.setChecked(prefs.getBoolean("thumbnails", true));
-
-        swListCount.setChecked(prefs.getBoolean("list_count", false));
-        swBundledFonts.setChecked(prefs.getBoolean("bundled_fonts", true));
-        swParseClasses.setChecked(prefs.getBoolean("parse_classes", true));
-        swBackgroundColor.setChecked(prefs.getBoolean("background_color", false));
-        swTextColor.setChecked(prefs.getBoolean("text_color", true));
-        swTextSize.setChecked(prefs.getBoolean("text_size", true));
-        swTextFont.setChecked(prefs.getBoolean("text_font", true));
-        swTextAlign.setChecked(prefs.getBoolean("text_align", true));
-        swTextTitles.setChecked(prefs.getBoolean("text_titles", false));
-        swAuthentication.setChecked(prefs.getBoolean("authentication", true));
-        swAuthenticationIndicator.setChecked(prefs.getBoolean("authentication_indicator", false));
-        swAuthenticationIndicator.setEnabled(swAuthentication.isChecked());
-
-        updateColor();
     }
 
     private void setNavigationBarColor(int color) {

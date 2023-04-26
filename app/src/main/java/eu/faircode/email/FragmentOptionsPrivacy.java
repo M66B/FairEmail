@@ -550,68 +550,72 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     }
 
     private void setOptions() {
-        if (view == null || getContext() == null)
-            return;
+        try {
+            if (view == null || getContext() == null)
+                return;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        swConfirmLinks.setChecked(prefs.getBoolean("confirm_links", true));
-        swSanitizeLinks.setChecked(prefs.getBoolean("sanitize_links", false));
-        swSanitizeLinks.setEnabled(swConfirmLinks.isChecked());
-        swCheckLinksDbl.setChecked(prefs.getBoolean("check_links_dbl", BuildConfig.PLAY_STORE_RELEASE));
-        swCheckLinksDbl.setEnabled(swConfirmLinks.isChecked());
-        swConfirmImages.setChecked(prefs.getBoolean("confirm_images", true));
-        swAskImages.setChecked(prefs.getBoolean("ask_images", true));
-        swAskImages.setEnabled(swConfirmImages.isChecked());
-        swHtmlImages.setChecked(prefs.getBoolean("html_always_images", false));
-        swConfirmHtml.setChecked(prefs.getBoolean("confirm_html", true));
-        swAskHtml.setChecked(prefs.getBoolean("ask_html", true));
-        swAskHtml.setEnabled(swConfirmHtml.isChecked());
-        swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
+            swConfirmLinks.setChecked(prefs.getBoolean("confirm_links", true));
+            swSanitizeLinks.setChecked(prefs.getBoolean("sanitize_links", false));
+            swSanitizeLinks.setEnabled(swConfirmLinks.isChecked());
+            swCheckLinksDbl.setChecked(prefs.getBoolean("check_links_dbl", BuildConfig.PLAY_STORE_RELEASE));
+            swCheckLinksDbl.setEnabled(swConfirmLinks.isChecked());
+            swConfirmImages.setChecked(prefs.getBoolean("confirm_images", true));
+            swAskImages.setChecked(prefs.getBoolean("ask_images", true));
+            swAskImages.setEnabled(swConfirmImages.isChecked());
+            swHtmlImages.setChecked(prefs.getBoolean("html_always_images", false));
+            swConfirmHtml.setChecked(prefs.getBoolean("confirm_html", true));
+            swAskHtml.setChecked(prefs.getBoolean("ask_html", true));
+            swAskHtml.setEnabled(swConfirmHtml.isChecked());
+            swDisableTracking.setChecked(prefs.getBoolean("disable_tracking", true));
 
-        String pin = prefs.getString("pin", null);
-        btnPin.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                0, 0, TextUtils.isEmpty(pin) ? 0 : R.drawable.twotone_check_12, 0);
+            String pin = prefs.getString("pin", null);
+            btnPin.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    0, 0, TextUtils.isEmpty(pin) ? 0 : R.drawable.twotone_check_12, 0);
 
-        boolean biometrics = prefs.getBoolean("biometrics", false);
-        btnBiometrics.setText(biometrics
-                ? R.string.title_setup_biometrics_disable
-                : R.string.title_setup_biometrics_enable);
-        btnBiometrics.setEnabled(Helper.canAuthenticate(getContext()));
+            boolean biometrics = prefs.getBoolean("biometrics", false);
+            btnBiometrics.setText(biometrics
+                    ? R.string.title_setup_biometrics_disable
+                    : R.string.title_setup_biometrics_enable);
+            btnBiometrics.setEnabled(Helper.canAuthenticate(getContext()));
 
-        int biometrics_timeout = prefs.getInt("biometrics_timeout", 2);
-        int[] biometricTimeoutValues = getResources().getIntArray(R.array.biometricsTimeoutValues);
-        for (int pos = 0; pos < biometricTimeoutValues.length; pos++)
-            if (biometricTimeoutValues[pos] == biometrics_timeout) {
-                spBiometricsTimeout.setSelection(pos);
-                break;
-            }
+            int biometrics_timeout = prefs.getInt("biometrics_timeout", 2);
+            int[] biometricTimeoutValues = getResources().getIntArray(R.array.biometricsTimeoutValues);
+            for (int pos = 0; pos < biometricTimeoutValues.length; pos++)
+                if (biometricTimeoutValues[pos] == biometrics_timeout) {
+                    spBiometricsTimeout.setSelection(pos);
+                    break;
+                }
 
-        swAutoLock.setChecked(prefs.getBoolean("autolock", true));
-        swAutoLockNav.setChecked(prefs.getBoolean("autolock_nav", false));
+            swAutoLock.setChecked(prefs.getBoolean("autolock", true));
+            swAutoLockNav.setChecked(prefs.getBoolean("autolock_nav", false));
 
-        swClientId.setChecked(prefs.getBoolean("client_id", true));
-        swHideTimeZone.setChecked(prefs.getBoolean("hide_timezone", false));
-        swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
-        swIncognitoKeyboard.setChecked(prefs.getBoolean("incognito_keyboard", false));
-        swSecure.setChecked(prefs.getBoolean("secure", false));
+            swClientId.setChecked(prefs.getBoolean("client_id", true));
+            swHideTimeZone.setChecked(prefs.getBoolean("hide_timezone", false));
+            swDisplayHidden.setChecked(prefs.getBoolean("display_hidden", false));
+            swIncognitoKeyboard.setChecked(prefs.getBoolean("incognito_keyboard", false));
+            swSecure.setChecked(prefs.getBoolean("secure", false));
 
-        tvGenericUserAgent.setText(WebViewEx.getUserAgent(getContext()));
-        swGenericUserAgent.setChecked(prefs.getBoolean("generic_ua", false));
-        swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", false));
-        swLoadEmoji.setChecked(prefs.getBoolean("load_emoji", false));
+            tvGenericUserAgent.setText(WebViewEx.getUserAgent(getContext()));
+            swGenericUserAgent.setChecked(prefs.getBoolean("generic_ua", false));
+            swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", false));
+            swLoadEmoji.setChecked(prefs.getBoolean("load_emoji", false));
 
-        long time = prefs.getLong("disconnect_last", -1);
-        DateFormat DF = SimpleDateFormat.getDateTimeInstance();
-        tvDisconnectBlacklistTime.setText(time < 0 ? null : DF.format(time));
-        tvDisconnectBlacklistTime.setVisibility(time < 0 ? View.GONE : View.VISIBLE);
+            long time = prefs.getLong("disconnect_last", -1);
+            DateFormat DF = SimpleDateFormat.getDateTimeInstance();
+            tvDisconnectBlacklistTime.setText(time < 0 ? null : DF.format(time));
+            tvDisconnectBlacklistTime.setVisibility(time < 0 ? View.GONE : View.VISIBLE);
 
-        swDisconnectAutoUpdate.setChecked(prefs.getBoolean("disconnect_auto_update", false));
-        swDisconnectLinks.setChecked(prefs.getBoolean("disconnect_links", true));
-        swDisconnectImages.setChecked(prefs.getBoolean("disconnect_images", false));
+            swDisconnectAutoUpdate.setChecked(prefs.getBoolean("disconnect_auto_update", false));
+            swDisconnectLinks.setChecked(prefs.getBoolean("disconnect_links", true));
+            swDisconnectImages.setChecked(prefs.getBoolean("disconnect_images", false));
 
-        String mnemonic = prefs.getString("wipe_mnemonic", null);
-        swMnemonic.setChecked(mnemonic != null);
-        tvMnemonic.setText(mnemonic);
+            String mnemonic = prefs.getString("wipe_mnemonic", null);
+            swMnemonic.setChecked(mnemonic != null);
+            tvMnemonic.setText(mnemonic);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 }

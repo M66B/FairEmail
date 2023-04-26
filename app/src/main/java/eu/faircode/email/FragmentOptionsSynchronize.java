@@ -594,77 +594,81 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     }
 
     private void setOptions() {
-        if (view == null || getContext() == null)
-            return;
+        try {
+            if (view == null || getContext() == null)
+                return;
 
-        final Context context = getContext();
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean pro = ActivityBilling.isPro(context);
+            final Context context = getContext();
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean pro = ActivityBilling.isPro(context);
 
-        swEnabled.setChecked(prefs.getBoolean("enabled", true));
-        swOptimize.setChecked(prefs.getBoolean("auto_optimize", false));
+            swEnabled.setChecked(prefs.getBoolean("enabled", true));
+            swOptimize.setChecked(prefs.getBoolean("auto_optimize", false));
 
-        int pollInterval = ServiceSynchronize.getPollInterval(context);
-        int[] pollIntervalValues = getResources().getIntArray(R.array.pollIntervalValues);
-        for (int pos = 0; pos < pollIntervalValues.length; pos++)
-            if (pollIntervalValues[pos] == pollInterval) {
-                spPollInterval.setTag(pollInterval);
-                spPollInterval.setSelection(pos);
-                break;
+            int pollInterval = ServiceSynchronize.getPollInterval(context);
+            int[] pollIntervalValues = getResources().getIntArray(R.array.pollIntervalValues);
+            for (int pos = 0; pos < pollIntervalValues.length; pos++)
+                if (pollIntervalValues[pos] == pollInterval) {
+                    spPollInterval.setTag(pollInterval);
+                    spPollInterval.setSelection(pos);
+                    break;
+                }
+
+            tvPollBattery.setVisibility(pollInterval > 0 && pollInterval < 15 ? View.VISIBLE : View.GONE);
+            grpExempted.setVisibility(pollInterval == 0 ? View.GONE : View.VISIBLE);
+
+            swSchedule.setChecked(prefs.getBoolean("schedule", false) && pro);
+            swSchedule.setEnabled(pro);
+
+            int schedule_start = prefs.getInt("schedule_start", 0);
+            int schedule_end = prefs.getInt("schedule_end", 0);
+            int schedule_start_weekend = prefs.getInt("schedule_start_weekend", schedule_start);
+            int schedule_end_weekend = prefs.getInt("schedule_end_weekend", schedule_end);
+            tvScheduleStart.setText(CalendarHelper.formatHour(context, schedule_start));
+            tvScheduleEnd.setText(CalendarHelper.formatHour(context, schedule_end));
+            tvScheduleStartWeekend.setText(CalendarHelper.formatHour(context, schedule_start_weekend));
+            tvScheduleEndWeekend.setText(CalendarHelper.formatHour(context, schedule_end_weekend));
+
+            for (int i = 0; i < 7; i++) {
+                boolean weekend = CalendarHelper.isWeekend(context, i + 1);
+                cbDay[i].setTypeface(weekend ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+                cbDay[i].setTextColor(weekend ? colorAccent : textColorTertiary);
+                cbDay[i].setChecked(prefs.getBoolean("schedule_day" + i, true));
             }
 
-        tvPollBattery.setVisibility(pollInterval > 0 && pollInterval < 15 ? View.VISIBLE : View.GONE);
-        grpExempted.setVisibility(pollInterval == 0 ? View.GONE : View.VISIBLE);
-
-        swSchedule.setChecked(prefs.getBoolean("schedule", false) && pro);
-        swSchedule.setEnabled(pro);
-
-        int schedule_start = prefs.getInt("schedule_start", 0);
-        int schedule_end = prefs.getInt("schedule_end", 0);
-        int schedule_start_weekend = prefs.getInt("schedule_start_weekend", schedule_start);
-        int schedule_end_weekend = prefs.getInt("schedule_end_weekend", schedule_end);
-        tvScheduleStart.setText(CalendarHelper.formatHour(context, schedule_start));
-        tvScheduleEnd.setText(CalendarHelper.formatHour(context, schedule_end));
-        tvScheduleStartWeekend.setText(CalendarHelper.formatHour(context, schedule_start_weekend));
-        tvScheduleEndWeekend.setText(CalendarHelper.formatHour(context, schedule_end_weekend));
-
-        for (int i = 0; i < 7; i++) {
-            boolean weekend = CalendarHelper.isWeekend(context, i + 1);
-            cbDay[i].setTypeface(weekend ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-            cbDay[i].setTextColor(weekend ? colorAccent : textColorTertiary);
-            cbDay[i].setChecked(prefs.getBoolean("schedule_day" + i, true));
+            swQuickSyncImap.setChecked(prefs.getBoolean("sync_quick_imap", false));
+            swQuickSyncPop.setChecked(prefs.getBoolean("sync_quick_pop", true));
+            swNodate.setChecked(prefs.getBoolean("sync_nodate", false));
+            swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
+            swFlagged.setChecked(prefs.getBoolean("sync_flagged", false));
+            swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", false));
+            swSyncKept.setChecked(prefs.getBoolean("sync_kept", true));
+            swGmailThread.setChecked(prefs.getBoolean("gmail_thread_id", false));
+            swOutlookThread.setChecked(prefs.getBoolean("outlook_thread_id", false));
+            swSubjectThreading.setChecked(prefs.getBoolean("subject_threading", false));
+            swSubjectThreading.setEnabled(!swGmailThread.isChecked() && !swOutlookThread.isChecked());
+            swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
+            swSyncFoldersPoll.setChecked(prefs.getBoolean("sync_folders_poll", false));
+            swSyncFoldersPoll.setEnabled(swSyncFolders.isChecked());
+            swSyncSharedFolders.setChecked(prefs.getBoolean("sync_shared_folders", false));
+            swSyncSharedFolders.setEnabled(swSyncFolders.isChecked());
+            swSyncAdded.setChecked(prefs.getBoolean("sync_added_folders", false));
+            swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
+            swTuneKeepAlive.setChecked(prefs.getBoolean("tune_keep_alive", true));
+            swCheckAuthentication.setChecked(prefs.getBoolean("check_authentication", true));
+            swCheckTls.setChecked(prefs.getBoolean("check_tls", false));
+            swCheckTls.setEnabled(swCheckAuthentication.isChecked());
+            swCheckReply.setChecked(prefs.getBoolean("check_reply_domain", true));
+            swCheckMx.setChecked(prefs.getBoolean("check_mx", false));
+            swCheckBlocklist.setChecked(prefs.getBoolean("check_blocklist", false));
+            swUseBlocklist.setChecked(prefs.getBoolean("use_blocklist", false));
+            swUseBlocklist.setEnabled(swCheckBlocklist.isChecked());
+            swUseBlocklistPop.setChecked(prefs.getBoolean("use_blocklist_pop", false));
+            swUseBlocklistPop.setEnabled(swCheckBlocklist.isChecked());
+            rvBlocklist.setAlpha(swCheckBlocklist.isChecked() ? 1.0f : Helper.LOW_LIGHT);
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
-
-        swQuickSyncImap.setChecked(prefs.getBoolean("sync_quick_imap", false));
-        swQuickSyncPop.setChecked(prefs.getBoolean("sync_quick_pop", true));
-        swNodate.setChecked(prefs.getBoolean("sync_nodate", false));
-        swUnseen.setChecked(prefs.getBoolean("sync_unseen", false));
-        swFlagged.setChecked(prefs.getBoolean("sync_flagged", false));
-        swDeleteUnseen.setChecked(prefs.getBoolean("delete_unseen", false));
-        swSyncKept.setChecked(prefs.getBoolean("sync_kept", true));
-        swGmailThread.setChecked(prefs.getBoolean("gmail_thread_id", false));
-        swOutlookThread.setChecked(prefs.getBoolean("outlook_thread_id", false));
-        swSubjectThreading.setChecked(prefs.getBoolean("subject_threading", false));
-        swSubjectThreading.setEnabled(!swGmailThread.isChecked() && !swOutlookThread.isChecked());
-        swSyncFolders.setChecked(prefs.getBoolean("sync_folders", true));
-        swSyncFoldersPoll.setChecked(prefs.getBoolean("sync_folders_poll", false));
-        swSyncFoldersPoll.setEnabled(swSyncFolders.isChecked());
-        swSyncSharedFolders.setChecked(prefs.getBoolean("sync_shared_folders", false));
-        swSyncSharedFolders.setEnabled(swSyncFolders.isChecked());
-        swSyncAdded.setChecked(prefs.getBoolean("sync_added_folders", false));
-        swSubscriptions.setChecked(prefs.getBoolean("subscriptions", false));
-        swTuneKeepAlive.setChecked(prefs.getBoolean("tune_keep_alive", true));
-        swCheckAuthentication.setChecked(prefs.getBoolean("check_authentication", true));
-        swCheckTls.setChecked(prefs.getBoolean("check_tls", false));
-        swCheckTls.setEnabled(swCheckAuthentication.isChecked());
-        swCheckReply.setChecked(prefs.getBoolean("check_reply_domain", true));
-        swCheckMx.setChecked(prefs.getBoolean("check_mx", false));
-        swCheckBlocklist.setChecked(prefs.getBoolean("check_blocklist", false));
-        swUseBlocklist.setChecked(prefs.getBoolean("use_blocklist", false));
-        swUseBlocklist.setEnabled(swCheckBlocklist.isChecked());
-        swUseBlocklistPop.setChecked(prefs.getBoolean("use_blocklist_pop", false));
-        swUseBlocklistPop.setEnabled(swCheckBlocklist.isChecked());
-        rvBlocklist.setAlpha(swCheckBlocklist.isChecked() ? 1.0f : Helper.LOW_LIGHT);
     }
 
     public static class TimePickerFragment extends FragmentDialogBase implements TimePickerDialog.OnTimeSetListener {

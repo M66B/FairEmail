@@ -423,46 +423,50 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     }
 
     private void setOptions() {
-        if (view == null || getContext() == null)
-            return;
+        try {
+            if (view == null || getContext() == null)
+                return;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        swMetered.setChecked(prefs.getBoolean("metered", true));
+            swMetered.setChecked(prefs.getBoolean("metered", true));
 
-        int download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
-        int[] downloadValues = getResources().getIntArray(R.array.downloadValues);
-        for (int pos = 0; pos < downloadValues.length; pos++)
-            if (downloadValues[pos] == download) {
-                spDownload.setSelection(pos);
-                break;
-            }
+            int download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
+            int[] downloadValues = getResources().getIntArray(R.array.downloadValues);
+            for (int pos = 0; pos < downloadValues.length; pos++)
+                if (downloadValues[pos] == download) {
+                    spDownload.setSelection(pos);
+                    break;
+                }
 
-        swRoaming.setChecked(prefs.getBoolean("roaming", true));
-        swRlah.setChecked(prefs.getBoolean("rlah", true));
+            swRoaming.setChecked(prefs.getBoolean("roaming", true));
+            swRlah.setChecked(prefs.getBoolean("rlah", true));
 
-        swDownloadHeaders.setChecked(prefs.getBoolean("download_headers", false));
-        swDownloadEml.setChecked(prefs.getBoolean("download_eml", false));
-        swDownloadPlain.setChecked(prefs.getBoolean("download_plain", false));
+            swDownloadHeaders.setChecked(prefs.getBoolean("download_headers", false));
+            swDownloadEml.setChecked(prefs.getBoolean("download_eml", false));
+            swDownloadPlain.setChecked(prefs.getBoolean("download_plain", false));
 
-        swValidated.setChecked(prefs.getBoolean("require_validated", false));
-        swValidatedCaptive.setChecked(prefs.getBoolean("require_validated_captive", true));
-        swValidatedCaptive.setEnabled(!swValidated.isChecked());
-        swVpnOnly.setChecked(prefs.getBoolean("vpn_only", false));
+            swValidated.setChecked(prefs.getBoolean("require_validated", false));
+            swValidatedCaptive.setChecked(prefs.getBoolean("require_validated_captive", true));
+            swValidatedCaptive.setEnabled(!swValidated.isChecked());
+            swVpnOnly.setChecked(prefs.getBoolean("vpn_only", false));
 
-        int timeout = prefs.getInt("timeout", 0);
-        etTimeout.setText(timeout == 0 ? null : Integer.toString(timeout));
-        etTimeout.setHint(Integer.toString(EmailService.DEFAULT_CONNECT_TIMEOUT));
+            int timeout = prefs.getInt("timeout", 0);
+            etTimeout.setText(timeout == 0 ? null : Integer.toString(timeout));
+            etTimeout.setHint(Integer.toString(EmailService.DEFAULT_CONNECT_TIMEOUT));
 
-        swPreferIp4.setChecked(prefs.getBoolean("prefer_ip4", true));
-        swBindSocket.setChecked(prefs.getBoolean("bind_socket", false));
-        swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
-        swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
-        swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
-        swSslHardenStrict.setChecked(prefs.getBoolean("ssl_harden_strict", false));
-        swSslHardenStrict.setEnabled(swSslHarden.isChecked());
-        swCertStrict.setChecked(prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE));
-        swOpenSafe.setChecked(prefs.getBoolean("open_safe", false));
+            swPreferIp4.setChecked(prefs.getBoolean("prefer_ip4", true));
+            swBindSocket.setChecked(prefs.getBoolean("bind_socket", false));
+            swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
+            swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
+            swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
+            swSslHardenStrict.setChecked(prefs.getBoolean("ssl_harden_strict", false));
+            swSslHardenStrict.setEnabled(swSslHarden.isChecked());
+            swCertStrict.setChecked(prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE));
+            swOpenSafe.setChecked(prefs.getBoolean("open_safe", false));
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     private static Intent getIntentConnectivity() {

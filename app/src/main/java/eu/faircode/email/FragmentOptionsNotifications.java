@@ -801,51 +801,55 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     }
 
     private void setOptions() {
-        if (view == null || getContext() == null)
-            return;
+        try {
+            if (view == null || getContext() == null)
+                return;
 
-        boolean pro = ActivityBilling.isPro(getContext());
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            boolean pro = ActivityBilling.isPro(getContext());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        swNewestFirst.setChecked(prefs.getBoolean("notify_newest_first", false));
-        swNotifySummary.setChecked(prefs.getBoolean("notify_summary", false));
+            swNewestFirst.setChecked(prefs.getBoolean("notify_newest_first", false));
+            swNotifySummary.setChecked(prefs.getBoolean("notify_summary", false));
 
-        cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true) || !pro);
-        cbNotifyActionJunk.setChecked(prefs.getBoolean("notify_junk", false) && pro);
-        cbNotifyActionBlockSender.setChecked(prefs.getBoolean("notify_block_sender", false) && pro);
-        cbNotifyActionArchive.setChecked(prefs.getBoolean("notify_archive", true) || !pro);
-        cbNotifyActionMove.setChecked(prefs.getBoolean("notify_move", false) && pro);
-        cbNotifyActionReply.setChecked(prefs.getBoolean("notify_reply", false) && pro);
-        cbNotifyActionReplyDirect.setChecked(prefs.getBoolean("notify_reply_direct", false) && pro);
-        cbNotifyActionFlag.setChecked(prefs.getBoolean("notify_flag", false) && pro);
-        cbNotifyActionSeen.setChecked(prefs.getBoolean("notify_seen", true) || !pro);
-        cbNotifyActionHide.setChecked(prefs.getBoolean("notify_hide", false) && pro);
-        cbNotifyActionSnooze.setChecked(prefs.getBoolean("notify_snooze", false) && pro);
-        swLight.setChecked(prefs.getBoolean("light", false));
-        swNotifyScreenOn.setChecked(prefs.getBoolean("notify_screen_on", false));
+            cbNotifyActionTrash.setChecked(prefs.getBoolean("notify_trash", true) || !pro);
+            cbNotifyActionJunk.setChecked(prefs.getBoolean("notify_junk", false) && pro);
+            cbNotifyActionBlockSender.setChecked(prefs.getBoolean("notify_block_sender", false) && pro);
+            cbNotifyActionArchive.setChecked(prefs.getBoolean("notify_archive", true) || !pro);
+            cbNotifyActionMove.setChecked(prefs.getBoolean("notify_move", false) && pro);
+            cbNotifyActionReply.setChecked(prefs.getBoolean("notify_reply", false) && pro);
+            cbNotifyActionReplyDirect.setChecked(prefs.getBoolean("notify_reply_direct", false) && pro);
+            cbNotifyActionFlag.setChecked(prefs.getBoolean("notify_flag", false) && pro);
+            cbNotifyActionSeen.setChecked(prefs.getBoolean("notify_seen", true) || !pro);
+            cbNotifyActionHide.setChecked(prefs.getBoolean("notify_hide", false) && pro);
+            cbNotifyActionSnooze.setChecked(prefs.getBoolean("notify_snooze", false) && pro);
+            swLight.setChecked(prefs.getBoolean("light", false));
+            swNotifyScreenOn.setChecked(prefs.getBoolean("notify_screen_on", false));
 
-        swBadge.setChecked(prefs.getBoolean("badge", true));
-        swUnseenIgnored.setChecked(prefs.getBoolean("unseen_ignored", false));
-        swNotifyGrouping.setChecked(prefs.getBoolean("notify_grouping", true));
-        swNotifyPrivate.setChecked(prefs.getBoolean("notify_private", true));
-        swNotifyBackgroundOnly.setChecked(prefs.getBoolean("notify_background_only", false));
-        swNotifyKnownOnly.setChecked(prefs.getBoolean("notify_known", false));
-        swNotifySuppressInCall.setChecked(prefs.getBoolean("notify_suppress_in_call", false));
-        swNotifySuppressInCar.setChecked(prefs.getBoolean("notify_suppress_in_car", false));
-        swNotifyRemove.setChecked(prefs.getBoolean("notify_remove", true));
-        swNotifyClear.setChecked(prefs.getBoolean("notify_clear", false));
-        swNotifySubtext.setChecked(prefs.getBoolean("notify_subtext", true));
-        swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
-        swNotifyPreviewAll.setChecked(prefs.getBoolean("notify_preview_all", false));
-        swNotifyPreviewOnly.setChecked(prefs.getBoolean("notify_preview_only", false));
-        swNotifyTransliterate.setChecked(prefs.getBoolean("notify_transliterate", false));
-        swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", false));
-        swMessagingStyle.setChecked(prefs.getBoolean("notify_messaging", false));
-        swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", true));
-        swBackground.setChecked(prefs.getBoolean("background_service", false));
-        swAlertOnce.setChecked(!prefs.getBoolean("alert_once", true));
+            swBadge.setChecked(prefs.getBoolean("badge", true));
+            swUnseenIgnored.setChecked(prefs.getBoolean("unseen_ignored", false));
+            swNotifyGrouping.setChecked(prefs.getBoolean("notify_grouping", true));
+            swNotifyPrivate.setChecked(prefs.getBoolean("notify_private", true));
+            swNotifyBackgroundOnly.setChecked(prefs.getBoolean("notify_background_only", false));
+            swNotifyKnownOnly.setChecked(prefs.getBoolean("notify_known", false));
+            swNotifySuppressInCall.setChecked(prefs.getBoolean("notify_suppress_in_call", false));
+            swNotifySuppressInCar.setChecked(prefs.getBoolean("notify_suppress_in_car", false));
+            swNotifyRemove.setChecked(prefs.getBoolean("notify_remove", true));
+            swNotifyClear.setChecked(prefs.getBoolean("notify_clear", false));
+            swNotifySubtext.setChecked(prefs.getBoolean("notify_subtext", true));
+            swNotifyPreview.setChecked(prefs.getBoolean("notify_preview", true));
+            swNotifyPreviewAll.setChecked(prefs.getBoolean("notify_preview_all", false));
+            swNotifyPreviewOnly.setChecked(prefs.getBoolean("notify_preview_only", false));
+            swNotifyTransliterate.setChecked(prefs.getBoolean("notify_transliterate", false));
+            swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", false));
+            swMessagingStyle.setChecked(prefs.getBoolean("notify_messaging", false));
+            swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", true));
+            swBackground.setChecked(prefs.getBoolean("background_service", false));
+            swAlertOnce.setChecked(!prefs.getBoolean("alert_once", true));
 
-        enableOptions();
+            enableOptions();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     private void enableOptions() {

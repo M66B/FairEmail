@@ -634,49 +634,53 @@ public class FragmentOptionsEncryption extends FragmentBase
     }
 
     private void setOptions() {
-        if (view == null || getContext() == null)
-            return;
+        try {
+            if (view == null || getContext() == null)
+                return;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        swSign.setChecked(prefs.getBoolean("sign_default", false));
-        swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));
-        swSign.setEnabled(!swEncrypt.isChecked());
-        swEncryptAuto.setChecked(prefs.getBoolean("encrypt_auto", false));
-        swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
-        swAutoUndoDecrypt.setChecked(prefs.getBoolean("auto_undecrypt", false));
+            swSign.setChecked(prefs.getBoolean("sign_default", false));
+            swEncrypt.setChecked(prefs.getBoolean("encrypt_default", false));
+            swSign.setEnabled(!swEncrypt.isChecked());
+            swEncryptAuto.setChecked(prefs.getBoolean("encrypt_auto", false));
+            swAutoDecrypt.setChecked(prefs.getBoolean("auto_decrypt", false));
+            swAutoUndoDecrypt.setChecked(prefs.getBoolean("auto_undecrypt", false));
 
-        String provider = prefs.getString("openpgp_provider", Helper.PGP_OPENKEYCHAIN_PACKAGE);
-        spOpenPgp.setTag(provider);
-        for (int pos = 0; pos < openPgpProvider.size(); pos++)
-            if (provider.equals(openPgpProvider.get(pos))) {
-                spOpenPgp.setSelection(pos);
-                break;
-            }
-        testOpenPgp(provider);
+            String provider = prefs.getString("openpgp_provider", Helper.PGP_OPENKEYCHAIN_PACKAGE);
+            spOpenPgp.setTag(provider);
+            for (int pos = 0; pos < openPgpProvider.size(); pos++)
+                if (provider.equals(openPgpProvider.get(pos))) {
+                    spOpenPgp.setSelection(pos);
+                    break;
+                }
+            testOpenPgp(provider);
 
-        swAutocrypt.setChecked(prefs.getBoolean("autocrypt", true));
-        swAutocryptMutual.setChecked(prefs.getBoolean("autocrypt_mutual", true));
-        swAutocryptMutual.setEnabled(swAutocrypt.isChecked());
-        swEncryptSubject.setChecked(prefs.getBoolean("encrypt_subject", false));
+            swAutocrypt.setChecked(prefs.getBoolean("autocrypt", true));
+            swAutocryptMutual.setChecked(prefs.getBoolean("autocrypt_mutual", true));
+            swAutocryptMutual.setEnabled(swAutocrypt.isChecked());
+            swEncryptSubject.setChecked(prefs.getBoolean("encrypt_subject", false));
 
-        String signAlgorithm = prefs.getString("sign_algo_smime", "SHA-256");
-        String[] smimeSignAlgo = getResources().getStringArray(R.array.smimeSignAlgo);
-        for (int pos = 0; pos < smimeSignAlgo.length; pos++)
-            if (smimeSignAlgo[pos].equals(signAlgorithm)) {
-                spSignAlgoSmime.setSelection(pos);
-                break;
-            }
+            String signAlgorithm = prefs.getString("sign_algo_smime", "SHA-256");
+            String[] smimeSignAlgo = getResources().getStringArray(R.array.smimeSignAlgo);
+            for (int pos = 0; pos < smimeSignAlgo.length; pos++)
+                if (smimeSignAlgo[pos].equals(signAlgorithm)) {
+                    spSignAlgoSmime.setSelection(pos);
+                    break;
+                }
 
-        String encryptAlgorithm = prefs.getString("encrypt_algo_smime", "AES-128");
-        String[] smimeEncryptAlgo = getResources().getStringArray(R.array.smimeEncryptAlgo);
-        for (int pos = 0; pos < smimeEncryptAlgo.length; pos++)
-            if (smimeEncryptAlgo[pos].equals(encryptAlgorithm)) {
-                spEncryptAlgoSmime.setSelection(pos);
-                break;
-            }
+            String encryptAlgorithm = prefs.getString("encrypt_algo_smime", "AES-128");
+            String[] smimeEncryptAlgo = getResources().getStringArray(R.array.smimeEncryptAlgo);
+            for (int pos = 0; pos < smimeEncryptAlgo.length; pos++)
+                if (smimeEncryptAlgo[pos].equals(encryptAlgorithm)) {
+                    spEncryptAlgoSmime.setSelection(pos);
+                    break;
+                }
 
-        swCheckCertificate.setChecked(prefs.getBoolean("check_certificate", true));
+            swCheckCertificate.setChecked(prefs.getBoolean("check_certificate", true));
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     private void testOpenPgp(String pkg) {

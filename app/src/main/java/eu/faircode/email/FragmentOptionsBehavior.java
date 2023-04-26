@@ -639,89 +639,93 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     }
 
     private void setOptions() {
-        if (view == null || getContext() == null)
-            return;
+        try {
+            if (view == null || getContext() == null)
+                return;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        swRestoreOnLaunch.setChecked(prefs.getBoolean("restore_on_launch", false));
-        swSyncOnlaunch.setChecked(prefs.getBoolean("sync_on_launch", false));
-        swDoubleBack.setChecked(prefs.getBoolean("double_back", false));
-        swConversationActions.setChecked(prefs.getBoolean("conversation_actions", Helper.isGoogle()));
-        swConversationActionsReplies.setChecked(prefs.getBoolean("conversation_actions_replies", true));
-        swConversationActionsReplies.setEnabled(swConversationActions.isChecked());
-        swLanguageDetection.setChecked(prefs.getBoolean("language_detection", false));
+            swRestoreOnLaunch.setChecked(prefs.getBoolean("restore_on_launch", false));
+            swSyncOnlaunch.setChecked(prefs.getBoolean("sync_on_launch", false));
+            swDoubleBack.setChecked(prefs.getBoolean("double_back", false));
+            swConversationActions.setChecked(prefs.getBoolean("conversation_actions", Helper.isGoogle()));
+            swConversationActionsReplies.setChecked(prefs.getBoolean("conversation_actions_replies", true));
+            swConversationActionsReplies.setEnabled(swConversationActions.isChecked());
+            swLanguageDetection.setChecked(prefs.getBoolean("language_detection", false));
 
-        int default_snooze = prefs.getInt("default_snooze", 1);
-        etDefaultSnooze.setText(default_snooze == 1 ? null : Integer.toString(default_snooze));
-        etDefaultSnooze.setHint("1");
+            int default_snooze = prefs.getInt("default_snooze", 1);
+            etDefaultSnooze.setText(default_snooze == 1 ? null : Integer.toString(default_snooze));
+            etDefaultSnooze.setHint("1");
 
-        swPhotoPicker.setChecked(prefs.getBoolean("photo_picker", false));
+            swPhotoPicker.setChecked(prefs.getBoolean("photo_picker", false));
 
-        swPull.setChecked(prefs.getBoolean("pull", true));
-        swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
-        swQuickFilter.setChecked(prefs.getBoolean("quick_filter", false));
-        swQuickScroll.setChecked(prefs.getBoolean("quick_scroll", true));
-        swQuickActions.setChecked(prefs.getBoolean("quick_actions", true));
+            swPull.setChecked(prefs.getBoolean("pull", true));
+            swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
+            swQuickFilter.setChecked(prefs.getBoolean("quick_filter", false));
+            swQuickScroll.setChecked(prefs.getBoolean("quick_scroll", true));
+            swQuickActions.setChecked(prefs.getBoolean("quick_actions", true));
 
-        int swipe_sensitivity = prefs.getInt("swipe_sensitivity", DEFAULT_SWIPE_SENSITIVITY);
-        sbSwipeSensitivity.setProgress(swipe_sensitivity);
+            int swipe_sensitivity = prefs.getInt("swipe_sensitivity", DEFAULT_SWIPE_SENSITIVITY);
+            sbSwipeSensitivity.setProgress(swipe_sensitivity);
 
-        swFolderNav.setChecked(prefs.getBoolean("foldernav", false));
+            swFolderNav.setChecked(prefs.getBoolean("foldernav", false));
 
-        swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
-        swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
-        swVolumeNav.setChecked(prefs.getBoolean("volumenav", false));
-        swReversed.setChecked(prefs.getBoolean("reversed", false));
-        swSwipeClose.setChecked(prefs.getBoolean("swipe_close", false));
-        swSwipeMove.setChecked(prefs.getBoolean("swipe_move", false));
+            swDoubleTap.setChecked(prefs.getBoolean("doubletap", false));
+            swSwipeNav.setChecked(prefs.getBoolean("swipenav", true));
+            swVolumeNav.setChecked(prefs.getBoolean("volumenav", false));
+            swReversed.setChecked(prefs.getBoolean("reversed", false));
+            swSwipeClose.setChecked(prefs.getBoolean("swipe_close", false));
+            swSwipeMove.setChecked(prefs.getBoolean("swipe_move", false));
 
-        swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
-        swExpandFirst.setChecked(prefs.getBoolean("expand_first", true));
-        swExpandFirst.setEnabled(swAutoExpand.isChecked());
-        swExpandAll.setChecked(prefs.getBoolean("expand_all", false));
-        swExpandOne.setChecked(prefs.getBoolean("expand_one", true));
-        swExpandOne.setEnabled(!swExpandAll.isChecked());
-        swCollapseMultiple.setChecked(prefs.getBoolean("collapse_multiple", true));
+            swAutoExpand.setChecked(prefs.getBoolean("autoexpand", true));
+            swExpandFirst.setChecked(prefs.getBoolean("expand_first", true));
+            swExpandFirst.setEnabled(swAutoExpand.isChecked());
+            swExpandAll.setChecked(prefs.getBoolean("expand_all", false));
+            swExpandOne.setChecked(prefs.getBoolean("expand_one", true));
+            swExpandOne.setEnabled(!swExpandAll.isChecked());
+            swCollapseMultiple.setChecked(prefs.getBoolean("collapse_multiple", true));
 
-        swAutoClose.setChecked(prefs.getBoolean("autoclose", true));
+            swAutoClose.setChecked(prefs.getBoolean("autoclose", true));
 
-        String onClose = prefs.getString("onclose", "");
-        String[] onCloseValues = getResources().getStringArray(R.array.onCloseValues);
-        for (int pos = 0; pos < onCloseValues.length; pos++)
-            if (onCloseValues[pos].equals(onClose)) {
-                spOnClose.setSelection(pos);
-                break;
-            }
+            String onClose = prefs.getString("onclose", "");
+            String[] onCloseValues = getResources().getStringArray(R.array.onCloseValues);
+            for (int pos = 0; pos < onCloseValues.length; pos++)
+                if (onCloseValues[pos].equals(onClose)) {
+                    spOnClose.setSelection(pos);
+                    break;
+                }
 
-        tvOnClose.setEnabled(!swAutoClose.isChecked());
-        spOnClose.setEnabled(!swAutoClose.isChecked());
+            tvOnClose.setEnabled(!swAutoClose.isChecked());
+            spOnClose.setEnabled(!swAutoClose.isChecked());
 
-        swAutoCloseUnseen.setChecked(prefs.getBoolean("autoclose_unseen", false));
-        swAutoCloseSend.setChecked(prefs.getBoolean("autoclose_send", false));
-        swCollapseMarked.setChecked(prefs.getBoolean("collapse_marked", true));
+            swAutoCloseUnseen.setChecked(prefs.getBoolean("autoclose_unseen", false));
+            swAutoCloseSend.setChecked(prefs.getBoolean("autoclose_send", false));
+            swCollapseMarked.setChecked(prefs.getBoolean("collapse_marked", true));
 
-        int undo_timeout = prefs.getInt("undo_timeout", 5000);
-        int[] undoValues = getResources().getIntArray(R.array.undoValues);
-        for (int pos = 0; pos < undoValues.length; pos++)
-            if (undoValues[pos] == undo_timeout) {
-                spUndoTimeout.setSelection(pos);
-                break;
-            }
+            int undo_timeout = prefs.getInt("undo_timeout", 5000);
+            int[] undoValues = getResources().getIntArray(R.array.undoValues);
+            for (int pos = 0; pos < undoValues.length; pos++)
+                if (undoValues[pos] == undo_timeout) {
+                    spUndoTimeout.setSelection(pos);
+                    break;
+                }
 
-        swAutoRead.setChecked(prefs.getBoolean("autoread", false));
-        swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
-        swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
-        swThreadSentTrash.setChecked(prefs.getBoolean("thread_sent_trash", true));
+            swAutoRead.setChecked(prefs.getBoolean("autoread", false));
+            swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
+            swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
+            swThreadSentTrash.setChecked(prefs.getBoolean("thread_sent_trash", true));
 
-        swFlagSnoozed.setChecked(prefs.getBoolean("flag_snoozed", false));
-        swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
-        swResetSnooze.setChecked(prefs.getBoolean("reset_snooze", true));
-        swAutoBlockSender.setChecked(prefs.getBoolean("auto_block_sender", true));
-        swAutoHideAnswer.setChecked(prefs.getBoolean("auto_hide_answer", !accessibility));
-        swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
-        swMoveThreadSent.setChecked(prefs.getBoolean("move_thread_sent", false));
-        tvDefaultFolder.setText(prefs.getString("default_folder", null));
+            swFlagSnoozed.setChecked(prefs.getBoolean("flag_snoozed", false));
+            swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
+            swResetSnooze.setChecked(prefs.getBoolean("reset_snooze", true));
+            swAutoBlockSender.setChecked(prefs.getBoolean("auto_block_sender", true));
+            swAutoHideAnswer.setChecked(prefs.getBoolean("auto_hide_answer", !accessibility));
+            swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
+            swMoveThreadSent.setChecked(prefs.getBoolean("move_thread_sent", false));
+            tvDefaultFolder.setText(prefs.getString("default_folder", null));
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     private void onDefaultFolder(Uri uri) {

@@ -722,107 +722,111 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     }
 
     private void setOptions() {
-        if (view == null || getContext() == null)
-            return;
+        try {
+            if (view == null || getContext() == null)
+                return;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
-        swKeyboard.setChecked(prefs.getBoolean("keyboard", true));
-        swKeyboardNoFullscreen.setChecked(prefs.getBoolean("keyboard_no_fullscreen", false));
-        swSuggestNames.setChecked(prefs.getBoolean("suggest_names", true));
-        swSuggestSent.setChecked(prefs.getBoolean("suggest_sent", true));
-        swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
-        swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
-        swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
-        swAutoIdentity.setChecked(prefs.getBoolean("auto_identity", false));
-        swAutoIdentity.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
-        swSendChips.setChecked(prefs.getBoolean("send_chips", true));
-        swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
-        swSendPending.setChecked(prefs.getBoolean("send_pending", true));
-        swAutoSaveParagraph.setChecked(prefs.getBoolean("auto_save_paragraph", true));
-        swAutoSaveDot.setChecked(prefs.getBoolean("auto_save_dot", false));
-        swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", true));
+            swKeyboard.setChecked(prefs.getBoolean("keyboard", true));
+            swKeyboardNoFullscreen.setChecked(prefs.getBoolean("keyboard_no_fullscreen", false));
+            swSuggestNames.setChecked(prefs.getBoolean("suggest_names", true));
+            swSuggestSent.setChecked(prefs.getBoolean("suggest_sent", true));
+            swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
+            swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
+            swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
+            swAutoIdentity.setChecked(prefs.getBoolean("auto_identity", false));
+            swAutoIdentity.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
+            swSendChips.setChecked(prefs.getBoolean("send_chips", true));
+            swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
+            swSendPending.setChecked(prefs.getBoolean("send_pending", true));
+            swAutoSaveParagraph.setChecked(prefs.getBoolean("auto_save_paragraph", true));
+            swAutoSaveDot.setChecked(prefs.getBoolean("auto_save_dot", false));
+            swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", true));
 
-        int send_delayed = prefs.getInt("send_delayed", 0);
-        int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
-        for (int pos = 0; pos < sendDelayedValues.length; pos++)
-            if (sendDelayedValues[pos] == send_delayed) {
-                spSendDelayed.setSelection(pos);
-                break;
+            int send_delayed = prefs.getInt("send_delayed", 0);
+            int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
+            for (int pos = 0; pos < sendDelayedValues.length; pos++)
+                if (sendDelayedValues[pos] == send_delayed) {
+                    spSendDelayed.setSelection(pos);
+                    break;
+                }
+
+            String[] answerValues = getResources().getStringArray(R.array.answerValues);
+
+            String answer_default = prefs.getString("answer_single", "menu");
+            for (int pos = 0; pos < answerValues.length; pos++)
+                if (answerValues[pos].equals(answer_default)) {
+                    spAnswerActionSingle.setSelection(pos);
+                    break;
+                }
+
+            boolean reply_all = prefs.getBoolean("reply_all", false);
+            String answer_action = prefs.getString("answer_action", reply_all ? "reply_all" : "reply");
+            for (int pos = 0; pos < answerValues.length; pos++)
+                if (answerValues[pos].equals(answer_action)) {
+                    spAnswerActionLong.setSelection(pos);
+                    break;
+                }
+
+            btnComposeColor.setColor(prefs.getInt("compose_color", Color.TRANSPARENT));
+
+            String compose_font = prefs.getString("compose_font", "");
+            List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
+            for (int pos = 0; pos < fonts.size(); pos++) {
+                StyleHelper.FontDescriptor font = fonts.get(pos);
+                if (font.type.equals(compose_font)) {
+                    spComposeFont.setSelection(pos + 1);
+                    break;
+                }
             }
 
-        String[] answerValues = getResources().getStringArray(R.array.answerValues);
+            swComposeMonospaced.setChecked(prefs.getBoolean("compose_monospaced", false));
 
-        String answer_default = prefs.getString("answer_single", "menu");
-        for (int pos = 0; pos < answerValues.length; pos++)
-            if (answerValues[pos].equals(answer_default)) {
-                spAnswerActionSingle.setSelection(pos);
-                break;
-            }
+            swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
+            swPrefixCount.setChecked(prefs.getBoolean("prefix_count", false));
+            swPrefixCount.setEnabled(swPrefixOnce.isChecked());
+            rgRe.check(prefs.getBoolean("alt_re", false) ? R.id.rbRe2 : R.id.rbRe1);
+            rgFwd.check(prefs.getBoolean("alt_fwd", false) ? R.id.rbFwd2 : R.id.rbFwd1);
 
-        boolean reply_all = prefs.getBoolean("reply_all", false);
-        String answer_action = prefs.getString("answer_action", reply_all ? "reply_all" : "reply");
-        for (int pos = 0; pos < answerValues.length; pos++)
-            if (answerValues[pos].equals(answer_action)) {
-                spAnswerActionLong.setSelection(pos);
-                break;
-            }
+            swSeparateReply.setChecked(prefs.getBoolean("separate_reply", false));
+            swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
+            swWriteBelow.setChecked(prefs.getBoolean("write_below", false));
+            swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
+            swQuoteLimit.setChecked(prefs.getBoolean("quote_limit", true));
+            swResizeReply.setChecked(prefs.getBoolean("resize_reply", true));
 
-        btnComposeColor.setColor(prefs.getInt("compose_color", Color.TRANSPARENT));
+            int signature_location = prefs.getInt("signature_location", 1);
+            spSignatureLocation.setSelection(signature_location);
 
-        String compose_font = prefs.getString("compose_font", "");
-        List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
-        for (int pos = 0; pos < fonts.size(); pos++) {
-            StyleHelper.FontDescriptor font = fonts.get(pos);
-            if (font.type.equals(compose_font)) {
-                spComposeFont.setSelection(pos + 1);
-                break;
-            }
+            swSignatureNew.setChecked(prefs.getBoolean("signature_new", true));
+            swSignatureReply.setChecked(prefs.getBoolean("signature_reply", true));
+            swSignatureReplyOnce.setChecked(prefs.getBoolean("signature_reply_once", false));
+            swSignatureReplyOnce.setEnabled(swSignatureReply.isChecked());
+            swSignatureForward.setChecked(prefs.getBoolean("signature_forward", true));
+
+            swAttachNew.setChecked(prefs.getBoolean("attach_new", true));
+            swAutoLink.setChecked(prefs.getBoolean("auto_link", false));
+            swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
+            swPlainOnlyReply.setChecked(prefs.getBoolean("plain_only_reply", false));
+            swFormatFlowed.setChecked(prefs.getBoolean("format_flowed", false));
+            swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));
+            swRemoveSignatures.setChecked(prefs.getBoolean("remove_signatures", false));
+            swReceipt.setChecked(prefs.getBoolean("receipt_default", false));
+
+            int receipt_type = prefs.getInt("receipt_type", 2);
+            spReceiptType.setSelection(receipt_type);
+
+            swReceiptLegacy.setChecked(prefs.getBoolean("receipt_legacy", false));
+
+            swForwardNew.setChecked(prefs.getBoolean("forward_new", true));
+            swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
+            swReplyMove.setChecked(prefs.getBoolean("reply_move", false));
+            swReplyMoveInbox.setChecked(prefs.getBoolean("reply_move_inbox", true));
+            swReplyMoveInbox.setEnabled(swReplyMove.isChecked());
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
-
-        swComposeMonospaced.setChecked(prefs.getBoolean("compose_monospaced", false));
-
-        swPrefixOnce.setChecked(prefs.getBoolean("prefix_once", true));
-        swPrefixCount.setChecked(prefs.getBoolean("prefix_count", false));
-        swPrefixCount.setEnabled(swPrefixOnce.isChecked());
-        rgRe.check(prefs.getBoolean("alt_re", false) ? R.id.rbRe2 : R.id.rbRe1);
-        rgFwd.check(prefs.getBoolean("alt_fwd", false) ? R.id.rbFwd2 : R.id.rbFwd1);
-
-        swSeparateReply.setChecked(prefs.getBoolean("separate_reply", false));
-        swExtendedReply.setChecked(prefs.getBoolean("extended_reply", false));
-        swWriteBelow.setChecked(prefs.getBoolean("write_below", false));
-        swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
-        swQuoteLimit.setChecked(prefs.getBoolean("quote_limit", true));
-        swResizeReply.setChecked(prefs.getBoolean("resize_reply", true));
-
-        int signature_location = prefs.getInt("signature_location", 1);
-        spSignatureLocation.setSelection(signature_location);
-
-        swSignatureNew.setChecked(prefs.getBoolean("signature_new", true));
-        swSignatureReply.setChecked(prefs.getBoolean("signature_reply", true));
-        swSignatureReplyOnce.setChecked(prefs.getBoolean("signature_reply_once", false));
-        swSignatureReplyOnce.setEnabled(swSignatureReply.isChecked());
-        swSignatureForward.setChecked(prefs.getBoolean("signature_forward", true));
-
-        swAttachNew.setChecked(prefs.getBoolean("attach_new", true));
-        swAutoLink.setChecked(prefs.getBoolean("auto_link", false));
-        swPlainOnly.setChecked(prefs.getBoolean("plain_only", false));
-        swPlainOnlyReply.setChecked(prefs.getBoolean("plain_only_reply", false));
-        swFormatFlowed.setChecked(prefs.getBoolean("format_flowed", false));
-        swUsenetSignature.setChecked(prefs.getBoolean("usenet_signature", false));
-        swRemoveSignatures.setChecked(prefs.getBoolean("remove_signatures", false));
-        swReceipt.setChecked(prefs.getBoolean("receipt_default", false));
-
-        int receipt_type = prefs.getInt("receipt_type", 2);
-        spReceiptType.setSelection(receipt_type);
-
-        swReceiptLegacy.setChecked(prefs.getBoolean("receipt_legacy", false));
-
-        swForwardNew.setChecked(prefs.getBoolean("forward_new", true));
-        swLookupMx.setChecked(prefs.getBoolean("lookup_mx", false));
-        swReplyMove.setChecked(prefs.getBoolean("reply_move", false));
-        swReplyMoveInbox.setChecked(prefs.getBoolean("reply_move_inbox", true));
-        swReplyMoveInbox.setEnabled(swReplyMove.isChecked());
     }
 
     @Override
