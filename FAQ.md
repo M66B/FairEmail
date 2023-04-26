@@ -1938,6 +1938,10 @@ In these cases you might want to synchronize periodically, for example each hour
 Note that polling frequently (more than every 30-60 minutes) will likely use more battery power than synchronizing always
 because connecting to the server and comparing the local and remote messages are expensive operations.
 
+If you know that the connection (reception) is bad, it might be worthwhile to decrease the timeout value in the connection-settings tab page to 10–20 seconds,
+so that the app discovers earlier that no connection is possible,
+so that the mechanism as described in [this FAQ](#user-content-faq123) is used faster.
+
 [On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 3) to keep connections to email servers open.
 In fact, leaving battery optimizations enabled can result in extra battery usage for all devices, even though this sounds contradictory!
 
@@ -1994,9 +1998,6 @@ an account will automatically be switched to periodically checking for new messa
 * Says '*Still here*' within 3 minutes
 * The email server does not support push messages
 * The keep-alive interval is lower than 12 minutes
-
-In addition, the trash and spam folders will be automatically set to checking for new messages
-after three successive [too many simultaneous connections](#user-content-faq23) errors.
 
 <br />
 
