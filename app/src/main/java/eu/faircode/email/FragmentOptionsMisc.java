@@ -1085,7 +1085,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         sbOpenAiTemperature.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                prefs.edit().putFloat("openai_temperature", (float) progress / 10f).apply();
+                float temp = progress / 10f;
+                prefs.edit().putFloat("openai_temperature", temp).apply();
             }
 
             @Override

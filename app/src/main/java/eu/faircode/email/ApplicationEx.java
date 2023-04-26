@@ -700,6 +700,8 @@ public class ApplicationEx extends Application
                 editor.putBoolean("plain_only_reply", true);
         } else if (version < 2046)
             editor.remove("message_junk");
+        else if (version < 2068)
+            editor.remove("openai_temperature");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
