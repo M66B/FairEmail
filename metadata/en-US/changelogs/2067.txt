@@ -4,6 +4,13 @@ Changelog
 
 For support you can use the contact form.
 
+Next version
+
+* Fixed all reported bugs
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 Saltopus
 
 1.2067 - 2023-04-22
