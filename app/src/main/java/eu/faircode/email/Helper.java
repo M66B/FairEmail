@@ -1472,7 +1472,19 @@ public class Helper {
     }
 
     static boolean isSurfaceDuo() {
-        return ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo".equals(Build.MODEL));
+        return (isSurfaceDuo2() ||
+                ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo".equals(Build.MODEL)));
+    }
+
+    static boolean isSurfaceDuo2() {
+        /*
+            Brand: surface
+            Manufacturer: Microsoft
+            Model: Surface Duo 2
+            Product: duo2
+            Device: duo2
+         */
+        return ("Microsoft".equalsIgnoreCase(Build.MANUFACTURER) && "Surface Duo 2".equals(Build.MODEL));
     }
 
     static boolean isArc() {

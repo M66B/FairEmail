@@ -280,7 +280,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     content_frame.setLayoutParams(lparam);
                 }
                 // https://docs.microsoft.com/en-us/dual-screen/android/duo-dimensions
-                content_separator.getLayoutParams().width = Helper.dp2pixels(this, 34);
+                int seam = (Helper.isSurfaceDuo2() ? 26 : 34);
+                content_separator.getLayoutParams().width = Helper.dp2pixels(this, seam);
             } else {
                 int column_width = prefs.getInt("column_width", 67);
                 ViewGroup.LayoutParams lparam = content_pane.getLayoutParams();
