@@ -4428,6 +4428,8 @@ You might need to change [the Gmail IMAP settings](https://mail.google.com/mail/
 * When I mark a message in IMAP as deleted: Auto-Expunge off - Wait for the client to update the server.
 * When a message is marked as deleted and expunged from the last visible IMAP folder: Immediately delete the message forever
 
+<img alt="External image" src="https://github.com/M66B/FairEmail/blob/master/images/Gmail_IMAP_delete_settings.png" width="600" height="333" />
+
 Note that archived messages can be deleted only by moving them to the trash folder first.
 
 Some background: Gmail seems to have an additional message view for IMAP, which can be different from the main message view.
