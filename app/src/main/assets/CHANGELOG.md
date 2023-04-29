@@ -4,14 +4,14 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### Next version
+### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
+
+### 1.2068 - 2023-04-29
 
 * Fixed all reported bugs
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
-
-### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
 ### 1.2067 - 2023-04-22
 
