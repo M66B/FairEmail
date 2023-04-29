@@ -230,6 +230,7 @@ public class FragmentCompose extends FragmentBase {
 
     private ViewGroup view;
     private View vwAnchorMenu;
+    private ScrollView scroll;
     private Spinner spIdentity;
     private EditText etExtra;
     private TextView tvDomain;
@@ -379,6 +380,7 @@ public class FragmentCompose extends FragmentBase {
 
         // Get controls
         vwAnchorMenu = view.findViewById(R.id.vwAnchorMenu);
+        scroll = view.findViewById(R.id.scroll);
         spIdentity = view.findViewById(R.id.spIdentity);
         etExtra = view.findViewById(R.id.etExtra);
         tvDomain = view.findViewById(R.id.tvDomain);
@@ -660,6 +662,7 @@ public class FragmentCompose extends FragmentBase {
         etBody.addTextChangedListener(new TextWatcher() {
             private boolean save = false;
             private Integer added = null;
+            private boolean inserted = false;
             private Pair<Integer, Integer> lt = null;
 
             @Override
@@ -688,6 +691,13 @@ public class FragmentCompose extends FragmentBase {
                         Log.i("Added=" + index);
                         added = index;
                     }
+                }
+
+                if (count - before > 1)
+                    inserted = true;
+                else if (count - before == 1) {
+                    char c = text.charAt(start + count - 1);
+                    inserted = Character.isWhitespace(c);
                 }
             }
 
@@ -727,6 +737,34 @@ public class FragmentCompose extends FragmentBase {
                         onLanguageTool(lt.first, lt.second, true);
                     } finally {
                         lt = null;
+                    }
+
+                // Auto scroll is broken on Android 14 beta
+                if (inserted)
+                    try {
+                        // Auto scroll is broken on Android 14 beta
+                        view.post(new RunnableEx("autoscroll") {
+                            private Rect rect = new Rect();
+
+                            @Override
+                            protected void delegate() {
+                                int pos = etBody.getSelectionEnd();
+                                if (pos < 0)
+                                    return;
+
+                                Layout layout = etBody.getLayout();
+                                int line = layout.getLineForOffset(pos);
+                                int y = layout.getLineTop(line + 1);
+
+                                etBody.getLocalVisibleRect(rect);
+                                if (y > rect.bottom)
+                                    scroll.scrollBy(0, y - rect.bottom);
+                            }
+                        });
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    } finally {
+                        inserted = false;
                     }
             }
         });
