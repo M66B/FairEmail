@@ -76,6 +76,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             Intent intent = getIntent();
 
             String action = intent.getAction();
+            boolean shared = isShared(action);
             boolean widget = (action != null && action.startsWith("widget:"));
 
             String[] tos = intent.getStringArrayExtra(Intent.EXTRA_EMAIL);
@@ -87,7 +88,7 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                         .putExtra("tab", "backup");
                 startActivity(setup);
-            } else if (!isShared(action) && !widget) {
+            } else if (!shared && !widget) {
                 Intent parent = getParentActivityIntent();
                 if (parent != null)
                     if (shouldUpRecreateTask(parent))
@@ -103,7 +104,16 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             prefs.edit().remove("last_composing").apply();
 
-            finishAndRemoveTask();
+            try {
+                if (shared || widget) {
+                    Helper.excludeFromRecents(this);
+                    finishAffinity();
+                } else
+                    finishAndRemoveTask();
+            } catch (Throwable ex) {
+                Log.e(ex);
+                finish();
+            }
         }
     }
 
