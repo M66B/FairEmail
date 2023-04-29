@@ -3,8 +3,8 @@
     <string name="app_search">جستجوی FairEmail</string>
     <string name="app_changelog">گزارش دگرگونی</string>
     <string name="app_welcome">FairEmail یک برنامه منبع باز بوده که تمرکز آن بر روی امنیت و حفظ حریم خصوصی است. بنابر دلایلی ممکن است برخی ویژگی‌ها بسته به نوع استفاده شما متفاوت باشند.</string>
-    <string name="app_limitations">به عنوان مثال ، پیامها به طور پیش فرض برای حذف عناصر ناامن و بهبود خوانایی مجدداً قالب بندی می شوند و باز شدن پیوندها باید از نظر ایمنی تأیید شود. در صورت تمایل می توان هر دو را غیرفعال کرد.</string>
-    <string name="app_unsupported">اشکالات در نسخه اندروید این دستگاه خاص باعث خروج ناگهانی می شود</string>
+    <string name="app_limitations">به عنوان مثال، پیام‌ها به طور پیش فرض برای حذف عناصر ناامن و بهبود خوانایی مجدداً قالب‌بندی می‌شوند و باز شدن پیوندها باید از نظر ایمنی تأیید شود. در صورت تمایل می‌توان هر دو را غیرفعال کرد.</string>
+    <string name="app_unsupported">اشکالات در نسخه اندروید این دستگاه خاص باعث خروج ناگهانی می‌شود</string>
     <string name="app_data_loss">تمام داده‌ها ممکن است از دست بروند</string>
     <string name="app_continue">به هر حال ادامه بده</string>
     <string name="app_exit">برای خروج دوباره روی \'بازگشت\' کلیک کنید</string>
@@ -23,7 +23,7 @@
     <string name="channel_error">خطاها</string>
     <string name="channel_alert">هشدارهای سرور</string>
     <string name="channel_group_contacts">مخاطبین</string>
-    <string name="channel_service_description">همگام سازی و نظارت بر حساب ها</string>
+    <string name="channel_service_description">همگام سازی و نظارت بر حساب‌ها</string>
     <string name="channel_send_description">ارسال پیام ها</string>
     <string name="channel_notification_description">اعلان های پیام جدید</string>
     <string name="channel_progress_description">اعلان پیشرفت فعالیتهای طولانی مدت</string>
@@ -84,6 +84,7 @@
     <string name="title_block">%s مسدود شود</string>
     <string name="title_block_sender">مسدود کردن فرستنده</string>
     <string name="title_block_sender_domain">دامنه %1$s را مسدود کن</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">بلاک کردن به منزله انتقال خودکار به پوشه هرزنامه می‌باشد</string>
     <string name="title_block_sender_hint">مسدود کردن فرستنده یک ویژگی رایگان است.        مسدود کردن دامنه فرستنده از قوانین فیلتر استفاده می کند ، که یک ویژگی حرفه ای است.</string>
     <string name="title_blocked_senders">فرستندگان مسدود شده</string>
     <string name="title_junk_filter">از فیلتر هرزنامه محلی استفاده کنید</string>
@@ -164,6 +165,7 @@
     <string name="title_setup_gmail_support">حساب های گوگل فقط در نسخه‌های پلی استور و گیت هاب مجاز می‌شوند چون اندروید امضای برنامه را بررسی می‌کند</string>
     <string name="title_setup_gmail_rationale">لطفا مجوز برای انتخاب حساب و خواندن نام شما را اعطا کنید</string>
     <string name="title_setup_gmail_permissions">گوگل برای خواندن، نوشتن، فرستادن و حذف همیشگی همه ایمیل‌های شما درخواست دسترسی خواهد کرد. FairEmail هیچ‌وقت بدون رضایت آشکار شما پیام‌های شما را حذف نخواهد کرد.</string>
+    <string name="title_setup_gmail_on_device">چرا لازم است که یک حساب روی دستگاه انتخاب کنم؟</string>
     <string name="title_setup_gmail_password">می‌خواهم به جای حسابی روی دستگاه، به یک حساب با رمز عبور اجازه بدهم</string>
     <string name="title_setup_office_auth">خطای \'AUTHENTICATE failed\' می‌تواند به‌دلیل غیرفعال بودن IMAP/SMTP به‌ دست مدیر سیستم باشد</string>
     <string name="title_setup_oauth_rationale">برای دسترسی به %1$s حسابتان اجازه دهید</string>
@@ -185,12 +187,14 @@
     <string name="title_setup_free">آیا این برنامه رایگان است؟</string>
     <string name="title_setup_permissions">دادن دسترسی</string>
     <string name="title_setup_permissions_remark">برای دسترسی به اطلاعات مخاطبین (اختیاری)</string>
+    <string name="title_setup_permissions_calendar">برای ذخیره دعوت‌نامه‌ها (اختیاری)</string>
     <string name="title_setup_permissions_explanation">اجازه دسترسی به لیست مخاطبین برای جستجوی اطلاعات آنها و پیشنهاد دادن‌شان لازم است</string>
     <string name="title_setup_permissions_notify">برای نمایش اعلان پیام‌های جدید (دلبخواه)</string>
     <string name="title_setup_permission_why">کدام اجازه دسترسی‌ها لازمند و چرا؟</string>
     <string name="title_setup_permission_import_contacts">چگونه می‌توانم مخاطبین را وارد کنم؟</string>
     <string name="title_setup_doze">غیرفعال کردن بهینه سازی باتری</string>
     <string name="title_setup_doze_remark">برای فرستادن و دریافت ایمیل به طرز مطمئن در پس‌زمینه</string>
+    <string name="title_setup_doze_aggressively">این دستگاه ممکن است همرسانی را متوقف کند</string>
     <string name="title_setup_doze_why">چرا باید حالت بهینه‌سازی باتری غیرفعال باشد؟</string>
     <string name="title_setup_doze_battery">آیا مصرف باتری زیاد است؟</string>
     <string name="title_setup_doze_stopped">همگام‌سازی متوقف شده؟</string>
@@ -206,6 +210,7 @@
     <string name="title_setup_done">انجام شد</string>
     <string name="title_setup_still">هنوز باید انجام شود</string>
     <string name="title_setup_error">خطا</string>
+    <string name="title_setup_manual_setup">نصب دستی</string>
     <string name="title_setup_pop">استفاده از POP3 (توصیه نمی‌شود)</string>
     <string name="title_setup_configuring">در حال تنظیم حساب &#8230;</string>
     <string name="title_setup_app_password">شاید لازم باشد که از یک رمزعبور اپلیکیشن استفاده کنید</string>
@@ -214,11 +219,13 @@
     <string name="title_setup_close">تنظیمات را ببند</string>
     <string name="title_setup_export">ذخیره تنظیمات</string>
     <string name="title_setup_import">وارد کردن تنظیمات</string>
+    <string name="title_setup_backup">چگونه از پیام‌ها پشتیبان بگیریم؟</string>
     <string name="title_setup_password">گذرواژه</string>
     <string name="title_setup_password_chars">گذرواژه دارای control یا نویسه‌های فضای سفید می‌باشد</string>
     <string name="title_setup_password_repeat">تکرار گذرواژه</string>
     <string name="title_setup_password_missing">گذرواژه موجود نیست</string>
     <string name="title_setup_password_different">گذرواژه‌ها یکسان نیستند</string>
+    <string name="title_setup_password_invalid">رمز عبور اشتباه یا فایل تنظیمات معیوب</string>
     <string name="title_setup_import_accounts">وارد کردن حساب‌ها و هویت‌ها</string>
     <string name="title_setup_import_delete">ابتدا حساب‌های موجود را حذف کن</string>
     <string name="title_setup_import_rules">وارد کردن قوانین غربالگری</string>
@@ -290,6 +297,8 @@
     <string name="title_advanced_optimize">خودکار بهینه‌سازی کن</string>
     <string name="title_advanced_always">همیشه پیام‌ها را برای این حساب‌ها دریافت کن</string>
     <string name="title_advanced_schedule">زمان بندی</string>
+    <string name="title_advanced_schedule_workdays">روزهای کاری</string>
+    <string name="title_advanced_schedule_weekend">روزهای تعطیل</string>
     <string name="title_advanced_advanced">پیشرفته</string>
     <string name="title_advanced_quick_sync">هم‌رسانی سریع</string>
     <string name="title_advanced_no_date">پیام‌های بدون تاریخ</string>
@@ -316,8 +325,10 @@
     <string name="title_advanced_suggest_frequently">مرتب‌سازی نشانی‌های پیشنهادی در دفعات استفاده</string>
     <string name="title_advanced_send_reminders">نمایش یادآورها</string>
     <string name="title_advanced_send_delayed">وقفه ارسال پیام‌ها</string>
+    <string name="title_advanced_answer_caption">تنظیمات دکمه پاسخ</string>
     <string name="title_advanced_auto_save_paragraph">پس از هر پاراگراف، پیش‌نویس را خودکار ذخیره کن</string>
     <string name="title_advanced_auto_save_dot">پس از هر جمله، پیش‌نویس را خودکار ذخیره کن</string>
+    <string name="title_advanced_compose_color">رنگ پیش‌فرض نوشته‌ها</string>
     <string name="title_advanced_compose_font">قلم پیشفرض</string>
     <string name="title_advanced_auto_identity">برای پیام‌های جدید، هویت را خودکار انتخاب کن</string>
     <string name="title_advanced_write_above">در بالای نوشته فرستنده بنویسید</string>
@@ -439,6 +450,7 @@
     <string name="title_advanced_onclose">هنگام بستن یک گفتگو</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
     <string name="title_advanced_autounstar">هنگام انتقال پیام‌ها ستاره‌ها را خودکار از پیام‌ها حذف کن</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">به هنگام انتقال یک مکالمه، پیام‌های ارسالی را هم منتقل کن</string>
     <string name="title_advanced_notifications">مدیریت اعلان‌ها</string>
     <string name="title_advanced_notifications_default">کانال پیش‌فرض</string>
     <string name="title_advanced_notifications_service">کانال نظارت</string>
@@ -497,6 +509,7 @@
     <string name="title_advanced_shortcuts">نمایش مخاطبین مکررا استفاده شده در فهرست اشتراک‌گذاری اندروید</string>
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d پیام ایندکس شد (%3$s)</string>
+    <string name="title_advanced_show_filtered">آیکون فیلتر را زمانی که قاعده‌ای اعمال می‌شود نشان بده</string>
     <string name="title_advanced_language">زبان</string>
     <string name="title_advanced_language_system">سیستم</string>
     <string name="title_advanced_lt">یکپارچگی ابزارهای زبانی</string>

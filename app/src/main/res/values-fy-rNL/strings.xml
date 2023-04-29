@@ -81,6 +81,7 @@
     <string name="title_block">%1$s blokkearje</string>
     <string name="title_block_sender">Ofstjoerder blokkearje</string>
     <string name="title_block_sender_domain">Domein ‘%1$s’ blokkearje</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blokkearjen betsjut automatysk ferpleatsen nei de map net-winske</string>
     <string name="title_block_sender_hint">It blokkearjen fan in ôfstjoerder is in fergeze funksje.
 It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in pro-funksje is.    </string>
     <string name="title_blocked_senders">Blokkearre ôfstjoerders</string>
@@ -574,6 +575,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_reset_importance">Belang werstelle by it ferpleatsen fan berjochten</string>
     <string name="title_advanced_star_snoozed">Foegje stjer automatysk ta by slûgjen fan berjochten</string>
     <string name="title_advanced_auto_important">Meitsje automatyske berjochten wichtich</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Wannear’t in petear ferpleatst wurdt, ferpleats ek ferstjoerde berjochten</string>
     <string name="title_advanced_notifications">Notifikaasjes beheare</string>
     <string name="title_advanced_notifications_default">Standert kanaal</string>
     <string name="title_advanced_notifications_newest_first">Toan earst nijste notifikaasjes</string>
@@ -641,7 +643,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_classification">Berjochten klassifisearje</string>
     <string name="title_advanced_class_min_chance">Minimale klasse kâns: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimum klasse ferskil: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">In filterpiktogram toane wannear’t rigels tapast waarden</string>
+    <string name="title_advanced_show_filtered">In filterpiktogram toane wannear’t rigels tapast waarden</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_watchdog">Kontrolearje periodyk as FairEmail noch aktyf is</string>

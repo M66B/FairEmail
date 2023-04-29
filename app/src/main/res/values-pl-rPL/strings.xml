@@ -102,6 +102,7 @@
     <string name="title_block">Zablokuj %1$s</string>
     <string name="title_block_sender">Zablokuj nadawcę</string>
     <string name="title_block_sender_domain">Blokuj domenę \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blokowanie oznacza automatyczne przenoszenie do folderu ze spamem</string>
     <string name="title_block_sender_hint">        Blokowanie nadawcy jest funkcją darmową.
         Blokowanie domeny nadawcy używa zasad filtrowania, co jest funkcją Pro.
     </string>
@@ -608,6 +609,7 @@
     <string name="title_advanced_auto_block_sender">Automatycznie blokuj nadawcę podczas zgłaszania spamu</string>
     <string name="title_advanced_auto_hide_answer">Automatycznie ukryj przycisk odpowiedzi podczas przewijania</string>
     <string name="title_advanced_swipe_reply">Przesuń rozszerzone wiadomości w prawo, aby odpowiedzieć</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Podczas przenoszenia konwersacji, przeniesione zostaną również wysłane wiadomości</string>
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia/opóźnienia</string>
     <string name="title_advanced_default_folder">Wybierz folder domyślny</string>
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
@@ -709,6 +711,7 @@
     <string name="title_advanced_classification">Klasyfikuj wiadomości</string>
     <string name="title_advanced_class_min_chance">Minimalne prawdopodobieństwo klasy: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimalna różnica klasy: %1$s %%</string>
+    <string name="title_advanced_show_filtered">Pokaż ikonę filtrowania podczas stosowania reguł</string>
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_lt">Integracja LanguageTool</string>

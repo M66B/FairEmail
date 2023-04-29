@@ -82,6 +82,7 @@
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remitente</string>
     <string name="title_block_sender_domain">Bloquear dominio \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Bloquear significa mover automáticamente a la carpeta de spam</string>
     <string name="title_block_sender_hint">        Bloquear un remitente es una característica gratuita.
         Bloquear un dominio de remitente utiliza reglas de filtro, que es una característica pro.
     </string>
@@ -582,6 +583,7 @@
     <string name="title_advanced_auto_block_sender">Bloquear automáticamente al remitente al reportar como spam</string>
     <string name="title_advanced_auto_hide_answer">Ocultar automáticamente el botón de respuesta al desplazarse</string>
     <string name="title_advanced_swipe_reply">Deslice los mensajes expandidos a la derecha para responder</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Al mover una conversación, también mover mensajes enviados</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer/retraso por defecto</string>
     <string name="title_advanced_default_folder">Seleccionar carpeta por defecto</string>
     <string name="title_advanced_notifications">Administrar notificaciones</string>
@@ -683,7 +685,7 @@
     <string name="title_advanced_classification">Clasificar mensajes</string>
     <string name="title_advanced_class_min_chance">Probabilidad mínima de la clase: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Diferencia mínima de la clase: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Mostrar un icono de filtro cuando se aplicaron reglas</string>
+    <string name="title_advanced_show_filtered">Mostrar un icono de filtro cuando se aplicaron reglas</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integración con LanguageTool</string>

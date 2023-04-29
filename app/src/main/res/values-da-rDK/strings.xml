@@ -82,6 +82,7 @@
     <string name="title_block">Blokér %1$s</string>
     <string name="title_block_sender">Blokér afsender</string>
     <string name="title_block_sender_domain">Blokér domænet \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blokering betyder automatisk flytning til Spam-mappen</string>
     <string name="title_block_sender_hint">        Afsenderblokering er en gratisfunktion.
         Afsenderdomæneblokering sker via filterregler og er en Pro-funktion.
     </string>
@@ -582,6 +583,7 @@
     <string name="title_advanced_auto_block_sender">Blokér automatisk afsenderen ved spamanmeldelse</string>
     <string name="title_advanced_auto_hide_answer">Skjul automatisk svarknappen når der scrolles</string>
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Når en samtale flyttes, flyt også sendte beskeder</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_default_folder">Vælg standardmappe</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
@@ -684,7 +686,7 @@
     <string name="title_advanced_classification">Klassificér beskeder</string>
     <string name="title_advanced_class_min_chance">Minimumsklassesandsynlighed: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimumsklassedifferens: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Vis et filterikon, når regler er anvendt</string>
+    <string name="title_advanced_show_filtered">Vis et filterikon, når regler er anvendt</string>
     <string name="title_advanced_language">Sprog</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">LanguageTool-integration</string>

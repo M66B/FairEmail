@@ -82,6 +82,7 @@
     <string name="title_block">Blokkeer %1$s</string>
     <string name="title_block_sender">Blokkeer afzender</string>
     <string name="title_block_sender_domain">Blokkeer domein \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blokkeren betekent automatisch verplaatsen naar de spammap</string>
     <string name="title_block_sender_hint">Het blokkeren van een afzender is een gratis functie.
 Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro functie is.    </string>
     <string name="title_blocked_senders">Geblokkeerde afzenders</string>
@@ -581,6 +582,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_auto_block_sender">Blokkeer de afzender automatisch bij het rapporteren van spam</string>
     <string name="title_advanced_auto_hide_answer">Automatisch de antwoordknop verbergen bij scrollen</string>
     <string name="title_advanced_swipe_reply">Veeg uitgevouwde berichten naar rechts om te beantwoorden</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Wanneer een gesprek wordt verplaatst, verplaats ook verzonden berichten</string>
     <string name="title_advanced_default_snooze">Standaard sluimer/vertragingstijd</string>
     <string name="title_advanced_default_folder">Selecteer standaard map</string>
     <string name="title_advanced_notifications">Beheer meldingen</string>
@@ -682,7 +684,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_classification">Berichten classificeren</string>
     <string name="title_advanced_class_min_chance">Minimale klasse waarschijnlijkheid: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimale klasse verschil: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Toon een filterpictogram wanneer regels werden toegepast</string>
+    <string name="title_advanced_show_filtered">Toon een filterpictogram wanneer regels werden toegepast</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_lt">LanguageTool integratie</string>

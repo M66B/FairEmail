@@ -82,6 +82,7 @@
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remetente</string>
     <string name="title_block_sender_domain">Bloquear domínio \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Bloquear significa mover automaticamente para a pasta de spam</string>
     <string name="title_block_sender_hint">        Bloquear o remetente é um recurso grátis.
         Bloquear o domínio do remetente usa regras de filtro, que trata-se de uma opção Pro.
     </string>
@@ -582,6 +583,7 @@
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente ao denunciar spam</string>
     <string name="title_advanced_auto_hide_answer">Ocultar automaticamente o botão de resposta ao rolar</string>
     <string name="title_advanced_swipe_reply">Deslize as mensagens expandidas para a direita para responder</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Ao mover uma conversa, mova também as mensagens enviadas</string>
     <string name="title_advanced_default_snooze">Tempo de soneca/atraso padrão</string>
     <string name="title_advanced_default_folder">Selecionar pasta padrão</string>
     <string name="title_advanced_notifications">Gerenciar notificações</string>
@@ -683,7 +685,7 @@
     <string name="title_advanced_classification">Classificar mensagens</string>
     <string name="title_advanced_class_min_chance">Probabilidade mínima da classe: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Diferença mínima da classe: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Mostrar um ícone de filtro quando as regras forem aplicadas</string>
+    <string name="title_advanced_show_filtered">Mostrar um ícone de filtro quando as regras forem aplicadas</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integração com LanguageTool</string>

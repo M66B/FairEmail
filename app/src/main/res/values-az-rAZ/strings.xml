@@ -82,6 +82,7 @@
     <string name="title_block">%1$s əngəllə</string>
     <string name="title_block_sender">Göndərəni əngəllə</string>
     <string name="title_block_sender_domain">\"%1$s\" domenini əngəllə</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Əngəlləmə, avtomatik olaraq spam qovluğuna daşınması deməkdir</string>
     <string name="title_block_sender_hint">        Göndərəni əngəlləmə ödənişsiz bir özəllikdir.
         Göndərən domenini əngəlləmə pro özəllik olan filtr qaydalarını istifadə edir.
     </string>
@@ -583,6 +584,7 @@
     <string name="title_advanced_auto_block_sender">Spam bildirirkən göndərəni avtomatik əngəllə</string>
     <string name="title_advanced_auto_hide_answer">Sürüşdürərkən cavablandırma düyməsini avtomatik gizlət</string>
     <string name="title_advanced_swipe_reply">Genişləndirilmiş mesajları cavablandırmaq üçün sağa sürüşdür</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Bir danışıq daşınanda, göndərilmiş mesajlar da daşınır</string>
     <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
     <string name="title_advanced_default_folder">İlkin qovluğu seçin</string>
     <string name="title_advanced_notifications">Bildirişləri idarə et</string>
@@ -685,6 +687,7 @@
     <string name="title_advanced_classification">Mesajları sinifləşdir</string>
     <string name="title_advanced_class_min_chance">Minimum sinif ehtimalı: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimum sinif fərqi: %1$s %%</string>
+    <string name="title_advanced_show_filtered">Qaydalar tətbiq olunduqda bir filtr nişanı göstər</string>
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">LanguageTool inteqrasiyası</string>
@@ -744,6 +747,7 @@
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
     <string name="title_advanced_compose_color_hint">Çox açıq və ya çox tünd rənglər, alıcının mesajları oxuya bilməməsi ilə nəticələnir</string>
+    <string name="title_advanced_write_below_hint">Alıcı, məsələn uzun mesaj kəsiləndə cavabınızı buraxa bilər</string>
     <string name="title_advanced_attach_new_hint">Əks halda, paylaşılan ünvanları və ya faylları hazırkı qaralama mesajına əlavə edin</string>
     <string name="title_advanced_usenet_hint">Mətn və imza arasına \'-- \' əlavə et</string>
     <string name="title_advanced_remove_signature_hint">Bu, həddindən az və ya çox mətnin silinməsinə səbəb ola bilər</string>
@@ -1380,6 +1384,7 @@
     <string name="title_attachment_keywords">əlavə edildi, qoşma, qoşmalar, daxil edildi</string>
     <string name="title_attachment_reminder">Bir qoşma əlavə etmək istəyirsiniz?</string>
     <string name="title_attachment_warning">Potensial təhlükə: %1$s</string>
+    <string name="title_attachment_filename">Digər bəzi e-poçt müştəriləri (client), 60 simvoldan uzun fayl adlarını emal edə bilmir</string>
     <string name="title_plain_reminder">Bütün formatlama itəcək</string>
     <string name="title_dsn_reminder">Sərt sıçrayışlar, orijinal göndərənin e-poçt nüfuzuna zərər verir!</string>
     <string name="title_size_reminder">Mesaj (%1$s) server limitindən (%2$s) böyükdür</string>
@@ -1577,6 +1582,7 @@
     <string name="title_rule_time_before">Alınmazdan əvvəl</string>
     <string name="title_rule_time_rel">Qarşılıqlı vaxt (alınan) aralığı</string>
     <string name="title_rule_time_every_day">Hər gün</string>
+    <string name="title_rule_younger">Bundan az mesajlar (saat)</string>
     <string name="title_rule_regex">Müntəzəm ifadə</string>
     <string name="title_rule_and">VƏ</string>
     <string name="title_rule_action">Əməliyyat</string>

@@ -102,6 +102,7 @@
     <string name="title_block">Блокировать %1$s</string>
     <string name="title_block_sender">Блокировать отправителя</string>
     <string name="title_block_sender_domain">Блокировать домен \"%1$s\"</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Блокировка означает автоматическое перемещение в папку спама</string>
     <string name="title_block_sender_hint">        Блокировка отправителя является бесплатной функцией.
         Блокировка домена отправителя использует фильтрующие правила, которые являются функцией pro.
     </string>
@@ -608,6 +609,7 @@
     <string name="title_advanced_auto_block_sender">Автоматически блокировать отправителя при сообщении о спаме</string>
     <string name="title_advanced_auto_hide_answer">Автоматически скрывать кнопку ответа при прокрутке</string>
     <string name="title_advanced_swipe_reply">Жест вправо на раскрытом сообщении для ответа</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">При перемещении диалога также перемещаются отправленные сообщения</string>
     <string name="title_advanced_default_snooze">Время повтора/задержки по умолчанию</string>
     <string name="title_advanced_default_folder">Выбрать папку по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
@@ -710,7 +712,7 @@
     <string name="title_advanced_classification">Классифицировать сообщения</string>
     <string name="title_advanced_class_min_chance">Минимальная вероятность класса: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Минимальная разница между классами: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Показывать значок фильтра при применении правил</string>
+    <string name="title_advanced_show_filtered">Показывать значок фильтра при применении правил</string>
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_lt">Интеграция с LanguageTool</string>

@@ -82,6 +82,7 @@
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
     <string name="title_block_sender_domain">Bloquer le domaine \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Bloquer signifie déplacer automatiquement vers le dossier « Indésirables »</string>
     <string name="title_block_sender_hint">        Bloquer un expéditeur est une fonctionnalité gratuite.
         Bloquer un domaine expéditeur utilise une règle de filtrage qui est une fonctionnalité Pro.
     </string>
@@ -583,6 +584,7 @@
     <string name="title_advanced_auto_block_sender">Bloquer automatiquement l\'expéditeur lors du signalement de courrier indésirable</string>
     <string name="title_advanced_auto_hide_answer">Masquer automatiquement le bouton de réponse lors du défilement</string>
     <string name="title_advanced_swipe_reply">Balayer vers la droite les messages dépliés pour répondre</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Lors du déplacement d\'une conversation, déplacer également les messages envoyés</string>
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
     <string name="title_advanced_default_folder">Sélectionner le dossier par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
@@ -685,7 +687,7 @@
     <string name="title_advanced_classification">Classer les messages</string>
     <string name="title_advanced_class_min_chance">Probabilité minimale de classe : %1$s %%</string>
     <string name="title_advanced_class_min_difference">Différence minimale de classe : %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Afficher une icône de filtre lorsque les règles ont été appliquées</string>
+    <string name="title_advanced_show_filtered">Afficher une icône de filtre lorsque les règles ont été appliquées</string>
     <string name="title_advanced_language">Langue</string>
     <string name="title_advanced_language_system">Système</string>
     <string name="title_advanced_lt">Intégration de LanguageTool</string>

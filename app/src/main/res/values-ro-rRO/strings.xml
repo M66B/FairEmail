@@ -696,7 +696,7 @@
     <string name="title_advanced_classification">Clasifică mesajele</string>
     <string name="title_advanced_class_min_chance">Probabilitate de clasă minimă: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Diferenţa minimă a clasei: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Arată o pictogramă filtru atunci când regulile au fost aplicate</string>
+    <string name="title_advanced_show_filtered">Arată o pictogramă filtru atunci când regulile au fost aplicate</string>
     <string name="title_advanced_language">Limba</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Integrare cu LanguageTool</string>

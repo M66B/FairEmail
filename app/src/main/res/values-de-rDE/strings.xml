@@ -82,6 +82,7 @@
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
     <string name="title_block_sender_domain">Domain »%1$s« sperren</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Sperren bedeutet automatisch in den Spam-Ordner verschieben</string>
     <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.
         Das Sperren der Domain eines Absenders verwendet Filterregeln, 
         welche nur in der Pro-Version verfügbar sind.
@@ -584,6 +585,7 @@
     <string name="title_advanced_auto_block_sender">Absender automatisch sperren, wenn Spam gemeldet wird</string>
     <string name="title_advanced_auto_hide_answer">Beim Bildlauf automatisch die Antworttaste ausblenden</string>
     <string name="title_advanced_swipe_reply">Ausgeklappte Nachricht nach rechts wischen, um zu antworten</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Beim Verschieben einer Unterhaltung auch die zu dieser Unterhaltung gehörenden gesendeten Nachrichten verschieben</string>
     <string name="title_advanced_default_snooze">Standardzeit fürs Zurückstellen/Verzögern</string>
     <string name="title_advanced_default_folder">Standardordner auswählen</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
@@ -686,7 +688,7 @@
     <string name="title_advanced_classification">Nachrichten klassifizieren</string>
     <string name="title_advanced_class_min_chance">Minimale Wahrscheinlichkeit für einen Klassentreffer: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimaler Unterschied zur nächsten Klasse: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Filtersymbol anzeigen, wenn Regeln angewendet wurden</string>
+    <string name="title_advanced_show_filtered">Filtersymbol anzeigen, wenn Regeln angewendet wurden</string>
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">LanguageTool-Integration</string>

@@ -102,6 +102,7 @@
     <string name="title_block">Blokovat %1$s</string>
     <string name="title_block_sender">Blokovat odesílatele</string>
     <string name="title_block_sender_domain">Blokovat doménu \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blokováním se rozumí automatické přesunutí do složky nevyžádané pošty</string>
     <string name="title_block_sender_hint">        Blokování odesílatele je volná funkce.
         Blokování domény odesílatele používá pravidla filtru, což je Pro funkce.
     </string>
@@ -609,6 +610,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_auto_block_sender">Automaticky zablokovat odesílatele při hlášení spamu</string>
     <string name="title_advanced_auto_hide_answer">Automaticky skrýt tlačítko odpovědi při posouvání</string>
     <string name="title_advanced_swipe_reply">Přejeďte rozbalené zprávy doprava pro odpověď</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Při přesunu konverzace také přesunout odeslané zprávy</string>
     <string name="title_advanced_default_snooze">Výchozí doba odložení/zpoždění</string>
     <string name="title_advanced_default_folder">Vybrat výchozí složku</string>
     <string name="title_advanced_notifications">Spravovat oznámení</string>
@@ -710,7 +712,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_classification">Klasifikovat zprávy</string>
     <string name="title_advanced_class_min_chance">Minimální pravděpodobnost pro klasifikaci: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimální rozdíl pro klasifikaci: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Zobrazit ikonu filtru při použití pravidel</string>
+    <string name="title_advanced_show_filtered">Zobrazit ikonu filtru při použití pravidel</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_lt">Integrace LanguageTool</string>

@@ -82,6 +82,7 @@
     <string name="title_block">Engelle: %1$s</string>
     <string name="title_block_sender">Göndereni engelle</string>
     <string name="title_block_sender_domain">\'%1$s\' alan adını engelle</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Engelleme, otomatik olarak spam klasörüne taşıma anlamına gelir</string>
     <string name="title_block_sender_hint">Bir göndereni engellemek ücretsiz bir özelliktir.
 Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurallarını kullanır.    </string>
     <string name="title_blocked_senders">Engellenmiş gönderenler</string>
@@ -581,6 +582,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_auto_block_sender">Spam bildirirken göndereni otomatik olarak engelle</string>
     <string name="title_advanced_auto_hide_answer">Kaydırma sırasında yanıt düğmesini otomatik olarak gizle</string>
     <string name="title_advanced_swipe_reply">Genişletilmiş mesajları yanıtlamak için sağa kaydırın</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Bir görüşmeyi taşırken, gönderilen mesajları da taşıyın</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_default_folder">Varsayılan klasörü seçin</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
@@ -682,6 +684,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_classification">İletileri sınıflandır</string>
     <string name="title_advanced_class_min_chance">En düşük sınıflandırma olasılığı: %1$s %%</string>
     <string name="title_advanced_class_min_difference">En düşük sınıflandırma farkı: %1$s %%</string>
+    <string name="title_advanced_show_filtered">Kurallar uygulandığında bir filtre simgesi göster</string>
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Dil Aracı entegrasyonu</string>
@@ -1573,6 +1576,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_rule_time_before">Alınmadan önce</string>
     <string name="title_rule_time_rel">İle arasındaki göreceli zaman (alındı)</string>
     <string name="title_rule_time_every_day">Her gün</string>
+    <string name="title_rule_younger">Şundan daha eski mesajlar: (saatler)</string>
     <string name="title_rule_regex">Düzenli ifade</string>
     <string name="title_rule_and">VE</string>
     <string name="title_rule_action">Eylem</string>

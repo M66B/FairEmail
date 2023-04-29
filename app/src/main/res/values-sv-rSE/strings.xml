@@ -82,6 +82,7 @@
     <string name="title_block">Blockera %1$s</string>
     <string name="title_block_sender">Blockera avsändare</string>
     <string name="title_block_sender_domain">Blockera domän \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blockering innebär att automatiskt flytta till skräppostmappen</string>
     <string name="title_block_sender_hint">        Att blockera en avsändare är en gratisfunktion.
         Att blockera en avsändardomän använder filterregler, vilket är en pro-funktion.
     </string>
@@ -575,6 +576,7 @@
     <string name="title_advanced_auto_block_sender">Blockera avsändaren automatiskt vid rapportering av skräppost</string>
     <string name="title_advanced_auto_hide_answer">Dölj svarsknappen automatiskt när du skrollar</string>
     <string name="title_advanced_swipe_reply">Svep expanderade meddelanden till höger för att svara</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">När en konversation flyttas, flytta också skickade meddelanden</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_default_folder">Välj standardmapp</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
@@ -676,6 +678,7 @@
     <string name="title_advanced_classification">Klassificera meddelanden</string>
     <string name="title_advanced_class_min_chance">Minsta sannolikhet för klass: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minsta klasskillnad: %1$s %%</string>
+    <string name="title_advanced_show_filtered">Visa en filterikon när regler tillämpades</string>
     <string name="title_advanced_language">Språk</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">Språkintegration för verktyg</string>

@@ -82,6 +82,7 @@
     <string name="title_block">Αποκλεισμός %1$s</string>
     <string name="title_block_sender">Αποκλεισμός αποστολέα</string>
     <string name="title_block_sender_domain">Αποκλεισμός τομέα \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Ο αποκλεισμός συνεπάγεται αυτόματη μετακίνηση στον φάκελο των Ανεπιθύμητων</string>
     <string name="title_block_sender_hint">        Ο αποκλεισμός ενός αποστολέα είναι μια δωρεάν δυνατότητα.
         Ο αποκλεισμός ενός τομέα αποστολέα χρησιμοποιεί κανόνες φιλτραρίσματος, κάτι που αποτελεί δυνατότητα της έκδοσης Pro.
     </string>
@@ -582,6 +583,7 @@
     <string name="title_advanced_auto_block_sender">Αυτόματος αποκλεισμός του αποστολέα κατά την αναφορά μηνύματος ως ανεπιθύμητου</string>
     <string name="title_advanced_auto_hide_answer">Αυτόματη απόκρυψη του κουμπιού απάντησης κατά την κύλιση</string>
     <string name="title_advanced_swipe_reply">Σύρετε προς τα δεξιά τα αναπτυγμένα μηνύματα για να απαντήσετε</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Κατά τη μετακίνηση μιας συζήτησης, να μετακινούνται επίσης και τα απεσταλμένα μηνύματα</string>
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
     <string name="title_advanced_default_folder">Επιλογή προεπιλεγμένου φακέλου</string>
     <string name="title_advanced_notifications">Διαχείριση ειδοποιήσεων</string>
@@ -682,7 +684,7 @@
     <string name="title_advanced_classification">Ταξινόμηση μηνυμάτων</string>
     <string name="title_advanced_class_min_chance">Ελάχιστη πιθανότητα για ορισμένη ταξινόμηση: %1$s%%</string>
     <string name="title_advanced_class_min_difference">Ελάχιστη διαφορά για την επόμενη τάξη: %1$s%%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Προβολή ενός εικονιδίου φίλτρου εφόσον έχουν εφαρμοστεί κανόνες</string>
+    <string name="title_advanced_show_filtered">Προβολή ενός εικονιδίου φίλτρου εφόσον έχουν εφαρμοστεί κανόνες</string>
     <string name="title_advanced_language">Γλώσσα</string>
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_lt">Ενσωμάτωση του LanguageTool</string>

@@ -82,6 +82,7 @@
     <string name="title_block">Blocca %1$s</string>
     <string name="title_block_sender">Blocca mittente</string>
     <string name="title_block_sender_domain">Blocca il dominio \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Bloccare significa spostare automaticamente nella cartella di spam</string>
     <string name="title_block_sender_hint">        Il blocco di un mittente è una funzionalità gratuita.
         Il blocco del dominio di un mittente usa le regole del filtro, una funzionalità pro.
     </string>
@@ -583,6 +584,7 @@
     <string name="title_advanced_auto_block_sender">Blocca automaticamente il mittente alla segnalazione di spam</string>
     <string name="title_advanced_auto_hide_answer">Nascondi automaticamente il pulsante di risposta durante lo scorrimento</string>
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Spostando una conversazione, sposta anche i messaggi inviati</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_default_folder">Seleziona la cartella predefinita</string>
     <string name="title_advanced_notifications">Gestisci notifiche</string>
@@ -685,7 +687,7 @@
     <string name="title_advanced_classification">Classifica i messaggi</string>
     <string name="title_advanced_class_min_chance">Probabilità minima di classe: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Differenza minima di classe: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">Mostra un\'icona di filtro quando sono state applicate le regole</string>
+    <string name="title_advanced_show_filtered">Mostra un\'icona di filtro quando sono state applicate le regole</string>
     <string name="title_advanced_language">Lingua</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integrazione di LanguageTool</string>

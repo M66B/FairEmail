@@ -102,6 +102,7 @@
     <string name="title_block">חסימת %1$s</string>
     <string name="title_block_sender">חסימת השולח</string>
     <string name="title_block_sender_domain">חסימת שם התחום ‚%1$s’</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">חסימה משמעה העברה אוטומטית לתיקיית הזבל</string>
     <string name="title_block_sender_hint">        חסימת מען היא תכונה חינמית.
         חסימת שם תחום כמען משתמשת בכללי סינון, שזאת יכולת למנויי פרו.
     </string>
@@ -609,6 +610,7 @@
     <string name="title_advanced_auto_block_sender">לחסום את השולח אוטומטית בעת דיווח על ספאם</string>
     <string name="title_advanced_auto_hide_answer">להסתיר את כפתור המענה אוטומטית בעת הגלילה</string>
     <string name="title_advanced_swipe_reply">החלקת הודעות מורחבות לימין פותחת מענה</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">בעת העברת דיון, להעביר גם את ההודעות שנשלחו</string>
     <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_default_folder">בחירת תיקיית ברירת מחדל</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
@@ -711,7 +713,7 @@
     <string name="title_advanced_classification">סיווג הודעות</string>
     <string name="title_advanced_class_min_chance">סבירות מזערית בין מחלקות: %1$s %%</string>
     <string name="title_advanced_class_min_difference">הפרש מזערי בין מחלקות: %1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">הצגת סמל מסנן כאשר כללים חלים</string>
+    <string name="title_advanced_show_filtered">הצגת סמל מסנן כאשר כללים חלים</string>
     <string name="title_advanced_language">שפה</string>
     <string name="title_advanced_language_system">מערכת</string>
     <string name="title_advanced_lt">שילוב מול LanguageTool</string>
@@ -771,6 +773,7 @@
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
     <string name="title_advanced_compose_color_hint">צבעים בהירים או כהים מדי יובילו להודעות בלתי קריאות בצד המקבל</string>
+    <string name="title_advanced_write_below_hint">נמענים עלולים להחמיץ את התגובה שלך, למשל כאשר הודעה ארוכה יותר מקוצרת</string>
     <string name="title_advanced_attach_new_hint">אם לא, להוסיף כתובות או קבצים משותפים להודעת הטיוטה הנוכחית</string>
     <string name="title_advanced_usenet_hint">להוסיף ‚--’ בין הטקסט והחתימה</string>
     <string name="title_advanced_remove_signature_hint">יכול להוביל למעט מדי או יותר מדי טקסט שיוסר</string>
@@ -1407,6 +1410,7 @@
     <string name="title_attachment_keywords">מצורף,מצ״ב,מצ\"ב,צירפתי,צרופה,קובץ,מצורפת,מצרפת,מצרף</string>
     <string name="title_attachment_reminder">התכוונת להוסיף קובץ?</string>
     <string name="title_attachment_warning">חשד לסכנה: %1$s</string>
+    <string name="title_attachment_filename">לקוחות דוא״ל אחרים מסוימים לא יכולים לטפל בשמות קובץ של יותר מ־60 תווים</string>
     <string name="title_plain_reminder">כל העיצוב יאבד</string>
     <string name="title_dsn_reminder">הקפצות קשיחות פוגעות במוניטין של המוען המקורי!</string>
     <string name="title_size_reminder">ההודעה (%1$s) גדולה ממגבלת השרת (%2$s)</string>

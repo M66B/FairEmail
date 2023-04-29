@@ -72,6 +72,7 @@
     <string name="title_block">屏蔽 %1$s</string>
     <string name="title_block_sender">屏蔽发件人</string>
     <string name="title_block_sender_domain">屏蔽域名 \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">屏蔽意味着自动移至垃圾邮件文件夹</string>
     <string name="title_block_sender_hint">        屏蔽发件人是一个免费功能。
         屏蔽发件人域使用过滤规则，这是一个高级功能。
     </string>
@@ -569,6 +570,7 @@
     <string name="title_advanced_auto_block_sender">报告垃圾邮件时自动屏蔽发件人</string>
     <string name="title_advanced_auto_hide_answer">在滚动时自动隐藏回复按钮</string>
     <string name="title_advanced_swipe_reply">右滑展开的邮件进行回复</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">移动会话时也移动已发送的邮件</string>
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_default_folder">选择默认文件夹</string>
     <string name="title_advanced_notifications">管理通知</string>
@@ -670,7 +672,7 @@
     <string name="title_advanced_classification">消息分类</string>
     <string name="title_advanced_class_min_chance">是否分类的最低概率：%1$s %%</string>
     <string name="title_advanced_class_min_difference">不同分类的最小差异：%1$s %%</string>
-    <string name="title_advanced_show_filtered" comment="title_advanced_show_filtered&#10;Title of option in the miscellaneous-settings tab page">应用规则时显示过滤器图标</string>
+    <string name="title_advanced_show_filtered">应用规则时显示过滤器图标</string>
     <string name="title_advanced_language">界面语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_lt">LanguageTool 集成</string>

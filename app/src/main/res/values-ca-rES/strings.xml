@@ -381,8 +381,10 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_timeout">Temps d\'espera de la connexió (segons)</string>
     <string name="title_advanced_prefer_ip4">Prefereix IPv4 per sobre de IPv6</string>
     <string name="title_advanced_ssl_harden">Connexions SSL \"endurides\"</string>
+    <string name="title_advanced_ssl_harden_strict">Requereix TLS 1.3</string>
     <string name="title_advanced_manage_connectivity">Gestiona la connectivitat</string>
     <string name="title_advanced_caption_general">General</string>
+    <string name="title_advanced_caption_navigation">Navegació</string>
     <string name="title_advanced_caption_list">Llista</string>
     <string name="title_advanced_caption_conversation">Conversació</string>
     <string name="title_advanced_caption_message">Missatge</string>
@@ -391,6 +393,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_caption_file">Fitxer</string>
     <string name="title_advanced_caption_integrations">Integracions</string>
     <string name="title_advanced_portrait">Mode retrat</string>
+    <string name="title_advanced_landscape">Mode horitzontal</string>
     <string name="title_advanced_nav_hide_title">Amagar les opcions del menú de navegació?</string>
     <string name="title_advanced_startup">Mostra a la pantalla d\'inici</string>
     <string name="title_advanced_cards">Utilitzeu l\'estil de targeta en lloc de l\'estil tabular</string>
@@ -418,6 +421,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_subject_italic">Mostra els assumptes en cursiva</string>
     <string name="title_advanced_highlight_subject">Destacar el Tema</string>
     <string name="title_advanced_font_size_subject">Mida del text del assumpte</string>
+    <string name="title_advanced_highlight_color">Color de realçament</string>
     <string name="title_advanced_keywords">Mostra les paraules clau a l’encapçalament de missatges</string>
     <string name="title_advanced_labels">Mostra les etiquetes de Gmail a l\'encapçalament del missatge</string>
     <string name="title_advanced_flags">Mostra estels</string>
@@ -431,6 +435,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_message_text_zoom2">Ampliació per defecte del text del missatge: %1$s %%</string>
     <string name="title_advanced_contrast">Utilitzeu un alt contrast per al text del missatge</string>
     <string name="title_advanced_monospaced">Utilitzeu tipus de lletra mono per al text del missatge per defecte</string>
+    <string name="title_advanced_monospaced_pre">Utilitzeu tipus de lletra mono per al text del missatge</string>
     <string name="title_advanced_text_color">Utilitza els colores del text</string>
     <string name="title_advanced_text_size">Utilitza la mida del text</string>
     <string name="title_advanced_text_font">Utilitza fonts</string>
@@ -443,6 +448,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_navbar_colorize">Coloreja la barra de navegació d\'Android</string>
     <string name="title_advanced_parse_classes">Analitza els fulls d\'estil</string>
     <string name="title_advanced_authentication">Mostrar avisos d\'autenticació</string>
+    <string name="title_advanced_restore_on_launch">Restaura les pestanyes tancades en iniciar</string>
     <string name="title_advanced_double_back">Premeu dos cops \"Tornar\" per sortir</string>
     <string name="title_advanced_language_detection">Detecta el llenguatge de text del missatge</string>
     <string name="title_advanced_photo_picker">Utilitzar el selector de fotos d\'Android</string>
