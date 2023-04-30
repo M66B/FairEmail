@@ -69,6 +69,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
     private LayoutInflater inflater;
 
     private int colorStripeWidth;
+    private int colorWarning;
+    private int textColorTertiary;
     private boolean debug;
 
     private List<TupleIdentityEx> items = new ArrayList<>();
@@ -162,7 +164,11 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             }
             ivState.setVisibility(identity.synchronize ? View.VISIBLE : View.INVISIBLE);
 
-            tvHost.setText(String.format("%s:%d", identity.host, identity.port));
+            tvHost.setText(String.format("%s:%d/%s",
+                    identity.host,
+                    identity.port,
+                    EmailService.getEncryptionName(identity.encryption)));
+            tvHost.setTextColor(identity.insecure ? colorWarning : textColorTertiary);
             tvAccount.setText(identity.accountName);
 
             StringBuilder sb = new StringBuilder();
@@ -429,6 +435,8 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
         this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
+        this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+        this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
         this.debug = prefs.getBoolean("debug", false);
 
         this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);

@@ -88,6 +88,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
     private int colorWarning;
     private int colorUnread;
     private int textColorSecondary;
+    private int textColorTertiary;
     private boolean debug;
 
     private List<TupleAccountEx> items = new ArrayList<>();
@@ -250,7 +251,11 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             }
             ivState.setVisibility(account.synchronize || account.state != null ? View.VISIBLE : View.INVISIBLE);
 
-            tvHost.setText(String.format("%s:%d", account.host, account.port));
+            tvHost.setText(String.format("%s:%d/%s",
+                    account.host,
+                    account.port,
+                    EmailService.getEncryptionName(account.encryption)));
+            tvHost.setTextColor(account.insecure ? colorWarning : textColorTertiary);
             tvCreated.setVisibility(debug ? View.VISIBLE : View.GONE);
             tvCreated.setText(context.getString(R.string.title_created_at,
                     account.created == null ? null : DTF.format(account.created)));
@@ -727,6 +732,7 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+        this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
         this.debug = prefs.getBoolean("debug", false);
 
         this.DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.MEDIUM);
