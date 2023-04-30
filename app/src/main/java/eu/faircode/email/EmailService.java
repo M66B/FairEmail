@@ -1370,6 +1370,19 @@ public class EmailService implements AutoCloseable {
         }
     }
 
+    static String getEncryptionName(int type) {
+        switch (type) {
+            case ENCRYPTION_SSL:
+                return "ssl";
+            case ENCRYPTION_STARTTLS:
+                return "starttls";
+            case ENCRYPTION_NONE:
+                return "none";
+            default:
+                return Integer.toString(type);
+        }
+    }
+
     static class UntrustedException extends MessagingException {
         private X509Certificate certificate;
 

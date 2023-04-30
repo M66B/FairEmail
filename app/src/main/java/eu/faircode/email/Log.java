@@ -2489,7 +2489,9 @@ public class Log {
                                 " " + (account.protocol == EntityAccount.TYPE_IMAP ? "IMAP" : "POP") +
                                 " [" + (account.provider == null ? "" : account.provider) +
                                 ":" + ServiceAuthenticator.getAuthTypeName(account.auth_type) + "]" +
-                                " " + account.host + ":" + account.port + "/" + account.encryption +
+                                " " + account.host + ":" + account.port + "/" +
+                                EmailService.getEncryptionName(account.encryption) +
+                                (account.insecure ? " !!!" : "") +
                                 " sync=" + account.synchronize +
                                 " exempted=" + account.poll_exempted +
                                 " poll=" + account.poll_interval +
@@ -2506,7 +2508,7 @@ public class Log {
                         if (folders.size() > 0)
                             Collections.sort(folders, folders.get(0).getComparator(context));
                         for (TupleFolderEx folder : folders)
-                            if (folder.synchronize) {
+                            if (folder.synchronize || account.protocol == EntityAccount.TYPE_POP) {
                                 int unseen = db.message().countUnseen(folder.id);
                                 int hidden = db.message().countHidden(folder.id);
                                 int notifying = db.message().countNotifying(folder.id);
@@ -2515,7 +2517,7 @@ public class Log {
                                         (folder.unified ? " unified" : "") +
                                         (folder.notify ? " notify" : "") +
                                         " poll=" + folder.poll + "/" + folder.poll_factor +
-                                        " days=" + folder.sync_days + "/" + folder.keep_days +
+                                        " days=" + getDays(folder.sync_days) + "/" + getDays(folder.keep_days) +
                                         " msgs=" + folder.content + "/" + folder.messages + "/" + folder.total +
                                         " ops=" + db.operation().getOperationCount(folder.id, null) +
                                         " unseen=" + unseen + " hidden=" + hidden + " notifying=" + notifying +
@@ -2553,7 +2555,9 @@ public class Log {
                                         (!identity.sender_extra ? "" : " edit" +
                                                 (identity.sender_extra_name ? "+name" : "-name") +
                                                 (identity.reply_extra_name ? "+copy" : "-copy")) +
-                                        " " + identity.host + ":" + identity.port + "/" + identity.encryption +
+                                        " " + identity.host + ":" + identity.port + "/" +
+                                        EmailService.getEncryptionName(identity.encryption) +
+                                        (identity.insecure ? " !!!" : "") +
                                         " ops=" + db.operation().getOperationCount(EntityOperation.SEND) +
                                         " " + identity.state +
                                         (identity.last_connected == null ? "" : " " + dtf.format(identity.last_connected)) +
@@ -2639,6 +2643,13 @@ public class Log {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    private static String getDays(Integer days) {
+        if (days == null)
+            return "?";
+        else
+            return (days == Integer.MAX_VALUE ? "∞" : Integer.toString(days));
     }
 
     private static void attachNetworkInfo(Context context, long id, int sequence) {
