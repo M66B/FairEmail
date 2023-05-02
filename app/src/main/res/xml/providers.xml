@@ -159,7 +159,7 @@
     </provider>
     <provider
         name="Outlook"
-        description="Office 365"
+        description="Outlook/Office 365"
         id="office365pcke"
         link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
         maxtls="1.2"
@@ -224,7 +224,7 @@
             askAccount="true"
             authorizationEndpoint="https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize"
             clientId="3514cf2c-e7a3-45a2-80d4-6a3c3498eca0"
-            enabled="true"
+            enabled="false"
             privacy="https://privacy.microsoft.com/privacystatement"
             prompt="login"
             redirectUri="msauth.eu.faircode.email://auth"
