@@ -2726,6 +2726,7 @@ public class Log {
                 size += write(os, "\r\n");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                int timeout = prefs.getInt("timeout", EmailService.DEFAULT_CONNECT_TIMEOUT);
                 boolean metered = prefs.getBoolean("metered", true);
                 boolean roaming = prefs.getBoolean("roaming", true);
                 boolean rlah = prefs.getBoolean("rlah", true);
@@ -2734,6 +2735,7 @@ public class Log {
                 boolean require_validated_captive = prefs.getBoolean("require_validated_captive", true);
                 boolean vpn_only = prefs.getBoolean("vpn_only", false);
 
+                size += write(os, "timeout=" + timeout + "s" + (timeout == EmailService.DEFAULT_CONNECT_TIMEOUT ? "" : " !!!") + "\r\n");
                 size += write(os, "metered=" + metered + (metered ? "" : " !!!") + "\r\n");
                 size += write(os, "roaming=" + roaming + (roaming ? "" : " !!!") + "\r\n");
                 size += write(os, "rlah=" + rlah + (rlah ? "" : " !!!") + "\r\n");
