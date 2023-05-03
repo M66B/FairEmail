@@ -4907,6 +4907,9 @@ This means you can't update the F-Droid build with the Play store or GitHub vers
 However, it is possible to install the GitHub version over the Play store version,
 and the Play store app will do the same, when auto-updating isn't disabled for the app in the app description.
 
+The version in the [Play Store test program](https://play.google.com/apps/testing/eu.faircode.email) is more often updated,
+but not all GitHub releases will be released as Play Store test version.
+
 <br />
 
 <a name="faq174"></a>
