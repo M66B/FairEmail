@@ -6220,7 +6220,7 @@ class Core {
                 return false;
 
             semaphore.release();
-            yield();
+            microWait();
             return true;
         }
 
@@ -6265,7 +6265,7 @@ class Core {
 
             if (!backingoff) {
                 thread.interrupt();
-                yield();
+                microWait();
             }
         }
 
@@ -6280,7 +6280,7 @@ class Core {
             serial++;
         }
 
-        private void yield() {
+        private void microWait() {
             try {
                 // Give interrupted thread some time to acquire wake lock
                 Thread.sleep(YIELD_DURATION);

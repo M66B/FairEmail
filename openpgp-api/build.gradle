@@ -4,6 +4,7 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 29
     //buildToolsVersion '27.0.3'
+    namespace 'org.openintents.openpgp'
 
     defaultConfig {
         versionCode 9
@@ -22,6 +23,10 @@ android {
         }
         debug {
         }
+    }
+
+    buildFeatures {
+        aidl true
     }
 }
 
