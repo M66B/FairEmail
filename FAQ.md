@@ -2023,6 +2023,9 @@ To reduce data usage, you could change these advanced receive settings:
 By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection.
 You can change this in the connection settings.
 
+You could enable to download only plain text only parts, but all messages will be without formatting (styling),
+and besides that, a plain text only part is not always sent, and worse, it is sometimes only a part of the message text, containing HTML and CCS.
+
 <br />
 
 <a name="faq41"></a>
