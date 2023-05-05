@@ -700,6 +700,19 @@ public class ApplicationEx extends Application
                 editor.putBoolean("plain_only_reply", true);
         } else if (version < 2046)
             editor.remove("message_junk");
+        else if (version < 2069) {
+            if (prefs.contains("swipe_sensitivity") && !prefs.contains("swipe_sensitivity_updated")) {
+                int swipe_sensitivity = prefs.getInt("swipe_sensitivity", FragmentOptionsBehavior.DEFAULT_SWIPE_SENSITIVITY);
+                if (swipe_sensitivity > 0) {
+                    swipe_sensitivity--;
+                    if (swipe_sensitivity == FragmentOptionsBehavior.DEFAULT_SWIPE_SENSITIVITY)
+                        editor.remove("swipe_sensitivity");
+                    else
+                        editor.putInt("swipe_sensitivity", swipe_sensitivity - 1)
+                                .putBoolean("swipe_sensitivity_updated", true);
+                }
+            }
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");

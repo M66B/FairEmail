@@ -107,7 +107,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private boolean accessibility;
 
     final static int MAX_SWIPE_SENSITIVITY = 10;
-    final static int DEFAULT_SWIPE_SENSITIVITY = 7;
+    final static int DEFAULT_SWIPE_SENSITIVITY = 6;
 
     final static int REQUEST_DEFAULT_FOLDER = 1;
 

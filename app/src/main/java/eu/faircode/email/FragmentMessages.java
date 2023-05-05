@@ -2748,14 +2748,22 @@ public class FragmentMessages extends FragmentBase
 
         @Override
         public float getSwipeEscapeVelocity(float defaultValue) {
+            return super.getSwipeEscapeVelocity(defaultValue) * getSwipeSensitivityFactor();
+        }
+
+        @Override
+        public float getSwipeVelocityThreshold(float defaultValue) {
+            return super.getSwipeVelocityThreshold(defaultValue) * getSwipeSensitivityFactor();
+        }
+
+        private int getSwipeSensitivityFactor() {
             int swipe_sensitivity = FragmentOptionsBehavior.DEFAULT_SWIPE_SENSITIVITY;
             Context context = getContext();
             if (context != null) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 swipe_sensitivity = prefs.getInt("swipe_sensitivity", swipe_sensitivity);
             }
-            return super.getSwipeEscapeVelocity(defaultValue) *
-                    (FragmentOptionsBehavior.MAX_SWIPE_SENSITIVITY - swipe_sensitivity + 1);
+            return (FragmentOptionsBehavior.MAX_SWIPE_SENSITIVITY - swipe_sensitivity + 1);
         }
 
         @Override
