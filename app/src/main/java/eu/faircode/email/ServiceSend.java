@@ -1039,6 +1039,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     VEvent event = icalendar.getEvents().get(0);
                     EntityMessage message = db.message().getMessage(sid);
                     CalendarHelper.update(this, event, message);
+
                     break;
                 } catch (Throwable ex) {
                     Log.e(ex);

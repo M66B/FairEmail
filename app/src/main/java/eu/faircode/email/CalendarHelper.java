@@ -253,17 +253,26 @@ public class CalendarHelper {
 
     static void update(Context context, VEvent event, EntityMessage message) {
         String uid = (event.getUid() == null ? null : event.getUid().getValue());
-        if (TextUtils.isEmpty(uid))
+        if (TextUtils.isEmpty(uid)) {
+            EntityLog.log(context, EntityLog.Type.General, message,
+                    "Update event: no uid");
             return;
+        }
 
         List<Attendee> attendees = event.getAttendees();
-        if (attendees == null || attendees.size() == 0)
+        if (attendees == null || attendees.size() == 0) {
+            EntityLog.log(context, EntityLog.Type.General, message,
+                    "Update event: no attendees");
             return;
+        }
 
         ParticipationStatus status = attendees.get(0).getParticipationStatus();
         if (!ParticipationStatus.ACCEPTED.equals(status) &&
-                !ParticipationStatus.DECLINED.equals(status))
+                !ParticipationStatus.DECLINED.equals(status)) {
+            EntityLog.log(context, EntityLog.Type.General, message,
+                    "Update event: not accepted/declined");
             return;
+        }
 
         ContentResolver resolver = context.getContentResolver();
         try (Cursor cursor = resolver.query(CalendarContract.Events.CONTENT_URI,
@@ -271,6 +280,9 @@ public class CalendarHelper {
                 CalendarContract.Events.UID_2445 + " = ?",
                 new String[]{uid},
                 null)) {
+            if (cursor.getCount() == 0)
+                EntityLog.log(context, EntityLog.Type.General, message,
+                        "Update event: uid not found");
             while (cursor.moveToNext()) {
                 long eventId = cursor.getLong(0);
 
