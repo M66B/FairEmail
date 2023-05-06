@@ -516,7 +516,7 @@ public class FragmentCompose extends FragmentBase {
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus)
                     try {
-                        updateEncryption((EntityIdentity) spIdentity.getSelectedItem());
+                        updateEncryption((EntityIdentity) spIdentity.getSelectedItem(), false);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
@@ -1382,13 +1382,14 @@ public class FragmentCompose extends FragmentBase {
         }.serial().execute(FragmentCompose.this, args, "compose:contact");
     }
 
-    private void updateEncryption(EntityIdentity identity) {
+    private void updateEncryption(EntityIdentity identity, boolean selected) {
         if (identity == null)
             return;
 
         Bundle args = new Bundle();
         args.putLong("id", working);
         args.putLong("identity", identity.id);
+        args.putBoolean("selected", selected);
         args.putString("to", etTo.getText().toString().trim());
         args.putString("cc", etCc.getText().toString().trim());
         args.putString("bcc", etBcc.getText().toString().trim());
@@ -1398,6 +1399,7 @@ public class FragmentCompose extends FragmentBase {
             protected Integer onExecute(Context context, Bundle args) {
                 long id = args.getLong("id");
                 long iid = args.getLong("identity");
+                boolean selected = args.getBoolean("selected");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean sign_default = prefs.getBoolean("sign_default", false);
@@ -1441,7 +1443,7 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }
 
-                if (!encrypt_auto || draft.ui_encrypt == null) {
+                if (selected || draft.ui_encrypt == null) {
                     if (encrypt_default || identity.encrypt_default)
                         draft.ui_encrypt = (identity.encrypt == 0
                                 ? EntityMessage.PGP_SIGNENCRYPT
@@ -1450,7 +1452,7 @@ public class FragmentCompose extends FragmentBase {
                         draft.ui_encrypt = (identity.encrypt == 0
                                 ? EntityMessage.PGP_SIGNONLY
                                 : EntityMessage.SMIME_SIGNONLY);
-                    else
+                    else if (selected)
                         draft.ui_encrypt = null;
                 }
 
@@ -7631,7 +7633,7 @@ public class FragmentCompose extends FragmentBase {
 
             if (!Objects.equals(spIdentity.getTag(), position)) {
                 spIdentity.setTag(position);
-                updateEncryption(identity);
+                updateEncryption(identity, true);
             }
         }
 
@@ -7645,7 +7647,7 @@ public class FragmentCompose extends FragmentBase {
 
             setBodyPadding();
 
-            updateEncryption(null);
+            updateEncryption(null, true);
         }
     };
 
