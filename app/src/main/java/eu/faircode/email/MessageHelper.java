@@ -4674,6 +4674,20 @@ public class MessageHelper {
                             if (bp.isMimeType("multipart/signed") || bp.isMimeType("multipart/encrypted")) {
                                 part = (MimePart) bp;
                                 break;
+                            } else if (bp.isMimeType("application/pgp-encrypted") && i + 1 < mp.getCount()) {
+                                // Workaround Outlook problem
+                                //  --_xxxoutlookfr_
+                                // Content-Type: text/plain; charset="us-ascii"
+                                //
+                                // --_xxxoutlookfr_
+                                // Content-Type: application/pgp-encrypted; name="ATT00001"
+                                // Content-Disposition: attachment; filename="ATT00001";
+                                //
+                                // --_xxxoutlookfr_
+                                // Content-Type: application/octet-stream; name="encrypted.asc"
+                                // Content-Disposition: attachment; filename="encrypted.asc";
+                                getMessageParts(part, mp.getBodyPart(i + 1), parts, EntityAttachment.PGP_MESSAGE);
+                                return parts;
                             }
                         }
                     } else {
