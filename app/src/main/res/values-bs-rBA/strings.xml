@@ -92,6 +92,7 @@
     <string name="title_block">Blokiraj %1$s</string>
     <string name="title_block_sender">Blokiraj pošiljaoca</string>
     <string name="title_block_sender_domain">Blokiraj domenu \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blokiranje znači automatsko premještanje u spam folder</string>
     <string name="title_block_sender_hint">        Blokiranje pošiljaoca je besplatna funkcionalnost.
         Blokiranje domene pošiljaoca koristi pravila filtriranja, što predstavlja pro funkcionalnost.
     </string>
@@ -596,6 +597,7 @@
     <string name="title_advanced_auto_block_sender">Automatski blokiraj pošiljaoca kada se prijavljuje spam</string>
     <string name="title_advanced_auto_hide_answer">Automatski sakrij dugme za odgovor prilikom pomjeranja</string>
     <string name="title_advanced_swipe_reply">Prstom prevucite proširene poruke na desno za odgovor</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Pri premještanju konverzacije, premjesti i poslane poruke</string>
     <string name="title_advanced_default_snooze">Zadano vrijeme odlaganja/odgađanja</string>
     <string name="title_advanced_default_folder">Izaberite zadani folder</string>
     <string name="title_advanced_notifications">Upravljaj obavještenjima</string>

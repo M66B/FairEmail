@@ -82,6 +82,7 @@
     <string name="title_block">Estä %1$s</string>
     <string name="title_block_sender">Estä lähettäjä</string>
     <string name="title_block_sender_domain">Estä verkkotunnus \'%1$s\'</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Estäminen tarkoittaa automaattisesti roskapostikansioon siirtämistä</string>
     <string name="title_block_sender_hint">        Lähettäjän esto on ilmainen ominaisuus.
         Lähettäjän verkkotunnuksen esto käyttää suodatussääntöjä ja on pro-ominaisuus.
     </string>
@@ -249,6 +250,7 @@
     </string>
     <string name="title_setup_export_do">Viety tiedosto sisältää kaikki asetukset ja tiedot, mutta ei viestejä eikä kuvia, joihin viitataan allekirjoituksissa</string>
     <string name="title_setup_scroll">Keskusteluja voi ehkä vierittää!</string>
+    <string name="title_setup_backup">Kuinka varmuuskopioida viestejä?</string>
     <string name="title_setup_password">Salasana</string>
     <string name="title_setup_password_chars">Salasana sisältää ohjaus- tai tyhjätilamerkkejä</string>
     <string name="title_setup_password_repeat">Toista salasana</string>
@@ -331,6 +333,8 @@
     <string name="title_advanced_optimize">Optimoi automaattisesti</string>
     <string name="title_advanced_always">Vastaanota aina viestit näille tileille</string>
     <string name="title_advanced_schedule">Aikataulu</string>
+    <string name="title_advanced_schedule_workdays">Työpäivät</string>
+    <string name="title_advanced_schedule_weekend">Viikonloppu</string>
     <string name="title_advanced_advanced">Lisäasetukset</string>
     <string name="title_advanced_quick_sync">Pikasynkronointi</string>
     <string name="title_advanced_no_date">Viestit ilman päivämäärää</string>
@@ -343,6 +347,7 @@
     <string name="title_advanced_sync_folders">Synkronoi kansiolista</string>
     <string name="title_advanced_sync_folders_poll">Synkronoi kansiolista aktiivisesti</string>
     <string name="title_advanced_sync_shared_folders">Synkronoi jaettujen kansioiden lista</string>
+    <string name="title_advanced_sync_added">Ota synkronointi käyttöön uusille käyttäjäkansioille</string>
     <string name="title_advanced_subscriptions">Hallinnoi tilattuja kansioita</string>
     <string name="title_advanced_check_authentication">Tarkista viestin todennus</string>
     <string name="title_advanced_check_tls">Tarkista \"transport layer security\" (TLS)</string>
@@ -364,13 +369,18 @@
     <string name="title_advanced_send_chips">Näytä osoitteet kehyksissä</string>
     <string name="title_advanced_send_reminders">Näytä muistutukset</string>
     <string name="title_advanced_send_delayed">Viivästä viestien lähetystä</string>
+    <string name="title_advanced_attach_new">Luo uusi luonnos jaetuille osoitteille ja tiedostoille</string>
+    <string name="title_advanced_answer_caption">Vastauspainikkeen asetukset</string>
     <string name="title_advanced_answer_default">Vastausnapin lyhyesti painamisen toiminto:</string>
     <string name="title_advanced_answer_action">Vastauspainikkeen pitkän painalluksen toiminto:</string>
+    <string name="title_advanced_answer_hint">Vastauspainikkeen toiminnot voidaan määrittää myös lähettämisasetusvälilehdeltä</string>
+    <string name="title_advanced_answer_warning">Kaikki toiminnot eivät ole mahdollisia ilman valintavalikkoa!</string>
     <string name="title_advanced_send_pending">Näytä huomaamaton viivästetyn lähetyksen kuvake</string>
     <string name="title_advanced_auto_save_paragraph">Tallenna luonnos automaattisesti jokaisen kappaleen jälkeen</string>
     <string name="title_advanced_auto_save_dot">Tallenna luonnos automaattisesti jokaisen virkkeen jälkeen</string>
     <string name="title_advanced_compose_color">Tekstin oletusväri</string>
     <string name="title_advanced_compose_font">Oletuskirjasin</string>
+    <string name="title_advanced_compose_monospaced">Käytä tasavälistä kirjasinta viesteihin, jotka ovat muotoilematonta tekstiä</string>
     <string name="title_advanced_auto_identity">Valitse automaattisesti identiteetit uusille viesteille</string>
     <string name="title_advanced_prefix_once">Lisää aiheeseen etuliite vain kerran vastatessa ja edelleenlähetettäessä</string>
     <string name="title_advanced_prefix_count">Lisää lukumäärä vastauksen etuliitteeseen</string>
@@ -444,6 +454,7 @@
     <string name="title_advanced_nav_pinned_count">Näytä lukemattomien viestien määrä kiinnitetyssä navigointivalikossa</string>
     <string name="title_advanced_startup">Näytä aloitusnäytössä</string>
     <string name="title_advanced_cards">Käytä korttityyliä taulukkotyylin sijaan</string>
+    <string name="title_advanced_category">Tilin luokka määritetään tiliasetuksissa, joihin pääsee ensisijainen-välilehdeltä</string>
     <string name="title_advanced_cards_beige">Käytä beigeä taustaa korttityylissä (vain vaaleat teemat)</string>
     <string name="title_advanced_tabular_background">Käytä kortin väriä taulukkotyylin taustavärinä</string>
     <string name="title_advanced_cards_shadow">Käytä varjoa lukemattomiin viesteihin korttityylissä</string>
@@ -494,6 +505,7 @@
     <string name="title_advanced_preview">Näytä viestin esikatselu</string>
     <string name="title_advanced_preview_italic">Näytä viestin esikatselu kursiivilla</string>
     <string name="title_advanced_preview_lines">Esikatselurivien lukumäärä</string>
+    <string name="title_advanced_align_header">Kohdista pystysuunnassa avainsanat, tekstin esikatselu ja muistiinpanot</string>
     <string name="title_advanced_addresses">Näytä viestin osoitetiedot oletuksena</string>
     <string name="title_advanced_unzip">Näytä pakattujen liitteiden sisältö</string>
     <string name="title_advanced_attachments_alt">Näytä liitteet viestin tekstin jälkeen</string>
@@ -564,11 +576,14 @@
     <string name="title_advanced_autoread">Merkitse viestit luetuiksi siirrettäessä</string>
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
     <string name="title_advanced_reset_importance">Palauta oma tärkeysjärjestys oletusasetukseen siirrettäessä</string>
+    <string name="title_advanced_thread_sent_trash">Siirrä roskakoriin myös lähetetyt viestit, kun keskustelu siirretään roskakoriin</string>
     <string name="title_advanced_star_snoozed">Lisää tähti torkutettaessa viestejä</string>
     <string name="title_advanced_auto_important">Merkitse tähdelliset viestit tärkeiksi</string>
     <string name="title_advanced_cancel_snooze">Peruuta torkku, kun viestejä siirrettään</string>
     <string name="title_advanced_auto_block_sender">Estä lähettäjä ilmoittaessa roskapostista</string>
+    <string name="title_advanced_auto_hide_answer">Piilota vastauspainike vieritettäessä</string>
     <string name="title_advanced_swipe_reply">Vastaa pyyhkäisemällä laajennetut viestit oikealle</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Siirrä myös lähetetyt viestit, kun keskustelu siirretään</string>
     <string name="title_advanced_default_snooze">Torkun/viiveen oletusaika</string>
     <string name="title_advanced_default_folder">Valitse oletuskansio</string>
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
@@ -579,6 +594,7 @@
     <string name="title_advanced_badge">Näytä käynnistinsovelluksen kuvakkeessa uusien viestien lukumäärä</string>
     <string name="title_advanced_unseen_ignored">Anna uusien viestien lukumäärän vastata ilmoitusten lukumäärää</string>
     <string name="title_advanced_notify_grouping">Ryhmittele ilmoitukset</string>
+    <string name="title_advanced_notify_private">Pidä ilmoitukset yksityisinä, kun laite on lukittu</string>
     <string name="title_advanced_notify_background">Näytä ilmoitukset vain, kun sovellus on taustalla</string>
     <string name="title_advanced_notify_known">Näytä ilmoitukset vain yhteystiedoille</string>
     <string name="title_advanced_notify_suppress_in_call">Viivästytä ilmoitukset puhelun aikana</string>
@@ -668,6 +684,7 @@
     <string name="title_advanced_classification">Luokittele viestit</string>
     <string name="title_advanced_class_min_chance">Luokan vähimmäistodennäköisyys: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Luokkien välinen vähimmäisero: %1$s %%</string>
+    <string name="title_advanced_show_filtered">Näytä suodatinkuvake, kun sääntöjä on sovellettu</string>
     <string name="title_advanced_language">Kieli</string>
     <string name="title_advanced_language_system">Järjestelmä</string>
     <string name="title_advanced_lt">LanguageTool-integraatio</string>
@@ -678,6 +695,9 @@
     <string name="title_advanced_virus_total">VirusTotal-integraatio</string>
     <string name="title_advanced_send">Send-integraatio</string>
     <string name="title_advanced_openai">OpenAI (ChatGPT) integraatio</string>
+    <string name="title_advanced_openai_model">Malli</string>
+    <string name="title_advanced_openai_temperature">Lämpötila: %1$s</string>
+    <string name="title_advanced_openai_moderation">Sisällön moderointi</string>
     <string name="title_advanced_sdcard">Haluan käyttää SD-korttia</string>
     <string name="title_advanced_watchdog">Tarkista väliajoin, että FairEmail on edelleen aktiivinen</string>
     <string name="title_advanced_updates">Tarkista GitHub-päivitykset</string>
@@ -724,6 +744,9 @@
     <string name="title_advanced_auto_identity_hint">Tämä valitsee viimeksi käytetyn identiteetin, kun valitaan uusien viestien vastaanottajaa</string>
     <string name="title_advanced_send_reminders_hint">Näytä varoitus, kun viestin teksti tai aihe on tyhjä tai kun liite puuttuu</string>
     <string name="title_advanced_reply_move_hint">Sähköpostipalvelin voi silti lisätä viestit lähetettyjen viestien kansioon</string>
+    <string name="title_advanced_compose_color_hint">Hyvin vaalea tai hyvin tumma väri tekee viesteistä vaikeasti luettavia</string>
+    <string name="title_advanced_write_below_hint">Vastaanottaja ei välttämättä näe vastaustasi, jos esimerkiksi pidempi viesti on katkaistu lopusta</string>
+    <string name="title_advanced_attach_new_hint">Muussa tapauksessa lisää jaetut osoitteet tai tiedostot nykyiseen luonnokseen</string>
     <string name="title_advanced_usenet_hint">Lisää \'--\' tekstin ja allekirjoituksen väliin</string>
     <string name="title_advanced_remove_signature_hint">Tämä voi aiheuttaa, että tekstiä poistetaan liian vähän tai liian paljon</string>
     <string name="title_advanced_metered_hint">Käytön mukaan laskutettavat yhteydet ovat yleensä mobiiliyhteyksiä tai maksullisia Wi-Fi-yhteyspisteitä</string>
@@ -770,6 +793,7 @@
     <string name="title_advanced_sender_hint">Useimmat palveluntarjoajat eivät salli muokattuja lähetysosotteita</string>
     <string name="title_advanced_bcc_hint">Osoitetta ei näytetä, mutta se lisätään lähetettäessä</string>
     <string name="title_advanced_internal_hint">Toiseen verkkotunnukseen lähetettäessä tulee varoitus</string>
+    <string name="title_advanced_uri">Valitun yhteystiedon tietoja käytetään vCard-liitteitä varten</string>
     <string name="title_advanced_e2e_encryption">Päästä päähän -salauksen asetukset</string>
     <string name="title_advanced_display_harmful_hint">Tämän käytöstä poistaminen voi olla haitallista yksityisyydellesi</string>
     <string name="title_advanced_display_hidden_hint">Saattaa näyttää omituiselta ja tekstejä voi näkyä kahteen kertaan</string>
@@ -818,6 +842,7 @@
     <string name="title_advanced_sender_regex">Regex lähettäjän sähköpostiosoitteen käyttäjätunnuksen vastaavuuden määrittämiseen</string>
     <string name="title_identity_reply_to">Vastausosoite</string>
     <string name="title_identity_internal">Sisäiset verkkotunnukset (pilkulla erotettu)</string>
+    <string name="title_identity_uri">Linkitä yhteystieto</string>
     <string name="title_identity_unicode">Salli UTF-8 viestien otsikoissa</string>
     <string name="title_identity_unicode_remark">Suurin osa palvelimista ei tue tätä</string>
     <string name="title_identity_octetmime">Salli 8BITMIME</string>
@@ -871,9 +896,13 @@
     <string name="title_primary_identity">Ensisijainen (oletusidentiteetti)</string>
     <string name="title_self_identity">Poista sähköpostiosoite vastatessa</string>
     <string name="title_leave_on_server">Jätä viestit palvelimelle</string>
+    <string name="title_client_delete">Poista viestit aktiivisesti, kun ne on ladattu</string>
     <string name="title_leave_deleted">Jätä poistetut viestit palvelimelle</string>
     <string name="title_leave_on_device">Jätä viestit laitteeseen</string>
     <string name="title_max_messages">Ladattavien viestien maksimimäärä (tyhjä lataa kaikki)</string>
+    <string name="title_max_messages_remark">        Anna positiivinen numero, että viestit ladataan lopusta aloittaen (yleisin tapa)
+        ja negatiivinen numero, että viestit ladataan alusta
+    </string>
     <string name="title_keep_poll_interval">Kyselyn aikaväli (minuuttia)</string>
     <string name="title_keep_alive_interval">Yhteyden ylläpitokyselyn aikaväli (minuuttia)</string>
     <string name="title_keep_alive_noop">Käynnistä IMAP IDLE uudelleen säännöllisesti</string>
@@ -1351,6 +1380,7 @@
     <string name="title_attachment_keywords">liite,liitteet,liitetty,liitetyt,sisällytetty,lisätty,liitin,sisällytin,lisäsin</string>
     <string name="title_attachment_reminder">Oliko tarkoituksenasi lisätä liite?</string>
     <string name="title_attachment_warning">Mahdollisesti vaarallinen: %1$s</string>
+    <string name="title_attachment_filename">Jotkut muut sähköpostiohjelmat eivät pysty käsittelemään yli 60 merkkisiä tiedostojen nimiä</string>
     <string name="title_plain_reminder">Kaikki muotoilut menetetään</string>
     <string name="title_dsn_reminder">Hard bounce vahingoittaa alkuperäisen sähköpostin lähettäjän mainetta!</string>
     <string name="title_size_reminder">Viesti (%1$s) on suurempi kuin palvelimen raja (%2$s)</string>
@@ -1378,6 +1408,8 @@
     <string name="title_not_encrypted">Viestiä ei ole allekirjoitettu tai salattu</string>
     <string name="title_no_sign_key">Allekirjoitusavainta ei valittuna</string>
     <string name="title_reset_sign_key">Nollaa allekirjoitusavain</string>
+    <string name="title_reset_selected_keys">Nollaa valitut avaimet</string>
+    <string name="title_reset_selected_keys_hint">Voidaan käyttää esimerkiksi uusien sertifikaattien yhteydessä.</string>
     <string name="title_signature_none">Viestiä ei allekirjoitettu</string>
     <string name="title_signature_valid">Viestin allekirjoitus pätevä</string>
     <string name="title_signature_valid_from">Viestin allekirjoitus pätevä: %1$s</string>
@@ -1421,6 +1453,7 @@
     <string name="title_search_with_size">Viestin koko suurempi kuin</string>
     <string name="title_search_in_trash">Roskakorista</string>
     <string name="title_search_in_junk">Roskapostista</string>
+    <string name="title_search_with_range">Aikaväli</string>
     <string name="title_search_with_before">Ennen</string>
     <string name="title_search_with_after">Jälkeen</string>
     <string name="title_search_device_first">Hae ensin laitteesta</string>
@@ -1454,6 +1487,8 @@
     <string name="title_sort_ascending">Vanhin ensin</string>
     <string name="title_sort_on_name">Nimi</string>
     <string name="title_sort_on_order">Järjestys</string>
+    <string name="title_sort_on_applied">Suodatetut viestit</string>
+    <string name="title_sort_on_last_applied">Viimeksi käytetty</string>
     <string name="title_filter">Suodata pois</string>
     <string name="title_filter_seen">Luettu</string>
     <string name="title_filter_unflagged">Tähdetön</string>
@@ -1509,6 +1544,7 @@
     <string name="title_rule_snooze">Torkuta</string>
     <string name="title_rule_flag">Lisää tähti</string>
     <string name="title_rule_importance">Aseta oma tärkeysjärjestys</string>
+    <string name="title_rule_keyword">Avainsana</string>
     <string name="title_rule_keyword_add">Lisää</string>
     <string name="title_rule_keyword_delete">Poista</string>
     <string name="title_rule_move">Siirrä</string>
@@ -1527,6 +1563,7 @@
     <string name="title_rule_daily">Suorita päivittäin (ainoastaan)</string>
     <string name="title_rule_age">Viestit, jotka ovat vanhempia kuin (päivää)</string>
     <string name="title_rule_stop">Lopeta sääntöjen käsittely tämän säännön suorittamisen jälkeen</string>
+    <string name="title_rule_stop_remark">Kaikkien ryhmän sääntöjen käsittely lopetetaan, jos sääntö on osa ryhmää</string>
     <string name="title_rule_sender">Lähettäjä sisältää</string>
     <string name="title_rule_sender_known">Lähettäjä on yhteystiedoissa</string>
     <string name="title_rule_recipient">Vastaanottaja sisältää</string>
@@ -1541,6 +1578,7 @@
     <string name="title_rule_time_before">Vastaanotettu ennen</string>
     <string name="title_rule_time_rel">Suhteellinen aika (vastaanotettu) välillä</string>
     <string name="title_rule_time_every_day">Joka päivä</string>
+    <string name="title_rule_younger">Viestit, jotka ovat uudempia kuin (tuntia)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">JA</string>
     <string name="title_rule_action">Toiminto</string>
@@ -1568,6 +1606,7 @@
     <string name="title_rule_keyword_missing">Avainsana puuttuu</string>
     <string name="title_rule_automation_hint">Tämä lähettää intentin \'%1$s\' extradatalla \'%2$s\'</string>
     <string name="title_rule_delete_hint">Pysyvä poisto on peruuttamaton, joten varmista, että säännön ehdot ovat oikein!</string>
+    <string name="title_rule_edit_group">Muokkaa ryhmää &#8230;</string>
     <string name="title_rule_execute">Suorita nyt</string>
     <string name="title_rule_applied">Ehtoja vastaavat viestit: %1$d</string>
     <string name="title_rule_check">Tarkista</string>
@@ -1713,8 +1752,13 @@
     <string name="title_hint_support">Jos sinulla on kysyttävää tai ongelma, käytä tukivalikkoa</string>
     <string name="title_hint_message_actions">Pyyhkäisy vasemmalle siirtää roskakoriin; Pyyhkäisy oikealle arkistoi (kun mahdollista); Pyyhkäisytoimintoja voi muokata tilin asetuksissa</string>
     <string name="title_hint_message_selection">Aloita useamman viestin valinta painamalla viestiä pitkään; Valitse useampi pitkään painamalla ja pyyhkäisemällä ylös tai alas</string>
+    <string name="title_hint_message_junk">        Sähköpostisovelluksen tarkoitus on näyttää viestit sähköpostipalvelimella.
+        Sähköpostipalvelin on vastuussa roskapostien suodatuksesta, ei sähköpostiohjelma.
+        Jos saat paljon roskapostia, ota yhteyttä sähköpostipalveluntarjoajaasi äläkä syytä sovellusta!
+    </string>
     <string name="title_hint_important">Tärkeä</string>
     <string name="title_hint_sync">Viestien lataaminen voi kestää riippuen verkkoyhteyden nopeudesta, käytettävästä laitteesta ja viestien lukumäärästä. Viestejä ladatessa sovellus voi toimia normaalia hitaammin.</string>
+    <string name="title_hint_sync_note">Oletuksena kaikkia viestejä ei ladata tallennustilan, akun käytön ja tiedonsiirron rajoittamiseksi. Voit muuttaa tätä painamalla kansiota pitkään kansiolistassa ja valitsemalla \'Hae lisää viestejä\'.</string>
     <string name="title_hint_battery">Koska FairEmail vastaanottaa viestit oletusarvoisesti aina, Android ilmoittaa FairEmailin olevan aina aktviininen. Saattaa vaikuttaa, että FairEmail käyttäisi aina akkua, vaikka niin ei olekaan.</string>
     <string name="title_hint_reformat">FairEmail oletusarvoisesti uudelleenmuotoilee viestit yksityisyyden ja turvallisuuden takaamiseksi. Näet alkuperäisen viestin näpäyttämällä koko näytön kuvaketta viestin tekstin yläpuolella.</string>
     <string name="title_hint_design">Ulkoasu on tarkoituksella tehty sellaiseksi, ettei se vie huomiota, mutta on hyvin toiminnallinen. Ulkoasun muokkaamiseen on paljon asetuksia, mutta on mahdotonta tehdä kaikki onnelliseksi samaan aikaan.</string>
@@ -1776,6 +1820,11 @@
     <string name="title_via">Kautta: %1$s</string>
     <string name="title_1hour">1 tunti</string>
     <string name="title_1day">1 päivä</string>
+    <string name="title_more_overflow">Lisää &#8230;</string>
+    <string name="title_today_at">Tänään klo %1$s</string>
+    <string name="title_tomorrow_at">Huomenna klo %1$s</string>
+    <string name="title_day_at_time">%1$s klo %2$s</string>
+    <string name="title_next_week">Tähän aikaan ensi viikolla</string>
     <string name="title_now">Nyt</string>
     <string name="title_after">%1$s päästä</string>
     <string name="title_reset">Palauta oletukset</string>
@@ -1846,6 +1895,7 @@
     <string name="title_widget_separator_lines">Näytä erotinrivit</string>
     <string name="title_widget_semi_transparent">Osittain läpinäkyvä tausta</string>
     <string name="title_widget_count_top">Näytä lukemattomien viestien määrä</string>
+    <string name="title_widget_subject_lines">Aiheen enimmäisrivimäärä</string>
     <string name="title_widget_avatars">Näytä yhteystietojen avatarit</string>
     <string name="title_widget_refresh">Näytä painike viestien päivittämiselle</string>
     <string name="title_widget_compose">Näytä painike uudelle viestille</string>

@@ -92,6 +92,7 @@
     <string name="title_block">Blochează %1$s</string>
     <string name="title_block_sender">Blochează expeditor</string>
     <string name="title_block_sender_domain">Blocați domeniul \"%1$s</string>
+    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blocarea înseamnă mutarea automată în folderul de spam</string>
     <string name="title_block_sender_hint">        Blocarea unui expeditor este o funcție gratuită.
         Blocarea unui domeniu de expeditor utilizează reguli de filtrare, ceea ce reprezintă o caracteristică profesională.
     </string>
@@ -595,6 +596,7 @@
     <string name="title_advanced_auto_block_sender">Blochează automat expeditorul când raportezi spam-ul</string>
     <string name="title_advanced_auto_hide_answer">Ascunde automat butonul de răspuns la derulare</string>
     <string name="title_advanced_swipe_reply">Glisați mesajele extinse spre dreapta pentru a răspunde</string>
+    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Atunci când mutați o conversație, mutați și mesajele trimise</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
     <string name="title_advanced_default_folder">Selectați directorul implicit</string>
     <string name="title_advanced_notifications">Gestionarea notificărilor</string>
