@@ -6,6 +6,16 @@ For support you can use the contact form.
 
 Saltopus
 
+Next version
+
+* Added support for Surface Duo 2
+* Added auto scroll to message editor for Android 14
+* Improved swipe left/right sensitivity
+* Small improvements and minor bug fixes
+* Updated build tools
+* Updated Public Suffix List
+* Updated translations
+
 1.2068 - 2023-04-29
 
 * Fixed all reported bugs
