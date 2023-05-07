@@ -1363,6 +1363,7 @@ public class FragmentMessages extends FragmentBase
                 args.putString("thread", thread);
                 args.putLong("id", id);
                 args.putString("type", folderType);
+                args.putBoolean("thread_sent_trash", thread_sent_trash);
                 args.putBoolean("filter_archive", filter_archive);
 
                 new SimpleTask<ArrayList<MessageTarget>>() {
@@ -1372,6 +1373,7 @@ public class FragmentMessages extends FragmentBase
                         String thread = args.getString("thread");
                         long id = args.getLong("id");
                         String type = args.getString("type");
+                        boolean thread_sent_trash = args.getBoolean("thread_sent_trash");
                         boolean filter_archive = args.getBoolean("filter_archive");
 
                         ArrayList<MessageTarget> result = new ArrayList<>();
@@ -4367,6 +4369,7 @@ public class FragmentMessages extends FragmentBase
         args.putString("type", type);
         args.putBoolean("block", block);
         args.putLongArray("ids", getSelection());
+        args.putBoolean("thread_sent_trash", thread_sent_trash);
         args.putBoolean("filter_archive", filter_archive);
 
         new SimpleTask<ArrayList<MessageTarget>>() {
@@ -4375,6 +4378,7 @@ public class FragmentMessages extends FragmentBase
                 String type = args.getString("type");
                 boolean block = args.getBoolean("block");
                 long[] ids = args.getLongArray("ids");
+                boolean thread_sent_trash = args.getBoolean("thread_sent_trash");
                 boolean filter_archive = args.getBoolean("filter_archive");
 
                 ArrayList<MessageTarget> result = new ArrayList<>();
@@ -4407,6 +4411,8 @@ public class FragmentMessages extends FragmentBase
                                     sourceFolder.id.equals(targetFolder.id))
                                 continue;
                             if (EntityFolder.TRASH.equals(targetFolder.type)) {
+                                if (EntityFolder.SENT.equals(sourceFolder.type) && !thread_sent_trash)
+                                    continue;
                                 if (EntityFolder.ARCHIVE.equals(sourceFolder.type) && filter_archive)
                                     continue;
                                 if (EntityFolder.JUNK.equals(sourceFolder.type) && !threaded.folder.equals(message.folder))
