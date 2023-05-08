@@ -351,8 +351,7 @@ public class EntityAttachment {
                 "application/x-zip-compressed".equals(type))
             return "application/zip"; //
 
-        if ("text/plain".equals(type) &&
-                ("ics".equals(extension) || "vcs".equals(extension)))
+        if ("ics".equals(extension) || "vcs".equals(extension))
             return "text/calendar";
 
         if ("text/plain".equals(type) && "ovpn".equals(extension))
