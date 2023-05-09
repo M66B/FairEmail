@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
-### Next version
+### 1.2069 - 2023-05-09
 
 * Added support for Surface Duo 2
 * Added auto scroll to message editor for Android 14
