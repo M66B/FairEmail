@@ -104,17 +104,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvWhichever" />
 
-        <ImageView
-            android:id="@+id/ivExternal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:contentDescription="@string/title_pro_purchase"
-            app:layout_constraintBottom_toBottomOf="@+id/btnPurchase"
-            app:layout_constraintStart_toEndOf="@+id/btnPurchase"
-            app:layout_constraintTop_toTopOf="@+id/btnPurchase"
-            app:srcCompat="@drawable/twotone_open_in_new_24" />
-
         <TextView
             android:id="@+id/tvPrice"
             android:layout_width="wrap_content"

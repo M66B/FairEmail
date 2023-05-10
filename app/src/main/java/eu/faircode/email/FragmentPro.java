@@ -58,7 +58,6 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private CheckBox cbHide;
     private TextView tvList;
     private Button btnPurchase;
-    private ImageView ivExternal;
     private TextView tvPrice;
     private TextView tvGoogle;
     private TextView tvNoPlay;
@@ -88,7 +87,6 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         cbHide = view.findViewById(R.id.cbHide);
         tvList = view.findViewById(R.id.tvList);
         btnPurchase = view.findViewById(R.id.btnPurchase);
-        ivExternal = view.findViewById(R.id.ivExternal);
         tvPrice = view.findViewById(R.id.tvPrice);
         tvGoogle = view.findViewById(R.id.tvGoogle);
         tvNoPlay = view.findViewById(R.id.tvNoPlay);
@@ -189,7 +187,8 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         btnBackup.setVisibility(View.GONE);
         cbHide.setVisibility(View.GONE);
         btnPurchase.setEnabled(!play);
-        ivExternal.setVisibility(play ? View.GONE : View.VISIBLE);
+        btnPurchase.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0,
+                play ? R.drawable.twotone_shopping_cart_24 : R.drawable.twotone_open_in_new_24, 0);
         tvPrice.setVisibility(View.GONE);
         tvGoogle.setVisibility(play ? View.VISIBLE : View.GONE);
         tvNoPlay.setVisibility(
