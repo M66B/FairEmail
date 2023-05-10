@@ -1563,6 +1563,10 @@ public class HtmlHelper {
                                 end--;
                                 group = group.substring(0, group.length() - 1);
                             }
+                            if (end < text.length() && text.charAt(end) == '$') {
+                                end++;
+                                group += '$';
+                            }
 
                             boolean email = group.contains("@") && !group.contains(":");
                             Log.i("Web url=" + group + " " + start + "..." + end + "/" + text.length() +
