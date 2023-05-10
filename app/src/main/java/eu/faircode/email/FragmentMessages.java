@@ -3440,9 +3440,8 @@ public class FragmentMessages extends FragmentBase
                     long_press ? "answer_action" : "answer_single",
                     long_press ? "reply" : "menu");
             if ("move".equals(action)) {
-                View child = rvMessage.getChildAt(pos);
-                if (child != null && child.isEnabled())
-                    child.findViewById(R.id.ibMove).performClick();
+                if (canMove(message))
+                    onMenuMove(message);
             } else if ("menu".equals(action) || !message.content)
                 onReply(message, selected, fabReply);
             else
@@ -3556,6 +3555,7 @@ public class FragmentMessages extends FragmentBase
                 popupMenu.getMenu().findItem(R.id.menu_forward_raw).setEnabled(canRaw);
                 popupMenu.getMenu().findItem(R.id.menu_editasnew).setEnabled(message.content);
                 popupMenu.getMenu().findItem(R.id.menu_reply_answer).setEnabled(message.content);
+                popupMenu.getMenu().findItem(R.id.menu_move_to).setEnabled(canMove(message));
 
                 if (data.answers != null) {
                     int order = 100;
@@ -3626,6 +3626,9 @@ public class FragmentMessages extends FragmentBase
                             return true;
                         } else if (itemId == R.id.menu_reply_answer) {
                             onMenuAnswer(message);
+                            return true;
+                        } else if (itemId == R.id.menu_move_to) {
+                            onMenuMove(message);
                             return true;
                         } else if (itemId == R.id.menu_settings) {
                             onMenuAnswerSettings();
@@ -3768,6 +3771,59 @@ public class FragmentMessages extends FragmentBase
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(getContext(), getViewLifecycleOwner(), new Bundle(), "message:answer");
+    }
+
+    private boolean canMove(TupleMessageEx message) {
+        boolean pop = (message.accountProtocol == EntityAccount.TYPE_POP);
+        boolean move = !(message.folderReadOnly || message.uid == null) ||
+                (pop && EntityFolder.TRASH.equals(message.folderType));
+        return move;
+    }
+
+    private void onMenuMove(TupleMessageEx message) {
+        if (message.accountProtocol == EntityAccount.TYPE_POP &&
+                EntityFolder.TRASH.equals(message.folderType) && !message.accountLeaveDeleted) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.account);
+
+            new SimpleTask<EntityFolder>() {
+                @Override
+                protected EntityFolder onExecute(Context context, Bundle args) {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    return db.folder().getFolderByType(id, EntityFolder.INBOX);
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, EntityFolder inbox) {
+                    _onMenuMove(message, new long[]{message.folder, inbox == null ? -1L : inbox.id});
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(getParentFragmentManager(), ex);
+                }
+            }.execute(this, args, "move:pop");
+        } else
+            _onMenuMove(message, new long[]{message.folder});
+    }
+
+    private void _onMenuMove(TupleMessageEx message, long[] disabled) {
+        Bundle args = new Bundle();
+        args.putInt("icon", R.drawable.twotone_drive_file_move_24);
+        args.putString("title", getString(R.string.title_move_to_folder));
+        args.putLong("account", message.account);
+        args.putLongArray("disabled", disabled);
+        args.putLong("message", message.id);
+        args.putBoolean("copy", false);
+        args.putBoolean("cancopy", true);
+        args.putBoolean("similar", false);
+
+        FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
+        fragment.setArguments(args);
+        fragment.setTargetFragment(this, REQUEST_MESSAGE_MOVE);
+        fragment.show(getParentFragmentManager(), "message:move");
     }
 
     private void onMenuAnswerSettings() {
