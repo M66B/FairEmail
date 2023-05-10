@@ -500,6 +500,7 @@ dependencies {
     implementation "androidx.startup:startup-runtime:$startup_version"
 
     // https://developer.android.com/jetpack/androidx/releases/
+    fdroidImplementation "com.google.code.findbugs:jsr305:3.0.2"
     implementation "androidx.annotation:annotation-experimental:$annotation_version_experimental"
 
     // https://mvnrepository.com/artifact/androidx.core/core
