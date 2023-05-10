@@ -1616,6 +1616,26 @@ public class HtmlHelper {
         }, document);
     }
 
+    static boolean embedYouTube(Document document) {
+        // https://developers.google.com/youtube/player_parameters
+        // Requires: setBlockNetworkLoads and setJavaScriptEnabled
+        boolean has = false;
+        for (Element a : document.select("a"))
+            if (a.attr("href").startsWith("https://www.youtube.com/embed/")) {
+                String link = a.attr("href");
+                a.tagName("iframe");
+                a.attr("id", link.substring(link.lastIndexOf("/") + 1));
+                a.attr("type", "text/html");
+                a.attr("src", link);
+                a.attr("frameborder", "0");
+                a.removeAttr("href");
+                if (a.text().equals(link))
+                    a.text("");
+                has = true;
+            }
+        return has;
+    }
+
     static void guessSchemes(Document document) {
         for (Element e : document.select("a,img"))
             try {
