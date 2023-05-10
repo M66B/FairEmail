@@ -188,7 +188,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         cbHide.setVisibility(View.GONE);
         btnPurchase.setEnabled(!play);
         btnPurchase.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0,
-                play ? R.drawable.twotone_shopping_cart_24 : R.drawable.twotone_open_in_new_24, 0);
+                play ? R.drawable.twotone_shop_24 : R.drawable.twotone_open_in_new_24, 0);
         tvPrice.setVisibility(View.GONE);
         tvGoogle.setVisibility(play ? View.VISIBLE : View.GONE);
         tvNoPlay.setVisibility(

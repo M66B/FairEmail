@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:backgroundTint="?attr/colorInfoBackground"
-            android:drawableEnd="@drawable/twotone_shopping_cart_24"
+            android:drawableEnd="@drawable/twotone_shop_24"
             android:drawablePadding="6dp"
             android:text="@string/title_pro_purchase"
             android:textColor="?attr/colorInfoForeground"
