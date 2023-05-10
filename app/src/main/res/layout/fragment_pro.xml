@@ -18,10 +18,10 @@
             android:layout_height="wrap_content"
             android:drawableEnd="@drawable/twotone_update_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_pro_pending"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textColor="?attr/colorWarning"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,10 +72,10 @@
             android:layout_marginTop="24dp"
             android:drawableEnd="@drawable/twotone_open_in_new_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_pro_list"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbHide" />
 
@@ -94,9 +94,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:backgroundTint="?attr/colorInfoBackground"
             android:drawableEnd="@drawable/twotone_shopping_cart_24"
             android:drawablePadding="6dp"
             android:text="@string/title_pro_purchase"
+            android:textColor="?attr/colorInfoForeground"
+            android:textStyle="bold"
+            app:drawableTint="?attr/colorInfoForeground"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvWhichever" />
 
@@ -159,10 +163,10 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_pro_price"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvHint" />
 
@@ -173,10 +177,10 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_pro_family"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPriceHint" />
 
@@ -187,10 +191,10 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?android:attr/textColorLink"
             android:text="@string/title_pro_restore"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvFamilyHint" />
 
