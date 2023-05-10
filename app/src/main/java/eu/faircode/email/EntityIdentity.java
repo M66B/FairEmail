@@ -168,6 +168,10 @@ public class EntityIdentity {
 
         if (TextUtils.isEmpty(sender_extra_regex)) {
             // Domain
+            if ("secure.mailbox.org".equalsIgnoreCase(cother[1]))
+                cother[1] = "mailbox.org";
+            if ("secure.mailbox.org".equalsIgnoreCase(cemail[1]))
+                cemail[1] = "mailbox.org";
             if (!cother[1].equalsIgnoreCase(cemail[1]))
                 return false;
 
