@@ -95,6 +95,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swQuoteReply;
     private SwitchCompat swQuoteLimit;
     private SwitchCompat swResizeReply;
+    private SwitchCompat swResizePaste;
     private Spinner spSignatureLocation;
     private SwitchCompat swSignatureNew;
     private SwitchCompat swSignatureReply;
@@ -127,7 +128,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "sound_sent",
             "compose_color", "compose_font", "compose_monospaced",
             "prefix_once", "prefix_count", "alt_re", "alt_fwd",
-            "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit", "resize_reply",
+            "separate_reply", "extended_reply", "write_below", "quote_reply", "quote_limit",
+            "resize_reply", "resize_paste",
             "signature_location", "signature_new", "signature_reply", "signature_reply_once", "signature_forward",
             "attach_new", "auto_link", "plain_only", "plain_only_reply",
             "format_flowed", "usenet_signature", "remove_signatures",
@@ -179,6 +181,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swQuoteReply = view.findViewById(R.id.swQuoteReply);
         swQuoteLimit = view.findViewById(R.id.swQuoteLimit);
         swResizeReply = view.findViewById(R.id.swResizeReply);
+        swResizePaste = view.findViewById(R.id.swResizePaste);
         spSignatureLocation = view.findViewById(R.id.spSignatureLocation);
         swSignatureNew = view.findViewById(R.id.swSignatureNew);
         swSignatureReply = view.findViewById(R.id.swSignatureReply);
@@ -516,6 +519,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swResizePaste.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("resize_paste", checked).apply();
+            }
+        });
+
         spSignatureLocation.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -795,6 +805,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             swQuoteReply.setChecked(prefs.getBoolean("quote_reply", true));
             swQuoteLimit.setChecked(prefs.getBoolean("quote_limit", true));
             swResizeReply.setChecked(prefs.getBoolean("resize_reply", true));
+            swResizePaste.setChecked(prefs.getBoolean("resize_paste", true));
 
             int signature_location = prefs.getInt("signature_location", 1);
             spSignatureLocation.setSelection(signature_location);
