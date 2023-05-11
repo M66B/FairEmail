@@ -1280,6 +1280,8 @@
     <string name="title_unified_folder">Show in unified inbox</string>
     <string name="title_navigation_folder">Show in navigation menu</string>
     <string name="title_navigation_folder_hide">Hide in navigation menu</string>
+    <string name="title_unified_inbox_add">Add to unified inbox</string>
+    <string name="title_unified_inbox_delete">Delete from unified inbox</string>
     <string name="title_synchronize_folder">Synchronize (receive messages)</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronize</string>
     <string name="title_poll_folder_remark">Most email servers allow push messages for a handful of folders only!</string>
