@@ -77,7 +77,7 @@ class NotificationHelper {
         service.enableLights(false);
         service.setShowBadge(false);
         service.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
-        nm.createNotificationChannel(service);
+        createNotificationChannel(nm, service);
 
         // Send
         NotificationChannel send = new NotificationChannel(
@@ -89,7 +89,7 @@ class NotificationHelper {
         send.enableLights(false);
         send.setShowBadge(false);
         send.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-        nm.createNotificationChannel(send);
+        createNotificationChannel(nm, send);
 
         // Notify
         NotificationChannel notification = new NotificationChannel(
@@ -100,7 +100,7 @@ class NotificationHelper {
         notification.setLightColor(Color.YELLOW);
         notification.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         notification.setBypassDnd(true);
-        nm.createNotificationChannel(notification);
+        createNotificationChannel(nm, notification);
 
         NotificationChannel progress = new NotificationChannel(
                 "progress", context.getString(R.string.channel_progress),
@@ -108,7 +108,7 @@ class NotificationHelper {
         notification.setDescription(context.getString(R.string.channel_progress_description));
         progress.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
         progress.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-        nm.createNotificationChannel(progress);
+        createNotificationChannel(nm, progress);
 
         if (!Helper.isPlayStoreInstall()) {
             // Update
@@ -117,7 +117,7 @@ class NotificationHelper {
                     NotificationManager.IMPORTANCE_HIGH);
             update.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
             update.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-            nm.createNotificationChannel(update);
+            createNotificationChannel(nm, update);
 
             // Announcements
             NotificationChannel announcements = new NotificationChannel(
@@ -125,7 +125,7 @@ class NotificationHelper {
                     NotificationManager.IMPORTANCE_HIGH);
             announcements.setSound(null, Notification.AUDIO_ATTRIBUTES_DEFAULT);
             announcements.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-            nm.createNotificationChannel(announcements);
+            createNotificationChannel(nm, announcements);
         }
 
         // Warnings
@@ -134,7 +134,7 @@ class NotificationHelper {
                 NotificationManager.IMPORTANCE_HIGH);
         warning.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         warning.setBypassDnd(true);
-        nm.createNotificationChannel(warning);
+        createNotificationChannel(nm, warning);
 
         // Errors
         NotificationChannel error = new NotificationChannel(
@@ -143,7 +143,7 @@ class NotificationHelper {
                 NotificationManager.IMPORTANCE_HIGH);
         error.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         error.setBypassDnd(true);
-        nm.createNotificationChannel(error);
+        createNotificationChannel(nm, error);
 
         // Server alerts
         NotificationChannel alerts = new NotificationChannel(
@@ -152,13 +152,53 @@ class NotificationHelper {
                 NotificationManager.IMPORTANCE_HIGH);
         alerts.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
         alerts.setBypassDnd(true);
-        nm.createNotificationChannel(alerts);
+        createNotificationChannel(nm, alerts);
 
         // Contacts grouping
         NotificationChannelGroup group = new NotificationChannelGroup(
                 "contacts",
                 context.getString(R.string.channel_group_contacts));
-        nm.createNotificationChannelGroup(group);
+        createNotificationChannelGroup(nm, group);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private static void createNotificationChannel(NotificationManager nm, NotificationChannel channel) {
+        try {
+            nm.createNotificationChannel(channel);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+            Caused by: java.lang.NullPointerException: Attempt to read from field 'android.os.IInterface com.android.server.notification.ManagedServices$ManagedServiceInfo.service' on a null object reference in method 'com.android.server.notification.ManagedServices$ManagedServiceInfo com.android.server.notification.ManagedServices.getServiceFromTokenLocked(android.os.IInterface)'
+                at android.os.Parcel.createExceptionOrNull(Parcel.java:3017)
+                at android.os.Parcel.createException(Parcel.java:2995)
+                at android.os.Parcel.readException(Parcel.java:2978)
+                at android.os.Parcel.readException(Parcel.java:2920)
+                at android.app.INotificationManager$Stub$Proxy.createNotificationChannels(INotificationManager.java:3583)
+                at android.app.NotificationManager.createNotificationChannels(NotificationManager.java:929)
+                at android.app.NotificationManager.createNotificationChannel(NotificationManager.java:917)
+                at eu.faircode.email.a0.a(Unknown Source:0)
+                at eu.faircode.email.NotificationHelper.createNotificationChannels(SourceFile:54)
+                at eu.faircode.email.ApplicationEx.onCreate(SourceFile:137)
+                at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1278)
+                at android.app.ActivityThread.handleBindApplication(ActivityThread.java:7083)
+                ... 9 more
+            Caused by: android.os.RemoteException: Remote stack trace:
+                at com.android.server.notification.ManagedServices.getServiceFromTokenLocked(ManagedServices.java:1056)
+                at com.android.server.notification.ManagedServices.isServiceTokenValidLocked(ManagedServices.java:1065)
+                at com.android.server.notification.NotificationManagerService.isInteractionVisibleToListener(NotificationManagerService.java:10237)
+                at com.android.server.notification.NotificationManagerService.-$$Nest$misInteractionVisibleToListener(Unknown Source:0)
+                at com.android.server.notification.NotificationManagerService$NotificationListeners.notifyNotificationChannelChanged(NotificationManagerService.java:11498)
+             */
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private static void createNotificationChannelGroup(NotificationManager nm, NotificationChannelGroup group) {
+        try {
+            nm.createNotificationChannelGroup(group);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     static boolean areNotificationsEnabled(NotificationManager nm) {
