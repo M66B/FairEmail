@@ -2592,7 +2592,7 @@ Since version 1.2061 rules can be part of a named group.
 Group names will be displayed in the list of rules.
 If a rule is part of a group, stop processing means stop processing the group.
 
-Since version 1.2018 there is a rule option to run rules daily on messages older than defined.
+Since version 1.2018 there is a rule option to run rules daily on messages (around 1:00am) older than xxx.
 
 The following rule conditions are available:
 
