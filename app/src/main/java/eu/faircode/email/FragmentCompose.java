@@ -6220,6 +6220,7 @@ public class FragmentCompose extends FragmentBase {
 
                                     Intent thread = new Intent(v.getContext(), ActivityView.class);
                                     thread.setAction("thread:" + message.id);
+                                    // No group
                                     thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     thread.putExtra("account", message.account);
                                     thread.putExtra("folder", message.folder);

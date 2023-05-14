@@ -1980,8 +1980,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             } else if (action.startsWith("thread")) {
                 long id = Long.parseLong(action.split(":", 2)[1]);
                 boolean ignore = intent.getBooleanExtra("ignore", false);
+                long group = intent.getLongExtra("group", -1L);
                 if (ignore)
-                    ServiceUI.ignore(this, id);
+                    ServiceUI.ignore(this, id, group);
                 intent.putExtra("id", id);
                 onViewThread(intent);
 

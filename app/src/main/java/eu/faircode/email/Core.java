@@ -5668,6 +5668,7 @@ class Core {
             // Build pending intents
             Intent thread = new Intent(context, ActivityView.class);
             thread.setAction("thread:" + message.id);
+            thread.putExtra("group", group);
             thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             thread.putExtra("account", message.account);
             thread.putExtra("folder", message.folder);
