@@ -7716,7 +7716,7 @@ public class FragmentCompose extends FragmentBase {
                 result.type = dfile.getType();
                 result.size = dfile.length();
             }
-        } catch (SecurityException ex) {
+        } catch (Throwable ex) {
             Log.e(ex);
         }
 
