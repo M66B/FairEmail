@@ -184,6 +184,7 @@ public class ServiceUI extends IntentService {
             crumb.put("action", action);
             Log.breadcrumb("serviceui", crumb);
 
+            ServiceSynchronize.state(this, true);
             ServiceSynchronize.eval(this, "ui/" + action);
         } catch (Throwable ex) {
             Log.e(ex);
