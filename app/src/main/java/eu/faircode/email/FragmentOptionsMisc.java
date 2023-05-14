@@ -204,6 +204,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvThreadRange;
     private SeekBar sbThreadRange;
     private ImageButton ibSqliteCache;
+    private SwitchCompat swAutoScroll;
     private SwitchCompat swUndoManager;
     private SwitchCompat swBrowserZoom;
     private SwitchCompat swFakeDark;
@@ -284,7 +285,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "test1", "test2", "test3", "test4", "test5",
             "emergency_file", "work_manager", // "external_storage",
             "sqlite_integrity_check", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_auto_vacuum", "sqlite_sync_extra", "sqlite_cache",
-            "chunk_size", "thread_range", "undo_manager",
+            "chunk_size", "thread_range",
+            "autoscroll_editor", "undo_manager",
             "browser_zoom", "fake_dark",
             "show_recent",
             "use_modseq", "preamble", "uid_command", "perform_expunge", "uid_expunge",
@@ -445,6 +447,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         sbChunkSize = view.findViewById(R.id.sbChunkSize);
         tvThreadRange = view.findViewById(R.id.tvThreadRange);
         sbThreadRange = view.findViewById(R.id.sbThreadRange);
+        swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swUndoManager = view.findViewById(R.id.swUndoManager);
         swBrowserZoom = view.findViewById(R.id.swBrowserZoom);
         swFakeDark = view.findViewById(R.id.swFakeDark);
@@ -1542,6 +1545,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swAutoScroll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("autoscroll_editor", checked).apply();
+            }
+        });
+
         swUndoManager.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2448,6 +2458,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             tvThreadRange.setText(getString(R.string.title_advanced_thread_range, range));
             sbThreadRange.setProgress(thread_range);
 
+            swAutoScroll.setChecked(prefs.getBoolean("autoscroll_editor", false));
             swUndoManager.setChecked(prefs.getBoolean("undo_manager", false));
             swBrowserZoom.setChecked(prefs.getBoolean("browser_zoom", false));
             swFakeDark.setChecked(prefs.getBoolean("fake_dark", false));

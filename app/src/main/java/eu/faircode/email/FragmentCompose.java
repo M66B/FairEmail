@@ -278,6 +278,7 @@ public class FragmentCompose extends FragmentBase {
     private ContentResolver resolver;
     private AdapterAttachment adapter;
 
+    private boolean autoscroll_editor;
     private int compose_color;
     private String compose_font;
     private boolean compose_monospaced;
@@ -344,6 +345,7 @@ public class FragmentCompose extends FragmentBase {
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        autoscroll_editor = prefs.getBoolean("autoscroll_editor", false);
         compose_color = prefs.getInt("compose_color", Color.TRANSPARENT);
         compose_font = prefs.getString("compose_font", "");
         compose_monospaced = prefs.getBoolean("compose_monospaced", false);
@@ -701,11 +703,14 @@ public class FragmentCompose extends FragmentBase {
                     }
                 }
 
-                if (count - before > 1)
-                    inserted = true;
-                else if (count - before == 1) {
-                    char c = text.charAt(start + count - 1);
-                    inserted = Character.isWhitespace(c);
+                // Autoscroll was fixed by Android 14 beta 2
+                if (autoscroll_editor) {
+                    if (count - before > 1)
+                        inserted = true;
+                    else if (count - before == 1) {
+                        char c = text.charAt(start + count - 1);
+                        inserted = Character.isWhitespace(c);
+                    }
                 }
             }
 

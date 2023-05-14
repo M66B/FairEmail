@@ -1611,6 +1611,17 @@
                     app:layout_constraintTop_toBottomOf="@id/tvThreadRange" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAutoScroll"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_auto_scroll"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbThreadRange"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swUndoManager"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1618,7 +1629,7 @@
                     android:text="@string/title_advanced_undo_manager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sbThreadRange"
+                    app:layout_constraintTop_toBottomOf="@id/swAutoScroll"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
