@@ -2720,6 +2720,9 @@ public class Log {
                 size += write(os, "Roaming=" + state.isRoaming() + "\r\n");
                 size += write(os, "\r\n");
 
+                boolean[] has46 = ConnectionHelper.has46(context);
+
+                size += write(os, "Has IPv4=" + has46[0] + " IPv6=" + has46[1] + "\r\n");
                 size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n");
                 size += write(os, "Data saving=" + ConnectionHelper.isDataSaving(context) + "\r\n");
                 size += write(os, "Airplane=" + ConnectionHelper.airplaneMode(context) + "\r\n");
