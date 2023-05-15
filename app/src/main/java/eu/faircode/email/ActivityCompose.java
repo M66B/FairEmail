@@ -39,6 +39,8 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.preference.PreferenceManager;
 
+import org.jsoup.nodes.Document;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -220,8 +222,12 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
                         html = HtmlHelper.toHtml((Spanned) body, this);
                     else {
                         String text = body.toString();
-                        if (!TextUtils.isEmpty(text))
+                        if (!TextUtils.isEmpty(text)) {
                             html = "<span>" + text.replaceAll("\\r?\\n", "<br>") + "</span>";
+                            Document d = JsoupEx.parse(html);
+                            HtmlHelper.autoLink(d, true);
+                            html = d.body().html();
+                        }
                     }
             }
 
