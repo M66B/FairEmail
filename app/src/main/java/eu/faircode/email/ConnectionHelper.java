@@ -23,6 +23,7 @@ import android.accounts.AccountsException;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
@@ -598,10 +599,24 @@ public class ConnectionHelper {
     static boolean[] has46(Context context) {
         boolean has4 = false;
         boolean has6 = false;
+
+        String ifacename = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+            try {
+                ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
+                Network active = (cm == null ? null : cm.getActiveNetwork());
+                LinkProperties props = (active == null ? null : cm.getLinkProperties(active));
+                ifacename = (props == null ? null : props.getInterfaceName());
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
         try {
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
             while (interfaces != null && interfaces.hasMoreElements()) {
                 NetworkInterface ni = interfaces.nextElement();
+                if (ifacename != null && !ifacename.equals(ni.getName()))
+                    continue;
                 for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
                     InetAddress addr = iaddr.getAddress();
                     boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
