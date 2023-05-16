@@ -96,7 +96,7 @@
     <group android:id="@+id/group_sharing">
         <item
             android:id="@+id/menu_event"
-            android:icon="@drawable/twotone_event_24"
+            android:icon="@drawable/twotone_edit_calendar_24"
             android:title="@string/title_event" />
 
         <item

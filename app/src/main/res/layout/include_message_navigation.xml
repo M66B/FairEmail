@@ -296,7 +296,7 @@
             android:padding="6dp"
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_event"
-            app:srcCompat="@drawable/twotone_event_24"
+            app:srcCompat="@drawable/twotone_edit_calendar_24"
             tools:ignore="MissingConstraints" />
 
         <ImageButton
