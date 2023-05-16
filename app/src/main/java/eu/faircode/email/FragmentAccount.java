@@ -78,7 +78,9 @@ import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import javax.mail.Folder;
@@ -1408,10 +1410,17 @@ public class FragmentAccount extends FragmentBase {
                         }
                     }
 
+                    Map<String, EntityFolder> map = new HashMap<>();
+                    for (EntityFolder folder : folders) {
+                        EntityFolder f = db.folder().getFolderByName(account.id, folder.name);
+                        if (f != null)
+                            map.put(folder.name, f);
+                    }
+
                     db.folder().setFoldersUser(account.id);
 
                     for (EntityFolder folder : folders) {
-                        EntityFolder existing = db.folder().getFolderByName(account.id, folder.name);
+                        EntityFolder existing = map.get(folder.name);
                         if (existing == null) {
                             folder.account = account.id;
                             folder.setSpecials(account);
@@ -1422,6 +1431,12 @@ public class FragmentAccount extends FragmentBase {
                         } else {
                             EntityLog.log(context, "Updated folder=" + folder.name + " type=" + folder.type);
                             db.folder().setFolderType(existing.id, folder.type);
+                            if (folder.synchronize &&
+                                    !Objects.equals(existing.type, folder.type)) {
+                                EntityLog.log(context, "Updated folder=" + folder.name + " sync=" + folder.type);
+                                db.folder().setFolderSynchronize(existing.id, true);
+                                EntityOperation.sync(context, existing.id, true);
+                            }
                         }
                     }
 
