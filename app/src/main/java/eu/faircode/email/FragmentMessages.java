@@ -5101,6 +5101,8 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkDoze() {
+        if (!BuildConfig.DEBUG)
+            return false;
         if (viewType != AdapterMessage.ViewType.UNIFIED)
             return false;
 
