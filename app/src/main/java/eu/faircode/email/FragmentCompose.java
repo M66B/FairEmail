@@ -5429,9 +5429,21 @@ public class FragmentCompose extends FragmentBase {
                                     EntityLog.log(context, "Recognized=null");
                             }
 
-                            if ("reply_all".equals(action))
-                                data.draft.cc = ref.getAllRecipients(data.identities, ref.account);
-                            else if ("dsn".equals(action)) {
+                            if ("reply_all".equals(action)) {
+                                List<Address> all = new ArrayList<>();
+                                for (Address recipient : ref.getAllRecipients(data.identities, ref.account)) {
+                                    boolean found = false;
+                                    if (data.draft.to != null)
+                                        for (Address t : data.draft.to)
+                                            if (MessageHelper.equalEmail(recipient, t)) {
+                                                found = true;
+                                                break;
+                                            }
+                                    if (!found)
+                                        all.add(recipient);
+                                }
+                                data.draft.cc = all.toArray(new Address[0]);
+                            } else if ("dsn".equals(action)) {
                                 data.draft.dsn = dsn;
                                 data.draft.receipt_request = false;
                             }
