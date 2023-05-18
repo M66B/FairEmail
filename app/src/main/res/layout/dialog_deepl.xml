@@ -90,13 +90,23 @@
             app:layout_constraintTop_toBottomOf="@id/tvFormal" />
 
         <CheckBox
+            android:id="@+id/cbReplace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_translate_replace"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbSmall" />
+
+        <CheckBox
             android:id="@+id/cbHtml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_translate_html"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbSmall" />
+            app:layout_constraintTop_toBottomOf="@id/cbReplace" />
 
         <TextView
             android:id="@+id/tvHtml"

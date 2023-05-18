@@ -2751,6 +2751,8 @@ public class FragmentCompose extends FragmentBase {
                             return;
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean small = prefs.getBoolean("deepl_small", false);
+                        boolean replace = prefs.getBoolean("deepl_replace", false);
 
                         // Insert translated text
                         /*
@@ -2773,22 +2775,28 @@ public class FragmentCompose extends FragmentBase {
                              at android.text.SpannableStringBuilder.insert(SpannableStringBuilder.java:226)
                              at android.text.SpannableStringBuilder.insert(SpannableStringBuilder.java:38)
                          */
-                        int len = 2 + translation.translated_text.length();
-                        edit.insert(paragraph.second, translation.translated_text);
-                        edit.insert(paragraph.second, "\n\n");
-                        StyleHelper.markAsInserted(edit, paragraph.second, paragraph.second + len);
+                        int len = translation.translated_text.length();
 
+                        edit.insert(paragraph.second, translation.translated_text);
+
+                        if (!replace) {
+                            edit.insert(paragraph.second, "\n\n");
+                            len += 2;
+                        }
+
+                        StyleHelper.markAsInserted(edit, paragraph.second, paragraph.second + len);
                         etBody.setSelection(paragraph.second + len);
 
-                        boolean small = prefs.getBoolean("deepl_small", false);
                         if (small) {
                             RelativeSizeSpan[] spans = edit.getSpans(
                                     paragraph.first, paragraph.second, RelativeSizeSpan.class);
                             for (RelativeSizeSpan span : spans)
                                 edit.removeSpan(span);
-                            edit.setSpan(new RelativeSizeSpan(BuildConfig.DEBUG ? HtmlHelper.FONT_XSMALL : HtmlHelper.FONT_SMALL),
+                            edit.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
                                     paragraph.first, paragraph.second,
                                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        } else if (replace) {
+                            edit.delete(paragraph.first, paragraph.second);
                         }
 
                         // Updated frequency

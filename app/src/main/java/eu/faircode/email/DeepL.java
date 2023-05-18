@@ -33,6 +33,7 @@ import android.text.style.RelativeSizeSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -349,6 +350,7 @@ public class DeepL {
             String key = prefs.getString("deepl_key", null);
             boolean formal = prefs.getBoolean("deepl_formal", true);
             boolean small = prefs.getBoolean("deepl_small", false);
+            boolean replace = prefs.getBoolean("deepl_replace", false);
             boolean html = prefs.getBoolean("deepl_html", false);
             int subscription = prefs.getInt("deepl_subscription", BuildConfig.DEBUG ? 17 : 0);
 
@@ -358,6 +360,7 @@ public class DeepL {
             final CheckBox cbFormal = view.findViewById(R.id.cbFormal);
             final TextView tvFormal = view.findViewById(R.id.tvFormal);
             final CheckBox cbSmall = view.findViewById(R.id.cbSmall);
+            final CheckBox cbReplace = view.findViewById(R.id.cbReplace);
             final CheckBox cbHtml = view.findViewById(R.id.cbHtml);
             final TextView tvUsage = view.findViewById(R.id.tvUsage);
             final TextView tvPrivacy = view.findViewById(R.id.tvPrivacy);
@@ -366,6 +369,13 @@ public class DeepL {
                 @Override
                 public void onClick(View v) {
                     Helper.viewFAQ(v.getContext(), 167, true);
+                }
+            });
+
+            cbSmall.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    cbReplace.setEnabled(!isChecked);
                 }
             });
 
@@ -399,6 +409,8 @@ public class DeepL {
             }
 
             cbSmall.setChecked(small);
+            cbReplace.setChecked(replace);
+            cbReplace.setEnabled(!small);
             cbHtml.setChecked(html);
 
             tvUsage.setVisibility(View.GONE);
@@ -461,6 +473,7 @@ public class DeepL {
                                 editor.putString("deepl_key", key);
                             editor.putBoolean("deepl_formal", cbFormal.isChecked());
                             editor.putBoolean("deepl_small", cbSmall.isChecked());
+                            editor.putBoolean("deepl_replace", cbReplace.isChecked());
                             editor.putBoolean("deepl_html", cbHtml.isChecked());
                             editor.apply();
                         }
