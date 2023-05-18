@@ -39,14 +39,18 @@ import java.util.TimeZone;
 
 import biweekly.ICalVersion;
 import biweekly.ICalendar;
+import biweekly.component.VAlarm;
 import biweekly.component.VEvent;
 import biweekly.io.TimezoneAssignment;
 import biweekly.io.TimezoneInfo;
 import biweekly.io.WriteContext;
 import biweekly.io.scribe.property.RecurrenceRuleScribe;
 import biweekly.parameter.ParticipationStatus;
+import biweekly.property.Action;
 import biweekly.property.Attendee;
 import biweekly.property.RecurrenceRule;
+import biweekly.property.Trigger;
+import biweekly.util.Duration;
 import biweekly.util.ICalDate;
 
 public class CalendarHelper {
@@ -101,7 +105,10 @@ public class CalendarHelper {
             Long existId = exists(context, selectedAccount, selectedName, uid);
             if (existId != null) {
                 EntityLog.log(context, EntityLog.Type.General, message, "Event exists uid=" + uid + " id=" + existId);
-                return existId;
+                if (BuildConfig.DEBUG)
+                    delete(context, event, message);
+                else
+                    return existId;
             }
         }
 
@@ -241,8 +248,51 @@ public class CalendarHelper {
                                 " level=" + level +
                                 " status=" + pstatus);
                     } catch (Throwable ex) {
-                        Log.w(ex);
+                        Log.e(ex);
                     }
+
+                if (status == CalendarContract.Events.STATUS_CONFIRMED) {
+                    for (VAlarm valarm : event.getAlarms())
+                        try {
+                            // BEGIN:VALARM
+                            // ACTION:DISPLAY
+                            // DESCRIPTION:This is an event reminder
+                            // TRIGGER:-P0DT0H30M0S
+                            // END:VALARM
+                            Action action = valarm.getAction();
+                            Trigger trigger = valarm.getTrigger();
+                            EntityLog.log(context, EntityLog.Type.General, message, "Event reminder" +
+                                    " action=" + (action == null ? null : action.getValue()) +
+                                    " related=" + (trigger == null ? null : trigger.getRelated()) +
+                                    " duration=" + (trigger == null ? null : trigger.getDuration()));
+                            if (action != null && trigger != null &&
+                                    Action.DISPLAY.equals(action.getValue()) &&
+                                    trigger.getRelated() == null && trigger.getDuration() != null) {
+                                Duration duration = trigger.getDuration();
+                                Integer w = duration.getWeeks();
+                                Integer d = duration.getDays();
+                                Integer h = duration.getHours();
+                                Integer m = duration.getMinutes();
+
+                                int minutes = (w == null ? 0 : w * 7 * 24 * 60) +
+                                        (d == null ? 0 : d * 24 * 60) +
+                                        (h == null ? 0 : h * 60) +
+                                        (m == null ? 0 : m);
+
+                                ContentValues cv = new ContentValues();
+                                cv.put(CalendarContract.Reminders.EVENT_ID, eventId);
+                                cv.put(CalendarContract.Reminders.METHOD, CalendarContract.Reminders.METHOD_ALERT);
+                                cv.put(CalendarContract.Reminders.MINUTES, minutes);
+
+                                Uri reminder = resolver.insert(CalendarContract.Reminders.CONTENT_URI, cv);
+                                EntityLog.log(context, EntityLog.Type.General, message, "Inserted event reminder" +
+                                        " w=" + w + " d=" + d + " h=" + h + " m=" + m +
+                                        " uri=" + reminder);
+                            }
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+                }
 
                 return eventId;
             }
