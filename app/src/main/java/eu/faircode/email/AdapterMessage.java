@@ -3712,7 +3712,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Bundle args = new Bundle();
                 args.putLong("message", message.id);
                 args.putLong("account", message.account);
-                args.putInt("status", CalendarContract.Events.STATUS_TENTATIVE);
 
                 new SimpleTask<String>() {
                     @Override

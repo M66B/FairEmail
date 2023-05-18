@@ -238,6 +238,7 @@ import javax.mail.internet.MimeMessage;
 import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
+import biweekly.property.Status;
 import me.everything.android.ui.overscroll.IOverScrollDecor;
 import me.everything.android.ui.overscroll.IOverScrollState;
 import me.everything.android.ui.overscroll.IOverScrollStateListener;
@@ -9735,7 +9736,6 @@ public class FragmentMessages extends FragmentBase
             @Override
             protected Long onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("message");
-                int status = args.getInt("status");
                 String selectedAccount = args.getString("account");
                 String selectedName = args.getString("name");
 
@@ -9759,6 +9759,11 @@ public class FragmentMessages extends FragmentBase
 
                 ICalendar icalendar = Biweekly.parse(calendar.getFile(context)).first();
                 VEvent event = icalendar.getEvents().get(0);
+
+                int status = CalendarContract.Events.STATUS_TENTATIVE;
+                if (event.getStatus() != null &&
+                        Status.CONFIRMED.equals(event.getStatus().getValue()))
+                    status = CalendarContract.Events.STATUS_CONFIRMED;
 
                 return CalendarHelper.insert(context, icalendar, event, status,
                         selectedAccount, selectedName, message);
