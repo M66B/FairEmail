@@ -3711,12 +3711,35 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR)) {
                 Bundle args = new Bundle();
                 args.putLong("message", message.id);
+                args.putLong("account", message.account);
                 args.putInt("status", CalendarContract.Events.STATUS_TENTATIVE);
 
-                FragmentDialogCalendar fragment = new FragmentDialogCalendar();
-                fragment.setArguments(args);
-                fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_CALENDAR);
-                fragment.show(parentFragment.getParentFragmentManager(), "insert:calendar");
+                new SimpleTask<String>() {
+                    @Override
+                    protected String onExecute(Context context, Bundle args) throws Throwable {
+                        long aid = args.getLong("account");
+
+                        DB db = DB.getInstance(context);
+                        EntityAccount account = db.account().getAccount(aid);
+                        return (account == null ? null : account.calendar);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, String calendar) {
+                        args.putString("calendar", calendar);
+
+                        FragmentDialogCalendar fragment = new FragmentDialogCalendar();
+                        fragment.setArguments(args);
+                        fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_CALENDAR);
+                        fragment.show(parentFragment.getParentFragmentManager(), "insert:calendar");
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                    }
+                }.execute(context, owner, args, "insert:calendar");
+
                 return;
             }
 

@@ -137,7 +137,6 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
         return builder.create();
     }
 
-
     private class Calendar {
         private long id;
         private String account;
