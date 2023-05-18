@@ -245,6 +245,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 " portrait rows=" + portrait2 + " cols=" + portrait2c + " min=" + portrait_min_size +
                 " landscape cols=" + landscape + " min=" + landscape);
         boolean duo = Helper.isSurfaceDuo();
+        boolean close_pane = prefs.getBoolean("close_pane", !duo);
+        boolean open_pane = (!close_pane && prefs.getBoolean("open_pane", false));
         boolean nav_categories = prefs.getBoolean("nav_categories", false);
 
         // 1=small, 2=normal, 3=large, 4=xlarge
@@ -708,8 +710,8 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         // Initialize
 
         if (content_pane != null) {
-            content_separator.setVisibility(duo ? View.INVISIBLE : View.GONE);
-            content_pane.setVisibility(duo ? View.INVISIBLE : View.GONE);
+            content_separator.setVisibility(duo || open_pane ? View.INVISIBLE : View.GONE);
+            content_pane.setVisibility(duo || open_pane ? View.INVISIBLE : View.GONE);
         }
 
         if (getSupportFragmentManager().getFragments().size() == 0 &&
