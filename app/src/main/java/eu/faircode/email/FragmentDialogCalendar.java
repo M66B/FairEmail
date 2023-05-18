@@ -47,7 +47,10 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
         final Context context = getContext();
         final ContentResolver resolver = context.getContentResolver();
 
-        String selectedCalendar = getArguments().getString("calendar");
+        Bundle args = getArguments();
+        boolean forevent = args.getBoolean("forevent");
+
+        String selectedCalendar = args.getString("calendar");
         String selectedAccount;
         String selectedName;
         try {
@@ -122,15 +125,16 @@ public class FragmentDialogCalendar extends FragmentDialogBase {
             }
         });
 
-        builder.setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                getArguments().putLong("id", -1);
-                getArguments().putString("account", null);
-                getArguments().putString("type", null);
-                sendResult(RESULT_OK);
-            }
-        });
+        if (!forevent)
+            builder.setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    getArguments().putLong("id", -1);
+                    getArguments().putString("account", null);
+                    getArguments().putString("type", null);
+                    sendResult(RESULT_OK);
+                }
+            });
 
         builder.setPositiveButton(android.R.string.cancel, null);
 

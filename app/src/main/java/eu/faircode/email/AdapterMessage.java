@@ -3727,6 +3727,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     @Override
                     protected void onExecuted(Bundle args, String calendar) {
                         args.putString("calendar", calendar);
+                        args.putBoolean("forevent", true);
 
                         FragmentDialogCalendar fragment = new FragmentDialogCalendar();
                         fragment.setArguments(args);
