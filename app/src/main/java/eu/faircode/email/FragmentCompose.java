@@ -2752,7 +2752,7 @@ public class FragmentCompose extends FragmentBase {
 
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         boolean small = prefs.getBoolean("deepl_small", false);
-                        boolean replace = prefs.getBoolean("deepl_replace", false);
+                        boolean replace = (!small && prefs.getBoolean("deepl_replace", false));
 
                         // Insert translated text
                         /*
