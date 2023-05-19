@@ -8,6 +8,8 @@
     <string name="app_continue">Folytatás mégis</string>
     <string name="app_exit">A kilépéshez használja újra a \'vissza\' opciót</string>
     <string name="app_cake">Nincs elég tárhely</string>
+    <string name="app_cake_remaining">Maradék tárhely a készüléken: %1$s</string>
+    <string name="app_cake_required">Minimális szükséges tárhely: %1$s</string>
     <string name="app_updated">Utoljára frissítve: %1$s</string>
     <string name="app_download">Letöltve innen: %1$s</string>
     <string name="channel_service">Figyelés</string>
@@ -15,6 +17,7 @@
     <string name="channel_notification">Email</string>
     <string name="channel_progress">Előrehaladás</string>
     <string name="channel_update">Frissítések</string>
+    <string name="channel_announcements">Közlemények</string>
     <string name="channel_warning">Figyelmeztetések</string>
     <string name="channel_error">Hibák</string>
     <string name="channel_alert">Szerver riasztások</string>
@@ -207,6 +210,7 @@
     <string name="title_setup_done">Kész</string>
     <string name="title_setup_still">Még meg kell csinálni</string>
     <string name="title_setup_error">Hiba</string>
+    <string name="title_setup_manual_setup">Kézi beállítás</string>
     <string name="title_setup_pop">POP3 használata (nem ajánlott)</string>
     <string name="title_setup_configuring">Felhasználói fiók beállítása &#8230;</string>
     <string name="title_setup_app_password">Szüksége lehet egy applikáció jelszóra</string>
@@ -224,6 +228,7 @@
     <string name="title_setup_password_repeat">Ismételje meg a jelszót</string>
     <string name="title_setup_password_missing">Hiányzó jelszó</string>
     <string name="title_setup_password_different">A jelszavak nem egyeznek</string>
+    <string name="title_setup_password_invalid">Helytelen jelszó vagy sérült beállítási fájl</string>
     <string name="title_setup_import_accounts">Fiókok és identitások importálása</string>
     <string name="title_setup_import_delete">Előbb töröld a létező fiókokat</string>
     <string name="title_setup_import_rules">Szűrőszabályok importálása</string>
@@ -295,6 +300,8 @@
     <string name="title_advanced_optimize">Automatikus optimizálás</string>
     <string name="title_advanced_always">Mindig fogadjon értesítéseket e fiókokhoz</string>
     <string name="title_advanced_schedule">Ütemezés</string>
+    <string name="title_advanced_schedule_workdays">Munkanapok</string>
+    <string name="title_advanced_schedule_weekend">Hétvége</string>
     <string name="title_advanced_advanced">Haladó</string>
     <string name="title_advanced_quick_sync">Gyors szinkronizálás</string>
     <string name="title_advanced_no_date">Üzenetek dátum nélkül</string>
@@ -307,6 +314,7 @@
     <string name="title_advanced_sync_folders">Mappák listájának szinkronizálása</string>
     <string name="title_advanced_sync_folders_poll">Mappa lista aktív szinkronizálása</string>
     <string name="title_advanced_sync_shared_folders">Szinkronizált mappák listája</string>
+    <string name="title_advanced_sync_added">Szinkronizálás engedélyezése új felhasználói mappákhoz</string>
     <string name="title_advanced_subscriptions">Mappa feliratkozások kezelése</string>
     <string name="title_advanced_check_authentication">Üzenet hitelesítés ellenőrzése</string>
     <string name="title_advanced_check_tls">Transport Layer Security ellenőrzése (TLS)</string>
@@ -314,7 +322,9 @@
     <string name="title_advanced_check_mx">Küldő email címek ellenőrzése az üzenetek szinkronizálásakor</string>
     <string name="title_advanced_check_blocklist">Ellenőrizze, hogy a küldő domainje rajta van e a spam blokk listán</string>
     <string name="title_advanced_use_blocklist">Blokk listán levő domainekről érkező üzenetek a levélszemét mappába kerüljenek</string>
+    <string name="title_advanced_use_blocklist_pop3">A tiltólistán szereplő tartományok üzeneteinek kihagyása (csak POP3)</string>
     <string name="title_advanced_tune_keep_alive">Az ébrentartás időtartamának automatikus hangolása</string>
+    <string name="title_advanced_blocklist_warning">A blokkolási listák nem tökéletesek, és nem csak a spameket blokkolhatják!</string>
     <string name="title_advanced_keyboard">Billentyűzet alapértelmezett megjelenítése</string>
     <string name="title_advanced_keyboard_no_fullscreen">Teljes képernyős billentyűzet letiltása</string>
     <string name="title_advanced_suggest_names">Nevek és e-mail címek használata</string>
@@ -323,9 +333,11 @@
     <string name="title_advanced_suggest_received">Fogadott üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_frequently">A felajánlott címek rendezése gyakoriság alapján</string>
     <string name="title_advanced_alt_re_fwd">Alternatív válasz/továbbítás előtag</string>
+    <string name="title_advanced_send_chips">Cím buborékok megjelenítése</string>
     <string name="title_advanced_send_reminders">Emlékeztetők megjelenítése</string>
     <string name="title_advanced_send_delayed">Üzenetek küldésének késleltetése</string>
     <string name="title_advanced_send_pending">Nem zavaró küldés késleltetett ikon megjelenítése</string>
+    <string name="title_advanced_compose_color">Alapértelmezett szövegszín</string>
     <string name="title_advanced_compose_font">Alapértelmezett betűtípus</string>
     <string name="title_advanced_prefix_once">Válasz vagy továbbítás esetén tárgy előtaggal jelzése csak egyszer</string>
     <string name="title_advanced_prefix_count">Számláló hozzáadása a válasz előtaghoz</string>
@@ -391,8 +403,10 @@
     <string name="title_advanced_cards_beige">Bézs színű háttér használata kártya stílusnál (csak világos téma esetében)</string>
     <string name="title_advanced_tabular_background">A kártya szín használata háttér színnek táblás megjelenítésnél</string>
     <string name="title_advanced_cards_shadow">Árnyék használata olvasatlan üzenetekhez kártya-stílus használata esetén</string>
+    <string name="title_advanced_cards_shadow_border">Keret mutatása</string>
     <string name="title_advanced_cards_shadow_highlight">Kiemelt színek használata pasztell színek helyett</string>
     <string name="title_advanced_date_header">Csoportosítás dátum szerint</string>
+    <string name="title_advanced_date_week">Csoportosítás nap helyett hét szerint</string>
     <string name="title_advanced_date_fixed">Fixált dátum mutatása a felső fejlécben</string>
     <string name="title_advanced_date_bold">Dátum megjelenítése félkövérben</string>
     <string name="title_advanced_threading">Beszélgetések összefűzése</string>
@@ -502,12 +516,14 @@
     <string name="title_advanced_auto_important">Automatikusan csináljon csillagozott üzeneteket fontossá</string>
     <string name="title_advanced_swipe_reply">Jobbra húzva a kiterjesztett üzenetet válaszolhat</string>
     <string name="title_advanced_default_snooze">Alapértelmezett elhalasztás/késleltetés időtartama</string>
+    <string name="title_advanced_default_folder">Válassza ki az alapértelmezett mappát</string>
     <string name="title_advanced_notifications">Értesítések kezelése</string>
     <string name="title_advanced_notifications_default">Alapértelmezett csatorna</string>
     <string name="title_advanced_notifications_service">Figyelési csatorna</string>
     <string name="title_advanced_notifications_newest_first">A legújabb értesítések mutatása először</string>
     <string name="title_advanced_badge">Új üzenetek számának megjelenítése az indító ikonon</string>
     <string name="title_advanced_unseen_ignored">Külön értesítés megjelnítése minden egyes új üzenethez</string>
+    <string name="title_advanced_notify_private">Az értesítések nem nyilvánosak, ha a készülék le van zárva</string>
     <string name="title_advanced_notify_background">Mutasd a figyelmeztetéseket, amikor a háttérben vannak csak</string>
     <string name="title_advanced_notify_known">Az értesítéseket csak névjegyeknél jelenítse meg</string>
     <string name="title_advanced_notify_suppress_in_call">Értesítések késleltetése hívás közben</string>
@@ -559,6 +575,7 @@
     <string name="title_advanced_disconnect_auto_update">Listák automatikus frissítése hetente</string>
     <string name="title_advanced_disconnect_links">Feketelisták használata követőkódok felismeréséhez</string>
     <string name="title_advanced_disconnect_images">Feketelisták használata követőpixelek felismeréséhez</string>
+    <string name="title_advanced_clear_all_hint">Ez az alkalmazás minden adatát törli a készülékről, beleértve a konfigurált e-mail fiókokat, üzeneteket, beállításokat és minden összegyűjtött adatot.</string>
     <string name="title_advanced_mnemonic">Adatok távoli törlése</string>
     <string name="title_advanced_clear_all">Alkalmazásadatok törlése</string>
     <string name="title_advanced_clear_all_remark">Az alkalmazásadatok visszavonhatatlanul törölve lesznek!</string>
@@ -594,8 +611,12 @@
     <string name="title_advanced_language">Nyelv</string>
     <string name="title_advanced_language_system">Rendszer</string>
     <string name="title_advanced_lt">LanguageTool integráció</string>
+    <string name="title_advanced_lt_user">Felhasználónév (nem kötelező)</string>
+    <string name="title_advanced_lt_key">API-kulcs (nem kötelező)</string>
     <string name="title_advanced_deepl">DeepL integráció</string>
     <string name="title_advanced_virus_total">VirusTotal integráció</string>
+    <string name="title_advanced_openai">Az OpenAI (ChatGPT) integrációja</string>
+    <string name="title_advanced_openai_temperature">Hőmérséklet: %1$s</string>
     <string name="title_advanced_sdcard">SD kártyát akarok használni</string>
     <string name="title_advanced_watchdog">A FairEmail futásának időszakos ellenőrzése</string>
     <string name="title_advanced_updates">GitHub-frissítések keresése</string>
@@ -803,6 +824,7 @@
     <string name="title_drafts_select">Emailek küldéséhez egy piszkozat mappa kiválasztása szükséges a fiókbeállításokban</string>
     <string name="title_account_auth_update">Hitelesítés frissítése</string>
     <string name="title_account_auth_password">Váltás jelszó alapú azonosításra</string>
+    <string name="title_change_password">Jelszó módosítása</string>
     <string name="title_delete_account">Fiók törlése</string>
     <string name="title_account_delete">Véglegesen törli a fiókot?</string>
     <string name="title_identity_delete">Véglegesen törli az identitást?</string>
@@ -958,6 +980,7 @@
     <string name="title_editasnew">Szerkesztés újként</string>
     <string name="title_edit_notes">Helyi jegyzetek szerkesztése</string>
     <string name="title_create_rule">Szabály létrehozása &#8230;</string>
+    <string name="title_full_screen">Teljes képernyő</string>
     <string name="title_force_light">Világos téma erőltetése</string>
     <string name="title_share">Megosztás</string>
     <string name="title_event">Hozzáadás naptárhoz</string>
@@ -979,6 +1002,7 @@
     <string name="title_download_all">Összes letöltése</string>
     <string name="title_save_all">Összes mentése</string>
     <string name="title_save_eml">Nyers üzenetfájl mentése</string>
+    <string name="title_save_file">Fájl mentése</string>
     <string name="title_eml_remark">Az üzenetek továbbküldéséhez a nyers (eredeti) üzenet le kell hogy legyen töltve az email szerverről. Ehhez internet kapcsolat szükséges, valamint az, hogy az eredeti megtalálható legyen a szerveren.</string>
     <string name="title_eml_option">Ez megelőzhető ha bekapcsolja a nyers üzenet fájlok letöltését a kapcsolatok beállításban</string>
     <string name="title_eml_downloaded">Letöltött nyers üzenetek: %1$s</string>
@@ -1177,7 +1201,7 @@
     <string name="title_translate_key">Kulcs megadása</string>
     <string name="title_translating">Fordítás &#8230;</string>
     <string name="title_translate_formal">Használjon hivatalos formát</string>
-    <string name="title_translate_small">Kis betű használata a forrás szöveghez</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Kis betű használata a forrás szöveghez</string>
     <string name="title_translate_html">Formázás megőrzése</string>
     <string name="title_translate_html_hint">Ez több karaktert fog foglalni</string>
     <string name="title_translate_usage">Használat: %1$s / %2$s (%3$d %%)</string>

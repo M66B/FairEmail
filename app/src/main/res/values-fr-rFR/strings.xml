@@ -82,7 +82,7 @@
     <string name="title_block">Bloquer %1$s</string>
     <string name="title_block_sender">Bloquer l\'expéditeur</string>
     <string name="title_block_sender_domain">Bloquer le domaine \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Bloquer signifie déplacer automatiquement vers le dossier « Indésirables »</string>
+    <string name="title_block_sender_remark">Bloquer signifie déplacer automatiquement vers le dossier « Indésirables »</string>
     <string name="title_block_sender_hint">        Bloquer un expéditeur est une fonctionnalité gratuite.
         Bloquer un domaine expéditeur utilise une règle de filtrage qui est une fonctionnalité Pro.
     </string>
@@ -392,6 +392,7 @@
     <string name="title_advanced_quote_reply">Citer le texte répondu</string>
     <string name="title_advanced_limit_reply">Limiter le nombre de citations imbriquées</string>
     <string name="title_advanced_resize_reply">Redimensionner les images dans le texte de la réponse</string>
+    <string name="title_advanced_resize_paste">Redimensionner les images collées</string>
     <string name="title_advanced_signature_location">Emplacement de la signature</string>
     <string name="title_advanced_signature_new">Utiliser la signature pour les nouveaux messages</string>
     <string name="title_advanced_signature_reply">Utiliser la signature lors de la réponse</string>
@@ -442,6 +443,7 @@
     <string name="title_advanced_two_col">Utiliser deux colonnes</string>
     <string name="title_advanced_min_screen_size">Taille minimale de l\'écran pour partager l\'écran</string>
     <string name="title_advanced_close_pane">Replier la ligne ou la colonne lors de la fermeture d\'une conversation</string>
+    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Commencer avec deux lignes ou deux colonnes</string>
     <string name="title_advanced_column_width">Largeur de colonne / hauteur de ligne du message : %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Masquer la barre d\'outils supérieure lors du défilement des messages</string>
     <string name="title_advanced_nav_options">Afficher les options du menu de navigation</string>
@@ -584,7 +586,7 @@
     <string name="title_advanced_auto_block_sender">Bloquer automatiquement l\'expéditeur lors du signalement de courrier indésirable</string>
     <string name="title_advanced_auto_hide_answer">Masquer automatiquement le bouton de réponse lors du défilement</string>
     <string name="title_advanced_swipe_reply">Balayer vers la droite les messages dépliés pour répondre</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Lors du déplacement d\'une conversation, déplacer également les messages envoyés</string>
+    <string name="title_advanced_move_thread_sent">Lors du déplacement d\'une conversation, déplacer également les messages envoyés</string>
     <string name="title_advanced_default_snooze">Durée de report par défaut</string>
     <string name="title_advanced_default_folder">Sélectionner le dossier par défaut</string>
     <string name="title_advanced_notifications">Gérer les notifications</string>
@@ -1037,6 +1039,8 @@
     <string name="title_unified_folder">Afficher dans la boîte de réception unifiée</string>
     <string name="title_navigation_folder">Afficher dans le menu de navigation</string>
     <string name="title_navigation_folder_hide">Masquer dans le menu de navigation</string>
+    <string name="title_unified_inbox_add">Ajouter à la boîte de réception unifiée</string>
+    <string name="title_unified_inbox_delete">Supprimer de la boîte de réception unifiée</string>
     <string name="title_synchronize_folder">Synchroniser (recevoir des messages)</string>
     <string name="title_poll_folder">Vérifier périodiquement au lieu de synchroniser en continu</string>
     <string name="title_poll_folder_remark">La plupart des serveurs de messagerie autorisent les messages push pour un petit nombre de dossiers seulement !</string>
@@ -1347,7 +1351,8 @@
     <string name="title_translate_key">Saisir la clé</string>
     <string name="title_translating">Traduction&#8230;</string>
     <string name="title_translate_formal">Utiliser un langage formel</string>
-    <string name="title_translate_small">Utiliser une petite police de caractères pour le texte source</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Utiliser une petite police de caractères pour le texte source</string>
+    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Remplacer le texte source par le texte traduit</string>
     <string name="title_translate_html">Conserver la mise en forme</string>
     <string name="title_translate_html_hint">Ceci utilisera plus de caractères</string>
     <string name="title_translate_usage">Utilisation : %1$s / %2$s (%3$d %%)</string>

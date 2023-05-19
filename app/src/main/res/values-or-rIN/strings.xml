@@ -218,6 +218,8 @@
     <string name="title_advanced_answer_action">ଉତ୍ତର ବଟନ୍ ଉପରେ ଦୀର୍ଘ ପ୍ରେସ୍ କଲେ:</string>
     <string name="title_advanced_compose_font">ଡିଫଲ୍ଟ ଫଣ୍ଟ</string>
     <string name="title_advanced_prefix_count">ପ୍ରତ୍ୟୁତ୍ତର ଉପସର୍ଗ ରେ ଗଣନା ଯୋଡ଼ନ୍ତୁ</string>
+    <string name="title_advanced_resize_reply">ପ୍ରତ୍ୟୁତ୍ତରର ପାଠ୍ୟରେ ପ୍ରତିଛଵିଗୁଡ଼ିକର ଆକାର ଠିକ୍ କରିବା</string>
+    <string name="title_advanced_resize_paste">ପେଷ୍ଟ ହୋଇଥିବା ପ୍ରତିଛଵିଗୁଡ଼ିକର ଆକାର ଠିକ୍ କରିବା</string>
     <string name="title_advanced_signature_reply_once">କେବଳ ପ୍ରଥମ ପ୍ରତ୍ୟୁତ୍ତର ପାଇଁ</string>
     <string name="title_advanced_discard_delete">ଡ୍ରାଫ୍ଟ କୁ ପରିତ୍ୟାଗ କଲେ ତାକୁ ସବୁଦିନ ପାଇଁ ଵିଲୋପ କରିଦେବା</string>
     <string name="title_advanced_reply_move">ଗୋଟେ ବାର୍ତ୍ତାର ପ୍ରତ୍ୟୁତ୍ତର ଦେବା ପରେ, ସେହି ଫୋଲ୍ଡରରେ ପ୍ରତ୍ୟୁତ୍ତରଟି ସଞ୍ଚୟ କରନ୍ତୁ</string>
@@ -455,6 +457,8 @@
     <string name="title_unified_folder">ସନ୍ନିଵିଷ୍ଟ ଇନବକ୍ସରେ ଦେଖାଇବା</string>
     <string name="title_navigation_folder">ନେଵିଗେଶନ୍ ମେନୁରେ ଦେଖାଅ</string>
     <string name="title_navigation_folder_hide">ନେଵିଗେଶନ୍ ମେନୁରେ ଲୁଚାଅ</string>
+    <string name="title_unified_inbox_add">ସନ୍ନିଵିଷ୍ଟ ଇନବକ୍ସରେ ଯୋଡ଼ିବା</string>
+    <string name="title_unified_inbox_delete">ସନ୍ନିଵିଷ୍ଟ ଇନବକ୍ସରୁ ଵିଲୋପ କରିବା</string>
     <string name="title_auto_classify_target">ସ୍ୱଚାଳିତ ଭାଵେ ଵର୍ଗୀକୃତ ଵାର୍ତ୍ତାଗୁଡ଼ିକୁ ଏହି ଫୋଲ୍ଡରକୁ ଘୁଞ୍ଚାଇ ଦିଆଯାଉ</string>
     <string name="title_sync_days_remark">ଏହି ମୂଲ୍ୟ ବଢ଼ାଇଲେ ବ୍ୟାଟେରୀ ଓ ଡାଟା ଵ୍ୟଵହାର ଵୃଦ୍ଧି ପାଇବ</string>
     <string name="title_auto_trash">ସ୍ୱଚାଳିତ ଭାଵେ ପୁରୁଣା ଵାର୍ତ୍ତାଗୁଡ଼ିକୁ ଆଵର୍ଜନା ପାତ୍ରରେ ପକେଇ ଦିଆଯାଉ</string>
@@ -621,6 +625,7 @@
     <string name="title_sort_on_applied">ପ୍ରୟୋଗ ଗଣନା</string>
     <string name="title_sort_on_last_applied">ଗତ ପ୍ରୟୋଗ</string>
     <string name="title_filter_seen">ପଠିତ</string>
+    <string name="title_filter_unflagged">ଅଣତାରାଙ୍କିତ</string>
     <string name="title_filter_hidden">ଲୁକ୍କାୟିତ</string>
     <string name="title_filter_deleted">ବିଲୋପିତ</string>
     <string name="title_filter_trash">ଆଵର୍ଜନାରେ</string>
@@ -648,7 +653,7 @@
     <string name="title_answer_placeholder_email">ପ୍ରେରକଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
     <string name="title_answer_placeholder_firstname">ପ୍ରେରକଙ୍କ ପ୍ରଥମ ନାମ</string>
     <string name="title_answer_placeholder_lastname">ପ୍ରେରକଙ୍କ ଶେଷ ନାମ</string>
-    <string name="title_rule_noop">କିଛି କରନ୍ତୁନି</string>
+    <string name="title_rule_noop">କିଛି କରନି</string>
     <string name="title_rule_hide">ଲୁଚାଅ</string>
     <string name="title_rule_ignore">ବିଜ୍ଞପ୍ତି ଦମନ</string>
     <string name="title_rule_snooze">ସ୍ନୁଜ୍</string>
@@ -768,6 +773,10 @@
     <string name="title_keyword_label3">ଵ୍ୟକ୍ତିଗତ</string>
     <string name="title_keyword_label4">କରିବା ନିମନ୍ତେ</string>
     <string name="title_keyword_label5">ପରେ</string>
+    <plurals name="title_accessibility_messages">
+        <item quantity="one">%1$dଟିଏ ଵାର୍ତ୍ତା</item>
+        <item quantity="other">%1$dଟି ଵାର୍ତ୍ତା</item>
+    </plurals>
     <string name="title_accessibility_accounts">ଆକାଉଣ୍ଟଗୁଡ଼ିକ</string>
     <string name="title_accessibility_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="title_accessibility_searches">ସନ୍ଧାନ</string>
@@ -778,10 +787,13 @@
     <string name="title_accessibility_seen">ପଠିତ</string>
     <string name="title_accessibility_unseen">ଅପଠିତ</string>
     <string name="title_accessibility_flagged">ତାରାଙ୍କିତ</string>
+    <string name="title_accessibility_unflagged">ଅଣତାରାଙ୍କିତ</string>
     <string name="title_accessibility_collapse">ସଙ୍କୋଚନ</string>
     <string name="title_accessibility_expand">ପ୍ରସାରଣ</string>
     <string name="title_accessibility_view_contact">ସମ୍ପର୍କ ଦେଖନ୍ତୁ</string>
     <string name="title_accessibility_view_help">ସହାୟତା ଦେଖନ୍ତୁ</string>
+    <string name="title_accessibility_selected">ଚୟନ କରିଛନ୍ତି</string>
+    <string name="title_accessibility_answered">ପ୍ରତ୍ୟୁତ୍ତର ଦେଇଛନ୍ତି</string>
     <string name="title_accessibility_edit">ସମ୍ପାଦନ</string>
     <string name="title_accessibility_attachment">ସଂଲଗ୍ନକରଣ</string>
     <string name="title_accessibility_from">ପ୍ରେରକ</string>
@@ -828,7 +840,7 @@
         <item>∞</item>
     </string-array>
     <string-array name="onCloseNames">
-        <item>କିଛି କରନ୍ତୁନି</item>
+        <item>କିଛି କରନି</item>
         <item>ପୂର୍ଵଵର୍ତ୍ତୀ ଵାର୍ତ୍ତାଳାପକୁ ଯିବା</item>
         <item>ପରଵର୍ତ୍ତୀ ଵାର୍ତ୍ତାଳାପକୁ ଯିବା</item>
     </string-array>

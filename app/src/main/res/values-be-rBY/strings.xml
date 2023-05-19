@@ -102,7 +102,7 @@
     <string name="title_block">Блакіраваць %1$s</string>
     <string name="title_block_sender">Заблакіраваць адпраўніка</string>
     <string name="title_block_sender_domain">Блакіраваць дамен \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Блакіраванне азначае аўтаматычнае перамяшчэнне ў папку са спамам</string>
+    <string name="title_block_sender_remark">Блакіраванне азначае аўтаматычнае перамяшчэнне ў папку са спамам</string>
     <string name="title_block_sender_hint">         Блакіраванне адпраўніка - бясплатная функцыя.
          Блакіроўка дамена адпраўніка выкарыстоўваюцца правілы фільтра, што з\'яўляецца функцыяй з прафесійнай версіі.
    </string>
@@ -419,6 +419,7 @@
     <string name="title_advanced_quote_reply">Цытаваць тэкст пры адказе</string>
     <string name="title_advanced_limit_reply">Абмежаваць колькасць укладзеных цытат</string>
     <string name="title_advanced_resize_reply">Змяняць памер выяў у тэксце адказу</string>
+    <string name="title_advanced_resize_paste">Змяняць памер устаўленых выяў</string>
     <string name="title_advanced_signature_location">Размяшчэнне подпісу</string>
     <string name="title_advanced_signature_new">Выкарыстоўваць подпіс для новых паведамленняў</string>
     <string name="title_advanced_signature_reply">Выкарыстоўваць подпіс пры адказе</string>
@@ -611,7 +612,7 @@
     <string name="title_advanced_auto_block_sender">Аўтаматычна блакіраваць адпраўніка пры паведамленні пра спам</string>
     <string name="title_advanced_auto_hide_answer">Аўтаматычна хаваць кнопку адказу пры пракручванні</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Пры перамяшчэнні размовы таксама перамяшчаць адпраўленыя паведамленні</string>
+    <string name="title_advanced_move_thread_sent">Пры перамяшчэнні размовы таксама перамяшчаць адпраўленыя паведамленні</string>
     <string name="title_advanced_default_snooze">Час адкладання/затрымкі па змаўчанні</string>
     <string name="title_advanced_default_folder">Выбраць папку па змаўчанні</string>
     <string name="title_advanced_notifications">Кіраваць апавяшчэннямі</string>
@@ -1065,6 +1066,8 @@
     <string name="title_unified_folder">Паказаць у агульнай паштовай скрыні</string>
     <string name="title_navigation_folder">Паказваць у меню навігацыі</string>
     <string name="title_navigation_folder_hide">Схаваць у меню навігацыі</string>
+    <string name="title_unified_inbox_add">Дадаць у агульную паштовую скрыню</string>
+    <string name="title_unified_inbox_delete">Выдаліць з агульнай паштовай скрыні</string>
     <string name="title_synchronize_folder">Сінхранізаваць (атрымаць паведамленні)</string>
     <string name="title_poll_folder">Перыядычная праверка замест пастаяннай сінхранізацыі</string>
     <string name="title_poll_folder_remark">Большасць паштовых сервераў дазваляюць адпраўляць апавяшчэнні толькі для невялікай колькасці папак!</string>
@@ -1375,7 +1378,7 @@
     <string name="title_translate_key">Увядзіце ключ</string>
     <string name="title_translating">Пераклад &#8230;</string>
     <string name="title_translate_formal">Выкарыстоўваць афіцыйны стыль</string>
-    <string name="title_translate_small">Выкарыстоўваць дробны шрыфт для зыходнага тэксту</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Выкарыстоўваць дробны шрыфт для зыходнага тэксту</string>
     <string name="title_translate_html">Захоўваць фарматаванне</string>
     <string name="title_translate_html_hint">Будзе выкарыстоўвацца больш сімвалаў</string>
     <string name="title_translate_usage">Выкарыстанне: %1$s / %2$s (%3$d %%)</string>

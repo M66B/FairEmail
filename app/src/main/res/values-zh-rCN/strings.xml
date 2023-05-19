@@ -72,7 +72,7 @@
     <string name="title_block">屏蔽 %1$s</string>
     <string name="title_block_sender">屏蔽发件人</string>
     <string name="title_block_sender_domain">屏蔽域名 \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">屏蔽意味着自动移至垃圾邮件文件夹</string>
+    <string name="title_block_sender_remark">屏蔽意味着自动移至垃圾邮件文件夹</string>
     <string name="title_block_sender_hint">        屏蔽发件人是一个免费功能。
         屏蔽发件人域使用过滤规则，这是一个高级功能。
     </string>
@@ -378,6 +378,7 @@
     <string name="title_advanced_quote_reply">回复引用的文本</string>
     <string name="title_advanced_limit_reply">限制嵌套引用层级</string>
     <string name="title_advanced_resize_reply">调整回复文本中图像的大小</string>
+    <string name="title_advanced_resize_paste">调整粘贴图像的大小</string>
     <string name="title_advanced_signature_location">签名位置</string>
     <string name="title_advanced_signature_new">为新消息使用签名</string>
     <string name="title_advanced_signature_reply">回复时使用签名</string>
@@ -570,7 +571,7 @@
     <string name="title_advanced_auto_block_sender">报告垃圾邮件时自动屏蔽发件人</string>
     <string name="title_advanced_auto_hide_answer">在滚动时自动隐藏回复按钮</string>
     <string name="title_advanced_swipe_reply">右滑展开的邮件进行回复</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">移动会话时也移动已发送的邮件</string>
+    <string name="title_advanced_move_thread_sent">移动会话时也移动已发送的邮件</string>
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_default_folder">选择默认文件夹</string>
     <string name="title_advanced_notifications">管理通知</string>
@@ -1021,6 +1022,8 @@
     <string name="title_unified_folder">在聚合收件箱中显示</string>
     <string name="title_navigation_folder">在导航菜单中显示</string>
     <string name="title_navigation_folder_hide">在导航菜单中隐藏</string>
+    <string name="title_unified_inbox_add">添加到聚合收件箱</string>
+    <string name="title_unified_inbox_delete">从聚合收件箱中删除</string>
     <string name="title_synchronize_folder">同步(接收邮件)</string>
     <string name="title_poll_folder">用定期检索代替持续同步(即推送)</string>
     <string name="title_poll_folder_remark">大多数电子邮件服务器仅允许少数文件夹推送消息！</string>
@@ -1327,7 +1330,7 @@
     <string name="title_translate_key">输入密钥</string>
     <string name="title_translating">正在翻译 &#8230;</string>
     <string name="title_translate_formal">使用正式语言形式</string>
-    <string name="title_translate_small">对源文本使用一个小字体</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">对源文本使用一个小字体</string>
     <string name="title_translate_html">保留格式</string>
     <string name="title_translate_html_hint">这将耗费更多字符</string>
     <string name="title_translate_usage">用量： %1$s / %2$s (%3$d %%)</string>

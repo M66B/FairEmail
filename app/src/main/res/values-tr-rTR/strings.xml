@@ -82,7 +82,7 @@
     <string name="title_block">Engelle: %1$s</string>
     <string name="title_block_sender">Göndereni engelle</string>
     <string name="title_block_sender_domain">\'%1$s\' alan adını engelle</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Engelleme, otomatik olarak spam klasörüne taşıma anlamına gelir</string>
+    <string name="title_block_sender_remark">Engelleme, otomatik olarak spam klasörüne taşıma anlamına gelir</string>
     <string name="title_block_sender_hint">Bir göndereni engellemek ücretsiz bir özelliktir.
 Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurallarını kullanır.    </string>
     <string name="title_blocked_senders">Engellenmiş gönderenler</string>
@@ -390,6 +390,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_quote_reply">Cevap metnini alıntıla</string>
     <string name="title_advanced_limit_reply">İç içe geçmiş tekliflerin sayısını sınırlayın</string>
     <string name="title_advanced_resize_reply">Yanıtlanan metindeki görselleri boyutlandır</string>
+    <string name="title_advanced_resize_paste">Yapıştırılan görüntüleri yeniden boyutlandır</string>
     <string name="title_advanced_signature_location">İmza konumu</string>
     <string name="title_advanced_signature_new">Yeni mesajlar için imzayı kullan</string>
     <string name="title_advanced_signature_reply">Yanıtlarken imza kullan</string>
@@ -582,7 +583,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_auto_block_sender">Spam bildirirken göndereni otomatik olarak engelle</string>
     <string name="title_advanced_auto_hide_answer">Kaydırma sırasında yanıt düğmesini otomatik olarak gizle</string>
     <string name="title_advanced_swipe_reply">Genişletilmiş mesajları yanıtlamak için sağa kaydırın</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Bir görüşmeyi taşırken, gönderilen mesajları da taşıyın</string>
+    <string name="title_advanced_move_thread_sent">Bir görüşmeyi taşırken, gönderilen mesajları da taşıyın</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_default_folder">Varsayılan klasörü seçin</string>
     <string name="title_advanced_notifications">Bildirimleri yönet</string>
@@ -1034,6 +1035,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_unified_folder">Birleşik gelen kutusunda göster</string>
     <string name="title_navigation_folder">Gezinme menüsünde göster</string>
     <string name="title_navigation_folder_hide">Gezinme menüsünde gizle</string>
+    <string name="title_unified_inbox_add">Birleşik gelen kutusunda göster</string>
+    <string name="title_unified_inbox_delete">Birleşik gelen kutusundan sil</string>
     <string name="title_synchronize_folder">Senkronize et (iletileri al)</string>
     <string name="title_poll_folder">Sürekli senkronizasyon yerine belirli aralıklarla kontrol et</string>
     <string name="title_poll_folder_remark">Çoğu e-posta sunucusu push mesajlarına yalnızca birkaç klasör için izin verir!</string>
@@ -1341,7 +1344,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_translate_key">Anahtarı gir</string>
     <string name="title_translating">Tercüme ediliyor&#8230;</string>
     <string name="title_translate_formal">Resmi formu kullan</string>
-    <string name="title_translate_small">Kaynak metin için küçük bir yazı tipi kullan</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Kaynak metin için küçük bir yazı tipi kullan</string>
     <string name="title_translate_html">Biçimlendirmeyi koru</string>
     <string name="title_translate_html_hint">Bu daha fazla karakter tüketecek</string>
     <string name="title_translate_usage">Kullanım: %1$s/%2$s (%3$d %%)</string>

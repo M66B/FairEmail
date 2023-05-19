@@ -82,7 +82,7 @@
     <string name="title_block">Blokkeer %1$s</string>
     <string name="title_block_sender">Blokkeer afzender</string>
     <string name="title_block_sender_domain">Blokkeer domein \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blokkeren betekent automatisch verplaatsen naar de spammap</string>
+    <string name="title_block_sender_remark">Blokkeren betekent automatisch verplaatsen naar de spammap</string>
     <string name="title_block_sender_hint">Het blokkeren van een afzender is een gratis functie.
 Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro functie is.    </string>
     <string name="title_blocked_senders">Geblokkeerde afzenders</string>
@@ -390,6 +390,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_quote_reply">Haal beantwoorde tekst aan</string>
     <string name="title_advanced_limit_reply">Beperk het aantal geneste citaten</string>
     <string name="title_advanced_resize_reply">Wijzig de grootte van de afbeeldingen in beantwoorde tekst</string>
+    <string name="title_advanced_resize_paste">Formaat van geplakte afbeeldingen wijzigen</string>
     <string name="title_advanced_signature_location">Positie handtekening</string>
     <string name="title_advanced_signature_new">Gebruik handtekening voor nieuwe berichten</string>
     <string name="title_advanced_signature_reply">Gebruik handtekening bij antwoorden</string>
@@ -440,6 +441,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_two_col">Gebruik twee kolommen</string>
     <string name="title_advanced_min_screen_size">Minimale schermgrootte voor het splitsen van het scherm</string>
     <string name="title_advanced_close_pane">Rij of kolom samenvouwen bij het sluiten van een gesprek</string>
+    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Begin met twee kolommen of rijen</string>
     <string name="title_advanced_column_width">Berichtkolom breedte / rij hoogte: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Bovenste werkbalk verbergen bij het scrollen van berichten</string>
     <string name="title_advanced_nav_options">Toon navigatiemenu opties</string>
@@ -582,7 +584,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_auto_block_sender">Blokkeer de afzender automatisch bij het rapporteren van spam</string>
     <string name="title_advanced_auto_hide_answer">Automatisch de antwoordknop verbergen bij scrollen</string>
     <string name="title_advanced_swipe_reply">Veeg uitgevouwde berichten naar rechts om te beantwoorden</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Wanneer een gesprek wordt verplaatst, verplaats ook verzonden berichten</string>
+    <string name="title_advanced_move_thread_sent">Wanneer een gesprek wordt verplaatst, verplaats ook verzonden berichten</string>
     <string name="title_advanced_default_snooze">Standaard sluimer/vertragingstijd</string>
     <string name="title_advanced_default_folder">Selecteer standaard map</string>
     <string name="title_advanced_notifications">Beheer meldingen</string>
@@ -1033,6 +1035,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_unified_folder">Toon in het gecombineerde postvak in</string>
     <string name="title_navigation_folder">Toon in navigatiemenu</string>
     <string name="title_navigation_folder_hide">Verbergen in navigatiemenu</string>
+    <string name="title_unified_inbox_add">Aan gecombineerde postvak in toevoegen</string>
+    <string name="title_unified_inbox_delete">Uit gecombineerde postvak in verwijderen</string>
     <string name="title_synchronize_folder">Synchroniseren (ontvang berichten)</string>
     <string name="title_poll_folder">Controleer periodiek in plaats van continu synchroniseren</string>
     <string name="title_poll_folder_remark">De meeste e-mailservers staan push-berichten slechts voor een handvol mappen toe!</string>
@@ -1340,7 +1344,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_translate_key">Sleutel invoeren</string>
     <string name="title_translating">Vertalen &#8230;</string>
     <string name="title_translate_formal">Gebruik formele vorm</string>
-    <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Gebruik een klein lettertype voor de brontekst</string>
+    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Vervang brontekst door vertaalde tekst</string>
     <string name="title_translate_html">Opmaak behouden</string>
     <string name="title_translate_html_hint">Dit zal meer tekens verbruiken</string>
     <string name="title_translate_usage">Gebruik: %1$s / %2$s (%3$d %%)</string>

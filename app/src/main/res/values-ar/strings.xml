@@ -470,7 +470,7 @@
     <string name="title_media_toolbar">شريط أدوات الوسائط</string>
     <string name="title_translate_configure">إعداد &#8230;</string>
     <string name="title_translating">ترجمة &#8230;</string>
-    <string name="title_translate_small">استخدام خط صغير لنص المصدر</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">استخدام خط صغير لنص المصدر</string>
     <string name="title_from_missing">المُرسِل مفقود</string>
     <string name="title_to_missing">المستلِم أو المُرسَل إليه مفقود</string>
     <string name="title_draft_deleted">تم تجاهل المسودة</string>

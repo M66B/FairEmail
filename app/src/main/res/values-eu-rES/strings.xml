@@ -1016,7 +1016,7 @@
     <string name="title_insert_template">Txertatu txantiloia</string>
     <string name="title_translate">Itzuli</string>
     <string name="title_translate_key">Sartu gakoa</string>
-    <string name="title_translate_small">Erabili tipografia txikia iturburuaren testuarentzan</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Erabili tipografia txikia iturburuaren testuarentzan</string>
     <string name="title_suggestions_check">Egiaztatzen &#8230;</string>
     <string name="title_suggestions_none">Iradokizunik ez</string>
     <string name="title_edit_plain_text">Editatu testu soil gisa</string>

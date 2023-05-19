@@ -82,7 +82,7 @@
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear remitente</string>
     <string name="title_block_sender_domain">Bloquear dominio \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Bloquear significa mover automáticamente a la carpeta de spam</string>
+    <string name="title_block_sender_remark">Bloquear significa mover automáticamente a la carpeta de spam</string>
     <string name="title_block_sender_hint">        Bloquear un remitente es una característica gratuita.
         Bloquear un dominio de remitente utiliza reglas de filtro, que es una característica pro.
     </string>
@@ -391,6 +391,7 @@
     <string name="title_advanced_quote_reply">Citar texto a responder</string>
     <string name="title_advanced_limit_reply">Limitar el número de citas anidadas</string>
     <string name="title_advanced_resize_reply">Redimensionar imágenes en el texto de respuesta</string>
+    <string name="title_advanced_resize_paste">Redimensionar imágenes pegadas</string>
     <string name="title_advanced_signature_location">Posición de la firma</string>
     <string name="title_advanced_signature_new">Usar firma para nuevos mensajes</string>
     <string name="title_advanced_signature_reply">Usar firma al responder</string>
@@ -583,7 +584,7 @@
     <string name="title_advanced_auto_block_sender">Bloquear automáticamente al remitente al reportar como spam</string>
     <string name="title_advanced_auto_hide_answer">Ocultar automáticamente el botón de respuesta al desplazarse</string>
     <string name="title_advanced_swipe_reply">Deslice los mensajes expandidos a la derecha para responder</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Al mover una conversación, también mover mensajes enviados</string>
+    <string name="title_advanced_move_thread_sent">Al mover una conversación, también mover mensajes enviados</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer/retraso por defecto</string>
     <string name="title_advanced_default_folder">Seleccionar carpeta por defecto</string>
     <string name="title_advanced_notifications">Administrar notificaciones</string>
@@ -1035,6 +1036,8 @@
     <string name="title_unified_folder">Mostrar en bandeja de entrada unificada</string>
     <string name="title_navigation_folder">Mostrar en el menú de navegación</string>
     <string name="title_navigation_folder_hide">Ocultar en el menú de navegación</string>
+    <string name="title_unified_inbox_add">Añadir a bandeja de entrada unificada</string>
+    <string name="title_unified_inbox_delete">Eliminar de la bandeja de entrada unificada</string>
     <string name="title_synchronize_folder">Sincronizar (recibir mensajes)</string>
     <string name="title_poll_folder">Comprobar periódicamente en lugar de sincronizar continuamente</string>
     <string name="title_poll_folder_remark">¡La mayoría de los servidores de correo electrónico sólo permiten mensajes push para un puñado de carpetas!</string>
@@ -1342,7 +1345,7 @@
     <string name="title_translate_key">Introducir clave</string>
     <string name="title_translating">Traduciendo &#8230;</string>
     <string name="title_translate_formal">Usar modo formal</string>
-    <string name="title_translate_small">Usar una fuente pequeña para el texto fuente</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Usar una fuente pequeña para el texto fuente</string>
     <string name="title_translate_html">Conservar formato</string>
     <string name="title_translate_html_hint">Esto consumirá más caracteres</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>

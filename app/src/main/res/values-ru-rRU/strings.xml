@@ -102,7 +102,7 @@
     <string name="title_block">Блокировать %1$s</string>
     <string name="title_block_sender">Блокировать отправителя</string>
     <string name="title_block_sender_domain">Блокировать домен \"%1$s\"</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Блокировка означает автоматическое перемещение в папку спама</string>
+    <string name="title_block_sender_remark">Блокировка означает автоматическое перемещение в папку спама</string>
     <string name="title_block_sender_hint">        Блокировка отправителя является бесплатной функцией.
         Блокировка домена отправителя использует фильтрующие правила, которые являются функцией pro.
     </string>
@@ -417,6 +417,7 @@
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
     <string name="title_advanced_limit_reply">Ограничивать количество вложенных кавычек</string>
     <string name="title_advanced_resize_reply">Менять размер изображений в ответе</string>
+    <string name="title_advanced_resize_paste">Изменять размер вставляемых изображений</string>
     <string name="title_advanced_signature_location">Расположение подписи</string>
     <string name="title_advanced_signature_new">Использовать подпись для новых сообщений</string>
     <string name="title_advanced_signature_reply">Использовать подпись при ответе</string>
@@ -467,6 +468,7 @@
     <string name="title_advanced_two_col">Использовать две колонки</string>
     <string name="title_advanced_min_screen_size">Минимальный размер экрана для его разделения</string>
     <string name="title_advanced_close_pane">Свернуть строку или колонку при закрытии диалога</string>
+    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Начинать с двух строк/колонок</string>
     <string name="title_advanced_column_width">Ширина колонки / высота строки: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Скрывать верхнюю панель инструментов при прокрутке сообщений</string>
     <string name="title_advanced_nav_options">Показывать панель меню навигации</string>
@@ -609,7 +611,7 @@
     <string name="title_advanced_auto_block_sender">Автоматически блокировать отправителя при сообщении о спаме</string>
     <string name="title_advanced_auto_hide_answer">Автоматически скрывать кнопку ответа при прокрутке</string>
     <string name="title_advanced_swipe_reply">Жест вправо на раскрытом сообщении для ответа</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">При перемещении диалога также перемещаются отправленные сообщения</string>
+    <string name="title_advanced_move_thread_sent">При перемещении диалога также перемещаются отправленные сообщения</string>
     <string name="title_advanced_default_snooze">Время повтора/задержки по умолчанию</string>
     <string name="title_advanced_default_folder">Выбрать папку по умолчанию</string>
     <string name="title_advanced_notifications">Настроить уведомления</string>
@@ -1062,6 +1064,8 @@
     <string name="title_unified_folder">Показывать в единой папке \"Входящие\"</string>
     <string name="title_navigation_folder">Показывать в меню навигации</string>
     <string name="title_navigation_folder_hide">Скрыть в меню навигации</string>
+    <string name="title_unified_inbox_add">Добавить в единую папку \"Входящие\"</string>
+    <string name="title_unified_inbox_delete">Удалить из единой папки \"Входящие\"</string>
     <string name="title_synchronize_folder">Синхронизировать (получать сообщения)</string>
     <string name="title_poll_folder">Периодическая проверка вместо непрерывной синхронизации</string>
     <string name="title_poll_folder_remark">Большинство почтовых серверов позволяют отправлять сообщения только для некоторых папок!</string>
@@ -1371,7 +1375,8 @@
     <string name="title_translate_key">Введите ключ</string>
     <string name="title_translating">Перевод&#8230;</string>
     <string name="title_translate_formal">Использовать формальный стиль</string>
-    <string name="title_translate_small">Использовать мелкий шрифт для исходного текста</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Использовать мелкий шрифт для исходного текста</string>
+    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Заменять исходный текст переводом</string>
     <string name="title_translate_html">Сохранять форматирование</string>
     <string name="title_translate_html_hint">Будет использоваться больше символов</string>
     <string name="title_translate_usage">Использование: %1$s / %2$s (%3$d %%)</string>

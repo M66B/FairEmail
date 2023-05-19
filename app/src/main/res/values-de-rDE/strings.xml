@@ -82,7 +82,7 @@
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
     <string name="title_block_sender_domain">Domain »%1$s« sperren</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Sperren bedeutet automatisch in den Spam-Ordner verschieben</string>
+    <string name="title_block_sender_remark">Sperren bedeutet automatisch in den Spam-Ordner verschieben</string>
     <string name="title_block_sender_hint">        Das Sperren eines Absenders ist eine kostenlose Funktion.
         Das Sperren der Domain eines Absenders verwendet Filterregeln, 
         welche nur in der Pro-Version verfügbar sind.
@@ -382,7 +382,7 @@
     <string name="title_advanced_auto_save_dot">Entwurf nach jedem Satz automatisch speichern</string>
     <string name="title_advanced_compose_color">Standard-Textfarbe</string>
     <string name="title_advanced_compose_font">Standardschriftart</string>
-    <string name="title_advanced_compose_monospaced">Monospace-Schriftart für unformatierte Textnachrichten verwenden</string>
+    <string name="title_advanced_compose_monospaced">Festbreitenschriftart für unformatierte Textnachrichten verwenden</string>
     <string name="title_advanced_auto_identity">Identitäten für neue Nachrichten automatisch auswählen</string>
     <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_prefix_count">Zähler zum Antwortpräfix hinzufügen</string>
@@ -392,7 +392,8 @@
     <string name="title_advanced_write_below">Unter dem zitierten Text des Absenders schreiben</string>
     <string name="title_advanced_quote_reply">Beantworteten Text zitieren</string>
     <string name="title_advanced_limit_reply">Anzahl der verschachtelten Zitate begrenzen</string>
-    <string name="title_advanced_resize_reply">Bilder im Antworttext skalieren</string>
+    <string name="title_advanced_resize_reply">Größe der Bilder im Antworttext ändern</string>
+    <string name="title_advanced_resize_paste">Größe eingefügter Bilder ändern</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_new">Signatur für neue Nachrichten verwenden</string>
     <string name="title_advanced_signature_reply">Signatur beim Antworten verwenden</string>
@@ -441,8 +442,9 @@
     <string name="title_advanced_landscape">Querformat</string>
     <string name="title_advanced_two_row">Zwei Zeilen verwenden</string>
     <string name="title_advanced_two_col">Zwei Spalten verwenden</string>
-    <string name="title_advanced_min_screen_size">Minimale Bildschirmgröße zum Teilen des Bildschirms</string>
+    <string name="title_advanced_min_screen_size">Minimale Bildschirmgröße zum Aufteilen des Bildschirms</string>
     <string name="title_advanced_close_pane">Zeile oder Spalte beim Schließen einer Unterhaltung einklappen</string>
+    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Mit zwei Zeilen oder zwei Spalten beginnen</string>
     <string name="title_advanced_column_width">Spaltenbreite/Zeilenhöhe der Nachricht: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Srollen von Nachrichten ausblenden</string>
     <string name="title_advanced_nav_options">Optionen im Navigationsmenü anzeigen</string>
@@ -513,7 +515,7 @@
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_thumbnails">Vorschaubilder nach dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_message_text_zoom2">Standard der Nachrichtentextvergrößerung: %1$s %%</string>
-    <string name="title_advanced_overview_mode">Originalnachrichten in Bildschirmgröße einpassen</string>
+    <string name="title_advanced_overview_mode">Originalnachrichten an Bildschirmgröße anpassen</string>
     <string name="title_advanced_override_width">Festgelegte Breiten in Originalnachrichten deaktivieren</string>
     <string name="title_advanced_hyphenation">Automatische Silbentrennung verwenden</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
@@ -537,7 +539,7 @@
     <string name="title_advanced_category_header">Nach Kontenkategorie gruppieren</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_list_count">Anzahl der Nachrichten oder Unterhaltungen in der oberen Aktionsleiste anzeigen</string>
-    <string name="title_advanced_bundled_fonts">Interne Schriftarten verwenden</string>
+    <string name="title_advanced_bundled_fonts">Vorinstallierte Schriftarten verwenden</string>
     <string name="title_advanced_parse_classes">Stylesheets analysieren</string>
     <string name="title_advanced_authentication">Authentifizierungswarnungen anzeigen</string>
     <string name="title_advanced_authentication_hint">Die zugrunde liegenden Prüfungen können in den Empfangseinstellungen konfiguriert werden</string>
@@ -585,7 +587,7 @@
     <string name="title_advanced_auto_block_sender">Absender automatisch sperren, wenn Spam gemeldet wird</string>
     <string name="title_advanced_auto_hide_answer">Beim Bildlauf automatisch die Antworttaste ausblenden</string>
     <string name="title_advanced_swipe_reply">Ausgeklappte Nachricht nach rechts wischen, um zu antworten</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Beim Verschieben einer Unterhaltung auch die zu dieser Unterhaltung gehörenden gesendeten Nachrichten verschieben</string>
+    <string name="title_advanced_move_thread_sent">Beim Verschieben einer Unterhaltung auch die zu dieser Unterhaltung gehörenden gesendeten Nachrichten verschieben</string>
     <string name="title_advanced_default_snooze">Standardzeit fürs Zurückstellen/Verzögern</string>
     <string name="title_advanced_default_folder">Standardordner auswählen</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
@@ -770,7 +772,7 @@
     <string name="title_advanced_startup_hint">Einen beliebigen Ordner in der Ordnerliste lange gedrückt halten, um ihn der Liste der Sammelordner hinzuzufügen oder ihn daraus zu entfernen</string>
     <string name="title_advanced_date_hint">Nachrichten werden nur nach Datum gruppiert, wenn sie nach Zeit sortiert sind</string>
     <string name="title_advanced_navbar_colorize_hint">Ob das funktioniert, hängt von der Android-Version und -Variante ab</string>
-    <string name="title_advanced_split_hint">Dadurch wird der Bildschirm in Teile aufgeteilt</string>
+    <string name="title_advanced_split_hint">Dadurch wird der Bildschirm aufgeteilt</string>
     <string name="title_advanced_split_min_hint">Dies ist eine Voraussetzung für faltbare Geräte</string>
     <string name="title_advanced_threading_hint">Zusammengehörige Nachrichten gruppieren</string>
     <string name="title_advanced_highlight_hint">Die Akzentfarbe des Designs wird zur Hervorhebung verwendet</string>
@@ -779,7 +781,7 @@
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
     <string name="title_advanced_preview_lines_hint">Maximal %s Zeichen</string>
     <string name="title_advanced_preview_issue">Scrollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
-    <string name="title_advanced_overview_mode_hint">Dies kann zu sehr kleinen Schriften führen</string>
+    <string name="title_advanced_overview_mode_hint">Das kann zu einer sehr kleinen Schrift führen</string>
     <string name="title_advanced_override_width_hint">Dies kann nicht nur dazu führen, dass die Nachrichten schmaler werden, sondern auch ungewohnt aussehen.</string>
     <string name="title_advanced_monospaced_pre_hint">Unformatierte Textnachrichten werden als vorformatiert betrachtet</string>
     <string name="title_advanced_placeholders_hint">Das gilt nur für umformatierte Nachrichten</string>
@@ -800,7 +802,7 @@
     <string name="title_advanced_uri">Die Details des ausgewählten Kontakts werden für vCard-Anhänge verwendet</string>
     <string name="title_advanced_e2e_encryption">Optionen für Ende-zu-Ende-Verschlüsselung</string>
     <string name="title_advanced_display_harmful_hint">Deaktivieren dieser Option kann für Ihre Privatsphäre schädlich sein</string>
-    <string name="title_advanced_display_hidden_hint">Dies kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
+    <string name="title_advanced_display_hidden_hint">Das kann zu merkwürdigem Aussehen und doppelten Texten führen</string>
     <string name="title_advanced_display_pin_hint">Eine PIN hat Vorrang vor der biometrischen Authentifizierung</string>
     <string name="title_advanced_display_autolock_nav_hint">Es wird eine Wartezeit von %1$d Sekunden geben</string>
     <string name="title_advanced_user_agent_hint">Einige Server akzeptieren keine generischen User-Agent-Angaben</string>
@@ -1038,6 +1040,8 @@
     <string name="title_unified_folder">Im Sammeleingang anzeigen</string>
     <string name="title_navigation_folder">Im Navigationsmenü anzeigen</string>
     <string name="title_navigation_folder_hide">Im Navigationsmenü ausblenden</string>
+    <string name="title_unified_inbox_add">Zum Sammeleingang hinzufügen</string>
+    <string name="title_unified_inbox_delete">Aus Sammeleingang löschen</string>
     <string name="title_synchronize_folder">Synchronisieren (E-Mails empfangen)</string>
     <string name="title_poll_folder">Periodisch überprüfen anstatt kontinuierlicher Synchronisierung</string>
     <string name="title_poll_folder_remark">Die meisten E-Mail-Server erlauben Push-Nachrichten nur für einige wenige Ordner!</string>
@@ -1348,7 +1352,8 @@
     <string name="title_translate_key">Schlüssel einfügen</string>
     <string name="title_translating">Wird übersetzt &#8230;</string>
     <string name="title_translate_formal">Förmliche Anrede verwenden</string>
-    <string name="title_translate_small">Kleine Schrift für den Quelltext verwenden</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Kleine Schrift für den Originaltext verwenden</string>
+    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Originaltext durch übersetzten Text ersetzen</string>
     <string name="title_translate_html">Formatierung beibehalten</string>
     <string name="title_translate_html_hint">Dadurch sind mehr Zeichen erforderlich</string>
     <string name="title_translate_usage">Verwendung: %1$s / %2$s (%3$d %%)</string>
@@ -2089,7 +2094,7 @@
         <item>Kursiv</item>
         <item>Serife</item>
         <item>Serifenlos</item>
-        <item>Festbreitenschrift</item>
+        <item>Festbreitenschriftart</item>
         <item>Fantasie</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->

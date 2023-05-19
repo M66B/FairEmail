@@ -82,7 +82,7 @@
     <string name="title_block">Estä %1$s</string>
     <string name="title_block_sender">Estä lähettäjä</string>
     <string name="title_block_sender_domain">Estä verkkotunnus \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Estäminen tarkoittaa automaattisesti roskapostikansioon siirtämistä</string>
+    <string name="title_block_sender_remark">Estäminen tarkoittaa automaattisesti roskapostikansioon siirtämistä</string>
     <string name="title_block_sender_hint">        Lähettäjän esto on ilmainen ominaisuus.
         Lähettäjän verkkotunnuksen esto käyttää suodatussääntöjä ja on pro-ominaisuus.
     </string>
@@ -583,7 +583,7 @@
     <string name="title_advanced_auto_block_sender">Estä lähettäjä ilmoittaessa roskapostista</string>
     <string name="title_advanced_auto_hide_answer">Piilota vastauspainike vieritettäessä</string>
     <string name="title_advanced_swipe_reply">Vastaa pyyhkäisemällä laajennetut viestit oikealle</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Siirrä myös lähetetyt viestit, kun keskustelu siirretään</string>
+    <string name="title_advanced_move_thread_sent">Siirrä myös lähetetyt viestit, kun keskustelu siirretään</string>
     <string name="title_advanced_default_snooze">Torkun/viiveen oletusaika</string>
     <string name="title_advanced_default_folder">Valitse oletuskansio</string>
     <string name="title_advanced_notifications">Hallinnoi ilmoituksia</string>
@@ -1272,7 +1272,7 @@
     <string name="title_send_auto_archive">Arkistoi vastattu viesti</string>
     <string name="title_send_encryption">Salaus</string>
     <string name="title_send_priority">Tärkeysjärjestys</string>
-    <string name="title_send_sensitivity">Herkkyys</string>
+    <string name="title_send_sensitivity">Luottamuksellisuus</string>
     <string name="title_no_server">Palvelinta ei löytynyt osoitteesta \'%1$s\'</string>
     <string name="title_style">Tyyli</string>
     <string name="title_style_bold">Lihavointi</string>
@@ -1342,7 +1342,7 @@
     <string name="title_translate_key">Syötä avain</string>
     <string name="title_translating">Käännetään &#8230;</string>
     <string name="title_translate_formal">Käytä muodollista kieltä</string>
-    <string name="title_translate_small">Käytä pientä kirjasinta lähdetekstille</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Käytä pientä kirjasinta lähdetekstille</string>
     <string name="title_translate_html">Säilytä muotoilut</string>
     <string name="title_translate_html_hint">Tämä käyttää enemmän merkkejä</string>
     <string name="title_translate_usage">Käyttö: %1$s / %2$s (%3$d %%)</string>

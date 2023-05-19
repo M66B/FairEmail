@@ -82,7 +82,7 @@
     <string name="title_block">Blockera %1$s</string>
     <string name="title_block_sender">Blockera avsändare</string>
     <string name="title_block_sender_domain">Blockera domän \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blockering innebär att automatiskt flytta till skräppostmappen</string>
+    <string name="title_block_sender_remark">Blockering innebär att automatiskt flytta till skräppostmappen</string>
     <string name="title_block_sender_hint">        Att blockera en avsändare är en gratisfunktion.
         Att blockera en avsändardomän använder filterregler, vilket är en pro-funktion.
     </string>
@@ -90,6 +90,10 @@
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blockera avsändare av %1$s meddelande?</item>
         <item quantity="other">Blockera avsändare av %1$s meddelanden?</item>
+    </plurals>
+    <plurals name="title_hours">
+        <item quantity="one">%1$s timme</item>
+        <item quantity="other">%1$s timmar</item>
     </plurals>
     <plurals name="title_days">
         <item quantity="one">%1$s dag</item>
@@ -384,6 +388,7 @@
     <string name="title_advanced_quote_reply">Citera svarstext</string>
     <string name="title_advanced_limit_reply">Begränsa antalet nästlade citat</string>
     <string name="title_advanced_resize_reply">Ändra storlek på bilder i svarande text</string>
+    <string name="title_advanced_resize_paste">Ändra storlek på inklistrade bilder</string>
     <string name="title_advanced_signature_location">Signaturens position</string>
     <string name="title_advanced_signature_new">Använd signatur för nya meddelanden</string>
     <string name="title_advanced_signature_reply">Använd signatur vid svar</string>
@@ -576,7 +581,7 @@
     <string name="title_advanced_auto_block_sender">Blockera avsändaren automatiskt vid rapportering av skräppost</string>
     <string name="title_advanced_auto_hide_answer">Dölj svarsknappen automatiskt när du skrollar</string>
     <string name="title_advanced_swipe_reply">Svep expanderade meddelanden till höger för att svara</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">När en konversation flyttas, flytta också skickade meddelanden</string>
+    <string name="title_advanced_move_thread_sent">När en konversation flyttas, flytta också skickade meddelanden</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_default_folder">Välj standardmapp</string>
     <string name="title_advanced_notifications">Hantera aviseringar</string>
@@ -1025,6 +1030,8 @@
     <string name="title_unified_folder">Visa i en samlad inkorg</string>
     <string name="title_navigation_folder">Visa i navigeringsmenyn</string>
     <string name="title_navigation_folder_hide">Dölj i navigeringsmenyn</string>
+    <string name="title_unified_inbox_add">Lägg till i samlad inkorg</string>
+    <string name="title_unified_inbox_delete">Ta bort från samlad inkorg</string>
     <string name="title_synchronize_folder">Synkronisera (hämta meddelanden)</string>
     <string name="title_poll_folder">Kontrollera regelbundet istället för kontinuerlig synkronisering</string>
     <string name="title_poll_folder_remark">De flesta e-postservrar tillåter endast push-meddelanden för en handfull mappar!</string>
@@ -1332,7 +1339,7 @@
     <string name="title_translate_key">Ange nyckel</string>
     <string name="title_translating">Översätter &#8230;</string>
     <string name="title_translate_formal">Använd formell form</string>
-    <string name="title_translate_small">Använd ett litet typsnitt för källtexten</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Använd ett litet typsnitt för källtexten</string>
     <string name="title_translate_html">Behåll formatering</string>
     <string name="title_translate_html_hint">Detta kommer att använda fler tecken</string>
     <string name="title_translate_usage">Användning: %1$s / %2$s (%3$d %%)</string>

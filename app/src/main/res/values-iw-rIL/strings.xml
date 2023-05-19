@@ -102,7 +102,7 @@
     <string name="title_block">חסימת %1$s</string>
     <string name="title_block_sender">חסימת השולח</string>
     <string name="title_block_sender_domain">חסימת שם התחום ‚%1$s’</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">חסימה משמעה העברה אוטומטית לתיקיית הזבל</string>
+    <string name="title_block_sender_remark">חסימה משמעה העברה אוטומטית לתיקיית הזבל</string>
     <string name="title_block_sender_hint">        חסימת מען היא תכונה חינמית.
         חסימת שם תחום כמען משתמשת בכללי סינון, שזאת יכולת למנויי פרו.
     </string>
@@ -418,6 +418,7 @@
     <string name="title_advanced_quote_reply">ציטוט הטקסט לתגובה</string>
     <string name="title_advanced_limit_reply">הגבלת מספר הציטוטים המקוננים</string>
     <string name="title_advanced_resize_reply">שינוי גודל התמונות בטקסט התגובה</string>
+    <string name="title_advanced_resize_paste">שינוי גודל תמונה מודבקת</string>
     <string name="title_advanced_signature_location">מיקום החתימה</string>
     <string name="title_advanced_signature_new">להשתמש בחתימה להודעות חדשות</string>
     <string name="title_advanced_signature_reply">להשתמש בחתימה לתגובות</string>
@@ -468,6 +469,7 @@
     <string name="title_advanced_two_col">להשתמש בשתי עמודות</string>
     <string name="title_advanced_min_screen_size">גודל המסך המזערי לפיצול המסך</string>
     <string name="title_advanced_close_pane">לצמצם שורה או עמודה בעת סגירת דיון</string>
+    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">התחלה עם שתי שורות או עמודות</string>
     <string name="title_advanced_column_width">רוחב עמודה / גובה שורה של הודעה: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">להסתיר את סרגל הכלים בעת גלילה בין הודעות</string>
     <string name="title_advanced_nav_options">הצגת אפשרויות תפריט הניווט</string>
@@ -610,7 +612,7 @@
     <string name="title_advanced_auto_block_sender">לחסום את השולח אוטומטית בעת דיווח על ספאם</string>
     <string name="title_advanced_auto_hide_answer">להסתיר את כפתור המענה אוטומטית בעת הגלילה</string>
     <string name="title_advanced_swipe_reply">החלקת הודעות מורחבות לימין פותחת מענה</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">בעת העברת דיון, להעביר גם את ההודעות שנשלחו</string>
+    <string name="title_advanced_move_thread_sent">בעת העברת דיון, להעביר גם את ההודעות שנשלחו</string>
     <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_default_folder">בחירת תיקיית ברירת מחדל</string>
     <string name="title_advanced_notifications">ניהול התראות</string>
@@ -1062,6 +1064,8 @@
     <string name="title_unified_folder">הצגה בדואר נכנס מאוחד</string>
     <string name="title_navigation_folder">הצגה בתפריט הניווט</string>
     <string name="title_navigation_folder_hide">הסתרה בתפריט הניווט</string>
+    <string name="title_unified_inbox_add">הוספה לדואר הנכנס המאוחר</string>
+    <string name="title_unified_inbox_delete">מחיקה מהדואר הנכנס המאוחד</string>
     <string name="title_synchronize_folder">סנכרון (קבלת הודעות)</string>
     <string name="title_poll_folder">לבדוק תקופתיות במקום לסנכרן באופן רציף</string>
     <string name="title_poll_folder_remark">רוב שרתי הדוא״ל מאפשרים הודעות דחיפה למגוון מצומצם של תיקיות בלבד!</string>
@@ -1372,7 +1376,8 @@
     <string name="title_translate_key">נא להקליד מפתח</string>
     <string name="title_translating">מתורגם&#8230;</string>
     <string name="title_translate_formal">להשתמש בשפה רשמית</string>
-    <string name="title_translate_small">להשתמש בגופן קטן לטקסט המקור</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">להשתמש בגופן קטן לטקסט המקור</string>
+    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">החלפת טקסט המקור בטקסט מתורגם</string>
     <string name="title_translate_html">שימור עיצוב</string>
     <string name="title_translate_html_hint">יצרוך יותר תווים</string>
     <string name="title_translate_usage">שימוש: %1$s / %2$s (%3$d %%)</string>

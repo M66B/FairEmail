@@ -82,7 +82,7 @@
     <string name="title_block">%1$s əngəllə</string>
     <string name="title_block_sender">Göndərəni əngəllə</string>
     <string name="title_block_sender_domain">\"%1$s\" domenini əngəllə</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Əngəlləmə, avtomatik olaraq spam qovluğuna daşınması deməkdir</string>
+    <string name="title_block_sender_remark">Əngəlləmə, avtomatik olaraq spam qovluğuna daşınması deməkdir</string>
     <string name="title_block_sender_hint">        Göndərəni əngəlləmə ödənişsiz bir özəllikdir.
         Göndərən domenini əngəlləmə pro özəllik olan filtr qaydalarını istifadə edir.
     </string>
@@ -392,6 +392,7 @@
     <string name="title_advanced_quote_reply">Cavablanan mətndən sitat gətir</string>
     <string name="title_advanced_limit_reply">Gətirilən sitatların sayını məhdudlaşdır</string>
     <string name="title_advanced_resize_reply">Cavablanan mətndəki təsvirləri təkrar ölçüləndir</string>
+    <string name="title_advanced_resize_paste">Yapışdırılan təsvirlərin ölçüsünü dəyişdir</string>
     <string name="title_advanced_signature_location">İmza mövqeyi</string>
     <string name="title_advanced_signature_new">Yeni mesajlar üçün imza istifadə edin</string>
     <string name="title_advanced_signature_reply">Cavablayanda imza istifadə et</string>
@@ -442,6 +443,7 @@
     <string name="title_advanced_two_col">İki sütun istifadə et</string>
     <string name="title_advanced_min_screen_size">Ekranı bölmək üçün minimum ekran ölçüsü</string>
     <string name="title_advanced_close_pane">Bir danışığı bağlayarkən sətri və ya sütunu yığcamlaşdır</string>
+    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">İki sətir və ya iki sütunla başlayın</string>
     <string name="title_advanced_column_width">Mesajın sütun eni / sətir hündürlüyü: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Mesajları sürüşdürərkən üstdəki alət sətrini gizlət</string>
     <string name="title_advanced_nav_options">Naviqasiya menyu seçimlərini göstər</string>
@@ -584,7 +586,7 @@
     <string name="title_advanced_auto_block_sender">Spam bildirirkən göndərəni avtomatik əngəllə</string>
     <string name="title_advanced_auto_hide_answer">Sürüşdürərkən cavablandırma düyməsini avtomatik gizlət</string>
     <string name="title_advanced_swipe_reply">Genişləndirilmiş mesajları cavablandırmaq üçün sağa sürüşdür</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Bir danışıq daşınanda, göndərilmiş mesajlar da daşınır</string>
+    <string name="title_advanced_move_thread_sent">Bir danışıq daşınanda, göndərilmiş mesajlar da daşınır</string>
     <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
     <string name="title_advanced_default_folder">İlkin qovluğu seçin</string>
     <string name="title_advanced_notifications">Bildirişləri idarə et</string>
@@ -1036,6 +1038,8 @@
     <string name="title_unified_folder">Birləşmiş gələn qutusunda göstər</string>
     <string name="title_navigation_folder">Naviqasiya menyusunda göstər</string>
     <string name="title_navigation_folder_hide">Hərəkət menyusunda gizlət</string>
+    <string name="title_unified_inbox_add">Birləşmiş gələn qutusuna əlavə et</string>
+    <string name="title_unified_inbox_delete">Birləşmiş gələn qutusundan sil</string>
     <string name="title_synchronize_folder">Sinxronlaşdır (mesajları al)</string>
     <string name="title_poll_folder">Davamlı sinxronlaşdırma əvəzinə vaxtaşırı yoxlayın</string>
     <string name="title_poll_folder_remark">Əksər e-poçt serverləri, ani mesajlara yalnız bir neçə qovluq üçün icazə verir!</string>
@@ -1346,7 +1350,8 @@
     <string name="title_translate_key">Açarı daxil et</string>
     <string name="title_translating">Tərcümə edilir &#8230;</string>
     <string name="title_translate_formal">Rəsmi formu istifadə et</string>
-    <string name="title_translate_small">Mənbə mətni üçün kiçik şrift istifadə et</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Mənbə mətni üçün kiçik şrift istifadə et</string>
+    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Mənbə mətni tərcümə edilmiş mətnlə əvəz et</string>
     <string name="title_translate_html">Formatlamanı qoru</string>
     <string name="title_translate_html_hint">Bu, daha çox simvolu istehlak edəcək</string>
     <string name="title_translate_usage">İstifadə: %1$s / %2$s (%3$d %%)</string>

@@ -102,7 +102,7 @@
     <string name="title_block">Zablokuj %1$s</string>
     <string name="title_block_sender">Zablokuj nadawcę</string>
     <string name="title_block_sender_domain">Blokuj domenę \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blokowanie oznacza automatyczne przenoszenie do folderu ze spamem</string>
+    <string name="title_block_sender_remark">Blokowanie oznacza automatyczne przenoszenie do folderu ze spamem</string>
     <string name="title_block_sender_hint">        Blokowanie nadawcy jest funkcją darmową.
         Blokowanie domeny nadawcy używa zasad filtrowania, co jest funkcją Pro.
     </string>
@@ -417,6 +417,7 @@
     <string name="title_advanced_quote_reply">Cytuj treść w odpowiedzi</string>
     <string name="title_advanced_limit_reply">Ogranicz liczbę zagnieżdżonych cytatów</string>
     <string name="title_advanced_resize_reply">Zmień rozmiar zdjęć w treści odpowiedzi</string>
+    <string name="title_advanced_resize_paste">Zmień rozmiar wklejonych obrazów</string>
     <string name="title_advanced_signature_location">Pozycja podpisu</string>
     <string name="title_advanced_signature_new">Użyj podpisu dla nowych wiadomości</string>
     <string name="title_advanced_signature_reply">Użyj podpisu podczas odpowiadania</string>
@@ -609,7 +610,7 @@
     <string name="title_advanced_auto_block_sender">Automatycznie blokuj nadawcę podczas zgłaszania spamu</string>
     <string name="title_advanced_auto_hide_answer">Automatycznie ukryj przycisk odpowiedzi podczas przewijania</string>
     <string name="title_advanced_swipe_reply">Przesuń rozszerzone wiadomości w prawo, aby odpowiedzieć</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Podczas przenoszenia konwersacji, przeniesione zostaną również wysłane wiadomości</string>
+    <string name="title_advanced_move_thread_sent">Podczas przenoszenia konwersacji, przeniesione zostaną również wysłane wiadomości</string>
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia/opóźnienia</string>
     <string name="title_advanced_default_folder">Wybierz folder domyślny</string>
     <string name="title_advanced_notifications">Zarządzaj powiadomieniami</string>
@@ -1061,6 +1062,8 @@
     <string name="title_unified_folder">Pokaż we wspólnej skrzynce</string>
     <string name="title_navigation_folder">Pokaż w menu nawigacji</string>
     <string name="title_navigation_folder_hide">Ukryj w menu nawigacji</string>
+    <string name="title_unified_inbox_add">Dodaj do wspólnej skrzynki</string>
+    <string name="title_unified_inbox_delete">Usuń ze wspólnej skrzynki</string>
     <string name="title_synchronize_folder">Synchronizuj (odbierz wiadomości)</string>
     <string name="title_poll_folder">Sprawdzaj cyklicznie zamiast ciągłej synchronizacji</string>
     <string name="title_poll_folder_remark">Większość serwerów e-mail pozwala na wysyłanie wiadomości tylko dla kilku folderów!</string>
@@ -1368,7 +1371,7 @@
     <string name="title_translate_key">Wprowadź klucz</string>
     <string name="title_translating">Tłumaczenie &#8230;</string>
     <string name="title_translate_formal">Użyj stylu formalnego</string>
-    <string name="title_translate_small">Użyj małej czcionki dla tekstu źródłowego</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Użyj małej czcionki dla tekstu źródłowego</string>
     <string name="title_translate_html">Zachowaj formatowanie</string>
     <string name="title_translate_html_hint">Spowoduje to zużycie większej liczby znaków</string>
     <string name="title_translate_usage">Składnia: %1$s / %2$s (%3$d %%)</string>

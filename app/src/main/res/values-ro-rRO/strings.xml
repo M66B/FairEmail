@@ -92,7 +92,7 @@
     <string name="title_block">Blochează %1$s</string>
     <string name="title_block_sender">Blochează expeditor</string>
     <string name="title_block_sender_domain">Blocați domeniul \"%1$s</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blocarea înseamnă mutarea automată în folderul de spam</string>
+    <string name="title_block_sender_remark">Blocarea înseamnă mutarea automată în folderul de spam</string>
     <string name="title_block_sender_hint">        Blocarea unui expeditor este o funcție gratuită.
         Blocarea unui domeniu de expeditor utilizează reguli de filtrare, ceea ce reprezintă o caracteristică profesională.
     </string>
@@ -404,6 +404,7 @@
     <string name="title_advanced_quote_reply">Citează textul la care răspunzi</string>
     <string name="title_advanced_limit_reply">Limitează numărul de citate imbricate</string>
     <string name="title_advanced_resize_reply">Redimensionează imaginile în textul cu răspuns</string>
+    <string name="title_advanced_resize_paste">Redimensionează imaginile inserate</string>
     <string name="title_advanced_signature_location">Poziție semnătură</string>
     <string name="title_advanced_signature_new">Utilizați semnătura pentru mesajele noi</string>
     <string name="title_advanced_signature_reply">Utilizați semnătura la răspuns</string>
@@ -411,7 +412,7 @@
     <string name="title_advanced_signature_forward">Utilizați semnătura la redirecționare</string>
     <string name="title_advanced_discard_delete">Ciorna se șterge când renunțați la ea</string>
     <string name="title_advanced_reply_move">Când răspundeți la un mesaj, salvați răspunsul în același dosar</string>
-    <string name="title_advanced_reply_move_inbox">De asemenea, pentru mesajele din inbox</string>
+    <string name="title_advanced_reply_move_inbox">De asemenea, pentru mesajele din primite</string>
     <string name="title_advanced_auto_link">Creează automat adrese</string>
     <string name="title_advanced_plain_only">Trimite implicit ca text simplu</string>
     <string name="title_advanced_plain_only_reply">Setează automat text simplu doar când se răspunde la un mesaj cu text simplu</string>
@@ -454,6 +455,7 @@
     <string name="title_advanced_two_col">Utilizați două coloane</string>
     <string name="title_advanced_min_screen_size">Dimensiunea minimă a ecranului pentru împărțirea ecranului</string>
     <string name="title_advanced_close_pane">Restrângerea unui rând sau a unei coloane la închiderea unei conversații</string>
+    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Începe cu două rânduri sau două coloane</string>
     <string name="title_advanced_column_width">Lățimea coloanei mesajului / înălțimea rândului: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ascunde bara de instrumente de sus la derularea mesajelor</string>
     <string name="title_advanced_nav_options">Afișați opțiunile din meniul de navigare</string>
@@ -596,7 +598,7 @@
     <string name="title_advanced_auto_block_sender">Blochează automat expeditorul când raportezi spam-ul</string>
     <string name="title_advanced_auto_hide_answer">Ascunde automat butonul de răspuns la derulare</string>
     <string name="title_advanced_swipe_reply">Glisați mesajele extinse spre dreapta pentru a răspunde</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Atunci când mutați o conversație, mutați și mesajele trimise</string>
+    <string name="title_advanced_move_thread_sent">Atunci când mutați o conversație, mutați și mesajele trimise</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
     <string name="title_advanced_default_folder">Selectați directorul implicit</string>
     <string name="title_advanced_notifications">Gestionarea notificărilor</string>
@@ -1048,6 +1050,8 @@
     <string name="title_unified_folder">Arată în căsuța poștală comună</string>
     <string name="title_navigation_folder">Arată în meniul de navigație</string>
     <string name="title_navigation_folder_hide">Ascundeți în meniul de navigare</string>
+    <string name="title_unified_inbox_add">Adaugă la căsuța de mesaje unificată</string>
+    <string name="title_unified_inbox_delete">Șterge din căsuța de mesaje unificată</string>
     <string name="title_synchronize_folder">Sincronizare (primire mesaje)</string>
     <string name="title_poll_folder">Verifică periodic în loc de a sincroniza în continuu</string>
     <string name="title_poll_folder_remark">Majoritatea serverelor de e-mail permit transmiterea de mesaje doar pentru câteva dosare!</string>
@@ -1355,7 +1359,8 @@
     <string name="title_translate_key">Introduceți cheia</string>
     <string name="title_translating">Traducere &#8230;</string>
     <string name="title_translate_formal">Folosiți forma oficială</string>
-    <string name="title_translate_small">Utilizați un font mic pentru textul sursă</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Utilizați un font mic pentru textul sursă</string>
+    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Înlocuiește textul sursă cu textul tradus</string>
     <string name="title_translate_html">Păstrați formatarea</string>
     <string name="title_translate_html_hint">Acest lucru va consuma mai multe caractere</string>
     <string name="title_translate_usage">Utilizare: %1$s / %2$s (%3$d %%)</string>
@@ -1660,7 +1665,7 @@
     <string name="title_legend_synchronizing">Sincronizare în curs</string>
     <string name="title_legend_downloading">Descărcare în curs</string>
     <string name="title_legend_closing">Închidere</string>
-    <string name="title_legend_unified">Inbox unificat / cont primar</string>
+    <string name="title_legend_unified">Căsuță de mesaje unificată / cont primar</string>
     <string name="title_legend_inbox">Primite</string>
     <string name="title_legend_outbox">Mesaje de trimis</string>
     <string name="title_legend_drafts">Ciorne</string>
@@ -1978,7 +1983,7 @@
         <item>10 minute</item>
     </string-array>
     <string-array name="startupNames">
-        <item>Căsuță poștală comună</item>
+        <item>Căsuță poștală unificată</item>
         <item>Dosare unificate</item>
         <item>Dosare cont primar</item>
         <item>Conturi</item>

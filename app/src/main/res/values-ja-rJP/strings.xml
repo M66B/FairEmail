@@ -72,7 +72,7 @@
     <string name="title_block">%1$s をブロック</string>
     <string name="title_block_sender">差出人をブロック</string>
     <string name="title_block_sender_domain">ドメイン「%1$s」をブロック</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">ブロックすると、自動で迷惑メールフォルダーに移動します</string>
+    <string name="title_block_sender_remark">ブロックすると、自動で迷惑メールフォルダーに移動します</string>
     <string name="title_block_sender_hint">        差出人のブロックは無料版の機能です。
         差出人のドメインをブロックするにはフィルタールールを使用します。これはプロ版の機能です。
     </string>
@@ -379,6 +379,7 @@
     <string name="title_advanced_quote_reply">引用したテキストに引用符を付けて返信</string>
     <string name="title_advanced_limit_reply">入れ子になった引用の数を制限</string>
     <string name="title_advanced_resize_reply">引用した本文の画像をリサイズして返信</string>
+    <string name="title_advanced_resize_paste">貼り付けた画像のサイズを変更</string>
     <string name="title_advanced_signature_location">署名の位置</string>
     <string name="title_advanced_signature_new">新規メッセージに署名を使用</string>
     <string name="title_advanced_signature_reply">返信に署名を使用</string>
@@ -571,7 +572,7 @@
     <string name="title_advanced_auto_block_sender">メッセージを迷惑メールとして報告したとき、差出人を自動でブロック</string>
     <string name="title_advanced_auto_hide_answer">スクロール時に返信ボタンを隠す</string>
     <string name="title_advanced_swipe_reply">展開したメッセージを右にスワイプして返信</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">会話を移動するとき、送信済みメッセージも移動</string>
+    <string name="title_advanced_move_thread_sent">会話を移動するとき、送信済みメッセージも移動</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ/遅延時間</string>
     <string name="title_advanced_default_folder">デフォルトのフォルダーを選択</string>
     <string name="title_advanced_notifications">通知を管理</string>
@@ -1023,6 +1024,8 @@
     <string name="title_unified_folder">統合受信トレイに表示</string>
     <string name="title_navigation_folder">ナビゲーションメニューに表示</string>
     <string name="title_navigation_folder_hide">ナビゲーションメニューから隠す</string>
+    <string name="title_unified_inbox_add">統合受信トレイに追加</string>
+    <string name="title_unified_inbox_delete">統合受信トレイから削除</string>
     <string name="title_synchronize_folder">同期 (メッセージを受信)</string>
     <string name="title_poll_folder">継続的な同期の代わりに定期的に確認</string>
     <string name="title_poll_folder_remark">ほとんどのメールサーバーでは、一部のフォルダーに対してのみプッシュメッセージを許可しています</string>
@@ -1333,7 +1336,7 @@
     <string name="title_translate_key">キーを入力</string>
     <string name="title_translating">翻訳しています&#8230;</string>
     <string name="title_translate_formal">書き言葉を使用</string>
-    <string name="title_translate_small">ソーステキストに小さなフォントを使用</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">ソーステキストに小さなフォントを使用</string>
     <string name="title_translate_html">書式を維持</string>
     <string name="title_translate_html_hint">より多くの文字数を利用します</string>
     <string name="title_translate_usage">利用文字数: %1$s / %2$s (%3$d %%)</string>

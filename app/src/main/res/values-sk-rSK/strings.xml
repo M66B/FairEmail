@@ -102,6 +102,7 @@
     <string name="title_block">Zablokovať %1$s</string>
     <string name="title_block_sender">Zablokovať odosielateľa</string>
     <string name="title_block_sender_domain">Blokovať doménu \'%1$s\'</string>
+    <string name="title_block_sender_remark">Blokovanie znamená automatické presunutie do priečinka so spamom</string>
     <string name="title_block_sender_hint">        Blokovanie odosielateľa je bezplatná funkcia.
         Na blokovanie domény odosielateľa sa používajú pravidlá filtrovania, čo je Pro funkcia.
     </string>
@@ -260,6 +261,7 @@
     <string name="title_setup_done">Hotovo</string>
     <string name="title_setup_still">Zostáva dokončiť</string>
     <string name="title_setup_error">Chyba</string>
+    <string name="title_setup_manual_setup">Manuálne nastavenie</string>
     <string name="title_setup_pop">Používať POP3 protokol (neodporúča sa)</string>
     <string name="title_setup_recent">Použiť \'recent\' pre viaceré aplikácie elektronickej pošty</string>
     <string name="title_setup_configuring">Nastavenie účtu &#8230;</string>
@@ -393,13 +395,18 @@
     <string name="title_advanced_send_chips">Zobraziť bubliny s adresami</string>
     <string name="title_advanced_send_reminders">Zobrazovať pripomienky</string>
     <string name="title_advanced_send_delayed">Zdržať odosielané správy</string>
+    <string name="title_advanced_attach_new">Vytvorenie nového návrhu správy pre zdieľané adresy a súbory</string>
+    <string name="title_advanced_answer_caption">Nastavenia tlačidla Odpovedať</string>
     <string name="title_advanced_answer_default">Krátkym stlačením tlačidla odpovede:</string>
     <string name="title_advanced_answer_action">Akcia pri dlhom stlačení odpovedať:</string>
+    <string name="title_advanced_answer_hint">Akcie tlačidla Odpovedať je možné nastaviť aj na karte Nastavenia odosielania</string>
+    <string name="title_advanced_answer_warning">Nie všetky úkony sú možné bez výberového menu!</string>
     <string name="title_advanced_send_pending">Zobrazovať nevtieravú ikonu oneskoreného odosielania</string>
     <string name="title_advanced_auto_save_paragraph">Automaticky uložiť koncept po každom odseku</string>
     <string name="title_advanced_auto_save_dot">Automaticky uložiť koncept po každej vete</string>
     <string name="title_advanced_compose_color">Predvolená farba textu</string>
     <string name="title_advanced_compose_font">Predvolené písmo</string>
+    <string name="title_advanced_compose_monospaced">Použitie jednoliateho písma pre textové správy</string>
     <string name="title_advanced_auto_identity">Automaticky nastaviť totožnosť pre nové správy</string>
     <string name="title_advanced_prefix_once">Pri odpovedaní alebo preposielaní pridať do predmetu len jednu predponu</string>
     <string name="title_advanced_prefix_count">Pridať počet do prefixu pre odpoveď</string>
@@ -410,6 +417,7 @@
     <string name="title_advanced_quote_reply">Citovať text odpovede</string>
     <string name="title_advanced_limit_reply">Obmedziť počet vnorených citácií</string>
     <string name="title_advanced_resize_reply">Upraviť veľkosť obrázkov v texte odpovedi</string>
+    <string name="title_advanced_resize_paste">Zmeniť rozmery vložených obrázkov</string>
     <string name="title_advanced_signature_location">Umiestnenie podpisu</string>
     <string name="title_advanced_signature_new">V nových správať používať podpis</string>
     <string name="title_advanced_signature_reply">Používať podpis pri odpovedi</string>
@@ -602,6 +610,7 @@
     <string name="title_advanced_auto_block_sender">Automatické blokovanie odosielateľa pri nahlasovaní spamu</string>
     <string name="title_advanced_auto_hide_answer">Automatické skrytie tlačidla odpovede pri posúvaní</string>
     <string name="title_advanced_swipe_reply">Odpovedať švihnutím rozbalených správ vpravo</string>
+    <string name="title_advanced_move_thread_sent">Pri presunutí konverzácie sa presunú aj odoslané správy</string>
     <string name="title_advanced_default_snooze">Predvolený čas odloženia</string>
     <string name="title_advanced_default_folder">Vyberte predvolený priečinok</string>
     <string name="title_advanced_notifications">Spravovať upozornenia</string>
@@ -703,6 +712,7 @@
     <string name="title_advanced_classification">Klasifikovať správy</string>
     <string name="title_advanced_class_min_chance">Minimálna pravdepodobnosť: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimálny rozdiel: %1$s %%</string>
+    <string name="title_advanced_show_filtered">Zobraziť ikonu filtra, ak boli použité pravidlá</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_lt">Integrácia LanguageTool</string>
@@ -730,6 +740,7 @@
     <string name="title_advanced_app">Nastavenia aplikácie</string>
     <string name="title_advanced_more">Ďalšie možnosti</string>
     <string name="title_advanced_main_log">Hlavné zaznamenávanie</string>
+    <string name="title_advanced_main_log_mem">Zaznamenať využitie pamäte</string>
     <string name="title_advanced_protocol">Záznam na úrovni protokolu</string>
     <string name="title_advanced_log_info">Zaznamenávanie ladiacich informácií</string>
     <string name="title_advanced_debug">Ladiaci režim</string>
@@ -762,6 +773,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_send_reminders_hint">Zobraziť varovanie, ak je text správy alebo predmet prázdny alebo môže chýbať príloha</string>
     <string name="title_advanced_reply_move_hint">Poštový server môže stále umiestniť správy v priečinku s odoslanou poštou</string>
     <string name="title_advanced_compose_color_hint">Veľmi svetlé alebo veľmi tmavé farby budú mať za následok nečitateľnosť správ na strane príjemcov</string>
+    <string name="title_advanced_write_below_hint">Príjemca môže vašu odpoveď prehliadnuť, napríklad keď sa dlhšia správa skráti</string>
+    <string name="title_advanced_attach_new_hint">V opačnom prípade pridajte zdieľané adresy alebo súbory do aktuálneho návrhu správy</string>
     <string name="title_advanced_usenet_hint">Oddeliť podpis od textu správy znakmi \'-- \'</string>
     <string name="title_advanced_remove_signature_hint">Môže sa stať že bude odstráneného príliš málo alebo príliš veľa textu</string>
     <string name="title_advanced_metered_hint">Účtované pripojenia sú obyčajne mobilné dáta alebo platené wifi hotspoty</string>
@@ -808,6 +821,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_sender_hint">Väčšina poskytovateľov neumožňuje modifikovať adresu odosielateľa</string>
     <string name="title_advanced_bcc_hint">Adresy nebudú zobrazené, budú však pridané pri posielaní</string>
     <string name="title_advanced_internal_hint">Pri odosielaní do inej domény sa zobrazí varovanie</string>
+    <string name="title_advanced_uri">Podrobnosti vybraného kontaktu sa použijú pre prílohy vCard</string>
     <string name="title_advanced_e2e_encryption">Možnosti šifrovania end-to-end</string>
     <string name="title_advanced_display_harmful_hint">Vypnutie tejto možnosti môže narušiť Vaše súkromie</string>
     <string name="title_advanced_display_hidden_hint">Môže spôsobiť podivný vzhľad a duplikované texty</string>
@@ -839,7 +853,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_cleanup_hint">Odstráni všetky dočasné súbory</string>
     <string name="title_advanced_never_favorite">Nikdy nepovažovať za obľúbený</string>
     <string name="title_advanced_edit_name">Zmeniť meno</string>
+    <string name="title_create_folder">Vytvoriť priečinok</string>
     <string name="title_create_folder_name">Názov priečinka</string>
+    <string name="title_create_folder_parent">Základný priečinok</string>
     <string name="title_advanced_swipe_actions">Nastaviť akcie pri potiahnutí</string>
     <string name="title_advanced_swipe_actions_hint">Nastaví akcie pri potiahnutí do strán pre všetky IMAP účty</string>
     <string name="title_advanced_swipe_sensitivity">Citlivosť potiahnutia do strán</string>
@@ -850,9 +866,11 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_identity_color_hint">Farby totožnosti majú prednosť pred farbami priečinkov a účtov</string>
     <string name="title_advanced_sender">Povoliť upravovanie adresy odosielateľa</string>
     <string name="title_advanced_sender_name">Použiť meno keď bola upravená adresa odosielateľa</string>
+    <string name="title_advanced_reply_name">Skopírovať meno z prijatej správy</string>
     <string name="title_advanced_sender_regex">Regulárny výraz pre zachytenie mena používateľa prichádzajúcich emailových adries</string>
     <string name="title_identity_reply_to">Adresa pre odpoveď</string>
     <string name="title_identity_internal">Interné názvy domén (oddelené čiarkou)</string>
+    <string name="title_identity_uri">Prepojiť kontakt</string>
     <string name="title_identity_unicode">Povoliť UTF-8 v hlavičkách správ</string>
     <string name="title_identity_unicode_remark">Väčšina serverov túto možnosť nepodporuje</string>
     <string name="title_identity_octetmime">Povoliť 8BITMIME</string>
@@ -868,7 +886,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_account_category">Kategória</string>
     <string name="title_account_name_hint">Použije sa na odlíšenie priečinkov</string>
     <string name="title_account_interval_hint">Frekvencia obnovenia spojenia pre oznámenia push alebo frekvencia kontroly nových správ</string>
+    <string name="title_account_noop_hint">Pripojenie sa bude obnovovať častejšie, ale zároveň sa spotrebuje viac energie z batérie</string>
     <string name="title_account_partial_fetch_hint">Vypnite len pre prázdne správy alebo správy s poškodenými prílohami</string>
+    <string name="title_account_raw_fetch_hint">Ak túto funkciu povolíte, zvýši sa spotreba batérie a dát</string>
     <string name="title_color">Farba</string>
     <string name="title_calendar">Kalendár</string>
     <string name="title_background">Pozadie</string>
@@ -904,11 +924,16 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_primary_identity">Primárna (predvolená totožnosť)</string>
     <string name="title_self_identity">Odstrániť emailovú adresu pri odpovedi</string>
     <string name="title_leave_on_server">Ponechať správy na servery</string>
+    <string name="title_client_delete">Aktívne vymazať správy po ich stiahnutí</string>
     <string name="title_leave_deleted">Ponechať vymazané správy na servery</string>
     <string name="title_leave_on_device">Ponechať správy v zariadení</string>
     <string name="title_max_messages">Maximálny počet správ na prevzatie (nechajte prázdne pre všetky)</string>
+    <string name="title_max_messages_remark">        Zadajte kladné číslo pre sťahovanie správ na konci (najbežnejšie)
+        a záporné číslo na stiahnutie správ na začiatku (málo bežné)
+    </string>
     <string name="title_keep_poll_interval">Interval zisťovania (v minútach)</string>
     <string name="title_keep_alive_interval">Interval udržania spojenia (v minútach)</string>
+    <string name="title_keep_alive_noop">Pravidelný reštart IMAP IDLE</string>
     <string name="title_server_time">Použiť čas prijatia (server)</string>
     <string name="title_received_header">Použiť hlavičku \'Received\'</string>
     <string name="title_date_header">Použiť hlavičku \'Date\' (čas odoslania)</string>
@@ -942,10 +967,12 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_drafts_select">Posielanie emailov vyžaduje priradený priečinok konceptov v nastaveniach účtu</string>
     <string name="title_account_auth_update">Aktualizovať autorizáciu</string>
     <string name="title_account_auth_password">Prepnúť na overenie heslom</string>
+    <string name="title_change_password">Zmeniť heslo</string>
     <string name="title_delete_account">Odstrániť účet</string>
     <string name="title_account_delete">Natrvalo odstrániť tento účet?</string>
     <string name="title_identity_delete">Natrvalo odstrániť túto totožnosť?</string>
     <string name="title_edit_html">Upraviť ako HTML</string>
+    <string name="title_check_html">Skontrolovať HTML</string>
     <string name="title_import_file">Importovať súbor</string>
     <string name="title_sign_key">Podpisovací kľúč: %1$s</string>
     <string name="title_last_connected">Naposledy pripojený: %1$s</string>
@@ -964,6 +991,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_service_token">Správcu účtov systému android môže blokovať VPN, firewall, blokovač reklám, a pod., čo môže zamedziť získaniu access tokenu</string>
     <string name="title_service_port">Prosím, dva krát skontrolujte nastavený port</string>
     <string name="title_service_protocol">Prosím, dva krát skontrolujte nastavený protokol (SSL/TLS alebo STARTTLS)</string>
+    <string name="title_service_error10">Tento účet je potrebné znova overiť pomocou sprievodcu rýchlym nastavením</string>
     <string name="title_advanced_browse">Prehliadať správy na serveri</string>
     <string name="title_advanced_expand_read">Označiť správy za prečítané po rozbalení</string>
     <string name="title_synchronize_now">Synchronizovať teraz</string>
@@ -1030,8 +1058,12 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_edit_account_color">Upraviť farbu účtu</string>
     <string name="title_hide_folder">Skryť priečinok</string>
     <string name="title_hide_seen_folder">Skryť priečinok, keď sú všetky správy prečítané</string>
+    <string name="title_hide_seen_folder_hint">Len v zozname účtov a jednotných priečinkov</string>
     <string name="title_unified_folder">Zobraziť v spoločnej doručenej pošte</string>
     <string name="title_navigation_folder">Zobrazovať v navigačnom menu</string>
+    <string name="title_navigation_folder_hide">Skryť z navigačného menu</string>
+    <string name="title_unified_inbox_add">Pridať do hlavnej zložky doručenej pošty</string>
+    <string name="title_unified_inbox_delete">Odstrániť z hlavnej zložky doručenej pošty</string>
     <string name="title_synchronize_folder">Synchronizovať (prijať správy)</string>
     <string name="title_poll_folder">Kontrolovať periodicky namiesto neustálej synchronizácie</string>
     <string name="title_poll_folder_remark">Väčšina poštových serverov umožňuje správy push len pre niekoľko málo priečinkov!</string>
@@ -1102,10 +1134,12 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_editasnew">Upraviť ako novú</string>
     <string name="title_edit_notes">Upraviť lokálne poznámky</string>
     <string name="title_create_rule">Vytvoriť pravidlo &#8230;</string>
+    <string name="title_full_screen">Zobraziť na celú obrazovku</string>
     <string name="title_force_light">Vynútiť svetlý vzhľad</string>
     <string name="title_share">Zdieľať</string>
     <string name="title_event">Pridať do kalendára</string>
     <string name="title_pin">Pripnúť</string>
+    <string name="title_pin_label">Skrátený názov</string>
     <string name="title_print">Tlačiť</string>
     <string name="title_print_header">Tlačiť hlavičku</string>
     <string name="title_print_images">Tlačiť obrázky</string>
@@ -1123,6 +1157,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_download_all">Prevziať všetky</string>
     <string name="title_save_all">Uložiť všetky</string>
     <string name="title_save_eml">Uložiť správu ako nespracovaný súbor</string>
+    <string name="title_save_file">Uložiť súbor</string>
     <string name="title_eml_remark">Keď chcete preposlať správy, surové (pôvodné) správy musia byť prevzaté z poštového servera. Vyžaduje si to pripojenie na internet a správy musia stále byť uložené na servery.</string>
     <string name="title_eml_option">Môžete sa tomuto vyhnúť povolením voľby Prevziať surové súbory správy v nastaveniach pripojenia</string>
     <string name="title_eml_downloaded">Preberanie surových správ: %1$s</string>
@@ -1135,8 +1170,10 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_quick_actions">Vybrať akcie</string>
     <string name="title_quick_actions_hint">Zobrazených bude Najviac %1$d akcií</string>
     <string name="title_quick_actions_low">Nízka dôležitosť</string>
+    <string name="title_quick_actions_normal">Obvyklá dôležitosť</string>
     <string name="title_quick_actions_high">Vysoká dôležitosť</string>
     <string name="title_quick_actions_snooze">Odložiť</string>
+    <string name="title_quick_actions_clear">Vymazať výber po vykonaní činnosti</string>
     <string name="title_trash">Presunúť do koša</string>
     <string name="title_copy">Kopírovať &#8230;</string>
     <string name="title_copy_to">Kopírovať do &#8230;</string>
@@ -1165,7 +1202,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_reply_to_all">Odpovedať všetkým</string>
     <string name="title_reply_list">Odpovedať zoznamu</string>
     <string name="title_reply_receipt">Poslať potvrdenie o prečítaní</string>
+    <string name="title_reply_hard_bounce">Odoslať \'hard bounce\'</string>
     <string name="title_reply_template">Odpovedať šablónou</string>
+    <string name="title_reply_menu">Zobraziť výberové menu</string>
     <string name="title_move_undo">Presunúť do %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s overenie zlyhalo</string>
     <string name="title_on_blocklist">Na zozname blokovaných</string>
@@ -1187,6 +1226,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_no_folder">Priečinok neexistuje</string>
     <string name="title_no_format">Pôvodne obdržaná správa bude priložená</string>
     <string name="title_no_search">Hľadanie na servery nie je dostupné pre tento účet</string>
+    <string name="title_complex_search">Výber priečinka pre podrobné vyhľadávanie</string>
     <string name="title_too_large">Správa je príliš veľká na úplné preformátovanie</string>
     <string name="title_truncated">Správa je príliš veľká na úplné zobrazenie</string>
     <string name="title_insufficient_memory">Správa je príliš veľká; Dostupná pamäť (%1$d)</string>
@@ -1233,6 +1273,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     </string>
     <string name="title_compose">Napísať</string>
     <string name="title_submitter">Odosielateľ:</string>
+    <string name="title_signed_by">Podpísal:</string>
     <string name="title_delivered_to">Doručené:</string>
     <string name="title_from">Od:</string>
     <string name="title_to">Komu:</string>
@@ -1287,10 +1328,17 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_style_blockquote">Citácia</string>
     <string name="title_style_indentation">Odsadenie</string>
     <string name="title_style_mark">Zvýrazniť</string>
+    <string name="title_style_subscript">Dolný index</string>
+    <string name="title_style_superscript">Horný index</string>
     <string name="title_style_strikethrough">Prečiarknutie</string>
+    <string name="title_style_protect">Ochrana heslom</string>
+    <string name="title_style_protected">Chránený obsah</string>
+    <string name="title_style_protect_size">Príliš dlhý text</string>
     <string name="title_style_clear">Vymazať formátovanie</string>
+    <string name="title_style_setting_keep_selection">Ponechať výber</string>
     <string name="title_style_link">Vložiť odkaz</string>
     <string name="title_style_link_address">Adresa</string>
+    <string name="title_style_link_image">Vložiť ako obrázok</string>
     <string name="title_style_link_title">Názov</string>
     <string name="title_style_link_metadata">Získať názov</string>
     <string name="title_style_link_metadata_remark">Stiahne názov pre zadanú adresu</string>
@@ -1312,17 +1360,19 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_save_drafts">Uložiť koncepty na servery</string>
     <string name="title_send_dialog">Zobraziť možnosti odoslania</string>
     <string name="title_image_dialog">Zobraziť možnosti obrázka</string>
+    <string name="title_style_toolbar">Panel nástrojov</string>
     <string name="title_media_toolbar">Lišta médií</string>
     <string name="title_manage_local_contacts">Spravovať lokálne kontakty</string>
     <string name="title_insert_contact_group">Vložiť skupinu kontaktov</string>
     <string name="title_insert_template">Vložiť šablónu</string>
     <string name="title_create_template">Vytvoriť šablónu</string>
+    <string name="title_select_default_identity">Vybrať predvolenú adresu</string>
     <string name="title_translate">Preložiť</string>
     <string name="title_translate_configure">Nastaviť &#8230;</string>
     <string name="title_translate_key">Zadajte kľúč</string>
     <string name="title_translating">Preklad &#8230;</string>
     <string name="title_translate_formal">Používať formálny jazyk</string>
-    <string name="title_translate_small">Zdrojový text malým písmom</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Zdrojový text malým písmom</string>
     <string name="title_translate_html">Zachovať formátovanie</string>
     <string name="title_translate_html_hint">Zaberie viac znakov</string>
     <string name="title_translate_usage">Použitie: %1$s / %2$s (%3$d %%)</string>
@@ -1359,7 +1409,10 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_text_reminder">Telo správy je prázdne</string>
     <string name="title_attachment_keywords">priložené,príloha,prílohy,zahrnuté</string>
     <string name="title_attachment_reminder">Mali ste v úmysle pridať prílohu?</string>
+    <string name="title_attachment_warning">Môže byť nebezpečné: %1$s</string>
+    <string name="title_attachment_filename">Niektorí iní e-mailoví klienti nedokážu spracovať názvy súborov dlhšie ako 60 znakov</string>
     <string name="title_plain_reminder">Dôjde k strate formátovania</string>
+    <string name="title_dsn_reminder">\'Hard bounces\' poškodzujú povesť e-mailu pôvodného odosielateľa!</string>
     <string name="title_size_reminder">Správa (%1$s) väčšia než limit servera (%2$s)</string>
     <string name="title_attachments_missing">Nie všetky prílohy boli prevzaté</string>
     <string name="title_dialog_hint">Tento dialóg môže byť znovu zapnutý cez menu s troma bodkami v hornom panely akcií</string>
@@ -1375,12 +1428,18 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_resync">Znova synchronizovať</string>
     <string name="title_charset">Kódovanie</string>
     <string name="title_charset_auto">Automatické</string>
+    <string name="title_alternative_text">Načítať obyčajný text</string>
+    <string name="title_alternative_html">Načítať HTML</string>
     <string name="title_no_openpgp">OpenKeychain nenájdený</string>
+    <string name="title_no_openpgp_remark">Najprv je potrebné nastaviť end-to-end šifrovanie PGP</string>
     <string name="title_user_interaction">Prenos do OpenKeychain</string>
+    <string name="title_padlock">Na dešifrovanie správy použiť zámok</string>
     <string name="title_signed_data">Overiť podpis pre zobrazenie textu správy</string>
     <string name="title_not_encrypted">Správa nie je podpísaná alebo šifrovaná</string>
     <string name="title_no_sign_key">Nebol zvolený podpisovací kľúč</string>
     <string name="title_reset_sign_key">Resetovať podpisovací kľúč</string>
+    <string name="title_reset_selected_keys">Obnoviť vybrané kľúče</string>
+    <string name="title_reset_selected_keys_hint">Môže sa použiť v prípade nových certifikátov, atď...</string>
     <string name="title_signature_none">Správa nie je podpísaná</string>
     <string name="title_signature_valid">Podpis správy platný</string>
     <string name="title_signature_valid_from">Podpis správy platný: %1$s</string>
@@ -1424,6 +1483,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_with_size">Veľkosť správy väčšia než</string>
     <string name="title_search_in_trash">V odstránených</string>
     <string name="title_search_in_junk">V nevyžiadaných</string>
+    <string name="title_search_with_range">Časové rozpätie</string>
     <string name="title_search_with_before">Pred</string>
     <string name="title_search_with_after">Po</string>
     <string name="title_search_device_first">Prehľadať najprv správy v zariadení</string>
@@ -1457,6 +1517,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_sort_ascending">Od najstaršej</string>
     <string name="title_sort_on_name">Názov</string>
     <string name="title_sort_on_order">Poradie</string>
+    <string name="title_sort_on_applied">Použitý počet</string>
+    <string name="title_sort_on_last_applied">Naposledy použité</string>
     <string name="title_filter">Filtrovať</string>
     <string name="title_filter_seen">Prečítané</string>
     <string name="title_filter_unflagged">Bez hviezdičky</string>
@@ -1468,6 +1530,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_compact">Kompaktné zobrazenie</string>
     <string name="title_zoom">Veľkosť textu</string>
     <string name="title_padding">Veľkosť odsadenia</string>
+    <string name="title_large_buttons">Väčšie tlačidlá</string>
     <string name="title_select_language">Vybrať jazyk</string>
     <string name="title_select_all">Vybrať všetko</string>
     <string name="title_select_found">Vybrať nájdené</string>
@@ -1486,6 +1549,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
         Dovtedy prosím nezmašte tento obrázok!
     </string>
     <string name="title_answer_define_name">Názov</string>
+    <string name="title_answer_define_value">Hodnota</string>
     <string name="title_answer_caption">Upraviť šablónu</string>
     <string name="title_answer_reply">Šablóna odpovede</string>
     <string name="title_answer_name">Názov šablóny</string>
@@ -1501,6 +1565,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_answer_placeholder_email">Emailová adresa odosielateľa</string>
     <string name="title_answer_placeholder_firstname">Krsné meno odosielateľa</string>
     <string name="title_answer_placeholder_lastname">Priezvisko odosielateľa</string>
+    <string name="title_answer_placeholder_date">Aktuálny dátum</string>
     <string name="title_rule_noop">Žiadna akcia</string>
     <string name="title_rule_seen">Označiť ako prečítané</string>
     <string name="title_rule_unseen">Označiť ako neprečítané</string>
@@ -1509,6 +1574,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_snooze">Odložiť</string>
     <string name="title_rule_flag">Pridať hviezdičku</string>
     <string name="title_rule_importance">Nastaviť dôležitosť</string>
+    <string name="title_rule_keyword">Kľúčové slovo</string>
     <string name="title_rule_keyword_add">Pridať</string>
     <string name="title_rule_keyword_delete">Vymazať</string>
     <string name="title_rule_move">Presunúť</string>
@@ -1524,7 +1590,10 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_group">Skupina</string>
     <string name="title_rule_order">Poradie</string>
     <string name="title_rule_enabled">Zapnuté</string>
+    <string name="title_rule_daily">Spúšťať denne</string>
+    <string name="title_rule_age">Správy staršie ako (dni)</string>
     <string name="title_rule_stop">Zastaviť spracovávanie pravidiel po spustení tohto pravidla</string>
+    <string name="title_rule_stop_remark">Ak je pravidlo súčasťou skupiny, spracovanie všetkých pravidiel tejto skupiny bude pozastavené</string>
     <string name="title_rule_sender">Odosielateľ obsahuje</string>
     <string name="title_rule_sender_known">Odosielateľ je v zozname kontaktov</string>
     <string name="title_rule_recipient">Adresát obsahuje</string>
@@ -1539,6 +1608,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_time_before">Prijaté pred</string>
     <string name="title_rule_time_rel">Relatívny čas (prijaté) v rozmedzí</string>
     <string name="title_rule_time_every_day">Každý deň</string>
+    <string name="title_rule_younger">Správy novšie ako (hodín)</string>
     <string name="title_rule_regex">Regulárny výraz</string>
     <string name="title_rule_and">A</string>
     <string name="title_rule_action">Akcia</string>
@@ -1546,6 +1616,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_hours">Hodiny</string>
     <string name="title_rule_schedule_end">Od konca časovej podmienky</string>
     <string name="title_rule_folder">Priečinok</string>
+    <string name="title_rule_folder_create">Vytvoriť podpriečinok</string>
     <string name="title_rule_thread">Všetky správy v rovnakej konverzácii a priečinku</string>
     <string name="title_rule_identity">Totožnosť</string>
     <string name="title_rule_template">Šablóna odpovede</string>
@@ -1565,6 +1636,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_rule_keyword_missing">Chýbajúce kľúčové slová</string>
     <string name="title_rule_automation_hint">Týmto odošlete intent \'%1$s\' s údajmi extras \'%2$s\'</string>
     <string name="title_rule_delete_hint">Trvalé odstránenie nie je možné vrátiť späť, uistite sa, že sú podmienky pravidla nastavené správne!</string>
+    <string name="title_rule_edit_group">Upraviť skupinu &#8230;</string>
     <string name="title_rule_execute">Spustiť teraz</string>
     <string name="title_rule_applied">Ovplyvnené správy: %1$d</string>
     <string name="title_rule_check">Skontrolovať</string>
@@ -1706,6 +1778,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_folder_actions">Podržaním priečinka zobrazíte možnosti, napríklad pridanie priečinka do navigačného menu pre rýchly prístup</string>
     <string name="title_hint_folder_sync">Nie všetky priečinky a všetky správy budú predvolene synchronizované z dôvodu šetrenia energie a prenosu údajov</string>
     <string name="title_hint_airplane">Je zapnutý režim v lietadle</string>
+    <string name="title_hint_notifications">Nemáš oprávnenia na notifikácie</string>
     <string name="title_hint_support">Ak máte otázky alebo chcete nahlásiť problémy, pomoc získate cez ponuku Podpora</string>
     <string name="title_hint_message_actions">Potiahnutím vľavo premiestnite do koša. Potiahnutím vpravo archivujete (ak je to možné). Tieto akcie je možné zmeniť v nastaveniach účtu</string>
     <string name="title_hint_message_selection">Pridržaním správy začnete viac násobný výber, držte a posúvajte hore alebo dolu, a vyberiete viac správ</string>
@@ -1766,6 +1839,10 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_via">Cez: %1$s</string>
     <string name="title_1hour">hodinu</string>
     <string name="title_1day">deň</string>
+    <string name="title_today_at">Dnes o %1$s</string>
+    <string name="title_tomorrow_at">Zajtra o %1$s</string>
+    <string name="title_day_at_time">%1$s o %2$s</string>
+    <string name="title_next_week">Budúci týždeň v tomto čase</string>
     <string name="title_now">Teraz</string>
     <string name="title_after">Po %1$s</string>
     <string name="title_reset">Vynulovať</string>
@@ -1835,6 +1912,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_widget_padding">Veľkosť odsadenia</string>
     <string name="title_widget_separator_lines">Zobrazovať deliace čiary</string>
     <string name="title_widget_semi_transparent">Takmer priehľadné pozadie</string>
+    <string name="title_widget_count_top">Zobraziť počet neprečítaných správ v hornej časti</string>
     <string name="title_widget_avatars">Zobrazovať obrázky kontaktov</string>
     <string name="title_widget_refresh">Zobraziť tlačidlo obnoviť správy</string>
     <string name="title_widget_compose">Zobraziť tlačidlo napísať správu</string>

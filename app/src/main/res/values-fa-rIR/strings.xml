@@ -84,7 +84,7 @@
     <string name="title_block">%s مسدود شود</string>
     <string name="title_block_sender">مسدود کردن فرستنده</string>
     <string name="title_block_sender_domain">دامنه %1$s را مسدود کن</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">بلاک کردن به منزله انتقال خودکار به پوشه هرزنامه می‌باشد</string>
+    <string name="title_block_sender_remark">بلاک کردن به منزله انتقال خودکار به پوشه هرزنامه می‌باشد</string>
     <string name="title_block_sender_hint">مسدود کردن فرستنده یک ویژگی رایگان است.        مسدود کردن دامنه فرستنده از قوانین فیلتر استفاده می کند ، که یک ویژگی حرفه ای است.</string>
     <string name="title_blocked_senders">فرستندگان مسدود شده</string>
     <string name="title_junk_filter">از فیلتر هرزنامه محلی استفاده کنید</string>
@@ -335,6 +335,7 @@
     <string name="title_advanced_write_below">در پایین نوشته فرستنده بنویسید</string>
     <string name="title_advanced_quote_reply">متن پاسخ نقل قول شده</string>
     <string name="title_advanced_resize_reply">تغییر اندازه تصاویر در متن پاسخ داده شده</string>
+    <string name="title_advanced_resize_paste">تغییر اندازه تصاویر کپی شده</string>
     <string name="title_advanced_signature_location">موقعیت امضاء</string>
     <string name="title_advanced_signature_new">برای پیام‌های جدید از امضا استفاده کن</string>
     <string name="title_advanced_signature_reply">هنگام پاسخ از امضا استفاده کن</string>
@@ -450,7 +451,7 @@
     <string name="title_advanced_onclose">هنگام بستن یک گفتگو</string>
     <string name="title_advanced_autoread">به طور خودکار پیام‌های انتقال یافته به عنوان خوانده شده علامت گذاری شود</string>
     <string name="title_advanced_autounstar">هنگام انتقال پیام‌ها ستاره‌ها را خودکار از پیام‌ها حذف کن</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">به هنگام انتقال یک مکالمه، پیام‌های ارسالی را هم منتقل کن</string>
+    <string name="title_advanced_move_thread_sent">به هنگام انتقال یک مکالمه، پیام‌های ارسالی را هم منتقل کن</string>
     <string name="title_advanced_notifications">مدیریت اعلان‌ها</string>
     <string name="title_advanced_notifications_default">کانال پیش‌فرض</string>
     <string name="title_advanced_notifications_service">کانال نظارت</string>
@@ -667,6 +668,8 @@
     <string name="title_unified_folder">نمایش در صندوق دریافت یکپارچه</string>
     <string name="title_navigation_folder">نمایش در منوی ناوبری</string>
     <string name="title_navigation_folder_hide">در منوی ناوبری پنهان کن</string>
+    <string name="title_unified_inbox_add">اضافه کردن به صندوق دریافت یکپارچه</string>
+    <string name="title_unified_inbox_delete">حذف از صندوق دریافت یکپارچه</string>
     <string name="title_synchronize_folder">همگام سازی (دریافت پیام‌ها)</string>
     <string name="title_poll_folder">بررسی دوره‌ای به جای همگام سازی پیوسته</string>
     <string name="title_download_folder">دریافت خودکار متن پیام و پیوست</string>

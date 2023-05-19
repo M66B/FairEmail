@@ -82,7 +82,7 @@
     <string name="title_block">Blokér %1$s</string>
     <string name="title_block_sender">Blokér afsender</string>
     <string name="title_block_sender_domain">Blokér domænet \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Blokering betyder automatisk flytning til Spam-mappen</string>
+    <string name="title_block_sender_remark">Blokering betyder automatisk flytning til Spam-mappen</string>
     <string name="title_block_sender_hint">        Afsenderblokering er en gratisfunktion.
         Afsenderdomæneblokering sker via filterregler og er en Pro-funktion.
     </string>
@@ -391,6 +391,7 @@
     <string name="title_advanced_quote_reply">Citat af svartekst</string>
     <string name="title_advanced_limit_reply">Begræns antallet af indlejrede citater</string>
     <string name="title_advanced_resize_reply">Skalér billedstørrelse i tekstsvaret</string>
+    <string name="title_advanced_resize_paste">Ændr størrelse på indsatte billeder</string>
     <string name="title_advanced_signature_location">Signaturposition</string>
     <string name="title_advanced_signature_new">Brug signatur til nye beskeder</string>
     <string name="title_advanced_signature_reply">Benyt signatur i svar</string>
@@ -583,7 +584,7 @@
     <string name="title_advanced_auto_block_sender">Blokér automatisk afsenderen ved spamanmeldelse</string>
     <string name="title_advanced_auto_hide_answer">Skjul automatisk svarknappen når der scrolles</string>
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Når en samtale flyttes, flyt også sendte beskeder</string>
+    <string name="title_advanced_move_thread_sent">Når en samtale flyttes, flyt også sendte beskeder</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_default_folder">Vælg standardmappe</string>
     <string name="title_advanced_notifications">Håndtér notifikationer</string>
@@ -1033,6 +1034,8 @@
     <string name="title_unified_folder">Vis i samlet indbakke</string>
     <string name="title_navigation_folder">Vis i navigationsmenu</string>
     <string name="title_navigation_folder_hide">Skjul i navigeringsmenuen</string>
+    <string name="title_unified_inbox_add">Vis i samlet indbakke</string>
+    <string name="title_unified_inbox_delete">Slet fra samlet indbakke</string>
     <string name="title_synchronize_folder">Synkronisér (modtag beskeder)</string>
     <string name="title_poll_folder">Tjek periodisk i stedet for kontinuerlig synkronisering</string>
     <string name="title_poll_folder_remark">De fleste e-mailservere tillader kun push-beskeder for en håndfuld mapper!</string>
@@ -1343,7 +1346,7 @@
     <string name="title_translate_key">Angiv nøgle</string>
     <string name="title_translating">Oversætter&#8230;</string>
     <string name="title_translate_formal">Brug formel form</string>
-    <string name="title_translate_small">Benyt lille kildetekstskrifttype</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Benyt lille kildetekstskrifttype</string>
     <string name="title_translate_html">Bevar formatering</string>
     <string name="title_translate_html_hint">Dette vil betyde et forøget antal tegn</string>
     <string name="title_translate_usage">Forbrug: %1$s/%2$s (%3$d %%)</string>

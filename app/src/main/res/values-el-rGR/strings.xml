@@ -82,7 +82,7 @@
     <string name="title_block">Αποκλεισμός %1$s</string>
     <string name="title_block_sender">Αποκλεισμός αποστολέα</string>
     <string name="title_block_sender_domain">Αποκλεισμός τομέα \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Ο αποκλεισμός συνεπάγεται αυτόματη μετακίνηση στον φάκελο των Ανεπιθύμητων</string>
+    <string name="title_block_sender_remark">Ο αποκλεισμός συνεπάγεται αυτόματη μετακίνηση στον φάκελο των Ανεπιθύμητων</string>
     <string name="title_block_sender_hint">        Ο αποκλεισμός ενός αποστολέα είναι μια δωρεάν δυνατότητα.
         Ο αποκλεισμός ενός τομέα αποστολέα χρησιμοποιεί κανόνες φιλτραρίσματος, κάτι που αποτελεί δυνατότητα της έκδοσης Pro.
     </string>
@@ -391,6 +391,7 @@
     <string name="title_advanced_quote_reply">Παράθεση του προς απάντηση κειμένου</string>
     <string name="title_advanced_limit_reply">Περιορισμός του αριθμού των ιεραρχημένων παραθεμάτων</string>
     <string name="title_advanced_resize_reply">Αναπροσαρμογή των εικόνων στο προς απάντηση κείμενο</string>
+    <string name="title_advanced_resize_paste">Αλλαγή μεγέθους επικολλημένων εικόνων</string>
     <string name="title_advanced_signature_location">Θέση της υπογραφής</string>
     <string name="title_advanced_signature_new">Χρήση υπογραφής για νέα μηνύματα</string>
     <string name="title_advanced_signature_reply">Χρήση υπογραφής κατά την απάντηση</string>
@@ -583,7 +584,7 @@
     <string name="title_advanced_auto_block_sender">Αυτόματος αποκλεισμός του αποστολέα κατά την αναφορά μηνύματος ως ανεπιθύμητου</string>
     <string name="title_advanced_auto_hide_answer">Αυτόματη απόκρυψη του κουμπιού απάντησης κατά την κύλιση</string>
     <string name="title_advanced_swipe_reply">Σύρετε προς τα δεξιά τα αναπτυγμένα μηνύματα για να απαντήσετε</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Κατά τη μετακίνηση μιας συζήτησης, να μετακινούνται επίσης και τα απεσταλμένα μηνύματα</string>
+    <string name="title_advanced_move_thread_sent">Κατά τη μετακίνηση μιας συζήτησης, να μετακινούνται επίσης και τα απεσταλμένα μηνύματα</string>
     <string name="title_advanced_default_snooze">Προεπιλεγμένος χρόνος αναβολής/καθυστέρησης</string>
     <string name="title_advanced_default_folder">Επιλογή προεπιλεγμένου φακέλου</string>
     <string name="title_advanced_notifications">Διαχείριση ειδοποιήσεων</string>
@@ -1033,6 +1034,8 @@
     <string name="title_unified_folder">Προβολή στα ενοποιημένα εισερχόμενα</string>
     <string name="title_navigation_folder">Προβολή στο μενού πλοήγησης</string>
     <string name="title_navigation_folder_hide">Απόκρυψη στο μενού πλοήγησης</string>
+    <string name="title_unified_inbox_add">Προσθήκη στα ενοποιημένα εισερχόμενα</string>
+    <string name="title_unified_inbox_delete">Διαγραφή από ενοποιημένα εισερχόμενα</string>
     <string name="title_synchronize_folder">Συγχρονισμός (λήψη μηνυμάτων)</string>
     <string name="title_poll_folder">Περιοδικός έλεγχος αντί για συνεχή συγχρονισμό</string>
     <string name="title_poll_folder_remark">Οι περισσότεροι διακομιστές ηλ. ταχυδρομείου επιτρέπουν μηνύματα ώθησης (push) μόνον για έναν πολύ μικρό αριθμό φακέλων!</string>
@@ -1340,7 +1343,7 @@
     <string name="title_translate_key">Εισαγωγή κλειδιού</string>
     <string name="title_translating">Μεταφράζεται &#8230;</string>
     <string name="title_translate_formal">Χρήση επίσημου ύφους</string>
-    <string name="title_translate_small">Χρήση μιας μικρής γραμματοσειράς για το πηγαίο κείμενο</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Χρήση μιας μικρής γραμματοσειράς για το πηγαίο κείμενο</string>
     <string name="title_translate_html">Διατήρηση μορφοποίησης</string>
     <string name="title_translate_html_hint">Για αυτό θα χρειαστούν περισσότεροι χαρακτήρες</string>
     <string name="title_translate_usage">Χρήση: %1$s / %2$s (%3$d %%)</string>

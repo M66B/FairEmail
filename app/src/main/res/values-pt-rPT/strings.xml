@@ -82,7 +82,7 @@
     <string name="title_block">Bloquear %1$s</string>
     <string name="title_block_sender">Bloquear Remetente</string>
     <string name="title_block_sender_domain">Bloquear domínio \'%1$s\'</string>
-    <string name="title_block_sender_remark" comment="title_block_sender_remark&#10;Remark for report-spam dialog box">Bloquear significa mover automaticamente para a pasta de spam</string>
+    <string name="title_block_sender_remark">Bloquear significa mover automaticamente para a pasta de spam</string>
     <string name="title_block_sender_hint">Bloquear um remetente é um recurso gratuito.
         O bloqueio de nomes de domínio dos remetentes utiliza regras de filtragem, o que é uma funcionalidade paga.
     </string>
@@ -393,6 +393,7 @@
     <string name="title_advanced_quote_reply">Citar texto respondido</string>
     <string name="title_advanced_limit_reply">Limitar o número de citações encadeadas</string>
     <string name="title_advanced_resize_reply">Redimensionar imagens no texto da resposta</string>
+    <string name="title_advanced_resize_paste">Redimensionar imagens coladas</string>
     <string name="title_advanced_signature_location">Posição da assinatura</string>
     <string name="title_advanced_signature_new">Usar assinatura em novas mensagens</string>
     <string name="title_advanced_signature_reply">Usar assinatura quando responder</string>
@@ -443,6 +444,7 @@
     <string name="title_advanced_two_col">Usar duas colunas</string>
     <string name="title_advanced_min_screen_size">Tamanho mínimo de ecrã para dividir</string>
     <string name="title_advanced_close_pane">Recolher linha ou coluna ao fechar uma conversa</string>
+    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Iniciar com duas linhas ou duas colunas</string>
     <string name="title_advanced_column_width">Largura / altura da linha da Mensagem: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ocultar barra de ferramentas superior quando rolar as mensagens</string>
     <string name="title_advanced_nav_options">Mostrar opções do menu de navegação</string>
@@ -585,7 +587,7 @@
     <string name="title_advanced_auto_block_sender">Bloquear automaticamente o remetente quando denunciar spam</string>
     <string name="title_advanced_auto_hide_answer">Ocultar automaticamente o botão de resposta ao rolar</string>
     <string name="title_advanced_swipe_reply">Deslizar para a direita para responder em mensagens expandidas</string>
-    <string name="title_advanced_move_thread_sent" comment="title_advanced_move_thread_sent&#10;Title for option in the behavior-settings tab page">Ao mover uma conversa, também mover mensagens enviadas</string>
+    <string name="title_advanced_move_thread_sent">Ao mover uma conversa, também mover mensagens enviadas</string>
     <string name="title_advanced_default_snooze">Tempo pré-definido de repetição/adiamento</string>
     <string name="title_advanced_default_folder">Selecione a pasta padrão</string>
     <string name="title_advanced_notifications">Gerir notificações</string>
@@ -1037,6 +1039,8 @@
     <string name="title_unified_folder">Mostrar na cx. entrada unificada</string>
     <string name="title_navigation_folder">Mostrar no menu de navegação</string>
     <string name="title_navigation_folder_hide">Ocultar no menu de navegação</string>
+    <string name="title_unified_inbox_add">Adicionar à caixa de entrada unificada</string>
+    <string name="title_unified_inbox_delete">Apagar da caixa de entrada unificada</string>
     <string name="title_synchronize_folder">Sincronizar (receber mensagens)</string>
     <string name="title_poll_folder">Verificar periodicamente em vez da sincronização contínua</string>
     <string name="title_poll_folder_remark">A maioria dos servidores de e-mail apenas permite mensagens push em determinadas pastas!</string>
@@ -1347,7 +1351,8 @@
     <string name="title_translate_key">Introduzir chave de acesso</string>
     <string name="title_translating">A traduzir &#8230;</string>
     <string name="title_translate_formal">Utilizar o formulário formal</string>
-    <string name="title_translate_small">Utilizar um tipo de letra pequeno para o texto original</string>
+    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Utilizar um tipo de letra pequeno para o texto original</string>
+    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Substituir texto original por texto traduzido</string>
     <string name="title_translate_html">Guardar formatação</string>
     <string name="title_translate_html_hint">Esta opção consumirá mais caracteres</string>
     <string name="title_translate_usage">Utilização: %1$s / %2$s (%3$d %%)</string>
