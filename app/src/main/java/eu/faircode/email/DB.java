@@ -168,6 +168,26 @@ public abstract class DB extends RoomDatabase {
             } catch (SQLiteDatabaseCorruptException ex) {
                 Log.e(ex);
                 dbfile.delete();
+            } catch (Throwable ex) {
+                Log.e(ex);
+                /*
+                    java.lang.String, java.lang.String, android.os.Bundle)' on a null object reference
+                        at android.provider.Settings$NameValueCache.getStringForUser(Settings.java:3002)
+                        at android.provider.Settings$Global.getStringForUser(Settings.java:16253)
+                        at android.provider.Settings$Global.getString(Settings.java:16241)
+                        at android.database.sqlite.SQLiteCompatibilityWalFlags.initIfNeeded(SQLiteCompatibilityWalFlags.java:105)
+                        at android.database.sqlite.SQLiteCompatibilityWalFlags.isLegacyCompatibilityWalEnabled(SQLiteCompatibilityWalFlags.java:57)
+                        at android.database.sqlite.SQLiteDatabase.<init>(SQLiteDatabase.java:321)
+                        at android.database.sqlite.SQLiteDatabase.openDatabase(SQLiteDatabase.java:788)
+                        at android.database.sqlite.SQLiteDatabase.openDatabase(SQLiteDatabase.java:737)
+                        at eu.faircode.email.DB.init(SourceFile:61)
+                        at androidx.room.RoomDatabase$Builder.build(SourceFile:274)
+                        at eu.faircode.email.DB.getInstance(SourceFile:106)
+                        at eu.faircode.email.DB.setupViewInvalidation(SourceFile:1)
+                        at eu.faircode.email.ApplicationEx.onCreate(SourceFile:140)
+                        at android.app.Instrumentation.callApplicationOnCreate(Instrumentation.java:1229)
+                        at android.app.ActivityThread.handleBindApplication(ActivityThread.java:6719)
+                 */
             }
         }
 
@@ -178,6 +198,8 @@ public abstract class DB extends RoomDatabase {
                 try (Cursor cursor = db.rawQuery("PRAGMA wal_autocheckpoint=" + DB_CHECKPOINT + ";", null)) {
                     cursor.moveToNext(); // required
                 }
+            } catch (Throwable ex) {
+                Log.e(ex);
             }
         }
 
