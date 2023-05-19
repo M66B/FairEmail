@@ -261,6 +261,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean date;
     private boolean date_week;
     private boolean date_fixed;
+    private boolean date_time;
     private boolean cards;
     private boolean shadow_unread;
     private boolean shadow_border;
@@ -336,6 +337,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private NumberFormat NF = NumberFormat.getNumberInstance();
     private DateFormat TF;
     private DateFormat DTF;
+    private DateFormat DTFS;
 
     private static final ExecutorService executorDiffer =
             Helper.getBackgroundExecutor(0, "differ");
@@ -1419,7 +1421,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     message.totalSize != null && ("size".equals(sort) || "attachments".equals(sort))
                             ? View.VISIBLE : View.GONE);
             SpannableStringBuilder time;
-            if (date_week)
+            if (date_time)
+                time = new SpannableStringBuilderEx(DTFS.format(message.received));
+            else if (date_week)
                 time = new SpannableStringBuilderEx(Helper.getRelativeDateSpanString(context, message.received));
             else
                 time = new SpannableStringBuilderEx(
@@ -7573,6 +7577,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.TF = Helper.getTimeInstance(context, SimpleDateFormat.SHORT);
         this.DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
+        this.DTFS = Helper.getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT);
 
         ConnectionHelper.NetworkState state = ConnectionHelper.getNetworkState(context);
         this.suitable = state.isSuitable();
@@ -7618,6 +7623,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.date = prefs.getBoolean("date", true);
         this.date_week = prefs.getBoolean("date_week", false);
         this.date_fixed = (!date && prefs.getBoolean("date_fixed", false));
+        this.date_time = prefs.getBoolean("date_time", false);
         this.cards = prefs.getBoolean("cards", true);
         this.shadow_unread = prefs.getBoolean("shadow_unread", false);
         this.shadow_border = prefs.getBoolean("shadow_border", true);
