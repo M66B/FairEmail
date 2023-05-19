@@ -1738,9 +1738,12 @@ There are quick settings (settings tiles) available to:
 
 * globally enable/disable synchronization
 * show the number of new messages and marking them as seen (not read)
+* clear all app data
 
 Quick settings require Android 7.0 Nougat or later.
 The usage of settings tiles is explained [here](https://support.google.com/android/answer/9083864).
+
+Note that not all devices (manufacturers) support settings tiles, for example, Rephone doesn't.
 
 <br />
 
