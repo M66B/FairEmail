@@ -6,6 +6,16 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
+### Next version
+
+* Added option to start with two columns/rows
+* Added option to both date and time in message headers
+* Added option to replace source text by translated text
+* Added support for reminders in events
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2069 - 2023-05-09
 
 * Added support for Surface Duo 2
