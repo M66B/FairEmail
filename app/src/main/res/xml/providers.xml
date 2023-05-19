@@ -1456,7 +1456,7 @@
     <provider
         name="Charter.net"
         appPassword="true"
-        domain="charter\\.net"
+        domain="bresnan\\.net,charter\\.net,spectrum\\.net"
         link="https://www.spectrum.net/support/internet/spectrum-email-server-settings/">
         <imap
             host="mobile.charter.net"
