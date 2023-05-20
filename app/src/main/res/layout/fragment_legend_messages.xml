@@ -734,6 +734,29 @@
             app:layout_constraintTop_toBottomOf="@id/tvDownload" />
 
         <ImageView
+            android:id="@+id/ivNotJunk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_legend_not_junk"
+            android:padding="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNotJunk"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvNotJunk"
+            app:srcCompat="@drawable/twotone_report_off_24" />
+
+        <TextView
+            android:id="@+id/tvNotJunk"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="48dp"
+            android:text="@string/title_legend_not_junk"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivNotJunk"
+            app:layout_constraintTop_toBottomOf="@id/tvJunk" />
+
+        <ImageView
             android:id="@+id/ivUnsubscribe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -754,7 +777,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/ivUnsubscribe"
-            app:layout_constraintTop_toBottomOf="@id/tvJunk" />
+            app:layout_constraintTop_toBottomOf="@id/tvNotJunk" />
 
         <ImageView
             android:id="@+id/ivOriginal"
