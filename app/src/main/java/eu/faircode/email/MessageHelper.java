@@ -2035,8 +2035,10 @@ public class MessageHelper {
                 return true;
 
             // Google
+            // Feedback-ID: nnnnnnn:user:proton
             header = imessage.getHeader("Feedback-ID", null);
-            if (header != null)
+            if (header != null &&
+                    !header.endsWith(":user:proton")) // How privacy-friendly is this anyway?
                 return true;
 
             header = imessage.getHeader("Precedence", null);
