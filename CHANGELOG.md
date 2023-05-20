@@ -9,7 +9,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### 1.2070 - 2023-05-20
 
 * Added option to start with two columns/rows
-* Added option to both date and time in message headers
+* Added option to show both date and time in message headers
 * Added option to replace source text by translated text
 * Added support for reminders in events
 * Small improvements and minor bug fixes
