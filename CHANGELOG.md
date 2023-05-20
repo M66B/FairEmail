@@ -4,9 +4,9 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
+### [Tratayenia](https://en.wikipedia.org/wiki/Tratayenia)
 
-### Next version
+### 1.2070 - 2023-05-20
 
 * Added option to start with two columns/rows
 * Added option to both date and time in message headers
@@ -15,6 +15,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
+
+### [Saltopus](https://en.wikipedia.org/wiki/Saltopus)
 
 ### 1.2069 - 2023-05-09
 
