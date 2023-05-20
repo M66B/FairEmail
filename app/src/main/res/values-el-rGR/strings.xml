@@ -442,6 +442,7 @@
     <string name="title_advanced_two_col">Χρήση δύο στηλών</string>
     <string name="title_advanced_min_screen_size">Ελάχιστο μέγεθος οθόνης για διαχωρισμό της οθόνης</string>
     <string name="title_advanced_close_pane">Σύμπτυξη γραμμής ή στήλης κατά το κλείσιμο μιας συζήτησης</string>
+    <string name="title_advanced_open_pane">Έναρξη με δύο γραμμές ή δύο στήλες</string>
     <string name="title_advanced_column_width">Πλάτος στήλης / ύψος γραμμής μηνύματος: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Απόκρυψη της πάνω γραμμής εργαλείων κατά την κύλιση μηνυμάτων</string>
     <string name="title_advanced_nav_options">Να προβάλλονται οι επιλογές του μενού πλοήγησης</string>
@@ -466,6 +467,7 @@
     <string name="title_advanced_date_week">Ομαδοποίηση ανά εβδομάδα αντί ανά ημέρα</string>
     <string name="title_advanced_date_fixed">Προβολή κεφαλίδας σταθερής ημερομηνίας στην κορυφή</string>
     <string name="title_advanced_date_bold">Προβολή ημερομηνίας με έντονους χαρακτήρες</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Να προβάλλονται πάντα και η ημερομηνία και η ώρα</string>
     <string name="title_advanced_threading">Ομαδοποίηση συζητήσεων σε νήματα</string>
     <string name="title_advanced_threading_unread">Προβολή αριθμού μη αναγνωσμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_indentation">Αριστερή/δεξιά εσοχή ειλημμένων/απεσταλμένων μηνυμάτων στις συζητήσεις</string>
@@ -1343,7 +1345,8 @@
     <string name="title_translate_key">Εισαγωγή κλειδιού</string>
     <string name="title_translating">Μεταφράζεται &#8230;</string>
     <string name="title_translate_formal">Χρήση επίσημου ύφους</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Χρήση μιας μικρής γραμματοσειράς για το πηγαίο κείμενο</string>
+    <string name="title_translate_small">Χρήση μιας μικρής γραμματοσειράς για το πηγαίο κείμενο</string>
+    <string name="title_translate_replace">Αντικατάσταση πηγαίου κειμένου από μεταφρασμένο κείμενο</string>
     <string name="title_translate_html">Διατήρηση μορφοποίησης</string>
     <string name="title_translate_html_hint">Για αυτό θα χρειαστούν περισσότεροι χαρακτήρες</string>
     <string name="title_translate_usage">Χρήση: %1$s / %2$s (%3$d %%)</string>

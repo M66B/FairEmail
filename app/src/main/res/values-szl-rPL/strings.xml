@@ -468,6 +468,7 @@
     <string name="title_advanced_two_col">Dwie kolumny</string>
     <string name="title_advanced_min_screen_size">Minimalny rozmiar ekranu dla podziału ekranu</string>
     <string name="title_advanced_close_pane">Zwiń wiersz lub kolumnę podczas zamykania konwersacji</string>
+    <string name="title_advanced_open_pane">Zacznij od dwóch wierszy lub dwóch kolumn</string>
     <string name="title_advanced_column_width">Szerokość kolumny wiadomości / wysokość wiersza: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ukryj górny pasek narzędzi podczas przewijania wiadomości</string>
     <string name="title_advanced_nav_options">Pokaż opcje menu nawigacji</string>
@@ -492,6 +493,7 @@
     <string name="title_advanced_date_week">Grupuj według tygodnia zamiast dnia</string>
     <string name="title_advanced_date_fixed">Pokaż stały nagłówek daty na górze</string>
     <string name="title_advanced_date_bold">Pokaż datę pogrubioną</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Zawsze pokazuj zarówno datę, jak i godzinę</string>
     <string name="title_advanced_threading">Konwersacje w wątkach</string>
     <string name="title_advanced_threading_unread">Pokaż liczbę nieprzeczytanych wiadomości w konwersacjach</string>
     <string name="title_advanced_indentation">Otrzymane/wysłane wiadomości z lewej/prawej strony konwersacji</string>
@@ -1371,7 +1373,8 @@
     <string name="title_translate_key">Wprowadź klucz</string>
     <string name="title_translating">Tłumaczenie &#8230;</string>
     <string name="title_translate_formal">Użyj stylu formalnego</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Użyj małej czcionki dla tekstu źródłowego</string>
+    <string name="title_translate_small">Użyj małej czcionki dla tekstu źródłowego</string>
+    <string name="title_translate_replace">Zastąp tekst źródłowy przetłumaczonym tekstem</string>
     <string name="title_translate_html">Zachowaj formatowanie</string>
     <string name="title_translate_html_hint">Spowoduje to zużycie większej liczby znaków</string>
     <string name="title_translate_usage">Składnia: %1$s / %2$s (%3$d %%)</string>

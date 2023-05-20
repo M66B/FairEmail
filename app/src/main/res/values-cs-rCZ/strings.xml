@@ -469,7 +469,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_two_col">Použít dva sloupce</string>
     <string name="title_advanced_min_screen_size">Minimální velikost obrazovky pro její rozdělení</string>
     <string name="title_advanced_close_pane">Sbalit řádek nebo sloupec při zavření konverzace</string>
-    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Začít se dvěma řádky nebo dvěma sloupci</string>
+    <string name="title_advanced_open_pane">Začít se dvěma řádky nebo dvěma sloupci</string>
     <string name="title_advanced_column_width">Šířka sloupce zprávy / výška řádku: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Skrýt horní panel nástrojů při posouvání zpráv</string>
     <string name="title_advanced_nav_options">Zobrazit možnosti navigačního menu</string>
@@ -494,6 +494,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_date_week">Seskupit podle týdne namísto dne</string>
     <string name="title_advanced_date_fixed">Zobrazit nahoře datovou hlavičku</string>
     <string name="title_advanced_date_bold">Zobrazit datum tučně</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Vždy zobrazovat datum i čas</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_threading_unread">Zobrazit počet nepřečtených zpráv v konverzacích</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
@@ -1373,8 +1374,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_translate_key">Zadejte klíč</string>
     <string name="title_translating">Překládání &#8230;</string>
     <string name="title_translate_formal">Použít formální jazyk</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Použít malé písmo pro zdrojový text</string>
-    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Nahradit zdrojový text přeloženým textem</string>
+    <string name="title_translate_small">Použít malé písmo pro zdrojový text</string>
+    <string name="title_translate_replace">Nahradit zdrojový text přeloženým textem</string>
     <string name="title_translate_html">Zachovat formátování</string>
     <string name="title_translate_html_hint">Toto spotřebovává více znaků</string>
     <string name="title_translate_usage">Využití: %1$s / %2$s (%3$d %%)</string>

@@ -1339,7 +1339,7 @@
     <string name="title_translate_key">Ange nyckel</string>
     <string name="title_translating">Översätter &#8230;</string>
     <string name="title_translate_formal">Använd formell form</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Använd ett litet typsnitt för källtexten</string>
+    <string name="title_translate_small">Använd ett litet typsnitt för källtexten</string>
     <string name="title_translate_html">Behåll formatering</string>
     <string name="title_translate_html_hint">Detta kommer att använda fler tecken</string>
     <string name="title_translate_usage">Användning: %1$s / %2$s (%3$d %%)</string>

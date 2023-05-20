@@ -444,7 +444,7 @@
     <string name="title_advanced_two_col">Zwei Spalten verwenden</string>
     <string name="title_advanced_min_screen_size">Minimale Bildschirmgröße zum Aufteilen des Bildschirms</string>
     <string name="title_advanced_close_pane">Zeile oder Spalte beim Schließen einer Unterhaltung einklappen</string>
-    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Mit zwei Zeilen oder zwei Spalten beginnen</string>
+    <string name="title_advanced_open_pane">Mit zwei Zeilen oder zwei Spalten beginnen</string>
     <string name="title_advanced_column_width">Spaltenbreite/Zeilenhöhe der Nachricht: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Srollen von Nachrichten ausblenden</string>
     <string name="title_advanced_nav_options">Optionen im Navigationsmenü anzeigen</string>
@@ -469,6 +469,7 @@
     <string name="title_advanced_date_week">Nach Woche statt nach Tag gruppieren</string>
     <string name="title_advanced_date_fixed">Feste Datumskopfzeile oben anzeigen</string>
     <string name="title_advanced_date_bold">Datum fett anzeigen</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Immer ein Datum und eine Uhrzeit anzeigen</string>
     <string name="title_advanced_threading">Themenbaum</string>
     <string name="title_advanced_threading_unread">Anzahl ungelesener Nachrichten in Unterhaltungen anzeigen</string>
     <string name="title_advanced_indentation">Empfangene/gesendete Nachrichten im Themenbaum links/rechts einrücken</string>
@@ -1352,8 +1353,8 @@
     <string name="title_translate_key">Schlüssel einfügen</string>
     <string name="title_translating">Wird übersetzt &#8230;</string>
     <string name="title_translate_formal">Förmliche Anrede verwenden</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Kleine Schrift für den Originaltext verwenden</string>
-    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Originaltext durch übersetzten Text ersetzen</string>
+    <string name="title_translate_small">Kleine Schrift für den Originaltext verwenden</string>
+    <string name="title_translate_replace">Originaltext durch übersetzten Text ersetzen</string>
     <string name="title_translate_html">Formatierung beibehalten</string>
     <string name="title_translate_html_hint">Dadurch sind mehr Zeichen erforderlich</string>
     <string name="title_translate_usage">Verwendung: %1$s / %2$s (%3$d %%)</string>

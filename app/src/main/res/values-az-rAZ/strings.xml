@@ -443,7 +443,7 @@
     <string name="title_advanced_two_col">İki sütun istifadə et</string>
     <string name="title_advanced_min_screen_size">Ekranı bölmək üçün minimum ekran ölçüsü</string>
     <string name="title_advanced_close_pane">Bir danışığı bağlayarkən sətri və ya sütunu yığcamlaşdır</string>
-    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">İki sətir və ya iki sütunla başlayın</string>
+    <string name="title_advanced_open_pane">İki sətir və ya iki sütunla başlayın</string>
     <string name="title_advanced_column_width">Mesajın sütun eni / sətir hündürlüyü: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Mesajları sürüşdürərkən üstdəki alət sətrini gizlət</string>
     <string name="title_advanced_nav_options">Naviqasiya menyu seçimlərini göstər</string>
@@ -1350,8 +1350,8 @@
     <string name="title_translate_key">Açarı daxil et</string>
     <string name="title_translating">Tərcümə edilir &#8230;</string>
     <string name="title_translate_formal">Rəsmi formu istifadə et</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Mənbə mətni üçün kiçik şrift istifadə et</string>
-    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Mənbə mətni tərcümə edilmiş mətnlə əvəz et</string>
+    <string name="title_translate_small">Mənbə mətni üçün kiçik şrift istifadə et</string>
+    <string name="title_translate_replace">Mənbə mətni tərcümə edilmiş mətnlə əvəz et</string>
     <string name="title_translate_html">Formatlamanı qoru</string>
     <string name="title_translate_html_hint">Bu, daha çox simvolu istehlak edəcək</string>
     <string name="title_translate_usage">İstifadə: %1$s / %2$s (%3$d %%)</string>

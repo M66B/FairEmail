@@ -456,7 +456,7 @@
     <string name="title_advanced_two_col">Koristi dvije kolone</string>
     <string name="title_advanced_min_screen_size">Minimalna veličina ekrana za podijeljeni ekran</string>
     <string name="title_advanced_close_pane">Suzi red ili kolonu pri zatvaranju konverzacije</string>
-    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Započni s dva reda ili dvije kolone</string>
+    <string name="title_advanced_open_pane">Započni s dva reda ili dvije kolone</string>
     <string name="title_advanced_column_width">Širina kolone / visina reda poruka: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Sakrij gornju alatnu traku pri skrolanju poruka</string>
     <string name="title_advanced_nav_options">Prikaži opcije navigacijskog menija</string>
@@ -1363,8 +1363,8 @@
     <string name="title_translate_key">Unesite ključ</string>
     <string name="title_translating">Prevođenje &#8230;</string>
     <string name="title_translate_formal">Koristi formalni oblik</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Koristi mali font za izvorni tekst</string>
-    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Zamijeni izvorni tekst prevedenim tekstom</string>
+    <string name="title_translate_small">Koristi mali font za izvorni tekst</string>
+    <string name="title_translate_replace">Zamijeni izvorni tekst prevedenim tekstom</string>
     <string name="title_translate_html">Zadrži formatiranje</string>
     <string name="title_translate_html_hint">Ovo će zauzimati više znakova</string>
     <string name="title_translate_usage">Iskorištenje: %1$s / %2$s (%3$d %%)</string>

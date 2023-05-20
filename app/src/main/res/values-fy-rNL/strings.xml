@@ -1152,7 +1152,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_translate_configure">Konfigurearje&#8230;</string>
     <string name="title_translate_key">Kaai ynfolle</string>
     <string name="title_translating">Oersette&#8230;</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Brûk in lyts lettertype foar de boarnetekst</string>
+    <string name="title_translate_small">Brûk in lyts lettertype foar de boarnetekst</string>
     <string name="title_suggestions_check">Kontrolearje&#8230;</string>
     <string name="title_edit_plain_text">Bewurkje as platte tekst</string>
     <string name="title_edit_formatted_text">Bewurkje as herfoarme tekst</string>

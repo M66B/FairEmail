@@ -430,6 +430,7 @@
     <string name="title_advanced_two_col">2 列に分割</string>
     <string name="title_advanced_min_screen_size">画面を分割するときの最小画面サイズ</string>
     <string name="title_advanced_close_pane">会話を閉じるときに、行または列を閉じる</string>
+    <string name="title_advanced_open_pane">2 行または 2 列の表示から開始</string>
     <string name="title_advanced_column_width">本文の列の幅 / 行の高さ: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">メッセージをスクロールするとき上部ツールバーを隠す</string>
     <string name="title_advanced_nav_options">ナビゲーションメニューにオプションを表示</string>
@@ -454,6 +455,7 @@
     <string name="title_advanced_date_week">日付ではなく週でグループ化</string>
     <string name="title_advanced_date_fixed">日付を上部に固定表示</string>
     <string name="title_advanced_date_bold">日付を太字で表示</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">日付と時間を常に表示</string>
     <string name="title_advanced_threading">会話スレッド</string>
     <string name="title_advanced_threading_unread">会話の中の未読メッセージの数を表示</string>
     <string name="title_advanced_indentation">会話の中の受信/送信メッセージの左/右インデント</string>
@@ -1336,7 +1338,8 @@
     <string name="title_translate_key">キーを入力</string>
     <string name="title_translating">翻訳しています&#8230;</string>
     <string name="title_translate_formal">書き言葉を使用</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">ソーステキストに小さなフォントを使用</string>
+    <string name="title_translate_small">ソーステキストに小さなフォントを使用</string>
+    <string name="title_translate_replace">元テキストのを翻訳されたテキストに置き換える</string>
     <string name="title_translate_html">書式を維持</string>
     <string name="title_translate_html_hint">より多くの文字数を利用します</string>
     <string name="title_translate_usage">利用文字数: %1$s / %2$s (%3$d %%)</string>

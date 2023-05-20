@@ -429,6 +429,7 @@
     <string name="title_advanced_two_col">使用两列</string>
     <string name="title_advanced_min_screen_size">分屏下的最小屏幕尺寸</string>
     <string name="title_advanced_close_pane">关闭会话时收起行或列</string>
+    <string name="title_advanced_open_pane">以两行或两列开始</string>
     <string name="title_advanced_column_width">邮件列宽/行高：%1$s %%</string>
     <string name="title_advanced_hide_toolbar">滚动消息时隐藏顶部工具栏</string>
     <string name="title_advanced_nav_options">显示导航菜单选项</string>
@@ -453,6 +454,7 @@
     <string name="title_advanced_date_week">按星期而不是按日分组</string>
     <string name="title_advanced_date_fixed">在顶部显示固定日期标题</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">总是显示日期和时间</string>
     <string name="title_advanced_threading">邮件会话</string>
     <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
@@ -1330,7 +1332,8 @@
     <string name="title_translate_key">输入密钥</string>
     <string name="title_translating">正在翻译 &#8230;</string>
     <string name="title_translate_formal">使用正式语言形式</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">对源文本使用一个小字体</string>
+    <string name="title_translate_small">对源文本使用一个小字体</string>
+    <string name="title_translate_replace">用翻译文本替换源文本</string>
     <string name="title_translate_html">保留格式</string>
     <string name="title_translate_html_hint">这将耗费更多字符</string>
     <string name="title_translate_usage">用量： %1$s / %2$s (%3$d %%)</string>

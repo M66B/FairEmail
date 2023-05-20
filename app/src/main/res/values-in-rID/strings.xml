@@ -425,7 +425,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_two_col">Gunakan dua kolom</string>
     <string name="title_advanced_min_screen_size">Ukuran layar paling kecil untuk membagi layar</string>
     <string name="title_advanced_close_pane">Tutup baris atau kolom ketika menutup percakapan</string>
-    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Mulai dengan dua baris atau dua kolom</string>
+    <string name="title_advanced_open_pane">Mulai dengan dua baris atau dua kolom</string>
     <string name="title_advanced_column_width">Lebar kolom pesan / tinggi baris: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Sembunyo toolbar atas saat menggulir pesan</string>
     <string name="title_advanced_nav_options">Tampilkan pilihan menu navigasi</string>
@@ -1284,8 +1284,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_translate_key">Masukkan kata kunci</string>
     <string name="title_translating">Menerjemahkan &#8230;</string>
     <string name="title_translate_formal">Gunakan format formal</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Gunakan font kecil untuk tulisan sumber</string>
-    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Ganti teks sumber dengan teks terjemahan</string>
+    <string name="title_translate_small">Gunakan font kecil untuk tulisan sumber</string>
+    <string name="title_translate_replace">Ganti teks sumber dengan teks terjemahan</string>
     <string name="title_translate_html">Simpan format</string>
     <string name="title_translate_html_hint">Hal ini akan menggunakan banyak karakter</string>
     <string name="title_translate_usage">Penggunaan: %1$s / %2$s (%3$d %%)</string>

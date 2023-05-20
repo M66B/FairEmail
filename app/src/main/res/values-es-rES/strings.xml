@@ -442,6 +442,7 @@
     <string name="title_advanced_two_col">Usar dos columnas</string>
     <string name="title_advanced_min_screen_size">Tamaño mínimo de pantalla para dividir la pantalla</string>
     <string name="title_advanced_close_pane">Colapsar fila o columna al cerrar una conversación</string>
+    <string name="title_advanced_open_pane">Comenzar con dos filas o dos columnas</string>
     <string name="title_advanced_column_width">Ancho de columna de mensaje / altura de fila: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Ocultar barra de herramientas superior al desplazar mensajes</string>
     <string name="title_advanced_nav_options">Mostrar opciones de menú de navegación</string>
@@ -466,6 +467,7 @@
     <string name="title_advanced_date_week">Agrupar por semana en lugar de día</string>
     <string name="title_advanced_date_fixed">Mostrar encabezado de fecha fijado en la parte superior</string>
     <string name="title_advanced_date_bold">Mostrar fecha en negrita</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Mostrar siempre una fecha y una hora</string>
     <string name="title_advanced_threading">Hilos de conversación</string>
     <string name="title_advanced_threading_unread">Mostrar número de mensajes no leídos en conversaciones</string>
     <string name="title_advanced_indentation">Sangría izquierda/derecha para mensajes recibidos/enviados en conversaciones</string>
@@ -1345,7 +1347,8 @@
     <string name="title_translate_key">Introducir clave</string>
     <string name="title_translating">Traduciendo &#8230;</string>
     <string name="title_translate_formal">Usar modo formal</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Usar una fuente pequeña para el texto fuente</string>
+    <string name="title_translate_small">Usar una fuente pequeña para el texto fuente</string>
+    <string name="title_translate_replace">Reemplazar texto original por texto traducido</string>
     <string name="title_translate_html">Conservar formato</string>
     <string name="title_translate_html_hint">Esto consumirá más caracteres</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>

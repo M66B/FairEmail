@@ -468,6 +468,7 @@
     <string name="title_advanced_two_col">Použiť dva stĺpce</string>
     <string name="title_advanced_min_screen_size">Minimálna veľkosť obrazovky pre funkciu rozdelenie obrazovky</string>
     <string name="title_advanced_close_pane">Zbaliť riadok alebo stĺpec pri zatvorení konverzácie</string>
+    <string name="title_advanced_open_pane">Začať s dvoma riadkami alebo dvoma stĺpcami</string>
     <string name="title_advanced_column_width">Šírka stĺpca / výška riadku správy: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Skrytie horného panela nástrojov pri posúvaní správ</string>
     <string name="title_advanced_nav_options">Zobrazovať možnosti navigačnej ponuky</string>
@@ -492,6 +493,7 @@
     <string name="title_advanced_date_week">Zoskupenie podľa týždňa namiesto dňa</string>
     <string name="title_advanced_date_fixed">Pripnúť na vrchu hlavičku s dátumom</string>
     <string name="title_advanced_date_bold">Dátum zobraziť tučným písmom</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Vždy zobraziť dátum aj čas</string>
     <string name="title_advanced_threading">Vlákna konverzácií</string>
     <string name="title_advanced_threading_unread">Zobrazovať počet neprečítaných správ v konverzáciách</string>
     <string name="title_advanced_indentation">Ľavé/pravé odsadenie prijatých/odoslaných správ v konverzáciách</string>
@@ -1372,7 +1374,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_translate_key">Zadajte kľúč</string>
     <string name="title_translating">Preklad &#8230;</string>
     <string name="title_translate_formal">Používať formálny jazyk</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Zdrojový text malým písmom</string>
+    <string name="title_translate_small">Zdrojový text malým písmom</string>
+    <string name="title_translate_replace">Nahradiť zdrojový text preloženým textom</string>
     <string name="title_translate_html">Zachovať formátovanie</string>
     <string name="title_translate_html_hint">Zaberie viac znakov</string>
     <string name="title_translate_usage">Použitie: %1$s / %2$s (%3$d %%)</string>
@@ -1782,8 +1785,13 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_support">Ak máte otázky alebo chcete nahlásiť problémy, pomoc získate cez ponuku Podpora</string>
     <string name="title_hint_message_actions">Potiahnutím vľavo premiestnite do koša. Potiahnutím vpravo archivujete (ak je to možné). Tieto akcie je možné zmeniť v nastaveniach účtu</string>
     <string name="title_hint_message_selection">Pridržaním správy začnete viac násobný výber, držte a posúvajte hore alebo dolu, a vyberiete viac správ</string>
+    <string name="title_hint_message_junk">        E-mailový klient zobrazuje správy na e-mailovom serveri.
+        Za filtrovanie spamu je zodpovedný e-mailový server, nie e-mailový klient.
+        Ak dostávate veľa spamu, obráťte sa na poskytovateľa e-mailovej služby a neviňte z toho aplikáciu!
+    </string>
     <string name="title_hint_important">Dôležité</string>
     <string name="title_hint_sync">Preberanie správ zaberie určitý čas v závislosti od rýchlosti poskytovateľa, pripojenia na internet, zariadenia a množstva správ. Počas preberania môže aplikácia reagovať pomalšie.</string>
+    <string name="title_hint_sync_note">S cieľom ušetriť úložný priestor, prenos dát a výdrž batérie sa štandardne nebudú preberať všetky správy. Môžete to zmeniť dlhým stlačením priečinka v zozname a zvolením \'Načítať ďalšie správy\'.</string>
     <string name="title_hint_battery">Keďže FairEmail v predvolenej konfigurácii neustále prijíma správy, operačný systém bude aplikáciu považovať za vždy aktívnu. Môže sa zdať, že FairEmail neustále vybíja batériu, aj keď v skutočnosti to tak nie je.</string>
     <string name="title_hint_reformat">V predvolenej konfigurácii FairEmail zobrazuje preformátované správy s cieľom zachovať maximálnu bezpečnosť a chrániť vaše súkromie. Klepnutím na ikonu \'Celá obrazovka\' nad telom textu zobrazíte pôvodné formátovanie správy.</string>
     <string name="title_hint_design">Dizajn je schválne navrhnutý, aby ostal čo možno najlepšie funkčný a bol najmenej vtieravý. Dostupných je množstvo volieb na prispôsobenie vzhľadu, ale pochopte prosím, že nie je možné úplne vyhovieť všetkým.</string>
@@ -1807,6 +1815,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_reset_open">Nastavenie alebo vymazanie predvolených aplikácií</string>
     <string name="title_select_app">Vybrať aplikáciu</string>
     <string name="title_updated">Dostupná aktualizácia na verziu %1$s</string>
+    <string name="title_no_update">Aktualizácia nie je k dispozícii</string>
     <string name="title_issue">Máte otázku alebo chcete nahlásiť problém?</string>
     <string name="title_yes">Ǎno</string>
     <string name="title_no">Nie</string>
@@ -1815,6 +1824,11 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_undo">Vrátiť späť</string>
     <string name="title_redo">Zopakovať</string>
     <string name="title_insert_line">Vložiť čiaru</string>
+    <string name="title_select_block">Vybrať blok</string>
+    <string name="title_insert_brackets">Zátvorky</string>
+    <string name="title_insert_quotes">Citovať</string>
+    <string name="title_lt_add">Pridať slovo</string>
+    <string name="title_lt_delete">Odstrániť slovo</string>
     <string name="title_add">Pridať</string>
     <string name="title_browse">Otvoriť použitím</string>
     <string name="title_info">Info</string>
@@ -1839,6 +1853,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_via">Cez: %1$s</string>
     <string name="title_1hour">hodinu</string>
     <string name="title_1day">deň</string>
+    <string name="title_more_overflow">Viac &#8230;</string>
     <string name="title_today_at">Dnes o %1$s</string>
     <string name="title_tomorrow_at">Zajtra o %1$s</string>
     <string name="title_day_at_time">%1$s o %2$s</string>
@@ -1913,6 +1928,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_widget_separator_lines">Zobrazovať deliace čiary</string>
     <string name="title_widget_semi_transparent">Takmer priehľadné pozadie</string>
     <string name="title_widget_count_top">Zobraziť počet neprečítaných správ v hornej časti</string>
+    <string name="title_widget_subject_lines">Maximálny počet riadkov predmetu</string>
     <string name="title_widget_avatars">Zobrazovať obrázky kontaktov</string>
     <string name="title_widget_refresh">Zobraziť tlačidlo obnoviť správy</string>
     <string name="title_widget_compose">Zobraziť tlačidlo napísať správu</string>
@@ -1933,6 +1949,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     </plurals>
     <string name="title_accessibility_accounts">Účty</string>
     <string name="title_accessibility_folders">Priečinky</string>
+    <string name="title_accessibility_searches">Vyhľadávanie</string>
+    <string name="title_accessibility_menus">Ponuka</string>
+    <string name="title_accessibility_extras">Ďalšie</string>
     <string name="title_accessibility_collapsed">Zbalené</string>
     <string name="title_accessibility_expanded">Rozbalené</string>
     <string name="title_accessibility_seen">Prečítané</string>
@@ -2070,7 +2089,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string-array name="encryptNames">
         <item>Nič</item>
         <item>PGP len podpísať</item>
-        <item>PGP encrypt-only</item>
+        <item>Len PGP šifrovanie</item>
         <item>PGP podpísať aj zašifrovať</item>
         <item>S/MIME len podpísať</item>
         <item>S/MIME podpísať aj zašifrovať</item>

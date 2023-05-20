@@ -443,7 +443,7 @@
     <string name="title_advanced_two_col">Utiliser deux colonnes</string>
     <string name="title_advanced_min_screen_size">Taille minimale de l\'écran pour partager l\'écran</string>
     <string name="title_advanced_close_pane">Replier la ligne ou la colonne lors de la fermeture d\'une conversation</string>
-    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Commencer avec deux lignes ou deux colonnes</string>
+    <string name="title_advanced_open_pane">Commencer avec deux lignes ou deux colonnes</string>
     <string name="title_advanced_column_width">Largeur de colonne / hauteur de ligne du message: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Masquer la barre d\'outils du haut lors du défilement des messages</string>
     <string name="title_advanced_nav_options">Afficher les options du menu de navigation</string>
@@ -468,6 +468,7 @@
     <string name="title_advanced_date_week">Regrouper par semaine et non par jour</string>
     <string name="title_advanced_date_fixed">Afficher l\'en-tête de la date fixe en haut</string>
     <string name="title_advanced_date_bold">Afficher la date en gras</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Toujours afficher à la fois une date et une heure</string>
     <string name="title_advanced_threading">Afficher en mode conversation</string>
     <string name="title_advanced_threading_unread">Afficher le nombre de messages non lus dans les conversations</string>
     <string name="title_advanced_indentation">Mettre en retrait vers la gauche/droite les messages reçus/envoyés dans les conversations</string>
@@ -1351,8 +1352,8 @@
     <string name="title_translate_key">Saisir la clé</string>
     <string name="title_translating">Traduction&#8230;</string>
     <string name="title_translate_formal">Utiliser un langage formel</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Utiliser une petite police de caractères pour le texte source</string>
-    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Remplacer le texte source par le texte traduit</string>
+    <string name="title_translate_small">Utiliser une petite police de caractères pour le texte source</string>
+    <string name="title_translate_replace">Remplacer le texte source par le texte traduit</string>
     <string name="title_translate_html">Conserver la mise en forme</string>
     <string name="title_translate_html_hint">Ceci utilisera plus de caractères</string>
     <string name="title_translate_usage">Utilisation : %1$s / %2$s (%3$d %%)</string>

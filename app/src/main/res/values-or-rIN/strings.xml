@@ -250,6 +250,7 @@
     <string name="title_advanced_cards_shadow_highlight">ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ବଦଳରେ ହାଇଲାଇଟ୍ ରଙ୍ଗ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_tabular_dividers">ଟାବୁଲାର୍ ଶୈଳୀ ଵ୍ୟଵହାର କଲାଵେଳେ ଵିଭାଜକ ରେଖା ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_date_header">ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">ସର୍ଵଦା ଉଭୟ ତାରିଖ ଆଉ ସମୟ ଦର୍ଶାଇବା</string>
     <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_avatars">ସମ୍ପର୍କର ଫଟୋସବୁ ଦେଖାଇବା</string>
     <string name="title_advanced_gravatars">ଗ୍ରାଵତାରସବୁ ଦେଖାଇବା</string>

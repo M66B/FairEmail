@@ -441,7 +441,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_two_col">Gebruik twee kolommen</string>
     <string name="title_advanced_min_screen_size">Minimale schermgrootte voor het splitsen van het scherm</string>
     <string name="title_advanced_close_pane">Rij of kolom samenvouwen bij het sluiten van een gesprek</string>
-    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Begin met twee kolommen of rijen</string>
+    <string name="title_advanced_open_pane">Begin met twee kolommen of rijen</string>
     <string name="title_advanced_column_width">Berichtkolom breedte / rij hoogte: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Bovenste werkbalk verbergen bij het scrollen van berichten</string>
     <string name="title_advanced_nav_options">Toon navigatiemenu opties</string>
@@ -466,6 +466,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_date_week">Groeperen per week in plaats van dag</string>
     <string name="title_advanced_date_fixed">Toon vaste datumkoptekst bovenaan</string>
     <string name="title_advanced_date_bold">Datum vet weergeven</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Toon altijd zowel een datum als een tijd</string>
     <string name="title_advanced_threading">Gesprekken groeperen</string>
     <string name="title_advanced_threading_unread">Toon aantal ongelezen berichten in gesprekken</string>
     <string name="title_advanced_indentation">Links/rechts inspringen van ontvangen/verzonden berichten in gesprekken</string>
@@ -1344,8 +1345,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_translate_key">Sleutel invoeren</string>
     <string name="title_translating">Vertalen &#8230;</string>
     <string name="title_translate_formal">Gebruik formele vorm</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Gebruik een klein lettertype voor de brontekst</string>
-    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Vervang brontekst door vertaalde tekst</string>
+    <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
+    <string name="title_translate_replace">Vervang brontekst door vertaalde tekst</string>
     <string name="title_translate_html">Opmaak behouden</string>
     <string name="title_translate_html_hint">Dit zal meer tekens verbruiken</string>
     <string name="title_translate_usage">Gebruik: %1$s / %2$s (%3$d %%)</string>

@@ -443,7 +443,7 @@
     <string name="title_advanced_two_col">Usa due colonne</string>
     <string name="title_advanced_min_screen_size">Dimensione minima dello schermo per la sua divisione</string>
     <string name="title_advanced_close_pane">Comprimi riga o colonna chiudendo una conversazione</string>
-    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">Inizia con due righe o due colonne</string>
+    <string name="title_advanced_open_pane">Inizia con due righe o due colonne</string>
     <string name="title_advanced_column_width">Larghezza colonna/altezza riga del messaggio: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Nascondi la barra degli strumenti superiore scorrendo i messaggi</string>
     <string name="title_advanced_nav_options">Mostra le opzioni del menu di navigazione</string>
@@ -468,6 +468,7 @@
     <string name="title_advanced_date_week">Raggruppa per settimana invece che per giorno</string>
     <string name="title_advanced_date_fixed">Mostra l\'intestazione a data fissa in cima</string>
     <string name="title_advanced_date_bold">Mostra la data in grassetto</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Mostra sempre sia una data che un\'ora</string>
     <string name="title_advanced_threading">Thread della conversazione</string>
     <string name="title_advanced_threading_unread">Mostra il numero di messaggi non letti nelle conversazioni</string>
     <string name="title_advanced_indentation">Messaggi ricevuti/inviati con rientro a sinistra/destra nelle conversazioni</string>
@@ -1351,8 +1352,8 @@
     <string name="title_translate_key">Inserisci tasto</string>
     <string name="title_translating">Traducendo&#8230;</string>
     <string name="title_translate_formal">Usa il modulo formale</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Usa caratteri piccoli per il testo sorgente</string>
-    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">Sostituire il testo sorgente con il testo tradotto</string>
+    <string name="title_translate_small">Usa caratteri piccoli per il testo sorgente</string>
+    <string name="title_translate_replace">Sostituire il testo sorgente con il testo tradotto</string>
     <string name="title_translate_html">Preserva formattazione</string>
     <string name="title_translate_html_hint">Questo consumerà più caratteri</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>

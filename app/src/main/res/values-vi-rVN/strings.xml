@@ -1222,7 +1222,7 @@
     <string name="title_translate_key">Nhập mã khóa</string>
     <string name="title_translating">Đang dịch &#8230;</string>
     <string name="title_translate_formal">Sử dụng dạng trang trọng</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Sử dụng phông chữ nhỏ cho văn bản nguồn</string>
+    <string name="title_translate_small">Sử dụng phông chữ nhỏ cho văn bản nguồn</string>
     <string name="title_translate_html">Giữ lại định dạng</string>
     <string name="title_translate_html_hint">Việc này sẽ tiêu tốn nhiều kí tự hơn</string>
     <string name="title_translate_usage">Sử dụng: %1$s / %2$s (%3$d %%)</string>

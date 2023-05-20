@@ -441,6 +441,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_two_col">İki sütun kullan</string>
     <string name="title_advanced_min_screen_size">Ekranı bölmek için minimum ekran boyutu</string>
     <string name="title_advanced_close_pane">Bir konuşmayı kapatırken satırı veya sütunu daralt</string>
+    <string name="title_advanced_open_pane">İki satır veya iki sütunla başla</string>
     <string name="title_advanced_column_width">Mesaj sütun genişliği / satır yüksekliği: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Mesajları kaydırırken üstteki araç çubuğunu gizle</string>
     <string name="title_advanced_nav_options">Gezinme menüsü seçeneklerini göster</string>
@@ -465,6 +466,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_date_week">Gün yerine haftaya göre gruplandır</string>
     <string name="title_advanced_date_fixed">Sabit tarih başlığını üstte göster</string>
     <string name="title_advanced_date_bold">Tarihi kalın olarak göster</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Her zaman hem tarih hem de saat göster</string>
     <string name="title_advanced_threading">İletişim iş parçacığı</string>
     <string name="title_advanced_threading_unread">Sohbetlerde okunmamış mesajların sayısını göster</string>
     <string name="title_advanced_indentation">Sohbetlerde alınan/gönderilen mesajları sola/sağa girintile</string>
@@ -1344,7 +1346,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_translate_key">Anahtarı gir</string>
     <string name="title_translating">Tercüme ediliyor&#8230;</string>
     <string name="title_translate_formal">Resmi formu kullan</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Kaynak metin için küçük bir yazı tipi kullan</string>
+    <string name="title_translate_small">Kaynak metin için küçük bir yazı tipi kullan</string>
+    <string name="title_translate_replace">Kaynak metni çevrilmiş metinle değiştir</string>
     <string name="title_translate_html">Biçimlendirmeyi koru</string>
     <string name="title_translate_html_hint">Bu daha fazla karakter tüketecek</string>
     <string name="title_translate_usage">Kullanım: %1$s/%2$s (%3$d %%)</string>

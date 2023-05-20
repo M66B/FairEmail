@@ -470,6 +470,7 @@
     <string name="title_advanced_two_col">Выкарыстоўваць дзве калонкі</string>
     <string name="title_advanced_min_screen_size">Мінімальны памер экрана для падзелу</string>
     <string name="title_advanced_close_pane">Згортваць радок або слупок пры закрыцці размовы</string>
+    <string name="title_advanced_open_pane">Пачынаць з двух радкоў або двух слупкоў</string>
     <string name="title_advanced_column_width">Шырыня слупка паведамлення / вышыня радка: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Хаваць верхнюю панэль інструментаў пры пракручванні паведамленняў</string>
     <string name="title_advanced_nav_options">Паказваць опцыі меню навігацыі</string>
@@ -494,6 +495,7 @@
     <string name="title_advanced_date_week">Групаваць паводле тыдняў, а не паводле дзён</string>
     <string name="title_advanced_date_fixed">Паказваць фіксаваны загаловак з датай зверху</string>
     <string name="title_advanced_date_bold">Адлюстроўваць дату тлустым шрыфтам</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Заўсёды паказваць дату і час разам</string>
     <string name="title_advanced_threading">Ланцугі паведамленняў</string>
     <string name="title_advanced_threading_unread">Паказваць колькасць непрачытаных паведамленняў у размовах</string>
     <string name="title_advanced_indentation">Водступ злева/справа для атрыманых/адпраўленых паведамленняў у размовах</string>
@@ -1378,7 +1380,8 @@
     <string name="title_translate_key">Увядзіце ключ</string>
     <string name="title_translating">Пераклад &#8230;</string>
     <string name="title_translate_formal">Выкарыстоўваць афіцыйны стыль</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Выкарыстоўваць дробны шрыфт для зыходнага тэксту</string>
+    <string name="title_translate_small">Выкарыстоўваць дробны шрыфт для зыходнага тэксту</string>
+    <string name="title_translate_replace">Замяняць зыходны тэкст на перакладзены</string>
     <string name="title_translate_html">Захоўваць фарматаванне</string>
     <string name="title_translate_html_hint">Будзе выкарыстоўвацца больш сімвалаў</string>
     <string name="title_translate_usage">Выкарыстанне: %1$s / %2$s (%3$d %%)</string>

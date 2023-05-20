@@ -1342,7 +1342,7 @@
     <string name="title_translate_key">Syötä avain</string>
     <string name="title_translating">Käännetään &#8230;</string>
     <string name="title_translate_formal">Käytä muodollista kieltä</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">Käytä pientä kirjasinta lähdetekstille</string>
+    <string name="title_translate_small">Käytä pientä kirjasinta lähdetekstille</string>
     <string name="title_translate_html">Säilytä muotoilut</string>
     <string name="title_translate_html_hint">Tämä käyttää enemmän merkkejä</string>
     <string name="title_translate_usage">Käyttö: %1$s / %2$s (%3$d %%)</string>

@@ -469,7 +469,7 @@
     <string name="title_advanced_two_col">להשתמש בשתי עמודות</string>
     <string name="title_advanced_min_screen_size">גודל המסך המזערי לפיצול המסך</string>
     <string name="title_advanced_close_pane">לצמצם שורה או עמודה בעת סגירת דיון</string>
-    <string name="title_advanced_open_pane" comment="title_advanced_open_pane&#10;Title for option to start with two column/rows when not collapsing columns/rows">התחלה עם שתי שורות או עמודות</string>
+    <string name="title_advanced_open_pane">התחלה עם שתי שורות או עמודות</string>
     <string name="title_advanced_column_width">רוחב עמודה / גובה שורה של הודעה: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">להסתיר את סרגל הכלים בעת גלילה בין הודעות</string>
     <string name="title_advanced_nav_options">הצגת אפשרויות תפריט הניווט</string>
@@ -494,6 +494,7 @@
     <string name="title_advanced_date_week">קיבוץ לפי שבוע במקום לפי יום</string>
     <string name="title_advanced_date_fixed">להציג כותרת תאריך מקובעת למעלה</string>
     <string name="title_advanced_date_bold">הצגת תאריך בהדגשה</string>
+    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">תמיד להציג גם את התאריך וגם את השעה</string>
     <string name="title_advanced_threading">דיונים בשרשור</string>
     <string name="title_advanced_threading_unread">הצגת מספר ההודעות שלא נקראו בדיונים</string>
     <string name="title_advanced_indentation">הזחה שמאלית/ימנית להודעות שהתקבלו/נשלחו בדיונים</string>
@@ -1376,8 +1377,8 @@
     <string name="title_translate_key">נא להקליד מפתח</string>
     <string name="title_translating">מתורגם&#8230;</string>
     <string name="title_translate_formal">להשתמש בשפה רשמית</string>
-    <string name="title_translate_small" comment="title_translate_small&#10;The source text is the text being translated (into the translated text).">להשתמש בגופן קטן לטקסט המקור</string>
-    <string name="title_translate_replace" comment="title_translate_replace&#10;Title for option to replace the original text by the translated text&#10;The source text is the text being translated (into the translated text).">החלפת טקסט המקור בטקסט מתורגם</string>
+    <string name="title_translate_small">להשתמש בגופן קטן לטקסט המקור</string>
+    <string name="title_translate_replace">החלפת טקסט המקור בטקסט מתורגם</string>
     <string name="title_translate_html">שימור עיצוב</string>
     <string name="title_translate_html_hint">יצרוך יותר תווים</string>
     <string name="title_translate_usage">שימוש: %1$s / %2$s (%3$d %%)</string>
