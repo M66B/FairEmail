@@ -5288,12 +5288,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     froms.add(from);
                     int at = from.indexOf('@');
                     String domain = (at < 0 ? from : from.substring(at));
-                    domains.add(domain);
+                    if (!Objects.equals(from, domain))
+                        domains.add(domain);
                 }
                 cbNotAgainSender.setText(context.getString(R.string.title_no_ask_for_again,
                         TextUtils.join(", ", froms)));
                 cbNotAgainDomain.setText(context.getString(R.string.title_no_ask_for_again,
                         TextUtils.join(", ", domains)));
+                cbNotAgainDomain.setVisibility(domains.size() > 0 ? View.VISIBLE : View.GONE);
             }
 
             cbNotAgainDomain.setEnabled(false);
