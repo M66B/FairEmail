@@ -186,6 +186,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private Button btnRepair;
     private Button btnDaily;
+    private TextView tvLastDaily;
     private SwitchCompat swAutostart;
     private SwitchCompat swEmergency;
     private SwitchCompat swWorkManager;
@@ -429,6 +430,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         btnRepair = view.findViewById(R.id.btnRepair);
         btnDaily = view.findViewById(R.id.btnDaily);
+        tvLastDaily = view.findViewById(R.id.tvLastDaily);
         swAutostart = view.findViewById(R.id.swAutostart);
         swEmergency = view.findViewById(R.id.swEmergency);
         swWorkManager = view.findViewById(R.id.swWorkManager);
@@ -2132,6 +2134,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
 
+        if (prefs.contains("last_daily"))
+            tvLastDaily.setText(new Date(prefs.getLong("last_daily", 0)).toString());
+        else
+            tvLastDaily.setText(("-"));
+
         File external = Helper.getExternalFilesDir(getContext());
         boolean emulated = (external != null && Environment.isExternalStorageEmulated(external));
         tvExternalStorageFolder.setText(
@@ -2213,6 +2220,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
         if ("last_cleanup".equals(key))
             setLastCleanup(prefs.getLong(key, -1));
+
+        if ("last_daily".equals(key))
+            tvLastDaily.setText(new Date(prefs.getLong(key, 0)).toString());
 
         if ("lt_uri".equals(key) ||
                 "lt_user".equals(key) ||

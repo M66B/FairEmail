@@ -33,6 +33,7 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -116,6 +117,9 @@ public class WorkerDailyRules extends Worker {
                             "Executed " + count + " daily rules for " + account.name + "/" + folder.name);
                 }
             }
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putLong("last_daily", new Date().getTime()).apply();
         } catch (Throwable ex) {
             Log.e(ex);
         } finally {
