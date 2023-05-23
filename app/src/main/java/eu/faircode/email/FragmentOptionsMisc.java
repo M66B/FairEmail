@@ -2314,13 +2314,18 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 WorkerCleanup.cleanup(context, true);
-                WorkManager.getInstance(context).pruneWork();
                 return null;
             }
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                final Context context = getContext();
+                WorkManager.getInstance(context).pruneWork();
+                WorkerAutoUpdate.init(context);
+                WorkerCleanup.init(context);
+                WorkerDailyRules.init(context);
+                WorkerSync.init(context);
+                ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
             }
 
             @Override
