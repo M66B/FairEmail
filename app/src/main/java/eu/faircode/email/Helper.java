@@ -1047,7 +1047,7 @@ public class Helper {
         String open_with_pkg = prefs.getString("open_with_pkg", null);
         boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
 
-        Log.i("View=" + uri +
+        EntityLog.log(context, "View=" + uri +
                 " browse=" + browse +
                 " task=" + task +
                 " pkg=" + open_with_pkg + ":" + open_with_tabs +
