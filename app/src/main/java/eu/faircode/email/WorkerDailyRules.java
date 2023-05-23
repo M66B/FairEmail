@@ -144,17 +144,17 @@ public class WorkerDailyRules extends Worker {
                     cal.add(Calendar.DATE, 1);
                 delay = cal.getTimeInMillis() - now;
 
-                Log.i("Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");
+                EntityLog.log(context, EntityLog.Type.Rules, "Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");
                 PeriodicWorkRequest.Builder builder =
                         new PeriodicWorkRequest.Builder(WorkerDailyRules.class, 1, TimeUnit.DAYS)
                                 .setInitialDelay(delay, TimeUnit.MILLISECONDS);
                 WorkManager.getInstance(context)
                         .enqueueUniquePeriodicWork(getName(), ExistingPeriodicWorkPolicy.UPDATE, builder.build());
-                Log.i("Queued " + getName());
+                EntityLog.log(context, EntityLog.Type.Rules, "Queued " + getName());
             } else {
-                Log.i("Cancelling " + getName());
+                EntityLog.log(context, EntityLog.Type.Rules, "Cancelling " + getName());
                 WorkManager.getInstance(context).cancelUniqueWork(getName());
-                Log.i("Cancelled " + getName());
+                EntityLog.log(context, EntityLog.Type.Rules, "Cancelled " + getName());
             }
         } catch (Throwable ex) {
             // https://issuetracker.google.com/issues/138465476
