@@ -342,11 +342,10 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Package pkg = (Package) parent.getAdapter().getItem(position);
-                if (pkg.browser)
-                    prefs.edit()
-                            .putString("open_with_pkg", pkg.name)
-                            .putBoolean("open_with_tabs", pkg.tabs)
-                            .apply();
+                prefs.edit()
+                        .putString("open_with_pkg", pkg.name)
+                        .putBoolean("open_with_tabs", pkg.tabs)
+                        .apply();
             }
 
             @Override
