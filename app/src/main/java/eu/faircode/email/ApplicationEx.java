@@ -251,14 +251,14 @@ public class ApplicationEx extends Application
             // Legacy
             try {
                 WorkManager.getInstance(this).cancelUniqueWork("WorkerWatchdog");
+
+                WorkerAutoUpdate.init(this);
+                WorkerCleanup.init(this);
+                WorkerDailyRules.init(this);
+                WorkerSync.init(this);
             } catch (IllegalStateException ex) {
                 Log.e(ex);
             }
-
-            WorkerAutoUpdate.init(this);
-            WorkerCleanup.init(this);
-            WorkerDailyRules.init(this);
-            WorkerSync.init(this);
         }
 
         registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
