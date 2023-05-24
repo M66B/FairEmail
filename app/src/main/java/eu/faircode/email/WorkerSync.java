@@ -90,6 +90,7 @@ public class WorkerSync extends Worker {
 
                 EntityLog.log(context, EntityLog.Type.Cloud,
                         "Queuing " + getName() + " delay=" + (delay / (60 * 1000L)) + "m");
+                WorkManager.getInstance(context).cancelUniqueWork(getName());
                 PeriodicWorkRequest.Builder builder =
                         new PeriodicWorkRequest.Builder(WorkerSync.class, 1, TimeUnit.DAYS)
                                 .setInitialDelay(delay, TimeUnit.MILLISECONDS)
