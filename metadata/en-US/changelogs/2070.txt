@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Tratayenia
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
+
 1.2070 - 2023-05-20
 
 * Added option to start with two columns/rows

@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Tratayenia](https://en.wikipedia.org/wiki/Tratayenia)
 
+### Next version
+
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2070 - 2023-05-20
 
 * Added option to start with two columns/rows
