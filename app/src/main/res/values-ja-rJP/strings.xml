@@ -455,7 +455,7 @@
     <string name="title_advanced_date_week">日付ではなく週でグループ化</string>
     <string name="title_advanced_date_fixed">日付を上部に固定表示</string>
     <string name="title_advanced_date_bold">日付を太字で表示</string>
-    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">日付と時間を常に表示</string>
+    <string name="title_advanced_date_time">日付と時間を常に表示</string>
     <string name="title_advanced_threading">会話スレッド</string>
     <string name="title_advanced_threading_unread">会話の中の未読メッセージの数を表示</string>
     <string name="title_advanced_indentation">会話の中の受信/送信メッセージの左/右インデント</string>
@@ -1715,6 +1715,7 @@
     <string name="title_legend_avatar">アバター</string>
     <string name="title_legend_show_quotes">引用符を表示</string>
     <string name="title_legend_show_junk">迷惑メールとして扱う</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">迷惑メールでないものして扱う</string>
     <string name="title_legend_create_rule">ルールを作成</string>
     <string name="title_legend_show_unsubscribe">リストから退会</string>
     <string name="title_legend_show_images">画像を表示</string>

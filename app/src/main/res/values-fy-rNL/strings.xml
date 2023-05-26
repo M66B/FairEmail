@@ -441,6 +441,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_two_col">Brûk twa kolommen</string>
     <string name="title_advanced_min_screen_size">Minimale skermgrutte foar it splitsen fan it skerm</string>
     <string name="title_advanced_close_pane">Rige of kolom ynklappe by it sluten fan in petear</string>
+    <string name="title_advanced_open_pane">Begjin mei twa kolommen of rigen</string>
     <string name="title_advanced_column_width">Berjochtkolombreedte / rigehichte: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Boppeste arkbalke ferstopje by it skowen fan berjochten</string>
     <string name="title_advanced_nav_options">Navigaasjemenuopties</string>
@@ -465,6 +466,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_date_week">Op wike yn stee fan dei groepearje</string>
     <string name="title_advanced_date_fixed">Fêste datumkoptekst boppe oan toane</string>
     <string name="title_advanced_date_bold">Datum fet werjaan</string>
+    <string name="title_advanced_date_time">Altyd sawol datum as in tiid toane</string>
     <string name="title_advanced_threading">Petearen groepearje</string>
     <string name="title_advanced_threading_unread">Net-lêzen berjochten yn petearen toane</string>
     <string name="title_advanced_indentation">Links/rjochts ynspringe fan ûntfongen/ferstjoerde berjochten yn petearen</string>
@@ -1153,6 +1155,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_translate_key">Kaai ynfolle</string>
     <string name="title_translating">Oersette&#8230;</string>
     <string name="title_translate_small">Brûk in lyts lettertype foar de boarnetekst</string>
+    <string name="title_translate_replace">Ferfang boarnetekst troch oersette tekst</string>
     <string name="title_suggestions_check">Kontrolearje&#8230;</string>
     <string name="title_edit_plain_text">Bewurkje as platte tekst</string>
     <string name="title_edit_formatted_text">Bewurkje as herfoarme tekst</string>
@@ -1458,6 +1461,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Sjoch sitaten</string>
     <string name="title_legend_show_junk">Behannelje as spam</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Net as spam behannelje</string>
     <string name="title_legend_create_rule">Regel meitsje</string>
     <string name="title_legend_show_unsubscribe">Abonnearje fan list</string>
     <string name="title_legend_show_images">Sjoch ofbyldings</string>

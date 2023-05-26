@@ -469,7 +469,7 @@
     <string name="title_advanced_date_week">Agrupar por semana em vez de dia</string>
     <string name="title_advanced_date_fixed">Mostrar cabeçalho de data fixo no topo</string>
     <string name="title_advanced_date_bold">Mostrar data em negrito</string>
-    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Mostrar sempre tanto a data como a hora</string>
+    <string name="title_advanced_date_time">Mostrar sempre tanto a data como a hora</string>
     <string name="title_advanced_threading">Encadeamento de conversas</string>
     <string name="title_advanced_threading_unread">Mostrar número de mensagens não lidas nas conversas</string>
     <string name="title_advanced_indentation">Indentação esquerda/direita para mensagens recebidas/enviadas em conversas</string>
@@ -1729,6 +1729,7 @@
     <string name="title_legend_avatar">Imagem de Perfil</string>
     <string name="title_legend_show_quotes">Mostrar citações</string>
     <string name="title_legend_show_junk">Tratar como spam</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Tratar como não sendo spam</string>
     <string name="title_legend_create_rule">Criar regra</string>
     <string name="title_legend_show_unsubscribe">Cancelar subscrição desta lista</string>
     <string name="title_legend_show_images">Mostrar imagens</string>

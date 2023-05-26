@@ -439,6 +439,7 @@
     <string name="title_advanced_two_col">Använd två kolumner</string>
     <string name="title_advanced_min_screen_size">Minsta skärmstorlek för uppdelning av skärmen</string>
     <string name="title_advanced_close_pane">Kollapsa rad eller kolumn när en konversation stängs</string>
+    <string name="title_advanced_open_pane">Börja med två rader eller två kolumner</string>
     <string name="title_advanced_column_width">Meddelandekolumnens bredd / radhöjd: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Dölj övre verktygsfältet vid bläddring i meddelanden</string>
     <string name="title_advanced_nav_options">Visa alternativ för navigeringsmeny</string>
@@ -463,6 +464,7 @@
     <string name="title_advanced_date_week">Gruppera efter vecka istället för dag</string>
     <string name="title_advanced_date_fixed">Visa fast datumrubrik högst upp</string>
     <string name="title_advanced_date_bold">Visa datum i fetstil</string>
+    <string name="title_advanced_date_time">Visa alltid både datum och tid</string>
     <string name="title_advanced_threading">Konversationstrådar</string>
     <string name="title_advanced_threading_unread">Visa antal olästa meddelanden i konversationer</string>
     <string name="title_advanced_indentation">Vänster/höger indrag mottaget/skickade meddelanden i konversationer</string>
@@ -1340,6 +1342,7 @@
     <string name="title_translating">Översätter &#8230;</string>
     <string name="title_translate_formal">Använd formell form</string>
     <string name="title_translate_small">Använd ett litet typsnitt för källtexten</string>
+    <string name="title_translate_replace">Ersätt ursprunglig text med översatt text</string>
     <string name="title_translate_html">Behåll formatering</string>
     <string name="title_translate_html_hint">Detta kommer att använda fler tecken</string>
     <string name="title_translate_usage">Användning: %1$s / %2$s (%3$d %%)</string>
@@ -1714,6 +1717,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Visa citat</string>
     <string name="title_legend_show_junk">Behandla som skräppost</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Behandla som ej skräppost</string>
     <string name="title_legend_create_rule">Skapa regel</string>
     <string name="title_legend_show_unsubscribe">Avregistrera dig från listan</string>
     <string name="title_legend_show_images">Visa bilder</string>

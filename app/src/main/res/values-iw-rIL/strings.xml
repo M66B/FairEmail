@@ -494,7 +494,7 @@
     <string name="title_advanced_date_week">קיבוץ לפי שבוע במקום לפי יום</string>
     <string name="title_advanced_date_fixed">להציג כותרת תאריך מקובעת למעלה</string>
     <string name="title_advanced_date_bold">הצגת תאריך בהדגשה</string>
-    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">תמיד להציג גם את התאריך וגם את השעה</string>
+    <string name="title_advanced_date_time">תמיד להציג גם את התאריך וגם את השעה</string>
     <string name="title_advanced_threading">דיונים בשרשור</string>
     <string name="title_advanced_threading_unread">הצגת מספר ההודעות שלא נקראו בדיונים</string>
     <string name="title_advanced_indentation">הזחה שמאלית/ימנית להודעות שהתקבלו/נשלחו בדיונים</string>
@@ -1754,6 +1754,7 @@
     <string name="title_legend_avatar">סמל ייצוגי</string>
     <string name="title_legend_show_quotes">הצגת ציטוטים</string>
     <string name="title_legend_show_junk">התנהגות כספאם</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">להתייחס כלא ספאם</string>
     <string name="title_legend_create_rule">יצירת כלל</string>
     <string name="title_legend_show_unsubscribe">ביטול מינוי לרשימה</string>
     <string name="title_legend_show_images">הצגת תמונות</string>

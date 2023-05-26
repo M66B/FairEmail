@@ -493,6 +493,7 @@
     <string name="title_advanced_date_week">Группировать по неделям вместо дней</string>
     <string name="title_advanced_date_fixed">Показывать постоянный заголовок с датой вверху</string>
     <string name="title_advanced_date_bold">Показывать дату жирным шрифтом</string>
+    <string name="title_advanced_date_time">Всегда показывать дату и время</string>
     <string name="title_advanced_threading">Связанные диалоги</string>
     <string name="title_advanced_threading_unread">Показывать количество непрочитанных сообщений в диалогах</string>
     <string name="title_advanced_indentation">Левый/правый отступ для полученных/отправленных сообщений в диалогах</string>
@@ -1752,6 +1753,7 @@
     <string name="title_legend_avatar">Аватар</string>
     <string name="title_legend_show_quotes">Показывать цитаты</string>
     <string name="title_legend_show_junk">Считать спамом</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Не считать спамом</string>
     <string name="title_legend_create_rule">Создать правило</string>
     <string name="title_legend_show_unsubscribe">Отписаться от рассылки</string>
     <string name="title_legend_show_images">Показывать изображения</string>

@@ -494,7 +494,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_date_week">Seskupit podle týdne namísto dne</string>
     <string name="title_advanced_date_fixed">Zobrazit nahoře datovou hlavičku</string>
     <string name="title_advanced_date_bold">Zobrazit datum tučně</string>
-    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Vždy zobrazovat datum i čas</string>
+    <string name="title_advanced_date_time">Vždy zobrazovat datum i čas</string>
     <string name="title_advanced_threading">Vlákna konverzací</string>
     <string name="title_advanced_threading_unread">Zobrazit počet nepřečtených zpráv v konverzacích</string>
     <string name="title_advanced_indentation">Levé/pravé odsazení přijatých/odeslaných zpráv v konverzacích</string>
@@ -1751,6 +1751,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Zobrazit citace</string>
     <string name="title_legend_show_junk">Považovat za nevyžádané</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Označit jako \"není spam\"</string>
     <string name="title_legend_create_rule">Vytvořit pravidlo</string>
     <string name="title_legend_show_unsubscribe">Ukončit odebírání kanálu</string>
     <string name="title_legend_show_images">Zobrazit obrázky</string>

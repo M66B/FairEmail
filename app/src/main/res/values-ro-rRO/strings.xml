@@ -480,6 +480,7 @@
     <string name="title_advanced_date_week">Grupare pe săptămână în loc de zi</string>
     <string name="title_advanced_date_fixed">Afișați antetul cu dată fixă în partea de sus</string>
     <string name="title_advanced_date_bold">Afișați data marcată cu bold</string>
+    <string name="title_advanced_date_time">Arată întotdeauna o dată și o oră</string>
     <string name="title_advanced_threading">Aranjare mesaje în conversație</string>
     <string name="title_advanced_threading_unread">Arată numărul de mesaje necitite în conversații</string>
     <string name="title_advanced_indentation">Aliniere mesaje primite/trimise în stânga/dreapta în conversații</string>
@@ -1736,6 +1737,7 @@
     <string name="title_legend_avatar">Poză de profil</string>
     <string name="title_legend_show_quotes">Arată citate</string>
     <string name="title_legend_show_junk">Tratează ca spam</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Nu trata drept spam</string>
     <string name="title_legend_create_rule">Creați o regulă</string>
     <string name="title_legend_show_unsubscribe">Dezabonare de la listă</string>
     <string name="title_legend_show_images">Afișare imagini</string>

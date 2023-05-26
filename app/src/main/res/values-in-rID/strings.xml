@@ -450,6 +450,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_date_week">Kelompokkan berdasarkan minggu daripada hari</string>
     <string name="title_advanced_date_fixed">Tampilkan tanggal tajuk tetap di atas</string>
     <string name="title_advanced_date_bold">Tebalkan tanggal</string>
+    <string name="title_advanced_date_time">Selalu tunjukkan tanggal dan waktu</string>
     <string name="title_advanced_threading">Obrolan via email yang berlanjut</string>
     <string name="title_advanced_threading_unread">Tampilkan jumlah pesan yang belum dibaca dalam obrolan</string>
     <string name="title_advanced_indentation">Indentasi kiri/kanan menerima/mengirim pesan dalam sebuah obrolan</string>
@@ -1612,6 +1613,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Tampilkan kutipan</string>
     <string name="title_legend_show_junk">Tandai sebagai spam</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Tandai bukan spam</string>
     <string name="title_legend_create_rule">Buat aturan</string>
     <string name="title_legend_show_unsubscribe">Berhenti berlangganan dari daftar ini</string>
     <string name="title_legend_show_images">Tampilkan gambar</string>

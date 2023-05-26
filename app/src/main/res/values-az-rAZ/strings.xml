@@ -468,6 +468,7 @@
     <string name="title_advanced_date_week">Gün əvəzinə həftəyə görə qruplaşdır</string>
     <string name="title_advanced_date_fixed">Sabit tarix başlığını üstdə göstər</string>
     <string name="title_advanced_date_bold">Tarixi qalın göstər</string>
+    <string name="title_advanced_date_time">Tarixi və saatı həmişə göstər</string>
     <string name="title_advanced_threading">Əlaqəli danışıqlar</string>
     <string name="title_advanced_threading_unread">Danışıqda oxunmamış mesaj sayını göstər</string>
     <string name="title_advanced_indentation">Danışıqlarda alınan/göndərilən mesajların sol/sağ boşluğu</string>
@@ -1727,6 +1728,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Sitatları göstər</string>
     <string name="title_legend_show_junk">Spam hesab et</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Spam deyilmiş kimi davran</string>
     <string name="title_legend_create_rule">Qayda yarat</string>
     <string name="title_legend_show_unsubscribe">Siyahıdan çıx</string>
     <string name="title_legend_show_images">Təsvirləri göstər</string>

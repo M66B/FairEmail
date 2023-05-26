@@ -31,6 +31,7 @@
     <string name="title_rule_keyword_add">Pridėti</string>
     <string name="title_rule_keyword_delete">Ištrinti</string>
     <string name="title_rule_enabled">Įjungta</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Raktas: title_legend_not_junk title_legend_not_junk Legenda „ne šlamštas“ piktogramos / mygtuko pavadinimas Failas: strings.xml</string>
     <string name="title_legend_delete">Ištrinti</string>
     <string name="title_add">Pridėti</string>
     <string name="title_enabled">Įjungta</string>

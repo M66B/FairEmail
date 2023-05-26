@@ -442,6 +442,7 @@
     <string name="title_advanced_two_col">Brug to kolonner</string>
     <string name="title_advanced_min_screen_size">Minimumsskærmstørrelse for opsplitning af skærmen</string>
     <string name="title_advanced_close_pane">Skjul række eller kolonne, når en samtale lukkes</string>
+    <string name="title_advanced_open_pane">Start med to rækker eller kolonner</string>
     <string name="title_advanced_column_width">Beskedkolonnebredde/-rækkehøjde: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Skjul øverste værktøjsbjælke ved rulning gennem beskeder</string>
     <string name="title_advanced_nav_options">Vis navigeringsmenuindstillinger</string>
@@ -466,6 +467,7 @@
     <string name="title_advanced_date_week">Gruppér efter uge i stedet for dag</string>
     <string name="title_advanced_date_fixed">Vis fast datohoved øverst</string>
     <string name="title_advanced_date_bold">Vis dato med fed</string>
+    <string name="title_advanced_date_time">Vis altid både dato og klokkeslæt</string>
     <string name="title_advanced_threading">Samtaler i tråde</string>
     <string name="title_advanced_threading_unread">Vis antal ulæste beskeder i samtaler</string>
     <string name="title_advanced_indentation">Venstre-/-højreindryk modtagne/sendte beskeder i samtaler</string>
@@ -1347,6 +1349,7 @@
     <string name="title_translating">Oversætter&#8230;</string>
     <string name="title_translate_formal">Brug formel form</string>
     <string name="title_translate_small">Benyt lille kildetekstskrifttype</string>
+    <string name="title_translate_replace">Erstat kildetekst ved oversat tekst</string>
     <string name="title_translate_html">Bevar formatering</string>
     <string name="title_translate_html_hint">Dette vil betyde et forøget antal tegn</string>
     <string name="title_translate_usage">Forbrug: %1$s/%2$s (%3$d %%)</string>
@@ -1722,6 +1725,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Vis citater</string>
     <string name="title_legend_show_junk">Håndtér som spam</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Håndtér som ikke-spam</string>
     <string name="title_legend_create_rule">Opret regel</string>
     <string name="title_legend_show_unsubscribe">Afabonnér fra liste</string>
     <string name="title_legend_show_images">Vis billeder</string>

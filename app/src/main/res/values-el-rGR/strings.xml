@@ -467,7 +467,7 @@
     <string name="title_advanced_date_week">Ομαδοποίηση ανά εβδομάδα αντί ανά ημέρα</string>
     <string name="title_advanced_date_fixed">Προβολή κεφαλίδας σταθερής ημερομηνίας στην κορυφή</string>
     <string name="title_advanced_date_bold">Προβολή ημερομηνίας με έντονους χαρακτήρες</string>
-    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Να προβάλλονται πάντα και η ημερομηνία και η ώρα</string>
+    <string name="title_advanced_date_time">Να προβάλλονται πάντα και η ημερομηνία και η ώρα</string>
     <string name="title_advanced_threading">Ομαδοποίηση συζητήσεων σε νήματα</string>
     <string name="title_advanced_threading_unread">Προβολή αριθμού μη αναγνωσμένων μηνυμάτων στις συζητήσεις</string>
     <string name="title_advanced_indentation">Αριστερή/δεξιά εσοχή ειλημμένων/απεσταλμένων μηνυμάτων στις συζητήσεις</string>
@@ -1722,6 +1722,7 @@
     <string name="title_legend_avatar">Άβαταρ</string>
     <string name="title_legend_show_quotes">Προβολή παραθεμάτων</string>
     <string name="title_legend_show_junk">Αντιμετώπιση ως ανεπιθύμητο</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Αντιμετώπιση ως μη ανεπιθύμητο</string>
     <string name="title_legend_create_rule">Δημιουργία κανόνα</string>
     <string name="title_legend_show_unsubscribe">Κατάργηση συνδρομής από τη λίστα</string>
     <string name="title_legend_show_images">Προβολή εικόνων</string>

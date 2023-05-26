@@ -494,6 +494,7 @@
     <string name="title_advanced_date_week">Групувати за тижнями замість дня</string>
     <string name="title_advanced_date_fixed">Показати фіксований заголовок дати зверху</string>
     <string name="title_advanced_date_bold">Показувати дату в жирному шрифті</string>
+    <string name="title_advanced_date_time">Завжди показувати як і дату, так і час</string>
     <string name="title_advanced_threading">Пов\'язанні розмови</string>
     <string name="title_advanced_threading_unread">Показувати кількість непрочитаних повідомлень у розмовах</string>
     <string name="title_advanced_indentation">Відступати ліворуч чи праворуч для отриманих або надісланих повідомлень у розмовах</string>
@@ -1750,6 +1751,7 @@
     <string name="title_legend_avatar">Аватар</string>
     <string name="title_legend_show_quotes">Показати цитату</string>
     <string name="title_legend_show_junk">Вважати спамом</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Вважати, що не спам</string>
     <string name="title_legend_create_rule">Створити правило</string>
     <string name="title_legend_show_unsubscribe">Відписати зі списку</string>
     <string name="title_legend_show_images">Показати зображення</string>

@@ -365,7 +365,7 @@
     <string name="title_advanced_quick_sync">Rýchla synchronizácia</string>
     <string name="title_advanced_no_date">Správy s neuvedeným dátumom</string>
     <string name="title_advanced_unseen">Všetky neprečítané správy</string>
-    <string name="title_advanced_flagged">Všetky správy s hviezdičkov\'</string>
+    <string name="title_advanced_flagged">Všetky obľúbené správy</string>
     <string name="title_advanced_delete_unseen">Vymazať staré neprečítané správy</string>
     <string name="title_advanced_kept_removed">Skontrolovať, či boli staré správy zmazané zo servera</string>
     <string name="title_advanced_gmail_thread">Zoskupovať správy ako Gmail pre Gmail účty</string>
@@ -493,7 +493,7 @@
     <string name="title_advanced_date_week">Zoskupenie podľa týždňa namiesto dňa</string>
     <string name="title_advanced_date_fixed">Pripnúť na vrchu hlavičku s dátumom</string>
     <string name="title_advanced_date_bold">Dátum zobraziť tučným písmom</string>
-    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">Vždy zobraziť dátum aj čas</string>
+    <string name="title_advanced_date_time">Vždy zobraziť dátum aj čas</string>
     <string name="title_advanced_threading">Vlákna konverzácií</string>
     <string name="title_advanced_threading_unread">Zobrazovať počet neprečítaných správ v konverzáciách</string>
     <string name="title_advanced_indentation">Ľavé/pravé odsadenie prijatých/odoslaných správ v konverzáciách</string>
@@ -607,7 +607,7 @@
     <string name="title_advanced_reset_importance">Zrušiť nastavenie priority po presunutí správ</string>
     <string name="title_advanced_thread_sent_trash">Pri vymazaní konverzácie vyhoďte aj odoslané správy</string>
     <string name="title_advanced_star_snoozed">Automaticky pridať hviezdičku po odložení správ</string>
-    <string name="title_advanced_auto_important">Automaticky nastaviť vysokú prioritu pre správy s hviezdičkou</string>
+    <string name="title_advanced_auto_important">Automaticky nastaviť vysokú prioritu pre obľúbené správy</string>
     <string name="title_advanced_cancel_snooze">Zrušenie odloženia pri presúvaní správ</string>
     <string name="title_advanced_auto_block_sender">Automatické blokovanie odosielateľa pri nahlasovaní spamu</string>
     <string name="title_advanced_auto_hide_answer">Automatické skrytie tlačidla odpovede pri posúvaní</string>
@@ -1051,7 +1051,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_folder_name">Názov priečinka</string>
     <string name="title_display_name">Zobrazované meno</string>
     <string name="title_show_folders">Zobraziť skryté priečinky</string>
-    <string name="title_show_flagged">Zobraziť počet správ s hviezdičkou</string>
+    <string name="title_show_flagged">Zobraziť počet obľúbených správ</string>
     <string name="title_subscribed_only">Len odoberané</string>
     <string name="title_sort_unread_atop">Zotriediť s neprečítanými správami na vrchu</string>
     <string name="title_search_folder">Hľadať priečinok</string>
@@ -1121,9 +1121,9 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hide">Skryť</string>
     <string name="title_unhide">Zobraziť</string>
     <string name="title_toggle_hide">Prepnúť skrytie</string>
-    <string name="title_flag">Pridať hviezdičku</string>
+    <string name="title_flag">Pridať medzi obľúbené</string>
     <string name="title_flag_color">Farebná hviezdička &#8230;</string>
-    <string name="title_unflag">Odstrániť hviezdičku</string>
+    <string name="title_unflag">Odstrániť z obľúbených</string>
     <string name="title_set_importance">Nastaviť prioritu</string>
     <string name="title_importance_low">Nízka</string>
     <string name="title_importance_normal">Normálny</string>
@@ -1491,7 +1491,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_search_with_after">Po</string>
     <string name="title_search_device_first">Prehľadať najprv správy v zariadení</string>
     <string name="title_search_flag_unseen">neprečítané</string>
-    <string name="title_search_flag_flagged">s hviezdičkou</string>
+    <string name="title_search_flag_flagged">obľúbené</string>
     <string name="title_search_flag_hidden">skryté</string>
     <string name="title_search_flag_encrypted">zašifrované</string>
     <string name="title_search_flag_attachments">prílohy</string>
@@ -1510,7 +1510,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_sort_on">Zotriediť</string>
     <string name="title_sort_on_time">Čas</string>
     <string name="title_sort_on_unread">Neprečítané</string>
-    <string name="title_sort_on_starred">S hviezdičkou</string>
+    <string name="title_sort_on_starred">Obľúbené</string>
     <string name="title_sort_on_priority">Priorita</string>
     <string name="title_sort_on_sender">Odosielateľ</string>
     <string name="title_sort_on_subject">Predmet</string>
@@ -1524,7 +1524,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_sort_on_last_applied">Naposledy použité</string>
     <string name="title_filter">Filtrovať</string>
     <string name="title_filter_seen">Prečítané</string>
-    <string name="title_filter_unflagged">Bez hviezdičky</string>
+    <string name="title_filter_unflagged">Odstránené z obľúbených</string>
     <string name="title_filter_unknown">Neznámy odosielatelia</string>
     <string name="title_filter_hidden">Skryté</string>
     <string name="title_filter_deleted">Odstránené</string>
@@ -1751,6 +1751,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Zobraziť citácie</string>
     <string name="title_legend_show_junk">Považovať za nevižiadané</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Nie je spam</string>
     <string name="title_legend_create_rule">Vytvoriť pravidlo</string>
     <string name="title_legend_show_unsubscribe">Odhlásiť sa z odberu</string>
     <string name="title_legend_show_images">Zobraziť obrázky</string>
@@ -1899,7 +1900,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_boundary_error">Chyba pri preberaní správ z poštového servera</string>
     <string name="title_boundary_retry">Skúsiť znovu</string>
     <string name="title_unexpected_error">Neočakávaná chyba</string>
-    <string name="title_log">Záznam</string>
+    <string name="title_log">Log</string>
     <string name="title_log_clear">Vymazať</string>
     <string name="title_rules_search_hint">Hľadať názov alebo podmienku</string>
     <string name="title_rules_export">Exportovať pravidlá</string>
@@ -1922,7 +1923,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_widget_folder">Priečinok</string>
     <string name="title_widget_folder_unified">Priečinky spoločnej doručenej pošty</string>
     <string name="title_widget_unseen">Len neprečítané správy</string>
-    <string name="title_widget_flagged">Len správy s hviezdičkou</string>
+    <string name="title_widget_flagged">Len obľúbené správy</string>
     <string name="title_widget_font_size">Veľkosť textu</string>
     <string name="title_widget_padding">Veľkosť odsadenia</string>
     <string name="title_widget_separator_lines">Zobrazovať deliace čiary</string>
@@ -1956,8 +1957,8 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_accessibility_expanded">Rozbalené</string>
     <string name="title_accessibility_seen">Prečítané</string>
     <string name="title_accessibility_unseen">Neprečítané</string>
-    <string name="title_accessibility_flagged">S hviezdičkou</string>
-    <string name="title_accessibility_unflagged">Bez hviezdičky</string>
+    <string name="title_accessibility_flagged">Obľúbené</string>
+    <string name="title_accessibility_unflagged">Odstránené z obľúbených</string>
     <string name="title_accessibility_collapse">Zbaliť</string>
     <string name="title_accessibility_expand">Rozbaliť</string>
     <string name="title_accessibility_view_contact">Zobraziť kontakt</string>
@@ -1969,7 +1970,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_accessibility_scroll_down">Posunúť dolu</string>
     <string name="title_accessibility_scroll_up">Posunúť hore</string>
     <string name="title_accessibility_filter_out_seen">Prepnúť filter prečítané</string>
-    <string name="title_accessibility_filter_out_unflagged">Prepnúť filter s hviezdičkou</string>
+    <string name="title_accessibility_filter_out_unflagged">Prepnúť filter obľúbených správ</string>
     <string name="title_accessibility_filter_out_snoozed">Prepnúť filter odložené</string>
     <string name="title_accessibility_edit">Upraviť</string>
     <string name="title_accessibility_show_addresses">Zobraziť adresy</string>

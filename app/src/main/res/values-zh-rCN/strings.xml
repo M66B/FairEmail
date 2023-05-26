@@ -454,7 +454,7 @@
     <string name="title_advanced_date_week">按星期而不是按日分组</string>
     <string name="title_advanced_date_fixed">在顶部显示固定日期标题</string>
     <string name="title_advanced_date_bold">以粗体显示日期</string>
-    <string name="title_advanced_date_time" comment="title_advanced_date_time&#10;Title for option to always show both a date and time in message headers">总是显示日期和时间</string>
+    <string name="title_advanced_date_time">总是显示日期和时间</string>
     <string name="title_advanced_threading">邮件会话</string>
     <string name="title_advanced_threading_unread">在对话中显示未读消息的数量</string>
     <string name="title_advanced_indentation">左/右缩进接收/发送的消息</string>
@@ -1709,6 +1709,7 @@
     <string name="title_legend_avatar">头像</string>
     <string name="title_legend_show_quotes">显示引用内容</string>
     <string name="title_legend_show_junk">视为垃圾邮件</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">视为非垃圾邮件</string>
     <string name="title_legend_create_rule">创建规则</string>
     <string name="title_legend_show_unsubscribe">退订</string>
     <string name="title_legend_show_images">显示图片</string>

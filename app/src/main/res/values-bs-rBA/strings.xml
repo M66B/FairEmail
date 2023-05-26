@@ -481,6 +481,7 @@
     <string name="title_advanced_date_week">Grupisanje prema sedmici umjesto danu</string>
     <string name="title_advanced_date_fixed">Prikaži na vrhu fiksno zaglavlje s datumom</string>
     <string name="title_advanced_date_bold">Prikaži datum podebljan</string>
+    <string name="title_advanced_date_time">Uvijek prikazuj i datum i vrijeme</string>
     <string name="title_advanced_threading">Nizanje konverzacija</string>
     <string name="title_advanced_threading_unread">Prikaži broj nepročitanih poruka u konverzacijama</string>
     <string name="title_advanced_indentation">Lijevo/desno poravnanje primljenih/poslanih poruka u konverzacijama</string>
@@ -1740,6 +1741,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Prikaži citate</string>
     <string name="title_legend_show_junk">Tretiraj kao spam</string>
+    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Ne tretiraj kao spam</string>
     <string name="title_legend_create_rule">Kreiraj pravilo</string>
     <string name="title_legend_show_unsubscribe">Otkaži pretplatu sa spiska</string>
     <string name="title_legend_show_images">Prikaži slike</string>
