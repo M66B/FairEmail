@@ -5044,8 +5044,10 @@ Templates can have the following options:
 Since version 1.2068 it is possible to send a template message with an intent:
 
 ```
-(adb shell) am start-foreground-service -a eu.faircode.email.TEMPLATE --es template ... --es identity ... --es to ... --es cc ... --es subject ...
+(adb shell) am start-foreground-service -a eu.faircode.email.TEMPLATE --es template <template name> --es identity <identity display name> --es to <email address> --es cc <email address> --es subject <subject>
 ```
+
+**Important**: you need to configure a display name for the identity, and use this to identify the identity.
 
 <br />
 
