@@ -5041,6 +5041,12 @@ Templates can have the following options:
 * *Snippet*: template will be used as text fragment (since version 1.1857)
 * *Hide from menus*: template will be hidden (disabled)
 
+Since version 1.2068 it is possible to send a template message with an intent:
+
+```
+(adb shell) am start-foreground-service -a eu.faircode.email.TEMPLATE --es template ... --es identity ... --es to ... --es cc ... --es subject ...
+```
+
 <br />
 
 <a name="faq180"></a>
