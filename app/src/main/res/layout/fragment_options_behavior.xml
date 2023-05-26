@@ -204,18 +204,6 @@
                     app:layout_constraintBottom_toBottomOf="@+id/etDefaultSnooze"
                     app:layout_constraintStart_toEndOf="@+id/etDefaultSnooze"
                     app:layout_constraintTop_toTopOf="@+id/etDefaultSnooze" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swPhotoPicker"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_photo_picker"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etDefaultSnooze"
-                    app:switchPadding="12dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -751,6 +739,18 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swPhotoPicker"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_photo_picker"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAdvanced"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swFlagSnoozed"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -758,7 +758,7 @@
                     android:text="@string/title_advanced_star_snoozed"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvAdvanced"
+                    app:layout_constraintTop_toBottomOf="@id/swPhotoPicker"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

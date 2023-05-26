@@ -17,6 +17,7 @@ if (rootProject.file("local.properties").exists())
 
 android {
     compileSdkVersion 33
+    compileSdkExtension 4 // https://developer.android.com/guide/sdk-extensions
     namespace 'eu.faircode.email'
 
     // https://apilevels.com/

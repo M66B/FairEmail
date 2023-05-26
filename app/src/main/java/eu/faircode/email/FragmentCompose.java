@@ -364,10 +364,7 @@ public class FragmentCompose extends FragmentBase {
         setTitle(R.string.page_compose);
         setSubtitle(getResources().getQuantityString(R.plurals.page_message, 1));
 
-        int max = (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU
-                ? Integer.MAX_VALUE
-                : MediaStore.getPickImagesMaxLimit());
-
+        int max = Helper.hasPhotoPicker() ? MediaStore.getPickImagesMaxLimit() : 20;
         pickImages =
                 registerForActivityResult(new ActivityResultContracts.PickMultipleVisualMedia(max), uris -> {
                     if (!uris.isEmpty())
@@ -3458,24 +3455,28 @@ public class FragmentCompose extends FragmentBase {
             // https://developer.android.com/training/data-storage/shared/photopicker#device-availability
             // https://developer.android.com/reference/android/provider/MediaStore#ACTION_PICK_IMAGES
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean photo_picker = prefs.getBoolean("photo_picker", false);
-            if (photo_picker) {
-                Log.i("Using photo picker");
-                pickImages.launch(new PickVisualMediaRequest.Builder()
-                        .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
-                        .build());
-            } else {
-                Log.i("Using file picker");
-                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                intent.setType("image/*");
-                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-                if (intent.resolveActivity(pm) == null) // GET_CONTENT whitelisted
-                    noStorageAccessFramework();
-                else
-                    startActivityForResult(Helper.getChooser(context, intent), REQUEST_IMAGE_FILE);
-            }
+            boolean photo_picker = prefs.getBoolean("photo_picker", true);
+            if (photo_picker)
+                try {
+                    Log.i("Using photo picker");
+                    pickImages.launch(new PickVisualMediaRequest.Builder()
+                            .setMediaType(ActivityResultContracts.PickVisualMedia.ImageOnly.INSTANCE)
+                            .build());
+                    return;
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+
+            Log.i("Using file picker");
+            Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.setType("image/*");
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            if (intent.resolveActivity(pm) == null) // GET_CONTENT whitelisted
+                noStorageAccessFramework();
+            else
+                startActivityForResult(Helper.getChooser(context, intent), REQUEST_IMAGE_FILE);
         }
     }
 

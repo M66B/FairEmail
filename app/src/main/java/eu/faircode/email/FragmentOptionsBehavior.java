@@ -62,7 +62,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swConversationActionsReplies;
     private SwitchCompat swLanguageDetection;
     private EditText etDefaultSnooze;
-    private SwitchCompat swPhotoPicker;
     private SwitchCompat swPull;
     private SwitchCompat swAutoScroll;
     private SwitchCompat swQuickFilter;
@@ -94,6 +93,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoUnflag;
     private SwitchCompat swResetImportance;
     private SwitchCompat swThreadSentTrash;
+    private SwitchCompat swPhotoPicker;
     private SwitchCompat swFlagSnoozed;
     private SwitchCompat swAutoImportant;
     private SwitchCompat swResetSnooze;
@@ -142,7 +142,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swConversationActionsReplies = view.findViewById(R.id.swConversationActionsReplies);
         swLanguageDetection = view.findViewById(R.id.swLanguageDetection);
         etDefaultSnooze = view.findViewById(R.id.etDefaultSnooze);
-        swPhotoPicker = view.findViewById(R.id.swPhotoPicker);
         swPull = view.findViewById(R.id.swPull);
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swQuickFilter = view.findViewById(R.id.swQuickFilter);
@@ -174,6 +173,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swResetImportance = view.findViewById(R.id.swResetImportance);
         swThreadSentTrash = view.findViewById(R.id.swThreadSentTrash);
+        swPhotoPicker = view.findViewById(R.id.swPhotoPicker);
         swFlagSnoozed = view.findViewById(R.id.swFlagSnoozed);
         swAutoImportant = view.findViewById(R.id.swAutoImportant);
         swResetSnooze = view.findViewById(R.id.swResetSnooze);
@@ -267,14 +267,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void afterTextChanged(Editable s) {
                 // Do nothing
-            }
-        });
-
-        swPhotoPicker.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ? View.GONE : View.VISIBLE);
-        swPhotoPicker.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("photo_picker", checked).apply();
             }
         });
 
@@ -522,6 +514,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swPhotoPicker.setVisibility(Helper.hasPhotoPicker() ? View.VISIBLE : View.GONE);
+        swPhotoPicker.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("photo_picker", checked).apply();
+            }
+        });
+
         swFlagSnoozed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -657,8 +657,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             etDefaultSnooze.setText(default_snooze == 1 ? null : Integer.toString(default_snooze));
             etDefaultSnooze.setHint("1");
 
-            swPhotoPicker.setChecked(prefs.getBoolean("photo_picker", false));
-
             swPull.setChecked(prefs.getBoolean("pull", true));
             swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
             swQuickFilter.setChecked(prefs.getBoolean("quick_filter", false));
@@ -715,6 +713,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
             swThreadSentTrash.setChecked(prefs.getBoolean("thread_sent_trash", true));
 
+            swPhotoPicker.setChecked(prefs.getBoolean("photo_picker", true));
             swFlagSnoozed.setChecked(prefs.getBoolean("flag_snoozed", false));
             swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
             swResetSnooze.setChecked(prefs.getBoolean("reset_snooze", true));

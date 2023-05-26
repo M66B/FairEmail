@@ -62,6 +62,7 @@ import android.os.Looper;
 import android.os.Parcel;
 import android.os.PowerManager;
 import android.os.StatFs;
+import android.os.ext.SdkExtensions;
 import android.os.storage.StorageManager;
 import android.provider.Browser;
 import android.provider.DocumentsContract;
@@ -874,6 +875,12 @@ public class Helper {
 
     static <T extends Object> T getSystemService(Context context, Class<T> type) {
         return ContextCompat.getSystemService(context.getApplicationContext(), type);
+    }
+
+    static boolean hasPhotoPicker() {
+        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.TIRAMISU ||
+                (Build.VERSION.SDK_INT > Build.VERSION_CODES.R &&
+                        SdkExtensions.getExtensionVersion(Build.VERSION_CODES.R) >= 2));
     }
 
     // View
