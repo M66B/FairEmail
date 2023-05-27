@@ -1140,6 +1140,7 @@
     <string name="title_leave_deleted">Leave deleted messages on server</string>
     <string name="title_leave_on_device">Leave messages on device</string>
     <string name="title_max_messages">Maximum number of messages to download (blank for all)</string>
+    <string name="title_max_messages_keep">This is the maximum number of messages that will be kept on the device</string>
     <string name="title_max_messages_remark">
         Enter a positive number to download the messages at the end (most common)
         and a negative number to download the messages at the beginning (least common)

@@ -500,6 +500,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbLeaveDevice" />
 
+        <TextView
+            android:id="@+id/tvMaxKeep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:labelFor="@+id/etMax"
+            android:text="@string/title_max_messages_keep"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMax" />
+
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etMax"
             android:layout_width="match_parent"
@@ -508,7 +520,7 @@
             android:maxLength="9"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvMax" />
+            app:layout_constraintTop_toBottomOf="@id/tvMaxKeep" />
 
         <TextView
             android:id="@+id/tvMaxRemark"
