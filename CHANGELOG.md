@@ -6,8 +6,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Tratayenia](https://en.wikipedia.org/wiki/Tratayenia)
 
-### Next version
+### 1.2071 - 2023-05-27
 
+* Fixed photo picker for some devices
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
