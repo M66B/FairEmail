@@ -4209,6 +4209,11 @@ public class FragmentCompose extends FragmentBase {
                 db.identity().setIdentitySignKeyAlias(identity.id, alias);
 
                 // Build content
+                File sinput = new File(tmp, draft.id + ".smime_sign");
+                try (FileOutputStream fos = new FileOutputStream(sinput)) {
+                    bpContent.writeTo(fos);
+                }
+
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     EntityAttachment cattachment = new EntityAttachment();
                     cattachment.message = draft.id;
@@ -4220,9 +4225,7 @@ public class FragmentCompose extends FragmentBase {
                     cattachment.id = db.attachment().insertAttachment(cattachment);
 
                     File content = cattachment.getFile(context);
-                    try (OutputStream os = new FileOutputStream(content)) {
-                        bpContent.writeTo(os);
-                    }
+                    Helper.copy(sinput, content);
 
                     db.attachment().setDownloaded(cattachment.id, content.length());
                 }
@@ -4255,11 +4258,6 @@ public class FragmentCompose extends FragmentBase {
                 SignerInfoGenerator signerInfoGenerator = new JcaSignerInfoGeneratorBuilder(digestCalculator)
                         .build(contentSigner, chain[0]);
                 cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
-
-                File sinput = new File(tmp, draft.id + ".smime_sign");
-                try (FileOutputStream fos = new FileOutputStream(sinput)) {
-                    bpContent.writeTo(fos);
-                }
 
                 CMSTypedData cmsData = new CMSProcessableFile(sinput);
                 CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData);
