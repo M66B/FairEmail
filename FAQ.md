@@ -1067,6 +1067,12 @@ How to extract a public key from a S/MIME certificate:
 openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
 ```
 
+You can verify the signature of a raw message file (EML file) like this:
+
+```
+openssl smime -verify <xxx.eml
+```
+
 You can decode S/MIME signatures, etc, [here](https://lapo.it/asn1js/).
 
 <br />
