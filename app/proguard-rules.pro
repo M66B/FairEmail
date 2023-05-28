@@ -147,3 +147,6 @@
 #Apache Commons Compress
 -keep class org.apache.commons.compress.archivers.zip.** {*;}
 -keep class org.apache.commons.compress.compressors.gzip.** {*;}
+
+#ShortcutBadger
+-keepnames class me.leolin.shortcutbadger.** {*;}
