@@ -2206,6 +2206,17 @@
                     app:layout_constraintTop_toBottomOf="@id/tvDkimVerifyHint"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swThreadByRef"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_thread_by_ref"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swDupMsgId"
+                    app:switchPadding="12dp" />
+
                 <EditText
                     android:id="@+id/etKeywords"
                     android:layout_width="0dp"
@@ -2216,7 +2227,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swDupMsgId" />
+                    app:layout_constraintTop_toBottomOf="@id/swThreadByRef" />
 
                 <TextView
                     android:id="@+id/tvKeywordsHint"

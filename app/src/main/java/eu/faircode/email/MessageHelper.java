@@ -1872,7 +1872,8 @@ public class MessageHelper {
         }
 
         // Common reference
-        if (thread == null && refs.size() > 0) {
+        boolean thread_byref = prefs.getBoolean("thread_byref", true);
+        if (thread == null && refs.size() > 0 && thread_byref) {
             String ref = refs.get(0);
             if (!Objects.equals(ref, msgid))
                 thread = account + ":" + ref;

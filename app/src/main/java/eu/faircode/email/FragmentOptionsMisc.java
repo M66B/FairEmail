@@ -234,6 +234,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private EditText etNativeArcWhitelist;
     private SwitchCompat swInfra;
     private SwitchCompat swDupMsgId;
+    private SwitchCompat swThreadByRef;
     private EditText etKeywords;
     private SwitchCompat swTestIab;
     private Button btnImportProviders;
@@ -296,7 +297,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "max_backoff_power", "logarithmic_backoff",
             "exact_alarms",
             "native_dkim", "native_arc", "native_arc_whitelist",
-            "infra", "dup_msgids", "global_keywords", "test_iab"
+            "infra", "dup_msgids", "thread_byref", "global_keywords", "test_iab"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -478,6 +479,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         etNativeArcWhitelist = view.findViewById(R.id.etNativeArcWhitelist);
         swInfra = view.findViewById(R.id.swInfra);
         swDupMsgId = view.findViewById(R.id.swDupMsgId);
+        swThreadByRef = view.findViewById(R.id.swThreadByRef);
         etKeywords = view.findViewById(R.id.etKeywords);
         swTestIab = view.findViewById(R.id.swTestIab);
         btnImportProviders = view.findViewById(R.id.btnImportProviders);
@@ -1773,6 +1775,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swThreadByRef.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("thread_byref", checked).apply();
+            }
+        });
+
         etKeywords.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -2509,6 +2518,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             etNativeArcWhitelist.setText(prefs.getString("native_arc_whitelist", null));
             swInfra.setChecked(prefs.getBoolean("infra", false));
             swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
+            swThreadByRef.setChecked(prefs.getBoolean("thread_byref", true));
             etKeywords.setText(prefs.getString("global_keywords", null));
             swTestIab.setChecked(prefs.getBoolean("test_iab", false));
 
