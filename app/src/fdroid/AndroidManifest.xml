@@ -142,6 +142,11 @@
             <action android:name="android.intent.action.TTS_SERVICE" />
         </intent>
 
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.HOME" />
+        </intent>
+
         <provider
             android:name="androidx.car.app.connection.provider"
             android:authorities="androidx.car.app.connection"
