@@ -149,4 +149,5 @@
 -keep class org.apache.commons.compress.compressors.gzip.** {*;}
 
 #ShortcutBadger
+-keep class me.leolin.shortcutbadger.** {*;}
 -keepnames class me.leolin.shortcutbadger.** {*;}
