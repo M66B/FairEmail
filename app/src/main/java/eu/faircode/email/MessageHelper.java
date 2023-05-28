@@ -1874,6 +1874,10 @@ public class MessageHelper {
         // Common reference
         boolean thread_byref = prefs.getBoolean("thread_byref", true);
         if (thread == null && refs.size() > 0 && thread_byref) {
+            // For example
+            //   Message-ID: <organization/project/pull/nnn/issue_event/xxx@github.com>
+            //   In-Reply-To: <organization/project/pull/nnn@github.com>
+            //   References: <organization/project/pull/nnn@github.com>
             String ref = refs.get(0);
             if (!Objects.equals(ref, msgid))
                 thread = account + ":" + ref;
