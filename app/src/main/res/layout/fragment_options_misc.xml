@@ -967,19 +967,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvOpenAiHint" />
 
-                <EditText
-                    android:id="@+id/etOpenAi"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:hint="https://api.openai.com/"
-                    android:inputType="textUri"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvOpenAiPrivacy" />
-
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/tilOpenAi"
                     android:layout_width="0dp"
@@ -989,7 +976,7 @@
                     app:endIconMode="password_toggle"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etOpenAi">
+                    app:layout_constraintTop_toBottomOf="@+id/tvOpenAiPrivacy">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
@@ -1088,7 +1075,7 @@
                     android:id="@+id/grpOpenAi"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="swOpenAi,tvOpenAiHint,tvOpenAiPrivacy,etOpenAi,tilOpenAi,ibOpenAi,etOpenAiModel,tvOpenAiTemperature,sbOpenAiTemperature" />
+                    app:constraint_referenced_ids="swOpenAi,tvOpenAiHint,tvOpenAiPrivacy,tilOpenAi,ibOpenAi,etOpenAiModel,tvOpenAiTemperature,sbOpenAiTemperature" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

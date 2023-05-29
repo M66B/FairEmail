@@ -161,7 +161,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private ImageButton ibSend;
     private SwitchCompat swOpenAi;
     private TextView tvOpenAiPrivacy;
-    private EditText etOpenAi;
     private TextInputLayout tilOpenAi;
     private EditText etOpenAiModel;
     private TextView tvOpenAiTemperature;
@@ -281,7 +280,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
-            "openai_enabled", "openai_uri", "openai_apikey", "openai_model", "openai_temperature", "openai_moderation",
+            "openai_enabled", "openai_apikey", "openai_model", "openai_temperature", "openai_moderation",
             "updates", "weekly", "beta", "show_changelog", "announcements",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
@@ -407,7 +406,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         ibSend = view.findViewById(R.id.ibSend);
         swOpenAi = view.findViewById(R.id.swOpenAi);
         tvOpenAiPrivacy = view.findViewById(R.id.tvOpenAiPrivacy);
-        etOpenAi = view.findViewById(R.id.etOpenAi);
         tilOpenAi = view.findViewById(R.id.tilOpenAi);
         etOpenAiModel = view.findViewById(R.id.etOpenAiModel);
         tvOpenAiTemperature = view.findViewById(R.id.tvOpenAiTemperature);
@@ -1046,28 +1044,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Uri.parse(BuildConfig.OPENAI_PRIVACY), true);
-            }
-        });
-
-        etOpenAi.setHint(BuildConfig.OPENAI_ENDPOINT);
-        etOpenAi.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String apikey = s.toString().trim();
-                if (TextUtils.isEmpty(apikey))
-                    prefs.edit().remove("openai_uri").apply();
-                else
-                    prefs.edit().putString("openai_uri", apikey).apply();
             }
         });
 
@@ -2262,7 +2238,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 "lt_key".equals(key) ||
                 "vt_apikey".equals(key) ||
                 "send_host".equals(key) ||
-                "openai_uri".equals(key) ||
                 "openai_apikey".equals(key) ||
                 "openai_model".equals(key))
             return;
@@ -2455,7 +2430,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swSend.setChecked(prefs.getBoolean("send_enabled", false));
             etSend.setText(prefs.getString("send_host", null));
             swOpenAi.setChecked(prefs.getBoolean("openai_enabled", false));
-            etOpenAi.setText(prefs.getString("openai_uri", null));
             tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
             etOpenAiModel.setText(prefs.getString("openai_model", null));
 
