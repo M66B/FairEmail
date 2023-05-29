@@ -1737,7 +1737,7 @@
     <string name="title_legend_avatar">Poză de profil</string>
     <string name="title_legend_show_quotes">Arată citate</string>
     <string name="title_legend_show_junk">Tratează ca spam</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Nu trata drept spam</string>
+    <string name="title_legend_not_junk">Nu trata drept spam</string>
     <string name="title_legend_create_rule">Creați o regulă</string>
     <string name="title_legend_show_unsubscribe">Dezabonare de la listă</string>
     <string name="title_legend_show_images">Afișare imagini</string>

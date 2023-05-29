@@ -931,6 +931,7 @@
     <string name="title_leave_deleted">Оставлять удалённые сообщения на сервере</string>
     <string name="title_leave_on_device">Оставлять сообщения на устройстве</string>
     <string name="title_max_messages">Максимальное количество загружаемых сообщений (пусто для всех)</string>
+    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Максимальное количество сообщений, которые будут храниться на устройстве</string>
     <string name="title_max_messages_remark">        Введите положительное число для загрузки сообщений в конце (более распространённое)
         или отрицательное число для загрузки сообщений в начале (менее распространённое)
     </string>
@@ -1753,7 +1754,7 @@
     <string name="title_legend_avatar">Аватар</string>
     <string name="title_legend_show_quotes">Показывать цитаты</string>
     <string name="title_legend_show_junk">Считать спамом</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Не считать спамом</string>
+    <string name="title_legend_not_junk">Не считать спамом</string>
     <string name="title_legend_create_rule">Создать правило</string>
     <string name="title_legend_show_unsubscribe">Отписаться от рассылки</string>
     <string name="title_legend_show_images">Показывать изображения</string>

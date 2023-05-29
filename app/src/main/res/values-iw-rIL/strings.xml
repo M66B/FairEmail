@@ -1754,7 +1754,7 @@
     <string name="title_legend_avatar">סמל ייצוגי</string>
     <string name="title_legend_show_quotes">הצגת ציטוטים</string>
     <string name="title_legend_show_junk">התנהגות כספאם</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">להתייחס כלא ספאם</string>
+    <string name="title_legend_not_junk">להתייחס כלא ספאם</string>
     <string name="title_legend_create_rule">יצירת כלל</string>
     <string name="title_legend_show_unsubscribe">ביטול מינוי לרשימה</string>
     <string name="title_legend_show_images">הצגת תמונות</string>

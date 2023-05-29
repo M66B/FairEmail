@@ -891,6 +891,7 @@
     <string name="title_leave_deleted">在服务器上保留已删除邮件</string>
     <string name="title_leave_on_device">在设备上保留消息</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
+    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">此为设备上存储的最大邮件数</string>
     <string name="title_max_messages_remark">        输入一个正数下载末尾消息(最常见)
         和一个负数下载开头消息(最少见)
     </string>
@@ -1709,7 +1710,7 @@
     <string name="title_legend_avatar">头像</string>
     <string name="title_legend_show_quotes">显示引用内容</string>
     <string name="title_legend_show_junk">视为垃圾邮件</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">视为非垃圾邮件</string>
+    <string name="title_legend_not_junk">视为非垃圾邮件</string>
     <string name="title_legend_create_rule">创建规则</string>
     <string name="title_legend_show_unsubscribe">退订</string>
     <string name="title_legend_show_images">显示图片</string>

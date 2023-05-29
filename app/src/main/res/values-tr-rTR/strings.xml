@@ -1722,7 +1722,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_legend_avatar">Profil resmi</string>
     <string name="title_legend_show_quotes">Alıntıları Göster</string>
     <string name="title_legend_show_junk">Spam olarak değerlendir</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Spam değil olarak değerlendir</string>
+    <string name="title_legend_not_junk">Spam değil olarak değerlendir</string>
     <string name="title_legend_create_rule">Kural oluştur</string>
     <string name="title_legend_show_unsubscribe">Listeden Çık</string>
     <string name="title_legend_show_images">Resimleri göster</string>

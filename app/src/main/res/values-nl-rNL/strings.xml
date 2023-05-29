@@ -903,6 +903,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_leave_deleted">Laat verwijderde berichten achter op de server</string>
     <string name="title_leave_on_device">Laat berichten achter op apparaat</string>
     <string name="title_max_messages">Maximum aantal berichten om te downloaden (leeg voor allen)</string>
+    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Dit is het maximale aantal berichten dat op het apparaat zal worden bewaard</string>
     <string name="title_max_messages_remark">        Voer een positief getal in om berichten aan het einde te downloaden (meest gebruikelijk)
         en een negatief getal om berichten te downloaden aan het begin (minst gebruikelijk)
     </string>
@@ -1719,7 +1720,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Toon citaten</string>
     <string name="title_legend_show_junk">Behandel als spam</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Behandel als geen spam</string>
+    <string name="title_legend_not_junk">Behandel als geen spam</string>
     <string name="title_legend_create_rule">Maak regel</string>
     <string name="title_legend_show_unsubscribe">Uitschrijven van lijst</string>
     <string name="title_legend_show_images">Toon afbeeldingen</string>

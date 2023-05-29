@@ -918,6 +918,7 @@
     <string name="title_leave_deleted">Zadrži izbrisane poruke na serveru</string>
     <string name="title_leave_on_device">Zadrži poruke na uređaju</string>
     <string name="title_max_messages">Maksimalan broj poruka za preuzimanje (prazno za sve)</string>
+    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Ovo je maksimalan broj poruka koje će se zadržati na uređaju</string>
     <string name="title_max_messages_remark">        Unesite pozitivan broj za preuzimanje poruka na kraju (najčešće)
         i negativan broj za preuzimanje poruka na početku (najrjeđe)
     </string>
@@ -1741,7 +1742,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Prikaži citate</string>
     <string name="title_legend_show_junk">Tretiraj kao spam</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Ne tretiraj kao spam</string>
+    <string name="title_legend_not_junk">Ne tretiraj kao spam</string>
     <string name="title_legend_create_rule">Kreiraj pravilo</string>
     <string name="title_legend_show_unsubscribe">Otkaži pretplatu sa spiska</string>
     <string name="title_legend_show_images">Prikaži slike</string>

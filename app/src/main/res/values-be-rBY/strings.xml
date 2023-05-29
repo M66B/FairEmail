@@ -1757,7 +1757,7 @@
     <string name="title_legend_avatar">Аватар</string>
     <string name="title_legend_show_quotes">Паказаць цытаты</string>
     <string name="title_legend_show_junk">Лічыць спамам</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Не лічыць спамам</string>
+    <string name="title_legend_not_junk">Не лічыць спамам</string>
     <string name="title_legend_create_rule">Стварыць правіла</string>
     <string name="title_legend_show_unsubscribe">Адпісацца ад рассылкі</string>
     <string name="title_legend_show_images">Паказаць выявы</string>

@@ -1461,7 +1461,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Sjoch sitaten</string>
     <string name="title_legend_show_junk">Behannelje as spam</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Net as spam behannelje</string>
+    <string name="title_legend_not_junk">Net as spam behannelje</string>
     <string name="title_legend_create_rule">Regel meitsje</string>
     <string name="title_legend_show_unsubscribe">Abonnearje fan list</string>
     <string name="title_legend_show_images">Sjoch ofbyldings</string>

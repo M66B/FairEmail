@@ -905,6 +905,7 @@
     <string name="title_leave_deleted">Silənən mesajları serverdə burax</string>
     <string name="title_leave_on_device">Mesajları cihazda burax</string>
     <string name="title_max_messages">Endiriləcək mesajların maksimum sayı (hamısı üçün boş)</string>
+    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Bu, cihazda saxlanılacaq maksimum mesaj sayıdır</string>
     <string name="title_max_messages_remark">        Mesajları sonda endirmək üçün müsbət bir ədəd daxil edin (ən geniş yayılmış)
         və mesajları başlanğıcda endirmək üçün mənfi bir ədəd daxil edin (ən az yayılmış)
     </string>
@@ -1728,7 +1729,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Sitatları göstər</string>
     <string name="title_legend_show_junk">Spam hesab et</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Spam deyilmiş kimi davran</string>
+    <string name="title_legend_not_junk">Spam deyilmiş kimi davran</string>
     <string name="title_legend_create_rule">Qayda yarat</string>
     <string name="title_legend_show_unsubscribe">Siyahıdan çıx</string>
     <string name="title_legend_show_images">Təsvirləri göstər</string>

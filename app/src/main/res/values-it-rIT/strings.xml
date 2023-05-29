@@ -906,6 +906,7 @@
     <string name="title_leave_deleted">Lascia i messaggi eliminati sul server</string>
     <string name="title_leave_on_device">Lascia messaggi sul dispositivo</string>
     <string name="title_max_messages">Numero massimo di messaggi da scaricare (vuoto per tutti)</string>
+    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Questo è il numero massimo di messaggi che verranno mantenuti sul dispositivo</string>
     <string name="title_max_messages_remark">        Inserisci un numero positivo per scaricare i messaggi alla fine (più comune)
         e un numero negativo per scaricare i messaggi all\'inizio (meno comune)
     </string>
@@ -1729,7 +1730,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Mostra citazioni</string>
     <string name="title_legend_show_junk">Tratta come spam</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Tratta come non spam</string>
+    <string name="title_legend_not_junk">Tratta come non spam</string>
     <string name="title_legend_create_rule">Crea regola</string>
     <string name="title_legend_show_unsubscribe">Disiscriviti dall\'elenco</string>
     <string name="title_legend_show_images">Mostra immagini</string>

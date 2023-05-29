@@ -1751,7 +1751,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Zobraziť citácie</string>
     <string name="title_legend_show_junk">Považovať za nevižiadané</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Nie je spam</string>
+    <string name="title_legend_not_junk">Nie je spam</string>
     <string name="title_legend_create_rule">Vytvoriť pravidlo</string>
     <string name="title_legend_show_unsubscribe">Odhlásiť sa z odberu</string>
     <string name="title_legend_show_images">Zobraziť obrázky</string>

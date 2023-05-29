@@ -907,6 +907,7 @@
     <string name="title_leave_deleted">Gelöschte Nachrichten auf Server belassen</string>
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
     <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
+    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Dies ist die maximale Anzahl von Nachrichten, die auf dem Gerät gespeichert werden</string>
     <string name="title_max_messages_remark">        Bitte eine positive Zahl eingeben, um die Nachrichten am Ende herunterzuladen (am häufigsten)
         und eine negative Zahl, um die Nachrichten am Anfang herunterzuladen (weniger häufig)
     </string>
@@ -1730,7 +1731,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Zitate anzeigen</string>
     <string name="title_legend_show_junk">Als Spam behandeln</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Nicht als Spam behandeln</string>
+    <string name="title_legend_not_junk">Nicht als Spam behandeln</string>
     <string name="title_legend_create_rule">Regel erstellen</string>
     <string name="title_legend_show_unsubscribe">Aus Liste abmelden</string>
     <string name="title_legend_show_images">Bilder anzeigen</string>

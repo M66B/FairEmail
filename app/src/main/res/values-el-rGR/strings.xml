@@ -902,6 +902,7 @@
     <string name="title_leave_deleted">Να παραμένουν τα διεγραμμένα μηνύματα στον διακομιστή</string>
     <string name="title_leave_on_device">Να παραμένουν τα μηνύματα στη συσκευή</string>
     <string name="title_max_messages">Μέγιστος αριθμός μηνυμάτων για κατέβασμα (κενό για όλα)</string>
+    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Αυτός είναι ο μέγιστος αριθμός μηνυμάτων που θα διατηρηθούν στη συσκευή</string>
     <string name="title_max_messages_remark">        Εισάγετε έναν θετικό αριθμό για να κατεβάσετε τα μηνύματα στο τέλος (το πιο συνηθισμένο)
         και έναν αρνητικό αριθμό για να κατεβάσετε τα μηνύματα στην αρχή (το λιγότερο συνηθισμένο)
     </string>
@@ -1722,7 +1723,7 @@
     <string name="title_legend_avatar">Άβαταρ</string>
     <string name="title_legend_show_quotes">Προβολή παραθεμάτων</string>
     <string name="title_legend_show_junk">Αντιμετώπιση ως ανεπιθύμητο</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Αντιμετώπιση ως μη ανεπιθύμητο</string>
+    <string name="title_legend_not_junk">Αντιμετώπιση ως μη ανεπιθύμητο</string>
     <string name="title_legend_create_rule">Δημιουργία κανόνα</string>
     <string name="title_legend_show_unsubscribe">Κατάργηση συνδρομής από τη λίστα</string>
     <string name="title_legend_show_images">Προβολή εικόνων</string>

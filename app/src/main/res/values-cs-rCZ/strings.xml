@@ -931,6 +931,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_leave_deleted">Ponechat smazané zprávy na serveru</string>
     <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>
     <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
+    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Toto je maximální počet zpráv, které budou uloženy na zařízení</string>
     <string name="title_max_messages_remark">        Zadejte kladné číslo ke stažení zpráv na konci (nejvíce běžné)
         a záporné číslo ke stažení zpráv na začátku (nejméně běžné)
     </string>
@@ -1751,7 +1752,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Zobrazit citace</string>
     <string name="title_legend_show_junk">Považovat za nevyžádané</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Označit jako \"není spam\"</string>
+    <string name="title_legend_not_junk">Označit jako \"není spam\"</string>
     <string name="title_legend_create_rule">Vytvořit pravidlo</string>
     <string name="title_legend_show_unsubscribe">Ukončit odebírání kanálu</string>
     <string name="title_legend_show_images">Zobrazit obrázky</string>

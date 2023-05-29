@@ -1717,7 +1717,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Visa citat</string>
     <string name="title_legend_show_junk">Behandla som skräppost</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Behandla som ej skräppost</string>
+    <string name="title_legend_not_junk">Behandla som ej skräppost</string>
     <string name="title_legend_create_rule">Skapa regel</string>
     <string name="title_legend_show_unsubscribe">Avregistrera dig från listan</string>
     <string name="title_legend_show_images">Visa bilder</string>

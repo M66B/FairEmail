@@ -902,6 +902,7 @@
     <string name="title_leave_deleted">Lad slettede beskeder forblive på serveren</string>
     <string name="title_leave_on_device">Lad beskeder forblive på enhed</string>
     <string name="title_max_messages">Maks. antal beskeder at downloade (tomt for samtlige)</string>
+    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Dette er det maksimale antal besked, som gemmes på enheden</string>
     <string name="title_max_messages_remark">        Angiv et positivt tal for at downloade meddelelserne i slutningen (mest almindeligt)
         og et negativt tal for at downloade meddelelserne i begyndelsen
     </string>
@@ -1725,7 +1726,7 @@
     <string name="title_legend_avatar">Avatar</string>
     <string name="title_legend_show_quotes">Vis citater</string>
     <string name="title_legend_show_junk">Håndtér som spam</string>
-    <string name="title_legend_not_junk" comment="title_legend_not_junk&#10;Title for legend &quot;not spam&quot; icon/button">Håndtér som ikke-spam</string>
+    <string name="title_legend_not_junk">Håndtér som ikke-spam</string>
     <string name="title_legend_create_rule">Opret regel</string>
     <string name="title_legend_show_unsubscribe">Afabonnér fra liste</string>
     <string name="title_legend_show_images">Vis billeder</string>
