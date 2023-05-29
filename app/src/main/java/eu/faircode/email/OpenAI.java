@@ -40,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 public class OpenAI {
     private static final int MAX_OPENAI_LEN = 1000; // characters
@@ -53,7 +54,8 @@ public class OpenAI {
         boolean enabled = prefs.getBoolean("openai_enabled", false);
         String apikey = prefs.getString("openai_apikey", null);
 
-        return (enabled && !TextUtils.isEmpty(apikey));
+        return (enabled &&
+                (!TextUtils.isEmpty(apikey) || !Objects.equals(getUri(context), BuildConfig.OPENAI_ENDPOINT)));
     }
 
     static Pair<Double, Double> getGrants(Context context) throws JSONException, IOException {
@@ -154,12 +156,20 @@ public class OpenAI {
         return choices;
     }
 
+    private static String getUri(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        String endpoint = prefs.getString("openai_uri", BuildConfig.OPENAI_ENDPOINT);
+        if (!endpoint.endsWith("/"))
+            endpoint += "/";
+        return endpoint;
+    }
+
     private static JSONObject call(Context context, String method, String path, JSONObject args) throws JSONException, IOException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String apikey = prefs.getString("openai_apikey", null);
 
         // https://platform.openai.com/docs/api-reference/introduction
-        Uri uri = Uri.parse(BuildConfig.OPENAI_ENDPOINT).buildUpon().appendEncodedPath(path).build();
+        Uri uri = Uri.parse(getUri(context)).buildUpon().appendEncodedPath(path).build();
         Log.i("OpenAI uri=" + uri);
 
         long start = new Date().getTime();
