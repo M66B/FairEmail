@@ -57,6 +57,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Locale;
 
 import javax.mail.Part;
 
@@ -391,7 +392,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onView(EntityAttachment attachment) {
-            String extension = Helper.getExtension(attachment.name);
+            String ext = Helper.getExtension(attachment.name);
+            String extension = (ext == null ? null : ext.toLowerCase(Locale.ROOT));
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean confirm = prefs.getBoolean("confirm_files", true);
