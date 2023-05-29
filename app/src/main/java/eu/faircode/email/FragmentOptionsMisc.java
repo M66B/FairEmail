@@ -2270,9 +2270,10 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         final Context context = getContext();
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_reset_questions, null);
         final CheckBox cbGeneral = dview.findViewById(R.id.cbGeneral);
-        final CheckBox cbFull = dview.findViewById(R.id.cbFull);
-        final CheckBox cbImages = dview.findViewById(R.id.cbImages);
         final CheckBox cbLinks = dview.findViewById(R.id.cbLinks);
+        final CheckBox cbFiles = dview.findViewById(R.id.cbFiles);
+        final CheckBox cbImages = dview.findViewById(R.id.cbImages);
+        final CheckBox cbFull = dview.findViewById(R.id.cbFull);
 
         new AlertDialog.Builder(context)
                 .setView(dview)
@@ -2294,11 +2295,12 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                     key.startsWith("translated_") && cbGeneral.isChecked()) ||
                                     key.startsWith("oauth.") ||
                                     (key.startsWith("announcement.") && cbGeneral.isChecked()) ||
-                                    (key.endsWith(".show_full") && cbFull.isChecked()) ||
-                                    (key.endsWith(".show_images") && cbImages.isChecked()) ||
                                     (key.endsWith(".confirm_link") && cbLinks.isChecked()) ||
                                     (key.endsWith(".link_view") && cbLinks.isChecked()) ||
-                                    (key.endsWith(".link_sanitize") && cbLinks.isChecked())) {
+                                    (key.endsWith(".link_sanitize") && cbLinks.isChecked()) ||
+                                    (key.endsWith(".confirm_files") && cbFiles.isChecked()) ||
+                                    (key.endsWith(".show_images") && cbImages.isChecked()) ||
+                                    (key.endsWith(".show_full") && cbFull.isChecked())) {
                                 Log.i("Removing option=" + key);
                                 editor.remove(key);
                             }

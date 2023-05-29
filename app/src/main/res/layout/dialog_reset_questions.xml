@@ -33,14 +33,24 @@
             app:layout_constraintTop_toBottomOf="@id/tvAddImage" />
 
         <CheckBox
-            android:id="@+id/cbFull"
+            android:id="@+id/cbLinks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_setup_reset_full"
+            android:text="@string/title_setup_reset_links"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbGeneral" />
+
+        <CheckBox
+            android:id="@+id/cbFiles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_reset_files"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbLinks" />
 
         <CheckBox
             android:id="@+id/cbImages"
@@ -50,14 +60,14 @@
             android:text="@string/title_setup_reset_images"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbFull" />
+            app:layout_constraintTop_toBottomOf="@id/cbFiles" />
 
         <CheckBox
-            android:id="@+id/cbLinks"
+            android:id="@+id/cbFull"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/title_setup_reset_links"
+            android:text="@string/title_setup_reset_full"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbImages" />

@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Typeface;
@@ -30,6 +31,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -37,6 +40,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.core.app.ShareCompat;
 import androidx.fragment.app.Fragment;
@@ -387,6 +391,51 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         }
 
         private void onView(EntityAttachment attachment) {
+            String extension = Helper.getExtension(attachment.name);
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean confirm = prefs.getBoolean("confirm_files", true);
+            boolean confirm_type = prefs.getBoolean(extension + ".confirm_files", true);
+            if (extension != null && confirm && confirm_type) {
+                View view = LayoutInflater.from(context).inflate(R.layout.dialog_view_file, null);
+                TextView tvFile = view.findViewById(R.id.tvFile);
+                TextView tvType = view.findViewById(R.id.tvType);
+                CheckBox cbNotAgainType = view.findViewById(R.id.cbNotAgainType);
+                CheckBox cbNotAgain = view.findViewById(R.id.cbNotAgain);
+
+                tvFile.setText(context.getString(R.string.title_ask_view_file, attachment.name));
+                tvType.setText(attachment.getMimeType());
+                cbNotAgainType.setText(context.getString(R.string.title_no_ask_for_again, "." + extension));
+
+                cbNotAgainType.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        prefs.edit().putBoolean(extension + ".confirm_files", false).apply();
+                    }
+                });
+
+                cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        prefs.edit().putBoolean("confirm_files", false).apply();
+                    }
+                });
+
+                new AlertDialog.Builder(context)
+                        .setView(view)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                onViewConfirmed(attachment);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .show();
+            } else
+                onViewConfirmed(attachment);
+        }
+
+        private void onViewConfirmed(EntityAttachment attachment) {
             try {
                 String title = (attachment.name == null ? attachment.cid : attachment.name);
                 Helper.share(context, attachment.getFile(context), attachment.getMimeType(), title);
