@@ -286,9 +286,10 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_setup_defaults">Kembalikan pengaturan bawaan</string>
     <string name="title_setup_reset_questions">Atur ulang pertanyaan</string>
     <string name="title_setup_reset_general">Pertanyaan umum</string>
-    <string name="title_setup_reset_full">Tampilkan pesan asli</string>
-    <string name="title_setup_reset_images">Tampilkan gambar</string>
     <string name="title_setup_reset_links">Konfirmasi tautan</string>
+    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Tampilkan berkas</string>
+    <string name="title_setup_reset_images">Tampilkan gambar</string>
+    <string name="title_setup_reset_full">Tampilkan pesan asli</string>
     <string name="title_check_gmail_oauth">Akun Gmail Anda akan terus berfungsi setelah tanggal 30 Mei 2022</string>
     <string name="title_check_gmail_password">Beberapa akun Gmail Anda mungkin berhenti bekerja setelah tanggal 30 Mei 2022</string>
     <string name="title_check_outlook_oauth">Akun Outlook Anda akan terus bekerja setelah tanggal 1 Oktober 2022</string>
@@ -612,6 +613,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_notifications_background">Gunakan layanan latar belakang untuk menyinkronkan pesan</string>
     <string name="title_advanced_notifications_background_hint">Layanan latar belakang dapat dihentikan oleh Android kapan saja, tetapi tidak memerlukan pemberitahuan pada bilah status.</string>
     <string name="title_advanced_confirm_links">Minta konfirmasi ketika membuka tautan</string>
+    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Minta konfirmasi ketika menampilkan berkas</string>
     <string name="title_advanced_sanitize_links">Hapus parameter pelacakan secara default</string>
     <string name="title_advanced_sanitize_links_hint">Hanya saat mengkonfirmasi tautan</string>
     <string name="title_advanced_check_links_dbl">Periksa daftar blokir domain untuk tautan yang mencurigakan</string>
@@ -1169,6 +1171,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_ask_show_image_hint">Gambar yang dikenali sebagai gambar pelacakan tidak akan ditampilkan</string>
     <string name="title_ask_show_amp">Tampilkan varian AMP dari pesan?</string>
     <string name="title_ask_show_amp_hint">Pesan AMP dirancang agar dinamis dan berinteraksi dengan internet dan karenanya dapat secara definisi digunakan untuk melacak Anda</string>
+    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Tampilkan berkas %1$s ?</string>
     <string name="title_ask_delete_local">Hapus pesan diperangkat? Pesan akan tetap berada di server.</string>
     <string name="title_ask_help">Bantu meningkatkan FairEmail</string>
     <string name="title_ask_reporting">Kirim laporan kesalahan?</string>

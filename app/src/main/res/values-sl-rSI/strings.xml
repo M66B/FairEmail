@@ -327,9 +327,9 @@
     <string name="title_setup_defaults">Obnovi privzeto</string>
     <string name="title_setup_reset_questions">Ponastavi vprašanja</string>
     <string name="title_setup_reset_general">Splošna vprašanja</string>
-    <string name="title_setup_reset_full">Prikaži izvirna sporočila</string>
-    <string name="title_setup_reset_images">Prikaži slike</string>
     <string name="title_setup_reset_links">Potrdi povezave</string>
+    <string name="title_setup_reset_images">Prikaži slike</string>
+    <string name="title_setup_reset_full">Prikaži izvirna sporočila</string>
     <string name="title_check_gmail_oauth">Vaši računi Gmail bodo še naprej delovali po 30. maju 2022.</string>
     <string name="title_check_gmail_password">Nekateri od vaših računov Gmail bodo morda prenehali delovati po 30. maju 2022.</string>
     <string name="title_check_outlook_oauth">Vaši računi Outlook bodo še naprej delovali po 1. okrobru 2022.</string>

@@ -179,9 +179,9 @@
     <string name="title_setup_advanced">ବିକଶିତ</string>
     <string name="title_setup_options">ବିକଳ୍ପଗୁଡ଼ିକ</string>
     <string name="title_setup_reset_general">ସାଧାରଣ ପ୍ରଶ୍ନ</string>
-    <string name="title_setup_reset_full">ମୂଳ ଵାର୍ତ୍ତା ଦେଖାଅ</string>
-    <string name="title_setup_reset_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="title_setup_reset_links">ଲିଙ୍କଗୁଡ଼ିକ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <string name="title_setup_reset_images">ପ୍ରତିଛବିଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
+    <string name="title_setup_reset_full">ମୂଳ ଵାର୍ତ୍ତା ଦେଖାଅ</string>
     <string name="title_check_gmail_oauth">ଆପଣଙ୍କ Gmail ଆକାଉଣ୍ଟସବୁ ୩୦ ମଇ, ୨୦୨୨ ପରେ କାର୍ଯ୍ୟ ଜାରି ରଖିବ</string>
     <string name="title_check_gmail_password">ଆପଣଙ୍କର କିଛିଟା Gmail ଆକାଉଣ୍ଟ୍ ୩୦ ମଇ, ୨୦୨୨ ପରେ କାମ କରିବା ବନ୍ଦ କରିପାରେ</string>
     <string name="title_check_outlook_oauth">ଆପଣଙ୍କ Outlook ଆକାଉଣ୍ଟସବୁ ୧ ଅକ୍ଟୋବର, ୨୦୨୨ ପରେ କାର୍ଯ୍ୟ ଜାରି ରଖିବ</string>

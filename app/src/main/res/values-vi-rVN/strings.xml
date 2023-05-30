@@ -278,9 +278,9 @@
     <string name="title_setup_defaults">Khôi phục mặc định</string>
     <string name="title_setup_reset_questions">Đặt lại các câu hỏi</string>
     <string name="title_setup_reset_general">Câu hỏi chung</string>
-    <string name="title_setup_reset_full">Hiện thư gốc</string>
-    <string name="title_setup_reset_images">Hiện hình ảnh</string>
     <string name="title_setup_reset_links">Xác nhận liên kết</string>
+    <string name="title_setup_reset_images">Hiện hình ảnh</string>
+    <string name="title_setup_reset_full">Hiện thư gốc</string>
     <string name="title_check_gmail_oauth">Các tài khoản Gmail của bạn sẽ tiếp tục hoạt động sau 30 tháng 5, 2022</string>
     <string name="title_check_gmail_password">Một số tài khoản Gmail của bạn có thể dừng hoạt động sau 30 tháng 5, 2022</string>
     <string name="title_check_outlook_oauth">Các tài khoản Outlook của bạn sẽ tiếp tục hoạt động sau 1 tháng 10, 2022</string>

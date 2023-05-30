@@ -290,9 +290,9 @@
     <string name="title_setup_defaults">恢复默认设置</string>
     <string name="title_setup_reset_questions">重置询问</string>
     <string name="title_setup_reset_general">常规问题</string>
-    <string name="title_setup_reset_full">显示原始邮件</string>
-    <string name="title_setup_reset_images">显示图片</string>
     <string name="title_setup_reset_links">确认链接</string>
+    <string name="title_setup_reset_images">显示图片</string>
+    <string name="title_setup_reset_full">显示原始邮件</string>
     <string name="title_check_gmail_oauth">您的 Gmail 账户在 2022 年 5 月 30 日之后可继续使用</string>
     <string name="title_check_gmail_password">您的部分 Gmail 账户可能会在 2022 年 5 月 30 日之后不可使用</string>
     <string name="title_check_outlook_oauth">您的 Outlook 账户将在 2022 年 10 月 1 日之后可继续使用</string>
@@ -891,7 +891,7 @@
     <string name="title_leave_deleted">在服务器上保留已删除邮件</string>
     <string name="title_leave_on_device">在设备上保留消息</string>
     <string name="title_max_messages">下载邮件的最大数（留空则下载全部）</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">此为设备上存储的最大邮件数</string>
+    <string name="title_max_messages_keep">此为设备上存储的最大邮件数</string>
     <string name="title_max_messages_remark">        输入一个正数下载末尾消息(最常见)
         和一个负数下载开头消息(最少见)
     </string>

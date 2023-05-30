@@ -329,9 +329,9 @@
     <string name="title_setup_defaults">Obnoviť predvolené</string>
     <string name="title_setup_reset_questions">Obnoviť otázky</string>
     <string name="title_setup_reset_general">Všeobecné otázky</string>
-    <string name="title_setup_reset_full">Zobrazovať pôvodné správy</string>
-    <string name="title_setup_reset_images">Zobraziť obrázky</string>
     <string name="title_setup_reset_links">Potvrdzovať odkazy</string>
+    <string name="title_setup_reset_images">Zobraziť obrázky</string>
+    <string name="title_setup_reset_full">Zobrazovať pôvodné správy</string>
     <string name="title_check_gmail_oauth">Vaše účty Gmail ostanú funkčné po 30. máji 2022</string>
     <string name="title_check_gmail_password">Niektoré z vašich účtov Gmail môžu prestať fungovať po 30. máji 2022</string>
     <string name="title_check_outlook_oauth">Vaše účty Outlook budú naďalej fungovať po 1 októbri 2022</string>

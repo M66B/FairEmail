@@ -302,9 +302,10 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_defaults">Verstekwaarden herstellen</string>
     <string name="title_setup_reset_questions">Vragen resetten</string>
     <string name="title_setup_reset_general">Algemene vragen</string>
-    <string name="title_setup_reset_full">Toon originele berichten</string>
-    <string name="title_setup_reset_images">Toon afbeeldingen</string>
     <string name="title_setup_reset_links">Bevestig koppelingen</string>
+    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Bekijk bestanden</string>
+    <string name="title_setup_reset_images">Toon afbeeldingen</string>
+    <string name="title_setup_reset_full">Toon originele berichten</string>
     <string name="title_check_gmail_oauth">Uw Gmail accounts zullen blijven werken na 30 mei 2022</string>
     <string name="title_check_gmail_password">Sommige van uw Gmail accounts werken mogelijk niet meer na 30 mei 2022</string>
     <string name="title_check_outlook_oauth">Uw Outlook accounts zullen blijven werken na 1 oktober 2022</string>
@@ -629,6 +630,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notifications_background">Gebruik achtergrondservice om berichten te synchroniseren</string>
     <string name="title_advanced_notifications_background_hint">Een achtergrondservice kan op elk gewenst moment worden gestopt door Android, maar vereist geen melding in de statusbalk</string>
     <string name="title_advanced_confirm_links">Bevestig het openen van koppelingen</string>
+    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Bevestig het bekijken van bestanden</string>
     <string name="title_advanced_sanitize_links">Verwijder standaard tracking parameters</string>
     <string name="title_advanced_sanitize_links_hint">Alleen bij het bevestigen van links</string>
     <string name="title_advanced_check_links_dbl">Controleer domeinblokkeringslijsten op verdachte links</string>
@@ -903,7 +905,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_leave_deleted">Laat verwijderde berichten achter op de server</string>
     <string name="title_leave_on_device">Laat berichten achter op apparaat</string>
     <string name="title_max_messages">Maximum aantal berichten om te downloaden (leeg voor allen)</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Dit is het maximale aantal berichten dat op het apparaat zal worden bewaard</string>
+    <string name="title_max_messages_keep">Dit is het maximale aantal berichten dat op het apparaat zal worden bewaard</string>
     <string name="title_max_messages_remark">        Voer een positief getal in om berichten aan het einde te downloaden (meest gebruikelijk)
         en een negatief getal om berichten te downloaden aan het begin (minst gebruikelijk)
     </string>
@@ -1230,6 +1232,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_ask_show_image_hint">Afbeeldingen die als tracking afbeeldingen zijn herkend, worden niet getoond</string>
     <string name="title_ask_show_amp">AMP variant van het bericht weergeven?</string>
     <string name="title_ask_show_amp_hint">AMP berichten zijn ontworpen om dynamisch te zijn en om te communiceren met het internet en kunnen daarom per definitie worden gebruikt om u te volgen</string>
+    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Bekijk bestand %1$s ?</string>
     <string name="title_ask_delete_local">Lokale berichten verwijderen? Berichten blijven op de externe server.</string>
     <string name="title_ask_help">Help FairEmail te verbeteren</string>
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>

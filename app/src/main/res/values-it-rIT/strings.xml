@@ -303,9 +303,10 @@
     <string name="title_setup_defaults">Ripristina predefiniti</string>
     <string name="title_setup_reset_questions">Ripristina domande</string>
     <string name="title_setup_reset_general">Domande generali</string>
-    <string name="title_setup_reset_full">Mostra i messaggi originali</string>
-    <string name="title_setup_reset_images">Mostra le immagini</string>
     <string name="title_setup_reset_links">Confermare i link</string>
+    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Visualizzare i file</string>
+    <string name="title_setup_reset_images">Mostra le immagini</string>
+    <string name="title_setup_reset_full">Mostra i messaggi originali</string>
     <string name="title_check_gmail_oauth">I tuoi profili Gmail continueranno a funzionare dopo il 30 Maggio 2022</string>
     <string name="title_check_gmail_password">Alcuni dei profili Gmail potrebbero smettere di funzionare dopo il 30 Maggio 2022</string>
     <string name="title_check_outlook_oauth">I tuoi profili di Outlook continueranno a funzionare dopo l\'1 ottobre 2022</string>
@@ -631,6 +632,7 @@
     <string name="title_advanced_notifications_background">Usa il servizio in background per sincronizzare i messaggi</string>
     <string name="title_advanced_notifications_background_hint">Un servizio in background è interrompibile in qualsiasi momento da Android, ma non richiede una notifica della barra di stato</string>
     <string name="title_advanced_confirm_links">Conferma l\'apertura dei link</string>
+    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Conferma la visualizzazione dei file</string>
     <string name="title_advanced_sanitize_links">Rimuovi i parametri di monitoraggio di default</string>
     <string name="title_advanced_sanitize_links_hint">Solo confermando i link</string>
     <string name="title_advanced_check_links_dbl">Controlla le liste di blocco del dominio per i link sospetti</string>
@@ -906,7 +908,7 @@
     <string name="title_leave_deleted">Lascia i messaggi eliminati sul server</string>
     <string name="title_leave_on_device">Lascia messaggi sul dispositivo</string>
     <string name="title_max_messages">Numero massimo di messaggi da scaricare (vuoto per tutti)</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Questo è il numero massimo di messaggi che verranno mantenuti sul dispositivo</string>
+    <string name="title_max_messages_keep">Questo è il numero massimo di messaggi che verranno mantenuti sul dispositivo</string>
     <string name="title_max_messages_remark">        Inserisci un numero positivo per scaricare i messaggi alla fine (più comune)
         e un numero negativo per scaricare i messaggi all\'inizio (meno comune)
     </string>
@@ -1235,6 +1237,7 @@
     <string name="title_ask_show_image_hint">Le immagini riconosciute come di monitoraggio non saranno mostrate</string>
     <string name="title_ask_show_amp">Mostrare la variante AMP del messaggio?</string>
     <string name="title_ask_show_amp_hint">I messaggi AMP sono progettati per esser dinamici e interagire con l\'Internet e possono dunque, per definizione, esser usati per monitorarti</string>
+    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Visualizzare il file %1$s?</string>
     <string name="title_ask_delete_local">Elimina i messaggi locali? I messaggi rimarranno sul server remoto.</string>
     <string name="title_ask_help">Aiuta a migliorare FairEmail</string>
     <string name="title_ask_reporting">Inviare segnalazioni d\'errore?</string>

@@ -150,8 +150,8 @@
     <string name="title_setup_options">Опције</string>
     <string name="title_setup_defaults">Врати на подразумевано</string>
     <string name="title_setup_reset_questions">Ресетуј питања</string>
-    <string name="title_setup_reset_images">Прикажи слике</string>
     <string name="title_setup_reset_links">Потврдити линкове</string>
+    <string name="title_setup_reset_images">Прикажи слике</string>
     <string name="title_advanced_hint_title">Више напредних опција</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>

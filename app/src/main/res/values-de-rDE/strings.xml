@@ -304,9 +304,10 @@
     <string name="title_setup_defaults">Standardeinstellungen wiederherstellen</string>
     <string name="title_setup_reset_questions">Fragen zurücksetzen</string>
     <string name="title_setup_reset_general">Allgemeine Fragen</string>
-    <string name="title_setup_reset_full">Originalnachrichten anzeigen</string>
-    <string name="title_setup_reset_images">Bilder anzeigen</string>
     <string name="title_setup_reset_links">Links bestätigen</string>
+    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Dateien anzeigen</string>
+    <string name="title_setup_reset_images">Bilder anzeigen</string>
+    <string name="title_setup_reset_full">Originalnachrichten anzeigen</string>
     <string name="title_check_gmail_oauth">Ihre Google-Mail-Konten werden nach dem 30. Mai 2022 weiterhin funktionieren</string>
     <string name="title_check_gmail_password">Einige Ihrer Google-Mail-Konten funktionieren möglicherweise nicht mehr nach dem 30. Mai 2022</string>
     <string name="title_check_outlook_oauth">Ihre Outlook-Konten werden nach dem 1. Oktober 2022 weiterhin funktionieren</string>
@@ -632,6 +633,7 @@
     <string name="title_advanced_notifications_background">Hintergrunddienst verwenden, um Nachrichten zu synchronisieren</string>
     <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
     <string name="title_advanced_confirm_links">Links beim Öffnen bestätigen</string>
+    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Dateien anzeigen bestätigen</string>
     <string name="title_advanced_sanitize_links">Verfolgungsparameter standardmäßig entfernen</string>
     <string name="title_advanced_sanitize_links_hint">Nur beim Bestätigen von Links</string>
     <string name="title_advanced_check_links_dbl">Domain-Sperrlisten auf verdächtige Links prüfen</string>
@@ -907,7 +909,7 @@
     <string name="title_leave_deleted">Gelöschte Nachrichten auf Server belassen</string>
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
     <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Dies ist die maximale Anzahl von Nachrichten, die auf dem Gerät gespeichert werden</string>
+    <string name="title_max_messages_keep">Dies ist die maximale Anzahl an Nachrichten, die auf dem Gerät aufwahrt werden</string>
     <string name="title_max_messages_remark">        Bitte eine positive Zahl eingeben, um die Nachrichten am Ende herunterzuladen (am häufigsten)
         und eine negative Zahl, um die Nachrichten am Anfang herunterzuladen (weniger häufig)
     </string>
@@ -1236,6 +1238,7 @@
     <string name="title_ask_show_image_hint">Erkannte Verfolgungsbilder werden nicht angezeigt</string>
     <string name="title_ask_show_amp">AMP-Variante der Nachricht anzeigen?</string>
     <string name="title_ask_show_amp_hint">AMP-Nachrichten sind so ausgelegt, dass sie dynamisch sind, mit dem Internet interagieren und daher per Definition dazu verwendet werden können, um Sie zu verfolgen.</string>
+    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Datei %1$s anzeigen?</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
@@ -1557,7 +1560,7 @@
     <string name="title_rule_snooze">Zurückstellen</string>
     <string name="title_rule_flag">Stern hinzufügen</string>
     <string name="title_rule_importance">Wichtigkeit festlegen</string>
-    <string name="title_rule_keyword">Schlagwort</string>
+    <string name="title_rule_keyword">Stichwort</string>
     <string name="title_rule_keyword_add">Hinzufügen</string>
     <string name="title_rule_keyword_delete">Löschen</string>
     <string name="title_rule_move">Verschieben</string>

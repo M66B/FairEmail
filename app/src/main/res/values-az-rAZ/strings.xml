@@ -303,9 +303,9 @@
     <string name="title_setup_defaults">İlkin vəziyyətinə qaytar</string>
     <string name="title_setup_reset_questions">Sualları sıfırla</string>
     <string name="title_setup_reset_general">Ümumi suallar</string>
-    <string name="title_setup_reset_full">Orijinal mesajları göstər</string>
-    <string name="title_setup_reset_images">Təsvirləri göstər</string>
     <string name="title_setup_reset_links">Bağlantıları təsdiqlə</string>
+    <string name="title_setup_reset_images">Təsvirləri göstər</string>
+    <string name="title_setup_reset_full">Orijinal mesajları göstər</string>
     <string name="title_check_gmail_oauth">Gmail hesablarınız 30 May 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
     <string name="title_check_gmail_password">Bəzi Gmail hesablarınız 30 May 2022-ci il tarixindən işləməyi dayandıra bilər</string>
     <string name="title_check_outlook_oauth">Outlook hesablarınız 1 Oktyabr 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
@@ -905,7 +905,7 @@
     <string name="title_leave_deleted">Silənən mesajları serverdə burax</string>
     <string name="title_leave_on_device">Mesajları cihazda burax</string>
     <string name="title_max_messages">Endiriləcək mesajların maksimum sayı (hamısı üçün boş)</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Bu, cihazda saxlanılacaq maksimum mesaj sayıdır</string>
+    <string name="title_max_messages_keep">Bu, cihazda saxlanılacaq maksimum mesaj sayıdır</string>
     <string name="title_max_messages_remark">        Mesajları sonda endirmək üçün müsbət bir ədəd daxil edin (ən geniş yayılmış)
         və mesajları başlanğıcda endirmək üçün mənfi bir ədəd daxil edin (ən az yayılmış)
     </string>

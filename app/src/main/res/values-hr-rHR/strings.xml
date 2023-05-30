@@ -281,9 +281,9 @@
     <string name="title_setup_defaults">Vrati zadano</string>
     <string name="title_setup_reset_questions">Poništite pitanja</string>
     <string name="title_setup_reset_general">Općenita pitanja</string>
-    <string name="title_setup_reset_full">Prikaži izvornu poruku</string>
-    <string name="title_setup_reset_images">Prikaži slike</string>
     <string name="title_setup_reset_links">Potvrdi veze</string>
+    <string name="title_setup_reset_images">Prikaži slike</string>
+    <string name="title_setup_reset_full">Prikaži izvornu poruku</string>
     <string name="title_check_gmail_oauth">Vaš Gmail račun će nastaviti s radom nakon 30. svibnja 2022. godine</string>
     <string name="title_check_gmail_password">Neki od Vaših Gmail računa možda će prestati s radom nakon 30. svibnja 2022. godine</string>
     <string name="title_check_outlook_oauth">Vaši Outlook računi nastavit će raditi nakon 1. listopada 2022. godine</string>

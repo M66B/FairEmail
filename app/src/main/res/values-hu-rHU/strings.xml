@@ -274,9 +274,9 @@
     <string name="title_setup_defaults">Alapértékek visszaállítása</string>
     <string name="title_setup_reset_questions">Kérdések visszaállítása</string>
     <string name="title_setup_reset_general">Általános kérdések</string>
-    <string name="title_setup_reset_full">Eredeti szöveg megjelenítése</string>
-    <string name="title_setup_reset_images">Képek megjelenítése</string>
     <string name="title_setup_reset_links">Linkek jóváhagyása</string>
+    <string name="title_setup_reset_images">Képek megjelenítése</string>
+    <string name="title_setup_reset_full">Eredeti szöveg megjelenítése</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
     </string>

@@ -290,9 +290,9 @@
     <string name="title_setup_defaults">デフォルトに戻す</string>
     <string name="title_setup_reset_questions">確認表示をリセット</string>
     <string name="title_setup_reset_general">よくある質問</string>
-    <string name="title_setup_reset_full">元のメッセージの表示</string>
-    <string name="title_setup_reset_images">画像の表示</string>
     <string name="title_setup_reset_links">リンクを確認</string>
+    <string name="title_setup_reset_images">画像の表示</string>
+    <string name="title_setup_reset_full">元のメッセージの表示</string>
     <string name="title_check_gmail_oauth">あなたの Gmail アカウントは 2022 年 5 月 30 日以降も引き続き利用できます</string>
     <string name="title_check_gmail_password">あなたの Gmail アカウントの一部は 2022 年 5 月 30 日以降に停止される可能性があります</string>
     <string name="title_check_outlook_oauth">あなたの Outlook アカウントは 2022 年 10 月 1 日以降も引き続き利用できます</string>
@@ -892,7 +892,7 @@
     <string name="title_leave_deleted">削除したメッセージをサーバーに残す</string>
     <string name="title_leave_on_device">デバイスにメッセージを残す</string>
     <string name="title_max_messages">ダウンロードするメッセージの最大数 (空白にするとすべてダウンロードします)</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">これは、デバイスに保存されるメッセージの最大数です</string>
+    <string name="title_max_messages_keep">これは、デバイスに保存されるメッセージの最大数です</string>
     <string name="title_max_messages_remark">        正の数を入力すると、最後からメッセージをダウンロードします (推奨)
         負の数を入力すると、最初からメッセージをダウンロードします (一般的でない)
     </string>

@@ -303,9 +303,9 @@
     <string name="title_setup_defaults">Restaurar padrão</string>
     <string name="title_setup_reset_questions">Redefinir perguntas</string>
     <string name="title_setup_reset_general">Dúvidas gerais</string>
-    <string name="title_setup_reset_full">Mostrar mensagens originais</string>
-    <string name="title_setup_reset_images">Mostrar Imagens</string>
     <string name="title_setup_reset_links">Confirmar links</string>
+    <string name="title_setup_reset_images">Mostrar Imagens</string>
+    <string name="title_setup_reset_full">Mostrar mensagens originais</string>
     <string name="title_check_gmail_oauth">Suas contas de Gmail continuarão funcionando após 30 de maio de 2022</string>
     <string name="title_check_gmail_password">Algumas de suas contas de Gmail podem parar de funcionar após 30 de maio de 2022</string>
     <string name="title_check_outlook_oauth">Suas contas Outlook irão continuar funcionando depois de 1 de outubro de 2022</string>
@@ -904,7 +904,7 @@
     <string name="title_leave_deleted">Deixar as mensagens apagadas no servidor</string>
     <string name="title_leave_on_device">Deixar mensagens no dispositivo</string>
     <string name="title_max_messages">Número máximo de mensagens para baixar (em branco para todas)</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Este é o número máximo de mensagens que serão mantidas no dispositivo</string>
+    <string name="title_max_messages_keep">Este é o número máximo de mensagens que serão mantidas no dispositivo</string>
     <string name="title_max_messages_remark">        Insira um número positivo para baixar as mensagens no final (mais comum)
         e um número negativo para baixar as mensagens no início (menos comum)
     </string>

@@ -329,9 +329,10 @@
     <string name="title_setup_defaults">Вернуть настройки по умолчанию</string>
     <string name="title_setup_reset_questions">Заново включить вопросы</string>
     <string name="title_setup_reset_general">Общие вопросы</string>
-    <string name="title_setup_reset_full">Показывать исходные сообщения</string>
-    <string name="title_setup_reset_images">Показывать изображения</string>
     <string name="title_setup_reset_links">Подтверждать ссылки</string>
+    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Просмотр файлов</string>
+    <string name="title_setup_reset_images">Показывать изображения</string>
+    <string name="title_setup_reset_full">Показывать исходные сообщения</string>
     <string name="title_check_gmail_oauth">Ваши учётные записи Gmail будут работать после 30 мая 2022 года</string>
     <string name="title_check_gmail_password">Некоторые из ваших учётных записей Gmail могут перестать работать после 30 мая 2022 года</string>
     <string name="title_check_outlook_oauth">Ваши учётные записи Outlook будут работать после 1 октября 2022 года</string>
@@ -656,6 +657,7 @@
     <string name="title_advanced_notifications_background">Использовать фоновую службу для синхронизации сообщений</string>
     <string name="title_advanced_notifications_background_hint">Фоновая служба может быть остановлена Android в любое время, но не требует уведомления в статусной строке</string>
     <string name="title_advanced_confirm_links">Подтверждать открытие ссылок</string>
+    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Подтверждать просмотр файлов</string>
     <string name="title_advanced_sanitize_links">Удалять отслеживающие элементы по умолчанию</string>
     <string name="title_advanced_sanitize_links_hint">Только при подтверждении ссылок</string>
     <string name="title_advanced_check_links_dbl">Проверять списки блокировки доменов на подозрительные ссылки</string>
@@ -931,7 +933,7 @@
     <string name="title_leave_deleted">Оставлять удалённые сообщения на сервере</string>
     <string name="title_leave_on_device">Оставлять сообщения на устройстве</string>
     <string name="title_max_messages">Максимальное количество загружаемых сообщений (пусто для всех)</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Максимальное количество сообщений, которые будут храниться на устройстве</string>
+    <string name="title_max_messages_keep">Максимальное количество сообщений, которые будут храниться на устройстве</string>
     <string name="title_max_messages_remark">        Введите положительное число для загрузки сообщений в конце (более распространённое)
         или отрицательное число для загрузки сообщений в начале (менее распространённое)
     </string>
@@ -1260,6 +1262,7 @@
     <string name="title_ask_show_image_hint">Изображения, распознанные как отслеживающие, не будут показаны</string>
     <string name="title_ask_show_amp">Показать AMP-вариант сообщения?</string>
     <string name="title_ask_show_amp_hint">AMP-сообщения создавались как динамически взаимодействующие с интернетом и, следовательно, по определению могут быть использованы, чтобы вас отслеживать</string>
+    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Смотреть файл %1$s?</string>
     <string name="title_ask_delete_local">Удалить локальные сообщения? Сообщения останутся на удалённом сервере.</string>
     <string name="title_ask_help">Помогите улучшить FairEmail</string>
     <string name="title_ask_reporting">Отправлять отчёты об ошибках?</string>

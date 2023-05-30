@@ -301,9 +301,9 @@
     <string name="title_setup_defaults">Återställ standardvärden</string>
     <string name="title_setup_reset_questions">Återställ frågor</string>
     <string name="title_setup_reset_general">Allmänna frågor</string>
-    <string name="title_setup_reset_full">Visa originalmeddelanden</string>
-    <string name="title_setup_reset_images">Visa bilder</string>
     <string name="title_setup_reset_links">Bekräfta länkar</string>
+    <string name="title_setup_reset_images">Visa bilder</string>
+    <string name="title_setup_reset_full">Visa originalmeddelanden</string>
     <string name="title_check_gmail_oauth">Dina Gmail-konton kommer att fortsätta fungera efter den 30 maj 2022</string>
     <string name="title_check_gmail_password">Vissa av dina Gmail-konton kan sluta fungera efter den 30 maj 2022</string>
     <string name="title_check_outlook_oauth">Dina Outlook-konton kommer att fortsätta fungera efter 1 oktober 2022</string>
@@ -898,6 +898,7 @@
     <string name="title_leave_deleted">Lämna raderade meddelanden på servern</string>
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
+    <string name="title_max_messages_keep">Detta är det maximala antalet meddelanden som kommer att lagras på enheten</string>
     <string name="title_max_messages_remark">        Ange ett positivt värde för att ladda ner meddelandena i slutet (vanligast)
         och ett negativt värde för att ladda ner meddelandena i början (minst vanligast)
     </string>

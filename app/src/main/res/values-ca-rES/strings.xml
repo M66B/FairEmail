@@ -287,9 +287,9 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_setup_defaults">Restaura els valors per defecte</string>
     <string name="title_setup_reset_questions">Restableix les preguntes</string>
     <string name="title_setup_reset_general">Preguntes generals</string>
-    <string name="title_setup_reset_full">Mostra el missatge original</string>
-    <string name="title_setup_reset_images">Mostra imatges</string>
     <string name="title_setup_reset_links">Confirma els enllaços Url</string>
+    <string name="title_setup_reset_images">Mostra imatges</string>
+    <string name="title_setup_reset_full">Mostra el missatge original</string>
     <string name="title_check_gmail_oauth">Els teus comptes de Gmail continuaran funcionant després del 30 de maig de 2022</string>
     <string name="title_check_gmail_password">Algunes de les teves comptes de Gmail poden deixar de funcionar després del 30 de maig del 2022</string>
     <string name="title_check_outlook_oauth">Els teus comptes de Gmail continuaran funcionant després del 30 de maig de 2022</string>

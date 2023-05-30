@@ -316,9 +316,9 @@
     <string name="title_setup_defaults">Restabiliți valorile implicite</string>
     <string name="title_setup_reset_questions">Resetare întrebări</string>
     <string name="title_setup_reset_general">Întrebări generale</string>
-    <string name="title_setup_reset_full">Afișați mesajele originale</string>
-    <string name="title_setup_reset_images">Afișare imagini</string>
     <string name="title_setup_reset_links">Confirmați link-urile</string>
+    <string name="title_setup_reset_images">Afișare imagini</string>
+    <string name="title_setup_reset_full">Afișați mesajele originale</string>
     <string name="title_check_gmail_oauth">Conturile dumneavoastră Gmail vor continua să funcționeze și după 30 mai 2022</string>
     <string name="title_check_gmail_password">Este posibil ca unele dintre conturile tale de Gmail să nu mai funcționeze după 30 mai 2022</string>
     <string name="title_check_outlook_oauth">Conturile Outlook vor continua să funcționeze și după 1 octombrie 2022</string>

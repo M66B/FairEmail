@@ -330,9 +330,10 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_defaults">Obnovit výchozí</string>
     <string name="title_setup_reset_questions">Obnovit otázky</string>
     <string name="title_setup_reset_general">Obecné otázky</string>
-    <string name="title_setup_reset_full">Zobrazit původní zprávy</string>
-    <string name="title_setup_reset_images">Zobrazit obrázky</string>
     <string name="title_setup_reset_links">Potvrdit odkazy</string>
+    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Zobrazit soubory</string>
+    <string name="title_setup_reset_images">Zobrazit obrázky</string>
+    <string name="title_setup_reset_full">Zobrazit původní zprávy</string>
     <string name="title_check_gmail_oauth">Vaše Gmail účty budou fungovat i po 30. květnu 2022</string>
     <string name="title_check_gmail_password">Některé z vašich Gmail účtů mohou přestat fungovat po 30. květnu 2022</string>
     <string name="title_check_outlook_oauth">Vaše účty Outlook budou fungovat i po 1. říjnu 2022</string>
@@ -657,6 +658,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_notifications_background">Pro synchronizaci zpráv použít službu na pozadí</string>
     <string name="title_advanced_notifications_background_hint">Služba na pozadí může být systémem Android kdykoli zastavena, ale nevyžaduje oznámení ve stavové liště</string>
     <string name="title_advanced_confirm_links">Potvrzovat otevírání odkazů</string>
+    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Potvrdit zobrazení souboru</string>
     <string name="title_advanced_sanitize_links">Ve výchozím nastavení odstranit sledovací parametry</string>
     <string name="title_advanced_sanitize_links_hint">Pouze při potvrzování odkazů</string>
     <string name="title_advanced_check_links_dbl">Kontrolovat seznamy blokovaných domén na podezřelé odkazy</string>
@@ -931,7 +933,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_leave_deleted">Ponechat smazané zprávy na serveru</string>
     <string name="title_leave_on_device">Ponechat zprávy v zařízení</string>
     <string name="title_max_messages">Maximální počet zpráv ke stažení (prázdné pro všechny)</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Toto je maximální počet zpráv, které budou uloženy na zařízení</string>
+    <string name="title_max_messages_keep">Toto je maximální počet zpráv, které budou uloženy na zařízení</string>
     <string name="title_max_messages_remark">        Zadejte kladné číslo ke stažení zpráv na konci (nejvíce běžné)
         a záporné číslo ke stažení zpráv na začátku (nejméně běžné)
     </string>
@@ -1259,6 +1261,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_ask_show_image_hint">Obrázky rozpoznané jako sledovací nebudou zobrazeny</string>
     <string name="title_ask_show_amp">Zobrazit zprávu ve variantě AMP?</string>
     <string name="title_ask_show_amp_hint">AMP zprávy jsou navrženy tak, aby byly dynamické a interagovaly s internetem, a proto mohou být podle definice použity ke sledování</string>
+    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Zobrazit soubor %1$s?</string>
     <string name="title_ask_delete_local">Smazat lokální zprávy? Zprávy zůstanou na vzdáleném serveru.</string>
     <string name="title_ask_help">Pomozte vylepšit FairEmail</string>
     <string name="title_ask_reporting">Odeslat zprávy o chybách?</string>

@@ -330,9 +330,9 @@
     <string name="title_setup_defaults">Аднавіць значэнні па змаўчанні</string>
     <string name="title_setup_reset_questions">Скінуць адказы на пытанні</string>
     <string name="title_setup_reset_general">Агульныя пытанні</string>
-    <string name="title_setup_reset_full">Паказаць зыходныя паведамленні</string>
-    <string name="title_setup_reset_images">Паказваць выявы</string>
     <string name="title_setup_reset_links">Пацвярджаць спасылкі</string>
+    <string name="title_setup_reset_images">Паказваць выявы</string>
+    <string name="title_setup_reset_full">Паказаць зыходныя паведамленні</string>
     <string name="title_check_gmail_oauth">Вашы ўліковыя запісы Gmail працягнуць працаваць пасля 30 мая 2022 г.</string>
     <string name="title_check_gmail_password">Некаторыя з вашых уліковых запісаў Gmail могуць перастаць працаваць пасля 30 мая 2022 г.</string>
     <string name="title_check_outlook_oauth">Вашы ўліковыя запісы Outlook працягнуць працаваць пасля 1 кастрычніка 2022 г.</string>

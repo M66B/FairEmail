@@ -329,9 +329,10 @@
     <string name="title_setup_defaults">Przywróć domyślne</string>
     <string name="title_setup_reset_questions">Zresetuj pytania</string>
     <string name="title_setup_reset_general">Pytania ogólne</string>
-    <string name="title_setup_reset_full">Pokaż oryginalne wiadomości</string>
-    <string name="title_setup_reset_images">Pokaż obrazy</string>
     <string name="title_setup_reset_links">Potwierdź linki</string>
+    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Zobacz pliki</string>
+    <string name="title_setup_reset_images">Pokaż obrazy</string>
+    <string name="title_setup_reset_full">Pokaż oryginalne wiadomości</string>
     <string name="title_check_gmail_oauth">Twoje konta Gmail będą nadal działać po 30 maja 2022</string>
     <string name="title_check_gmail_password">Niektóre z Twoich kont Gmail mogą przestać działać po 30 maja 2022</string>
     <string name="title_check_outlook_oauth">Twoje konta Outlook będą nadal działać po 1 października 2022</string>
@@ -656,6 +657,7 @@
     <string name="title_advanced_notifications_background">Użyj usługi w tle do synchronizacji wiadomości</string>
     <string name="title_advanced_notifications_background_hint">Usługa w tle może być w dowolnym momencie zatrzymana przez Androida, ale nie wymaga powiadomienia na pasku stanu</string>
     <string name="title_advanced_confirm_links">Potwierdź otwieranie linków</string>
+    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Potwierdź przeglądanie plików</string>
     <string name="title_advanced_sanitize_links">Domyślnie usuwaj parametry śledzące</string>
     <string name="title_advanced_sanitize_links_hint">Tylko podczas potwierdzania linków</string>
     <string name="title_advanced_check_links_dbl">Sprawdź listy zablokowanych domen pod kątem podejrzanych linków</string>
@@ -930,7 +932,7 @@
     <string name="title_leave_deleted">Pozostaw usunięte wiadomości na serwerze</string>
     <string name="title_leave_on_device">Pozostaw wiadomości na urządzeniu</string>
     <string name="title_max_messages">Maksymalna liczba wiadomości do pobrania (puste dla wszystkich)</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">To jest maksymalna liczba wiadomości, które będą przechowywane na urządzeniu</string>
+    <string name="title_max_messages_keep">To jest maksymalna liczba wiadomości, które będą przechowywane na urządzeniu</string>
     <string name="title_max_messages_remark">        Wpisz liczbę dodatnią, aby pobrać wiadomości na końcu (najczęściej spotykane)
         i liczbę ujemną, aby pobrać wiadomości na początku (najmniej powszechne)
     </string>
@@ -1258,6 +1260,7 @@
     <string name="title_ask_show_image_hint">Obrazy rozpoznane jako obrazy śledzące nie będą wyświetlane</string>
     <string name="title_ask_show_amp">Pokaż wariant AMP wiadomości?</string>
     <string name="title_ask_show_amp_hint">Wiadomości AMP są zaprojektowane jako dynamiczne i wchodzące w interakcję z internetem, dlatego z definicji mogą być używane do śledzenia Ciebie</string>
+    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Zobaczyć plik %1$s?</string>
     <string name="title_ask_delete_local">Usunąć wiadomości lokalne? Wiadomości pozostaną na serwerze zdalnym.</string>
     <string name="title_ask_help">Pomóż udoskonalić FairEmail</string>
     <string name="title_ask_reporting">Wyślij raporty o błędach?</string>

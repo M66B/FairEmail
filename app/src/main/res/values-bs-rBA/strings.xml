@@ -316,9 +316,10 @@
     <string name="title_setup_defaults">Vrati zadane postavke</string>
     <string name="title_setup_reset_questions">Poništi pitanja</string>
     <string name="title_setup_reset_general">Opća pitanja</string>
-    <string name="title_setup_reset_full">Prikaži izvorne poruke</string>
-    <string name="title_setup_reset_images">Prikaži slike</string>
     <string name="title_setup_reset_links">Potvrdi linkove</string>
+    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Pregled datoteka</string>
+    <string name="title_setup_reset_images">Prikaži slike</string>
+    <string name="title_setup_reset_full">Prikaži izvorne poruke</string>
     <string name="title_check_gmail_oauth">Vaši Gmail računi radit će nakon 30. maja 2022.</string>
     <string name="title_check_gmail_password">Neki od vaših Gmail računa prestat će raditi nakon 30. maja 2022.</string>
     <string name="title_check_outlook_oauth">Vaši Outlook računi će raditi nakon 1. oktobra 2022.</string>
@@ -644,6 +645,7 @@
     <string name="title_advanced_notifications_background">Koristi pozadinski servis za sinhronizaciju poruka</string>
     <string name="title_advanced_notifications_background_hint">Android može zaustaviti pozadinski servis bilo kada, ali on ne zahtijeva obavještenje na statusnoj traci</string>
     <string name="title_advanced_confirm_links">Potvrdi linkove na otvaranju</string>
+    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Potvrda pregleda datoteka</string>
     <string name="title_advanced_sanitize_links">Ukloni parametre \'praćenja\' po default-u</string>
     <string name="title_advanced_sanitize_links_hint">Samo pri potvrđivanju linkova</string>
     <string name="title_advanced_check_links_dbl">Provjeri spisak blokiranja domena za sumnjive linkove</string>
@@ -918,7 +920,7 @@
     <string name="title_leave_deleted">Zadrži izbrisane poruke na serveru</string>
     <string name="title_leave_on_device">Zadrži poruke na uređaju</string>
     <string name="title_max_messages">Maksimalan broj poruka za preuzimanje (prazno za sve)</string>
-    <string name="title_max_messages_keep" comment="title_max_messages_keep&#10;Remark for download count of POP3 account screen">Ovo je maksimalan broj poruka koje će se zadržati na uređaju</string>
+    <string name="title_max_messages_keep">Ovo je maksimalan broj poruka koje će se zadržati na uređaju</string>
     <string name="title_max_messages_remark">        Unesite pozitivan broj za preuzimanje poruka na kraju (najčešće)
         i negativan broj za preuzimanje poruka na početku (najrjeđe)
     </string>
@@ -1247,6 +1249,7 @@
     <string name="title_ask_show_image_hint">Slike koje su prepoznate kao \'one koje prate\' neće se prikazivati</string>
     <string name="title_ask_show_amp">Prikazati AMP varijantu poruke?</string>
     <string name="title_ask_show_amp_hint">AMP poruke su dizajnirane kao dinamične i interaktivne na internetu, i stoga po definiciji mogu Vas pratiti</string>
+    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Pregledati datoteku %1$s ?</string>
     <string name="title_ask_delete_local">Izbrisati lokalne poruke? Poruke će biti zadržane na udaljenom serveru.</string>
     <string name="title_ask_help">Pomozite u poboljšanju FairEmail-a</string>
     <string name="title_ask_reporting">Pošalji izvještaj o greški?</string>

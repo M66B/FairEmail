@@ -271,9 +271,9 @@
     <string name="title_setup_defaults">بازیابی پیش‌فرض‌ها</string>
     <string name="title_setup_reset_questions">بازنشانی پرسش‌ها</string>
     <string name="title_setup_reset_general">پرسش‌های عمومی</string>
-    <string name="title_setup_reset_full">مشاهده پیام‌های اصلی</string>
-    <string name="title_setup_reset_images">نمایش تصاویر</string>
     <string name="title_setup_reset_links">لینک‌ها را تایید کنید</string>
+    <string name="title_setup_reset_images">نمایش تصاویر</string>
+    <string name="title_setup_reset_full">مشاهده پیام‌های اصلی</string>
     <string name="title_check_gmail_oauth">حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، همچنان کار خواهند کرد</string>
     <string name="title_check_gmail_password">تعدادی از حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، ممکن است از کار بیافتند</string>
     <string name="title_check_outlook_oauth">حساب‌های آوت‌لوک شما پس از ۱ اکتبر ۲۰۲۲، همچنان کار خواهند کرد</string>
