@@ -220,7 +220,8 @@ public class MessageHelper {
             "no-reply",
             "donotreply",
             "do.not.reply",
-            "do-not-reply"
+            "do-not-reply",
+            "nicht.antworten"
     ));
 
     static final String FLAG_FORWARDED = "$Forwarded";
