@@ -6945,7 +6945,7 @@ public class FragmentMessages extends FragmentBase
             // - single, non archived/trashed/sent message
             // - one unread, non archived/trashed/sent message in conversation
             // - sole message
-            if (autoexpand) {
+            if (autoexpand || (pinned && pinnedMessage != null)) {
                 TupleMessageEx expand = null;
                 if (finds > 0) {
                     if (finds == 1)
