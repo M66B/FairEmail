@@ -1944,6 +1944,7 @@ class Core {
             if (imessage == null)
                 throw new MessageRemovedException();
 
+            EntityLog.log(context, "Downloading raw id=" + message.id + " subject=" + message.subject);
             File file = message.getRawFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 imessage.writeTo(os);
