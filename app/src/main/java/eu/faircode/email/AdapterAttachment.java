@@ -411,15 +411,16 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
                 cbNotAgainType.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                         prefs.edit().putBoolean(extension + ".confirm_files", false).apply();
                     }
                 });
 
                 cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
-                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
                         prefs.edit().putBoolean("confirm_files", false).apply();
+                        cbNotAgainType.setEnabled(!isChecked);
                     }
                 });
 
