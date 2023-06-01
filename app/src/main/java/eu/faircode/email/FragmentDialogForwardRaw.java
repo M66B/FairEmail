@@ -287,10 +287,11 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
 
     private void send(long account, long[] ids) {
         try {
+            final Context context = getContext();
             ArrayList<Uri> uris = new ArrayList<>();
             for (long id : ids) {
-                File file = EntityMessage.getRawFile(getContext(), id);
-                Uri uri = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID, file);
+                File file = EntityMessage.getRawFile(context, id);
+                Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
                 uris.add(uri);
             }
 
