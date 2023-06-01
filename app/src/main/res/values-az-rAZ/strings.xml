@@ -304,6 +304,7 @@
     <string name="title_setup_reset_questions">Sualları sıfırla</string>
     <string name="title_setup_reset_general">Ümumi suallar</string>
     <string name="title_setup_reset_links">Bağlantıları təsdiqlə</string>
+    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Fayllara bax</string>
     <string name="title_setup_reset_images">Təsvirləri göstər</string>
     <string name="title_setup_reset_full">Orijinal mesajları göstər</string>
     <string name="title_check_gmail_oauth">Gmail hesablarınız 30 May 2022-ci il tarixindən sonra işləməyə davam edəcək</string>
@@ -631,6 +632,7 @@
     <string name="title_advanced_notifications_background">Mesajları sinxronlaşdırmaq üçün arxaplan xidməti istifadə et</string>
     <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq vəziyyət sətri bildirişini tələb etmir</string>
     <string name="title_advanced_confirm_links">Bağlantıların açılmasını təsdiqlə</string>
+    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Fayllara baxışı təsdiqlə</string>
     <string name="title_advanced_sanitize_links">İzləmə parametrlərini ilkin olaraq çıxart</string>
     <string name="title_advanced_sanitize_links_hint">Yalnız keçidləri təsdiqləyərkən</string>
     <string name="title_advanced_check_links_dbl">Şübhəli bağlantılar üçün domen əngəlləmə siyahılarını yoxlayın</string>
@@ -1234,6 +1236,7 @@
     <string name="title_ask_show_image_hint">İzləmə təsvirləri kimi bilinən təsvirlər göstərilməyəcək</string>
     <string name="title_ask_show_amp">Mesajın AMP variantı göstərilsin?</string>
     <string name="title_ask_show_amp_hint">AMP mesajları dinamik olacaq və internet ilə qarşılıqlı əlaqədə olacaq formada dizayn edilib və buna görə də tərifə görə sizi izləmək üçün istifadə edilə bilər</string>
+    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">%1$s faylına baxılsın?</string>
     <string name="title_ask_delete_local">Yerli mesajlar silinsin? Mesajlar uzaq serverdə qalacaq.</string>
     <string name="title_ask_help">\"FairEmail\"in təkmilləşdirilməsinə kömək edin</string>
     <string name="title_ask_reporting">Xəta hesabatları göndərilsin?</string>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_search">Поиск по FairEmail</string>
     <string name="shortcut_refresh">Atnaujinti</string>
     <string name="shortcut_setup">Nustatymai</string>
     <string name="title_junk_clear">Valyti</string>

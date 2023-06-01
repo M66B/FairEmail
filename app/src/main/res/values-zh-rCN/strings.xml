@@ -291,6 +291,7 @@
     <string name="title_setup_reset_questions">重置询问</string>
     <string name="title_setup_reset_general">常规问题</string>
     <string name="title_setup_reset_links">确认链接</string>
+    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">查看文件</string>
     <string name="title_setup_reset_images">显示图片</string>
     <string name="title_setup_reset_full">显示原始邮件</string>
     <string name="title_check_gmail_oauth">您的 Gmail 账户在 2022 年 5 月 30 日之后可继续使用</string>
@@ -617,6 +618,7 @@
     <string name="title_advanced_notifications_background">使用后台服务来同步消息</string>
     <string name="title_advanced_notifications_background_hint">后台服务不会显示状态栏通知，但随时可能会被 Android 终止</string>
     <string name="title_advanced_confirm_links">确认打开链接</string>
+    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">确认查看文件</string>
     <string name="title_advanced_sanitize_links">默认删除跟踪参数</string>
     <string name="title_advanced_sanitize_links_hint">仅当确认链接时</string>
     <string name="title_advanced_check_links_dbl">使用域名拦截列表检查可疑链接</string>
@@ -1217,6 +1219,7 @@
     <string name="title_ask_show_image_hint">不会显示被识别为跟踪图像的图片</string>
     <string name="title_ask_show_amp">显示 AMP 样式的消息？</string>
     <string name="title_ask_show_amp_hint">AMP 消息被设计为动态的，与互联网交互，因此根据定义可以用于跟踪你</string>
+    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">查看文件 %1$s？</string>
     <string name="title_ask_delete_local">删除本地消息？消息将保留在远程服务器上</string>
     <string name="title_ask_help">帮助改进 FairEmail</string>
     <string name="title_ask_reporting">发送错误报告?</string>
