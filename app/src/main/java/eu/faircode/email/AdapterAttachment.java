@@ -407,7 +407,8 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
 
                 tvFile.setText(context.getString(R.string.title_ask_view_file, attachment.name));
                 tvType.setText(attachment.getMimeType());
-                cbNotAgainType.setText(context.getString(R.string.title_no_ask_for_again, "." + extension));
+                String msg = context.getString(R.string.title_no_ask_for_again, "<b>" + "." + extension + "</b>");
+                cbNotAgainType.setText(HtmlHelper.fromHtml(msg, context));
 
                 cbNotAgainType.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                     @Override
