@@ -6,6 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Tratayenia](https://en.wikipedia.org/wiki/Tratayenia)
 
+### Next version
+
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2073 - 2023-05-30
 
 * Added file viewing confirmation
