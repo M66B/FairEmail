@@ -390,6 +390,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(188) Why is Google backup disabled?](#user-content-faq188)
 * [(189) What is cloud sync?](#user-content-faq189)
 * [(190) How do I use OpenAI (ChatGPT)?](#user-content-faq190)
+* [(191) How do I download and keep older messages on my device?](#user-content-faq191)
 
 [I have another question.](#user-content-get-support)
 
@@ -5232,6 +5233,8 @@ This is a pro feature.
 <a name="faq187"></a>
 **(187) Are colored stars synchronized across devices?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq187)
+
 Colored stars can't be stored on email servers because email protocols do not support this.
 In other words, the color of stars is stored on your device only, and won't be synchronized across devices.
 
@@ -5239,6 +5242,8 @@ In other words, the color of stars is stored on your device only, and won't be s
 
 <a name="faq188"></a>
 **(188) Why is Google backup disabled?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq188)
 
 Google backup is disabled to prevent privacy-sensitive information, like account credentials and email addresses,
 from [automatically being sent to Google](https://developer.android.com/guide/topics/data/autobackup).
@@ -5249,6 +5254,8 @@ Unfortunately, it is not possible to enable cloud backup for other backup softwa
 
 <a name="faq189"></a>
 **(189) What is cloud sync?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq189)
 
 Cloud sync is meant to synchronize configuration data across devices.
 It can be used to restore configuration data onto a new device too.
@@ -5286,7 +5293,7 @@ Cloud sync is an experimental feature. It is not available for the Play Store ve
 <a name="faq190"></a>
 **(190) How do I use OpenAI (ChatGPT)?**
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq180)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq190)
 
 OpenAI can only be used if configured and enabled, and the app does not use third-party libraries to avoid tracking when OpenAI is not used.
 
@@ -5325,6 +5332,21 @@ and perhaps [this article](https://katedowninglaw.com/2023/03/10/openais-massive
 and [this article](https://www.ncsc.gov.uk/blog-post/chatgpt-and-large-language-models-whats-the-risk) too.
 
 This feature is experimental and available in the GitHub version only and requires version 1.2053 or later.
+
+<br>
+
+<a name="faq191"></a>
+**(191) How do I download and keep older messages on my device?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq191)
+
+You can download and keep older messages in the unified inbox folders by using *Fetch more messages* in the three-dots overflow menu of the start screen.
+For other folders, you can long press the folder in the folder list of the account (tap on the account name in the navigation menu = left side menu).
+Please read the remark in the confirmation dialog box.
+
+Note that starred (favorite) messages will be kept on your device "forever".
+
+Instead of downloading many messages to your device, consider [searching for messages on the email server](#user-content-faq13).
 
 <br>
 
