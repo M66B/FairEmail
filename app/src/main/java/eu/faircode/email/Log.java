@@ -2673,14 +2673,33 @@ public class Log {
 
                 NetworkInfo ani = cm.getActiveNetworkInfo();
                 if (ani != null)
-                    size += write(os, ani.toString() +
+                    size += write(os, "Active network info=" + ani +
+                            " connecting=" + ani.isConnectedOrConnecting() +
                             " connected=" + ani.isConnected() +
+                            " available=" + ani.isAvailable() +
+                            " state=" + ani.getState() + "/" + ani.getDetailedState() +
                             " metered=" + cm.isActiveNetworkMetered() +
                             " roaming=" + ani.isRoaming() +
                             " type=" + ani.getType() + "/" + ani.getTypeName() +
                             "\r\n\r\n");
 
                 Network active = ConnectionHelper.getActiveNetwork(context);
+                NetworkInfo a = (active == null ? null : cm.getNetworkInfo(active));
+                NetworkCapabilities c = (active == null ? null : cm.getNetworkCapabilities(active));
+                LinkProperties p = (active == null ? null : cm.getLinkProperties(active));
+                boolean n = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
+                size += write(os, "Active network=" + active + " native=" + n + "\r\n");
+                size += write(os, "   info=" + a +
+                        " connecting=" + (a == null ? null : a.isConnectedOrConnecting()) +
+                        " connected=" + (a == null ? null : a.isConnected()) +
+                        " available=" + (a == null ? null : a.isAvailable()) +
+                        " state=" + (a == null ? null : a.getState() + "/" + a.getDetailedState()) +
+                        " roaming=" + (a == null ? null : a.isRoaming()) +
+                        " type=" + (a == null ? null : a.getType() + "/" + a.getTypeName()) +
+                        "\r\n");
+                size += write(os, "   caps=" + c + "\r\n");
+                size += write(os, "   props=" + p + "\r\n\r\n");
+
                 for (Network network : cm.getAllNetworks()) {
                     size += write(os, (network.equals(active) ? "active=" : "network=") + network + "\r\n");
 
