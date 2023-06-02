@@ -494,7 +494,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.RAW:
-                                    onRaw(context, jargs, folder, message, (IMAPFolder) ifolder);
+                                    onRaw(context, jargs, account, folder, message, (IMAPFolder) ifolder);
                                     break;
 
                                 case EntityOperation.BODY:
@@ -1935,7 +1935,7 @@ class Core {
         db.message().setMessageHeaders(message.id, helper.getHeaders());
     }
 
-    private static void onRaw(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException, JSONException {
+    private static void onRaw(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException, JSONException {
         // Download raw message
         DB db = DB.getInstance(context);
 
@@ -1949,6 +1949,18 @@ class Core {
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 imessage.writeTo(os);
             }
+
+            Properties props = MessageHelper.getSessionProperties(account.unicode);
+            Session isession = Session.getInstance(props, null);
+
+            MessageHelper helper;
+            try (InputStream is = new FileInputStream(file)) {
+                helper = new MessageHelper(new MimeMessage(isession, is), context);
+            }
+
+            // Yahoo is returning incorrect messages
+            if (!Objects.equals(message.msgid, helper.getMessageID()))
+                throw new MessagingException("Incorrect msgid=" + message.msgid + "/" + helper.getMessageID());
 
             db.message().setMessageRaw(message.id, true);
         }
