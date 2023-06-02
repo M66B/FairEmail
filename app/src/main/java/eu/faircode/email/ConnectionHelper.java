@@ -274,6 +274,19 @@ public class ConnectionHelper {
 
         Network active = cm.getActiveNetwork();
         if (active == null) {
+            // Special case:
+            // - getActiveNetworkInfo: DISCONNECTED/BLOCKED (data saver / kill switch?)
+            // - getActiveNetwork: null
+            // - OS: GrapheneOS / IVPN
+            if (standalone_vpn)
+                for (Network network : cm.getAllNetworks()) {
+                    NetworkCapabilities caps = cm.getNetworkCapabilities(network);
+                    if (caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN) &&
+                            caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+                            caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED))
+                        return !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
+                }
+
             Log.i("isMetered: no active network");
             return null;
         }
