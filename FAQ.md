@@ -391,6 +391,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(189) What is cloud sync?](#user-content-faq189)
 * [(190) How do I use OpenAI (ChatGPT)?](#user-content-faq190)
 * [(191) How do I download and keep older messages on my device?](#user-content-faq191)
+* [(192) How can I resolve 'Couldn't connect to host, port: ...; timeout ...;' ?](#user-content-faq192)
 
 [I have another question.](#user-content-get-support)
 
@@ -5347,6 +5348,20 @@ Please read the remark in the confirmation dialog box.
 Note that starred (favorite) messages will be kept on your device "forever".
 
 Instead of downloading many messages to your device, consider [searching for messages on the email server](#user-content-faq13).
+
+<br>
+
+<a name="faq192"></a>
+**(192) How can I resolve 'Couldn't connect to host, port: ...; timeout ...;' ?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq192)
+
+This error message means that the app didn't receive a response from the email server.
+The email server might not be responding, for example because it is offline for maintenance, or the response might not arrive, for example due to internet connectivity issues.
+
+So, please check if your internet connection is working correctly. Also, try to switch to mobile data or Wi-Fi.
+
+If you are using a VPN, firewall, ad blocker, or similar, please try to disable it. Email servers often block connections via a VPN.
 
 <br>
 
