@@ -1501,6 +1501,7 @@ Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
 The error *... connect failed: EACCES (Permission denied) ...* means that  *Restrict data usage* was disabled in the Android MIUI app settings for FairEmail.
+On Samsung, and possible other devices, also check: Android settings > Battery > Battery manager / Unmonitored apps.
 
 Possible causes are:
 
