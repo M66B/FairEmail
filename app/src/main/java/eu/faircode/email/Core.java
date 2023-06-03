@@ -2006,7 +2006,10 @@ class Core {
     }
 
     private static void onBody(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, IMAPFolder ifolder) throws MessagingException, IOException {
-        boolean plain_text = jargs.optBoolean(0);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean download_plain = prefs.getBoolean("download_plain", false);
+
+        boolean plain_text = jargs.optBoolean(0, download_plain);
         String charset = (jargs.isNull(1) ? null : jargs.optString(1, null));
 
         if (message.uid == null)
