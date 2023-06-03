@@ -656,7 +656,7 @@ public class HtmlHelper {
             String style = processStyles(tag, clazz, null, sheets);
 
             // Element style
-            style = mergeElementStyles(style, element.attr("style"));
+            style = mergeStyles(style, element.attr("style"));
 
             if ("fairemail_debug_info".equals(clazz))
                 style = mergeStyles(style, "font-size: smaller");
@@ -1779,14 +1779,14 @@ public class HtmlHelper {
                                 if (tag == null
                                         ? eselector.getLocalName() == null
                                         : tag.equalsIgnoreCase(eselector.getLocalName()))
-                                    style = mergeStyles(style, srule.getStyle().getCssText());
+                                    style = mergeStyles(style, srule.getStyle().getCssText(), false);
                                 break;
                             case Selector.SAC_CONDITIONAL_SELECTOR:
                                 ConditionalSelectorImpl cselector = (ConditionalSelectorImpl) selector;
                                 if (cselector.getCondition().getConditionType() == SAC_CLASS_CONDITION) {
                                     ClassConditionImpl ccondition = (ClassConditionImpl) cselector.getCondition();
                                     if (clazz.equalsIgnoreCase(ccondition.getValue()))
-                                        style = mergeStyles(style, srule.getStyle().getCssText());
+                                        style = mergeStyles(style, srule.getStyle().getCssText(), false);
                                 }
                                 break;
                         }
@@ -1820,10 +1820,6 @@ public class HtmlHelper {
     }
 
     static String mergeStyles(String base, String style) {
-        return mergeStyles(base, style, false);
-    }
-
-    static String mergeElementStyles(String base, String style) {
         return mergeStyles(base, style, true);
     }
 
