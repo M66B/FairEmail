@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import static androidx.browser.customtabs.CustomTabsService.ACTION_CUSTOM_TABS_CONNECTION;
 
+import android.Manifest;
 import android.app.ActivityManager;
 import android.app.ApplicationExitInfo;
 import android.app.Dialog;
@@ -2955,8 +2956,10 @@ public class Log {
                 NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    boolean permission = Helper.hasPermission(context, Manifest.permission.POST_NOTIFICATIONS);
                     boolean enabled = nm.areNotificationsEnabled();
-                    size += write(os, String.format("Enabled=%b %s\r\n",
+                    size += write(os, String.format("Permission=%b %s Enabled=%b %s\r\n",
+                            permission, (permission ? "" : "!!!"),
                             enabled, (enabled ? "" : "!!!")));
                 }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
