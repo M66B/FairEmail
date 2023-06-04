@@ -108,13 +108,12 @@ public class WorkerDailyRules extends Worker {
                                 EntityOperation.queue(context, message, EntityOperation.BODY);
                             }
 
-                            if (defer) {
+                            if (defer)
                                 EntityOperation.queue(context, message, EntityOperation.RULE, -1L);
-                                continue;
+                            else {
+                                EntityLog.log(context, "Executing daily rules message=" + message.id);
+                                EntityRule.run(context, rules, message, null, null);
                             }
-
-                            EntityLog.log(context, "Executing daily rules message=" + message.id);
-                            EntityRule.run(context, rules, message, null, null);
 
                             db.setTransactionSuccessful();
                         } catch (Throwable ex) {
