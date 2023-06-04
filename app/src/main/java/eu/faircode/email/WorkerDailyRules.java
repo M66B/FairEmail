@@ -135,6 +135,7 @@ public class WorkerDailyRules extends Worker {
         } finally {
             semaphore.release();
             EntityLog.log(context, EntityLog.Type.Rules, "Completed daily rules");
+            ServiceSynchronize.eval(context, "daily");
         }
     }
 
