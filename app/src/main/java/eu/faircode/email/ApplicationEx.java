@@ -712,6 +712,14 @@ public class ApplicationEx extends Application
                                 .putBoolean("swipe_sensitivity_updated", true);
                 }
             }
+        } else if (version < 2075) {
+            for (String name : new String[]{"seen", "unflagged", "unknown", "snoozed", "deleted"})
+                if (prefs.contains("filter_" + name))
+                    for (String _type : new String[]{EntityFolder.ARCHIVE, EntityFolder.TRASH, EntityFolder.JUNK}) {
+                        String type = _type.toLowerCase(Locale.ROOT);
+                        if (!prefs.contains("filter_" + type + "_" + name))
+                            editor.putBoolean("filter_" + type + "_" + name, prefs.getBoolean("filter_" + name, false));
+                    }
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
