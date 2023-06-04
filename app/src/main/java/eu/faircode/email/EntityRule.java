@@ -150,8 +150,16 @@ public class EntityRule {
         for (EntityRule rule : rules)
             try {
                 JSONObject jcondition = new JSONObject(rule.condition);
-                if (jcondition.has(what))
+                if (jcondition.has(what)) {
+                    if ("header".equals(what)) {
+                        JSONObject jheader = jcondition.getJSONObject("header");
+                        String value = jheader.getString("value");
+                        boolean regex = jheader.getBoolean("regex");
+                        if (!regex && value.startsWith("$$") && value.endsWith("$"))
+                            continue;
+                    }
                     return true;
+                }
             } catch (Throwable ex) {
                 Log.e(ex);
             }
@@ -319,7 +327,6 @@ public class EntityRule {
                 boolean regex = jheader.getBoolean("regex");
 
                 if (!regex &&
-                        value != null &&
                         value.startsWith("$") &&
                         value.endsWith("$")) {
                     String keyword = value.substring(1, value.length() - 1);
