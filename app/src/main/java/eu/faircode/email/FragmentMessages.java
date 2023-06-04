@@ -7651,7 +7651,16 @@ public class FragmentMessages extends FragmentBase
     }
 
     static String getFilter(Context context, String name, AdapterMessage.ViewType viewType, String type) {
-        return "filter_" + (EntityFolder.isOutgoing(type) ? "out_" : "") + name;
+        String filter;
+        if (EntityFolder.isOutgoing(type))
+            filter = "out_";
+        else if (EntityFolder.ARCHIVE.equals(type) ||
+                EntityFolder.TRASH.equals(type) ||
+                EntityFolder.JUNK.equals(type))
+            filter = type.toLowerCase(Locale.ROOT) + "_";
+        else
+            filter = "";
+        return "filter_" + filter + name;
     }
 
     private void lockMessage(long id) throws IOException {
