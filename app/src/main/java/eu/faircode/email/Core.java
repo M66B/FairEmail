@@ -2938,6 +2938,7 @@ class Core {
 
             long id = jargs.getLong(0);
             if (id < 0) {
+                EntityLog.log(context, "Executing deferred daily rules for message=" + message.id);
                 List<EntityRule> rules = db.rule().getEnabledRules(message.folder, true);
                 EntityRule.run(context, rules, message, null, null);
             } else {
