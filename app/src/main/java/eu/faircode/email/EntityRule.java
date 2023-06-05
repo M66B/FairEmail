@@ -130,6 +130,7 @@ public class EntityRule {
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
     static final String EXTRA_SENDER = "sender";
+    static final String EXTRA_NAME = "name";
     static final String EXTRA_SUBJECT = "subject";
     static final String EXTRA_RECEIVED = "received";
 
@@ -1119,8 +1120,9 @@ public class EntityRule {
     }
 
     private boolean onActionAutomation(Context context, EntityMessage message, JSONObject jargs) {
-        String sender = (message.from == null || message.from.length == 0
-                ? null : ((InternetAddress) message.from[0]).getAddress());
+        InternetAddress iaddr =
+                (message.from == null || message.from.length == 0
+                        ? null : ((InternetAddress) message.from[0]));
 
         // ISO 8601
         DateFormat DTF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
@@ -1128,7 +1130,8 @@ public class EntityRule {
 
         Intent automation = new Intent(ACTION_AUTOMATION);
         automation.putExtra(EXTRA_RULE, name);
-        automation.putExtra(EXTRA_SENDER, sender);
+        automation.putExtra(EXTRA_SENDER, iaddr == null ? null : iaddr.getAddress());
+        automation.putExtra(EXTRA_NAME, iaddr == null ? null : iaddr.getPersonal());
         automation.putExtra(EXTRA_SUBJECT, message.subject);
         automation.putExtra(EXTRA_RECEIVED, DTF.format(message.received));
 
