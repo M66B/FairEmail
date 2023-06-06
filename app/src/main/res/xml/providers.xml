@@ -2090,4 +2090,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="rediff email"
+        domain="rediff\\.com"
+        link="https://support.rediff.com/imap-settings-for-outlook/">
+        <imap
+            host="imap.rediffmailpro.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.rediffmailpro.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
