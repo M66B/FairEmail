@@ -561,6 +561,9 @@ public class MessageHelper {
             imessage.addHeader("Auto-Submitted", "auto-replied");
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+        for (EntityAttachment attachment : new ArrayList<>(attachments))
+            if (attachment.subsequence != null)
+                attachments.remove(attachment);
 
         if (message.dsn == null || EntityMessage.DSN_NONE.equals(message.dsn)) {
             if (message.from != null && message.from.length > 0)
