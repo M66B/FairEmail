@@ -3952,7 +3952,7 @@ public class MessageHelper {
             return null;
         }
 
-        void downloadAttachment(Context context, EntityAttachment local) throws IOException, MessagingException {
+        void downloadAttachment(Context context, EntityAttachment local, EntityFolder folder) throws IOException, MessagingException {
             List<EntityAttachment> remotes = getAttachments();
 
             // Some servers order attachments randomly
@@ -4014,10 +4014,10 @@ public class MessageHelper {
             if (index < 0)
                 throw new IllegalArgumentException("Attachment not found");
 
-            downloadAttachment(context, index, local);
+            downloadAttachment(context, index, local, folder);
         }
 
-        void downloadAttachment(Context context, int index, EntityAttachment local) throws MessagingException, IOException {
+        void downloadAttachment(Context context, int index, EntityAttachment local, EntityFolder folder) throws MessagingException, IOException {
             Log.i("downloading attachment id=" + local.id + " index=" + index + " " + local);
 
             // Get data
@@ -4075,20 +4075,22 @@ public class MessageHelper {
                     throw ex;
                 }
 
-                if ("message/rfc822".equals(local.type))
-                    decodeRfc822(context, local, 1);
+                if (folder == null || !EntityFolder.isOutgoing(folder.type)) {
+                    if ("message/rfc822".equals(local.type))
+                        decodeRfc822(context, local, 1);
 
-                else if ("text/calendar".equals(local.type) && ActivityBilling.isPro(context))
-                    decodeICalendar(context, local);
+                    else if ("text/calendar".equals(local.type) && ActivityBilling.isPro(context))
+                        decodeICalendar(context, local);
 
-                else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && local.isCompressed()) {
-                    decodeCompressed(context, local, 1);
+                    else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && local.isCompressed()) {
+                        decodeCompressed(context, local, 1);
 
-                } else if (Helper.isTnef(local.type, local.name))
-                    decodeTNEF(context, local, 1);
+                    } else if (Helper.isTnef(local.type, local.name))
+                        decodeTNEF(context, local, 1);
 
-                else if ("msg".equalsIgnoreCase(Helper.getExtension(local.name)))
-                    decodeOutlook(context, local, 1);
+                    else if ("msg".equalsIgnoreCase(Helper.getExtension(local.name)))
+                        decodeOutlook(context, local, 1);
+                }
             }
         }
 

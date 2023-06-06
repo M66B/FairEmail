@@ -8658,7 +8658,7 @@ public class FragmentMessages extends FragmentBase
                                             remote.sequence = index + 1;
                                             remote.id = db.attachment().insertAttachment(remote);
                                             try {
-                                                parts.downloadAttachment(context, index, remote);
+                                                parts.downloadAttachment(context, index, remote, null);
                                             } catch (Throwable ex) {
                                                 Log.e(ex);
                                             }
@@ -9369,7 +9369,7 @@ public class FragmentMessages extends FragmentBase
                         Log.i("s/mime attachment=" + remote);
 
                         try {
-                            parts.downloadAttachment(context, index, remote);
+                            parts.downloadAttachment(context, index, remote, null);
                         } catch (Throwable ex) {
                             Log.e(ex);
                         }

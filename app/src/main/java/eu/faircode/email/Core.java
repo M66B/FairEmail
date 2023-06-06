@@ -2078,7 +2078,7 @@ class Core {
         MessageHelper.MessageParts parts = helper.getMessageParts();
 
         // Download attachment
-        parts.downloadAttachment(context, attachment);
+        parts.downloadAttachment(context, attachment, folder);
 
         if (attachment.size != null)
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
@@ -2137,7 +2137,7 @@ class Core {
         MessageHelper.MessageParts parts = helper.getMessageParts();
 
         // Download attachment
-        parts.downloadAttachment(context, attachment);
+        parts.downloadAttachment(context, attachment, folder);
 
         if (attachment.size != null)
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
@@ -3386,7 +3386,7 @@ class Core {
                         try {
                             for (EntityAttachment attachment : parts.getAttachments())
                                 if (attachment.subsequence == null)
-                                    parts.downloadAttachment(context, attachment);
+                                    parts.downloadAttachment(context, attachment, folder);
                         } catch (Throwable ex) {
                             Log.w(ex);
                         }
@@ -5155,7 +5155,7 @@ class Core {
                     if (state.getNetworkState().isUnmetered() ||
                             (attachment.size != null && attachment.size < maxSize))
                         try {
-                            parts.downloadAttachment(context, attachment);
+                            parts.downloadAttachment(context, attachment, folder);
                             if (stats != null && attachment.size != null)
                                 stats.attachments += attachment.size;
                         } catch (Throwable ex) {
