@@ -217,7 +217,9 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             if (properties != null) {
                 String aid = properties.getValue("attachment");
                 if (aid != null) {
-                    if (attachment.id.equals(Long.parseLong(aid)) && attachment.available) {
+                    if (attachment.id.equals(Long.parseLong(aid)) &&
+                            attachment.available &&
+                            attachment.size != null && attachment.size > 0) {
                         properties.setValue("attachment", null);
                         onView(attachment);
                     }
