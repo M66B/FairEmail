@@ -161,6 +161,11 @@
             android:title="@string/title_thread_info" />
 
         <item
+            android:id="@+id/menu_reset_questions"
+            android:icon="@drawable/twotone_restart_alt_24"
+            android:title="@string/title_reset_message_questions" />
+
+        <item
             android:id="@+id/menu_resync"
             android:icon="@drawable/twotone_sync_24"
             android:title="@string/title_resync" />

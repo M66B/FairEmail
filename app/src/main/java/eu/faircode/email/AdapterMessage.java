@@ -6041,6 +6041,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else if (itemId == R.id.menu_thread_info) {
                         onMenuThreadInfo(message);
                         return true;
+                    } else if (itemId == R.id.menu_reset_questions) {
+                        onMenuResetQuestions(message);
+                        return true;
                     } else if (itemId == R.id.menu_resync) {
                         onMenuResync(message);
                         return true;
@@ -6539,6 +6542,67 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }.execute(context, owner, args, "message:resync");
 
+        }
+
+        private void onMenuResetQuestions(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            new SimpleTask<Void>() {
+                @Override
+                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                    long id = args.getLong("id");
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null)
+                        return null;
+
+                    SharedPreferences.Editor editor = prefs.edit();
+
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                    if (attachments != null)
+                        for (EntityAttachment attachment : attachments) {
+                            String ext = Helper.getExtension(attachment.name);
+                            if (ext == null)
+                                continue;
+                            editor.remove(ext.toLowerCase(Locale.ROOT) + ".confirm_files");
+                        }
+
+                    if (message.content) {
+                        Document d = JsoupEx.parse(message.getFile(context));
+                        for (Element a : d.select("a")) {
+                            String href = a.attr("href");
+                            if (TextUtils.isEmpty(href))
+                                continue;
+
+                            Uri uri = Uri.parse(href);
+                            if (uri == null || !UriHelper.isHyperLink(uri))
+                                continue;
+
+                            String host = uri.getHost();
+                            if (TextUtils.isEmpty(host))
+                                continue;
+
+                            editor.remove(host + ".confirm_link");
+                        }
+                    }
+
+                    editor.apply();
+
+                    return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "reset");
         }
 
         private void onMenuResync(TupleMessageEx message) {
