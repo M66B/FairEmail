@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Tratayenia
 
+Next version
+
+* Added seperate filter settings for archive, trash and spam folder
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2074 - 2023-06-03
 
 * Fixed all reported bugs
