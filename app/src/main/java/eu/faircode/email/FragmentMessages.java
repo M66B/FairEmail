@@ -26,8 +26,6 @@ import static android.text.format.DateUtils.FORMAT_SHOW_DATE;
 import static android.text.format.DateUtils.FORMAT_SHOW_WEEKDAY;
 import static android.view.KeyEvent.ACTION_DOWN;
 import static android.view.KeyEvent.ACTION_UP;
-import static android.view.View.GONE;
-import static android.view.View.VISIBLE;
 import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_KEY_MISSING;
 import static org.openintents.openpgp.OpenPgpSignatureResult.RESULT_NO_SIGNATURE;
@@ -3319,10 +3317,58 @@ public class FragmentMessages extends FragmentBase
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             boolean delete_asked = prefs.getBoolean("delete_asked", false);
+            final int undo_timeout = prefs.getInt("undo_timeout", 5000);
             if (delete_asked) {
-                Intent data = new Intent();
-                data.putExtra("args", args);
-                onActivityResult(REQUEST_MESSAGE_DELETE, RESULT_OK, data);
+                if (leave_deleted) {
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+
+                            long now = new Date().getTime();
+                            long busy = now + undo_timeout * 2;
+
+                            DB db = DB.getInstance(context);
+                            try {
+                                db.beginTransaction();
+
+                                db.message().setMessageUiBusy(id, busy);
+                                db.message().setMessageUiHide(id, true);
+                                db.message().setMessageFound(id, false);
+                                // Prevent new message notification on undo
+                                db.message().setMessageUiIgnored(id, true);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+                            return null;
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, Void v) {
+                            FragmentActivity activity = getActivity();
+                            if (!(activity instanceof ActivityView)) {
+                                Intent data = new Intent();
+                                data.putExtra("args", args);
+                                onActivityResult(REQUEST_MESSAGE_DELETE, RESULT_OK, data);
+                                return;
+                            }
+
+                            String title = getString(R.string.title_move_undo, getString(R.string.title_trash), 1);
+                            ((ActivityView) activity).undo(title, args, taskDeleteLeaveDo, taskDeleteLeaveUndo);
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(getParentFragmentManager(), ex);
+                        }
+                    }.execute(FragmentMessages.this, args, "delete:leave");
+                } else {
+                    Intent data = new Intent();
+                    data.putExtra("args", args);
+                    onActivityResult(REQUEST_MESSAGE_DELETE, RESULT_OK, data);
+                }
                 return;
             }
 
@@ -3422,6 +3468,58 @@ public class FragmentMessages extends FragmentBase
                         Log.unexpectedError(getParentFragmentManager(), ex);
                 }
             }.execute(FragmentMessages.this, args, "swipe:folder");
+        }
+    };
+
+    private static final SimpleTask<Void> taskDeleteLeaveDo = new SimpleTask<Void>() {
+        @Override
+        protected Void onExecute(Context context, Bundle args) {
+            long id = args.getLong("id");
+            DB db = DB.getInstance(context);
+            try {
+                db.beginTransaction();
+
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null)
+                    return null;
+
+                message.ui_busy = null;
+                db.message().setMessageUiBusy(message.id, message.ui_busy);
+                EntityOperation.queue(context, message, EntityOperation.DELETE);
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onException(Bundle args, Throwable ex) {
+        }
+    };
+
+    private static final SimpleTask<Void> taskDeleteLeaveUndo = new SimpleTask<Void>() {
+        @Override
+        protected Void onExecute(Context context, Bundle args) {
+            long id = args.getLong("id");
+
+            DB db = DB.getInstance(context);
+            try {
+                db.beginTransaction();
+
+                db.message().setMessageUiHide(id, false);
+                db.message().setMessageUiBusy(id, null);
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onException(Bundle args, Throwable ex) {
         }
     };
 
