@@ -5237,7 +5237,8 @@ class Core {
         if (redacted)
             notify_summary = true;
         if (notify_screen_on &&
-                !(Build.VERSION.SDK_INT <= Build.VERSION_CODES.TIRAMISU ||
+                !(BuildConfig.DEBUG ||
+                        Build.VERSION.SDK_INT <= Build.VERSION_CODES.TIRAMISU ||
                         Helper.hasPermission(context, "android.permission.TURN_SCREEN_ON")))
             notify_screen_on = false;
 

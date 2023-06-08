@@ -502,7 +502,8 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         });
 
         grpScreenOn.setVisibility(
-                Build.VERSION.SDK_INT <= Build.VERSION_CODES.TIRAMISU ||
+                BuildConfig.DEBUG ||
+                        Build.VERSION.SDK_INT <= Build.VERSION_CODES.TIRAMISU ||
                         hasPermission("android.permission.TURN_SCREEN_ON")
                         ? View.VISIBLE : View.GONE);
         swNotifyScreenOn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
