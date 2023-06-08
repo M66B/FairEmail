@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail-sökning</string>
+    <string name="app_send_self" comment="app_send_self&#10;Title for additional Android share sheet target. This needs to be short!">Skicka till dig själv</string>
     <string name="app_changelog">Ändringslogg</string>
     <string name="app_welcome">FairEmail är en e-postapp baserad på öppen källkod som fokuserar på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
     <string name="app_limitations">Till exempel omformas meddelanden som standard för att ta bort osäkra element och för att förbättra läsbarheten. Länkar måste även bekräftas innan de öppnas. Båda funktionerna kan inaktiveras om så önskas.</string>
@@ -302,7 +303,7 @@
     <string name="title_setup_reset_questions">Återställ frågor</string>
     <string name="title_setup_reset_general">Allmänna frågor</string>
     <string name="title_setup_reset_links">Bekräfta länkar</string>
-    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Visa filer</string>
+    <string name="title_setup_reset_files">Visa filer</string>
     <string name="title_setup_reset_images">Visa bilder</string>
     <string name="title_setup_reset_full">Visa originalmeddelanden</string>
     <string name="title_check_gmail_oauth">Dina Gmail-konton kommer att fortsätta fungera efter den 30 maj 2022</string>
@@ -678,6 +679,7 @@
     <string name="title_advanced_manage_keys_hint">        Detta kommer att navigera till Androids säkerhetsinställningar.        Nycklar och certifikat kan i allmänhet hittas under Avancerat - Kryptering och inloggningsuppgifter.
     </string>
     <string name="title_advanced_power_menu">Lägg till åtgärder i Androidmenyn för avstängning</string>
+    <string name="title_advanced_send_self" comment="title_advanced_send_self&#10;Title for miscellaneous option to enable an additional Android share sheet target">Lägg till \'skicka till sig själv\' till Androids delningsmeny</string>
     <string name="title_advanced_external_search">Tillåt andra appar att söka i meddelanden</string>
     <string name="title_advanced_sort_answers">Sortera svarsmallar efter användningsfrekvens</string>
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
@@ -1397,6 +1399,7 @@
     <string name="title_verify">Verifiera</string>
     <string name="title_encrypt">Kryptera</string>
     <string name="title_decrypt">Dekryptera</string>
+    <string name="title_reset_message_questions">Återställ länkfrågor</string>
     <string name="title_resync">Synkronisera om</string>
     <string name="title_charset">Kodning</string>
     <string name="title_charset_auto">Automatiskt</string>

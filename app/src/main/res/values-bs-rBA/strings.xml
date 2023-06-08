@@ -317,7 +317,7 @@
     <string name="title_setup_reset_questions">Poništi pitanja</string>
     <string name="title_setup_reset_general">Opća pitanja</string>
     <string name="title_setup_reset_links">Potvrdi linkove</string>
-    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Pregled datoteka</string>
+    <string name="title_setup_reset_files">Pregled datoteka</string>
     <string name="title_setup_reset_images">Prikaži slike</string>
     <string name="title_setup_reset_full">Prikaži izvorne poruke</string>
     <string name="title_check_gmail_oauth">Vaši Gmail računi radit će nakon 30. maja 2022.</string>
@@ -645,7 +645,7 @@
     <string name="title_advanced_notifications_background">Koristi pozadinski servis za sinhronizaciju poruka</string>
     <string name="title_advanced_notifications_background_hint">Android može zaustaviti pozadinski servis bilo kada, ali on ne zahtijeva obavještenje na statusnoj traci</string>
     <string name="title_advanced_confirm_links">Potvrdi linkove na otvaranju</string>
-    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Potvrda pregleda datoteka</string>
+    <string name="title_advanced_confirm_files">Potvrda pregleda datoteka</string>
     <string name="title_advanced_sanitize_links">Ukloni parametre \'praćenja\' po default-u</string>
     <string name="title_advanced_sanitize_links_hint">Samo pri potvrđivanju linkova</string>
     <string name="title_advanced_check_links_dbl">Provjeri spisak blokiranja domena za sumnjive linkove</string>
@@ -1249,7 +1249,7 @@
     <string name="title_ask_show_image_hint">Slike koje su prepoznate kao \'one koje prate\' neće se prikazivati</string>
     <string name="title_ask_show_amp">Prikazati AMP varijantu poruke?</string>
     <string name="title_ask_show_amp_hint">AMP poruke su dizajnirane kao dinamične i interaktivne na internetu, i stoga po definiciji mogu Vas pratiti</string>
-    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Pregledati datoteku %1$s ?</string>
+    <string name="title_ask_view_file">Pregledati datoteku %1$s ?</string>
     <string name="title_ask_delete_local">Izbrisati lokalne poruke? Poruke će biti zadržane na udaljenom serveru.</string>
     <string name="title_ask_help">Pomozite u poboljšanju FairEmail-a</string>
     <string name="title_ask_reporting">Pošalji izvještaj o greški?</string>
@@ -1422,6 +1422,7 @@
     <string name="title_verify">Potvrdi</string>
     <string name="title_encrypt">Šifriraj</string>
     <string name="title_decrypt">Dešifriraj</string>
+    <string name="title_reset_message_questions">Poništi pitanja o linkovima</string>
     <string name="title_resync">Ponovo sinhronizuj</string>
     <string name="title_charset">Kodiranje</string>
     <string name="title_charset_auto">Automatski</string>

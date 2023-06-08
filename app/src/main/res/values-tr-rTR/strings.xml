@@ -303,7 +303,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_reset_questions">Soruları sıfırla</string>
     <string name="title_setup_reset_general">Genel Sorular</string>
     <string name="title_setup_reset_links">Bağlantıları onaylayın</string>
-    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Dosyaları görüntüle</string>
+    <string name="title_setup_reset_files">Dosyaları görüntüle</string>
     <string name="title_setup_reset_images">Resimleri göster</string>
     <string name="title_setup_reset_full">Orijinal mesajları göster</string>
     <string name="title_check_gmail_oauth">Gmail hesaplarınız 30 Mayıs 2022\'den sonra çalışmaya devam edecek</string>
@@ -630,7 +630,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notifications_background">İletileri senkronize etmek için arka plan servisi kullan</string>
     <string name="title_advanced_notifications_background_hint">Bir arka plan servisi Android tarafından herhangi bir zamanda durdurulabilir, ama çalışmak için sabit bir bildirime ihtiyaç duymaz</string>
     <string name="title_advanced_confirm_links">Bağlantıları açmayı onayla</string>
-    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Dosyaları görüntülemeyi onayla</string>
+    <string name="title_advanced_confirm_files">Dosyaları görüntülemeyi onayla</string>
     <string name="title_advanced_sanitize_links">Varsayılan olarak izleme parametrelerini kaldırın</string>
     <string name="title_advanced_sanitize_links_hint">Sadece bağlantıları doğrularken</string>
     <string name="title_advanced_check_links_dbl">Şüpheli bağlantılar için alan engelleme listelerini kontrol edin</string>
@@ -1232,7 +1232,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_ask_show_image_hint">İzleme resimleri olarak tanınan resimler gösterilmeyecektir</string>
     <string name="title_ask_show_amp">Mesajın AMP varyantı gösterilsin mi?</string>
     <string name="title_ask_show_amp_hint">AMP mesajları dinamik olacak ve internet ile etkileşime girecek şekilde tasarlanmıştır ve bu nedenle tanım gereği sizi izlemek için kullanılabilir</string>
-    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Dosyayı görüntüle %1$s ?</string>
+    <string name="title_ask_view_file">Dosyayı görüntüle %1$s ?</string>
     <string name="title_ask_delete_local">Yerel iletiler silinsin mi? İletiler uzak sunucuda kalacaktır.</string>
     <string name="title_ask_help">FairEmail\'in geliştirilmesine yardımcı olun</string>
     <string name="title_ask_reporting">Hata raporları gönderilsin mi?</string>

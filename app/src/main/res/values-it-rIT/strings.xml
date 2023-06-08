@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Ricerca di FairEmail</string>
+    <string name="app_send_self" comment="app_send_self&#10;Title for additional Android share sheet target. This needs to be short!">Invia a te stesso</string>
     <string name="app_changelog">Changelog</string>
     <string name="app_welcome">FairEmail è un\'app di email open source, concentrata sulla privacy e la sicurezza. Per questo motivo, alcune funzionalità potrebbero funzionare diversamente da ciò a cui sei abituato.</string>
     <string name="app_limitations">Ad esempio, i messaggi sono riformattati di default, per rimuovere gli elementi non sicuri e migliorare la leggibilità e, l\'apertura dei link dev\'essere confermata per sicurezza. Entrambi possono essere disabilitati, se desiderato.</string>
@@ -304,7 +305,7 @@
     <string name="title_setup_reset_questions">Ripristina domande</string>
     <string name="title_setup_reset_general">Domande generali</string>
     <string name="title_setup_reset_links">Confermare i link</string>
-    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Visualizzare i file</string>
+    <string name="title_setup_reset_files">Visualizzare i file</string>
     <string name="title_setup_reset_images">Mostra le immagini</string>
     <string name="title_setup_reset_full">Mostra i messaggi originali</string>
     <string name="title_check_gmail_oauth">I tuoi profili Gmail continueranno a funzionare dopo il 30 Maggio 2022</string>
@@ -632,7 +633,7 @@
     <string name="title_advanced_notifications_background">Usa il servizio in background per sincronizzare i messaggi</string>
     <string name="title_advanced_notifications_background_hint">Un servizio in background è interrompibile in qualsiasi momento da Android, ma non richiede una notifica della barra di stato</string>
     <string name="title_advanced_confirm_links">Conferma l\'apertura dei link</string>
-    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Conferma la visualizzazione dei file</string>
+    <string name="title_advanced_confirm_files">Conferma la visualizzazione dei file</string>
     <string name="title_advanced_sanitize_links">Rimuovi i parametri di monitoraggio di default</string>
     <string name="title_advanced_sanitize_links_hint">Solo confermando i link</string>
     <string name="title_advanced_check_links_dbl">Controlla le liste di blocco del dominio per i link sospetti</string>
@@ -684,6 +685,7 @@
         Le chiavi e i certificati si possono generalmente trovare in Avanzate - Crittografia e credenziali.
     </string>
     <string name="title_advanced_power_menu">Aggiungi azioni al menù di spegnimento Android</string>
+    <string name="title_advanced_send_self" comment="title_advanced_send_self&#10;Title for miscellaneous option to enable an additional Android share sheet target">Aggiungi \'Invia a te stesso\' al menu di condivisione di Android</string>
     <string name="title_advanced_external_search">Consenti alle altre app di cercare tra i messaggi</string>
     <string name="title_advanced_sort_answers">Ordina i modelli di risposta per frequenza d\'uso</string>
     <string name="title_advanced_shortcuts">Mostra i contatti usati frequentemente nel menu di condivisione di Android</string>
@@ -1237,7 +1239,7 @@
     <string name="title_ask_show_image_hint">Le immagini riconosciute come di monitoraggio non saranno mostrate</string>
     <string name="title_ask_show_amp">Mostrare la variante AMP del messaggio?</string>
     <string name="title_ask_show_amp_hint">I messaggi AMP sono progettati per esser dinamici e interagire con l\'Internet e possono dunque, per definizione, esser usati per monitorarti</string>
-    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Visualizzare il file %1$s?</string>
+    <string name="title_ask_view_file">Visualizzare il file %1$s?</string>
     <string name="title_ask_delete_local">Elimina i messaggi locali? I messaggi rimarranno sul server remoto.</string>
     <string name="title_ask_help">Aiuta a migliorare FairEmail</string>
     <string name="title_ask_reporting">Inviare segnalazioni d\'errore?</string>

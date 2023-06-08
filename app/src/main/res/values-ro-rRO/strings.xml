@@ -317,7 +317,7 @@
     <string name="title_setup_reset_questions">Resetare întrebări</string>
     <string name="title_setup_reset_general">Întrebări generale</string>
     <string name="title_setup_reset_links">Confirmați link-urile</string>
-    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Vizualizare fișiere</string>
+    <string name="title_setup_reset_files">Vizualizare fișiere</string>
     <string name="title_setup_reset_images">Afișare imagini</string>
     <string name="title_setup_reset_full">Afișați mesajele originale</string>
     <string name="title_check_gmail_oauth">Conturile dumneavoastră Gmail vor continua să funcționeze și după 30 mai 2022</string>
@@ -644,7 +644,7 @@
     <string name="title_advanced_notifications_background">Folosește serviciul de fundal pentru a sincroniza mesajele</string>
     <string name="title_advanced_notifications_background_hint">Un serviciu de fundal poate fi oprit de Android în orice moment, dar nu necesită o notificare în bara de stare</string>
     <string name="title_advanced_confirm_links">Confirma deschiderea legăturilor</string>
-    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Confirmă vizualizarea fișierelor</string>
+    <string name="title_advanced_confirm_files">Confirmă vizualizarea fișierelor</string>
     <string name="title_advanced_sanitize_links">Elimină implicit parametrii de urmărire</string>
     <string name="title_advanced_sanitize_links_hint">Doar la confirmarea legăturilor</string>
     <string name="title_advanced_check_links_dbl">Verificați listele de blocare a domeniilor pentru link-uri suspecte</string>
@@ -1247,7 +1247,7 @@
     <string name="title_ask_show_image_hint">Imaginile recunoscute drept imagini folosite la urmărire nu vor fi afișate</string>
     <string name="title_ask_show_amp">Afișați varianta AMP a mesajului?</string>
     <string name="title_ask_show_amp_hint">Mesajele AMP sunt concepute pentru a fi dinamice și pentru a interacționa cu internetul și, prin urmare, pot fi folosite, prin definiție, pentru a vă urmări</string>
-    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Vezi fișierul %1$s?</string>
+    <string name="title_ask_view_file">Vezi fișierul %1$s?</string>
     <string name="title_ask_delete_local">Ștergeți mesajele locale? Mesajele vor rămâne pe serverul gazdă.</string>
     <string name="title_ask_help">Ajută la îmbunătățirea FairEmail</string>
     <string name="title_ask_reporting">Trimite rapoarte de eroare?</string>

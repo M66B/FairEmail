@@ -304,7 +304,7 @@
     <string name="title_setup_reset_questions">Nulstil spørgsmål</string>
     <string name="title_setup_reset_general">Generelle spørgsmål</string>
     <string name="title_setup_reset_links">Bekræft links</string>
-    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Vis filer</string>
+    <string name="title_setup_reset_files">Vis filer</string>
     <string name="title_setup_reset_images">Vis billeder</string>
     <string name="title_setup_reset_full">Vis oprindelige beskeder</string>
     <string name="title_check_gmail_oauth">Gmail-konti vil fortsat fungere efter 3005-22</string>
@@ -631,7 +631,7 @@
     <string name="title_advanced_notifications_background">Benyt baggrundstjeneste til beskedsynkronisering</string>
     <string name="title_advanced_notifications_background_hint">En baggrundstjeneste kan til enhver tid stoppes af Android, men behøver ingen statusbjælkenotifikation</string>
     <string name="title_advanced_confirm_links">Bekræft åbning af links</string>
-    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Bekræft visning af filer</string>
+    <string name="title_advanced_confirm_files">Bekræft visning af filer</string>
     <string name="title_advanced_sanitize_links">Fjern som standard sporingsparametre</string>
     <string name="title_advanced_sanitize_links_hint">Kun ved linkbekræftelse</string>
     <string name="title_advanced_check_links_dbl">Tjek domæneblokeringslister for mistænkelige links</string>
@@ -1233,7 +1233,7 @@
     <string name="title_ask_show_image_hint">Billeder genkendt som sporingsbilleder, vises ikke</string>
     <string name="title_ask_show_amp">Vis AMP-variant af beskeden?</string>
     <string name="title_ask_show_amp_hint">AMP-beskeder er designet til at være dynamiske og interagere med Internet, og de kan derfor potentielt bruges til brugersporing</string>
-    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Vis fil %1$s?</string>
+    <string name="title_ask_view_file">Vis fil %1$s?</string>
     <string name="title_ask_delete_local">Slet lokale beskeder? Beskeder forbliver på den eksterne server.</string>
     <string name="title_ask_help">Hjælp med at forbedre FairEmail</string>
     <string name="title_ask_reporting">Send fejlrapporter?</string>

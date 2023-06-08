@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail-Suche</string>
+    <string name="app_send_self" comment="app_send_self&#10;Title for additional Android share sheet target. This needs to be short!">An sich selbst senden</string>
     <string name="app_changelog">Änderungsprotokoll</string>
     <string name="app_welcome">FairEmail ist eine quelloffene E-Mail-App, die sich auf Privatsphäre und Sicherheit konzentriert. Aus diesem Grund könnten einige Dinge anders funktionieren, als Sie es gewohnt sind.</string>
     <string name="app_limitations">Zum Beispiel werden Nachrichten standardmäßig neu formatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu verbessern. Außerdem muss das Öffnen von Links zur Sicherheit bestätigt werden. Beides kann auf Wunsch deaktiviert werden.</string>
@@ -305,7 +306,7 @@
     <string name="title_setup_reset_questions">Fragen zurücksetzen</string>
     <string name="title_setup_reset_general">Allgemeine Fragen</string>
     <string name="title_setup_reset_links">Links bestätigen</string>
-    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Dateien anzeigen</string>
+    <string name="title_setup_reset_files">Dateien anzeigen</string>
     <string name="title_setup_reset_images">Bilder anzeigen</string>
     <string name="title_setup_reset_full">Originalnachrichten anzeigen</string>
     <string name="title_check_gmail_oauth">Ihre Google-Mail-Konten werden nach dem 30. Mai 2022 weiterhin funktionieren</string>
@@ -633,7 +634,7 @@
     <string name="title_advanced_notifications_background">Hintergrunddienst verwenden, um Nachrichten zu synchronisieren</string>
     <string name="title_advanced_notifications_background_hint">Ein Hintergrunddienst kann jederzeit von Android angehalten werden, erfordert aber keine Benachrichtigung in der Statusleiste</string>
     <string name="title_advanced_confirm_links">Links beim Öffnen bestätigen</string>
-    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Anzeigen von Dateien bestätigen</string>
+    <string name="title_advanced_confirm_files">Anzeigen von Dateien bestätigen</string>
     <string name="title_advanced_sanitize_links">Verfolgungsparameter standardmäßig entfernen</string>
     <string name="title_advanced_sanitize_links_hint">Nur beim Bestätigen von Links</string>
     <string name="title_advanced_check_links_dbl">Domain-Sperrlisten auf verdächtige Links prüfen</string>
@@ -685,6 +686,7 @@
         Schlüssel und Zertifikate sind in der Regel unter »Sicherheit« → »Sicherheitszertifikate« zu finden.
     </string>
     <string name="title_advanced_power_menu">Aktionen zum Android-Ein/Aus-Menü hinzufügen</string>
+    <string name="title_advanced_send_self" comment="title_advanced_send_self&#10;Title for miscellaneous option to enable an additional Android share sheet target">\'An sich selbst senden\' zum Android Freigabemenü hinzufügen</string>
     <string name="title_advanced_external_search">Anderen Apps erlauben in Nachrichten zu suchen</string>
     <string name="title_advanced_sort_answers">Antwortvorlagen nach Nutzungsfrequenz sortieren</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
@@ -909,7 +911,7 @@
     <string name="title_leave_deleted">Gelöschte Nachrichten auf Server belassen</string>
     <string name="title_leave_on_device">Nachrichten auf Gerät belassen</string>
     <string name="title_max_messages">Maximale Anzahl der Nachrichten zum Herunterladen (leer für alle)</string>
-    <string name="title_max_messages_keep">Dies ist die maximale Anzahl von Nachrichten, die auf dem Gerät gespeichert werden</string>
+    <string name="title_max_messages_keep">Das ist die maximale Anzahl von Nachrichten, die auf dem Gerät gespeichert werden</string>
     <string name="title_max_messages_remark">        Bitte eine positive Zahl eingeben, um die Nachrichten am Ende herunterzuladen (am häufigsten)
         und eine negative Zahl, um die Nachrichten am Anfang herunterzuladen (weniger häufig)
     </string>
@@ -1134,7 +1136,7 @@
     <string name="title_raw_send_thread">Unterhaltung</string>
     <string name="title_manage_keywords">Schlagwörter verwalten</string>
     <string name="title_manage_labels">Gmail-Labels verwalten</string>
-    <string name="title_add_keyword">Stichwort hinzufügen</string>
+    <string name="title_add_keyword">Schlagwort hinzufügen</string>
     <string name="title_show_inline">Eingebettete Anhänge anzeigen</string>
     <string name="title_download_all">Alle herunterladen</string>
     <string name="title_save_all">Alles speichern</string>
@@ -1238,7 +1240,7 @@
     <string name="title_ask_show_image_hint">Erkannte Verfolgungsbilder werden nicht angezeigt</string>
     <string name="title_ask_show_amp">AMP-Variante der Nachricht anzeigen?</string>
     <string name="title_ask_show_amp_hint">AMP-Nachrichten sind so ausgelegt, dass sie dynamisch sind, mit dem Internet interagieren und daher per Definition dazu verwendet werden können, um Sie zu verfolgen.</string>
-    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Datei %1$s anzeigen?</string>
+    <string name="title_ask_view_file">Datei %1$s anzeigen?</string>
     <string name="title_ask_delete_local">Lokale Nachrichten löschen? Die Nachrichten bleiben auf dem entfernten Server.</string>
     <string name="title_ask_help">Helfen Sie mit, FairEmail zu verbessern</string>
     <string name="title_ask_reporting">Fehlerberichte senden?</string>
@@ -1407,10 +1409,11 @@
     <string name="title_ask_send_via">Nachricht zu %1$s über %2$s senden?</string>
     <string name="title_queued">Nachricht wird gesendet</string>
     <string name="title_queued_at">Nachricht wird ungefähr %1$s gesendet</string>
-    <string name="title_sign">Signieren</string>
-    <string name="title_verify">Gegenprüfen</string>
+    <string name="title_sign">Unterschreiben</string>
+    <string name="title_verify">Überprüfen</string>
     <string name="title_encrypt">Verschlüsseln</string>
     <string name="title_decrypt">Entschlüsseln</string>
+    <string name="title_reset_message_questions">Link-Bestätigungen zurücksetzen</string>
     <string name="title_resync">Neu synchronisieren</string>
     <string name="title_charset">Zeichenkodierung</string>
     <string name="title_charset_auto">Automatisch</string>

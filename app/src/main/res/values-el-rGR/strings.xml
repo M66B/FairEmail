@@ -304,7 +304,7 @@
     <string name="title_setup_reset_questions">Επαναφορά ερωτήσεων</string>
     <string name="title_setup_reset_general">Γενικές ερωτήσεις</string>
     <string name="title_setup_reset_links">Επιβεβαίωση συνδέσμων</string>
-    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Προβολή αρχείων</string>
+    <string name="title_setup_reset_files">Προβολή αρχείων</string>
     <string name="title_setup_reset_images">Προβολή εικόνων</string>
     <string name="title_setup_reset_full">Προβολή αρχικών μηνυμάτων</string>
     <string name="title_check_gmail_oauth">Οι λογαριασμοί σας Gmail θα συνεχίσουν να λειτουργούν μετά τις 30 Μαΐου 2022</string>
@@ -631,7 +631,7 @@
     <string name="title_advanced_notifications_background">Χρήση υπηρεσίας στο παρασκήνιο για το συγχρονισμό των μηνυμάτων</string>
     <string name="title_advanced_notifications_background_hint">Μια υπηρεσία που εκτελείται στο παρασκήνιο αλλά δεν απαιτεί κάποια ειδοποίηση στη γραμμή κατάστασης, μπορεί να τερματιστεί από το Android οποιαδήποτε στιγμή</string>
     <string name="title_advanced_confirm_links">Επιβεβαίωση ανοίγματος συνδέσμων</string>
-    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Επιβεβαίωση προβολής αρχείων</string>
+    <string name="title_advanced_confirm_files">Επιβεβαίωση προβολής αρχείων</string>
     <string name="title_advanced_sanitize_links">Αφαίρεση παραμέτρων ιχνηλάτησης από προεπιλογή</string>
     <string name="title_advanced_sanitize_links_hint">Μόνο κατά την επιβεβαίωση συνδέσμων</string>
     <string name="title_advanced_check_links_dbl">Έλεγχος λιστών αποκλεισμένων τομέων για τους ύποπτους συνδέσμους</string>
@@ -1232,7 +1232,7 @@
     <string name="title_ask_show_image_hint">Όσες εικόνες αναγνωρίζονται ως εικόνες ιχνηλάτησης δεν θα προβληθούν</string>
     <string name="title_ask_show_amp">Προβολή παραλλαγής AMP του μηνύματος;</string>
     <string name="title_ask_show_amp_hint">Τα μηνύματα AMP έχουν σχεδιαστεί έτσι ώστε να είναι δυναμικά και να αλληλεπιδρούν με το διαδίκτυο, και, ως εκ τούτου, εξ ορισμού μπορούν να χρησιμοποιηθούν για την παρακολούθησή σας</string>
-    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Προβολή αρχείου %1$s;</string>
+    <string name="title_ask_view_file">Προβολή αρχείου %1$s;</string>
     <string name="title_ask_delete_local">Διαγραφή τοπικών μηνυμάτων; Τα μηνύματα θα παραμείνουν στο διακομιστή.</string>
     <string name="title_ask_help">Βοηθήστε το FairEmail να βελτιωθεί</string>
     <string name="title_ask_reporting">Να αποστέλλονται αναφορές σφαλμάτων;</string>

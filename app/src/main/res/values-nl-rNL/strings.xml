@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail zoeken</string>
+    <string name="app_send_self" comment="app_send_self&#10;Title for additional Android share sheet target. This needs to be short!">Stuur naar jezelf</string>
     <string name="app_changelog">Wijzigingsgeschiedenis</string>
     <string name="app_welcome">FairEmail is een open source e-mail app gericht op privacy en veiligheid. Om deze reden werken sommige functies mogelijk anders dan u gewend bent.</string>
     <string name="app_limitations">Berichten worden bijvoorbeeld standaard opnieuw opgemaakt om onveilige elementen te verwijderen en de leesbaarheid te verbeteren, en het openen van links moet voor de veiligheid worden bevestigd. Beide kunnen desgewenst uitgeschakeld worden.</string>
@@ -303,7 +304,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_reset_questions">Vragen resetten</string>
     <string name="title_setup_reset_general">Algemene vragen</string>
     <string name="title_setup_reset_links">Bevestig koppelingen</string>
-    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Bekijk bestanden</string>
+    <string name="title_setup_reset_files">Bekijk bestanden</string>
     <string name="title_setup_reset_images">Toon afbeeldingen</string>
     <string name="title_setup_reset_full">Toon originele berichten</string>
     <string name="title_check_gmail_oauth">Uw Gmail accounts zullen blijven werken na 30 mei 2022</string>
@@ -630,7 +631,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notifications_background">Gebruik achtergrondservice om berichten te synchroniseren</string>
     <string name="title_advanced_notifications_background_hint">Een achtergrondservice kan op elk gewenst moment worden gestopt door Android, maar vereist geen melding in de statusbalk</string>
     <string name="title_advanced_confirm_links">Bevestig het openen van koppelingen</string>
-    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Bevestig het bekijken van bestanden</string>
+    <string name="title_advanced_confirm_files">Bevestig het bekijken van bestanden</string>
     <string name="title_advanced_sanitize_links">Verwijder standaard tracking parameters</string>
     <string name="title_advanced_sanitize_links_hint">Alleen bij het bevestigen van links</string>
     <string name="title_advanced_check_links_dbl">Controleer domeinblokkeringslijsten op verdachte links</string>
@@ -681,6 +682,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_manage_keys_hint">        Dit zal navigeren naar de Android-beveiligingsinstellingen.        Sleutels en certificaten kunnen over het algemeen worden gevonden onder Geavanceerd - Versleuteling en gegevens.
     </string>
     <string name="title_advanced_power_menu">Acties toevoegen aan het Android power menu</string>
+    <string name="title_advanced_send_self" comment="title_advanced_send_self&#10;Title for miscellaneous option to enable an additional Android share sheet target">Voeg \'Stuur naar jezelf\' toe aan het Android-deelmenu</string>
     <string name="title_advanced_external_search">Andere apps mogen zoeken in berichten</string>
     <string name="title_advanced_sort_answers">Sorteer antwoordsjablonen op gebruiksfrequentie</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
@@ -1232,7 +1234,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_ask_show_image_hint">Afbeeldingen die als tracking afbeeldingen zijn herkend, worden niet getoond</string>
     <string name="title_ask_show_amp">AMP variant van het bericht weergeven?</string>
     <string name="title_ask_show_amp_hint">AMP berichten zijn ontworpen om dynamisch te zijn en om te communiceren met het internet en kunnen daarom per definitie worden gebruikt om u te volgen</string>
-    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Bekijk bestand %1$s ?</string>
+    <string name="title_ask_view_file">Bekijk bestand %1$s ?</string>
     <string name="title_ask_delete_local">Lokale berichten verwijderen? Berichten blijven op de externe server.</string>
     <string name="title_ask_help">Help FairEmail te verbeteren</string>
     <string name="title_ask_reporting">Foutrapporten verzenden?</string>
@@ -1403,6 +1405,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_verify">Verifiëren</string>
     <string name="title_encrypt">Versleutelen</string>
     <string name="title_decrypt">Ontsleutelen</string>
+    <string name="title_reset_message_questions">Koppelingsvragen resetten</string>
     <string name="title_resync">Resync</string>
     <string name="title_charset">Codering</string>
     <string name="title_charset_auto">Automatisch</string>

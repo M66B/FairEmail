@@ -331,7 +331,7 @@
     <string name="title_setup_reset_questions">Скінуць адказы на пытанні</string>
     <string name="title_setup_reset_general">Агульныя пытанні</string>
     <string name="title_setup_reset_links">Пацвярджаць спасылкі</string>
-    <string name="title_setup_reset_files" comment="title_setup_reset_files&#10;Title for option in reset questions dialog">Праглядзець файлы</string>
+    <string name="title_setup_reset_files">Праглядзець файлы</string>
     <string name="title_setup_reset_images">Паказваць выявы</string>
     <string name="title_setup_reset_full">Паказаць зыходныя паведамленні</string>
     <string name="title_check_gmail_oauth">Вашы ўліковыя запісы Gmail працягнуць працаваць пасля 30 мая 2022 г.</string>
@@ -659,7 +659,7 @@
     <string name="title_advanced_notifications_background">Выкарыстоўваць фонавую службу для сінхранізацыі паведамленняў</string>
     <string name="title_advanced_notifications_background_hint">Фонавая служба можа быць спынена Android у любы час і не патрабуе апавяшчэння ў радку стану</string>
     <string name="title_advanced_confirm_links">Пацвярджаць адкрыццё спасылак</string>
-    <string name="title_advanced_confirm_files" comment="title_advanced_confirm_files&#10;Title for option in privacy settings tab page">Пацвярджаць прагляд файлаў</string>
+    <string name="title_advanced_confirm_files">Пацвярджаць прагляд файлаў</string>
     <string name="title_advanced_sanitize_links">Выдаліць параметры адсочвання па змаўчанні</string>
     <string name="title_advanced_sanitize_links_hint">Толькі пры пацвярджэнні спасылак</string>
     <string name="title_advanced_check_links_dbl">Правяраць спісы блакіроўкі даменаў на наяўнасць падазроных спасылак</string>
@@ -1265,7 +1265,7 @@
     <string name="title_ask_show_image_hint">Выявы, распазнаныя як выявы з адсочваннем, не будуць адлюстроўвацца</string>
     <string name="title_ask_show_amp">Паказаць AMP-варыянт паведамлення?</string>
     <string name="title_ask_show_amp_hint">AMP-паведамленні распрацаваны для дынамічнага ўзаемадзеяння з сеткай, таму па вызначэнні могуць выкарыстоўвацца для сачэння за вамі</string>
-    <string name="title_ask_view_file" comment="title_ask_view_file&#10;Title for dialog to confirm viewing files">Праглядзець файл %1$s?</string>
+    <string name="title_ask_view_file">Праглядзець файл %1$s?</string>
     <string name="title_ask_delete_local">Выдаліць лакальныя паведамленні? Паведамленні застануцца на аддаленым серверы.</string>
     <string name="title_ask_help">Дапамажыце палепшыць FairEmail</string>
     <string name="title_ask_reporting">Адправіць справаздачы аб памылках?</string>
