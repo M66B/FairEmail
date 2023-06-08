@@ -1677,7 +1677,7 @@ public class Helper {
         return layout.getOffsetForHorizontal(line, x);
     }
 
-    static String getRequestKey(Fragment fragment) {
+    static String getWho(Fragment fragment) {
         String who;
         try {
             Class<?> cls = fragment.getClass();
@@ -1685,16 +1685,18 @@ public class Helper {
                 cls = cls.getSuperclass();
             Field f = cls.getDeclaredField("mWho");
             f.setAccessible(true);
-            who = (String) f.get(fragment);
+            return (String) f.get(fragment);
         } catch (Throwable ex) {
             Log.w(ex);
             String we = fragment.toString();
             int pa = we.indexOf('(');
             int sp = we.indexOf(' ', pa);
-            who = we.substring(pa + 1, sp);
+            return we.substring(pa + 1, sp);
         }
+    }
 
-        return fragment.getClass().getName() + ":result:" + who;
+    static String getRequestKey(Fragment fragment) {
+        return fragment.getClass().getName() + ":result:" + getWho(fragment);
     }
 
     static void clearViews(Object instance) {

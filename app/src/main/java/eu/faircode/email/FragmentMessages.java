@@ -6861,7 +6861,7 @@ public class FragmentMessages extends FragmentBase
                 (language_detection && !TextUtils.isEmpty(filter_language) && !outbox));
 
         boolean none = (items == 0 && initialized);
-        boolean searching = (viewType == AdapterMessage.ViewType.SEARCH && server && loading && items == 0);
+        boolean searching = (viewType == AdapterMessage.ViewType.SEARCH && server && (!initialized || loading) && items == 0);
         boolean filtered = (filter_active && viewType != AdapterMessage.ViewType.SEARCH);
 
         pbWait.setVisibility(loading || tasks > 0 ? View.VISIBLE : View.GONE);
@@ -6872,7 +6872,8 @@ public class FragmentMessages extends FragmentBase
         if (BuildConfig.DEBUG)
             updateDebugInfo();
 
-        Log.i("List state reason=" + reason +
+        Log.i(" List state who=" + Helper.getWho(this) + "" +
+                " reason=" + reason +
                 " tasks=" + tasks + " loading=" + loading +
                 " items=" + items + " initialized=" + initialized +
                 " wait=" + (pbWait.getVisibility() == View.VISIBLE) +
