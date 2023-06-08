@@ -6861,10 +6861,12 @@ public class FragmentMessages extends FragmentBase
                 (language_detection && !TextUtils.isEmpty(filter_language) && !outbox));
 
         boolean none = (items == 0 && initialized);
+        boolean searching = (viewType == AdapterMessage.ViewType.SEARCH && server && loading && items == 0);
         boolean filtered = (filter_active && viewType != AdapterMessage.ViewType.SEARCH);
 
         pbWait.setVisibility(loading || tasks > 0 ? View.VISIBLE : View.GONE);
-        tvNoEmail.setVisibility(none ? View.VISIBLE : View.GONE);
+        tvNoEmail.setText(searching ? R.string.title_search_server_wait : R.string.title_no_messages);
+        tvNoEmail.setVisibility(none || searching ? View.VISIBLE : View.GONE);
         tvNoEmailHint.setVisibility(none && filtered ? View.VISIBLE : View.GONE);
 
         if (BuildConfig.DEBUG)

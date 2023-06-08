@@ -1775,6 +1775,7 @@
 
     <string name="title_search_device">Search on device</string>
     <string name="title_search_server">Search on server</string>
+    <string name="title_search_server_wait">Waiting for server</string>
     <string name="title_search_in">Search in</string>
     <string name="title_search_sender">Search for sender</string>
 
