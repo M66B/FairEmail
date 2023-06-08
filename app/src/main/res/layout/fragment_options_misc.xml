@@ -711,7 +711,6 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:autofillHints="password"
                         android:hint="@string/title_advanced_lt_key"
                         android:inputType="textPassword"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
@@ -867,7 +866,6 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:autofillHints="password"
                         android:hint="API key"
                         android:inputType="textPassword"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
@@ -1005,7 +1003,6 @@
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:autofillHints="password"
                         android:hint="API key"
                         android:inputType="textPassword"
                         android:textAppearance="@style/TextAppearance.AppCompat.Small" />
