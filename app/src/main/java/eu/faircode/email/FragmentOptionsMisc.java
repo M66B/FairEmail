@@ -109,6 +109,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private View view;
     private ImageButton ibHelp;
     private SwitchCompat swPowerMenu;
+    private SwitchCompat swSendSelf;
     private SwitchCompat swExternalSearch;
     private SwitchCompat swSortAnswers;
     private SwitchCompat swExternalAnswer;
@@ -355,6 +356,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         ibHelp = view.findViewById(R.id.ibHelp);
         swPowerMenu = view.findViewById(R.id.swPowerMenu);
+        swSendSelf = view.findViewById(R.id.swSendSelf);
         swExternalSearch = view.findViewById(R.id.swExternalSearch);
         swSortAnswers = view.findViewById(R.id.swSortAnswers);
         swExternalAnswer = view.findViewById(R.id.swExternalAnswer);
@@ -531,6 +533,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
                     Helper.enableComponent(getContext(), ServicePowerControl.class, checked);
+            }
+        });
+
+        swSendSelf.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                Helper.enableComponent(getContext(), ActivitySendSelf.class, checked);
             }
         });
 
@@ -2397,6 +2406,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swSortAnswers.setChecked(prefs.getBoolean("sort_answers", false));
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R)
                 swPowerMenu.setChecked(Helper.isComponentEnabled(getContext(), ServicePowerControl.class));
+            swSendSelf.setChecked(Helper.isComponentEnabled(getContext(), ActivitySendSelf.class));
             swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));
             swExternalAnswer.setChecked(Helper.isComponentEnabled(getContext(), ActivityAnswer.class));
             swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));

@@ -2,6 +2,7 @@
     <string name="app_name" translatable="false">FairEmail</string>
     <string name="app_copyright" translatable="false">Copyright &#x24B8; 2018–2023 by M. Bokhorst</string>
     <string name="app_search">FairEmail search</string>
+    <string name="app_send_self">Send to self</string>
     <string name="app_answer" translatable="false">FairEmail template</string>
     <string name="app_changelog">Changelog</string>
     <string name="app_welcome">FairEmail is an open source email app focused on privacy and security. For this reason some features might work differently from what you are used to.</string>
@@ -791,6 +792,7 @@
     <string name="title_advanced_aes_key_size" translatable="false">Max AES key size: %1$s</string>
 
     <string name="title_advanced_power_menu">Add actions to the Android power menu</string>
+    <string name="title_advanced_send_self">Add \'send to self\' to Android\'s share menu</string>
     <string name="title_advanced_external_search">Allow other apps to search in messages</string>
     <string name="title_advanced_sort_answers">Sort reply templates by frequency of use</string>
     <string name="title_advanced_external_answer" translatable="false">Provide reply templates to other apps</string>

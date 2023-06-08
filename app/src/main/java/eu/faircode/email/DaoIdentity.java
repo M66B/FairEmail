@@ -86,6 +86,13 @@ public interface DaoIdentity {
     @Query("SELECT * FROM identity WHERE id = :id")
     EntityIdentity getIdentity(long id);
 
+    @Query("SELECT identity.* FROM identity" +
+            " JOIN account ON account.id = identity.account" +
+            " JOIN folder ON folder.account = identity.account AND folder.type = '" + EntityFolder.DRAFTS + "'" +
+            " WHERE account.`primary` AND account.synchronize" +
+            " AND identity.`primary` AND identity.synchronize")
+    EntityIdentity getPrimaryIdentity();
+
     @Query("SELECT * FROM identity WHERE uuid = :uuid")
     EntityIdentity getIdentityByUUID(String uuid);
 

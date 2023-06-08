@@ -8,6 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Added option to add send-to-self to Android's share menu
 * Added seperate filter settings for archive, trash and spam folder
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
