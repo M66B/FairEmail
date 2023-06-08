@@ -109,6 +109,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
     private int colorUnread;
     private int colorControlNormal;
     private int colorSeparator;
+    private boolean debug;
 
     private String search = null;
     private List<Long> disabledIds = new ArrayList<>();
@@ -416,7 +417,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                 ? textColorPrimary : textColorSecondary));
                 ibSync.setEnabled(folder.last_sync != null);
 
-                tvKeywords.setText(BuildConfig.DEBUG ?
+                tvKeywords.setText(debug ?
                         (folder.separator == null ? "" : folder.separator + " ") +
                                 (folder.namespace == null ? "" : folder.namespace + " ") +
                                 (folder.flags == null ? null : TextUtils.join(" ", folder.flags) + " ") +
@@ -1367,6 +1368,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
         this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
+        this.debug = prefs.getBoolean("debug", false);
 
         setHasStableIds(true);
 
