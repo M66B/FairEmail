@@ -136,9 +136,9 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
 
         // Process title
         final Uri uriTitle;
-        if (title != null && PatternsCompat.WEB_URL.matcher(title).matches()) {
-            String t = title.replaceAll("\\s+", "");
-            Uri u = Uri.parse(title.contains("://") ? t : "http://" + t);
+        String t = (title == null ? null : title.replaceAll("\\s+", ""));
+        if (t != null && PatternsCompat.WEB_URL.matcher(t).matches()) {
+            Uri u = Uri.parse(t.contains("://") ? t : "http://" + t);
             String host = u.getHost(); // Capture1.PNG
             uriTitle = (UriHelper.hasTld(context, host) ? u : null);
         } else
@@ -213,7 +213,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             @Override
             public void onClick(View v) {
                 Package pkg = (Package) spOpenWith.getSelectedItem();
-                Log.i("Open title uri=" + uri + " with=" + pkg);
+                Log.i("Open title uri=" + uriTitle + " with=" + pkg);
                 boolean tabs = (pkg != null && pkg.tabs);
                 Helper.view(context, uriTitle, !tabs, !tabs);
             }
