@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
@@ -40,6 +41,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
+import android.view.TouchDelegate;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -215,6 +217,15 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ibSync.setOnClickListener(this);
             if (btnHelp != null)
                 btnHelp.setOnClickListener(this);
+
+            if (tvFlagged != null && ibFlagged != null) {
+                Rect rect = new Rect(
+                        tvFlagged.getLeft(),
+                        ibFlagged.getTop(),
+                        view.getRight(),
+                        view.getBottom());
+                view.setTouchDelegate(new TouchDelegate(rect, ibFlagged));
+            }
         }
 
         private void unwire() {
