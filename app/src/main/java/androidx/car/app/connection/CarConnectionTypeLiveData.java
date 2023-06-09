@@ -18,7 +18,7 @@ package androidx.car.app.connection;
 
 import static androidx.car.app.connection.CarConnection.ACTION_CAR_CONNECTION_UPDATED;
 import static androidx.car.app.connection.CarConnection.CAR_CONNECTION_STATE;
-import static androidx.car.app.utils.LogTags.TAG_CONNECTION_TO_CAR;
+//import static androidx.car.app.utils.LogTags.TAG_CONNECTION_TO_CAR;
 
 import android.content.AsyncQueryHandler;
 import android.content.BroadcastReceiver;
