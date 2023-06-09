@@ -36,6 +36,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Spinner;
@@ -47,11 +48,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.webkit.WebViewFeature;
 
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Locale;
 
 public class FragmentOptionsPrivacy extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -92,6 +96,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swDisconnectAutoUpdate;
     private SwitchCompat swDisconnectLinks;
     private SwitchCompat swDisconnectImages;
+    private RecyclerView rvDisconnect;
+    private ImageButton ibDisconnectCategories;
+    private AdapterDisconnect adapter;
     private SwitchCompat swMnemonic;
     private Button btnClearAll;
     private TextView tvMnemonic;
@@ -158,6 +165,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swDisconnectAutoUpdate = view.findViewById(R.id.swDisconnectAutoUpdate);
         swDisconnectLinks = view.findViewById(R.id.swDisconnectLinks);
         swDisconnectImages = view.findViewById(R.id.swDisconnectImages);
+        rvDisconnect = view.findViewById(R.id.rvDisconnect);
+        ibDisconnectCategories = view.findViewById(R.id.ibDisconnectCategories);
         swMnemonic = view.findViewById(R.id.swMnemonic);
         btnClearAll = view.findViewById(R.id.btnClearAll);
         tvMnemonic = view.findViewById(R.id.tvMnemonic);
@@ -484,6 +493,19 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("disconnect_images", checked).apply();
+                rvDisconnect.setAlpha(checked ? 1.0f : Helper.LOW_LIGHT);
+            }
+        });
+
+        rvDisconnect.setHasFixedSize(false);
+        rvDisconnect.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new AdapterDisconnect(getContext(), DisconnectBlacklist.getCategories());
+        rvDisconnect.setAdapter(adapter);
+
+        ibDisconnectCategories.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(DisconnectBlacklist.URI_CATEGORIES), true);
             }
         });
 
@@ -626,12 +648,79 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             swDisconnectAutoUpdate.setChecked(prefs.getBoolean("disconnect_auto_update", false));
             swDisconnectLinks.setChecked(prefs.getBoolean("disconnect_links", true));
             swDisconnectImages.setChecked(prefs.getBoolean("disconnect_images", false));
+            rvDisconnect.setAlpha(swDisconnectImages.isChecked() ? 1.0f : Helper.LOW_LIGHT);
 
             String mnemonic = prefs.getString("wipe_mnemonic", null);
             swMnemonic.setChecked(mnemonic != null);
             tvMnemonic.setText(mnemonic);
         } catch (Throwable ex) {
             Log.e(ex);
+        }
+    }
+
+    public static class AdapterDisconnect extends RecyclerView.Adapter<AdapterDisconnect.ViewHolder> {
+        private Context context;
+        private LayoutInflater inflater;
+
+        private List<String> items;
+
+        public class ViewHolder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener {
+            private CheckBox cbEnabled;
+
+            ViewHolder(View itemView) {
+                super(itemView);
+                cbEnabled = itemView.findViewById(R.id.cbEnabled);
+            }
+
+            private void wire() {
+                cbEnabled.setOnCheckedChangeListener(this);
+            }
+
+            private void unwire() {
+                cbEnabled.setOnCheckedChangeListener(null);
+            }
+
+            private void bindTo(String category) {
+                cbEnabled.setText(category);
+                cbEnabled.setChecked(DisconnectBlacklist.isEnabled(context, category));
+            }
+
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                int pos = getAdapterPosition();
+                if (pos == RecyclerView.NO_POSITION)
+                    return;
+
+                String category = items.get(pos);
+                DisconnectBlacklist.setEnabled(context, category, isChecked);
+            }
+        }
+
+        AdapterDisconnect(Context context, List<String> items) {
+            this.context = context;
+            this.inflater = LayoutInflater.from(context);
+
+            setHasStableIds(false);
+            this.items = items;
+        }
+
+        @Override
+        public int getItemCount() {
+            return items.size();
+        }
+
+        @Override
+        @NonNull
+        public AdapterDisconnect.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            return new AdapterDisconnect.ViewHolder(inflater.inflate(R.layout.item_disconnect_enabled, parent, false));
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull AdapterDisconnect.ViewHolder holder, int position) {
+            holder.unwire();
+            String category = items.get(position);
+            holder.bindTo(category);
+            holder.wire();
         }
     }
 }

@@ -57,7 +57,6 @@ import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
-import android.util.Pair;
 import android.util.Patterns;
 import android.view.View;
 
@@ -2287,7 +2286,7 @@ public class HtmlHelper {
                 Uri uri = Uri.parse(img.attr("src"));
                 String host = uri.getHost();
                 if (host != null && !hosts.contains(host) &&
-                        !isTrackingHost(host, disconnect_images))
+                        !isTrackingHost(context, host, disconnect_images))
                     hosts.add(host);
             }
         }
@@ -2305,7 +2304,7 @@ public class HtmlHelper {
             if (host == null || hosts.contains(host))
                 continue;
 
-            if (isTrackingPixel(img) || isTrackingHost(host, disconnect_images)) {
+            if (isTrackingPixel(img) || isTrackingHost(context, host, disconnect_images)) {
                 img.attr("src", sb.toString());
                 img.attr("alt", context.getString(R.string.title_legend_tracking_pixel));
                 img.attr("height", "24");
@@ -2340,10 +2339,10 @@ public class HtmlHelper {
         }
     }
 
-    private static boolean isTrackingHost(String host, boolean disconnect_images) {
+    private static boolean isTrackingHost(Context context, String host, boolean disconnect_images) {
         if (TRACKING_HOSTS.contains(host))
             return true;
-        if (disconnect_images && DisconnectBlacklist.isTracking(host))
+        if (disconnect_images && DisconnectBlacklist.isTrackingImage(context, host))
             return true;
         return false;
     }

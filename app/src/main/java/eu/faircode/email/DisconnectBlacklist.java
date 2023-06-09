@@ -45,9 +45,11 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class DisconnectBlacklist {
     private static final Map<String, List<String>> map = new HashMap<>();
+    private static final List<String> all = new ArrayList<>();
 
     private final static int FETCH_TIMEOUT = 20 * 1000; // milliseconds
     private final static String LIST = "https://raw.githubusercontent.com/disconnectme/disconnect-tracking-protection/master/services.json";
+    final static String URI_CATEGORIES = "https://disconnect.me/trackerprotection#categories-of-trackers";
 
     static void init(Context context) {
         final File file = getFile(context);
@@ -70,6 +72,7 @@ public class DisconnectBlacklist {
             long start = SystemClock.elapsedRealtime();
 
             map.clear();
+            all.clear();
 
             String json = Helper.readText(file);
             JSONObject jdisconnect = new JSONObject(json);
@@ -77,6 +80,7 @@ public class DisconnectBlacklist {
             Iterator<String> categories = jcategories.keys();
             while (categories.hasNext()) {
                 String category = categories.next();
+                all.add(category);
                 JSONArray jcategory = jcategories.getJSONArray(category);
                 for (int c = 0; c < jcategory.length(); c++) {
                     JSONObject jblock = (JSONObject) jcategory.get(c);
@@ -135,15 +139,34 @@ public class DisconnectBlacklist {
         init(file);
     }
 
+    static List<String> getCategories() {
+        synchronized (all) {
+            return new ArrayList<>(all);
+        }
+    }
+
+    static boolean isEnabled(Context context, String category) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean("disconnect_" + category, !"Content".equals(category));
+    }
+
+    static void setEnabled(Context context, String category, boolean value) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putBoolean("disconnect_" + category, value).apply();
+    }
+
     static List<String> getCategories(String domain) {
         return _getCategories(domain);
     }
 
-    static boolean isTracking(String host) {
+    static boolean isTrackingImage(Context context, String host) {
         List<String> categories = _getCategories(host);
         if (categories == null || categories.size() == 0)
             return false;
-        return !categories.contains("Content");
+        for (String category : categories)
+            if (isEnabled(context, category))
+                return true;
+        return false;
     }
 
     private static List<String> _getCategories(String domain) {
