@@ -591,6 +591,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/androidx.work/work-runtime
     implementation "androidx.work:work-runtime:$work_version"
+    // implementation "com.google.guava:listenablefuture:1.0"
+    implementation "com.google.guava:guava:31.1-android" // ListenableFuture
 
     // https://mvnrepository.com/artifact/androidx.exifinterface/exifinterface
     implementation "androidx.exifinterface:exifinterface:$exif_version"
