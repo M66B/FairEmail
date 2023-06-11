@@ -6,6 +6,7 @@ For support you can use the contact form.
 
 Ubirajara
 
+* Targeting Android 14
 * Small improvements and minor bug fixes
 * Updated translations
 
