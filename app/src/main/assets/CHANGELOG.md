@@ -4,6 +4,11 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
+### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
+
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### [Tratayenia](https://en.wikipedia.org/wiki/Tratayenia)
 
 ### 1.2074 - 2023-06-08

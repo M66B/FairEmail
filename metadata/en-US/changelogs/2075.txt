@@ -4,6 +4,11 @@ Changelog
 
 For support you can use the contact form.
 
+Ubirajara
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 Tratayenia
 
 1.2074 - 2023-06-08
