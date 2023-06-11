@@ -7789,11 +7789,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     same = false;
                     log("uid changed", next.id);
 
-                    // Download body when needed
-                    if (!next.content &&
-                            prev.uid == null && next.uid != null && // once only
-                            properties.getValue("expanded", next.id))
-                        EntityOperation.queue(context, next, EntityOperation.BODY);
+                    if (prev.uid == null && next.uid != null) { // once only
+                        // Mark seen when needed
+                        if (!Boolean.TRUE.equals(next.ui_seen) && next.accountAutoSeen)
+                            EntityOperation.queue(context, next, EntityOperation.SEEN, true);
+
+                        // Download body when needed
+                        if (!next.content && properties.getValue("expanded", next.id))
+                            EntityOperation.queue(context, next, EntityOperation.BODY);
+                    }
                 }
                 if (!Objects.equals(prev.msgid, next.msgid)) {
                     // debug info
