@@ -67,6 +67,31 @@
                 app:layout_constraintTop_toBottomOf="@id/tvNotifications" />
 
             <TextView
+                android:id="@+id/tvBatteryOptimizations"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="?android:attr/selectableItemBackground"
+                android:drawableStart="@drawable/baseline_battery_alert_24"
+                android:drawablePadding="6dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:text="@string/title_hint_battery_optimizations"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:drawableTint="?android:attr/textColorSecondary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorNotifications" />
+
+            <View
+                android:id="@+id/vSeparatorBatteryOptimizations"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?attr/colorSeparator"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBatteryOptimizations" />
+
+            <TextView
                 android:id="@+id/tvSupport"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -76,7 +101,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vSeparatorNotifications" />
+                app:layout_constraintTop_toBottomOf="@+id/vSeparatorBatteryOptimizations" />
 
             <View
                 android:id="@+id/vSeparatorSupport"
@@ -464,6 +489,12 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:constraint_referenced_ids="tvNotifications,vSeparatorNotifications" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/grpBatteryOptimizations"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:constraint_referenced_ids="tvBatteryOptimizations,vSeparatorBatteryOptimizations" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpSupport"
