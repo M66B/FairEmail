@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:background="?android:attr/selectableItemBackground"
-                android:drawableStart="@drawable/baseline_battery_alert_24"
+                android:drawableStart="@drawable/twotone_warning_24"
                 android:drawablePadding="6dp"
                 android:paddingHorizontal="12dp"
                 android:paddingVertical="6dp"
