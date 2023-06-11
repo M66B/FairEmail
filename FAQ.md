@@ -3960,7 +3960,11 @@ so you cannot use FairEmail or any other email client to access Tildamail.
 
 **Criptext** uses a proprietary email protocol
 and [does not directly support IMAP](https://www.reddit.com/r/privacy/comments/chs82k/comment/ewrxxcn/),
-so you cannot use FairEmail or any other Android email client to access Criptext.
+so you cannot use FairEmail or any other email email client to access Criptext.
+
+**OnMail** uses a proprietary email protocol
+and [does not support IMAP](https://support.onmail.com/hc/en-us/articles/360048879012-How-do-I-connect-my-OnMail-address-to-a-third-party-email-app-),
+so you cannot use FairEmail or any other email client to access OnMail, except for one (but please read the privacy policy carefully).
 
 <br />
 
