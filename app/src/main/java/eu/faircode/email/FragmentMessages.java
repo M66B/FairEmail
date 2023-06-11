@@ -5197,6 +5197,8 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkRedmiNote() {
+        if (!BuildConfig.DEBUG)
+            return false;
         if (!Helper.isRedmiNote())
             return false;
 
