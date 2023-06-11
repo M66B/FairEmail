@@ -16,15 +16,15 @@ if (rootProject.file("local.properties").exists())
     localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
-    compileSdkVersion 33
-    compileSdkExtension 4 // https://developer.android.com/guide/sdk-extensions
+    compileSdkVersion 34
+    //compileSdkExtension 4 // https://developer.android.com/guide/sdk-extensions
     namespace 'eu.faircode.email'
 
     // https://apilevels.com/
     defaultConfig {
         applicationId "eu.faircode.email"
         minSdkVersion 21
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode getVersionCode()
         versionName "1." + getVersionCode()
         archivesBaseName = "FairEmail-v$versionName" + getRevision()
@@ -591,6 +591,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/androidx.work/work-runtime
     implementation "androidx.work:work-runtime:$work_version"
+    // implementation "com.google.guava:listenablefuture:1.0"
+    implementation "com.google.guava:guava:31.1-android" // ListenableFuture
 
     // https://mvnrepository.com/artifact/androidx.exifinterface/exifinterface
     implementation "androidx.exifinterface:exifinterface:$exif_version"
