@@ -1466,6 +1466,10 @@ public class Helper {
         return "OPPO".equalsIgnoreCase(Build.MANUFACTURER);
     }
 
+    static boolean isVivo() {
+        return "vivo".equalsIgnoreCase(Build.MANUFACTURER);
+    }
+
     static boolean isRealme() {
         return "realme".equalsIgnoreCase(Build.MANUFACTURER);
     }
@@ -1476,6 +1480,10 @@ public class Helper {
 
     static boolean isSony() {
         return "sony".equalsIgnoreCase(Build.MANUFACTURER);
+    }
+
+    static boolean isUnihertz() {
+        return "Unihertz".equalsIgnoreCase(Build.MANUFACTURER);
     }
 
     static boolean isSurfaceDuo() {
@@ -1524,10 +1532,11 @@ public class Helper {
                 isWiko() ||
                 isLenovo() ||
                 isOppo() ||
-                // Vivo
+                isVivo() ||
                 isRealme() ||
                 isBlackview() ||
-                isSony());
+                isSony() ||
+                isUiThread());
     }
 
     static boolean isAggressivelyKilling() {
