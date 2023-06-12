@@ -5073,8 +5073,7 @@ public class FragmentMessages extends FragmentBase
         boolean enabled = prefs.getBoolean("enabled", true);
         boolean reminder = prefs.getBoolean("setup_reminder", true);
         boolean targeting =
-                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE ||
-                        !BuildConfig.PLAY_STORE_RELEASE);
+                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU);
         grpBatteryOptimizations.setVisibility(
                 !isIgnoring && enabled && reminder && targeting ? View.VISIBLE : View.GONE);
 
