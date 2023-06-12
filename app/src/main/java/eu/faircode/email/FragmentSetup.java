@@ -54,7 +54,6 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -71,8 +70,9 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import net.openid.appauth.AppAuthConfiguration;
-import net.openid.appauth.AuthState;
 import net.openid.appauth.AuthorizationException;
 import net.openid.appauth.AuthorizationRequest;
 import net.openid.appauth.AuthorizationResponse;
@@ -86,16 +86,8 @@ import net.openid.appauth.ResponseTypeValues;
 import net.openid.appauth.TokenRequest;
 import net.openid.appauth.TokenResponse;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 
 public class FragmentSetup extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -1369,21 +1361,32 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                                 args.putLong("account", account);
                                 args.putString("accessToken", access.accessToken);
 
-                                new SimpleTask<Void>() {
+                                new SimpleTask<Integer>() {
                                     @Override
-                                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                    protected Integer onExecute(Context context, Bundle args) throws Throwable {
                                         long account = args.getLong("account");
                                         String accessToken = args.getString("accessToken");
 
-                                        MicrosoftGraph.downloadContacts(context, account, accessToken);
-                                        return null;
+                                        return MicrosoftGraph.downloadContacts(context, account, accessToken);
                                     }
 
                                     @Override
-                                    protected void onExecuted(Bundle args, Void data) {
+                                    protected void onExecuted(Bundle args, @NonNull Integer count) {
                                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                                         prefs.edit().putBoolean("suggest_sent", true).apply();
-                                        ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
+
+                                        NumberFormat NF = NumberFormat.getInstance();
+                                        String msg = getString(R.string.title_setup_import_graph_result, NF.format(count));
+
+                                        final Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_INDEFINITE)
+                                                .setGestureInsetBottomIgnored(true);
+                                        snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View view) {
+                                                snackbar.dismiss();
+                                            }
+                                        });
+                                        snackbar.show();
                                     }
 
                                     @Override

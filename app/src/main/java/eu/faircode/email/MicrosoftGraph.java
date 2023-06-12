@@ -124,7 +124,8 @@ public class MicrosoftGraph {
         }
     }
 
-    static void downloadContacts(Context context, long account, String accessToken) throws IOException, JSONException {
+    static int downloadContacts(Context context, long account, String accessToken) throws IOException, JSONException {
+        int count = 0;
         DB db = DB.getInstance(context);
 
         // https://learn.microsoft.com/en-us/graph/api/user-list-contacts?view=graph-rest-1.0&tabs=http
@@ -168,6 +169,7 @@ public class MicrosoftGraph {
                                     contact.first_contacted = new Date().getTime();
                                     contact.last_contacted = contact.first_contacted;
                                     db.contact().insertContact(contact);
+                                    count++;
                                 }
                             }
                         }
@@ -187,5 +189,7 @@ public class MicrosoftGraph {
         } finally {
             connection.disconnect();
         }
+
+        return count;
     }
 }
