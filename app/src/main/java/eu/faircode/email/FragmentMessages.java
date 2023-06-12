@@ -5068,24 +5068,29 @@ public class FragmentMessages extends FragmentBase
                         hasPermission(Manifest.permission.POST_NOTIFICATIONS));
         grpNotifications.setVisibility(canNotify ? View.GONE : View.VISIBLE);
 
-        boolean isIgnoring = (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE ||
-                Boolean.TRUE.equals(Helper.isIgnoringOptimizations(context)));
+        boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context));
+        //boolean canSchedule = AlarmManagerCompatEx.canScheduleExactAlarms(context);
         boolean enabled = prefs.getBoolean("enabled", true);
         boolean reminder = prefs.getBoolean("setup_reminder", true);
-        grpBatteryOptimizations.setVisibility(!isIgnoring && enabled && reminder ? View.VISIBLE : View.GONE);
+        boolean targeting =
+                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE ||
+                        !BuildConfig.PLAY_STORE_RELEASE);
+        grpBatteryOptimizations.setVisibility(
+                !isIgnoring && enabled && reminder && targeting ? View.VISIBLE : View.GONE);
 
         boolean compact = prefs.getBoolean("compact", false);
         int zoom = prefs.getInt("view_zoom", compact ? 0 : 1);
         adapter.setCompact(compact);
         adapter.setZoom(zoom);
 
-        if (!checkRedmiNote())
-            if (!checkDoze())
+        if (true || !checkRedmiNote())
+            if (true || !checkDoze())
                 if (!checkReporting())
                     if (!checkReview())
                         if (!checkFingerprint())
                             if (!checkGmail())
-                                checkOutlook();
+                                if (!checkOutlook())
+                                    ;
 
         prefs.registerOnSharedPreferenceChangeListener(this);
         onSharedPreferenceChanged(prefs, "pro");
@@ -5197,8 +5202,6 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkRedmiNote() {
-        if (!BuildConfig.DEBUG)
-            return false;
         if (!Helper.isRedmiNote())
             return false;
 
@@ -5223,8 +5226,6 @@ public class FragmentMessages extends FragmentBase
     }
 
     private boolean checkDoze() {
-        if (!BuildConfig.DEBUG)
-            return false;
         if (viewType != AdapterMessage.ViewType.UNIFIED)
             return false;
 
