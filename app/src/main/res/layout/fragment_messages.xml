@@ -78,7 +78,7 @@
                 android:paddingVertical="6dp"
                 android:text="@string/title_hint_battery_optimizations"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                app:drawableTint="?android:attr/textColorSecondary"
+                app:drawableTint="?attr/colorWarning"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vSeparatorNotifications" />
