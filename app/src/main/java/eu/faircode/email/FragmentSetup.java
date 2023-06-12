@@ -853,6 +853,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         tvDozeDone.setCompoundDrawables(null, null, null, null);
         btnDoze.setEnabled(false);
         tvDoze12.setVisibility(View.GONE);
+        btnGraphContacts.setVisibility(View.GONE);
 
         btnInbox.setEnabled(false);
 
@@ -928,6 +929,16 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                 btnIdentity.setEnabled(done);
                 btnInbox.setEnabled(done);
                 btnInbox.setTypeface(done ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+
+                boolean outlook = false;
+                if (accounts != null)
+                    for (EntityAccount account : accounts)
+                        if (account.isOutlook()) {
+                            outlook = true;
+                            break;
+                        }
+
+                btnGraphContacts.setVisibility(outlook ? View.VISIBLE : View.GONE);
 
                 prefs.edit().putBoolean("has_accounts", done).apply();
             }
