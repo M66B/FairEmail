@@ -35,6 +35,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FragmentDialogSelectAccount extends FragmentDialogBase {
@@ -81,6 +82,10 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
 
             @Override
             protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                if ("outlook".equals(args.getString("filter")))
+                    for (EntityAccount account : new ArrayList<>(accounts))
+                        if (!account.isOutlook())
+                            accounts.remove(account);
                 adapter.addAll(accounts);
             }
 
@@ -101,6 +106,7 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
                         args.putLong("account", account.id);
                         args.putInt("protocol", account.protocol);
                         args.putString("name", account.name);
+                        args.putString("user", account.user);
                         sendResult(RESULT_OK);
                     }
                 })

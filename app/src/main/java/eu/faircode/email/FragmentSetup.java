@@ -54,6 +54,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -70,7 +71,31 @@ import androidx.lifecycle.Observer;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
+import net.openid.appauth.AppAuthConfiguration;
+import net.openid.appauth.AuthState;
+import net.openid.appauth.AuthorizationException;
+import net.openid.appauth.AuthorizationRequest;
+import net.openid.appauth.AuthorizationResponse;
+import net.openid.appauth.AuthorizationService;
+import net.openid.appauth.AuthorizationServiceConfiguration;
+import net.openid.appauth.ClientAuthentication;
+import net.openid.appauth.ClientSecretPost;
+import net.openid.appauth.GrantTypeValues;
+import net.openid.appauth.NoClientAuthentication;
+import net.openid.appauth.ResponseTypeValues;
+import net.openid.appauth.TokenRequest;
+import net.openid.appauth.TokenResponse;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 public class FragmentSetup extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -107,6 +132,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     private Button btnPermissions;
     private TextView tvPermissionsWhy;
     private TextView tvImportContacts;
+    private Button btnGraphContacts;
 
     private TextView tvDozeDone;
     private Button btnDoze;
@@ -145,6 +171,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     private Drawable check;
 
     private boolean manual = false;
+
+    private static final String GRAPH_SCOPE_READ_CONTACTS = "https://graph.microsoft.com/Contacts.Read";
 
     @Override
     @Nullable
@@ -195,6 +223,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         btnPermissions = view.findViewById(R.id.btnPermissions);
         tvPermissionsWhy = view.findViewById(R.id.tvPermissionsWhy);
         tvImportContacts = view.findViewById(R.id.tvImportContacts);
+        btnGraphContacts = view.findViewById(R.id.btnGraphContacts);
 
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
         btnDoze = view.findViewById(R.id.btnDoze);
@@ -561,6 +590,20 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 172, true);
+            }
+        });
+
+        btnGraphContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle args = new Bundle();
+                args.putInt("type", EntityAccount.TYPE_IMAP);
+                args.putString("filter", "outlook");
+
+                FragmentDialogSelectAccount fragment = new FragmentDialogSelectAccount();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentSetup.this, ActivitySetup.REQUEST_GRAPH_CONTACTS);
+                fragment.show(getParentFragmentManager(), "account:contacts");
             }
         });
 
@@ -1073,6 +1116,14 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                     if (resultCode == RESULT_OK && data != null)
                         onDeleteAccount(data.getBundleExtra("args"));
                     break;
+                case ActivitySetup.REQUEST_GRAPH_CONTACTS:
+                    if (resultCode == RESULT_OK && data != null)
+                        handleImportGraphContacts(data.getBundleExtra("args"));
+                    break;
+                case ActivitySetup.REQUEST_GRAPH_CONTACTS_OAUTH:
+                    if (resultCode == RESULT_OK && data != null)
+                        onHandleGraphContactsOAuth(data);
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -1211,6 +1262,132 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                     }
                 })
                 .show();
+    }
+
+    private void handleImportGraphContacts(Bundle args) {
+        try {
+            final Context context = getContext();
+            long account = args.getLong("account");
+            String user = args.getString("user");
+            EmailProvider provider = EmailProvider.getProvider(context, "outlookgraph");
+
+            AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
+                    .build();
+            AuthorizationService authService = new AuthorizationService(context, appAuthConfig);
+
+            AuthorizationServiceConfiguration serviceConfig = new AuthorizationServiceConfiguration(
+                    Uri.parse(provider.graph.authorizationEndpoint),
+                    Uri.parse(provider.graph.tokenEndpoint));
+
+            AuthorizationRequest.Builder authRequestBuilder =
+                    new AuthorizationRequest.Builder(
+                            serviceConfig,
+                            provider.graph.clientId,
+                            ResponseTypeValues.CODE,
+                            Uri.parse(provider.graph.redirectUri))
+                            .setScopes(GRAPH_SCOPE_READ_CONTACTS)
+                            .setState(provider.id + ":" + account)
+                            .setLoginHint(user);
+
+            if (!TextUtils.isEmpty(provider.graph.prompt))
+                authRequestBuilder.setPrompt(provider.graph.prompt);
+
+            Intent authIntent = authService.getAuthorizationRequestIntent(authRequestBuilder.build());
+            Log.i("Graph/contacts intent=" + authIntent);
+            startActivityForResult(authIntent, ActivitySetup.REQUEST_GRAPH_CONTACTS_OAUTH);
+        } catch (Throwable ex) {
+            Log.unexpectedError(getParentFragmentManager(), ex);
+        }
+    }
+
+    private void onHandleGraphContactsOAuth(@NonNull Intent data) {
+        try {
+            Log.i("Graph/contacts authorized");
+
+            AuthorizationResponse auth = AuthorizationResponse.fromIntent(data);
+            if (auth == null) {
+                AuthorizationException ex = AuthorizationException.fromIntent(data);
+                if (ex == null)
+                    throw new IllegalArgumentException("No response data");
+                else
+                    throw ex;
+            }
+
+            final Context context = getContext();
+            final EmailProvider provider = EmailProvider.getProvider(context, "outlookgraph");
+
+            AuthorizationService authService = new AuthorizationService(context);
+
+            ClientAuthentication clientAuth;
+            if (provider.graph.clientSecret == null)
+                clientAuth = NoClientAuthentication.INSTANCE;
+            else
+                clientAuth = new ClientSecretPost(provider.graph.clientSecret);
+
+            TokenRequest.Builder builder = new TokenRequest.Builder(
+                    auth.request.configuration,
+                    auth.request.clientId)
+                    .setGrantType(GrantTypeValues.AUTHORIZATION_CODE)
+                    .setRedirectUri(auth.request.redirectUri)
+                    .setCodeVerifier(auth.request.codeVerifier)
+                    .setAuthorizationCode(auth.authorizationCode)
+                    .setNonce(auth.request.nonce);
+
+            if (provider.graph.tokenScopes)
+                builder.setScope(GRAPH_SCOPE_READ_CONTACTS);
+
+            authService.performTokenRequest(
+                    builder.build(),
+                    clientAuth,
+                    new AuthorizationService.TokenResponseCallback() {
+                        @Override
+                        public void onTokenRequestCompleted(TokenResponse access, AuthorizationException error) {
+                            try {
+                                if (error != null)
+                                    throw error;
+
+                                if (access == null || access.accessToken == null)
+                                    throw new IllegalStateException("No access token");
+
+                                Log.i("Graph/contacts got token");
+
+                                int semi = auth.request.state.lastIndexOf(':');
+                                long account = Long.parseLong(auth.request.state.substring(semi + 1));
+
+                                Bundle args = new Bundle();
+                                args.putLong("account", account);
+                                args.putString("accessToken", access.accessToken);
+
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                        long account = args.getLong("account");
+                                        String accessToken = args.getString("accessToken");
+
+                                        MicrosoftGraph.downloadContacts(context, account, accessToken);
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onExecuted(Bundle args, Void data) {
+                                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                                        prefs.edit().putBoolean("suggest_sent", true).apply();
+                                        ToastEx.makeText(context, R.string.title_completed, Toast.LENGTH_LONG).show();
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Log.unexpectedError(getParentFragmentManager(), ex);
+                                    }
+                                }.execute(FragmentSetup.this, args, "graph:contacts");
+                            } catch (Throwable ex) {
+                                Log.unexpectedError(getParentFragmentManager(), ex);
+                            }
+                        }
+                    });
+        } catch (Throwable ex) {
+            Log.unexpectedError(getParentFragmentManager(), ex);
+        }
     }
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {

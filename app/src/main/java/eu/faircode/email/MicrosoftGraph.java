@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Base64OutputStream;
 
@@ -28,7 +29,9 @@ import androidx.preference.PreferenceManager;
 
 import net.openid.appauth.AuthState;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -118,6 +121,71 @@ public class MicrosoftGraph {
             }
         } finally {
             db.identity().setIdentityState(ident.id, null);
+        }
+    }
+
+    static void downloadContacts(Context context, long account, String accessToken) throws IOException, JSONException {
+        DB db = DB.getInstance(context);
+
+        // https://learn.microsoft.com/en-us/graph/api/user-list-contacts?view=graph-rest-1.0&tabs=http
+        URL url = new URL(MicrosoftGraph.GRAPH_ENDPOINT + "contacts");
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setReadTimeout(GRAPH_TIMEOUT * 1000);
+        connection.setConnectTimeout(GRAPH_TIMEOUT * 1000);
+        ConnectionHelper.setUserAgent(context, connection);
+        connection.setRequestProperty("Authorization", "Bearer " + accessToken);
+        connection.setRequestProperty("Content-Type", "text/plain");
+        connection.connect();
+
+        try {
+            int status = connection.getResponseCode();
+            if (status == HttpURLConnection.HTTP_OK) {
+                String response = Helper.readStream(connection.getInputStream());
+                JSONObject jroot = new JSONObject(response);
+                JSONArray jvalue = jroot.getJSONArray("value");
+                for (int i = 0; i < jvalue.length(); i++) {
+                    JSONObject jcontact = jvalue.getJSONObject(i);
+                    String displayName = jcontact.optString("displayName");
+                    if (TextUtils.isEmpty(displayName))
+                        displayName = null;
+                    if (jcontact.has("emailAddresses")) {
+                        JSONArray jemailAddresses = jcontact.getJSONArray("emailAddresses");
+                        for (int j = 0; j < jemailAddresses.length(); j++) {
+                            JSONObject jemail = jemailAddresses.getJSONObject(j);
+                            String email = jemail.optString("address");
+                            if (!TextUtils.isEmpty(email)) {
+                                EntityContact contact = db.contact().getContact(account, EntityContact.TYPE_TO, email);
+                                EntityLog.log(context, displayName + " <" + email + ">" +
+                                        " account=" + account + " exists=" + (contact != null));
+                                if (contact == null) {
+                                    contact = new EntityContact();
+                                    contact.account = account;
+                                    contact.type = EntityContact.TYPE_TO;
+                                    contact.email = email;
+                                    contact.name = displayName;
+                                    contact.times_contacted = 0;
+                                    contact.first_contacted = new Date().getTime();
+                                    contact.last_contacted = contact.first_contacted;
+                                    db.contact().insertContact(contact);
+                                }
+                            }
+                        }
+                    }
+                }
+            } else {
+                String error = "Error " + status + ": " + connection.getResponseMessage();
+                try {
+                    InputStream is = connection.getErrorStream();
+                    if (is != null)
+                        error += "\n" + Helper.readStream(is);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+                throw new IOException(error);
+            }
+        } finally {
+            connection.disconnect();
         }
     }
 }
