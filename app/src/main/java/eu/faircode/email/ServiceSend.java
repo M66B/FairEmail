@@ -39,8 +39,6 @@ import android.net.Uri;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Base64OutputStream;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
@@ -51,18 +49,12 @@ import androidx.preference.PreferenceManager;
 import com.sun.mail.smtp.SMTPSendFailedException;
 import com.sun.mail.util.TraceOutputStream;
 
-import net.openid.appauth.AuthState;
-
 import org.json.JSONException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -103,8 +95,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private static final int RETRY_MAX = 3;
     private static final int CONNECTIVITY_DELAY = 5000; // milliseconds
     private static final int PROGRESS_UPDATE_INTERVAL = 1000; // milliseconds
-    private static final int GRAPH_TIMEOUT = 20; // seconds
-    private static final String GRAPH_ENDPOINT = "https://graph.microsoft.com/v1.0/me/";
 
     static final int PI_SEND = 1;
     static final int PI_FIX = 2;
@@ -752,75 +742,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         long start, end;
         Long max_size = null;
         if (ident.auth_type == AUTH_TYPE_GRAPH) {
-            try {
-                // https://learn.microsoft.com/en-us/graph/api/user-sendmail?view=graph-rest-1.0
-                db.identity().setIdentityState(ident.id, "connecting");
-
-                AuthState authState = AuthState.jsonDeserialize(ident.password);
-                ServiceAuthenticator.OAuthRefresh(ServiceSend.this, ident.provider, ident.auth_type, ident.user, authState, false);
-                Long expiration = authState.getAccessTokenExpirationTime();
-                if (expiration != null)
-                    EntityLog.log(ServiceSend.this, ident.user + " token expiration=" + new Date(expiration));
-
-                String newPassword = authState.jsonSerializeString();
-                if (!Objects.equals(ident.password, newPassword))
-                    db.identity().setIdentityPassword(ident.id, newPassword);
-
-                URL url = new URL(GRAPH_ENDPOINT + "sendMail");
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setRequestMethod("POST");
-                connection.setDoOutput(true);
-                connection.setReadTimeout(GRAPH_TIMEOUT * 1000);
-                connection.setConnectTimeout(GRAPH_TIMEOUT * 1000);
-                ConnectionHelper.setUserAgent(ServiceSend.this, connection);
-                connection.setRequestProperty("Authorization", "Bearer " + authState.getAccessToken());
-                connection.setRequestProperty("Content-Type", "text/plain");
-                connection.connect();
-
-                try {
-                    db.identity().setIdentityState(ident.id, "connected");
-
-                    EntityLog.log(this, "Sending via Graph user=" + ident.user);
-
-                    start = new Date().getTime();
-                    try (OutputStream out = new Base64OutputStream(connection.getOutputStream(), Base64.DEFAULT | Base64.NO_CLOSE)) {
-                        imessage.writeTo(out);
-                    }
-                    end = new Date().getTime();
-
-                    int status = connection.getResponseCode();
-                    if (status == HttpURLConnection.HTTP_ACCEPTED) {
-                        EntityLog.log(this, "Sent via Graph " + ident.user + " elapse=" + (end - start) + " ms");
-                        boolean log = prefs.getBoolean("protocol", false);
-                        if (log || BuildConfig.DEBUG)
-                            try {
-                                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                                imessage.writeTo(bos);
-                                for (String line : bos.toString().split("\\r?\\n"))
-                                    if (log)
-                                        EntityLog.log(this, line);
-                                    else
-                                        Log.i("graph", ident.user + " " + line);
-                            } catch (Throwable ex) {
-                                Log.e(ex);
-                            }
-                    } else {
-                        String error = "Error " + status + ": " + connection.getResponseMessage();
-                        try {
-                            InputStream is = connection.getErrorStream();
-                            if (is != null)
-                                error += "\n" + Helper.readStream(is);
-                        } catch (Throwable ex) {
-                            Log.w(ex);
-                        }
-                        throw new IOException(error);
-                    }
-                } finally {
-                    connection.disconnect();
-                }
-            } finally {
-                db.identity().setIdentityState(ident.id, null);
-            }
+            start = new Date().getTime();
+            MicrosoftGraph.send(ServiceSend.this, ident, imessage);
+            end = new Date().getTime();
         } else {
             EmailService iservice = new EmailService(
                     this, ident.getProtocol(), ident.realm, ident.encryption, ident.insecure, ident.unicode, debug);
