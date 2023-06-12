@@ -12,7 +12,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Tratayenia](https://en.wikipedia.org/wiki/Tratayenia)
 
-### 1.2074 - 2023-06-08
+### 1.2075 - 2023-06-08
 
 * Added option to add send-to-self to Android's share menu
 * Added separate filter settings for archive, trash and spam folder
