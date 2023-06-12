@@ -5623,6 +5623,7 @@ public class FragmentCompose extends FragmentBase {
                                 !"dsn".equals(action)) {
                             // Reply/forward
                             Element reply = document.createElement("div");
+                            reply.addClass("gmail_quote");
                             reply.attr("fairemail", "reference");
 
                             reply.appendElement("br");
