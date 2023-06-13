@@ -38,10 +38,32 @@ public class AlarmManagerCompatEx {
                 AlarmManagerCompat.setExactAndAllowWhileIdle(am, type, trigger, pi);
             } catch (SecurityException ex) {
                 Log.w(ex);
-                AlarmManagerCompat.setAndAllowWhileIdle(am, type, trigger, pi);
+                try {
+                    AlarmManagerCompat.setAndAllowWhileIdle(am, type, trigger, pi);
+                } catch (SecurityException exex) {
+                    // Android 6.0.1 - SDK 23 ? - Samsung J1 Mini Prime (SM-J106F)
+                    // java.lang.SecurityException: Permission Denial: getIntentForIntentSender() from pid=30091, uid=10107 requires android.permission.GET_INTENT_SENDER_INTENT
+                    //        at android.os.Parcel.readException(Parcel.java:1621)
+                    //        at android.os.Parcel.readException(Parcel.java:1574)
+                    //        at android.app.IAlarmManager$Stub$Proxy.set(IAlarmManager.java:217)
+                    //        at android.app.AlarmManager.setImpl(AlarmManager.java:484)
+                    //        at android.app.AlarmManager.setAndAllowWhileIdle(AlarmManager.java:634)
+                    //        at androidx.core.app.g.a(SourceFile:-1)
+                    //        at androidx.core.app.AlarmManagerCompat$Api23Impl.setAndAllowWhileIdle(SourceFile:-1)
+                    //        at androidx.core.app.AlarmManagerCompat.setAndAllowWhileIdle(AlarmManagerCompat:123)
+                    //        at eu.faircode.email.AlarmManagerCompatEx.setAndAllowWhileIdle(AlarmManagerCompatEx:41)
+                    Log.w(exex);
+                    am.set(type, trigger, pi);
+                }
             }
-        else
-            AlarmManagerCompat.setAndAllowWhileIdle(am, type, trigger, pi);
+        else {
+            try {
+                AlarmManagerCompat.setAndAllowWhileIdle(am, type, trigger, pi);
+            } catch (SecurityException ex) {
+                Log.w(ex);
+                am.set(type, trigger, pi);
+            }
+        }
     }
 
     static boolean hasExactAlarms(Context context) {
