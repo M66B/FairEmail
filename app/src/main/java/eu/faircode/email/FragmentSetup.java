@@ -1405,14 +1405,16 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             EntityLog.log(context, "Graph/contacts count=" + count);
 
             NumberFormat NF = NumberFormat.getInstance();
-            String msg = getString(R.string.title_setup_import_graph_result, NF.format(count));
+            String msg = getString(R.string.title_setup_import_graph_new, NF.format(count));
 
             final Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_INDEFINITE)
                     .setGestureInsetBottomIgnored(true);
-            snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
+            snackbar.setAction(R.string.title_check, new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
+                public void onClick(View v) {
                     snackbar.dismiss();
+                    LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(v.getContext());
+                    lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS));
                 }
             });
             snackbar.show();
