@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Αναζήτηση FairEmail</string>
+    <string name="app_send_self">Αποστολή στον εαυτό μου</string>
     <string name="app_changelog">Αρχείο καταγραφής αλλαγών</string>
     <string name="app_welcome">Το FairEmail είναι μια ανοικτού κώδικα εφαρμογή ηλεκτρονικού ταχυδρομείου που επικεντρώνεται στην προστασία του απορρήτου και την ασφάλειά σας. Για τον λόγο αυτό ορισμένες δυνατότητες ενδέχεται να λειτουργούν διαφορετικά από ό,τι έχετε συνηθίσει.</string>
     <string name="app_limitations">Για παράδειγμα, τα μηνύματα επαναμορφοποιούνται από προεπιλογή, με στόχο την αφαίρεση μη ασφαλών στοιχείων και τη βελτίωση της αναγνωσιμότητας, ενώ το άνοιγμα συνδέσμων πρέπει να επιβεβαιώνεται για λόγους ασφάλειας. Και οι δύο λειτουργίες απενεργοποιούνται, εφόσον το επιθυμείτε.</string>
@@ -222,7 +223,7 @@
     <string name="title_setup_doze_battery">Η μπαταρία χρησιμοποιείται παραπάνω από το κανονικό;</string>
     <string name="title_setup_doze_stopped">Σταμάτησε ο συγχρονισμός;</string>
     <string name="title_setup_doze_device">Αυτό πιθανόν απαιτείται για αυτήν τη συσκευή</string>
-    <string name="title_setup_alarm_12">Η εφαρμογή δεν θα λειτουργήσει</string>
+    <string name="title_setup_alarm_12">Η εφαρμογή δεν θα λειτουργήσει σωστά</string>
     <string name="title_setup_inexact">Ειδοποιήσεις &amp; υπενθυμίσεις απενεργοποιημένες</string>
     <string name="title_setup_background">Οι περιορισμοί παρασκηνίου είναι ενεργοποιημένοι</string>
     <string name="title_setup_data">Η εξοικονόμηση δεδομένων είναι ενεργή</string>
@@ -681,6 +682,7 @@
     <string name="title_advanced_ca">Εγκατεστημένα πιστοποιητικά CA</string>
     <string name="title_advanced_manage_keys_hint">        Αυτό θα ανοίξει τις ρυθμίσεις ασφαλείας του Android.        Τα κλειδιά και τα πιστοποιητικά βρίσκονται γενικά στις ρυθμίσεις: \"Σύνθετες - Κρυπτογράφηση και διαπιστευτήρια\".    </string>
     <string name="title_advanced_power_menu">Προσθήκη ενεργειών στο μενού ελέγχου συσκευών του Android</string>
+    <string name="title_advanced_send_self">Προσθήκη \"αποστολή στον εαυτό μου\" στο μενού κοινοποίησης του Android</string>
     <string name="title_advanced_external_search">Να επιτρέπεται σε άλλες εφαρμογές να διενεργούν αναζητήσεις στα μηνύματα</string>
     <string name="title_advanced_sort_answers">Ταξινόμηση προτύπων απάντησης κατά συχνότητα χρήσης</string>
     <string name="title_advanced_shortcuts">Προβολή των πιο συχνά χρησιμοποιούμενων επαφών στο μενού \"Κοινοποίηση\" του Android</string>
@@ -1403,6 +1405,7 @@
     <string name="title_verify">Επιβεβαίωση</string>
     <string name="title_encrypt">Κρυπτογράφηση</string>
     <string name="title_decrypt">Αποκρυπτογράφηση</string>
+    <string name="title_reset_message_questions">Επαναφορά ερωτήσεων για συνδέσμους</string>
     <string name="title_resync">Επανασυγχρονισμός</string>
     <string name="title_charset">Κωδικοποίηση</string>
     <string name="title_charset_auto">Αυτόματο</string>
@@ -1475,6 +1478,7 @@
     <string name="title_search_flag_size">μέγεθος &gt; %1$s</string>
     <string name="title_search_device">Αναζήτηση στη συσκευή</string>
     <string name="title_search_server">Αναζήτηση στο διακομιστή</string>
+    <string name="title_search_server_wait">Αναμονή για διακομιστή</string>
     <string name="title_search_in">Αναζήτηση σε</string>
     <string name="title_search_sender">Αναζήτηση αποστολέα</string>
     <string name="title_search_delete">Διαγραφή αποθηκευμένης αναζήτησης;</string>
@@ -1758,6 +1762,7 @@
     <string name="title_hint_folder_sync">Για να μειωθεί η χρήση μπαταρίας και δικτύου δεν συγχρονίζονται όλοι οι φάκελοι και όλα τα μηνύματα από προεπιλογή</string>
     <string name="title_hint_airplane">Η λειτουργία πτήσης είναι ενεργοποιημένη</string>
     <string name="title_hint_notifications">Δεν έχει δοθεί καμία άδεια ειδοποιήσεων</string>
+    <string name="title_hint_battery_optimizations">Οι βελτιστοποιήσεις μπαταρίας είναι ακόμη ενεργοποιημένες</string>
     <string name="title_hint_support">Αν έχετε μία ερώτηση ή ένα πρόβλημα, παρακαλώ χρησιμοποιήστε το μενού \"Υποστήριξη\" για να λάβετε βοήθεια</string>
     <string name="title_hint_message_actions">Σάρωση αριστερά για απορρίμματα• σάρωση δεξιά για αρχειοθέτηση (αν είναι διαθέσιμη)• μπορείτε να ρυθμίσετε τις ενέργειες σάρωσης στις ρυθμίσεις του λογαριασμού</string>
     <string name="title_hint_message_selection">Πατήστε παρατεταμένα σε ένα μήνυμα για να αρχίσετε να επιλέγετε πολλαπλά μηνύματα. Συνεχίστε το πάτημα και σύρετε προς τα πάνω ή κάτω για να επιλέξετε περισσότερα μηνύματα</string>

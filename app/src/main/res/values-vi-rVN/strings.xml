@@ -203,7 +203,6 @@
     <string name="title_setup_doze_battery">Sử dụng pin nhiều?</string>
     <string name="title_setup_doze_stopped">Đồng bộ hoá bị dừng?</string>
     <string name="title_setup_doze_device">Điều này có thể là bắt buộc đối với thiết bị này</string>
-    <string name="title_setup_alarm_12">Ứng dụng không hoạt động</string>
     <string name="title_setup_inexact">Các báo thức &amp; lời nhắc đang tắt</string>
     <string name="title_setup_background">Hạn chế trong nền đang bật</string>
     <string name="title_setup_data">Trình tiết kiệm dữ liệu đang bật</string>

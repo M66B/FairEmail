@@ -196,6 +196,8 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_permissions_notify_explanation">Izin pemberitahuan diperlukan untuk menampilkan pemberitahuan untuk pesan baru di bilah status</string>
     <string name="title_setup_permission_why">Perizinan apa saja yang diperlukan dan mengapa?</string>
     <string name="title_setup_permission_import_contacts">Bagaimana saya dapat mengimpor kontak?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Kontak Outlook</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Kontak baru: %1$s</string>
     <string name="title_setup_doze">Nonaktifkan pengoptimalan baterai</string>
     <string name="title_setup_doze_remark">Untuk mengirim dan menerima email secara andal di latar belakang</string>
     <string name="title_setup_doze_explanation">Pengoptimalan baterai harus dinonaktifkan untuk aplikasi supaya memastikan pengiriman dan penerimaan pesan yang andal di latar belakang aplikasi</string>
@@ -206,7 +208,7 @@ Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.  
     <string name="title_setup_doze_battery">Penggunaan boros baterai?</string>
     <string name="title_setup_doze_stopped">Sinkronisasi berhenti?</string>
     <string name="title_setup_doze_device">Ini mungkin diperlukan untuk perangkat ini</string>
-    <string name="title_setup_alarm_12">Aplikasi tidak bisa berfungsi</string>
+    <string name="title_setup_alarm_12">Aplikasi tidak berfungsi dengan baik</string>
     <string name="title_setup_inexact">Peringatan pengingat &amp; nonaktif</string>
     <string name="title_setup_background">Pembatasan pada latar belakang telah diaktifkan</string>
     <string name="title_setup_data">Penghemat kuota diaktifkan</string>
@@ -1399,6 +1401,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_search_flag_size">ukuran &gt; %1$s</string>
     <string name="title_search_device">Penelusuran di perangkat</string>
     <string name="title_search_server">Penelusuran di server</string>
+    <string name="title_search_server_wait">Menunggu server</string>
     <string name="title_search_in">Pencarian di</string>
     <string name="title_search_sender">Telusuri berdasarkan pengirim</string>
     <string name="title_save_search_name">Nama</string>
@@ -1646,6 +1649,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_legend_t">Fokus teks</string>
     <string name="title_hint_folder_actions">Tekan lama pada folder untuk pilihan, seperti menambahkan folder ke menu navigasi untuk akses cepat</string>
     <string name="title_hint_folder_sync">Untuk membatasi penggunaan baterai dan jaringan tidak semua folder dan pesan di selaraskan secara awalan</string>
+    <string name="title_hint_battery_optimizations">Optimalisasi baterai diaktifkan</string>
     <string name="title_hint_support">Jika Anda memiliki pertanyaan atau masalah, silakan gunakan menu bantuan untuk mendapatkan bantuan</string>
     <string name="title_hint_message_actions">Geser ke kiri untuk membuang; Geser ke kanan untuk mengarsip (jika tersedia); Tindakan saat digeser dapat dikonfigurasi di pengaturan akun</string>
     <string name="title_hint_message_selection">Ketuk dan tahan sebuah pesan untuk memilih banyak pesan; tahan dan usap keatas atau kebawah untuk memilih lebih banyak pesan</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Wyszukiwanie FairEmail</string>
+    <string name="app_send_self">Wyślij do siebie</string>
     <string name="app_changelog">Historia zmian</string>
     <string name="app_welcome">FairEmail to aplikacja e-mail o otwartym kodzie źródłowym, koncentrująca się na prywatności i bezpieczeństwie. Z tego powodu niektóre funkcje mogą działać inaczej niż to, do czego jesteś przyzwyczajony.</string>
     <string name="app_limitations">Przykładowo, wiadomości są domyślnie formatowane tak, aby usunąć niebezpieczne elementy i poprawić czytelność, a otwieranie linków musi zostać potwierdzone ze względów bezpieczeństwa. Obie funkcje mogą zostać wyłączone w opcjach.</string>
@@ -248,7 +249,7 @@
     <string name="title_setup_doze_battery">Wysokie użycie baterii?</string>
     <string name="title_setup_doze_stopped">Synchronizacja zatrzymana?</string>
     <string name="title_setup_doze_device">Prawdopodobnie jest to wymagane dla tego urządzenia</string>
-    <string name="title_setup_alarm_12">Aplikacja nie zadziała</string>
+    <string name="title_setup_alarm_12">Aplikacja nie będzie działać poprawnie</string>
     <string name="title_setup_inexact">Alarmy &amp; przypomnienia są wyłączone</string>
     <string name="title_setup_background">Ograniczenia w tle są włączone</string>
     <string name="title_setup_data">Oszczędzanie danych jest włączone</string>
@@ -708,6 +709,7 @@
     <string name="title_advanced_manage_keys_hint">        To przeniesie Cię do ustawień zabezpieczeń Androida.        Klucze i certyfikaty można znaleźć w Zaawansowane - Szyfrowanie i uwierzytelnianie.
     </string>
     <string name="title_advanced_power_menu">Dodaj akcje do menu zasilania Androida</string>
+    <string name="title_advanced_send_self">Dodaj \'wyślij do siebie\' do menu udostępniania w Androidzie</string>
     <string name="title_advanced_external_search">Zezwalaj innym aplikacjom na wyszukiwanie w wiadomościach</string>
     <string name="title_advanced_sort_answers">Sortuj szablony odpowiedzi według częstotliwości ich używania</string>
     <string name="title_advanced_shortcuts">Pokaż często używane kontakty w menu udostępniania Androida</string>
@@ -1431,6 +1433,7 @@
     <string name="title_verify">Potwierdź</string>
     <string name="title_encrypt">Zaszyfruj</string>
     <string name="title_decrypt">Odszyfruj</string>
+    <string name="title_reset_message_questions">Przywróć zapytania dotyczące otwierania linków</string>
     <string name="title_resync">Resynchronizuj</string>
     <string name="title_charset">Kodowanie znaków</string>
     <string name="title_charset_auto">Automatyczne</string>
@@ -1503,6 +1506,7 @@
     <string name="title_search_flag_size">rozmiar &gt; %1$s</string>
     <string name="title_search_device">Szukaj na urządzeniu</string>
     <string name="title_search_server">Szukaj na serwerze</string>
+    <string name="title_search_server_wait">Oczekiwanie na serwer</string>
     <string name="title_search_in">Szukaj w</string>
     <string name="title_search_sender">Szukaj nadawcy</string>
     <string name="title_search_delete">Usunąć zapisane wyszukiwanie?</string>
@@ -1787,6 +1791,7 @@
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_airplane">Tryb samolotowy jest włączony</string>
     <string name="title_hint_notifications">Brak uprawnień dla powiadomień</string>
+    <string name="title_hint_battery_optimizations">Optymalizacja baterii jest nadal włączona</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>
     <string name="title_hint_message_selection">Naciśnij długo wiadomość, aby rozpocząć wybieranie wielu wiadomości; Przytrzymaj i przeciągnij w górę lub w dół, aby wybrać więcej wiadomości</string>

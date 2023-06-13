@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">חיפוש ב־FairEmail</string>
+    <string name="app_send_self">שליחה לעצמי</string>
     <string name="app_changelog">יומן שינויים</string>
     <string name="app_welcome">FairEmail הוא יישומון בקוד פתוח שמתמקד בפרטיות ואבטחת מידע. משום כך, חלק מהיכולות כנראה תעבודנה אחרת ממה שהתרגלת.</string>
     <string name="app_limitations">למשל, הודעות מעוצבות מחדש כדי להסיר רכיבים חשודים ולשפר את היכולת לקרוא אותם, נוסף על כך, יש לאשר פתיחת קישורים לשיפור האבטחה. את שני אלו ניתן להשבית במידת הצורך.</string>
@@ -238,6 +239,8 @@
     <string name="title_setup_permissions_notify_explanation">נדרשות הרשאות להתראות כדי להציג התראות להודעות חדשות בשורת המצב</string>
     <string name="title_setup_permission_why">אילו הרשאות נחוצות ומדוע?</string>
     <string name="title_setup_permission_import_contacts">איך אפשר לייבא אנשי קשר?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">אנשי קשר מ־Outlook</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">אנשי קשר חדשים: %1$s</string>
     <string name="title_setup_doze">השבתת מיטובי סוללה</string>
     <string name="title_setup_doze_remark">כדי לשלוח ולקבל הודעות בצורה מהימנה ברקע</string>
     <string name="title_setup_doze_explanation">יש להשבית את מיטובי הסוללה עבור היישומון כדי לוודא ששליחת וקבלת הדוא״ל ברקע מהימנות</string>
@@ -248,7 +251,7 @@
     <string name="title_setup_doze_battery">שימוש גבוה בסוללה?</string>
     <string name="title_setup_doze_stopped">הסנכרון נפסק?</string>
     <string name="title_setup_doze_device">זה כנראה אילוץ של המכשיר הזה</string>
-    <string name="title_setup_alarm_12">היישומון לא יעבוד</string>
+    <string name="title_setup_alarm_12">היישומון לא יעבוד כראוי</string>
     <string name="title_setup_inexact">התראות ותזכורות מושבתות</string>
     <string name="title_setup_background">הגבלות רקע פעילות</string>
     <string name="title_setup_data">חיסכון בתעבורת נתונים פעיל</string>
@@ -710,6 +713,7 @@
         אפשר למצוא מפתחות ואישורים בדרך כלל תחת מתקדם - הצפנה ופרטי גישה.
     </string>
     <string name="title_advanced_power_menu">הוספת פעולות לתפריט הכיבוי של Android</string>
+    <string name="title_advanced_send_self">הוספת ‚שליחה לעצמי’ לתפריט השיתוף של Android</string>
     <string name="title_advanced_external_search">לאפשר ליישומונים אחרים לחפש בהודעות</string>
     <string name="title_advanced_sort_answers">סידור תבניות המענה לפי תדירות השימוש</string>
     <string name="title_advanced_shortcuts">הצגת אנשי קשר בשימוש תדיר בתפריט השיתוף של Android</string>
@@ -1435,6 +1439,7 @@
     <string name="title_verify">אימות</string>
     <string name="title_encrypt">הצפנה</string>
     <string name="title_decrypt">פענוח</string>
+    <string name="title_reset_message_questions">איפוס שאלות הקישור</string>
     <string name="title_resync">סנכרון מחדש</string>
     <string name="title_charset">הצפנה</string>
     <string name="title_charset_auto">אוטומטי</string>
@@ -1507,6 +1512,7 @@
     <string name="title_search_flag_size">גודל &gt; %1$s</string>
     <string name="title_search_device">חיפוש במכשיר</string>
     <string name="title_search_server">חיפוש בשרת</string>
+    <string name="title_search_server_wait">בהמתנה לשרת</string>
     <string name="title_search_in">חיפוש בתוך</string>
     <string name="title_search_sender">חיפוש מוען</string>
     <string name="title_search_delete">למחוק את החיפוש השמור?</string>
@@ -1790,6 +1796,7 @@
     <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כבררת מחדל</string>
     <string name="title_hint_airplane">מצב טיסה מופעל</string>
     <string name="title_hint_notifications">אין הרשאות להתראות</string>
+    <string name="title_hint_battery_optimizations">מיטובי סוללה עדיין פעילים</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>
     <string name="title_hint_message_selection">לחיצה ארוכה על הודעה מתחילה בחירה במגוון הודעות, יש להחזיק ולהחליק כלפי מעלה או מטה כדי לבחור הודעות נוספות</string>

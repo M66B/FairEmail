@@ -194,7 +194,6 @@
     <string name="title_setup_doze_battery">Bateria-erabilera handia?</string>
     <string name="title_setup_doze_stopped">Sinkronizazioa gelditu da?</string>
     <string name="title_setup_doze_device">Beharrezkoa da hau gailu honetarako</string>
-    <string name="title_setup_alarm_12">Aplikazioak ez du funtzionatuko</string>
     <string name="title_setup_inexact">Alarmak eta oroigarriak desgaituta daude</string>
     <string name="title_setup_background">Bigarren planoko mugak indarrean daude</string>
     <string name="title_setup_data">Datuen aurreztailea gaituta dago</string>

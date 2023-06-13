@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Поиск по FairEmail</string>
+    <string name="app_send_self">Отправить себе</string>
     <string name="app_changelog">Список изменений</string>
     <string name="app_welcome">FairEmail — это почтовое приложение с открытым исходным кодом, ориентированное на конфиденциальность и безопасность. По этой причине некоторые функции могут работать не так, как вы привыкли.</string>
     <string name="app_limitations">Например, по умолчанию сообщения переформатируются, так чтобы удалять небезопасные элементы и улучшать читаемость, а открытие ссылок нужно в целях безопасности подтверждать. Обе функции можно отключить.</string>
@@ -238,17 +239,19 @@
     <string name="title_setup_permissions_notify_explanation">Разрешения уведомлений для отображения новых сообщений в строке состояния</string>
     <string name="title_setup_permission_why">Какие разрешения необходимы и почему?</string>
     <string name="title_setup_permission_import_contacts">Как импортировать контакты?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Контакты Outlook</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Новые контакты: %1$s</string>
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
     <string name="title_setup_doze_remark">Для надёжной отправки и получения электронной почты в фоновом режиме</string>
-    <string name="title_setup_doze_explanation">Оптимизация батареи должна быть отключена для приложения, чтобы обеспечить надёжную отправку и получение сообщений в фоновом режиме</string>
-    <string name="title_setup_doze_hint">Хотя это может показаться противоречивым, отключение оптимизации потребления заряда батареи для этого приложения приведёт к сокращению использования заряда батареи</string>
+    <string name="title_setup_doze_explanation">Оптимизация энергопотребления должна быть отключена для приложения, чтобы обеспечить надёжную отправку и получение сообщений в фоновом режиме</string>
+    <string name="title_setup_doze_hint">Хотя это может показаться противоречивым, отключение оптимизации энергопотребления для этого приложения приведёт к сокращению использования заряда батареи</string>
     <string name="title_setup_doze_aggressively">Это устройство может остановить службу синхронизации</string>
-    <string name="title_setup_doze_why">Почему оптимизация батареи должна быть отключена?</string>
+    <string name="title_setup_doze_why">Почему оптимизация энергопотребления должна быть отключена?</string>
     <string name="title_setup_doze_instructions">В следующем диалоговом окне Android измените \"Не оптимизировать\" на \"Все приложения\", выберите это приложение и для него выберите \"Не оптимизировать\"</string>
     <string name="title_setup_doze_battery">Высокий расход заряда батареи?</string>
     <string name="title_setup_doze_stopped">Синхронизация останавливается?</string>
     <string name="title_setup_doze_device">Вероятно, это необходимо для вашего устройства</string>
-    <string name="title_setup_alarm_12">Приложение не будет работать</string>
+    <string name="title_setup_alarm_12">Приложение работает неправильно</string>
     <string name="title_setup_inexact">Будильники и напоминания отключены</string>
     <string name="title_setup_background">Фоновые ограничения включены</string>
     <string name="title_setup_data">Сохранение данных включено</string>
@@ -709,6 +712,7 @@
         Ключи и сертификаты обычно находятся в разделе \"Дополнительно\" - \"Шифрование и учётные данные\".
     </string>
     <string name="title_advanced_power_menu">Добавить действия в меню питания Android</string>
+    <string name="title_advanced_send_self">Добавить \"Отправить себе\" в меню Android</string>
     <string name="title_advanced_external_search">Разрешать другим приложениям искать в сообщениях</string>
     <string name="title_advanced_sort_answers">Сортировать шаблоны ответов по частоте использования</string>
     <string name="title_advanced_shortcuts">Показывать часто используемые контакты в меню \"Поделиться\" Android</string>
@@ -1507,6 +1511,7 @@
     <string name="title_search_flag_size">размер &gt; %1$s</string>
     <string name="title_search_device">Поиск на устройстве</string>
     <string name="title_search_server">Поиск на сервере</string>
+    <string name="title_search_server_wait">Ожидание сервера</string>
     <string name="title_search_in">Поиск в</string>
     <string name="title_search_sender">Поиск отправителя</string>
     <string name="title_search_delete">Удалить сохранённый поиск?</string>
@@ -1790,6 +1795,7 @@
     <string name="title_hint_folder_sync">Для экономии заряда батареи и трафика по умолчанию синхронизируются не все папки и сообщения.</string>
     <string name="title_hint_airplane">Режим полета включён</string>
     <string name="title_hint_notifications">Отсутствует разрешение на отображение уведомлений</string>
+    <string name="title_hint_battery_optimizations">Оптимизация энергопотребления всё ещё включена</string>
     <string name="title_hint_support">Если у вас есть вопрос или проблема, пожалуйста, используйте меню поддержки для получения помощи.</string>
     <string name="title_hint_message_actions">Смахните влево, чтобы поместить в корзину; смахните вправо, чтобы поместить в архив (если имеется); действия жестов можно изменить в настройках учётной записи.</string>
     <string name="title_hint_message_selection">Длительное нажатие на сообщение начинает выбор нескольких сообщений; удерживайте нажатие и смахните вверх или вниз, чтобы выбрать больше сообщений.</string>

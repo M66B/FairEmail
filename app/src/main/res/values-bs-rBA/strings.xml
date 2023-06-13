@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail pretraga</string>
+    <string name="app_send_self">Pošalji sebi</string>
     <string name="app_changelog">Spisak izmjena</string>
     <string name="app_welcome">FairEmail je e-mail aplikacija otvorenog koda, s fokusom na privatnost i sigurnost. Zbog toga neke funkcionalnosti mogu raditi drugačije od onog što ste navikli.</string>
     <string name="app_limitations">Na primjer, poruke su preformatirane po zadanom režimu kako bi se uklonili nesigurni elementi i poboljšala čitljivost, te otvarali linkovi (hiperveze) koji se moraju potvrditi zbog sigurnosti. Te se mogućnosti mogu isključiti, ukoliko želite.</string>
@@ -235,7 +236,7 @@
     <string name="title_setup_doze_battery">Visoka potrošnja baterije?</string>
     <string name="title_setup_doze_stopped">Sinhronizacija zaustavljena?</string>
     <string name="title_setup_doze_device">Ovo je vjerovatno neophodno za ovaj uređaj</string>
-    <string name="title_setup_alarm_12">Aplikacija neće raditi</string>
+    <string name="title_setup_alarm_12">Aplikacija neće raditi propisno</string>
     <string name="title_setup_inexact">Alarmi &amp; podsjetnici su isključeni</string>
     <string name="title_setup_background">Pozadinska ograničenja su uključena</string>
     <string name="title_setup_data">Štednja podataka je uključena</string>
@@ -697,6 +698,7 @@
         Ključevi i certifikati mogu se pronaći u postavkama Napredno - Šifriranje i akreditivi.
     </string>
     <string name="title_advanced_power_menu">Dodaj radnje na Androidov meni za uključenje/gašenje</string>
+    <string name="title_advanced_send_self">Dodaj opciju \"pošalji sebi\" na Android meniju \"podijeli\"</string>
     <string name="title_advanced_external_search">Dopusti drugim aplikacijama da pretražuju u porukama</string>
     <string name="title_advanced_sort_answers">Sortiraj prijedloške za odgovore prema učestalosti korištenja</string>
     <string name="title_advanced_shortcuts">Prikaži često korištene kontakte u Android meniju za dijeljenje</string>
@@ -1495,6 +1497,7 @@
     <string name="title_search_flag_size">Veličina &gt; %1$s</string>
     <string name="title_search_device">Traži na uređaju</string>
     <string name="title_search_server">Traži na serveru</string>
+    <string name="title_search_server_wait">Čekanje servera</string>
     <string name="title_search_in">Traži u</string>
     <string name="title_search_sender">Traži pošiljaoca</string>
     <string name="title_search_delete">Izbrisati sačuvanu pretragu?</string>
@@ -1778,6 +1781,7 @@
     <string name="title_hint_folder_sync">Da bi ograničili potrošnju baterije i podataka, po zadanom neće biti sinhronizirani svi folderi i poruke</string>
     <string name="title_hint_airplane">Način rada u avionu je uključen</string>
     <string name="title_hint_notifications">Nema dozvola za notifikacije</string>
+    <string name="title_hint_battery_optimizations">Optimizacije baterije su još uključene</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>
     <string name="title_hint_message_selection">Dugim dodirom na poruku pokreće se višestruko označavanje poruka; Držite i prevlačite gore ili dolje za označavanje više poruka</string>

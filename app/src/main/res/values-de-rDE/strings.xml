@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail-Suche</string>
-    <string name="app_send_self" comment="app_send_self&#10;Title for additional Android share sheet target. This needs to be short!">An mich senden</string>
+    <string name="app_send_self">An mich senden</string>
     <string name="app_changelog">Änderungsprotokoll</string>
     <string name="app_welcome">FairEmail ist eine quelloffene E-Mail-App, die sich auf Privatsphäre und Sicherheit konzentriert. Aus diesem Grund könnten einige Dinge anders funktionieren, als Sie es gewohnt sind.</string>
     <string name="app_limitations">Zum Beispiel werden Nachrichten standardmäßig neu formatiert, um unsichere Elemente zu entfernen und die Lesbarkeit zu verbessern. Außerdem muss das Öffnen von Links zur Sicherheit bestätigt werden. Beides kann auf Wunsch deaktiviert werden.</string>
@@ -214,6 +214,8 @@
     <string name="title_setup_permissions_notify_explanation">Benachrichtigungsberechtigungen sind erforderlich, um Benachrichtigungen für neue Nachrichten in der Statusleiste anzuzeigen</string>
     <string name="title_setup_permission_why">Welche Berechtigungen werden benötigt und warum?</string>
     <string name="title_setup_permission_import_contacts">Wie kann ich Kontakte importieren?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook Kontakte</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Neuer Kontakte: %1$s</string>
     <string name="title_setup_doze">Akkuoptimierung deaktivieren</string>
     <string name="title_setup_doze_remark">Damit E-Mails zuverlässig im Hintergrund gesendet und empfangen werden</string>
     <string name="title_setup_doze_explanation">Die Akkuoptimierung sollte für die App deaktiviert werden, um ein zuverlässiges Senden und Empfangen von Nachrichten im Hintergrund zu gewährleisten</string>
@@ -224,7 +226,7 @@
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
     <string name="title_setup_doze_device">Dies ist möglicherweise für dieses Gerät erforderlich</string>
-    <string name="title_setup_alarm_12">Die App funktioniert nicht</string>
+    <string name="title_setup_alarm_12">Die App funktioniert nicht richtig</string>
     <string name="title_setup_inexact">Benachrichtigungen und Erinnerungen sind deaktiviert</string>
     <string name="title_setup_background">Hintergrundbeschränkungen sind aktiviert</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
@@ -351,7 +353,7 @@
     <string name="title_advanced_sync_folders">Ordnerliste synchronisieren</string>
     <string name="title_advanced_sync_folders_poll">Ordnerliste aktiv synchronisieren</string>
     <string name="title_advanced_sync_shared_folders">Listen der freigegebenen Ordner synchronisieren</string>
-    <string name="title_advanced_sync_added">Synchronisierung für neue Benutzerordner aktivieren</string>
+    <string name="title_advanced_sync_added">Synchronisation für neue Benutzerordner aktivieren</string>
     <string name="title_advanced_subscriptions">Abonnierte Ordner verwalten</string>
     <string name="title_advanced_check_authentication">Nachrichtenauthentifizierung prüfen</string>
     <string name="title_advanced_check_tls">Transport-Layer-Security (TLS) überprüfen</string>
@@ -686,7 +688,7 @@
         Schlüssel und Zertifikate sind in der Regel unter »Sicherheit« → »Sicherheitszertifikate« zu finden.
     </string>
     <string name="title_advanced_power_menu">Aktionen zum Android-Ein/Aus-Menü hinzufügen</string>
-    <string name="title_advanced_send_self" comment="title_advanced_send_self&#10;Title for miscellaneous option to enable an additional Android share sheet target">»An mich senden« zum Android-Teilen-Menü hinzufügen</string>
+    <string name="title_advanced_send_self">»An mich senden« zum Android-Teilen-Menü hinzufügen</string>
     <string name="title_advanced_external_search">Anderen Apps erlauben in Nachrichten zu suchen</string>
     <string name="title_advanced_sort_answers">Antwortvorlagen nach Nutzungsfrequenz sortieren</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
@@ -748,7 +750,7 @@
     <string name="title_advanced_check_tls_hint">Dies zeigt ein grünes Schild, sofern eine Nachricht von allen Servern sicher übermittelt wurde</string>
     <string name="title_advanced_check_reply_hint">Überprüft, ob die Domain des Absenders und die Antwort-An-Adresse identisch sind</string>
     <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
-    <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisierung von Nachrichten</string>
+    <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisation von Nachrichten</string>
     <string name="title_advanced_folder_nav_hint">Damit kehren Sie von einer Nachrichtenliste immer zur Ordnerliste des betreffenden Kontos zurück.</string>
     <string name="title_advanced_suggest_names_hint">Wenn deaktiviert, werden nur E-Mail-Adressen bei der Auswahl von Kontakten verwendet</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
@@ -783,7 +785,7 @@
     <string name="title_advanced_highlight_hint">Die Akzentfarbe des Designs wird zur Hervorhebung verwendet</string>
     <string name="title_advanced_privacy_risk">Es könnte ein Datenschutzrisiko geben</string>
     <string name="title_advanced_name_email_hint">Namen werden nur angezeigt, wenn sie verfügbar sind</string>
-    <string name="title_advanced_preview_hint">Nur verfügbar, wenn der E-Mail-Text heruntergeladen wurde</string>
+    <string name="title_advanced_preview_hint">Nur verfügbar, wenn der Nachrichtentext heruntergeladen wurde</string>
     <string name="title_advanced_preview_lines_hint">Maximal %s Zeichen</string>
     <string name="title_advanced_preview_issue">Scrollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_overview_mode_hint">Das kann zu einer sehr kleinen Schrift führen</string>
@@ -881,7 +883,7 @@
     <string name="title_account_left">Nach links wischen</string>
     <string name="title_account_right">Nach rechts wischen</string>
     <string name="title_account_move">Standardmäßig verschieben nach</string>
-    <string name="title_account_gmail">Für eine zuverlässige Synchronisierung eines Gmail-Kontos sollte nach Möglichkeit der Gmail-Schnelleinrichtungsassistent verwendet werden</string>
+    <string name="title_account_gmail">Für eine zuverlässige Synchronisation eines Gmail-Kontos sollte nach Möglichkeit der Gmail-Schnelleinrichtungsassistent verwendet werden</string>
     <string name="title_domain">Domainname</string>
     <string name="title_autoconfig">Einstellungen abrufen</string>
     <string name="title_aliases">Alias-Adressen</string>
@@ -988,7 +990,7 @@
     <string name="title_synchronize_more_hint3">Bitte bedenken Sie, dass das Speichern vieler Nachrichten (zehntausend oder mehr) auf Ihrem Gerät zu Verzögerungen führen kann, da der interne Speicherplatz nicht unendlich schnell ist.</string>
     <string name="title_synchronize_enabled">Synchronisieren</string>
     <string name="title_synchronize_batch_enable">Synchronisation aktivieren</string>
-    <string name="title_synchronize_batch_disable">Synchronisierung deaktivieren</string>
+    <string name="title_synchronize_batch_disable">Synchronisation deaktivieren</string>
     <string name="title_notify_batch_enable">Benachrichtigung über neue Nachrichten aktivieren</string>
     <string name="title_notify_batch_disable">Benachrichtigung über neue Nachrichten deaktivieren</string>
     <string name="title_delete_local">Lokale Nachrichten löschen</string>
@@ -1486,6 +1488,7 @@
     <string name="title_search_flag_size">Größe &gt; %1$s</string>
     <string name="title_search_device">Gerät durchsuchen</string>
     <string name="title_search_server">Auf dem Server suchen</string>
+    <string name="title_search_server_wait">Auf Server wird gewartet</string>
     <string name="title_search_in">Suchen in</string>
     <string name="title_search_sender">Nach Absender suchen</string>
     <string name="title_search_delete">Gespeicherte Suchanfragen löschen?</string>
@@ -1507,7 +1510,7 @@
     <string name="title_sort_on_name">Name</string>
     <string name="title_sort_on_order">Reihenfolge</string>
     <string name="title_sort_on_applied">Trefferanzahl</string>
-    <string name="title_sort_on_last_applied">Zuletzt angewandt</string>
+    <string name="title_sort_on_last_applied">Zuletzt angewendet</string>
     <string name="title_filter">Ausfiltern</string>
     <string name="title_filter_seen">Gelesen</string>
     <string name="title_filter_unflagged">Nicht markiert</string>
@@ -1591,7 +1594,7 @@
     <string name="title_rule_header">Kopfzeile enthält</string>
     <string name="title_rule_body">Text enthält</string>
     <string name="title_rule_skip_quotes">Zitierten Text überspringen</string>
-    <string name="title_rule_body_remark">Bei Verwendung dieser Bedingung wird der Nachrichtentext immer heruntergeladen, was jedoch die Synchronisation der Nachrichtenliste verlangsamen kann</string>
+    <string name="title_rule_body_remark">Bei dieser Bedingung wird der Nachrichtentext immer heruntergeladen, was jedoch die Synchronisation der Nachrichtenliste verlangsamen kann</string>
     <string name="title_rule_time_abs">Absolute Zeit (empfangen) zwischen</string>
     <string name="title_rule_time_after">Erhalten ab</string>
     <string name="title_rule_time_before">Erhalten bis</string>
@@ -1769,6 +1772,7 @@
     <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
     <string name="title_hint_airplane">Flugzeugmodus aktiviert</string>
     <string name="title_hint_notifications">Keine Benachrichtigungserlaubnis</string>
+    <string name="title_hint_battery_optimizations">Akku-Optimierungen weiterhin aktiviert</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Standard: Wische links zum Papierkorb; Wische rechts zum Archiv (falls verfügbar); Diese Wischgesten können aber in den Kontoeinstellungen auch individuell anders konfiguriert werden</string>
     <string name="title_hint_message_selection">Um mehrere Nachrichten auszuwählen, drücken Sie zunächst lange auf eine Nachricht, halten und wischen Sie sodann nach oben oder unten, um weitere Nachrichten auszuwählen</string>

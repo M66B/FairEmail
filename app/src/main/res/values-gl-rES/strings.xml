@@ -214,7 +214,6 @@
     <string name="title_setup_doze_battery">Uso elevado da batería?</string>
     <string name="title_setup_doze_stopped">Detívose a sincronización?</string>
     <string name="title_setup_doze_device">Probablemente sexa necesario neste dispositivo</string>
-    <string name="title_setup_alarm_12">A aplicación non vai funcionar</string>
     <string name="title_setup_inexact">As alarmas e recordatorios están desactivados</string>
     <string name="title_setup_background">As restricións de fondo están habilitadas</string>
     <string name="title_setup_data">O aforro de datos está activado</string>

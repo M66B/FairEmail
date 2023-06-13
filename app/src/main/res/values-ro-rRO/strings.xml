@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Căutare FairEmail</string>
+    <string name="app_send_self">Trimite-mi mie</string>
     <string name="app_changelog">Jurnal de modificări</string>
     <string name="app_welcome">FairEmail este o aplicație pentru e-mail, cu sursă deschisă, ce se concentrează pe confidențialitate și securitate. Din acest motiv se poate ca unele caracteristici să funcționeze diferit de cum erați obișnuiți.</string>
     <string name="app_limitations">De exemplu, mesajele sunt reformatate în mod implicit pentru a elimina elemente nesigure și pentru a îmbunătăți lizibilitatea, iar deschiderea de adrese trebuie confirmată pentru siguranță. Ambele pot fi dezactivate dacă nu se doreşte asta.</string>
@@ -235,7 +236,7 @@
     <string name="title_setup_doze_battery">Utilizare intensă a bateriei?</string>
     <string name="title_setup_doze_stopped">Sincronizarea e oprită?</string>
     <string name="title_setup_doze_device">Acest lucru este probabil necesar pentru acest dispozitiv</string>
-    <string name="title_setup_alarm_12">Aplicația nu va funcționa</string>
+    <string name="title_setup_alarm_12">Aplicația nu va funcționa corect</string>
     <string name="title_setup_inexact">Alarme &amp; memento-urile sunt dezactivate</string>
     <string name="title_setup_background">Restricțiile de fundal sunt activate</string>
     <string name="title_setup_data">Economizorul de date este activat</string>
@@ -695,6 +696,7 @@
     <string name="title_advanced_manage_keys_hint">        Se va naviga la setările de securitate Android.        Cheile și certificatele pot fi găsite în general sub Avansate - Criptare și credențiale.
     </string>
     <string name="title_advanced_power_menu">Adăugați acțiuni în meniul de alimentare Android</string>
+    <string name="title_advanced_send_self">Adaugă \'trimite-mi mie\' în meniul de partajare Android</string>
     <string name="title_advanced_external_search">Permite altor aplicații să caute în mesaje</string>
     <string name="title_advanced_sort_answers">Sortați șabloanele de răspuns în funcție de frecvența de utilizare</string>
     <string name="title_advanced_shortcuts">Arată contactele utilizate frecvent în meniul de partajare Android</string>
@@ -1418,6 +1420,7 @@
     <string name="title_verify">Verifică</string>
     <string name="title_encrypt">Criptare</string>
     <string name="title_decrypt">Decriptare</string>
+    <string name="title_reset_message_questions">Resetează întrebares pentru adrese</string>
     <string name="title_resync">Resincronizare</string>
     <string name="title_charset">Codificare</string>
     <string name="title_charset_auto">Automat</string>
@@ -1490,6 +1493,7 @@
     <string name="title_search_flag_size">dimensiune &gt; %1$s</string>
     <string name="title_search_device">Căutare pe dispozitiv</string>
     <string name="title_search_server">Căutare pe server</string>
+    <string name="title_search_server_wait">Aşteptare server</string>
     <string name="title_search_in">Căutare în</string>
     <string name="title_search_sender">Căutare expeditor</string>
     <string name="title_search_delete">Ștergeți căutarea salvată?</string>
@@ -1773,6 +1777,7 @@
     <string name="title_hint_folder_sync">Pentru a limita utilizarea bateriei şi a conexiunii, nu vor fi sincronizate în mod implicit toate dosarele si mesajele</string>
     <string name="title_hint_airplane">Modul Avion este activat</string>
     <string name="title_hint_notifications">Nu există permisiuni de notificare</string>
+    <string name="title_hint_battery_optimizations">Optimizările bateriei sunt încă activate</string>
     <string name="title_hint_support">Dacă aveți o întrebare sau o problemă, vă rugăm să utilizați meniul de suport tehnic pentru a obține ajutor</string>
     <string name="title_hint_message_actions">Glisați stânga pentru Gunoi sau dreapta pentru Arhivă (dacă este disponibilă). Acțiunile de glisare se pot configura în setările contului</string>
     <string name="title_hint_message_selection">Atingeți lung un mesaj pentru a începe selecția multiplă. Țineți și glisați sus sau jos pentru a selecta mai multe mesaje</string>

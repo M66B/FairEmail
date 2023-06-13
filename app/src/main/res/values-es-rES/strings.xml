@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Buscar en FairEmail</string>
+    <string name="app_send_self">Enviar a sí mismo</string>
     <string name="app_changelog">Registro de cambios</string>
     <string name="app_welcome">FairEmail es una aplicación de correo electrónico de código abierto centrada en la privacidad y la seguridad. Por esta razón, algunas funciones pueden comportarse de manera diferente a lo que esté acostumbrado.</string>
     <string name="app_limitations">Por ejemplo, los mensajes se reformatean por defecto para eliminar elementos inseguros y mejorar la legibilidad, y la apertura de enlaces debe ser confirmada por seguridad. Ambos pueden ser desactivados si se desea.</string>
@@ -222,7 +223,7 @@
     <string name="title_setup_doze_battery">¿Consumo de batería elevado?</string>
     <string name="title_setup_doze_stopped">¿Sincronización detenida?</string>
     <string name="title_setup_doze_device">Esto probablemente sea necesario para este dispositivo</string>
-    <string name="title_setup_alarm_12">La aplicación no funcionará</string>
+    <string name="title_setup_alarm_12">La aplicación no funcionará correctamente</string>
     <string name="title_setup_inexact">Alarmas &amp; recordatorios están deshabilitados</string>
     <string name="title_setup_background">Restricciones en segundo plano habilitadas</string>
     <string name="title_setup_data">El ahorro de datos está activado</string>
@@ -682,6 +683,7 @@
     <string name="title_advanced_manage_keys_hint">        Esto abrirá la configuración de seguridad de Android.        Las claves y certificados pueden encontrarse usualmente bajo \"Avanzado - Cifrado y credenciales\".
     </string>
     <string name="title_advanced_power_menu">Añadir acciones al menú de apagado de Android</string>
+    <string name="title_advanced_send_self">Añadir \'enviar a sí mismo\' al menú de compartir de Android</string>
     <string name="title_advanced_external_search">Permitir que otras aplicaciones busquen en mensajes</string>
     <string name="title_advanced_sort_answers">Ordenar plantillas de respuesta por frecuencia de uso</string>
     <string name="title_advanced_shortcuts">Mostrar contactos frecuentes en el menú compartir de Android</string>
@@ -1477,6 +1479,7 @@
     <string name="title_search_flag_size">tamaño &gt; %1$s</string>
     <string name="title_search_device">Buscar en dispositivo</string>
     <string name="title_search_server">Buscar en el servidor</string>
+    <string name="title_search_server_wait">Esperando al servidor</string>
     <string name="title_search_in">Buscar en</string>
     <string name="title_search_sender">Buscar por remitente</string>
     <string name="title_search_delete">¿Borrar búsqueda guardada?</string>
@@ -1760,6 +1763,7 @@
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_airplane">El modo avión está activado</string>
     <string name="title_hint_notifications">Sin permisos de notificación</string>
+    <string name="title_hint_battery_optimizations">Optimizaciones de uso de batería habilitadas</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>
     <string name="title_hint_message_selection">Mantenga pulsado un mensaje para empezar a seleccionar varios mensajes; mantenga pulsado y deslice hacia arriba o abajo para seleccionar más mensajes</string>

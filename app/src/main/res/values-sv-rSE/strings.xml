@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail-sökning</string>
-    <string name="app_send_self" comment="app_send_self&#10;Title for additional Android share sheet target. This needs to be short!">Skicka till dig själv</string>
+    <string name="app_send_self">Skicka till dig själv</string>
     <string name="app_changelog">Ändringslogg</string>
     <string name="app_welcome">FairEmail är en e-postapp baserad på öppen källkod som fokuserar på integritet och säkerhet. Av denna anledning kan vissa funktioner fungera annorlunda än vad du är van vid.</string>
     <string name="app_limitations">Till exempel omformas meddelanden som standard för att ta bort osäkra element och för att förbättra läsbarheten. Länkar måste även bekräftas innan de öppnas. Båda funktionerna kan inaktiveras om så önskas.</string>
@@ -213,6 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">Aviseringsbehörigheter krävs för att visa aviseringar för nya meddelanden i statusfältet</string>
     <string name="title_setup_permission_why">Vilka behörigheter behövs och varför?</string>
     <string name="title_setup_permission_import_contacts">Hur kan jag importera kontakter?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Kontakter i Outlook</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nya kontakter: %1$s</string>
     <string name="title_setup_doze">Inaktivera batterioptimeringar</string>
     <string name="title_setup_doze_remark">Att skicka och ta emot e-post tillförlitligt i bakgrunden</string>
     <string name="title_setup_doze_explanation">Batterioptimeringar bör inaktiveras för appen för att säkerställa tillförlitlig sändning och mottagning av meddelanden i bakgrunden</string>
@@ -223,7 +225,7 @@
     <string name="title_setup_doze_battery">Hög batterianvändning?</string>
     <string name="title_setup_doze_stopped">Slutade synkroniseringen?</string>
     <string name="title_setup_doze_device">Detta krävs förmodligen för denna enhet</string>
-    <string name="title_setup_alarm_12">Appen fungerar inte</string>
+    <string name="title_setup_alarm_12">Appen kommer inte att fungera korrekt</string>
     <string name="title_setup_inexact">Larm &amp; påminnelser är inaktiverade</string>
     <string name="title_setup_background">Balgrundsrestriktioner är aktiverat</string>
     <string name="title_setup_data">Datasparning är aktiverat</string>
@@ -679,7 +681,7 @@
     <string name="title_advanced_manage_keys_hint">        Detta kommer att navigera till Androids säkerhetsinställningar.        Nycklar och certifikat kan i allmänhet hittas under Avancerat - Kryptering och inloggningsuppgifter.
     </string>
     <string name="title_advanced_power_menu">Lägg till åtgärder i Androidmenyn för avstängning</string>
-    <string name="title_advanced_send_self" comment="title_advanced_send_self&#10;Title for miscellaneous option to enable an additional Android share sheet target">Lägg till \'skicka till sig själv\' till Androids delningsmeny</string>
+    <string name="title_advanced_send_self">Lägg till \'skicka till sig själv\' till Androids delningsmeny</string>
     <string name="title_advanced_external_search">Tillåt andra appar att söka i meddelanden</string>
     <string name="title_advanced_sort_answers">Sortera svarsmallar efter användningsfrekvens</string>
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
@@ -1472,6 +1474,7 @@
     <string name="title_search_flag_size">storlek &gt; %1$s</string>
     <string name="title_search_device">Sök på enheten</string>
     <string name="title_search_server">Sök på servern</string>
+    <string name="title_search_server_wait">Väntar på server</string>
     <string name="title_search_in">Sök i</string>
     <string name="title_search_sender">Sök efter avsändare</string>
     <string name="title_search_delete">Ta bort sparad sökning?</string>
@@ -1754,6 +1757,7 @@
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_airplane">Flygplansläge är på</string>
     <string name="title_hint_notifications">Inga aviseringsbehörigheter</string>
+    <string name="title_hint_battery_optimizations">Batterioptimeringar är fortfarande aktiverade</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_actions">Dra åt vänster för att kasta; Svep åt höger för att arkivera (om tillgängligt); Svepåtgärderna kan konfigureras i kontoinställningarna</string>
     <string name="title_hint_message_selection">Långt tryck på ett meddelande för att börja välja flera meddelanden; håll och svep uppåt eller nedåt för att välja fler meddelanden</string>

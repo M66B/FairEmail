@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail arama</string>
+    <string name="app_send_self">Kendine gönder</string>
     <string name="app_changelog">Değişiklik günlüğü</string>
     <string name="app_welcome">FairEmail gizlilik ve güvenlik odaklı açık kaynaklı bir e-posta uygulamasıdır. Bu nedenle, bazı özellikler alışkın olduğunuzdan farklı şekilde çalışabilir.</string>
     <string name="app_limitations">Örneğin, güvenli olmayan öğeleri kaldırmak ve okunabilirliği artırmak için mesajlar varsayılan olarak yeniden biçimlendirilir ve güvenlik için bağlantıların açılması onaylanmalıdır. İstenirse ikisi de devre dışı bırakılabilir.</string>
@@ -221,7 +222,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_doze_battery">Yüksek pil kullanımı?</string>
     <string name="title_setup_doze_stopped">Senkronizasyon durdu mu?</string>
     <string name="title_setup_doze_device">Bu muhtemelen bu cihaz için gereklidir</string>
-    <string name="title_setup_alarm_12">Uygulama çalışmayacak</string>
     <string name="title_setup_inexact">Alarmlar &amp; hatırlatıcılar devre dışı bırakıldı</string>
     <string name="title_setup_background">Arka plan kısıtlamaları etkinleştirildi</string>
     <string name="title_setup_data">Veri koruyucu etkin</string>
@@ -681,6 +681,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_manage_keys_hint">        Android güvenlik seçeneklerini açar.        Anahtarlar ve sertifikalar genellikle Gelişmiş -&gt; Şifreleme ve altındaki menülerde bulunur.
     </string>
     <string name="title_advanced_power_menu">Android güç menüsüne eylemler ekle</string>
+    <string name="title_advanced_send_self">Android\'in paylaşım menüsüne \'kendine gönder\' özelliğini ekleyin</string>
     <string name="title_advanced_external_search">Diğer uygulamaların mesajlarda arama yapmasına izin ver</string>
     <string name="title_advanced_sort_answers">Yanıt şablonlarını kullanım sıklığına göre sırala</string>
     <string name="title_advanced_shortcuts">Sık kullanılan kişileri Android\'in paylaşma menüsünde göster</string>
@@ -1404,6 +1405,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_verify">Doğrulama</string>
     <string name="title_encrypt">Şifrele</string>
     <string name="title_decrypt">Şifreyi çöz</string>
+    <string name="title_reset_message_questions">Bağlantı sorularını sıfırla</string>
     <string name="title_resync">Tekrar senkronize et</string>
     <string name="title_charset">Metin kodlaması</string>
     <string name="title_charset_auto">Otomatik</string>
@@ -1475,6 +1477,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_search_flag_size">boyut &gt; %1$s</string>
     <string name="title_search_device">Cihazda ara</string>
     <string name="title_search_server">Sunucuda ara</string>
+    <string name="title_search_server_wait">Sunucu için bekleniyor</string>
     <string name="title_search_in">İçinde ara</string>
     <string name="title_search_sender">Göndereni ara</string>
     <string name="title_search_delete">Kayıtlı arama silinsin mi?</string>

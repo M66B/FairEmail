@@ -174,7 +174,6 @@
     <string name="title_setup_doze_battery">배터리 사용량이 많습니까?</string>
     <string name="title_setup_doze_stopped">동기화가 중단되었습니까?</string>
     <string name="title_setup_doze_device">이 기기에 필요한 작업으로 예상됩니다</string>
-    <string name="title_setup_alarm_12">앱이 작동하지 않습니다</string>
     <string name="title_setup_data">데이터 절약 모드를 사용합니다</string>
     <string name="title_setup_advanced_options">고급 설정 표시</string>
     <string name="title_setup_inbox">받은편지함으로 이동</string>

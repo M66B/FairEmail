@@ -199,7 +199,6 @@
     <string name="title_setup_doze_battery">آیا مصرف باتری زیاد است؟</string>
     <string name="title_setup_doze_stopped">همگام‌سازی متوقف شده؟</string>
     <string name="title_setup_doze_device">این مورد احتمالا برای این دستگاه اجباریست</string>
-    <string name="title_setup_alarm_12">اپلیکیشن کار نخواهد کرد</string>
     <string name="title_setup_inexact">زنگ‌های &amp; یادآور غیرفعال هستند</string>
     <string name="title_setup_background">محدودیت‌های پس‌زمینه فعال هستند</string>
     <string name="title_setup_data">سرور داده فعال شده است</string>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail axtarışı</string>
+    <string name="app_send_self">Özünə göndər</string>
     <string name="app_changelog">Dəyişiklik jurnalı</string>
     <string name="app_welcome">FairEmail, gizlilik və təhlükəsizliyə fokuslanmış bir açıq mənbəli e-poçt tətbiqidir. Buna görə də bəzi xüsusiyyətlər, istifadə etdiyinizdən fərqli şəkildə işləyə bilər.</string>
     <string name="app_limitations">Nümunə üçün, güvənli olmayan elementləri çıxartmaq və oxunaqlılığı artırmaq üçün mesajlar ilkin olaraq yenidən formatlanır və keçidlərin açılmasının güvənlik baxımından təsdiqlənməsi lazım olur. İstəsəniz, hər ikisini sıradan çıxarda bilərsiniz.</string>
@@ -222,7 +223,6 @@
     <string name="title_setup_doze_battery">Yüksək batareya istifadəsi?</string>
     <string name="title_setup_doze_stopped">Sinxronlaşdırma dayandırılsın?</string>
     <string name="title_setup_doze_device">Bu, çox güman ki, bu cihaz üçün tələb olunur</string>
-    <string name="title_setup_alarm_12">Tətbiq işləmir</string>
     <string name="title_setup_inexact">Zəngli saatlar və xatırladıcılar sıradan çıxarıldı</string>
     <string name="title_setup_background">Arxaplan məhdudiyyətləri fəaldır</string>
     <string name="title_setup_data">Verilənlərə qənaət fəallaşdırıldı</string>
@@ -684,6 +684,7 @@
         Açar və sertifikatlar adətən Qabaqcıl - Şifrələmə və kimlik məlumatları altında tapıla bilər.
     </string>
     <string name="title_advanced_power_menu">Android enerji menyusuna əməliyyat əlavə et</string>
+    <string name="title_advanced_send_self">Android-in paylaşma menyusuna \"özünə göndər\"i əlavə edin</string>
     <string name="title_advanced_external_search">Digər tətbiqlərin mesajlarda axtarış etməsinə icazə ver</string>
     <string name="title_advanced_sort_answers">Cavab şablonlarını istifadə tezliyinə görə sırala</string>
     <string name="title_advanced_shortcuts">Tez-tez istifadə olunan əlaqələri Android paylaşma menyusunda göstər</string>
@@ -1409,6 +1410,7 @@
     <string name="title_verify">Təsdiq</string>
     <string name="title_encrypt">Şifrələ</string>
     <string name="title_decrypt">Şifrəni aç</string>
+    <string name="title_reset_message_questions">Keçid suallarını sıfırla</string>
     <string name="title_resync">Yenidən sinxronlaşdır</string>
     <string name="title_charset">Kodlaşdırma</string>
     <string name="title_charset_auto">Avtomatik</string>
@@ -1481,6 +1483,7 @@
     <string name="title_search_flag_size">həcm &gt; %1$s</string>
     <string name="title_search_device">Cihazda axtar</string>
     <string name="title_search_server">Serverdə axtar</string>
+    <string name="title_search_server_wait">Server gözlənilir</string>
     <string name="title_search_in">Axtar</string>
     <string name="title_search_sender">Göndərəni axtar</string>
     <string name="title_search_delete">Saxlanılmış axtarış silinsin?</string>

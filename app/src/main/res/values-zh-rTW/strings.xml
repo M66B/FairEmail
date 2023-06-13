@@ -199,7 +199,6 @@
     <string name="title_setup_doze_battery">很耗電嗎？</string>
     <string name="title_setup_doze_stopped">不會同步？</string>
     <string name="title_setup_doze_device">此裝置可能需要這項設定</string>
-    <string name="title_setup_alarm_12">程序將無法工作</string>
     <string name="title_setup_inexact">闹钟 &amp; 提醒權限已被停用</string>
     <string name="title_setup_background">背景活動限制已啟用</string>
     <string name="title_setup_data">數據節省模式已啟用</string>

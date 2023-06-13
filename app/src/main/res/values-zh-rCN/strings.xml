@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail 搜索</string>
+    <string name="app_send_self">发送给自己</string>
     <string name="app_changelog">更新日志</string>
     <string name="app_welcome">FairEmail 是一款专注于隐私与安全的开源电子邮件应用。所以，某些功能的工作方式可能与您的习惯不同。</string>
     <string name="app_limitations">例如，默认情况下，消息将被重新格式化以移除不安全的元素并提高可读性；另外，为确保安全，打开链接前需要得到确认。当然如有需要，这两个选项都可以禁用</string>
@@ -209,7 +210,7 @@
     <string name="title_setup_doze_battery">太耗电？</string>
     <string name="title_setup_doze_stopped">同步已停止？</string>
     <string name="title_setup_doze_device">对此设备来说，这可能是必需的</string>
-    <string name="title_setup_alarm_12">应用将无法工作</string>
+    <string name="title_setup_alarm_12">本应用将无法正常工作</string>
     <string name="title_setup_inexact">闹钟 &amp; 提醒已禁用</string>
     <string name="title_setup_background">已启用后台限制</string>
     <string name="title_setup_data">省流量模式已启用</string>
@@ -669,6 +670,7 @@
     <string name="title_advanced_manage_keys_hint">        这将打开Android安全设置页面        密钥和证书一般可以在 “高级—加密和凭证” 选项中找到
     </string>
     <string name="title_advanced_power_menu">添加操作到 Android 电源菜单</string>
+    <string name="title_advanced_send_self">将 \'发送给自己\' 添加到 Android 的共享菜单</string>
     <string name="title_advanced_external_search">允许其他应用搜索邮件</string>
     <string name="title_advanced_sort_answers">按使用频率对回复模板进行排序</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
@@ -1463,6 +1465,7 @@
     <string name="title_search_flag_size">大小 &gt; %1$s</string>
     <string name="title_search_device">在设备上搜索</string>
     <string name="title_search_server">在服务器上搜索</string>
+    <string name="title_search_server_wait">正在等待服务器</string>
     <string name="title_search_in">搜索范围</string>
     <string name="title_search_sender">搜索发件人</string>
     <string name="title_search_delete">删除已保存的搜索？</string>
@@ -1746,6 +1749,7 @@
     <string name="title_hint_folder_sync">为了降低电量和网络流量的消耗，默认不会同步全部的文件夹和消息</string>
     <string name="title_hint_airplane">飞行模式已开启</string>
     <string name="title_hint_notifications">无通知权限</string>
+    <string name="title_hint_battery_optimizations">电池优化仍已启用</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑移动到回收站；向右滑存档（如果支持） ；可在账户设置中配置滑动操作</string>
     <string name="title_hint_message_selection">长按进行多选；按住的同时并上下滑动可选择多个邮件</string>

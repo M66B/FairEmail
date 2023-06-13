@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Поиск по FairEmail</string>
+    <string name="app_send_self">Siųsti sau</string>
+    <string name="app_changelog">Pakeitimų sąrašas</string>
+    <string name="app_welcome">FairEmail - tai atviro kodo el. pašto programėlė, kurioje ypatingas dėmesys skiriamas saugumui bei privatumui. Del šios priežasties kai kurios funkcijos gali veikti kiek kitaip nei įprastai.</string>
+    <string name="app_limitations">Pavyzdžiui, pagal nutylėjimą, žinutės performatuojamos dėl aiškesnio skaitomumo ir nesaugių elementų pašalinimo. Taip pat reikalingas patvirtinimas nuorodų atidarymui. Šios funkcijos gali būti išjungtos pagal pageidavimą.</string>
     <string name="shortcut_refresh">Atnaujinti</string>
     <string name="shortcut_setup">Nustatymai</string>
     <string name="title_junk_clear">Valyti</string>

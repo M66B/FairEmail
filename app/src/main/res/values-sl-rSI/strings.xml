@@ -247,7 +247,6 @@
     <string name="title_setup_doze_battery">Visoka poraba energije?</string>
     <string name="title_setup_doze_stopped">Se je sinhronizacija ustavila?</string>
     <string name="title_setup_doze_device">To je verjetno zahtevano za to napravo.</string>
-    <string name="title_setup_alarm_12">Program ne bo deloval.</string>
     <string name="title_setup_inexact">Budilke in opomniki so onemogočeni.</string>
     <string name="title_setup_background">Omejitve v ozadju so omogočene.</string>
     <string name="title_setup_data">Ohranjevalnik podatkov je omogočen.</string>

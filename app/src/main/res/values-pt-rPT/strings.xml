@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Pesquisa do FairEmail</string>
+    <string name="app_send_self">Enviar para si</string>
     <string name="app_changelog">Registo de alterações</string>
     <string name="app_welcome">O FairEmail é uma aplicação de correio electrónico de código aberto focada na privacidade e na segurança. Por esta razão, algumas funções podem funcionar de forma diferente do que está acostumado.</string>
     <string name="app_limitations">Por exemplo, na configuração padrão as mensagens são reformatadas para remover elementos inseguros e melhorar a legibilidade, como a abertura de hiperligações precisa de ser confirmada por motivos de segurança. Ambas as opções podem ser desactivadas caso pretenda.</string>
@@ -212,6 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">São necessárias permissões de notificação para mostrar notificações de novas mensagens na barra de estado</string>
     <string name="title_setup_permission_why">Que permissões são necessárias e porquê?</string>
     <string name="title_setup_permission_import_contacts">Como posso importar contactos?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Contatos do Outlook</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Novos contactos: %1$s</string>
     <string name="title_setup_doze">Desactivar optimização de bateria</string>
     <string name="title_setup_doze_remark">Enviar e receber e-mail de forma segura em segundo plano</string>
     <string name="title_setup_doze_explanation">As optimizações da bateria devem ser desactivadas para esta aplicação, para garantir o correcto envio/recepção das mensagens em segundo plano</string>
@@ -224,7 +227,7 @@
     <string name="title_setup_doze_battery">Utilização elevada de bateria?</string>
     <string name="title_setup_doze_stopped">A sincronização parou?</string>
     <string name="title_setup_doze_device">Isto é provavelmente necessário para este dispositivo</string>
-    <string name="title_setup_alarm_12">O app não funcionará</string>
+    <string name="title_setup_alarm_12">A aplicação não funcionará corretamente</string>
     <string name="title_setup_inexact">Alarmes &amp; lembretes são desativados</string>
     <string name="title_setup_background">Restrições de segundo plano estão activas</string>
     <string name="title_setup_data">A poupança de dados está ligada</string>
@@ -685,6 +688,7 @@
         As chaves e os certificados geralmente podem ser encontrados em Dados biométricos e segurança > Outras definições de segurança.
     </string>
     <string name="title_advanced_power_menu">Adicionar às acções disponíveis no menu de encerramento</string>
+    <string name="title_advanced_send_self">Adicionar \'Enviar para si\' ao menu de partilha do Android</string>
     <string name="title_advanced_external_search">Permitir a pesquisa de mensagens por parte de aplicações externas</string>
     <string name="title_advanced_sort_answers">Ordenar modelos de respostas por frequência de utilização</string>
     <string name="title_advanced_shortcuts">Mostrar contactos usados com frequência no menu de partilha do Android</string>
@@ -1483,6 +1487,7 @@
     <string name="title_search_flag_size">tamanho &gt; %1$s</string>
     <string name="title_search_device">Pesquisar no dispositivo</string>
     <string name="title_search_server">Pesquisar no servidor</string>
+    <string name="title_search_server_wait">Aguardando pelo servidor</string>
     <string name="title_search_in">Pesquisar em</string>
     <string name="title_search_sender">Pesquisar por remetente</string>
     <string name="title_search_delete">Eliminar a pesquisa guardada?</string>
@@ -1766,6 +1771,7 @@
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e rede, por predefinição, nem todas as pastas e mensagens serão sincronizadas</string>
     <string name="title_hint_airplane">O modo de avião está ligado</string>
     <string name="title_hint_notifications">Sem permissão de notificação</string>
+    <string name="title_hint_battery_optimizations">Otimizações da bateria continuam ativadas</string>
     <string name="title_hint_support">Se tiver alguma questão ou um problema, por favor utilize o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para o lixo; Deslize para a direita para o arquivo (se disponível); As acções de deslizar pode ser configuradas nas definições de conta</string>
     <string name="title_hint_message_selection">Seleccione mensagens ao tocar prolongadamente numa mensagem; Para seleccionar várias mensagens de seguida, toque sem soltar numa mensagem e deslize para cima ou para baixo</string>

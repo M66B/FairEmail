@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail zoeken</string>
-    <string name="app_send_self" comment="app_send_self&#10;Title for additional Android share sheet target. This needs to be short!">Stuur naar jezelf</string>
+    <string name="app_send_self">Stuur naar jezelf</string>
     <string name="app_changelog">Wijzigingsgeschiedenis</string>
     <string name="app_welcome">FairEmail is een open source e-mail app gericht op privacy en veiligheid. Om deze reden werken sommige functies mogelijk anders dan u gewend bent.</string>
     <string name="app_limitations">Berichten worden bijvoorbeeld standaard opnieuw opgemaakt om onveilige elementen te verwijderen en de leesbaarheid te verbeteren, en het openen van links moet voor de veiligheid worden bevestigd. Beide kunnen desgewenst uitgeschakeld worden.</string>
@@ -212,17 +212,19 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_permissions_notify_explanation">Machtigingen voor meldingen zijn vereist om meldingen voor nieuwe berichten in de statusbalk te tonen</string>
     <string name="title_setup_permission_why">Welke machtigingen zijn nodig en waarom?</string>
     <string name="title_setup_permission_import_contacts">Hoe kan ik contacten importeren?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook contacten</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nieuwe contacten: %1$s</string>
     <string name="title_setup_doze">Batterij-optimalisaties uitschakelen</string>
     <string name="title_setup_doze_remark">Voor het betrouwbaar verzenden en ontvangen van e-mail op de achtergrond</string>
-    <string name="title_setup_doze_explanation">Batterij optimalisaties moeten worden uitgeschakeld voor de app om zeker te zijn van het verzenden en ontvangen van berichten op de achtergrond</string>
-    <string name="title_setup_doze_hint">Hoewel dit tegenstrijdig kan klinken, zal het uitschakelen van accuoptimalisaties voor deze app resulteren in minder batterijverbruik</string>
+    <string name="title_setup_doze_explanation">Batterij-optimalisaties moeten worden uitgeschakeld voor de app om zeker te zijn van het verzenden en ontvangen van berichten op de achtergrond</string>
+    <string name="title_setup_doze_hint">Hoewel dit tegenstrijdig kan klinken, zal het uitschakelen van batterij-optimalisaties voor deze app resulteren in minder batterijverbruik</string>
     <string name="title_setup_doze_aggressively">Dit apparaat kan de synchronisatieservice stoppen</string>
-    <string name="title_setup_doze_why">Waarom moeten batterij optimalisaties worden uitgeschakeld?</string>
+    <string name="title_setup_doze_why">Waarom moeten batterij-optimalisaties worden uitgeschakeld?</string>
     <string name="title_setup_doze_instructions">In het volgende Android dialoogvenster wijzig \"Niet geoptimaliseerd\" naar \"Alle apps\", selecteer deze app en selecteer \"Niet optimaliseren\"</string>
     <string name="title_setup_doze_battery">Hoog accugebruik?</string>
     <string name="title_setup_doze_stopped">Sync gestopt?</string>
     <string name="title_setup_doze_device">Dit is waarschijnlijk nodig voor dit apparaat</string>
-    <string name="title_setup_alarm_12">De app zal niet werken</string>
+    <string name="title_setup_alarm_12">De app zal niet goed werken</string>
     <string name="title_setup_inexact">Alarmen &amp; herinneringen zijn uitgeschakeld</string>
     <string name="title_setup_background">Achtergrondbeperkingen zijn ingeschakeld</string>
     <string name="title_setup_data">Gegevensbesparing is ingeschakeld</string>
@@ -682,7 +684,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_manage_keys_hint">        Dit zal navigeren naar de Android-beveiligingsinstellingen.        Sleutels en certificaten kunnen over het algemeen worden gevonden onder Geavanceerd - Versleuteling en gegevens.
     </string>
     <string name="title_advanced_power_menu">Acties toevoegen aan het Android power menu</string>
-    <string name="title_advanced_send_self" comment="title_advanced_send_self&#10;Title for miscellaneous option to enable an additional Android share sheet target">Voeg \'Stuur naar jezelf\' toe aan het Android-deelmenu</string>
+    <string name="title_advanced_send_self">Voeg \'Stuur naar jezelf\' toe aan het Android-deelmenu</string>
     <string name="title_advanced_external_search">Andere apps mogen zoeken in berichten</string>
     <string name="title_advanced_sort_answers">Sorteer antwoordsjablonen op gebruiksfrequentie</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
@@ -1476,6 +1478,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_search_flag_size">grootte &gt; %1$s</string>
     <string name="title_search_device">Zoeken op apparaat</string>
     <string name="title_search_server">Zoek op server</string>
+    <string name="title_search_server_wait">Wachten op server</string>
     <string name="title_search_in">Zoeken in</string>
     <string name="title_search_sender">Zoek naar afzender</string>
     <string name="title_search_delete">Opgeslagen zoekopdracht verwijderen?</string>
@@ -1758,6 +1761,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_airplane">Vliegtuigmodus is ingeschakeld</string>
     <string name="title_hint_notifications">Geen meldingsrechten</string>
+    <string name="title_hint_battery_optimizations">Batterij-optimalisaties nog steeds ingeschakeld</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>
     <string name="title_hint_message_selection">Druk lang op een bericht om meerdere berichten te selecteren; Hou vast en veeg omhoog of omlaag om meer berichten te selecteren</string>

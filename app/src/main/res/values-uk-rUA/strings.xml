@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail пошук</string>
+    <string name="app_send_self">Надіслати собі</string>
     <string name="app_changelog">Список змін</string>
     <string name="app_welcome">FairEmail - це додаток з відкритим вихідним кодом, орієнтований на конфіденційність та безпеку. Тому деякі функції можуть відрізнятися від того, що ви використовуєте.</string>
     <string name="app_limitations">Наприклад, щоб видалити небезпечні елементи та покращити читання, і для додавання підтвердження відкриття посилань з метою безпеки - повідомлення переформатуються за замовчуванням. За бажанням, ці дії можуть бути відключені.</string>
@@ -249,7 +250,7 @@
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
     <string name="title_setup_doze_device">Це, ймовірно, необхідно для цього пристрою</string>
-    <string name="title_setup_alarm_12">Додаток не працюватиме</string>
+    <string name="title_setup_alarm_12">Додаток не працюватиме належним чином</string>
     <string name="title_setup_inexact">Будильник &amp; нагадування вимкнені</string>
     <string name="title_setup_background">Фонові обмеження увімкнено</string>
     <string name="title_setup_data">Задіяно економію передачі даних</string>
@@ -709,6 +710,7 @@
     <string name="title_advanced_manage_keys_hint">        Це дозволить відкрити налаштування безпеки Android.        Ключі та сертифікати зазвичай можна знайти в розділі Безпека та місцезнаходження - Додатково - Шифрування й облікові дані.
     </string>
     <string name="title_advanced_power_menu">Додати дії до меню живлення в Android</string>
+    <string name="title_advanced_send_self">Додати \"Надіслати собі\" в меню Android\'s share</string>
     <string name="title_advanced_external_search">Дозволити іншим програмам пошук в повідомленнях</string>
     <string name="title_advanced_sort_answers">Сортувати шаблони відповідей за частотою використання</string>
     <string name="title_advanced_shortcuts">Показувати, в меню швидкого доступу до Android, найчастіше використовувані контакти</string>
@@ -1505,6 +1507,7 @@
     <string name="title_search_flag_size">розмір &gt; %1$s</string>
     <string name="title_search_device">Пошук на пристрої</string>
     <string name="title_search_server">Пошук на сервері</string>
+    <string name="title_search_server_wait">Очікування сервера</string>
     <string name="title_search_in">Пошук у</string>
     <string name="title_search_sender">Пошук відправника</string>
     <string name="title_search_delete">Видалити збережений пошук?</string>
@@ -1788,6 +1791,7 @@
     <string name="title_hint_folder_sync">Щоб обмежити використання батареї та мережі не всі теки й не всі повідомлення буде синхронізовано за замовчуванням</string>
     <string name="title_hint_airplane">Режим «у літаку» ввімкнено</string>
     <string name="title_hint_notifications">Немає дозволів для сповіщень</string>
+    <string name="title_hint_battery_optimizations">Оптимізація батареї все ще увімкнена</string>
     <string name="title_hint_support">Якщо у вас є питання або проблема, будь ласка, використовуйте меню підтримки для отримання допомоги</string>
     <string name="title_hint_message_actions">Гортайте ліворуч до кошика; проведіть праворуч щоб архівувати (якщо доступно); ці дії можна налаштувати в налаштуваннях облікового запису</string>
     <string name="title_hint_message_selection">Довго натисніть на повідомлення, щоб почати вибирати кілька повідомлень; Натиснувши потягніть вгору або вниз, щоб обрати більше повідомлень</string>

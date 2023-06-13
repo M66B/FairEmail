@@ -248,7 +248,6 @@
     <string name="title_setup_doze_battery">Vysoká spotreba batérie?</string>
     <string name="title_setup_doze_stopped">Zastavila sa synchronizácia?</string>
     <string name="title_setup_doze_device">Je to vyžadované pre toto zariadenie</string>
-    <string name="title_setup_alarm_12">Aplikácia nebude pracovať správne</string>
     <string name="title_setup_inexact">Budíky a pripomienky nie sú povolené</string>
     <string name="title_setup_background">Obmedzenia spustenia na pozadí sú aktívne</string>
     <string name="title_setup_data">Šetrenie údajov je povolené</string>

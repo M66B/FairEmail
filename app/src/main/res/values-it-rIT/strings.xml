@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Ricerca di FairEmail</string>
-    <string name="app_send_self" comment="app_send_self&#10;Title for additional Android share sheet target. This needs to be short!">Invia a te stesso</string>
+    <string name="app_send_self">Invia a te stesso</string>
     <string name="app_changelog">Changelog</string>
     <string name="app_welcome">FairEmail è un\'app di email open source, concentrata sulla privacy e la sicurezza. Per questo motivo, alcune funzionalità potrebbero funzionare diversamente da ciò a cui sei abituato.</string>
     <string name="app_limitations">Ad esempio, i messaggi sono riformattati di default, per rimuovere gli elementi non sicuri e migliorare la leggibilità e, l\'apertura dei link dev\'essere confermata per sicurezza. Entrambi possono essere disabilitati, se desiderato.</string>
@@ -213,6 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">Le autorizzazioni di notifica sono necessarie per mostrare le notifiche per i nuovi messaggi nella barra di stato</string>
     <string name="title_setup_permission_why">Quali autorizzazioni sono necessarie e perché?</string>
     <string name="title_setup_permission_import_contacts">Come posso importare i contatti?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Contatti di Outlook</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nuovi contatti: %1$s</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
     <string name="title_setup_doze_remark">Per inviare e ricevere email affidabilmente in background</string>
     <string name="title_setup_doze_explanation">Le ottimizzazioni della batteria dovrebbero esser disabilitate per l\'app, per assicurare un\'affidabile invio e ricezione dei messaggi in background</string>
@@ -223,7 +225,7 @@
     <string name="title_setup_doze_battery">Alto consumo della batteria?</string>
     <string name="title_setup_doze_stopped">Sincronizzazione interrotta?</string>
     <string name="title_setup_doze_device">Questo è probabilmente necessario per questo dispositivo</string>
-    <string name="title_setup_alarm_12">L\'app non funzionerà</string>
+    <string name="title_setup_alarm_12">L\'app non funzionerà correttamente</string>
     <string name="title_setup_inexact">Sveglie e promemoria sono disabilitati</string>
     <string name="title_setup_background">Restrizioni di background abilitate</string>
     <string name="title_setup_data">Risparmio dati abilitato</string>
@@ -685,7 +687,7 @@
         Le chiavi e i certificati si possono generalmente trovare in Avanzate - Crittografia e credenziali.
     </string>
     <string name="title_advanced_power_menu">Aggiungi azioni al menù di spegnimento Android</string>
-    <string name="title_advanced_send_self" comment="title_advanced_send_self&#10;Title for miscellaneous option to enable an additional Android share sheet target">Aggiungi \'Invia a te stesso\' al menu di condivisione di Android</string>
+    <string name="title_advanced_send_self">Aggiungi \'Invia a te stesso\' al menu di condivisione di Android</string>
     <string name="title_advanced_external_search">Consenti alle altre app di cercare tra i messaggi</string>
     <string name="title_advanced_sort_answers">Ordina i modelli di risposta per frequenza d\'uso</string>
     <string name="title_advanced_shortcuts">Mostra i contatti usati frequentemente nel menu di condivisione di Android</string>
@@ -1412,6 +1414,7 @@
     <string name="title_verify">Verifica</string>
     <string name="title_encrypt">Crittografa</string>
     <string name="title_decrypt">Decrittografa</string>
+    <string name="title_reset_message_questions">Ripristina domanda dei link</string>
     <string name="title_resync">Risincronizza</string>
     <string name="title_charset">Codifica</string>
     <string name="title_charset_auto">Automatico</string>
@@ -1484,6 +1487,7 @@
     <string name="title_search_flag_size">dimensione &gt; %1$s</string>
     <string name="title_search_device">Cerca sul dispositivo</string>
     <string name="title_search_server">Cerca sul server</string>
+    <string name="title_search_server_wait">In attesa del server</string>
     <string name="title_search_in">Cerca in</string>
     <string name="title_search_sender">Cerca per mittente</string>
     <string name="title_search_delete">Eliminare la ricerca salvata?</string>
@@ -1767,6 +1771,7 @@
     <string name="title_hint_folder_sync">Per limitare l\'uso della batteria e di rete, non tutte le cartelle e messaggi saranno sincronizzati di default</string>
     <string name="title_hint_airplane">La modalità offline è attivata</string>
     <string name="title_hint_notifications">Nessun\'autorizzazione di notifica</string>
+    <string name="title_hint_battery_optimizations">Le ottimizzazioni della batteria sono ancora abilitate</string>
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>
     <string name="title_hint_message_selection">Tieni premuto un messaggio per iniziare a selezionare più messaggi: Tieni premuto e scorri in su o in giù per selezionare più messaggi</string>

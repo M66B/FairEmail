@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail-søgning</string>
+    <string name="app_send_self">Send til dig selv</string>
     <string name="app_changelog">Ændringslog</string>
     <string name="app_welcome">FairEmail er en open source e-mail app med fokus på privatliv og sikkerhed. Derfor vil visse funktioner muligvis fungere anderledes, end hvad du er vant til.</string>
     <string name="app_limitations">F.eks. omformateres beskeder som standard for at fjerne usikre elementer samt forbedre læsbarheden, og åbning af links skal sikkerhedsbekræftes. Begge funktioner kan om ønsket deaktiveres.</string>
@@ -222,7 +223,7 @@
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
     <string name="title_setup_doze_stopped">Synk stoppet?</string>
     <string name="title_setup_doze_device">Dette kræves sandsynligvis for denne enhed</string>
-    <string name="title_setup_alarm_12">Appen vil ikke fungere</string>
+    <string name="title_setup_alarm_12">Appen vil ikke fungere korrekt</string>
     <string name="title_setup_inexact">Alarmer og påmindelser er deaktiveret</string>
     <string name="title_setup_background">Baggrundsbegrænsninger er aktive</string>
     <string name="title_setup_data">Datasparer er aktiveret</string>
@@ -683,6 +684,7 @@
         Nøgler og certifikater kan generelt findes under Avanceret - Kryptering og akkreditiver.
     </string>
     <string name="title_advanced_power_menu">Føj handlinger til Androids Tænd/Sluk menu</string>
+    <string name="title_advanced_send_self">Føj \'Send til dig selv\' til Androids delingsmenu</string>
     <string name="title_advanced_external_search">Tillad andre apps at søge i beskeder</string>
     <string name="title_advanced_sort_answers">Sortér svarskabeloner efter anvendelsesfrekvens</string>
     <string name="title_advanced_shortcuts">Vis ofte anvendte kontakter i Android-delingsmenuen</string>
@@ -1406,6 +1408,7 @@
     <string name="title_verify">Bekræft</string>
     <string name="title_encrypt">Kryptér</string>
     <string name="title_decrypt">Dekryptér</string>
+    <string name="title_reset_message_questions">Brug linkbekræftelse igen</string>
     <string name="title_resync">Synkronisér igen</string>
     <string name="title_charset">Indkodning</string>
     <string name="title_charset_auto">Automatisk</string>
@@ -1761,6 +1764,7 @@
     <string name="title_hint_folder_sync">For at reducere strøm- og dataforbruget synkroniseres visse mapper og beskeder ikke som standard</string>
     <string name="title_hint_airplane">Flytilstand er Til</string>
     <string name="title_hint_notifications">Ingen notifikationstilladelser</string>
+    <string name="title_hint_battery_optimizations">Batterioptimering er stadig slået til</string>
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
     <string name="title_hint_message_actions">Stryg til venstre for Papirkurv; Stryg til højre for at arkivere (hvis tilgængeligt); Strygehandlingerne kan opsættes i kontoindstillingerne</string>
     <string name="title_hint_message_selection">Langt tryk på en besked for at tilgå valg af flere beskeder; Hold og stryg op/ned for at vælge flere beskeder</string>

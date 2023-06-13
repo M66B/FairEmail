@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail vyhledávání</string>
-    <string name="app_send_self" comment="app_send_self&#10;Title for additional Android share sheet target. This needs to be short!">Poslat sobě</string>
+    <string name="app_send_self">Poslat sobě</string>
     <string name="app_changelog">Přehled změn</string>
     <string name="app_welcome">FairEmail je e-mailový klient s otevřeným zdrojovým kódem zaměřený na soukromí a bezpečnost. Z tohoto důvodu se některé funkce mohou chovat odlišně než jste zvyklí.</string>
     <string name="app_limitations">Například, zprávy jsou ve výchozím nastavení přeformátovány, aby byly odstraněny nezabezpečené prvky a zlepšila se čitelnost, a otevírání odkazů je pro bezpečnost potřeba potvrdit. Oboje lze v případě potřeby vypnout.</string>
@@ -240,6 +240,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_permissions_notify_explanation">Pro zobrazení upozornění na nové zprávy ve stavovém řádku jsou vyžadována oprávnění</string>
     <string name="title_setup_permission_why">Jaká oprávnění jsou potřebná a proč?</string>
     <string name="title_setup_permission_import_contacts">Jak mohu importovat kontakty?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook kontakty</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nové kontakty: %1$s</string>
     <string name="title_setup_doze">Zakázat optimalizace výdrže baterie</string>
     <string name="title_setup_doze_remark">Chcete-li poslat a přijímat e-mail spolehlivě na pozadí</string>
     <string name="title_setup_doze_explanation">Optimalizace baterie by měly být pro aplikaci zakázány, aby bylo zajištěno spolehlivé odesílání a přijímání zpráv na pozadí</string>
@@ -250,7 +252,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_setup_doze_battery">Rychlé vybíjení baterie?</string>
     <string name="title_setup_doze_stopped">Synchronizace se zastavila?</string>
     <string name="title_setup_doze_device">Pravděpodobně vyžadováno pro toto zařízení</string>
-    <string name="title_setup_alarm_12">Aplikace nebude fungovat</string>
+    <string name="title_setup_alarm_12">Aplikace nebude fungovat správně</string>
     <string name="title_setup_inexact">Budíky &amp; připomenutí jsou zakázány</string>
     <string name="title_setup_background">Omezení na pozadí jsou povolena</string>
     <string name="title_setup_data">Spořič dat je zapnutý</string>
@@ -710,7 +712,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_manage_keys_hint">        Otevře nastavení zabezpečení Androidu.        Klíče a certifikáty lze obecně najít pod Pokročilé - Šifrování a pověření.
     </string>
     <string name="title_advanced_power_menu">Přidat akce do menu napájení Androidu</string>
-    <string name="title_advanced_send_self" comment="title_advanced_send_self&#10;Title for miscellaneous option to enable an additional Android share sheet target">Přidat \'Poslat sobě\' do menu sdílení v Androidu</string>
+    <string name="title_advanced_send_self">Přidat \'Poslat sobě\' do menu sdílení v Androidu</string>
     <string name="title_advanced_external_search">Povolit ostatním aplikacím vyhledávat ve zprávách</string>
     <string name="title_advanced_sort_answers">Seřadit šablony odpovědí podle frekvence používání</string>
     <string name="title_advanced_shortcuts">Zobrazit často používané kontakty v nabídce sdílení Androidu</string>
@@ -1507,6 +1509,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_search_flag_size">velikost &gt; %1$s</string>
     <string name="title_search_device">Hledat v zařízení</string>
     <string name="title_search_server">Hledat na serveru</string>
+    <string name="title_search_server_wait">Čekání na server</string>
     <string name="title_search_in">Hledat v</string>
     <string name="title_search_sender">Hledat odesílatele</string>
     <string name="title_search_delete">Smazat uložené vyhledávání?</string>
@@ -1790,6 +1793,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_airplane">Režim Letadlo je zapnutý</string>
     <string name="title_hint_notifications">Žádná oprávnění pro oznámení</string>
+    <string name="title_hint_battery_optimizations">Optimalizace baterie je stále povolena</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>
     <string name="title_hint_message_selection">Dlouhým podržením zprávy zahájíte násobný výběr zpráv; Držte a táhněte nahoru či dolů pro výběr více zpráv</string>

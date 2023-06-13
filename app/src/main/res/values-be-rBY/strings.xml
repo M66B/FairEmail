@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Пошук FairEmail</string>
+    <string name="app_send_self">Адправіць сабе</string>
     <string name="app_changelog">Журнал змяненняў</string>
     <string name="app_welcome">FairEmail - гэта праграма электроннай пошты з адкрытым зыходным кодам, арыентаваная на канфідэнцыяльнасць і бяспеку. Менавіта таму некаторыя функцыі могуць адрознівацца ад функцый, якія вы выкарыстоўваеце ў іншых падобных праграмах.</string>
     <string name="app_limitations">Напрыклад, для выдалення небяспечных элементаў і паляпшэння чытальнасці паведамленні падлягаюць фарматаванню, а адкрыццё спасылак для бяспекі патрабуе пацвярджэння. Пры жаданні гэта можна адключыць.</string>
@@ -248,7 +249,7 @@
     <string name="title_setup_doze_battery">Высокае спажыванне зараду батарэі?</string>
     <string name="title_setup_doze_stopped">Спынілася сінхранізацыя?</string>
     <string name="title_setup_doze_device">Верагодна, гэта спатрэбіцца для вашай прылады</string>
-    <string name="title_setup_alarm_12">Праграма не працуе</string>
+    <string name="title_setup_alarm_12">Праграма працуе некарэктна</string>
     <string name="title_setup_inexact">Будзільнікі і напаміны адключаны</string>
     <string name="title_setup_background">Фонавыя абмежаванні ўключаны</string>
     <string name="title_setup_data">Эканомія даных уключана</string>
@@ -711,6 +712,7 @@
         Ключы і сертыфікаты звычайна можна знайсці ў раздзеле Дадаткова - Шыфраванне і ўліковыя даныя.
     </string>
     <string name="title_advanced_power_menu">Дадаць дзеянні ў меню сілкавання Android</string>
+    <string name="title_advanced_send_self">Дадаць опцыю \'адправіць сабе\' у меню абагульвання Android</string>
     <string name="title_advanced_external_search">Дазволіць іншым праграмам пошук у паведамленнях</string>
     <string name="title_advanced_sort_answers">Сартаваць шаблоны адказаў паводле частаты выкарыстання</string>
     <string name="title_advanced_shortcuts">Паказваць кантакты, якія часта выкарыстоўваюцца, у меню абагульвання Android</string>
@@ -1438,6 +1440,7 @@
     <string name="title_verify">Праверыць</string>
     <string name="title_encrypt">Зашыфраваць</string>
     <string name="title_decrypt">Расшыфраваць</string>
+    <string name="title_reset_message_questions">Скінуць пацвярджэнне спасылак</string>
     <string name="title_resync">Сінхранізаваць паўторна</string>
     <string name="title_charset">Кадзіраванне</string>
     <string name="title_charset_auto">Аўтаматычна</string>
@@ -1510,6 +1513,7 @@
     <string name="title_search_flag_size">памер &gt; %1$s</string>
     <string name="title_search_device">Пошук на прыладзе</string>
     <string name="title_search_server">Пошук на серверы</string>
+    <string name="title_search_server_wait">Чаканне сервера</string>
     <string name="title_search_in">Шукаць у</string>
     <string name="title_search_sender">Шукаць адпраўніка</string>
     <string name="title_search_delete">Выдаліць захаваны пошук?</string>
@@ -1793,6 +1797,7 @@
     <string name="title_hint_folder_sync">Для абмежавання выкарыстання батарэі і сеткі, не ўсе папкі і не ўсе паведамленні будуць сінхранізаваны па змаўчанні</string>
     <string name="title_hint_airplane">Рэжым палёту ўключаны</string>
     <string name="title_hint_notifications">Няма дазволаў на апавяшчэнні</string>
+    <string name="title_hint_battery_optimizations">Аптцміўацыя батарэі ўсё яшчэ ўключана</string>
     <string name="title_hint_support">Калі ў вас ёсць пытанне або праблема, калі ласка, па дапамогу звяртайцеся праз меню падтрымкі</string>
     <string name="title_hint_message_actions">Для выдалення правядзіце пальцам улева; Для архівацыі (калі даступна) правядзіце пальцам управа; Жэсты можна наладзіць у наладах уліковага запісу</string>
     <string name="title_hint_message_selection">Для выбару некалькіх паведамленняў націсніце і на паведамленне і ўтрымлівайце, а затым правядзіце пальцам уверх або ўніз і выберыце неабходныя паведамленні</string>

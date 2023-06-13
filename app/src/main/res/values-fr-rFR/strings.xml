@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">Recherche FairEmail</string>
-    <string name="app_send_self" comment="app_send_self&#10;Title for additional Android share sheet target. This needs to be short!">Envoyer à soi-même</string>
+    <string name="app_send_self">Envoyer à soi-même</string>
     <string name="app_changelog">Historique des modifications</string>
     <string name="app_welcome">FairEmail est une application de messagerie open source centrée sur la confidentialité et la sécurité. C’est pourquoi certaines fonctionnalités peuvent être différentes de ce à quoi vous êtes habitué.</string>
     <string name="app_limitations">Par exemple, les messages sont reformatés par défaut pour supprimer tout élément dangereux ainsi qu\'améliorer la lisibilité et l\'ouverture des liens doit être confirmée pour des raisons de sécurité. Les deux options peuvent être désactivées si souhaité.</string>
@@ -213,6 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">Les autorisations de notification sont requises pour afficher les notifications pour les nouveaux messages dans la barre d\'état</string>
     <string name="title_setup_permission_why">Quelles autorisations sont nécessaires et pourquoi ?</string>
     <string name="title_setup_permission_import_contacts">Comment puis-je importer des contacts ?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Contacts Outlook</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nouveaux contacts : %1$s</string>
     <string name="title_setup_doze">Désactiver les optimisations de la batterie</string>
     <string name="title_setup_doze_remark">Pour envoyer et recevoir des e-mails de manière fiable en arrière-plan</string>
     <string name="title_setup_doze_explanation">Les optimisations de la batterie doivent être désactivées pour que l\'application assure un envoi et une réception fiables des messages en arrière-plan</string>
@@ -223,7 +225,7 @@
     <string name="title_setup_doze_battery">Utilisation élevée de la batterie ?</string>
     <string name="title_setup_doze_stopped">Synchronisation arrêtée ?</string>
     <string name="title_setup_doze_device">Ceci est probablement nécessaire pour cet appareil</string>
-    <string name="title_setup_alarm_12">L\'application ne fonctionnera pas</string>
+    <string name="title_setup_alarm_12">L\'application ne fonctionnera pas correctement</string>
     <string name="title_setup_inexact">Alarmes &amp; rappels désactivés</string>
     <string name="title_setup_background">Les restrictions d\'arrière-plan sont activées</string>
     <string name="title_setup_data">L\'économiseur de données est activé</string>
@@ -302,7 +304,7 @@
     <string name="title_setup_advanced">Avancé</string>
     <string name="title_setup_options">Options</string>
     <string name="title_setup_defaults">Rétablir les paramètres par défaut</string>
-    <string name="title_setup_reset_questions">Réinitialiser les questions</string>
+    <string name="title_setup_reset_questions">Reposer les questions</string>
     <string name="title_setup_reset_general">Questions générales</string>
     <string name="title_setup_reset_links">Confirmer les liens</string>
     <string name="title_setup_reset_files">Voir les fichiers</string>
@@ -685,7 +687,7 @@
         Les clés et les certificats peuvent généralement être trouvés sous Avancé - Chiffrement et identifiants.
     </string>
     <string name="title_advanced_power_menu">Ajouter des actions au menu alimentation d\'Android</string>
-    <string name="title_advanced_send_self" comment="title_advanced_send_self&#10;Title for miscellaneous option to enable an additional Android share sheet target">Ajouter « Envoyer à soi-même » au menu de partage d\'Android</string>
+    <string name="title_advanced_send_self">Ajouter « Envoyer à soi-même » au menu de partage d\'Android</string>
     <string name="title_advanced_external_search">Autoriser les autres applications à rechercher dans les messages</string>
     <string name="title_advanced_sort_answers">Trier les modèles de réponse par fréquence d\'utilisation</string>
     <string name="title_advanced_shortcuts">Afficher les contacts fréquemment utilisés dans le menu « Partager » d’Android</string>
@@ -1412,6 +1414,7 @@
     <string name="title_verify">Vérifier</string>
     <string name="title_encrypt">Chiffrer</string>
     <string name="title_decrypt">Déchiffrer</string>
+    <string name="title_reset_message_questions">Reposer la question des liens</string>
     <string name="title_resync">Resynchroniser</string>
     <string name="title_charset">Encodage</string>
     <string name="title_charset_auto">Automatique</string>
@@ -1484,6 +1487,7 @@
     <string name="title_search_flag_size">taille &gt; %1$s</string>
     <string name="title_search_device">Rechercher sur l\'appareil</string>
     <string name="title_search_server">Rechercher sur le serveur</string>
+    <string name="title_search_server_wait">En attente du serveur</string>
     <string name="title_search_in">Rechercher dans</string>
     <string name="title_search_sender">Rechercher un expéditeur</string>
     <string name="title_search_delete">Supprimer la recherche enregistrée ?</string>
@@ -1767,6 +1771,7 @@
     <string name="title_hint_folder_sync">Afin de limiter l’utilisation de la batterie et du réseau, les dossiers et messages ne seront pas tous synchronisés par défaut</string>
     <string name="title_hint_airplane">Le mode avion est activé</string>
     <string name="title_hint_notifications">Aucune autorisation de notification</string>
+    <string name="title_hint_battery_optimizations">Les optimisations de la batterie sont toujours activées</string>
     <string name="title_hint_support">Si vous avez une question ou un problème, veuillez utiliser le menu « Assistance » pour obtenir de l’aide</string>
     <string name="title_hint_message_actions">Balayez vers la gauche pour mettre à la corbeille ; balayez vers la droite pour archiver (si disponible) ; les actions de balayage peuvent être configurées dans les paramètres du compte</string>
     <string name="title_hint_message_selection">Appuyez longuement sur un message pour activer la sélection multiple ; maintenez et faites glisser vers le haut ou vers le bas pour sélectionner davantage de messages</string>

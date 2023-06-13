@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail 検索</string>
+    <string name="app_send_self">自分に送信</string>
     <string name="app_changelog">更新履歴</string>
     <string name="app_welcome">FairEmail はプライバシーとセキュリティを重視するオープンソースのメールアプリです。そのため、今までのメールアプリとは異なる動作をする場合があります。</string>
     <string name="app_limitations">例えば、メッセージから安全でない要素を削除し、読みやすくするために再フォーマットしたり、安全のためにリンクを開く前に確認画面を表示したりします。どちらも不要であれば無効にできます。</string>
@@ -209,7 +210,6 @@
     <string name="title_setup_doze_battery">バッテリー使用量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_doze_device">このデバイスでは必要と思われます</string>
-    <string name="title_setup_alarm_12">このアプリは正しく動作しません</string>
     <string name="title_setup_inexact">アラームとリマインダーが無効です</string>
     <string name="title_setup_background">バックグラウンドでの制限が有効です</string>
     <string name="title_setup_data">データセーバーが有効です</string>
@@ -291,6 +291,7 @@
     <string name="title_setup_reset_questions">確認表示をリセット</string>
     <string name="title_setup_reset_general">よくある質問</string>
     <string name="title_setup_reset_links">リンクを確認</string>
+    <string name="title_setup_reset_files">ファイルを開く</string>
     <string name="title_setup_reset_images">画像の表示</string>
     <string name="title_setup_reset_full">元のメッセージの表示</string>
     <string name="title_check_gmail_oauth">あなたの Gmail アカウントは 2022 年 5 月 30 日以降も引き続き利用できます</string>
@@ -617,14 +618,15 @@
     <string name="title_advanced_notify_screen_on">画面を一時オンにして新着メッセージ通知を表示</string>
     <string name="title_advanced_notifications_background">メッセージの同期にバックグラウンドサービスを使用</string>
     <string name="title_advanced_notifications_background_hint">バックグラウンドサービスは Android によって停止される可能性がありますが、ステータスバーに通知が表示されなくなります</string>
-    <string name="title_advanced_confirm_links">リンクを開く前に確認</string>
+    <string name="title_advanced_confirm_links">リンクを開く前に確認を表示</string>
+    <string name="title_advanced_confirm_files">ファイルを開く前に確認を表示</string>
     <string name="title_advanced_sanitize_links">デフォルトでトラッキングパラメーターを削除</string>
     <string name="title_advanced_sanitize_links_hint">リンクを確認する場合のみ</string>
     <string name="title_advanced_check_links_dbl">不審なリンクがないかドメインブロックリストを確認</string>
     <string name="title_advanced_confirm_images">デフォルトで画像を表示しない</string>
-    <string name="title_advanced_ask_images">画像を表示する前に確認</string>
+    <string name="title_advanced_ask_images">画像を表示する前に確認を表示</string>
     <string name="title_advanced_confirm_html">デフォルトで再フォーマットされたメッセージを表示</string>
-    <string name="title_advanced_ask_html">元のメッセージを表示する前に確認</string>
+    <string name="title_advanced_ask_html">元のメッセージを表示する前に確認を表示</string>
     <string name="title_advanced_tracking">トラッキング画像の識別と無効化を試みる</string>
     <string name="title_advanced_hide_timezone">送信するメッセージにタイムゾーン情報を追加しない</string>
     <string name="title_advanced_client_id">アプリ名とバージョンをメールサーバーに送信</string>
@@ -669,6 +671,7 @@
         鍵と証明書は通常、［詳細設定］>［暗号化と認証情報］にあります。
     </string>
     <string name="title_advanced_power_menu">Android の電源メニューにアクションを追加</string>
+    <string name="title_advanced_send_self">Android の共有メニューに「自分に送信」を追加</string>
     <string name="title_advanced_external_search">他のアプリにメッセージの検索を許可</string>
     <string name="title_advanced_sort_answers">返信テンプレートを使用頻度で並べ替え</string>
     <string name="title_advanced_shortcuts">頻繁に使用する連絡先を Android 共有メニューに表示</string>
@@ -1221,6 +1224,7 @@
     <string name="title_ask_show_image_hint">トラッキング画像として識別された画像は表示されません</string>
     <string name="title_ask_show_amp">AMP メッセージを表示しますか？</string>
     <string name="title_ask_show_amp_hint">AMP メッセージはインターネットを利用して動的に表示するため、必然的にトラッキングされます</string>
+    <string name="title_ask_view_file">ファイル %1$s を開きますか？</string>
     <string name="title_ask_delete_local">ローカルメッセージを削除しますか？ メッセージはリモートサーバーに残ります</string>
     <string name="title_ask_help">FairEmail の改善にご協力ください</string>
     <string name="title_ask_reporting">エラーレポートを送信しますか？</string>
@@ -1393,6 +1397,7 @@
     <string name="title_verify">検証</string>
     <string name="title_encrypt">暗号化</string>
     <string name="title_decrypt">復号</string>
+    <string name="title_reset_message_questions">リンクの確認をリセット</string>
     <string name="title_resync">再同期</string>
     <string name="title_charset">エンコーディング</string>
     <string name="title_charset_auto">自動</string>
@@ -1465,6 +1470,7 @@
     <string name="title_search_flag_size">サイズ &gt; %1$s</string>
     <string name="title_search_device">デバイス上を検索</string>
     <string name="title_search_server">サーバーを検索</string>
+    <string name="title_search_server_wait">サーバーからの応答を待っています</string>
     <string name="title_search_in">検索場所</string>
     <string name="title_search_sender">差出人を検索</string>
     <string name="title_search_delete">保存した検索条件を削除しますか？</string>
