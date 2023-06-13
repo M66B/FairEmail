@@ -6,6 +6,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
+### 1.2076 - 2023-06-13
+
 * Android 14 compatibility
 * Added downloading Outlook contacts (main settings)
 * Added categories for [Disconnect's tracker protection lists](https://github.com/disconnectme/disconnect-tracking-protection) (privacy settings)
