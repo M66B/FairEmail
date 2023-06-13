@@ -6,7 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
-* Targeting Android 14
+* Android 14 compatibility
+* Added downloading Outlook contacts (main settings)
+* Added categories for [Disconnect's tracker protection lists](https://github.com/disconnectme/disconnect-tracking-protection) (privacy settings)
+* Updated build tools and libraries
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

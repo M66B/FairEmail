@@ -6,7 +6,11 @@ For support you can use the contact form.
 
 Ubirajara
 
-* Targeting Android 14
+* Android 14 compatibility
+* Added downloading Outlook contacts (main settings)
+* Added categories for Disconnect's tracker protection lists
+* Updated build tools and libraries
+* Updated Public Suffix List
 * Small improvements and minor bug fixes
 * Updated translations
 
