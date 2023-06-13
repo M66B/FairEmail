@@ -5376,6 +5376,8 @@ If you are using a VPN, firewall, ad blocker, or similar, please try to disable 
 <a name="faq193"></a>
 **(193) How can I import Outlook contacts?**
 
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq193)
+
 If there are one or more Outlook or Office 365 accounts configured,
 there will be a button in the main settings screen in setup step 2 to download Outlook contacts (since version 1.2076).
 After tapping on this button, you can select the account to download contacts for.
@@ -5392,6 +5394,8 @@ If you are looking to synchronize your Outlook contacts with the Android address
 
 <a name="faq194"></a>
 **(194) How can I set up automatic deletion of old messages?**
+
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/FAQ.md%23user-content-faq194)
 
 To set up automatic deletion of old messages:
 
