@@ -2289,6 +2289,8 @@ public class Log {
                         value = "[redacted]";
                     else if (key != null && key.startsWith("oauth."))
                         value = "[redacted]";
+                    else if (key != null && key.startsWith("graph.contacts."))
+                        value = "[redacted]";
                     size += write(os, key + "=" + value + "\r\n");
                 }
 

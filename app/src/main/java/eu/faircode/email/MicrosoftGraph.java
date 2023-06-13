@@ -57,7 +57,7 @@ public class MicrosoftGraph {
             db.identity().setIdentityState(ident.id, "connecting");
 
             AuthState authState = AuthState.jsonDeserialize(ident.password);
-            ServiceAuthenticator.OAuthRefresh(context, ident.provider, ident.auth_type, ident.user, authState, false);
+            ServiceAuthenticator.OAuthRefresh(context, ident.provider, ident.auth_type, ident.user, authState, true);
             Long expiration = authState.getAccessTokenExpirationTime();
             if (expiration != null)
                 EntityLog.log(context, ident.user + " token expiration=" + new Date(expiration));
@@ -124,9 +124,15 @@ public class MicrosoftGraph {
         }
     }
 
-    static int downloadContacts(Context context, long account, String accessToken) throws IOException, JSONException {
+    static int downloadContacts(Context context, long account, AuthState authState) throws IOException, JSONException, MessagingException {
         int count = 0;
         DB db = DB.getInstance(context);
+
+        ServiceAuthenticator.OAuthRefresh(context,
+                "outlookgraph", ServiceAuthenticator.AUTH_TYPE_GRAPH, "contacts", authState, BuildConfig.DEBUG);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        prefs.edit().putString("graph.contacts." + account, authState.jsonSerializeString()).apply();
 
         // https://learn.microsoft.com/en-us/graph/api/user-list-contacts?view=graph-rest-1.0&tabs=http
         URL url = new URL(MicrosoftGraph.GRAPH_ENDPOINT + "contacts");
@@ -135,7 +141,7 @@ public class MicrosoftGraph {
         connection.setReadTimeout(GRAPH_TIMEOUT * 1000);
         connection.setConnectTimeout(GRAPH_TIMEOUT * 1000);
         ConnectionHelper.setUserAgent(context, connection);
-        connection.setRequestProperty("Authorization", "Bearer " + accessToken);
+        connection.setRequestProperty("Authorization", "Bearer " + authState.getAccessToken());
         connection.connect();
 
         try {

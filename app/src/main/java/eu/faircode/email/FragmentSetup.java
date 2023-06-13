@@ -73,6 +73,7 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.snackbar.Snackbar;
 
 import net.openid.appauth.AppAuthConfiguration;
+import net.openid.appauth.AuthState;
 import net.openid.appauth.AuthorizationException;
 import net.openid.appauth.AuthorizationRequest;
 import net.openid.appauth.AuthorizationResponse;
@@ -1274,6 +1275,18 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             String user = args.getString("user");
             EmailProvider provider = EmailProvider.getProvider(context, "outlookgraph");
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            prefs.edit().putBoolean("suggest_sent", true).apply();
+
+            if (BuildConfig.DEBUG) {
+                String json = prefs.getString("graph.contacts." + account, null);
+                if (!TextUtils.isEmpty(json)) {
+                    args.putString("authState", json);
+                    taskGraph.execute(this, args, "graph:contacts");
+                    return;
+                }
+            }
+
             AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
                     .build();
             AuthorizationService authService = new AuthorizationService(context, appAuthConfig);
@@ -1318,6 +1331,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                     throw ex;
             }
 
+            final AuthState authState = new AuthState(auth, null);
             final EmailProvider provider = EmailProvider.getProvider(context, "outlookgraph");
 
             AuthorizationService authService = new AuthorizationService(context);
@@ -1353,6 +1367,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                                 if (access == null || access.accessToken == null)
                                     throw new IllegalStateException("No access token");
 
+                                authState.update(access, null);
                                 EntityLog.log(context, "Graph/contacts got token");
 
                                 int semi = auth.request.state.lastIndexOf(':');
@@ -1360,43 +1375,9 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
                                 Bundle args = new Bundle();
                                 args.putLong("account", account);
-                                args.putString("accessToken", access.accessToken);
+                                args.putString("authState", authState.jsonSerializeString());
 
-                                new SimpleTask<Integer>() {
-                                    @Override
-                                    protected Integer onExecute(Context context, Bundle args) throws Throwable {
-                                        long account = args.getLong("account");
-                                        String accessToken = args.getString("accessToken");
-
-                                        return MicrosoftGraph.downloadContacts(context, account, accessToken);
-                                    }
-
-                                    @Override
-                                    protected void onExecuted(Bundle args, @NonNull Integer count) {
-                                        EntityLog.log(context, "Graph/contacts count=" + count);
-                                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                                        prefs.edit().putBoolean("suggest_sent", true).apply();
-
-                                        NumberFormat NF = NumberFormat.getInstance();
-                                        String msg = getString(R.string.title_setup_import_graph_result, NF.format(count));
-
-                                        final Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_INDEFINITE)
-                                                .setGestureInsetBottomIgnored(true);
-                                        snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
-                                            @Override
-                                            public void onClick(View view) {
-                                                snackbar.dismiss();
-                                            }
-                                        });
-                                        snackbar.show();
-                                    }
-
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        EntityLog.log(context, "Graph/contacts ex=" + Log.formatThrowable(ex, false));
-                                        Log.unexpectedError(getParentFragmentManager(), ex);
-                                    }
-                                }.execute(FragmentSetup.this, args, "graph:contacts");
+                                taskGraph.execute(FragmentSetup.this, args, "graph:contacts");
                             } catch (Throwable ex) {
                                 Log.unexpectedError(getParentFragmentManager(), ex);
                             }
@@ -1407,6 +1388,42 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             Log.unexpectedError(getParentFragmentManager(), ex);
         }
     }
+
+    private final SimpleTask<Integer> taskGraph = new SimpleTask<Integer>() {
+        @Override
+        protected Integer onExecute(Context context, Bundle args) throws Throwable {
+            long account = args.getLong("account");
+            String json = args.getString("authState");
+            AuthState authState = AuthState.jsonDeserialize(json);
+
+            return MicrosoftGraph.downloadContacts(context, account, authState);
+        }
+
+        @Override
+        protected void onExecuted(Bundle args, @NonNull Integer count) {
+            final Context context = getContext();
+            EntityLog.log(context, "Graph/contacts count=" + count);
+
+            NumberFormat NF = NumberFormat.getInstance();
+            String msg = getString(R.string.title_setup_import_graph_result, NF.format(count));
+
+            final Snackbar snackbar = Snackbar.make(view, msg, Snackbar.LENGTH_INDEFINITE)
+                    .setGestureInsetBottomIgnored(true);
+            snackbar.setAction(android.R.string.ok, new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    snackbar.dismiss();
+                }
+            });
+            snackbar.show();
+        }
+
+        @Override
+        protected void onException(Bundle args, Throwable ex) {
+            EntityLog.log(getContext(), "Graph/contacts ex=" + Log.formatThrowable(ex, false));
+            Log.unexpectedError(getParentFragmentManager(), ex);
+        }
+    };
 
     private ConnectivityManager.NetworkCallback networkCallback = new ConnectivityManager.NetworkCallback() {
         @Override
