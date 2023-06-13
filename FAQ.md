@@ -393,6 +393,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(190) How do I use OpenAI (ChatGPT)?](#user-content-faq190)
 * [(191) How do I download and keep older messages on my device?](#user-content-faq191)
 * [(192) How can I resolve 'Couldn't connect to host, port: ...; timeout ...;' ?](#user-content-faq192)
+* [(193) How can I import Outlook contacts?](#user-content-faq193)
 
 [I have another question.](#user-content-get-support)
 
@@ -5368,6 +5369,23 @@ The email server might not be responding, for example because it is offline for 
 So, please check if your email provider didn't announce server maintenance, and if your internet connection is working correctly. Also, try to switch to mobile data or Wi-Fi.
 
 If you are using a VPN, firewall, ad blocker, or similar, please try to disable it, or make an exception for FairEmail. Email servers often block connections via a VPN.
+
+<br>
+
+<a name="faq193"></a>
+**(193) How can I import Outlook contacts?**
+
+If there are one or more Outlook or Office 365 accounts configured,
+there will be a button in the main settings screen in setup step 2 to download Outlook contacts (since version 1.2076).
+After tapping on this button, you can select the account to download contacts for.
+Microsoft will ask for permission to read the contacts,
+and after granting this permission, the app will download the contacts with an email address into the local contacts' database.
+
+In the message editor, type the first few letters of the email address or name in any of the email address fields, and the downloaded addresses will be suggested.
+
+For privacy and security reasons, FairEmail doesn't have permissions to write into the Android address book, and also not to write in the address book of Outlook.
+This means that contacts can be downloaded as local contacts only, and can't be synchronized two ways.
+If you are looking to synchronize your Outlook contacts with the Android address book, you should look for a sync app in the Play Store which can do this.
 
 <br>
 

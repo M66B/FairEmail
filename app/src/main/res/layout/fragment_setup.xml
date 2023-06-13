@@ -677,6 +677,17 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPermissionsWhy" />
 
+                <ImageButton
+                    android:id="@+id/ibGraphContacts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/title_info"
+                    android:tooltipText="@string/title_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvImportContacts"
+                    app:srcCompat="@drawable/twotone_info_24" />
+
                 <Button
                     android:id="@+id/btnGraphContacts"
                     style="?android:attr/buttonStyleSmall"
@@ -688,6 +699,12 @@
                     android:text="@string/title_setup_import_graph_contact"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvImportContacts" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/grpGraphContacts"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:constraint_referenced_ids="ibGraphContacts,btnGraphContacts" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

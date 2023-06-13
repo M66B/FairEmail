@@ -125,6 +125,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     private Button btnPermissions;
     private TextView tvPermissionsWhy;
     private TextView tvImportContacts;
+    private ImageButton ibGraphContacts;
     private Button btnGraphContacts;
 
     private TextView tvDozeDone;
@@ -154,6 +155,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     private Button btnSupport;
     private ImageButton ibExtra;
 
+    private Group grpGraphContacts;
     private Group grpBackgroundRestricted;
     private Group grpDataSaver;
     private Group grpSupport;
@@ -216,6 +218,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         btnPermissions = view.findViewById(R.id.btnPermissions);
         tvPermissionsWhy = view.findViewById(R.id.tvPermissionsWhy);
         tvImportContacts = view.findViewById(R.id.tvImportContacts);
+        ibGraphContacts = view.findViewById(R.id.ibGraphContacts);
         btnGraphContacts = view.findViewById(R.id.btnGraphContacts);
 
         tvDozeDone = view.findViewById(R.id.tvDozeDone);
@@ -245,6 +248,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         btnSupport = view.findViewById(R.id.btnSupport);
         ibExtra = view.findViewById(R.id.ibExtra);
 
+        grpGraphContacts = view.findViewById(R.id.grpGraphContacts);
         grpBackgroundRestricted = view.findViewById(R.id.grpBackgroundRestricted);
         grpDataSaver = view.findViewById(R.id.grpDataSaver);
         grpSupport = view.findViewById(R.id.grpSupport);
@@ -586,6 +590,13 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             }
         });
 
+        ibGraphContacts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 193);
+            }
+        });
+
         btnGraphContacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -846,10 +857,10 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         tvDozeDone.setCompoundDrawables(null, null, null, null);
         btnDoze.setEnabled(false);
         tvDoze12.setVisibility(View.GONE);
-        btnGraphContacts.setVisibility(View.GONE);
 
         btnInbox.setEnabled(false);
 
+        grpGraphContacts.setVisibility(View.GONE);
         grpBackgroundRestricted.setVisibility(View.GONE);
         grpDataSaver.setVisibility(View.GONE);
         tvStamina.setVisibility(View.GONE);
@@ -931,7 +942,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                             break;
                         }
 
-                btnGraphContacts.setVisibility(outlook ? View.VISIBLE : View.GONE);
+                grpGraphContacts.setVisibility(outlook ? View.VISIBLE : View.GONE);
 
                 prefs.edit().putBoolean("has_accounts", done).apply();
             }
