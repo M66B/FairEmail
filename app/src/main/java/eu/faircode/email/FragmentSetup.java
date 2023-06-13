@@ -1268,8 +1268,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
     }
 
     private void handleImportGraphContacts(Bundle args) {
+        final Context context = getContext();
         try {
-            final Context context = getContext();
             long account = args.getLong("account");
             String user = args.getString("user");
             EmailProvider provider = EmailProvider.getProvider(context, "outlookgraph");
@@ -1296,16 +1296,18 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                 authRequestBuilder.setPrompt(provider.graph.prompt);
 
             Intent authIntent = authService.getAuthorizationRequestIntent(authRequestBuilder.build());
-            Log.i("Graph/contacts intent=" + authIntent);
+            EntityLog.log(context, "Graph/contacts intent=" + authIntent);
             startActivityForResult(authIntent, ActivitySetup.REQUEST_GRAPH_CONTACTS_OAUTH);
         } catch (Throwable ex) {
+            EntityLog.log(context, "Graph/contacts ex=" + Log.formatThrowable(ex, false));
             Log.unexpectedError(getParentFragmentManager(), ex);
         }
     }
 
     private void onHandleGraphContactsOAuth(@NonNull Intent data) {
+        final Context context = getContext();
         try {
-            Log.i("Graph/contacts authorized");
+            EntityLog.log(context, "Graph/contacts authorized");
 
             AuthorizationResponse auth = AuthorizationResponse.fromIntent(data);
             if (auth == null) {
@@ -1316,7 +1318,6 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                     throw ex;
             }
 
-            final Context context = getContext();
             final EmailProvider provider = EmailProvider.getProvider(context, "outlookgraph");
 
             AuthorizationService authService = new AuthorizationService(context);
@@ -1352,7 +1353,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                                 if (access == null || access.accessToken == null)
                                     throw new IllegalStateException("No access token");
 
-                                Log.i("Graph/contacts got token");
+                                EntityLog.log(context, "Graph/contacts got token");
 
                                 int semi = auth.request.state.lastIndexOf(':');
                                 long account = Long.parseLong(auth.request.state.substring(semi + 1));
@@ -1372,6 +1373,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
                                     @Override
                                     protected void onExecuted(Bundle args, @NonNull Integer count) {
+                                        EntityLog.log(context, "Graph/contacts count=" + count);
                                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                                         prefs.edit().putBoolean("suggest_sent", true).apply();
 
@@ -1391,6 +1393,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
                                     @Override
                                     protected void onException(Bundle args, Throwable ex) {
+                                        EntityLog.log(context, "Graph/contacts ex=" + Log.formatThrowable(ex, false));
                                         Log.unexpectedError(getParentFragmentManager(), ex);
                                     }
                                 }.execute(FragmentSetup.this, args, "graph:contacts");
@@ -1400,6 +1403,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                         }
                     });
         } catch (Throwable ex) {
+            EntityLog.log(context, "Graph/contacts ex=" + Log.formatThrowable(ex, false));
             Log.unexpectedError(getParentFragmentManager(), ex);
         }
     }

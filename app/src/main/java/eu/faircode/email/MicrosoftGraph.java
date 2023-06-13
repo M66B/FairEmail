@@ -136,7 +136,6 @@ public class MicrosoftGraph {
         connection.setConnectTimeout(GRAPH_TIMEOUT * 1000);
         ConnectionHelper.setUserAgent(context, connection);
         connection.setRequestProperty("Authorization", "Bearer " + accessToken);
-        connection.setRequestProperty("Content-Type", "text/plain");
         connection.connect();
 
         try {
@@ -157,7 +156,7 @@ public class MicrosoftGraph {
                             String email = jemail.optString("address");
                             if (!TextUtils.isEmpty(email)) {
                                 EntityContact contact = db.contact().getContact(account, EntityContact.TYPE_TO, email);
-                                EntityLog.log(context, displayName + " <" + email + ">" +
+                                EntityLog.log(context, "Graph/contacts " + displayName + " <" + email + ">" +
                                         " account=" + account + " exists=" + (contact != null));
                                 if (contact == null) {
                                     contact = new EntityContact();
