@@ -394,6 +394,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(191) How do I download and keep older messages on my device?](#user-content-faq191)
 * [(192) How can I resolve 'Couldn't connect to host, port: ...; timeout ...;' ?](#user-content-faq192)
 * [(193) How can I import Outlook contacts?](#user-content-faq193)
+* [(194) How can I set up automatic deletion of old messages?](#user-content-faq194)
 
 [I have another question.](#user-content-get-support)
 
@@ -5386,6 +5387,31 @@ In the message editor, type the first few letters of the email address or name i
 For privacy and security reasons, FairEmail doesn't have permissions to write into the Android address book, and also not to write in the address book of Outlook.
 This means that contacts can be downloaded as local contacts only, and can't be synchronized two ways.
 If you are looking to synchronize your Outlook contacts with the Android address book, you should look for a sync app in the Play Store which can do this.
+
+<br>
+
+<a name="faq194"></a>
+**(194) How can I set up automatic deletion of old messages?**
+
+To set up automatic deletion of old messages:
+
+* Tap on the account name in the navigation menu (left side menu)
+* Long press the folder you want to set up auto deletion for, and select to edit the folder properties
+* Near the bottom of the properties screen, there is an option to enable auto deletion
+
+Messages in the trash and spam folder will be **permanently** deleted, and messages in other folders will be moved to the trash folder.
+
+Unread, starred and snoozed messages and messages younger than 24 hours will not be automatically deleted.
+You can enable auto deletion of unread messages in the receive-settings tab page (option *Delete old unread messages*).
+
+Note that it isn't a good idea to automatically delete recent messages, especially not for the spam folder because there might be legitimate messages in the spam folder.
+There is a button or menu item (depending on the screen size) in the top action bar/menu of the trash and spam folder to empty the folder.
+This way there is at least a visual check.
+
+Auto deletion will be done on a full sync only.
+For the inboxes, you can use *Force sync* in the three-dots overflow menu of the start screen.
+For other folders, you can long press the folder in the folder list of the account (*not* the navigation menu), and select *Synchronize now* in the pop-up menu.
+You can also pull down the messages list of any folder to sync it, and repeat this again within 30 seconds for a full sync.
 
 <br>
 
