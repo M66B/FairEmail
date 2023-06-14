@@ -870,12 +870,13 @@ public class EmailProvider implements Parcelable {
     }
 
     @NonNull
-    private static EmailProvider fromMSAutodiscovery(Context context, String domain, String email, IDiscovery intf) throws Throwable {
+    private static EmailProvider fromMSAutodiscovery(Context context, String domain, String email, IDiscovery intf) throws UnknownHostException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean open_safe = prefs.getBoolean("open_safe", false);
 
         // https://learn.microsoft.com/en-us/Exchange/architecture/client-access/autodiscover
         // https://github.com/gronke/email-autodiscover/blob/master/mail/autodiscover.xml
+        // Example: https://mail.de/autodiscover/autodiscover.xml
         for (String link : Misc.getMSUrls(context, domain, email))
             try {
                 URL url = new URL(link);
