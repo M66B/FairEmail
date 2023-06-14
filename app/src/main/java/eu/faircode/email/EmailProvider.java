@@ -880,7 +880,7 @@ public class EmailProvider implements Parcelable {
         for (String link : Misc.getMSUrls(context, domain, email))
             try {
                 URL url = new URL(link);
-                return getMSAutodiscovery(context, domain, url, !open_safe, intf);
+                return getMSAutodiscovery(context, domain, url, true, intf);
             } catch (Throwable ex) {
                 Log.i(ex);
             }
