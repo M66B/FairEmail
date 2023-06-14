@@ -208,6 +208,10 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return "imap.aol.com".equalsIgnoreCase(host);
     }
 
+    boolean isICloud() {
+        return "imap.mail.me.com".equalsIgnoreCase(host);
+    }
+
     boolean isTransient(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean enabled = prefs.getBoolean("enabled", true);

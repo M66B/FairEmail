@@ -2155,18 +2155,24 @@ class Core {
             throw new IllegalArgumentException("exists without msgid");
 
         // Search for message
-        Message[] imessages = ifolder.search(new MessageIDTerm(message.msgid));
-        if (imessages == null || imessages.length == 0)
-            try {
-                // Needed for Outlook
-                imessages = ifolder.search(
-                        new AndTerm(
-                                new SentDateTerm(ComparisonTerm.GE, new Date()),
-                                new HeaderTerm(MessageHelper.HEADER_CORRELATION_ID, message.msgid)));
-            } catch (Throwable ex) {
-                Log.e(ex);
-                // Seznam: Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
-            }
+        Message[] imessages = (account.isOutlook())
+                ? ifolder.search(new HeaderTerm("X-Microsoft-Original-Message-ID", message.msgid))
+                : ifolder.search(new MessageIDTerm(message.msgid));
+
+        // Fallback
+        if (false)
+            if (imessages == null || imessages.length == 0)
+                try {
+                    // Needed for Outlook
+                    imessages = ifolder.search(
+                            new AndTerm(
+                                    new SentDateTerm(ComparisonTerm.GE, new Date()),
+                                    new HeaderTerm(MessageHelper.HEADER_CORRELATION_ID, message.msgid)));
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    // iCloud: NO [UNAVAILABLE] Unexpected exception
+                    // Seznam: Jakarta Mail Exception: java.io.IOException: Connection dropped by server?
+                }
 
         // Some email servers are slow with adding sent messages
         if (retry)
