@@ -2219,9 +2219,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onExecuted(Bundle args, Long id) {
-                startActivity(new Intent(ActivityView.this, ActivityCompose.class)
-                        .putExtra("action", "edit")
-                        .putExtra("id", id));
+                if (id != null)
+                    startActivity(new Intent(ActivityView.this, ActivityCompose.class)
+                            .putExtra("action", "edit")
+                            .putExtra("id", id));
             }
 
             @Override
