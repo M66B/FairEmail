@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Ubirajara
 
+Next version
+
+* Updated Public Suffix List
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2076 - 2023-06-13
 
 * Android 14 compatibility
