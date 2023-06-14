@@ -16,15 +16,15 @@ if (rootProject.file("local.properties").exists())
     localProperties.load(new FileInputStream(rootProject.file("local.properties")))
 
 android {
-    compileSdkVersion 34
-    //compileSdkExtension 4 // https://developer.android.com/guide/sdk-extensions
+    compileSdkVersion 33
+    compileSdkExtension 4 // https://developer.android.com/guide/sdk-extensions
     namespace 'eu.faircode.email'
 
     // https://apilevels.com/
     defaultConfig {
         applicationId "eu.faircode.email"
         minSdkVersion 21
-        targetSdkVersion 34
+        targetSdkVersion 33
         versionCode getVersionCode()
         versionName "1." + getVersionCode()
         archivesBaseName = "FairEmail-v$versionName" + getRevision()
