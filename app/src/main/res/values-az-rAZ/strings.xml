@@ -213,6 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">Bildiriş icazələri vəziyyət sətrində yeni mesajların bildirişlərini göstərmək üçün tələb olunur</string>
     <string name="title_setup_permission_why">Hansı icazələrə ehtiyac var və nə üçün?</string>
     <string name="title_setup_permission_import_contacts">Kontaktları necə daxilə köçürə bilərəm?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook kontaktları</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Yeni kontaktlar: %1$s</string>
     <string name="title_setup_doze">Batareya optimallaşdırmasını sıradan çıxart</string>
     <string name="title_setup_doze_remark">Arxaplanda güvənli şəkildə e-poçt göndərmək və almaq üçün</string>
     <string name="title_setup_doze_explanation">Arxaplanda mesajların güvənlə göndərilməsi və alınmasını təmin etmək üçün tətbiqin batareya optimallaşdırması sıradan çıxarılmalıdır</string>
@@ -223,6 +225,7 @@
     <string name="title_setup_doze_battery">Yüksək batareya istifadəsi?</string>
     <string name="title_setup_doze_stopped">Sinxronlaşdırma dayandırılsın?</string>
     <string name="title_setup_doze_device">Bu, çox güman ki, bu cihaz üçün tələb olunur</string>
+    <string name="title_setup_alarm_12">Tətbiq düzgün işləməyəcək</string>
     <string name="title_setup_inexact">Zəngli saatlar və xatırladıcılar sıradan çıxarıldı</string>
     <string name="title_setup_background">Arxaplan məhdudiyyətləri fəaldır</string>
     <string name="title_setup_data">Verilənlərə qənaət fəallaşdırıldı</string>
@@ -1767,6 +1770,7 @@
     <string name="title_hint_folder_sync">Batareya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq sinxronlaşdırılmayacaq</string>
     <string name="title_hint_airplane">Təyyarə rejimi açıqdır</string>
     <string name="title_hint_notifications">Bildiriş icazəsi yoxdur</string>
+    <string name="title_hint_battery_optimizations">Batareya optimallaşdırma hələ də fəaldır</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantıya atmaq üçün sola sürüşdürün; (əgər varsa) arxivləmək üçün sağa; Sürüşdürmə əməliyyatları hesab tənzimləmələrindən konfiqurasiya edilə bilər</string>
     <string name="title_hint_message_selection">Bir neçə mesajı seçməyə başlamaq üçün bir mesaja uzun basın; daha çox mesaj seçmək üçün basıb yuxarı və ya aşağı sürüşdürün</string>

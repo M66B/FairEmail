@@ -239,6 +239,8 @@
     <string name="title_setup_permissions_notify_explanation">Uprawnienia dotyczące powiadomień są wymagane do wyświetlania powiadomień o nowych wiadomościach na pasku stanu</string>
     <string name="title_setup_permission_why">Jakie uprawnienia są potrzebne i dlaczego?</string>
     <string name="title_setup_permission_import_contacts">Jak mogę zaimportować kontakty?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Kontakty Outlook</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nowe kontakty: %1$s</string>
     <string name="title_setup_doze">Wyłącz optymalizację baterii</string>
     <string name="title_setup_doze_remark">Niezawodne wysyłanie i odbieranie wiadomości e-mail w tle</string>
     <string name="title_setup_doze_explanation">Optymalizacja baterii powinna być wyłączona dla aplikacji, aby zapewnić niezawodne wysyłanie i odbieranie wiadomości w tle</string>

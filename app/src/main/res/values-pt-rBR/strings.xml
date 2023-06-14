@@ -213,6 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">Permissões de notificação são requeridas para mostrar notificações para novas mensagens na barra de status</string>
     <string name="title_setup_permission_why">Quais permissões são necessárias e por quê?</string>
     <string name="title_setup_permission_import_contacts">Como posso importar os contatos?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Contatos do Outlook</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Novos contatos: %1$s</string>
     <string name="title_setup_doze">Desativar otimizações de bateria</string>
     <string name="title_setup_doze_remark">Para enviar e receber email de forma confiável em segundo plano</string>
     <string name="title_setup_doze_explanation">As otimizações de bateria devem estar desativadas para que seja garantido o envio e recebimento de mensagens em segundo plano</string>

@@ -200,6 +200,8 @@
     <string name="title_setup_permissions_notify_explanation">新着メッセージ通知をステータスバーに表示するには通知の権限が必要です</string>
     <string name="title_setup_permission_why">必要とする権限とその理由は何ですか？</string>
     <string name="title_setup_permission_import_contacts">連絡先をインポートするにはどうすればいいですか？</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook の連絡先</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">新しい連絡先: %1$s</string>
     <string name="title_setup_doze">バッテリー最適化を無効にする</string>
     <string name="title_setup_doze_remark">バックグラウンドで確実にメールを送受信するには</string>
     <string name="title_setup_doze_explanation">バックグラウンドでのメッセージの送受信を確実に行うには、アプリのバッテリー最適化を無効にする必要があります</string>
@@ -210,6 +212,7 @@
     <string name="title_setup_doze_battery">バッテリー使用量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_doze_device">このデバイスでは必要と思われます</string>
+    <string name="title_setup_alarm_12">アプリは正しく動作しません</string>
     <string name="title_setup_inexact">アラームとリマインダーが無効です</string>
     <string name="title_setup_background">バックグラウンドでの制限が有効です</string>
     <string name="title_setup_data">データセーバーが有効です</string>
@@ -1754,6 +1757,7 @@
     <string name="title_hint_folder_sync">バッテリーとネットワークの使用を抑えるためにデフォルトでは一部のフォルダーとメッセージのみ同期されます</string>
     <string name="title_hint_airplane">機内モードが ON です</string>
     <string name="title_hint_notifications">通知が許可されていません</string>
+    <string name="title_hint_battery_optimizations">まだ電池最適化が有効です</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてゴミ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>
     <string name="title_hint_message_selection">メッセージを長押しして、複数のメッセージを選択します。そのまま上または下にスワイプすると、まとめてメッセージを選択できます</string>

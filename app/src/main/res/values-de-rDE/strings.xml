@@ -214,8 +214,8 @@
     <string name="title_setup_permissions_notify_explanation">Benachrichtigungsberechtigungen sind erforderlich, um Benachrichtigungen für neue Nachrichten in der Statusleiste anzuzeigen</string>
     <string name="title_setup_permission_why">Welche Berechtigungen werden benötigt und warum?</string>
     <string name="title_setup_permission_import_contacts">Wie kann ich Kontakte importieren?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook Kontakte</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Neuer Kontakte: %1$s</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook-Kontakte</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Neue Kontakte: %1$s</string>
     <string name="title_setup_doze">Akkuoptimierung deaktivieren</string>
     <string name="title_setup_doze_remark">Damit E-Mails zuverlässig im Hintergrund gesendet und empfangen werden</string>
     <string name="title_setup_doze_explanation">Die Akkuoptimierung sollte für die App deaktiviert werden, um ein zuverlässiges Senden und Empfangen von Nachrichten im Hintergrund zu gewährleisten</string>
@@ -226,7 +226,7 @@
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
     <string name="title_setup_doze_device">Dies ist möglicherweise für dieses Gerät erforderlich</string>
-    <string name="title_setup_alarm_12">Die App funktioniert nicht richtig</string>
+    <string name="title_setup_alarm_12">Die App wird nicht ordnungsgemäß funktionieren</string>
     <string name="title_setup_inexact">Benachrichtigungen und Erinnerungen sind deaktiviert</string>
     <string name="title_setup_background">Hintergrundbeschränkungen sind aktiviert</string>
     <string name="title_setup_data">Datensparmodus aktiviert</string>
@@ -1772,7 +1772,7 @@
     <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
     <string name="title_hint_airplane">Flugzeugmodus aktiviert</string>
     <string name="title_hint_notifications">Keine Benachrichtigungserlaubnis</string>
-    <string name="title_hint_battery_optimizations">Akku-Optimierungen weiterhin aktiviert</string>
+    <string name="title_hint_battery_optimizations">Akkuoptimierung ist immer noch aktiv</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Standard: Wische links zum Papierkorb; Wische rechts zum Archiv (falls verfügbar); Diese Wischgesten können aber in den Kontoeinstellungen auch individuell anders konfiguriert werden</string>
     <string name="title_hint_message_selection">Um mehrere Nachrichten auszuwählen, drücken Sie zunächst lange auf eine Nachricht, halten und wischen Sie sodann nach oben oder unten, um weitere Nachrichten auszuwählen</string>

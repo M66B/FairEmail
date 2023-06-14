@@ -213,6 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">Notifikationstilladelse kræves for at vise notifikationer om nye beskeder på statusbjælken</string>
     <string name="title_setup_permission_why">Hvilke tilladelser kræves, og hvorfor?</string>
     <string name="title_setup_permission_import_contacts">Hvordan importeres kontakter?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook-kontakter</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nye kontakter: %1$s</string>
     <string name="title_setup_doze">Deaktivér batterioptimering</string>
     <string name="title_setup_doze_remark">For at sende og modtage e-mail pålideligt i baggrunden</string>
     <string name="title_setup_doze_explanation">Batterioptimeringer bør deaktiveres for appen for at sikre pålidelig baggrundsbeskedafsendelse og -modtagelse</string>

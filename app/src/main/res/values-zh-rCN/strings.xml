@@ -200,6 +200,8 @@
     <string name="title_setup_permissions_notify_explanation">在状态栏显示新消息通知时需要通知权限</string>
     <string name="title_setup_permission_why">需要哪些权限以及原因？</string>
     <string name="title_setup_permission_import_contacts">如何导入联系人？</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook 联系人</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">新联系人: %1$s</string>
     <string name="title_setup_doze">禁用电池优化</string>
     <string name="title_setup_doze_remark">更可靠地后台收发电子邮件</string>
     <string name="title_setup_doze_explanation">应禁用针对本应用的电池优化，以确保后台消息的可靠发送和接收。</string>

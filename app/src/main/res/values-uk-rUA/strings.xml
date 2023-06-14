@@ -240,6 +240,8 @@
     <string name="title_setup_permissions_notify_explanation">Потрібні дозволи для показу сповіщень для нових повідомлень в рядку стану</string>
     <string name="title_setup_permission_why">Які дозволи необхідні й чому?</string>
     <string name="title_setup_permission_import_contacts">Як можна імпортувати контакти?</string>
+    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Контакти з Outlook</string>
+    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Нові контакти: %1$s</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
     <string name="title_setup_doze_remark">Для надійного отримання й надсилання пошти в фоновому режимі</string>
     <string name="title_setup_doze_explanation">Оптимізація живлення повинна бути вимкнена для додатку, щоб забезпечити надійне надсилання та отримання повідомлень у фоновому режимі</string>
