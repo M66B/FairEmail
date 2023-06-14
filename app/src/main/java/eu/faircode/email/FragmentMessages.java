@@ -6895,7 +6895,7 @@ public class FragmentMessages extends FragmentBase
         if (BuildConfig.DEBUG)
             updateDebugInfo();
 
-        Log.i("List state" +
+        Log.i("List state who=" + Helper.getWho(this) + "" +
                 " reason=" + reason +
                 " tasks=" + tasks + " loading=" + loading +
                 " items=" + items + " initialized=" + initialized +
