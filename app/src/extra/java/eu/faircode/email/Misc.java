@@ -49,4 +49,11 @@ public class Misc {
 
         return Collections.unmodifiableList(result);
     }
+
+    public static List<String> getMSUrls(Context context, String domain, String email) {
+        return Collections.unmodifiableList(Arrays.asList(
+                "https://" + domain + "/autodiscover/autodiscover.xml",
+                "https://autodiscover." + domain + "/autodiscover/autodiscover.xml"
+        ));
+    }
 }

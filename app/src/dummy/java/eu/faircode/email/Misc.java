@@ -28,4 +28,8 @@ public class Misc {
     public static List<String> getISPDBUrls(Context context, String domain, String email) {
         return new ArrayList<>();
     }
+
+    public static List<String> getMSUrls(Context context, String domain, String email) {
+        return new ArrayList<>();
+    }
 }

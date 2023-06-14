@@ -22,6 +22,7 @@ package eu.faircode.email;
 import static android.system.OsConstants.ECONNREFUSED;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.system.ErrnoException;
@@ -29,6 +30,7 @@ import android.text.TextUtils;
 import android.util.Xml;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import com.sun.mail.util.LineInputStream;
 
@@ -112,6 +114,7 @@ public class EmailProvider implements Parcelable {
 
     private static final int SCAN_TIMEOUT = 10 * 1000; // milliseconds
     private static final int ISPDB_TIMEOUT = 10 * 1000; // milliseconds
+    private static final int MS_TIMEOUT = 10 * 1000; // milliseconds
 
     private static final List<String> PROPRIETARY = Collections.unmodifiableList(Arrays.asList(
             "protonmail.ch",
@@ -628,6 +631,14 @@ public class EmailProvider implements Parcelable {
         }
 
         try {
+            // Check Microsoft auto discovery
+            Log.i("Provider from MS domain=" + domain);
+            result.add(fromMSAutodiscovery(context, domain, email, intf));
+        } catch (Throwable ex) {
+            Log.w(ex);
+        }
+
+        try {
             // Scan ports
             Log.i("Provider from scan domain=" + domain);
             result.add(fromScan(context, domain, discover, intf));
@@ -850,6 +861,159 @@ public class EmailProvider implements Parcelable {
             }
 
             provider.validate();
+
+            return provider;
+        } finally {
+            if (request != null)
+                request.disconnect();
+        }
+    }
+
+    @NonNull
+    private static EmailProvider fromMSAutodiscovery(Context context, String domain, String email, IDiscovery intf) throws Throwable {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean open_safe = prefs.getBoolean("open_safe", false);
+
+        // https://learn.microsoft.com/en-us/Exchange/architecture/client-access/autodiscover
+        // https://github.com/gronke/email-autodiscover/blob/master/mail/autodiscover.xml
+        for (String link : Misc.getMSUrls(context, domain, email))
+            try {
+                URL url = new URL(link);
+                return getMSAutodiscovery(context, domain, url, !open_safe, intf);
+            } catch (Throwable ex) {
+                Log.i(ex);
+            }
+
+        throw new UnknownHostException(domain);
+    }
+
+    private static EmailProvider getMSAutodiscovery(Context context, String domain, URL url, boolean unsafe, IDiscovery intf) throws IOException, XmlPullParserException {
+        EmailProvider provider = new EmailProvider(domain);
+
+        HttpURLConnection request = null;
+        try {
+            Log.i("Fetching " + url);
+            intf.onStatus("MS " + url);
+
+            request = (HttpURLConnection) url.openConnection();
+            request.setRequestMethod("GET");
+            request.setReadTimeout(MS_TIMEOUT);
+            request.setConnectTimeout(MS_TIMEOUT);
+            request.setDoInput(true);
+            ConnectionHelper.setUserAgent(context, request);
+
+            if (unsafe && request instanceof HttpsURLConnection) {
+                ((HttpsURLConnection) request).setHostnameVerifier(new HostnameVerifier() {
+                    @Override
+                    public boolean verify(String hostname, SSLSession session) {
+                        return true;
+                    }
+                });
+            }
+
+            request.connect();
+
+            int status = request.getResponseCode();
+            if (status != HttpURLConnection.HTTP_OK)
+                throw new FileNotFoundException("Error " + status + ": " + request.getResponseMessage());
+
+            // https://developer.android.com/reference/org/xmlpull/v1/XmlPullParser
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            XmlPullParser xml = factory.newPullParser();
+            xml.setInput(new InputStreamReader(request.getInputStream()));
+
+            EntityLog.log(context, "Parsing " + url);
+
+            boolean isAccount = false;
+            boolean isEmail = false;
+            boolean isSettings = false;
+            boolean isProtocol = false;
+            boolean isImap = false;
+            boolean isSmtp = false;
+            String host = null;
+            Integer port = null;
+            int eventType = xml.getEventType();
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                if (eventType == XmlPullParser.START_TAG) {
+                    String name = xml.getName();
+                    if ("Account".equals(name)) {
+                        // <AccountType>email</AccountType>
+                        isAccount = true;
+                    } else if ("AccountType".equals(name) && isAccount) {
+                        // <AccountType>email</AccountType>
+                        eventType = xml.next();
+                        if (eventType == XmlPullParser.TEXT && "email".equals(xml.getText()))
+                            isEmail = true;
+                        continue;
+                    } else if ("Action".equals(name) && isAccount) {
+                        // <Action>settings</Action>
+                        eventType = xml.next();
+                        if (eventType == XmlPullParser.TEXT && "settings".equals(xml.getText()))
+                            isSettings = true;
+                        continue;
+                    } else if ("Protocol".equals(name) && isAccount) {
+                        // <AccountType>email</AccountType>
+                        isProtocol = true;
+                    } else if (isAccount && isEmail && isSettings && isProtocol) {
+                        if ("Type".equals(name)) {
+                            // <AccountType>email</AccountType>
+                            eventType = xml.next();
+                            if (eventType == XmlPullParser.TEXT) {
+                                String type = xml.getText();
+                                if ("IMAP".equals(type))
+                                    isImap = true;
+                                else if ("SMTP".equals(type))
+                                    isSmtp = true;
+                            }
+                            continue;
+                        } else if ("Server".equals(name)) {
+                            eventType = xml.next();
+                            if (eventType == XmlPullParser.TEXT)
+                                host = xml.getText();
+                            continue;
+                        } else if ("Port".equals(name)) {
+                            eventType = xml.next();
+                            if (eventType == XmlPullParser.TEXT) {
+                                String p = xml.getText();
+                                if (TextUtils.isDigitsOnly(p))
+                                    port = Integer.parseInt(p);
+                            }
+                            continue;
+                        }
+                    }
+                } else if (eventType == XmlPullParser.END_TAG) {
+                    String name = xml.getName();
+                    if ("Account".equals(name)) {
+                        isAccount = false;
+                        isEmail = false;
+                        isSettings = false;
+                    } else if ("Protocol".equals(name)) {
+                        if (isProtocol && host != null && port != null) {
+                            if (isImap) {
+                                provider.imap.score = 20;
+                                provider.imap.host = host;
+                                provider.imap.port = port;
+                                provider.imap.starttls = (provider.imap.port == 143);
+                            } else if (isSmtp) {
+                                provider.smtp.score = 20;
+                                provider.smtp.host = host;
+                                provider.smtp.port = port;
+                                provider.smtp.starttls = (provider.smtp.port == 587);
+                            }
+                        }
+                        isProtocol = false;
+                        isImap = false;
+                        isSmtp = false;
+                        host = null;
+                        port = null;
+                    }
+                }
+
+                eventType = xml.next();
+            }
+
+            provider.validate();
+            Log.e("MS=" + url);
 
             return provider;
         } finally {
