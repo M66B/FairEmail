@@ -3034,6 +3034,15 @@ public class Log {
             long size = 0;
             File file = attachment.getFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                for (Class<?> cls : new Class[]{
+                        ActivitySendSelf.class,
+                        ActivitySearch.class,
+                        ActivityAnswer.class,
+                        ReceiverAutoStart.class})
+                    size += write(os, String.format("%s=%b\r\n",
+                            cls.getSimpleName(), Helper.isComponentEnabled(context, cls)));
+                size += write(os, "\r\n");
+
                 try {
                     List<UriPermission> uperms = context.getContentResolver().getPersistedUriPermissions();
                     if (uperms != null)
