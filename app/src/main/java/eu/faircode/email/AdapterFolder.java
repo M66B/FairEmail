@@ -217,15 +217,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 ibSync.setOnClickListener(this);
             if (btnHelp != null)
                 btnHelp.setOnClickListener(this);
-
-            if (tvFlagged != null && ibFlagged != null) {
-                Rect rect = new Rect(
-                        tvFlagged.getLeft(),
-                        ibFlagged.getTop(),
-                        view.getRight(),
-                        view.getBottom());
-                view.setTouchDelegate(new TouchDelegate(rect, ibFlagged));
-            }
         }
 
         private void unwire() {
