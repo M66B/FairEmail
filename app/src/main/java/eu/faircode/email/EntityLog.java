@@ -67,7 +67,7 @@ public class EntityLog {
 
     public enum Type {General, Statistics, Scheduling, Network, Account, Protocol, Classification, Notification, Rules, Cloud, Debug}
 
-    static void log(final Context context, String data) {
+    public static void log(final Context context, String data) {
         log(context, Type.General, data);
     }
 
