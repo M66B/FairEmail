@@ -3044,6 +3044,21 @@ public class Log {
                 size += write(os, "\r\n");
 
                 try {
+                    Intent home = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME);
+                    List<ResolveInfo> homes = context.getPackageManager().queryIntentActivities(home, PackageManager.MATCH_DEFAULT_ONLY);
+                    if (homes != null)
+                        for (ResolveInfo ri : homes)
+                            size += write(os, String.format("Launcher=%s\r\n", ri.activityInfo.packageName));
+
+                    ResolveInfo rid = context.getPackageManager().resolveActivity(home, PackageManager.MATCH_DEFAULT_ONLY);
+                    size += write(os, String.format("Default launcher=%s\r\n", (rid == null ? null : rid.activityInfo.packageName)));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+
+                size += write(os, "\r\n");
+
+                try {
                     List<UriPermission> uperms = context.getContentResolver().getPersistedUriPermissions();
                     if (uperms != null)
                         for (UriPermission uperm : uperms) {
