@@ -362,6 +362,23 @@ public class FragmentOAuth extends FragmentBase {
                         @Override
                         public boolean matches(@NonNull BrowserDescriptor descriptor) {
                             boolean accept = !(SBROWSER.matches(descriptor) || SBROWSER_TAB.matches(descriptor));
+
+                            /*
+                                Unihertz, works with Chrome
+                                java.lang.SecurityException: Not allowed to bind to service Intent { act=android.support.customtabs.action.CustomTabsService pkg=org.mozilla.focus }
+                                    at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1985)
+                                    at android.app.ContextImpl.bindService(ContextImpl.java:1897)
+                                    at android.content.ContextWrapper.bindService(ContextWrapper.java:812)
+                                    at android.content.ContextWrapper.bindService(ContextWrapper.java:812)
+                                    at androidx.browser.customtabs.CustomTabsClient.bindCustomTabsService(SourceFile:26)
+                                    at net.openid.appauth.browser.CustomTabManager.bind(SourceFile:27)
+                                    at net.openid.appauth.AuthorizationService.<init>(SourceFile:12)
+                                    at net.openid.appauth.AuthorizationService.<init>(SourceFile:4)
+                                    at eu.faircode.email.FragmentOAuth.onAuthorize(SourceFile:431)
+                             */
+                            if (descriptor.useCustomTab && Helper.isUnihertz())
+                                accept = false;
+
                             EntityLog.log(context,
                                     "Browser=" + descriptor.packageName +
                                             ":" + descriptor.version +
