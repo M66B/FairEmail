@@ -445,6 +445,9 @@ The following permissions are needed to show the count of unread messages as a b
 * *com.huawei.android.launcher.permission.CHANGE_BADGE*
 * *com.huawei.android.launcher.permission.READ_SETTINGS*
 * *com.huawei.android.launcher.permission.WRITE_SETTINGS*
+* *com.hihonor.android.launcher.permission.CHANGE_BADGE*
+* *com.hihonor.android.launcher.permission.READ_SETTINGS*
+* *com.hihonor.android.launcher.permission.WRITE_SETTINGS*
 * *android.permission.READ_APP_BADGE*
 * *com.oppo.launcher.permission.READ_SETTINGS*
 * *com.oppo.launcher.permission.WRITE_SETTINGS*
