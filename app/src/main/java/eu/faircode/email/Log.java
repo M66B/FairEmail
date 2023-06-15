@@ -30,6 +30,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.usage.UsageEvents;
 import android.app.usage.UsageStatsManager;
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -92,6 +93,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
+import androidx.browser.customtabs.CustomTabsClient;
+import androidx.browser.customtabs.CustomTabsServiceConnection;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
@@ -157,6 +160,7 @@ import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -3055,7 +3059,70 @@ public class Log {
                 } catch (Throwable ex) {
                     size += write(os, String.format("%s\r\n", ex));
                 }
+                size += write(os, "\r\n");
 
+                try {
+                    int flags = PackageManager.GET_RESOLVED_FILTER;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                        flags |= PackageManager.MATCH_ALL;
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.example.com"));
+                    List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
+                    size += write(os, "Browsers=" + (ris == null ? null : ris.size()) + "\r\n");
+                    if (ris != null)
+                        for (ResolveInfo ri : ris) {
+                            Intent serviceIntent = new Intent();
+                            serviceIntent.setAction("android.support.customtabs.action.CustomTabsService");
+                            serviceIntent.setPackage(ri.activityInfo.packageName);
+                            boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
+
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("Browser=").append(ri.activityInfo.packageName);
+                            sb.append(" tabs=").append(tabs);
+                            sb.append(" view=").append(ri.filter.hasAction(Intent.ACTION_VIEW));
+                            sb.append(" browsable=").append(ri.filter.hasCategory(Intent.CATEGORY_BROWSABLE));
+                            sb.append(" authorities=").append(ri.filter.authoritiesIterator() != null);
+                            sb.append(" schemes=");
+
+                            boolean first = true;
+                            Iterator<String> schemeIter = ri.filter.schemesIterator();
+                            while (schemeIter.hasNext()) {
+                                String scheme = schemeIter.next();
+                                if (first)
+                                    first = false;
+                                else
+                                    sb.append(',');
+                                sb.append(scheme);
+                            }
+
+                            if (tabs && BuildConfig.DEBUG)
+                                try {
+                                    boolean bindable = context.bindService(serviceIntent, new CustomTabsServiceConnection() {
+                                        @Override
+                                        public void onCustomTabsServiceConnected(@NonNull final ComponentName component, final CustomTabsClient client) {
+                                            try {
+                                                context.unbindService(this);
+                                            } catch (Throwable ex) {
+                                                Log.e(ex);
+                                            }
+                                        }
+
+                                        @Override
+                                        public void onServiceDisconnected(final ComponentName component) {
+                                            // Do nothing
+                                        }
+                                    }, 0);
+                                    sb.append(" bindable=").append(bindable);
+                                } catch (Throwable ex) {
+                                    size += write(os, ex.toString());
+                                }
+
+                            sb.append("\r\n");
+
+                            size += write(os, sb.toString());
+                        }
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
                 size += write(os, "\r\n");
 
                 try {
