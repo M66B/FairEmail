@@ -639,7 +639,7 @@ dependencies {
 
     // https://github.com/leolin310148/ShortcutBadger
     // https://mvnrepository.com/artifact/me.leolin/ShortcutBadger
-    implementation "me.leolin:ShortcutBadger:$badge_version"
+    //implementation "me.leolin:ShortcutBadger:$badge_version"
 
     // https://github.com/bugsnag/bugsnag-android
     // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android
