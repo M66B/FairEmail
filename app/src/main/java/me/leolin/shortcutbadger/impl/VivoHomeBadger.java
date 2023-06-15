@@ -26,6 +26,6 @@ public class VivoHomeBadger implements Badger {
 
     @Override
     public List<String> getSupportLaunchers() {
-        return Arrays.asList("com.vivo.launcher");
+        return Arrays.asList("com.vivo.launcher"); // com.bbk.launcher2
     }
 }
