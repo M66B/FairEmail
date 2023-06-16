@@ -345,52 +345,30 @@ public class FragmentOAuth extends FragmentBase {
             EmailProvider provider = EmailProvider.getProvider(context, id);
             EmailProvider.OAuth oauth = (graph ? provider.graph : provider.oauth);
 
-            AppAuthConfiguration appAuthConfig = new AppAuthConfiguration.Builder()
-                    .setBrowserMatcher(new BrowserMatcher() {
-                        // https://github.com/openid/AppAuth-Android/issues/116
-                        final BrowserMatcher SBROWSER = new VersionedBrowserMatcher(
-                                Browsers.SBrowser.PACKAGE_NAME,
-                                Browsers.SBrowser.SIGNATURE_SET,
-                                false,
-                                VersionRange.atMost("5.3"));
-                        final BrowserMatcher SBROWSER_TAB = new VersionedBrowserMatcher(
-                                Browsers.SBrowser.PACKAGE_NAME,
-                                Browsers.SBrowser.SIGNATURE_SET,
-                                true,
-                                VersionRange.atMost("5.3"));
+            AppAuthConfiguration.Builder appAuthConfig = new AppAuthConfiguration.Builder();
 
-                        @Override
-                        public boolean matches(@NonNull BrowserDescriptor descriptor) {
-                            boolean accept = !(SBROWSER.matches(descriptor) || SBROWSER_TAB.matches(descriptor));
-
-                            /*
-                                Unihertz, works with Chrome
-                                java.lang.SecurityException: Not allowed to bind to service Intent { act=android.support.customtabs.action.CustomTabsService pkg=org.mozilla.focus }
-                                    at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1985)
-                                    at android.app.ContextImpl.bindService(ContextImpl.java:1897)
-                                    at android.content.ContextWrapper.bindService(ContextWrapper.java:812)
-                                    at android.content.ContextWrapper.bindService(ContextWrapper.java:812)
-                                    at androidx.browser.customtabs.CustomTabsClient.bindCustomTabsService(SourceFile:26)
-                                    at net.openid.appauth.browser.CustomTabManager.bind(SourceFile:27)
-                                    at net.openid.appauth.AuthorizationService.<init>(SourceFile:12)
-                                    at net.openid.appauth.AuthorizationService.<init>(SourceFile:4)
-                                    at eu.faircode.email.FragmentOAuth.onAuthorize(SourceFile:431)
-                             */
-                            if (descriptor.useCustomTab && Helper.isUnihertz())
-                                accept = false;
-
-                            EntityLog.log(context,
-                                    "Browser=" + descriptor.packageName +
-                                            ":" + descriptor.version +
-                                            " tabs=" + descriptor.useCustomTab + "" +
-                                            " accept=" + accept +
-                                            " provider=" + provider.id);
-                            return accept;
-                        }
-                    })
-                    .build();
-
-            AuthorizationService authService = new AuthorizationService(context, appAuthConfig);
+            AuthorizationService authService;
+            try {
+                appAuthConfig.setBrowserMatcher(getBrowserMatcher(context, true, provider));
+                authService = new AuthorizationService(context, appAuthConfig.build());
+            } catch (Throwable ex) {
+                /*
+                    Unihertz, works with Chrome
+                    java.lang.SecurityException: Not allowed to bind to service Intent { act=android.support.customtabs.action.CustomTabsService pkg=org.mozilla.focus }
+                        at android.app.ContextImpl.bindServiceCommon(ContextImpl.java:1985)
+                        at android.app.ContextImpl.bindService(ContextImpl.java:1897)
+                        at android.content.ContextWrapper.bindService(ContextWrapper.java:812)
+                        at android.content.ContextWrapper.bindService(ContextWrapper.java:812)
+                        at androidx.browser.customtabs.CustomTabsClient.bindCustomTabsService(SourceFile:26)
+                        at net.openid.appauth.browser.CustomTabManager.bind(SourceFile:27)
+                        at net.openid.appauth.AuthorizationService.<init>(SourceFile:12)
+                        at net.openid.appauth.AuthorizationService.<init>(SourceFile:4)
+                        at eu.faircode.email.FragmentOAuth.onAuthorize(SourceFile:431)
+                 */
+                Log.e(ex);
+                appAuthConfig.setBrowserMatcher(getBrowserMatcher(context, false, provider));
+                authService = new AuthorizationService(context, appAuthConfig.build());
+            }
 
             String authorizationEndpoint = oauth.authorizationEndpoint;
             String tokenEndpoint = oauth.tokenEndpoint;
@@ -463,6 +441,38 @@ public class FragmentOAuth extends FragmentBase {
         } catch (Throwable ex) {
             showError(ex);
         }
+    }
+
+    private BrowserMatcher getBrowserMatcher(Context context, boolean tabs, EmailProvider provider) {
+        return new BrowserMatcher() {
+            // https://github.com/openid/AppAuth-Android/issues/116
+            final BrowserMatcher SBROWSER = new VersionedBrowserMatcher(
+                    Browsers.SBrowser.PACKAGE_NAME,
+                    Browsers.SBrowser.SIGNATURE_SET,
+                    false,
+                    VersionRange.atMost("5.3"));
+            final BrowserMatcher SBROWSER_TAB = new VersionedBrowserMatcher(
+                    Browsers.SBrowser.PACKAGE_NAME,
+                    Browsers.SBrowser.SIGNATURE_SET,
+                    true,
+                    VersionRange.atMost("5.3"));
+
+            @Override
+            public boolean matches(@NonNull BrowserDescriptor descriptor) {
+                boolean accept = !(SBROWSER.matches(descriptor) || SBROWSER_TAB.matches(descriptor));
+
+                if (descriptor.useCustomTab && !tabs)
+                    accept = false;
+
+                EntityLog.log(context,
+                        "OAuth browser=" + descriptor.packageName +
+                                ":" + descriptor.version +
+                                " tabs=" + descriptor.useCustomTab + "/" + tabs +
+                                " accept=" + accept +
+                                " provider=" + provider.id);
+                return accept;
+            }
+        };
     }
 
     private void onHandleOAuth(@NonNull Intent data) {
