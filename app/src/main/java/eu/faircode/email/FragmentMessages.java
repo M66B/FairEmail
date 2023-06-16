@@ -251,8 +251,7 @@ public class FragmentMessages extends FragmentBase
     private TextView tvAirplane;
     private TextView tvNotifications;
     private TextView tvBatteryOptimizations;
-    private TextView tvHintPro;
-    private ImageButton ibHintPro;
+    private TextView tvSupport;
     private ImageButton ibHintSupport;
     private ImageButton ibHintSwipe;
     private ImageButton ibHintSelect;
@@ -276,7 +275,7 @@ public class FragmentMessages extends FragmentBase
     private Group grpAirplane;
     private Group grpNotifications;
     private Group grpBatteryOptimizations;
-    private Group grpPro;
+    private Group grpSupport;
     private Group grpHintSupport;
     private Group grpHintSwipe;
     private Group grpHintSelect;
@@ -558,8 +557,7 @@ public class FragmentMessages extends FragmentBase
         tvAirplane = view.findViewById(R.id.tvAirplane);
         tvNotifications = view.findViewById(R.id.tvNotifications);
         tvBatteryOptimizations = view.findViewById(R.id.tvBatteryOptimizations);
-        tvHintPro = view.findViewById(R.id.tvHintPro);
-        ibHintPro = view.findViewById(R.id.ibHintPro);
+        tvSupport = view.findViewById(R.id.tvSupport);
         ibHintSupport = view.findViewById(R.id.ibHintSupport);
         ibHintSwipe = view.findViewById(R.id.ibHintSwipe);
         ibHintSelect = view.findViewById(R.id.ibHintSelect);
@@ -584,7 +582,7 @@ public class FragmentMessages extends FragmentBase
         grpAirplane = view.findViewById(R.id.grpAirplane);
         grpNotifications = view.findViewById(R.id.grpNotifications);
         grpBatteryOptimizations = view.findViewById(R.id.grpBatteryOptimizations);
-        grpPro = view.findViewById(R.id.grpPro);
+        grpSupport = view.findViewById(R.id.grpSupport);
         grpHintSupport = view.findViewById(R.id.grpHintSupport);
         grpHintSwipe = view.findViewById(R.id.grpHintSwipe);
         grpHintSelect = view.findViewById(R.id.grpHintSelect);
@@ -659,20 +657,11 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
-        grpPro.setVisibility(View.GONE);
-        tvHintPro.setOnClickListener(new View.OnClickListener() {
+        grpSupport.setVisibility(View.GONE);
+        tvSupport.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(), ActivityBilling.class));
-            }
-        });
-
-        ibHintPro.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                long banner_hidden = new Date().getTime() + FragmentPro.HIDE_BANNER * 7 * 24 * 3600 * 1000L;
-                prefs.edit().putLong("banner_hidden", banner_hidden).apply();
-                startActivity(new Intent(v.getContext(), ActivityBilling.class));
+                startActivity(new Intent(getContext(), ActivityBilling.class));
             }
         });
 
@@ -5158,11 +5147,11 @@ public class FragmentMessages extends FragmentBase
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if (grpPro != null &&
+        if (grpSupport != null &&
                 ("pro".equals(key) || "banner_hidden".equals(key))) {
             boolean pro = ActivityBilling.isPro(getContext());
             long banner_hidden = prefs.getLong("banner_hidden", 0);
-            grpPro.setVisibility(
+            grpSupport.setVisibility(
                     !pro && banner_hidden == 0 && viewType == AdapterMessage.ViewType.UNIFIED
                             ? View.VISIBLE : View.GONE);
         }

@@ -92,29 +92,16 @@
                 app:layout_constraintTop_toBottomOf="@id/tvBatteryOptimizations" />
 
             <TextView
-                android:id="@+id/tvHintPro"
-                android:layout_width="0dp"
+                android:id="@+id/tvSupport"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:minHeight="36dp"
+                android:layout_gravity="center_vertical"
                 android:padding="6dp"
                 android:text="@string/title_pro_support"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toStartOf="@+id/ibHintPro"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vSeparatorBatteryOptimizations" />
-
-            <ImageButton
-                android:id="@+id/ibHintPro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:contentDescription="@string/title_legend_close_hint"
-                android:padding="9dp"
-                app:layout_constraintBottom_toBottomOf="@id/tvHintPro"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/tvHintPro"
-                app:srcCompat="@drawable/twotone_close_24" />
 
             <View
                 android:id="@+id/vSeparatorSupport"
@@ -122,7 +109,7 @@
                 android:layout_height="1dp"
                 android:background="?attr/colorSeparator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvHintPro" />
+                app:layout_constraintTop_toBottomOf="@id/tvSupport" />
 
             <TextView
                 android:id="@+id/tvHintSupport"
@@ -510,10 +497,10 @@
                 app:constraint_referenced_ids="tvBatteryOptimizations,vSeparatorBatteryOptimizations" />
 
             <androidx.constraintlayout.widget.Group
-                android:id="@+id/grpPro"
+                android:id="@+id/grpSupport"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="tvHintPro,ibHintPro,vSeparatorSupport" />
+                app:constraint_referenced_ids="tvSupport,vSeparatorSupport" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpHintSupport"
