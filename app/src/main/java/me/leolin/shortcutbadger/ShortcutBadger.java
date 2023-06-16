@@ -78,12 +78,8 @@ public final class ShortcutBadger {
     public static boolean applyCount(Context context, int badgeCount) {
         try {
             applyCountOrThrow(context, badgeCount);
-            eu.faircode.email.EntityLog.log(context, "Applied badge count=" + badgeCount +
-                    " badger=" + sShortcutBadger.getClass());
             return true;
         } catch (ShortcutBadgeException e) {
-            eu.faircode.email.EntityLog.log(context, "badger=" + sShortcutBadger.getClass() + "\n" +
-                    e + "\n" + Log.getStackTraceString(e));
             if (Log.isLoggable(LOG_TAG, Log.DEBUG)) {
                 Log.d(LOG_TAG, "Unable to execute badge", e);
             }
@@ -214,10 +210,6 @@ public final class ShortcutBadger {
         ResolveInfo resolveInfoDefault = context.getPackageManager().resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
         validateInfoList(resolveInfoDefault, resolveInfos);
 
-        for (ResolveInfo ri : resolveInfos)
-            eu.faircode.email.EntityLog.log(context, "Badger pkg=" + ri.activityInfo.packageName +
-                    (ri.activityInfo.packageName.equals(resolveInfoDefault.activityInfo.packageName) ? "*" : ""));
-
         for (ResolveInfo resolveInfo : resolveInfos) {
             String currentHomePackage = resolveInfo.activityInfo.packageName;
 
@@ -239,9 +231,6 @@ public final class ShortcutBadger {
             }
         }
 
-        eu.faircode.email.EntityLog.log(context, "Selected badger=" +
-                (sShortcutBadger == null ? null : sShortcutBadger.getClass()));
-
         if (sShortcutBadger == null) {
             if (Build.MANUFACTURER.equalsIgnoreCase("ZUK"))
                 sShortcutBadger = new ZukHomeBadger();
@@ -254,8 +243,6 @@ public final class ShortcutBadger {
             else
                 sShortcutBadger = new DefaultBadger();
         }
-
-        eu.faircode.email.EntityLog.log(context, "Using badger=" + sShortcutBadger.getClass());
 
         return true;
     }
