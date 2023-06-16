@@ -576,11 +576,12 @@ public class CloudSync {
             return responses.get(0);
         else {
             JSONArray jall = new JSONArray();
-            for (JSONObject response : responses) {
-                JSONArray jitems = response.getJSONArray("items");
-                for (int i = 0; i < jitems.length(); i++)
-                    jall.put(jitems.getJSONObject(i));
-            }
+            for (JSONObject response : responses)
+                if (response.has("items")) {
+                    JSONArray jitems = response.getJSONArray("items");
+                    for (int i = 0; i < jitems.length(); i++)
+                        jall.put(jitems.getJSONObject(i));
+                }
             JSONObject jresponse = responses.get(0);
             jresponse.put("items", jall);
             return jresponse;
