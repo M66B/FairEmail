@@ -940,378 +940,488 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_no_composable">Om berjochten te ferstjoeren, hawwe jo in identiteit en in konseptmap nedich yn jo accountynstellingsen</string>
     <string name="title_no_standard">Dizze oanbieder brûkt in eigen e-mailprotokol en dêrom is it net mooglik e-mailclients fan tredden te brûken</string>
     <string name="title_no_idle">Dizze provider stipet gjin pushberjochten. Dit sil de ûntfangst fan nije berjochten fertrage en it batterijgebrûk ferheegje.</string>
-    <string name="title_no_utf8">Dizze provider stipet UTF-8 net</string>
-    <string name="title_no_sync">Syngronisaasjefouten sûnt %1$s</string>
-    <string name="title_reply_domain">De stjoerder (%1$s) en antwurddomein (%2$s) ferskille</string>
-    <string name="title_identity_required">In identiteit is ferplicht om email te stjoeren</string>
-    <string name="title_drafts_required">In map foar ûntwerpen is ferplicht om email te ferstjoeren</string>
-    <string name="title_drafts_select">E-mailberjochten ferstjoere fereasket dat in konseptmap selektearre wurdt yn de accountynstellingen</string>
+    <string name="title_no_utf8">Dizze provider stipet gjin UTF-8</string>
+    <string name="title_no_sync">Syngronisaasjeflaters sûnt %1$s</string>
+    <string name="title_reply_domain">De ôfstjoerder (%1$s) en antwurddomein (%2$s) binne net lyk</string>
+    <string name="title_identity_required">In identiteit is ferplicht om e-mailberjochten te stjoeren</string>
+    <string name="title_drafts_required">In konseptmap is ferplicht om e-mailberjochten te ferstjoeren</string>
+    <string name="title_drafts_select">E-mailberjochten ferstjoere fereasket dat in konseptmap yn de accountynstellingen selektearre wurdt</string>
+    <string name="title_account_auth_update">Autorisaasje bywurkje</string>
+    <string name="title_account_auth_password">Oerskeakelje nei wachtwurdferifikaasje</string>
+    <string name="title_change_password">Wachtwurd wizigje</string>
+    <string name="title_delete_account">Account fuortsmite</string>
     <string name="title_account_delete">Dizze account permanint wiskje?</string>
     <string name="title_identity_delete">Dizze identiteit permanint wiskje?</string>
-    <string name="title_edit_html">Bewurkje as HTML</string>
+    <string name="title_edit_html">As HTML bewurkje</string>
+    <string name="title_check_html">HTML kontrolearje</string>
+    <string name="title_import_file">Bestân ymportearje</string>
     <string name="title_sign_key">Undertekenkaai: %1$s</string>
     <string name="title_last_connected">Lêst ferbûn: %1$s</string>
-    <string name="title_backoff_until">Wachtsje nei mislearring oant: %1$s</string>
-    <string name="title_storage_quota">Tsjinner opslach gebrûk: %1$s/%2$s</string>
-    <string name="title_pop_sent">As dyn apparaat ferlern of stellen is, kinne ferstjoerde berjochten miskien ferlern gean.</string>
-    <string name="title_pop_warning">As in POP3-server it UIDL-kommando net begrypt, kin it gegevensgebrûk heech wêze. Pasje de peilfrekwinsje hjirûnder oan.</string>
-    <string name="title_pop_folders">It POP3 protokol understeunt gjin mappen</string>
+    <string name="title_backoff_until">Wachtsje nei flater oant: %1$s</string>
+    <string name="title_storage_quota">Unthâldgebrûk server: %1$s/%2$s</string>
+    <string name="title_pop_support">It POP3-protokol kin allinnich berjochten út Postfek YN downloade en fuortsmite. It is net mooglik om berjochten as lêzen te markearjen, spam te melden, berjochten te ferpleatsen, ensfh. Betink wêr mooglik it IMAP-protokol te brûken.</string>
+    <string name="title_pop_sent">As jo apparaat ferlern of stellen is, kinne ferstjoerde berjochten miskien ferlern gean.</string>
+    <string name="title_pop_warning">As in POP3-server it UIDL-kommando net begrypt, kin it gegevensgebrûk heech wêze. Pas de peilfrekwinsje hjirûnder oan.</string>
+    <string name="title_pop_folders">It POP3-protokol stipet it meitsjen fan mappen net</string>
     <string name="title_oauth_support">OAuth wurdt net stipe</string>
-    <string name="title_review">Resinsje</string>
-    <string name="title_hint_alias">Druk lang op in identiteit om opsjes wer te jaan, lykas kopiearje om aliasidentiteiten te meitsjen</string>
-    <string name="title_service_auth">De emailserver sei: \'%1$s\'</string>
-    <string name="title_service_vpn">Dit kin wurde feroarsake troch it VPN dat wurdt brûkt</string>
-    <string name="title_service_port">Dubbel kontrolearje it poartenûmer</string>
-    <string name="title_service_protocol">Kontrolearje asjebleaft it protokol (SSL / TLS as STARTTLS)</string>
-    <string name="title_advanced_browse">Blêdzje berjochten op de server</string>
-    <string name="title_advanced_expand_read">Markearje berjochten lêzen as útwreidzjen</string>
-    <string name="title_synchronize_now">Syngronisearje no</string>
+    <string name="title_review">Kontrolearje</string>
+    <string name="title_hint_accounts">Druk lang op in account om opsjes wer te jaan, bygelyks om in account út te skeakeljen of fuort te smiten</string>
+    <string name="title_hint_alias">Druk lang foar opsjes, lykas kopiearje om aliasidentiteiten te meitsjen</string>
+    <string name="title_service_auth">De e-mailserver melde: ‘%1$s’</string>
+    <string name="title_service_vpn">Dit kin feroarsake wurde troch de VPN dy’t brûkt wurdt</string>
+    <string name="title_service_token">De Android-accountmanager kin blokkearre wurde troch in VPN, firewall, adblocker, ensfh., wêrtroch it gjin tagongstoken krije kin</string>
+    <string name="title_service_port">Kontrolearje it poartenûmer</string>
+    <string name="title_service_protocol">Kontrolearje it protokol (SSL/TLS of STARTTLS)</string>
+    <string name="title_service_error10">Dizze account moat opnij ferifiearre wurde, wat dien wurde kin fia de flugge ynstallaasjewizard</string>
+    <string name="title_advanced_browse">Blêdzje troch berjochten op de server</string>
+    <string name="title_advanced_expand_read">Markearje berjochten by útklappen as lêzen</string>
+    <string name="title_synchronize_now">No syngronisearje</string>
     <string name="title_synchronize_subfolders">Submappen</string>
     <string name="title_synchronize_more">Mear berjochten ophelje</string>
-    <string name="title_synchronize_more_hint">Hjirtroch wurd in inkele download fan âldere berjochten dien, dus it sil net resultearje yn mear batterijgebrûk foar dagelyks gebrûk</string>
+    <string name="title_synchronize_more_hint">Dit sil resultearje yn in inkelde download fan âldere berjochten, dus it sil net resultearje yn mear batterijgebrûk foar deistich gebrûk</string>
+    <string name="title_synchronize_more_hint2">Berjochten wurde ophelle sa gau as de e-mailserver se ôfleverje kin en bewarje sa gau as it apparaat se bewarje en yndeksearje kin.
+        De beheinende faktor is meastentiids de snelheid fan de ynterne ûnthâldromte fan it apparaat.    </string>
+    <string name="title_synchronize_more_hint3">Hâld der rekkening mei dat it bewarjen fan in protte berjochten (tsientûzen of mear) op jo apparaat fertragingen feroarsaakje kin, omdat de ynterne ûnthâldromte net ûneinich fluch is.</string>
     <string name="title_synchronize_enabled">Syngronisearje</string>
     <string name="title_synchronize_batch_enable">Syngronisaasje ynskeakelje</string>
-    <string name="title_synchronize_batch_disable">Syngronisaasje útsette</string>
-    <string name="title_delete_local">Lokale berjochten wiskje</string>
-    <string name="title_delete_browsed">Wiske trochsneupte/trochsochte berjochten</string>
-    <string name="title_empty_trash">Lege jiskefet</string>
-    <string name="title_empty_spam">Spam leech</string>
+    <string name="title_synchronize_batch_disable">Syngronisaasje útskeakelje</string>
+    <string name="title_notify_batch_enable">Meldingen foar nije berjochten ynskeakelje</string>
+    <string name="title_notify_batch_disable">Meldingen foar nije berjochten útskeakelje</string>
+    <string name="title_delete_local">Lokale berjochten fuortsmite</string>
+    <string name="title_delete_browsed">Trochsneupe/sochte berjochten fuortsmite</string>
+    <string name="title_expunge">Opromje</string>
+    <string name="title_expunge_remark">Dit sil alle berjochten dy’t markearre binne om fuort te smiten permanint fuortsmite</string>
+    <string name="title_empty_trash">Jiskefet leegje</string>
+    <string name="title_empty_spam">Net-winske leegje</string>
     <string name="title_edit_properties">Eigenskippen bewurkje</string>
-    <string name="title_edit_rules">Bewurkje regel</string>
-    <string name="title_execute_rules">Regels útfiere</string>
+    <string name="title_edit_rules">Rigel bewurkje</string>
+    <string name="title_execute_rules">Rigels útfiere</string>
     <string name="title_export_messages">Berjochten eksportearje</string>
-    <string name="title_create_channel">Meitsje kanaal fan notifikaasje</string>
-    <string name="title_edit_channel">Notifikaasjekanaal bewurkje</string>
-    <string name="title_delete_channel">Notifikaasjekanaal wiskje</string>
+    <string name="title_create_channel">Meldingskanaal oanmeitsje</string>
+    <string name="title_edit_channel">Meldingskanaal bewurkje</string>
+    <string name="title_delete_channel">Meldingskanaal fuortsmite</string>
     <string name="title_insert_contact">Kontakt tafoegje</string>
     <string name="title_edit_contact">Kontakt bewurkje</string>
-    <string name="title_contact_email">Email</string>
+    <string name="title_contact_email">E-mailberjocht</string>
     <string name="title_contact_name">Namme</string>
+    <string name="title_contact_group">Groep</string>
+    <string name="title_import_contacts">vCards ymportearje</string>
+    <string name="title_export_contacts">vCards eksportearje</string>
     <string name="title_create_sub_folder">Submap oanmeitsje</string>
-    <string name="title_empty_trash_ask">Alle jiskefetberjochten permanint wiskje?</string>
-    <string name="title_empty_spam_ask">Alle spamberjochten permanint wiskje?</string>
-    <string name="title_empty_trash_all_ask">Wiskje alle jiskefetberjochten permanint?</string>
-    <string name="title_empty_spam_all_ask">Alle spam-berjochten fan alle accounts permanint wiskje?</string>
-    <string name="title_empty_all">Dit sil alle berjochten wiskje sawol fan it apparaat as de server</string>
-    <string name="title_delete_operation_title">Bedriuwen wiskje</string>
-    <string name="title_delete_operation_error">Mei in flater berjocht</string>
-    <string name="title_delete_operation_fetch">Opsjes helje</string>
-    <string name="title_delete_operation_move">Bewurkje ferpleatse</string>
-    <string name="title_delete_operation_flag">Flagge operaasjes</string>
-    <string name="title_delete_operation_delete">Bedriuwen wiskje</string>
-    <string name="title_delete_operation_deleted">%1$d operaasjes wiske</string>
-    <string name="title_no_operations">Gjin wachtsjende operaasjes</string>
-    <string name="title_hint_operations">Wiskjen fan operaasjes kin resultearje yn ferdwine berjochten en syngronisaasjeproblemen</string>
-    <string name="title_op_title_headers">Headers downloade</string>
-    <string name="title_op_title_raw">Rau berjocht downloade</string>
-    <string name="title_folder_name">Map namme</string>
-    <string name="title_display_name">Display namme</string>
-    <string name="title_show_folders">Sjoch ferburgen mappen</string>
-    <string name="title_show_flagged">Toant stjerre berjochten</string>
-    <string name="title_subscribed_only">Ynskriuwe allinich</string>
-    <string name="title_hide_folder">Map ferbergje</string>
-    <string name="title_unified_folder">Lit sjen yn unifoarme postfak</string>
-    <string name="title_navigation_folder">Lit sjen yn navigaasjemenu</string>
+    <string name="title_empty_trash_ask">Alle jiskefetberjochten permanint fuortsmite?</string>
+    <string name="title_empty_spam_ask">Alle net-winske berjochten permanint fuortsmite?</string>
+    <string name="title_empty_trash_all_ask">Alle berjochten yn de jiskefetten fan alle accounts permanint fuortsmite?</string>
+    <string name="title_empty_spam_all_ask">Alle net-winske berjochten fan alle accounts permanint fuortsmite?</string>
+    <string name="title_empty_all">Dit sil alle berjochten fuortsmite, sawol fan it apparaat as fan de server</string>
+    <string name="title_delete_operation_title">Bewurkingen fuortsmite</string>
+    <string name="title_delete_operation_error">Mei in flatermelding</string>
+    <string name="title_delete_operation_fetch">Bewurkingen ophelje</string>
+    <string name="title_delete_operation_move">Bewurkingen ferpleatse</string>
+    <string name="title_delete_operation_flag">Bewurkingen labelje</string>
+    <string name="title_delete_operation_delete">Bewurkingen fuortsmite</string>
+    <string name="title_delete_operation_deleted">%1$d bewurkingen fuortsmiten</string>
+    <string name="title_delete_contacts">Sichtbere lokale kontakten fuortsmite?</string>
+    <string name="title_no_operations">Gjin iepensteande bewurkingen</string>
+    <string name="title_check_operations">Kontrolearje op bewurkingen</string>
+    <string name="title_hint_operations">Fuortsmiten fan bewurkingen kin resultearje yn ferdwine berjochten en syngronisaasjeproblemen</string>
+    <string name="title_op_title_headers">Kopteksten downloade</string>
+    <string name="title_op_title_raw">Rûch berjocht downloade</string>
+    <string name="title_folder_name">Mapnamme</string>
+    <string name="title_display_name">Werjeftenamme</string>
+    <string name="title_show_folders">Ferstoppe mappen toane</string>
+    <string name="title_show_flagged">Oantal berjochten mei stjer toane</string>
+    <string name="title_subscribed_only">Allinnich abonnearre</string>
+    <string name="title_sort_unread_atop">Net-lêzen boppe-oan sortearje</string>
+    <string name="title_search_folder">Sykje nei map</string>
+    <string name="title_apply_to_all">Op alle tapasse</string>
+    <string name="title_edit_account_name">Accountnamme bewurkje</string>
+    <string name="title_edit_account_color">Accountkleur bewurkje</string>
+    <string name="title_hide_folder">Map ferstopje</string>
+    <string name="title_hide_seen_folder">Ferstopje map as alle berjochten lêzen binne</string>
+    <string name="title_hide_seen_folder_hint">Allinnich yn de account- en kombinearre Postfek YN mappelist</string>
+    <string name="title_unified_folder">Yn kombinearre Postfek YN toane</string>
+    <string name="title_navigation_folder">Yn navigaasjemenu toane</string>
+    <string name="title_navigation_folder_hide">Yn navigaasjemenu ferstopje</string>
     <string name="title_unified_inbox_add">Oan kombinearre Postfek YN tafoegje</string>
     <string name="title_unified_inbox_delete">Ut kombinearre Postfek YN fuortsmite</string>
-    <string name="title_synchronize_folder">Syngronisearje (berjochten ûntfange)</string>
-    <string name="title_poll_folder">Kontrolearje periodyk ynstee fan trochgeande syngronisaasje</string>
-    <string name="title_poll_folder_remark">De measte emailservers stean push-berjochten allinich foar in hantsjefol mappen ta!</string>
-    <string name="title_download_folder">Berjochtenteksten en bylagen automatysk downloade</string>
-    <string name="title_notify_folder">Meld oer nije berjochten</string>
-    <string name="title_auto_classify_source">Klassifisear nije berjochten yn dizze map</string>
+    <string name="title_synchronize_folder">Syngronisearje (ûntfongen berjochten)</string>
+    <string name="title_poll_folder">Kontrolearje periodyk yn stee fan trochgeande syngronisaasje</string>
+    <string name="title_poll_folder_remark">De measte e-mailservers stean push-berjochten allinnich foar in hantsjefol mappen ta!</string>
+    <string name="title_download_folder">Berjochtteksten en bylagen automatysk downloade</string>
+    <string name="title_notify_folder">Melding by nije berjochten</string>
+    <string name="title_auto_classify_source">Klassifisearje nije berjochten yn dizze map</string>
     <string name="title_auto_classify_target">Ferpleats klassifisearre berjochten automatysk nei dizze map</string>
-    <string name="title_sync_days">Berjochten (dagen) syngronisearje</string>
-    <string name="title_sync_days_remark">Dizze wearde ferheegje sil gebrûk meitsje fan batterij en gegevens</string>
-    <string name="title_keep_days">Berjochten bewarje (dagen)</string>
-    <string name="title_keep_days_remark">Alde berjochten sille fan it apparaat wurde fuortsmiten, mar bliuwe op \'e server</string>
+    <string name="title_sync_days">Syngronisearje fan berjochten (dagen)</string>
+    <string name="title_sync_days_remark">In hegere wearde ferheget it batterij- en datagebrûk</string>
+    <string name="title_keep_days">Bewarjen fan berjochten (dagen)</string>
+    <string name="title_keep_days_remark">Alde berjochten sille fan it apparaat fuortsmiten wurden, mar bliuwe op de server</string>
     <string name="title_keep_all">Bewarje alle berjochten</string>
     <string name="title_poll_system">Stel systeemmappen yn om periodyk te kontrolearjen op nije berjochten</string>
     <string name="title_poll_user">Stel brûkersmappen yn om periodyk te kontrolearjen op nije berjochten</string>
     <string name="title_auto_trash">Alde berjochten automatysk nei jiskefet ferpleatse</string>
-    <string name="title_auto_delete">Alde berjochten automatysk permanint wiskje</string>
-    <string name="title_auto_delete_hint">Alde berjochten binne berjochten dy\'t net langer op it apparaat wurde bewarre</string>
-    <string name="title_auto_delete_archive_hint">It fuortheljen fan de argyfmap is net altyd tastien troch de emailserver</string>
-    <string name="title_inbox_root_hint">        Guon oanbieders fereaskje dat nije mappen wurde oanmakke ûnder it postfak.        Yn dit gefal kinne jo lang yn it postfak drukke yn \'e maplist en selektearje\' Submap oanmeitsje \'.
+    <string name="title_auto_delete">Alde berjochten automatysk permanint fuortsmite</string>
+    <string name="title_auto_delete_hint">Alde berjochten binne berjochten dy’t net langer op it apparaat bewarre wurde</string>
+    <string name="title_auto_delete_archive_hint">It fuortsmiten fan de argyfmap is net altyd tastien troch de e-mailserver</string>
+    <string name="title_inbox_root_hint">        Guon providers fereaskje dat nije mappen oanmakke wurde ûnder it Postfek YN.        Yn dit gefal kinne jo lang op it Postfek YN drukke yn de maplist en ‘Submap oanmeitsje’ selektearje.
     </string>
     <string name="title_folder_name_missing">Mapnamme ûntbrekt</string>
     <string name="title_folder_exists">Map %1$s bestiet</string>
-    <string name="title_folder_delete">Dizze map en alle berjochten dy \'t befettet permanint wiskje?</string>
-    <string name="title_months">Moanne</string>
+    <string name="title_folder_delete">Dizze map en alle berjochten dy’ it befettet permanint fuortsmite?</string>
+    <string name="title_months">Moannen</string>
     <string name="title_months_all">Alle</string>
-    <string name="title_folder_unified">Unifieare postfak</string>
+    <string name="title_folder_unified">Kombinearre Postfek YN</string>
     <string name="title_folder_inbox">Postfek YN</string>
-    <string name="title_folder_outbox">Utfak</string>
+    <string name="title_folder_outbox">Postfek ÚT</string>
     <string name="title_folder_all">Argyf</string>
     <string name="title_folder_drafts">Konsepten</string>
     <string name="title_folder_trash">Jiskefet</string>
-    <string name="title_folder_junk">Spam</string>
-    <string name="title_folder_sent">Stjoerd</string>
+    <string name="title_folder_junk">Net-winske</string>
+    <string name="title_folder_sent">Ferstjoerd</string>
     <string name="title_folder_system">Systeem</string>
     <string name="title_folder_user">Brûker</string>
-    <string name="title_folder_user_only">Allinne brûker mappen</string>
+    <string name="title_folder_user_only">Allinnich brûkersmappen</string>
     <string name="title_folder_primary">Mappen primêr account</string>
-    <string name="title_folders_unified">Ferienige mappen ynbox</string>
-    <string name="title_folder_local_drafts">Lokale konsept-map</string>
+    <string name="title_folders_unified">Kombinearre Postfek YN-mappen</string>
+    <string name="title_folder_local_drafts">Lokale konseptmap</string>
     <string name="title_no_folders">Gjin mappen</string>
     <string name="title_no_messages">Gjin berjochten</string>
     <string name="title_filters_active">Ien of mear filters aktyf</string>
-    <string name="title_duplicate_in">Berjocht duplisearje yn %1$s</string>
+    <string name="title_duplicate_in">Dûbeld berjocht yn %1$s</string>
+    <string name="title_trashed_from">Fuortsmiten berjocht fan %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
-    <string name="title_subject_forward">Foarút: %1$s</string>
+    <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
-    <string name="title_seen">Mark lêzen</string>
-    <string name="title_unseen">Markearje as net lêzen</string>
-    <string name="title_toggle_seen">Wikselje lêze</string>
-    <string name="title_hide">Ferbergje</string>
-    <string name="title_unhide">Sjoch</string>
-    <string name="title_toggle_hide">Ferstopjen út/ynskeakelje</string>
+    <string name="title_seen">As lêzen markearje</string>
+    <string name="title_unseen">As net lêzen markearje</string>
+    <string name="title_toggle_seen">Lêzen/Net-lêzen</string>
+    <string name="title_hide">Ferstopje</string>
+    <string name="title_unhide">Toane</string>
+    <string name="title_toggle_hide">Ferstopjen út-/ynskeakelje</string>
     <string name="title_flag">Stjer tafoegje</string>
     <string name="title_flag_color">Kleurde stjer&#8230;</string>
     <string name="title_unflag">Stjer fuortsmite</string>
-    <string name="title_set_importance">Stel belang</string>
+    <string name="title_set_importance">Belang ynstelle</string>
     <string name="title_importance_low">Leech</string>
     <string name="title_importance_normal">Normaal</string>
     <string name="title_importance_high">Heech</string>
     <string name="title_search_in_text">Sykje yn tekst&#8230;</string>
-    <string name="title_forward">Foarút</string>
+    <string name="title_forward">Trochstjoere</string>
+    <string name="title_resend">Opnij ferstjoere</string>
     <string name="title_fetching_headers">Berjochtkoppen downloade&#8230;</string>
     <string name="title_new_message">Nij berjocht</string>
-    <string name="title_editasnew">Bewurkje as nij</string>
-    <string name="title_edit_notes">Lokale notysjes oanpasse</string>
+    <string name="title_editasnew">As nij bewurkje</string>
+    <string name="title_edit_notes">Lokale notysjes bewurkje</string>
     <string name="title_create_rule">Regel meitsje&#8230;</string>
+    <string name="title_full_screen">Folslein skerm</string>
+    <string name="title_force_light">Ljocht tema forsearje</string>
     <string name="title_share">Diele</string>
-    <string name="title_event">Tafoegje oan aginda</string>
+    <string name="title_event">Oan aginda tafoegje</string>
     <string name="title_pin">Fluchkeppeling tafoegje</string>
-    <string name="title_print">Ôfdrukke</string>
+    <string name="title_pin_label">Titel fluchkeppeling</string>
+    <string name="title_print">Ofdrukke</string>
     <string name="title_print_header">Koptekst ôfdrukke</string>
-    <string name="title_print_images">Printsje de ôfbyldings</string>
-    <string name="title_print_images_remark">Ofbyldings downloade kin wat tiid duorje</string>
-    <string name="title_show_headers">Sjoch kopteksten</string>
-    <string name="title_raw_save">Bewarje rau berjocht</string>
-    <string name="title_raw_send">Stjoere as bylage</string>
-    <string name="title_raw_send_message">Berjochte</string>
+    <string name="title_print_images">Ofbyldingen ôfdrukke</string>
+    <string name="title_print_images_remark">Ofbyldingen downloade kin wat tiid duorje</string>
+    <string name="title_show_headers">Kopteksten toane</string>
+    <string name="title_share_as_html">As HTML diele</string>
+    <string name="title_raw_save">Rûch berjocht bewarje</string>
+    <string name="title_raw_send">As bylage stjoere</string>
+    <string name="title_raw_send_message">Berjocht</string>
     <string name="title_raw_send_thread">Konversaasje</string>
-    <string name="title_manage_keywords">Behear trefwurden</string>
-    <string name="title_manage_labels">Gmail labels beheare</string>
-    <string name="title_add_keyword">Foegje kaaiwurd ta</string>
-    <string name="title_show_inline">Sjoch ynline taheaksels</string>
-    <string name="title_download_all">Download alles</string>
-    <string name="title_save_all">Alles opslaan</string>
-    <string name="title_save_eml">Rûge berjochtenbestân opslaan</string>
+    <string name="title_manage_keywords">Kaaiwurden beheare</string>
+    <string name="title_manage_labels">Gmail-labels beheare</string>
+    <string name="title_add_keyword">Kaaiwurd tafoegje</string>
+    <string name="title_show_inline">Inline bylagen toane</string>
+    <string name="title_download_all">Alles downloade</string>
+    <string name="title_save_all">Alles bewarje</string>
+    <string name="title_save_eml">Rûch berjocht bewarje</string>
+    <string name="title_save_file">Bestân bewarje</string>
+    <string name="title_eml_remark">Om berjochten troch te stjoeren, moatte de rûge (orizjinele) berjochten fan de e-mailserver download wurde. Dit fereasket in ynternetferbining en de berjochten moatte noch bewarre wêze op de e-mailserver.</string>
+    <string name="title_eml_option">Dit kin foarkommen wurde troch it altyd downloaden fan rûge berjochtbestannen yn de ferbiningsynstellingen yn te skeakeljen</string>
+    <string name="title_eml_downloaded">Rûge berjochten om te downloaden: %1$s</string>
+    <string name="title_auto_confirm">Automatysk nei inkelde sekonden befêstigje</string>
     <string name="title_buttons">Knoppen selektearje</string>
     <string name="title_buttons_hint">De eigentlike beskikbere aksjes binne ôfhinklik fan it accounttype en konfiguraasje</string>
-    <string name="title_button_search_similar">Sykje ferlykbere berjochten</string>
-    <string name="title_button_search_text">Sykje troch berjochtteksten</string>
+    <string name="title_button_search_similar">Soartgelikense berjochten sykje</string>
+    <string name="title_button_search_text">Yn berjochtteksten sykje</string>
     <string name="title_configure_buttons">Knoppen ynstelle&#8230;</string>
-    <string name="title_quick_actions_snooze">Snooze</string>
+    <string name="title_quick_actions">Aksjes selektearje</string>
+    <string name="title_quick_actions_hint">Op syn meast wurde %1$d aksjes toand</string>
+    <string name="title_quick_actions_low">Leech belang</string>
+    <string name="title_quick_actions_normal">Normaal belang</string>
+    <string name="title_quick_actions_high">Heech belang</string>
+    <string name="title_quick_actions_snooze">Slommerje</string>
+    <string name="title_quick_actions_clear">Seleksje nei aksje wiskje</string>
     <string name="title_trash">Jiskefet</string>
     <string name="title_copy">Kopiearje&#8230;</string>
     <string name="title_copy_to">Kopiearje nei&#8230;</string>
-    <string name="title_subscribe">Ynskriuwe</string>
-    <string name="title_delete">Ferwiderje</string>
+    <string name="title_subscribe">Abonnearje</string>
+    <string name="title_delete">Fuortsmite</string>
+    <string name="title_delete_all">Alles fuortsmite</string>
     <string name="title_more">Mear</string>
-    <string name="title_spam">Spam</string>
+    <string name="title_less">Minder</string>
+    <string name="title_spam">Net-winske</string>
     <string name="title_move">Ferpleatse</string>
     <string name="title_copy_btn">Kopiearje</string>
     <string name="title_keywords_btn">Kaaiwurden</string>
     <string name="title_unsubscribe">Ofmelde</string>
     <string name="title_message_rule">Regel meitsje</string>
-    <string name="title_no_junk">Net spam</string>
+    <string name="title_no_junk">Net net-winske</string>
     <string name="title_move_to">Ferpleatse nei&#8230;</string>
     <string name="title_move_to_folder">Ferpleatse nei&#8230;</string>
     <string name="title_move_to_account">Ferpleatse nei %1$s&#8230;</string>
-    <string name="title_report_spam">Behannelje as spam</string>
-    <string name="title_delete_permanently">Wiskje permanint</string>
+    <string name="title_report_spam">Behannelje as net-winske</string>
+    <string name="title_delete_permanently">Permanint fuortsmite</string>
     <string name="title_snooze">Slommerje&#8230;</string>
-    <string name="title_archive">Argyf</string>
-    <string name="title_reply">Antwurdzje</string>
-    <string name="title_reply_to_sender">Antwurdzje op stjoerder</string>
-    <string name="title_reply_to_all">Antwurdzje allegear</string>
-    <string name="title_reply_list">Antwurdzje op list</string>
-    <string name="title_reply_receipt">Stjoer lêsbewiis</string>
-    <string name="title_reply_hard_bounce">Stjoer hurde \'bounce\'</string>
-    <string name="title_reply_template">Antwurdzje mei sjabloan</string>
-    <string name="title_move_undo">Bewege nei %1$s (%2$d)</string>
-    <string name="title_authentication_failed">%1$s ferifikaasje mislearre</string>
-    <string name="title_receipt_subject">Untfang lêze: %1$s</string>
-    <string name="title_receipt_text">Dizze lêsbewiis befestiget allinich dat it berjocht waard werjûn. D\'r is gjin garânsje dat de ûntfanger de ynhâld fan it berjocht hat lêzen.</string>
-    <string name="title_no_answers">Gjin antwurd sjabloanen definieare</string>
+    <string name="title_archive">Argivearje</string>
+    <string name="title_reply">Beäntwurdzje</string>
+    <string name="title_reply_to_sender">Ofstjoerder beäntwurdzje</string>
+    <string name="title_reply_to_recipient">Untfanger beäntwurdzje</string>
+    <string name="title_reply_to_all">Allen beäntwurdzje</string>
+    <string name="title_reply_list">List beäntwurdzje</string>
+    <string name="title_reply_receipt">Lêsbefêstiging ferstjoere</string>
+    <string name="title_reply_hard_bounce">Hurde ‘bounce’ ferstjoere</string>
+    <string name="title_reply_template">Mei sjabloan beäntwurdzje</string>
+    <string name="title_reply_menu">Seleksjemenu toane</string>
+    <string name="title_move_undo">Nei %1$s (%2$d) ferpleatse</string>
+    <string name="title_authentication_failed">%1$s-autentikaasje mislearre</string>
+    <string name="title_on_blocklist">Op net-winskeblokkearlist</string>
+    <string name="title_receipt_subject">Lêsbefêstiging: %1$s</string>
+    <string name="title_receipt_text">Dizze lêsbefêstiging befêstiget allinnich dat it berjocht werjûn is. Der is gjin garânsje dat de ûntfanger de ynhâld fan it berjocht lêzen hat.</string>
+    <string name="title_no_answers">Gjin antwurdsjabloanen definiearre</string>
+    <string name="title_no_viewer_caption">Gjin viewer-app beskikber foar %1$s</string>
+    <string name="title_no_viewer_name">Ynhâldsnamme</string>
+    <string name="title_no_viewer_type">Ynhâldstype</string>
+    <string name="title_no_viewer_search">App sykje</string>
     <string name="title_no_recorder">Gjin geskikte app foar audio-recorder beskikber</string>
     <string name="title_no_camera">Gjin geskikte kamera-app beskikber</string>
-    <string name="title_no_saf">Ramt opslach tagong net beskikber</string>
+    <string name="title_no_saf">Storage Access Framework net beskikber</string>
+    <string name="title_no_stream">FairEmail hat gjin tastimming om dit bestân daliks te lêzen</string>
+    <string name="title_no_stream_help">Dit kin oplost wurde troch it bestân te selektearjen mei in modernere bestânsbehearder-app of troch tastimming te jaan om bestannen te lêzen</string>
+    <string name="title_no_permissions">De app dy’t brûkt wurdt om it bestân te selektearjen joech gjin tastimming om it te lêzen</string>
     <string name="title_no_internet">Gjin as gjin gaadlike ynternetferbining</string>
     <string name="title_no_connection">Ferbine mei ien of meardere accounts&#8230;</string>
     <string name="title_no_folder">Map bestiet net</string>
-    <string name="title_no_format">It oarspronklik ûntfangen berjocht sil wurde opnommen</string>
+    <string name="title_no_format">It orizjinele ûntfangen berjocht sil opnommen wurde</string>
     <string name="title_no_search">Sykjen op server is net beskikber foar dizze account</string>
+    <string name="title_complex_search">Selektearje in map foar in komplekse sykopdracht</string>
     <string name="title_too_large">Berjocht te grut om opnij op te meitsjen</string>
-    <string name="title_truncated">Berjocht te grut om folslein wer te jaan</string>
-    <string name="title_show_full">Sjoch folsleine berjocht</string>
-    <string name="title_fullscreen">Sjoch folslein skerm</string>
-    <string name="title_unused_inline">Net brûkte ynlineôfbyldings wurde fuortsmiten by ferstjoeren</string>
+    <string name="title_truncated">Berjocht te grut om folslein te toanen</string>
+    <string name="title_insufficient_memory">Berjocht te grut foar it beskikbere ûnthâld (%1$d)</string>
+    <string name="title_show_full">Folsleine berjocht toane</string>
+    <string name="title_fullscreen">Folslein skerm toane</string>
+    <string name="title_fit_width">Breedte oanpasse</string>
+    <string name="title_disable_widths">Breedten útskeakelje</string>
+    <string name="title_monospaced_pre">Fêste breedte &lt;pre&gt;</string>
+    <string name="title_unused_inline">Net brûkte ynline ôfbyldingen wurde by ferstjoeren fuortsmiten</string>
     <string name="title_accross_remark">Berjochten ferpleatst oer accounts sille opnij download wurde, wat resultearret yn ekstra gegevensgebrûk</string>
-    <string name="title_raw_saved">Raw berjocht bewarre</string>
+    <string name="title_raw_saved">Rûch berjocht bewarre</string>
     <string name="title_attachment_eml">Taheakke berjocht</string>
-    <string name="title_attachment_saved">Taheaksel bewarre</string>
-    <string name="title_attachments_saved">Taheaksels bewarre</string>
-    <string name="title_attachments_incomplete">Guon bylagen as ôfbyldings waarden net ynladen en koene net tafoege wurde</string>
-    <string name="title_ask_save">Feroarings bewarje?</string>
-    <string name="title_ask_delete">Ferwiderje berjocht permanint?</string>
-    <string name="title_ask_delete_answer">Antwurdsjabloan permanint wiskje?</string>
-    <string name="title_ask_delete_rule">Regel permanint wiskje?</string>
-    <string name="title_ask_discard">Untwerp fuortjaan?</string>
-    <string name="title_ask_show_html">It orizjinele berjocht sjen litte kin privacy gefoelige ynformaasje lekke</string>
-    <string name="title_ask_show_html_remark">It orizjinele berjocht werjaan op in donkere eftergrûn is net mooglik, om\'t tsjustere teksten en ôfbyldings ûnsichtber kinne wurde</string>
-    <string name="title_ask_show_html_images">Toan altyd ôfbyldings by it werjaan fan orizjinele berjochten</string>
-    <string name="title_ask_show_image">Ofbyldings sjen kinne privacy-sensitive ynformaasje lekke</string>
-    <string name="title_ask_show_image_hint">Ofbyldings erkend as folgje ôfbyldings wurde net toand</string>
+    <string name="title_attachment_saved">Bylage bewarre</string>
+    <string name="title_attachments_saved">Bylagen bewarre</string>
+    <string name="title_attachments_incomplete">Guon bylagen of ôfbyldingen waarden net download en koene net tafoege wurde</string>
+    <string name="title_ask_save">Wizigingen bewarje?</string>
+    <string name="title_ask_delete">Berjocht permanint fuotsmite?</string>
+    <string name="title_ask_delete_accept">Ik begryp dat permanint fuortsmiten fan berjochten net omkearber is</string>
+    <string name="title_ask_delete_answer">Antwurdsjabloan permanint fuortsmite?</string>
+    <string name="title_ask_delete_rule">Regel permanint fuortsmite?</string>
+    <string name="title_ask_delete_attachments">Alle bylagen fuortsmite?</string>
+    <string name="title_ask_discard">Konsept fuortsmite?</string>
+    <string name="title_ask_show_html">It orizjinele berjocht toane kin privacygefoelige ynformaasje lekke</string>
+    <string name="title_ask_show_html_remark">It orizjinele berjocht toane op in donkere eftergrûn is net mooglik, omdat tsjustere teksten en ôfbyldingen ûnsichtber wurde kinne</string>
+    <string name="title_ask_show_html_images">Altyd ôfbyldingen toane by it werjaan fan orizjinele berjochten</string>
+    <string name="title_ask_show_image">Ofbyldingen toane kin privacygefoelige ynformaasje lekke</string>
+    <string name="title_ask_show_image_hint">Ofbyldingen werkend as folchôfbyldingen, wurde net toand</string>
+    <string name="title_ask_show_amp">AMP-fariant fan it berjocht toane?</string>
+    <string name="title_ask_show_amp_hint">AMP-berjochten binne ûntwurpen om dynamysk te wêzen en om te kommunisearjen mei it ynternet en kinne dêrom per definysje brûkt wurde om jo te folgjen</string>
     <string name="title_ask_view_file">Bestân %1$s besjen?</string>
-    <string name="title_ask_delete_local">Lokale berjochten wiskje? Berjochten bliuwe op \'e server op ôfstân.</string>
+    <string name="title_ask_delete_local">Lokale berjochten fuortsmite? Berjochten bliuwe op de eksterne server.</string>
     <string name="title_ask_help">Help FairEmail te ferbetterjen</string>
-    <string name="title_ask_reporting">Stjoer flaterrapporten?</string>
-    <string name="title_reporting_why">Flaterrapportaazje sil FairEmail ferbetterje</string>
-    <string name="title_ask_review">Jou FairEmail asjebleaft in resinsje</string>
-    <string name="title_ask_review_rationale">        Jo hawwe FairEmail in skoftke brûkt.        It soe wurdearre wurde as jo FairEmail koene beoardielje yn \'e Play Store.
+    <string name="title_ask_reporting">Flaterrapporten ferstjoere?</string>
+    <string name="title_reporting_why">Flaterrapportaazje helpt om FairEmail te ferbetterjen</string>
+    <string name="title_ask_review">Jou FairEmail in resinsje</string>
+    <string name="title_ask_review_rationale">        Jo hawwe FairEmail in skoftke brûkt.        It soe wurdearre wurde as jo FairEmail beoardielje koene yn de Play Store.
     </string>
     <string name="title_need_help">Ik haw help nedich</string>
-    <string name="title_ask_once">Dit berjocht sil mar ien kear ferskine, útsein as jo \'Letter\' selektearje</string>
+    <string name="title_ask_once">Dit berjocht sil mar ien kear ferskine, útsein as jo ‘Letter’ selektearje</string>
     <string name="title_third_party">Jo brûke in ferzje fan in tredde partij</string>
-    <string name="title_expand_warning">It útwreidzjen fan dit berjocht sil downloade %1$s</string>
+    <string name="title_expand_warning">It útwreidzjen fan dit berjocht sil %1$s downloade</string>
     <string name="title_download_message">Downloade&#8230;</string>
-    <string name="title_reformatted">        Dit is de werfoarme berjochtenwerjefte.        Do kinst tikje op it &#x26F6; ikoan om it orizjinele berjocht te besjen en dit berjocht te ferbergjen.
-        Berjochten opnij opmakke duorret wat tiid, ôfhinklik fan \'e grutte fan it berjocht en de snelheid fan dyn apparaat.
+    <string name="title_reformatted">        Dit is de opnij foarme berjochtewerjefte.        Jo kinne tikje op it &#x26F6;-piktogram om it orizjinele berjocht te besjen en dit berjocht te ferstopjen.
+        Berjochten opnij opmeitsje nimt wat tiid, ôfhinklik fan de grutte fan it berjocht en de snelheid fan jo apparaat.
     </string>
-    <string name="title_compose">Gearstalle</string>
-    <string name="title_submitter">Stjoerd troch:</string>
-    <string name="title_delivered_to">Ôflevere by:</string>
+    <string name="title_compose">Opstelle</string>
+    <string name="title_submitter">Ferstjoerd troch:</string>
+    <string name="title_signed_by">Undertekene troch:</string>
+    <string name="title_delivered_to">Oflevere oan:</string>
     <string name="title_from">Fan:</string>
     <string name="title_to">Oan:</string>
-    <string name="title_reply_to">Antwurdzje op:</string>
-    <string name="title_cc">CC:</string>
-    <string name="title_bcc">BCC:</string>
+    <string name="title_reply_to">Antwurd oan:</string>
+    <string name="title_cc">Cc:</string>
+    <string name="title_bcc">Bcc:</string>
     <string name="title_recipients">%1$d ûntfangers</string>
-    <string name="title_via_identity">Via:</string>
-    <string name="title_sent">Stjoerd:</string>
-    <string name="title_received">Ûntfangen:</string>
+    <string name="title_via_identity">Fia:</string>
+    <string name="title_sent">Ferstjoerd:</string>
+    <string name="title_received">Untfongen:</string>
     <string name="title_date">Datum:</string>
-    <string name="title_stored">Opslein:</string>
+    <string name="title_stored">Bewarre:</string>
     <string name="title_size">Grutte:</string>
     <string name="title_language">Taal:</string>
-    <string name="title_subject">Ûnderwerp:</string>
-    <string name="title_attachment">Taheaksel:</string>
+    <string name="title_subject">Underwerp:</string>
+    <string name="title_attachment">Bylage:</string>
     <string name="title_body_hint">Jo berjocht</string>
-    <string name="title_discard">Oerlitte</string>
+    <string name="title_body_hint_style">Jo kinne tekst selektearje om dizze op te meitsjen</string>
+    <string name="title_discard">Ferwerpe</string>
     <string name="title_save">Bewarje</string>
-    <string name="title_send">Stjoere</string>
+    <string name="title_send">Ferstjoere</string>
     <string name="title_sending">Ferstjoere&#8230;</string>
-    <string name="title_send_now">Stjoer no</string>
-    <string name="title_send_via">Stjoer fia</string>
+    <string name="title_send_now">No ferstjoere</string>
+    <string name="title_send_via">Ferstjoere fia</string>
     <string name="title_send_at">Ferstjoerd om&#8230;</string>
-    <string name="title_send_auto_archive">Antwurdberjocht argivearje</string>
+    <string name="title_send_auto_archive">Beäntwurde berjocht argivearje</string>
     <string name="title_send_encryption">Fersifering</string>
     <string name="title_send_priority">Prioriteit</string>
-    <string name="title_no_server">Gjin server fûn op \'%1$s\'</string>
+    <string name="title_send_sensitivity">Gefoelichheid</string>
+    <string name="title_no_server">Gjin server fûn op ‘%1$s’</string>
     <string name="title_style">Styl</string>
-    <string name="title_style_bold">Dryst</string>
+    <string name="title_style_bold">Fet</string>
     <string name="title_style_italic">Kursyf</string>
-    <string name="title_style_underline">Ûnderstreekje</string>
+    <string name="title_style_underline">Understreekje</string>
     <string name="title_style_size">Grutte</string>
+    <string name="title_style_size_xsmall">Ekstra lyts</string>
     <string name="title_style_size_small">Lyts</string>
-    <string name="title_style_size_medium">Medium</string>
-    <string name="title_style_size_large">Grutte</string>
+    <string name="title_style_size_medium">Gemiddeld</string>
+    <string name="title_style_size_large">Grut</string>
     <string name="title_style_size_xlarge">Ekstra grut</string>
     <string name="title_style_align">Rjochtsje</string>
     <string name="title_style_align_start">Start</string>
-    <string name="title_style_align_center">Sintrum</string>
+    <string name="title_style_align_center">Midden</string>
     <string name="title_style_align_end">Ein</string>
     <string name="title_style_list">List</string>
-    <string name="title_style_list_bullets">Kûgels</string>
-    <string name="title_style_list_numbered">Nûmer</string>
+    <string name="title_style_list_bullets">Opsommingstekens</string>
+    <string name="title_style_list_numbered">Nûmere</string>
     <string name="title_style_list_level_increase">Ynspringe fergrutsje</string>
     <string name="title_style_list_level_decrease">Ynspringe ferminderje</string>
     <string name="title_style_font">Lettertypen</string>
     <string name="title_style_font_default">Standert</string>
-    <string name="title_style_blockquote">Offerte blokkearje</string>
+    <string name="title_style_blockquote">Bloksitaat</string>
+    <string name="title_style_indentation">Ynspringing</string>
+    <string name="title_style_mark">Markearje</string>
+    <string name="title_style_subscript">Subscript</string>
+    <string name="title_style_superscript">Superscript</string>
     <string name="title_style_strikethrough">Trochstreekje</string>
+    <string name="title_style_protect">Mei wachtwurd befeiligje</string>
+    <string name="title_style_protected">Beskerme ynhâld</string>
+    <string name="title_style_protect_size">Te lange tekst</string>
     <string name="title_style_clear">Opmaak wiskje</string>
-    <string name="title_style_link">Link ynfoegje</string>
+    <string name="title_style_setting_keep_selection">Seleksje behâlde</string>
+    <string name="title_style_link">Keppeling ynfoegje</string>
+    <string name="title_style_link_address">Adres</string>
+    <string name="title_style_link_image">As ôfbylding ynfoegje</string>
+    <string name="title_style_link_title">Titel</string>
+    <string name="title_style_link_metadata">Titel ophelje</string>
+    <string name="title_style_link_metadata_remark">Dit sil de titel ophelje op it ynfierde adres</string>
+    <string name="title_style_link_send_dlimit">Downloadlimyt (%1$s)</string>
+    <string name="title_style_link_send_tlimit">Tiidslimyt (%1$s)</string>
     <string name="title_add_image">Ofbylding tafoegje</string>
     <string name="title_add_image_inline">Ynfoegje</string>
     <string name="title_add_image_attach">Taheakje</string>
-    <string name="title_add_image_resize">Grutte feroarje</string>
-    <string name="title_add_image_privacy">Fuortsmite privacy gefoelige gegevens</string>
-    <string name="title_add_image_privacy_remark">Geografyske lokaasje, searjenûmers, bestânsnammen, ensfh</string>
-    <string name="title_add_resize_pixels">&lt; %1$d piksels</string>
-    <string name="title_add_image_select">Selektearje bestân</string>
-    <string name="title_add_attachment">Taheakje tafoegje</string>
-    <string name="title_attachment_file">Heakje bestân ta</string>
-    <string name="title_attachment_photo">Nim foto</string>
+    <string name="title_add_image_resize">Grutte wizigje</string>
+    <string name="title_add_image_privacy">Privacygefoelige gegevens fuortsmite</string>
+    <string name="title_add_image_privacy_remark">Geografyske lokaasje, searjenûmers, bestânsnammen, ensfh.</string>
+    <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_select">Bestân selektearje</string>
+    <string name="title_add_attachment">Bylage tafoegje</string>
+    <string name="title_attachment_file">Bestân tafoegje</string>
+    <string name="title_attachment_photo">Foto nimme</string>
     <string name="title_attachment_audio">Audio opnimme</string>
-    <string name="title_show_addresses">Sjoch CC / BCC</string>
-    <string name="title_save_drafts">Konsepten bewarje op de server</string>
-    <string name="title_send_dialog">Stjoeropsjes sjen litte</string>
-    <string name="title_image_dialog">Ofbyldingsopsjes sjen litte</string>
-    <string name="title_media_toolbar">Media arkbalke</string>
-    <string name="title_insert_contact_group">Kontaktgroep ynfoegje</string>
+    <string name="title_show_addresses">Cc/Bcc toane</string>
+    <string name="title_save_drafts">Konsepten op de server bewarje</string>
+    <string name="title_send_dialog">Ferstjoeropsjes toane</string>
+    <string name="title_image_dialog">Ofbyldingsopsjes toane</string>
+    <string name="title_style_toolbar">Stylarkbalke</string>
+    <string name="title_media_toolbar">Media-arkbalke</string>
+    <string name="title_manage_local_contacts">Lokale kontakten beheare</string>
+    <string name="title_insert_contact_group">Kontaktgroep tafoegje</string>
     <string name="title_insert_template">Sjabloan ynfoegje</string>
     <string name="title_create_template">Sjabloan oanmeitsje</string>
+    <string name="title_select_default_identity">Standert adres selektearje</string>
     <string name="title_translate">Oersette</string>
     <string name="title_translate_configure">Konfigurearje&#8230;</string>
-    <string name="title_translate_key">Kaai ynfolle</string>
+    <string name="title_translate_key">Kaai ynfiere</string>
     <string name="title_translating">Oersette&#8230;</string>
+    <string name="title_translate_formal">Formele foarm brûke</string>
     <string name="title_translate_small">Brûk in lyts lettertype foar de boarnetekst</string>
-    <string name="title_translate_replace">Ferfang boarnetekst troch oersette tekst</string>
+    <string name="title_translate_replace">Boarnetekst ferfange troch oersette tekst</string>
+    <string name="title_translate_html">Opmaak behâlde</string>
+    <string name="title_translate_html_hint">Dit sil mear tekens ferbrûke</string>
+    <string name="title_translate_usage">Gebrûk: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_translate_tap">Tik op de oer te setten tekst</string>
     <string name="title_suggestions_check">Kontrolearje&#8230;</string>
-    <string name="title_edit_plain_text">Bewurkje as platte tekst</string>
-    <string name="title_edit_formatted_text">Bewurkje as herfoarme tekst</string>
-    <string name="title_select_certificate">Selektearje iepenbiere kaai</string>
+    <string name="title_suggestions_none">Gjin suggestjes</string>
+    <string name="title_edit_plain_text">As platte tekst bewurkje</string>
+    <string name="title_edit_formatted_text">As opnij foarme tekst bewurkje</string>
+    <string name="title_select_certificate">Iepenbiere kaai selektearje</string>
     <string name="title_certificate_missing">Gjin iepenbiere kaai foar %1$s</string>
     <string name="title_certificate_invalid">Iepenbiere kaai fan %1$s is ûnjildich</string>
-    <string name="title_no_key">Gjin privee kaai</string>
+    <string name="title_no_key">Gjin priveekaai</string>
     <string name="title_invalid_key">Unjildige priveekaai</string>
-    <string name="title_unknown_key">Private kaai komt net oerien mei alle kodearingskaaien</string>
+    <string name="title_unknown_key">Priveekaai komt net oerien mei alle kodearringskaaien</string>
     <string name="title_key_missing">Gjin kaai foar %1$s</string>
-    <string name="title_send_reminder_remark">Herinneringen kinne wer ynskeakele wurde yn \'e stjoereynstellings</string>
-    <string name="title_send_plain_text">Platte tekst allinich</string>
+    <string name="title_send_reminder_remark">Oantinkens kinne wer ynskeakele wurde yn de ferstjoerynstellingen</string>
+    <string name="title_send_plain_text">Allinnich platte tekst</string>
     <string name="title_send_dsn">Statusrapport</string>
-    <string name="title_send_receipt">Untfange oanfreegje</string>
-    <string name="title_send_receipt_remark">Ûntfangstoanfragen wurde troch measte oanbieders en emailliïnten negeare</string>
-    <string name="title_vt_analyzing">VirusTotal analysearret it bestân, dit kan in amerijke duorje&#8230;</string>
+    <string name="title_send_receipt">Lêsbefêstiging freegje</string>
+    <string name="title_send_receipt_remark">De measte providers en e-mailclients negearje befêstigingsfersiken</string>
+    <string name="title_vt_unknown">Dit bestân is noch net bekend by VirusTotal</string>
+    <string name="title_vt_summary">%1$s firusscanners melde dit bestân as kwea-aardich</string>
+    <string name="title_vt_report">Folslein rapport</string>
+    <string name="title_vt_upload">Oplade</string>
+    <string name="title_vt_analyzing">VirusTotal analysearret it bestân, dit kin in amerijke duorje&#8230;</string>
     <string name="title_from_missing">Ofstjoerder mist</string>
     <string name="title_pgp_reminder">PGP-kaaien beskikber</string>
     <string name="title_smime_reminder">S/MIME-kaaien beskikber</string>
     <string name="title_to_missing">Untfanger ûntbrekt</string>
     <string name="title_extra_missing">Brûkersnamme ûntbrekt</string>
+    <string name="title_noreply_reminder">Ferstjoere nei in ‘no-reply’-adres</string>
     <string name="title_external_reminder">Ferstjoere nei in ekstern adres</string>
     <string name="title_subject_reminder">Underwerp is leech</string>
     <string name="title_text_reminder">Berjocht is leech</string>
-    <string name="title_attachment_keywords">taheakke,taheaksel,taheaksels,opnommen</string>
+    <string name="title_attachment_keywords">bylage,bylagen,taheakke,taheaksel,taheaksels,opnommen</string>
     <string name="title_attachment_reminder">Wiene jo fan doel in bylage ta te foegjen?</string>
+    <string name="title_attachment_warning">Mooglik gefaarlik: %1$s</string>
     <string name="title_attachment_filename">Guon oare e-mailprogramma’s kinne bestânsnammen langer as 60 tekens net ôfhannelje</string>
     <string name="title_plain_reminder">Alle opmaak sil ferlern gean</string>
-    <string name="title_dsn_reminder">Hurde bounces bringe skea ta oan \'e reputaasje fan \'e orizjinele email stjoerder!</string>
-    <string name="title_size_reminder">Berjocht (%1$s) grutter dan serverlimyt (%2$s)</string>
-    <string name="title_attachments_missing">Net alle bylagen binne ynladen</string>
-    <string name="title_dialog_hint">Dit dialooch kin opnij ynskeakele wurde fia it menu mei trije punten yn \'e boppeste aksjebalke</string>
-    <string name="title_draft_deleted">Untwerp ferwidere</string>
-    <string name="title_draft_saved">Untwerp opslein</string>
+    <string name="title_dsn_reminder">Hurde bounces bringe skea ta oan de reputaasje fan de orizjinele ôfstjoerder!</string>
+    <string name="title_size_reminder">Berjocht (%1$s) grutter dan de serverlimyt (%2$s)</string>
+    <string name="title_attachments_missing">Net alle bylagen binne download</string>
+    <string name="title_dialog_hint">Dit dialoochfinster kin opnij ynskeakele wurde fia it menu mei trije punten yn de boppeste aksjebalke</string>
+    <string name="title_draft_deleted">Konsept fuotsmiten</string>
+    <string name="title_draft_saved">Konsept bewarre</string>
     <string name="title_ask_send_via">Berjocht ferstjoere nei %1$s fia %2$s?</string>
-    <string name="title_queued">Ferstjoere berjochten</string>
-    <string name="title_queued_at">Berjocht sil rûnom ferstjoerd wurde %1$s</string>
-    <string name="title_sign">Ûndertekenje</string>
+    <string name="title_queued">Berjocht wurdt ferstjoerd</string>
+    <string name="title_queued_at">Berjocht sil rûnom %1$s ferstjoerd wurde</string>
+    <string name="title_sign">Undertekenje</string>
     <string name="title_verify">Ferifiearje</string>
     <string name="title_encrypt">Fersiferje</string>
-    <string name="title_decrypt">Ûntsiferje</string>
+    <string name="title_decrypt">Untsiferje</string>
     <string name="title_reset_message_questions">Keppelingsfragen opnij ynstelle</string>
-    <string name="title_resync">Resync</string>
+    <string name="title_resync">Opnij syngronisearje</string>
+    <string name="title_charset">Kodearring</string>
+    <string name="title_charset_auto">Automatysk</string>
+    <string name="title_alternative_text">Platte tekst lade</string>
+    <string name="title_alternative_html">HTML lade</string>
     <string name="title_no_openpgp">OpenKeychain net fûn</string>
+    <string name="title_no_openpgp_remark">PGP-end-to-end-fersifering moat earst konfigurearre wurde</string>
     <string name="title_user_interaction">Oerdrage nei OpenKeychain</string>
-    <string name="title_signed_data">Ferifiearje de hantekening om de berjochttekst sjen te litten</string>
+    <string name="title_padlock">Brûk it hingslot om it berjocht te ûntsiferjen</string>
+    <string name="title_signed_data">Ferifiearje de hantekening om de berjochttekst te toanen</string>
     <string name="title_not_encrypted">Berjocht is net ûndertekene of fersifere</string>
-    <string name="title_no_sign_key">Gjin undertekenkaai selekteare</string>
-    <string name="title_reset_sign_key">Weromsette undertekenkaai</string>
+    <string name="title_no_sign_key">Gjin undertekenkaai selektearre</string>
+    <string name="title_reset_sign_key">Undertekenkaai opnij ynstelle</string>
+    <string name="title_reset_selected_keys">Selektearre kaaien opnij ynstelle</string>
+    <string name="title_reset_selected_keys_hint">Kin brûkt wurde yn it gefal fan nije sertifikaten, ensfh.</string>
     <string name="title_signature_none">Berjocht net ûndertekene</string>
     <string name="title_signature_valid">Berjochtûndertekening jildich</string>
     <string name="title_signature_valid_from">Berjochtûndertekening jildich: %1$s</string>
@@ -1323,326 +1433,399 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_signature_certificate_invalid">Sertifikaatketen ûnjildich</string>
     <string name="title_signature_sender">Adres fan ôfstjoerder</string>
     <string name="title_signature_email">Undertekeningsadres</string>
-    <string name="title_signature_mismatch">It emailadres fan de stjoerder en hântekening komme net oerien</string>
-    <string name="title_signature_subject">Ûnderwerp</string>
-    <string name="title_signature_validity">Jildigens</string>
-    <string name="title_signature_outdated">Dizze iepenbiere kaai is op it stuit net jildich</string>
+    <string name="title_signature_mismatch">It e-mailadres fan de ôfstjoerder en hantekening komme net oerien</string>
+    <string name="title_signature_algorithm">Algoritme</string>
+    <string name="title_signature_subject">Underwerp</string>
+    <string name="title_signature_validity">Jildichheid</string>
+    <string name="title_signature_outdated">Dizze iepenbiere kaai is op dit stuit net jildich</string>
     <string name="title_signature_store">Bewarje</string>
     <string name="title_search">Sykje</string>
     <string name="title_search_for_hint">Tekst ynfiere</string>
-    <string name="title_search_text_hint">Sykje nei tekst yn berjochten, as d\'r in grut oantal berjochten binne, wurket miskien net op guon servers</string>
-    <string name="title_search_size_hint">Sykje nei berjochten op grutte, as d\'r in grut oantal berjochten binne, wurket miskien net op guon servers</string>
+    <string name="title_search_hint">        Sykje sil earst sjen nei berjochten dy’t op jo apparaat bewarre binne.
+        Om ek op de server te sykjen, tikje op de knop ‘Opnij sykje’.
+    </string>
+    <string name="title_search_index_hint">Sykjen fia de sykyndeks is fluch, mar sil allinnich hiele wurden fine.</string>
+    <string name="title_search_text_hint">Sykje nei tekst yn berjochten, as der in grut oantal berjochten binne, wurket miskien net op guon servers</string>
+    <string name="title_search_text_unsupported">‘%s’ betsjut dat de e-mailserver it sykjen yn berjochtteksten net stipet</string>
+    <string name="title_search_size_hint">Sykje nei berjochten op grutte, wurket mooglik net op guon servers as der in grut oantal berjochten binne</string>
     <string name="title_search_more">Mear opsjes</string>
-    <string name="title_search_use_index">Brûk sykindex</string>
-    <string name="title_search_in_senders">Yn stjoerders (fan)</string>
-    <string name="title_search_in_recipients">Yn ûntfangers (nei, cc)</string>
+    <string name="title_search_use_index">Sykyndeks brûke</string>
+    <string name="title_search_in_senders">Yn ôfstjoerders (Fan)</string>
+    <string name="title_search_in_recipients">Yn ûntfangers (Oan, Cc)</string>
     <string name="title_search_in_subject">Yn ûnderwerp</string>
-    <string name="title_search_in_keywords">Yn kaaiwurden (as stipe)</string>
+    <string name="title_search_in_keywords">Yn kaaiwurden (wannear stipe)</string>
     <string name="title_search_in_message">Yn berjochttekst</string>
     <string name="title_search_in_notes">Yn lokale notysjes</string>
     <string name="title_search_with">Sykje beheine ta</string>
     <string name="title_search_with_unseen">Net lêzen</string>
-    <string name="title_search_with_flagged">Stjer</string>
-    <string name="title_search_with_hidden">Ferburgen (allinich op apparaat)</string>
-    <string name="title_search_with_encrypted">Fersifere (allinich op apparaat)</string>
-    <string name="title_search_with_attachments">Mei taheaksels (allinich op apparaat)</string>
-    <string name="title_search_with_size">Berjochtgrutte grutter dan</string>
+    <string name="title_search_with_flagged">Mei stjer</string>
+    <string name="title_search_with_hidden">Ferstoppe (allinnich op apparaat)</string>
+    <string name="title_search_with_encrypted">Fersifere (allinnich op apparaat)</string>
+    <string name="title_search_with_attachments">Mei bylagen (allinnich op apparaat)</string>
+    <string name="title_search_with_size">Berjochtgrutte grutter as</string>
+    <string name="title_search_in_trash">Yn jiskefet</string>
+    <string name="title_search_in_junk">Yn net-winske</string>
+    <string name="title_search_with_range">Datumberik</string>
     <string name="title_search_with_before">Foar</string>
-    <string name="title_search_with_after">Efter</string>
+    <string name="title_search_with_after">Nei</string>
+    <string name="title_search_device_first">Sykje earst op apparaat</string>
     <string name="title_search_flag_unseen">net lêzen</string>
-    <string name="title_search_flag_flagged">stjer</string>
-    <string name="title_search_flag_hidden">ferburgen</string>
+    <string name="title_search_flag_flagged">mei stjer</string>
+    <string name="title_search_flag_hidden">ferstoppe</string>
     <string name="title_search_flag_encrypted">fersifere</string>
-    <string name="title_search_flag_attachments">taheaksels</string>
+    <string name="title_search_flag_attachments">bylagen</string>
     <string name="title_search_flag_notes">notysjes</string>
-    <string name="title_search_flag_invite">útnoeging</string>
+    <string name="title_search_flag_invite">útnûging</string>
     <string name="title_search_flag_size">grutte &gt; %1$s</string>
     <string name="title_search_device">Sykje op apparaat</string>
     <string name="title_search_server">Sykje op server</string>
     <string name="title_search_server_wait">Wachtet op server</string>
     <string name="title_search_in">Sykje yn</string>
-    <string name="title_search_sender">Sykje nei stjoerder</string>
+    <string name="title_search_sender">Sykje nei ôfstjoerder</string>
+    <string name="title_search_delete">Beware sykopdracht fuortsmite?</string>
+    <string name="title_save_search">Bewarre sykopdracht</string>
     <string name="title_save_search_name">Namme</string>
-    <string name="title_save_search_order">Sekwinsje</string>
+    <string name="title_save_search_order">Folchoarder</string>
     <string name="title_save_search_color">Kleur</string>
     <string name="title_sort_on">Sortearje op</string>
     <string name="title_sort_on_time">Tiid</string>
     <string name="title_sort_on_unread">Net lêzen</string>
-    <string name="title_sort_on_starred">Stjer</string>
+    <string name="title_sort_on_starred">Mei stjer</string>
     <string name="title_sort_on_priority">Prioriteit</string>
-    <string name="title_sort_on_sender">Stjoerder</string>
-    <string name="title_sort_on_subject">Ûnderwerp</string>
+    <string name="title_sort_on_sender">Ofstjoerder</string>
+    <string name="title_sort_on_subject">Underwerp</string>
     <string name="title_sort_on_size">Grutte</string>
-    <string name="title_sort_on_attachments">Taheaksels</string>
-    <string name="title_sort_on_hidden">Ferburgen</string>
+    <string name="title_sort_on_attachments">Bylagen</string>
+    <string name="title_sort_on_hidden">Ferstoppe</string>
     <string name="title_sort_ascending">Aldste earst</string>
     <string name="title_sort_on_name">Namme</string>
-    <string name="title_sort_on_order">Sekwinsje</string>
-    <string name="title_filter">Útfilterje</string>
-    <string name="title_filter_seen">Lêze</string>
-    <string name="title_filter_unflagged">Unstjerre</string>
-    <string name="title_filter_unknown">Unbekende stjoerders</string>
-    <string name="title_filter_hidden">Ferburgen</string>
+    <string name="title_sort_on_order">Folchoarder</string>
+    <string name="title_sort_on_applied">Tapaste kearen</string>
+    <string name="title_sort_on_last_applied">Lêst tapast</string>
+    <string name="title_filter">Utfilterje</string>
+    <string name="title_filter_seen">Lêzen</string>
+    <string name="title_filter_unflagged">Sûnder stjer</string>
+    <string name="title_filter_unknown">Unbekende ôfstjoerders</string>
+    <string name="title_filter_hidden">Ferstoppe</string>
+    <string name="title_filter_deleted">Fuortsmiten</string>
     <string name="title_filter_duplicates">Duplikaten</string>
+    <string name="title_filter_trash">Yn jiskefet</string>
     <string name="title_compact">Kompakt werjefte</string>
     <string name="title_zoom">Tekstgrutte</string>
-    <string name="title_padding">Paddinggrutte</string>
+    <string name="title_padding">Opfolgrutte</string>
+    <string name="title_large_buttons">Gruttere knoppen</string>
     <string name="title_select_language">Selektearje taal</string>
     <string name="title_select_all">Alles selektearje</string>
-    <string name="title_select_found">Selektearje fûn</string>
-    <string name="title_mark_all_read">Markearje alles lêzen</string>
-    <string name="title_force_sync">Krêft syngronisearje</string>
-    <string name="title_force_send">Stjoere twinge</string>
+    <string name="title_select_found">Fûne selektearje</string>
+    <string name="title_mark_all_read">Alles as lêzen markearje</string>
+    <string name="title_view_thread">Petear toane</string>
+    <string name="title_force_sync">Syngronisaasje forsearje</string>
+    <string name="title_force_send">Ferstjoeren forsearje</string>
     <string name="title_language_all">Alle</string>
     <string name="title_previous">Foarige</string>
     <string name="title_next">Folgjende</string>
-    <string name="title_edit_signature">Hântekening bewurkje</string>
+    <string name="title_edit_signature">Hantekening bewurkje</string>
+    <string name="title_edit_signature_remark">Hoewol Android net alle HTML werjaan kin, sil it ferstjoerd wurde, lykas it is</string>
     <string name="title_edit_signature_text">Hantekeningstekst</string>
     <string name="title_edit_signature_image">Ofbylding ynfoegje</string>
+    <string name="title_edit_signature_image_hint">By it ferstjoeren fan in berjocht wurdt de ôfbylding fan de selektearre lokaasje ôf nei it berjocht kopiearre.
+         Smyt it ôfbyldingsbestân dus net fuort!    </string>
     <string name="title_answer_define_name">Namme</string>
+    <string name="title_answer_define_value">Wearde</string>
     <string name="title_answer_caption">Sjabloan bewurkje</string>
-    <string name="title_answer_reply">Antwurd sjabloan</string>
-    <string name="title_answer_name">Sjabloanamme</string>
+    <string name="title_answer_reply">Antwurdsjabloan</string>
+    <string name="title_answer_name">Sjabloannamme</string>
     <string name="title_answer_group">Sjabloangroep (opsjoneel)</string>
     <string name="title_answer_standard">Standert</string>
     <string name="title_answer_favorite">Favoryt</string>
-    <string name="title_answer_receipt">Brûk as lêsbewiis</string>
-    <string name="title_answer_hide">Ferbergje foar menu\'s</string>
+    <string name="title_answer_snippet">Tekstfragmint</string>
+    <string name="title_answer_receipt">As lêsbefêstiging brûke</string>
+    <string name="title_answer_hide">Yn menu’s ferstopje</string>
     <string name="title_answer_text">Sjabloantekst</string>
     <string name="title_answer_placeholder">Plakhâlder</string>
     <string name="title_answer_placeholder_name">Folsleine namme fan ôfstjoerder</string>
     <string name="title_answer_placeholder_email">Adres fan ôfstjoerder</string>
     <string name="title_answer_placeholder_firstname">Foarnamme fan ôfstjoerder</string>
-    <string name="title_answer_placeholder_lastname">Stjoerder syn lêste namme</string>
+    <string name="title_answer_placeholder_lastname">Efternamme ôfstjoerder</string>
+    <string name="title_answer_placeholder_date">Hjoeddeistige datum</string>
     <string name="title_rule_noop">Gjin aksje</string>
-    <string name="title_rule_seen">Mark lêzen</string>
-    <string name="title_rule_unseen">Markearje as net lêzen</string>
-    <string name="title_rule_hide">Ferbergje</string>
-    <string name="title_rule_ignore">Undertekenje ûnderdrukking</string>
-    <string name="title_rule_snooze">Snooze</string>
+    <string name="title_rule_seen">As lêzen markearje</string>
+    <string name="title_rule_unseen">As net lêzen markearje</string>
+    <string name="title_rule_hide">Ferstopje</string>
+    <string name="title_rule_ignore">Melding ûnderdrukke</string>
+    <string name="title_rule_snooze">Slommerje</string>
     <string name="title_rule_flag">Stjer tafoegje</string>
-    <string name="title_rule_importance">Stel belang</string>
+    <string name="title_rule_importance">Belang ynstelle</string>
+    <string name="title_rule_keyword">Kaaiwurd</string>
     <string name="title_rule_keyword_add">Tafoegje</string>
-    <string name="title_rule_keyword_delete">Ferwiderje</string>
+    <string name="title_rule_keyword_delete">Fuortsmite</string>
     <string name="title_rule_move">Ferpleatse</string>
     <string name="title_rule_copy">Kopiearje (label)</string>
-    <string name="title_rule_answer">Antwurdzje/trochstjoere</string>
-    <string name="title_rule_tts">Tekst nei spraak</string>
+    <string name="title_rule_answer">Beäntwurdzje/trochstjoere</string>
+    <string name="title_rule_tts">Tekst-nei-spraak</string>
     <string name="title_rule_automation">Automatisearring</string>
-    <string name="title_rule_delete">Wiskje permanint</string>
-    <string name="title_rule_caption">Bewurkje regel</string>
+    <string name="title_rule_delete">Permanint fuortsmite</string>
+    <string name="title_rule_sound">Lûd ôfspylje</string>
+    <string name="title_rule_caption">Rigel bewurkje</string>
     <string name="title_rule_title">Regel jildt foar</string>
     <string name="title_rule_name">Namme</string>
-    <string name="title_rule_order">Sekwinsje</string>
+    <string name="title_rule_group">Groep</string>
+    <string name="title_rule_order">Folchoarder</string>
     <string name="title_rule_enabled">Ynskeakele</string>
+    <string name="title_rule_daily">Deistich útfiere (allinnich)</string>
+    <string name="title_rule_age">Berjochten âlder as (dagen)</string>
     <string name="title_rule_stop">Stop mei ferwurkjen fan regels nei it útfieren fan dizze regel</string>
-    <string name="title_rule_sender">Stjoerder befettet</string>
-    <string name="title_rule_sender_known">Stjoerder is in kontaktpersoan</string>
+    <string name="title_rule_stop_remark">As de regel ûnderdiel is fan in groep, wurdt de ferwurking fan alle regels fan dizze groep stoppe</string>
+    <string name="title_rule_sender">Ofstjoerder befettet</string>
+    <string name="title_rule_sender_known">Ofstjoerder is in kontakt</string>
     <string name="title_rule_recipient">Untfanger befettet</string>
     <string name="title_rule_subject">Underwerp befettet</string>
-    <string name="title_rule_attachments">Underwerp befettet</string>
+    <string name="title_rule_attachments">Befettet bylagen</string>
     <string name="title_rule_header">Koptekst befettet</string>
-    <string name="title_rule_time_abs">Absolute tiid tusken (ûntfangen)</string>
-    <string name="title_rule_time_after">Ûntfangen nei</string>
-    <string name="title_rule_time_before">Ûntfangen foardat</string>
-    <string name="title_rule_time_rel">Relative tiid tusken (ûntfongen)</string>
-    <string name="title_rule_time_every_day">Eltse dei</string>
+    <string name="title_rule_body">Tekst befettet</string>
+    <string name="title_rule_skip_quotes">Sitearre tekst oerslaan</string>
+    <string name="title_rule_body_remark">It gebrûk fan dizze betingst sil altyd de berjochttekst downloade, wat de syngronisaasje fan de berjochtelist fertrage kin</string>
+    <string name="title_rule_time_abs">Absolute tiid (ûntfangen) tusken</string>
+    <string name="title_rule_time_after">Untfongen nei</string>
+    <string name="title_rule_time_before">Untfongen foar</string>
+    <string name="title_rule_time_rel">Relative tiid (ûntfongen) tusken</string>
+    <string name="title_rule_time_every_day">Elke dei</string>
     <string name="title_rule_younger">Berjochten jonger as (oeren)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">EN</string>
     <string name="title_rule_action">Aksje</string>
-    <string name="title_rule_action_remark">Dizze aksje sil wurde tapast op nije berjochten dy\'t yn \'e map %1$s oankomme</string>
+    <string name="title_rule_action_remark">Dizze aksje sil tapast wurde op nije berjochten dy’t yn de map %1$s oankomme</string>
     <string name="title_rule_hours">Oeren</string>
-    <string name="title_rule_schedule_end">Fan \'e ein fan\' e tiidbetingst</string>
+    <string name="title_rule_schedule_end">Fan it ein fan de tiidsbetingst ôf</string>
     <string name="title_rule_folder">Map</string>
-    <string name="title_rule_thread">Alle berjochten yn itselde petear en map</string>
+    <string name="title_rule_folder_create">Submap oanmeitsje</string>
+    <string name="title_rule_thread">Alle berjochten yn itselde petear en deselde map</string>
     <string name="title_rule_identity">Identiteit</string>
-    <string name="title_rule_template">Antwurd sjabloan</string>
+    <string name="title_rule_template">Antwurdsjabloan</string>
+    <string name="title_rule_answer_subject">Sjabloannamme as ûnderwerp brûke</string>
+    <string name="title_rule_original_text">Foegje de oarspronklike berjochttekst ta</string>
     <string name="title_rule_forward_to">Trochstjoere nei</string>
-    <string name="title_rule_cc">Antwurdzje op CC-adressen</string>
-    <string name="title_rule_with_attachments">Mei taheaksels</string>
-    <string name="title_rule_answer_remark">Mar ien antwurd sil wurde ferstjoerd foar elk petear, om antwurdlussen te foarkommen</string>
+    <string name="title_rule_resend">Opnij ferstjoere</string>
+    <string name="title_rule_attached">Rûch berjocht as bestân tafoegje</string>
+    <string name="title_rule_cc">Cc-adressen beäntwurdzje</string>
+    <string name="title_rule_with_attachments">Mei bylagen</string>
+    <string name="title_rule_answer_remark">Mar ien antwurd sil ferstjoerd wurde foar elk petear, om antwurdlussen foar te kommen</string>
     <string name="title_rule_name_missing">Regelnamme ûntbrekt</string>
     <string name="title_rule_condition_missing">Betingst ûntbrekt</string>
-    <string name="title_rule_folder_missing">Map mist</string>
-    <string name="title_rule_identity_missing">Identiteit mist</string>
-    <string name="title_rule_answer_missing">Template mist</string>
-    <string name="title_rule_keyword_missing">Keyword mist</string>
-    <string name="title_rule_automation_hint">Dit sil de bedoeling \'%1$s\' mei de ekstra\'s \'%2$s\' stjoere</string>
+    <string name="title_rule_folder_missing">Map ûntbrekt</string>
+    <string name="title_rule_identity_missing">Identiteit ûntbrekt</string>
+    <string name="title_rule_answer_missing">Sjabloan ûntbrekt</string>
+    <string name="title_rule_keyword_missing">Kaaiwurd ûntbrekt</string>
+    <string name="title_rule_automation_hint">Dit sil de bedoeling ‘%1$s’ mei de ekstra’s ‘%2$s’ stjoere</string>
+    <string name="title_rule_delete_hint">Permanint fuortsmite kin net ûngedien makke wurde, dus soargje derfoar dat de betingsten fan de regel korrekt binne!</string>
     <string name="title_rule_edit_group">Groep bewurkje&#8230;</string>
     <string name="title_rule_execute">No útfiere</string>
     <string name="title_rule_applied">Belutsen berjochten: %1$d</string>
     <string name="title_rule_check">Kontrolearje</string>
-    <string name="title_rule_no_headers">Koptekst kin net kontroleare wurde</string>
+    <string name="title_rule_no_headers">Koptekst kin net kontrolearre wurde</string>
+    <string name="title_rule_no_body">Berjochttekst net beskikber</string>
     <string name="title_rule_matched">Oerienkommende berjochten</string>
     <string name="title_rule_no_matches">Gjin oerienkommende berjochten</string>
     <string name="title_rule_tts_ok">Ynstelle yn oarder</string>
-    <string name="title_rule_tts_setup">Kontrolearje opset</string>
-    <string name="title_rule_tts_data">Stimgegevens ynstallearje</string>
+    <string name="title_rule_tts_setup">Ynstellingen kontrolearje</string>
+    <string name="title_rule_tts_data">Spraakgegevens ynstallearje</string>
     <string name="title_rule_tts_prefix">Nij berjocht</string>
     <string name="title_rule_tts_from">Fan</string>
-    <string name="title_rule_tts_subject">Ûnderwerp</string>
+    <string name="title_rule_tts_subject">Underwerp</string>
     <string name="title_rule_tts_content">Tekst</string>
+    <string name="title_rule_select_sound">Lûd selektearje</string>
+    <string name="title_rule_use_as_alarm">As alarm brûke</string>
+    <string name="title_rule_alarm_hint">Dit sil ‘net steure’-regels negearje</string>
+    <string name="title_rule_alarm_duration">Maksimale alarmdoer (sekonden)</string>
     <string name="title_legend_section_synchronize">Syngronisearje</string>
     <string name="title_legend_section_folders">Mappen</string>
     <string name="title_legend_section_messages">Berjochten</string>
-    <string name="title_legend_section_compose">Gearstalle</string>
+    <string name="title_legend_section_compose">Opstelle</string>
     <string name="title_legend_section_keyboard">Toetseboerd</string>
-    <string name="title_legend_oauth">OAuth autorisaasje</string>
+    <string name="title_legend_oauth">OAuth-autorisaasje</string>
     <string name="title_legend_folder_connected">Map ferbûn</string>
     <string name="title_legend_folder_disconnected">Map loskeppele</string>
-    <string name="title_legend_download_on">Download automatysk berjochtynhâld</string>
-    <string name="title_legend_download_off">Download berjochtynhâld op oanfraach</string>
-    <string name="title_legend_synchronize_on">Syngronisearje oan</string>
-    <string name="title_legend_synchronize_off">Syngronisearje út</string>
-    <string name="title_legend_synchronize_poll">Syngronisearje periodyk</string>
-    <string name="title_legend_disconnected">Verbroken ferbine</string>
-    <string name="title_legend_connecting">Ferbining</string>
+    <string name="title_legend_download_on">Berjochtynhâld automatysk downloade</string>
+    <string name="title_legend_download_off">Berjochtynhâld op oanfraach downloade</string>
+    <string name="title_legend_synchronize_on">Syngronisaasje oan</string>
+    <string name="title_legend_synchronize_off">Syngronisaasje út</string>
+    <string name="title_legend_synchronize_poll">Periodyk syngronisearje</string>
+    <string name="title_legend_disconnected">Net ferbûn</string>
+    <string name="title_legend_connecting">Ferbining meitsje</string>
     <string name="title_legend_connected">Ferbûn</string>
-    <string name="title_legend_backoff">Wachtsje nei mislearring</string>
-    <string name="title_legend_quota">Emailbus hast fol</string>
-    <string name="title_legend_executing">Operaasjes útfiere</string>
+    <string name="title_legend_backoff">Wachtsje nei flater</string>
+    <string name="title_legend_quota">E-mailboks hast fol</string>
+    <string name="title_legend_executing">Bewurkingen útfiere</string>
     <string name="title_legend_synchronizing">Syngronisearje</string>
-    <string name="title_legend_downloading">Ynladen</string>
-    <string name="title_legend_closing">Slút</string>
+    <string name="title_legend_downloading">Downloade</string>
+    <string name="title_legend_closing">Slute</string>
     <string name="title_legend_unified">Kombinearre Postfek YN / primêr account</string>
     <string name="title_legend_inbox">Postfek YN</string>
-    <string name="title_legend_outbox">Utfak</string>
+    <string name="title_legend_outbox">Postfek ÚT</string>
     <string name="title_legend_drafts">Konsepten</string>
-    <string name="title_legend_sent">Stjoerd</string>
+    <string name="title_legend_sent">Ferstjoerd</string>
     <string name="title_legend_archive">Argyf</string>
     <string name="title_legend_trash">Jiskefet</string>
-    <string name="title_legend_junk">Spam</string>
+    <string name="title_legend_junk">Net-winske</string>
     <string name="title_legend_primary">Primêr</string>
-    <string name="title_legend_subscribed">Abonneare op</string>
+    <string name="title_legend_subscribed">Abonnearre op</string>
     <string name="title_legend_rule">Hat regels</string>
-    <string name="title_legend_similar">Sykje ferlykbere berjochten</string>
-    <string name="title_legend_notify">Meld oer nije berjochten</string>
-    <string name="title_legend_sync_keep">Oantal dagen om berjochten te syngronisearjen / bewarje</string>
-    <string name="title_legend_download_fetch">Oantal berjochten ynladen / kopteksten ophelle</string>
+    <string name="title_legend_similar">Soartgelikense berjochten sykje</string>
+    <string name="title_legend_notify">Melding by nije berjochten</string>
+    <string name="title_legend_sync_keep">Oantal dagen om berjochten te syngronisearjen / bewarjen</string>
+    <string name="title_legend_download_fetch">Oantal downladen berjochten / ophelle kopteksten</string>
     <string name="title_legend_stop">Stopje mei ferwurkjen fan regels</string>
-    <string name="title_legend_thread">Konversaasje</string>
+    <string name="title_legend_thread">Petear</string>
     <string name="title_legend_bookmark">Lêst iepene petear</string>
-    <string name="title_legend_zoom">Tekstgrutte feroarje</string>
+    <string name="title_legend_zoom">Tekstgrutte wizigje</string>
     <string name="title_legend_draft">Hat konsept</string>
     <string name="title_legend_priority">Hat hege prioriteit</string>
     <string name="title_legend_priority_low">Hat lege prioriteit</string>
-    <string name="title_legend_importance">Is belangryk</string>
+    <string name="title_legend_sensitivity_personal">Is persoanlik</string>
+    <string name="title_legend_sensitivity_private">Is privee</string>
+    <string name="title_legend_sensitivity_confidential">Is fertroulik</string>
+    <string name="title_legend_importance">Is wichtich</string>
     <string name="title_legend_importance_low">Is net wichtich</string>
-    <string name="title_legend_signed">Is tekene</string>
+    <string name="title_legend_signed">Is ûndertekene</string>
     <string name="title_legend_encrypted">Is fersifere</string>
-    <string name="title_legend_auth">Ferifikaasje mislearre</string>
+    <string name="title_legend_auth">Autentikaasje mislearre</string>
     <string name="title_legend_found">Is fûn</string>
     <string name="title_legend_classified">Waard automatysk klassifisearre</string>
-    <string name="title_legend_snoozed">Is snoozed</string>
+    <string name="title_legend_snoozed">Is slommere</string>
     <string name="title_legend_browsed">Wurdt trochsocht of socht</string>
-    <string name="title_legend_answered">Waard beantwurd</string>
-    <string name="title_legend_forwarded">Waard trochstjoerd</string>
-    <string name="title_legend_plain_only">Is allinich platte tekst</string>
-    <string name="title_legend_receipt">Untfangst waard oanfrege</string>
-    <string name="title_legend_auto_submitted">Waard automatysk ferstjoerd</string>
-    <string name="title_legend_attachment">Hat oanhing</string>
-    <string name="title_legend_flagged">Heakje bestân ta</string>
+    <string name="title_legend_answered">Is beäntwurde</string>
+    <string name="title_legend_forwarded">Is trochstjoerd</string>
+    <string name="title_legend_plain_only">Is allinnich platte tekst</string>
+    <string name="title_legend_receipt">Untfangstbefêstiging is oanfrege</string>
+    <string name="title_legend_auto_submitted">Is automatysk ferstjoerd</string>
+    <string name="title_legend_attachment">Befettet bylagen</string>
+    <string name="title_legend_flagged">Is favoryt</string>
     <string name="title_legend_contacts">Kontakten beheare</string>
-    <string name="title_legend_search">Sykje nei stjoerder</string>
-    <string name="title_legend_view">Besjoch ynhâld</string>
-    <string name="title_legend_hide">Ferbergje ynhâld</string>
+    <string name="title_legend_search">Sykje nei ôfstjoerder</string>
+    <string name="title_legend_view">Ynhâld besjen</string>
+    <string name="title_legend_hide">Ynhâld ferstopje</string>
     <string name="title_legend_download">Ynhâld downloade</string>
-    <string name="title_legend_external_image">Eksterne ôfbylding plakhâlder</string>
-    <string name="title_legend_embedded_image">Ynsletten ôfbylding plakhâlder</string>
+    <string name="title_legend_original">Oarspronklike berjocht besjen</string>
+    <string name="title_legend_reformatted">Opnij opmakke berjocht besjen</string>
+    <string name="title_legend_external_image">Plakhâlder eksterne ôfbylding</string>
+    <string name="title_legend_embedded_image">Plakhâlder ynsluten ôfbylding</string>
     <string name="title_legend_tracking_pixel">Trackingôfbylding</string>
     <string name="title_legend_broken_image">Brutsen ôfbylding</string>
+    <string name="title_legend_open_external">Bûten de app iepenje</string>
     <string name="title_legend_pick">Kies kontakt</string>
-    <string name="title_legend_cc">Sjoch CC / BCC</string>
-    <string name="title_legend_link">Link ynfoegje</string>
-    <string name="title_legend_file">Heakje bestân ta</string>
+    <string name="title_legend_cc">Cc/Bcc toane</string>
+    <string name="title_legend_link">Keppeling ynfoegje</string>
+    <string name="title_legend_file">Bylage tafoegje</string>
     <string name="title_legend_picture">Ôfbylding ynfoegje</string>
-    <string name="title_legend_photo">Nim foto</string>
+    <string name="title_legend_photo">Foto nimme</string>
     <string name="title_legend_audio">Audio opnimme</string>
-    <string name="title_legend_bold">Tekstgrutte feroarje</string>
+    <string name="title_legend_bold">Tekst fet meitsje</string>
     <string name="title_legend_italic">Tekst kursyf meitsje</string>
-    <string name="title_legend_underline">Tekst ûnderstreke</string>
+    <string name="title_legend_underline">Tekst ûnderstreekje</string>
     <string name="title_legend_text_style">Tekststyl ynstelle</string>
-    <string name="title_legend_metered">Ferbining is metere</string>
-    <string name="title_legend_unmetered">Ferbining is metere</string>
+    <string name="title_legend_metered">Ferbining is mjitten</string>
+    <string name="title_legend_unmetered">Ferbining is net mjitten</string>
     <string name="title_legend_roaming">Roaming</string>
-    <string name="title_legend_expander">Utwreidzje</string>
+    <string name="title_legend_expander">Utklappe</string>
     <string name="title_legend_avatar">Avatar</string>
-    <string name="title_legend_show_quotes">Sjoch sitaten</string>
-    <string name="title_legend_show_junk">Behannelje as spam</string>
-    <string name="title_legend_not_junk">Net as spam behannelje</string>
+    <string name="title_legend_show_quotes">Sitaten toane</string>
+    <string name="title_legend_show_junk">As net-winske behannelje</string>
+    <string name="title_legend_not_junk">Net as net-winske behannelje</string>
     <string name="title_legend_create_rule">Regel meitsje</string>
-    <string name="title_legend_show_unsubscribe">Abonnearje fan list</string>
-    <string name="title_legend_show_images">Sjoch ofbyldings</string>
-    <string name="title_legend_show_full">Oarspronklik berjocht sjen litte</string>
+    <string name="title_legend_show_unsubscribe">Utskriuwe fan list</string>
+    <string name="title_legend_show_images">Ofbyldingen toane</string>
+    <string name="title_legend_hide_images">Ofbyldingen ferstopje</string>
+    <string name="title_legend_show_amp">AMP-fariant toane</string>
+    <string name="title_legend_show_full">Orizjinele berjocht toane</string>
+    <string name="title_legend_show_reformatted">Opnij opmakke berjocht toane</string>
     <string name="title_legend_edit">Bewurkje</string>
     <string name="title_legend_default_color">Standertkleur</string>
     <string name="title_legend_close_hint">Hint slute</string>
     <string name="title_legend_connection_state">Ferbiningsteat</string>
-    <string name="title_legend_sync_state">Syngronisaasjetastân</string>
-    <string name="title_legend_download_state">Downloadstatus</string>
+    <string name="title_legend_sync_state">Syngronisaasjesteat</string>
+    <string name="title_legend_download_state">Downloadsteat</string>
     <string name="title_legend_save">Bewarje</string>
-    <string name="title_legend_delete">Ferwiderje</string>
+    <string name="title_legend_delete">Fuortsmite</string>
     <string name="title_legend_count">Telle</string>
-    <string name="title_legend_folder_type">Map type</string>
+    <string name="title_legend_folder_type">Maptype</string>
     <string name="title_legend_enter">Iepenje</string>
-    <string name="title_legend_a">Argyf</string>
-    <string name="title_legend_c">Gearstalle</string>
-    <string name="title_legend_d">Jiskefet (wiskje)</string>
-    <string name="title_legend_m">Menu (meardere seleksje)</string>
+    <string name="title_legend_a">Argivearje</string>
+    <string name="title_legend_c">Opstelle</string>
+    <string name="title_legend_d">Jiskefet (fuortsmite)</string>
+    <string name="title_legend_m">Menu (meardere selektearje)</string>
     <string name="title_legend_n">Folgjende</string>
     <string name="title_legend_p">Foarige</string>
-    <string name="title_legend_r">Antwurdzje</string>
+    <string name="title_legend_r">Beäntwurdzje</string>
     <string name="title_legend_s">Selektearje/deselektearje</string>
-    <string name="title_legend_t">Fokustekst</string>
+    <string name="title_legend_t">Tekst fokusse</string>
     <string name="title_hint_folder_actions">Druk lang op in map foar opsjes, lykas in map tafoegje oan it navigaasjemenu foar flugge tagong</string>
-    <string name="title_hint_folder_sync">Om batterij- en netwurkgebrûk te beheinen sille net alle mappen en net alle berjochten standert wurde syngronisearre</string>
+    <string name="title_hint_folder_sync">Om batterij- en netwurkgebrûk te beheinen sille net alle mappen en net alle berjochten standert syngronisearre wurde</string>
+    <string name="title_hint_airplane">Fleantúchmodus is ynskeakele</string>
+    <string name="title_hint_notifications">Gjin meldingsrjochten</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaasjes noch hieltyd ynskeakele</string>
-    <string name="title_hint_support">As jo in fraach of in probleem hawwe, brûk dan asjebleaft it stipemenu om help te krijen</string>
+    <string name="title_hint_support">As jo in fraach of in probleem hawwe, brûk dan it stipemenu om help te krijen</string>
     <string name="title_hint_message_actions">Fei links nei jiskefet; Fei rjochts nei argyf (as beskikber); De fei-aksjes kinne ynsteld wurde yn de accountynstellingen</string>
     <string name="title_hint_message_selection">Druk lang op in berjocht om meardere berjochten te selektearjen; Hâld en swipe omheech of omleech om mear berjochten te selektearjen</string>
-    <string name="title_hint_important">Belangryk</string>
-    <string name="title_hint_sync">Berjochten downloade kin wat tiid duorje, ôfhinklik fan de snelheid fan de oanbieder, ynternetferbining, it apparaat en fan it oantal berjochten. By it downloaden fan berjochten kin de app stadiger reagearje.</string>
+    <string name="title_hint_message_junk">        In e-mailclient toant yn prinsipe berjochten op in e-mailserver.
+        In e-mailserver is ferantwurdlik foar it filterjen fan net-winske, net in e-mailclient.
+        As jo in protte net-winske ûntfange, nim dan kontakt op mei jo e-mailprovider en jou de app net de skuld!
+    </string>
+    <string name="title_hint_important">Wichtich</string>
+    <string name="title_hint_sync">Berjochten downloade kin wat tiid duorje, ôfhinklik fan de snelheid fan de provider, ynternetferbining, it apparaat en fan it oantal berjochten. By it downloaden fan berjochten kin de app stadiger reagearje.</string>
     <string name="title_hint_sync_note">Standert wurde net alle berjochten download om opslachromte en gebrûk fan batterij en gegevens te beheinen. Jo kinne dit wizigje troch lang op in map yn de maplist te drukken en ‘Mear berjochten ophelje’ te selektearjen.</string>
-    <string name="title_hint_battery">Sûnt FairEmail standert altyd berjochten krijt, sil Android FairEmail rapportearje as altyd aktyf. Dêrom kin it derút sjen as FairEmail altyd batterijekrêft konsumeart hoewol dit eins net it gefal is.</string>
-    <string name="title_hint_reformat">Standert herformateart FairEmail berjochten om privacy en feiligens redenen. Om it orizjinele berjocht te besjen, tikje jo op it ikoan \'folslein skerm\' boppe de tekst fan it berjocht.</string>
-    <string name="title_hint_design">It ûntwerp is mei opsetsin net steurende, mar heul funksjoneel hâlden. D\'r binne in soad opsjes om it uterlik oan te passen, mar begryp asjebleaft dat it ûnmooglik is om elkenien tagelyk folslein lokkich te meitsjen.</string>
-    <string name="title_hint_junk">Spamfiltering moat dien wurde troch de emailserver en kin net betrouber dien wurde op in batterij oandreaun apparaat mei beheinde mooglikheden.</string>
-    <string name="title_hint_contact_actions">Lange parse foar opsjes</string>
-    <string name="title_hint_eml">Dit is in gearfetting fan \'e ynhâld fan in rau berjochtbestân. Bewarje it rauwe berjocht mei it ikoan bewarje yn \'e aksjebalke om alle ynhâld te besjen.</string>
-    <string name="title_open_link">Open link</string>
-    <string name="title_different_link">De titel en it linkadres binne oars</string>
-    <string name="title_tracking_link">Dizze webside folget jo miskien</string>
+    <string name="title_hint_battery">Sûnt FairEmail standert altyd berjochten ûntfangt, sil Android FairEmail rapportearje as altyd aktyf. Dêrom kin it derút sjen as oft FairEmail altyd batterijekrêft konsumearret hoewol dit eins net it gefal is.</string>
+    <string name="title_hint_reformat">Standert makket FairEmail berjochten opnij op om privacy en feilichheidsredenen. Om it orizjinele berjocht te besjen, tikje jo op it piktogram ‘Folslein skerm’ boppe de tekst fan it berjocht.</string>
+    <string name="title_hint_design">It ûntwerp is mei opsetsin net steurende, mar hiel funksjoneel hâlden. Der binne in soad opsjes om it uterlik oan te passen, mar begryp dat it ûnmooglik is om elkenien tagelyk folslein lokkich te meitsjen.</string>
+    <string name="title_hint_junk">Net-winske-berjochtenfiltering moat dien wurde troch de e-mailserver en kin net betrouber dien wurde op in batterij oandreaun apparaat mei beheinde mooglikheden.</string>
+    <string name="title_hint_junk_learn">Troch berjochten te ferpleatsen fan en nei de net-winskemap ‘leart’ de e-mailserver wat net-winske is</string>
+    <string name="title_hint_contact_actions">Lang drukke foar opsjes</string>
+    <string name="title_hint_eml">Dit is in gearfetting fan de ynhâld fan in rûch berjochtbestân. Bewarje it rûge berjocht mei it piktogram ‘Bewarje’ yn de aksjebalke om alle ynhâld te besjen.</string>
+    <string name="title_open_link">Keppeling iepenje</string>
+    <string name="title_image_link">Ofbyldingskeppeling</string>
+    <string name="title_different_link">De titel en it keppelingsadres binne oars</string>
+    <string name="title_tracking_link">Dizze website folget jo miskien</string>
     <string name="title_suspicious_link">Dit is in fertochte keppeling</string>
     <string name="title_link_http">Ferkear wurdt net fersifere</string>
     <string name="title_link_https">Ferkear wurdt fersifere</string>
-    <string name="title_sanitize_link">Ferwiderje trackingparameters</string>
+    <string name="title_sanitize_link">Trackingparameters fuortsmite</string>
     <string name="title_insecure_link">Dizze keppeling is ûnfeilich</string>
-    <string name="title_check_owner">Kontrolearje eigner</string>
-    <string name="title_remark_owner">Ynformaasje sil wurde ophelle fan <a href="https://ipinfo.io/">ipinfo.io</a></string>
-    <string name="title_ip_owner">Eigner IP adres</string>
+    <string name="title_check_owner">Eigener kontrolearje</string>
+    <string name="title_remark_owner">Ynformaasje sil ophelle wurde fan <a href="https://ipinfo.io/">ipinfo.io</a></string>
+    <string name="title_ip_owner">Eigener IP-adres</string>
+    <string name="title_default_apps">Standert apps</string>
+    <string name="title_reset_open">Standertapps ynstelle of wiskje</string>
     <string name="title_select_app">App selektearje</string>
+    <string name="title_updated">Fernijing nei ferzje %1$s beskikber</string>
+    <string name="title_no_update">Gjin fernijing beskikber</string>
     <string name="title_issue">Hawwe jo in fraach of probleem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nee</string>
     <string name="title_later">Letter</string>
-    <string name="title_undo">Ûngedien</string>
+    <string name="title_paste_plain">As platte tekst plakke</string>
+    <string name="title_undo">Ungedien meitsje</string>
     <string name="title_redo">Opnij</string>
+    <string name="title_insert_line">Rigel ynfoegje</string>
+    <string name="title_select_block">Blok selektearje</string>
+    <string name="title_insert_brackets">Heakje</string>
+    <string name="title_insert_quotes">Sitearje</string>
+    <string name="title_lt_add">Wurd tafoegje</string>
+    <string name="title_lt_delete">Wurd fuortsmite</string>
     <string name="title_add">Tafoegje</string>
     <string name="title_browse">Iepenje mei</string>
     <string name="title_info">Ynfo</string>
-    <string name="title_download">Download</string>
-    <string name="title_report">Melde</string>
-    <string name="title_fix">Meitsje</string>
-    <string name="title_show">Sjoch</string>
-    <string name="title_enable">Ynskeakele</string>
+    <string name="title_download">Downloade</string>
+    <string name="title_report">Rapportearje</string>
+    <string name="title_fix">Oplosse</string>
+    <string name="title_show">Toane</string>
+    <string name="title_enable">Ynskeakelje</string>
     <string name="title_enabled">Ynskeakele</string>
-    <string name="title_disable">Utskeakele</string>
-    <string name="title_executing">Eksekutearje</string>
-    <string name="title_completed">Klear</string>
-    <string name="title_default_changed">Standert feroare</string>
+    <string name="title_disable">Utskeakelje</string>
+    <string name="title_keep_current">Aktuele behâlde</string>
+    <string name="title_executing">Oan it útfieren</string>
+    <string name="title_completed">Foltôge</string>
+    <string name="title_default_changed">Standert wizige</string>
     <string name="title_clipboard_copy">Nei klamboerd kopiearje</string>
-    <string name="title_clipboard_copied">Kopiearre nei klamboerd</string>
+    <string name="title_clipboard_copied">Nei klamboerd kopiearre</string>
     <string name="title_ask_what">Freegje wat te dwaan</string>
     <string name="title_no_ask_again">Freegje dit net wer</string>
     <string name="title_no_ask_for_again">Freegje dit net wer foar %1$s</string>
@@ -1652,71 +1835,92 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_1hour">1 oere</string>
     <string name="title_1day">1 dei</string>
     <string name="title_more_overflow">Mear&#8230;</string>
+    <string name="title_today_at">Hjoed om %1$s</string>
+    <string name="title_tomorrow_at">Moarn om %1$s</string>
+    <string name="title_day_at_time">%1$s om %2$s</string>
+    <string name="title_next_week">Dizze tiid nije wike</string>
     <string name="title_now">No</string>
-    <string name="title_after">Nei %1$s</string>
-    <string name="title_reset">Weromsette</string>
+    <string name="title_after">Oer %1$s</string>
+    <string name="title_reset">Opnij ynstelle</string>
     <string name="title_hours">Oeren</string>
     <string name="title_minutes">Minuten</string>
-    <string name="title_dismiss">Wegerje</string>
-    <string name="title_snooze_now">Snooze</string>
+    <string name="title_dismiss">Slute</string>
+    <string name="title_snooze_now">Slommerje</string>
     <string name="title_loading">Lade&#8230;</string>
-    <string name="title_fetching_again">Berjocht werheljen fan de server</string>
-    <string name="title_conversation_actions">Aksje</string>
-    <string name="title_conversation_action_reply">Antwurdzje mei: \'%1$s\'</string>
-    <string name="title_conversation_action_copy">Kopiearje: %1$s</string>
+    <string name="title_fetching_again">Berjocht opnij fan de server ophelje</string>
+    <string name="title_go_back">Gean werom</string>
+    <string name="title_conversation_actions">Aksjes</string>
+    <string name="title_conversation_action_reply">Beäntwurdzje mei: ‘%1$s’</string>
+    <string name="title_conversation_action_copy">Kopiearje: ‘%1$s’</string>
     <string name="title_icalendar_accept">Akseptearje</string>
-    <string name="title_icalendar_decline">Efterútgong</string>
+    <string name="title_icalendar_decline">Wegerje</string>
     <string name="title_icalendar_maybe">Miskien</string>
     <string name="title_icalendar_calendar">Kalinder</string>
     <string name="title_pro_feature">Dit is in pro-funksje</string>
     <string name="title_pro_list">List fan pro-funksjes</string>
     <string name="title_pro_purchase">Keapje</string>
-    <string name="title_pro_info">        It ûntwikkeljen fan FairEmail hat letterlik tûzenen oeren duorre en, nettsjinsteande dat, binne de measte funksjes fergees te brûken.        FairEmail nimt jo privacy serieus en lit gjin advertinsjes sjen en brûkt tracking of analytics net om jild te fertsjinjen.
-        Om FairEmail op \'e lange termyn te behâlden en te stypjen, binne wat gemak en avansearre funksjes net fergees te brûken.
-        FairEmail lit in lyts berjocht sjen om jo hjirfan te ûnthâlden, dat sil wurde fuortsmiten as jo de pro-funksjes oanskaffe.
+    <string name="title_pro_one_time">%1$s (ienmalige oankeap)</string>
+    <string name="title_pro_no_play">Play Store is net fûn</string>
+    <string name="title_pro_info">        It ûntwikkeljen fan FairEmail hat letterlik tûzenen oeren duorre en, nettsjinsteande dat, binne de measte funksjes fergees te brûken.        FairEmail nimt jo privacy serieus en lit gjin advertinsjes sjen en brûkt gjin tracking of analytics om jild te fertsjinjen.
+        Om FairEmail op de lange termyn te behâlden en te stypjen, binne wat gemak en avansearre funksjes net fergees te brûken.
+        FairEmail lit in lyts berjocht sjen om jo hjirfan te ûnthâlden, dat sil fuortsmiten wurde as jo de pro-funksjes oanskaffe.
     </string>
-    <string name="title_pro_hide">Ferbergje lyts berjocht foar %1$d wiken</string>
-    <string name="title_pro_hint">Mei pro-funksjes keapje kinne jo alle aktuele en takomstige pro-funksjes brûke, sil dizze app ûnderhâlde en stipe wurde.</string>
+    <string name="title_pro_whichever">Hokker funksjes ek keazen wurde as pro-funksjes, der is altyd wol ien dy’t krimmenearret dat in funksje fergees wêze moatte soe. Wês net dy persoan.</string>
+    <string name="title_pro_google">FairEmail inisjearret in Play Store oankeap, mar úteinlik beheart Google it hiele oankeapproses. Dus jou de app net de skuld yn gefal fan in probleem!</string>
+    <string name="title_pro_hide">Ferstopje lyts berjocht foar %1$d wiken</string>
+    <string name="title_pro_hint">Mei de oanskaf fan pro-funksjes kinne jo alle aktuele en takomstige pro-funksjes brûke, sil dizze app ûnderhâlden en stipe wurde.</string>
     <string name="title_pro_price">Wêrom binne de pro-funksjes sa djoer?</string>
     <string name="title_pro_family">Kin Google Play Family Library brûkt wurde?</string>
+    <string name="title_pro_restore">Hoe kin ik in oankeap werstelle (op in oar apparaat) ?</string>
     <string name="title_pro_pending">Oankeap yn behanneling</string>
     <string name="title_pro_activated">Alle pro-funksjes binne aktivearre</string>
     <string name="title_pro_valid">Alle pro-funksjes aktivearre</string>
     <string name="title_pro_invalid">Unjildich antwurd</string>
-    <string name="title_pro_support">FairEmail hat dyn help nedich. Tikje om pro-funksjes te keapjen troch dit projekt te stipjen of dit berjocht út te setten.</string>
-    <string name="title_boundary_error">Flater by it downloaden fan berjochten fan \'e mailserver</string>
-    <string name="title_boundary_retry">Besykje opnij</string>
+    <string name="title_pro_support">FairEmail hat dyn help nedich. Tikje om pro-funksjes te keapjen troch dit projekt te stypjen of dit berjocht út te skeakeljen.</string>
+    <string name="title_boundary_error">Flater by it downloaden fan berjochten fan de e-mailserver</string>
+    <string name="title_boundary_retry">Opnij probearje</string>
     <string name="title_unexpected_error">Net ferwachte flater</string>
     <string name="title_log">Lochboek</string>
     <string name="title_log_clear">Wiskje</string>
-    <string name="title_rules_search_hint">Sykje namme as tastân</string>
-    <string name="title_rules_export">Eksportregels</string>
+    <string name="title_rules_search_hint">Sykje namme of betingst</string>
+    <string name="title_rules_export">Regels eksportearje</string>
     <string name="title_rules_import">Regels ymportearje</string>
-    <string name="title_rules_delete_all">Wiskje alle regels</string>
-    <string name="title_rules_delete_all_confirm">Wiskje alle regels?</string>
+    <string name="title_rules_delete_all">Alle regels fuortsmite</string>
+    <string name="title_rules_delete_all_confirm">Alle regels fuortsmite?</string>
     <string name="title_debug_info">Debug-ynfo</string>
-    <string name="title_debug_info_remark">Beskriuw it probleem asjebleaft en jouwe de tiid fan it probleem oan:</string>
-    <string name="title_crash_info_remark">Beskriuw asjebleaft wat jo diene doe\'t de app ferûngelokke:</string>
-    <string name="title_unexpected_info_remark">Beskriuw asjebleaft wat jo dien doe\'t de app ferûngelokke:</string>
-    <string name="title_widget_title_count">Nije berjochten tellen</string>
+    <string name="title_debug_info_remark">Beskriuw it probleem en jou de tiid fan it probleem oan:</string>
+    <string name="title_crash_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
+    <string name="title_unexpected_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
+    <string name="title_widget_title_count">Oantal nije berjochten</string>
     <string name="title_widget_title_list">Berjochtlist</string>
     <string name="title_widget_title_sync">Sync oan/út</string>
-    <string name="title_power_menu_off">Út</string>
+    <string name="title_power_menu_sync">Syngronisaasje</string>
+    <string name="title_power_menu_on">Oan</string>
+    <string name="title_power_menu_off">Ut</string>
+    <string name="title_power_menu_on_off">Oan/Ut</string>
     <string name="title_widget_account">Account</string>
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>
-    <string name="title_widget_folder_unified">Ferienige mappen ynbox</string>
-    <string name="title_widget_unseen">Allinne net-lêzen berjochten</string>
-    <string name="title_widget_flagged">Allinich stjerre berjochten</string>
+    <string name="title_widget_folder_unified">Kombinearre Postfek YN-mappen</string>
+    <string name="title_widget_unseen">Allinnich net-lêzen berjochten</string>
+    <string name="title_widget_flagged">Allinnich berjochten mei stjer</string>
     <string name="title_widget_font_size">Tekstgrutte</string>
-    <string name="title_widget_padding">Paddinggrutte</string>
-    <string name="title_widget_semi_transparent">Semy transparante eftergrûn</string>
+    <string name="title_widget_padding">Opfolgrutte</string>
+    <string name="title_widget_separator_lines">Skiedingslinen brûke</string>
+    <string name="title_widget_semi_transparent">Semi-transparante eftergrûn</string>
+    <string name="title_widget_count_top">Oantal net-lêzen boppeyn toane</string>
+    <string name="title_widget_subject_lines">Maksimaal oantal ûnderwerpregels</string>
+    <string name="title_widget_avatars">Kontaktavatars toane</string>
+    <string name="title_widget_refresh">Knop foar it ferfarskjen fan berjochten toane</string>
+    <string name="title_widget_compose">Knop foar it opstellen fan in nij berjocht toane</string>
     <string name="title_widget_background">Eftergrûnkleur</string>
+    <string name="title_widget_day_night">Donker systeemtema folgje</string>
+    <string name="title_compat_dark">Google hat de donkere modus fuortsmiten foar Android-ferzjes foar ferzje 10</string>
     <!-- Thunderbird -->
-    <string name="title_keyword_label1">Belangryk</string>
+    <string name="title_keyword_label1">Wichtich</string>
     <string name="title_keyword_label2">Wurk</string>
     <string name="title_keyword_label3">Persoanlik</string>
-    <string name="title_keyword_label4">Dwaan</string>
+    <string name="title_keyword_label4">Te dwaan</string>
     <string name="title_keyword_label5">Letter</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d berjocht</item>
@@ -1724,31 +1928,34 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     </plurals>
     <string name="title_accessibility_accounts">Accounts</string>
     <string name="title_accessibility_folders">Mappen</string>
-    <string name="title_accessibility_collapsed">Ynsakje</string>
-    <string name="title_accessibility_expanded">Utwreidzje</string>
-    <string name="title_accessibility_seen">Lêze</string>
+    <string name="title_accessibility_searches">Sykopdrachten</string>
+    <string name="title_accessibility_menus">Menu’s</string>
+    <string name="title_accessibility_extras">Ekstra’s</string>
+    <string name="title_accessibility_collapsed">Ynklapt</string>
+    <string name="title_accessibility_expanded">Utklapt</string>
+    <string name="title_accessibility_seen">Lêzen</string>
     <string name="title_accessibility_unseen">Net lêzen</string>
-    <string name="title_accessibility_flagged">Stjer</string>
-    <string name="title_accessibility_unflagged">Unstjerre</string>
-    <string name="title_accessibility_collapse">Ynsakje</string>
-    <string name="title_accessibility_expand">Útwreidzje</string>
-    <string name="title_accessibility_view_contact">Is fersifere</string>
-    <string name="title_accessibility_show_authentication_result">Sjoch ferifikaasje resultaat</string>
-    <string name="title_accessibility_show_snooze_time">Sjoch snooze tiid</string>
-    <string name="title_accessibility_view_help">Besjoch help</string>
+    <string name="title_accessibility_flagged">Mei stjer</string>
+    <string name="title_accessibility_unflagged">Sûnder stjer</string>
+    <string name="title_accessibility_collapse">Ynklappe</string>
+    <string name="title_accessibility_expand">Utklappe</string>
+    <string name="title_accessibility_view_contact">Kontakt besjen</string>
+    <string name="title_accessibility_show_authentication_result">Autentikaasjeresultaat toane</string>
+    <string name="title_accessibility_show_snooze_time">Slommertiid toane</string>
+    <string name="title_accessibility_view_help">Help besjen</string>
     <string name="title_accessibility_selected">Selektearre</string>
-    <string name="title_accessibility_answered">Antwurde</string>
-    <string name="title_accessibility_scroll_down">Rôlje nei ûnderen</string>
-    <string name="title_accessibility_scroll_up">Rôlje omheech</string>
-    <string name="title_accessibility_filter_out_seen">Wikselje lês berjochten filter</string>
-    <string name="title_accessibility_filter_out_unflagged">Wikselje filter mei stjerre berjochten</string>
-    <string name="title_accessibility_filter_out_snoozed">Wikselje ynskeakele berjochten filter</string>
+    <string name="title_accessibility_answered">Beäntwurde</string>
+    <string name="title_accessibility_scroll_down">Skow omleech</string>
+    <string name="title_accessibility_scroll_up">Skow omheech</string>
+    <string name="title_accessibility_filter_out_seen">Filter foar lêzen berjochten yn-/útskeakelje</string>
+    <string name="title_accessibility_filter_out_unflagged">Filter foar favorite berjochten yn-/útskeakelje</string>
+    <string name="title_accessibility_filter_out_snoozed">Filter foar slommere berjochten yn-/útskeakelje</string>
     <string name="title_accessibility_edit">Bewurkje</string>
-    <string name="title_accessibility_show_addresses">Sjoch adressen</string>
-    <string name="title_accessibility_hide_addresses">Adressen ferbergje</string>
-    <string name="title_accessibility_attachment">Taheaksel</string>
-    <string name="title_accessibility_from">Stjoerder</string>
-    <string name="title_accessibility_to">Ûntfanger</string>
+    <string name="title_accessibility_show_addresses">Adressen toane</string>
+    <string name="title_accessibility_hide_addresses">Adressen ferstopje</string>
+    <string name="title_accessibility_attachment">Bylage</string>
+    <string name="title_accessibility_from">Ofstjoerder</string>
+    <string name="title_accessibility_to">Untfanger</string>
     <string-array name="pollIntervalNames">
         <item>Altyd</item>
         <item>Elke 5 minuten</item>
@@ -1756,10 +1963,10 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
         <item>Elke 15 minuten</item>
         <item>Elke 30 minuten</item>
         <item>Elk oere</item>
-        <item>Elke 2 uren</item>
-        <item>Elke 4 uren</item>
-        <item>Elke 8 uren</item>
-        <item>Eltse dei</item>
+        <item>Elke 2 oeren</item>
+        <item>Elke 4 oeren</item>
+        <item>Elke 8 oeren</item>
+        <item>Elke dei</item>
     </string-array>
     <string-array name="sendDelayedNames">
         <item>Gjin</item>
@@ -1771,8 +1978,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
         <item>10 minuten</item>
     </string-array>
     <string-array name="startupNames">
-        <item>Unifieare postfak</item>
-        <item>Unifoarme mappen</item>
+        <item>Kombinearre Postfek YN</item>
+        <item>Kombinearre mappen</item>
         <item>Primêr accountmappen</item>
         <item>Accounts</item>
     </string-array>
@@ -1792,15 +1999,15 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     </string-array>
     <string-array name="onCloseNames">
         <item>Neat dwaan</item>
-        <item>Gean nei foarige konversaasje</item>
+        <item>Gean nei foarige petear</item>
         <item>Gean nei folgjende petear</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Tiny</item>
-        <item>Extra small</item>
+        <item>Tin</item>
+        <item>Ekstra lyts</item>
         <item>Lyts</item>
-        <item>Medium</item>
-        <item>Grutte</item>
+        <item>Gemiddeld</item>
+        <item>Grut</item>
         <item>Ekstra grut</item>
     </string-array>
     <!-- https://en.wikipedia.org/wiki/Display_resolution -->
@@ -1821,7 +2028,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
         <item>Oan it begjin</item>
         <item>Yn it midden</item>
         <item>Oan de ein</item>
-        <item>Net ôfkoarte sjen litte</item>
+        <item>Net ôfkoarte toane</item>
     </string-array>
     <string-array name="priorityNames">
         <item>Leech</item>
@@ -1831,8 +2038,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string-array name="sensitivityNames">
         <item>Normaal</item>
         <item>Persoanlik</item>
-        <item>Private</item>
-        <item>Confidential</item>
+        <item>Privee</item>
+        <item>Fertroulik</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>
@@ -1844,26 +2051,27 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string-array name="fontSizeNames">
         <item>Standert</item>
         <item>Lyts</item>
-        <item>Medium</item>
-        <item>Grutte</item>
+        <item>Gemiddeld</item>
+        <item>Grut</item>
     </string-array>
+    <string name="title_size_tiny">Tin</string>
     <string-array name="receiptNames">
-        <item>Allinich lêsbewiis</item>
-        <item>Leveringskwitânsje allinich</item>
-        <item>Lês + leveringskwitânsje</item>
+        <item>Allinnich lêsbefêstiging</item>
+        <item>Allinnich ûntfangstbefêstiging</item>
+        <item>Lês-+ûntfangstbefêstiging</item>
     </string-array>
     <string-array name="signatureNames">
         <item>Boppe de tekst</item>
         <item>Under de tekst</item>
-        <item>Op \'e boaiem</item>
+        <item>Underoan</item>
     </string-array>
     <string-array name="encryptNames">
         <item>Gjin</item>
-        <item>PGP allinich teken</item>
-        <item>PGP encrypt-only</item>
-        <item>PGP-teken + fersifere</item>
-        <item>S/MIME allinich oanmeld</item>
-        <item>S/MIME tekenje + fersiferje</item>
+        <item>PGP allinnich ûndertekenje</item>
+        <item>PGP allinnich fersifering</item>
+        <item>PGP-ûndertekening+-fersifering</item>
+        <item>S/MIME allinnich ûndertekening</item>
+        <item>S/MIME-ûndertekening+-fersifering</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>
@@ -1877,41 +2085,46 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
         <item>50 MB</item>
     </string-array>
     <string-array name="undoNames">
-        <item>Út</item>
-        <item>2.5 s</item>
+        <item>Ut</item>
+        <item>2,5 s</item>
         <item>5 s</item>
-        <item>7.5 s</item>
+        <item>7,5 s</item>
         <item>10 s</item>
         <item>15 s</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursyf</item>
-        <item>Serif</item>
-        <item>Sans-serif</item>
+        <item>Mei skreef</item>
+        <item>Skreefleas</item>
         <item>Monospace</item>
         <item>Fantasy</item>
     </string-array>
     <!-- https://www.w3.org/TR/css-fonts-4/#generic-font-families -->
+    <string-array name="addressFormatNames">
+        <item>Allinnich namme</item>
+        <item>Allinnich e-mailadres</item>
+        <item>Namme en e-mailadres</item>
+    </string-array>
     <!-- https://www.bouncycastle.org/specifications.html -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#page-29 -->
     <!-- https://datatracker.ietf.org/doc/html/rfc5751#section-2.7 -->
     <string-array name="minScreenSizes">
         <item>Lyts</item>
-        <item>Medium</item>
-        <item>Grutte</item>
+        <item>Gemiddeld</item>
+        <item>Grut</item>
         <item>Ekstra grut</item>
     </string-array>
     <string-array name="contactTypes">
-        <item>Ûntfanger</item>
-        <item>Stjoerder</item>
-        <item>Blocked</item>
-        <item>Not blocked</item>
+        <item>Untfanger</item>
+        <item>Ofstjoerder</item>
+        <item>Blokkearre</item>
+        <item>Net blokkearre</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item>Any</item>
-        <item>Home</item>
+        <item>Elke</item>
+        <item>Privee</item>
         <item>Wurk</item>
-        <item>Other</item>
-        <item>Mobile</item>
+        <item>Oars</item>
+        <item>Mobyl</item>
     </string-array>
 </resources>
