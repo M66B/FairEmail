@@ -135,7 +135,7 @@ import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.SearchTerm;
 import javax.mail.search.SentDateTerm;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
+import me.leolin.shortcutbadger.ShortcutBadgerAlt;
 
 class Core {
     static final int DEFAULT_CHUNK_SIZE = 50;
@@ -5453,7 +5453,7 @@ class Core {
                             nm.notify(tag, NotificationHelper.NOTIFICATION_TAGGED, notification);
                         // https://github.com/leolin310148/ShortcutBadger/wiki/Xiaomi-Device-Support
                         if (id == 0 && badge && Helper.isXiaomi())
-                            ShortcutBadger.applyNotification(context, notification, current);
+                            ShortcutBadgerAlt.applyNotification(context, notification, current);
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }

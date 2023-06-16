@@ -109,7 +109,7 @@ import javax.mail.event.MessageCountEvent;
 import javax.mail.event.StoreEvent;
 import javax.mail.event.StoreListener;
 
-import me.leolin.shortcutbadger.ShortcutBadger;
+import me.leolin.shortcutbadger.ShortcutBadgerAlt;
 
 public class ServiceSynchronize extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private Network lastActive = null;
@@ -938,9 +938,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     // Update badge
                     try {
                         if (count == 0 || !badge)
-                            ShortcutBadger.removeCount(ServiceSynchronize.this);
+                            ShortcutBadgerAlt.removeCount(ServiceSynchronize.this);
                         else
-                            ShortcutBadger.applyCount(ServiceSynchronize.this, count);
+                            ShortcutBadgerAlt.applyCount(ServiceSynchronize.this, count);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
