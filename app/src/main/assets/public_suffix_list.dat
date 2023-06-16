@@ -6653,7 +6653,7 @@ org.zw
 
 // newGTLDs
 
-// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2023-06-14T15:13:06Z
+// List of new gTLDs imported from https://www.icann.org/resources/registries/gtlds/v2/gtlds.json on 2023-06-16T15:12:40Z
 // This list is auto-generated, don't edit it manually.
 // aaa : 2015-02-26 American Automobile Association, Inc.
 aaa
@@ -7324,9 +7324,6 @@ contractors
 // cooking : 2013-11-21 Registry Services, LLC
 cooking
 
-// cookingchannel : 2015-07-02 Lifestyle Domain Holdings, Inc.
-cookingchannel
-
 // cool : 2013-11-14 Binky Moon, LLC
 cool
 
@@ -7714,9 +7711,6 @@ foo
 // food : 2016-04-21 Lifestyle Domain Holdings, Inc.
 food
 
-// foodnetwork : 2015-07-02 Lifestyle Domain Holdings, Inc.
-foodnetwork
-
 // football : 2014-12-18 Binky Moon, LLC
 football
 
@@ -7951,7 +7945,7 @@ hdfc
 // hdfcbank : 2015-02-12 HDFC Bank Limited
 hdfcbank
 
-// health : 2015-02-11 DotHealth, LLC
+// health : 2015-02-11 Registry Services, LLC
 health
 
 // healthcare : 2014-06-12 Binky Moon, LLC
@@ -7968,9 +7962,6 @@ here
 
 // hermes : 2014-07-10 HERMES INTERNATIONAL
 hermes
-
-// hgtv : 2015-07-02 Lifestyle Domain Holdings, Inc.
-hgtv
 
 // hiphop : 2014-03-06 Dot Hip Hop, LLC
 hiphop
@@ -9507,9 +9498,6 @@ training
 
 // travel : 2015-10-09 Dog Beach, LLC
 travel
-
-// travelchannel : 2015-07-02 Lifestyle Domain Holdings, Inc.
-travelchannel
 
 // travelers : 2015-03-26 Travelers TLD, LLC
 travelers
