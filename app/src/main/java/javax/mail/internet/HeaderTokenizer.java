@@ -255,6 +255,10 @@ public class HeaderTokenizer {
 	return string.substring(nextPos);
     }
 
+	public int getNextPos() {
+		return nextPos;
+	}
+
     /*
      * Return the next token starting from 'currentPos'. After the
      * parse, 'currentPos' is updated to point to the start of the 

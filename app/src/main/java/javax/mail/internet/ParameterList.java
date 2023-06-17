@@ -216,11 +216,18 @@ public class ParameterList {
     public ParameterList(String s) throws ParseException {
 	this();
 
+	boolean recover = false;
 	HeaderTokenizer h = new HeaderTokenizer(s, HeaderTokenizer.MIME);
 	for (;;) {
 	    HeaderTokenizer.Token tk = h.next();
 	    int type = tk.getType();
 	    String name, value;
+
+		if (recover) {
+			recover = false;
+			while (tk.getType() != HeaderTokenizer.Token.EOF && (char) tk.getType() != ';')
+				tk = h.next();
+		}
 
 	    if (type == HeaderTokenizer.Token.EOF) // done
 		break;
@@ -232,18 +239,32 @@ public class ParameterList {
 		if (tk.getType() == HeaderTokenizer.Token.EOF)
 		    break;
 		// parameter name must be a MIME Atom
-		if (tk.getType() != HeaderTokenizer.Token.ATOM)
-		    throw new ParseException("In parameter list <" + s + ">" +
-					    ", expected parameter name, " +
-					    "got \"" + tk.getValue() + "\"");
+		if (tk.getType() != HeaderTokenizer.Token.ATOM) {
+			StringBuilder sb = new StringBuilder(s);
+			int pos = h.getNextPos() - 1;
+			if (pos < sb.length())
+				sb.insert(pos, "^^^");
+			eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+					", expected parameter name, " +
+					"got \"" + tk.getValue() + "\"");
+			recover = true;
+			continue;
+		}
 		name = tk.getValue().toLowerCase(Locale.ENGLISH);
 
 		// expect '='
 		tk = h.next();
-		if ((char)tk.getType() != '=')
-		    throw new ParseException("In parameter list <" + s + ">" +
-					    ", expected '=', " +
-					    "got \"" + tk.getValue() + "\"");
+		if ((char)tk.getType() != '=') {
+			StringBuilder sb = new StringBuilder(s);
+			int pos = h.getNextPos() - 1;
+			if (pos < sb.length())
+				sb.insert(pos, "^^^");
+			eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+					", expected '=', " +
+					"got \"" + tk.getValue() + "\"");
+			recover = true;
+			continue;
+		}
 
 		// expect parameter value
 		if (windowshack &&
@@ -256,10 +277,17 @@ public class ParameterList {
 		type = tk.getType();
 		// parameter value must be a MIME Atom or Quoted String
 		if (type != HeaderTokenizer.Token.ATOM &&
-		    type != HeaderTokenizer.Token.QUOTEDSTRING)
-		    throw new ParseException("In parameter list <" + s + ">" +
-					    ", expected parameter value, " +
-					    "got \"" + tk.getValue() + "\"");
+		    type != HeaderTokenizer.Token.QUOTEDSTRING) {
+			StringBuilder sb = new StringBuilder(s);
+			int pos = h.getNextPos() - 1;
+			if (pos < sb.length())
+				sb.insert(pos, "^^^");
+			eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+					", expected parameter value, " +
+					"got \"" + tk.getValue() + "\"");
+			recover = true;
+			continue;
+		}
 
 		value = tk.getValue();
 		lastName = name;
@@ -285,9 +313,15 @@ public class ParameterList {
 		    value = lastValue + " " + tk.getValue();
 		    list.put(lastName, value);
                 } else {
-		    throw new ParseException("In parameter list <" + s + ">" +
+			StringBuilder sb = new StringBuilder(s);
+			int pos = h.getNextPos() - 1;
+			if (pos < sb.length())
+				sb.insert(pos, "^^^");
+			eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
 					    ", expected ';', got \"" +
 					    tk.getValue() + "\"");
+			recover = true;
+			continue;
 		}
 	    }
         }
