@@ -24,6 +24,7 @@ import java.util.Objects;
 public class TupleIdentityEx extends EntityIdentity {
     public String accountName;
     public String accountCategory;
+    public Integer accountColor;
     public boolean accountSynchronize;
     public Long drafts;
 
@@ -34,6 +35,7 @@ public class TupleIdentityEx extends EntityIdentity {
             return (super.equals(obj) &&
                     Objects.equals(this.accountCategory, other.accountCategory) &&
                     Objects.equals(this.accountName, other.accountName) &&
+                    Objects.equals(this.accountColor, other.accountColor) &&
                     this.accountSynchronize == other.accountSynchronize &&
                     Objects.equals(this.drafts, other.drafts));
         } else

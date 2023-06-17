@@ -59,7 +59,8 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
                 int vpad = (getCount() > 10 ? dp6 : dp12);
                 tv.setPadding(0, vpad, 0, vpad);
 
-                vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
+                Integer color = (identity.color == null ? identity.accountColor : identity.color);
+                vwColor.setBackgroundColor(color == null ? Color.TRANSPARENT : color);
                 tv.setText(identity.getDisplayName());
 
                 return view;

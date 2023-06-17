@@ -43,7 +43,7 @@ public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
         this.identities = identities;
 
         for (TupleIdentityEx identity : identities)
-            if (identity.color != null) {
+            if (identity.color != null || identity.accountColor != null) {
                 hasColor = true;
                 break;
             }
@@ -71,7 +71,8 @@ public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
         TextView tvExtra1 = view.findViewById(R.id.tvExtra1);
         TextView tvExtra2 = view.findViewById(R.id.tvExtra2);
 
-        vwColor.setBackgroundColor(identity.color == null ? Color.TRANSPARENT : identity.color);
+        Integer color = (identity.color == null ? identity.accountColor : identity.color);
+        vwColor.setBackgroundColor(color == null ? Color.TRANSPARENT : color);
         vwColor.setVisibility(hasColor ? View.VISIBLE : View.GONE);
 
         boolean single = (identities.size() == 1 && identity.cc == null && identity.bcc == null);
