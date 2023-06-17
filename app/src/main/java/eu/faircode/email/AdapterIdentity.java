@@ -241,6 +241,7 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
             if (identity.sign_key != null || identity.sign_key_alias != null)
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, order++, R.string.title_reset_sign_key);
 
+            popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_create_alias, order++, R.string.title_advanced_create_alias);
             popupMenu.getMenu().add(Menu.NONE, R.string.title_edit_properties, order++, R.string.title_edit_properties);
 
             popupMenu.getMenu().add(Menu.NONE, R.string.title_copy, order++, R.string.title_copy);
@@ -258,6 +259,9 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                         return true;
                     } else if (itemId == R.string.title_reset_sign_key) {
                         onActionClearSignKey();
+                        return true;
+                    } else if (itemId == R.string.title_advanced_create_alias) {
+                        onActionAlias();
                         return true;
                     } else if (itemId == R.string.title_edit_properties) {
                         onClick(view);
@@ -366,6 +370,17 @@ public class AdapterIdentity extends RecyclerView.Adapter<AdapterIdentity.ViewHo
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "identitty:clear_sign_key");
+                }
+
+                private void onActionAlias() {
+                    Bundle args = new Bundle();
+                    args.putLong("id", identity.id);
+                    args.putString("name", identity.name);
+                    args.putString("email", identity.email);
+
+                    FragmentDialogAlias fragment = new FragmentDialogAlias();
+                    fragment.setArguments(args);
+                    fragment.show(parentFragment.getParentFragmentManager(), "alias:create");
                 }
 
                 private void onActionCopy() {
