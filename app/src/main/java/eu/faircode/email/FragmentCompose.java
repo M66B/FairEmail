@@ -7247,9 +7247,12 @@ public class FragmentCompose extends FragmentBase {
         int signature_location = prefs.getInt("signature_location", 1);
         boolean usenet = prefs.getBoolean("usenet_signature", false);
         boolean write_below = prefs.getBoolean("write_below", false);
+        String compose_font = prefs.getString("compose_font", "");
 
         Element div = document.createElement("div");
         div.attr("fairemail", "signature");
+        if (!TextUtils.isEmpty(compose_font))
+            div.attr("style", "font-family: " + StyleHelper.getFamily(compose_font));
 
         if (usenet) {
             // https://datatracker.ietf.org/doc/html/rfc3676#section-4.3
