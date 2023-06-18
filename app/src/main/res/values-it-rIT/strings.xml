@@ -213,8 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">Le autorizzazioni di notifica sono necessarie per mostrare le notifiche per i nuovi messaggi nella barra di stato</string>
     <string name="title_setup_permission_why">Quali autorizzazioni sono necessarie e perché?</string>
     <string name="title_setup_permission_import_contacts">Come posso importare i contatti?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Contatti di Outlook</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nuovi contatti: %1$s</string>
+    <string name="title_setup_import_graph_contact">Contatti di Outlook</string>
+    <string name="title_setup_import_graph_new">Nuovi contatti: %1$s</string>
     <string name="title_setup_doze">Disabilita le ottimizzazioni della batteria</string>
     <string name="title_setup_doze_remark">Per inviare e ricevere email affidabilmente in background</string>
     <string name="title_setup_doze_explanation">Le ottimizzazioni della batteria dovrebbero esser disabilitate per l\'app, per assicurare un\'affidabile invio e ricezione dei messaggi in background</string>
@@ -837,6 +837,8 @@
     <string name="title_advanced_cleanup_hint">Questo eliminerà tutti i file temporanei</string>
     <string name="title_advanced_never_favorite">Mai preferito</string>
     <string name="title_advanced_edit_name">Modifica il nome</string>
+    <string name="title_advanced_create_alias">Crea alias</string>
+    <string name="title_advanced_create_alias_remark">In molti casi, un indirizzo alias deve prima essere verificato tramite il sito web del provider dell\'email</string>
     <string name="title_create_folder">Crea una cartella</string>
     <string name="title_create_folder_name">Nome della cartella</string>
     <string name="title_create_folder_parent">Cartella superiore</string>
@@ -1900,6 +1902,8 @@
     <string name="title_debug_info">Informazioni di debug</string>
     <string name="title_debug_info_remark">Sei pregato di descrivere il problema e indicare quando si è verificato:</string>
     <string name="title_crash_info_remark">Sei pregato di descrivere cosa stavi facendo quando l\'app si arrestata in modo anomalo:</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Descrizione del problema (obbligatoria)</string>
+    <string name="title_debug_info_contact">Recentemente abbiamo preso contatto su questo problema</string>
     <string name="title_unexpected_info_remark">Sei pregato di descrivere cosa stavi facendo quando hai ottenuto l\'errore:</string>
     <string name="title_widget_title_count">Conteggio nuovi messaggi</string>
     <string name="title_widget_title_list">Elenco dei messaggi</string>

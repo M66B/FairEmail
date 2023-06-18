@@ -213,8 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">São necessárias permissões de notificação para mostrar notificações de novas mensagens na barra de estado</string>
     <string name="title_setup_permission_why">Que permissões são necessárias e porquê?</string>
     <string name="title_setup_permission_import_contacts">Como posso importar contactos?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Contatos do Outlook</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Novos contactos: %1$s</string>
+    <string name="title_setup_import_graph_contact">Contatos do Outlook</string>
+    <string name="title_setup_import_graph_new">Novos contactos: %1$s</string>
     <string name="title_setup_doze">Desactivar optimização de bateria</string>
     <string name="title_setup_doze_remark">Enviar e receber e-mail de forma segura em segundo plano</string>
     <string name="title_setup_doze_explanation">As optimizações da bateria devem ser desactivadas para esta aplicação, para garantir o correcto envio/recepção das mensagens em segundo plano</string>
@@ -837,6 +837,8 @@
     <string name="title_advanced_cleanup_hint">Isto irá eliminar todos os ficheiros temporários</string>
     <string name="title_advanced_never_favorite">Nunca colocar como favorito</string>
     <string name="title_advanced_edit_name">Editar nome</string>
+    <string name="title_advanced_create_alias">Criar pseudónimo</string>
+    <string name="title_advanced_create_alias_remark">Em muitos casos, um endereço de pseudónimo deve ser primeiro verificado pelo site do provedor de correio</string>
     <string name="title_create_folder">Criar pasta</string>
     <string name="title_create_folder_name">Nome da pasta</string>
     <string name="title_create_folder_parent">Pasta principal</string>
@@ -1900,6 +1902,8 @@
     <string name="title_debug_info">Informação de depuração</string>
     <string name="title_debug_info_remark">Por favor, descreva o problema e indique quando ocorreu:</string>
     <string name="title_crash_info_remark">Por favor, descreva o que fazia quando a aplicação foi abaixo:</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Descrição do problema (obrigatório)</string>
+    <string name="title_debug_info_contact">Recentemente tivemos contacto sobre esse problema</string>
     <string name="title_unexpected_info_remark">Por favor, descreva o que fazia quando obteve o erro:</string>
     <string name="title_widget_title_count">Novo contador de mensagens</string>
     <string name="title_widget_title_list">Lista de mensagens</string>

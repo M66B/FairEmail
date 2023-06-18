@@ -211,8 +211,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_permissions_notify_explanation">Machtigingen foar meldingen binne fereaske om meldingen foar nije berjochten yn de steatbalke te toanen</string>
     <string name="title_setup_permission_why">Hokker machtigingen binne nedich en wêrom?</string>
     <string name="title_setup_permission_import_contacts">Hoe kin ik kontakten ymportearje?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook-kontakten</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nije kontakten: %1$s</string>
+    <string name="title_setup_import_graph_contact">Outlook-kontakten</string>
+    <string name="title_setup_import_graph_new">Nije kontakten: %1$s</string>
     <string name="title_setup_doze">Batterijoptimalisaasje útskeakelje</string>
     <string name="title_setup_doze_remark">Foar it betrouber ferstjoeren en ûntfangen fan e-mailberjochten op de eftergrûn</string>
     <string name="title_setup_doze_explanation">Batterijoptimalisaasje moat útskeakele wurde foar de app om wis te wêzen fan it ferstjoeren en ûntfangen fan berjochten op de eftergrûn</string>

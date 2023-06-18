@@ -226,8 +226,8 @@
     <string name="title_setup_permissions_notify_explanation">Dozvole obavještenja su neophodne za prikaz obavještenja o novim porukama na statusnoj traci</string>
     <string name="title_setup_permission_why">Koje dozvole su potrebne i zbog čega?</string>
     <string name="title_setup_permission_import_contacts">Kako da uvezem kontakte?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook kontakti</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Novi kontakti: %1$s</string>
+    <string name="title_setup_import_graph_contact">Outlook kontakti</string>
+    <string name="title_setup_import_graph_new">Novi kontakti: %1$s</string>
     <string name="title_setup_doze">Isključi optimizaciju baterije</string>
     <string name="title_setup_doze_remark">Za pouzdano slanje i primanje e-pošte u pozadini</string>
     <string name="title_setup_doze_explanation">Optimizacija baterije treba biti isključena za aplikaciju kako bi se osiguralo pouzdano slanjne i primanje poruka u pozadini</string>

@@ -213,8 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">Les autorisations de notification sont requises pour afficher les notifications pour les nouveaux messages dans la barre d\'état</string>
     <string name="title_setup_permission_why">Quelles autorisations sont nécessaires et pourquoi?</string>
     <string name="title_setup_permission_import_contacts">Comment puis-je importer des contacts?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Contacts Outlook</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nouveaux contacts: %1$s</string>
+    <string name="title_setup_import_graph_contact">Contacts Outlook</string>
+    <string name="title_setup_import_graph_new">Nouveaux contacts: %1$s</string>
     <string name="title_setup_doze">Désactiver les optimisations de la pile</string>
     <string name="title_setup_doze_remark">Pour envoyer et recevoir des courriels de manière fiable en arrière-plan</string>
     <string name="title_setup_doze_explanation">Les optimisations de la pile doivent être désactivées pour que l\'application assure un envoi et une réception fiables des messages en arrière-plan</string>
@@ -837,6 +837,8 @@
     <string name="title_advanced_cleanup_hint">Ceci supprimera tous les fichiers temporaires</string>
     <string name="title_advanced_never_favorite">Ne jamais mettre en favori</string>
     <string name="title_advanced_edit_name">Modifier le nom</string>
+    <string name="title_advanced_create_alias">Créer un alias</string>
+    <string name="title_advanced_create_alias_remark">Dans de nombreux cas, une adresse alias doit d\'abord être vérifiée via le site web du fournisseur de messagerie</string>
     <string name="title_create_folder">Créer un dossier</string>
     <string name="title_create_folder_name">Nom du dossier</string>
     <string name="title_create_folder_parent">Dossier parent</string>
@@ -1900,6 +1902,8 @@
     <string name="title_debug_info">Information de débogage</string>
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l’application s’est arrêtée :</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Description du problème (obligatoire)</string>
+    <string name="title_debug_info_contact">Nous avons récemment pris contact à propos de ce problème</string>
     <string name="title_unexpected_info_remark">Veuillez décrire ce que vous faisiez lorsque vous avez eu l\'erreur :</string>
     <string name="title_widget_title_count">Nombre de nouveaux messages</string>
     <string name="title_widget_title_list">Liste des messages</string>

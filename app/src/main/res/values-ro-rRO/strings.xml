@@ -226,8 +226,8 @@
     <string name="title_setup_permissions_notify_explanation">Permisiunile de notificare sunt necesare pentru a afișa notificări pentru mesaje noi în bara de stare</string>
     <string name="title_setup_permission_why">Ce permisiuni sunt necesare și de ce?</string>
     <string name="title_setup_permission_import_contacts">Cum pot importa contacte?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Contacte Outlook</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Contacte noi: %1$s</string>
+    <string name="title_setup_import_graph_contact">Contacte Outlook</string>
+    <string name="title_setup_import_graph_new">Contacte noi: %1$s</string>
     <string name="title_setup_doze">Dezactivează optimizarea bateriei</string>
     <string name="title_setup_doze_remark">Pentru a trimite și a primi e-mailuri în mod fiabil în fundal</string>
     <string name="title_setup_doze_explanation">Optimizările bateriei trebuie să fie dezactivate pentru aplicație pentru a asigura trimiterea și primirea sigură a mesajelor în fundal</string>
@@ -848,6 +848,8 @@
     <string name="title_advanced_cleanup_hint">Se vor șterge toate fișierele temporare</string>
     <string name="title_advanced_never_favorite">Niciodată favorit</string>
     <string name="title_advanced_edit_name">Editare nume</string>
+    <string name="title_advanced_create_alias">Creează un alias</string>
+    <string name="title_advanced_create_alias_remark">În multe cazuri, trebuie verificată mai întâi o adresă alias prin intermediul site-ului internet al furnizorului de corespondență</string>
     <string name="title_create_folder">Creează dosar</string>
     <string name="title_create_folder_name">Nume dosar</string>
     <string name="title_create_folder_parent">Dosar părinte</string>
@@ -1907,6 +1909,8 @@
     <string name="title_debug_info">Depanare</string>
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Descrierea problemei (necesar)</string>
+    <string name="title_debug_info_contact">Recent am avut contact cu această problemă</string>
     <string name="title_unexpected_info_remark">Vă rugăm să descrieți ce faceți atunci când ați primit eroarea:</string>
     <string name="title_widget_title_count">Contor mesaje noi</string>
     <string name="title_widget_title_list">Listă mesaje</string>

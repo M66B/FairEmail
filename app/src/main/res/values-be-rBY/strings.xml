@@ -239,8 +239,8 @@
     <string name="title_setup_permissions_notify_explanation">Дазволы на апавяшчэнні патрабуюцца для паказу апавяшчэнняў аб новых паведамленнях у радку стану</string>
     <string name="title_setup_permission_why">Якія дазволы патрэбны і навошта?</string>
     <string name="title_setup_permission_import_contacts">Як я магу імпартаваць кантакты?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Кантакты Outlook</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Новыя кантакты: %1$s</string>
+    <string name="title_setup_import_graph_contact">Кантакты Outlook</string>
+    <string name="title_setup_import_graph_new">Новыя кантакты: %1$s</string>
     <string name="title_setup_doze">Адключыць аптымізацыю батарэі</string>
     <string name="title_setup_doze_remark">Для надзейнай адпраўкі і атрымання электроннай пошты ў фонавым рэжыме</string>
     <string name="title_setup_doze_explanation">Каб забяспечыць надзейную адпраўку і атрыманне паведамленняў у фонавым рэжыме, аптымізацыя батарэі для праграмы павінна быць адключана</string>

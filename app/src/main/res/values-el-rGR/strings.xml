@@ -213,8 +213,8 @@
     <string name="title_setup_permissions_notify_explanation">Απαιτούνται δικαιώματα ειδοποιήσεων για να προβάλλονται ειδοποιήσεις νέων μηνυμάτων στη γραμμή κατάστασης</string>
     <string name="title_setup_permission_why">Ποιες άδειες χρειάζονται και γιατί;</string>
     <string name="title_setup_permission_import_contacts">Πώς μπορώ να εισαγάγω επαφές;</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Επαφές Outlook</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Νέες επαφές: %1$s</string>
+    <string name="title_setup_import_graph_contact">Επαφές Outlook</string>
+    <string name="title_setup_import_graph_new">Νέες επαφές: %1$s</string>
     <string name="title_setup_doze">Απενεργοποίηση βελτιστοποίησης μπαταρίας</string>
     <string name="title_setup_doze_remark">Για αξιόπιστη αποστολή και λήψη μηνυμάτων στο παρασκήνιο</string>
     <string name="title_setup_doze_explanation">Οι βελτιστοποιήσεις μπαταρίας θα πρέπει να απενεργοποιηθούν για την εφαρμογή, ώστε να διασφαλιστεί η αξιόπιστη αποστολή και λήψη μηνυμάτων στο παρασκήνιο</string>
@@ -833,6 +833,7 @@
     <string name="title_advanced_cleanup_hint">Θα διαγράψει όλα τα προσωρινά αρχεία</string>
     <string name="title_advanced_never_favorite">Ποτέ ως αγαπημένο</string>
     <string name="title_advanced_edit_name">Επεξεργασία ονόματος</string>
+    <string name="title_advanced_create_alias">Δημιουργία ψευδώνυμου</string>
     <string name="title_create_folder">Δημιουργία φακέλου</string>
     <string name="title_create_folder_name">Όνομα φακέλου</string>
     <string name="title_create_folder_parent">Γονικός φάκελος</string>

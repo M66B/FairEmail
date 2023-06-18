@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">جستجوی FairEmail</string>
+    <string name="app_send_self">به خودم بفرست</string>
     <string name="app_changelog">گزارش دگرگونی</string>
     <string name="app_welcome">FairEmail یک برنامه منبع باز بوده که تمرکز آن بر روی امنیت و حفظ حریم خصوصی است. بنابر دلایلی ممکن است برخی ویژگی‌ها بسته به نوع استفاده شما متفاوت باشند.</string>
     <string name="app_limitations">به عنوان مثال، پیام‌ها به طور پیش فرض برای حذف عناصر ناامن و بهبود خوانایی مجدداً قالب‌بندی می‌شوند و باز شدن پیوندها باید از نظر ایمنی تأیید شود. در صورت تمایل می‌توان هر دو را غیرفعال کرد.</string>
@@ -192,13 +193,16 @@
     <string name="title_setup_permissions_notify">برای نمایش اعلان پیام‌های جدید (دلبخواه)</string>
     <string name="title_setup_permission_why">کدام اجازه دسترسی‌ها لازمند و چرا؟</string>
     <string name="title_setup_permission_import_contacts">چگونه می‌توانم مخاطبین را وارد کنم؟</string>
+    <string name="title_setup_import_graph_new">مخاطب‌های جدید: %1$s</string>
     <string name="title_setup_doze">غیرفعال کردن بهینه سازی باتری</string>
     <string name="title_setup_doze_remark">برای فرستادن و دریافت ایمیل به طرز مطمئن در پس‌زمینه</string>
+    <string name="title_setup_doze_explanation">برای اطمینان از دریافت و فرستادن پیام‌ها در پس‌زمینه، بهینه‌سازی عملکرد باتری برای این اپلیکیشن باید غیرفعال باشد</string>
     <string name="title_setup_doze_aggressively">این دستگاه ممکن است همرسانی را متوقف کند</string>
     <string name="title_setup_doze_why">چرا باید حالت بهینه‌سازی باتری غیرفعال باشد؟</string>
     <string name="title_setup_doze_battery">آیا مصرف باتری زیاد است؟</string>
     <string name="title_setup_doze_stopped">همگام‌سازی متوقف شده؟</string>
     <string name="title_setup_doze_device">این مورد احتمالا برای این دستگاه اجباریست</string>
+    <string name="title_setup_alarm_12">اپلیکیشن به خوبی کار نخواهد کرد</string>
     <string name="title_setup_inexact">زنگ‌های &amp; یادآور غیرفعال هستند</string>
     <string name="title_setup_background">محدودیت‌های پس‌زمینه فعال هستند</string>
     <string name="title_setup_data">سرور داده فعال شده است</string>
@@ -271,6 +275,7 @@
     <string name="title_setup_reset_questions">بازنشانی پرسش‌ها</string>
     <string name="title_setup_reset_general">پرسش‌های عمومی</string>
     <string name="title_setup_reset_links">لینک‌ها را تایید کنید</string>
+    <string name="title_setup_reset_files">مشاهده فایل‌ها</string>
     <string name="title_setup_reset_images">نمایش تصاویر</string>
     <string name="title_setup_reset_full">مشاهده پیام‌های اصلی</string>
     <string name="title_check_gmail_oauth">حساب‌های جیمیل شما پس از ۳۰ می ۲۰۲۲، همچنان کار خواهند کرد</string>
@@ -322,6 +327,7 @@
     <string name="title_advanced_suggest_sent">پیشنهاد نشانی‌های یافت شده در پیام‌های ارسال شده</string>
     <string name="title_advanced_suggest_received">پیشنهاد نشانی‌های یافت شده در پیام‌های دریافت شده</string>
     <string name="title_advanced_suggest_frequently">مرتب‌سازی نشانی‌های پیشنهادی در دفعات استفاده</string>
+    <string name="title_advanced_send_chips">نمایش حباب‌ آدرس‌ها</string>
     <string name="title_advanced_send_reminders">نمایش یادآورها</string>
     <string name="title_advanced_send_delayed">وقفه ارسال پیام‌ها</string>
     <string name="title_advanced_answer_caption">تنظیمات دکمه پاسخ</string>
@@ -555,6 +561,7 @@
     <string name="title_advanced_cleanup_hint">این تمام پرونده‌های موقت را حذف خواهد کرد</string>
     <string name="title_advanced_never_favorite">هرگز مورد علاقه نشود</string>
     <string name="title_advanced_edit_name">ویرایش نام</string>
+    <string name="title_advanced_create_alias_remark">در بسیاری موارد، آدرس‌های مستعار باید ابتدا توسط وبسایت ارائه دهنده ایمیل تایید شوند</string>
     <string name="title_create_folder_name">نام پوشه</string>
     <string name="title_advanced_swipe_actions">تنظیم کنش‌های کشیدن</string>
     <string name="title_select">انتخاب &#8230;</string>
@@ -1260,6 +1267,8 @@
     <string name="title_debug_info">اطلاعات اشکال زدایی</string>
     <string name="title_debug_info_remark">لطفاً مشکل را شرح داده و به زمان مشکل نیز اشاره کنید:</string>
     <string name="title_crash_info_remark">لطفاً توضیح دهید که در هنگام کرش برنامه درحال انجام چه کاری بودید:</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">شرح مشکل (لازم)</string>
+    <string name="title_debug_info_contact">پیشتر درباره این مشکل پیام دریافت کرده‌ایم</string>
     <string name="title_widget_title_count">شمار پیام جدید</string>
     <string name="title_widget_title_list">لیست پیام‌ها</string>
     <string name="title_power_menu_off">خاموش</string>

@@ -212,8 +212,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_permissions_notify_explanation">Machtigingen voor meldingen zijn vereist om meldingen voor nieuwe berichten in de statusbalk te tonen</string>
     <string name="title_setup_permission_why">Welke machtigingen zijn nodig en waarom?</string>
     <string name="title_setup_permission_import_contacts">Hoe kan ik contacten importeren?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook contacten</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Nieuwe contacten: %1$s</string>
+    <string name="title_setup_import_graph_contact">Outlook contacten</string>
+    <string name="title_setup_import_graph_new">Nieuwe contacten: %1$s</string>
     <string name="title_setup_doze">Batterij-optimalisaties uitschakelen</string>
     <string name="title_setup_doze_remark">Voor het betrouwbaar verzenden en ontvangen van e-mail op de achtergrond</string>
     <string name="title_setup_doze_explanation">Batterij-optimalisaties moeten worden uitgeschakeld voor de app om zeker te zijn van het verzenden en ontvangen van berichten op de achtergrond</string>
@@ -834,6 +834,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_cleanup_hint">Dit zal alle tijdelijke bestanden verwijderen</string>
     <string name="title_advanced_never_favorite">Nooit favoriet</string>
     <string name="title_advanced_edit_name">Naam wijzigen</string>
+    <string name="title_advanced_create_alias">Maak alias</string>
+    <string name="title_advanced_create_alias_remark">In veel gevallen moet een alias adres eerst worden geverifieerd via de website van de mailprovider</string>
     <string name="title_create_folder">Maak map</string>
     <string name="title_create_folder_name">Mapnaam</string>
     <string name="title_create_folder_parent">Bovenliggende map</string>
@@ -1888,6 +1890,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_debug_info">Foutopsporing</string>
     <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
     <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Probleembeschrijving (vereist)</string>
+    <string name="title_debug_info_contact">Onlangs hadden we contact over dit probleem</string>
     <string name="title_unexpected_info_remark">Beschrijf alstublieft wat u aan het doen was toen de foutmelding kwam:</string>
     <string name="title_widget_title_count">Aantal nieuwe berichten</string>
     <string name="title_widget_title_list">Berichtenlijst</string>

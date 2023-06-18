@@ -200,8 +200,8 @@
     <string name="title_setup_permissions_notify_explanation">新着メッセージ通知をステータスバーに表示するには通知の権限が必要です</string>
     <string name="title_setup_permission_why">必要とする権限とその理由は何ですか？</string>
     <string name="title_setup_permission_import_contacts">連絡先をインポートするにはどうすればいいですか？</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Outlook の連絡先</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">新しい連絡先: %1$s</string>
+    <string name="title_setup_import_graph_contact">Outlook の連絡先</string>
+    <string name="title_setup_import_graph_new">新しい連絡先: %1$s</string>
     <string name="title_setup_doze">バッテリー最適化を無効にする</string>
     <string name="title_setup_doze_remark">バックグラウンドで確実にメールを送受信するには</string>
     <string name="title_setup_doze_explanation">バックグラウンドでのメッセージの送受信を確実に行うには、アプリのバッテリー最適化を無効にする必要があります</string>
@@ -823,6 +823,8 @@
     <string name="title_advanced_cleanup_hint">すべての一時ファイルが削除されます</string>
     <string name="title_advanced_never_favorite">お気に入りに追加しない</string>
     <string name="title_advanced_edit_name">名前を編集</string>
+    <string name="title_advanced_create_alias">エイリアスを作成</string>
+    <string name="title_advanced_create_alias_remark">多くの場合、メールプロバイダーのウェブサイトでエイリアスを作成してからでないと利用できません。</string>
     <string name="title_create_folder">フォルダーを作成</string>
     <string name="title_create_folder_name">フォルダー名</string>
     <string name="title_create_folder_parent">親フォルダー</string>
@@ -1886,6 +1888,8 @@
     <string name="title_debug_info">デバッグ情報</string>
     <string name="title_debug_info_remark">(英語) 問題の詳細と発生日時を教えてください:</string>
     <string name="title_crash_info_remark">(英語) アプリがクラッシュしたときに何をしていたかを説明してください:</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">問題の説明 (必須・英語で)</string>
+    <string name="title_debug_info_contact">最近、この問題について連絡がありました</string>
     <string name="title_unexpected_info_remark">(英語) エラーが発生したときに何をしていたか説明してください:</string>
     <string name="title_widget_title_count">新着メッセージ数</string>
     <string name="title_widget_title_list">メッセージリスト</string>

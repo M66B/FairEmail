@@ -239,8 +239,8 @@
     <string name="title_setup_permissions_notify_explanation">Разрешения уведомлений для отображения новых сообщений в строке состояния</string>
     <string name="title_setup_permission_why">Какие разрешения необходимы и почему?</string>
     <string name="title_setup_permission_import_contacts">Как импортировать контакты?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Контакты Outlook</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Новые контакты: %1$s</string>
+    <string name="title_setup_import_graph_contact">Контакты Outlook</string>
+    <string name="title_setup_import_graph_new">Новые контакты: %1$s</string>
     <string name="title_setup_doze">Отключить оптимизацию энергопотребления</string>
     <string name="title_setup_doze_remark">Для надёжной отправки и получения электронной почты в фоновом режиме</string>
     <string name="title_setup_doze_explanation">Оптимизация энергопотребления должна быть отключена для приложения, чтобы обеспечить надёжную отправку и получение сообщений в фоновом режиме</string>
@@ -862,6 +862,8 @@
     <string name="title_advanced_cleanup_hint">Это действие удалит все временные файлы</string>
     <string name="title_advanced_never_favorite">Никогда не помечать избранным</string>
     <string name="title_advanced_edit_name">Переименовать</string>
+    <string name="title_advanced_create_alias">Создать псевдоним</string>
+    <string name="title_advanced_create_alias_remark">Часто псевдоним адреса должен быть предварительно проверен на сайте провайдера почты</string>
     <string name="title_create_folder">Создать папку</string>
     <string name="title_create_folder_name">Название папки</string>
     <string name="title_create_folder_parent">Родительская папка</string>
@@ -1924,6 +1926,8 @@
     <string name="title_debug_info">Отладочная информация</string>
     <string name="title_debug_info_remark">Пожалуйста, опишите проблему и укажите момент её возникновения:</string>
     <string name="title_crash_info_remark">Пожалуйста, опишите, что вы делали, когда в приложении произошёл сбой:</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Описание проблемы (обязательно)</string>
+    <string name="title_debug_info_contact">Недавно мы общались по поводу этой проблемы</string>
     <string name="title_unexpected_info_remark">Пожалуйста, опишите, что вы делали, когда получили ошибку:</string>
     <string name="title_widget_title_count">Количество новых сообщений</string>
     <string name="title_widget_title_list">Список сообщений</string>

@@ -240,8 +240,8 @@
     <string name="title_setup_permissions_notify_explanation">Потрібні дозволи для показу сповіщень для нових повідомлень в рядку стану</string>
     <string name="title_setup_permission_why">Які дозволи необхідні й чому?</string>
     <string name="title_setup_permission_import_contacts">Як можна імпортувати контакти?</string>
-    <string name="title_setup_import_graph_contact" comment="title_setup_import_graph_contact&#10;Title for button to import Outlook contacts&#10;The button will show a download icon, so this can be omitted in the translation">Контакти з Outlook</string>
-    <string name="title_setup_import_graph_new" comment="title_setup_import_graph_new&#10;Message telling how many new (Outlook) contacts were downloaded">Нові контакти: %1$s</string>
+    <string name="title_setup_import_graph_contact">Контакти з Outlook</string>
+    <string name="title_setup_import_graph_new">Нові контакти: %1$s</string>
     <string name="title_setup_doze">Вимкнути оптимізацію використання батареї</string>
     <string name="title_setup_doze_remark">Для надійного отримання й надсилання пошти в фоновому режимі</string>
     <string name="title_setup_doze_explanation">Оптимізація живлення повинна бути вимкнена для додатку, щоб забезпечити надійне надсилання та отримання повідомлень у фоновому режимі</string>
@@ -498,7 +498,7 @@
     <string name="title_advanced_date_week">Групувати за тижнями замість дня</string>
     <string name="title_advanced_date_fixed">Показати фіксований заголовок дати зверху</string>
     <string name="title_advanced_date_bold">Показувати дату в жирному шрифті</string>
-    <string name="title_advanced_date_time">Завжди показувати як і дату, так і час</string>
+    <string name="title_advanced_date_time">Завжди показувати і дату, і час</string>
     <string name="title_advanced_threading">Пов\'язанні розмови</string>
     <string name="title_advanced_threading_unread">Показувати кількість непрочитаних повідомлень у розмовах</string>
     <string name="title_advanced_indentation">Відступати ліворуч чи праворуч для отриманих або надісланих повідомлень у розмовах</string>
@@ -712,7 +712,7 @@
     <string name="title_advanced_manage_keys_hint">        Це дозволить відкрити налаштування безпеки Android.        Ключі та сертифікати зазвичай можна знайти в розділі Безпека та місцезнаходження - Додатково - Шифрування й облікові дані.
     </string>
     <string name="title_advanced_power_menu">Додати дії до меню живлення в Android</string>
-    <string name="title_advanced_send_self">Додати \"Надіслати собі\" в меню Android\'s share</string>
+    <string name="title_advanced_send_self">Додати \"Надіслати собі\" в системне меню \"Поділитися\"</string>
     <string name="title_advanced_external_search">Дозволити іншим програмам пошук в повідомленнях</string>
     <string name="title_advanced_sort_answers">Сортувати шаблони відповідей за частотою використання</string>
     <string name="title_advanced_shortcuts">Показувати, в меню швидкого доступу до Android, найчастіше використовувані контакти</string>
@@ -781,7 +781,7 @@
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення або тема пуста або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти може все ще додати повідомлення до теки надісланих повідомлень</string>
     <string name="title_advanced_compose_color_hint">Використання дуже світлих або дуже темних кольорів може призвести до того, що отримувач не зможе прочитати ваше повідомлення</string>
-    <string name="title_advanced_write_below_hint">Одержувач може пропустити вашу відповідь, наприклад, коли довге повідомлення скорочується</string>
+    <string name="title_advanced_write_below_hint">Одержувач може пропустити вашу відповідь, наприклад, у разі скорочення довгого повідомлення</string>
     <string name="title_advanced_attach_new_hint">В іншому випадку додавати поширювані адреси чи файли до чернетки поточного повідомлення</string>
     <string name="title_advanced_usenet_hint">Вставити \'-- \' між текстом і підписом</string>
     <string name="title_advanced_remove_signature_hint">Це може призвести до замалого або занадто багатого видалянню тексту</string>
@@ -861,6 +861,8 @@
     <string name="title_advanced_cleanup_hint">Це призведе до видалення всіх тимчасових файлів</string>
     <string name="title_advanced_never_favorite">Ніколи не додавати до улюбленого</string>
     <string name="title_advanced_edit_name">Змінити ім\'я</string>
+    <string name="title_advanced_create_alias">Створити псевдонім</string>
+    <string name="title_advanced_create_alias_remark">Зазвичай адресу-псевдонім необхідно спершу підтвердити на вебсторінці поштового провайдера</string>
     <string name="title_create_folder">Створити теку</string>
     <string name="title_create_folder_name">Ім\'я теки</string>
     <string name="title_create_folder_parent">Батьківська тека</string>
@@ -1421,7 +1423,7 @@
     <string name="title_attachment_keywords">вкладені, вкладення, вкладення, включене</string>
     <string name="title_attachment_reminder">Ви мали намір додати вкладення?</string>
     <string name="title_attachment_warning">Потенційна небезпека: %1$s</string>
-    <string name="title_attachment_filename">Деякі інші поштові клієнти не можуть обробляти імена файлів довшими за 60 символів</string>
+    <string name="title_attachment_filename">Деякі поштові клієнти не можуть обробляти імена файлів довші за 60 символів</string>
     <string name="title_plain_reminder">Все форматування буде втрачено</string>
     <string name="title_dsn_reminder">Постійні, або жорсткі, відмови від повідомлень про стан доставлення шкодять репутації оригінальному відправнику електронної пошти!</string>
     <string name="title_size_reminder">Розмір повідомлення (%1$s) більше за ліміт встановлений сервером (%2$s)</string>
@@ -1621,7 +1623,7 @@
     <string name="title_rule_time_before">Отримано до</string>
     <string name="title_rule_time_rel">Відносний час (отримано) між</string>
     <string name="title_rule_time_every_day">Щодня</string>
-    <string name="title_rule_younger">Повідомлення, молодші за (години)</string>
+    <string name="title_rule_younger">Повідомленя, не пізніше ніж (години)</string>
     <string name="title_rule_regex">Регулярний вираз</string>
     <string name="title_rule_and">ТА</string>
     <string name="title_rule_action">Дія</string>
@@ -1761,7 +1763,7 @@
     <string name="title_legend_avatar">Аватар</string>
     <string name="title_legend_show_quotes">Показати цитату</string>
     <string name="title_legend_show_junk">Вважати спамом</string>
-    <string name="title_legend_not_junk">Вважати, що не спам</string>
+    <string name="title_legend_not_junk">Не вважати за спам</string>
     <string name="title_legend_create_rule">Створити правило</string>
     <string name="title_legend_show_unsubscribe">Відписати зі списку</string>
     <string name="title_legend_show_images">Показати зображення</string>
@@ -1802,7 +1804,7 @@
 Якщо ви отримуєте багато спаму, зверніться до служби підтримки вашого поштового сервісу і не звинувачуйте додаток!    </string>
     <string name="title_hint_important">Важливо</string>
     <string name="title_hint_sync">Завантаження повідомлень може зайняти деякий час, в залежності від пристрою, швидкості провайдера, інтернет-з\'єднання та кількості повідомлень. При завантаженні повідомлень, додаток може реагувати повільніше.</string>
-    <string name="title_hint_sync_note">За замовчуванням, не всі повідомлення будуть завантажені, щоб обмежити обсяг використаної пам\'яті, а також використання акумулятора. Це можна змінити, довго натискаючи на теку в списку тек і вибравши \"Отримати більше повідомлень\".</string>
+    <string name="title_hint_sync_note">За замовчуванням, не всі повідомлення будуть завантажені, щоб обмежити обсяг використаної пам\'яті, а також використання акумулятора. Це можна змінити, натиснувши з утриманням на теку в списку тек і вибравши \"Отримати більше повідомлень\".</string>
     <string name="title_hint_battery">Оскільки FairEmail по замовчуванню завжди отримує повідомлення, Android буде повідомляти про роботу з FairEmail як завжди активну. Тому ситуація виглядає так, ніби FairEmail завжди споживає заряд акумулятора, хоча насправді це не так.</string>
     <string name="title_hint_reformat">За замовчуванням FairEmail переформатує повідомлення з міркувань конфіденційності та безпеки. Для перегляду оригінального повідомлення натисніть на іконку \"Повний екран\" над текстом повідомлення.</string>
     <string name="title_hint_design">Дизайн навмисно створено так щоб не відволікав, але залишався високо функціональним. Існує багато варіантів для налаштування зовнішнього вигляду, але будь ласка, розумійте, що неможливо зробити всіх повністю задоволеними одночасно.</string>
@@ -1920,6 +1922,8 @@
     <string name="title_debug_info">Інформація зневадження</string>
     <string name="title_debug_info_remark">Опишіть проблему й зазначте момент її виникнення:</string>
     <string name="title_crash_info_remark">Будь ласка, опишіть, що ви робили, коли додаток зазнав краху:</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Опис проблеми (обов\'язково)</string>
+    <string name="title_debug_info_contact">Нещодавно з нами зв\'язувались щодо цієї проблеми</string>
     <string name="title_unexpected_info_remark">Будь ласка, опишіть, що ви робили, коли додаток зазнав краху:</string>
     <string name="title_widget_title_count">Кількість нових повідомлень</string>
     <string name="title_widget_title_list">Список повідомлень</string>
