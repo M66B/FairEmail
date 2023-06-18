@@ -1786,9 +1786,15 @@ public class Log {
         }
     }
 
-    static EntityMessage getDebugInfo(Context context, String source, int title, Throwable ex, String log) throws IOException, JSONException {
+    static EntityMessage getDebugInfo(Context context, String source, int title, Throwable ex, String log, Bundle args) throws IOException, JSONException {
         StringBuilder sb = new StringBuilder();
-        sb.append(context.getString(title)).append("\n\n\n\n");
+        sb.append(context.getString(title)).append("\n\n");
+        if (args != null) {
+            sb.append(args.getString("issue"));
+            if (args.getBoolean("contact"))
+                sb.append("\n\n").append("Prior contact");
+        }
+        sb.append("\n\n");
         sb.append(getAppInfo(context));
         if (ex != null)
             sb.append(ex.toString()).append("\n").append(android.util.Log.getStackTraceString(ex));
@@ -1942,7 +1948,7 @@ public class Log {
                         new SimpleTask<Long>() {
                             @Override
                             protected Long onExecute(Context context, Bundle args) throws Throwable {
-                                return Log.getDebugInfo(context, "report", R.string.title_unexpected_info_remark, ex, null).id;
+                                return Log.getDebugInfo(context, "report", R.string.title_unexpected_info_remark, ex, null, null).id;
                             }
 
                             @Override

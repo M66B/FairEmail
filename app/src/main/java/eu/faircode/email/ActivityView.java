@@ -192,6 +192,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
     private static final int REQUEST_RULES_ACCOUNT = 2001;
     private static final int REQUEST_RULES_FOLDER = 2002;
+    private static final int REQUEST_DEBUG_INFO = 7000;
 
     @Override
     @SuppressLint("MissingSuperCall")
@@ -1138,6 +1139,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     if (resultCode == RESULT_OK && data != null)
                         onMenuRules(data.getBundleExtra("args"));
                     break;
+                case REQUEST_DEBUG_INFO:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDebugInfo(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -1484,7 +1489,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 sb.append(line).append("\r\n");
                         }
 
-                        return Log.getDebugInfo(context, "crash", R.string.title_crash_info_remark, null, sb.toString()).id;
+                        return Log.getDebugInfo(context, "crash", R.string.title_crash_info_remark, null, sb.toString(), null).id;
                     } finally {
                         file.delete();
                     }
@@ -2206,15 +2211,23 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onDebugInfo() {
+        FragmentDialogDebug fragment = new FragmentDialogDebug();
+        fragment.setArguments(new Bundle());
+        fragment.setTargetActivity(this, REQUEST_DEBUG_INFO);
+        fragment.show(getSupportFragmentManager(), "debug");
+    }
+
+    private void onDebugInfo(Bundle args) {
+        Log.logBundle(args);
         new SimpleTask<Long>() {
             @Override
             protected void onPreExecute(Bundle args) {
-                ToastEx.makeText(ActivityView.this, "Debug info ...", Toast.LENGTH_LONG).show();
+                ToastEx.makeText(ActivityView.this, R.string.title_debug_info, Toast.LENGTH_LONG).show();
             }
 
             @Override
             protected Long onExecute(Context context, Bundle args) throws IOException, JSONException {
-                return Log.getDebugInfo(context, "main", R.string.title_debug_info_remark, null, null).id;
+                return Log.getDebugInfo(context, "main", R.string.title_debug_info_remark, null, null, args).id;
             }
 
             @Override
@@ -2233,7 +2246,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     Log.unexpectedError(getSupportFragmentManager(), ex);
             }
 
-        }.execute(this, new Bundle(), "debug:info");
+        }.execute(this, args, "debug:info");
     }
 
     private void onShowLog() {

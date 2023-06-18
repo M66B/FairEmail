@@ -94,6 +94,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     static final int REQUEST_IMPORT_PROVIDERS = 12;
     static final int REQUEST_GRAPH_CONTACTS = 13;
     static final int REQUEST_GRAPH_CONTACTS_OAUTH = 14;
+    static final int REQUEST_DEBUG_INFO = 7000;
 
     static final int PI_CONNECTION = 1;
     static final int PI_MISC = 2;
@@ -428,6 +429,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     } else
                         performBack();
                     break;
+                case REQUEST_DEBUG_INFO:
+                    if (resultCode == RESULT_OK && data != null)
+                        onDebugInfo(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -478,10 +483,22 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
     }
 
     private void onDebugInfo() {
+        FragmentDialogDebug fragment = new FragmentDialogDebug();
+        fragment.setArguments(new Bundle());
+        fragment.setTargetActivity(this, REQUEST_DEBUG_INFO);
+        fragment.show(getSupportFragmentManager(), "debug");
+    }
+
+    private void onDebugInfo(Bundle args) {
         new SimpleTask<Long>() {
             @Override
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(ActivitySetup.this, R.string.title_debug_info, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
             protected Long onExecute(Context context, Bundle args) throws IOException, JSONException {
-                return Log.getDebugInfo(context, "setup", R.string.title_debug_info_remark, null, null).id;
+                return Log.getDebugInfo(context, "setup", R.string.title_debug_info_remark, null, null, args).id;
             }
 
             @Override
@@ -499,7 +516,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     Log.unexpectedError(getSupportFragmentManager(), ex);
             }
 
-        }.execute(this, new Bundle(), "debug:info");
+        }.execute(this, args, "debug:info");
     }
 
     private void onMenuIssue() {
