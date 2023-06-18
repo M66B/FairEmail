@@ -505,6 +505,7 @@ public class EntityMessage implements Serializable {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean hide_timezone = prefs.getBoolean("hide_timezone", false);
         boolean language_detection = prefs.getBoolean("language_detection", false);
+        String compose_font = prefs.getString("compose_font", "");
         String l = (language_detection ? language : null);
 
         DateFormat DTF = (hide_timezone
@@ -555,6 +556,8 @@ public class EntityMessage implements Serializable {
 
         Element div = document.createElement("div")
                 .attr("fairemail", "reply");
+        if (!TextUtils.isEmpty(compose_font))
+            div.attr("style", "font-family: " + StyleHelper.getFamily(compose_font));
         if (separate)
             div.appendElement("hr");
         div.appendChild(p);
