@@ -824,6 +824,8 @@ and setting the user name field to your main email address.
 
 Note that you can copy an identity by long pressing it in the list of identities (via *Manual setup and account options* in the main settings page).
 
+**In many cases, an alias address must first be verified via the website of the mail provider**
+
 Alternatively, you can enable *Allow editing sender address* in the advanced settings of an existing identity to edit the username when composing a new message,
 if your provider allows this. Considering the email address test@example.org you can use these special username formats:
 

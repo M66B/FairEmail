@@ -1064,6 +1064,7 @@
     <string name="title_advanced_never_favorite">Never favorite</string>
     <string name="title_advanced_edit_name">Edit name</string>
     <string name="title_advanced_create_alias">Create alias</string>
+    <string name="title_advanced_create_alias_remark">In many cases, an alias address must first be verified via the website of the mail provider</string>
 
     <string name="title_create_folder">Create folder</string>
     <string name="title_create_folder_name">Folder name</string>

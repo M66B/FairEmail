@@ -47,6 +47,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
 
+        <TextView
+            android:id="@+id/tvRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:labelFor="@+id/etName"
+            android:text="@string/title_advanced_create_alias_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
         <ImageButton
             android:id="@+id/ibInfo"
             android:layout_width="wrap_content"
@@ -55,7 +68,7 @@
             android:contentDescription="@string/title_info"
             android:tooltipText="@string/title_info"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etEmail"
+            app:layout_constraintTop_toBottomOf="@id/tvRemark"
             app:srcCompat="@drawable/twotone_info_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
