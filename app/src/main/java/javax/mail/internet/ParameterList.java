@@ -217,6 +217,7 @@ public class ParameterList {
 	this();
 
 	boolean recover = false;
+	boolean recovered = false;
 	HeaderTokenizer h = new HeaderTokenizer(s, HeaderTokenizer.MIME);
 	for (;;) {
 	    HeaderTokenizer.Token tk = h.next();
@@ -225,6 +226,7 @@ public class ParameterList {
 
 		if (recover) {
 			recover = false;
+			recovered = true;
 			while (tk.getType() != HeaderTokenizer.Token.EOF && (char) tk.getType() != ';')
 				tk = h.next();
 		}
@@ -240,13 +242,15 @@ public class ParameterList {
 		    break;
 		// parameter name must be a MIME Atom
 		if (tk.getType() != HeaderTokenizer.Token.ATOM) {
-			StringBuilder sb = new StringBuilder(s);
-			int pos = h.getNextPos() - 1;
-			if (pos < sb.length())
-				sb.insert(pos, "^^^");
-			eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
-					", expected parameter name, " +
-					"got \"" + tk.getValue() + "\"");
+			if (!recovered) {
+				StringBuilder sb = new StringBuilder(s);
+				int pos = h.getNextPos() - 1;
+				if (pos < sb.length())
+					sb.insert(pos, "^^^");
+				eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+						", expected parameter name, " +
+						"got \"" + tk.getValue() + "\"");
+			}
 			recover = true;
 			continue;
 		}
@@ -255,13 +259,15 @@ public class ParameterList {
 		// expect '='
 		tk = h.next();
 		if ((char)tk.getType() != '=') {
-			StringBuilder sb = new StringBuilder(s);
-			int pos = h.getNextPos() - 1;
-			if (pos < sb.length())
-				sb.insert(pos, "^^^");
-			eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
-					", expected '=', " +
-					"got \"" + tk.getValue() + "\"");
+			if (!recovered) {
+				StringBuilder sb = new StringBuilder(s);
+				int pos = h.getNextPos() - 1;
+				if (pos < sb.length())
+					sb.insert(pos, "^^^");
+				eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+						", expected '=', " +
+						"got \"" + tk.getValue() + "\"");
+			}
 			recover = true;
 			continue;
 		}
@@ -278,13 +284,15 @@ public class ParameterList {
 		// parameter value must be a MIME Atom or Quoted String
 		if (type != HeaderTokenizer.Token.ATOM &&
 		    type != HeaderTokenizer.Token.QUOTEDSTRING) {
-			StringBuilder sb = new StringBuilder(s);
-			int pos = h.getNextPos() - 1;
-			if (pos < sb.length())
-				sb.insert(pos, "^^^");
-			eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
-					", expected parameter value, " +
-					"got \"" + tk.getValue() + "\"");
+			if (!recovered) {
+				StringBuilder sb = new StringBuilder(s);
+				int pos = h.getNextPos() - 1;
+				if (pos < sb.length())
+					sb.insert(pos, "^^^");
+				eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+						", expected parameter value, " +
+						"got \"" + tk.getValue() + "\"");
+			}
 			recover = true;
 			continue;
 		}
@@ -313,13 +321,15 @@ public class ParameterList {
 		    value = lastValue + " " + tk.getValue();
 		    list.put(lastName, value);
                 } else {
-			StringBuilder sb = new StringBuilder(s);
-			int pos = h.getNextPos() - 1;
-			if (pos < sb.length())
-				sb.insert(pos, "^^^");
-			eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
-					    ", expected ';', got \"" +
-					    tk.getValue() + "\"");
+			if (!recovered) {
+				StringBuilder sb = new StringBuilder(s);
+				int pos = h.getNextPos() - 1;
+				if (pos < sb.length())
+					sb.insert(pos, "^^^");
+				eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+						", expected ';', got \"" +
+						tk.getValue() + "\"");
+			}
 			recover = true;
 			continue;
 		}
