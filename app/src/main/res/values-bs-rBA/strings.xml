@@ -849,6 +849,8 @@
     <string name="title_advanced_cleanup_hint">Ovo će izbrisati sve privremene datoteke</string>
     <string name="title_advanced_never_favorite">Nikada omiljeni</string>
     <string name="title_advanced_edit_name">Uredi ime</string>
+    <string name="title_advanced_create_alias">Kreiraj pseudonim</string>
+    <string name="title_advanced_create_alias_remark">U mnogim slučajevima, pseudonimsku adresu prvo mora verifikovati mail provajder preko svog web sajta</string>
     <string name="title_create_folder">Kreiraj folder</string>
     <string name="title_create_folder_name">Naziv foldera</string>
     <string name="title_create_folder_parent">Matičani folder</string>
@@ -1912,6 +1914,8 @@
     <string name="title_debug_info">Info o otklanjanju grešaka</string>
     <string name="title_debug_info_remark">Molimo, opišite problem i navedite vrijeme kada se dogodio:</string>
     <string name="title_crash_info_remark">Molimo, opišite šta ste radili kada se aplikacija srušila:</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Opis problema (neophodno)</string>
+    <string name="title_debug_info_contact">Nedavno smo kontaktirani o ovom problemu</string>
     <string name="title_unexpected_info_remark">Molimo, opišite šta ste radili kada se pojavila greška:</string>
     <string name="title_widget_title_count">Brojač novih poruka</string>
     <string name="title_widget_title_list">Spisak poruka</string>

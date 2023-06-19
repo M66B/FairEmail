@@ -833,6 +833,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_cleanup_hint">Dit sil alle tydlike bestannen fuortsmite</string>
     <string name="title_advanced_never_favorite">Nea favoryt</string>
     <string name="title_advanced_edit_name">Namme bewurkje</string>
+    <string name="title_advanced_create_alias">Alias oanmeitsje</string>
+    <string name="title_advanced_create_alias_remark">In in protte gefallen moat in aliasadres earst ferifiearre wurde fia de website van de e-mailprovider</string>
     <string name="title_create_folder">Map oanmeitsje</string>
     <string name="title_create_folder_name">Mapnamme</string>
     <string name="title_create_folder_parent">Boppelizzende map</string>
@@ -1890,6 +1892,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_debug_info">Debug-ynfo</string>
     <string name="title_debug_info_remark">Beskriuw it probleem en jou de tiid fan it probleem oan:</string>
     <string name="title_crash_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Probleembeskriuwing (fereaske)</string>
+    <string name="title_debug_info_contact">Wy hawwe koartlyn kontakt han oer dit probleem</string>
     <string name="title_unexpected_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
     <string name="title_widget_title_count">Oantal nije berjochten</string>
     <string name="title_widget_title_list">Berjochtlist</string>

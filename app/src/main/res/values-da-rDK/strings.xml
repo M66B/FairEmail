@@ -1898,6 +1898,7 @@
     <string name="title_debug_info_remark">Beskriv venligst problemet og angiv tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv venligst, hvad du foretog dig, da app\'en gik ned:</string>
     <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Problematikbeskrivelse (obligatorisk)</string>
+    <string name="title_debug_info_contact">Der har over tid indsendt flere fejlanmeldelser med denne mangel</string>
     <string name="title_unexpected_info_remark">Beskriv, hvad du foretog dig, da fejlen opstod:</string>
     <string name="title_widget_title_count">Ny besked-tæller</string>
     <string name="title_widget_title_list">Beskedliste</string>

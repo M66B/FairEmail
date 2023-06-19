@@ -823,6 +823,7 @@
     <string name="title_advanced_never_favorite">永不收藏</string>
     <string name="title_advanced_edit_name">编辑名称</string>
     <string name="title_advanced_create_alias">创建别名</string>
+    <string name="title_advanced_create_alias_remark">在许多情况下，别名地址必须首先通过邮件提供者的网站进行验证</string>
     <string name="title_create_folder">新建文件夹</string>
     <string name="title_create_folder_name">文件夹名</string>
     <string name="title_create_folder_parent">父文件夹</string>
@@ -1879,6 +1880,8 @@
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
+    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">问题描述(必填)</string>
+    <string name="title_debug_info_contact">别人最近因为这个问题联系过我们</string>
     <string name="title_unexpected_info_remark">请描述应用出错时您的操作:</string>
     <string name="title_widget_title_count">新消息计数</string>
     <string name="title_widget_title_list">消息列表</string>
