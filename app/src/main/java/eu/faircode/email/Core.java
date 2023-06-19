@@ -118,6 +118,8 @@ import javax.mail.Header;
 import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Part;
 import javax.mail.Session;
 import javax.mail.Store;
 import javax.mail.StoreClosedException;
@@ -2054,6 +2056,7 @@ class Core {
         DB db = DB.getInstance(context);
 
         long id = jargs.getLong(0);
+        boolean delete = jargs.optBoolean(1, false);
 
         // Get attachment
         EntityAttachment attachment = db.attachment().getAttachment(id);
@@ -2073,15 +2076,58 @@ class Core {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        // Get message parts
-        MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
-        MessageHelper.MessageParts parts = helper.getMessageParts();
+        if (delete) {
+            MimeMessage icopy = new MimeMessageEx((MimeMessage) imessage, message.msgid);
+            MessageHelper helper = new MessageHelper(icopy, context);
+            MessageHelper.MessageParts parts = helper.getMessageParts();
+            List<MessageHelper.AttachmentPart> aparts = parts.getAttachmentParts();
 
-        // Download attachment
-        parts.downloadAttachment(context, attachment, folder);
+            if (attachment.sequence > aparts.size())
+                throw new IllegalArgumentException("Invalid attachment sequence=" + attachment.sequence + "/" + aparts.size());
+            Part apart = aparts.get(attachment.sequence - 1).part;
+            if (!deletePart(icopy, apart))
+                throw new IllegalArgumentException("Attachment part not found");
 
-        if (attachment.size != null)
-            EntityLog.log(context, "Operation attachment size=" + attachment.size);
+            ifolder.appendMessages(new Message[]{icopy});
+
+            imessage.setFlag(Flags.Flag.DELETED, true);
+            expunge(context, ifolder, Arrays.asList(imessage));
+        } else {
+            // Get message parts
+            MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
+            MessageHelper.MessageParts parts = helper.getMessageParts();
+
+            // Download attachment
+            parts.downloadAttachment(context, attachment, folder);
+
+            if (attachment.size != null)
+                EntityLog.log(context, "Operation attachment size=" + attachment.size);
+        }
+    }
+
+    static boolean deletePart(Part part, Part attachment) throws MessagingException, IOException {
+        boolean deleted = false;
+        if (part.isMimeType("multipart/*")) {
+            Multipart multipart = (Multipart) part.getContent();
+            int count = multipart.getCount();
+            for (int i = 0; i < count; i++) {
+                Part child = multipart.getBodyPart(i);
+                if (child == attachment) {
+                    multipart.removeBodyPart(i);
+                    deleted = true;
+                } else {
+                    if (deletePart(child, attachment))
+                        deleted = true;
+                }
+            }
+        }
+
+        if (part instanceof MimeMessage)
+            ((MimeMessage) part).saveChanges();
+        else if (part instanceof Multipart)
+            part.setDataHandler(part.getDataHandler());
+
+        return deleted;
     }
 
     private static void onBody(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Folder ifolder, POP3Store istore) throws MessagingException, IOException {

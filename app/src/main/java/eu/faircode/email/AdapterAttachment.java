@@ -137,7 +137,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
             lparam.setMarginStart(attachment.subsequence == null ? 0 : dp12);
             view.setLayoutParams(lparam);
 
-            ibDelete.setVisibility(readonly ? View.GONE : View.VISIBLE);
+            ibDelete.setVisibility(readonly && !BuildConfig.DEBUG ? View.GONE : View.VISIBLE);
 
             if (!readonly && attachment.isImage()) {
                 if (attachment.available) {
@@ -343,11 +343,13 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
         private void onDelete(final EntityAttachment attachment) {
             Bundle args = new Bundle();
             args.putLong("id", attachment.id);
+            args.putBoolean("readonly", readonly);
 
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
+                    boolean readonly = args.getBoolean("readonly");
 
                     EntityAttachment attachment;
 
@@ -359,14 +361,22 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                         if (attachment == null)
                             return null;
 
-                        db.attachment().deleteAttachment(attachment.id);
+                        if (readonly) {
+                            EntityMessage message = db.message().getMessage(attachment.message);
+                            if (message == null)
+                                return null;
+                            EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id, true);
+                            db.message().setMessageUiHide(message.id, true);
+                        } else
+                            db.attachment().deleteAttachment(attachment.id);
 
                         db.setTransactionSuccessful();
                     } finally {
                         db.endTransaction();
                     }
 
-                    attachment.getFile(context).delete();
+                    if (!readonly)
+                        attachment.getFile(context).delete();
 
                     return null;
                 }
