@@ -247,7 +247,7 @@ public class ParameterList {
 				int pos = h.getNextPos() - 1;
 				if (pos < sb.length())
 					sb.insert(pos, "^^^");
-				eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+				eu.faircode.email.Log.e("In parameter list <" + sb + ">" +
 						", expected parameter name, " +
 						"got \"" + tk.getValue() + "\"");
 			}
@@ -264,7 +264,7 @@ public class ParameterList {
 				int pos = h.getNextPos() - 1;
 				if (pos < sb.length())
 					sb.insert(pos, "^^^");
-				eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+				eu.faircode.email.Log.e("In parameter list <" + sb + ">" +
 						", expected '=', " +
 						"got \"" + tk.getValue() + "\"");
 			}
@@ -289,7 +289,7 @@ public class ParameterList {
 				int pos = h.getNextPos() - 1;
 				if (pos < sb.length())
 					sb.insert(pos, "^^^");
-				eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+				eu.faircode.email.Log.e("In parameter list <" + sb + ">" +
 						", expected parameter value, " +
 						"got \"" + tk.getValue() + "\"");
 			}
@@ -326,7 +326,7 @@ public class ParameterList {
 				int pos = h.getNextPos() - 1;
 				if (pos < sb.length())
 					sb.insert(pos, "^^^");
-				eu.faircode.email.Log.w("In parameter list <" + sb + ">" +
+				eu.faircode.email.Log.e("In parameter list <" + sb + ">" +
 						", expected ';', got \"" +
 						tk.getValue() + "\"");
 			}
