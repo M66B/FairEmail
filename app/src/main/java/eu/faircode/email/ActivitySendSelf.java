@@ -19,19 +19,14 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
 
 import androidx.annotation.RequiresApi;
 import androidx.core.net.MailTo;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ActivitySendSelf extends ActivityBase {
     @Override
