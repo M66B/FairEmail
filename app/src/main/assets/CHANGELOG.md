@@ -6,6 +6,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
+### Next version
+
+* Added create alias dialog (long press identity)
+* Inheriting identity color from account color
+* Using selected font for reply header and signature too
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2077 - 2023-06-14
 
 * Fixed all reported bugs

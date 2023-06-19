@@ -6,6 +6,15 @@ For support you can use the contact form.
 
 Ubirajara
 
+Next version
+
+* Added create alias dialog (long press identity)
+* Inheriting identity color from account color
+* Using selected font for reply header and signature too
+* Updated Public Suffix List
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2077 - 2023-06-14
 
 * Fixed all reported bugs
