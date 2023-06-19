@@ -36,23 +36,38 @@ public class PendingIntentCompat {
     // https://stackoverflow.com/questions/71266853/xiaomi-android-11-securityexception-too-many-pendingintent-created
 
     public static PendingIntent getActivity(Context context, int requestCode, Intent intent, int flags) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || (flags & PendingIntent.FLAG_MUTABLE) != 0)
-            return PendingIntent.getActivity(context, requestCode, intent, flags);
-        else
-            return PendingIntent.getActivity(context, requestCode, intent, flags | PendingIntent.FLAG_IMMUTABLE);
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || (flags & PendingIntent.FLAG_MUTABLE) != 0)
+                return PendingIntent.getActivity(context, requestCode, intent, flags);
+            else
+                return PendingIntent.getActivity(context, requestCode, intent, flags | PendingIntent.FLAG_IMMUTABLE);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            throw ex;
+        }
     }
 
     public static PendingIntent getService(Context context, int requestCode, @NonNull Intent intent, int flags) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || (flags & PendingIntent.FLAG_MUTABLE) != 0)
-            return PendingIntent.getService(context, requestCode, intent, flags);
-        else
-            return PendingIntent.getService(context, requestCode, intent, flags | PendingIntent.FLAG_IMMUTABLE);
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || (flags & PendingIntent.FLAG_MUTABLE) != 0)
+                return PendingIntent.getService(context, requestCode, intent, flags);
+            else
+                return PendingIntent.getService(context, requestCode, intent, flags | PendingIntent.FLAG_IMMUTABLE);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            throw ex;
+        }
     }
 
     static PendingIntent getForegroundService(Context context, int requestCode, @NonNull Intent intent, int flags) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || (flags & PendingIntent.FLAG_MUTABLE) != 0)
-            return PendingIntent.getService(context, requestCode, intent, flags);
-        else
-            return PendingIntent.getForegroundService(context, requestCode, intent, flags | PendingIntent.FLAG_IMMUTABLE);
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S || (flags & PendingIntent.FLAG_MUTABLE) != 0)
+                return PendingIntent.getService(context, requestCode, intent, flags);
+            else
+                return PendingIntent.getForegroundService(context, requestCode, intent, flags | PendingIntent.FLAG_IMMUTABLE);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            throw ex;
+        }
     }
 }
