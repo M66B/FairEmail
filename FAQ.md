@@ -5259,7 +5259,14 @@ In other words, the color of stars is stored on your device only, and won't be s
 Google backup is disabled to prevent privacy-sensitive information, like account credentials and email addresses,
 from [automatically being sent to Google](https://developer.android.com/guide/topics/data/autobackup).
 
+In theory, there is client-side encryption, but there is no specification available about what this means.
+Moreover, many people do not trust Google.
+
 Unfortunately, it is not possible to enable cloud backup for other backup software without enabling Google backup.
+Whether Google backup is enabled needs to be specified in the app manifest. So, unfortunately, it isn't possible to add an option for this.
+
+As a replacement, you can back up and restore all settings, including the account settings and credentials, via the backup-settings tab page.
+This backup export uses a proper encryption method, [see here](#user-content-faq36).
 
 <br />
 
