@@ -2066,7 +2066,7 @@ class Core {
             throw new IllegalArgumentException("Local attachment not found");
         if (attachment.subsequence != null)
             throw new IllegalArgumentException("Download of sub attachment");
-        if (attachment.available)
+        if (attachment.available && !delete)
             return;
         if (message.uid == null)
             throw new IllegalArgumentException("Attachment/message uid missing");

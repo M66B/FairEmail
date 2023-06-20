@@ -525,8 +525,11 @@ public class EntityOperation {
                     }
                 }
 */
-            } else if (ATTACHMENT.equals(name))
-                db.attachment().setProgress(jargs.getLong(0), 0);
+            } else if (ATTACHMENT.equals(name)) {
+                boolean delete = jargs.optBoolean(1, false);
+                if (!delete)
+                    db.attachment().setProgress(jargs.getLong(0), 0);
+            }
 
             queue(context, message.account, message.folder, message.id, name, jargs);
 
