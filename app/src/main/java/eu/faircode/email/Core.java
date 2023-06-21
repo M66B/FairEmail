@@ -507,6 +507,10 @@ class Core {
                                     onAttachment(context, jargs, folder, message, op, (IMAPFolder) ifolder);
                                     break;
 
+                                case EntityOperation.DETACH:
+                                    onDetach(context, jargs, folder, message, op, (IMAPFolder) ifolder);
+                                    break;
+
                                 case EntityOperation.EXISTS:
                                     onExists(context, jargs, account, folder, message, op, (IMAPFolder) ifolder);
                                     break;
@@ -2056,7 +2060,6 @@ class Core {
         DB db = DB.getInstance(context);
 
         long id = jargs.getLong(0);
-        boolean delete = jargs.optBoolean(1, false);
 
         // Get attachment
         EntityAttachment attachment = db.attachment().getAttachment(id);
@@ -2066,7 +2069,7 @@ class Core {
             throw new IllegalArgumentException("Local attachment not found");
         if (attachment.subsequence != null)
             throw new IllegalArgumentException("Download of sub attachment");
-        if (attachment.available && !delete)
+        if (attachment.available)
             return;
         if (message.uid == null)
             throw new IllegalArgumentException("Attachment/message uid missing");
@@ -2076,33 +2079,48 @@ class Core {
         if (imessage == null)
             throw new MessageRemovedException();
 
-        if (delete) {
-            MimeMessage icopy = new MimeMessageEx((MimeMessage) imessage, message.msgid);
-            MessageHelper helper = new MessageHelper(icopy, context);
-            MessageHelper.MessageParts parts = helper.getMessageParts();
-            List<MessageHelper.AttachmentPart> aparts = parts.getAttachmentParts();
+        // Get message parts
+        MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
+        MessageHelper.MessageParts parts = helper.getMessageParts();
 
-            if (attachment.sequence > aparts.size())
-                throw new IllegalArgumentException("Invalid attachment sequence=" + attachment.sequence + "/" + aparts.size());
-            Part apart = aparts.get(attachment.sequence - 1).part;
-            if (!deletePart(icopy, apart))
-                throw new IllegalArgumentException("Attachment part not found");
+        // Download attachment
+        parts.downloadAttachment(context, attachment, folder);
 
-            ifolder.appendMessages(new Message[]{icopy});
+        if (attachment.size != null)
+            EntityLog.log(context, "Operation attachment size=" + attachment.size);
+    }
 
-            imessage.setFlag(Flags.Flag.DELETED, true);
-            expunge(context, ifolder, Arrays.asList(imessage));
-        } else {
-            // Get message parts
-            MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
-            MessageHelper.MessageParts parts = helper.getMessageParts();
+    private static void onDetach(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
+        DB db = DB.getInstance(context);
 
-            // Download attachment
-            parts.downloadAttachment(context, attachment, folder);
+        long id = jargs.getLong(0);
 
-            if (attachment.size != null)
-                EntityLog.log(context, "Operation attachment size=" + attachment.size);
-        }
+        if (message.uid == null)
+            throw new IllegalArgumentException("Delete attachments uid missing");
+
+        // Get message
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        String msgid = EntityMessage.generateMessageId();
+        MimeMessage icopy = new MimeMessageEx((MimeMessage) imessage, msgid);
+        MessageHelper helper = new MessageHelper(icopy, context);
+        MessageHelper.MessageParts parts = helper.getMessageParts();
+        List<MessageHelper.AttachmentPart> aparts = parts.getAttachmentParts();
+
+        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+        for (EntityAttachment attachment : attachments)
+            if (attachment.id.equals(id) && BuildConfig.DEBUG) {
+                Part apart = aparts.get(attachment.sequence - 1).part;
+                if (!deletePart(icopy, apart))
+                    throw new IllegalArgumentException("Attachment part not found");
+            }
+
+        ifolder.appendMessages(new Message[]{icopy});
+
+        imessage.setFlag(Flags.Flag.DELETED, true);
+        expunge(context, ifolder, Arrays.asList(imessage));
     }
 
     static boolean deletePart(Part part, Part attachment) throws MessagingException, IOException {

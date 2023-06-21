@@ -97,6 +97,7 @@ public class EntityOperation {
     static final String RAW = "raw";
     static final String BODY = "body";
     static final String ATTACHMENT = "attachment";
+    static final String DETACH = "detach";
     static final String SYNC = "sync";
     static final String SUBSCRIBE = "subscribe";
     static final String SEND = "send";
@@ -525,11 +526,11 @@ public class EntityOperation {
                     }
                 }
 */
-            } else if (ATTACHMENT.equals(name)) {
-                boolean delete = jargs.optBoolean(1, false);
-                if (!delete)
-                    db.attachment().setProgress(jargs.getLong(0), 0);
-            }
+            } else if (ATTACHMENT.equals(name))
+                db.attachment().setProgress(jargs.getLong(0), 0);
+
+            else if (DETACH.equals(name))
+                db.message().setMessageUiHide(message.id, true);
 
             queue(context, message.account, message.folder, message.id, name, jargs);
 

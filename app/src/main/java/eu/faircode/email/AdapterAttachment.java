@@ -366,8 +366,7 @@ public class AdapterAttachment extends RecyclerView.Adapter<AdapterAttachment.Vi
                             EntityMessage message = db.message().getMessage(attachment.message);
                             if (message == null)
                                 return null;
-                            EntityOperation.queue(context, message, EntityOperation.ATTACHMENT, attachment.id, true);
-                            db.message().setMessageUiHide(message.id, true);
+                            EntityOperation.queue(context, message, EntityOperation.DETACH, attachment.id, true);
                         } else
                             db.attachment().deleteAttachment(attachment.id);
 
