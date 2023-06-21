@@ -5040,6 +5040,8 @@ public class MessageHelper {
                     }
 
                 apart.attachment = new EntityAttachment();
+                if (part instanceof IMAPBodyPart)
+                    apart.attachment.section = ((IMAPBodyPart) part).getSectionId();
                 apart.attachment.disposition = apart.disposition;
                 apart.attachment.name = apart.filename;
                 apart.attachment.type = contentType.getBaseType().toLowerCase(Locale.ROOT);

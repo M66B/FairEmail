@@ -71,6 +71,10 @@ public class IMAPBodyPart extends MimeBodyPart implements ReadableMime {
 	return;
     }
 
+	public String getSectionId() {
+		return this.sectionId;
+	}
+
     @Override
     public int getSize() throws MessagingException {
 	return bs.size;
@@ -173,7 +177,6 @@ public class IMAPBodyPart extends MimeBodyPart implements ReadableMime {
 
 		// Check whether this message is expunged
 		message.checkExpunged();
-
 		if (p.isREV1() && (message.getFetchBlockSize() != -1))
 		    return new IMAPInputStream(message, sectionId,
 			message.ignoreBodyStructureSize() ? -1 : bs.size, pk);
