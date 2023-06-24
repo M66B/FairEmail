@@ -97,7 +97,7 @@ public class ContentType {
 				rem = rem.substring(0, b + 9) + '"' + rem.substring(b + 9) + '"';
 			else
 				rem = rem.substring(0, b + 9) + '"' + rem.substring(b + 9, semi) + '"' + rem.substring(semi);
-			eu.faircode.email.Log.w("Fixed boundary: " + rem);
+			eu.faircode.email.Log.i("Fixed boundary: " + rem);
 		}
 		list = new ParameterList(rem);
 	}
