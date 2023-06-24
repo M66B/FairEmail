@@ -287,6 +287,10 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
                 Log.e(ex);
             }
 
+            views.setTextViewText(R.id.tvNotes, message.notes);
+            views.setTextColor(R.id.tvNotes, message.notes_color == null ? colorWidgetRead : message.notes_color);
+            views.setViewVisibility(R.id.tvNotes, message.notes == null ? View.GONE : View.VISIBLE);
+
             views.setViewVisibility(R.id.separator, separators ? View.VISIBLE : View.GONE);
 
             views.setViewVisibility(idAccount, account < 0 && !allColors ? View.VISIBLE : View.GONE);

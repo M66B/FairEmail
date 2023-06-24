@@ -88,6 +88,14 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textColor="?android:textColorPrimary" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notes"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="?android:textColorPrimary" />
         </LinearLayout>
     </LinearLayout>
 
