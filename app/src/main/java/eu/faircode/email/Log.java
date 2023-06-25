@@ -2989,6 +2989,30 @@ public class Log {
                         MediaPlayerHelper.isInCall(context),
                         MediaPlayerHelper.isDnd(context)));
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+                StringBuilder options = new StringBuilder();
+                for (String key : prefs.getAll().keySet())
+                    if (key.startsWith("notify_")) {
+                        Object value = prefs.getAll().get(key);
+                        boolean mark = false;
+                        if ("notify_known".equals(key) && Boolean.TRUE.equals(value))
+                            mark = true;
+                        if ("notify_background_only".equals(key) && Boolean.TRUE.equals(value))
+                            mark = true;
+                        if ("notify_suppress_in_car".equals(key) && Boolean.TRUE.equals(value))
+                            mark = true;
+                        options.append(' ').append(key).append('=')
+                                .append(value)
+                                .append(mark ? " !!!" : "")
+                                .append("\r\n");
+                    }
+
+                if (options.length() > 0) {
+                    options.append("\r\n");
+                    size += write(os, options.toString());
+                }
+
                 for (NotificationChannel channel : nm.getNotificationChannels())
                     try {
                         JSONObject jchannel = NotificationHelper.channelToJSON(channel);
