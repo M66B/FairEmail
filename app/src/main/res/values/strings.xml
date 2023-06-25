@@ -2260,6 +2260,7 @@
     <string name="title_widget_count_top">Show unread count at the top</string>
     <string name="title_widget_subject_lines">Maximum number of subject lines</string>
     <string name="title_widget_avatars">Show contact avatars</string>
+    <string name="title_widget_account_name">Show account name</string>
     <string name="title_widget_refresh">Show refresh messages button</string>
     <string name="title_widget_compose">Show compose new message button</string>
     <string name="title_widget_background">Background color</string>

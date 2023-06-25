@@ -214,6 +214,16 @@
             app:layout_constraintTop_toBottomOf="@id/tvSubjectLinesHint" />
 
         <CheckBox
+            android:id="@+id/cbAccountName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_widget_account_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbAvatars" />
+
+        <CheckBox
             android:id="@+id/cbRefresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -221,7 +231,7 @@
             android:checked="true"
             android:text="@string/title_widget_refresh"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbAvatars" />
+            app:layout_constraintTop_toBottomOf="@id/cbAccountName" />
 
         <CheckBox
             android:id="@+id/cbCompose"

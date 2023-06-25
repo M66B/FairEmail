@@ -71,6 +71,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private Spinner spSubjectLines;
     private TextView tvSubjectLinesHint;
     private CheckBox cbAvatars;
+    private CheckBox cbAccountName;
     private CheckBox cbRefresh;
     private CheckBox cbCompose;
     private Button btnSave;
@@ -112,6 +113,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
         int subject_lines = prefs.getInt("widget." + appWidgetId + ".subject_lines", 1);
         boolean avatars = prefs.getBoolean("widget." + appWidgetId + ".avatars", false);
+        boolean account_name = prefs.getBoolean("widget." + appWidgetId + ".account_name", true);
         boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
         boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
 
@@ -136,6 +138,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         spSubjectLines = findViewById(R.id.spSubjectLines);
         tvSubjectLinesHint = findViewById(R.id.tvSubjectLinesHint);
         cbAvatars = findViewById(R.id.cbAvatars);
+        cbAccountName = findViewById(R.id.cbAccountName);
         cbRefresh = findViewById(R.id.cbRefresh);
         cbCompose = findViewById(R.id.cbCompose);
         btnSave = findViewById(R.id.btnSave);
@@ -278,6 +281,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putInt("widget." + appWidgetId + ".padding", tinyOut(padding));
                 editor.putInt("widget." + appWidgetId + ".subject_lines", spSubjectLines.getSelectedItemPosition() + 1);
                 editor.putBoolean("widget." + appWidgetId + ".avatars", cbAvatars.isChecked());
+                editor.putBoolean("widget." + appWidgetId + ".account_name", cbAccountName.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".refresh", cbRefresh.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".compose", cbCompose.isChecked());
                 editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
@@ -324,6 +328,7 @@ public class ActivityWidgetUnified extends ActivityBase {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 EntityAccount account = (EntityAccount) spAccount.getAdapter().getItem(position);
                 setFolders(account.id);
+                cbAccountName.setEnabled(account.id < 0);
             }
 
             @Override
@@ -408,6 +413,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         spFontSize.setSelection(tinyIn(font));
         spPadding.setSelection(tinyIn(padding));
         cbAvatars.setChecked(avatars);
+        cbAccountName.setChecked(account_name);
         spSubjectLines.setSelection(subject_lines - 1);
         tvSubjectLinesHint.setText(getString(R.string.title_advanced_preview_lines_hint, NF.format(HtmlHelper.PREVIEW_SIZE)));
         cbRefresh.setChecked(refresh);
