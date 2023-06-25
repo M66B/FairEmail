@@ -487,7 +487,8 @@ public class FragmentMessages extends FragmentBase
                 args.getBoolean("force_threading"));
         swipenav = prefs.getBoolean("swipenav", true);
         seekbar = prefs.getBoolean("seekbar", false);
-        thread_sent_trash = prefs.getBoolean("thread_sent_trash", true);
+        thread_sent_trash = (prefs.getBoolean("thread_sent_trash", true) &&
+                !EntityFolder.SENT.equals(type));
         actionbar = prefs.getBoolean("actionbar", true);
         boolean actionbar_swap = prefs.getBoolean("actionbar_swap", false);
         actionbar_delete_id = (actionbar_swap ? R.id.action_archive : R.id.action_delete);
