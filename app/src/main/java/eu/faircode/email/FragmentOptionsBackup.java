@@ -1173,7 +1173,10 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                         editor.putLong(key, (Long) value);
                                     break;
                                 case "float":
-                                    editor.putFloat(key, (Float) value);
+                                    if (value instanceof Double)
+                                        editor.putFloat(key, ((Double) value).floatValue());
+                                    else
+                                        editor.putFloat(key, (Float) value);
                                     break;
                                 case "string":
                                     editor.putString(key, (String) value);
