@@ -27,7 +27,9 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -60,6 +62,7 @@ public class ActivityWidget extends ActivityBase {
     private RadioButton rbOld;
     private RadioButton rbNew;
     private CheckBox cbTop;
+    private Spinner spFontSize;
     private Button btnSave;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -86,6 +89,7 @@ public class ActivityWidget extends ActivityBase {
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
         int layout = prefs.getInt("widget." + appWidgetId + ".layout", 1 /* new */);
         boolean top = prefs.getBoolean("widget." + appWidgetId + ".top", false);
+        int size = prefs.getInt("widget." + appWidgetId + ".text_size", -1);
 
         daynight = daynight && (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
 
@@ -102,6 +106,7 @@ public class ActivityWidget extends ActivityBase {
         rbOld = findViewById(R.id.rbOld);
         rbNew = findViewById(R.id.rbNew);
         cbTop = findViewById(R.id.cbTop);
+        spFontSize = findViewById(R.id.spFontSize);
         btnSave = findViewById(R.id.btnSave);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
@@ -175,6 +180,7 @@ public class ActivityWidget extends ActivityBase {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
                     rbNew.setChecked(false);
+                spFontSize.setEnabled(!isChecked);
             }
         });
 
@@ -183,6 +189,7 @@ public class ActivityWidget extends ActivityBase {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked)
                     rbOld.setChecked(false);
+                spFontSize.setEnabled(isChecked);
             }
         });
 
@@ -193,10 +200,23 @@ public class ActivityWidget extends ActivityBase {
             }
         });
 
+        spFontSize.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                updatePreview();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                updatePreview();
+            }
+        });
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
+                int pos = spFontSize.getSelectedItemPosition();
 
                 SharedPreferences.Editor editor = prefs.edit();
                 if (account != null && account.id > 0)
@@ -209,6 +229,10 @@ public class ActivityWidget extends ActivityBase {
                 editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
                 editor.putInt("widget." + appWidgetId + ".layout", rbNew.isChecked() ? 1 : 0);
                 editor.putBoolean("widget." + appWidgetId + ".top", cbTop.isChecked());
+                if (pos > 0)
+                    editor.putInt("widget." + appWidgetId + ".text_size", pos - 1);
+                else
+                    editor.remove("widget." + appWidgetId + ".text_size");
                 editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
                 editor.apply();
 
@@ -237,6 +261,7 @@ public class ActivityWidget extends ActivityBase {
         rbOld.setChecked(layout != 1);
         rbNew.setChecked(layout == 1);
         cbTop.setChecked(top);
+        spFontSize.setSelection(size + 1);
         updatePreview();
 
         grpReady.setVisibility(View.GONE);
@@ -317,5 +342,12 @@ public class ActivityWidget extends ActivityBase {
         boolean top = cbTop.isChecked();
         ((TextView) inNew.findViewById(R.id.tvCount)).setVisibility(top ? View.GONE : View.VISIBLE);
         ((TextView) inNew.findViewById(R.id.tvCountTop)).setVisibility(top ? View.VISIBLE : View.GONE);
+
+        int size = spFontSize.getSelectedItemPosition() - 1;
+        if (size < 0)
+            size = 0;
+        float textSize = Helper.getTextSize(this, size);
+        ((TextView) inNew.findViewById(R.id.tvCount)).setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+        ((TextView) inNew.findViewById(R.id.tvCountTop)).setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
     }
 }

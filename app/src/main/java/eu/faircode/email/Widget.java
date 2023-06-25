@@ -29,6 +29,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -63,6 +64,7 @@ public class Widget extends AppWidgetProvider {
                     int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
                     int layout = prefs.getInt("widget." + appWidgetId + ".layout", 0);
                     boolean top = prefs.getBoolean("widget." + appWidgetId + ".top", false);
+                    int size = prefs.getInt("widget." + appWidgetId + ".text_size", -1);
                     int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
 
                     if (version <= 1550)
@@ -173,6 +175,12 @@ public class Widget extends AppWidgetProvider {
 
                     views.setTextViewText(R.id.tvCountTop, count);
                     views.setViewVisibility(R.id.tvCountTop, !top || (layout == 1 && unseen == 0) ? View.GONE : View.VISIBLE);
+
+                    if (size < 0)
+                        size = 0; // small
+                    float textSize = Helper.getTextSize(context, size);
+                    views.setTextViewTextSize(R.id.tvCount, TypedValue.COMPLEX_UNIT_PX, textSize);
+                    views.setTextViewTextSize(R.id.tvCountTop, TypedValue.COMPLEX_UNIT_PX, textSize);
 
                     // Set account name
                     if (TextUtils.isEmpty(name))
