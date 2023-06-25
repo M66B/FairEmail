@@ -2643,16 +2643,24 @@ public class FragmentCompose extends FragmentBase {
         if (languages == null)
             languages = new ArrayList<>();
 
-        int s = etBody.getSelectionStart();
-        Editable edit = etBody.getText();
-        if (s > 1 && s <= edit.length() &&
-                edit.charAt(s - 1) == '\n' &&
-                edit.charAt(s - 2) != '\n' &&
-                (s == edit.length() || edit.charAt(s) == '\n'))
-            etBody.setSelection(s - 1, s - 1);
+        boolean subjectHasFocus = etSubject.hasFocus();
 
-        Pair<Integer, Integer> paragraph = StyleHelper.getParagraph(etBody);
-        boolean canTranslate = (DeepL.canTranslate(context) && paragraph != null);
+        boolean canTranslate;
+        if (subjectHasFocus) {
+            CharSequence text = etSubject.getText();
+            canTranslate = (text != null && !TextUtils.isEmpty(text.toString().trim()));
+        } else {
+            int s = etBody.getSelectionStart();
+            Editable edit = etBody.getText();
+            if (s > 1 && s <= edit.length() &&
+                    edit.charAt(s - 1) == '\n' &&
+                    edit.charAt(s - 2) != '\n' &&
+                    (s == edit.length() || edit.charAt(s) == '\n'))
+                etBody.setSelection(s - 1, s - 1);
+
+            Pair<Integer, Integer> paragraph = StyleHelper.getParagraph(etBody);
+            canTranslate = (DeepL.canTranslate(context) && paragraph != null);
+        }
 
         PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), anchor);
 
@@ -2696,62 +2704,90 @@ public class FragmentCompose extends FragmentBase {
             }
 
             private void onMenuTranslate(String target) {
-                final Pair<Integer, Integer> paragraph = StyleHelper.getParagraph(etBody);
-                if (paragraph == null)
-                    return;
+                if (subjectHasFocus) {
+                    CharSequence text = etSubject.getText();
+                    if (text == null && TextUtils.isEmpty(text.toString().trim()))
+                        return;
 
-                etBody.clearComposingText();
+                    Bundle args = new Bundle();
+                    args.putString("target", target);
+                    args.putCharSequence("text", text);
 
-                Editable edit = etBody.getText();
-                CharSequence text = edit.subSequence(paragraph.first, paragraph.second);
+                    new SimpleTask<DeepL.Translation>() {
+                        @Override
+                        protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
+                            String target = args.getString("target");
+                            CharSequence text = args.getCharSequence("text");
+                            return DeepL.translate(text, true, target, context);
+                        }
 
-                Bundle args = new Bundle();
-                args.putString("target", target);
-                args.putCharSequence("text", text);
+                        @Override
+                        protected void onExecuted(Bundle args, DeepL.Translation translation) {
+                            etSubject.setText(translation.translated_text);
+                        }
 
-                new SimpleTask<DeepL.Translation>() {
-                    private Object highlightSpan;
-                    private Toast toast = null;
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
+                        }
+                    }.serial().execute(FragmentCompose.this, args, "compose:translate");
+                } else {
+                    final Pair<Integer, Integer> paragraph = StyleHelper.getParagraph(etBody);
+                    if (paragraph == null)
+                        return;
 
-                    @Override
-                    protected void onPreExecute(Bundle args) {
-                        int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
-                        highlightSpan = new BackgroundColorSpan(textColorHighlight);
-                        etBody.getText().setSpan(highlightSpan, paragraph.first, paragraph.second,
-                                Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
-                        toast = ToastEx.makeText(context, R.string.title_translating, Toast.LENGTH_SHORT);
-                        toast.show();
-                    }
+                    etBody.clearComposingText();
 
-                    @Override
-                    protected void onPostExecute(Bundle args) {
-                        if (highlightSpan != null)
-                            etBody.getText().removeSpan(highlightSpan);
-                        if (toast != null)
-                            toast.cancel();
-                    }
+                    Editable edit = etBody.getText();
+                    CharSequence text = edit.subSequence(paragraph.first, paragraph.second);
 
-                    @Override
-                    protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
-                        String target = args.getString("target");
-                        CharSequence text = args.getCharSequence("text");
-                        return DeepL.translate(text, true, target, context);
-                    }
+                    Bundle args = new Bundle();
+                    args.putString("target", target);
+                    args.putCharSequence("text", text);
 
-                    @Override
-                    protected void onExecuted(Bundle args, DeepL.Translation translation) {
-                        if (paragraph.second > edit.length())
-                            return;
+                    new SimpleTask<DeepL.Translation>() {
+                        private Object highlightSpan;
+                        private Toast toast = null;
 
-                        FragmentActivity activity = getActivity();
-                        if (activity == null)
-                            return;
+                        @Override
+                        protected void onPreExecute(Bundle args) {
+                            int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
+                            highlightSpan = new BackgroundColorSpan(textColorHighlight);
+                            etBody.getText().setSpan(highlightSpan, paragraph.first, paragraph.second,
+                                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+                            toast = ToastEx.makeText(context, R.string.title_translating, Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
 
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        boolean small = prefs.getBoolean("deepl_small", false);
-                        boolean replace = (!small && prefs.getBoolean("deepl_replace", false));
+                        @Override
+                        protected void onPostExecute(Bundle args) {
+                            if (highlightSpan != null)
+                                etBody.getText().removeSpan(highlightSpan);
+                            if (toast != null)
+                                toast.cancel();
+                        }
 
-                        // Insert translated text
+                        @Override
+                        protected DeepL.Translation onExecute(Context context, Bundle args) throws Throwable {
+                            String target = args.getString("target");
+                            CharSequence text = args.getCharSequence("text");
+                            return DeepL.translate(text, true, target, context);
+                        }
+
+                        @Override
+                        protected void onExecuted(Bundle args, DeepL.Translation translation) {
+                            if (paragraph.second > edit.length())
+                                return;
+
+                            FragmentActivity activity = getActivity();
+                            if (activity == null)
+                                return;
+
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean small = prefs.getBoolean("deepl_small", false);
+                            boolean replace = (!small && prefs.getBoolean("deepl_replace", false));
+
+                            // Insert translated text
                         /*
                             java.lang.IndexOutOfBoundsException: charAt: -1 < 0
                              at android.text.SpannableStringBuilder.charAt(SpannableStringBuilder.java:123)
@@ -2772,52 +2808,53 @@ public class FragmentCompose extends FragmentBase {
                              at android.text.SpannableStringBuilder.insert(SpannableStringBuilder.java:226)
                              at android.text.SpannableStringBuilder.insert(SpannableStringBuilder.java:38)
                          */
-                        int len = translation.translated_text.length();
+                            int len = translation.translated_text.length();
 
-                        edit.insert(paragraph.second, translation.translated_text);
+                            edit.insert(paragraph.second, translation.translated_text);
 
-                        if (!replace) {
-                            edit.insert(paragraph.second, "\n\n");
-                            len += 2;
+                            if (!replace) {
+                                edit.insert(paragraph.second, "\n\n");
+                                len += 2;
+                            }
+
+                            StyleHelper.markAsInserted(edit, paragraph.second, paragraph.second + len);
+                            etBody.setSelection(paragraph.second + len);
+
+                            if (small) {
+                                RelativeSizeSpan[] spans = edit.getSpans(
+                                        paragraph.first, paragraph.second, RelativeSizeSpan.class);
+                                for (RelativeSizeSpan span : spans)
+                                    edit.removeSpan(span);
+                                edit.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
+                                        paragraph.first, paragraph.second,
+                                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            } else if (replace) {
+                                edit.delete(paragraph.first, paragraph.second);
+                            }
+
+                            // Updated frequency
+                            String key = "translated_" + args.getString("target");
+                            int count = prefs.getInt(key, 0);
+                            prefs.edit().putInt(key, count + 1).apply();
+
+                            activity.invalidateOptionsMenu();
                         }
 
-                        StyleHelper.markAsInserted(edit, paragraph.second, paragraph.second + len);
-                        etBody.setSelection(paragraph.second + len);
-
-                        if (small) {
-                            RelativeSizeSpan[] spans = edit.getSpans(
-                                    paragraph.first, paragraph.second, RelativeSizeSpan.class);
-                            for (RelativeSizeSpan span : spans)
-                                edit.removeSpan(span);
-                            edit.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
-                                    paragraph.first, paragraph.second,
-                                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                        } else if (replace) {
-                            edit.delete(paragraph.first, paragraph.second);
+                        @Override
+                        protected void onDestroyed(Bundle args) {
+                            if (toast != null) {
+                                toast.cancel();
+                                toast = null;
+                            }
                         }
 
-                        // Updated frequency
-                        String key = "translated_" + args.getString("target");
-                        int count = prefs.getInt(key, 0);
-                        prefs.edit().putInt(key, count + 1).apply();
-
-                        activity.invalidateOptionsMenu();
-                    }
-
-                    @Override
-                    protected void onDestroyed(Bundle args) {
-                        if (toast != null) {
-                            toast.cancel();
-                            toast = null;
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            etBody.setSelection(paragraph.second);
+                            Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
                         }
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        etBody.setSelection(paragraph.second);
-                        Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
-                    }
-                }.serial().execute(FragmentCompose.this, args, "compose:translate");
+                    }.serial().execute(FragmentCompose.this, args, "compose:translate");
+                }
             }
         });
 
