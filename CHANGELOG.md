@@ -9,6 +9,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### Next version
 
 * Added create alias dialog (long press identity)
+* Added notes to message list widget
+* Added option for large badge count for new message count widget
+* Translating subject in message editor when it is focussed
 * Inheriting identity color from account color
 * Using selected font for reply header and signature too
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
