@@ -31,6 +31,7 @@ import androidx.core.content.FileProvider;
 import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
@@ -97,6 +98,9 @@ public class EntityAttachment {
     public Boolean available = false;
     public String media_uri;
     public String error;
+
+    @Ignore
+    public boolean selected = true;
 
     // Gmail sends inline images as attachments with a name and cid
 

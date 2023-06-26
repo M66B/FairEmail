@@ -5780,6 +5780,15 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 properties.move(message.id, EntityFolder.TRASH);
         }
 
+        private void onActionDeleteAttachments(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+
+            FragmentDialogDeleteAttachments fragment = new FragmentDialogDeleteAttachments();
+            fragment.setArguments(args);
+            fragment.show(parentFragment.getParentFragmentManager(), "attachments:delete");
+        }
+
         private void onActionDelete(TupleMessageEx message) {
             boolean leaveDeleted =
                     (message.accountProtocol == EntityAccount.TYPE_POP &&
@@ -5888,6 +5897,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     .setEnabled(message.uid != null && !message.folderReadOnly)
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
 
+            popupMenu.getMenu().findItem(R.id.menu_delete_attachments)
+                    .setEnabled(message.uid != null && !message.folderReadOnly)
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+
             popupMenu.getMenu().findItem(R.id.menu_delete)
                     .setEnabled(message.uid == null || !message.folderReadOnly)
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
@@ -5983,6 +5996,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                     } else if (itemId == R.id.menu_copy_to) {
                         onActionMove(message, true);
+                        return true;
+                    } else if (itemId == R.id.menu_delete_attachments) {
+                        onActionDeleteAttachments(message);
                         return true;
                     } else if (itemId == R.id.menu_delete) {
                         onActionDelete(message);

@@ -508,7 +508,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.DETACH:
-                                    onDetach(context, jargs, folder, message, op, (IMAPFolder) ifolder);
+                                    onDetach(context, jargs, message, (IMAPFolder) ifolder);
                                     break;
 
                                 case EntityOperation.EXISTS:
@@ -2090,13 +2090,18 @@ class Core {
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
     }
 
-    private static void onDetach(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, EntityOperation op, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
+    private static void onDetach(Context context, JSONArray jargs, EntityMessage message, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
         DB db = DB.getInstance(context);
 
-        long id = jargs.getLong(0);
+        JSONArray jids = jargs.getJSONArray(0);
+        List<Long> ids = new ArrayList<>();
+        for (int i = 0; i < jids.length(); i++)
+            ids.add(jids.getLong(i));
 
         if (message.uid == null)
             throw new IllegalArgumentException("Delete attachments uid missing");
+
+        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
 
         // Get message
         Message imessage = ifolder.getMessageByUID(message.uid);
@@ -2111,7 +2116,7 @@ class Core {
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
         for (EntityAttachment attachment : attachments)
-            if (attachment.id.equals(id) && BuildConfig.DEBUG) {
+            if (ids.contains(attachment.id)) {
                 Part apart = aparts.get(attachment.sequence - 1).part;
                 if (!deletePart(icopy, apart))
                     throw new IllegalArgumentException("Attachment part not found");
@@ -2119,16 +2124,19 @@ class Core {
 
         ifolder.appendMessages(new Message[]{icopy});
 
-        imessage.setFlag(Flags.Flag.DELETED, true);
-        expunge(context, ifolder, Arrays.asList(imessage));
+        if (trash == null) {
+            imessage.setFlag(Flags.Flag.DELETED, true);
+            expunge(context, ifolder, Arrays.asList(imessage));
+        } else {
+            EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);
+        }
     }
 
     static boolean deletePart(Part part, Part attachment) throws MessagingException, IOException {
         boolean deleted = false;
         if (part.isMimeType("multipart/*")) {
             Multipart multipart = (Multipart) part.getContent();
-            int count = multipart.getCount();
-            for (int i = 0; i < count; i++) {
+            for (int i = 0; i < multipart.getCount(); i++) {
                 Part child = multipart.getBodyPart(i);
                 if (child == attachment) {
                     multipart.removeBodyPart(i);

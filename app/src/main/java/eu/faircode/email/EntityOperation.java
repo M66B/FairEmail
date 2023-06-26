@@ -937,6 +937,9 @@ public class EntityOperation {
                 Log.e(ex);
             }
 
+        if (DETACH.equals(name) && message != null)
+            db.message().setMessageUiHide(message, false);
+
         if (SYNC.equals(name))
             db.folder().setFolderSyncState(folder, null);
 
