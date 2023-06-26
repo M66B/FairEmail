@@ -1441,6 +1441,10 @@
     <string name="title_report_spam">Treat as spam</string>
     <string name="title_delete_permanently">Delete permanently</string>
     <string name="title_delete_attachments">Delete attachments</string>
+    <string name="title_delete_attachments_remark">
+        To delete attachments, a new message must be added and the old message must be deleted.
+        Since this may fail, the old message will be moved to the trash.
+    </string>
     <string name="title_snooze">Snooze &#8230;</string>
     <string name="title_archive">Archive</string>
     <string name="title_reply">Reply</string>

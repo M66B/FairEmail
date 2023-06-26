@@ -25,7 +25,7 @@
         app:fastScrollVerticalThumbDrawable="@drawable/scroll_thumb"
         app:fastScrollVerticalTrackDrawable="@drawable/scroll_track"
         app:layout_constrainedHeight="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tvRemark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,4 +41,17 @@
         app:layout_constraintEnd_toEndOf="@id/rvAttachment"
         app:layout_constraintStart_toStartOf="@id/rvAttachment"
         app:layout_constraintTop_toTopOf="@id/rvAttachment" />
+
+    <TextView
+        android:id="@+id/tvRemark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/title_delete_attachments_remark"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
 </androidx.constraintlayout.widget.ConstraintLayout>
