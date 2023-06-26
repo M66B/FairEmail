@@ -510,7 +510,7 @@ class Core {
                                     break;
 
                                 case EntityOperation.DETACH:
-                                    onDetach(context, jargs, message, (IMAPFolder) ifolder);
+                                    onDetach(context, jargs, account, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
                                 case EntityOperation.EXISTS:
@@ -2092,7 +2092,7 @@ class Core {
             EntityLog.log(context, "Operation attachment size=" + attachment.size);
     }
 
-    private static void onDetach(Context context, JSONArray jargs, EntityMessage message, IMAPFolder ifolder) throws JSONException, MessagingException, IOException {
+    private static void onDetach(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
         DB db = DB.getInstance(context);
 
         JSONArray jids = jargs.getJSONArray(0);
@@ -2125,6 +2125,13 @@ class Core {
             }
 
         ifolder.appendMessages(new Message[]{icopy});
+
+        Long uid = findUid(context, account, ifolder, msgid);
+        if (uid != null) {
+            JSONArray fargs = new JSONArray();
+            fargs.put(uid);
+            onFetch(context, fargs, folder, istore, ifolder, state);
+        }
 
         if (trash == null) {
             imessage.setFlag(Flags.Flag.DELETED, true);

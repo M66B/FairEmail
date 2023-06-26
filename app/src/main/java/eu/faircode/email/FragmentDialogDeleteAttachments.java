@@ -84,6 +84,9 @@ public class FragmentDialogDeleteAttachments extends FragmentDialogBase {
             protected void onExecuted(final Bundle args, List<EntityAttachment> attachments) {
                 if (attachments == null)
                     attachments = new ArrayList<>();
+                for (EntityAttachment attachment : attachments)
+                    if (attachment.encryption == null)
+                        attachment.selected = true;
                 adapter.set(attachments);
             }
 
@@ -162,6 +165,7 @@ public class FragmentDialogDeleteAttachments extends FragmentDialogBase {
             private void bindTo(EntityAttachment attachment) {
                 cbEnabled.setText(attachment.name);
                 cbEnabled.setChecked(attachment.selected);
+                cbEnabled.setEnabled(attachment.encryption == null);
 
                 StringBuilder sb = new StringBuilder();
                 if (!TextUtils.isEmpty(attachment.type))

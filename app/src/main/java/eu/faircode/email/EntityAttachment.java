@@ -100,7 +100,7 @@ public class EntityAttachment {
     public String error;
 
     @Ignore
-    public boolean selected = true;
+    public boolean selected = false;
 
     // Gmail sends inline images as attachments with a name and cid
 
