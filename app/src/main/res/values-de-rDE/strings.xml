@@ -180,7 +180,7 @@
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
     <string name="title_setup_gmail_login">Wenn Chrome bei einem Konto angemeldet ist, kann ein neues Konto nur über Android hinzugefügt werden. Dies kann umgangen werden, indem Sie sich über die Chrome-Synchronisierungseinstellungen bei Chrome abmelden.</string>
-    <string name="title_setup_gmail_max">Im Falle der Fehlermeldung »Du bist bei der maximalen Anzahl an Konten angemeldet« müssen Sie den Browser von allen Google-Konten abmelden.</string>
+    <string name="title_setup_gmail_max">Im Falle der Fehlermeldung »Sie sind bei der maximalen Anzahl an Konten angemeldet« müssen Sie den Browser von allen Google-Konten abmelden.</string>
     <string name="title_setup_gmail_on_device">Warum muss ich ein Konto auf dem Gerät auswählen?</string>
     <string name="title_setup_gmail_password">Ich möchte ein Gmail-Konto mit einem eigenen App-Passwort anstatt über das geräteinterne Google-Konto autorisieren</string>
     <string name="title_setup_office_auth">Der Fehler »AUTHENTICATE failed« kann dadurch verursacht werden, dass IMAP/SMTP vom Systemverwalter deaktiviert wurde</string>
@@ -588,7 +588,7 @@
     <string name="title_advanced_thread_sent_trash">Beim Löschen einer Unterhaltung auch die zu dieser Unterhaltung gehörenden gesendeten Nachrichten löschen</string>
     <string name="title_advanced_star_snoozed">Zurückgestellte Nachrichten automatisch kennzeichnen</string>
     <string name="title_advanced_auto_important">Markierte Nachrichten automatisch wichtig machen</string>
-    <string name="title_advanced_cancel_snooze">Funktion »Zurückstellen« für verschobene Nachrichten deaktivieren</string>
+    <string name="title_advanced_cancel_snooze">»Zurückstellen« für verschobene Nachrichten deaktivieren</string>
     <string name="title_advanced_auto_block_sender">Absender automatisch sperren, wenn Spam gemeldet wird</string>
     <string name="title_advanced_auto_hide_answer">Beim Bildlauf automatisch die Antworttaste ausblenden</string>
     <string name="title_advanced_swipe_reply">Ausgeklappte Nachricht nach rechts wischen, um zu antworten</string>
@@ -888,7 +888,7 @@
     <string name="title_account_gmail">Für eine zuverlässige Synchronisation eines Gmail-Kontos sollte nach Möglichkeit der Gmail-Schnelleinrichtungsassistent verwendet werden</string>
     <string name="title_domain">Domainname</string>
     <string name="title_autoconfig">Einstellungen abrufen</string>
-    <string name="title_aliases">Alias-Adressen</string>
+    <string name="title_aliases">Aliasse</string>
     <string name="title_provider">Anbieter</string>
     <string name="title_custom">Benutzerdefiniert</string>
     <string name="title_host">Hostname</string>
@@ -1042,7 +1042,7 @@
     <string name="title_sort_unread_atop">Ungelesene oben einreihen</string>
     <string name="title_search_folder">Nach Ordnern suchen</string>
     <string name="title_apply_to_all">Für alle übernehmen</string>
-    <string name="title_edit_account_name">Kontoname ändern</string>
+    <string name="title_edit_account_name">Kontonamen ändern</string>
     <string name="title_edit_account_color">Farbe des Kontos ändern</string>
     <string name="title_hide_folder">Ordner ausblenden</string>
     <string name="title_hide_seen_folder">Ordner ausblenden, wenn alle Nachrichten gelesen wurden</string>
@@ -1881,7 +1881,7 @@
     <string name="title_pro_whichever">Welche Funktionen auch immer als Pro-Funktionen ausgewählt werden, es gibt immer jemanden, der sich beschwert, dass eine Funktion frei sein sollte. Bitte seien Sie nicht diese Person.</string>
     <string name="title_pro_google">FairEmail initiiert einen Kauf im Play Store, aber letztendlich verwaltet Google den gesamten Kaufprozess. Bitte machen Sie nicht die App dafür verantwortlich, wenn es Probleme gibt!</string>
     <string name="title_pro_hide">Kleinen Hinweis für %1$d Wochen ausblenden</string>
-    <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App.</string>
+    <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen, alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App.</string>
     <string name="title_pro_price">Warum sind die Pro-Funktionen so teuer?</string>
     <string name="title_pro_family">Kann ich die Google-Play-Familienmediathek verwenden?</string>
     <string name="title_pro_restore">Wie kann ich einen Kauf wiederherstellen (auf einem anderen Gerät)?</string>
@@ -1903,7 +1903,7 @@
     <string name="title_debug_info">Fehlersuchinformationen</string>
     <string name="title_debug_info_remark">Bitte beschreiben Sie das Problem und zu welchem Zeitpunkt es aufgetreten ist:</string>
     <string name="title_crash_info_remark">Bitte beschreiben Sie, was Sie getan haben, während die App abgestürzt ist:</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Problembeschreibung (erforderlich)</string>
+    <string name="title_debug_info_issue">Problembeschreibung (erforderlich)</string>
     <string name="title_debug_info_contact">Wir hatten kürzlich Kontakt bezüglich dieses Problems</string>
     <string name="title_unexpected_info_remark">Bitte beschreiben Sie, was Sie getan haben, als Sie den Fehler erhielten:</string>
     <string name="title_widget_title_count">Anzahl neuer Nachrichten</string>
@@ -1926,6 +1926,7 @@
     <string name="title_widget_count_top">Anzahl ungelesener am oberen Rand anzeigen</string>
     <string name="title_widget_subject_lines">Maximale Betreffzeilenanzahl</string>
     <string name="title_widget_avatars">Kontaktavatare anzeigen</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Kontonamen anzeigen</string>
     <string name="title_widget_refresh">Schaltfläche »Nachrichten aktualisieren« anzeigen</string>
     <string name="title_widget_compose">Schaltfläche »Neue Nachricht verfassen« anzeigen</string>
     <string name="title_widget_background">Hintergrundfarbe</string>

@@ -1902,7 +1902,7 @@
     <string name="title_debug_info">Informação de depuração</string>
     <string name="title_debug_info_remark">Por favor, descreva o problema e indique quando ocorreu:</string>
     <string name="title_crash_info_remark">Por favor, descreva o que fazia quando a aplicação foi abaixo:</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Descrição do problema (obrigatório)</string>
+    <string name="title_debug_info_issue">Descrição do problema (obrigatório)</string>
     <string name="title_debug_info_contact">Recentemente tivemos contacto sobre esse problema</string>
     <string name="title_unexpected_info_remark">Por favor, descreva o que fazia quando obteve o erro:</string>
     <string name="title_widget_title_count">Novo contador de mensagens</string>
@@ -1925,6 +1925,7 @@
     <string name="title_widget_count_top">Mostrar contagem não lida no topo</string>
     <string name="title_widget_subject_lines">Número máximo de linhas de assunto</string>
     <string name="title_widget_avatars">Mostrar avatares dos contactos</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Mostrar nome da conta</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
     <string name="title_widget_background">Cor do fundo</string>

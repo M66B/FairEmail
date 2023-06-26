@@ -837,6 +837,7 @@
     <string name="title_advanced_never_favorite">Heç vaxt sevimlilər deyil</string>
     <string name="title_advanced_edit_name">Ada düzəliş et</string>
     <string name="title_advanced_create_alias">Ləqəb yarat</string>
+    <string name="title_advanced_create_alias_remark">Bəzi hallarda, ləqəb ünvanı, poçt provayderinin vebsaytı vasitəsilə təsdiqlənməlidir</string>
     <string name="title_create_folder">Qovluq yarat</string>
     <string name="title_create_folder_name">Qovluq adı</string>
     <string name="title_create_folder_parent">Ana qovluq</string>
@@ -1900,6 +1901,8 @@
     <string name="title_debug_info">Sazlama məlumatı</string>
     <string name="title_debug_info_remark">Zəhmət olmasa probleminizi təsvir edin və problemin vaxtını göstərin:</string>
     <string name="title_crash_info_remark">Zəhmət olmasa tətbiq çökərkən tətbiqdə nə etdiyinizi təsvir edin:</string>
+    <string name="title_debug_info_issue">Problem açıqlaması (tələb olunur)</string>
+    <string name="title_debug_info_contact">Təzəlikcə bu problemlə bağlı əlaqə saxladıq</string>
     <string name="title_unexpected_info_remark">Zəhmət olmasa xəta alanda nə etdiyinizi izah edin:</string>
     <string name="title_widget_title_count">Yeni mesaj sayı</string>
     <string name="title_widget_title_list">Mesaj siyahısı</string>

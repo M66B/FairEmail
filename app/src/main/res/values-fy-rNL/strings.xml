@@ -145,10 +145,10 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup">Ynstellingen</string>
     <string name="title_setup_help">Help</string>
     <string name="title_setup_quick">Flugge opset</string>
-    <string name="title_setup_intro">In account tafoegje kin al in trije stappen, dêrnei kinne jo e-mailberjochten ferstjoere en ûntfange</string>
+    <string name="title_setup_intro">In account tafoegje kin al yn trije stappen, dêrnei kinne jo e-mailberjochten ferstjoere en ûntfange.</string>
     <string name="title_setup_simple">Dêr is gjin needsaak om oare opsjes te wizigjen</string>
-    <string name="title_setup_issue">FairEmail is ûntwikkele om jo te helpen jo privacy te beskermjen en fertsjintwurdiget tûzenen oeren wurk. As jo swierrichheden hawwe, nim dan earst kontakt mei my op foar stipe foardat jo in minne beoardieling efterlitte. Ik help jo graach!</string>
-    <string name="title_setup_analytics">FairEmail toant gjin advertinsjes en folget of analysearret jo gedrach net. Bugsnag wurdt brûkt foar flatermelding en is standert útskeakele.</string>
+    <string name="title_setup_issue">FairEmail is ûntwikkele om jo te helpen jo privacy te beskermjen en fertsjintwurdiget tûzenen oeren wurk. As jo swierrichheden hawwe, nim dan earst kontakt op mei my foar stipe, eardat jo in minne beoardieling efterlitte. Ik help jo graach!</string>
+    <string name="title_setup_analytics">FairEmail toant gjin advertinsjes en folget of analysearret jo gedrach net. Bugsnag wurdt brûkt foar flatermeldingen en is standert útskeakele.</string>
     <string name="title_setup_quick_accounts">Accounts tafoegje of wizigje</string>
     <string name="title_setup_quick_support">Guon providers meitsje it dreech om in account ta te foegjen. Jou FairEmail hjir gjin skuld foar, mar freegje yn stee derfan om stipe.</string>
     <string name="title_setup_quick_hint">It ynfierde e-mailadres wurdt brûkt om de e-mailserver en autoconfig.thunderbird.net om konfiguraasje-ynformaasje te freegjen</string>
@@ -158,14 +158,14 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_quick_certificates">Serversertifikaten</string>
     <string name="title_setup_wizard">Assistint</string>
     <string name="title_setup_wizard_tutorials">Hantliedingen</string>
-    <string name="title_setup_wizard_multiple">De assistint kin meardere kearen brûkt wurde om meardere accounts yn te stellen</string>
+    <string name="title_setup_wizard_multiple">De assistint kin meardere kearen brûkt wurde om meardere accounts yn te stellen.</string>
     <string name="title_setup_wizard_new">Ik haw in nij e-mailadres nedich</string>
     <string name="title_setup_manual">Hânmjittich ynstelle en accountopsjes</string>
     <string name="title_setup_classic">Klassike konfiguraasje</string>
-    <string name="title_setup_documentation">Besjoch. de dokumintaasje fan jo e-mailprovider foar de krekte e-mailserverkonfiguraasje</string>
+    <string name="title_setup_documentation">Besjoch de dokumintaasje fan jo e-mailprovider foar de krekte e-mailserverkonfiguraasje.</string>
     <string name="title_setup_account_remark">E-mailberjochten ûntfange</string>
     <string name="title_setup_identity_remark">E-mailberjochten ferstjoere</string>
-    <string name="title_setup_account_identity_hint">Jo kinne de namme, kleur en fei-aksjes ynstelle yn de accountynstellingen en in hantekening ynstelle yn de identiteitsynstellingen</string>
+    <string name="title_setup_account_identity_hint">Jo kinne de namme, kleur en fei-aksjes ynstelle yn de accountynstellingen en in hantekening ynstelle yn de identiteitsynstellingen.</string>
     <string name="title_setup_accounts">Accounts</string>
     <string name="title_setup_identities">Identiteiten</string>
     <string name="title_setup_google_sign_in">Oanmelde mei Google</string>
@@ -214,7 +214,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_import_graph_contact">Outlook-kontakten</string>
     <string name="title_setup_import_graph_new">Nije kontakten: %1$s</string>
     <string name="title_setup_doze">Batterijoptimalisaasje útskeakelje</string>
-    <string name="title_setup_doze_remark">Foar it betrouber ferstjoeren en ûntfangen fan e-mailberjochten op de eftergrûn</string>
+    <string name="title_setup_doze_remark">Foar it betrouber op de eftergrûn ferstjoeren en ûntfangen fan e-mailberjochten.</string>
     <string name="title_setup_doze_explanation">Batterijoptimalisaasje moat útskeakele wurde foar de app om wis te wêzen fan it ferstjoeren en ûntfangen fan berjochten op de eftergrûn</string>
     <string name="title_setup_doze_hint">Hoewol dit miskien tsjinstridich klinkt, sil útskeakeljen fan batterijoptimalisaasje foar dizze app resultearje yn minder batterijferbrûk</string>
     <string name="title_setup_doze_aggressively">Dit apparaat kin de syngronisaasjetsjinst stopje</string>
@@ -228,7 +228,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_background">Eftergrûnbeheiningen binne ynskeakele</string>
     <string name="title_setup_data">Gegevensbesparring is ynskeakele</string>
     <string name="title_setup_always">Daliks nije berjochtmeldingen</string>
-    <string name="title_setup_always_remark">Wannear ynskeakele kinne ynstabile ferbiningen, âlde netwurkhardware, ensfh. resultearje yn in heger batterijgebrûk</string>
+    <string name="title_setup_always_remark">Wannear ynskeakele kinne ynstabile ferbiningen, âlde netwurkhardware, ensfh. resultearje yn in heger batterijgebrûk.</string>
     <string name="title_setup_advanced_options">Avansearre opsjes toane</string>
     <string name="title_setup_inbox">Gean nei Postfek Yn</string>
     <string name="title_setup_go">Gean</string>
@@ -242,7 +242,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_setup_configuring">Account konfigurearje&#8230;</string>
     <string name="title_setup_app_password">Mooglik moatte jo in app-wachtwurd brûke</string>
     <string name="title_setup_extra">Ekstra</string>
-    <string name="title_setup_delete_account_hint">Dit smyt allinnich accounts út de app fuort</string>
+    <string name="title_setup_delete_account_hint">Dit smyt allinnich accounts fuort út de app</string>
     <string name="title_setup_close">Ynstellingen slute</string>
     <string name="title_setup_export">Ynstellingen eksportearje</string>
     <string name="title_setup_import">Ynstellingen ymportearje</string>
@@ -319,7 +319,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_hint_remark">        De opsjes binne kategorisearre op ljepblêd, ferdield yn seksjes, organisearre op uterlik of gebrûk en trochsykber.
     </string>
     <string name="title_advanced_hint_setup">Jo kinne in account konfigurearje troch op de wizardknop op it haadkonfiguraasjeskerm te tikken.</string>
-    <string name="title_advanced_section_main">Haad</string>
+    <string name="title_advanced_section_main">Start</string>
     <string name="title_advanced_section_synchronize">Untfange</string>
     <string name="title_advanced_section_send">Ferstjoere</string>
     <string name="title_advanced_section_connection">Ferbining</string>
@@ -330,7 +330,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_section_notifications">Meldingen</string>
     <string name="title_advanced_section_misc">Diversken</string>
     <string name="title_advanced_section_backup">Reservekopy</string>
-    <string name="title_advanced_default">Alle opsjes hawwe faak standertwearden brûkt, dy’t jo net hoege oan te passen om de app te brûken</string>
+    <string name="title_advanced_default">Alle opsjes hawwe faak standertwearden brûkt, dy’t jo net hoege oan te passen om de app te brûken.</string>
     <string name="title_advanced_receive">Berjochten ûntfange foar alle accounts</string>
     <string name="title_advanced_when">Wannear</string>
     <string name="title_advanced_optimize">Automatysk optimalisearje</string>
@@ -725,21 +725,21 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_protocol">Protokollogging</string>
     <string name="title_advanced_log_info">Debuglogging</string>
     <string name="title_advanced_debug">Debugmodus</string>
-    <string name="title_advanced_manual_hint">As it ûntfangen fan berjochten útskeakele is, is it noch hieltyd mooglik om berjochten mei de hân te ûntfangen troch de berjochtelist nei ûnder te lûken</string>
+    <string name="title_advanced_manual_hint">As it ûntfangen fan berjochten útskeakele is, is it noch hieltyd mooglik om berjochten mei de hân te ûntfangen troch de berjochtelist nei ûnder te lûken.</string>
     <string name="title_advanced_poll_battery">Dit kin in heech batterijgebrûk feroarsaakje!</string>
     <string name="title_advanced_poll_hint">Periodyk kontrolearje op nije berjochten sil elke kear lokale en eksterne berjochten fergelykje, wat in djoere operaasje is dy’t resultearje kin yn ekstra batterijgebrûk, foaral as der in soad berjochten binne. Altyd ûntfange sil dit foarkomme troch wizigingen kontinu te folgjen.</string>
-    <string name="title_advanced_optimize_hint">Hjirtroch kin de syngronisaasjefrekwinsje wizigje om batterijgebrûk te sparjen, ôfhinklik fan de mooglikheden en gedrach fan de e-mailservers</string>
+    <string name="title_advanced_optimize_hint">Hjirtroch kin de syngronisaasjefrekwinsje wizigje om batterijgebrûk te sparjen, ôfhinklik fan de mooglikheden en it gedrach fan de e-mailservers.</string>
     <string name="title_advanced_schedule_hint">Tik op in tiid om in tiid yn te stellen</string>
     <string name="title_advanced_schedule_ignore">Skema’s kinne útskeakele wurde yn de avansearre accountynstellingen</string>
-    <string name="title_advanced_quick_sync_hint">Dit ferminderet it gegevensgebrûk, mar nije berjochten kinne mist wurde as de e-mailserver de noarms net folget</string>
-    <string name="title_advanced_no_date_hint">Guon oanbieders bewarje berjochten mei in ûnbekende, ûnjildige of takomstige datum as berjochten sûnder datum</string>
-    <string name="title_advanced_unseen_hint">Guon oanbieders stypje dit net goed, wat resultearje kin yn syngronisearje fan gjin of alle berjochten</string>
+    <string name="title_advanced_quick_sync_hint">Dit ferminderet it gegevensgebrûk, mar nije berjochten kinne mist wurde as de e-mailserver de noarms net folget.</string>
+    <string name="title_advanced_no_date_hint">Guon oanbieders bewarje berjochten mei in ûnbekende, ûnjildige of takomstige datum as berjochten sûnder datum.</string>
+    <string name="title_advanced_unseen_hint">Guon oanbieders stypje dit net goed, wat resultearje kin yn syngronisaasje fan net ien of fan alle berjochten.</string>
     <string name="title_advanced_data_usage">Dit kin in heech gegevensgebrûk feroarsaakje!</string>
-    <string name="title_advanced_deleted_unseen">Wannear útskeakele, wurde net-lêzen berjochten foar altyd op it apparaat bewarre</string>
-    <string name="title_advanced_sync_kept_hint">Dit sil ekstra gegevens oerdrage en ekstra batterijkrêft konsumearje, foaral as in soad berjochten op it apparaat bewarre wurde</string>
-    <string name="title_advanced_gmail_thread_hint">Dit jildt allinnich foar nij ûntfangen berjochten en kin besteande groepen ferbrekke</string>
-    <string name="title_advanced_subject_threading_hint">Allinnich berjochten ûntfongen yn de ôfrûne %1$d oeren</string>
-    <string name="title_advanced_sync_folders_hint">As jo dit útskeakelje, sille gegevens en batterijgebrûk wat ferminderje, mar sil it bywurkjen fan de list mei mappen ek útskeakelje</string>
+    <string name="title_advanced_deleted_unseen">Wannear útskeakele, wurde net-lêzen berjochten foar altyd op it apparaat bewarre.</string>
+    <string name="title_advanced_sync_kept_hint">Dit sil ekstra gegevens oerdrage en ekstra batterijkrêft konsumearje, foaral as in soad berjochten op it apparaat bewarre wurde.</string>
+    <string name="title_advanced_gmail_thread_hint">Dit jildt allinnich foar nij ûntfangen berjochten en kin besteande groepen ferbrekke.</string>
+    <string name="title_advanced_subject_threading_hint">Allinnich berjochten ûntfongen yn de ôfrûne %1$d oeren.</string>
+    <string name="title_advanced_sync_folders_hint">As jo dit útskeakelje, sille gegevens en batterijgebrûk wat ferminderje, mar sil it bywurkjen fan de list mei mappen ek útskeakelje.</string>
     <string name="title_advanced_poll_folders_hint">Periodyk syngronisearjen fan de mappelist njonken nei ferbining meitsje mei in account</string>
     <string name="title_advanced_check_authentication_hint">Dit kontrolearret de resultaten fan DKIM, SPF en DMARC autentikaasje, lykas útfierd troch de e-mailserver</string>
     <string name="title_advanced_check_tls_hint">Dit sil allinnich in grien skyld toane as in berjocht feilich transportearre wurdt troch alle servers</string>
@@ -1892,7 +1892,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_debug_info">Debug-ynfo</string>
     <string name="title_debug_info_remark">Beskriuw it probleem en jou de tiid fan it probleem oan:</string>
     <string name="title_crash_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Probleembeskriuwing (fereaske)</string>
+    <string name="title_debug_info_issue">Probleembeskriuwing (fereaske)</string>
     <string name="title_debug_info_contact">Wy hawwe koartlyn kontakt han oer dit probleem</string>
     <string name="title_unexpected_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
     <string name="title_widget_title_count">Oantal nije berjochten</string>

@@ -1922,7 +1922,7 @@
     <string name="title_debug_info">Info debugowania</string>
     <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Opis problemu (wymagany)</string>
+    <string name="title_debug_info_issue">Opis problemu (wymagany)</string>
     <string name="title_debug_info_contact">Ostatnio kontaktowaliśmy się w sprawie tego problemu</string>
     <string name="title_unexpected_info_remark">Opisz proszę, co robiłeś, w momencie awarii aplikacji:</string>
     <string name="title_widget_title_count">Liczba nowych wiadomości</string>
@@ -1945,6 +1945,7 @@
     <string name="title_widget_count_top">Pokaż ilość nieprzeczytanych na górze</string>
     <string name="title_widget_subject_lines">Maksymalna liczba wierszy tematu</string>
     <string name="title_widget_avatars">Pokaż awatary kontaktu</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Pokaż nazwę konta</string>
     <string name="title_widget_refresh">Pokaż przycisk odświeżania wiadomości</string>
     <string name="title_widget_compose">Pokaż przycisk tworzenia nowej wiadomości</string>
     <string name="title_widget_background">Kolor tła</string>

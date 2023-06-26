@@ -1890,7 +1890,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_debug_info">Foutopsporing</string>
     <string name="title_debug_info_remark">Beschrijf alstublieft het probleem en de tijd van het probleem:</string>
     <string name="title_crash_info_remark">Beschrijf alstublieft wat u aan het doen was toen de app crashte:</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Probleembeschrijving (vereist)</string>
+    <string name="title_debug_info_issue">Probleembeschrijving (vereist)</string>
     <string name="title_debug_info_contact">Onlangs hadden we contact over dit probleem</string>
     <string name="title_unexpected_info_remark">Beschrijf alstublieft wat u aan het doen was toen de foutmelding kwam:</string>
     <string name="title_widget_title_count">Aantal nieuwe berichten</string>
@@ -1913,6 +1913,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_count_top">Toon aantal ongelezen bovenin</string>
     <string name="title_widget_subject_lines">Maximaal aantal onderwerpregels</string>
     <string name="title_widget_avatars">Toon avatars van contacten</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Toon de accountnaam</string>
     <string name="title_widget_refresh">Toon knop voor het verversen van berichten</string>
     <string name="title_widget_compose">Toon knop voor het opstellen van een nieuw bericht</string>
     <string name="title_widget_background">Achtergrondkleur</string>

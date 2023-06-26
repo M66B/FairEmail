@@ -834,6 +834,7 @@
     <string name="title_advanced_never_favorite">Ποτέ ως αγαπημένο</string>
     <string name="title_advanced_edit_name">Επεξεργασία ονόματος</string>
     <string name="title_advanced_create_alias">Δημιουργία ψευδώνυμου</string>
+    <string name="title_advanced_create_alias_remark">Σε πολλές περιπτώσεις, μια ψευδώνυμη διεύθυνση πρέπει πρώτα να επαληθευτεί μέσα από τον ιστότοπο του παρόχου αλληλογραφίας</string>
     <string name="title_create_folder">Δημιουργία φακέλου</string>
     <string name="title_create_folder_name">Όνομα φακέλου</string>
     <string name="title_create_folder_parent">Γονικός φάκελος</string>
@@ -1893,6 +1894,8 @@
     <string name="title_debug_info">Πληροφορίες απασφαλμάτωσης</string>
     <string name="title_debug_info_remark">Παρακαλούμε, περιγράψτε το πρόβλημα καθώς και τον χρόνο εμφάνισής του:</string>
     <string name="title_crash_info_remark">Παρακαλούμε, περιγράψτε τι κάνατε τη στιγμή που η εφαρμογή σταμάτησε να λειτουργεί:</string>
+    <string name="title_debug_info_issue">Περιγραφή προβλήματος (απαιτείται)</string>
+    <string name="title_debug_info_contact">Είχαμε πρόσφατα επικοινωνήσει σχετικά με αυτό το πρόβλημα</string>
     <string name="title_unexpected_info_remark">Παρακαλούμε, περιγράψτε τι κάνατε όταν λάβατε το μήνυμα σφάλματος:</string>
     <string name="title_widget_title_count">Αριθμός νέων μηνυμάτων</string>
     <string name="title_widget_title_list">Λίστα μηνυμάτων</string>
@@ -1914,6 +1917,7 @@
     <string name="title_widget_count_top">Προβολή του αριθμού των μη αναγνωσμένων στην κορυφή</string>
     <string name="title_widget_subject_lines">Μέγιστος αριθμός γραμμών θέματος</string>
     <string name="title_widget_avatars">Προβολή άβαταρ των επαφών</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Προβολή ονόματος λογαριασμού</string>
     <string name="title_widget_refresh">Προβολή κουμπιού ανανέωσης μηνυμάτων</string>
     <string name="title_widget_compose">Να εμφανίζεται το κουμπί σύνταξης νέου μηνύματος</string>
     <string name="title_widget_background">Χρώμα φόντου</string>

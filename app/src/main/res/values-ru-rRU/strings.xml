@@ -1926,7 +1926,7 @@
     <string name="title_debug_info">Отладочная информация</string>
     <string name="title_debug_info_remark">Пожалуйста, опишите проблему и укажите момент её возникновения:</string>
     <string name="title_crash_info_remark">Пожалуйста, опишите, что вы делали, когда в приложении произошёл сбой:</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Описание проблемы (обязательно)</string>
+    <string name="title_debug_info_issue">Описание проблемы (обязательно)</string>
     <string name="title_debug_info_contact">Недавно мы общались по поводу этой проблемы</string>
     <string name="title_unexpected_info_remark">Пожалуйста, опишите, что вы делали, когда получили ошибку:</string>
     <string name="title_widget_title_count">Количество новых сообщений</string>
@@ -1949,6 +1949,7 @@
     <string name="title_widget_count_top">Показывать количество непрочитанных вверху</string>
     <string name="title_widget_subject_lines">Максимальное число строк темы</string>
     <string name="title_widget_avatars">Показывать аватары контактов</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Показывать имя учётной записи</string>
     <string name="title_widget_refresh">Показать кнопку обновления сообщений</string>
     <string name="title_widget_compose">Показать кнопку создания нового сообщения</string>
     <string name="title_widget_background">Цвет фона</string>

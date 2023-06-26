@@ -1909,7 +1909,7 @@
     <string name="title_debug_info">Depanare</string>
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Descrierea problemei (necesar)</string>
+    <string name="title_debug_info_issue">Descrierea problemei (necesar)</string>
     <string name="title_debug_info_contact">Recent am avut contact cu această problemă</string>
     <string name="title_unexpected_info_remark">Vă rugăm să descrieți ce faceți atunci când ați primit eroarea:</string>
     <string name="title_widget_title_count">Contor mesaje noi</string>

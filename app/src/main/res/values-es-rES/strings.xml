@@ -835,6 +835,8 @@
     <string name="title_advanced_cleanup_hint">Esto eliminará todos los archivos temporales</string>
     <string name="title_advanced_never_favorite">Nunca favorito</string>
     <string name="title_advanced_edit_name">Editar nombre</string>
+    <string name="title_advanced_create_alias">Crear alias</string>
+    <string name="title_advanced_create_alias_remark">En muchos casos, primero debe verificarse una dirección de alias a través del sitio web del proveedor de correo</string>
     <string name="title_create_folder">Crear carpeta</string>
     <string name="title_create_folder_name">Nombre de carpeta</string>
     <string name="title_create_folder_parent">Carpeta superior</string>
@@ -1893,6 +1895,8 @@
     <string name="title_debug_info">Información de depuración</string>
     <string name="title_debug_info_remark">Por favor describa el problema e indique el momento del mismo:</string>
     <string name="title_crash_info_remark">Por favor describa que estaba haciendo cuando la app falló:</string>
+    <string name="title_debug_info_issue">Descripción del problema (Requerido)</string>
+    <string name="title_debug_info_contact">Recientemente hemos tenido contacto con este problema</string>
     <string name="title_unexpected_info_remark">Por favor describa lo que estaba haciendo cuando obtuvo el error:</string>
     <string name="title_widget_title_count">Recuento de mensajes</string>
     <string name="title_widget_title_list">Lista de mensajes</string>

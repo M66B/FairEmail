@@ -864,6 +864,8 @@
     <string name="title_advanced_cleanup_hint">Гэта прывядзе да выдалення ўсіх часовых файлаў</string>
     <string name="title_advanced_never_favorite">Ніколі не пазначаць</string>
     <string name="title_advanced_edit_name">Перайменаваць</string>
+    <string name="title_advanced_create_alias">Стварыць псеўданім</string>
+    <string name="title_advanced_create_alias_remark">У большасці выпадкаў адрас псеўданіма мае быць папярэдне правераны на сайце паштовага правайдара</string>
     <string name="title_create_folder">Стварыць папку</string>
     <string name="title_create_folder_name">Назва папкі</string>
     <string name="title_create_folder_parent">Бацькоўская папка</string>
@@ -1928,6 +1930,8 @@
     <string name="title_debug_info">Інфармацыя аб адладцы</string>
     <string name="title_debug_info_remark">Калі ласка, апішыце праблему і пазначце час узнікнення гэтай праблемы:</string>
     <string name="title_crash_info_remark">Калі ласка, апішыце, што вы рабілі, калі праграма выйшла з ладу:</string>
+    <string name="title_debug_info_issue">Апісанне праблемы (абавязкова)</string>
+    <string name="title_debug_info_contact">Мы нядаўна абмяркоўвалі гэту праблему</string>
     <string name="title_unexpected_info_remark">Калі ласка, апішыце, што вы рабілі, калі з\'явілася памылка:</string>
     <string name="title_widget_title_count">Колькасць новых паведамленняў</string>
     <string name="title_widget_title_list">Спіс паведамленняў</string>

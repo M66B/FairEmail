@@ -1902,7 +1902,7 @@
     <string name="title_debug_info">Information de débogage</string>
     <string name="title_debug_info_remark">Veuillez décrire le problème et indiquer l\'heure à laquelle il est survenu :</string>
     <string name="title_crash_info_remark">Veuillez décrire ce que vous faisiez lorsque l’application s’est arrêtée :</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Description du problème (obligatoire)</string>
+    <string name="title_debug_info_issue">Description du problème (obligatoire)</string>
     <string name="title_debug_info_contact">Nous avons récemment pris contact à propos de ce problème</string>
     <string name="title_unexpected_info_remark">Veuillez décrire ce que vous faisiez lorsque vous avez eu l\'erreur :</string>
     <string name="title_widget_title_count">Nombre de nouveaux messages</string>
@@ -1925,6 +1925,7 @@
     <string name="title_widget_count_top">Afficher le nombre de non-lus en haut</string>
     <string name="title_widget_subject_lines">Nombre maximum de lignes de l\'objet</string>
     <string name="title_widget_avatars">Afficher l\'avatar des contacts</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Afficher le nom du compte</string>
     <string name="title_widget_refresh">Afficher le bouton d\'actualisation des messages</string>
     <string name="title_widget_compose">Afficher le bouton pour rédiger un nouveau message</string>
     <string name="title_widget_background">Couleur d\'arrière-plan</string>

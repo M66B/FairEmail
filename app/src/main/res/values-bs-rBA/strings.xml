@@ -1914,7 +1914,7 @@
     <string name="title_debug_info">Info o otklanjanju grešaka</string>
     <string name="title_debug_info_remark">Molimo, opišite problem i navedite vrijeme kada se dogodio:</string>
     <string name="title_crash_info_remark">Molimo, opišite šta ste radili kada se aplikacija srušila:</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Opis problema (neophodno)</string>
+    <string name="title_debug_info_issue">Opis problema (neophodno)</string>
     <string name="title_debug_info_contact">Nedavno smo kontaktirani o ovom problemu</string>
     <string name="title_unexpected_info_remark">Molimo, opišite šta ste radili kada se pojavila greška:</string>
     <string name="title_widget_title_count">Brojač novih poruka</string>

@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail 검색</string>
+    <string name="app_send_self">내게 보내기</string>
     <string name="app_changelog">변경 로그</string>
     <string name="app_welcome">FairEmail은 프라이버시와 보안을 위한 오픈 소스 이메일 앱입니다. 그렇기에 몇몇 기능은 당신이 지금까지 써왔던 것과 조금 다르게 작동할 수 있습니다.</string>
     <string name="app_limitations">예를 들어, 안전하지 않은 요소를 제거하고 가독성을 향상시키기 위해 기본적으로 메시지 형식이 다시 지정되며 안전을 위해 링크 열기를 확인해야 합니다. 원하는 경우 둘 다 비활성화할 수 있습니다.</string>
+    <string name="app_unsupported">이 기기의 안드로이드 버전의 버그로 인해 충돌이 발생합니다.</string>
     <string name="app_data_loss">모든 데이터가 손실됩니다</string>
     <string name="app_continue">그냥 진행하기</string>
     <string name="app_exit">나가려면 뒤로 버튼을 한번 더 누르세요</string>
     <string name="app_cake">저장 공간 부족</string>
+    <string name="app_cake_remaining">기기에 남은 저장 공간: %1$s</string>
+    <string name="app_cake_required">최소 필요 저장 공간: %1$s</string>
     <string name="app_updated">최근 업데이트: %1$s</string>
     <string name="app_download">%1$s에서 다운로드 완료</string>
+    <string name="channel_service">모니터</string>
     <string name="channel_send">발신</string>
     <string name="channel_notification">이메일</string>
     <string name="channel_progress">진행</string>
     <string name="channel_update">업데이트</string>
+    <string name="channel_announcements">공지</string>
     <string name="channel_warning">경고</string>
     <string name="channel_error">오류</string>
     <string name="channel_alert">서버 알림</string>
@@ -61,13 +67,19 @@
     </plurals>
     <string name="title_ask_spam_who">%1$s의 메일을 스팸 처리하시겠습니까?</string>
     <string name="title_junk_hint">이메일 공급자는 스팸 필터링을 담당합니다. 이메일 앱에는 이를 안정적으로 수행하는데 필요한 모든 데이터가 없습니다. </string>
+    <string name="title_junk_pop_hint">        차단한 발신자의 메시지는 다운로드되지 않습니다.
+        \"서버에 메시지를 보관\"이 활성화되어 있지 않은 경우, 이러한 메시지는 영구적으로 손실됩니다!
+    </string>
     <string name="title_block">%1$s 차단</string>
-    <string name="title_block_sender">발송자 차단</string>
+    <string name="title_block_sender">발신자 차단</string>
     <string name="title_block_sender_domain">도메인 \'%1$s\' 차단</string>
-    <string name="title_block_sender_hint">발신자를 차단하는 것은 무료 기능입니다. 발신자 도메인을 차단하는 것은 유료 기능인 필터 규칙을 사용합니다.    </string>
+    <string name="title_block_sender_remark">차단은 자동으로 스팸함으로 이동함을 의미합니다.</string>
+    <string name="title_block_sender_hint">        발신자를 차단하는 것은 무료 기능입니다.
+        발신자 도메인을 차단하는 것은 유료 기능인 필터 규칙을 사용합니다.
+    </string>
     <string name="title_blocked_senders">차단한 발신자</string>
     <plurals name="title_ask_block_sender">
-        <item quantity="other">%1$s 메시지를 보낸 이를 차단하겠습니까?</item>
+        <item quantity="other">%1$s 메시지를 보낸 발신자를 차단하겠습니까?</item>
     </plurals>
     <plurals name="title_hours">
         <item quantity="other">%1$s시간</item>
@@ -128,6 +140,7 @@
     <string name="title_setup_analytics">FairEmail은 광고를 표시하지도 당신의 행동을 추적하거나 분석하지도 않습니다. 오류 보고를 위해 기본적으로 사용이 중지되어 있는 Bugsnag를 사용합니다.</string>
     <string name="title_setup_quick_accounts">계정 추가 및 변경</string>
     <string name="title_setup_quick_support">몇몇 서비스 제공자들은 계정 추가하기를 어렵도록 설계해 두었습니다. FairEmail을 탓하지 마시고, 대신 도움을 요청해 주세요.</string>
+    <string name="title_setup_quick_hint">입력한 이메일 주소는 구성 정보를 가져 오기 위해 이메일 서버와 autoconfig.thunderbird.net에 문의하는 데 사용됩니다.</string>
     <string name="title_setup_quick_patience">인내심을 가지고 기다려 주세요 &#8230;</string>
     <string name="title_setup_quick_imap">메시지를 수신할 IMAP 서버</string>
     <string name="title_setup_quick_smtp">메시지를 발신할 SMTP 서버</string>
@@ -146,18 +159,32 @@
     <string name="title_setup_identities">ID</string>
     <string name="title_setup_google_sign_in">Google 로그인</string>
     <string name="title_setup_other">기타 제공업체</string>
+    <string name="title_setup_inbound">수신 이메일 전용 (이메일을 보낼 수 없습니다!)</string>
     <string name="title_setup_pop3">POP3 계정</string>
-    <string name="title_setup_oauth_permission">이메일 공급자가 Play 스토어 및 Github 버전의 OAuth만 승인했습니다</string>
+    <string name="title_setup_oauth_permission">이메일 제공업체가 Play 스토어 및 Github 버전의 OAuth만 승인했습니다</string>
     <string name="title_setup_gmail_support">Android에서는 디지털 앱 서명을 확인하므로 Google 계정 인증은 Play 스토어 및 Github 버전에서만 동작합니다</string>
     <string name="title_setup_gmail_rationale">계정을 설정하고 이름을 읽기 위해 권한을 허용해 주세요</string>
     <string name="title_setup_gmail_permissions">Google은 이메일 읽기, 쓰기, 보내기 및 영구 삭제 권한을 요구합니다. FairEmail은 당신의 허락 없이는 절대로 이메일을 삭제하지 않습니다.</string>
+    <string name="title_setup_gmail_login">크롬이 계정에 로그인 되어 있는 경우 새 계정은 Android를 통해서만 추가할 수 있습니다. 이는 크롬 동기화 설정을 통해 크롬에서 로그아웃하여 피할 수 있습니다.</string>
+    <string name="title_setup_gmail_max">\"최대 계정 수에 로그인되어 있습니다\"라는 오류 메시지의 경우, 브라우저에서 모든 Google 계정을 로그 아웃해야 합니다.</string>
+    <string name="title_setup_gmail_on_device">기기 내 계정을 선택해야 하는 이유는 무엇입니까?</string>
+    <string name="title_setup_gmail_password">기기 내 계정 대신 암호를 사용하여 계정을 인증하고 싶습니다.</string>
+    <string name="title_setup_office_auth">\'인증 실패\' 오류는 시스템 관리자에 의해 IMAP/SMTP가 비활성화된 경우 발생할 수 있습니다.</string>
+    <string name="title_setup_office_auth_5_7_3">\'다른 제공업체\'로 빠른 설정 마법사를 시도해보세요.</string>
+    <string name="title_setup_oauth_rationale">귀하의 %1$s 계정에 대한 액세스 권한 부여</string>
+    <string name="title_setup_oauth_update">기존 계정을 다시 인증하십시오 (그렇지 않으면 새 계정을 만드십시오)</string>
     <string name="title_setup_oauth_updated">계정 인증이 갱신되었습니다</string>
     <string name="title_setup_oauth_authorize">인증</string>
     <string name="title_setup_select_account">계정 선택</string>
     <string name="title_setup_instructions">설정 방법</string>
     <string name="title_setup_no_settings">\'%1$s\' 도메인에 대한 설정을 찾을 수 없음</string>
+    <string name="title_setup_no_settings_hint">이메일 제공업체에서 제공하는 설정을 사용하여 계정을 수동으로 설정해보십시오.</string>
+    <string name="title_setup_no_auth_hint">이메일 주소와 비밀번호를 다시 확인하고 귀하의 계정에 대한 외부 액세스 (IMAP/SMTP) 가 활성화되어 있는지 확인하십시오.</string>
+    <string name="title_setup_app_password_hint">이 제공 업체는 계정 비밀번호 대신 앱 비밀번호가 필요합니다. 제공 업체의 사용 방법을 확인해주세요</string>
     <string name="title_setup_no_inbox">받은 편지함을 찾을 수 없음</string>
     <string name="title_setup_quick_success">계정을 성공적으로 추가했습니다</string>
+    <string name="title_setup_quick_no_sent">보낸 메시지 폴더가 선택되지 않았습니다. 보낸 메시지가 저장되지 않을 수 있습니다.</string>
+    <string name="title_setup_quick_configure">이름, 색상, 밀기 동작 등 수정하기</string>
     <string name="title_setup_manage">관리</string>
     <string name="title_setup_grant">권한 허용</string>
     <string name="title_setup_grant_again">필요한 권한 허용하기</string>
@@ -174,6 +201,7 @@
     <string name="title_setup_doze_battery">배터리 사용량이 많습니까?</string>
     <string name="title_setup_doze_stopped">동기화가 중단되었습니까?</string>
     <string name="title_setup_doze_device">이 기기에 필요한 작업으로 예상됩니다</string>
+    <string name="title_setup_alarm_12">이 앱이 제대로 작동하지 않을 것입니다.</string>
     <string name="title_setup_data">데이터 절약 모드를 사용합니다</string>
     <string name="title_setup_advanced_options">고급 설정 표시</string>
     <string name="title_setup_inbox">받은편지함으로 이동</string>
@@ -338,6 +366,7 @@
     <string name="title_advanced_date_fixed">상단 헤더에서 수정일 표시</string>
     <string name="title_advanced_date_bold">날짜를 굵게 표시</string>
     <string name="title_advanced_threading">대화 스레딩</string>
+    <string name="title_advanced_threading_unread">대화에서 읽지 않은 메시지 갯수 표시</string>
     <string name="title_advanced_avatars">연락처 사진 표시</string>
     <string name="title_advanced_bimi_unverified">확인되지 않은 발신자</string>
     <string name="title_advanced_bimi_verified">확인된 발신자</string>
@@ -350,8 +379,12 @@
     <string name="title_advanced_circular">둥근 아이콘 표시</string>
     <string name="title_advanced_color_saturation">채도: %1$s %%</string>
     <string name="title_advanced_color_value">밝기: %1$s %%</string>
+    <string name="title_advanced_name_email">이름 및 이메일 주소 표시</string>
+    <string name="title_advanced_show_recipients">메시지 헤더에 수신인 표시</string>
+    <string name="title_advanced_subject_italic">제목을 이탤릭체로 표시</string>
     <string name="title_advanced_highlight_subject">제목 강조</string>
     <string name="title_advanced_highlight_color">강조 색</string>
+    <string name="title_advanced_keywords">메시지 헤더에 키워드 표시</string>
     <string name="title_advanced_labels">메시지 헤더에 Gmail 레이블 표시</string>
     <string name="title_advanced_flags">즐겨찾기 보기</string>
     <string name="title_advanced_preview">메시지 미리보기 표시</string>
@@ -359,6 +392,8 @@
     <string name="title_advanced_preview_lines">미리보기 줄 수</string>
     <string name="title_advanced_addresses">주소 상세정보를 기본으로 펼치기</string>
     <string name="title_advanced_unzip">압축한 첨부 파일의 내용 표시</string>
+    <string name="title_advanced_attachments_alt">메시지 택스트 이후에 첨부파일 표시</string>
+    <string name="title_advanced_thumbnails">메시지 텍스트 이후에 이미지 썸네일 표시</string>
     <string name="title_advanced_override_width">원본 메시지의 너비 고정 비활성화</string>
     <string name="title_advanced_hyphenation">하이픈 자동 삽입</string>
     <string name="title_advanced_contrast">메시지 텍스트에 고대비 적용</string>
@@ -436,6 +471,7 @@
     <string name="title_advanced_manage_keys">개인 키 관리</string>
     <string name="title_advanced_power_menu">Android 전원 메뉴에 동작 추가</string>
     <string name="title_advanced_sort_answers">답장 템플릿을 사용 빈도순으로 정렬</string>
+    <string name="title_advanced_show_filtered">규칙이 적용되었을 때 필터 아이콘 표시</string>
     <string name="title_advanced_language">언어</string>
     <string name="title_advanced_language_system">시스템</string>
     <string name="title_advanced_cleanup">비우기</string>
@@ -485,6 +521,9 @@
     <string name="title_client_certificate">클라이언트 인증서</string>
     <string name="title_realm">NTML 인증 도메인</string>
     <string name="title_primary">최상</string>
+    <string name="title_leave_on_server">서버에 메시지를 보관</string>
+    <string name="title_leave_deleted">서버에 삭제된 메시지를 보관</string>
+    <string name="title_leave_on_device">기기에 메시지를 보관</string>
     <string name="title_keep_poll_interval">여론조사 시간 (분)</string>
     <string name="title_keep_alive_interval">유지 간격 (분)</string>
     <string name="title_check">확인</string>
@@ -519,6 +558,7 @@
     <string name="title_export_contacts">vCard 내보내기</string>
     <string name="title_folder_name">폴더명</string>
     <string name="title_display_name">표시되는 이름</string>
+    <string name="title_show_folders">숨겨진 폴더 표시</string>
     <string name="title_apply_to_all">모든 대상에 적용</string>
     <string name="title_edit_account_name">계정 이름 변경</string>
     <string name="title_hide_folder">폴더 숨기기</string>
@@ -892,6 +932,7 @@
     <string name="title_legend_default_color">기본 색상</string>
     <string name="title_legend_close_hint">힌트 닫기</string>
     <string name="title_legend_connection_state">연결 상태</string>
+    <string name="title_legend_sync_state">동기화 상태</string>
     <string name="title_legend_download_state">다운로드 상태</string>
     <string name="title_legend_save">저장</string>
     <string name="title_legend_delete">삭제</string>

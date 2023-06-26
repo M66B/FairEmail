@@ -1923,7 +1923,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_debug_info">Ladící informace</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas, kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím, co jste dělali, když došlo k pádu aplikace:</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">Popis problému (povinné)</string>
+    <string name="title_debug_info_issue">Popis problému (povinné)</string>
     <string name="title_debug_info_contact">Nedávno jsme měli kontakt o tomto problému</string>
     <string name="title_unexpected_info_remark">Popište prosím, co jste dělali, když došlo k chybě:</string>
     <string name="title_widget_title_count">Počet nových zpráv</string>
@@ -1946,6 +1946,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_count_top">Zobrazit počet nepřečtených zpráv v horní části</string>
     <string name="title_widget_subject_lines">Maximální počet řádků předmětu</string>
     <string name="title_widget_avatars">Zobrazit avatary kontaktů</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Zobrazit název účtu</string>
     <string name="title_widget_refresh">Zobrazit tlačítko pro obnovení zpráv</string>
     <string name="title_widget_compose">Zobrazit tlačítko pro vytvoření nové zprávy</string>
     <string name="title_widget_background">Barva pozadí</string>

@@ -835,7 +835,8 @@
     <string name="title_advanced_cleanup_hint">Isto irá excluir todos os arquivos temporários</string>
     <string name="title_advanced_never_favorite">Nunca favoritar</string>
     <string name="title_advanced_edit_name">Editar Nome</string>
-    <string name="title_advanced_create_alias">Criar aliás</string>
+    <string name="title_advanced_create_alias">Criar alias</string>
+    <string name="title_advanced_create_alias_remark">Em muitos casos, um endereço de alias deve primeiro ser verificado por meio do site do provedor de correio</string>
     <string name="title_create_folder">Criar pasta</string>
     <string name="title_create_folder_name">Nome da pasta</string>
     <string name="title_create_folder_parent">Pasta superior</string>
@@ -1896,6 +1897,8 @@
     <string name="title_debug_info">Informações de depuração</string>
     <string name="title_debug_info_remark">Por favor, descreva o problema e indique o momento em que ocorrera:</string>
     <string name="title_crash_info_remark">Por favor, descreva o que você estava fazendo quando o aplicativo falhou:</string>
+    <string name="title_debug_info_issue">Descrição do problema (obrigatório)</string>
+    <string name="title_debug_info_contact">Recentemente tivemos contato sobre este problema</string>
     <string name="title_unexpected_info_remark">Por favor, descreva o que você estava fazendo quando recebeu o erro:</string>
     <string name="title_widget_title_count">Nova contagem de mensagens</string>
     <string name="title_widget_title_list">Lista de mensagem</string>
@@ -1917,6 +1920,7 @@
     <string name="title_widget_count_top">Mostrar contagem de não lida na parte superior</string>
     <string name="title_widget_subject_lines">Número máximo de linhas para o assunto</string>
     <string name="title_widget_avatars">Mostrar avatares dos contatos</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Mostrar nome da conta</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão compor nova mensagem</string>
     <string name="title_widget_background">Cor de fundo</string>

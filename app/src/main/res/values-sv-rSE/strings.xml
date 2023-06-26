@@ -830,6 +830,7 @@
     <string name="title_advanced_never_favorite">Aldrig favorit</string>
     <string name="title_advanced_edit_name">Redigera namn</string>
     <string name="title_advanced_create_alias">Skapa alias</string>
+    <string name="title_advanced_create_alias_remark">I många fall måste en aliasadress först verifieras via e-postleverantörens webbplats</string>
     <string name="title_create_folder">Skapa mapp</string>
     <string name="title_create_folder_name">Mappnamn</string>
     <string name="title_create_folder_parent">Överordnad mapp</string>
@@ -1885,6 +1886,8 @@
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
+    <string name="title_debug_info_issue">Beskrivning av problem (obligatoriskt)</string>
+    <string name="title_debug_info_contact">Vi hade nyligen kontakt om detta problem</string>
     <string name="title_unexpected_info_remark">Vänligen beskriv vad du gjorde när du fick felet:</string>
     <string name="title_widget_title_count">Antal nya meddelanden</string>
     <string name="title_widget_title_list">Meddelandelista</string>

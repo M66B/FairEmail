@@ -1880,7 +1880,7 @@
     <string name="title_debug_info">调试信息</string>
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
-    <string name="title_debug_info_issue" comment="title_debug_info_issue&#10;Title for debug info problem description field">问题描述(必填)</string>
+    <string name="title_debug_info_issue">问题描述(必填)</string>
     <string name="title_debug_info_contact">别人最近因为这个问题联系过我们</string>
     <string name="title_unexpected_info_remark">请描述应用出错时您的操作:</string>
     <string name="title_widget_title_count">新消息计数</string>
@@ -1903,6 +1903,7 @@
     <string name="title_widget_count_top">在顶部显示未读计数</string>
     <string name="title_widget_subject_lines">最大主题行数</string>
     <string name="title_widget_avatars">显示联系人头像</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">显示账户名称</string>
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>
     <string name="title_widget_background">背景颜色</string>
