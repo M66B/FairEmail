@@ -109,6 +109,7 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import javax.mail.Address;
+import javax.mail.BodyPart;
 import javax.mail.FetchProfile;
 import javax.mail.Flags;
 import javax.mail.Folder;
@@ -126,6 +127,7 @@ import javax.mail.StoreClosedException;
 import javax.mail.UIDFolder;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.search.AndTerm;
 import javax.mail.search.ComparisonTerm;
@@ -2139,7 +2141,25 @@ class Core {
             for (int i = 0; i < multipart.getCount(); i++) {
                 Part child = multipart.getBodyPart(i);
                 if (child == attachment) {
+                    String fileName = child.getFileName();
+                    String contentType = child.getContentType();
+                    String disposition = child.getDisposition();
+
+                    if (fileName != null && !fileName.startsWith("deleted"))
+                        fileName = "deleted" + (TextUtils.isEmpty(fileName) ? "" : "_" + fileName);
+                    if (TextUtils.isEmpty(contentType))
+                        contentType = "application/octet-stream";
+                    if (TextUtils.isEmpty(disposition))
+                        disposition = Part.ATTACHMENT;
+
                     multipart.removeBodyPart(i);
+
+                    BodyPart placeholderPart = new MimeBodyPart();
+                    placeholderPart.setContent("", contentType);
+                    placeholderPart.setFileName(fileName);
+                    placeholderPart.setDisposition(disposition);
+                    multipart.addBodyPart(placeholderPart);
+
                     deleted = true;
                 } else {
                     if (deletePart(child, attachment))
