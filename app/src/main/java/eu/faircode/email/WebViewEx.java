@@ -48,6 +48,7 @@ import java.util.Objects;
 public class WebViewEx extends WebView implements DownloadListener, View.OnLongClickListener {
     private int height;
     private int maxHeight;
+    private int viewportHeight;
     private IWebView intf;
     private Runnable onPageLoaded;
     private String hash;
@@ -61,6 +62,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         super(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.viewportHeight = prefs.getInt("viewport_height", 16000);
         boolean overview_mode = prefs.getBoolean("overview_mode", false);
         boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
 
@@ -91,7 +93,9 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     }
 
     void init(int height, int maxHeight, float size, Pair<Integer, Integer> position, boolean force_light, IWebView intf) {
-        Log.i("Init height=" + height + "/" + maxHeight + " size=" + size + " accelerated=" + isHardwareAccelerated());
+        Log.i("Init height=" + height + "/" + maxHeight + " size=" + size +
+                " viewport=" + viewportHeight +
+                " accelerated=" + isHardwareAccelerated());
 
         if (maxHeight == 0) {
             Log.e("WebView max height zero");
@@ -249,7 +253,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         // Unable to create layer for WebViewEx, size 1088x16384 max size 16383 color type 4 has context 1)
-        int limitHeight = MeasureSpec.makeMeasureSpec(16000, MeasureSpec.AT_MOST);
+        int limitHeight = MeasureSpec.makeMeasureSpec(viewportHeight, MeasureSpec.AT_MOST);
         super.onMeasure(widthMeasureSpec, limitHeight);
 
         int mh = getMeasuredHeight();

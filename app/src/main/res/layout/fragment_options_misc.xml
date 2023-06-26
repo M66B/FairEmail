@@ -1687,6 +1687,29 @@
                     app:layout_constraintTop_toBottomOf="@id/swBrowserZoom"
                     app:switchPadding="12dp" />
 
+                <TextView
+                    android:id="@+id/tvViewportHeight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_viewport_height"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?android:attr/textColorPrimary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swFakeDark" />
+
+                <EditText
+                    android:id="@+id/etViewportHeight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvViewportHeight" />
+
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swShowRecent"
                     android:layout_width="0dp"
@@ -1696,7 +1719,7 @@
                     android:text="@string/title_advanced_show_recent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swFakeDark"
+                    app:layout_constraintTop_toBottomOf="@id/etViewportHeight"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

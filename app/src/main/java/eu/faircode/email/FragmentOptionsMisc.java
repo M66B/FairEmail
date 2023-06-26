@@ -211,6 +211,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swUndoManager;
     private SwitchCompat swBrowserZoom;
     private SwitchCompat swFakeDark;
+    private EditText etViewportHeight;
     private SwitchCompat swShowRecent;
     private SwitchCompat swModSeq;
     private SwitchCompat swPreamble;
@@ -458,6 +459,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swUndoManager = view.findViewById(R.id.swUndoManager);
         swBrowserZoom = view.findViewById(R.id.swBrowserZoom);
         swFakeDark = view.findViewById(R.id.swFakeDark);
+        etViewportHeight = view.findViewById(R.id.etViewportHeight);
         swShowRecent = view.findViewById(R.id.swShowRecent);
         swModSeq = view.findViewById(R.id.swModSeq);
         swPreamble = view.findViewById(R.id.swPreamble);
@@ -1611,6 +1613,27 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        etViewportHeight.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable edit) {
+                try {
+                    prefs.edit().putInt("viewport_height", Integer.parseInt(edit.toString())).apply();
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+        });
+
         swShowRecent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2273,7 +2296,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 "send_host".equals(key) ||
                 "openai_uri".equals(key) ||
                 "openai_apikey".equals(key) ||
-                "openai_model".equals(key))
+                "openai_model".equals(key) ||
+                "viewport_height".equals(key))
             return;
 
         if ("global_keywords".equals(key))
@@ -2524,6 +2548,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swUndoManager.setChecked(prefs.getBoolean("undo_manager", false));
             swBrowserZoom.setChecked(prefs.getBoolean("browser_zoom", false));
             swFakeDark.setChecked(prefs.getBoolean("fake_dark", false));
+            etViewportHeight.setText(Integer.toString(prefs.getInt("viewport_height", 16000)));
             swShowRecent.setChecked(prefs.getBoolean("show_recent", false));
             swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
             swPreamble.setChecked(prefs.getBoolean("preamble", false));

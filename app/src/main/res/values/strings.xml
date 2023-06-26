@@ -862,6 +862,7 @@
     <string name="title_advanced_undo_manager" translatable="false">Use Android\'s undo manager</string>
     <string name="title_advanced_browser_zoom" translatable="false">Use browser zoom</string>
     <string name="title_advanced_fake_dark" translatable="false">Fake dark</string>
+    <string name="title_advanced_viewport_height" translatable="false">Viewport height</string>
     <string name="title_advanced_show_recent" translatable="false">Show recent flag</string>
     <string name="title_advanced_modseq" translatable="false">MODSEQ</string>
     <string name="title_advanced_preamble" translatable="false">Preamble</string>
