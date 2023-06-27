@@ -1953,6 +1953,7 @@
     <string name="title_widget_count_top">Паказваць колькасць непрачытаных паведамленняў уверсе</string>
     <string name="title_widget_subject_lines">Максімальная колькасць радкоў у тэме</string>
     <string name="title_widget_avatars">Паказваць аватары кантактаў</string>
+    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Паказаць імя ўліковага запісу</string>
     <string name="title_widget_refresh">Паказваць кнопку абнаўлення паведамленняў</string>
     <string name="title_widget_compose">Паказаць кнопку для стварэння новага паведамлення</string>
     <string name="title_widget_background">Колер фону</string>

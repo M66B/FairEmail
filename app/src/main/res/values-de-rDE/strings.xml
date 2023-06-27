@@ -168,7 +168,7 @@
     <string name="title_setup_documentation">Bitte lesen Sie die Dokumentation Ihres E-Mail-Anbieters für die korrekte Konfiguration des E-Mail-Servers</string>
     <string name="title_setup_account_remark">E-Mail empfangen</string>
     <string name="title_setup_identity_remark">E-Mail senden</string>
-    <string name="title_setup_account_identity_hint">Sie können Namen, Farbe und Wischen in den Kontoeinstellungen und eine Signatur in den Identitätseinstellungen konfigurieren</string>
+    <string name="title_setup_account_identity_hint">Sie können den Namen, die Farbe und Wischgesten in den Kontoeinstellungen und eine Signatur in den Identitätseinstellungen konfigurieren</string>
     <string name="title_setup_accounts">Konten</string>
     <string name="title_setup_identities">Identitäten</string>
     <string name="title_setup_google_sign_in">Mit Google anmelden</string>
@@ -199,7 +199,7 @@
     <string name="title_setup_advanced_protection">Wenn Sie sich in das erweiterte Sicherheitsprogramm eingeschrieben haben, ist es nicht möglich, eine andere E-Mail-App von Dritten zu verwenden. Dies ist eine von Google auferlegte Einschränkung.</string>
     <string name="title_setup_quick_success">Ein Konto wurde erfolgreich hinzugefügt</string>
     <string name="title_setup_quick_no_sent">Es wurde kein Ordner für gesendete Nachrichten ausgewählt. Gesendete Nachrichten werden möglicherweise nicht gespeichert.</string>
-    <string name="title_setup_quick_configure">Zum Bearbeiten des Namens, der Farbe, der Wischaktionen usw.</string>
+    <string name="title_setup_quick_configure">Zum Bearbeiten des Namens, der Farbe, der Wischgesten usw.</string>
     <string name="title_setup_manage">Verwalten</string>
     <string name="title_setup_grant">Zulassen</string>
     <string name="title_setup_grant_again">Benötigte Rechte erteilen</string>
@@ -450,7 +450,7 @@
     <string name="title_advanced_close_pane">Zeile oder Spalte beim Schließen einer Unterhaltung einklappen</string>
     <string name="title_advanced_open_pane">Mit zwei Zeilen oder zwei Spalten beginnen</string>
     <string name="title_advanced_column_width">Spaltenbreite/Zeilenhöhe der Nachricht: %1$s %%</string>
-    <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Srollen von Nachrichten ausblenden</string>
+    <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Rollen von Nachrichten ausblenden</string>
     <string name="title_advanced_nav_options">Optionen im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_categories">Kontokategorien im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_pin">Navigationsmenü anheften</string>
@@ -522,7 +522,7 @@
     <string name="title_advanced_message_text_zoom2">Standard der Nachrichtentextvergrößerung: %1$s %%</string>
     <string name="title_advanced_overview_mode">Originalnachrichten an Bildschirmgröße anpassen</string>
     <string name="title_advanced_override_width">Festgelegte Breiten in Originalnachrichten deaktivieren</string>
-    <string name="title_advanced_hyphenation">Automatische Silbentrennung verwenden</string>
+    <string name="title_advanced_hyphenation">Automatische Worttrennung verwenden</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced">Festbreitenschriftarten standardmäßig für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced_pre">Festbreitenschriftart für vorformatierten Text verwenden</string>
@@ -593,7 +593,7 @@
     <string name="title_advanced_auto_hide_answer">Beim Bildlauf automatisch die Antworttaste ausblenden</string>
     <string name="title_advanced_swipe_reply">Ausgeklappte Nachricht nach rechts wischen, um zu antworten</string>
     <string name="title_advanced_move_thread_sent">Beim Verschieben einer Unterhaltung auch die zu dieser Unterhaltung gehörenden gesendeten Nachrichten verschieben</string>
-    <string name="title_advanced_default_snooze">Standardzeit fürs Zurückstellen/Verzögern</string>
+    <string name="title_advanced_default_snooze">Standardzeit für Zurückstellen/Verzögern</string>
     <string name="title_advanced_default_folder">Standardordner auswählen</string>
     <string name="title_advanced_notifications">Benachrichtigungen verwalten</string>
     <string name="title_advanced_notifications_delete">Benachrichtigungskanäle löschen</string>
@@ -689,7 +689,7 @@
     </string>
     <string name="title_advanced_power_menu">Aktionen zum Android-Ein/Aus-Menü hinzufügen</string>
     <string name="title_advanced_send_self">»An mich senden« zum Android-Teilen-Menü hinzufügen</string>
-    <string name="title_advanced_external_search">Anderen Apps erlauben in Nachrichten zu suchen</string>
+    <string name="title_advanced_external_search">Anderen Apps erlauben, in Nachrichten zu suchen</string>
     <string name="title_advanced_sort_answers">Antwortvorlagen nach Nutzungsfrequenz sortieren</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
@@ -735,7 +735,7 @@
     <string name="title_advanced_poll_hint">Bei der regelmäßigen Überprüfung auf neue Nachrichten werden jedes Mal lokale und entfernte Nachrichten verglichen, was ein aufwendiger Vorgang ist, der zu einem zusätzlichen Akkuverbrauch führen kann, insbesondere wenn viele Nachrichten vorhanden sind. Nachrichten immer empfangen verhindert das durch fortlaufendes Verfolgen von Änderungen.</string>
     <string name="title_advanced_optimize_hint">Das kann die Synchronisierungsfrequenz ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers</string>
     <string name="title_advanced_schedule_hint">Auf eine Zeit tippen, um eine Zeit festzulegen</string>
-    <string name="title_advanced_schedule_ignore">Zeitpläne können in den erweiterten Konteneinstellungen deaktiviert werden</string>
+    <string name="title_advanced_schedule_ignore">Zeitpläne können in den erweiterten Kontoeinstellungen deaktiviert werden</string>
     <string name="title_advanced_quick_sync_hint">Dies reduziert den Datenverbrauch, aber neue Nachrichten könnten verpasst werden, wenn der E-Mail-Server die Standards nicht einhält</string>
     <string name="title_advanced_no_date_hint">Einige Anbieter speichern Nachrichten mit einem unbekannten, ungültigen oder zukünftigen Datum als Nachrichten ohne Datum</string>
     <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen dies nicht richtig, was möglicherweise zu einer Synchronisierung von keiner oder allen Nachrichten führen kann</string>
@@ -759,7 +759,7 @@
     <string name="title_advanced_reply_move_hint">Der E-Mail-Server könnte die Nachrichten trotzdem noch in den Ordner für gesendete Nachrichten hinzufügen</string>
     <string name="title_advanced_compose_color_hint">Sehr helle oder sehr dunkle Farben führen zu unleserlichen Nachrichten auf der Seite des Empfängers</string>
     <string name="title_advanced_write_below_hint">Ein Empfänger könnte Ihre Antwort verpassen, wenn zum Beispiel eine längere Nachricht abgeschnitten wird</string>
-    <string name="title_advanced_attach_new_hint">Andernfalls dem aktuellen Nachrichtenentwurf freigegebene Adressen oder Dateien hinzufügen</string>
+    <string name="title_advanced_attach_new_hint">Anderenfalls dem aktuellen Nachrichtenentwurf freigegebene Adressen oder Dateien hinzufügen</string>
     <string name="title_advanced_usenet_hint">Signaturtrenner »-- « zwischen Text und Signatur einfügen</string>
     <string name="title_advanced_remove_signature_hint">Das kann dazu führen, dass zu wenig oder zu viel Text entfernt wird</string>
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte WLAN-Zugangspunkte</string>
@@ -869,7 +869,7 @@
     <string name="title_optional">Optional</string>
     <string name="title_recommended">Empfohlen</string>
     <string name="title_account_linked">Verknüpftes Konto</string>
-    <string name="title_account_name">Kontobezeichnung</string>
+    <string name="title_account_name">Kontoname</string>
     <string name="title_account_category">Kategorie</string>
     <string name="title_account_name_hint">Wird verwendet, um Ordner zu unterscheiden</string>
     <string name="title_account_interval_hint">Häufigkeit der Aktualisierung der Verbindung für Push-Nachrichten oder Häufigkeit der Überprüfung auf neue Nachrichten</string>
@@ -922,7 +922,7 @@
     <string name="title_keep_poll_interval">Abrufintervall (Minuten)</string>
     <string name="title_keep_alive_interval">Aktivitätsintervall (Minuten)</string>
     <string name="title_keep_alive_noop">IMAP IDLE periodisch neu starten</string>
-    <string name="title_server_time">Empfangzeit verwenden (Server)</string>
+    <string name="title_server_time">Empfangszeit verwenden (Server)</string>
     <string name="title_received_header">Received-Kopfzeile verwenden</string>
     <string name="title_date_header">Date-Kopfzeile verwenden (Sendezeit)</string>
     <string name="title_date_remark">Änderungen werden nur auf neue Nachrichten angewendet</string>
@@ -944,7 +944,7 @@
     <string name="title_no_drafts">Kein Entwürfe-Ordner festgelegt</string>
     <string name="title_no_junk_folder">Es ist kein Spam-Ordner für dieses Konto ausgewählt</string>
     <string name="title_default_composable">Die Standard-E-Mail-Adresse wird durch die Hauptidentität des Hauptkontos bestimmt</string>
-    <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität und in den Kontoeinstellungen die Auswahl eines Ordners »Entwürfe«</string>
+    <string name="title_no_composable">Das Versenden von E-Mails erfordert die Konfiguration einer Identität und in den Kontoeinstellungen die Auswahl eines Entwürfe-Ordners</string>
     <string name="title_no_standard">Dieser Anbieter verwendet ein proprietäres E-Mail-Protokoll, sodass es nicht möglich ist, E-Mail-Programme von Dritten zu verwenden</string>
     <string name="title_no_idle">Dieser Anbieter unterstützt keine Push-Nachrichten. Dies verzögert den Empfang neuer E-Mails und erhöht den Akkuverbrauch.</string>
     <string name="title_no_utf8">Dieser Anbieter unterstützt UTF-8 nicht</string>
@@ -1776,8 +1776,8 @@
     <string name="title_hint_notifications">Keine Benachrichtigungserlaubnis</string>
     <string name="title_hint_battery_optimizations">Akkuoptimierung ist immer noch aktiv</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
-    <string name="title_hint_message_actions">Standard: Wische links zum Papierkorb; Wische rechts zum Archiv (falls verfügbar); Diese Wischgesten können aber in den Kontoeinstellungen auch individuell anders konfiguriert werden</string>
-    <string name="title_hint_message_selection">Um mehrere Nachrichten auszuwählen, drücken Sie zunächst lange auf eine Nachricht, halten und wischen Sie sodann nach oben oder unten, um weitere Nachrichten auszuwählen</string>
+    <string name="title_hint_message_actions">Für den Papierkorb nach links wischen; zum Archivieren nach rechts wischen (falls verfügbar); die Wischgesten können in den Kontoeinstellungen konfiguriert werden</string>
+    <string name="title_hint_message_selection">Lange auf eine Nachricht drücken, um mehrere Nachrichten auszuwählen; gedrückt halten und nach oben oder unten wischen, um weitere Nachrichten auszuwählen</string>
     <string name="title_hint_message_junk">        Ein E-Mail-Programm zeigt grundsätzlich die Nachrichten auf einem E-Mail-Server an.
         Ein E-Mail-Server ist verantwortlich für das Filtern von Spam – nicht das E-Mail-Programm.
         Wenn Sie also viel Spam erhalten, kontaktieren Sie bitte Ihren E-Mail-Anbieter und machen Sie nicht die App dafür verantwortlich!
