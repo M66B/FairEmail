@@ -664,8 +664,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             DynamicDrawableSpan[] ddss = buffer.getSpans(off, off, DynamicDrawableSpan.class);
                             if (ddss.length > 0) {
-                                int s = buffer.getSpanStart(ddss[0]);
-                                properties.setValue("quotes", message.id, buffer.charAt(s) != '0');
+                                int f = buffer.getSpanFlags(ddss[0]);
+                                properties.setValue("quotes", message.id, (f & Spanned.SPAN_USER) == 0);
                                 properties.setHeight(message.id, null);
                                 bindBody(message, false);
                                 return true;
@@ -3195,7 +3195,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 continue;
 
                             if (show_quotes) {
-                                ssb.insert(s - 1, "\n0");
+                                ssb.insert(s - 1, "\n ");
                                 ssb.setSpan(
                                         new DynamicDrawableSpan() {
                                             @Override
@@ -3203,12 +3203,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                                 return d;
                                             }
                                         },
-                                        s, s + 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+                                        s, s + 1, Spanned.SPAN_INCLUSIVE_INCLUSIVE | Spanned.SPAN_USER);
                             } else {
                                 for (Object span : ssb.getSpans(s, e, Object.class))
                                     ssb.removeSpan(span);
                                 ssb.delete(s, e);
-                                ssb.insert(s - 1, "\n1");
+                                ssb.insert(s - 1, "\n ");
                                 ssb.setSpan(
                                         new DynamicDrawableSpan() {
                                             @Override
