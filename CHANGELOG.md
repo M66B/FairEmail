@@ -6,13 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
-### Next version
+### 1.2078 - 2023-06-27
 
-* Added create alias dialog (long press identity)
 * Added notes to message list widget
-* Added option for large badge count for new message count widget
-* Added deleting attachments
-* Translating subject in message editor when it is focussed
+* Added create alias dialog (long press identity)
+* Added option for larger count for new message count widget
+* Added deleting attachments (horizontal three-dots menu above the message text)
+* Added translating subject in message editor when it is focussed
 * Inheriting identity color from account color
 * Using selected font for reply header and signature too
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
