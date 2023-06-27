@@ -2111,7 +2111,11 @@ class Core {
             throw new MessageRemovedException();
 
         String msgid = EntityMessage.generateMessageId();
+        String ref = (TextUtils.isEmpty(message.references)
+                ? message.msgid
+                : message.references + " " + message.msgid);
         MimeMessage icopy = new MimeMessageEx((MimeMessage) imessage, msgid);
+        icopy.addHeader("References", MessageHelper.limitReferences(ref));
         MessageHelper helper = new MessageHelper(icopy, context);
         MessageHelper.MessageParts parts = helper.getMessageParts();
         List<MessageHelper.AttachmentPart> aparts = parts.getAttachmentParts();

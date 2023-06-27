@@ -372,19 +372,8 @@ public class MessageHelper {
             imessage.addHeader("Sensitivity", "Company-Confidential");
 
         // References
-        if (message.references != null) {
-            // https://tools.ietf.org/html/rfc5322#section-2.1.1
-            // Each line of characters MUST be no more than 998 characters ... , excluding the CRLF.
-            String references = message.references;
-            int maxlen = MAX_HEADER_LENGTH - "References: ".length();
-            int sp = references.indexOf(' ');
-            while (references.length() > maxlen && sp > 0) {
-                Log.i("Dropping reference=" + references.substring(0, sp));
-                references = references.substring(sp);
-                sp = references.indexOf(' ');
-            }
-            imessage.addHeader("References", references);
-        }
+        if (message.references != null)
+            imessage.addHeader("References", limitReferences(message.references));
 
         if (message.inreplyto != null)
             imessage.addHeader("In-Reply-To", message.inreplyto);
@@ -818,6 +807,17 @@ public class MessageHelper {
             name = null;
 
         return new InternetAddress(email, name, StandardCharsets.UTF_8.name());
+    }
+
+    static String limitReferences(String references) {
+        int maxlen = MAX_HEADER_LENGTH - "References: ".length();
+        int sp = references.indexOf(' ');
+        while (references.length() > maxlen && sp > 0) {
+            Log.i("Dropping reference=" + references.substring(0, sp));
+            references = references.substring(sp);
+            sp = references.indexOf(' ');
+        }
+        return references;
     }
 
     static Pair<String, String> getExtra(String email, String extra) {
