@@ -552,6 +552,9 @@ public class FragmentFolders extends FragmentBase {
                 boolean outbox = false;
                 boolean force = args.getBoolean("force");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean pull_all = prefs.getBoolean("pull_all", false);
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -565,8 +568,12 @@ public class FragmentFolders extends FragmentBase {
                     List<EntityFolder> folders;
                     if (aid < 0)
                         folders = db.folder().getFoldersUnified(null, true);
-                    else
-                        folders = db.folder().getSynchronizingFolders(aid);
+                    else {
+                        if (pull_all)
+                            folders = db.folder().getFolders(aid, false, true);
+                        else
+                            folders = db.folder().getSynchronizingFolders(aid);
+                    }
 
                     if (folders.size() > 0)
                         Collections.sort(folders, folders.get(0).getComparator(context));

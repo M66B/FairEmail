@@ -63,6 +63,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swLanguageDetection;
     private EditText etDefaultSnooze;
     private SwitchCompat swPull;
+    private SwitchCompat swPullAll;
     private SwitchCompat swAutoScroll;
     private SwitchCompat swQuickFilter;
     private SwitchCompat swQuickScroll;
@@ -114,7 +115,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private final static String[] RESET_OPTIONS = new String[]{
             "restore_on_launch", "sync_on_launch", "double_back", "conversation_actions", "conversation_actions_replies", "language_detection",
             "photo_picker", "default_snooze",
-            "pull", "autoscroll", "quick_filter", "quick_scroll", "quick_actions", "swipe_sensitivity", "foldernav",
+            "pull", "pull_all", "autoscroll", "quick_filter", "quick_scroll", "quick_actions", "swipe_sensitivity", "foldernav",
             "doubletap", "swipenav", "volumenav", "reversed", "swipe_close", "swipe_move",
             "autoexpand", "expand_first", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "autoclose_unseen", "autoclose_send", "collapse_marked",
@@ -143,6 +144,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swLanguageDetection = view.findViewById(R.id.swLanguageDetection);
         etDefaultSnooze = view.findViewById(R.id.etDefaultSnooze);
         swPull = view.findViewById(R.id.swPull);
+        swPullAll = view.findViewById(R.id.swPullAll);
         swAutoScroll = view.findViewById(R.id.swAutoScroll);
         swQuickFilter = view.findViewById(R.id.swQuickFilter);
         swQuickScroll = view.findViewById(R.id.swQuickScroll);
@@ -274,6 +276,14 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("pull", checked).apply();
+                swPullAll.setEnabled(checked);
+            }
+        });
+
+        swPullAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("pull_all", checked).apply();
             }
         });
 
@@ -658,6 +668,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             etDefaultSnooze.setHint("1");
 
             swPull.setChecked(prefs.getBoolean("pull", true));
+            swPullAll.setChecked(prefs.getBoolean("pull_all", false));
+            swPullAll.setEnabled(swPull.isChecked());
             swAutoScroll.setChecked(prefs.getBoolean("autoscroll", false));
             swQuickFilter.setChecked(prefs.getBoolean("quick_filter", false));
             swQuickScroll.setChecked(prefs.getBoolean("quick_scroll", true));

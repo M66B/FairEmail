@@ -647,6 +647,7 @@
     <string name="title_advanced_language_detection">Detect message text language</string>
     <string name="title_advanced_photo_picker">Use the Android photo picker</string>
     <string name="title_advanced_pull_refresh">Pull down to refresh</string>
+    <string name="title_advanced_pull_all">Synchronize all folders</string>
     <string name="title_advanced_autoscroll">Scroll to top on receiving new messages</string>
     <string name="title_advanced_double_tap">Double tap to mark message read/unread</string>
     <string name="title_advanced_swipenav">Swipe left/right to go to next/previous conversation</string>
@@ -932,6 +933,7 @@
     <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
     <string name="title_advanced_folder_nav_hint">This will always return to the folder list of the related account from a message list</string>
+    <string name="title_advanced_pull_all_hint">When pulling down the folder or account list</string>
 
     <string name="title_advanced_suggest_names_hint">If disabled, only email addresses will be used when selecting contacts</string>
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>

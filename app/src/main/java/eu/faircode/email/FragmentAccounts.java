@@ -471,12 +471,26 @@ public class FragmentAccounts extends FragmentBase {
                 boolean outbox = false;
                 boolean force = args.getBoolean("force");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean pull_all = prefs.getBoolean("pull_all", false);
+
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
                     // Unified inbox
-                    List<EntityFolder> folders = db.folder().getFoldersUnified(null, true);
+                    List<EntityFolder> folders;
+                    if (pull_all) {
+                        folders = new ArrayList<>();
+                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(null);
+                        if (accounts != null)
+                            for (EntityAccount account : accounts) {
+                                List<EntityFolder> f = db.folder().getFolders(account.id, false, true);
+                                if (f != null)
+                                    folders.addAll(f);
+                            }
+                    } else
+                        folders = db.folder().getFoldersUnified(null, true);
 
                     if (folders.size() > 0)
                         Collections.sort(folders, folders.get(0).getComparator(context));
