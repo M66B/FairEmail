@@ -5899,7 +5899,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_delete_attachments)
                     .setEnabled(message.uid != null && !message.folderReadOnly)
-                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP && !Helper.isPlayStoreInstall());
 
             popupMenu.getMenu().findItem(R.id.menu_delete)
                     .setEnabled(message.uid == null || !message.folderReadOnly)
