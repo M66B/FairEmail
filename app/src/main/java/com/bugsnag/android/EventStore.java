@@ -1,6 +1,8 @@
 package com.bugsnag.android;
 
+import com.bugsnag.android.internal.BackgroundTaskService;
 import com.bugsnag.android.internal.ImmutableConfig;
+import com.bugsnag.android.internal.TaskType;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

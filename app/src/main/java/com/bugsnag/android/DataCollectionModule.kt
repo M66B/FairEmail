@@ -1,6 +1,7 @@
 package com.bugsnag.android
 
 import android.os.Environment
+import com.bugsnag.android.internal.BackgroundTaskService
 import com.bugsnag.android.internal.dag.ConfigModule
 import com.bugsnag.android.internal.dag.ContextModule
 import com.bugsnag.android.internal.dag.DependencyModule

@@ -1,5 +1,7 @@
 package com.bugsnag.android;
 
+import com.bugsnag.android.internal.TaskType;
+
 import java.util.concurrent.atomic.AtomicBoolean;
 
 class LibraryLoader {

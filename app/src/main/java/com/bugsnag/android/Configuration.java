@@ -2,6 +2,7 @@ package com.bugsnag.android;
 
 import android.content.Context;
 
+import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
@@ -305,7 +306,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      * By default, this value is set at 5,000ms. Setting the value to 0 will count all crashes
      * as launch crashes until markLaunchCompleted() is called.
      */
-    public void setLaunchDurationMillis(long launchDurationMillis) {
+    public void setLaunchDurationMillis(@IntRange(from = 0) long launchDurationMillis) {
         if (launchDurationMillis >= MIN_LAUNCH_CRASH_THRESHOLD_MS) {
             impl.setLaunchDurationMillis(launchDurationMillis);
         } else {
@@ -524,12 +525,12 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      *
      * By default, 100 breadcrumbs are stored: this can be amended up to a maximum of 500.
      */
-    public void setMaxBreadcrumbs(int maxBreadcrumbs) {
+    public void setMaxBreadcrumbs(@IntRange(from = 0, to = 500) int maxBreadcrumbs) {
         if (maxBreadcrumbs >= MIN_BREADCRUMBS && maxBreadcrumbs <= MAX_BREADCRUMBS) {
             impl.setMaxBreadcrumbs(maxBreadcrumbs);
         } else {
             getLogger().e("Invalid configuration value detected. "
-                    + "Option maxBreadcrumbs should be an integer between 0-100. "
+                    + "Option maxBreadcrumbs should be an integer between 0-500. "
                     + "Supplied value is " + maxBreadcrumbs);
         }
     }
@@ -540,8 +541,8 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      *
      * By default, 32 events are persisted.
      */
-    public int getMaxPersistedEvents() {
-        return impl.getMaxPersistedEvents();
+    public int getMaxPersistedEvents() { 
+        return impl.getMaxPersistedEvents(); 
     }
 
     /**
@@ -550,7 +551,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      *
      * By default, 32 events are persisted.
      */
-    public void setMaxPersistedEvents(int maxPersistedEvents) {
+    public void setMaxPersistedEvents(@IntRange(from = 0) int maxPersistedEvents) {
         if (maxPersistedEvents >= 0) {
             impl.setMaxPersistedEvents(maxPersistedEvents);
         } else {
@@ -576,7 +577,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      *
      * By default, up to 200 threads are reported.
      */
-    public void setMaxReportedThreads(int maxReportedThreads) {
+    public void setMaxReportedThreads(@IntRange(from = 0) int maxReportedThreads) {
         if (maxReportedThreads >= 0) {
             impl.setMaxReportedThreads(maxReportedThreads);
         } else {
@@ -602,7 +603,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      *
      * By default, 128 sessions are persisted.
      */
-    public void setMaxPersistedSessions(int maxPersistedSessions) {
+    public void setMaxPersistedSessions(@IntRange(from = 0) int maxPersistedSessions) {
         if (maxPersistedSessions >= 0) {
             impl.setMaxPersistedSessions(maxPersistedSessions);
         } else {
@@ -628,7 +629,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      *
      * By default, the limit is 10,000.
      */
-    public void setMaxStringValueLength(int maxStringValueLength) {
+    public void setMaxStringValueLength(@IntRange(from = 0) int maxStringValueLength) {
         if (maxStringValueLength >= 0) {
             impl.setMaxStringValueLength(maxStringValueLength);
         } else {

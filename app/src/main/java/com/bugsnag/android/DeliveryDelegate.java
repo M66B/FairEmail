@@ -2,7 +2,9 @@ package com.bugsnag.android;
 
 import static com.bugsnag.android.SeverityReason.REASON_PROMISE_REJECTION;
 
+import com.bugsnag.android.internal.BackgroundTaskService;
 import com.bugsnag.android.internal.ImmutableConfig;
+import com.bugsnag.android.internal.TaskType;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;

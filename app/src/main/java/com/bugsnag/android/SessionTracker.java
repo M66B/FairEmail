@@ -1,7 +1,9 @@
 package com.bugsnag.android;
 
+import com.bugsnag.android.internal.BackgroundTaskService;
 import com.bugsnag.android.internal.DateUtils;
 import com.bugsnag.android.internal.ImmutableConfig;
+import com.bugsnag.android.internal.TaskType;
 
 import android.os.SystemClock;
 
@@ -10,22 +12,21 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 
 import java.io.File;
-import java.util.Collection;
+import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Deque;
 import java.util.List;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.atomic.AtomicLong;
-import java.util.concurrent.atomic.AtomicReference;
 
 class SessionTracker extends BaseObservable {
 
     private static final int DEFAULT_TIMEOUT_MS = 30000;
 
-    private final Collection<String>
-            foregroundActivities = new ConcurrentLinkedQueue<>();
+    private final Deque<String>
+            foregroundActivities = new ArrayDeque<>();
     private final long timeoutMs;
 
     private final ImmutableConfig configuration;
@@ -132,7 +133,7 @@ class SessionTracker extends BaseObservable {
     private void notifySessionStartObserver(final Session session) {
         final String startedAt = DateUtils.toIso8601(session.getStartedAt());
         updateState(new StateEvent.StartSession(session.getId(), startedAt,
-                        session.getHandledCount(), session.getUnhandledCount()));
+                session.getHandledCount(), session.getUnhandledCount()));
     }
 
     /**
@@ -358,22 +359,23 @@ class SessionTracker extends BaseObservable {
     void updateForegroundTracker(String activityName, boolean activityStarting, long nowMs) {
         if (activityStarting) {
             long noActivityRunningForMs = nowMs - lastExitedForegroundMs.get();
+            synchronized (foregroundActivities) {
+                if (foregroundActivities.isEmpty()) {
+                    lastEnteredForegroundMs.set(nowMs);
 
-            //FUTURE:SM Race condition between isEmpty and put
-            if (foregroundActivities.isEmpty()) {
-                lastEnteredForegroundMs.set(nowMs);
-
-                if (noActivityRunningForMs >= timeoutMs
-                        && configuration.getAutoTrackSessions()) {
-                    startNewSession(new Date(), client.getUser(), true);
+                    if (noActivityRunningForMs >= timeoutMs
+                            && configuration.getAutoTrackSessions()) {
+                        startNewSession(new Date(), client.getUser(), true);
+                    }
                 }
+                foregroundActivities.add(activityName);
             }
-            foregroundActivities.add(activityName);
         } else {
-            foregroundActivities.remove(activityName);
-
-            if (foregroundActivities.isEmpty()) {
-                lastExitedForegroundMs.set(nowMs);
+            synchronized (foregroundActivities) {
+                foregroundActivities.removeLastOccurrence(activityName);
+                if (foregroundActivities.isEmpty()) {
+                    lastExitedForegroundMs.set(nowMs);
+                }
             }
         }
         client.getContextState().setAutomaticContext(getContextActivity());
@@ -397,14 +399,8 @@ class SessionTracker extends BaseObservable {
 
     @Nullable
     String getContextActivity() {
-        if (foregroundActivities.isEmpty()) {
-            return null;
-        } else {
-            // linked hash set retains order of added activity and ensures uniqueness
-            // therefore obtain the most recently added
-            int size = foregroundActivities.size();
-            String[] activities = foregroundActivities.toArray(new String[size]);
-            return activities[size - 1];
+        synchronized (foregroundActivities) {
+            return foregroundActivities.peekLast();
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.bugsnag.android
+package com.bugsnag.android.internal
 
 import androidx.annotation.VisibleForTesting
 import java.util.concurrent.BlockingQueue
@@ -18,7 +18,7 @@ import java.lang.Thread as JThread
  * The type of task which is being submitted. This determines which execution queue
  * the task will be added to.
  */
-internal enum class TaskType {
+enum class TaskType {
 
     /**
      * A task that sends an error request. Any filesystem operations
@@ -91,7 +91,7 @@ internal fun createExecutor(name: String, type: TaskType, keepAlive: Boolean): E
  * It also avoids short-running operations being held up by long-running operations submitted
  * to the same executor.
  */
-internal class BackgroundTaskService(
+class BackgroundTaskService(
     // these executors must remain single-threaded - the SDK makes assumptions
     // about synchronization based on this.
     @get:VisibleForTesting

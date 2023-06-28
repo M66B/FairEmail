@@ -266,6 +266,14 @@ public class NativeInterface {
     }
 
     /**
+     * Add metadata to subsequent exception reports with a Hashmap
+     */
+    public static void addMetadata(@NonNull final String tab, 
+                                   @NonNull final Map<String, ?> metadata) {
+        getClient().addMetadata(tab, metadata);
+    }
+
+    /**
      * Return the client report release stage
      */
     @Nullable

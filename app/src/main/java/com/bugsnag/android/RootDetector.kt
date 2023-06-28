@@ -1,10 +1,9 @@
 package com.bugsnag.android
 
 import androidx.annotation.VisibleForTesting
-import java.io.BufferedReader
 import java.io.File
 import java.io.IOException
-import java.util.concurrent.atomic.AtomicBoolean
+import java.io.Reader
 
 /**
  * Attempts to detect whether the device is rooted. Root detection errs on the side of false
@@ -41,12 +40,13 @@ internal class RootDetector @JvmOverloads constructor(
         )
     }
 
-    private val libraryLoaded = AtomicBoolean(false)
+    @Volatile
+    private var libraryLoaded = false
 
     init {
         try {
             System.loadLibrary("bugsnag-root-detection")
-            libraryLoaded.set(true)
+            libraryLoaded = true
         } catch (ignored: UnsatisfiedLinkError) {
             // library couldn't load. This could be due to root detection countermeasures,
             // or down to genuine OS level bugs with library loading - in either case
@@ -107,7 +107,7 @@ internal class RootDetector @JvmOverloads constructor(
                         line.replace("\\s".toRegex(), "")
                     }.filter { line ->
                         line.startsWith("ro.debuggable=[1]") || line.startsWith("ro.secure=[0]")
-                    }.count() > 0
+                    }.any()
             }
         }
         return false
@@ -120,8 +120,7 @@ internal class RootDetector @JvmOverloads constructor(
         var process: Process? = null
         return try {
             process = processBuilder.start()
-            val output = process.inputStream.bufferedReader().use(BufferedReader::readText)
-            output.isNotBlank()
+            process.inputStream.bufferedReader().use { it.isNotBlank() }
         } catch (ignored: IOException) {
             false
         } finally {
@@ -131,11 +130,21 @@ internal class RootDetector @JvmOverloads constructor(
 
     private external fun performNativeRootChecks(): Boolean
 
+    private fun Reader.isNotBlank(): Boolean {
+        while (true) {
+            val ch = read()
+            when {
+                ch == -1 -> return false
+                !ch.toChar().isWhitespace() -> return true
+            }
+        }
+    }
+
     /**
      * Performs root checks which require native code.
      */
     private fun nativeCheckRoot(): Boolean = when {
-        libraryLoaded.get() -> performNativeRootChecks()
+        libraryLoaded -> performNativeRootChecks()
         else -> false
     }
 }

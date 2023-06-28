@@ -11,6 +11,8 @@ import android.content.res.Resources
 import android.os.BatteryManager
 import android.os.Build
 import android.provider.Settings
+import com.bugsnag.android.internal.BackgroundTaskService
+import com.bugsnag.android.internal.TaskType
 import java.io.File
 import java.util.Date
 import java.util.Locale

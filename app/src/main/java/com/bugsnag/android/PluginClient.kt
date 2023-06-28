@@ -15,10 +15,9 @@ internal class PluginClient(
     }
 
     private val plugins: Set<Plugin>
-
-    private val ndkPlugin = instantiatePlugin(NDK_PLUGIN)
-    private val anrPlugin = instantiatePlugin(ANR_PLUGIN)
-    private val rnPlugin = instantiatePlugin(RN_PLUGIN)
+    private val ndkPlugin = instantiatePlugin(NDK_PLUGIN, immutableConfig.enabledErrorTypes.ndkCrashes)
+    private val anrPlugin = instantiatePlugin(ANR_PLUGIN, immutableConfig.enabledErrorTypes.anrs)
+    private val rnPlugin = instantiatePlugin(RN_PLUGIN, immutableConfig.enabledErrorTypes.unhandledRejections)
 
     init {
         val set = mutableSetOf<Plugin>()
@@ -32,12 +31,14 @@ internal class PluginClient(
         plugins = set.toSet()
     }
 
-    private fun instantiatePlugin(clz: String): Plugin? {
+    private fun instantiatePlugin(clz: String, isWarningEnabled: Boolean): Plugin? {
         return try {
             val pluginClz = Class.forName(clz)
             pluginClz.newInstance() as Plugin
         } catch (exc: ClassNotFoundException) {
-            logger.d("Plugin '$clz' is not on the classpath - functionality will not be enabled.")
+            if (isWarningEnabled) {
+                logger.d("Plugin '$clz' is not on the classpath - functionality will not be enabled.")
+            }
             null
         } catch (exc: Throwable) {
             logger.e("Failed to load plugin '$clz'", exc)

@@ -1,7 +1,7 @@
 package com.bugsnag.android.internal.dag
 
-import com.bugsnag.android.BackgroundTaskService
-import com.bugsnag.android.TaskType
+import com.bugsnag.android.internal.BackgroundTaskService
+import com.bugsnag.android.internal.TaskType
 
 internal abstract class DependencyModule {
 
