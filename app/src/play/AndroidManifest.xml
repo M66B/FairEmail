@@ -43,6 +43,10 @@
     <uses-feature
         android:name="android.hardware.fingerprint"
         android:required="false" />
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <!-- https://developer.android.com/topic/arc -->
 
     <!-- Android 11: https://developer.android.com/preview/privacy/package-visibility -->
     <!-- https://developer.android.com/training/package-visibility/use-cases -->
