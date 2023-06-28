@@ -5132,11 +5132,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onInsertContact(String name, String email) {
-            if (TextUtils.isEmpty(name)) {
-                int at = email.indexOf('@');
-                if (at > 0)
-                    name = email.substring(0, at);
-            }
+            if (TextUtils.isEmpty(name))
+                name = UriHelper.getEmailUser(email);
 
             // https://developer.android.com/training/contacts-provider/modify-data
             Intent insert = new Intent();
