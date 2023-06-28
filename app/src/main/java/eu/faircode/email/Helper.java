@@ -65,6 +65,7 @@ import android.os.StatFs;
 import android.os.ext.SdkExtensions;
 import android.os.storage.StorageManager;
 import android.provider.Browser;
+import android.provider.ContactsContract;
 import android.provider.DocumentsContract;
 import android.provider.Settings;
 import android.security.KeyChain;
@@ -2284,6 +2285,8 @@ public class Helper {
             public boolean onCreateActionMode(ActionMode mode, Menu menu) {
                 try {
                     int order = 1000;
+                    menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_contact, order++,
+                            view.getContext().getString(R.string.title_insert_contact));
                     menu.add(Menu.CATEGORY_SECONDARY, R.string.title_select_block, order++,
                             view.getContext().getString(R.string.title_select_block));
                 } catch (Throwable ex) {
@@ -2295,6 +2298,15 @@ public class Helper {
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
                 try {
+                    String selected = getSelected();
+                    boolean email = (selected != null && Helper.EMAIL_ADDRESS.matcher(selected).matches());
+                    menu.findItem(R.string.title_insert_contact).setVisible(email);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                    menu.findItem(R.string.title_insert_contact).setVisible(false);
+                }
+
+                try {
                     Pair<Integer, Integer> block = StyleHelper.getParagraph(view, true);
                     boolean ablock = (block != null &&
                             block.first == view.getSelectionStart() &&
@@ -2302,6 +2314,7 @@ public class Helper {
                     menu.findItem(R.string.title_select_block).setVisible(!ablock);
                 } catch (Throwable ex) {
                     Log.e(ex);
+                    menu.findItem(R.string.title_select_block).setVisible(false);
                 }
 
                 for (int i = 0; i < menu.size(); i++) {
@@ -2367,7 +2380,18 @@ public class Helper {
                 if (item.getGroupId() == Menu.CATEGORY_SECONDARY)
                     try {
                         int id = item.getItemId();
-                        if (id == R.string.title_select_block) {
+                        if (id == R.string.title_insert_contact) {
+                            String email = getSelected();
+                            String name = UriHelper.getEmailUser(email);
+
+                            Intent insert = new Intent();
+                            insert.putExtra(ContactsContract.Intents.Insert.EMAIL, email);
+                            if (!TextUtils.isEmpty(name))
+                                insert.putExtra(ContactsContract.Intents.Insert.NAME, name);
+                            insert.setAction(Intent.ACTION_INSERT);
+                            insert.setType(ContactsContract.Contacts.CONTENT_TYPE);
+                            view.getContext().startActivity(insert);
+                        } else if (id == R.string.title_select_block) {
                             Pair<Integer, Integer> block = StyleHelper.getParagraph(view, true);
                             if (block != null)
                                 android.text.Selection.setSelection((Spannable) view.getText(), block.first, block.second);
@@ -2381,6 +2405,12 @@ public class Helper {
 
             @Override
             public void onDestroyActionMode(ActionMode mode) {
+            }
+
+            String getSelected() {
+                int start = view.getSelectionStart();
+                int end = view.getSelectionEnd();
+                return (start >= 0 && start < end ? view.getText().subSequence(start, end).toString() : null);
             }
         };
     }
