@@ -8885,7 +8885,8 @@ public class FragmentMessages extends FragmentBase
                         startIntentSenderForResult(
                                 pi.getIntentSender(),
                                 REQUEST_OPENPGP,
-                                null, 0, 0, 0, null);
+                                null, 0, 0, 0,
+                                Helper.getBackgroundActivityOptions());
                     } catch (IntentSender.SendIntentException ex) {
                         // Likely cancelled
                         Log.w(ex);

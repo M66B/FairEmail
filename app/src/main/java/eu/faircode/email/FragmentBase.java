@@ -718,7 +718,8 @@ public class FragmentBase extends Fragment {
                             startIntentSenderForResult(
                                     ex.getUserAction().getActionIntent().getIntentSender(),
                                     REQUEST_RECOVERABLE_PERMISSION,
-                                    null, 0, 0, 0, null);
+                                    null, 0, 0, 0,
+                                    Helper.getBackgroundActivityOptions());
                         } catch (IntentSender.SendIntentException ex) {
                             Log.w(ex);
                         }

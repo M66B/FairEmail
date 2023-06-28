@@ -26,6 +26,7 @@ import static android.view.inputmethod.EditorInfo.IME_FLAG_NO_FULLSCREEN;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -4098,9 +4099,9 @@ public class FragmentCompose extends FragmentBase {
                             startIntentSenderForResult(
                                     pi.getIntentSender(),
                                     REQUEST_OPENPGP,
-                                    null, 0, 0, 0, null);
+                                    null, 0, 0, 0,
+                                    Helper.getBackgroundActivityOptions());
                         } catch (IntentSender.SendIntentException ex) {
-                            Log.e(ex);
                             Log.unexpectedError(getParentFragmentManager(), ex);
                         }
                     else {

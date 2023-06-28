@@ -30,6 +30,7 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.ActivityOptions;
 import android.app.ApplicationExitInfo;
 import android.app.KeyguardManager;
 import android.app.NotificationManager;
@@ -1767,6 +1768,14 @@ public class Helper {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    static Bundle getBackgroundActivityOptions() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+            return null;
+        ActivityOptions options = ActivityOptions.makeBasic();
+        options.setPendingIntentBackgroundActivityLaunchAllowed(true);
+        return options.toBundle();
     }
 
     // Graphics
