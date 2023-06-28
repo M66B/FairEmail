@@ -29,6 +29,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.Html;
+import android.text.SpanWatcher;
+import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -357,6 +359,32 @@ public class ActivitySignature extends ActivityBase {
             }, null);
             etText.setText(signature);
         }
+
+        etText.getText().setSpan(new SpanWatcher() {
+            @Override
+            public void onSpanAdded(Spannable text, Object what, int start, int end) {
+                checkChanged(what);
+            }
+
+            @Override
+            public void onSpanRemoved(Spannable text, Object what, int start, int end) {
+                checkChanged(what);
+            }
+
+            @Override
+            public void onSpanChanged(Spannable text, Object what, int ostart, int oend, int nstart, int nend) {
+                checkChanged(what);
+            }
+
+            private void checkChanged(Object what) {
+                for (Class<?> cls : StyleHelper.CLEAR_STYLES)
+                    if (cls.isAssignableFrom(what.getClass())) {
+                        dirty = true;
+                        saved = null;
+                    }
+            }
+        }, 0, etText.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+
         saved = html;
         loaded = true;
     }

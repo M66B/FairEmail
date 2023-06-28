@@ -77,7 +77,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class StyleHelper {
-    private static final List<Class<?>> CLEAR_STYLES = Collections.unmodifiableList(Arrays.asList(
+    static final List<Class<?>> CLEAR_STYLES = Collections.unmodifiableList(Arrays.asList(
             StyleSpan.class,
             UnderlineSpan.class,
             RelativeSizeSpan.class,
