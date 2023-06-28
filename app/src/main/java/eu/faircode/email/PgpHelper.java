@@ -25,8 +25,13 @@ import static org.openintents.openpgp.util.OpenPgpApi.RESULT_CODE_USER_INTERACTI
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.OperationCanceledException;
 import android.text.TextUtils;
+
+import androidx.preference.PreferenceManager;
 
 import org.openintents.openpgp.IOpenPgpService2;
 import org.openintents.openpgp.util.OpenPgpApi;
@@ -115,7 +120,7 @@ public class PgpHelper {
     }
 
     private static OpenPgpServiceConnection getConnection(Context context, long timeout) {
-        final String pkg = Helper.getOpenKeychainPackage(context);
+        final String pkg = PgpHelper.getPackageName(context);
         Log.i("PGP binding to " + pkg + " timeout=" + timeout);
 
         CountDownLatch latch = new CountDownLatch(1);
@@ -152,5 +157,26 @@ public class PgpHelper {
         }
 
         return pgpService;
+    }
+
+    static String getPackageName(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getString("openpgp_provider", Helper.PGP_OPENKEYCHAIN_PACKAGE);
+    }
+
+    static boolean isOpenKeychainInstalled(Context context) {
+        String provider = getPackageName(context);
+
+        try {
+            PackageManager pm = context.getPackageManager();
+            Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
+            intent.setPackage(provider);
+            List<ResolveInfo> ris = pm.queryIntentServices(intent, 0);
+
+            return (ris != null && ris.size() > 0);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 }

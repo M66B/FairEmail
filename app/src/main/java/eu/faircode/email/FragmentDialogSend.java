@@ -291,12 +291,12 @@ public class FragmentDialogSend extends FragmentDialogBase {
                     if ((encryptValues[position] == EntityMessage.PGP_SIGNONLY ||
                             encryptValues[position] == EntityMessage.PGP_ENCRYPTONLY ||
                             encryptValues[position] == EntityMessage.PGP_SIGNENCRYPT) &&
-                            Helper.isOpenKeychainInstalled(context)) {
+                            PgpHelper.isOpenKeychainInstalled(context)) {
                         tvEncrypt.setPaintFlags(tvEncrypt.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
                         tvEncrypt.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                String pkg = Helper.getOpenKeychainPackage(v.getContext());
+                                String pkg = PgpHelper.getPackageName(v.getContext());
                                 PackageManager pm = v.getContext().getPackageManager();
                                 v.getContext().startActivity(pm.getLaunchIntentForPackage(pkg));
                             }

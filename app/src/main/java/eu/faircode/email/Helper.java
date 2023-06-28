@@ -134,8 +134,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 
-import org.openintents.openpgp.util.OpenPgpApi;
-
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -685,27 +683,6 @@ public class Helper {
                 KeyguardManager kgm = Helper.getSystemService(context, KeyguardManager.class);
                 return (kgm != null && kgm.isDeviceSecure());
             }
-        } catch (Throwable ex) {
-            Log.e(ex);
-            return false;
-        }
-    }
-
-    static String getOpenKeychainPackage(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getString("openpgp_provider", Helper.PGP_OPENKEYCHAIN_PACKAGE);
-    }
-
-    static boolean isOpenKeychainInstalled(Context context) {
-        String provider = getOpenKeychainPackage(context);
-
-        try {
-            PackageManager pm = context.getPackageManager();
-            Intent intent = new Intent(OpenPgpApi.SERVICE_INTENT_2);
-            intent.setPackage(provider);
-            List<ResolveInfo> ris = pm.queryIntentServices(intent, 0);
-
-            return (ris != null && ris.size() > 0);
         } catch (Throwable ex) {
             Log.e(ex);
             return false;

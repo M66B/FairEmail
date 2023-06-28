@@ -3355,8 +3355,8 @@ public class Log {
                 size += write(os, "\r\n");
 
                 size += write(os, String.format("%s=%b\r\n",
-                        Helper.getOpenKeychainPackage(context),
-                        Helper.isOpenKeychainInstalled(context)));
+                        PgpHelper.getPackageName(context),
+                        PgpHelper.isOpenKeychainInstalled(context)));
 
                 try {
                     int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");

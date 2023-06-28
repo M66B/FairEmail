@@ -2080,7 +2080,7 @@ public class FragmentCompose extends FragmentBase {
         if ((EntityMessage.PGP_SIGNONLY.equals(encrypt) ||
                 EntityMessage.PGP_ENCRYPTONLY.equals(encrypt) ||
                 EntityMessage.PGP_SIGNENCRYPT.equals(encrypt))
-                && !Helper.isOpenKeychainInstalled(context)) {
+                && !PgpHelper.isOpenKeychainInstalled(context)) {
             encrypt = EntityMessage.ENCRYPT_NONE;
 
             new AlertDialog.Builder(context)
@@ -5603,7 +5603,7 @@ public class FragmentCompose extends FragmentBase {
 
                             if (EntityMessage.PGP_SIGNONLY.equals(ref.ui_encrypt) ||
                                     EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
-                                if (Helper.isOpenKeychainInstalled(context) &&
+                                if (PgpHelper.isOpenKeychainInstalled(context) &&
                                         selected.sign_key != null &&
                                         PgpHelper.hasPgpKey(context, recipients, true))
                                     data.draft.ui_encrypt = ref.ui_encrypt;
