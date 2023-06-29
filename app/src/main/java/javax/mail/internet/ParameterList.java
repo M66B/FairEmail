@@ -244,7 +244,7 @@ public class ParameterList {
 		if (tk.getType() != HeaderTokenizer.Token.ATOM) {
 			if (!recovered) {
 				StringBuilder sb = new StringBuilder(s);
-				int pos = h.getNextPos() - 1;
+				int pos = h.getNextPos();
 				if (pos < sb.length())
 					sb.insert(pos, "^^^");
 				eu.faircode.email.Log.e("In parameter list <" + sb + ">" +
@@ -261,7 +261,7 @@ public class ParameterList {
 		if ((char)tk.getType() != '=') {
 			if (!recovered) {
 				StringBuilder sb = new StringBuilder(s);
-				int pos = h.getNextPos() - 1;
+				int pos = h.getNextPos();
 				if (pos < sb.length())
 					sb.insert(pos, "^^^");
 				eu.faircode.email.Log.e("In parameter list <" + sb + ">" +
@@ -286,7 +286,7 @@ public class ParameterList {
 		    type != HeaderTokenizer.Token.QUOTEDSTRING) {
 			if (!recovered) {
 				StringBuilder sb = new StringBuilder(s);
-				int pos = h.getNextPos() - 1;
+				int pos = h.getNextPos();
 				if (pos < sb.length())
 					sb.insert(pos, "^^^");
 				eu.faircode.email.Log.e("In parameter list <" + sb + ">" +
@@ -323,7 +323,7 @@ public class ParameterList {
                 } else {
 			if (!recovered) {
 				StringBuilder sb = new StringBuilder(s);
-				int pos = h.getNextPos() - 1;
+				int pos = h.getNextPos();
 				if (pos < sb.length())
 					sb.insert(pos, "^^^");
 				eu.faircode.email.Log.e("In parameter list <" + sb + ">" +
