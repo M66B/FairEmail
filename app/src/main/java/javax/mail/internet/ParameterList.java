@@ -314,7 +314,6 @@ public class ParameterList {
 						", at " + h.getNextPos() +
 						", expected ';', got \"" +
 						tk.getValue() + "\"");
-			}
 			recover = true;
 			continue;
 		}
