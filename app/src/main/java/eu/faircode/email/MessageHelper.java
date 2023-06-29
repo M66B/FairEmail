@@ -283,6 +283,7 @@ public class MessageHelper {
         System.setProperty("mail.mime.encodefilename", "false");
         System.setProperty("mail.mime.decodeparameters", "true");
         System.setProperty("mail.mime.encodeparameters", "true");
+        //System.setProperty("mail.mime.parameters.strict", "false");
         System.setProperty("mail.mime.allowutf8", "false"); // InternetAddress, (MimeBodyPart: session), MimeUtility
         System.setProperty("mail.mime.cachemultipart", "true");
 
