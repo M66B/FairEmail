@@ -746,6 +746,13 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         } else
             grpOpenWith.setVisibility(View.GONE);
 
+        dview.post(new Runnable() {
+            @Override
+            public void run() {
+                Helper.hideKeyboard(etLink);
+            }
+        });
+
         Log.i("Open link dialog uri=" + uri);
         return new AlertDialog.Builder(context)
                 .setView(dview)
