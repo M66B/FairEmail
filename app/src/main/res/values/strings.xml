@@ -933,7 +933,7 @@
     <string name="title_advanced_lookup_mx_hint">This will check if DNS MX records exist</string>
     <string name="title_advanced_sync_delay_hint">This will slow down synchronizing messages</string>
     <string name="title_advanced_folder_nav_hint">This will always return to the folder list of the related account from a message list</string>
-    <string name="title_advanced_pull_all_hint">When pulling down the folder or account list</string>
+    <string name="title_advanced_pull_all_hint">When pulling down the folders or accounts list</string>
 
     <string name="title_advanced_suggest_names_hint">If disabled, only email addresses will be used when selecting contacts</string>
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
