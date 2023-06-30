@@ -2548,7 +2548,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swUndoManager.setChecked(prefs.getBoolean("undo_manager", false));
             swBrowserZoom.setChecked(prefs.getBoolean("browser_zoom", false));
             swFakeDark.setChecked(prefs.getBoolean("fake_dark", false));
-            etViewportHeight.setText(Integer.toString(prefs.getInt("viewport_height", 16000)));
+            etViewportHeight.setText(Integer.toString(prefs.getInt("viewport_height", 8000)));
             swShowRecent.setChecked(prefs.getBoolean("show_recent", false));
             swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
             swPreamble.setChecked(prefs.getBoolean("preamble", false));
