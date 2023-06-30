@@ -6,6 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
+### 1.2079 - 2023-06-30
+
+* Targeting Android 14
+* Added option to sync all folders (pull down to refresh account/folder list)
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2078 - 2023-06-27
 
 * Added notes to message list widget
