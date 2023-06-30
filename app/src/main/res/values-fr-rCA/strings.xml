@@ -559,6 +559,7 @@
     <string name="title_advanced_language_detection">Reconnaître la langue du contenu du message</string>
     <string name="title_advanced_photo_picker">Utiliser le sélecteur de photos d\'Android</string>
     <string name="title_advanced_pull_refresh">Tirer vers le bas pour actualiser</string>
+    <string name="title_advanced_pull_all">Synchroniser tous les dossiers</string>
     <string name="title_advanced_autoscroll">Revenir en haut lors de la réception de nouveaux messages</string>
     <string name="title_advanced_double_tap">Appuyer deux fois pour marquer le message comme lu/non lu</string>
     <string name="title_advanced_swipenav">Balayer vers la gauche/droite pour passer à la conversation suivante/précédente</string>
@@ -751,6 +752,7 @@
     <string name="title_advanced_lookup_mx_hint">Ceci vérifiera si des enregistrements MX DNS existent</string>
     <string name="title_advanced_sync_delay_hint">Ceci ralentira la synchronisation des messages</string>
     <string name="title_advanced_folder_nav_hint">Ceci retournera toujours à la liste des dossiers du compte associé à partir d\'une liste de messages</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">En tirant vers le bas la liste des dossiers ou des comptes</string>
     <string name="title_advanced_suggest_names_hint">Si désactivé, seules les adresses courriel seront utilisées lors de la sélection des contacts</string>
     <string name="title_advanced_suggest_local_hint">En plus des contacts fournis par Android. Les données de contact seront stockées pour les messages récemment envoyés ou reçus uniquement lorsque ceci est activé.</string>
     <string name="title_advanced_auto_identity_hint">Ceci sélectionnera la dernière identité utilisée lors de la sélection d\'un destinataire pour les nouveaux messages</string>
@@ -1181,6 +1183,10 @@
     <string name="title_move_to_account">Déplacer vers %1$s&#8230;</string>
     <string name="title_report_spam">Traiter comme indésirable</string>
     <string name="title_delete_permanently">Supprimer définitivement</string>
+    <string name="title_delete_attachments">Supprimer les pièces jointes</string>
+    <string name="title_delete_attachments_remark">        Pour supprimer les pièces jointes, un nouveau message doit être créé et l\'ancien message doit être supprimé.
+        Si ceci échoue, l\'ancien message sera déplacé vers la corbeille.
+    </string>
     <string name="title_snooze">Reporter&#8230;</string>
     <string name="title_archive">Archiver</string>
     <string name="title_reply">Répondre</string>
@@ -1925,7 +1931,7 @@
     <string name="title_widget_count_top">Afficher le nombre de non-lus en haut</string>
     <string name="title_widget_subject_lines">Nombre maximum de lignes de l\'objet</string>
     <string name="title_widget_avatars">Afficher l\'avatar des contacts</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Afficher le nom du compte</string>
+    <string name="title_widget_account_name">Afficher le nom du compte</string>
     <string name="title_widget_refresh">Afficher le bouton d\'actualisation des messages</string>
     <string name="title_widget_compose">Afficher le bouton pour rédiger un nouveau message</string>
     <string name="title_widget_background">Couleur d\'arrière-plan</string>

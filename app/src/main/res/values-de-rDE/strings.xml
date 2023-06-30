@@ -450,7 +450,7 @@
     <string name="title_advanced_close_pane">Zeile oder Spalte beim Schließen einer Unterhaltung einklappen</string>
     <string name="title_advanced_open_pane">Mit zwei Zeilen oder zwei Spalten beginnen</string>
     <string name="title_advanced_column_width">Spaltenbreite/Zeilenhöhe der Nachricht: %1$s %%</string>
-    <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Rollen von Nachrichten ausblenden</string>
+    <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Scrollen von Nachrichten ausblenden</string>
     <string name="title_advanced_nav_options">Optionen im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_categories">Kontokategorien im Navigationsmenü anzeigen</string>
     <string name="title_advanced_nav_pin">Navigationsmenü anheften</string>
@@ -560,6 +560,7 @@
     <string name="title_advanced_language_detection">Sprache des Nachrichtentextes erkennen</string>
     <string name="title_advanced_photo_picker">Android-Fotoauswahl verwenden</string>
     <string name="title_advanced_pull_refresh">Zum Aktualisieren nach unten ziehen</string>
+    <string name="title_advanced_pull_all">Alle Ordner synchronisieren</string>
     <string name="title_advanced_autoscroll">Beim Empfang neuer Nachrichten nach oben scrollen</string>
     <string name="title_advanced_double_tap">Doppelt antippen, um eine Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
     <string name="title_advanced_swipenav">Nach links/rechts wischen, um nächste/vorige Unterhaltung anzuzeigen</string>
@@ -752,6 +753,7 @@
     <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisation von Nachrichten</string>
     <string name="title_advanced_folder_nav_hint">Damit kehren Sie von einer Nachrichtenliste immer zur Ordnerliste des betreffenden Kontos zurück.</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Beim Herunterziehen der Ordner- oder Kontenliste</string>
     <string name="title_advanced_suggest_names_hint">Wenn deaktiviert, werden nur E-Mail-Adressen bei der Auswahl von Kontakten verwendet</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
     <string name="title_advanced_auto_identity_hint">Dadurch wird die zuletzt verwendete Identität, die für den letzten ausgewählten Empfänger einer neuen Nachricht benutzt wurde, verwendet</string>
@@ -787,7 +789,7 @@
     <string name="title_advanced_name_email_hint">Namen werden nur angezeigt, wenn sie verfügbar sind</string>
     <string name="title_advanced_preview_hint">Nur verfügbar, wenn der Nachrichtentext heruntergeladen wurde</string>
     <string name="title_advanced_preview_lines_hint">Maximal %s Zeichen</string>
-    <string name="title_advanced_preview_issue">Scrollen kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
+    <string name="title_advanced_preview_issue">Der Bildlauf kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_overview_mode_hint">Das kann zu einer sehr kleinen Schrift führen</string>
     <string name="title_advanced_override_width_hint">Dies kann nicht nur dazu führen, dass die Nachrichten schmaler werden, sondern auch ungewohnt aussehen.</string>
     <string name="title_advanced_monospaced_pre_hint">Unformatierte Textnachrichten werden als vorformatiert betrachtet</string>
@@ -1182,6 +1184,10 @@
     <string name="title_move_to_account">Verschieben nach %1$s &#8230;</string>
     <string name="title_report_spam">Als Spam behandeln</string>
     <string name="title_delete_permanently">Dauerhaft löschen</string>
+    <string name="title_delete_attachments">Anhänge löschen</string>
+    <string name="title_delete_attachments_remark">        Damit Anhänge gelöscht werden können, muss eine neue Nachricht hinzugefügt und die alte Nachricht gelöscht werden.
+        Da das eventuell fehlschlägt, wird die alte Nachricht in den Papierkorb verschoben.
+    </string>
     <string name="title_snooze">Zurückstellen bis &#8230;</string>
     <string name="title_archive">Archivieren</string>
     <string name="title_reply">Antworten</string>
@@ -1400,13 +1406,13 @@
     <string name="title_subject_reminder">Betreff ist leer</string>
     <string name="title_text_reminder">Nachricht ist leer</string>
     <string name="title_attachment_keywords">angehängt,Anhang,Anhänge,beigefügt,Anlage,Anlagen,anbei,liegt bei,beigelegt</string>
-    <string name="title_attachment_reminder">Beabsichtigen Sie einen Anhang hinzuzufügen?</string>
+    <string name="title_attachment_reminder">Beabsichtigten Sie, einen Anhang hinzuzufügen?</string>
     <string name="title_attachment_warning">Möglicherweise gefährlich: %1$s</string>
     <string name="title_attachment_filename">Einige E-Mail-Programme können keine Dateinamen mit mehr als 60 Zeichen handhaben</string>
     <string name="title_plain_reminder">Alle Formatierungen gehen verloren</string>
     <string name="title_dsn_reminder">Unzustellbarkeitsnachrichten schaden dem E-Mail-Ruf des ursprünglichen Absenders!</string>
     <string name="title_size_reminder">Nachricht (%1$s) größer als Serverbegrenzung (%2$s)</string>
-    <string name="title_attachments_missing">Nicht alle Dateianhänge wurden heruntergeladen</string>
+    <string name="title_attachments_missing">Nicht alle Anhänge wurden heruntergeladen</string>
     <string name="title_dialog_hint">Dieser Dialog kann über das Drei-Punkte-Menü (⋮) in der oberen Aktionsleiste wieder aktiviert werden</string>
     <string name="title_draft_deleted">Entwurf gelöscht</string>
     <string name="title_draft_saved">Entwurf gespeichert</string>
@@ -1926,7 +1932,7 @@
     <string name="title_widget_count_top">Anzahl ungelesener am oberen Rand anzeigen</string>
     <string name="title_widget_subject_lines">Maximale Betreffzeilenanzahl</string>
     <string name="title_widget_avatars">Kontaktavatare anzeigen</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Kontonamen anzeigen</string>
+    <string name="title_widget_account_name">Kontonamen anzeigen</string>
     <string name="title_widget_refresh">Schaltfläche »Nachrichten aktualisieren« anzeigen</string>
     <string name="title_widget_compose">Schaltfläche »Neue Nachricht verfassen« anzeigen</string>
     <string name="title_widget_background">Hintergrundfarbe</string>

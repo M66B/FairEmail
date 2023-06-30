@@ -1171,6 +1171,10 @@
     <string name="title_move_to_account">Flytta till %1$s &#8230;</string>
     <string name="title_report_spam">Behandla som skräppost</string>
     <string name="title_delete_permanently">Ta bort permanent</string>
+    <string name="title_delete_attachments">Radera bilagor</string>
+    <string name="title_delete_attachments_remark">        För att radera bifogade filer måste ett nytt meddelande läggas till och det gamla meddelandet raderas.
+        Eftersom detta kan misslyckas så flyttas det gamla meddelandet till soptunnan.
+    </string>
     <string name="title_snooze">Slumra &#8230;</string>
     <string name="title_archive">Arkivera</string>
     <string name="title_reply">Svara</string>
@@ -1909,6 +1913,7 @@
     <string name="title_widget_count_top">Visa antalet olästa högst upp</string>
     <string name="title_widget_subject_lines">Maximalt antal ämnesrader</string>
     <string name="title_widget_avatars">Visa kontaktavatarer</string>
+    <string name="title_widget_account_name">Visa kontonamn</string>
     <string name="title_widget_refresh">Visa knappen för att uppdatera meddelanden</string>
     <string name="title_widget_compose">Visa knapp för nytt meddelande</string>
     <string name="title_widget_background">Bakgrundsfärg</string>

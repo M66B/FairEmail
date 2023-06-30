@@ -585,6 +585,7 @@
     <string name="title_advanced_language_detection">זיהוי שפת טקסט ההודעה</string>
     <string name="title_advanced_photo_picker">להשתמש בבורר התמונות של Android</string>
     <string name="title_advanced_pull_refresh">לרענון - למשוך למטה</string>
+    <string name="title_advanced_pull_all">סנכרון כל התיקיות</string>
     <string name="title_advanced_autoscroll">יש לגלול למעלה כדי לקבל הודעות חדשות</string>
     <string name="title_advanced_double_tap">נגיעה כפולה תסמן הודעות כנקראו/לא נקראו</string>
     <string name="title_advanced_swipenav">החלקה שמאלה/ימינה כדי להתקדם/לחזור ברמת דיון</string>
@@ -776,6 +777,7 @@
     <string name="title_advanced_lookup_mx_hint">יבדוק אם קיימות רשומות MX ב־DNS</string>
     <string name="title_advanced_sync_delay_hint">יאט סנכרון הודעות</string>
     <string name="title_advanced_folder_nav_hint">פקודה זו תמיד תחזיר את רשימת התיקיות של החשבון הקשור מרשימת הודעות</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">במשיכת רשימת התיקיות או החשבונות למטה</string>
     <string name="title_advanced_suggest_names_hint">אם מושבת, אפשר יהיה להשתמש רק בכתובות דוא״ל בעת בחירת אנשי קשר</string>
     <string name="title_advanced_suggest_local_hint">בנוסף לאנשי הקשר שמסופקים על ידי Android. פרטי הקשר יאוחסנו להודעות חדשות שנשלחו או התקבלו כשהאפשרות פעילה.</string>
     <string name="title_advanced_auto_identity_hint">תיבחר הזהות האחרונה בה נעשה שימוש כאשר נבחר נמען להודעות חדשות</string>
@@ -1206,6 +1208,10 @@
     <string name="title_move_to_account">העברה אל %1$s&#8230;</string>
     <string name="title_report_spam">התנהגות כספאם</string>
     <string name="title_delete_permanently">מחיקה לצמיתות</string>
+    <string name="title_delete_attachments">מחיקת קבצים מצורפים</string>
+    <string name="title_delete_attachments_remark">        כדי למחוק קבצים מצורף, יש להוסיף הודעה חדשה ולמחוק את ההודעה הישנה.
+        מאחר שזה עשוי להיכשל, ההודעה הישנה תועבר לאשפה.
+    </string>
     <string name="title_snooze">השהיה&#8230;</string>
     <string name="title_archive">ארכיון</string>
     <string name="title_reply">תגובה</string>
@@ -1927,6 +1933,7 @@
     <string name="title_debug_info">פרטי ניפוי שגיאות</string>
     <string name="title_debug_info_remark">נא לתאר את התקלה ולציין את מועדה:</string>
     <string name="title_crash_info_remark">נא לתאר באנגלית מה עשית כשהיישומון קרס:</string>
+    <string name="title_debug_info_issue">תיאור התקלה (חובה)</string>
     <string name="title_debug_info_contact">לאחרונה יצרנו קשר סביב הבעיה הזאת</string>
     <string name="title_unexpected_info_remark">נא לתאר באנגלית מה עשית כשהופיעה השגיאה:</string>
     <string name="title_widget_title_count">מונה הודעות חדשות</string>
@@ -1949,6 +1956,7 @@
     <string name="title_widget_count_top">להציג מניין הודעות שלא נקראו למעלה</string>
     <string name="title_widget_subject_lines">מספר שורות הנושא המרבי</string>
     <string name="title_widget_avatars">הצגת תמונות אנשי קשר</string>
+    <string name="title_widget_account_name">הצגת שם החשבון</string>
     <string name="title_widget_refresh">הצגת כפתור רענון הודעות</string>
     <string name="title_widget_compose">הצגת כפתור כתיבת הודעה חדשה</string>
     <string name="title_widget_background">צבע הרקע</string>

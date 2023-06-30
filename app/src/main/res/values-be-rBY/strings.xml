@@ -105,7 +105,7 @@
     <string name="title_block_sender_domain">Блакіраваць дамен \'%1$s\'</string>
     <string name="title_block_sender_remark">Блакіраванне азначае аўтаматычнае перамяшчэнне ў папку са спамам</string>
     <string name="title_block_sender_hint">         Блакіраванне адпраўніка - бясплатная функцыя.
-         Блакіроўка дамена адпраўніка выкарыстоўваюцца правілы фільтра, што з\'яўляецца функцыяй з прафесійнай версіі.
+         Блакіроўка дамена адпраўніка выкарыстоўвае правілы фільтра, што з\'яўляецца функцыяй з прафесійнай версіі.
    </string>
     <string name="title_blocked_senders">Заблакіраваныя адпраўнікi</string>
     <plurals name="title_ask_block_sender">
@@ -1209,6 +1209,10 @@
     <string name="title_move_to_account">Перамясціць у %1$s &#8230;</string>
     <string name="title_report_spam">Лічыць спамам</string>
     <string name="title_delete_permanently">Выдаліць назаўсёды</string>
+    <string name="title_delete_attachments">Выдаліць укладанні</string>
+    <string name="title_delete_attachments_remark">        Для выдалення ўкладанняў неабходна стварыць новае паведамленне, а старое - выдаліць.
+       Паколькі існуе верагоднасць збою, старое паведамленне будзе перамешчана ў сметніцу.
+    </string>
     <string name="title_snooze">Адкласці &#8230;</string>
     <string name="title_archive">Архіў</string>
     <string name="title_reply">Адказаць</string>
@@ -1953,7 +1957,7 @@
     <string name="title_widget_count_top">Паказваць колькасць непрачытаных паведамленняў уверсе</string>
     <string name="title_widget_subject_lines">Максімальная колькасць радкоў у тэме</string>
     <string name="title_widget_avatars">Паказваць аватары кантактаў</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Паказаць імя ўліковага запісу</string>
+    <string name="title_widget_account_name">Паказаць імя ўліковага запісу</string>
     <string name="title_widget_refresh">Паказваць кнопку абнаўлення паведамленняў</string>
     <string name="title_widget_compose">Паказаць кнопку для стварэння новага паведамлення</string>
     <string name="title_widget_background">Колер фону</string>

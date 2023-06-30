@@ -585,6 +585,7 @@
     <string name="title_advanced_language_detection">Виявити мову тексту повідомлень</string>
     <string name="title_advanced_photo_picker">Використовувати Android для вибору фото</string>
     <string name="title_advanced_pull_refresh">Щоб оновити, потягніть вниз</string>
+    <string name="title_advanced_pull_all">Синхронізувати всі теки</string>
     <string name="title_advanced_autoscroll">Перейти до самого початку після отримання нових повідомлень</string>
     <string name="title_advanced_double_tap">Натисніть двічі, щоб позначити прочитаним або непрочитаним</string>
     <string name="title_advanced_swipenav">Проведіть вліво або вправо для наступної/попередньої розмови</string>
@@ -775,6 +776,7 @@
     <string name="title_advanced_lookup_mx_hint">Це перевірить, чи існують записи DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Це призведе до уповільнення синхронізації повідомлень</string>
     <string name="title_advanced_folder_nav_hint">Це завжди буде повертати до переліку тек що пов\'язані до облікового запису зі списку повідомлень</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">При розгортанні списку тек або облікових записів</string>
     <string name="title_advanced_suggest_names_hint">Якщо вимкнено, використовуватимуться лише адреси електронної пошти при виборі контактів</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
     <string name="title_advanced_auto_identity_hint">Це може обрати останню ідентифікацію, коли використовувалася для одержувача нових повідомлень</string>
@@ -1205,6 +1207,10 @@
     <string name="title_move_to_account">Перемістити в %1$s &#8230;</string>
     <string name="title_report_spam">Вважати спамом</string>
     <string name="title_delete_permanently">Видалити назавжди</string>
+    <string name="title_delete_attachments">Видалення вкладених файлів</string>
+    <string name="title_delete_attachments_remark">        Щоб видалити вкладення, необхідно додати нове повідомлення, і старе повідомлення має бути видалене.
+        Оскільки ця операція може бути невдалою, старе повідомлення буде переміщено в кошик.
+    </string>
     <string name="title_snooze">Відкласти &#8230;</string>
     <string name="title_archive">Архівувати</string>
     <string name="title_reply">Відповісти</string>
@@ -1945,7 +1951,7 @@
     <string name="title_widget_count_top">Показувати кількість непрочитаних зверху</string>
     <string name="title_widget_subject_lines">Максимальна кількість рядків в темі</string>
     <string name="title_widget_avatars">Показувати аватари контактів</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Показати ім\'я облікового запису</string>
+    <string name="title_widget_account_name">Показати ім\'я облікового запису</string>
     <string name="title_widget_refresh">Показувати кнопку оновлення повідомлень</string>
     <string name="title_widget_compose">Показати кнопку створення нового повідомлення</string>
     <string name="title_widget_background">Колір тла</string>

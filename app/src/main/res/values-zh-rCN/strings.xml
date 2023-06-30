@@ -545,6 +545,7 @@
     <string name="title_advanced_language_detection">检测消息文本的语言</string>
     <string name="title_advanced_photo_picker">使用 Android 照片选择器</string>
     <string name="title_advanced_pull_refresh">下拉刷新</string>
+    <string name="title_advanced_pull_all">同步所有文件夹</string>
     <string name="title_advanced_autoscroll">在收到新消息时滚动至顶部</string>
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
     <string name="title_advanced_swipenav">左右滑动切换邮件</string>
@@ -736,6 +737,7 @@
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
     <string name="title_advanced_folder_nav_hint">这将总是从邮件列表返回到相关帐户的文件夹列表</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">下拉文件夹或账户列表时</string>
     <string name="title_advanced_suggest_names_hint">如果禁用，选择联系人时将只使用电子邮件地址</string>
     <string name="title_advanced_suggest_local_hint">这不包括 Android 提供的联系人。应用仅在此选项启用后存储新的接收或发送消息的联系人。</string>
     <string name="title_advanced_auto_identity_hint">这将选择上次使用的身份作为新邮件收件人</string>
@@ -1163,6 +1165,10 @@
     <string name="title_move_to_account">移动到 %1$s &#8230;</string>
     <string name="title_report_spam">视为垃圾邮件</string>
     <string name="title_delete_permanently">永久删除</string>
+    <string name="title_delete_attachments">删除附件</string>
+    <string name="title_delete_attachments_remark">        要删除附件， 必须添加新消息，且必须删掉旧消息。
+        因为这可能失败，旧消息将被移动到回收站。
+    </string>
     <string name="title_snooze">打盹 &#8230;</string>
     <string name="title_archive">存档</string>
     <string name="title_reply">回复</string>
@@ -1903,7 +1909,7 @@
     <string name="title_widget_count_top">在顶部显示未读计数</string>
     <string name="title_widget_subject_lines">最大主题行数</string>
     <string name="title_widget_avatars">显示联系人头像</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">显示账户名称</string>
+    <string name="title_widget_account_name">显示账户名称</string>
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>
     <string name="title_widget_background">背景颜色</string>

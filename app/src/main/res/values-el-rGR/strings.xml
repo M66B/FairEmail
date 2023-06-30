@@ -558,6 +558,7 @@
     <string name="title_advanced_language_detection">Αναγνώριση της γλώσσας του κειμένου του μηνύματος</string>
     <string name="title_advanced_photo_picker">Χρήση του επιλογέα φωτογραφιών του Android</string>
     <string name="title_advanced_pull_refresh">Σύρετε προς τα κάτω για ανανέωση</string>
+    <string name="title_advanced_pull_all">Συγχρονισμός όλων των φακέλων</string>
     <string name="title_advanced_autoscroll">Κύλιση προς τα πάνω κατά τη λήψη νέων μηνυμάτων</string>
     <string name="title_advanced_double_tap">Διπλό άγγιγμα για να επισημαίνεται ένα μήνυμα ως αναγνωσμένο/μη αναγνωσμένο</string>
     <string name="title_advanced_swipenav">Σύρετε αριστερά/δεξιά για να μεταβείτε στην επόμενη/προηγούμενη συζήτηση</string>
@@ -747,6 +748,7 @@
     <string name="title_advanced_lookup_mx_hint">Ελέγχει αν υπάρχουν καταγραφές DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Η επιλογή αυτή θα επιβραδύνει τον συγχρονισμό των μηνυμάτων</string>
     <string name="title_advanced_folder_nav_hint">Έτσι, θα επιστρέφετε πάντα από μια λίστα μηνυμάτων στη λίστα φακέλων του σχετικού λογαριασμού</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Όταν σύρετε προς τα κάτω τους φακέλους ή τη λίστα λογαριασμών</string>
     <string name="title_advanced_suggest_names_hint">Εάν απενεργοποιηθεί, θα χρησιμοποιούνται μόνο διευθύνσεις ηλ. ταχυδρομείου κατά την επιλογή επαφών</string>
     <string name="title_advanced_suggest_local_hint">Επιπρόσθετα στις παρεχόμενες από το Android επαφές, θα αποθηκεύονται πληροφορίες επαφών για πρόσφατα απεσταλμένα ή ειλημμένα μηνύματα, μόνον εφόσον οι σχετικές δυνατότητες έχουν ενεργοποιηθεί.</string>
     <string name="title_advanced_auto_identity_hint">Με αυτό θα επιλέγεται η τελευταία ταυτότητα που έχει χρησιμοποιηθεί κατά την επιλογή ενός παραλήπτη για νέα μηνύματα</string>
@@ -1176,6 +1178,10 @@
     <string name="title_move_to_account">Μετακίνηση προς %1$s &#8230;</string>
     <string name="title_report_spam">Αντιμετώπιση ως ανεπιθύμητο</string>
     <string name="title_delete_permanently">Οριστική διαγραφή</string>
+    <string name="title_delete_attachments">Διαγραφή συνημμένων</string>
+    <string name="title_delete_attachments_remark">        Για να διαγραφούν συνημμένα, ένα νέο μήνυμα πρέπει να προστεθεί και το παλιό μήνυμα πρέπει να διαγραφεί.
+        Δεδομένου ότι αυτό μπορεί να αποτύχει, το παλιό μήνυμα θα μεταφερθεί στα απορρίμματα.
+    </string>
     <string name="title_snooze">Αναβολή &#8230;</string>
     <string name="title_archive">Αρχειοθέτηση</string>
     <string name="title_reply">Απάντηση</string>
@@ -1917,7 +1923,7 @@
     <string name="title_widget_count_top">Προβολή του αριθμού των μη αναγνωσμένων στην κορυφή</string>
     <string name="title_widget_subject_lines">Μέγιστος αριθμός γραμμών θέματος</string>
     <string name="title_widget_avatars">Προβολή άβαταρ των επαφών</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Προβολή ονόματος λογαριασμού</string>
+    <string name="title_widget_account_name">Προβολή ονόματος λογαριασμού</string>
     <string name="title_widget_refresh">Προβολή κουμπιού ανανέωσης μηνυμάτων</string>
     <string name="title_widget_compose">Να εμφανίζεται το κουμπί σύνταξης νέου μηνύματος</string>
     <string name="title_widget_background">Χρώμα φόντου</string>

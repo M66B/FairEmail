@@ -584,6 +584,7 @@
     <string name="title_advanced_language_detection">Определять язык сообщения</string>
     <string name="title_advanced_photo_picker">Использовать выбор фото Android</string>
     <string name="title_advanced_pull_refresh">Потянуть вниз для обновления</string>
+    <string name="title_advanced_pull_all">Синхронизировать все папки</string>
     <string name="title_advanced_autoscroll">Прокручивать к началу списка при получении новых сообщений</string>
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
     <string name="title_advanced_swipenav">Смахивание влево/вправо для перехода к следующему/предыдущему диалогу</string>
@@ -776,6 +777,7 @@
     <string name="title_advanced_lookup_mx_hint">Проверка наличия записей DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Замедлится синхронизация сообщений</string>
     <string name="title_advanced_folder_nav_hint">Всегда возвращаться к списку папок связанной учётной записи из списка сообщений</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">При раскрытии папок или списка учётных записей</string>
     <string name="title_advanced_suggest_names_hint">Если отключено, при выборе контактов будут использоваться только адреса электронной почты</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_auto_identity_hint">Будет выбран последний идентификатор, использовавшийся для получателя новых сообщений</string>
@@ -1206,6 +1208,10 @@
     <string name="title_move_to_account">Переместить в %1$s&#8230;</string>
     <string name="title_report_spam">Считать спамом</string>
     <string name="title_delete_permanently">Удалить окончательно</string>
+    <string name="title_delete_attachments">Удалить вложения</string>
+    <string name="title_delete_attachments_remark">        Для удаления вложения необходимо создать новое сообщение, а старое удалить.
+        Так как эта операция может завершиться неудачно, старое сообщение будет перемещено в корзину.
+    </string>
     <string name="title_snooze">Отложить&#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Ответить</string>
@@ -1949,7 +1955,7 @@
     <string name="title_widget_count_top">Показывать количество непрочитанных вверху</string>
     <string name="title_widget_subject_lines">Максимальное число строк темы</string>
     <string name="title_widget_avatars">Показывать аватары контактов</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Показывать имя учётной записи</string>
+    <string name="title_widget_account_name">Показывать имя учётной записи</string>
     <string name="title_widget_refresh">Показать кнопку обновления сообщений</string>
     <string name="title_widget_compose">Показать кнопку создания нового сообщения</string>
     <string name="title_widget_background">Цвет фона</string>

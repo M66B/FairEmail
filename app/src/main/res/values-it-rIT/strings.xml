@@ -559,6 +559,7 @@
     <string name="title_advanced_language_detection">Rileva la lingua del testo del messaggio</string>
     <string name="title_advanced_photo_picker">Usa il selettore delle foto di Android</string>
     <string name="title_advanced_pull_refresh">Scorri in giù per aggiornare</string>
+    <string name="title_advanced_pull_all">Sincronizza tutte le cartelle</string>
     <string name="title_advanced_autoscroll">Scorri in su alla ricezione di nuovi messaggi</string>
     <string name="title_advanced_double_tap">Tocca due volte per contrassegnare un messaggio come letto/non letto</string>
     <string name="title_advanced_swipenav">Scorri a sinistra/destra per andare alla conversazione successiva/precedente</string>
@@ -751,6 +752,7 @@
     <string name="title_advanced_lookup_mx_hint">Questo verificherà se esistano i registri DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
     <string name="title_advanced_folder_nav_hint">Questo tornerà sempre all\'elenco delle cartelle del profilo correlato da un elenco di messaggi</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Tirando giù l\'elenco delle cartelle o dei profili</string>
     <string name="title_advanced_suggest_names_hint">Se disabilitato, solo gli indirizzi email saranno usati selezionando i contatti</string>
     <string name="title_advanced_suggest_local_hint">In aggiunta ai contatti forniti da Android. I dati di contatto saranno memorizzati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_auto_identity_hint">Questo selezionerà l\'ultima identità usata selezionando un destinatario per i nuovi messaggi</string>
@@ -1181,6 +1183,10 @@
     <string name="title_move_to_account">Sposta in %1$s&#8230;</string>
     <string name="title_report_spam">Tratta come spam</string>
     <string name="title_delete_permanently">Elimina permanentemente</string>
+    <string name="title_delete_attachments">Elimina allegati</string>
+    <string name="title_delete_attachments_remark">        Per eliminare gli allegati, bisogna creare un nuovo messaggio eliminando il vecchio.
+        Se questo non riesce, il vecchio messaggio sarà spostato nel cestino.
+    </string>
     <string name="title_snooze">Posticipa&#8230;</string>
     <string name="title_archive">Archivia</string>
     <string name="title_reply">Risposta</string>
@@ -1925,7 +1931,7 @@
     <string name="title_widget_count_top">Mostra il conteggio dei messaggi non letti in alto</string>
     <string name="title_widget_subject_lines">Numero massimo di righe dell\'oggetto</string>
     <string name="title_widget_avatars">Mostra gli avatar del contatto</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Mostra il nome del profilo</string>
+    <string name="title_widget_account_name">Mostra il nome del profilo</string>
     <string name="title_widget_refresh">Mostra il pulsante ricarica messaggi</string>
     <string name="title_widget_compose">Mostra il pulsante componi nuovo messaggio</string>
     <string name="title_widget_background">Colore di sfondo</string>

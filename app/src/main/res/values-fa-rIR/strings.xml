@@ -448,6 +448,7 @@
     <string name="title_advanced_language_detection">تشخیص زبان متن پیام</string>
     <string name="title_advanced_photo_picker">از انتخاب کننده تصاویر اندروید استفاده کنید</string>
     <string name="title_advanced_pull_refresh">برای بروزرسانی به پایین بکشید</string>
+    <string name="title_advanced_pull_all">همگام‌سازی همه پوشه‌ها</string>
     <string name="title_advanced_swipenav">کشیدن به چپ/راست برای رفتن به مکالمه بعدی/قبلی</string>
     <string name="title_advanced_volumenav">بالا/پایین بردن صدا برای رفتن به گفتگوی بعدی/قبلی</string>
     <string name="title_advanced_autoexpand">بسط دادن خودکار پیام‌ها</string>
@@ -532,6 +533,7 @@
     <string name="title_advanced_lookup_mx_hint">این بررسی خواهد کرد که آیا سابقه DNS MX وجود دارد</string>
     <string name="title_advanced_sync_delay_hint">این سرعت همگام‌سازی پیام‌ها را کاهش خواهد داد</string>
     <string name="title_advanced_folder_nav_hint">این همیشه به فهرست پوشه‌ مرتبط با حساب از یک لیست پیام‌ برخواهد گشت</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">همزمان با پایین کشیدن لیست حساب‌ها یا پرونده‌ها</string>
     <string name="title_advanced_auto_identity_hint">این گزینه، آخرین هویت استفاده شده را به عنوان گیرنده پیام‌های جدید انتخاب خواهد کرد</string>
     <string name="title_advanced_send_reminders_hint">هنگامی که موضوع یا متن پیام خالی است یا یک پیوست ممکن است وجود نداشته باشد، یک هشدار نشان بده</string>
     <string name="title_advanced_usenet_hint">بین متن و امضا \'-- \' درج کنید</string>
@@ -774,6 +776,9 @@
     <string name="title_move_to_account">انتقال به %1$s &#8230;</string>
     <string name="title_report_spam">برخورد به‌عنوان هرزنامه</string>
     <string name="title_delete_permanently">حذف برای همیشه</string>
+    <string name="title_delete_attachments">حذف پیوست</string>
+    <string name="title_delete_attachments_remark">جهت حذف پیوست‌ها، پیغام جدیدی باید اضافه و پیغام قبلی باید پاک شود.        از آنجایی که این ممکن است انجام نشود، پیغام قبلی به سطل زباله منتقل خواهد شد.
+    </string>
     <string name="title_snooze">چرت زدن &#8230;</string>
     <string name="title_archive">بایگانی</string>
     <string name="title_reply">پاسخ</string>

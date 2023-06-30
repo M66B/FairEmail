@@ -557,6 +557,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_language_detection">Detecteer de taal van de berichttekst</string>
     <string name="title_advanced_photo_picker">Gebruik de Android fotokiezer</string>
     <string name="title_advanced_pull_refresh">Omlaag schuiven om te verversen</string>
+    <string name="title_advanced_pull_all">Synchroniseer alle mappen</string>
     <string name="title_advanced_autoscroll">Scroll naar boven bij het ontvangen van nieuwe berichten</string>
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>
@@ -748,6 +749,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_lookup_mx_hint">Dit zal controleren of DNS MX records bestaan</string>
     <string name="title_advanced_sync_delay_hint">Dit zal de synchronisatie van berichten vertragen</string>
     <string name="title_advanced_folder_nav_hint">Dit keert altijd terug naar de mappenlijst van het gerelateerde account vanuit een berichtenlijst</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Bij het naar beneden trekken van de mappen of accountenlijst</string>
     <string name="title_advanced_suggest_names_hint">Indien uitgeschakeld, worden alleen e-mailadressen gebruikt bij het selecteren van contacten</string>
     <string name="title_advanced_suggest_local_hint">Naast contacten die door Android worden geleverd. Contactgegevens worden alleen opgeslagen voor nieuw verzonden of ontvangen berichten wanneer ingeschakeld.</string>
     <string name="title_advanced_auto_identity_hint">Dit zal de laatst gebruikte identiteit selecteren bij het selecteren van een ontvanger voor nieuwe berichten</string>
@@ -1176,6 +1178,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_move_to_account">Verplaats naar %1$s &#8230;</string>
     <string name="title_report_spam">Behandel als spam</string>
     <string name="title_delete_permanently">Definitief verwijderen</string>
+    <string name="title_delete_attachments">Verwijder bijlagen</string>
+    <string name="title_delete_attachments_remark">Om bijlagen te verwijderen, moet een nieuw bericht worden toegevoegd en moet het oude bericht worden verwijderd. Omdat dit kan mislukken, wordt het oude bericht verplaatst naar de prullenbak.</string>
     <string name="title_snooze">Sluimeren &#8230;</string>
     <string name="title_archive">Archiveren</string>
     <string name="title_reply">Beantwoorden</string>
@@ -1913,7 +1917,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_count_top">Toon aantal ongelezen bovenin</string>
     <string name="title_widget_subject_lines">Maximaal aantal onderwerpregels</string>
     <string name="title_widget_avatars">Toon avatars van contacten</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Toon de accountnaam</string>
+    <string name="title_widget_account_name">Toon de accountnaam</string>
     <string name="title_widget_refresh">Toon knop voor het verversen van berichten</string>
     <string name="title_widget_compose">Toon knop voor het opstellen van een nieuw bericht</string>
     <string name="title_widget_background">Achtergrondkleur</string>

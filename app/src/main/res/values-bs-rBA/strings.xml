@@ -1193,6 +1193,10 @@
     <string name="title_move_to_account">Premjesti na %1$s &#8230;</string>
     <string name="title_report_spam">Tretiraj kao spam</string>
     <string name="title_delete_permanently">Trajno izbriši</string>
+    <string name="title_delete_attachments">Izbriši priloge</string>
+    <string name="title_delete_attachments_remark">        Da bi izbrisali priloge, prvo se mora dodati nova poruka, a staru treba izbrisati.
+        Obzirom da ovo možda ne uspije, stara poruka će biti premještena u smeće.
+    </string>
     <string name="title_snooze">Odgodi &#8230;</string>
     <string name="title_archive">Arhiv</string>
     <string name="title_reply">Odgovori</string>
@@ -1937,6 +1941,7 @@
     <string name="title_widget_count_top">Prikaži nepročitane poruke na vrhu</string>
     <string name="title_widget_subject_lines">Maksimalan broj linija za predmete</string>
     <string name="title_widget_avatars">Prikaži avatare kontakata</string>
+    <string name="title_widget_account_name">Prikaži naziv računa</string>
     <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
     <string name="title_widget_compose">Prikaži dugme za pisanje nove poruke</string>
     <string name="title_widget_background">Boja pozadine</string>

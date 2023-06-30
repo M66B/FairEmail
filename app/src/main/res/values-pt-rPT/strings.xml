@@ -560,6 +560,7 @@
     <string name="title_advanced_language_detection">Detectar idioma do texto da mensagem</string>
     <string name="title_advanced_photo_picker">Use o seletor de fotos do Android</string>
     <string name="title_advanced_pull_refresh">Arrastar para baixo para atualizar</string>
+    <string name="title_advanced_pull_all">Sincronizar todas as pastas</string>
     <string name="title_advanced_autoscroll">Voltar ao topo quando recebe novas mensagens</string>
     <string name="title_advanced_double_tap">Toque duplo para marcar a mensagem como lida/não lida</string>
     <string name="title_advanced_swipenav">Deslize para a esquerda/direita para ir para próxima/anterior conversa</string>
@@ -751,6 +752,7 @@
     <string name="title_advanced_lookup_mx_hint">Faz a verificação se existem registos DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
     <string name="title_advanced_folder_nav_hint">Isto fará com que, ao pressionar \'voltar\' a partir da lista de mensagens, retorne sempre à lista de pastas da respectiva conta</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Ao puxar para baixo a lista de pastas ou contas</string>
     <string name="title_advanced_suggest_names_hint">Se desactivada, ao seleccionar um contacto apenas será utilizado o endereço de e-mail</string>
     <string name="title_advanced_suggest_local_hint">Em complemento aos contactos fornecidos pelo Android. Apenas só será guardada informação de contactos nas mensagens recém-enviadas ou recebidas caso esta função esteja activa.</string>
     <string name="title_advanced_auto_identity_hint">Isto selecionará a última identidade usada ao selecionar um destinatário para novas mensagens</string>
@@ -1181,6 +1183,10 @@
     <string name="title_move_to_account">Mover para %1$s &#8230;</string>
     <string name="title_report_spam">Tratar como spam</string>
     <string name="title_delete_permanently">Eliminar permanentemente</string>
+    <string name="title_delete_attachments">Apagar anexos</string>
+    <string name="title_delete_attachments_remark">        Para apagar anexos, uma nova mensagem tem de ser adicionada e a mensagem antiga tem de ser apagada.
+        Como isso pode falhar, a mensagem antiga será movida para o lixo.
+    </string>
     <string name="title_snooze">Adiar &#8230;</string>
     <string name="title_archive">Arquivar</string>
     <string name="title_reply">Responder</string>
@@ -1925,7 +1931,7 @@
     <string name="title_widget_count_top">Mostrar contagem não lida no topo</string>
     <string name="title_widget_subject_lines">Número máximo de linhas de assunto</string>
     <string name="title_widget_avatars">Mostrar avatares dos contactos</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Mostrar nome da conta</string>
+    <string name="title_widget_account_name">Mostrar nome da conta</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
     <string name="title_widget_background">Cor do fundo</string>

@@ -1180,6 +1180,10 @@
     <string name="title_move_to_account">%1$s &#8230; köçürt</string>
     <string name="title_report_spam">Spam hesab et</string>
     <string name="title_delete_permanently">Birdəfəlik sil</string>
+    <string name="title_delete_attachments">Qoşmaları sil</string>
+    <string name="title_delete_attachments_remark">        Qoşmaları silmək üçün, yeni bir mesaj əlavə edilməli və köhnə mesaj silinməlidir.
+        Bu uğursuz ola biləcəyi üçün köhnə mesaj tullantı qutusuna daşınacaq.
+    </string>
     <string name="title_snooze">Ertələ &#8230;</string>
     <string name="title_archive">Arxivlə</string>
     <string name="title_reply">Cavabla</string>
@@ -1924,6 +1928,7 @@
     <string name="title_widget_count_top">Oxunmamış sayını üstdə göstər</string>
     <string name="title_widget_subject_lines">Mövzu sətrinin maksimum sayı</string>
     <string name="title_widget_avatars">Əlaqə avatarlarını göstər</string>
+    <string name="title_widget_account_name">Hesab adını göstər</string>
     <string name="title_widget_refresh">Mesajları təzələ düyməsini göstər</string>
     <string name="title_widget_compose">Yeni mesaj yarat düyməsini göstər</string>
     <string name="title_widget_background">Arxaplan rəngi</string>

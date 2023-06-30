@@ -1191,6 +1191,10 @@
     <string name="title_move_to_account">Mută în %1$s &#8230;</string>
     <string name="title_report_spam">Tratează ca spam</string>
     <string name="title_delete_permanently">Șterge permanent</string>
+    <string name="title_delete_attachments">Ștergere atașamente</string>
+    <string name="title_delete_attachments_remark">        Pentru a șterge atașamentele, trebuie adăugat un mesaj nou şi trebuie şters mesajul vechi.
+        Deoarece acest lucru poate eșua, vechiul mesaj va fi mutat la gunoi.
+    </string>
     <string name="title_snooze">Amână &#8230;</string>
     <string name="title_archive">Arhivă</string>
     <string name="title_reply">Răspunde</string>
@@ -1932,6 +1936,7 @@
     <string name="title_widget_count_top">Arată numărul de necitite în partea de sus</string>
     <string name="title_widget_subject_lines">Numărul maxim de linii de subiect</string>
     <string name="title_widget_avatars">Afișați avatarele de contact</string>
+    <string name="title_widget_account_name">Arată numele contului</string>
     <string name="title_widget_refresh">Buton de afișare a mesajelor de reîmprospătare</string>
     <string name="title_widget_compose">Afișați butonul de redactare a unui mesaj nou</string>
     <string name="title_widget_background">Culoare fundal</string>

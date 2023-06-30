@@ -585,6 +585,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_language_detection">Rozpoznat jazyk textu zprávy</string>
     <string name="title_advanced_photo_picker">Použít nástroj výběru fotografií Android</string>
     <string name="title_advanced_pull_refresh">Aktualizovat tažením dolů</string>
+    <string name="title_advanced_pull_all">Synchronizovat všechny složky</string>
     <string name="title_advanced_autoscroll">Posun na začátek při příjmu nových zpráv</string>
     <string name="title_advanced_double_tap">Dvojstisk pro označení zprávy jako přečtené/nepřečtené</string>
     <string name="title_advanced_swipenav">Přejít na další/předešlou konverzaci tažením vlevo/vpravo</string>
@@ -776,6 +777,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
     <string name="title_advanced_folder_nav_hint">Toto vás vždy vrátí do seznamu složek příslušného účtu ze seznamu zpráv</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Při stahování seznamu složek nebo účtů</string>
     <string name="title_advanced_suggest_names_hint">Je-li vypnuto, budou při výběru kontaktů použity pouze e-mailové adresy</string>
     <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
     <string name="title_advanced_auto_identity_hint">Toto zvolí poslední identitu použitou při výběru příjemce pro nové zprávy</string>
@@ -1205,6 +1207,10 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_move_to_account">Přesunout do %1$s &#8230;</string>
     <string name="title_report_spam">Považovat za nevyžádané</string>
     <string name="title_delete_permanently">Trvale smazat</string>
+    <string name="title_delete_attachments">Smazat přílohy</string>
+    <string name="title_delete_attachments_remark">        Pro odstranění příloh, musí být přidána nová zpráva a stará zpráva musí být odstraněna.
+        Vzhledem k tomu, že to může selhat, stará zpráva bude přesunuta do koše.
+    </string>
     <string name="title_snooze">Odložit &#8230;</string>
     <string name="title_archive">Archiv</string>
     <string name="title_reply">Odpovědět</string>
@@ -1946,7 +1952,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_count_top">Zobrazit počet nepřečtených zpráv v horní části</string>
     <string name="title_widget_subject_lines">Maximální počet řádků předmětu</string>
     <string name="title_widget_avatars">Zobrazit avatary kontaktů</string>
-    <string name="title_widget_account_name" comment="title_widget_account_name&#10;Title for option of message list widget">Zobrazit název účtu</string>
+    <string name="title_widget_account_name">Zobrazit název účtu</string>
     <string name="title_widget_refresh">Zobrazit tlačítko pro obnovení zpráv</string>
     <string name="title_widget_compose">Zobrazit tlačítko pro vytvoření nové zprávy</string>
     <string name="title_widget_background">Barva pozadí</string>

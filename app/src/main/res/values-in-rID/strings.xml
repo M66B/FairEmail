@@ -542,6 +542,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_language_detection">Deteksi bahasa teks pesan</string>
     <string name="title_advanced_photo_picker">Gunakan Android photo picker</string>
     <string name="title_advanced_pull_refresh">Tarik ke bawah untuk memuat ulang</string>
+    <string name="title_advanced_pull_all">Sinkronkan semua folder</string>
     <string name="title_advanced_autoscroll">Gulir ke atas saat menerima pesan baru</string>
     <string name="title_advanced_double_tap">Ketuk dua kali untuk menandai pesan telah dibaca/belum dibaca</string>
     <string name="title_advanced_swipenav">Geser ke kiri/kanan untuk melihat percakapan berikutnya/sebelumnya</string>
@@ -732,6 +733,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_lookup_mx_hint">Ini akan memeriksa apakah catatan DNS MX ada</string>
     <string name="title_advanced_sync_delay_hint">Ini akan memperlambat sinkronisasi pesan</string>
     <string name="title_advanced_folder_nav_hint">Hal ini akan selalu kembali ke list folder dari akun terkait dari list pesan</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Saat menarik folder atau daftar akun ke bawah</string>
     <string name="title_advanced_suggest_names_hint">Jika dinonaktifkan, hanya alamat email yang akan digunakan saat memilih kontak</string>
     <string name="title_advanced_suggest_local_hint">Selain kontak yang disediakan oleh Android. Data kontak akan disimpan untuk pesan yang baru dikirim atau diterima hanya ketika diaktifkan.</string>
     <string name="title_advanced_auto_identity_hint">Hal ini akan memilih identitas yang terakhir difunakan saat memilih penerima untuk pesan baru</string>
@@ -1160,6 +1162,10 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_move_to_account">Pindahkan ke %1$s&#8230;</string>
     <string name="title_report_spam">Tandai sebagai spam</string>
     <string name="title_delete_permanently">Hapus permanen</string>
+    <string name="title_delete_attachments">Hapus lampiran</string>
+    <string name="title_delete_attachments_remark">Untuk menghapus lampiran, pesan baru harus ditambahkan dan pesan lama harus dihapus.
+        Karena ini mungkin gagal, pesan lama akan dipindahkan ke tempat sampah.
+    </string>
     <string name="title_snooze">Tunda &#8230;</string>
     <string name="title_archive">Arsip</string>
     <string name="title_reply">Balas</string>
@@ -1875,7 +1881,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_debug_info">Info debug</string>
     <string name="title_debug_info_remark">Silakan jelaskan masalahnya dan waktu terjadinya masalah:</string>
     <string name="title_crash_info_remark">Mohon jelaskan apa yang sedang Anda lakukan saat aplikasi berhenti:</string>
-    <string name="title_debug_info_issue">Deskripsi masalah (required)</string>
+    <string name="title_debug_info_issue">Deskripsi masalah (wajib diisi)</string>
     <string name="title_debug_info_contact">Kami baru-baru ini memiliki kontak tentang masalah ini</string>
     <string name="title_unexpected_info_remark">Mohon jelaskan apa yang sedang Anda lakukan saat Anda mendapat pesan kesalahan:</string>
     <string name="title_widget_title_count">Hitung pesan baru</string>
@@ -1898,6 +1904,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_widget_count_top">Tampilkan jumlah yang belum dibaca di atas</string>
     <string name="title_widget_subject_lines">Jumlah garis subjek maksimal</string>
     <string name="title_widget_avatars">Tampilkan foto kontak</string>
+    <string name="title_widget_account_name">Tampilkan nama akun</string>
     <string name="title_widget_refresh">Tampilkan tombol penyegaran pesan</string>
     <string name="title_widget_compose">Tampilkan tombol pesan baru</string>
     <string name="title_widget_background">Warna latar belakang</string>

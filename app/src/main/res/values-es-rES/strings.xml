@@ -558,6 +558,7 @@
     <string name="title_advanced_language_detection">Detectar idioma de texto del mensaje</string>
     <string name="title_advanced_photo_picker">Usar el selector de fotos de Android</string>
     <string name="title_advanced_pull_refresh">Tire hacia abajo para actualizar</string>
+    <string name="title_advanced_pull_all">Sincronizar todas las carpetas</string>
     <string name="title_advanced_autoscroll">Desplazar hacia arriba al recibir nuevos mensajes</string>
     <string name="title_advanced_double_tap">Doble toque para marcar mensaje como leído/no leído</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
@@ -749,6 +750,7 @@
     <string name="title_advanced_lookup_mx_hint">Esto comprobará si existen registros DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Esto ralentizará la sincronización de mensajes</string>
     <string name="title_advanced_folder_nav_hint">Esto siempre volverá a la lista de carpetas de la cuenta relacionada desde una lista de mensajes</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Al tirar hacia abajo las carpetas o lista de cuentas</string>
     <string name="title_advanced_suggest_names_hint">Si está desactivado, sólo se usarán direcciones de correo electrónico al seleccionar contactos</string>
     <string name="title_advanced_suggest_local_hint">Además de los contactos proporcionados por Android, los datos de contactos se almacenarán para nuevos mensajes enviados o recibidos sólo cuando esté activado.</string>
     <string name="title_advanced_auto_identity_hint">Esto seleccionará la última identidad utilizada al seleccionar un destinatario para nuevos mensajes</string>
@@ -1178,6 +1180,10 @@
     <string name="title_move_to_account">Mover a %1$s &#8230;</string>
     <string name="title_report_spam">Tratar como spam</string>
     <string name="title_delete_permanently">Borrar permanentemente</string>
+    <string name="title_delete_attachments">Eliminar archivos adjuntos</string>
+    <string name="title_delete_attachments_remark">        Para eliminar archivos adjuntos, un nuevo mensaje debe ser añadido y el mensaje viejo debe ser descartado.
+        Dado que esto puede fallar, el mensaje viejo será movido a la papelera.
+    </string>
     <string name="title_snooze">Posponer &#8230;</string>
     <string name="title_archive">Archivar</string>
     <string name="title_reply">Responder</string>
@@ -1918,6 +1924,7 @@
     <string name="title_widget_count_top">Mostrar cantidad de no leídos en la parte superior</string>
     <string name="title_widget_subject_lines">Número máximo de líneas del asunto</string>
     <string name="title_widget_avatars">Mostrar avatares de contactos</string>
+    <string name="title_widget_account_name">Mostrar el nombre de la cuenta</string>
     <string name="title_widget_refresh">Mostrar botón de actualizar mensajes</string>
     <string name="title_widget_compose">Mostrar botón de redactar nuevo mensaje</string>
     <string name="title_widget_background">Color de fondo</string>
