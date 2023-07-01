@@ -2103,4 +2103,18 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Virgin Media"
+        appPassword="true"
+        domain="ntlworld\\.com,blueyonder\\.co\\.uk,virgin\\.com"
+        link="https://www.virginmedia.com/help/broadband/manage-email-account">
+        <imap
+            host="imap.virginmedia.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.virginmedia.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
