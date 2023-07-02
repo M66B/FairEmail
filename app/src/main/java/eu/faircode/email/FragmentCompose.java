@@ -3835,7 +3835,8 @@ public class FragmentCompose extends FragmentBase {
                         };
                         bpContent.setContent(imessage.getContent(), imessage.getContentType());
 
-                        try (OutputStream out = new FileOutputStream(input)) {
+                        try (OutputStream out = new MessageHelper.CanonicalizingStream(
+                                new BufferedOutputStream(new FileOutputStream(input)))) {
                             bpContent.writeTo(out);
                         }
                     } else {
@@ -4248,8 +4249,9 @@ public class FragmentCompose extends FragmentBase {
 
                 // Build content
                 File sinput = new File(tmp, draft.id + ".smime_sign");
-                try (FileOutputStream fos = new FileOutputStream(sinput)) {
-                    bpContent.writeTo(fos);
+                try (OutputStream os = new MessageHelper.CanonicalizingStream(
+                        new BufferedOutputStream(new FileOutputStream(sinput)))) {
+                    bpContent.writeTo(os);
                 }
 
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
