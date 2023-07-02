@@ -5945,23 +5945,25 @@ class Core {
 
             if (notify_trash &&
                     perform_expunge &&
-                    message.accountProtocol == EntityAccount.TYPE_IMAP &&
-                    db.folder().getFolderByType(message.account, EntityFolder.TRASH) != null) {
-                Intent trash = new Intent(context, ServiceUI.class)
-                        .setAction("trash:" + message.id)
-                        .putExtra("group", group);
-                PendingIntent piTrash = PendingIntentCompat.getService(
-                        context, ServiceUI.PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
-                NotificationCompat.Action.Builder actionTrash = new NotificationCompat.Action.Builder(
-                        R.drawable.twotone_delete_24,
-                        context.getString(R.string.title_advanced_notify_action_trash),
-                        piTrash)
-                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_DELETE)
-                        .setShowsUserInterface(false)
-                        .setAllowGeneratedReplies(false);
-                mbuilder.addAction(actionTrash.build());
+                    message.accountProtocol == EntityAccount.TYPE_IMAP) {
+                EntityFolder folder = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+                if (folder != null && !folder.id.equals(message.folder)) {
+                    Intent trash = new Intent(context, ServiceUI.class)
+                            .setAction("trash:" + message.id)
+                            .putExtra("group", group);
+                    PendingIntent piTrash = PendingIntentCompat.getService(
+                            context, ServiceUI.PI_TRASH, trash, PendingIntent.FLAG_UPDATE_CURRENT);
+                    NotificationCompat.Action.Builder actionTrash = new NotificationCompat.Action.Builder(
+                            R.drawable.twotone_delete_24,
+                            context.getString(R.string.title_advanced_notify_action_trash),
+                            piTrash)
+                            .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_DELETE)
+                            .setShowsUserInterface(false)
+                            .setAllowGeneratedReplies(false);
+                    mbuilder.addAction(actionTrash.build());
 
-                wactions.add(actionTrash.build());
+                    wactions.add(actionTrash.build());
+                }
             }
 
             if (notify_trash &&
@@ -5985,42 +5987,46 @@ class Core {
             }
 
             if (notify_junk &&
-                    message.accountProtocol == EntityAccount.TYPE_IMAP &&
-                    db.folder().getFolderByType(message.account, EntityFolder.JUNK) != null) {
-                Intent junk = new Intent(context, ServiceUI.class)
-                        .setAction("junk:" + message.id)
-                        .putExtra("group", group);
-                PendingIntent piJunk = PendingIntentCompat.getService(
-                        context, ServiceUI.PI_JUNK, junk, PendingIntent.FLAG_UPDATE_CURRENT);
-                NotificationCompat.Action.Builder actionJunk = new NotificationCompat.Action.Builder(
-                        R.drawable.twotone_report_24,
-                        context.getString(R.string.title_advanced_notify_action_junk),
-                        piJunk)
-                        .setShowsUserInterface(false)
-                        .setAllowGeneratedReplies(false);
-                mbuilder.addAction(actionJunk.build());
+                    message.accountProtocol == EntityAccount.TYPE_IMAP) {
+                EntityFolder folder = db.folder().getFolderByType(message.account, EntityFolder.JUNK);
+                if (folder != null && !folder.id.equals(message.folder)) {
+                    Intent junk = new Intent(context, ServiceUI.class)
+                            .setAction("junk:" + message.id)
+                            .putExtra("group", group);
+                    PendingIntent piJunk = PendingIntentCompat.getService(
+                            context, ServiceUI.PI_JUNK, junk, PendingIntent.FLAG_UPDATE_CURRENT);
+                    NotificationCompat.Action.Builder actionJunk = new NotificationCompat.Action.Builder(
+                            R.drawable.twotone_report_24,
+                            context.getString(R.string.title_advanced_notify_action_junk),
+                            piJunk)
+                            .setShowsUserInterface(false)
+                            .setAllowGeneratedReplies(false);
+                    mbuilder.addAction(actionJunk.build());
 
-                wactions.add(actionJunk.build());
+                    wactions.add(actionJunk.build());
+                }
             }
 
             if (notify_archive &&
-                    message.accountProtocol == EntityAccount.TYPE_IMAP &&
-                    db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE) != null) {
-                Intent archive = new Intent(context, ServiceUI.class)
-                        .setAction("archive:" + message.id)
-                        .putExtra("group", group);
-                PendingIntent piArchive = PendingIntentCompat.getService(
-                        context, ServiceUI.PI_ARCHIVE, archive, PendingIntent.FLAG_UPDATE_CURRENT);
-                NotificationCompat.Action.Builder actionArchive = new NotificationCompat.Action.Builder(
-                        R.drawable.twotone_archive_24,
-                        context.getString(R.string.title_advanced_notify_action_archive),
-                        piArchive)
-                        .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_ARCHIVE)
-                        .setShowsUserInterface(false)
-                        .setAllowGeneratedReplies(false);
-                mbuilder.addAction(actionArchive.build());
+                    message.accountProtocol == EntityAccount.TYPE_IMAP) {
+                EntityFolder folder = db.folder().getFolderByType(message.account, EntityFolder.ARCHIVE);
+                if (folder != null && !folder.id.equals(message.folder)) {
+                    Intent archive = new Intent(context, ServiceUI.class)
+                            .setAction("archive:" + message.id)
+                            .putExtra("group", group);
+                    PendingIntent piArchive = PendingIntentCompat.getService(
+                            context, ServiceUI.PI_ARCHIVE, archive, PendingIntent.FLAG_UPDATE_CURRENT);
+                    NotificationCompat.Action.Builder actionArchive = new NotificationCompat.Action.Builder(
+                            R.drawable.twotone_archive_24,
+                            context.getString(R.string.title_advanced_notify_action_archive),
+                            piArchive)
+                            .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_ARCHIVE)
+                            .setShowsUserInterface(false)
+                            .setAllowGeneratedReplies(false);
+                    mbuilder.addAction(actionArchive.build());
 
-                wactions.add(actionArchive.build());
+                    wactions.add(actionArchive.build());
+                }
             }
 
             if (notify_move &&
@@ -6028,7 +6034,7 @@ class Core {
                 EntityAccount account = db.account().getAccount(message.account);
                 if (account != null && account.move_to != null) {
                     EntityFolder folder = db.folder().getFolder(account.move_to);
-                    if (folder != null) {
+                    if (folder != null && !folder.id.equals(message.folder)) {
                         Intent move = new Intent(context, ServiceUI.class)
                                 .setAction("move:" + message.id)
                                 .putExtra("group", group);
