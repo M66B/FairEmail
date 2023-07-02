@@ -6051,6 +6051,7 @@ class Core {
                 List<TupleIdentityEx> identities = db.identity().getComposableIdentities(message.account);
                 if (identities != null && identities.size() > 0) {
                     Intent reply = new Intent(context, ActivityCompose.class)
+                            .setAction("reply:" + message.id)
                             .putExtra("action", "reply")
                             .putExtra("reference", message.id)
                             .putExtra("group", group);
