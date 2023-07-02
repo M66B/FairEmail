@@ -1104,8 +1104,8 @@ public class HtmlHelper {
         for (Element p : document.select("p")) {
             p.tagName("div");
 
-            Element last = p.lastElementChild();
-            if (last != null && "br".equals(last.tagName()))
+            Node last = p.lastChild();
+            if (last != null && "br".equals(last.nodeName()))
                 last.remove();
 
             if (TextUtils.isEmpty(p.text())) {
