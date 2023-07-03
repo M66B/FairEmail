@@ -5853,8 +5853,8 @@ public class MessageHelper {
         }
 
         private void flushBuffer() throws IOException {
-            if (boundary != null && boundaries != 2)
-                throw new IOException("Content boundaries=" + boundaries);
+            if (boundary != null && boundaries < 1)
+                throw new IOException("Signed part missing");
             if (buffer.size() > 0)
                 writeBuffer();
         }
