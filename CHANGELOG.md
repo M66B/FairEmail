@@ -6,6 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
+### Next version
+
+* Fixed PGP and S/MIME signed messages in some cases
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2079 - 2023-06-30
 
 * Targeting Android 14
