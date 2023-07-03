@@ -1184,9 +1184,9 @@
     <string name="title_move_to_account">Verschieben nach %1$s &#8230;</string>
     <string name="title_report_spam">Als Spam behandeln</string>
     <string name="title_delete_permanently">Dauerhaft löschen</string>
-    <string name="title_delete_attachments">Anhänge löschen</string>
-    <string name="title_delete_attachments_remark">        Damit Anhänge gelöscht werden können, muss eine neue Nachricht hinzugefügt und die alte Nachricht gelöscht werden.
-        Da das eventuell fehlschlägt, wird die alte Nachricht in den Papierkorb verschoben.
+    <string name="title_delete_attachments">Anhänge entfernen</string>
+    <string name="title_delete_attachments_remark">        Damit Anhänge entfernt werden können, muss eine neue Nachricht hinzugefügt und die alte Nachricht gelöscht werden.
+        Da dies eventuell fehlschlägt, wird die alte Nachricht in den Papierkorb verschoben.
     </string>
     <string name="title_snooze">Zurückstellen bis &#8230;</string>
     <string name="title_archive">Archivieren</string>

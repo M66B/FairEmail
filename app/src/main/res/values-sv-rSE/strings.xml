@@ -555,6 +555,7 @@
     <string name="title_advanced_language_detection">Identifiera meddelandetextspråk</string>
     <string name="title_advanced_photo_picker">Använd Androids bildväljare</string>
     <string name="title_advanced_pull_refresh">Dra ner för att uppdatera</string>
+    <string name="title_advanced_pull_all">Synkronisera alla mappar</string>
     <string name="title_advanced_autoscroll">Bläddra till toppen vid mottagning av nya meddelanden</string>
     <string name="title_advanced_double_tap">Dubbeltryck för att markera meddelande läst/oläst</string>
     <string name="title_advanced_swipenav">Svep vänster/höger för att gå till nästa/föregående konversation</string>
@@ -631,6 +632,7 @@
     <string name="title_advanced_notifications_background">Använd en bakgrundstjänst för att synkronisera meddelanden</string>
     <string name="title_advanced_notifications_background_hint">En bakgrundstjänst kan stoppas av Android när som helst, men kräver inte ett meddelande i statusfältet</string>
     <string name="title_advanced_confirm_links">Bekräfta att länkar öppnas</string>
+    <string name="title_advanced_confirm_files">Bekräfta visning av filer</string>
     <string name="title_advanced_sanitize_links">Ta bort spårningsparametrar som standard</string>
     <string name="title_advanced_sanitize_links_hint">Endast när du bekräftar länkar</string>
     <string name="title_advanced_check_links_dbl">Kontrollera domänblockeringslistor för misstänkta länkar</string>
@@ -699,6 +701,8 @@
     <string name="title_advanced_lt_key">API-nyckel (frivilligt)</string>
     <string name="title_advanced_deepl">DeepL integration</string>
     <string name="title_advanced_virus_total">VirusTotal integration</string>
+    <string name="title_advanced_send">\'Skicka\'-integrering</string>
+    <string name="title_advanced_openai">OpenAI (ChatGPT)-integrering</string>
     <string name="title_advanced_openai_model">Modell</string>
     <string name="title_advanced_openai_temperature">Temperatur: %1$s</string>
     <string name="title_advanced_openai_moderation">Moderering av innehåll</string>
@@ -743,6 +747,7 @@
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
     <string name="title_advanced_sync_delay_hint">Detta kommer att sakta ner synkronisering av meddelanden</string>
     <string name="title_advanced_folder_nav_hint">Detta kommer alltid att återgå till mapplistan över det relaterade kontot från en meddelandelista</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">När du drar ner listan med mappar eller konton</string>
     <string name="title_advanced_suggest_names_hint">Om inaktiverad, kommer endast e-postadresser att användas vid val av kontakter</string>
     <string name="title_advanced_suggest_local_hint">Förutom kontakter som tillhandahålls av Android. Kontaktdata lagras endast för nyligen skickade eller mottagna meddelanden när det aktiverat.</string>
     <string name="title_advanced_auto_identity_hint">Detta kommer att välja den senaste identiteten som använts när du väljer en mottagare för nya meddelanden</string>
@@ -902,6 +907,7 @@
     <string name="title_primary_identity">Primär (standardidentitet)</string>
     <string name="title_self_identity">Ta bort e-postadresser vid svar</string>
     <string name="title_leave_on_server">Spara alla meddelanden på servern</string>
+    <string name="title_client_delete">Ta bort meddelandena aktivt efter hämtning</string>
     <string name="title_leave_deleted">Lämna raderade meddelanden på servern</string>
     <string name="title_leave_on_device">Spara meddelanden på enheten</string>
     <string name="title_max_messages">Maximalt antal meddelanden att ladda ner (lämna tomt för alla)</string>
@@ -1237,6 +1243,7 @@
     <string name="title_ask_show_image_hint">Bilder som känns igen som spårningsbilder kommer inte att visas</string>
     <string name="title_ask_show_amp">Visa AMP-variant av meddelandet?</string>
     <string name="title_ask_show_amp_hint">AMP-meddelanden är utformade för att vara dynamiska och interagera med internet och kan därför per definition användas för att spåra dig</string>
+    <string name="title_ask_view_file">Visa filen %1$s ?</string>
     <string name="title_ask_delete_local">Ta bort lokala meddelanden? Meddelanden kommer att finnas kvar på fjärrservern.</string>
     <string name="title_ask_help">Hjälp till att förbättra FairEmail</string>
     <string name="title_ask_reporting">Skicka felrapporter?</string>
@@ -1577,6 +1584,7 @@
     <string name="title_rule_daily">Kör dagligen (endast)</string>
     <string name="title_rule_age">Meddelanden äldre än (dagar)</string>
     <string name="title_rule_stop">Stoppa bearbetningsregler efter att ha utfört denna regel</string>
+    <string name="title_rule_stop_remark">Om regeln ingår som en del av en grupp så kommer behandlingen av alla regler i den här gruppen att stoppas</string>
     <string name="title_rule_sender">Avsändaren innehåller</string>
     <string name="title_rule_sender_known">Avsändaren är en kontakt</string>
     <string name="title_rule_recipient">Mottagare innehåller</string>
@@ -1807,6 +1815,7 @@
     <string name="title_redo">Gör om</string>
     <string name="title_insert_line">Infoga rad</string>
     <string name="title_select_block">Välj block</string>
+    <string name="title_insert_brackets">Parantes</string>
     <string name="title_insert_quotes">Citera</string>
     <string name="title_lt_add">Lägg till ord</string>
     <string name="title_lt_delete">Ta bort ord</string>

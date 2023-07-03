@@ -572,6 +572,7 @@
     <string name="title_advanced_language_detection">Otkrij jezik poruke</string>
     <string name="title_advanced_photo_picker">Koristi Androidov birač fotografija</string>
     <string name="title_advanced_pull_refresh">Povuci dolje za osvježavanje</string>
+    <string name="title_advanced_pull_all">Sinhronizuj sve foldere</string>
     <string name="title_advanced_autoscroll">Pomakni na vrh za prijem novih poruka</string>
     <string name="title_advanced_double_tap">Dupli dodir za markiranje poruke kao pročitana/nepročitana</string>
     <string name="title_advanced_swipenav">Prevuci prstom lijevo/desno za skok na sljedeću/prethodnu konverzaciju</string>
@@ -763,6 +764,7 @@
     <string name="title_advanced_lookup_mx_hint">Ovo će provjeriti da li postoje DNS MX zapisi</string>
     <string name="title_advanced_sync_delay_hint">Ovo će usporiti sinhronizaciju poruka</string>
     <string name="title_advanced_folder_nav_hint">Ovim će se uvijek vraćati sa spiska poruka na spisak foldera povezanog računa</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Kada se povlači preko spiska foldera ili računa</string>
     <string name="title_advanced_suggest_names_hint">Ako je isključeno, koristit će se samo e-mail adrese pri izboru kontakata</string>
     <string name="title_advanced_suggest_local_hint">Pored kontakata koje pruža Android. Kontaktni podaci bit će čuvani za nove poslane ili primljene poruke samo kada je opcija uključena.</string>
     <string name="title_advanced_auto_identity_hint">Ovim će se izabrati posljednji identitet korišten pri biranju primaoca novih poruka</string>

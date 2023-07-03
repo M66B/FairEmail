@@ -752,7 +752,7 @@
     <string name="title_advanced_lookup_mx_hint">Questo verificherà se esistano i registri DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
     <string name="title_advanced_folder_nav_hint">Questo tornerà sempre all\'elenco delle cartelle del profilo correlato da un elenco di messaggi</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Tirando giù l\'elenco delle cartelle o dei profili</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Tirando giù l\'elenco di cartelle o profili</string>
     <string name="title_advanced_suggest_names_hint">Se disabilitato, solo gli indirizzi email saranno usati selezionando i contatti</string>
     <string name="title_advanced_suggest_local_hint">In aggiunta ai contatti forniti da Android. I dati di contatto saranno memorizzati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_auto_identity_hint">Questo selezionerà l\'ultima identità usata selezionando un destinatario per i nuovi messaggi</string>
@@ -840,7 +840,7 @@
     <string name="title_advanced_never_favorite">Mai preferito</string>
     <string name="title_advanced_edit_name">Modifica il nome</string>
     <string name="title_advanced_create_alias">Crea alias</string>
-    <string name="title_advanced_create_alias_remark">In molti casi, un indirizzo alias deve prima essere verificato tramite il sito web del provider dell\'email</string>
+    <string name="title_advanced_create_alias_remark">In molti casi, un indirizzo di alias dev\'essere verificato tramite il sito web del fornitore dell\'email</string>
     <string name="title_create_folder">Crea una cartella</string>
     <string name="title_create_folder_name">Nome della cartella</string>
     <string name="title_create_folder_parent">Cartella superiore</string>
@@ -1184,8 +1184,8 @@
     <string name="title_report_spam">Tratta come spam</string>
     <string name="title_delete_permanently">Elimina permanentemente</string>
     <string name="title_delete_attachments">Elimina allegati</string>
-    <string name="title_delete_attachments_remark">        Per eliminare gli allegati, bisogna creare un nuovo messaggio eliminando il vecchio.
-        Se questo non riesce, il vecchio messaggio sarà spostato nel cestino.
+    <string name="title_delete_attachments_remark">        Per eliminare gli allegati, un nuovo messaggio dev\'essere aggiunto e, quello precedente, dev\'essere eliminato.
+        Poiché ciò potrebbe non funzionare, il vecchio messaggio sarà spostato nel cestino.
     </string>
     <string name="title_snooze">Posticipa&#8230;</string>
     <string name="title_archive">Archivia</string>
@@ -1909,7 +1909,7 @@
     <string name="title_debug_info_remark">Sei pregato di descrivere il problema e indicare quando si è verificato:</string>
     <string name="title_crash_info_remark">Sei pregato di descrivere cosa stavi facendo quando l\'app si arrestata in modo anomalo:</string>
     <string name="title_debug_info_issue">Descrizione del problema (obbligatoria)</string>
-    <string name="title_debug_info_contact">Recentemente abbiamo preso contatto su questo problema</string>
+    <string name="title_debug_info_contact">Abbiamo recentemente appreso riguardo questo problema</string>
     <string name="title_unexpected_info_remark">Sei pregato di descrivere cosa stavi facendo quando hai ottenuto l\'errore:</string>
     <string name="title_widget_title_count">Conteggio nuovi messaggi</string>
     <string name="title_widget_title_list">Elenco dei messaggi</string>
