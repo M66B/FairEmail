@@ -84,7 +84,6 @@ public final class ShortcutBadgerAlt {
                     " reason=" + (e.getCause() == null ? e.getMessage() : e.getCause().getMessage()));
             if (!(sShortcutBadger instanceof DefaultBadger)) {
                 Throwable ex = new Throwable("Badger=" + sShortcutBadger.getClass(), e);
-                eu.faircode.email.Log.e(ex);
                 eu.faircode.email.EntityLog.log(context, ex + "\n" + Log.getStackTraceString(ex));
             }
             if (Log.isLoggable(LOG_TAG, Log.DEBUG)) {
