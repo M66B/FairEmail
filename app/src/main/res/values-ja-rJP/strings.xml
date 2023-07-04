@@ -546,6 +546,7 @@
     <string name="title_advanced_language_detection">メッセージの言語を検出</string>
     <string name="title_advanced_photo_picker">Android の写真選択ツールを使用</string>
     <string name="title_advanced_pull_refresh">プルダウンして更新</string>
+    <string name="title_advanced_pull_all">すべてのフォルダーを同期</string>
     <string name="title_advanced_autoscroll">新着メッセージを受信したら一番上にスクロール</string>
     <string name="title_advanced_double_tap">ダブルタップでメッセージを既読/未読にする</string>
     <string name="title_advanced_swipenav">左/右にスワイプして次/前の会話に移動</string>
@@ -737,6 +738,7 @@
     <string name="title_advanced_lookup_mx_hint">DNS MX レコードが存在するかどうかを確認します</string>
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>
     <string name="title_advanced_folder_nav_hint">常にメッセージリストから関連するアカウントのフォルダーリストに戻ります</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">フォルダーやアカウントの一覧をプルダウンしたとき</string>
     <string name="title_advanced_suggest_names_hint">無効にすると、連絡先を選択する際にメールアドレスのみが使用されます</string>
     <string name="title_advanced_suggest_local_hint">Android のローカル連絡先を追加します。有効にすると、新しく送受信されたメッセージの連絡先データが保存されます。</string>
     <string name="title_advanced_auto_identity_hint">新規メッセージにメールを送信するとき、最後に使用したユーザー ID を選択します</string>
@@ -1167,6 +1169,10 @@
     <string name="title_move_to_account">%1$s に移動&#8230;</string>
     <string name="title_report_spam">迷惑メールとして扱う</string>
     <string name="title_delete_permanently">完全に削除</string>
+    <string name="title_delete_attachments">添付ファイルを削除</string>
+    <string name="title_delete_attachments_remark">        添付ファイルを削除すると、新しいメッセージが追加されて、古いメッセージが削除されます。
+        失敗すると、古いメッセージはごみ箱に移動されます。
+    </string>
     <string name="title_snooze">スヌーズ&#8230;</string>
     <string name="title_archive">アーカイブ</string>
     <string name="title_reply">返信</string>
@@ -1911,6 +1917,7 @@
     <string name="title_widget_count_top">未読件数を上部に表示</string>
     <string name="title_widget_subject_lines">件名の最大行数</string>
     <string name="title_widget_avatars">連絡先のアバターを表示</string>
+    <string name="title_widget_account_name">アカウント名を表示</string>
     <string name="title_widget_refresh">メッセージ更新ボタンを表示</string>
     <string name="title_widget_compose">メッセージ新規作成ボタンを表示</string>
     <string name="title_widget_background">背景色</string>

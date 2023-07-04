@@ -571,6 +571,7 @@
     <string name="title_advanced_language_detection">Detectează limba textului mesajului</string>
     <string name="title_advanced_photo_picker">Folosiți selectorul de fotografii Android</string>
     <string name="title_advanced_pull_refresh">Trageți în jos pentru a actualiza</string>
+    <string name="title_advanced_pull_all">Sincronizează toate dosarele</string>
     <string name="title_advanced_autoscroll">Derulează sus când se primește un mesaj nou</string>
     <string name="title_advanced_double_tap">Atingeți de două ori pentru a marca mesajul ca ne/citit</string>
     <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
@@ -762,6 +763,7 @@
     <string name="title_advanced_lookup_mx_hint">Se verifică dacă există înregistrări DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Această opțiune va încetini viteza de sincronizare a mesajelor</string>
     <string name="title_advanced_folder_nav_hint">Se va reveni întotdeauna la lista de dosare a contului asociat dintr-o listă de mesaje</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">La tragerea în jos a dosarelor sau a listei de conturi</string>
     <string name="title_advanced_suggest_names_hint">Dacă este dezactivată, numai adresele de e-mail vor fi folosite la selectarea contactelor</string>
     <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
     <string name="title_advanced_auto_identity_hint">Aceasta va selecta ultima identitate folosită la selectarea unui destinatar pentru mesaje noi</string>

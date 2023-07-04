@@ -586,6 +586,7 @@
     <string name="title_advanced_language_detection">Вызначыць мову тэксту паведамлення</string>
     <string name="title_advanced_photo_picker">Выкарыстоўваць сродкі выбару фота Android</string>
     <string name="title_advanced_pull_refresh">Для абнаўлення пацягнуць спіс уніз</string>
+    <string name="title_advanced_pull_all">Сінхранізаваць усе папкі</string>
     <string name="title_advanced_autoscroll">Пры атрыманні новых паведамленняў перамяшчацца ўверх спіса</string>
     <string name="title_advanced_double_tap">Для адзначэння паведамлення прачытаным/непрачытаным выкарыстоўваць двайное націсканне</string>
     <string name="title_advanced_swipenav">Правядзіце пальцам улева/управа, каб перайсці да наступнай/папярэдняй размовы</string>
@@ -777,6 +778,7 @@
     <string name="title_advanced_lookup_mx_hint">Гэта опцыя дазволіць праверыць, ці існуюць запісы DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Гэта запаволіць сінхранізацыю паведамленняў</string>
     <string name="title_advanced_folder_nav_hint">Гэта опцыя заўсёды будзе вяртаць у спіс папак звязанага ўліковага запісу са спісу паведамленняў</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Пры раскрыцці папак або спіса ўліковых запісаў</string>
     <string name="title_advanced_suggest_names_hint">Калі опцыя адключана, то пры выбары кантактаў будуць выкарыстоўвацца толькі адрасы электроннай пошты</string>
     <string name="title_advanced_suggest_local_hint">У дапаўненне да кантактаў, прадастаўленых Android. Кантактныя даныя будуць захоўвацца для новых адпраўленых або атрыманых паведамленняў, толькі калі гэта функцыя ўключана.</string>
     <string name="title_advanced_auto_identity_hint">Выбірае апошні ідэнтыфікатар, які выкарыстоўвалася ў якасці атрымальніка для новых паведамленняў</string>

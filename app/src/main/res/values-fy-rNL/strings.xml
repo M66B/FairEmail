@@ -557,6 +557,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_language_detection">Teksttaal fan berjocht detektearje</string>
     <string name="title_advanced_photo_picker">Android fotokiezer brûke</string>
     <string name="title_advanced_pull_refresh">Dellûke om te ferfarskjen</string>
+    <string name="title_advanced_pull_all">Alle mappen syngronisearje</string>
     <string name="title_advanced_autoscroll">Skow nei boppe by it ûntfangen fan nije berjochten</string>
     <string name="title_advanced_double_tap">Dûbeltikke om berjocht lêzen/net lêzen te markearjen</string>
     <string name="title_advanced_swipenav">Fei nei links/rjochts om nei folgjende/foarige petear te gean</string>
@@ -747,6 +748,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_lookup_mx_hint">Dit sil kontrolearje of DNS MX-records bestean</string>
     <string name="title_advanced_sync_delay_hint">Dit sil syngronisearjen fan berjochten fertrage</string>
     <string name="title_advanced_folder_nav_hint">Dit keart altyd werom nei de mappelist fan it relatearre account fan in berjochtelist út</string>
+    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">By it nei ûnder lûken fan de mappen- of accountlist</string>
     <string name="title_advanced_suggest_names_hint">Wannear útskeakele, wurde allinnich e-mailadressen brûkt by it selektearjen fan kontakten</string>
     <string name="title_advanced_suggest_local_hint">Njonken kontakten levere troch Android. Kontaktgegevens wurde allinnich bewarre foar nij ferstjoerde of ûntfangen berjochten wannear’t dit ynskeakele is.</string>
     <string name="title_advanced_auto_identity_hint">Dit sil de lêst brûkte identiteit selektearje by it selektearjen fan in ûntfanger foar nije berjochten</string>
@@ -1175,6 +1177,10 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_move_to_account">Ferpleatse nei %1$s&#8230;</string>
     <string name="title_report_spam">Behannelje as net-winske</string>
     <string name="title_delete_permanently">Permanint fuortsmite</string>
+    <string name="title_delete_attachments">Bylagen fuortsmite</string>
+    <string name="title_delete_attachments_remark">        Om bylagen fuort te smiten, moat in nij berjocht tafoege wurde en moat it âlde berjocht fuortsmiten wurde.
+        Omdat dit misleearre kin, wurdt it âlde berjocht ferpleatst nei it jiskefet.
+    </string>
     <string name="title_snooze">Slommerje&#8230;</string>
     <string name="title_archive">Argivearje</string>
     <string name="title_reply">Beäntwurdzje</string>
