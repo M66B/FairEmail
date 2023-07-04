@@ -4101,7 +4101,7 @@ public class MessageHelper {
                 throw new ParseException("Signed boundary missing");
 
             File file = local.getFile(context);
-            try (OutputStream os = new BufferedOutputStream(new CanonicalizingStream(new FileOutputStream(file), boundary))) {
+            try (OutputStream os = new BufferedOutputStream(new CanonicalizingStream(new FileOutputStream(file), apart.encrypt, boundary))) {
                 apart.part.writeTo(os);
             }
 
@@ -5762,6 +5762,7 @@ public class MessageHelper {
 
     static class CanonicalizingStream extends FilterOutputStream {
         private OutputStream os;
+        private int content;
         private String boundary;
 
         private int boundaries = 0;
@@ -5773,15 +5774,10 @@ public class MessageHelper {
         // PGP: https://datatracker.ietf.org/doc/html/rfc3156#section-5
         // S/MIME: https://datatracker.ietf.org/doc/html/rfc8551#section-3.1.1
 
-        public CanonicalizingStream(OutputStream out) {
+        public CanonicalizingStream(OutputStream out, int content, String boundary) {
             super(out);
             this.os = out;
-            this.boundary = null;
-        }
-
-        public CanonicalizingStream(OutputStream out, String boundary) {
-            super(out);
-            this.os = out;
+            this.content = content;
             this.boundary = "--" + boundary;
         }
 
@@ -5842,7 +5838,8 @@ public class MessageHelper {
                         return false;
                 }
 
-                line = line.replaceAll(" +$", "");
+                if (EntityAttachment.PGP_CONTENT.equals(content) || boundary == null)
+                    line = line.replaceAll(" +$", "");
 
                 os.write(line.getBytes(StandardCharsets.ISO_8859_1));
 
