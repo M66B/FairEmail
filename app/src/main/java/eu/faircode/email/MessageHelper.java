@@ -5778,7 +5778,7 @@ public class MessageHelper {
             super(out);
             this.os = out;
             this.content = content;
-            this.boundary = "--" + boundary;
+            this.boundary = (boundary == null ? null : "--" + boundary);
         }
 
         @Override
