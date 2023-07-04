@@ -2529,7 +2529,8 @@ public class Log {
                                         folder.type + (folder.inherited_type == null ? "" : "/" + folder.inherited_type) +
                                         (folder.unified ? " unified" : "") +
                                         (folder.notify ? " notify" : "") +
-                                        " poll=" + folder.poll + "/" + folder.poll_factor +
+                                        " poll=" + folder.poll + (folder.poll || EntityFolder.INBOX.equals(folder.type) ? "" : " !!! ") +
+                                        " factor=" + folder.poll_factor +
                                         " days=" + getDays(folder.sync_days) + "/" + getDays(folder.keep_days) +
                                         " msgs=" + folder.content + "/" + folder.messages + "/" + folder.total +
                                         " ops=" + db.operation().getOperationCount(folder.id, null) +
