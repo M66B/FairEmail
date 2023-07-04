@@ -4,8 +4,6 @@
 
 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
 
-Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. [Am Ende der Seite](#user-content-get-support) erfahren Sie, wie Sie weitere Fragen stellen, Funktionen anfragen und Fehler melden können.
-
 ## Übersicht
 
 * [Konten autorisieren](#user-content-authorizing-accounts)
@@ -18,9 +16,9 @@ Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig g
 
 <h2><a name="authorizing-accounts"></a>Konten autorisieren</h2>
 
-In den meisten Fällen kann der Schnelleinrichtungs-Assistent automatisch die richtige Konfiguration ermitteln.
+In den meisten Fällen kann der Schnelleinrichtungsassistent automatisch die richtige Konfiguration ermitteln.
 
-Sollte der Schnelleinrichtungs-Assistent fehlschlagen, müssen Sie Ihr Konto für das Versenden und Empfangen von E-Mails manuell einrichten. Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern. Verwenden Sie SSL/TLS oder STARTTLS und Ihren Benutzernamen (meistens, aber nicht immer Ihre E-Mail-Adresse) mit dem dazugehörigen Passwort.
+Sollte der Schnelleinrichtungsassistent fehlschlagen, müssen Sie Ihr Konto für das Versenden und Empfangen von E-Mails manuell einrichten. Hierzu benötigen Sie die Adressen der IMAP- und SMTP-Server sowie die jeweiligen Portnummern. Verwenden Sie SSL/TLS oder STARTTLS und Ihren Benutzernamen (meistens, aber nicht immer Ihre E-Mail-Adresse) mit dem dazugehörigen Passwort.
 
 Die Suche nach *IMAP* und dem Namen des E-Mail-Anbieters reichen meist aus, um die richtige Anleitung zu finden.
 
@@ -36,7 +34,7 @@ Zur Autorisierung:
 * Apple iCloud: siehe [Frage 148](#user-content-faq148)
 * Free.fr: siehe [Frage 157](#user-content-faq157)
 
-[Hier](#user-content-faq22) finden Sie häufige Fehlermeldungen und Lösungen.
+In [Frage 22](#user-content-faq22) finden Sie häufige Fehlermeldungen und Lösungen.
 
 Ähnliche Fragen:
 
@@ -52,26 +50,26 @@ Zur Autorisierung:
 * Passwort ändern: Einstellungen → Manuelle Einrichtung und Kontooptionen → Konten → Konto auswählen → Passwort ändern
 * Signatur festlegen: Einstellungen → Manuelle Einrichtung und Kontooptionen → Identitäten → Identität auswählen → Signatur bearbeiten.
 * Kopie- und Blindkopie-Adressen (CC und BCC) hinzufügen: auf das Bild der Person am Ende des Betreffs tippen
-* Zur nächsten/vorherigen Nachricht beim Archiviren/Löschen gehen: in den Einstellungen unter »Verhalten« *Unterhaltungen automatisch schließen* deaktivieren und unter *Beim schließen einer Unterhaltung* bitte *Zur nächsten/vorherigen Unterhaltung wechseln* auswählen
+* Zur nächsten/vorherigen Nachricht beim Archivieren/Löschen gehen: in den Einstellungen unter »Verhalten« *Unterhaltungen automatisch schließen* deaktivieren und unter *Beim Schließen einer Unterhaltung* bitte *Zur nächsten/vorherigen Unterhaltung wechseln* auswählen
 * Einen Ordner zum Sammeleingang hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Sammeleingang anzeigen* ankreuzen
 * Einen Ordner zum Navigationsmenü hinzufügen: lange auf den Ordner in der Ordnerliste drücken und *Im Navigationsmenü anzeigen* ankreuzen
 * Weitere Nachrichten laden: lange auf den Ordner in der Ordnerliste drücken und *Weitere Nachrichten abrufen* auswählen
 * Um eine Nachricht direkt zu löschen und den Papierkorb zu umgehen, halten sie das Löschen-Symbol gedrückt
 * Konto/Identität löschen: Einstellungen → Manuelle Einrichtung und Kontooptionen → Konten/Identitäten → Konto/Identität auswählen → Drei-Punkte-Menü → Löschen
-* Ordner löschen: lange auf den Ordner in der Ordnerliste drücken -> Eigenschaften -> Drei-Punkte-Menü -> Löschen
+* Ordner löschen: lange auf den Ordner in der Ordnerliste drücken → Eigenschaften → Drei-Punkte-Menü → Löschen
 * Senden rückgängig machen: Postausgang, dann Nachricht nach links oder rechts schieben
-* Gesendete Nachrichten im Posteingang speichern: [Siehe diese F&A](#user-content-faq142)
+* Gesendete Nachrichten im Posteingang speichern: siehe [Frage 142](#user-content-faq142)
 * Systemordner ändern: Einstellungen → Manuelle Einrichtung und Kontooptionen → Konten → Konto auswählen → im unteren Bereich
 * Einstellungen exportieren/importieren: Einstellungen, Navigationsmenü (linke Seite)
 
 <h2><a name="known-problems"></a>Bekannte Probleme</h2>
 
-* ~~Ein [Fehler in Android 5.1 und 6](https://issuetracker.google.com/issues/37054851) führt dazu, dass Apps manchmal ein falsches Zeitformat anzeigen. Das Ein/Ausschalten des *24-Stunden-Formats* in den Android Einstellungen könnte das Problem vorübergehend beheben. Eine vorübergehende Lösung wurde hinzugefügt.~~
+* ~~Ein [Fehler in Android 5.1 und 6](https://issuetracker.google.com/issues/37054851) führt dazu, dass Apps manchmal ein falsches Zeitformat anzeigen. Das Ein/Ausschalten des *24-Stunden-Formats* in den Android-Einstellungen könnte das Problem vorübergehend beheben. Eine vorübergehende Lösung wurde hinzugefügt.~~
 * ~~Ein [Fehler in Google Drive](https://issuetracker.google.com/issues/126362828) bewirkt, dass die nach Google Drive exportierten Dateien leer sind. Google hat dies repariert.~~
 * ~~Ein [Fehler in AndroidX](https://issuetracker.google.com/issues/78495471) lässt FairEmail bei langem Drücken oder Wischen gelegentlich abstürzen. Google hat dies repariert.~~
 * ~~Ein [Fehler im AndroidX ROOM](https://issuetracker.google.com/issues/138441698) verursacht manchmal einen Absturz mit "*… Ausnahme beim Berechnen der Datenbank Live-Daten ... Konnte Zeile ...*" nicht lesen. Ein Workaround wurde hinzugefügt.~~
 * Ein [Bug im Android](https://issuetracker.google.com/issues/119872129) verursacht manchmal einen FairEmail-Absturz mit "*... Fehlerhafte Benachrichtigung ...*" auf einigen Geräten nach dem Aktualisieren von FairEmail und dem Tippen auf eine Benachrichtigung.
-* Ein [Bug in Android](https://issuetracker.google.com/issues/62427912) verursacht manchmal einen Absturz mit "*... ActivityRecord nicht gefunden für ...*" nach dem Update von FairEmail. Eine Neuinstallation ([quelle](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) könnte das Problem beheben.
+* Ein [Bug in Android](https://issuetracker.google.com/issues/62427912) verursacht manchmal einen Absturz mit "*... ActivityRecord nicht gefunden für ...*" nach dem Update von FairEmail. Eine Neuinstallation ([Quelle](https://stackoverflow.com/questions/46309428/android-activitythread-reportsizeconfigurations-causes-app-to-freeze-with-black)) könnte das Problem beheben.
 * Ein [Fehler in Android](https://issuetracker.google.com/issues/37018931) verursacht manchmal einen Absturz mit *... Der Eingabekanal wurde auf einigen Geräten nicht initialisiert ...*.
 * ~~Ein [Bug in LineageOS](https://review.lineageos.org/c/LineageOS/android_frameworks_base/+/265273) verursacht manchmal einen Absturz mit *... java.lang.ArrayIndexOutOfBoundsException: length=...; index=... ...*.~~
 * Ein Fehler in Nova Launcher unter Android 5.x lässt FairEmail mit einem *java.lang.StackOverflowError* abstürzen, wenn Nova Launcher einen Zugriff auf die Bedienungshilfen hat.
@@ -79,8 +77,8 @@ Zur Autorisierung:
 * ~~Ein [Bug in AndroidX](https://issuetracker.google.com/issues/64729576) macht es schwer, den Schnellscroller zu fassen. Ein Workaround wurde hinzugefügt.~~
 * ~~Die Verschlüsselung mit YubiKey führt zu einer Endlosschleife. Dies scheint durch einen [Fehler in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507) verursacht zu werden.~~
 * Der Bildlauf zu einer intern verknüpften Stelle in Originalnachrichten funktioniert nicht. Dies kann nicht behoben werden, da die Original-Nachrichten-Ansicht in einer Scroll-Ansicht enthalten ist.
-* Eine Vorschau eines Nachrichtentextes wird auf Samsung-Uhren nicht (immer) angezeigt, weil [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wohl ignoriert wird. Bisher ist nur bekannt, dass Nachrichtenvorschautexte auf den Smart-Armbändern „Pebble 2”, „Fitbit Charge 3”, „Mi Band 3” und „Xiaomi Amazfit BIP” korrekt angezeigt werden. Siehe auch [diese FAQ](#user-content-faq126).
-* Ein [Fehler in Android 6.0](https://issuetracker.google.com/issues/37068143) verursacht einen Absturz mit * … Ungültiger Offset: ... Der gültige Bereich ist …* wenn Text ausgewählt ist und außerhalb des ausgewählten Textes angetippt wird. Dieser Fehler wurde in Android 6.0.1 behoben.
+* Eine Vorschau eines Nachrichtentextes wird auf Samsung-Uhren nicht (immer) angezeigt, weil [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) wohl ignoriert wird. Bisher ist nur bekannt, dass Nachrichtenvorschautexte auf den Smart-Armbändern „Pebble 2”, „Fitbit Charge 3”, „Mi Band 3” und „Xiaomi Amazfit BIP” korrekt angezeigt werden. Siehe auch [Frage 126](#user-content-faq126).
+* Ein [Fehler in Android 6.0](https://issuetracker.google.com/issues/37068143) verursacht einen Absturz mit *… Ungültiger Offset: ... Der gültige Bereich ist …*, wenn Text ausgewählt ist und außerhalb des ausgewählten Textes angetippt wird. Dieser Fehler wurde in Android 6.0.1 behoben.
 * Interne (Anker-)Links funktionieren nicht, da die Originalnachrichten in einer eingebetteten Web-Ansicht in einer scrollenden Ansicht (der Konversationsliste) angezeigt werden. Dies ist eine Einschränkung von Android, die nicht behoben oder umgangen werden kann.
 * Die Erkennung der Sprache [funktioniert nicht mehr](https://issuetracker.google.com/issues/173337263) auf Pixel-Geräten mit (Update auf?) Android 11
 * Ein [Fehler in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) verursacht ungültige PGP-Signaturen bei der Verwendung eines Hardware-Tokens.
@@ -92,7 +90,7 @@ Zur Autorisierung:
 * ~~Nachricht kopieren~~
 * ~~Farbige Sterne~~
 * ~~Benachrichtigungseinstellungen pro Ordner~~
-* ~~~Das Wählen von lokalen Bildern für Signaturen~~ (dies wird nicht hinzugefügt, weil es eine Bildverwaltung erfordert und weil Bilder in den meisten E-Mail-Clients ohnehin nicht standardmäßig angezeigt werden)
+* ~~Das Wählen von lokalen Bildern für Signaturen~~ (dies wird nicht hinzugefügt, weil es eine Bildverwaltung erfordert und weil Bilder in den meisten E-Mail-Clients ohnehin nicht standardmäßig angezeigt werden)
 * ~~Nachrichten zu einem Regel-Treffer anzeigen~~
 * ~~[ManageSieve](https://tools.ietf.org/html/rfc5804)~~ (es gibt keine gepflegten Java-Bibliotheken mit einer geeigneten Lizenz und ohne Abhängigkeiten und außerdem hat FairEmail eigene Filterregeln)
 * ~~Suche nach Nachrichten mit/ohne Anhänge~~ (dies kann nicht hinzugefügt werden, da IMAP die Suche nach Anhängen nicht unterstützt)
@@ -100,11 +98,11 @@ Zur Autorisierung:
 * ~~Suchvorschläge~~
 * ~~[Autocrypt Setup Message](https://autocrypt.org/autocrypt-spec-1.0.0.pdf) (section 4.4)~~ (Meiner Meinung nach ist es keine gute Idee, einen E-Mail-Client für einen Ausnahmefall sensible Verschlüsselungscodes verarbeiten zu lassen, während OpenKeychain auch Schlüssel exportieren kann)
 * ~~Generische vereinheitlichte Ordner~~
-* ~~Neue Benachrichtigungszeitpläne für Nachrichten pro Konto~~ (implementiert durch Hinzufügen einer Zeitbedingung zu den Regeln, so dass Nachrichten während ausgewählter Zeiträume zurückgestellt werden können)
+* ~~Neue Benachrichtigungszeitpläne für Nachrichten pro Konto~~ (implementiert durch Hinzufügen einer Zeitbedingung zu den Regeln, sodass Nachrichten während ausgewählter Zeiträume zurückgestellt werden können)
 * ~~Kopieren von Konten und Identitäten~~
 * ~~Pinch zoom~~ (nicht zuverlässig möglich in einer Scroll-Liste; stattdessen kann die gesamte Nachrichtenansicht vergrößert werden)
 * ~~Mehr kompakte Ordneransicht~~
-* ~~Listen und Tabellen erstellen~~ (dies erfordert einen Rich-Text-Editor, siehe [diese FAQ](#user-content-faq99))
+* ~~Listen und Tabellen erstellen~~ (dies erfordert einen Rich-Text-Editor, siehe [Frage 99](#user-content-faq99))
 * ~~Pinch Zoom für die Textgröße~~
 * ~~GIF-Anzeige~~
 * ~~Themes~~ (ein graues Design mit hellem und dunklem Hintergrund wurden hinzugefügt, weil dies das ist, was die meisten Leute anscheinend wollen)
@@ -122,7 +120,7 @@ Alles auf dieser Liste ist in zufälliger Reihenfolge und *könnte* in naher Zuk
 
 <h2><a name="frequently-requested-features"></a>Häufig angefragte Funktionen</h2>
 
-Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch [in diesem Forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) darüber diskutieren. Ziel des Designs ist es, minimalistisch (keine unnötigen Menüs, Knöpfe usw.) und nicht ablenkend (keine ausgefallenen Farben, Animationen usw.), zu sein. Alle angezeigten Dinge sollten auf die eine oder andere Weise nützlich sein und sorgfältig positioniert werden, um sie einfach zu verwenden zu können. Schriften, Größen, Farben usw. sollten nach Möglichkeit im Materialdesign gestaltet sein.
+Das Design basiert auf vielen Diskussionen und wenn Sie möchten, können Sie auch [in diesem Forum](https://forum.xda-developers.com/android/apps-games/source-email-t3824168) darüber diskutieren. Ziel des Designs ist es, minimalistisch (keine unnötigen Menüs, Knöpfe usw.) und nicht ablenkend (keine ausgefallenen Farben, Animationen usw.), zu sein. Alle angezeigten Dinge sollten auf die eine oder andere Weise nützlich sein und sorgfältig positioniert werden, um sie einfach verwenden zu können. Schriften, Größen, Farben usw. sollten nach Möglichkeit im Materialdesign gestaltet sein.
 
 <h2><a name="frequently-asked-questions"></a>Häufig gestellte Fragen</h2>
 
@@ -135,8 +133,8 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(7) Warum werden gesendete Nachrichten nicht (direkt) im Gesendet-Ordner angezeigt?](#user-content-faq7)
 * [(8) Kann ich ein Microsoft-Exchange-Konto verwenden?](#user-content-faq8)
 * [(9) Was sind Identitäten / Wie füge ich einen Alias hinzu?](#user-content-faq9)
-* [~~(11) Warum wird POP nicht unterstützt?~~](#user-content-faq11)
 * [~~(10) Was bedeutet »UIDPLUS nicht unterstützt«?~~](#user-content-faq10)
+* [~~(11) Warum wird POP nicht unterstützt?~~](#user-content-faq11)
 * [(12) Wie funktioniert die Ver- und Entschlüsselung?](#user-content-faq12)
 * [(13) Wie funktioniert die Suche auf dem Gerät bzw. auf den Servern?](#user-content-faq13)
 * [(14) Wie kann ich ein Outlook-/Live-/Hotmail-Konto einrichten?](#user-content-faq14)
@@ -160,7 +158,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(32) Wie kann ich überprüfen, ob das Lesen von E-Mails wirklich sicher ist?](#user-content-faq32)
 * [(33) Warum funktionieren bearbeitete Absenderadressen nicht?](#user-content-faq33)
 * [(34) Wie werden Identitäten abgeglichen?](#user-content-faq34)
-* [(35) Warum sollte ich vorsichtig beim Öffnen von Bildern, Anhängen, der originialen Nachricht oder Links sein?](#user-content-faq35)
+* [(35) Warum sollte ich vorsichtig beim Öffnen von Bildern, Anhängen, der originalen Nachricht oder Links sein?](#user-content-faq35)
 * [(36) Wie werden Einstellungsdateien verschlüsselt?](#user-content-faq36)
 * [(37) Wie werden Passwörter gespeichert?](#user-content-faq37)
 * [(39) Wie kann ich den Akkuverbrauch von FairEmail verringern?](#user-content-faq39)
@@ -168,13 +166,13 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(41) Wie kann ich den Fehler »Handshake failed« beheben?](#user-content-faq41)
 * [(42) Können Sie einen neuen Anbieter zur Liste der Anbieter hinzufügen?](#user-content-faq42)
 * [(43) Können Sie das Original anzeigen?](#user-content-faq43)
-* [(44) Können Sie Kontaktfotos / Ident-Icons im Gesendeten Ordner anzeigen?](#user-content-faq44)
+* [~~(44) Können Sie Kontaktfotos / Ident-Icons im Gesendet-Ordner anzeigen?~~](#user-content-faq44)
 * [(45) Wie kann ich folgendes beheben? »Dieser Schlüssel ist nicht verfügbar. Um es zu verwenden, müssen Sie es selbst importieren!« ?](#user-content-faq45)
 * [(46) Warum wird die Nachrichtenliste immer wieder aktualisiert?](#user-content-faq46)
 * [(47) Wie löse ich den Fehler »Kein primäres Konto oder kein Ordner für Entwürfe«?](#user-content-faq47)
 * [~~(48) Wie löse ich den Fehler »Kein primäres Konto oder kein Archivordner«?~~](#user-content-faq48)
 * [(49) Wie behebe ich »Eine veraltete App hat einen Dateipfad anstelle eines Datei-Streams gesendet«?](#user-content-faq49)
-* [(50) Kann man eine Option hinzufügen, um alle Nachrichten zu synchronisieren?](#user-content-faq50)
+* [(50) Können Sie eine Option hinzufügen, um alle Nachrichten zu synchronisieren?](#user-content-faq50)
 * [(51) Wie werden die Ordner sortiert?](#user-content-faq51)
 * [(52) Wieso dauert es so lange Zeit, um sich wieder mit einem Konto zu verbinden?](#user-content-faq52)
 * [(53) Können Sie die Aktionsleiste nach oben/unten verlagern?](#user-content-faq53)
@@ -188,7 +186,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(61) Warum werden einige Nachrichten verdunkelt angezeigt?](#user-content-faq61)
 * [(62) Welche Authentifizierungsmethoden werden unterstützt?](#user-content-faq62)
 * [(63) Wie werden Bilder für die Anzeige auf den Bildschirmen skaliert?](#user-content-faq63)
-* [~~(64) Kann man benutzerdefinierte Aktionen zum Links-/Rechtswischen hinzufügen?~~](#user-content-faq64)
+* [~~(64) Können Sie benutzerdefinierte Aktionen zum Wischen nach links/rechts hinzufügen?~~](#user-content-faq64)
 * [(65) Warum werden einige Anhänge abgedunkelt angezeigt?](#user-content-faq65)
 * [(66) Gibt es FairEmail in der Google-Play-Familienmediathek?](#user-content-faq66)
 * [(67) Wie kann ich Konversationen zurückstellen?](#user-content-faq67)
@@ -216,7 +214,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(90) Warum sind einige Texte als Link formatiert, ohne ein gültiger Link zu sein?](#user-content-faq90)
 * [~~(91) Können Sie eine periodische Synchronisierung hinzufügen, um den Akku zu schonen?~~](#user-content-faq91)
 * [(92) Können Sie Spamfilter, Überprüfung der DKIM-Signatur und SPF-Legitimierung hinzufügen?](#user-content-faq92)
-* [(93) Ist eine Installation oder das Verlagern des Datenspeichers auf einen externen Datenträger (sdcard) möglich?](#user-content-faq93)
+* [(93) Ist eine Installation oder das Verlagern des Datenspeichers auf einen externen Datenträger (SD-Karte) möglich?](#user-content-faq93)
 * [(94) Was bedeutet der rot-orangefarbene Streifen am Ende des Nachrichtenkopfes?](#user-content-faq94)
 * [(95) Warum werden nicht alle Apps angezeigt, wenn ein Anhang oder ein Bild ausgewählt wird?](#user-content-faq95)
 * [(96) Wo finde ich die IMAP- und SMTP-Einstellungen?](#user-content-faq96)
@@ -239,7 +237,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(113) Wie funktioniert die biometrische Authentifizierung?](#user-content-faq113)
 * [(114) Kann ein Import der Einstellungen anderer E-Mail-Apps hinzugefügt werden?](#user-content-faq114)
 * [(115) Können E-Mail-Adressen-Chips hinzufügt werden?](#user-content-faq115)
-* [~~(116) Wie kann ich Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen? ~~](#user-content-faq116)
+* [~~(116) Wie kann ich Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen?~~](#user-content-faq116)
 * [Können Sie mir helfen, meinen Kauf wiederherzustellen?](#user-content-faq117)
 * [(118) Was bedeutet »Nachverfolgungsparameter entfernen« genau?](#user-content-faq118)
 * [~~(119) Können Sie Farben dem Sammeleingangs-Widget hinzufügen?~~](#user-content-faq119)
@@ -251,7 +249,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(125) Was sind die aktuellen experimentellen Funktionen?](#user-content-faq125)
 * [(126) Können Nachrichtenvorschauen an mein Wearable gesendet werden?](#user-content-faq126)
 * [(127) Wie kann ich den Fehler »Syntaktisch ungültige HELO-Argumente« beheben?](#user-content-faq127)
-* [(128) Wie kann ich die gestellten Fragen zurücksetzen, zum Beispiel um Bilder zu zeigen?](#user-content-faq128)
+* [(128) Wie kann ich die gestellten Fragen zurücksetzen, zum Beispiel, um Bilder zu zeigen?](#user-content-faq128)
 * [(129) Wird ProtonMail, Tutanota unterstützt?](#user-content-faq129)
 * [(130) Was bedeutet die Meldung »Fehler …«?](#user-content-faq130)
 * [(131) Kann man die Richtung für das Wischen für vorherige/nächste Nachricht ändern?](#user-content-faq131)
@@ -266,7 +264,7 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(140) Warum enthält der Nachrichtentext seltsame Zeichen?](#user-content-faq140)
 * [(141) Wie kann ich »Ein Entwürfe-Ordner ist erforderlich, um Nachrichten zu senden« beheben?](#user-content-faq141)
 * [(142) Wie kann ich gesendete Nachrichten im Posteingang speichern?](#user-content-faq142)
-* [~~(143) Gibt es einen Papierkorb für POP3-Konten? ~~](#user-content-faq143)
+* [~~(143) Gibt es einen Papierkorb für POP3-Konten?~~](#user-content-faq143)
 * [(144) Wie kann ich Sprachnotizen aufnehmen?](#user-content-faq144)
 * [(145) Wie kann ich einen Benachrichtigungston für ein Konto, einen Ordner oder einen Absender festlegen?](#user-content-faq145)
 * [(146) Wie kann ich falsche Zeiten von Nachrichten beheben?](#user-content-faq146)
@@ -283,22 +281,22 @@ Das Design basiert auf vielen Diskussionen und wenn du möchtest, kannst du auch
 * [(157) Wie kann ich ein Free.fr-Konto einrichten?](#user-content-faq157)
 * [(158) Welche/r Kamera/Audiorekorder ist empfehlenswert?](#user-content-faq158)
 * [(159) Was sind Disconnects Tracker-Schutzlisten?](#user-content-faq159)
-* [(160) Kannst du eine dauerhafte Löschung von Nachrichten ohne Bestätigung hinzufügen?](#user-content-faq160)
-* [(161) Kannst du eine Einstellung zum Ändern der primären und akzentuierenden Farbe hinzufügen?](#user-content-faq161)
+* [(160) Können Sie eine dauerhafte Löschung von Nachrichten ohne Bestätigung hinzufügen?](#user-content-faq160)
+* [(161) Können Sie eine Einstellung zum Ändern der primären und akzentuierenden Farbe hinzufügen?](#user-content-faq161)
 * [(162) Wird IMAP NOTIFY unterstützt?](#user-content-faq162)
 * [(163) Was ist Nachrichtenklassifizierung?](#user-content-faq163)
 * [(164) Können Sie anpassbare Designs hinzufügen?](#user-content-faq164)
 * [(165) Wird Android Auto unterstützt?](#user-content-faq165)
 * [(166) Kann ich eine Nachricht über mehrere Geräte hinweg zurückstellen?](#user-content-faq166)
 
-[Ich habe eine andere Frage.](#user-content-support)
+[Ich habe eine andere Frage.](#user-content-get-support)
 
 <a name="faq1"></a>
 **(1) Welche Berechtigungen werden benötigt und warum?**
 
 Die folgenden Android-Berechtigungen sind notwendig:
 
-* *Auf alle Netzwerke zugreifen * (INTERNET): E-Mails senden und empfangen
+* *Auf alle Netzwerke zugreifen* (INTERNET): E-Mails senden und empfangen
 * *Netzwerkverbindungen abrufen* (ACCESS_NETWORK_STATE): Um Änderungen bei der Internetverbindung zu überwachen
 * *Beim Start ausführen* (RECEIVE_BOOT_COMPLETED): Wird für den automatischen Start der App nach dem Einschalten des Geräts benötigt
 * *Vordergrunddienste verwenden* (FOREGROUND_SERVICE): um einen Vordergrund-Dienst auf Android 9 Pie und später auszuführen, siehe auch die nächste Frage
@@ -306,15 +304,15 @@ Die folgenden Android-Berechtigungen sind notwendig:
 * *Google Play-Rechnungsdienst* (BILLING): Erlaubt In-App-Käufe
 * *Plane einen exakten Alarm* (SCHEDULE_EXACT_ALARM): Um exakte Alarmplanung zu verwenden (Android 12 und höher)
 * Optional: *Einlesen Ihrer Kontakte* (READ_CONTACTS): zum automatischen Vervollständigen von Adressen, zum Anzeigen von Kontaktfotos und [zum Auswählen von Kontakten](https://developer.android.com/guide/components/intents-common#PickContactDat)
-* Optional: *SD-Karteninhalte lesen* (READ_EXTERNAL_STORAGE): um Dateien von anderen, veralteten Apps anzunehmen, siehe auch [diese häufig gestellten Fragen (FAQ)](#user-content-faq49)
+* Optional: *SD-Karteninhalte lesen* (READ_EXTERNAL_STORAGE): um Dateien von anderen, veralteten Apps anzunehmen, siehe auch [Frage 49](#user-content-faq49)
 * Optional: *Fingerabdruckhardware nutzen* (USE_FINGERPRINT) und *biometrische Hardware nutzen* (USE_BIOMETRIC): um biometrische Authentifizierung zu verwenden
-* Optional: *Konten auf dem Gerät suchen* (GET_ACCOUNTS): Um ein Konto auszuwählen. (wenn die Gmail Schnelleinrichtung verwendet wird)
-* Android 5.1 Lollipop und früher: *Benutzen Sie Konten auf dem Gerät* (USE_CREDENTIALS): Wählen Sie ein Konto bei der Verwendung der Google-Mail-Schnelleinstellung (nicht bei späteren Android-Versionen erforderlich)
+* Optional: *Konten auf dem Gerät suchen* (GET_ACCOUNTS): Um ein Konto auszuwählen. (wenn die Gmail-Schnelleinrichtung verwendet wird)
+* Android 5.1 Lollipop und früher: *Benutzen Sie Konten auf dem Gerät* (USE_CREDENTIALS): Wählen Sie ein Konto bei der Verwendung der Google-Mail-Schnelleinrichtung (nicht bei späteren Android-Versionen erforderlich)
 * Android 5.1 Lollipop und früher: *Profil lesen* (READ_PROFILE): um Ihren Namen bei der Verwendung der Gmail-Schnelleinrichtung zu lesen (nicht bei späteren Android-Versionen erforderlich)
 
 [Optionale Berechtigungen](https://developer.android.com/training/permissions/requesting) werden nur auf Android 6 Marshmallow und später unterstützt. Bei früheren Android-Versionen werden Sie aufgefordert, die optionalen Berechtigungen bei der Installation von FairEmail zu erteilen.
 
-Die folgenden Berechtigungen werden benötigt, um die Anzahl ungelesener Nachrichten auf dem App-Icon anzuzeigen (siehe auch [diese FAQ](#user-content-faq106)):
+Die folgenden Berechtigungen werden benötigt, um die Anzahl ungelesener Nachrichten auf dem App-Icon anzuzeigen (siehe auch [Frage 106](#user-content-faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -351,7 +349,7 @@ Die Statusleisten-Benachrichtigung kann über die Benachrichtigungseinstellungen
 * Android 8 Oreo und später: Tippen Sie auf *Kanal empfangen* und deaktivieren Sie den Kanal über die Android-Einstellungen (dies wird keine neuen Nachrichten deaktivieren)
 * Android 7 Nougat und vorher: aktiviert *Hintergrunddienst verwenden, um Nachrichten zu synchronisieren*, aber lesen Sie die Bemerkung unter der Einstellung
 
-Sie können in den Empfangseinstellungen auf periodische Synchronisierung von Nachrichten umschalten, um die Benachrichtigung zu entfernen, aber beachten Sie, dass dies möglicherweise mehr Batteriestrom verbraucht. Siehe [hier](#user-content-faq39) für weitere Details zum Batterieverbrauch.
+Sie können in den Empfangseinstellungen auf periodische Synchronisierung von Nachrichten umschalten, um die Benachrichtigung zu entfernen, aber beachten Sie, dass dies möglicherweise mehr Batteriestrom verbraucht. Siehe [Frage 39](#user-content-faq39) für weitere Details zum Batterieverbrauch.
 
 Android 8 Oreo zeigt möglicherweise auch eine Benachrichtigung in der Statusleiste mit dem Text *Apps werden im Hintergrund ausgeführt*. Bitte lesen Sie [hier](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) nach, wie Sie diese Benachrichtigung deaktivieren können.
 
@@ -388,7 +386,7 @@ Die Benachrichtigung in der Statusleiste mit niedriger Priorität zeigt die Anza
 * *Regel*: Regel im Text ausführen
 * *expunge*: Nachrichten dauerhaft löschen
 
-Vorgänge werden nur verarbeitet, wenn eine Verbindung zum E-Mail-Server besteht oder wenn manuell synchronisiert wird. Siehe auch [diese FAQ](#user-content-faq16).
+Vorgänge werden nur verarbeitet, wenn eine Verbindung zum E-Mail-Server besteht oder wenn manuell synchronisiert wird. Siehe auch [Frage 16](#user-content-faq16).
 
 <br />
 
@@ -423,7 +421,7 @@ Beachten Sie, dass ältere Android-Versionen neuere Zertifizierungsstellen wie L
 
 *... java.security.cert.CertPathValidatorException: Vertrauensanker für Zertifizierungspfad nicht gefunden ...* bedeutet, dass der Standard-Android-Trust-Manager nicht in der Lage war, die Server-Zertifikatskette zu überprüfen.
 
-Das kann daran liegen, dass das Stammzertifikat nicht auf Ihrem Gerät installiert ist oder weil Zwischenzertifikate fehlen, z. B. weil der E-Mail-Server sie nicht gesendet hat.
+Das kann daran liegen, dass das Stammzertifikat nicht auf Ihrem Gerät installiert ist oder weil Zwischenzertifikate fehlen, z. B., weil der E-Mail-Server sie nicht gesendet hat.
 
 Das erste Problem können Sie beheben, indem Sie das Stammzertifikat von der Website des Zertifikatsanbieters herunterladen und installieren.
 
@@ -467,8 +465,8 @@ Im Anzeigebereich der Einstellungen können Sie z. B. aktivieren oder deaktivier
 * *Sterne anzeigen*: zum Ausblenden von Sternen (Favoriten)
 * *Nachrichtenvorschau anzeigen*: um 1-4 Zeilen des Nachrichtentextes anzuzeigen
 * *Adressdetails standardmäßig anzeigen*: um den Adressbereich standardmäßig zu erweitern
-* *Automatisch Originalnachricht für bekannte Kontakte anzeigen*: um automatisch Originalnachrichten für Kontakte auf Ihrem Gerät anzuzeigen, lesen Sie bitte [diese FAQ](#user-content-faq35)
-* *Automatisch Bilder für bekannte Kontakte anzeigen*: um automatisch Bilder für Kontakte auf Ihrem Gerät anzuzeigen, lesen Sie bitte [diese FAQ](#user-content-faq35)
+* *Automatisch Originalnachricht für bekannte Kontakte anzeigen*: um automatisch Originalnachrichten für Kontakte auf Ihrem Gerät anzuzeigen, lesen Sie bitte [Frage 35](#user-content-faq35)
+* *Automatisch Bilder für bekannte Kontakte anzeigen*: um automatisch Bilder für Kontakte auf Ihrem Gerät anzuzeigen, lesen Sie bitte [Frage 35](#user-content-faq35)
 
 Beachten Sie, dass Nachrichten nur dann in der Vorschau angezeigt werden können, wenn der Nachrichtentext heruntergeladen wurde. Größere Nachrichtentexte werden in gebührenpflichtigen (in der Regel mobilen) Netzen standardmäßig nicht heruntergeladen. Sie können dies in den Verbindungseinstellungen ändern.
 
@@ -480,7 +478,7 @@ Manche Leute fragen:
 <br />
 
 <a name="faq6"></a>
-**(6) Wie kann ich mich bei Gmail / G-Suite anmelden?**
+**(6) Wie kann ich mich bei Gmail / G Suite anmelden?**
 
 Wenn Sie die Play Store- oder GitHub-Version von FairEmail verwenden, können Sie den Schnelleinrichtungsassistenten verwenden, um ein Gmail-Konto und eine Identität einfach einzurichten. Der Gmail-Schnelleinrichtungsassistent ist für Builds von Drittanbietern, wie dem F-Droid-Build, nicht verfügbar da Google die Verwendung von OAuth nur für offizielle Builds freigegeben hat.
 
@@ -492,7 +490,7 @@ Wenn Sie kein geräteinternes Google-Konto verwenden möchten oder können, z. B
 
 Diese Google-Sicherheitsprüfung wird häufiger ausgelöst, wenn *wenig sichere Apps* aktiviert sind, weniger mit einem App-Passwort und kaum bei Verwendung eines On-Device-Kontos (OAuth).
 
-Bitte lesen Sie [diese FAQ](#user-content-faq111), warum nur geräteinterne Konten verwendet werden können.
+Bitte lesen Sie [Frage 111](#user-content-faq111), warum nur geräteinterne Konten verwendet werden können.
 
 Beachten Sie, dass ein App-spezifisches Passwort erforderlich ist, wenn die Zwei-Faktor-Authentifizierung aktiviert ist.
 
@@ -508,7 +506,7 @@ Lesen Sie [hier](https://support.google.com/accounts/answer/185833), wie Sie ein
 
 **Wichtig**: Die Verwendung dieser Methode wird nicht empfohlen, da sie weniger zuverlässig ist.
 
-**Wichtig**: Gsuite-Konten, die mit einem Benutzernamen/Passwort autorisiert wurden, werden [in naher Zukunft nicht mehr funktionieren](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
+**Wichtig**: G Suite-Konten, die mit einem Benutzernamen/Passwort autorisiert wurden, werden [in naher Zukunft nicht mehr funktionieren](https://gsuiteupdates.googleblog.com/2019/12/less-secure-apps-oauth-google-username-password-incorrect.html).
 
 Siehe [hier](https://support.google.com/accounts/answer/6010255), wie Sie "weniger sichere Apps" aktivieren können oder gehen Sie [direkt zu der Einstellung](https://www.google.com/settings/security/lesssecureapps).
 
@@ -516,7 +514,7 @@ Wenn Sie mehrere Gmail-Konten verwenden, stellen Sie sicher, dass Sie die Einste
 
 Beachten Sie, dass Sie den Einstellungsbildschirm "Weniger sichere Apps" mit dem Zurück-Pfeil verlassen müssen, um die Einstellung zu übernehmen.
 
-Wenn Sie diese Methode verwenden, sollten Sie ein [starkes Passwort](https://en.wikipedia.org/wiki/Password_strength) für Ihr Gmail-Konto verwenden, was ohnehin eine gute Idee ist. Beachten Sie, dass die Verwendung des [Standard](https://tools.ietf.org/html/rfc3501) IMAP-Protokolls an sich nicht weniger sicher ist.
+Wenn Sie diese Methode verwenden, sollten Sie ein [starkes Passwort](https://en.wikipedia.org/wiki/Password_strength) für Ihr Gmail-Konto verwenden, was ohnehin eine gute Idee ist. Beachten Sie, dass die Verwendung des [Standard-IMAP-Protokolls](https://tools.ietf.org/html/rfc3501) an sich nicht weniger sicher ist.
 
 Wenn "weniger sichere Anwendungen" nicht aktiviert ist, erhalten Sie den Fehler *Authentifizierung fehlgeschlagen - ungültige Anmeldeinformationen* für Konten (IMAP) und *Benutzername und Passwort nicht akzeptiert* für Identitäten (SMTP).
 
@@ -537,9 +535,9 @@ Gesendete Nachrichten werden normalerweise vom Postausgang in den Ordner "Gesend
 
 Einige Provider führen keine Aufzeichnungen über gesendete Nachrichten oder der verwendete SMTP-Server ist möglicherweise nicht mit dem Provider verbunden. In diesen Fällen fügt FairEmail bei der Synchronisierung des Sendeordners, die nach dem Versenden einer Nachricht erfolgt, die gesendeten Nachrichten automatisch dem Sendeordner hinzu. Beachten Sie, dass dies zu zusätzlichem Internetverkehr führt.
 
-~~Wenn dies nicht geschieht, kann es sein, dass Ihr Provider die gesendeten Nachrichten nicht nachverfolgt oder dass Sie einen SMTP-Server verwenden, der nicht mit dem Provider verbunden ist. ~~In diesen Fällen können Sie die erweiterte Identitätseinstellung *Gesendete Nachrichten speichern* aktivieren, damit FairEmail gesendete Nachrichten direkt nach dem Senden einer Nachricht dem Ordner "Gesendet" hinzufügt.~~ ~~Beachten Sie, dass das Aktivieren dieser Einstellung zu doppelten Nachrichten führen kann, wenn Ihr Provider gesendete Nachrichten ebenfalls zum Ordner "Gesendet" hinzufügt.~~ ~~Beachten Sie auch, dass das Aktivieren dieser Einstellung zu einer zusätzlichen Datennutzung führt, vor allem beim Senden von Nachrichten mit großen Anhängen.~~
+~~Wenn dies nicht geschieht, kann es sein, dass Ihr Provider die gesendeten Nachrichten nicht nachverfolgt oder dass Sie einen SMTP-Server verwenden, der nicht mit dem Provider verbunden ist.~~ ~~In diesen Fällen können Sie die erweiterte Identitätseinstellung *Gesendete Nachrichten speichern* aktivieren, damit FairEmail gesendete Nachrichten direkt nach dem Senden einer Nachricht dem Ordner "Gesendet" hinzufügt.~~ ~~Beachten Sie, dass das Aktivieren dieser Einstellung zu doppelten Nachrichten führen kann, wenn Ihr Provider gesendete Nachrichten ebenfalls zum Ordner "Gesendet" hinzufügt.~~ ~~Beachten Sie auch, dass das Aktivieren dieser Einstellung zu einer zusätzlichen Datennutzung führt, vor allem beim Senden von Nachrichten mit großen Anhängen.~~
 
-~~Wenn gesendete Nachrichten im Postausgang bei einer Vollsynchronisation nicht im Ordner "Gesendet" gefunden werden, werden sie auch aus dem Postausgang in den Ordner "Gesendet" verschoben. ~~Eine vollständige Synchronisierung findet statt, wenn die Verbindung zum Server wiederhergestellt wird oder wenn die Synchronisierung periodisch oder manuell erfolgt. ~~Wahrscheinlich möchten Sie stattdessen die erweiterte Einstellung *Gesendete Nachrichten speichern* aktivieren, um Nachrichten früher in den Ordner "Gesendet" zu verschieben.~~
+~~Wenn gesendete Nachrichten im Postausgang bei einer Vollsynchronisation nicht im Ordner "Gesendet" gefunden werden, werden sie auch aus dem Postausgang in den Ordner "Gesendet" verschoben.~~ ~~Eine vollständige Synchronisierung findet statt, wenn die Verbindung zum Server wiederhergestellt wird oder wenn die Synchronisierung periodisch oder manuell erfolgt.~~ ~~Wahrscheinlich möchten Sie stattdessen die erweiterte Einstellung *Gesendete Nachrichten speichern* aktivieren, um Nachrichten früher in den Ordner "Gesendet" zu verschieben.~~
 
 <br />
 
@@ -554,11 +552,11 @@ Beachten Sie, dass die Beschreibung von FairEmail mit der Bemerkung beginnt dass
 
 Bitte sehen Sie [hier](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) für die Microsoft-Dokumentation zur Konfiguration eines E-Mail-Clients. Außerdem gibt es einen Abschnitt über häufige Verbindungsfehler und Lösungen.
 
-Einige ältere Exchange-Server-Versionen haben einen Fehler, der leere Nachrichten und beschädigte Anhänge verursacht. Bitte lesen Sie [diese FAQ](#user-content-faq110) für einen Workaround.
+Einige ältere Exchange-Server-Versionen haben einen Fehler, der leere Nachrichten und beschädigte Anhänge verursacht. Bitte lesen Sie [Frage 110](#user-content-faq110) für einen Workaround.
 
-Bitte beachten Sie [diese FAQ](#user-content-faq133) zur ActiveSync-Unterstützung.
+Bitte beachten Sie [Frage 133](#user-content-faq133) zur ActiveSync-Unterstützung.
 
-Bitte beachten Sie [diese FAQ](#user-content-faq111) zur OAuth-Unterstützung.
+Bitte beachten Sie [Frage 111](#user-content-faq111) zur OAuth-Unterstützung.
 
 <br />
 
@@ -575,7 +573,7 @@ Alternativ können Sie *Bearbeiten der Absenderadresse zulassen* in den erweiter
 
 FairEmail aktualisiert automatisch die Passwörter der zugehörigen Identitäten, wenn Sie das Passwort des zugehörigen Kontos oder einer zugehörigen Identität aktualisieren.
 
-Siehe [diese FAQ](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-Mail-Adressen.
+Siehe [Frage 33](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-Mail-Adressen.
 
 <br />
 
@@ -589,13 +587,13 @@ Siehe [diese FAQ](#user-content-faq33) zum Bearbeiten des Benutzernamens von E-M
 <a name="faq11"></a>
 **~~(11) Warum wird POP nicht unterstützt?~~**
 
-~~Abgesehen davon, dass jeder anständige E-Mail-Anbieter heutzutage [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) unterstützt,~~ ~~Die Verwendung von [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) führt zu unnötigem zusätzlichen Batterieverbrauch und verzögerten Benachrichtigungen über neue Nachrichten.~~ ~~Darüber hinaus ist POP für die Zwei-Wege-Synchronisation ungeeignet, und die meisten Leute lesen und schreiben Nachrichten heutzutage auf verschiedenen Geräten.~~
+~~Abgesehen davon, dass jeder anständige E-Mail-Anbieter heutzutage [IMAP](https://en.wikipedia.org/wiki/Internet_Message_Access_Protocol) unterstützt,~~ ~~Die Verwendung von [POP](https://en.wikipedia.org/wiki/Post_Office_Protocol) führt zu unnötigem zusätzlichen Batterieverbrauch und verzögerten Benachrichtigungen über neue Nachrichten.~~ ~~Darüber hinaus ist POP für die Zwei-Wege-Synchronisation ungeeignet und die meisten Leute lesen und schreiben Nachrichten heutzutage auf verschiedenen Geräten.~~
 
 ~~Grundsätzlich unterstützt POP nur das Herunterladen und Löschen von Nachrichten aus dem Posteingang.~~ ~~Daher sind gängige Operationen wie das Setzen von Nachrichtenattributen (gelesen, mit Sternchen versehen, beantwortet usw.), das Hinzufügen (Sichern) und Verschieben von Nachrichten nicht möglich.~~
 
-~~Siehe auch [was Google dazu schreibt](https://support.google.com/mail/answer/7104828).~~
+~~Siehe auch, [was Google dazu schreibt](https://support.google.com/mail/answer/7104828).~~
 
-~~Zum Beispiel kann [Gmail](https://support.google.com/mail/answer/21289) Nachrichten von einem anderen POP-Konto importieren,~~ ~~Was als Abhilfe genutzt werden kann, wenn Ihr Provider IMAP nicht unterstützt.~~
+~~Zum Beispiel kann [Gmail](https://support.google.com/mail/answer/21289) Nachrichten von einem anderen POP-Konto importieren,~~ ~~was als Abhilfe genutzt werden kann, wenn Ihr Provider IMAP nicht unterstützt.~~
 
 ~~Zusammenfassung; Überlegen Sie, ob Sie zu IMAP wechseln wollen.~~
 
@@ -626,9 +624,9 @@ Um eine Nachricht zu signieren/verschlüsseln, wählen Sie einfach die entsprech
 
 Um eine Signatur zu überprüfen oder eine empfangene Nachricht zu entschlüsseln, öffnen Sie die Nachricht und tippen Sie einfach auf die Geste oder das Vorhängeschloss-Symbol direkt unter der Aktionsleiste der Nachricht.
 
-Wenn Sie zum ersten Mal eine signierte/verschlüsselte Nachricht senden, werden Sie möglicherweise nach einem Signierschlüssel gefragt. FairEmail speichert den gewählten Signierschlüssel automatisch in der verwendeten Identität für das nächste Mal. Wenn Sie den Signierungsschlüssel zurücksetzen müssen, speichern Sie einfach die Identität oder drücken Sie lange auf die Identität in der Liste der Identitäten und wählen Sie *Signierungsschlüssel zurücksetzen*. Der ausgewählte Signierungsschlüssel ist in der Liste der Identitäten sichtbar. Wenn Sie einen Schlüssel von Fall zu Fall auswählen müssen, können Sie mehrere Identitäten für dasselbe Konto mit derselben E-Mail-Adresse erstellen.
+Wenn Sie zum ersten Mal eine signierte/verschlüsselte Nachricht senden, werden Sie möglicherweise nach einem Signaturschlüssel gefragt. FairEmail speichert den gewählten Signaturschlüssel automatisch in der verwendeten Identität für das nächste Mal. Wenn Sie den Signaturschlüssel zurücksetzen müssen, speichern Sie einfach die Identität oder drücken Sie lange auf die Identität in der Liste der Identitäten und wählen Sie *Signaturschlüssel zurücksetzen*. Der ausgewählte Signaturschlüssel ist in der Liste der Identitäten sichtbar. Wenn Sie einen Schlüssel von Fall zu Fall auswählen müssen, können Sie mehrere Identitäten für dasselbe Konto mit derselben E-Mail-Adresse erstellen.
 
-In den Verschlüsselungseinstellungen können Sie die Standardverschlüsselungsmethode (PGP oder S/MIME) auswählen, *Standardmäßig unterschreiben*, *Standmäßig verschlüsseln* und *Nachrichten automatisch entschlüsseln* aktivieren, Beachten Sie jedoch, dass eine automatische Entschlüsselung nicht möglich ist, wenn eine Benutzerinteraktion erforderlich ist, wie z. B. die Auswahl eines Schlüssels oder das Lesen eines Sicherheitstokens.
+In den Verschlüsselungseinstellungen können Sie die Standardverschlüsselungsmethode (PGP oder S/MIME) auswählen, *Standardmäßig unterschreiben*, *Standardmäßig verschlüsseln* und *Nachrichten automatisch entschlüsseln* aktivieren. Beachten Sie jedoch, dass eine automatische Entschlüsselung nicht möglich ist, wenn eine Benutzerinteraktion erforderlich ist, wie z. B. die Auswahl eines Schlüssels oder das Lesen eines Sicherheitstokens.
 
 Der zu verschlüsselnde Nachrichtentext/die zu verschlüsselnden Anhänge und der entschlüsselte Nachrichtentext/die entschlüsselten Anhänge werden nur lokal gespeichert und werden niemals auf dem Remote-Server hinzugefügt. Wenn Sie die Entschlüsselung rückgängig machen wollen, können Sie den Menüpunkt *Resync* im Drei-Punkte-Menü der Nachrichtenaktionsleiste verwenden.
 
@@ -638,23 +636,23 @@ Der zu verschlüsselnde Nachrichtentext/die zu verschlüsselnden Anhänge und de
 
 Sie müssen zuerst [OpenKeychain](https://f-droid.org/en/packages/org.sufficientlysecure.keychain/) installieren und konfigurieren. FairEmail wurde mit OpenKeychain Version 5.4 getestet. Spätere Versionen sind höchstwahrscheinlich kompatibel, aber frühere Versionen sind es möglicherweise nicht.
 
-**Wichtig**: die OpenKeychain-App ist dafür bekannt, (stillschweigend) abzustürzen, wenn die aufrufende App (FairEmail) noch nicht autorisiert ist und einen bestehenden öffentlichen Schlüssel erhält. Sie können dieses Problem umgehen, indem Sie versuchen, eine signierte/verschlüsselte Nachricht an einen Absender mit einem unbekannten öffentlichen Schlüssel zu senden.
+**Wichtig**: Die OpenKeychain-App ist dafür bekannt, (stillschweigend) abzustürzen, wenn die aufrufende App (FairEmail) noch nicht autorisiert ist und einen bestehenden öffentlichen Schlüssel erhält. Sie können dieses Problem umgehen, indem Sie versuchen, eine signierte/verschlüsselte Nachricht an einen Absender mit einem unbekannten öffentlichen Schlüssel zu senden.
 
 **Wichtig**: Wenn die OpenKeychain-App einen Schlüssel nicht (mehr) findet, müssen Sie eventuell einen zuvor ausgewählten Schlüssel zurücksetzen. Das kann durch langes Drücken einer Identität in der Liste der Identitäten erfolgen (Einstellungen → Manuelle Einrichtung und Kontooptionen → Identitäten).
 
-**Wichtig**: damit sich Apps wie FairEmail zuverlässig mit dem OpenKeychain-Dienst verbinden können, um Nachrichten zu verschlüsseln/entschlüsseln, kann es notwendig sein, die Akku-Optimierungen für die OpenKeychain-App zu deaktivieren.
+**Wichtig**: Damit sich Apps wie FairEmail zuverlässig mit dem OpenKeychain-Dienst verbinden können, um Nachrichten zu verschlüsseln/entschlüsseln, kann es notwendig sein, die Akku-Optimierungen für die OpenKeychain-App zu deaktivieren.
 
 **Wichtig**: Die OpenKeychain-App benötigt vermutlich die Nutzung der Kontakte, um korrekt zu funktionieren.
 
-**Wichtig**: auf einigen Android-Versionen / Geräten ist es notwendig, *Popups anzeigen, während sie im Hintergrund laufen* zu aktivieren. in den zusätzlichen Berechtigungen der Android-App-Einstellungen der OpenKeychain-App. Ohne diese Berechtigung wird der Entwurf zwar gespeichert, aber das OpenKeychain-Popup zum Bestätigen/Auswählen erscheint möglicherweise nicht.
+**Wichtig**: Auf einigen Android-Versionen / Geräten ist es notwendig, *Popups anzeigen, während sie im Hintergrund laufen* zu aktivieren. In den zusätzlichen Berechtigungen der Android-App-Einstellungen der OpenKeychain-App. Ohne diese Berechtigung wird der Entwurf zwar gespeichert, aber das OpenKeychain-Popup zum Bestätigen/Auswählen erscheint möglicherweise nicht.
 
 FairEmail sendet, nur für signierte und verschlüsselte Nachrichten, da zu viele E-Mail-Server Probleme mit dem oft langen Header haben, einen [Autocrypt](https://autocrypt.org/)-Header zur Verwendung durch andere E-Mail-Clients. Beachten Sie, dass die sicherste Art, einen verschlüsselten E-Mail-Austausch zu beginnen, darin besteht, dass zuerst signierte Nachrichten gesendet werden. Empfangene Autocrypt Header werden an die OpenKeychain App gesendet, um eine Signatur zu überprüfen oder eine Nachricht zu entschlüsseln.
 
-Obwohl dies für die meisten E-Mail-Clients nicht notwendig sein sollte, können Sie Ihren Public-Key an eine Nachricht anhängen und wenn Sie *.key* als Dateiendung verwenden, ist der korrekte Mime-Typ *application/pgp-keys*.
+Obwohl dies für die meisten E-Mail-Clients nicht notwendig sein sollte, können Sie Ihren Public-Key an eine Nachricht anhängen. Wenn Sie *.key* als Dateiendung verwenden, ist der korrekte Mime-Typ *application/pgp-keys*.
 
 Alle Schlüsselbearbeitung wird aus Sicherheitsgründen an die OpenKey-Chainapp übertragen. Das bedeutet auch, dass FairEmail keine PGP-Schlüssel speichert.
 
-Inline verschlüsseltes PGP in empfangenen Nachrichten wird unterstützt, aber Inline-PGP-Signaturen und Inline-PGP in ausgehenden Nachrichten werden nicht unterstützt, siehe [hier](https://josefsson.org/inline-openpgp-considered-harmful.html) warum nicht.
+Inline verschlüsseltes PGP in empfangenen Nachrichten wird unterstützt, aber Inline-PGP-Signaturen und Inline-PGP in ausgehenden Nachrichten werden nicht unterstützt, siehe [hier](https://josefsson.org/inline-openpgp-considered-harmful.html), warum nicht.
 
 Nur signierte oder nur verschlüsselte Nachrichten sind keine gute Idee. Bitte sehen Sie hier nach, warum nicht:
 
@@ -666,17 +664,17 @@ Nur signierte Nachrichten werden unterstützt, verschlüsselte Nachrichten nicht
 
 Häufige Fehler:
 
-* *Kein Schlüssel*: kein PGP-Schlüssel für eine der aufgeführten E-Mail-Adressen verfügbar
-* *Verschlüsselungsschlüssel fehlt*: es wurde wahrscheinlich in FairEmail ein Schlüssel ausgewählt, der in der OpenKeychain-App nicht mehr vorhanden ist. Das Zurücksetzen des Schlüssels (siehe oben) wird dieses Problem eventuell beheben.
+* *Kein Schlüssel*: Kein PGP-Schlüssel für eine der aufgeführten E-Mail-Adressen verfügbar
+* *Verschlüsselungsschlüssel fehlt*: Es wurde wahrscheinlich in FairEmail ein Schlüssel ausgewählt, der in der OpenKeychain-App nicht mehr vorhanden ist. Das Zurücksetzen des Schlüssels (siehe oben) wird dieses Problem eventuell beheben.
 * *Schlüssel zur Signaturüberprüfung fehlt*: Der öffentliche Schlüssel für den Absender ist in der OpenKeychain App nicht verfügbar. Dies kann auch dadurch verursacht werden, dass Autocrypt in den Verschlüsselungseinstellungen deaktiviert wird oder der Autocrypt-Header nicht gesendet wird.
 
 <br />
 
 *S/MIME*
 
-Die Verschlüsselung einer Nachricht erfordert den Public Key der/desEmpfänger(s). Das Signieren einer Nachricht erfordert Ihren Private Key.
+Die Verschlüsselung einer Nachricht erfordert den Public Key der/des Empfänger(s). Das Signieren einer Nachricht erfordert Ihren Private Key.
 
-Private Schlüssel werden von Android gespeichert und können über die erweiterten Sicherheitseinstellungen von Android importiert werden. Dafür gibt es einen Knopf in den Datenschutzeinstellungen. Android wird Sie bitten, eine PIN, ein Ensperrungsmuster oder ein Passwort festzulegen, falls Sie dies zuvor nicht getan haben. Wenn Sie ein Nokia-Gerät mit Android 9 haben, [lesen Sie bitte zuerst das](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
+Private Schlüssel werden von Android gespeichert und können über die erweiterten Sicherheitseinstellungen von Android importiert werden. Dafür gibt es einen Knopf in den Datenschutzeinstellungen. Android wird Sie bitten, eine PIN, ein Entsperrungsmuster oder ein Passwort festzulegen, falls Sie dies zuvor nicht getan haben. Wenn Sie ein Nokia-Gerät mit Android 9 haben, [lesen Sie bitte zuerst das](https://nokiamob.net/2019/08/10/a-bug-prevents-nokia-1-owners-from-unlocking-their-screen-even-with-right-pin-pattern/).
 
 Beachten Sie, dass Zertifikate mehrere Schlüssel für mehrere Zwecke enthalten können, zum Beispiel zur Authentifizierung, Verschlüsselung und Signierung. Android importiert nur den ersten Schlüssel, um alle Schlüssel zu importieren, muss das Zertifikat zuerst aufgeteilt werden. Das ist nicht sehr einfach, und es wird empfohlen, den Zertifikatlieferanten um Unterstützung zu bitten.
 
@@ -711,7 +709,7 @@ Siehe [hier](https://support.google.com/pixelphone/answer/2844832?hl=en), wie Si
 
 Die Verwendung von abgelaufenen Schlüsseln, inline verschlüsselten oder signierten Nachrichten und Hardware-Sicherheitstokens wird nicht unterstützt.
 
-Wenn Sie ein kostenloses (Test-) S/MIME Zertifikat suchen, finden Sie die Optionen [hier](http://kb.mozillazine.org/Getting_an_SMIME_certificate). Achten sie darauf, [das](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) zuerst zu lesen, wenn sie ein solches Zertifikat erhalten wollen. Wenn Sie ein günstiges S/MIME-Zertifikat suchen, habe ich mit [Certum](https://www.certum.eu/en/smime-certificates/) gute Erfahrungen gemacht.
+Wenn Sie ein kostenloses (Test-) S/MIME Zertifikat suchen, finden Sie die Optionen [hier](https://kb.mozillazine.org/Getting_an_SMIME_certificate). Achten sie darauf, [das](https://davidroessli.com/logs/2019/09/free-smime-certificates-in-2019/#update20191219) zuerst zu lesen, wenn sie ein solches Zertifikat erhalten wollen. Wenn Sie ein günstiges S/MIME-Zertifikat suchen, habe ich mit [Certum](https://www.certum.eu/en/smime-certificates/) gute Erfahrungen gemacht.
 
 Wie man einen öffentlichen Schlüssel aus einem S/MIME-Zertifikat extrahiert:
 
@@ -719,7 +717,7 @@ Wie man einen öffentlichen Schlüssel aus einem S/MIME-Zertifikat extrahiert:
 openssl pkcs12 -in filename.pfx/p12 -clcerts -nokeys -out cert.pem
 ```
 
-Sie können S/MIME-Signaturen usw. dekodieren, siehe [hier](https://lapo.it/asn1js/).
+Sie können S/MIME-Signaturen usw. decodieren, siehe [hier](https://lapo.it/asn1js/).
 
 <br />
 
@@ -760,9 +758,9 @@ Das Durchsuchen einer großen Anzahl von Nachrichten auf dem Gerät ist aufgrund
 * [sqlite](https://www.sqlite.org/), die Datenbank-Engine von Android hat ein Datensatzgrößenlimit und verhindert, dass Nachrichten in der Datenbank gespeichert werden
 * Android-Apps können nur mit limitiertem Arbeitsspeicher arbeiten, auch wenn das Gerät viel Speicher zur Verfügung hat
 
-Das bedeutet, dass die Suche nach einem Nachrichtentext erfordert, dass die Dateien, die die Nachrichtentexte enthalten, einzeln geöffnet werden müssen um zu prüfen, ob der gesuchte Text in der Datei enthalten ist, was ein relativ aufwendiger Prozess ist.
+Das bedeutet, dass die Suche nach einem Nachrichtentext erfordert, dass die Dateien, die die Nachrichtentexte enthalten, einzeln geöffnet werden müssen, um zu prüfen, ob der gesuchte Text in der Datei enthalten ist, was ein relativ aufwendiger Prozess ist.
 
-In den *Sonstigen Einstellungen* können Sie *Suchindex aufbauen* aktivieren, um die Geschwindigkeit der Suche auf dem Gerät deutlich zu erhöhen, aber seien Sie sich bewusst, dass dies den Batterie- und Speicherplatzverbrauch erhöht. Der Suchindex basiert auf Wörtern, eine Suche nach Teiltexten ist also nicht möglich. Die Suche über den Suchindex ist standardmäßig UND, so dass die Suche nach *Apfel Orange* nach Apfel UND Orange sucht. Durch Kommas getrennte Wörter führen zu einer Suche nach ODER, so dass z. B. *Apfel, Orange* nach Apfel ODER Orange suchen wird. Beide können kombiniert werden, so dass die Suche nach *Apfel, Orange Banane* nach Apfel ODER (Orange UND Banane) sucht. Die Verwendung des Suchindex ist eine Pro-Funktion.
+In den *Sonstigen Einstellungen* können Sie *Suchindex aufbauen* aktivieren, um die Geschwindigkeit der Suche auf dem Gerät deutlich zu erhöhen, aber seien Sie sich bewusst, dass dies den Batterie- und Speicherplatzverbrauch erhöht. Der Suchindex basiert auf Wörtern, eine Suche nach Teiltexten ist also nicht möglich. Die Suche über den Suchindex ist standardmäßig UND, sodass die Suche nach *Apfel Orange* nach Apfel UND Orange sucht. Durch Kommas getrennte Wörter führen zu einer Suche nach ODER, sodass z. B. *Apfel, Orange* nach Apfel ODER Orange suchen wird. Beide können kombiniert werden, sodass die Suche nach *Apfel, Orange Banane* nach Apfel ODER (Orange UND Banane) sucht. Die Verwendung des Suchindex ist eine Pro-Funktion.
 
 Ab Version 1.1315 ist es möglich, Suchausdrücke wie diesen zu verwenden:
 
@@ -791,18 +789,18 @@ Um ein Outlook-, Live- oder Hotmail-Konto mit aktivierter Zwei-Faktor-Authentifi
 
 Siehe [hier](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) für die Anweisungen von Microsoft.
 
-Zum Einrichten eines Office 365-Kontos lesen Sie bitte [diese FAQ](#user-content-faq156).
+Zum Einrichten eines Office 365-Kontos lesen Sie bitte [Frage 156](#user-content-faq156).
 
 <br />
 
 <a name="faq15"></a>
 **(15) Warum wird der Meldungstext immer wieder geladen?**
 
-Der Nachrichtenkopf und der Nachrichtentext werden separat vom Server geholt. Der Nachrichtentext größerer Nachrichten wird bei gebührenpflichtigen Verbindungen nicht vorgeholt und wird bei Bedarf beim Erweitern einer Nachricht geholt. Der Nachrichtentext wird später weiter geladen, wenn aktuell keine Verbindung zum Konto besteht, siehe auch die nächste Frage, oder wenn andere Vorgänge wie die Synchronisierung von Nachrichten ausgeführt werden.
+Der Nachrichtenkopf und der Nachrichtentext werden separat vom Server geholt. Der Nachrichtentext größerer Nachrichten wird bei gebührenpflichtigen Verbindungen nicht im Voraus geholt, sondern erst bei Bedarf, wenn eine Nachricht erweitert wird. Der Nachrichtentext wird weiter geladen, wenn keine Verbindung zum Konto besteht (siehe auch die nächste Frage) oder wenn andere Vorgänge, wie die Synchronisierung von Nachrichten, ausgeführt werden.
 
-Sie können die Konto- und Ordnerliste für den Konto- und Ordnerstatus überprüfen (siehe die Legende für die Bedeutung der Symbole) und die über das Hauptnavigationsmenü zugängliche Vorgangsliste für ausstehende Vorgänge (siehe [diese FAQ](#user-content-faq3) für die Bedeutung der Vorgänge).
+Sie können die Konto- und Ordnerliste für den Konto- und Ordnerstatus überprüfen (siehe die Legende für die Bedeutung der Symbole) und die über das Hauptnavigationsmenü zugängliche Vorgangsliste für ausstehende Vorgänge (siehe [Frage 3](#user-content-faq3) für die Bedeutung der Vorgänge).
 
-Wenn FairEmail wegen vorheriger Verbindungsprobleme (siehe [diese FAQ](#user-content-faq123)) die Synchronisation erzwingt, können Sie dies über das Drei-Punkte-Menü erzwingen.
+Wenn FairEmail wegen vorheriger Verbindungsprobleme (siehe [Frage 123](#user-content-faq123)) die Synchronisation erzwingt, können Sie dies über das Drei-Punkte-Menü erzwingen.
 
 In den Empfangseinstellungen können Sie die maximale Größe für das automatische Herunterladen von Nachrichten bei gebührenpflichtigen Verbindungen einstellen.
 
@@ -823,7 +821,7 @@ Mögliche Ursachen für nicht synchronisierte (gesendete oder empfangene) Nachri
 
 Überprüfen Sie also Ihre Konto- und Ordnereinstellungen und prüfen Sie, ob die Konten/Ordner verbunden sind (siehe Legende im Navigationsmenü für die Bedeutung der Symbole).
 
-Wenn es irgendwelche Fehlermeldungen gibt, lesen Sie bitte [diese FAQ](#user-content-faq22).
+Wenn es irgendwelche Fehlermeldungen gibt, lesen Sie bitte [Frage 22](#user-content-faq22).
 
 Auf einigen Geräten, wo viele Anwendungen um Speicher konkurrieren, kann Android den Synchronisierungsdienst als letzte Möglichkeit stoppen.
 
@@ -831,7 +829,7 @@ Einige Android-Versionen stoppen Apps und Dienste zu aggressiv. Siehe [diese Web
 
 Das Deaktivieren von Batterieoptimierungen (Setup-Schritt 3) verringert die Chance, dass Android den Synchronisierungsdienst stoppt.
 
-Bei aufeinanderfolgenden Verbindungsfehlern wartet FairEmail mit jedem Mal länger, um den Akku Ihres Geräts nicht zu entladen. Dies wird in [in dieser FAQ](#user-content-faq123) beschrieben.
+Bei aufeinanderfolgenden Verbindungsfehlern wartet FairEmail mit jedem Mal länger, um den Akku Ihres Geräts nicht zu entladen. Dies wird in [Frage 123](#user-content-faq123) beschrieben.
 
 <br />
 
@@ -847,7 +845,7 @@ Bei aufeinanderfolgenden Verbindungsfehlern wartet FairEmail mit jedem Mal läng
 <a name="faq18"></a>
 **(18) Warum wird die Nachrichtenvorschau nicht immer angezeigt?**
 
-Die Vorschau des Nachrichtentextes kann nicht angezeigt werden, wenn der Nachrichtentext noch nicht heruntergeladen wurde. Siehe auch [diese häufig gestellten Fragen (FAQ)](#user-content-faq15).
+Die Vorschau des Nachrichtentextes kann nicht angezeigt werden, wenn der Nachrichtentext noch nicht heruntergeladen wurde. Siehe auch [Frage 15](#user-content-faq15).
 
 <br />
 
@@ -856,11 +854,11 @@ Die Vorschau des Nachrichtentextes kann nicht angezeigt werden, wenn der Nachric
 
 Zuallererst: **FairEmail ist grundsätzlich kostenlos zu nutzen** und nur einige erweiterte Funktionen müssen gekauft werden.
 
-Zuerst: **FairEmail ist grundsätzlich kostenlos**, nur einige erweiterte Funktionen müssen gekauft werden.
+Zuerst: **FairEmail ist grundsätzlich kostenlos**, nur einige erweiterte Funktionen müssen gekauft werden.
 
 Zunächst einmal ist **FairEmail grundsätzlich kostenlos** und nur einige erweiterte Funktionen müssen gekauft werden.
 
-Bitte sehen Sie sich die Beschreibung der App im PlayStore an oder [siehe hier](https://email.faircode.eu/#pro) für eine vollständige Liste der Pro-Features.
+Bitte sehen Sie sich die Beschreibung der App im Play Store an oder [siehe hier](https://email.faircode.eu/#pro) für eine vollständige Liste der Pro-Features.
 
 Die richtige Frage ist: »*Warum gibt es so viele Steuern und Gebühren?*«:
 
@@ -871,7 +869,7 @@ Die richtige Frage ist: »*Warum gibt es so viele Steuern und Gebühren?*«:
 
 Was für den Entwickler übrig bleibt, ist also nur ein Bruchteil dessen, was Sie bezahlen.
 
-Beachten Sie auch, dass die meisten kostenlosen Apps am Ende nicht langfristig einsetzbar sind, während FairEmail ordnungsgemäß gewartet und unterstützt wird; und dass kostenlose Anwendungen einen Haken haben können, wie z.B. das Senden vertraulicher Informationen ins Internet. Es gibt in der App auch keine Privatsphäre verletztende Werbung.
+Beachten Sie auch, dass die meisten kostenlosen Apps am Ende nicht langfristig einsetzbar sind, während FairEmail ordnungsgemäß gewartet und unterstützt wird; und dass kostenlose Anwendungen einen Haken haben können, wie z. B. das Senden vertraulicher Informationen ins Internet. Es gibt in der App auch keine Privatsphäre verletzende Werbung.
 
 Ich arbeite seit mehr als zwei Jahren fast jeden Tag an FairEmail, daher halte ich den Preis für mehr als angemessen. Aus diesem Grund gibt es auch keine Rabatte.
 
@@ -887,11 +885,11 @@ Wenn eine erworbene Pro-Funktion nicht wie geplant funktioniert, dies nicht durc
 
 Vor Android 8 Oreo: Es gibt eine erweiterte Option im Setup dafür.
 
-Android 8 Oreo und später: Siehe [hier](https://developer.android.com/training/notify-user/channels) über die Konfiguration von Benachrichtigungskanälen. Sie können die Schaltfläche *Standardkanal* in den Benachrichtigungseinstellungen der App verwenden um direkt zu den richtigen Einstellungen für den Android Benachrichtigungskanal zu gelangen.
+Android 8 Oreo und später: Siehe [hier](https://developer.android.com/training/notify-user/channels) über die Konfiguration von Benachrichtigungskanälen. Sie können die Schaltfläche *Standardkanal* in den Benachrichtigungseinstellungen der App verwenden, um direkt zu den richtigen Einstellungen für den Android Benachrichtigungskanal zu gelangen.
 
-Beachte, dass Apps die Benachrichtigungseinstellungen, einschließlich der Benachrichtigungslichteinstellung, auf Android 8 Oreo und späte nicht mehr ändern können.
+Beachten Sie, dass Apps die Benachrichtigungseinstellungen, einschließlich der Benachrichtigungslichteinstellung, auf Android 8 Oreo und späte nicht mehr ändern können.
 
-Manchmal ist es notwendig, die Einstellung *Nachrichtenvorschau in Benachrichtigungen anzeigen* zu deaktivieren oder die Einstellungen *Benachrichtigungen nur mit Vorschautext anzeigen * zu aktivieren, um einen Fehler in Android zu beheben. Dies kann auch für Benachrichtigungstöne und Vibrationen gelten.
+Manchmal ist es notwendig, die Einstellung *Nachrichtenvorschau in Benachrichtigungen anzeigen* zu deaktivieren oder die Einstellungen *Benachrichtigungen nur mit Vorschautext anzeigen* zu aktivieren, um einen Fehler in Android zu beheben. Dies kann auch für Benachrichtigungstöne und Vibrationen gelten.
 
 Das Setzen einer Lichtfarbe vor Android 8 wird nicht unterstützt und ist auf Android 8 und später nicht möglich.
 
@@ -902,7 +900,7 @@ Das Setzen einer Lichtfarbe vor Android 8 wird nicht unterstützt und ist auf An
 
 FairEmail versteckt keine Fehler, wie es ähnliche Apps meistens tun, daher ist es einfacher, Probleme zu diagnostizieren.
 
-FairEmail versucht automatisch, sich nach einer Verzögerung erneut zu verbinden. Diese Verzögerung wird sich nach jedem fehlgeschlagenen Versuch verdoppeln, um das Entladen der Batterie zu verhindern und zu verhindern, dass sie dauerhaft gesperrt wird. Weitere Informationen finden Sie in den [Häufig gestellten Fragen (FAQ)](#user-content-faq123).
+FairEmail versucht automatisch, sich nach einer Verzögerung erneut zu verbinden. Diese Verzögerung wird sich nach jedem fehlgeschlagenen Versuch verdoppeln, um das Entladen der Batterie zu verhindern und zu verhindern, dass die Verbindung dauerhaft gesperrt wird. Weitere Informationen finden Sie in [Frage 123](#user-content-faq123).
 
 Es gibt allgemeine Fehler und Fehler spezifisch für Gmail-Konten (siehe unten).
 
@@ -913,7 +911,7 @@ Der Fehler *... **Authentifizierung fehlgeschlagen** ...* oder *... „Authentif
 
 Bei Bedarf können Sie ein Passwort in den Kontoeinstellungen aktualisieren: Navigationsmenü (linkes Seitenmenü), *Einstellungen* → *Manuelle Einrichtung und Kontooptionen* → *Konten* → Konto auswählen. Das Ändern des Kontopassworts ändert in den meisten Fällen automatisch auch das Passwort der zugehörigen Identitäten. Wenn das Konto mit OAuth über den Schnelleinrichtungsassistenten statt mit einem Passwort autorisiert wurde, können Sie den Schnelleinrichtungsassistenten erneut ausführen und *Vorhandenes Konto erneut autorisieren* ankreuzen, um das Konto erneut zu authentifizieren. Beachten Sie, dass dafür eine aktuelle Version der App erforderlich ist.
 
-Der Fehler *... Zu viele schlechte Authentifizierungsversuche ...* bedeutet wahrscheinlich, dass Sie ein Yahoo-Kontopasswort anstelle eines App-Passworts verwenden. Bitte lesen Sie [diese FAQ](#user-content-faq88), wie Sie ein Yahoo-Konto einrichten können.
+Der Fehler *... Zu viele schlechte Authentifizierungsversuche ...* bedeutet wahrscheinlich, dass Sie ein Yahoo-Kontopasswort anstelle eines App-Passworts verwenden. Bitte lesen Sie [Frage 88](#user-content-faq88), wie Sie ein Yahoo-Konto einrichten können.
 
 Die Meldung *... +OK ...* bedeutet wahrscheinlich, dass ein POP3-Port (normalerweise Portnummer 995) für ein IMAP-Konto (normalerweise Portnummer 993) verwendet wird.
 
@@ -933,24 +931,24 @@ Die Fehler *... BYE Abmelden ...*, *... Verbindungsabbruch ...* bedeutet, dass d
 
 Der Fehler *... Connection closed by peer ...* kann durch einen nicht aktualisierten Exchange-Server verursacht werden, siehe [hier](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) für weitere Informationen.
 
-Die Fehler *... Lesefehler ...*, *... Schreibfehler ...*, *... Zeitüberschreitung beim Lesen … *, *... Broken pipe ...* bedeutet, dass der E-Mail-Server nicht mehr antwortet oder dass die Internetverbindung schlecht ist.
+Die Fehler *... Lesefehler ...*, *... Schreibfehler ...*, *... Zeitüberschreitung beim Lesen …*, *... Broken pipe ...* bedeutet, dass der E-Mail-Server nicht mehr antwortet oder dass die Internetverbindung schlecht ist.
 
 <a name="connectiondropped"></a>
-Der Fehler *... Verbindung vom Server abgebrochen? ...* bedeutet, dass der E-Mail-Server die Verbindung unerwartet beendet hat. Dies kann passieren, wenn zu viele Verbindungen in zu kurzer Zeit aufgebaut wurden oder ein falsches Passwort zu oft verwendet wurde. Vergewissern Sie sich in diesem Fall, dass Ihr Passwort korrekt ist und deaktivieren Sie den Empfang in den Empfangseinstellungen für ca. 30 Minuten und versuchen Sie es erneut. Bei Bedarf lesen Sie in [dieser FAQ](#user-content-faq23) nach, wie Sie die Anzahl der Verbindungen reduzieren können.
+Der Fehler *... Verbindung vom Server abgebrochen? ...* bedeutet, dass der E-Mail-Server die Verbindung unerwartet beendet hat. Dies kann passieren, wenn zu viele Verbindungen in zu kurzer Zeit aufgebaut wurden oder ein falsches Passwort zu oft verwendet wurde. Vergewissern Sie sich in diesem Fall, dass Ihr Passwort korrekt ist und deaktivieren Sie den Empfang in den Empfangseinstellungen für ca. 30 Minuten und versuchen Sie es erneut. Bei Bedarf lesen Sie in [Frage 23](#user-content-faq23) nach, wie Sie die Anzahl der Verbindungen reduzieren können.
 
 Der Fehler *... Unerwartetes Ende des zlib-Eingangsstroms ...* bedeutet, dass nicht alle Daten empfangen wurden, möglicherweise aufgrund einer schlechten oder unterbrochenen Verbindung.
 
 Der Fehler *... Verbindungsfehler ...* könnte auf [Zu viele gleichzeitige Verbindungen](#user-content-faq23) hinweisen.
 
-Der Fehler *... Nicht unterstützte Kodierung ...* bedeutet, dass der Zeichensatz der Nachricht unbekannt ist oder nicht unterstützt wird. FairEmail geht von ISO-8859-1 (latin1) aus, was in den meisten Fällen dazu führt, dass die Nachricht korrekt angezeigt wird.
+Der Fehler *... Nicht unterstützte Codierung ...* bedeutet, dass der Zeichensatz der Nachricht unbekannt ist oder nicht unterstützt wird. FairEmail geht von ISO-8859-1 (latin1) aus, was in den meisten Fällen dazu führt, dass die Nachricht korrekt angezeigt wird.
 
-Der Fehler *... Anmelderaten-Beschränkung überschritten …* bedeutet, dass es zu viele Anmeldeversuche mit einem falschen Passwort gab. Bitte überprüfen Sie Ihr Passwort oder authentifizieren Sie das Konto erneut mit dem Schnelleinstellungsassistenten (nur OAuth).
+Der Fehler *... Anmelderaten-Beschränkung überschritten …* bedeutet, dass es zu viele Anmeldeversuche mit einem falschen Passwort gab. Bitte überprüfen Sie Ihr Passwort oder authentifizieren Sie das Konto erneut mit dem Schnelleinrichtungsassistenten (nur OAuth).
 
-[Siehe hier](#user-content-faq4) für die Fehler *... Nicht vertrauenswürdig ... nicht im Zertifikat ...*, *... Ungültiges Sicherheitszertifikat (Kann die Identität des Servers nicht überprüfen) ...* oder *... Trust Anchor für Zertifizierungspfad nicht gefunden ...*
+Siehe [Frage 4](#user-content-faq4) für die Fehler *... Nicht vertrauenswürdig ... nicht im Zertifikat ...*, *... Ungültiges Sicherheitszertifikat (Kann die Identität des Servers nicht überprüfen) ...* oder *... Trust Anchor für Zertifizierungspfad nicht gefunden ...*
 
-[Siehe hier](#user-content-faq127) für den Fehler *... Syntaktisch ungültige(s) HELO-Argument(e) ...*.
+Siehe [Frage 127](#user-content-faq127) für den Fehler *... Syntaktisch ungültige(s) HELO-Argument(e) ...*.
 
-[Siehe hier](#user-content-faq41) für den Fehler *... Handshake fehlgeschlagen ...*.
+Siehe [Frage 41](#user-content-faq41) für den Fehler *... Handshake fehlgeschlagen ...*.
 
 [Siehe hier](https://linux.die.net/man/3/connect), was Fehlercodes wie EHOSTUNREACH oder ETIMEOUT bedeuten.
 
@@ -966,7 +964,7 @@ Mögliche Ursachen sind:
 
 Viele öffentliche WLAN-Netzwerke blockieren ausgehende E-Mails, um Spam zu verhindern. Manchmal können Sie dies mit einem anderen SMTP-Port umgehen. Lesen Sie die Dokumentation des Anbieters für die nutzbaren Portnummern.
 
-Wenn sie ein [VPN](https://en.wikipedia.org/wiki/Virtual_private_network)-Netzwerk verwenden, kann es sein, dass der VPN-Provider die Verbindung blockiert, weil er etwas zu aggressiv verucht, Spam zu blockieren. Beachten Sie, dass [Google Fi](https://fi.google.com/) auch eine VPN verwendet.
+Wenn sie ein [VPN](https://en.wikipedia.org/wiki/Virtual_private_network)-Netzwerk verwenden, kann es sein, dass der VPN-Provider die Verbindung blockiert, weil er etwas zu aggressiv versucht, Spam zu blockieren. Beachten Sie, dass [Google Fi](https://fi.google.com/) auch eine VPN verwendet.
 
 **Sendefehler**
 
@@ -985,7 +983,7 @@ SMTP-Server können Nachrichten aus [einer Reihe von Gründen](https://en.wikipe
 * *451 4.7.0 Temporärer Serverfehler. Bitte versuchen Sie es später erneut. PRX4 …*: bitte [siehe hier](https://www.limilabs.com/blog/office365-temporary-server-error-please-try-again-later-prx4) oder [siehe hier](https://judeperera.wordpress.com/2019/10/11/fixing-451-4-7-0-temporary-server-error-please-try-again-later-prx4/).
 * *571 5.7.1 Relay access denied*: Bitte tippen Sie den Benutzernamen und die E-Mail-Adresse in den erweiterten Einstellungen der betroffenen Identität (per manuellem Setup) doppelt an.
 
-Wenn Sie den SMTP-Server von Gmaill verwenden wollen, um einen zu strengen Spam-Filter zu umgehen oder um die Zustellung von Nachrichten zu verbessern:
+Wenn Sie den SMTP-Server von Gmail verwenden wollen, um einen zu strengen Spam-Filter zu umgehen oder um die Zustellung von Nachrichten zu verbessern:
 
 * Überprüfen Sie Ihre E-Mail-Adresse [hier](https://mail.google.com/mail/u/0/#settings/accounts) (Sie müssen dafür einen Desktop-Browser verwenden)
 * Die Identitätseinstellungen folgendermaßen ändern (Einstellungen → Manuelle Einrichtung und Kontooptionen → Identitäten → Identität auswählen):
@@ -996,9 +994,9 @@ Wenn Sie den SMTP-Server von Gmaill verwenden wollen, um einen zu strengen Spam-
 
 **Gmail-Fehler**
 
-Die Autorisierung von Gmail-Konten mit dem Schnellassistenten muss regelmäßig über den [Android Account Manager](https://developer.android.com/reference/android/accounts/AccountManager) aktualisiert werden. Dies erfordert Kontakt-/Konto-Berechtigungen und eine Internetverbindung.
+Die Autorisierung von Gmail-Konten mit dem Schnelleinrichtungsassistenten muss regelmäßig über den [Android Account Manager](https://developer.android.com/reference/android/accounts/AccountManager) aktualisiert werden. Dies erfordert Kontakt-/Konto-Berechtigungen und eine Internetverbindung.
 
-Im Falle von Fehlern ist es möglich, ein Google Mail-Konto erneut über den Google Mail-Schnelleinstellungs-Assistenten zu autorisieren/wiederherzustellen.
+Im Falle von Fehlern ist es möglich, ein Google Mail-Konto erneut über den Google Mail-Schnelleinrichtungsassistenten zu autorisieren/wiederherzustellen.
 
 Der Fehler *... Authentifizierung fehlgeschlagen ... Konto nicht gefunden ...* bedeutet, dass ein zuvor autorisiertes Google Mail-Konto vom Gerät entfernt wurde.
 
@@ -1010,7 +1008,7 @@ Der Fehler *... Authentifizierung fehlgeschlagen ... Ungültige Anmeldeinformati
 
 Der Fehler *... ServiceDisabled ...* kann durch die Anmeldung beim [Erweiterten Schutzprogramm](https://landing.google.com/advancedprotection/) verursacht werden: "*Um Ihre E-Mails zu lesen, können (müssen) Sie Google Mail verwenden - Sie können Ihr Google-Konto mit einigen (allen) Apps & Diensten, die Zugriff auf sensible Daten wie Ihre E-Mails benötigen, nicht verwenden*", siehe [hier](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=9264881).
 
-Im Zweifelsfall können Sie nach [Support](#user-content-support) fragen.
+Im Zweifelsfall können Sie nach [Support](#user-content-get-support) fragen.
 
 <br />
 
@@ -1036,7 +1034,7 @@ Versuchen Sie zunächst, einige Zeit zu warten, um zu sehen, ob sich das Problem
 * entweder in den Empfangseinstellungen auf periodische Überprüfung auf Nachrichten umschalten, was dazu führt, dass die Ordner nacheinander geöffnet werden
 * oder setzen Sie einige Ordner auf Abfrage statt auf Synchronisation (langes Drücken auf Ordner in der Ordnerliste, Eigenschaften bearbeiten)
 
-Eine einfache Möglichkeit, die periodische Prüfung auf Nachrichten für alle Ordner außer dem Posteingang zu konfigurieren ist, im Drei-Punkte-Menü der Ordnerliste *Auf alle anwenden ...* zu verwenden und die unteren beiden erweiterten Kontrollkästchen zu aktivieren.
+Eine einfache Möglichkeit, die periodische Prüfung auf Nachrichten für alle Ordner außer dem Posteingang zu konfigurieren ist, im Drei-Punkte-Menü der Ordnerliste *Auf alle anwenden …* zu verwenden und die unteren beiden erweiterten Kontrollkästchen zu aktivieren.
 
 Die maximale Anzahl der gleichzeitigen Ordnerverbindungen für Google Mail beträgt 15, Sie können also maximal 15 Ordner gleichzeitig auf *allen* Ihren Geräten synchronisieren. Aus diesem Grund sind Gmail *Benutzer*-Ordner standardmäßig auf Polling statt auf "Immer synchronisieren" eingestellt. Wenn nötig oder gewünscht, können Sie dies ändern, indem Sie einen Ordner in der Ordnerliste lange drücken und *Eigenschaften bearbeiten* wählen. Siehe [hier](https://support.google.com/mail/answer/7126229) für Details.
 
@@ -1049,7 +1047,7 @@ Beachten Sie, dass der E-Mail-Server eine Weile braucht, um unterbrochene Verbin
 <a name="faq24"></a>
 **(24) Was heißt Nachrichten auf dem Server durchsuchen?**
 
-Nachrichten auf dem Server durchsuchen holt die Nachrichten in Echtzeit vom E-Mail-Server wenn Sie das Ende der Liste der synchronisierten Nachrichten erreichen, auch wenn der Ordner auf nicht synchronisieren eingestellt ist. Sie können diese Funktion in den erweiterten Kontoeinstellungen deaktivieren.
+Nachrichten auf dem Server durchsuchen holt die Nachrichten in Echtzeit vom E-Mail-Server, wenn Sie das Ende der Liste der synchronisierten Nachrichten erreichen, auch wenn der Ordner auf nicht synchronisieren eingestellt ist. Sie können diese Funktion in den erweiterten Kontoeinstellungen deaktivieren.
 
 <br />
 
@@ -1058,7 +1056,7 @@ Nachrichten auf dem Server durchsuchen holt die Nachrichten in Echtzeit vom E-Ma
 
 Wenn ein Menüpunkt zum Auswählen/Öffnen/Speichern einer Datei deaktiviert (abgeblendet) ist oder wenn Sie die Meldung *Speicherzugriffsframework nicht verfügbar* erhalten, ist wahrscheinlich das [Speicherzugriffs-Framework](https://developer.android.com/guide/topics/providers/document-provider), eine Standard-Android-Komponente, nicht vorhanden. Dies kann daran liegen, dass Ihr benutzerdefiniertes ROM es nicht enthält oder dass es aktiv entfernt wurde (debloated).
 
-FairEmail fragt keine Speicherberechtigungen ab, so dass dieses Framework für die Auswahl von Dateien und Ordnern erforderlich ist. Keine App, außer vielleicht Dateimanager, die auf Android 4.4 KitKat oder höher abzielt, sollte nach Speicherberechtigungen fragen, da dies den Zugriff auf *alle* Dateien erlauben würde.
+FairEmail fragt keine Speicherberechtigungen ab, sodass dieses Framework für die Auswahl von Dateien und Ordnern erforderlich ist. Keine App, außer vielleicht Dateimanager, die auf Android 4.4 KitKat oder höher abzielt, sollte nach Speicherberechtigungen fragen, da dies den Zugriff auf *alle* Dateien erlauben würde.
 
 Das Framework für den Speicherzugriff wird durch das Paket *com.android.documentsui* bereitgestellt, das auf einigen Android-Versionen (vor allem OxygenOS) als *Files*-App sichtbar ist.
 
@@ -1109,7 +1107,7 @@ Auf Android 8.0 Oreo und später können Sie die Eigenschaften der einzelnen Ben
 
 FairEmail hat folgende Benachrichtigungskanäle:
 
-* Service: Wird für die Benachrichtigung des Synchronisationsdienstes verwendet, siehe auch [ diese häufig gestellten Fragen (FAQ)](#user-content-faq2)
+* Service: Wird für die Benachrichtigung des Synchronisationsdienstes verwendet, siehe auch [Frage 2](#user-content-faq2)
 * Send: Wird für die Benachrichtigung des Sendedienstes verwendet
 * Notifications: Wird für neue Nachrichten verwendet
 * Warning: Für Warnhinweise verwendet
@@ -1119,7 +1117,7 @@ Siehe [hier](https://developer.android.com/guide/topics/ui/notifiers/notificatio
 
 Auf Android vor Android 8 Oreo können Sie den Benachrichtigungston in den Einstellungen einstellen.
 
-Sehen Sie sich [diese häufig gestellten Fragen (FAQ)](#user-content-faq21) an, wenn Ihr Gerät ein Benachrichtigungslicht hat.
+Sehen Sie sich [Frage 21](#user-content-faq21) an, wenn Ihr Gerät ein Benachrichtigungslicht hat.
 
 <br />
 
@@ -1199,7 +1197,7 @@ Wenn SIe eine Catch-All-E-Mail-Adresse eintragen möchten, ist dieser Regex meis
 .*
 ```
 
-Wenn SIe E-Mail Adressen für spezielle Zwecke (z.B. abc@example.com und xyz@example.com) eintragen möchten, aber zusätzlich eine Reserve-Adresse wie main@example.com, sollten sie diese Schritte befolgen:
+Wenn SIe E-Mail Adressen für spezielle Zwecke (z. B. abc@example.com und xyz@example.com) eintragen möchten, aber zusätzlich eine Reserve-Adresse wie main@example.com, sollten sie diese Schritte befolgen:
 
 * Identität: abc@example.com; Regex: **(?i)abc**
 * Identität: xyz@example.com; Regex: **(?i)xyz**
@@ -1212,7 +1210,7 @@ Passende Identitäten können verwendet werden, um Code-Nachrichten einzufärben
 <a name="faq35"></a>
 **(35) Warum sollte ich bei Ansehen von Bildern, Anhängen und der Original-Nachricht vorsichtig sein?**
 
-Beim Anschauen von in der Ferne gespeicherten Bildern (siehe auch [diese FAQ](#user-content-faq27)) kann der Absender nicht nur wissen, dass Sie die Nachricht gesehen haben, er wird auch Ihre IP-Adresse kennen. Siehe auch diese Frage: [Warum ist der Link von E-Mails gefährlicher als der Link der Websuche?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
+Beim Anschauen von in der Ferne gespeicherten Bildern (siehe auch [Frage 27](#user-content-faq27)) kann der Absender nicht nur wissen, dass Sie die Nachricht gesehen haben, er wird auch Ihre IP-Adresse kennen. Siehe auch diese Frage: [Warum ist der Link von E-Mails gefährlicher als der Link der Websuche?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
 Das Öffnen von Anhängen oder das Betrachten einer Originalnachricht kann entfernte Inhalte laden und Skripte ausführen, die nicht nur vertrauliche Informationen verbreiten könnten, sondern auch ein Sicherheitsrisiko darstellen können.
 
@@ -1224,9 +1222,9 @@ Beachten Sie, dass neu formatierte Nachrichten oft besser lesbar sind als urspr�
 
 Die Google Mail-App zeigt standardmäßig Bilder an, indem sie die Bilder über einen Google-Proxy-Server herunterlädt. Da die Bilder vom Quellserver [in Echtzeit](https://blog.filippo.io/how-the-new-gmail-image-proxy-works-and-what-this-means-for-you/) heruntergeladen werden, ist dies ist sogar noch weniger sicher, da Google auch ohne großen Nutzen beteiligt ist.
 
-Sie können Bilder und Originalnachrichten standardmäßig für vertrauenswürdige Absender von Fall zu Fall anzeigen, indem Sie *Nicht erneut danach fragen für ...* im Dialog ankreuzen.
+Sie können Bilder und Originalnachrichten standardmäßig für vertrauenswürdige Absender von Fall zu Fall anzeigen, indem Sie *Nicht erneut danach fragen für …* im Dialog ankreuzen.
 
-Wenn Sie die Standard *Öffnen mit*-Apps zurücksetzen möchten, lesen Sie bitte [diese FAQ](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
+Wenn Sie die Standard *Öffnen mit*-Apps zurücksetzen möchten, lesen Sie bitte [hier](https://www.androidauthority.com/how-to-set-default-apps-android-clear-621269/).
 
 <br />
 
@@ -1245,7 +1243,7 @@ Lange Version:
 <a name="faq37"></a>
 **(37) Wie werden Passwörter gespeichert?**
 
-Alle unterstützten Android-Versionen [verschlüsseln alle Benutzerdaten](https://source.android.com/security/encryption), so dass alle Daten, einschließlich Benutzernamen, Passwörter, Nachrichten usw., verschlüsselt gespeichert werden.
+Alle unterstützten Android-Versionen [verschlüsseln alle Benutzerdaten](https://source.android.com/security/encryption), sodass alle Daten, einschließlich Benutzernamen, Passwörter, Nachrichten usw., verschlüsselt gespeichert werden.
 
 Wenn das Gerät mit einer PIN, einem Muster oder einem Passwort gesichert ist, können Sie das Konto und die Identitätskennwörter sichtbar machen. Wenn dies ein Problem ist, weil Sie das Gerät mit anderen Personen teilen, erwägen die Verwendung von [Benutzerprofilen](https://www.howtogeek.com/333484/how-to-set-up-multiple-user-profiles-on-android/).
 
@@ -1264,11 +1262,11 @@ Es ist unvermeidlich, dass das Synchronisieren von Nachrichten Akkustrom benöti
 
 Wenn Sie den Akkuverbrauch von FairEmail mit einem anderen E-Mail-Client vergleichen, stellen Sie bitte sicher, dass der andere E-Mail-Client ähnlich eingerichtet ist. Zum Beispiel ist es kein fairer Vergleich, stetige Synchronisation (Push-Nachrichten) und (seltenere) periodische Überprüfungen nach neuen Nachrichten zu vergleichen.
 
-Die Wiederverbindung zu einem E-Mail-Server verbraucht zusätzliche Akkuleistung, so dass eine instabile Internetverbindung einen zusätzlichen Akkuverbrauch zur Folge hat. Auch einige E-Mail-Server beenden vorzeitig Leerlaufverbindungen, während [der Standard](https://tools.ietf.org/html/rfc2177) sagt, dass eine Leerlaufverbindung für 29 Minuten offen gehalten werden sollte. In diesen Fällen möchten Sie vielleicht periodisch synchronisieren, zum Beispiel jede Stunde, anstatt ständig zu synchronisieren. Beachten Sie, dass das häufige periodische Abfragen (mehr als alle 30-60 Minuten) wahrscheinlich mehr Akkuleistung als die ständige Synchronisierung verbrauchen wird, da eine Verbindung zum Server und der Vergleich der lokalen und entfernten Nachrichten aufwändig sind.
+Die Wiederverbindung zu einem E-Mail-Server verbraucht zusätzliche Akkuleistung, sodass eine instabile Internetverbindung einen zusätzlichen Akkuverbrauch zur Folge hat. Auch einige E-Mail-Server beenden vorzeitig Leerlaufverbindungen, während [der Standard](https://tools.ietf.org/html/rfc2177) sagt, dass eine Leerlaufverbindung für 29 Minuten offen gehalten werden sollte. In diesen Fällen möchten Sie vielleicht periodisch synchronisieren, zum Beispiel jede Stunde, anstatt ständig zu synchronisieren. Beachten Sie, dass das häufige periodische Abfragen (mehr als alle 30-60 Minuten) wahrscheinlich mehr Akkuleistung als die ständige Synchronisierung verbrauchen wird, da eine Verbindung zum Server und der Vergleich der lokalen und entfernten Nachrichten aufwändig sind.
 
 [Bei einigen Geräten](https://dontkillmyapp.com/) ist es notwendig, die Akku-Optimierung *auszuschalten* (im Einrichtungs-Menü Schritt 3), um eine Verbindung zu Mail-Servern ständig offen zu halten. Wenn man die Batterieoptimierung aktiviert, kann dies zu einem zusätzlichen Batterieverbrauch für alle Geräte führen, auch wenn dies widersprüchlich klingt!
 
-Der größte Teil des Akkuverbrauchs, nicht berücksichtigt das Anzeigen von Nachrichten, ist auf die Synchronisierung (Empfangen und Senden) von Nachrichten zurückzuführen. Um den Akkuverbrauch zu verringern, setzen Sie die Anzahl der Tage, um die Nachricht zu synchronisieren, auf einen niedrigeren Wert, besonders wenn es viele neue Nachrichten in einem Ordner gibt. Drücken Sie lange auf einen Ordnernamen in der Ordnerliste und wählen Sie *Eigenschaften bearbeiten* um auf diese Einstellung zuzugreifen.
+Der größte Teil des Akkuverbrauchs, abgesehen von der Anzeige der Nachrichten, ist auf die Synchronisierung (Empfangen und Senden) der Nachrichten zurückzuführen. Um den Akkuverbrauch zu verringern, setzen Sie die Anzahl der Tage, um die Nachricht zu synchronisieren, auf einen niedrigeren Wert, besonders wenn es viele neue Nachrichten in einem Ordner gibt. Drücken Sie lange auf einen Ordnernamen in der Ordnerliste und wählen Sie *Eigenschaften bearbeiten*, um auf diese Einstellung zuzugreifen.
 
 Wenn Sie mindestens einmal am Tag über eine Internetverbindung verfügen, reicht es aus, Nachrichten nur für einen Tag zu synchronisieren.
 
@@ -1284,11 +1282,11 @@ FairEmail wird standardmäßig die Ordnerliste bei jeder Verbindung synchronisie
 
 FairEmail prüft standardmäßig, bei jeder Verbindung, ob alte Nachrichten vom Server gelöscht wurden. Wenn Sie nichts dagegen haben, dass alte Nachrichten, die vom Server gelöscht wurden, in FairEmail immer noch sichtbar sind, können Sie einen bestimmten Netzwerk- und Akkuverbrauch sparen, indem Sie dies in den Empfangseinstellungen deaktivieren.
 
-Einige Anbieter folgen nicht dem IMAP-Standard und halten die Verbindungen nicht lange genug offen, was FairEmail zwingt, häufig wieder neu zu verbinden und dadurch einen zusätzlichen Akkuverbrauch zu verursachen. Sie können das *Log* über das Hauptmenü überprüfen, ob es häufige Neu-Verbindungen gibt (Verbindung geschlossen/zurücksetzen, Lese-/Schreib-Fehler/Timeout usw.). Sie können dies umgehen, indem Sie in den erweiterten Kontoeinstellungen das Intervall zum Offenhalten der Verbindung auf z.B. 9 oder 15 Minuten senken. Beachten Sie, dass die Batterieoptimierungen im Setup-Schritt 3 deaktiviert werden müssen, um die Verbindungen zuverlässig zu erhalten.
+Einige Anbieter folgen nicht dem IMAP-Standard und halten die Verbindungen nicht lange genug offen, was FairEmail zwingt, häufig wieder neu zu verbinden und dadurch einen zusätzlichen Akkuverbrauch zu verursachen. Sie können das *Log* über das Hauptmenü überprüfen, ob es häufige Neu-Verbindungen gibt (Verbindung geschlossen/zurücksetzen, Lese-/Schreib-Fehler/Timeout usw.). Sie können dies umgehen, indem Sie in den erweiterten Kontoeinstellungen das Intervall zum Offenhalten der Verbindung auf z. B. 9 oder 15 Minuten senken. Beachten Sie, dass die Batterieoptimierungen im Setup-Schritt 3 deaktiviert werden müssen, um die Verbindungen zuverlässig zu erhalten.
 
-Einige Anbieter senden alle zwei Minuten so etwas wie '*noch hier*' , was zu Netzwerkverkehr auf Ihrem Gerät führt und unnötigen Batterieverbrauch verursacht. Sie können im *Log* über das Hauptmenü überprüfen, ob Ihr Anbieter dies tut. Wenn Ihr Provider [Dovecot](https://www.dovecot.org/) als IMAP-Server verwendet, könnten Sie Ihren Provider bitten, die Einstellung [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) auf einen höheren Wert zu ändern oder besser noch, es ganz zu deaktivieren. Wenn Ihr Provider nicht in der Lage oder willens ist, dies zu ändern/zu deaktivieren, sollten Sie eine Synchronisierung in regelmäßigen Abständen anstelle einer kontinuierlichen Synchronisierung in Betracht ziehen. Sie können dies in den Empfangseinstellungen ändern.
+Einige Anbieter senden alle zwei Minuten so etwas wie '*noch hier*', was zu Netzwerkverkehr auf Ihrem Gerät führt und unnötigen Batterieverbrauch verursacht. Sie können im *Log* über das Hauptmenü überprüfen, ob Ihr Anbieter dies tut. Wenn Ihr Provider [Dovecot](https://www.dovecot.org/) als IMAP-Server verwendet, könnten Sie Ihren Provider bitten, die Einstellung [imap_idle_notify_interval](https://wiki.dovecot.org/Timeouts) auf einen höheren Wert zu ändern oder besser noch, es ganz zu deaktivieren. Wenn Ihr Provider nicht in der Lage oder willens ist, dies zu ändern/zu deaktivieren, sollten Sie eine Synchronisierung in regelmäßigen Abständen anstelle einer kontinuierlichen Synchronisierung in Betracht ziehen. Sie können dies in den Empfangseinstellungen ändern.
 
-Wenn Sie die Nachricht erhalten haben *Dieser Anbieter unterstützt keine Push-Nachrichten* während der Kontenkonfiguration, erwägen Sie den Wechsel zu einem modernen Provider, der Push-Nachrichten (IMAP IDLE) unterstützt, um den Akkuverbrauch zu verringern.
+Wenn Sie die Nachricht *Dieser Anbieter unterstützt keine Push-Nachrichten* während der Kontenkonfiguration erhalten haben, erwägen Sie den Wechsel zu einem modernen Provider, der Push-Nachrichten (IMAP IDLE) unterstützt, um den Akkuverbrauch zu verringern.
 
 Wenn Ihr Gerät einen [AMOLED](https://en.wikipedia.org/wiki/AMOLED) Bildschirm besitzt, können Sie Akkuverbrauch während der Anzeige der Nachrichten durch den Wechsel zum schwarzen Theme sparen.
 
@@ -1298,7 +1296,7 @@ Wenn automatische Optimierung in den Empfangseinstellungen aktiviert ist, wird e
 * Der E-Mail-Server keine Push-Nachrichten unterstützt
 * Das Intervall zum Offenhalten einer Verbindung kleiner als 12 Minuten ist
 
-Zusätzlich werden der Papierkorb und der Spam-Ordner automatisch auf ein entsprechendes Intervall zum Prüfen auf neue Nachrichten gesetzt nach drei aufeinanderfolgenden Fehlern [zu viele gleichzeitigen Verbindungen](#user-content-faq23).
+Zusätzlich werden der Papierkorb und der Spam-Ordner automatisch auf ein entsprechendes Intervall zum Prüfen auf neue Nachrichten nach drei aufeinanderfolgenden Fehlern [zu viele gleichzeitigen Verbindungen](#user-content-faq23) gesetzt.
 
 <br />
 
@@ -1325,13 +1323,13 @@ Standardmäßig lädt FairEmail keine Nachrichtentexte und Anhänge, die größe
 
 Es gibt mehrere mögliche Ursachen, also lesen Sie bitte bis zum Ende dieser Antwort.
 
-Der Fehler '*Handshake fehlgeschlagen ... WRONG_VERSION_NUMBER ...*' könnte bedeuten, dass Sie versuchen, eine Verbindung zu einem IMAP oder SMTP Server ohne verschlüsselte Verbindung herzustellen, typischerweise unter Verwendung von Port 143 (IMAP) und Port 25 (SMTP); oder dass ein falsches Protokoll (SSL/TLS oder STARTTLS) verwendet wird.
+Der Fehler '*Handshake fehlgeschlagen ... WRONG_VERSION_NUMBER ...*' könnte bedeuten, dass Sie versuchen, eine Verbindung zu einem IMAP- oder SMTP-Server ohne verschlüsselte Verbindung herzustellen, typischerweise unter Verwendung von Port 143 (IMAP) und Port 25 (SMTP); oder dass ein falsches Protokoll (SSL/TLS oder STARTTLS) verwendet wird.
 
 Die meisten Anbieter bieten verschlüsselte Verbindungen über verschiedene Ports, typischerweise Port 993 (IMAP) und Port 465/587 (SMTP).
 
 Falls Ihr Provider keine verschlüsselten Verbindungen unterstützt, sollten Sie darum bitten, dies zu ermöglichen. Wenn dies keine Option ist, können Sie *unsichere Verbindungen zulassen* sowohl in den erweiterten Einstellungen UND den Konto/Identitätseinstellungen aktivieren.
 
-Siehe auch [diese häufig gestellten Fragen (FAQ)](#user-content-faq4).
+Siehe auch [Frage 4](#user-content-faq4).
 
 Der Fehler '*Handshake fehlgeschlagen ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' wird entweder durch einen Fehler in der SSL-Protokoll-Implementierung oder durch einen zu kurzen DH-Schlüssel auf dem E-Mail-Server verursacht und kann leider nicht durch FairEmail behoben werden.
 
@@ -1386,9 +1384,9 @@ Sehen Sie weiter unten, wie Sie mich kontaktieren können.
 <br />
 
 <a name="faq44"></a>
-**~~(44) Können Sie Kontaktfotos / Identicons im Gesendet-Ordner anzeigen?~~**
+**~~(44) Können Sie Kontaktfotos / Ident-Icons im Gesendet-Ordner anzeigen?~~**
 
-~~Kontaktfotos und Identicons werden immer für den Absender angezeigt, da dies für Unterhaltungshinweise notwendig ist.~~ ~~Kontaktfotos für Absender und Empfänger zu erhalten ist keine wirkliche Option, da das Kontakt-Foto eine teure Operation ist.~~
+~~Kontaktfotos und Ident-Icons werden immer für den Absender angezeigt, da dies für Unterhaltungshinweise notwendig ist.~~ ~~Kontaktfotos für Absender und Empfänger zu erhalten ist keine wirkliche Option, da das Kontakt-Foto eine teure Operation ist.~~
 
 <br />
 
@@ -1404,18 +1402,18 @@ Sie werden eine Nachricht *»Dieser Schlüssel ist nicht verfügbar. Um es zu ve
 
 Wenn Sie einen 'Spinner' oben auf der Nachrichtenliste sehen, wird der Ordner noch immer mit dem entfernten Server synchronisiert. Sie können den Fortschritt der Synchronisation in der Ordnerliste sehen. Siehe die Legende darüber, was die Symbole und Zahlen bedeuten.
 
-Die Geschwindigkeit Ihres Geräts und Ihrer Internetverbindung sowie die Anzahl der Tage für die Synchronisierung von Nachrichten bestimmen, wie lange der Synchronisierungsvorgang dauern wird. Beachten Sie, dass Sie die Anzahl der Tage zum Synchronisieren von Nachrichten in den meisten Fällen nicht auf mehr als einen Tag einstellen sollten, siehe auch [diese FAQ](#user-content-faq39).
+Die Geschwindigkeit Ihres Geräts und Ihrer Internetverbindung sowie die Anzahl der Tage für die Synchronisierung von Nachrichten bestimmen, wie lange der Synchronisierungsvorgang dauern wird. Beachten Sie, dass Sie die Anzahl der Tage zum Synchronisieren von Nachrichten in den meisten Fällen nicht auf mehr als einen Tag einstellen sollten, siehe auch [Frage 39](#user-content-faq39).
 
 <br />
 
 <a name="faq47"></a>
-(47) Wie löse ich den Fehler »Kein primäres Konto oder kein Ordner für Entwürfe« ?
+**(47) Wie löse ich den Fehler »Kein primäres Konto oder kein Ordner für Entwürfe« ?**
 
 Sie erhalten die Fehlermeldung *Kein Primärkonto oder kein Entwürfe-Ordner* beim Versuch, eine Nachricht zu verfassen, während kein Konto als Hauptkonto gesetzt ist oder wenn kein Entwürfe-Ordner für das Hauptkonto ausgewählt ist. Dies kann zum Beispiel passieren, wenn Sie FairEmail starten, um eine Nachricht aus einer anderen App zu erstellen. FairEmail muss wissen, wo der Entwurf gespeichert werden soll, daher müssen Sie ein Konto als Hauptkonto und/oder einen Entwürfe-Ordner für das Hauptkonto auswählen.
 
 Dies kann auch passieren, wenn Sie versuchen, auf eine Nachricht zu antworten oder eine Nachricht von einem Konto ohne Entwürfe-Ordner weiterzuleiten, wenn es kein Hauptkonto gibt oder wenn das Hauptkonto keinen Entwürfe-Ordner hat.
 
-Siehe [diese häufig gestellten Fragen (FAQ)](#user-content-faq141) für mehr Informationen.
+Siehe [Frage 141](#user-content-faq141) für mehr Informationen.
 
 <br />
 
@@ -1438,7 +1436,7 @@ Siehe auch [Frage 25](#user-content-faq25) und [was Google dazu schreibt](https:
 <br />
 
 <a name="faq50"></a>
-**(50) Kannst du eine Option hinzufügen, um alle Nachrichten zu synchronisieren?**
+**(50) Können Sie eine Option hinzufügen, um alle Nachrichten zu synchronisieren?**
 
 Sie können mehr oder sogar alle Nachrichten durch langes Drücken eines Ordners (Posteingang) in der Ordnerliste eines Kontos synchronisieren. Tippen Sie auf den Kontonamen im Navigationsmenü und wählen *Mehr synchronisieren* im Kontextmenü.
 
@@ -1463,9 +1461,9 @@ Sie können *Einstellungen* im Navigationsmenü lange drücken, um sofort wieder
 <br />
 
 <a name="faq53"></a>
-**(53) Kannst du die Benachrichtigungsleiste nach oben/unten setzen?**
+**(53) Können Sie die Aktionsleiste nach oben/unten verlagern?**
 
-Die Message-Aktionsleiste funktioniert auf einer einzigen Nachricht und die untere Aktionsleiste wirkt auf alle Nachrichten in der Unterhaltung. Da es oft mehr als eine Nachricht in einem Gespräch gibt, ist dies nicht möglich. Darüber hinaus gibt es ganz bestimmte Aktionen, die nur für einzelne Nachrichten wirken sollen, wie z.B. die Weiterleitung.
+Die Message-Aktionsleiste funktioniert auf einer einzigen Nachricht und die untere Aktionsleiste wirkt auf alle Nachrichten in der Unterhaltung. Da es oft mehr als eine Nachricht in einem Gespräch gibt, ist dies nicht möglich. Darüber hinaus gibt es ganz bestimmte Aktionen, die nur für einzelne Nachrichten wirken sollen, wie z. B. die Weiterleitung.
 
 Das Verschieben der Nachrichten-Aktionsleiste an den unteren Rand der Nachricht ist visuell nicht ansprechend, da es bereits eine Aktionsleiste für die gesamte Unterhaltung am unteren Rand des Bildschirms gibt.
 
@@ -1481,7 +1479,7 @@ Beachten Sie, dass es nicht viele E-Mail-Apps gibt, die eine Unterhaltung als Li
 ~~Zum Beispiel wird der Gmail-Spam-Ordner genannt:~~
 
 ```
-[Gmail]/Spam
+~~[Gmail]/Spam~~
 ```
 
 ~~Durch das Setzen des Namensraum-Präfix auf *[Gmail]* wird FairEmail automatisch *[Gmail]/* von allen Ordnernamen entfernen.~~
@@ -1491,12 +1489,12 @@ Beachten Sie, dass es nicht viele E-Mail-Apps gibt, die eine Unterhaltung als Li
 <a name="faq55"></a>
 **(55) Wie kann ich alle Nachrichten als gelesen markieren / verschieben oder alle Nachrichten löschen?**
 
-Sie können dafür die Mehrfachauswahl verwenden. Drücken Sie lange auf die erste Nachricht, heben Sie nicht den Finger und gleiten Sie nach unten zur letzten Nachricht. Dann benutzen Sie die Drei-Punkt-Schaltfläche um die gewünschte Aktion auszuführen.
+Sie können dafür die Mehrfachauswahl verwenden. Drücken Sie lange auf die erste Nachricht, heben Sie nicht den Finger und gleiten Sie nach unten zur letzten Nachricht. Dann benutzen Sie die Drei-Punkte-Schaltfläche, um die gewünschte Aktion auszuführen.
 
 <br />
 
 <a name="faq56"></a>
-**(56) Kannst du Unterstützung für JMAP hinzufügen?**
+**(56) Können Sie Unterstützung für JMAP hinzufügen?**
 
 Es gibt fast keine Anbieter, die das [JMAP](https://jmap.io/) Protokoll anbieten, damit ist es nicht viel Mühe wert, in FairEmail Support dafür hinzuzufügen.
 
@@ -1524,7 +1522,7 @@ Wenn Sie vorformatierten Text verwenden möchten, wie [ASCII Art](https://en.wik
 <br />
 
 <a name="faq58"></a>
-**(58) Was bedeutet ein geöffnet/geschlossenes E-Mail-Icon?**
+**(58) Was bedeutet ein geöffnetes / geschlossenes E-Mail-Icon?**
 
 Das E-Mail-Symbol in der Ordnerliste kann geöffnet (umrissen) oder geschlossen sein (gefüllt):
 
@@ -1541,7 +1539,7 @@ Nachrichtentexte und Anhänge werden standardmäßig heruntergeladen.
 <a name="faq59"></a>
 **(59) Kann man Originalnachrichten im Browser öffnen?**
 
-Aus Sicherheitsgründen sind die Dateien mit den Originaltexten für andere Apps nicht zugänglich, so dass dies nicht möglich ist. Theoretisch könnte das [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) verwendet werden, um diese Dateien freizugeben. Aber selbst Google Chrome kann dies nicht tun.
+Aus Sicherheitsgründen sind die Dateien mit den Originaltexten für andere Apps nicht zugänglich, sodass dies nicht möglich ist. Theoretisch könnte das [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) verwendet werden, um diese Dateien freizugeben. Aber selbst Google Chrome kann dies nicht tun.
 
 <br />
 
@@ -1551,17 +1549,17 @@ Aus Sicherheitsgründen sind die Dateien mit den Originaltexten für andere Apps
 * Wussten Sie, dass markierte Nachrichten immer synchronisiert/gespeichert werden können? (dies kann in den Empfangseinstellungen aktiviert werden)
 * Wussten Sie, dass Sie das Symbol "Nachricht schreiben" lange drücken können, um in den Ordner "Entwürfe" zu wechseln?
 * Wussten Sie, dass es eine erweiterte Option gibt, Nachrichten automatisch als gelesen zu markieren, wenn sie verschoben werden? (Archivieren und wegwerfen sind auch Verschiebungen)
-* Wussten Sie, dass Sie Text (oder eine E-Mail-Adresse) in jeder App für die neuesten Android-Versionen auswählen kannst und FairEmail nach ihm suchen lassen kannst?
+* Wussten Sie, dass Sie Text (oder eine E-Mail-Adresse) in jeder App für die neuesten Android-Versionen auswählen können und FairEmail nach ihm suchen lassen können?
 * Wussten Sie, dass FairEmail einen Tablet-Modus hat? Drehen Sie Ihr Gerät ins Querformat und Gesprächsthreads werden in einer zweiten Spalte geöffnet, wenn genügend Bildschirmplatz vorhanden ist.
 * Wussten Sie, dass Sie eine Antwortvorlage lange drücken können, um aus der Vorlage einen Entwurf zu erstellen?
 * Wussten Sie, dass Sie lange drücken, halten und wischen können, um eine Reihe von Nachrichten auszuwählen?
 * Wussten Sie, dass man erneut versuchen kann, Nachrichten zu versenden, indem man in der Outbox herunterzieht?
 * Wussten Sie, dass Sie eine Unterhaltung links oder rechts wischen können, um zur nächsten oder vorherigen Unterhaltung zu gehen?
-* Wusstest du, dass du ein Bild antippen kannst, um zu sehen, woher es heruntergeladen wird?
+* Wussten Sie, dass Sie ein Bild antippen können, um zu sehen, woher es heruntergeladen wird?
 * Wussten Sie, dass Sie das Ordnersymbol in der Aktionsleiste lange drücken können, um ein Konto auszuwählen?
 * Wussten Sie, dass Sie das Sternsymbol in einem Gespräch lange drücken können, um einen farbigen Stern zu setzen?
 * Wussten Sie, dass Sie das Navigationsmenü öffnen können, indem Sie von links wischen, auch wenn Sie gerade eine Unterhaltung ansehen?
-* Wusste Sie, dass Sie das Personen-Symbol lange drücken können, um die CC/BCC-Felder anzuzeigen/zu verstecken und deren Sichtbarkeitsstatus fürs nächste Mal zu speichern?
+* Wussten Sie, dass Sie das Personen-Symbol lange drücken können, um die CC/BCC-Felder anzuzeigen/zu verstecken und deren Sichtbarkeitsstatus fürs nächste Mal zu speichern?
 * Wussten Sie, dass Sie die E-Mail-Adressen einer Android-Kontaktgruppe über das 3-Punkte-Überlaufmenü einfügen können?
 * Wussten Sie, dass, wenn Sie Text auswählen und danach auf antworten drücken, nur der ausgewählte Text zitiert wird?
 * Wussten Sie, dass Sie die Papierkorbsymbole (sowohl in der Nachricht als auch in der unteren Aktionsleiste) lange drücken können, um eine Nachricht oder Unterhaltung dauerhaft zu löschen? (Version 1.1368+)
@@ -1574,13 +1572,13 @@ Aus Sicherheitsgründen sind die Dateien mit den Originaltexten für andere Apps
 <a name="faq61"></a>
 **(61) Warum werden einige Nachrichten verdunkelt angezeigt?**
 
-Die verdunkelt angezeigten Nachrichten (grau) sind lokal verschobene Nachrichten, für die der Umzug noch nicht vom Server bestätigt ist. Dies kann passieren, wenn aktuell keine Verbindung zum Server oder zum Konto besteht. Diese Nachrichten werden nach einer Verbindung zum Server synchronisiert oder wenn dies nie geschieht, weerden sie gelöscht, wenn sie zu alt sind, um synchronisiert zu werden.
+Die verdunkelt angezeigten Nachrichten (grau) sind lokal verschobene Nachrichten, für die der Umzug noch nicht vom Server bestätigt ist. Dies kann passieren, wenn aktuell keine Verbindung zum Server oder zum Konto besteht. Diese Nachrichten werden nach einer Verbindung zum Server synchronisiert oder wenn dies nie geschieht, werden sie gelöscht, wenn sie zu alt sind, um synchronisiert zu werden.
 
 Möglicherweise müssen Sie den Ordner manuell synchronisieren, indem Sie zum Beispiel nach unten ziehen.
 
 Sie können diese Nachrichten ansehen, aber Sie können diese Nachrichten nicht erneut verschieben, bis der vorherige Schritt vom Server bestätigt wurde.
 
-Ausstehende [Vorgänge](#user-content-faq3) können angesehen werden in der Vorgangs-Ansicht, die vom Haupt-Menü aus zugänglich ist.
+Ausstehende [Vorgänge](#user-content-faq3) können angesehen werden in der Vorgangs-Ansicht, die vom Hauptmenü aus zugänglich ist.
 
 <br />
 
@@ -1608,20 +1606,20 @@ Wenn Ihr Provider eine nicht unterstützte Authentifizierungsmethode benötigt, 
 <a name="faq63"></a>
 **(63) Wie werden Bilder für die Anzeige auf den Bildschirmen skaliert?**
 
-Große Inline oder angehängte [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) und [JPEG](https://en.wikipedia.org/wiki/JPEG) Bilder werden automatisch für die Anzeige auf den Bildschirmen verändert. Das liegt daran, dass E-Mail-Nachrichten in der Größe begrenzt sind, abhängig vom Anbieter meist zwischen 10 und 50 MB. Bilder werden standardmäßig auf eine maximale Breite und Höhe von etwa 1440 Pixeln verkleinert und mit einer Kompressionsrate von 90 % gespeichert. Bilder werden unter Verwendung ganzer Zahlenfaktoren herunterskaliert, um die Speicherauslastung zu reduzieren und die Bildqualität zu erhalten. Die automatische Gößenänderung von Inline-Bildern und/oder angehängten Bildern und die maximale Zielbild-Größe können in den Sendeeinstellungen eingestellt werden.
+Große Inline oder angehängte [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) und [JPEG](https://en.wikipedia.org/wiki/JPEG) Bilder werden automatisch für die Anzeige auf den Bildschirmen verändert. Das liegt daran, dass E-Mail-Nachrichten in der Größe begrenzt sind, abhängig vom Anbieter meist zwischen 10 und 50 MB. Bilder werden standardmäßig auf eine maximale Breite und Höhe von etwa 1440 Pixeln verkleinert und mit einer Kompressionsrate von 90 % gespeichert. Bilder werden unter Verwendung ganzer Zahlenfaktoren herunterskaliert, um die Speicherauslastung zu reduzieren und die Bildqualität zu erhalten. Die automatische Größenänderung von Inline-Bildern und/oder angehängten Bildern und die maximale Zielbild-Größe können in den Sendeeinstellungen eingestellt werden.
 
-Wenn Sie die Größe der Bilder von Fall zu Fall ändern möchten, können Sie [Ermäßigt senden](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/) oder eine ähnliche App verwenden.
+Wenn Sie die Größe der Bilder von Fall zu Fall ändern möchten, können Sie [Send Reduced](https://f-droid.org/en/packages/mobi.omegacentauri.SendReduced/) oder eine ähnliche App verwenden.
 
 <br />
 
 <a name="faq64"></a>
-**~~(64) Kannst du benutzerdefinierte Aktionen zum Wischen nach links/rechts hinzufügen?~~**
+**~~(64) Können Sie benutzerdefinierte Aktionen zum Wischen nach links/rechts hinzufügen?~~**
 
 ~~Das Natürlichste beim Wischen eines Listeneintrags nach links oder rechts ist, den Eintrag aus der Liste zu entfernen.~~ ~~Die natürlichste Aktion im Kontext einer E-Mail-App ist die Verschiebung der Nachricht aus dem Ordner in einen anderen Ordner.~~ ~~Sie können den zu Ziel-Ordner in den Kontoeinstellungen auswählen.~~
 
-~~Andere Aktionen, wie zum Beispiel das Markieren von Nachrichten als gelesen und zurückgestellt, sind über mehrere Auswahlen verfügbar.~~ ~~Sie können eine Nachricht lange drücken, um eine Mehrfach-Auswahl zu starten. Siehe auch [diese Frage](#user-content-faq55).~~
+~~Andere Aktionen, wie zum Beispiel das Markieren von Nachrichten als gelesen und zurückgestellt, sind über mehrere Auswahlen verfügbar.~~ ~~Sie können eine Nachricht lange drücken, um eine Mehrfach-Auswahl zu starten. Siehe auch [Frage 55](#user-content-faq55).~~
 
-~~Wischen nach links oder rechts, um eine Nachricht als gelesen oder ungelesen zu markieren, ist unnatürlich, weil die Nachricht zuerst weg geht und später wiederkommt in einer anderen Form.~~ ~~Beachten Sie, dass es eine erweiterte Option gibt, um Nachrichten automatisch beim Verschieben zu markieren,~~ ~~, was in den meisten Fällen ein perfekter Ersatz ist für die Sequenz 'als gelesen markieren und in einen Ordner verschieben'. ~~ ~~Sie können auch Nachrichten von der Benachrichtigung aus als gelesen markieren~~
+~~Wischen nach links oder rechts, um eine Nachricht als gelesen oder ungelesen zu markieren, ist unnatürlich, weil die Nachricht zuerst weg geht und später wiederkommt in einer anderen Form.~~ ~~Beachten Sie, dass es eine erweiterte Option gibt, um Nachrichten automatisch beim Verschieben zu markieren,~~ ~~, was in den meisten Fällen ein perfekter Ersatz ist für die Sequenz 'als gelesen markieren und in einen Ordner verschieben'.~~ ~~Sie können auch Nachrichten von der Benachrichtigung aus als gelesen markieren~~
 
 ~~Wenn Sie eine Nachricht später lesen möchten, können Sie sie bis zu einer bestimmten Zeit ausblenden, indem Sie das Menü *Zurückstellen* verwenden.~~
 
@@ -1630,7 +1628,7 @@ Wenn Sie die Größe der Bilder von Fall zu Fall ändern möchten, können Sie [
 <a name="faq65"></a>
 **(65) Warum werden einige Anhänge gedimmt angezeigt?**
 
-Inline-Anhänge (Bilder) werden verdunkelt angezeigt. [Inline-Anhänge](https://tools.ietf.org/html/rfc2183) sollten automatisch heruntergeladen und angezeigt werden, aber da FairEmail nicht immer automatisch Anhänge herunterlädt, lesen Sie bitte auch [diese FAQ](#user-content-faq40), zeigt FairEmail trotzdem alle Anhänge an. Um Inline-Anhänge und normale Anhänge zu unterscheiden, werden Inline-Anhänge verdunkelt angeezeigt.
+Inline-Anhänge (Bilder) werden verdunkelt angezeigt. [Inline-Anhänge](https://tools.ietf.org/html/rfc2183) sollten automatisch heruntergeladen und angezeigt werden, aber da FairEmail nicht immer automatisch Anhänge herunterlädt, lesen Sie bitte auch [Frage 40](#user-content-faq40), zeigt FairEmail trotzdem alle Anhänge an. Um Inline-Anhänge und normale Anhänge zu unterscheiden, werden Inline-Anhänge verdunkelt angezeigt.
 
 <br />
 
@@ -1650,7 +1648,7 @@ Wählen Sie eine oder mehrere Unterhaltungen aus (drücken Sie lange, um die Meh
 
 Es ist auch möglich, Nachrichten mit [einer Regel](#user-content-faq71) zurückzustellen, mit der Sie auch Nachrichten in einen Ordner verschieben können, damit sie automatisch zurückgestellt werden.
 
-Sie können zurückgestellte Nachrichten anzeigen, indem Sie *Filtern* > *Ausblenden* im Drei-Punkte-Auswahlmenü abwählen.
+Sie können zurückgestellte Nachrichten anzeigen, indem Sie *Filtern* → *Ausblenden* im Drei-Punkte-Auswahlmenü abwählen.
 
 Sie können das kleine Symbol „Zurückstellen” antippen, um anzuzeigen, bis zu welchem Zeitpunkt eine Unterhaltung zurückgestellt wurde.
 
@@ -1661,16 +1659,16 @@ Drittanbieter-Apps haben bei Gmail keinen Zugriff auf den Nachrichtenordner für
 <br />
 
 <a name="faq68"></a>
-**~~(68) Warum kann Adobe-Acrobat-Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~~**
+**~~(68) Warum kann Adobe Acrobat Reader keine PDF-Anhänge öffnen / Microsoft-Apps keine angehängten Dokumente öffnen?~~**
 
-~~Adobe Acrobat Reader und Microsoft-Apps erwarten weiterhin vollen Zugriff auf alle gespeicherten Dateien,~~ ~~während Apps seit Android KitKat (2013)~~ das [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) verwenden sollten, ~~ ~~um nur auf aktiv freigegebene Dateien zugreifen zu können. Dieses ist aus Gründen der Privatsphäre und Sicherheit so.~~
+~~Adobe Acrobat Reader und Microsoft-Apps erwarten weiterhin vollen Zugriff auf alle gespeicherten Dateien,~~ ~~während Apps seit Android KitKat (2013) das [Storage Access Framework](https://developer.android.com/guide/topics/providers/document-provider) verwenden sollten,~~ ~~um nur auf aktiv freigegebene Dateien zugreifen zu können. Dieses ist aus Gründen der Privatsphäre und Sicherheit so.~~
 
 ~~Sie können dies umgehen, indem Sie den Anhang speichern und ihn mit dem Adobe Acrobat Reader / der Microsoft-App öffnen,~~ ~~aber es wird empfohlen, einen aktuellen und vorzugsweise quelloffenen PDF-Reader / Dokumentenbetrachter zu installieren,~~ ~~zum Beispiel einen, der [hier](https://github.com/offa/android-foss#-document--pdf-viewer) aufgelistet ist.~~
 
 <br />
 
 <a name="faq69"></a>
-**(69) Kannst du automatisches Hochscrollen bei Erhalt einer neuen Nachricht hinzufügen?**
+**(69) Können Sie automatisches Hochscrollen bei Erhalt einer neuen Nachricht hinzufügen?**
 
 Die Nachrichtenliste wird automatisch nach oben gescrollt, wenn Sie von einer neuen Nachrichtenbenachrichtigung oder nach einer manuellen Aktualisierung navigieren. Immer automatisch nach oben scrollen, wenn neue Nachrichten erscheinen, würde Ihr eigenes Scrollen stören, aber wenn Sie wünschen, können Sie dies in den Einstellungen aktivieren.
 
@@ -1714,7 +1712,7 @@ Folgende Regelbedingungen sind verfügbar:
 * Absolute Zeit (empfangen) zwischen (seit Version 1.1540)
 * Relative Zeit (empfangen) zwischen
 
-Alle Bedingungen einer Regel müssen für die Ausführung der Regelaktion zutreffen. Alle Bedingungen sind optional, aber es muss mindestens eine Bedingung geben, um zu verhindern, dass alle Nachrichten passen. Wenn Sie alle Absender oder alle Empfänger ntzen möchten, können Sie einfach das @-Zeichen als Bedingung verwenden, da alle E-Mail-Adressen dieses Zeichen enthalten. Wenn Sie einen Domainnamen abgleichen möchten, können Sie etwas wie *@example.org* als Bedingung verwenden
+Alle Bedingungen einer Regel müssen für die Ausführung der Regelaktion zutreffen. Alle Bedingungen sind optional, aber es muss mindestens eine Bedingung geben, um zu verhindern, dass alle Nachrichten passen. Wenn Sie alle Absender oder alle Empfänger abgleichen möchten, können Sie einfach das @-Zeichen als Bedingung verwenden, da alle E-Mail-Adressen dieses Zeichen enthalten. Wenn Sie einen Domainnamen abgleichen möchten, können Sie etwas wie *@example.org* als Bedingung verwenden.
 
 Beachten Sie, dass E-Mail-Adressen wie folgt formatiert sind:
 
@@ -1723,7 +1721,7 @@ Beachten Sie, dass E-Mail-Adressen wie folgt formatiert sind:
 
 Sie können mehrere Regeln verwenden, möglicherweise mit einer *Stop-Verarbeitung*, für eine *oder* oder eine *nicht* Bedingung.
 
-Bei der Bedingungs-Prüfung wird keine Groß-/Kleinschreibung beachtet, es sei denn, Sie verwenden [reguläre Ausdrücke](https://en.wikipedia.org/wiki/Regular_expression). Bitte siehe [hier](https://developer.android.com/reference/java/util/regex/Pattern) für die Dokumentation regulärer Java-Ausdrücke. Du kannst eine RegEx [hier](https://regexr.com/) testen.
+Bei der Bedingungsprüfung wird keine Groß-/Kleinschreibung beachtet, es sei denn, Sie verwenden [reguläre Ausdrücke](https://en.wikipedia.org/wiki/Regular_expression). Bitte siehe [hier](https://developer.android.com/reference/java/util/regex/Pattern) für die Dokumentation regulärer Java-Ausdrücke. Sie können eine RegEx [hier](https://regexr.com/) testen.
 
 Beachten Sie, dass ein regulärer Ausdruck einen *oder* Operator unterstützt. Wenn also mehrere Absender zutreffen sollen, können Sie folgendes tun:
 
@@ -1749,7 +1747,7 @@ Sie können eine dieser Aktionen für passende Nachrichten auswählen:
 * Text-zu-Sprache (Absender und Betreff)
 * Automatisierung (Tasker usw.)
 
-Ein Fehler in der Bedingung der Filterregel kann zu einem Desaster führen. Daher werden unumkerhbare Aktionen nicht unterstützt.
+Ein Fehler in der Bedingung der Filterregel kann zu einem Desaster führen. Daher werden unumkehrbare Aktionen nicht unterstützt.
 
 Regeln werden direkt angewendet, nachdem die Kopfzeilen der Nachricht abgerufen wurden, aber bevor der Nachrichtentext heruntergeladen wurde. Damit ist es nicht möglich, Bedingungen auf den Nachrichtentext anzuwenden. Beachten Sie, dass große Nachrichtentexte bei getakteten Verbindungen erst auf Anfrage heruntergeladen werden, um Datennutzung zu sparen.
 
@@ -1809,7 +1807,7 @@ Eine Menge Wissen und Erfahrung ist erforderlich, um erfolgreich eine App für e
 <a name="faq76"></a>
 **(76) Was macht 'Lösche lokale Nachrichten'?**
 
-Die Option *Lokale Nachrichten löschen* entfernt Nachrichten vom Gerät, die auf dem Server noch vorhanden sind. Sie löscht keine Nachrichten vom Server. Dies kann nützlich sein, wenn die Ordnereinstellungen geändert werden, um den Nachrichteninhalt (Text und Anhänge) nicht herunterzuladen, zum Beispiel um Speicherplatz zu sparen.
+Die Option *Lokale Nachrichten löschen* entfernt Nachrichten vom Gerät, die auf dem Server noch vorhanden sind. Sie löscht keine Nachrichten vom Server. Dies kann nützlich sein, wenn die Ordnereinstellungen geändert werden, um den Nachrichteninhalt (Text und Anhänge) nicht herunterzuladen, zum Beispiel, um Speicherplatz zu sparen.
 
 <br />
 
@@ -1829,11 +1827,11 @@ FairEmail basiert auf den modernsten [Android-Architekturkomponenten](https://de
 <a name="faq78"></a>
 **(78) Wie verwende ich Zeitpläne?**
 
-In den Empfangseinstellungen können Sie die Terminierung aktivieren und einen Zeitraum und die Wochentage festlegen, an denen *Meldungen **empfangen* werden sollen. Beachten Sie, dass eine Endzeit, die gleich oder früher als die Startzeit ist, als 24 Stunden später angesehen wird.
+In den Empfangseinstellungen können Sie die Terminierung aktivieren und einen Zeitraum und die Wochentage festlegen, an denen *Meldungen empfangen* werden sollen. Beachten Sie, dass eine Endzeit, die gleich oder früher als die Startzeit ist, als 24 Stunden später angesehen wird.
 
 Automatisierung (siehe unten) kann für erweiterte Zeitpläne verwendet werden, zum Beispiel für mehrere Synchronisationszeiträume pro Tag oder unterschiedliche Synchronisationszeiträume für verschiedeneTage.
 
-FairEmail kann in mehreren Benutzerprofilen, zum Beispiel in einem persönlichen und einem Arbeitsprofil, installiert und in jedem dieser Profile anders konfiguriert werden, was eine weitere Möglichkeit ist, verschiedene Synchronisationspläne zu nutzen und verschidene Konten zu synchronisieren.
+FairEmail kann in mehreren Benutzerprofilen, zum Beispiel in einem persönlichen und einem Arbeitsprofil, installiert und in jedem dieser Profile anders konfiguriert werden, was eine weitere Möglichkeit ist, verschiedene Synchronisationspläne zu nutzen und verschiedene Konten zu synchronisieren.
 
 Außerdem ist es möglich, [Filterregeln](#user-content-faq71) mit einer Zeitbedingung zu erstellen und Meldungen bis zum Ende der Zeitbedingung zurückzustellen. Auf diese Weise ist es möglich, dienstliche Nachrichten bis zum Beginn der Arbeitszeit *zurückzustellen*. Dies bedeutet auch, dass die Nachrichten auf Ihrem Gerät verfügbar sind, wenn es (vorübergehend) keine Internetverbindung gibt.
 
@@ -1892,20 +1890,20 @@ Extras: Konto:Gmail
 
 Kontobezeichnung bitte Groß- und Kleinschreibung beachten.
 
-Plannung ist eine Pro-Funktion.
+Planung ist eine Pro-Funktion.
 
 <br />
 
 <a name="faq79"></a>
-**(79) Wie kann ich bei Bedarf syncronisieren (Handbuch)?**
+**(79) Wie kann ich bei Bedarf synchronisieren (Handbuch)?**
 
-Normalerweise hält FairEmail wann immer möglich eine Verbindung zu den konfigurierten E-Mail-Servern, um Nachrichten in Echtzeit zu empfangen. Wenn sie nicht wollen, zum Beispiel nicht gestört zu werden oder um Akku zu sparen, deaktivieren sie den Empfang in der Empfangseinstellungen. Dadurch wird der Hintergrunddienst, der sich um die automatische Synchronisierung kümmert, gestoppt; sowie die zugehörige Benachrichtigung entfernt.
+Normalerweise hält FairEmail, wann immer möglich, eine Verbindung zu den konfigurierten E-Mail-Servern, um Nachrichten in Echtzeit zu empfangen. Wenn sie nicht wollen, zum Beispiel nicht gestört zu werden oder um Akku zu sparen, deaktivieren sie den Empfang in der Empfangseinstellungen. Dadurch wird der Hintergrunddienst, der sich um die automatische Synchronisierung kümmert, gestoppt sowie die zugehörige Benachrichtigung entfernt.
 
-Sie können auch die *manuelle Synchronisierung* in den erweiterten Kontoeinstellungen aktivieren, wenn sie bestimmte Konten nur manull synchronisieren wollen.
+Sie können auch die *manuelle Synchronisierung* in den erweiterten Kontoeinstellungen aktivieren, wenn sie bestimmte Konten nur manuell synchronisieren wollen.
 
 Sie können in einer Nachrichtenliste herunterziehen oder im Ordnermenü auf *Jetzt synchronisieren* tippen, um die Nachrichten manuell zu synchronisieren.
 
-Wenn sie einige oder alle Ordner eines Kontos manuell synchronisieren möchten, deakrivieren Sie einfach die manuelle Synchronisation für die jeweiligen Ordner, aber nicht für das gesamte Konto.
+Wenn sie einige oder alle Ordner eines Kontos manuell synchronisieren möchten, deaktivieren Sie einfach die manuelle Synchronisation für die jeweiligen Ordner, aber nicht für das gesamte Konto.
 
 Vermutlich möchten Sie auch [den Server](#user-content-faq24) nicht mehr durchsuchen.
 
@@ -1914,9 +1912,9 @@ Vermutlich möchten Sie auch [den Server](#user-content-faq24) nicht mehr durchs
 <a name="faq80"></a>
 **~~(80) Wie behebe ich den Fehler »Unable to load BODYSTRUCTURE« ?~~**
 
-~~Die Fehlermeldung *Unable to load BODYSTRUCTURE* wird durch Fehler im E-Mail-Server verursacht,~~ ~~Siehe [hier](https://javaee.github.io/javamail/FAQ#imapserverbug) für weitere Details.~~ ~
+~~Die Fehlermeldung *Unable to load BODYSTRUCTURE* wird durch Fehler im E-Mail-Server verursacht,~~ ~~Siehe [hier](https://javaee.github.io/javamail/FAQ#imapserverbug) für weitere Details.~~
 
-~~FairEmail versucht bereits, diese Fehler zu umgehen, aber falls das fehlschlägt, müssen Sie Unterstützung von Ihrem Anbieter erbitten. ~~
+~~FairEmail versucht bereits, diese Fehler zu umgehen, aber falls das fehlschlägt, müssen Sie Unterstützung von Ihrem Anbieter erbitten.~~
 
 <br />
 
@@ -1951,7 +1949,7 @@ Eine weitere Verwendung ist die Erzeugung von [Verknüpfungen](#user-content-faq
 
 Die Kontaktliste ist nach der Anzahl der Nachrichten und der letzten Kontaktierung sortiert.
 
-Standardmäßig werden nur Namen und Adressen aufgezeichnet, an die Sie Nachrichten senden. Dies können Sie in dern Sende-Einstelungen ändern.
+Standardmäßig werden nur Namen und Adressen aufgezeichnet, an die Sie Nachrichten senden. Dies können Sie in dern Sende-Einstellungen ändern.
 
 <br />
 
@@ -1964,7 +1962,7 @@ Eine Identität (zur Versendung einer Nachricht oder zum Antworten) ist nur verf
 * das zugeordnete Konto wird synchronisiert (Nachrichten empfangen)
 * das zugehörige Konto hat einen Entwürfe-Ordner
 
-FairEmail versucht die passendste Identität, basierend auf der *Empfänger*-Adresse der Nachricht, auf die geantwortet oder die weitergeleitet weden soll, zu finden.
+FairEmail versucht die passendste Identität, basierend auf der *Empfänger*-Adresse der Nachricht, auf die geantwortet oder die weitergeleitet werden soll, zu finden.
 
 <br />
 
@@ -1983,9 +1981,9 @@ FairEmail versucht die passendste Identität, basierend auf der *Empfänger*-Adr
 
 Die Fehlermeldung *ungültige Anmeldedaten* bedeutet, dass der Benutzername und/oder das Passwort falsch sind. Zum Beispiel könnte das Passwort geändert worden oder abgelaufen sein, oder die Konto-Autorisierung ist abgelaufen.
 
-Wenn das Paswort falsch bzw. abgelaufen ist, müssen Sie es in den Account- und/oder in den Identitätseinstellungen aktualisieren.
+Wenn das Passwort falsch bzw. abgelaufen ist, müssen Sie es in den Account- und/oder in den Identitätseinstellungen aktualisieren.
 
-Wenn die Autorisierung des Kontos abgelaufen ist, müssen Sie das Konto erneut auswählen. Warcheinlich müssen sie auch die zugehörige Identität wieder speichern.
+Wenn die Autorisierung des Kontos abgelaufen ist, müssen Sie das Konto erneut auswählen. Wahrscheinlich müssen sie auch die zugehörige Identität wieder speichern.
 
 <br />
 
@@ -2000,11 +1998,11 @@ Um ein Yahoo-, AOL- oder Sky-Konto zu autorisieren, müssen Sie ein App-Passwort
 * [für AOL](https://help.aol.com/articles/Create-and-manage-app-password)
 * [für Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (unter *anderen E-Mail-Apps*)
 
-Siehe [diese häufig gestellten Fragen (FAQ)](#user-content-faq111) zu OAuth Support.
+Siehe [Frage 111](#user-content-faq111) zu OAuth Support.
 
 Beachten Sie, dass Yahoo, AOL und Sky keine Standard Push-Benachrichtigungen unterstützen. Die Yahoo-Mailapp verwendet ein proprietäres, nicht dokumentiertes Protokoll für Push-Nachrichten.
 
-Push-Benachritigungen erfordern [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE), aber der Yahoo-Mailserver meldet IDLE nicht als nutzbar:
+Push-Benachrichtigungen erfordern [IMAP IDLE](https://en.wikipedia.org/wiki/IMAP_IDLE), aber der Yahoo-Mailserver meldet IDLE nicht als nutzbar:
 
 ```
 Y1 CAPABILITY
@@ -2035,9 +2033,9 @@ Beachten Sie, dass Originalnachrichten genau so angezeigt werden, wie sie empfan
 <a name="faq91"></a>
 **~~(91) Können Sie eine periodische Synchronisierung hinzufügen, um den Akku zu schonen?~~**
 
-~~Synchronisieren von Nachrichten ist ein ressourcenaufwändiger Prozess, denn die lokal gespeicherten Nachrichten müssen mit den Nachrichten auf dem Server verglichen werden,~~ ~~daher würde eine periodische Synchronisierung keine Akkuleistung sparen, sondern eher zum Gegenteil führen.~~
+~~Synchronisieren von Nachrichten ist ein ressourcenaufwendiger Prozess, denn die lokal gespeicherten Nachrichten müssen mit den Nachrichten auf dem Server verglichen werden,~~ ~~daher würde eine periodische Synchronisierung keine Akkuleistung sparen, sondern eher zum Gegenteil führen.~~
 
-~~Siehe [diese F&A](#user-content-faq39) über die Optimierung der Akkunutzung~~
+~~Siehe [Frage 39](#user-content-faq39) über die Optimierung der Akkunutzung~~
 
 <br />
 
@@ -2048,7 +2046,7 @@ Spamfilter, Überprüfung der [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Id
 
 Spam-Filterung, die auf Nachrichten-Kopfzeilen basiert, wäre möglich gewesen, aber leider ist diese Technik [von Microsoft patentiert](https://patents.google.com/patent/US7543076).
 
-Neueste Versionen von FairEmail können Spam mit Hilfe eines Nachrichtenklassifikators erweitert filtern. Siehe [diese häufig gestellten Fragen (FAQ)](#user-content-faq163) für mehr Informationen.
+Neueste Versionen von FairEmail können Spam mit Hilfe eines Nachrichtenklassifikators erweitert filtern. Siehe [Frage 163](#user-content-faq163) für mehr Informationen.
 
 Natürlich können Sie Nachrichten als Spam mit FairEmail melden, wodurch die gemeldeten Nachrichten in den Spam-Ordner verschoben werden und SIe und den Spam-Filter ihres Providers trainieren. Dieser Vorgang kann auch mit [Filterregeln](#user-content-faq71) automatisiert werden. Das Blockieren des Absenders erstellt eine Filterregel, die zukünftige Nachrichten dieses Absenders automatisch in den Spam-Ordner verschiebt.
 
@@ -2058,9 +2056,9 @@ Beachten Sie, dass Sie Spam-Nachrichten nicht löschen sollten, auch nicht aus d
 
 Wenn Sie viele Spam-Nachrichten in Ihrem Posteingang erhalten, sollten Sie den E-Mail-Anbieter kontaktieren und anfragen, ob dessen Spam-Filter verbessert werden könnte.
 
-FairEmail kann auch eine kleine rote Warnmeldung anzeigen, wenn eine DKIM, SPF oder [DMARC](https://en.wikipedia.org/wiki/DMARC) Authentifizierung auf dem Empfangsserver fehlgeschlagen ist. Sie können diese [Authentifizierungsüberprüfung](https://en.wikipedia.org/wiki/Email_authentication) in den Anzeigeeinstellungen aktivieren bzw. deaktivieren.
+FairEmail kann auch eine kleine rote Warnmeldung anzeigen, wenn eine DKIM-, SPF- oder [DMARC](https://en.wikipedia.org/wiki/DMARC)-Authentifizierung auf dem Empfangsserver fehlgeschlagen ist. Sie können diese [Authentifizierungsüberprüfung](https://en.wikipedia.org/wiki/Email_authentication) in den Anzeigeeinstellungen aktivieren bzw. deaktivieren.
 
-FairEmail kann auch ein Warnzeichen anzeigen, wenn für den Domänennamen der (Antwort-) E-Mail-Adresse des Absenders keinen MX-Eintrag hinterlegt ist, mit dem auf einen E-Mail-Server verwiesen wird. Dies kann in den Empfangseinstellungen aktiviert werden. Beachten Sie, dass dies die Synchronisierung von Nachrichten erheblich verlangsamt.
+FairEmail kann auch ein Warnzeichen anzeigen, wenn für den Domänennamen der (Antwort-) E-Mail-Adresse des Absenders kein MX-Eintrag hinterlegt ist, mit dem auf einen E-Mail-Server verwiesen wird. Dies kann in den Empfangseinstellungen aktiviert werden. Beachten Sie, dass dies die Synchronisierung von Nachrichten erheblich verlangsamt.
 
 Wenn sich der Domainname des Absenders und der Domainname der Antwortadresse unterscheiden, wird ebenfalls das Warnsymbol angezeigt, da dies am häufigsten bei Phishing-Nachrichten der Fall ist. Falls gewünscht, kann dies (ab Version 1.1506). in den Empfangseinstellungen deaktiviert werden.
 
@@ -2084,7 +2082,7 @@ Wenn Sie Speicherplatz sparen müssen, können Sie die Anzahl der Tage begrenzen
 <a name="faq94"></a>
 **(94) Was bedeutet der rot-orangefarbene Streifen am Ende des Headers?**
 
-Der rot-orangefarbene Streifen auf der linken Seite des Headers bedeutet, dass die Authentifizierung von DKIM, SPF oder DMARC fehlgeschlagen ist. Siehe auch [diese F&A](#user-content-faq92).
+Der rot-orangefarbene Streifen auf der linken Seite des Headers bedeutet, dass die Authentifizierung von DKIM, SPF oder DMARC fehlgeschlagen ist. Siehe auch [Frage 92](#user-content-faq92).
 
 <br />
 
@@ -2109,7 +2107,7 @@ Die IMAP-Einstellungen sind Teil der (benutzerdefinierten) Kontoeinstellungen un
 <a name="faq97"></a>
 **(97) Was ist 'Bereinigen' ?**
 
-Ungefähr alle vier Stunden führt FairEmail eine Bereinigung durch, der:
+Ungefähr alle vier Stunden führt FairEmail eine Bereinigung durch, die:
 
 * alte Nachrichten entfernt
 * alte Anhänge entfernt
@@ -2124,16 +2122,16 @@ Beachten Sie, dass die Bereinigung nur durchgeführt wird, wenn der Synchronisie
 <a name="faq98"></a>
 **(98) Warum kann ich immer noch Kontakte auswählen, wenn ich Kontaktberechtigungen widerrufen habe?**
 
-Nach dem Widerrufen der Kontaktberechtigungen erlaubt Android FairEmail keinen Zugriff mehr auf Ihre Kontakte. Das Aussuchen von Kontakten wird jedoch an Android delegiert und nicht durch FairEmail, so dass dies ohne Kontaktberechtigungen möglich ist.
+Nach dem Widerrufen der Kontaktberechtigungen erlaubt Android FairEmail keinen Zugriff mehr auf Ihre Kontakte. Das Aussuchen von Kontakten wird jedoch an Android delegiert und nicht durch FairEmail, sodass dies ohne Kontaktberechtigungen möglich ist.
 
 <br />
 
 <a name="faq99"></a>
-**(99) Kannst du einen Rich-Text oder Markdown-Editor hinzufügen?**
+**(99) Können Sie einen Rich-Text oder Markdown-Editor hinzufügen?**
 
 FairEmail bietet eine einfache Textformatierung (fett, kursiv, unterstrichen, Textgröße und -farbe) über eine Symbolleiste, die nach der Auswahl eines Textes erscheint.
 
-Ein [Rich-Text](https://en.wikipedia.org/wiki/Formatted_text) oder [Markdown](https://en.wikipedia.org/wiki/Markdown) Editor würde nicht von vielen Leuten auf einem kleinen mobilen Gerät verwendet werden und, wichtiger, Android unterstützt keinen Rich-Text-Editor und die meisten Rich Text-Editor Open-Source-Projekte wurden aufgegeben. Siehe [hier](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) für weitere Details darüber.
+Ein [Rich Text](https://en.wikipedia.org/wiki/Formatted_text)- oder [Markdown](https://en.wikipedia.org/wiki/Markdown)-Editor würde nicht von vielen Leuten auf einem kleinen mobilen Gerät verwendet werden und wichtiger, Android unterstützt keinen Rich Text-Editor und die meisten Open-Source-Projekte für Rich Text-Editoren wurden aufgegeben. Siehe [hier](https://forum.xda-developers.com/showpost.php?p=79061829&postcount=4919) für weitere Details darüber.
 
 <br />
 
@@ -2142,7 +2140,7 @@ Ein [Rich-Text](https://en.wikipedia.org/wiki/Formatted_text) oder [Markdown](ht
 
 Sie können Google-Mail-Kategorien synchronisieren, indem Sie Filter erstellen, um kategorisierte Nachrichten zu kennzeichnen:
 
-* Erstellen Sie einen neuen Filter über Google Mail > Einstellungen (Rad) > Filter und blockierte Adressen > Erstellen Sie einen neuen Filter
+* Erstellen Sie einen neuen Filter über Google Mail → Einstellungen (Rad) → Filter und blockierte Adressen → Erstellen Sie einen neuen Filter
 * Geben Sie eine Kategoriesuche (siehe unten) in das Feld *Hat die Wörter* ein und klicken Sie auf *Filter erstellen*
 * Überprüfen Sie *Beschriftung anwenden* und wählen Sie eine Beschriftung aus und klicken Sie auf *Filter erstellen*
 
@@ -2173,7 +2171,7 @@ Der Punkt ist standardmäßig deaktiviert und kann mit den Anzeigeeinstellungen 
 <a name="faq102"></a>
 **(102) Wie kann ich die automatische Drehung von Bildern aktivieren?**
 
-Bilder werden automatisch gedreht, wenn die automatische Größe der Bilder in den Einstellungen aktiviert ist (standardmäßig aktiviert). Jedoch hängt die automatische Drehung von den [Exif-](https://en.wikipedia.org/wiki/Exif)Informationen ab, welche vorhanden und richtig sein müssen, was nicht immer der Fall ist. Insbesondere nicht beim Fotografieren mit einer Kamara-App aus FairEmail.
+Bilder werden automatisch gedreht, wenn die automatische Größe der Bilder in den Einstellungen aktiviert ist (standardmäßig aktiviert). Jedoch hängt die automatische Drehung von den [Exif-](https://en.wikipedia.org/wiki/Exif)Informationen ab, welche vorhanden und richtig sein müssen, was nicht immer der Fall ist. Insbesondere nicht beim Fotografieren mit einer Kamera-App aus FairEmail.
 
 Bitte beachten Sie, dass nur [JPEG-](https://en.wikipedia.org/wiki/JPEG) und [PNG-](https://en.wikipedia.org/wiki/Portable_Network_Graphics)Bilder Exif-Informationen enthalten können.
 
@@ -2182,7 +2180,7 @@ Bitte beachten Sie, dass nur [JPEG-](https://en.wikipedia.org/wiki/JPEG) und [PN
 <a name="faq104"></a>
 **(104) Was muss ich über Fehlerberichte wissen?**
 
-* Fehlerberichte helfen FairEmail zu verbessern
+* Fehlerberichte helfen, FairEmail zu verbessern
 * Fehlermeldung ist optional und opt-in
 * Fehlerberichte können in den Einstellungen aktiviert/deaktiviert werden, Abschnitt Verschiedenes
 * Fehlerberichte werden automatisch anonym an [Bugsnag](https://www.bugsnag.com/) gesendet
@@ -2211,7 +2209,7 @@ Beachten Sie, dass Nova Launcher „TeslaUnread” benötigt, was [nicht mehr un
 
 Beachten Sie, dass die Benachrichtigungseinstellung *Startsymbol mit Anzahl der neuen Nachrichten anzeigen* aktiviert sein muss (Standard aktiviert).
 
-Nur *neue* ungelesene Nachrichten in Ordnern, die für die Anzeige neuer Nachrichten gesetzt sind, werden gezählt, so dass Nachrichten, die erneut als ungelesen markiert werden und Nachrichten in Ordnern, die auf keine neue Nachrichtenbenachrichtigung eingestellt sind, nicht gezählt werden.
+Nur *neue* ungelesene Nachrichten in Ordnern, die für die Anzeige neuer Nachrichten gesetzt sind, werden gezählt, sodass Nachrichten, die erneut als ungelesen markiert werden und Nachrichten in Ordnern, die auf keine neue Nachrichtenbenachrichtigung eingestellt sind, nicht gezählt werden.
 
 Je nachdem, was Sie wollen, muss die Benachrichtigungseinstellungen *Lassen Sie die Anzahl der neuen Nachrichten mit der Anzahl der Benachrichtigungen* übereinstimmen (Standard deaktiviert) gesetzt werden. Wenn diese Funktion aktiviert ist, entspricht die Zahl der Kennzeichnung der Anzahl der Benachrichtigungen über neue Nachrichten. Wenn diese Funktion deaktiviert ist, wird die Anzahl der ungelesenen Nachrichten angezeigt, unabhängig davon, ob sie in einer Benachrichtigung angezeigt werden oder neu sind.
 
@@ -2243,19 +2241,19 @@ Einige E-Mail-Clients verwenden IMAP-Schlüsselwörter für Farben. Allerdings u
 <a name="faq108"></a>
 **~~(108) Können Sie Nachrichten aus einem beliebigen Ordner dauerhaft löschen?~~**
 
-~~Wenn Sie Nachrichten aus einem Ordner löschen, werden die Nachrichten in den Papierkorbordner verschoben, so dass Sie die Möglichkeit haben, die Nachrichten wiederherzustellen.~~ ~~Sie können Nachrichten dauerhaft aus dem Papierkorbordner löschen. ~~Das dauerhafte Löschen von Nachrichten aus anderen Ordnern würde den Zweck des Papierkorbordners zunichte machen, daher wird dieser nicht hinzugefügt.~~
+~~Wenn Sie Nachrichten aus einem Ordner löschen, werden die Nachrichten in den Papierkorbordner verschoben, sodass Sie die Möglichkeit haben, die Nachrichten wiederherzustellen.~~ ~~Sie können Nachrichten dauerhaft aus dem Papierkorbordner löschen.~~ ~~Das dauerhafte Löschen von Nachrichten aus anderen Ordnern würde den Zweck des Papierkorbordners zunichte machen, daher wird dieser nicht hinzugefügt.~~
 
 <br />
 
 <a name="faq109"></a>
 **~~(109) Warum ist "Konto auswählen" nur in offiziellen Versionen verfügbar?~~**
 
-~~Die Verwendung von *Konto auswählen* zur Auswahl und Autorisierung von Google-Konten erfordert aus Sicherheits- und Datenschutzgründen eine spezielle Erlaubnis von Google.~~ ~~Diese spezielle Erlaubnis kann nur für Apps erworben werden, die ein Entwickler verwaltet und für die er verantwortlich ist. ~~Drittanbieter-Builds, wie die F-Droid-Builds, werden von Dritten verwaltet und liegen in der Verantwortung dieser Dritten. ~~Daher können nur diese Drittanbieter die erforderliche Genehmigung von Google erhalten. ~~Da diese Drittanbieter FairEmail nicht wirklich unterstützen, werden sie höchstwahrscheinlich die erforderliche Genehmigung nicht beantragen.~~
+~~Die Verwendung von *Konto auswählen* zur Auswahl und Autorisierung von Google-Konten erfordert aus Sicherheits- und Datenschutzgründen eine spezielle Erlaubnis von Google.~~ ~~Diese spezielle Erlaubnis kann nur für Apps erworben werden, die ein Entwickler verwaltet und für die er verantwortlich ist.~~ ~~Drittanbieter-Builds, wie die F-Droid-Builds, werden von Dritten verwaltet und liegen in der Verantwortung dieser Dritten.~~ ~~Daher können nur diese Drittanbieter die erforderliche Genehmigung von Google erhalten.~~ ~~Da diese Drittanbieter FairEmail nicht wirklich unterstützen, werden sie höchstwahrscheinlich die erforderliche Genehmigung nicht beantragen.~~
 
 ~~Sie können das auf zwei Arten lösen:~~
 
 * ~~Wechseln Sie zur offiziellen Version von FairEmail, siehe [hier](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) für die Optionen~~
-* ~~App-spezifische Passwörter verwenden, siehe [diese FAQ](#user-content-faq6)~~
+* ~~App-spezifische Passwörter verwenden, siehe [Frage 6](#user-content-faq6)~~
 
 ~~Die Verwendung von *Konto wählen* in Drittanbieter-Builds ist in neueren Versionen nicht mehr möglich.~~ ~~In älteren Versionen war dies möglich, aber es führt jetzt zu dem Fehler *UNREGISTERED_ON_API_CONSOLE*.~~
 
@@ -2277,9 +2275,9 @@ Deaktivieren von *»Partial fetch« (Teilabruf)* führt zu mehr Speicherverbrauc
 <a name="faq111"></a>
 **(111) Wird OAuth unterstützt?**
 
-OAuth für Gmail wird über den Schnelleinstellungs-Assistenten unterstützt. Der Android Account Manager wird verwendet, um OAuth Token für ausgewählte Konten auf dem Gerät zu laden und zu aktualisieren. OAuth für nicht-Gerätekonten wird nicht unterstützt, da Google dafür ein [jährliches Sicherheitsaudit](https://support.google.com/cloud/answer/9110914) ($15.000 bis $75,000) fordert. Mehr darüber können Sie [here](https://www.theregister.com/2019/02/11/google_gmail_developer/) lesen.
+OAuth für Gmail wird über den Schnelleinrichtungsassistenten unterstützt. Der Android Account Manager wird verwendet, um OAuth Token für ausgewählte Konten auf dem Gerät zu laden und zu aktualisieren. OAuth für Nicht-Gerätekonten wird nicht unterstützt, da Google dafür ein [jährliches Sicherheitsaudit](https://support.google.com/cloud/answer/9110914) ($15.000 bis $75,000) fordert. Mehr darüber können Sie [hier](https://www.theregister.com/2019/02/11/google_gmail_developer/) lesen.
 
-OAuth für Outlook/Office 365, Yahoo, Mail.ru und Yandex wird über den Schnelleinstellungs-Assistenten unterstützt.
+OAuth für Outlook/Office 365, Yahoo, Mail.ru und Yandex wird über den Schnelleinrichtungsassistenten unterstützt.
 
 <br />
 
@@ -2290,7 +2288,7 @@ FairEmail ist nur ein E-Mail-Programm, deshalb müssen Sie Ihre eigene E-Mail-Ad
 
 Es gibt viele E-Mail-Anbieter zur Auswahl. Welcher E-Mail-Provider am besten für Sie ist, hängt von Ihren Wünschen/Anforderungen ab. Bitte lesen Sie die Webseiten von [ Restore privacy](https://restoreprivacy.com/secure-email/) oder [Privacy Tools](https://www.privacytools.io/providers/email/) für eine Liste von E-Mail-Anbietern mit Vor- und Nachteilen.
 
-Einige Anbieter wie ProtonMail oder Tutanota verwenden proprietäre E-Mail-Protokolle, die es unmöglich machen, E-Mail-Apps von Drittanbietern zu verwenden. Weitere Informationen finden Sie in den [Häufig gestellten Fragen (FAQ)](#user-content-faq129).
+Einige Anbieter wie ProtonMail oder Tutanota verwenden proprietäre E-Mail-Protokolle, die es unmöglich machen, E-Mail-Apps von Drittanbietern zu verwenden. Weitere Informationen finden Sie in [Frage 129](#user-content-faq129).
 
 Die Verwendung Ihres eigenen (individuellen) Domain-Namens, der von den meisten E-Mail-Anbietern unterstützt wird, erleichtert den Wechsel zu einem anderen E-Mail-Provider.
 
@@ -2301,7 +2299,7 @@ Die Verwendung Ihres eigenen (individuellen) Domain-Namens, der von den meisten 
 
 Wenn Ihr Gerät einen biometrischen Sensor hat, zum Beispiel einen Fingerabdruck-Sensor, können Sie die biometrische Authentifizierung im Navigationsmenü (Hamburger) des Einstellungsbildschirms aktivieren/deaktivieren. Wenn eingeschaltet, benötigt FairEmail biometrische Authentifizierung nach einer Zeit der Inaktivität oder nachdem der Bildschirm ausgeschaltet wurde, während FairEmail läuft. Als Aktivität zählt dabei die Navigation innerhalb von FairEmail, zum Beispiel das Öffnen eines Gesprächsthemas. Die Dauer der Inaktivitätszeit kann in den Einstellungen unter 'Verschiedenes' konfiguriert werden. Wenn die biometrische Authentifizierung aktiviert ist, werden neue Benachrichtigungen keine Inhalte anzeigen und FairEmail wird nicht im Android Anwendungsverlauf angezeigt.
 
-Biometrische Authentifizierung soll nur verhindern, dass andere Ihre Nachrichten sehen. FairEmail setzt bei der Datenverschlüsselung auf Geräteverschlüsselung. Siehe auch [diese FAQ](#user-content-faq37).
+Biometrische Authentifizierung soll nur verhindern, dass andere Ihre Nachrichten sehen. FairEmail setzt bei der Datenverschlüsselung auf Geräteverschlüsselung. Siehe auch [Frage 37](#user-content-faq37).
 
 Biometrische Authentifizierung ist eine Pro-Funktion.
 
@@ -2310,7 +2308,7 @@ Biometrische Authentifizierung ist eine Pro-Funktion.
 <a name="faq114"></a>
 **(114) Können Sie den Import von Einstellungen aus anderen E-Mail-Apps hinzufügen?**
 
-Das Format der Einstellungsdateien der meisten anderen E-Mail-Apps ist nicht dokumentiert, daher ist dies schwierig. Manchmal ist es möglich, das Format rückzuentwickeln, aber sobald das Einstellungsformat geändert wird, werden Dinge schief gehen. Auch sind die Einstellungen oft inkompatibel. Beispielsweise hat FairEmail im Gegensatz zu den meisten anderen E-Mail-Apps Einstellungen für die Anzahl der Tage, an denen Nachrichten synchronisiert werden sollen, und für die Anzahl der Tage, für die Nachrichten aufbewahrt werden sollen, hauptsächlich, um den Akkuverbrauch zu senken. Darüber hinaus ist die Einrichtung eines Kontos/einer Identität mit dem Schnelleinrichtungs-Assistenten einfach, so dass es sich nicht wirklich lohnt.
+Das Format der Einstellungsdateien der meisten anderen E-Mail-Apps ist nicht dokumentiert, daher ist dies schwierig. Manchmal ist es möglich, das Format rückzuentwickeln, aber sobald das Einstellungsformat geändert wird, werden Dinge schief gehen. Auch sind die Einstellungen oft inkompatibel. Beispielsweise hat FairEmail im Gegensatz zu den meisten anderen E-Mail-Apps Einstellungen für die Anzahl der Tage, an denen Nachrichten synchronisiert werden sollen, und für die Anzahl der Tage, für die Nachrichten aufbewahrt werden sollen, hauptsächlich, um den Akkuverbrauch zu senken. Darüber hinaus ist die Einrichtung eines Kontos/einer Identität mit dem Schnelleinrichtungsassistenten einfach, sodass es sich nicht wirklich lohnt.
 
 <br />
 
@@ -2328,11 +2326,11 @@ Chips eignen sich nicht für die Anzeige in einer Liste und da der Nachrichtenko
 <br />
 
 <a name="faq116"></a>
-**~~(116) Wie kann ich Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen?~**
+**~~(116) Wie kann ich Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen?~~**
 
 ~~Sie können Bilder in Nachrichten von vertrauenswürdigen Absendern standardmäßig anzeigen, indem Sie die Anzeigeeinstellung *Automatisch Bilder für bekannte Kontakte anzeigen* einschalten.~~
 
-~~Kontakte in der Android-Kontaktliste gelten als bekannt und vertrauenswürdig, ~ ~~, es sei denn, der Kontakt ist in der Gruppe / hat das Label '*Nicht vertrauenswürdig*' (unabhängig von Groß- und Kleinschreibung).~~
+~~Kontakte in der Android-Kontaktliste gelten als bekannt und vertrauenswürdig,~~ ~~, es sei denn, der Kontakt ist in der Gruppe / hat das Label '*Nicht vertrauenswürdig*' (unabhängig von Groß- und Kleinschreibung).~~
 
 <br />
 
@@ -2342,7 +2340,7 @@ Chips eignen sich nicht für die Anzeige in einer Liste und da der Nachrichtenko
 
 Zunächst einmal ist ein Kauf auf allen Geräten verfügbar, die mit demselben Google-Konto angemeldet sind, *wenn* die App auch über dasselbe Google-Konto installiert ist. Sie können das Konto in der Play Store App auswählen.
 
-Google verwaltet alle Einkäufe, so dass ich als Entwickler wenig Kontrolle über Einkäufe habe. Also kann ich im Grunde nichts anderes tun, als einen Rat zu geben:
+Google verwaltet alle Einkäufe, sodass ich als Entwickler wenig Kontrolle über Einkäufe habe. Also kann ich im Grunde nichts anderes tun, als einen Rat zu geben:
 
 * Stellen Sie sicher, dass Sie über eine stabile Internetverbindung verfügen
 * Stellen Sie sicher, dass Sie mit dem richtigen Google-Konto angemeldet sind und dass alles mit Ihrem Google-Konto in Ordnung ist
@@ -2361,7 +2359,7 @@ Beachten Sie:
 * Google gibt keine Details (Name, E-Mail usw.) über Käufer an Entwickler weiter
 * Eine App wie FairEmail kann nicht auswählen, welches Google-Konto verwendet werden soll
 * Es kann eine Weile dauern, bis die Play Store-App einen Kauf mit einem anderen Gerät synchronisiert hat
-* Käufe über den Play Store können ohne den Play Store nicht verwendet werden, was nach den Play-Store-Regeln ebenfalls nicht zulässig ist
+* Käufe über den Play Store können ohne den Play Store nicht verwendet werden, was nach den Play Store-Regeln ebenfalls nicht zulässig ist
 
 Wenn Sie ein Problem beim Kauf der App nicht lösen können, kontaktieren Sie Google.
 
@@ -2370,14 +2368,14 @@ Wenn Sie ein Problem beim Kauf der App nicht lösen können, kontaktieren Sie Go
 <a name="faq118"></a>
 **(118) Was genau bedeutet »Verfolgungsparameter entfernen«?**
 
-*Verefolgungsparameter entfernen* entfernt alle [UTM-Parameter](https://en.wikipedia.org/wiki/UTM_parameters) von einem Link.
+*Verfolgungsparameter entfernen* entfernt alle [UTM-Parameter](https://en.wikipedia.org/wiki/UTM_parameters) von einem Link.
 
 <br />
 
 <a name="faq119"></a>
-**~~(119) Kannst du dem Sammeleingangs-Widget Farben hinzufügen?~~**
+**~~(119) Können Sie dem Sammeleingangs-Widget Farben hinzufügen?~~**
 
-~~Das Widget ist so konzipiert, dass es auf den meisten Home/Launcher Bildschirmen gut aussieht, indem es monochrome Farben und einen halbtransparenten Hintergrund verwendet. ~ ~~Auf diese Weise wird das Widget schön integriert, während es trotzdem gut lesbar ist.~~
+~~Das Widget ist so konzipiert, dass es auf den meisten Home/Launcher Bildschirmen gut aussieht, indem es monochrome Farben und einen halbtransparenten Hintergrund verwendet.~~ ~~Auf diese Weise wird das Widget schön integriert, während es trotzdem gut lesbar ist.~~
 
 ~~Das Hinzufügen von Farben wird Probleme mit einigen Hintergründen verursachen und zu Problemen bei der Lesbarkeit führen, weshalb dies nicht hinzugefügt wird.~~
 
@@ -2388,9 +2386,9 @@ Aufgrund von Android-Einschränkungen ist es nicht möglich, die Deckkraft des H
 <a name="faq120"></a>
 **(120) Warum werden die Benachrichtigungen über neue Nachrichten beim Öffnen der App nicht entfernt?**
 
-Neue Benachrichtigungen werden beim Wischen von Benachrichtigungen oder beim Markieren der Nachrichten als gelesen entfernt. Das Öffnen der App löscht keine neuen Nachrichten-Benachrichtigungen. Dies gibt dir die Möglichkeit, Benachrichtigungen über neue Nachrichten als Erinnerung zu behalten, dass es immer noch ungelesene Nachrichten gibt.
+Neue Benachrichtigungen werden beim Wischen von Benachrichtigungen oder beim Markieren der Nachrichten als gelesen entfernt. Das Öffnen der App löscht keine neuen Nachrichten-Benachrichtigungen. Dies gibt Ihnen die Möglichkeit, Benachrichtigungen über neue Nachrichten als Erinnerung zu behalten, dass es immer noch ungelesene Nachrichten gibt.
 
-Auf Android 7 Nougat und später werden neue Benachrichtigungen [gruppiert](https://developer.android.com/training/notify-user/group). Wenn Sie auf eine Zusammenfassungs-Benachrichtigung tippen, öffnet sich der Sammeleingang. Die Zusammenfassungs-Benachrichtigung kann erweitert werden, um einzelne neue Nachrichten anzuzeigen. Tippen Sie auf eine individuelle Benachrichtigung, um die Unterhaltung zu öffnen, zu der die Nachricht gehört. Siehe [diese häufig gestellten Fragen (FAQ)](#user-content-faq70) darüber, wann Nachrichten in einer Unterhaltung automatisch erweitert und als gelesen markiert werden.
+Auf Android 7 Nougat und später werden neue Benachrichtigungen [gruppiert](https://developer.android.com/training/notify-user/group). Wenn Sie auf eine Zusammenfassungs-Benachrichtigung tippen, öffnet sich der Sammeleingang. Die Zusammenfassungs-Benachrichtigung kann erweitert werden, um einzelne neue Nachrichten anzuzeigen. Tippen Sie auf eine individuelle Benachrichtigung, um die Unterhaltung zu öffnen, zu der die Nachricht gehört. Siehe [Frage 70](#user-content-faq70) darüber, wann Nachrichten in einer Unterhaltung automatisch erweitert und als gelesen markiert werden.
 
 <br />
 
@@ -2404,9 +2402,9 @@ FairEmail gruppiert Nachrichten basierend auf der *Message-ID*, *In-Antwort-An* 
 <br />
 
 <a name="faq122"></a>
-**~~(122) Warum wird der Empfängername/die E-Mail-Adresse mit einer Warnfarbe angezeigt? ~**
+**~~(122) Warum wird der Empfängername/die E-Mail-Adresse mit einer Warnfarbe angezeigt?~~**
 
-~~Der Empfängername und/oder die E-Mail-Adresse im Adressbereich werden in einer Warnfarbe angezeigt,~ ~~~wenn der Absender-Domain-Name und der Domain-Name der *"an"-* Adresse nicht übereinstimmen. ~ ~~Meist zeigt dies an, dass die Nachricht *über* ein Konto mit einer anderen E-Mail-Adresse empfangen wurde.~~
+~~Der Empfängername und/oder die E-Mail-Adresse im Adressbereich werden in einer Warnfarbe angezeigt,~~ ~~wenn der Absender-Domain-Name und der Domain-Name der *"an"-* Adresse nicht übereinstimmen.~~ ~~Meist zeigt dies an, dass die Nachricht *über* ein Konto mit einer anderen E-Mail-Adresse empfangen wurde.~~
 
 <br />
 
@@ -2437,7 +2435,7 @@ Die Fehlermeldung *Nachricht ist zu groß oder zu komplex für die Anzeige* wird
 
 *Nachrichtenklassifizierung (Version 1.1438+)*
 
-Siehe [diese häufig gestellten Fragen (FAQ)](#user-content-faq163) für Details.
+Siehe [Frage 163](#user-content-faq163) für Details.
 
 Da es eine experimentelle Funktion ist, empfehle ich, mit nur einem Ordner zu beginnen.
 
@@ -2454,7 +2452,7 @@ Für einige Hintergründe siehe [diesen Wikipedia-Artikel](https://en.wikipedia.
 <br />
 
 <a name="faq126"></a>
-**(126) Kann eine Vorschau des Nachrichtentexts auf mein Wearable (z.B. Smartwatch) gesendet werden?**
+**(126) Kann eine Vorschau des Nachrichtentexts auf mein Wearable (z. B. Smartwatch) gesendet werden?**
 
 FairEmail ruft eine Nachricht in zwei Schritten ab:
 
@@ -2481,7 +2479,7 @@ Der Fehler *... Syntaktisch ungültige(s) HELO-Argument(e) ...* bedeutet, dass d
 <br />
 
 <a name="faq128"></a>
-**(128) Wie kann ich gestellte Fragen zurücksetzen, zum Beispiel um Bilder anzuzeigen?**
+**(128) Wie kann ich gestellte Fragen zurücksetzen, zum Beispiel, um Bilder anzuzeigen?**
 
 Sie können gestellte Fragen über das Drei-Punkte-Menü in den verschiedenen Einstellungen zurücksetzen.
 
@@ -2503,13 +2501,13 @@ Eine Reihe von Zeilen mit orangem oder rotem Text mit technischen Informationen 
 
 Die Warnung *Kein Server gefunden auf ...* bedeutet, dass bei dem angegebenen Domainnamen kein E-Mail-Server registriert wurde. Ein Antworten auf die Nachricht ist möglicherweise nicht möglich und kann zu einem Fehler führen. Dies könnte eine gefälschte E-Mail-Adresse und/oder Spam anzeigen.
 
-Der Fehler *... ParseException ...* bedeutet, dass es ein Problem mit einer empfangenen Nachricht gibt, wahrscheinlich durch einen Fehler in der Sendesoftware. FairEmail wird dies in den meisten Fällen umgehen, so dass diese Nachricht meist als Warnung statt als Fehler angesehen werden kann.
+Der Fehler *... ParseException ...* bedeutet, dass es ein Problem mit einer empfangenen Nachricht gibt, wahrscheinlich durch einen Fehler in der Sendesoftware. FairEmail wird dies in den meisten Fällen umgehen, sodass diese Nachricht meist als Warnung statt als Fehler angesehen werden kann.
 
 Der Fehler *...SendFailedException...* bedeutet, dass beim Senden einer Nachricht ein Problem aufgetreten ist. Die Fehlermeldung wird fast immer einen Grund enthalten. Häufige Gründe dafür sind, dass die Nachricht zu groß war oder dass eine oder mehrere Empfängeradressen ungültig waren.
 
 Die Warnung *Nachricht ist zu groß, um in den verfügbaren Speicher passen zu können*, bedeutet, dass die Nachricht größer als 10 MiB war. Selbst wenn Ihr Gerät viel Speicherplatz hat, bietet Android Apps nur begrenzten Arbeitsspeicher, die die Größe von Nachrichten begrenzt, die bearbeitet werden können.
 
-Siehe [hier](#user-content-faq22) für weitere Fehlermeldungen im Postausgang.
+Siehe [Frage 22](#user-content-faq22) für weitere Fehlermeldungen im Postausgang.
 
 <br />
 
@@ -2527,9 +2525,9 @@ Auf jeden Fall gibt es eine Verhaltenseinstellung, um die Wischrichtung umzukehr
 <a name="faq132"></a>
 **(132) Warum sind neue Benachrichtigungen stumm?**
 
-Bei einigen MIUI-Versionen sind Benachrichtigungen standardmäßig stumm. Siehe [hier](http://en.miui.com/thread-3930694-1-1.html) wie man das beheben kann.
+Bei einigen MIUI-Versionen sind Benachrichtigungen standardmäßig stumm. Siehe [hier](http://en.miui.com/thread-3930694-1-1.html), wie man das beheben kann.
 
-Es gibt einen Fehler in einigen Android-Versionen, der [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) dazu veranlasst, Benachrichtigungen zu stummschalten. Da FairEmail Benachrichtigungen für neue Nachrichten direkt nach dem Abrufen der Nachrichtenüberschriften anzeigt, und FairEmail nach dem Abrufen des Nachrichtentextes neue Nachrichten aktualisieren muss, kann dies nicht durch FairEmail behoben oder umgangen werden.
+Es gibt einen Fehler in einigen Android-Versionen, der [setOnlyAlertOnce](https://developer.android.com/reference/android/app/Notification.Builder#setOnlyAlertOnce(boolean)) dazu veranlasst, Benachrichtigungen zu stummschalten. Da FairEmail Benachrichtigungen für neue Nachrichten direkt nach dem Abrufen der Nachrichtenüberschriften anzeigt und nach dem Abrufen des Nachrichtentextes neue Nachrichten aktualisieren muss, kann dies nicht durch FairEmail behoben oder umgangen werden.
 
 Android kann unter Umständen die Frequenz des Benachrichtigungstons einschränken, was dazu führen kann, dass einige neue Benachrichtigungen stumm sind.
 
@@ -2538,22 +2536,22 @@ Android kann unter Umständen die Frequenz des Benachrichtigungstons einschränk
 <a name="faq133"></a>
 **(133) Warum wird ActiveSync nicht unterstützt?**
 
-Das Microsoft Exchange ActiveSync Protokoll [ist patentiert](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) und kann daher nicht unterstützt werden. Aus diesem Grund werden Sie, wenn überhaupt, nicht viele andere E-Mail-Clients finden, die ActiveSync unterstützen.
+Das Microsoft Exchange ActiveSync-Protokoll [ist patentiert](https://en.wikipedia.org/wiki/Exchange_ActiveSync#Licensing) und kann daher nicht unterstützt werden. Aus diesem Grund werden Sie, wenn überhaupt, nicht viele andere E-Mail-Clients finden, die ActiveSync unterstützen.
 
 Beachten Sie, dass die Beschreibung von FairEmail mit der Bemerkung beginnt, dass nicht standardmäßige Protokolle, wie Microsoft Exchange Web Services und Microsoft ActiveSync, nicht unterstützt werden.
 
 <br />
 
 <a name="faq134"></a>
-**(134) Kannman das Löschen lokaler Nachrichten hinzufügen?**
+**(134) Kann man das Löschen lokaler Nachrichten hinzufügen?**
 
 *POP3*
 
-In den Kontoeinstellungen (Einstellungen, wähle Manuelle Einrichtung, wähle Konten, wähle Konto) können Sie *gelöschte Nachrichten auf Server lassen* aktivieren.
+In den Kontoeinstellungen (Einstellungen → Manuelle Einrichtung → Konten → Konto) können Sie *gelöschte Nachrichten auf Server lassen* aktivieren.
 
 *IMAP*
 
-Da das IMAP-Protokoll dazu da ist in beide Richtungen zu synchronisieren, würde das Löschen einer Nachricht vom Gerät dazu führen, dass bei erneuter Synchronisation auch die Nachricht erneut abgerufen wird.
+Da das IMAP-Protokoll dazu da ist, in beide Richtungen zu synchronisieren, würde das Löschen einer Nachricht vom Gerät dazu führen, dass bei erneuter Synchronisation auch die Nachricht erneut abgerufen wird.
 
 FairEmail unterstützt jedoch das Ausblenden von Nachrichten, entweder über das Drei-Punkte-Menü in der Aktionsleiste über dem Nachrichtentext oder durch die Auswahl mehrerer Nachrichten in der Nachrichtenliste. Im Grunde ist dies das gleiche wie das "auf dem Server lassen" des POP3-Protokolls mit dem Vorteil, dass Sie die Nachrichten bei Bedarf wieder anzeigen können.
 
@@ -2566,7 +2564,7 @@ Beachten Sie, dass es möglich ist, das Wischen nach links oder rechts zu aktivi
 
 Einzelne Nachrichten werden selten gelöscht, und dies geschieht meist zufällig. Das Anzeigen von gelöschten Nachrichten in Unterhaltungen erleichtert das Wiederauffinden dieser Nachrichten.
 
-Sie können eine Nachricht dauerhaft löschen, in dem Sie im Drei-Punkt-Menü *löschen* auswählen, was die Nachricht aus der Konversation entfernt. Beachten Sie, dass dies die Nachricht unwiederruflich löscht.
+Sie können eine Nachricht dauerhaft löschen, in dem Sie im Drei-Punkte-Menü *löschen* auswählen, was die Nachricht aus der Konversation entfernt. Beachten Sie, dass dies die Nachricht unwiderruflich löscht.
 
 Ebenso werden Entwürfe in Gesprächen gezeigt, um sie in dem Kontext wiederzufinden, wo sie hingehören. So ist es leicht, die empfangenen Nachrichten durchzulesen, bevor Sie den Entwurf später weiterschreiben.
 
@@ -2577,9 +2575,9 @@ Ebenso werden Entwürfe in Gesprächen gezeigt, um sie in dem Kontext wiederzufi
 
 Das Löschen eines Kontos / einer Identität / eines Ordners ist ein wenig versteckt, um Unfälle zu vermeiden.
 
-* Konto: Einstellungen > Manuelle Einrichtung > Konten > Tippen Sie auf Konto
-* Identität: Einstellungen > Manuelle Einrichtung > Identitäten > tippen auf Identität
-* Ordner: Lange auf den den Ordner in der Ordnerliste drücken > Eigenschaften bearbeiten
+* Konto: Einstellungen → Manuelle Einrichtung → Konten → Tippen Sie auf Konto
+* Identität: Einstellungen → Manuelle Einrichtung → Identitäten → tippen auf Identität
+* Ordner: Lange auf den den Ordner in der Ordnerliste drücken → Eigenschaften bearbeiten
 
 Im Drei-Punkte-Menü oben rechts befindet sich ein Element, um ein Konto / eine Identität einen Ordner zu löschen.
 
@@ -2593,7 +2591,7 @@ Sie können alle 'Nicht erneut fragen' Fragen unter verschiedene Einstellungen z
 <br />
 
 <a name="faq138"></a>
-**(138) Kannst du eine Kalender-/Kontakt-/Aufgaben-/Notizverwaltung einbauen?**
+**(138) Können Sie eine Kalender-/Kontakt-/Aufgaben-/Notizverwaltung einbauen?**
 
 Kalender-, Kontakt-, Aufgaben- und Notizverwaltung können besser durch eine separate, spezialisierte App durchgeführt werden. Bitte beachten Sie, dass FairEmail eine reine E-Mail-App ist und keine Office-Suite.
 
@@ -2615,8 +2613,8 @@ Tatsächlich ist dieser in Microsoft Exchange spezifische Fehler eine falsche Fe
 
 Der Fehler *Der Benutzer ist authentifiziert, aber nicht verbunden* kann auftreten, wenn:
 
-* Push-Nachrichten für zu viele Ordner aktiviert sind: Siehe [diese häufig gestellten Fragen (FAQ)](#user-content-faq23) für weitere Informationen und eine Umgehung des Problems
-* Das Account-Passwort wurde geändert: Dieses auch in FairEmail zu ändern sollte das Problem beheben
+* Push-Nachrichten für zu viele Ordner aktiviert sind: Siehe [Frage 23](#user-content-faq23) für weitere Informationen und eine Umgehung des Problems
+* Das Account-Passwort wurde geändert: Dieses auch in FairEmail zu ändern, sollte das Problem beheben
 * Eine Alias-E-Mail-Adresse wird als Benutzername anstelle der primären E-Mail-Adresse verwendet
 * Ein falsches Login-Schema wird für eine gemeinsame Mailbox verwendet: Das richtige Schema ist *username@domain\SharedMailboxAlias*
 
@@ -2635,7 +2633,7 @@ Wenn Sie eine gemeinsame Mailbox verwenden, möchten Sie wahrscheinlich die Opti
 <a name="faq140"></a>
 **(140) Warum enthält der Nachrichtentext seltsame Zeichen?**
 
-Die Anzeige seltsamer Zeichen wird fast immer dadurch verursacht, dass keine oder eine ungültige Zeichenkodierung durch die Sende-Software angegeben wird. FairEmail geht von [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) aus, wenn kein Zeichensatz vorhanden ist oder wenn [US-ASCII](https://en.wikipedia.org/wiki/ASCII) angegeben wurde. Davon abgesehen ist es nicht möglich, automatisch und zuverlässig die korrekte Zeichenkodierung zu bestimmen; daher kann dieser Fehler nicht von FairEmail behoben werden. Eine machbare Maßnahme ist, sich beim Absender zu beschweren.
+Die Anzeige seltsamer Zeichen wird fast immer dadurch verursacht, dass keine oder eine ungültige Zeichencodierung durch die Sende-Software angegeben wird. FairEmail geht von [ISO 8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1) aus, wenn kein Zeichensatz vorhanden ist oder wenn [US-ASCII](https://en.wikipedia.org/wiki/ASCII) angegeben wurde. Davon abgesehen ist es nicht möglich, automatisch und zuverlässig die korrekte Zeichencodierung zu bestimmen; daher kann dieser Fehler nicht von FairEmail behoben werden. Eine machbare Maßnahme ist, sich beim Absender zu beschweren.
 
 <br />
 
@@ -2644,7 +2642,7 @@ Die Anzeige seltsamer Zeichen wird fast immer dadurch verursacht, dass keine ode
 
 Um Entwürfe zu speichern, wird ein Entwürfe-Ordner benötigt. In den meisten Fällen wählt FairEmail, wenn ein Konto hinzugefügt wird, basierend auf [den Attributen](https://www.iana.org/assignments/imap-mailbox-name-attributes/imap-mailbox-name-attributes.xhtml), die der E-Mail-Server sendet, automatisch den Ordner für Entwürfe aus. Einige E-Mail-Server sind jedoch nicht richtig konfiguriert und senden diese Attribute nicht. In diesem Fall versucht FairEmail den Entwürfe-Ordner nach Namen zu identifizieren, dies könnte aber fehlschlagen, wenn der Entwürfe-Ordner einen ungewöhnlichen Namen hat oder überhaupt nicht vorhanden ist.
 
-Sie können dieses Problem beheben, indem Sie den Entwürfe-Ordner in den Kontoeinstellungen manuell auswählen (Einstellungen, Tippen Sie auf Manuelle Einrichtung, tippen Sie auf Konten, tippen Sie unten auf Konto). Wenn überhaupt kein Ordner für Entwürfe existiert, können Sie einen hinzufügen, indem sie auf den '+'-Knopf in der Ordnerliste des jeweiligen Accounts tippen. (tippen sie auf den Namen des Kontos im Navigationsmenü)
+Sie können dieses Problem beheben, indem Sie den Entwürfe-Ordner in den Kontoeinstellungen manuell auswählen (Einstellungen, Tippen Sie auf Manuelle Einrichtung, tippen Sie auf Konten, tippen Sie unten auf Konto). Wenn überhaupt kein Ordner für Entwürfe existiert, können Sie einen hinzufügen, indem sie auf den '+'-Knopf in der Ordnerliste des jeweiligen Accounts tippen. (Tippen Sie auf den Namen des Kontos im Navigationsmenü.)
 
 Einige Anbieter wie z. B. Gmail erlauben es, IMAP für einzelne Ordner zu aktivieren bzw. zu deaktivieren. Wenn also ein Ordner nicht sichtbar ist, müssen Sie unter Umständen IMAP für den Ordner aktivieren.
 
@@ -2661,14 +2659,14 @@ FairEmail ist jedoch in der Lage, gesendete Nachrichten im Posteingang korrekt z
 
 Die beste Lösung wäre, die Anzeige des gesendeten Ordners im Sammeleingang durch langes Drücken des Gesendet-Ordners in der Ordnerliste und *Sammeleingang anzeigen* zu aktivieren. Auf diese Weise können alle Nachrichten dort bleiben, wo sie hingehören, während sie sowohl eingehende als auch ausgehende Nachrichten an einem Ort sehen können.
 
-Wenn das keine Option ist, können Sie [eine Regel erstellen](#user-content-faq71), um gesendete Nachrichten automatusch in den Posteingang zu verschieben. Alternativ gibt es auch die Möglichkeit, eine Standard CC/BCC-Adresse in den erweiterten Identitätseinstellungen festzulegen, um Ihnen selbst eine Kopie zu senden.
+Wenn das keine Option ist, können Sie [eine Regel erstellen](#user-content-faq71), um gesendete Nachrichten automatisch in den Posteingang zu verschieben. Alternativ gibt es auch die Möglichkeit, eine Standard CC/BCC-Adresse in den erweiterten Identitätseinstellungen festzulegen, um Ihnen selbst eine Kopie zu senden.
 
 <br />
 
 <a name="faq143"></a>
-**~~(143) Kannst du einen Papierkorb für POP3-Konten hinzufügen?~~**
+**~~(143) Können Sie einen Papierkorb für POP3-Konten hinzufügen?~~**
 
-[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) ist ein sehr begrenztes Protokoll. Grundsätzlich können nur Nachrichten aus dem Posteingang heruntergeladen und gelöscht werden. Es ist nicht einmal möglich, eine Nachricht gelesen zu markieren.
+[POP3](https://en.wikipedia.org/wiki/Post_Office_Protocol) ist ein sehr begrenztes Protokoll. Grundsätzlich können nur Nachrichten aus dem Posteingang heruntergeladen und gelöscht werden. Es ist nicht einmal möglich, eine Nachricht als gelesen zu markieren.
 
 Da POP3 den Zugriff auf den Papierkorb überhaupt nicht zulässt, gibt es keine Möglichkeit, gelöschte Nachrichten wiederherzustellen.
 
@@ -2704,7 +2702,7 @@ Konto:
 Ordner:
 
 * Lange den Ordner in der Ordnerliste drücken und *Benachrichtigungskanal erstellen* auswählen
-* Halten Sie den Ordner in der Ordnerliste gedrückt und wählen Sie *Benachrichtigungskanal bearbeiten* um den Benachrichtigungston zu ändern
+* Halten Sie den Ordner in der Ordnerliste gedrückt und wählen Sie *Benachrichtigungskanal bearbeiten*, um den Benachrichtigungston zu ändern
 
 Absender:
 
@@ -2725,7 +2723,7 @@ Da Sende-Datum und -Zeit optional sind und vom Absender manipuliert werden kann,
 
 Manchmal ist das empfangene Datum/Uhrzeit des Servers falsch, hauptsächlich weil Nachrichten fälschlicherweise von einem anderen Server importiert wurden, aber manchmal auch aufgrund eines Fehlers im E-Mail-Server.
 
-In diesen seltenen Fällen ist es möglich, dass FairEmail entweder die Zeit vom *Datums-* Header (Sendezeit) oder die Zeit vom *Empfangen-* Header als Workaround nutzt. Dies kann in den erweiterten Accounteinstellungen geändert werden: Einstellungen > Manueller Setup > Accounts > Account wählen > Erweitert
+In diesen seltenen Fällen ist es möglich, dass FairEmail entweder die Zeit vom *Datums-* Header (Sendezeit) oder die Zeit vom *Empfangen-* Header als Workaround nutzt. Dies kann in den erweiterten Accounteinstellungen geändert werden: Einstellungen → Manueller Setup → Accounts → Account wählen → Erweitert
 
 Dies verändert aber nicht die Zeit von bereits synchronisierten Nachrichten. Um dies zu beheben, halten sie den/die Ordner in der Ordnerliste gedrückt und wählen sie *Delete local messages* und *Jetzt synchronisieren* aus.
 
@@ -2736,15 +2734,15 @@ Dies verändert aber nicht die Zeit von bereits synchronisierten Nachrichten. Um
 
 Sie sind wahrscheinlich hierher gekommen, weil Sie eine externe Version von FairEmail verwenden.
 
-Es gibt **nur Support** für die letzte PlayStore-Version, den letzten GitHub-Release und den F-Droid Build, aber **nur wenn** die Versionsnummer des F-Droid-Builds mit der des neuesten GitHub-Releases übereinstimmt.
+Es gibt **nur Support** für die letzte Play Store-Version, den letzten GitHub-Release und den F-Droid Build, aber **nur wenn** die Versionsnummer des F-Droid-Builds mit der des neuesten GitHub-Releases übereinstimmt.
 
 F-Droid erzeugt Builds unregelmäßig, was problematisch sein kann, wenn es ein wichtiges Update gibt. Daher wird empfohlen, zur GitHub-Veröffentlichung zu wechseln.
 
-Die F-Droid-Version ist aus dem gleichen Quellcode gebaut, aber anders signiert. Das bedeutet, dass alle Funktionen auch in der F-Droid-Version verfügbar sind, mit Ausnahme der Verwendung des Assistenten zur schnellen Einrichtung von Gmail, da Google nur eine Signatur erlaubt (und zulässt). Für alle anderen E-Mail-Anbieter ist der OAuth-Zugang nur in Play-Store-Versionen und Github-Versionen verfügbar, da E-Mail-Anbieter nur offiziellen Builds die Nutzung von OAuth erlaubt haben.
+Die F-Droid-Version ist aus dem gleichen Quellcode gebaut, aber anders signiert. Das bedeutet, dass alle Funktionen auch in der F-Droid-Version verfügbar sind, mit Ausnahme der Verwendung des Assistenten zur schnellen Einrichtung von Gmail, da Google nur eine Signatur erlaubt (und zulässt). Für alle anderen E-Mail-Anbieter ist der OAuth-Zugang nur in Play Store-Versionen und GitHub-Versionen verfügbar, da E-Mail-Anbieter nur offiziellen Builds die Nutzung von OAuth erlaubt haben.
 
-Beachten Sie, dass Sie zuerst die F-Droid-Version deinstallieren müssen, bevor Sie eine GitHub-Version installieren können, da Android aus Sicherheitsgründen die selbe App mit einer anderen Signatur nicht installieren kann.
+Beachten Sie, dass Sie zuerst die F-Droid-Version deinstallieren müssen, bevor Sie eine GitHub-Version installieren können, da Android aus Sicherheitsgründen dieselbe App mit einer anderen Signatur nicht installieren kann.
 
-Beachten Sie, dass die GitHub-Version automatisch nach Aktualisierungen sucht. Wenn gewünscht, kann das in den Einstellungen unter „Verschiedenes“ ausgeschaltet werden.
+Beachten Sie, dass die GitHub-Version automatisch nach Aktualisierungen sucht. Wenn gewünscht, kann das in den Einstellungen unter „Verschiedenes” ausgeschaltet werden.
 
 Bitte [hier](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) für alle Optionen zum Herunterladen nachsehen.
 
@@ -2788,7 +2786,7 @@ Inserting new calendar events can be done without permissions with special [inte
 <a name="faq151"></a>
 **(151) Can you add backup/restore of messages?**
 
-An email client is meant to read and write messages, not to backup and restore messages. Merke dir, dass wenn du dein Gerät verlierst, dass auch all deine Nachrichten futsch sind!
+An email client is meant to read and write messages, not to backup and restore messages. Merken Sie sich, dass auch all Ihre Nachrichten futsch sind, wenn Sie Ihr Gerät verlieren!
 
 Instead, the email provider/server is responsible for backups.
 
@@ -2843,7 +2841,7 @@ On the other hand, a star set via IMAP is being shown in the web interface and c
 
 A *winmail.dat* file is sent by an incorrectly configured Outlook client. It is a Microsoft specific file format ([TNEF](https://en.wikipedia.org/wiki/Transport_Neutral_Encapsulation_Format)) containing a message and possibly attachments.
 
-[Hier](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment) findest du noch mehr Infos über die Datei.
+[Hier](https://support.mozilla.org/en-US/kb/what-winmaildat-attachment) finden Sie noch mehr Infos über die Datei.
 
 You can view it with for example the Android app [Letter Opener](https://play.google.com/store/apps/details?id=app.letteropener).
 
@@ -2911,27 +2909,27 @@ Updating once a week will probably be sufficient, please see [here](https://gith
 <a name="faq160"></a>
 **(160) Können Sie das permanente Löschen von Nachrichten ohne Bestätigung hinzufügen?**
 
-Dauerhaftes Löschen bedeutet, dass Nachrichten *irreversibel* verloren gehen, und um zu verhindern, dass dies versehentlich geschieht, muss dies immer bestätigt werden. Sogar mit einer Bestätigung meldeten sich einige sehr verärgerte Leute, die einige ihrer Nachrichten durch eigenes Verschulden verloren hatten, was eine eher unangenehme Erfahrung war :-(
+Dauerhaftes Löschen bedeutet, dass Nachrichten *irreversibel* verloren gehen. Um zu verhindern, dass dies versehentlich geschieht, muss dies immer bestätigt werden. Sogar mit einer Bestätigung meldeten sich einige sehr verärgerte Leute, die einige ihrer Nachrichten durch eigenes Verschulden verloren hatten, was eine eher unangenehme Erfahrung war :-(
 
-Erweitert: Das IMAP-Löschkennzeichen in Kombination mit dem EXPUNGE-Befehl ist nicht unterstützenswert da sowohl E-Mail-Server als auch nicht alle Personen damit umgehen können, was zu einem unerwarteten Verlust von Nachrichten führen kann. Ein erschwerender Faktor ist, dass nicht alle E-Mail-Server [UID EXPUNGE](https://tools.ietf.org/html/rfc4315) unterstützen.
+Erweitert: Das IMAP-Löschkennzeichen in Kombination mit dem EXPUNGE-Befehl ist nicht unterstützenswert, da sowohl E-Mail-Server als auch nicht alle Personen damit umgehen können, was zu einem unerwarteten Verlust von Nachrichten führen kann. Ein erschwerender Faktor ist, dass nicht alle E-Mail-Server [UID EXPUNGE](https://tools.ietf.org/html/rfc4315) unterstützen.
 
 Ab Version 1.1485 ist es möglich, den Debug-Modus in den diversen Einstellungen vorübergehend zu aktivieren, um das Löschen von Meldungen zu deaktivieren. Beachten Sie, dass Nachrichten mit einem *Löschkennzeichen* in FairEmail nicht angezeigt werden.
 
 <br />
 
 <a name="faq161"></a>
-**(161) Können Sie eine Einstellung hinzufügen, um die Primär- und Akzentfarbe zu ändern?***
+**(161) Können Sie eine Einstellung hinzufügen, um die Primär- und Akzentfarbe zu ändern?**
 
 If I could, I would add a setting to select the primary and accent color right away, but unfortunately Android themes are fixed, see for example [here](https://stackoverflow.com/a/26511725/1794097), so this is not possible.
 
 <br />
 
 <a name="faq162"></a>
-**(162) Wird IMAP NOTIFY unterstützt?***
+**(162) Wird IMAP NOTIFY unterstützt?**
 
 Ja, [IMAP NOTIFY](https://tools.ietf.org/html/rfc5465) wird seit Version 1.1413 unterstützt.
 
-IMAP NOTIFY bedeutet, dass Benachrichtigungen für hinzugefügte, geänderte oder gelöschte Nachrichten aller *abonnierten* Ordner angefordert werden und wenn eine Benachrichtigung für einen abonnierten Ordner empfangen wird, dass der Ordner synchronisiert wird. Die Synchronisierung von abonnierten Ordnern kann deaktiviert werden, um Verbinungen zu Ordnern auf dem E-Mail-Server einzusparen.
+IMAP NOTIFY bedeutet, dass Benachrichtigungen für hinzugefügte, geänderte oder gelöschte Nachrichten aller *abonnierten* Ordner angefordert werden und wenn eine Benachrichtigung für einen abonnierten Ordner empfangen wird, dass der Ordner synchronisiert wird. Die Synchronisierung von abonnierten Ordnern kann deaktiviert werden, um Verbindungen zu Ordnern auf dem E-Mail-Server einzusparen.
 
 **Wichtig**: Push-Nachrichten (=immer synchronisiert) für den Posteingang und Abonnierte Ordner (Empfangseinstellungen) müssen immer aktiviert sein.
 
@@ -2946,11 +2944,11 @@ IMAP NOTIFY bedeutet, dass Benachrichtigungen für hinzugefügte, geänderte ode
 
 Message classification will attempt to automatically group emails into classes, based on their contents, using [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics). In the context of FairEmail, a folder is a class. So, for example, the inbox, the spam folder, a 'marketing' folder, etc, etc.
 
-Du kannst die Nachrichtenklassifikation in den sonstigen Einstellungen aktivieren. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
+Sie können die Nachrichtenklassifikation in den sonstigen Einstellungen aktivieren. This will enable 'learning' mode only. The classifier will 'learn' from new messages in the inbox and spam folder by default. The folder property *Classify new messages in this folder* will enable or disable 'learning' mode for a folder. You can clear local messages (long press a folder in the folder list of an account) and synchronize the messages again to classify existing messages.
 
 Each folder has an option *Automatically move classified messages to this folder* ('auto classification' for short). When this is turned on, new messages in other folders which the classifier thinks belong to that folder will be automatically moved.
 
-The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). Siehe auch [diese F&A](#user-content-faq92).
+The option *Use local spam filter* in the report spam dialog will turn on message classification in the miscellaneous settings and auto classification for the spam folder. Please understand that this is not a replacement for the spam filter of the email server and can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives). Siehe auch [Frage 92](#user-content-faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder. Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder. Each time you move a message out of this folder you'll train FairEmail that similar messages do not belong in this folder. After moving some messages into the 'marketing' folder, FairEmail will start moving similar messages automatically into this folder. Or, the other way around, after moving some messages out of the 'marketing' folder, FairEmail will stop moving similar messages automatically into this folder. This will work best with messages with similar content (email addresses, subject and message text).
 
@@ -2997,7 +2995,7 @@ Die Farben des Themes basieren auf dem Farbkreis nach [Johannes Itten](https://e
 <a name="faq165"></a>
 **(165) Wird Android Auto unterstützt?**
 
-Ja, Android Auto wird unterstützt, aber nur mit der GitHub-Version, bitte [hier nachsehen](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249) warum.
+Ja, Android Auto wird unterstützt, aber nur mit der GitHub-Version, bitte [hier nachsehen](https://forum.xda-developers.com/t/app-5-0-fairemail-fully-featured-open-source-privacy-oriented-email-app.3824168/post-83801249), warum.
 
 Für die Unterstützung von Benachrichtigungen (Meldungen) müssen Sie die folgenden Benachrichtigungsoptionen aktivieren:
 
@@ -3013,7 +3011,7 @@ Die Anleitung für Entwickler ist [hier](https://developer.android.com/training/
 <a name="faq166"></a>
 **(166) Kann ich eine Nachricht über mehrere Geräte hinweg zurückstellen?**
 
-Erstens gibt es keinen Standard für das Zurückstellen von Nachrichten, so dass alle Umsetzungen benutzerdefinierte Lösungen sind.
+Erstens gibt es keinen Standard für das Zurückstellen von Nachrichten, sodass alle Umsetzungen benutzerdefinierte Lösungen sind.
 
 Einige E-Mail-Anbieter, wie z. B. Gmail, verschieben zurückgestellte Nachrichten in einen speziellen Ordner. Leider haben Drittanbieter-Apps keinen Zugriff auf diesen speziellen Ordner.
 
@@ -3025,7 +3023,7 @@ Um diese Probleme zu vermeiden, wird das Schlummern lokal auf dem Gerät durchge
 
 <h2><a name="get-support"></a>Hilfe erhalten</h2>
 
-Neben Smartphones und Tablets mit Android-Betriebssystem, werden auch Geräte mit ChromeOS-Betriebssystem von FairMail unterstützt.
+Neben Smartphones und Tablets mit Android-Betriebssystem werden auch Geräte mit ChromeOS-Betriebssystem von FairEmail unterstützt.
 
 Es werden nur die neueste Play Store-Version und die neueste GitHub-Version unterstützt. Die F-Droid-Version wird nur unterstützt, wenn die Versionsnummer mit der neuesten GitHub-Version übereinstimmt. Das bedeutet auch, dass ein Downgrade nicht unterstützt wird.
 
@@ -3048,4 +3046,4 @@ GitHub-Issues sind wegen häufigen Missbrauchs deaktiviert.
 
 <br />
 
-Urheberrecht &copy; 2018-2021 Marcel Bokhorst.
+Urheberrecht &copy; 2018-2023 Marcel Bokhorst.
