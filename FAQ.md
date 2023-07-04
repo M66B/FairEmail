@@ -819,10 +819,9 @@ Please see [this FAQ](#user-content-faq111) about OAuth support.
 Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
 Some providers allow you to have multiple aliases.
-You can configure these by setting the email address field of an additional identity to the alias address
-and setting the user name field to your main email address.
-
-Note that you can copy an identity by long pressing it in the list of identities (via *Manual setup and account options* in the main settings page).
+The easiest way to create an alias is to copy the main identity, and change the email address and perhaps the (display) name. 
+You should not change the username!
+For this, please go to the settings via the navigation menu (left side menu), tap on *Manual setup and account options*, tap on *Identities*, long press the main identity, and select to copy it.
 
 **In many cases, an alias address must first be verified via the website of the mail provider**
 
