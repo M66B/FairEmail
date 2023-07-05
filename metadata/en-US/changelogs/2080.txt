@@ -8,8 +8,13 @@ Ubirajara
 
 Next version
 
-* Fixed PGP and S/MIME signed messages in some cases
+* Added an option to auto-verify signed messages
 * Small improvements and minor bug fixes
+* Updated translations
+
+1.2080 - 2023-07-03
+
+* Fixed PGP and S/MIME signed messages in some cases
 * Updated Public Suffix List
 * Updated translations
 

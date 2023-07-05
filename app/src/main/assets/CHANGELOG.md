@@ -8,8 +8,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Fixed PGP and S/MIME signed messages in some cases
+* Added an option to auto-verify signed messages
 * Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2080 - 2023-07-03
+
+* Fixed PGP and S/MIME signed messages in some cases
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
