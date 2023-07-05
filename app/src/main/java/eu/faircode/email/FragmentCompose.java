@@ -290,6 +290,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean media = true;
     private boolean compact = false;
     private int zoom = 0;
+    private boolean nav_color;
     private boolean lt_enabled;
     private boolean lt_auto;
 
@@ -355,6 +356,7 @@ public class FragmentCompose extends FragmentBase {
         media = prefs.getBoolean("compose_media", true);
         compact = prefs.getBoolean("compose_compact", false);
         zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
+        nav_color = prefs.getBoolean("send_nav_color", false);
 
         lt_enabled = LanguageTool.isEnabled(context);
         lt_auto = LanguageTool.isAuto(context);
@@ -7680,16 +7682,22 @@ public class FragmentCompose extends FragmentBase {
     private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            EntityIdentity identity = (EntityIdentity) parent.getAdapter().getItem(position);
+            final Context context = view.getContext();
+            TupleIdentityEx identity = (TupleIdentityEx) parent.getAdapter().getItem(position);
 
             int at = (identity == null ? -1 : identity.email.indexOf('@'));
             etExtra.setHint(at < 0 ? null : identity.email.substring(0, at));
             tvDomain.setText(at < 0 ? null : identity.email.substring(at));
             grpExtra.setVisibility(identity != null && identity.sender_extra ? View.VISIBLE : View.GONE);
 
+            if (identity != null && nav_color) {
+                Integer color = (identity.color == null ? identity.accountColor : identity.color);
+                bottom_navigation.setBackgroundColor(color == null
+                        ? Helper.resolveColor(context, R.attr.colorPrimary) : color);
+            }
+
             Spanned signature = null;
             if (identity != null && !TextUtils.isEmpty(identity.signature)) {
-                final Context context = getContext();
                 Document d = HtmlHelper.sanitizeCompose(context, identity.signature, true);
                 signature = HtmlHelper.fromDocument(context, d, new HtmlHelper.ImageGetterEx() {
                     @Override
