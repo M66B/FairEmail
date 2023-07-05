@@ -3319,11 +3319,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     boolean auto_decrypt = prefs.getBoolean("auto_decrypt", false);
                     boolean auto_decrypted = properties.getValue("auto_decrypted", message.id);
+                    boolean auto_verify = prefs.getBoolean("auto_verify", false);
+                    boolean auto_verified = properties.getValue("auto_verified", message.id);
                     if (auto_decrypt && !auto_decrypted &&
                             (EntityMessage.PGP_SIGNENCRYPT.equals(message.encrypt) ||
                                     EntityMessage.SMIME_SIGNENCRYPT.equals(message.encrypt))) {
                         properties.setValue("auto_decrypted", message.id, true);
-                        onActionDecrypt(message, true);
+                        onActionVerifyDecrypt(message, true);
+                    } else if (auto_verify && !auto_verified && !message.verified &&
+                            (EntityMessage.PGP_SIGNONLY.equals(message.encrypt) ||
+                                    EntityMessage.SMIME_SIGNONLY.equals(message.encrypt))) {
+                        properties.setValue("auto_verified", message.id, true);
+                        onActionVerifyDecrypt(message, true);
                     }
                 }
 
@@ -4268,9 +4275,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         properties.setExpanded(message, false, false);
                         properties.setHeight(message.id, null);
                     } else
-                        onActionDecrypt(message, false);
+                        onActionVerifyDecrypt(message, false);
                 } else if (id == R.id.ibVerify) {
-                    onActionDecrypt(message, false);
+                    onActionVerifyDecrypt(message, false);
                 } else if (id == R.id.ibUndo) {
                     ActivityCompose.undoSend(message.id, context, owner, parentFragment.getParentFragmentManager());
                 } else if (id == R.id.ibAnswer) {
@@ -5604,13 +5611,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     EntityFolder.JUNK.equals(message.folderType));
         }
 
-        private void onActionDecrypt(TupleMessageEx message, boolean auto) {
+        private void onActionVerifyDecrypt(TupleMessageEx message, boolean auto) {
             boolean inline = properties.getValue("inline_encrypted", message.id);
             int encrypt = (message.encrypt == null || inline ? EntityMessage.PGP_SIGNENCRYPT /* Inline */ : message.encrypt);
 
             LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
             lbm.sendBroadcast(
-                    new Intent(FragmentMessages.ACTION_DECRYPT)
+                    new Intent(FragmentMessages.ACTION_VERIFYDECRYPT)
                             .putExtra("id", message.id)
                             .putExtra("auto", auto)
                             .putExtra("type", encrypt));

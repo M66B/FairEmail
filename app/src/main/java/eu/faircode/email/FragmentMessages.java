@@ -433,7 +433,7 @@ public class FragmentMessages extends FragmentBase
     static final int REQUEST_CALENDAR = 29;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
-    static final String ACTION_DECRYPT = BuildConfig.APPLICATION_ID + ".DECRYPT";
+    static final String ACTION_VERIFYDECRYPT = BuildConfig.APPLICATION_ID + ".VERIFYDECRYPT";
     static final String ACTION_KEYWORDS = BuildConfig.APPLICATION_ID + ".KEYWORDS";
 
     private static final long REVIEW_ASK_DELAY = 14 * 24 * 3600 * 1000L; // milliseconds
@@ -5049,7 +5049,7 @@ public class FragmentMessages extends FragmentBase
         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
         IntentFilter iff = new IntentFilter();
         iff.addAction(ACTION_STORE_RAW);
-        iff.addAction(ACTION_DECRYPT);
+        iff.addAction(ACTION_VERIFYDECRYPT);
         iff.addAction(ACTION_KEYWORDS);
         lbm.registerReceiver(receiver, iff);
 
@@ -8214,8 +8214,8 @@ public class FragmentMessages extends FragmentBase
                 String action = intent.getAction();
                 if (ACTION_STORE_RAW.equals(action))
                     onStoreRaw(intent);
-                else if (ACTION_DECRYPT.equals(action))
-                    onDecrypt(intent);
+                else if (ACTION_VERIFYDECRYPT.equals(action))
+                    onVerifyDecrypt(intent);
                 else if (ACTION_KEYWORDS.equals(action))
                     onKeywords(intent);
             }
@@ -8247,7 +8247,7 @@ public class FragmentMessages extends FragmentBase
             startActivityForResult(Helper.getChooser(context, create), REQUEST_RAW);
     }
 
-    private void onDecrypt(Intent intent) {
+    private void onVerifyDecrypt(Intent intent) {
         long id = intent.getLongExtra("id", -1);
         boolean auto = intent.getBooleanExtra("auto", false);
         int type = intent.getIntExtra("type", EntityMessage.ENCRYPT_NONE);
@@ -8255,6 +8255,7 @@ public class FragmentMessages extends FragmentBase
         final Bundle args = new Bundle();
         args.putLong("id", id);
         args.putInt("type", type);
+        args.putBoolean("auto", auto);
 
         if (EntityMessage.SMIME_SIGNONLY.equals(type))
             onSmime(args);
@@ -8285,7 +8286,7 @@ public class FragmentMessages extends FragmentBase
 
                 @Override
                 protected void onExecuted(Bundle args, EntityIdentity identity) {
-                    Boolean auto = args.getBoolean("auto");
+                    boolean auto = args.getBoolean("auto");
                     if (auto && identity == null)
                         return;
 
@@ -9279,6 +9280,7 @@ public class FragmentMessages extends FragmentBase
                                 .setGestureInsetBottomIgnored(true).show();
                     } else
                         try {
+                            boolean auto = args.getBoolean("auto");
                             String sender = args.getString("sender");
                             Date time = (Date) args.getSerializable("time");
                             boolean known = args.getBoolean("known");
@@ -9302,7 +9304,7 @@ public class FragmentMessages extends FragmentBase
                             if (known && !record.isExpired(time) && match && valid)
                                 Snackbar.make(view, R.string.title_signature_valid, Snackbar.LENGTH_LONG)
                                         .setGestureInsetBottomIgnored(true).show();
-                            else {
+                            else if (!auto) {
                                 LayoutInflater inflator = LayoutInflater.from(getContext());
                                 View dview = inflator.inflate(R.layout.dialog_certificate, null);
                                 TextView tvCertificateInvalid = dview.findViewById(R.id.tvCertificateInvalid);
