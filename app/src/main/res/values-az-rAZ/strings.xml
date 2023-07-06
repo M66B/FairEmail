@@ -751,7 +751,7 @@
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX qeydlərinin mövcudluğunu yoxlayacaq</string>
     <string name="title_advanced_sync_delay_hint">Bu, mesajların sinxronlaşdırılmasını yavaşlandırır</string>
     <string name="title_advanced_folder_nav_hint">Bu, hər zaman bir mesaj siyahısından əlaqəli hesabın qovluq siyahısına qayıdacaq</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Qovluqlar və ya hesablar siyahısını aşağı çəkəndə</string>
+    <string name="title_advanced_pull_all_hint">Qovluqlar və ya hesablar siyahısını aşağı çəkəndə</string>
     <string name="title_advanced_suggest_names_hint">Əgər sıradan çıxarılsa, əlaqələr seçiləndə yalnız e-poçt ünvanları istifadə ediləcək</string>
     <string name="title_advanced_suggest_local_hint">Android tərəfindən təmin edilən əlaqələrə əlavə olaraq. Əlaqə verilənləri, yeni göndərilən və alınan mesajlar üçün yalnız fəal olanda saxlanılacaq.</string>
     <string name="title_advanced_auto_identity_hint">Bu, yeni mesajlar üçün bir alıcı seçərkən istifadə edilən son kimliyi seçəcək</string>

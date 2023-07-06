@@ -663,6 +663,7 @@
     <string name="title_advanced_sign_default">Signera som standard</string>
     <string name="title_advanced_encrypt_default">Kryptera som standard</string>
     <string name="title_advanced_encrypt_auto">Kryptera automatiskt när alla mottagares nycklar är tillgängliga</string>
+    <string name="title_advanced_auto_verify">Verifiera signerade meddelanden automatiskt</string>
     <string name="title_advanced_auto_decrypt">Dekryptera meddelanden automatiskt</string>
     <string name="title_advanced_auto_undo_decrypt">Ångra dekryptering vid stängning av konversation</string>
     <string name="title_advanced_openpgp">OpenPGP-leverantör</string>
@@ -747,7 +748,7 @@
     <string name="title_advanced_lookup_mx_hint">Detta kommer att kontrollera om DNS MX-poster finns</string>
     <string name="title_advanced_sync_delay_hint">Detta kommer att sakta ner synkronisering av meddelanden</string>
     <string name="title_advanced_folder_nav_hint">Detta kommer alltid att återgå till mapplistan över det relaterade kontot från en meddelandelista</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">När du drar ner listan med mappar eller konton</string>
+    <string name="title_advanced_pull_all_hint">När du drar ner listan med mappar eller konton</string>
     <string name="title_advanced_suggest_names_hint">Om inaktiverad, kommer endast e-postadresser att användas vid val av kontakter</string>
     <string name="title_advanced_suggest_local_hint">Förutom kontakter som tillhandahålls av Android. Kontaktdata lagras endast för nyligen skickade eller mottagna meddelanden när det aktiverat.</string>
     <string name="title_advanced_auto_identity_hint">Detta kommer att välja den senaste identiteten som använts när du väljer en mottagare för nya meddelanden</string>

@@ -371,6 +371,7 @@
     <string name="title_advanced_suggest_frequently">Ταξινόμηση των προτεινόμενων διευθύνσεων με βάση τη συχνότητα που χρησιμοποιούνται</string>
     <string name="title_advanced_alt_re_fwd">Εναλλακτικό πρόθεμα απάντησης/προώθησης</string>
     <string name="title_advanced_send_chips">Προβολή διευθύνσεων μέσα σε φυσαλίδες</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Χρήση του χρώματος ταυτότητας για την κάτω γραμμή ενεργειών</string>
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση αποστολής μηνυμάτων</string>
     <string name="title_advanced_attach_new">Δημιουργία νέου προσχεδίου μηνύματος για κοινόχρηστες διευθύνσεις και αρχεία</string>
@@ -666,6 +667,7 @@
     <string name="title_advanced_sign_default">Υπογραφή από προεπιλογή</string>
     <string name="title_advanced_encrypt_default">Κρυπτογράφηση από προεπιλογή</string>
     <string name="title_advanced_encrypt_auto">Αυτόματη κρυπτογράφηση όταν τα κλειδιά όλων των παραληπτών είναι διαθέσιμα</string>
+    <string name="title_advanced_auto_verify">Αυτόματη επαλήθευση υπογεγραμμένων μηνυμάτων</string>
     <string name="title_advanced_auto_decrypt">Αυτόματη αποκρυπτογράφηση μηνυμάτων</string>
     <string name="title_advanced_auto_undo_decrypt">Αναίρεση αποκρυπτογράφησης κατά το κλείσιμο μιας συζήτησης</string>
     <string name="title_advanced_openpgp">Πάροχος OpenPGP</string>
@@ -748,7 +750,7 @@
     <string name="title_advanced_lookup_mx_hint">Ελέγχει αν υπάρχουν καταγραφές DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Η επιλογή αυτή θα επιβραδύνει τον συγχρονισμό των μηνυμάτων</string>
     <string name="title_advanced_folder_nav_hint">Έτσι, θα επιστρέφετε πάντα από μια λίστα μηνυμάτων στη λίστα φακέλων του σχετικού λογαριασμού</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Όταν σύρετε προς τα κάτω τους φακέλους ή τη λίστα λογαριασμών</string>
+    <string name="title_advanced_pull_all_hint">Όταν σύρετε προς τα κάτω τους φακέλους ή τη λίστα λογαριασμών</string>
     <string name="title_advanced_suggest_names_hint">Εάν απενεργοποιηθεί, θα χρησιμοποιούνται μόνο διευθύνσεις ηλ. ταχυδρομείου κατά την επιλογή επαφών</string>
     <string name="title_advanced_suggest_local_hint">Επιπρόσθετα στις παρεχόμενες από το Android επαφές, θα αποθηκεύονται πληροφορίες επαφών για πρόσφατα απεσταλμένα ή ειλημμένα μηνύματα, μόνον εφόσον οι σχετικές δυνατότητες έχουν ενεργοποιηθεί.</string>
     <string name="title_advanced_auto_identity_hint">Με αυτό θα επιλέγεται η τελευταία ταυτότητα που έχει χρησιμοποιηθεί κατά την επιλογή ενός παραλήπτη για νέα μηνύματα</string>

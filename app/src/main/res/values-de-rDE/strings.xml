@@ -373,6 +373,7 @@
     <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Nutzungshäufigkeit sortieren</string>
     <string name="title_advanced_alt_re_fwd">Alternative Präfixe für »Antworten« bzw. »Weiterleiten«</string>
     <string name="title_advanced_send_chips">Adressblasen anzeigen</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Identitätsfarbe für die untere Aktionsleiste verwenden</string>
     <string name="title_advanced_send_reminders">Erinnerungen anzeigen</string>
     <string name="title_advanced_send_delayed">Senden von Nachrichten verzögern</string>
     <string name="title_advanced_attach_new">Einen neuen Nachrichtenentwurf für freigegebene Adressen und Dateien erstellen</string>
@@ -668,6 +669,7 @@
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_encrypt_auto">Automatisch verschlüsseln, wenn alle Empfängerschlüssel verfügbar sind</string>
+    <string name="title_advanced_auto_verify">Signierte Nachrichten automatisch überprüfen</string>
     <string name="title_advanced_auto_decrypt">Nachrichten automatisch entschlüsseln</string>
     <string name="title_advanced_auto_undo_decrypt">Unterhaltung beim Schließen erneut verschlüsseln</string>
     <string name="title_advanced_openpgp">OpenPGP-Anbieter</string>
@@ -753,7 +755,7 @@
     <string name="title_advanced_lookup_mx_hint">Überprüft, ob DNS-MX-Einträge vorhanden sind</string>
     <string name="title_advanced_sync_delay_hint">Dies verzögert die Synchronisation von Nachrichten</string>
     <string name="title_advanced_folder_nav_hint">Damit kehren Sie von einer Nachrichtenliste immer zur Ordnerliste des betreffenden Kontos zurück.</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Beim Herunterziehen der Ordner- oder Kontenliste</string>
+    <string name="title_advanced_pull_all_hint">Beim Herunterziehen der Ordner- oder Kontenliste</string>
     <string name="title_advanced_suggest_names_hint">Wenn deaktiviert, werden nur E-Mail-Adressen bei der Auswahl von Kontakten verwendet</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
     <string name="title_advanced_auto_identity_hint">Dadurch wird die zuletzt verwendete Identität, die für den letzten ausgewählten Empfänger einer neuen Nachricht benutzt wurde, verwendet</string>
@@ -1270,7 +1272,7 @@
     </string>
     <string name="title_compose">Verfassen</string>
     <string name="title_submitter">Gesendet von:</string>
-    <string name="title_signed_by">Unterschrieben von:</string>
+    <string name="title_signed_by">Signiert von:</string>
     <string name="title_delivered_to">Zugestellt an:</string>
     <string name="title_from">Von:</string>
     <string name="title_to">An:</string>
@@ -1419,7 +1421,7 @@
     <string name="title_ask_send_via">Nachricht zu %1$s über %2$s senden?</string>
     <string name="title_queued">Nachricht wird gesendet</string>
     <string name="title_queued_at">Nachricht wird ungefähr %1$s gesendet</string>
-    <string name="title_sign">Unterschreiben</string>
+    <string name="title_sign">Signieren</string>
     <string name="title_verify">Überprüfen</string>
     <string name="title_encrypt">Verschlüsseln</string>
     <string name="title_decrypt">Entschlüsseln</string>
@@ -1439,7 +1441,7 @@
     <string name="title_reset_sign_key">Signaturschlüssel zurücksetzen</string>
     <string name="title_reset_selected_keys">Ausgewählte Schlüssel zurücksetzen</string>
     <string name="title_reset_selected_keys_hint">Kann im Falle von neuen Zertifikaten usw. verwendet werden.</string>
-    <string name="title_signature_none">Unsignierte Nachricht</string>
+    <string name="title_signature_none">Nicht signierte Nachricht</string>
     <string name="title_signature_valid">Gültige Nachrichtensignatur</string>
     <string name="title_signature_valid_from">Nachrichtensignatur gültig: %1$s</string>
     <string name="title_signature_unconfirmed">Die Signatur der Nachricht ist zwar gültig, aber nicht bestätigt</string>
@@ -1449,7 +1451,7 @@
     <string name="title_signature_key_missing">Schlüssel für die Signaturüberprüfung fehlt</string>
     <string name="title_signature_certificate_invalid">Zertifikatskette ungültig</string>
     <string name="title_signature_sender">E-Mail-Adresse des Absenders</string>
-    <string name="title_signature_email">E-Mail-Adresse der Unterschrift</string>
+    <string name="title_signature_email">E-Mail-Adresse der Signatur</string>
     <string name="title_signature_mismatch">Die E-Mail-Adresse des Absenders und der Signatur stimmen nicht überein</string>
     <string name="title_signature_algorithm">Algorithmus</string>
     <string name="title_signature_subject">Betreff</string>

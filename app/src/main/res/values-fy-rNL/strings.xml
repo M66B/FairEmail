@@ -748,7 +748,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_lookup_mx_hint">Dit sil kontrolearje of DNS MX-records bestean</string>
     <string name="title_advanced_sync_delay_hint">Dit sil syngronisearjen fan berjochten fertrage</string>
     <string name="title_advanced_folder_nav_hint">Dit keart altyd werom nei de mappelist fan it relatearre account fan in berjochtelist út</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">By it nei ûnder lûken fan de mappen- of accountlist</string>
+    <string name="title_advanced_pull_all_hint">By it nei ûnder lûken fan de mappen- of accountlist</string>
     <string name="title_advanced_suggest_names_hint">Wannear útskeakele, wurde allinnich e-mailadressen brûkt by it selektearjen fan kontakten</string>
     <string name="title_advanced_suggest_local_hint">Njonken kontakten levere troch Android. Kontaktgegevens wurde allinnich bewarre foar nij ferstjoerde of ûntfangen berjochten wannear’t dit ynskeakele is.</string>
     <string name="title_advanced_auto_identity_hint">Dit sil de lêst brûkte identiteit selektearje by it selektearjen fan in ûntfanger foar nije berjochten</string>

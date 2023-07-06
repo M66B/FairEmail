@@ -397,6 +397,7 @@
     <string name="title_advanced_suggest_frequently">Сортировать предлагаемые адреса по частоте использования</string>
     <string name="title_advanced_alt_re_fwd">Альтернативный префикс ответа/пересылки</string>
     <string name="title_advanced_send_chips">Показывать пузыри адреса</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Использовать цвет идентификатора для нижней панели действий</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
     <string name="title_advanced_attach_new">Создавать новый черновик сообщения для общих адресов и файлов</string>
@@ -692,6 +693,7 @@
     <string name="title_advanced_sign_default">Подписывать по умолчанию</string>
     <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>
     <string name="title_advanced_encrypt_auto">Автоматически шифровать, если доступны ключи всех получателей</string>
+    <string name="title_advanced_auto_verify">Автоматически проверять подписанные сообщения</string>
     <string name="title_advanced_auto_decrypt">Автоматически расшифровывать сообщения</string>
     <string name="title_advanced_auto_undo_decrypt">Убирать расшифрованное при закрытии диалога</string>
     <string name="title_advanced_openpgp">Провайдер OpenPGP</string>
@@ -777,7 +779,7 @@
     <string name="title_advanced_lookup_mx_hint">Проверка наличия записей DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Замедлится синхронизация сообщений</string>
     <string name="title_advanced_folder_nav_hint">Всегда возвращаться к списку папок связанной учётной записи из списка сообщений</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">При раскрытии папок или списка учётных записей</string>
+    <string name="title_advanced_pull_all_hint">При раскрытии папок или списка учётных записей</string>
     <string name="title_advanced_suggest_names_hint">Если отключено, при выборе контактов будут использоваться только адреса электронной почты</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
     <string name="title_advanced_auto_identity_hint">Будет выбран последний идентификатор, использовавшийся для получателя новых сообщений</string>

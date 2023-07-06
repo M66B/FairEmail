@@ -398,6 +398,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
     <string name="title_advanced_alt_re_fwd">Alternativní adresa pro odpovědi/přeposílání</string>
     <string name="title_advanced_send_chips">Zobrazit bubliny s kontakty</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Použít barvu identity pro dolní panel akcí</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_attach_new">Vytvořit nový koncept zprávy pro sdílené adresy a soubory</string>
@@ -693,6 +694,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_sign_default">Automaticky podepisovat</string>
     <string name="title_advanced_encrypt_default">Automaticky šifrovat</string>
     <string name="title_advanced_encrypt_auto">Automaticky zašifrovat, když jsou k dispozici klíče všech příjemců</string>
+    <string name="title_advanced_auto_verify">Automaticky ověřovat podepsané zprávy</string>
     <string name="title_advanced_auto_decrypt">Automaticky dešifrovat zprávy</string>
     <string name="title_advanced_auto_undo_decrypt">Zpátky zašifrovat při zavření konverzace</string>
     <string name="title_advanced_openpgp">Poskytovatel OpenPGP</string>
@@ -777,7 +779,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_lookup_mx_hint">Ověří existenci DNS MX záznamů</string>
     <string name="title_advanced_sync_delay_hint">Zpomalí synchronizaci zpráv</string>
     <string name="title_advanced_folder_nav_hint">Toto vás vždy vrátí do seznamu složek příslušného účtu ze seznamu zpráv</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Při stahování seznamu složek nebo účtů</string>
+    <string name="title_advanced_pull_all_hint">Při stahování seznamu složek nebo účtů</string>
     <string name="title_advanced_suggest_names_hint">Je-li vypnuto, budou při výběru kontaktů použity pouze e-mailové adresy</string>
     <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
     <string name="title_advanced_auto_identity_hint">Toto zvolí poslední identitu použitou při výběru příjemce pro nové zprávy</string>

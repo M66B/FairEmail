@@ -178,7 +178,7 @@
     <string name="title_setup_gmail_support">Autorizar contas do Google funcionará na Play Store e na versão GitHub apenas porque o Android verifica a assinatura da aplicação digital</string>
     <string name="title_setup_gmail_rationale">Por favor, conceda permissões para selecionar uma conta e ler o seu nome</string>
     <string name="title_setup_gmail_permissions">O Google pedirá permissões para ler, compor, enviar e eliminar permanentemente todos os seus e-mails. O FairEmail nunca apagará as suas mensagens sem o seu consentimento explícito.</string>
-    <string name="title_setup_gmail_login">Se o Chrome estiver ligado a uma conta, só pode adicionar uma nova através do Android. Evite esta situação, saindo do Chrome através das configurações de sincronização do mesmo.</string>
+    <string name="title_setup_gmail_login">Se o Chrome estiver ligado a uma conta, só é possível adicionar outra conta através do Android. Esta situação pode ser evitada, terminando a sessão nas definições de sincronização do Chrome.</string>
     <string name="title_setup_gmail_max">Caso receba a mensagem de erro \"Já atingiu o número máximo de contas permitido\", terá de terminar a sessão de todas as contas Google no navegador.</string>
     <string name="title_setup_gmail_on_device">Por que é que preciso selecionar uma conta no dispositivo?</string>
     <string name="title_setup_gmail_password">Quero autorizar uma conta com a palavra-passe ao invés da conta em utilização no dispositivo</string>
@@ -373,6 +373,7 @@
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos por frequência de uso</string>
     <string name="title_advanced_alt_re_fwd">Prefixo alternativo de resposta/encaminhamento</string>
     <string name="title_advanced_send_chips">Mostrar endereços separados em balões</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Use a cor de identidade para a barra de ação inferior</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atrasar envio de mensagens</string>
     <string name="title_advanced_attach_new">Criar uma nova mensagem rascunho para endereços e arquivos partilhados</string>
@@ -668,6 +669,7 @@
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_encrypt_auto">Criptografar automaticamente quando as chaves de todos os destinatários estiverem disponíveis</string>
+    <string name="title_advanced_auto_verify">Verificar automaticamente mensagens assinadas</string>
     <string name="title_advanced_auto_decrypt">Desencriptar mensagens automaticamente</string>
     <string name="title_advanced_auto_undo_decrypt">Reverter a descodificação ao fechar conversas</string>
     <string name="title_advanced_openpgp">Provedor OpenPGP</string>
@@ -752,7 +754,7 @@
     <string name="title_advanced_lookup_mx_hint">Faz a verificação se existem registos DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
     <string name="title_advanced_folder_nav_hint">Isto fará com que, ao pressionar \'voltar\' a partir da lista de mensagens, retorne sempre à lista de pastas da respectiva conta</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Ao puxar para baixo a lista de pastas ou contas</string>
+    <string name="title_advanced_pull_all_hint">Ao puxar para baixo a lista de pastas ou contas</string>
     <string name="title_advanced_suggest_names_hint">Se desactivada, ao seleccionar um contacto apenas será utilizado o endereço de e-mail</string>
     <string name="title_advanced_suggest_local_hint">Em complemento aos contactos fornecidos pelo Android. Apenas só será guardada informação de contactos nas mensagens recém-enviadas ou recebidas caso esta função esteja activa.</string>
     <string name="title_advanced_auto_identity_hint">Isto selecionará a última identidade usada ao selecionar um destinatário para novas mensagens</string>
@@ -1495,7 +1497,7 @@
     <string name="title_search_flag_size">tamanho &gt; %1$s</string>
     <string name="title_search_device">Pesquisar no dispositivo</string>
     <string name="title_search_server">Pesquisar no servidor</string>
-    <string name="title_search_server_wait">Aguardando pelo servidor</string>
+    <string name="title_search_server_wait">A aguardar pelo servidor</string>
     <string name="title_search_in">Pesquisar em</string>
     <string name="title_search_sender">Pesquisar por remetente</string>
     <string name="title_search_delete">Eliminar a pesquisa guardada?</string>

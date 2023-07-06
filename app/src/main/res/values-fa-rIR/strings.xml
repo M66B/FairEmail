@@ -499,6 +499,7 @@
     <string name="title_advanced_clear_all_remark">اطلاعات اپلیکیشن به طور برگشت‌ناپذیر پاک خواهد شد!</string>
     <string name="title_advanced_sign_default">امضاء به‌صورت پیش‌فرض</string>
     <string name="title_advanced_encrypt_default">رمزگذاری به‌صورت پیش‌فرض</string>
+    <string name="title_advanced_auto_verify">صحت‌سنجی خودکار پیام‌های امضاشده</string>
     <string name="title_advanced_auto_decrypt">رمزگشایی خودکار پیام‌ها</string>
     <string name="title_advanced_openpgp">فراهم کننده OpenPGP</string>
     <string name="title_advanced_autocrypt">استفاده از Autocrypt</string>
@@ -533,7 +534,7 @@
     <string name="title_advanced_lookup_mx_hint">این بررسی خواهد کرد که آیا سابقه DNS MX وجود دارد</string>
     <string name="title_advanced_sync_delay_hint">این سرعت همگام‌سازی پیام‌ها را کاهش خواهد داد</string>
     <string name="title_advanced_folder_nav_hint">این همیشه به فهرست پوشه‌ مرتبط با حساب از یک لیست پیام‌ برخواهد گشت</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">همزمان با پایین کشیدن لیست حساب‌ها یا پرونده‌ها</string>
+    <string name="title_advanced_pull_all_hint">همزمان با پایین کشیدن لیست حساب‌ها یا پرونده‌ها</string>
     <string name="title_advanced_auto_identity_hint">این گزینه، آخرین هویت استفاده شده را به عنوان گیرنده پیام‌های جدید انتخاب خواهد کرد</string>
     <string name="title_advanced_send_reminders_hint">هنگامی که موضوع یا متن پیام خالی است یا یک پیوست ممکن است وجود نداشته باشد، یک هشدار نشان بده</string>
     <string name="title_advanced_usenet_hint">بین متن و امضا \'-- \' درج کنید</string>

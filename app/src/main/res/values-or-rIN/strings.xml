@@ -212,6 +212,7 @@
     <string name="title_advanced_check_authentication">ଵାର୍ତ୍ତା ପ୍ରାମାଣିକରଣ ଯାଞ୍ଚ</string>
     <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
     <string name="title_advanced_suggest_names">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">ନିମ୍ନ କୃତ୍ୟ ଦଣ୍ଡିକା ପାଇଁ ସମାନ ରଙ୍ଗ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_answer_caption">ଉତ୍ତର ବଟନ ସେଟିଂ</string>
     <string name="title_advanced_answer_default">ଉତ୍ତର ବଟନ୍ ଉପରେ ହ୍ରସ୍ୱ ପ୍ରେସ୍ କଲେ:</string>
     <string name="title_advanced_answer_action">ଉତ୍ତର ବଟନ୍ ଉପରେ ଦୀର୍ଘ ପ୍ରେସ୍ କଲେ:</string>
@@ -265,6 +266,7 @@
     <string name="title_advanced_text_font">ଫଣ୍ଟ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_text_align">ପାଠ୍ୟ ଶ୍ରେଣୀବଦ୍ଧତା ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_button_extra">ଵାର୍ତ୍ତାର ତଳେ ଅତିରିକ୍ତ ବଟନ୍ ଦେଖାଇବା</string>
+    <string name="title_advanced_actionbar">ବାର୍ତ୍ତାଳାପ କୃତ୍ୟ ଦଣ୍ଡିକା ଦେଖାଇବା</string>
     <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_bundled_fonts">ବଣ୍ଡଲ୍ ହୋଇଥିବା ଫଣ୍ଟ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_parse_classes">CSS କୁ ବିଶ୍ଳେଷଣ କରନ୍ତୁ</string>
@@ -309,6 +311,7 @@
     <string name="title_advanced_mnemonic_hint">ଵିଷୟ ଧାଡ଼ିରେ ନିମ୍ନଲିଖିତ ଶବ୍ଦ ସହିତ ଆସିଥିବା ଯେକୌଣସି ଇମେଲ୍ ସ୍ୱଚାଳିତ ଭାଵେ ଏଵଂ ତୁରନ୍ତ ଆପ୍ ଡାଟା ଵିଲୋପ କରିଦେବ</string>
     <string name="title_advanced_clear_all">ଆପ୍ ଡାଟା ବିଲୋପ କରନ୍ତୁ</string>
     <string name="title_advanced_clear_all_remark">ଆପ୍ ଡାଟା ଅପରିଵର୍ତ୍ତନୀୟ ଭାଵରେ ଵିଲୋପ ହୋଇଯିବ!</string>
+    <string name="title_advanced_auto_verify">ସ୍ୱାକ୍ଷରିତ ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ସ୍ୱଚାଳିତ ଭାବେ ଯାଞ୍ଚ କରାଯାଉ</string>
     <string name="title_advanced_openpgp">OpenPGP ପ୍ରଦାନକାରୀ</string>
     <string name="title_advanced_autocrypt">ସ୍ୱତଃଗୂଢ଼ଲିଖନ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_autocrypt_mutual">ସ୍ୱତଃଗୂଢ଼ଲିଖନ ପାରସ୍ପରିକ ମୋଡ୍</string>

@@ -399,6 +399,7 @@
     <string name="title_advanced_suggest_frequently">Сартаваць прапанаваныя адрасы паводле частаты выкарыстання</string>
     <string name="title_advanced_alt_re_fwd">Альтэрнатыўны прэфікс для адказу/перанакіравання</string>
     <string name="title_advanced_send_chips">Паказаць карткі адрасоў</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Выкарыстоўваць колер ідэнтыфікатара для ніжняй панэлі дзеянняў</string>
     <string name="title_advanced_send_reminders">Паказваць напаміны</string>
     <string name="title_advanced_send_delayed">Затрымка адпраўкі паведамленняў</string>
     <string name="title_advanced_attach_new">Ствараць новы чарнавік паведамлення для абагуленых адрасоў і файлаў</string>
@@ -694,6 +695,7 @@
     <string name="title_advanced_sign_default">Падпісваць па змаўчанні</string>
     <string name="title_advanced_encrypt_default">Шыфраваць па змаўчанні</string>
     <string name="title_advanced_encrypt_auto">Аўтаматычна шыфраваць, калі ключы ўсіх атрымальнікаў даступныя</string>
+    <string name="title_advanced_auto_verify">Аўтаматычна правяраць падпісаныя паведамленні</string>
     <string name="title_advanced_auto_decrypt">Аўтаматычная расшыфроўваць паведамленні</string>
     <string name="title_advanced_auto_undo_decrypt">Скасаваць расшыфроўку пры закрыцці размовы</string>
     <string name="title_advanced_openpgp">Правайдар OpenPGP</string>
@@ -778,7 +780,7 @@
     <string name="title_advanced_lookup_mx_hint">Гэта опцыя дазволіць праверыць, ці існуюць запісы DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Гэта запаволіць сінхранізацыю паведамленняў</string>
     <string name="title_advanced_folder_nav_hint">Гэта опцыя заўсёды будзе вяртаць у спіс папак звязанага ўліковага запісу са спісу паведамленняў</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Пры раскрыцці папак або спіса ўліковых запісаў</string>
+    <string name="title_advanced_pull_all_hint">Пры раскрыцці папак або спіса ўліковых запісаў</string>
     <string name="title_advanced_suggest_names_hint">Калі опцыя адключана, то пры выбары кантактаў будуць выкарыстоўвацца толькі адрасы электроннай пошты</string>
     <string name="title_advanced_suggest_local_hint">У дапаўненне да кантактаў, прадастаўленых Android. Кантактныя даныя будуць захоўвацца для новых адпраўленых або атрыманых паведамленняў, толькі калі гэта функцыя ўключана.</string>
     <string name="title_advanced_auto_identity_hint">Выбірае апошні ідэнтыфікатар, які выкарыстоўвалася ў якасці атрымальніка для новых паведамленняў</string>

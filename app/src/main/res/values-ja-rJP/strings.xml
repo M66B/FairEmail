@@ -738,7 +738,7 @@
     <string name="title_advanced_lookup_mx_hint">DNS MX レコードが存在するかどうかを確認します</string>
     <string name="title_advanced_sync_delay_hint">メッセージの同期が遅くなります</string>
     <string name="title_advanced_folder_nav_hint">常にメッセージリストから関連するアカウントのフォルダーリストに戻ります</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">フォルダーやアカウントの一覧をプルダウンしたとき</string>
+    <string name="title_advanced_pull_all_hint">フォルダーやアカウントの一覧をプルダウンしたとき</string>
     <string name="title_advanced_suggest_names_hint">無効にすると、連絡先を選択する際にメールアドレスのみが使用されます</string>
     <string name="title_advanced_suggest_local_hint">Android のローカル連絡先を追加します。有効にすると、新しく送受信されたメッセージの連絡先データが保存されます。</string>
     <string name="title_advanced_auto_identity_hint">新規メッセージにメールを送信するとき、最後に使用したユーザー ID を選択します</string>

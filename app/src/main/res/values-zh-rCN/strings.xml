@@ -358,6 +358,7 @@
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
     <string name="title_advanced_alt_re_fwd">替代回复/转发前缀</string>
     <string name="title_advanced_send_chips">卡片化显示地址</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">将身份颜色用于底部操作栏</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_attach_new">为共享地址和文件创建新的消息草稿</string>
@@ -653,6 +654,7 @@
     <string name="title_advanced_sign_default">使用默认签名</string>
     <string name="title_advanced_encrypt_default">使用默认加密</string>
     <string name="title_advanced_encrypt_auto">当所有收件人的公钥可用时自动加密</string>
+    <string name="title_advanced_auto_verify">自动验证已签名消息</string>
     <string name="title_advanced_auto_decrypt">自动解密消息</string>
     <string name="title_advanced_auto_undo_decrypt">关闭对话时撤销解密</string>
     <string name="title_advanced_openpgp">OpenPGP 提供者</string>
@@ -737,7 +739,7 @@
     <string name="title_advanced_lookup_mx_hint">这将检查 DNS MX 记录是否存在</string>
     <string name="title_advanced_sync_delay_hint">这将减缓同步消息的速度</string>
     <string name="title_advanced_folder_nav_hint">这将总是从邮件列表返回到相关帐户的文件夹列表</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">下拉文件夹或账户列表时</string>
+    <string name="title_advanced_pull_all_hint">下拉文件夹或账户列表时</string>
     <string name="title_advanced_suggest_names_hint">如果禁用，选择联系人时将只使用电子邮件地址</string>
     <string name="title_advanced_suggest_local_hint">这不包括 Android 提供的联系人。应用仅在此选项启用后存储新的接收或发送消息的联系人。</string>
     <string name="title_advanced_auto_identity_hint">这将选择上次使用的身份作为新邮件收件人</string>

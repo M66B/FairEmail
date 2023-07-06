@@ -371,6 +371,7 @@
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos de acordo com a frequência de uso</string>
     <string name="title_advanced_alt_re_fwd">Prefixo alternativo</string>
     <string name="title_advanced_send_chips">Mostrar endereço em bolhas</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Use a cor de identidade para a barra de ação inferior</string>
     <string name="title_advanced_send_reminders">Mostrar lembretes</string>
     <string name="title_advanced_send_delayed">Atraso ao enviar mensagens</string>
     <string name="title_advanced_attach_new">Criar um novo rascunho de mensagem para endereços e arquivos compartilhados</string>
@@ -666,6 +667,7 @@
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Criptografar por padrão</string>
     <string name="title_advanced_encrypt_auto">Criptografar automaticamente quando as chaves de todos os destinatários estiverem disponíveis</string>
+    <string name="title_advanced_auto_verify">Verifique automaticamente as mensagens assinadas</string>
     <string name="title_advanced_auto_decrypt">Descriptografar mensagens automaticamente</string>
     <string name="title_advanced_auto_undo_decrypt">Desfazer criptografia ao fechar a conversa</string>
     <string name="title_advanced_openpgp">Provedor OpenPGP</string>
@@ -750,7 +752,7 @@
     <string name="title_advanced_lookup_mx_hint">Isto irá verificar se existem registros DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Isto atrasará a sincronização de mensagens</string>
     <string name="title_advanced_folder_nav_hint">Isto sempre irá retornar para lista de pastas da conta relacionada de uma lista de mensagens</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Ao abrir a lista de pastas ou contas</string>
+    <string name="title_advanced_pull_all_hint">Ao abrir a lista de pastas ou contas</string>
     <string name="title_advanced_suggest_names_hint">Se desativado, somente endereços de email serão utilizados ao selecionar contatos</string>
     <string name="title_advanced_suggest_local_hint">Além dos contatos fornecidos pelo Android. Os dados de contato serão armazenados para novas mensagens enviadas ou recebidas somente quando ativados.</string>
     <string name="title_advanced_auto_identity_hint">Isso selecionará a última identidade usada ao selecionar um destinatário para novas mensagens</string>

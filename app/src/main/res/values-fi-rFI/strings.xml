@@ -558,6 +558,7 @@
     <string name="title_advanced_language_detection">Tunnista viestin tekstin kieli</string>
     <string name="title_advanced_photo_picker">Käytä Androidin valokuvanvalitsinta</string>
     <string name="title_advanced_pull_refresh">Päivitä vetämällä alas</string>
+    <string name="title_advanced_pull_all">Synkronoi kaikki kansiot</string>
     <string name="title_advanced_autoscroll">Vieritä ylös, kun uusi viesti saapuu</string>
     <string name="title_advanced_double_tap">Tuplanäpäytys merkitsee viestin luetuksi/lukemattomaksi</string>
     <string name="title_advanced_swipenav">Siirry seuraavaan/edelliseen keskusteluun pyyhkäisemällä vasemmalle/oikealle</string>
@@ -665,6 +666,7 @@
     <string name="title_advanced_sign_default">Allekirjoita oletuksena</string>
     <string name="title_advanced_encrypt_default">Salaa oletuksena</string>
     <string name="title_advanced_encrypt_auto">Salaa automaattisesti, kun kaikkien vastaanottajien avaimet ovat saatavilla</string>
+    <string name="title_advanced_auto_verify">Todenna allekirjoitetut viestit automaattisesti</string>
     <string name="title_advanced_auto_decrypt">Pura viestien salaus automaattisesti</string>
     <string name="title_advanced_auto_undo_decrypt">Kumoa salauksen purku, kun keskustelu suljetaan</string>
     <string name="title_advanced_openpgp">OpenPGP-palveluntarjoaja</string>
@@ -748,6 +750,7 @@
     <string name="title_advanced_lookup_mx_hint">Tämä tarkistaa löytyykö DNS MX-tietoja</string>
     <string name="title_advanced_sync_delay_hint">Tämä hidastaa viestien synkronointia</string>
     <string name="title_advanced_folder_nav_hint">Tämä palaa aina viestilistasta kyseisen tilin kansiolistaan</string>
+    <string name="title_advanced_pull_all_hint">Vetämällä alas kansio- tai tililistassa</string>
     <string name="title_advanced_suggest_names_hint">Jos poistettu käytöstä, yhteystietoja valittaessa käytetään vain sähköpostiosoitteita</string>
     <string name="title_advanced_suggest_local_hint">Androidin yhteystietojen lisäksi. Yhteystietoja tallennetaan uusista lähetetyistä ja vastaanotetuista viesteistä vain, jos asetus on päällä.</string>
     <string name="title_advanced_auto_identity_hint">Tämä valitsee viimeksi käytetyn identiteetin, kun valitaan uusien viestien vastaanottajaa</string>

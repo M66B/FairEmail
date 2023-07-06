@@ -397,6 +397,7 @@
     <string name="title_advanced_suggest_frequently">Sortuj sugerowane adresy według częstotliwości używania</string>
     <string name="title_advanced_alt_re_fwd">Alternatywny prefiks odpowiedzi/przekazywania</string>
     <string name="title_advanced_send_chips">Pokaż dymki adresowe</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Użyj koloru identyfikatora w dolnym pasku zadań</string>
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
     <string name="title_advanced_attach_new">Utwórz nowy szkic wiadomości dla udostępnianych adresów i plików</string>
@@ -692,6 +693,7 @@
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
     <string name="title_advanced_encrypt_auto">Automatycznie zaszyfruj, gdy wszystkie klucze odbiorców są dostępne</string>
+    <string name="title_advanced_auto_verify">Automatycznie weryfikuj podpisane wiadomości</string>
     <string name="title_advanced_auto_decrypt">Automatycznie odszyfruj wiadomości</string>
     <string name="title_advanced_auto_undo_decrypt">Cofnij odszyfrowanie przy zamykaniu konwersacji</string>
     <string name="title_advanced_openpgp">Dostawca OpenPGP</string>
@@ -776,7 +778,7 @@
     <string name="title_advanced_lookup_mx_hint">To sprawdzi, czy istnieją rekordy MX DNS</string>
     <string name="title_advanced_sync_delay_hint">Wydłuży to synchronizację wiadomości</string>
     <string name="title_advanced_folder_nav_hint">Spowoduje to zawsze powrót z listy wiadomości do listy folderów powiązanego konta</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Przy rozwijaniu listy folderów lub kont</string>
+    <string name="title_advanced_pull_all_hint">Przy rozwijaniu listy folderów lub kont</string>
     <string name="title_advanced_suggest_names_hint">Jeśli wyłączone, tylko adresy e-mail będą używane podczas wybierania kontaktów</string>
     <string name="title_advanced_suggest_local_hint">Oprócz kontaktów dostarczanych przez Androida. Dane kontaktowe będą przechowywane dla nowo wysłanych lub odebranych wiadomości tylko kiedy włączone.</string>
     <string name="title_advanced_auto_identity_hint">Spowoduje to wybranie ostatnio użytej tożsamości podczas wybierania odbiorcy dla nowych wiadomości</string>

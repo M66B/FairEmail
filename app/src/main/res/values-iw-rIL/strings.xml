@@ -777,7 +777,7 @@
     <string name="title_advanced_lookup_mx_hint">יבדוק אם קיימות רשומות MX ב־DNS</string>
     <string name="title_advanced_sync_delay_hint">יאט סנכרון הודעות</string>
     <string name="title_advanced_folder_nav_hint">פקודה זו תמיד תחזיר את רשימת התיקיות של החשבון הקשור מרשימת הודעות</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">במשיכת רשימת התיקיות או החשבונות למטה</string>
+    <string name="title_advanced_pull_all_hint">במשיכת רשימת התיקיות או החשבונות למטה</string>
     <string name="title_advanced_suggest_names_hint">אם מושבת, אפשר יהיה להשתמש רק בכתובות דוא״ל בעת בחירת אנשי קשר</string>
     <string name="title_advanced_suggest_local_hint">בנוסף לאנשי הקשר שמסופקים על ידי Android. פרטי הקשר יאוחסנו להודעות חדשות שנשלחו או התקבלו כשהאפשרות פעילה.</string>
     <string name="title_advanced_auto_identity_hint">תיבחר הזהות האחרונה בה נעשה שימוש כאשר נבחר נמען להודעות חדשות</string>

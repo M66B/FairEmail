@@ -666,6 +666,7 @@
     <string name="title_advanced_sign_default">Signér som standard</string>
     <string name="title_advanced_encrypt_default">Kryptér som standard</string>
     <string name="title_advanced_encrypt_auto">Kryptér automatisk, når alle modtageres nøgler er tilgængelige</string>
+    <string name="title_advanced_auto_verify">Bekræft automatisk signerede beskeder</string>
     <string name="title_advanced_auto_decrypt">Auto-dekryptér beskeder</string>
     <string name="title_advanced_auto_undo_decrypt">Fortryd dekryptering ved lukning af samtale</string>
     <string name="title_advanced_openpgp">OpenPGP-leverandør</string>
@@ -751,7 +752,7 @@
     <string name="title_advanced_lookup_mx_hint">Dette tjekker, om der findes DNS MX-poster</string>
     <string name="title_advanced_sync_delay_hint">Dette vil forøge beskedsynkroniseringstiden</string>
     <string name="title_advanced_folder_nav_hint">Dette vil altid returnere til den relaterede kontos mappeliste fra en beskedliste</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Når mappe- eller kontolisten trækkes nedad</string>
+    <string name="title_advanced_pull_all_hint">Når mappe- eller kontolisten trækkes nedad</string>
     <string name="title_advanced_suggest_names_hint">Hvis deaktiveret, bruges kun e-mailadresser ved valg af kontakter</string>
     <string name="title_advanced_suggest_local_hint">Ud over kontakter fra Android. Kontaktdata gemmes kun for nyligt afsendte eller modtagne beskeder, når aktiveret.</string>
     <string name="title_advanced_auto_identity_hint">Dette vælger den seneste brugte identitet ved valg af modtager af nye beskeder</string>

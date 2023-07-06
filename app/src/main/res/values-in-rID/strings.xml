@@ -355,6 +355,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_suggest_frequently">Urutkan alamat yang disarankan pada frekuensi penggunaan</string>
     <string name="title_advanced_alt_re_fwd">Awalan balasan/meneruskan cadangan</string>
     <string name="title_advanced_send_chips">Tampilkan bubbles alamat</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Gunakan warna penanda untuk bilah tindakan bagian bawah</string>
     <string name="title_advanced_send_reminders">Tampilkan Pengingat</string>
     <string name="title_advanced_send_delayed">Tunda pengiriman pesan</string>
     <string name="title_advanced_attach_new">Buat draf pesan baru untuk alamat dan file bersama</string>
@@ -651,6 +652,7 @@ Contextrequest</string>
     <string name="title_advanced_sign_default">Masuk secara bawaan</string>
     <string name="title_advanced_encrypt_default">Enkripsi secara bawaan</string>
     <string name="title_advanced_encrypt_auto">Enkripsi secara otomatis saat seluruh kunci penerima tersedia</string>
+    <string name="title_advanced_auto_verify">Verifikasi pesan yang ditandai secara otomatis</string>
     <string name="title_advanced_auto_decrypt">Mendekripsi pesan secara otomatis</string>
     <string name="title_advanced_auto_undo_decrypt">Batalkan dekripsi saat menutup percakapan</string>
     <string name="title_advanced_openpgp">Penyedia OpenPGP (Open Source Pretty Good Privacy)</string>
@@ -733,7 +735,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_lookup_mx_hint">Ini akan memeriksa apakah catatan DNS MX ada</string>
     <string name="title_advanced_sync_delay_hint">Ini akan memperlambat sinkronisasi pesan</string>
     <string name="title_advanced_folder_nav_hint">Hal ini akan selalu kembali ke list folder dari akun terkait dari list pesan</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Saat menarik folder atau daftar akun ke bawah</string>
+    <string name="title_advanced_pull_all_hint">Saat menarik folder atau daftar akun ke bawah</string>
     <string name="title_advanced_suggest_names_hint">Jika dinonaktifkan, hanya alamat email yang akan digunakan saat memilih kontak</string>
     <string name="title_advanced_suggest_local_hint">Selain kontak yang disediakan oleh Android. Data kontak akan disimpan untuk pesan yang baru dikirim atau diterima hanya ketika diaktifkan.</string>
     <string name="title_advanced_auto_identity_hint">Hal ini akan memilih identitas yang terakhir difunakan saat memilih penerima untuk pesan baru</string>

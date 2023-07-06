@@ -372,6 +372,7 @@
     <string name="title_advanced_suggest_frequently">Trier les adresses suggérées par fréquence d’utilisation</string>
     <string name="title_advanced_alt_re_fwd">Préfixe alternatif de réponse/transfert</string>
     <string name="title_advanced_send_chips">Afficher les bulles d\'adresse</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Utiliser la couleur d\'identité pour la barre d\'action du bas</string>
     <string name="title_advanced_send_reminders">Afficher les rappels</string>
     <string name="title_advanced_send_delayed">Retarder l\'envoi des messages</string>
     <string name="title_advanced_attach_new">Créer un nouveau brouillon pour les adresses et les fichiers partagés</string>
@@ -667,6 +668,7 @@
     <string name="title_advanced_sign_default">Signer par défaut</string>
     <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
     <string name="title_advanced_encrypt_auto">Chiffrer automatiquement lorsque toutes les clés des destinataires sont disponibles</string>
+    <string name="title_advanced_auto_verify">Vérifier automatiquement les messages signés</string>
     <string name="title_advanced_auto_decrypt">Déchiffrer automatiquement les messages</string>
     <string name="title_advanced_auto_undo_decrypt">Annuler le déchiffrement lors de la fermeture de la conversation</string>
     <string name="title_advanced_openpgp">Fournisseur OpenPGP</string>
@@ -752,7 +754,7 @@
     <string name="title_advanced_lookup_mx_hint">Ceci vérifiera l’existence d’enregistrements DNS mail exchanger (MX)</string>
     <string name="title_advanced_sync_delay_hint">Ceci ralentira la synchronisation des messages</string>
     <string name="title_advanced_folder_nav_hint">Ceci retournera toujours à la liste des dossiers du compte associé à partir d\'une liste de messages</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">En tirant vers le bas la liste des dossiers ou des comptes</string>
+    <string name="title_advanced_pull_all_hint">En tirant vers le bas la liste des dossiers ou des comptes</string>
     <string name="title_advanced_suggest_names_hint">Si désactivé, seules les adresses e-mail seront utilisées lors de la sélection des contacts</string>
     <string name="title_advanced_suggest_local_hint">En plus des contacts fournis par Android. Les informations des contacts seront stockées pour les messages récemment envoyés ou reçus seulement si ceci est activé.</string>
     <string name="title_advanced_auto_identity_hint">Ceci sélectionnera la dernière identité utilisée lors de la sélection d\'un destinataire pour les nouveaux messages</string>

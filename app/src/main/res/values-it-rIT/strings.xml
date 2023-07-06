@@ -372,6 +372,7 @@
     <string name="title_advanced_suggest_frequently">Ordina gli indirizzi suggeriti per frequenza d\'uso</string>
     <string name="title_advanced_alt_re_fwd">Prefisso alternativo di risposta/inoltro</string>
     <string name="title_advanced_send_chips">Mostra le bolle degli indirizzi</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Usa il colore dell\'identità per la barra d\'azioni in basso</string>
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
     <string name="title_advanced_attach_new">Crea un nuovo messaggio di bozza per indirizzi e file condivisi</string>
@@ -667,6 +668,7 @@
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_encrypt_auto">Crittografa automaticamente quando le chiavi di tutti i destinatari sono disponibili</string>
+    <string name="title_advanced_auto_verify">Verifica automaticamente i messaggi firmati</string>
     <string name="title_advanced_auto_decrypt">Decrittografa automaticamente i messaggi</string>
     <string name="title_advanced_auto_undo_decrypt">Annulla la decrittografia alla chiusura della conversazione</string>
     <string name="title_advanced_openpgp">Provider di OpenPGP</string>
@@ -752,7 +754,7 @@
     <string name="title_advanced_lookup_mx_hint">Questo verificherà se esistano i registri DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Questo rallenterà la sincronizzazione dei messaggi</string>
     <string name="title_advanced_folder_nav_hint">Questo tornerà sempre all\'elenco delle cartelle del profilo correlato da un elenco di messaggi</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">Tirando giù l\'elenco di cartelle o profili</string>
+    <string name="title_advanced_pull_all_hint">Tirando giù l\'elenco di cartelle o profili</string>
     <string name="title_advanced_suggest_names_hint">Se disabilitato, solo gli indirizzi email saranno usati selezionando i contatti</string>
     <string name="title_advanced_suggest_local_hint">In aggiunta ai contatti forniti da Android. I dati di contatto saranno memorizzati per i messaggi appena inviati o ricevuti solo quando abilitato.</string>
     <string name="title_advanced_auto_identity_hint">Questo selezionerà l\'ultima identità usata selezionando un destinatario per i nuovi messaggi</string>

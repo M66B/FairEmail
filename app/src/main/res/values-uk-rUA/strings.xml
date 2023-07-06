@@ -776,7 +776,7 @@
     <string name="title_advanced_lookup_mx_hint">Це перевірить, чи існують записи DNS MX</string>
     <string name="title_advanced_sync_delay_hint">Це призведе до уповільнення синхронізації повідомлень</string>
     <string name="title_advanced_folder_nav_hint">Це завжди буде повертати до переліку тек що пов\'язані до облікового запису зі списку повідомлень</string>
-    <string name="title_advanced_pull_all_hint" comment="title_advanced_pull_all_hint&#10;Remark for the option &amp;quot;Synchronize all folders&amp;quot; in the behavior settings tab page">При розгортанні списку тек або облікових записів</string>
+    <string name="title_advanced_pull_all_hint">При розгортанні списку тек або облікових записів</string>
     <string name="title_advanced_suggest_names_hint">Якщо вимкнено, використовуватимуться лише адреси електронної пошти при виборі контактів</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Будуть зберігатися дані про контакт для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
     <string name="title_advanced_auto_identity_hint">Це може обрати останню ідентифікацію, коли використовувалася для одержувача нових повідомлень</string>
