@@ -2409,7 +2409,7 @@ public class Log {
                         Helper.getInterruptionFilter(filter) +
                                 (filter == NotificationManager.INTERRUPTION_FILTER_ALL ? "" : "!!!")) + "\r\n" +
                         "accounts=" + accounts.size() +
-                        " folders=" + db.folder().countTotal() +
+                        " folders=" + db.folder().countSync() + "/" + db.folder().countTotal() +
                         " messages=" + db.message().countTotal() +
                         " rules=" + db.rule().countTotal() +
                         " ops=" + db.operation().getOperationCount() +

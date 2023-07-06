@@ -243,8 +243,15 @@ public interface DaoFolder {
     @Query("SELECT download FROM folder WHERE id = :id")
     boolean getFolderDownload(long id);
 
-    @Query("SELECT COUNT(*) FROM folder")
+    @Query("SELECT COUNT(*) FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE account.synchronize")
     int countTotal();
+
+    @Query("SELECT COUNT(*) FROM folder" +
+            " JOIN account ON account.id = folder.account" +
+            " WHERE account.synchronize AND folder.synchronize")
+    int countSync();
 
     @Insert
     long insertFolder(EntityFolder folder);
