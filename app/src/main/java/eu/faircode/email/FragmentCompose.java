@@ -7682,7 +7682,7 @@ public class FragmentCompose extends FragmentBase {
     private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            final Context context = view.getContext();
+            final Context context = parent.getContext();
             TupleIdentityEx identity = (TupleIdentityEx) parent.getAdapter().getItem(position);
 
             int at = (identity == null ? -1 : identity.email.indexOf('@'));
