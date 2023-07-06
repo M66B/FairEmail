@@ -6,9 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
-### Next version
+### 1.2081 - 2023-07-06
 
 * Added an option to auto-verify signed messages
+* Added an option to use the identity color for bottom action bar
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
