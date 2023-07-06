@@ -30,6 +30,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -55,6 +56,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.mail.Address;
@@ -97,6 +99,8 @@ public class FragmentDialogSend extends FragmentDialogBase {
         final boolean send_archive = prefs.getBoolean("send_archive", false);
         final MessageHelper.AddressFormat email_format = MessageHelper.getAddressFormat(getContext());
 
+        final int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+        final int textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         final int[] encryptValues = getResources().getIntArray(R.array.encryptValues);
         final int[] sendDelayedValues = getResources().getIntArray(R.array.sendDelayedValues);
         final String[] sendDelayedNames = getResources().getStringArray(R.array.sendDelayedNames);
@@ -558,10 +562,15 @@ public class FragmentDialogSend extends FragmentDialogBase {
                                 tvSendAt.setText(getString(R.string.title_after, sendDelayedNames[pos]));
                                 break;
                             }
+                    tvSendAt.setTextColor(textColorSecondary);
+                    tvSendAt.setTypeface(Typeface.DEFAULT);
                 } else {
+                    long now = new Date().getTime();
                     DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                     DateFormat D = new SimpleDateFormat("E");
                     tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
+                    tvSendAt.setTextColor(draft.ui_snoozed < now ? colorWarning : textColorSecondary);
+                    tvSendAt.setTypeface(draft.ui_snoozed < now ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
                 }
 
                 grpDsn.setVisibility(dsn ? View.GONE : View.VISIBLE);
@@ -667,21 +676,20 @@ public class FragmentDialogSend extends FragmentDialogBase {
         if (resultCode == RESULT_OK && intent != null) {
             Bundle data = intent.getBundleExtra("args");
             long id = data.getLong("id");
-            long duration = data.getLong("duration");
             long time = data.getLong("time");
 
             Bundle args = new Bundle();
             args.putLong("id", id);
-            args.putLong("wakeup", duration == 0 ? -1 : time);
+            args.putLong("time", time);
 
             new SimpleTask<Void>() {
                 @Override
                 protected Void onExecute(Context context, Bundle args) {
                     long id = args.getLong("id");
-                    long wakeup = args.getLong("wakeup");
+                    long time = args.getLong("time");
 
                     DB db = DB.getInstance(context);
-                    db.message().setMessageSnoozed(id, wakeup < 0 ? null : wakeup);
+                    db.message().setMessageSnoozed(id, time);
 
                     return null;
                 }
