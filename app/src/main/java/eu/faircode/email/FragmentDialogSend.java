@@ -563,14 +563,12 @@ public class FragmentDialogSend extends FragmentDialogBase {
                                 break;
                             }
                     tvSendAt.setTextColor(textColorSecondary);
-                    tvSendAt.setTypeface(Typeface.DEFAULT);
                 } else {
                     long now = new Date().getTime();
                     DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.MEDIUM, SimpleDateFormat.SHORT);
                     DateFormat D = new SimpleDateFormat("E");
                     tvSendAt.setText(D.format(draft.ui_snoozed) + " " + DTF.format(draft.ui_snoozed));
                     tvSendAt.setTextColor(draft.ui_snoozed < now ? colorWarning : textColorSecondary);
-                    tvSendAt.setTypeface(draft.ui_snoozed < now ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
                 }
 
                 grpDsn.setVisibility(dsn ? View.GONE : View.VISIBLE);
