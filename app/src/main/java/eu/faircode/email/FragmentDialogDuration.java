@@ -78,6 +78,9 @@ public class FragmentDialogDuration extends FragmentDialogBase {
         final TimePicker timePicker = dview.findViewById(R.id.timePicker);
         final DatePicker datePicker = dview.findViewById(R.id.datePicker);
 
+        final int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+        final int textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
+
         if (savedInstanceState == null) {
             if (time == 0) {
                 cal.setTimeInMillis(new Date().getTime());
@@ -93,6 +96,7 @@ public class FragmentDialogDuration extends FragmentDialogBase {
 
         final DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.FULL, SimpleDateFormat.SHORT);
         tvDuration.setText(DTF.format(cal.getTime()));
+        tvDuration.setTextColor(cal.getTimeInMillis() < new Date().getTime() ? colorWarning : textColorSecondary);
 
         timePicker.setIs24HourView(android.text.format.DateFormat.is24HourFormat(context));
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
@@ -278,6 +282,7 @@ public class FragmentDialogDuration extends FragmentDialogBase {
                 cal.set(Calendar.HOUR_OF_DAY, hour);
                 cal.set(Calendar.MINUTE, minute);
                 tvDuration.setText(DTF.format(cal.getTime()));
+                tvDuration.setTextColor(cal.getTimeInMillis() < new Date().getTime() ? colorWarning : textColorSecondary);
                 Log.i("Set hour=" + hour + " minute=" + minute +
                         " time=" + new Date(cal.getTimeInMillis()));
             }
@@ -294,6 +299,7 @@ public class FragmentDialogDuration extends FragmentDialogBase {
                         cal.set(Calendar.MONTH, month);
                         cal.set(Calendar.DAY_OF_MONTH, day);
                         tvDuration.setText(DTF.format(cal.getTime()));
+                        tvDuration.setTextColor(cal.getTimeInMillis() < new Date().getTime() ? colorWarning : textColorSecondary);
                         Log.i("Set year=" + year + " month=" + month + " day=" + day +
                                 " time=" + new Date(cal.getTimeInMillis()));
                     }
