@@ -157,6 +157,7 @@ import org.bouncycastle.operator.ContentSigner;
 import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
 import org.bouncycastle.operator.OutputEncryptor;
+import org.bouncycastle.operator.RuntimeOperatorException;
 import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
 import org.bouncycastle.util.Store;
@@ -4517,10 +4518,43 @@ public class FragmentCompose extends FragmentBase {
                     });
                     snackbar.show();
                 } else {
-                    boolean expected =
-                            (ex instanceof OperatorCreationException &&
-                                    ex.getCause() instanceof InvalidKeyException);
-                    Log.unexpectedError(getParentFragmentManager(), ex, !expected);
+                    if (ex instanceof RuntimeOperatorException &&
+                            ex.getMessage() != null &&
+                            ex.getMessage().contains("Memory allocation failed")) {
+                        /*
+                            org.bouncycastle.operator.RuntimeOperatorException: exception obtaining signature: android.security.KeyStoreException: Memory allocation failed
+                                at org.bouncycastle.operator.jcajce.JcaContentSignerBuilder$1.getSignature(Unknown Source:31)
+                                at org.bouncycastle.cms.SignerInfoGenerator.generate(Unknown Source:95)
+                                at org.bouncycastle.cms.CMSSignedDataGenerator.generate(SourceFile:2)
+                                at org.bouncycastle.cms.CMSSignedDataGenerator.generate(SourceFile:1)
+                                at eu.faircode.email.FragmentCompose$62.onExecute(SourceFile:74)
+                                at eu.faircode.email.FragmentCompose$62.onExecute(SourceFile:1)
+                                at eu.faircode.email.SimpleTask$2.run(SourceFile:72)
+                                at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:462)
+                                at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+                                at eu.faircode.email.Helper$PriorityFuture.run(Unknown Source:2)
+                                at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+                                at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+                                at java.lang.Thread.run(Thread.java:919)
+                            Caused by: java.security.SignatureException: android.security.KeyStoreException: Memory allocation failed
+                                at android.security.keystore.AndroidKeyStoreSignatureSpiBase.engineSign(AndroidKeyStoreSignatureSpiBase.java:333)
+                                at java.security.Signature$Delegate.engineSign(Signature.java:1418)
+                                at java.security.Signature.sign(Signature.java:739)
+                                at org.bouncycastle.operator.jcajce.JcaContentSignerBuilder$1.getSignature(Unknown Source:2)
+                                ... 12 more
+                            Caused by: android.security.KeyStoreException: Memory allocation failed
+                                at android.security.KeyStore.getKeyStoreException(KeyStore.java:1303)
+                                at android.security.keystore.KeyStoreCryptoOperationChunkedStreamer.doFinal(KeyStoreCryptoOperationChunkedStreamer.java:224)
+                                at android.security.keystore.AndroidKeyStoreSignatureSpiBase.engineSign(AndroidKeyStoreSignatureSpiBase.java:328)
+                         */
+                        // https://issuetracker.google.com/issues/199605614
+                        Log.unexpectedError(getParentFragmentManager(), new IllegalArgumentException("Key too large for Android", ex));
+                    } else {
+                        boolean expected =
+                                (ex instanceof OperatorCreationException &&
+                                        ex.getCause() instanceof InvalidKeyException);
+                        Log.unexpectedError(getParentFragmentManager(), ex, !expected);
+                    }
                 }
             }
         }.serial().execute(this, args, "compose:s/mime");
