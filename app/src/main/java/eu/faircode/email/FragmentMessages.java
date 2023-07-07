@@ -8896,6 +8896,10 @@ public class FragmentMessages extends FragmentBase
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                boolean auto = args.getBoolean("auto");
+                if (auto)
+                    return;
+
                 if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
@@ -9426,6 +9430,10 @@ public class FragmentMessages extends FragmentBase
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
+                boolean auto = args.getBoolean("auto");
+                if (auto)
+                    return;
+
                 if (ex instanceof IllegalArgumentException ||
                         ex instanceof CMSException || ex instanceof KeyChainException)
                     Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
