@@ -2650,6 +2650,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                 if (state.isRunning()) {
                     long now = new Date().getTime();
+                    ConnectivityManager cm = Helper.getSystemService(this, ConnectivityManager.class);
                     boolean logarithmic_backoff = prefs.getBoolean("logarithmic_backoff", true);
                     int max_backoff_power = prefs.getInt("max_backoff_power", DEFAULT_BACKOFF_POWER - 3);
                     int max_backoff = (int) Math.pow(2, max_backoff_power + 3);
@@ -2686,6 +2687,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                                                     " missing=" + (missing / 1000L) +
                                                     " compensate=" + compensate +
                                                     " backoff=" + backoff + "/" + max_backoff +
+                                                    " network=" + (cm == null ? null : cm.getActiveNetworkInfo()) +
                                                     " host=" + account.host +
                                                     " ex=" + Log.formatThrowable(last_fail, false);
                                             if (compensate > 2)
@@ -2708,7 +2710,9 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     EntityLog.log(this, EntityLog.Type.Account, account,
                             account.name + " backoff=" + backoff + "/" + max_backoff +
                                     " recently=" + recently + "x" +
-                                    " logarithmic=" + logarithmic_backoff);
+                                    " logarithmic=" + logarithmic_backoff +
+                                    " network=" + (cm == null ? null : cm.getActiveNetworkInfo()) +
+                                    " ex=" + Log.formatThrowable(last_fail, false));
 
                     if (logarithmic_backoff) {
                         if (backoff < max_backoff)
