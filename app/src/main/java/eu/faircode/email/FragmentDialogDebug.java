@@ -109,6 +109,6 @@ public class FragmentDialogDebug extends FragmentDialogBase {
     private void setEnabled(boolean value) {
         Button ok = ((AlertDialog) getDialog()).getButton(AlertDialog.BUTTON_POSITIVE);
         if (ok != null)
-            ok.setEnabled(value);
+            ok.setEnabled(value || BuildConfig.DEBUG);
     }
 }
