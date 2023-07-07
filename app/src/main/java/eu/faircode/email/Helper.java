@@ -2578,6 +2578,18 @@ public class Helper {
         return os.toByteArray();
     }
 
+    public static String readLine(InputStream is, Charset charset) throws IOException {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        int b = is.read();
+        if (b < 0)
+            return null;
+        while (b >= 0 && b != '\n') {
+            bos.write(b);
+            b = is.read();
+        }
+        return new String(bos.toByteArray(), charset);
+    }
+
     static void copy(File src, File dst) throws IOException {
         try (InputStream is = new FileInputStream(src)) {
             try (OutputStream os = new FileOutputStream(dst)) {
