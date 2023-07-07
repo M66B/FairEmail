@@ -873,6 +873,14 @@ public class MimeMultipart extends Multipart {
 			buf.write(inbuf, 0, inSize);
 		    part = createMimeBodyPart(headers, buf.toByteArray());
 		}
+			try {
+				// https://www.rfc-editor.org/rfc/rfc1521.html#section-7.2.4
+				ContentType ct = new ContentType(getContentType());
+				if ("multipart/digest".equalsIgnoreCase(ct.getBaseType()))
+					part.setHeader("Content-Type", "message/rfc822");
+			} catch (Throwable ex) {
+				eu.faircode.email.Log.e(ex);
+			}
 		super.addBodyPart(part);
 	    }
 	} catch (IOException ioex) {
