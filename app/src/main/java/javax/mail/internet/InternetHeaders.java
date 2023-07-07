@@ -434,7 +434,33 @@ public class InternetHeaders {
 		    }
 		    prevline = line;
 		}
-		first = false;
+		if (first && android.text.TextUtils.isEmpty(line) && is instanceof ByteArrayInputStream) {
+			// RFC1341 section 7.2.1
+			//   Note that the encapsulation boundary must occur at the beginning of a line, i.e., following a CRLF,
+			//   and that that initial CRLF is considered to be part of the encapsulation boundary rather than part of the preceding part.
+			//   The boundary must be followed immediately either by another CRLF and the header fields for the next part, or by two CRLFs,
+			//   in which case there are no header fields for the next part (and it is therefore assumed to be of Content-Type text/plain).
+			// Of course, there are email servers which do not conform to this and insert a newline after the boundary ...
+			is.mark(0); // ByteArrayInputStream will save position
+			try {
+				String l = eu.faircode.email.Helper.readLine(is, java.nio.charset.StandardCharsets.ISO_8859_1);
+				while (l != null && l.length() > 0) {
+					if (android.text.TextUtils.isEmpty(l))
+						break;
+					if (!l.contains(": ") && !l.startsWith(" ") && !l.startsWith("\t"))
+						break;
+					if (l.toLowerCase(Locale.ROOT).startsWith("content-type:")) {
+						line = l;
+						break;
+					}
+					l = eu.faircode.email.Helper.readLine(is, java.nio.charset.StandardCharsets.ISO_8859_1);
+				}
+				first = !android.text.TextUtils.isEmpty(line);
+			} finally {
+				is.reset();
+			}
+		} else
+			first = false;
 	    } while (line != null && !isEmpty(line));
 	} catch (IOException ioex) {
 	    throw new MessagingException("Error in input stream", ioex);
