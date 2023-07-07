@@ -370,6 +370,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_suggest_frequently">Sortearje foarstelle adressen op gebrûksfrekwinsje</string>
     <string name="title_advanced_alt_re_fwd">Alternatyf antwurd/trochstjoere foarfoechsel</string>
     <string name="title_advanced_send_chips">Adresballonnen toane</string>
+    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Brûk de identiteitskleur foar de ûnderste aksjebalke</string>
     <string name="title_advanced_send_reminders">Oantinkens toane</string>
     <string name="title_advanced_send_delayed">Ferstjoeren fan berjochten útstelle</string>
     <string name="title_advanced_attach_new">Meitsje in nij konsept foar dielde adressen en bestannen</string>
@@ -665,6 +666,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_sign_default">Standert ûndertekenje</string>
     <string name="title_advanced_encrypt_default">Standert fersiferje</string>
     <string name="title_advanced_encrypt_auto">Automatysk fersiferje wannear’t alle kaaien fan de ûntfanger beskikber binne</string>
+    <string name="title_advanced_auto_verify">Undertekene berjochten automatysk ferifiearje</string>
     <string name="title_advanced_auto_decrypt">Berjochten automatysk ûntsiferje</string>
     <string name="title_advanced_auto_undo_decrypt">Untsifering ûngedien meitsje by sluten fan petear</string>
     <string name="title_advanced_openpgp">OpenPGP-provider</string>
