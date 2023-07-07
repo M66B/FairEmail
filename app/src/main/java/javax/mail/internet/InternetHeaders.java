@@ -434,7 +434,7 @@ public class InternetHeaders {
 		    }
 		    prevline = line;
 		}
-		if (first && android.text.TextUtils.isEmpty(line) && is instanceof ByteArrayInputStream) {
+		if (false && first && android.text.TextUtils.isEmpty(line) && is instanceof ByteArrayInputStream) {
 			// RFC1341 section 7.2.1
 			//   Note that the encapsulation boundary must occur at the beginning of a line, i.e., following a CRLF,
 			//   and that that initial CRLF is considered to be part of the encapsulation boundary rather than part of the preceding part.

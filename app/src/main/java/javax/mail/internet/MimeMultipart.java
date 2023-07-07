@@ -873,6 +873,14 @@ public class MimeMultipart extends Multipart {
 			buf.write(inbuf, 0, inSize);
 		    part = createMimeBodyPart(headers, buf.toByteArray());
 		}
+			try {
+				ContentType ct = new ContentType(getContentType());
+				eu.faircode.email.Log.i("MMM ct="+ ct.getBaseType());
+				if ("multipart/digest".equals(ct.getBaseType()))
+					part.setHeader("Content-Type", "message/rfc822");
+			} catch (Throwable ex) {
+				eu.faircode.email.Log.e(ex);
+			}
 		super.addBodyPart(part);
 	    }
 	} catch (IOException ioex) {
