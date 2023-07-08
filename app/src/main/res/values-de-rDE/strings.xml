@@ -179,7 +179,7 @@
     <string name="title_setup_gmail_support">Das Autorisieren von Google-Konten funktioniert nur in der Play-Store- und in der GitHub-Version, weil Android die digitale App-Signatur überprüft</string>
     <string name="title_setup_gmail_rationale">Bitte erteilen Sie die Berechtigung, ein Konto auszuwählen und Ihren Namen zu lesen</string>
     <string name="title_setup_gmail_permissions">Google wird Sie um Erlaubnis bitten, alle Ihre E-Mails zu lesen, zu verfassen, zu senden und dauerhaft zu löschen. FairEmail löscht niemals Ihre Nachrichten ohne Ihre ausdrückliche Zustimmung.</string>
-    <string name="title_setup_gmail_login">Wenn Chrome bei einem Konto angemeldet ist, kann ein neues Konto nur über Android hinzugefügt werden. Dies kann umgangen werden, indem Sie sich über die Chrome-Synchronisierungseinstellungen bei Chrome abmelden.</string>
+    <string name="title_setup_gmail_login">Wenn Chrome bei einem Konto angemeldet ist, kann ein neues Konto nur über Android hinzugefügt werden. Dies kann umgangen werden, indem Sie sich über die Chrome-Synchronisationseinstellungen bei Chrome abmelden.</string>
     <string name="title_setup_gmail_max">Im Falle der Fehlermeldung »Sie sind bei der maximalen Anzahl an Konten angemeldet« müssen Sie den Browser von allen Google-Konten abmelden.</string>
     <string name="title_setup_gmail_on_device">Warum muss ich ein Konto auf dem Gerät auswählen?</string>
     <string name="title_setup_gmail_password">Ich möchte ein Gmail-Konto mit einem eigenen App-Passwort anstatt über das geräteinterne Google-Konto autorisieren</string>
@@ -220,7 +220,7 @@
     <string name="title_setup_doze_remark">Damit E-Mails zuverlässig im Hintergrund gesendet und empfangen werden</string>
     <string name="title_setup_doze_explanation">Die Akkuoptimierung sollte für die App deaktiviert werden, um ein zuverlässiges Senden und Empfangen von Nachrichten im Hintergrund zu gewährleisten</string>
     <string name="title_setup_doze_hint">Obwohl dies widersprüchlich klingen mag, führt das Deaktivieren der Akkuoptimierung für diese App zu einem geringeren Akkuverbrauch</string>
-    <string name="title_setup_doze_aggressively">Dieses Gerät könnte den Synchronisierungsdienst anhalten</string>
+    <string name="title_setup_doze_aggressively">Dieses Gerät könnte den Synchronisationsdienst anhalten</string>
     <string name="title_setup_doze_why">Warum sollte die Akkuoptimierung deaktiviert werden?</string>
     <string name="title_setup_doze_instructions">Im nächsten Android-Dialog bitte »Nicht optimiert« in »Alle Apps« ändern und bei FairEmail »Nicht optimieren« auswählen</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
@@ -357,8 +357,8 @@
     <string name="title_advanced_subscriptions">Abonnierte Ordner verwalten</string>
     <string name="title_advanced_check_authentication">Nachrichtenauthentifizierung prüfen</string>
     <string name="title_advanced_check_tls">Transport-Layer-Security (TLS) überprüfen</string>
-    <string name="title_advanced_check_reply_domain">Überprüft die Antwort-An-E-Mail-Adressen beim Synchronisieren von Nachrichten</string>
-    <string name="title_advanced_check_mx">Überprüft die Absender-E-Mail-Adressen beim Synchronisieren von Nachrichten per DNS MX</string>
+    <string name="title_advanced_check_reply_domain">Antwort-An-E-Mail-Adressen bei der Synchronisation von Nachrichten prüfen</string>
+    <string name="title_advanced_check_mx">Absender-E-Mail-Adressen bei der Synchronisation von Nachrichten prüfen</string>
     <string name="title_advanced_check_blocklist">Prüfen, ob die Domain des Absenders auf einer Spam-Sperrliste enthalten ist</string>
     <string name="title_advanced_use_blocklist">Nachrichten, deren Domains in einer Sperrliste enthalten sind, in den Spam-Ordner verschieben</string>
     <string name="title_advanced_use_blocklist_pop3">Nachrichten von Domains auf einer Sperrliste überspringen (nur POP3)</string>
@@ -370,7 +370,7 @@
     <string name="title_advanced_suggest_local">Lokal gespeicherte Kontakte vorschlagen</string>
     <string name="title_advanced_suggest_sent">Adressen aus gesendeten Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
-    <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Nutzungshäufigkeit sortieren</string>
+    <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Verwendungshäufigkeit sortieren</string>
     <string name="title_advanced_alt_re_fwd">Alternative Präfixe für »Antworten« bzw. »Weiterleiten«</string>
     <string name="title_advanced_send_chips">Adressblasen anzeigen</string>
     <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Identitätsfarbe für die untere Aktionsleiste verwenden</string>
@@ -693,7 +693,7 @@
     <string name="title_advanced_power_menu">Aktionen zum Android-Ein/Aus-Menü hinzufügen</string>
     <string name="title_advanced_send_self">»An mich senden« zum Android-Teilen-Menü hinzufügen</string>
     <string name="title_advanced_external_search">Anderen Apps erlauben, in Nachrichten zu suchen</string>
-    <string name="title_advanced_sort_answers">Antwortvorlagen nach Nutzungsfrequenz sortieren</string>
+    <string name="title_advanced_sort_answers">Antwortvorlagen nach Verwendungshäufigkeit sortieren</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
@@ -736,12 +736,12 @@
     <string name="title_advanced_manual_hint">Wenn der Nachrichtenempfang deaktiviert ist, ist es immer noch möglich, Nachrichten manuell zu empfangen, indem Sie die Nachrichtenliste nach unten ziehen</string>
     <string name="title_advanced_poll_battery">Dies kann zu einem hohen Akkuverbrauch führen!</string>
     <string name="title_advanced_poll_hint">Bei der regelmäßigen Überprüfung auf neue Nachrichten werden jedes Mal lokale und entfernte Nachrichten verglichen, was ein aufwendiger Vorgang ist, der zu einem zusätzlichen Akkuverbrauch führen kann, insbesondere wenn viele Nachrichten vorhanden sind. Nachrichten immer empfangen verhindert das durch fortlaufendes Verfolgen von Änderungen.</string>
-    <string name="title_advanced_optimize_hint">Das kann die Synchronisierungsfrequenz ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers</string>
+    <string name="title_advanced_optimize_hint">Das kann die Synchronisationshäufigkeit ändern, um den Akkuverbrauch zu verringern, abhängig von den Fähigkeiten und dem Verhalten des E-Mail-Servers</string>
     <string name="title_advanced_schedule_hint">Auf eine Zeit tippen, um eine Zeit festzulegen</string>
     <string name="title_advanced_schedule_ignore">Zeitpläne können in den erweiterten Kontoeinstellungen deaktiviert werden</string>
     <string name="title_advanced_quick_sync_hint">Dies reduziert den Datenverbrauch, aber neue Nachrichten könnten verpasst werden, wenn der E-Mail-Server die Standards nicht einhält</string>
     <string name="title_advanced_no_date_hint">Einige Anbieter speichern Nachrichten mit einem unbekannten, ungültigen oder zukünftigen Datum als Nachrichten ohne Datum</string>
-    <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen dies nicht richtig, was möglicherweise zu einer Synchronisierung von keiner oder allen Nachrichten führen kann</string>
+    <string name="title_advanced_unseen_hint">Einige Anbieter unterstützen das nicht ordnungsgemäß, was möglicherweise zur Synchronisation keiner oder aller Nachrichten führen kann</string>
     <string name="title_advanced_data_usage">Dies kann einen hohen Datenverbrauch verursachen!</string>
     <string name="title_advanced_deleted_unseen">Wenn deaktiviert, bleiben ungelesene Nachrichten dauerhaft auf dem Gerät erhalten</string>
     <string name="title_advanced_sync_kept_hint">Dies überträgt zusätzliche Daten und verbraucht zusätzliche Akkuladung, insbesondere wenn viele Nachrichten auf dem Gerät gespeichert sind</string>
@@ -1057,7 +1057,7 @@
     <string name="title_unified_inbox_add">Zum Sammeleingang hinzufügen</string>
     <string name="title_unified_inbox_delete">Aus Sammeleingang löschen</string>
     <string name="title_synchronize_folder">Synchronisieren (E-Mails empfangen)</string>
-    <string name="title_poll_folder">Periodisch überprüfen anstatt kontinuierlicher Synchronisierung</string>
+    <string name="title_poll_folder">Periodisch prüfen statt fortlaufend synchronisieren</string>
     <string name="title_poll_folder_remark">Die meisten E-Mail-Server erlauben Push-Nachrichten nur für einige wenige Ordner!</string>
     <string name="title_download_folder">Automatisch den Nachrichtentext und Anhänge herunterladen</string>
     <string name="title_notify_folder">Eingangsbenachrichtigung</string>
@@ -1434,7 +1434,7 @@
     <string name="title_no_openpgp">OpenKeychain wurde nicht gefunden</string>
     <string name="title_no_openpgp_remark">PGP-Ende-zu-Ende-Verschlüsselung muss zuerst konfiguriert werden</string>
     <string name="title_user_interaction">Übertragung zu OpenKeychain</string>
-    <string name="title_padlock">Das Vorhängeschloss benutzen, um die Nachricht zu entschlüsseln</string>
+    <string name="title_padlock">Vorhängeschloss zum Entschlüsseln der Nachricht verwenden</string>
     <string name="title_signed_data">Überprüfen Sie die Signatur, um den Nachrichtentext anzuzeigen</string>
     <string name="title_not_encrypted">Nachricht ist nicht signiert oder verschlüsselt</string>
     <string name="title_no_sign_key">Kein Signaturschlüssel ausgewählt</string>
@@ -1669,7 +1669,7 @@
     <string name="title_legend_download_off">Nachrichteninhalt bei Bedarf herunterladen</string>
     <string name="title_legend_synchronize_on">Synchronisierung an</string>
     <string name="title_legend_synchronize_off">Synchronisierung aus</string>
-    <string name="title_legend_synchronize_poll">periodisch synchronisieren</string>
+    <string name="title_legend_synchronize_poll">Periodisch synchronisieren</string>
     <string name="title_legend_disconnected">nicht verbunden</string>
     <string name="title_legend_connecting">Verbindungsvorgang</string>
     <string name="title_legend_connected">Verbunden</string>
@@ -1889,7 +1889,7 @@
     <string name="title_pro_whichever">Welche Funktionen auch immer als Pro-Funktionen ausgewählt werden, es gibt immer jemanden, der sich beschwert, dass eine Funktion frei sein sollte. Bitte seien Sie nicht diese Person.</string>
     <string name="title_pro_google">FairEmail initiiert einen Kauf im Play Store, aber letztendlich verwaltet Google den gesamten Kaufprozess. Bitte machen Sie nicht die App dafür verantwortlich, wenn es Probleme gibt!</string>
     <string name="title_pro_hide">Kleinen Hinweis für %1$d Wochen ausblenden</string>
-    <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen, alle momentan und zukünftig verfügbaren Pro-Funktionen zu nutzen und ermöglicht die Weiterentwicklung und Pflege der App.</string>
+    <string name="title_pro_hint">Der Erwerb der Pro-Funktionen erlaubt es Ihnen, alle momentan und zukünftig verfügbaren Pro-Funktionen zu verwenden und ermöglicht die Weiterentwicklung und Pflege der App.</string>
     <string name="title_pro_price">Warum sind die Pro-Funktionen so teuer?</string>
     <string name="title_pro_family">Kann ich die Google-Play-Familienmediathek verwenden?</string>
     <string name="title_pro_restore">Wie kann ich einen Kauf wiederherstellen (auf einem anderen Gerät)?</string>
