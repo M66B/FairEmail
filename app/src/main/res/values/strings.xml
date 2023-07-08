@@ -91,6 +91,11 @@
         <item quantity="other">Delete %1$d messages permanently?</item>
     </plurals>
 
+    <plurals name="title_attachments">
+        <item quantity="one">One attachment</item>
+        <item quantity="other">%1$d attachments</item>
+    </plurals>
+
     <plurals name="title_ask_spam">
         <item quantity="one">Treat %1$d message as spam?</item>
         <item quantity="other">Treat %1$d messages as spam?</item>

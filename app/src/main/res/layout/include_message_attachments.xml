@@ -14,6 +14,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/ibExpanderAttachments"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/title_legend_expander"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorAttachments"
+        app:srcCompat="@drawable/expander" />
+
+    <TextView
+        android:id="@+id/tvAttachments"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:text="10 attachments"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ibExpanderAttachments" />
+
     <CheckBox
         android:id="@+id/cbInline"
         android:layout_width="0dp"
@@ -23,7 +47,7 @@
         android:text="@string/title_show_inline"
         app:layout_constraintEnd_toStartOf="@+id/ibDownloadAttachments"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAttachments" />
 
     <ImageButton
         android:id="@+id/ibDownloadAttachments"
@@ -35,7 +59,7 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_download_all"
         app:layout_constraintEnd_toStartOf="@id/ibSaveAttachments"
-        app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments"
+        app:layout_constraintTop_toBottomOf="@+id/tvAttachments"
         app:srcCompat="@drawable/twotone_cloud_download_24" />
 
     <ImageButton
@@ -48,7 +72,7 @@
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_save_all"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vSeparatorAttachments"
+        app:layout_constraintTop_toBottomOf="@+id/tvAttachments"
         app:srcCompat="@drawable/twotone_save_alt_24" />
 
     <androidx.constraintlayout.widget.Barrier
@@ -80,10 +104,4 @@
         app:layout_constraintEnd_toEndOf="@id/rvAttachment"
         app:layout_constraintStart_toStartOf="@id/rvAttachment"
         app:layout_constraintTop_toBottomOf="@id/rvAttachment" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/grpAttachments"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:constraint_referenced_ids="vSeparatorAttachments,rvAttachment" />
 </androidx.constraintlayout.widget.ConstraintLayout>

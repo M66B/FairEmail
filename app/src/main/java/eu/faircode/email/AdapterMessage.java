@@ -446,6 +446,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private TextView tvNoInternetHeaders;
 
         private RecyclerView rvAttachment;
+        private View vSeparatorAttachments;
+        private ImageButton ibExpanderAttachments;
+        private TextView tvAttachments;
         private CheckBox cbInline;
         private ImageButton ibSaveAttachments;
         private ImageButton ibDownloadAttachments;
@@ -528,7 +531,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Group grpAction;
         private Group grpCalendar;
         private Group grpCalendarResponse;
-        private Group grpAttachments;
         private Group grpImages;
 
         private AdapterAttachment adapterAttachment;
@@ -875,6 +877,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             adapterAttachment = new AdapterAttachment(parentFragment, true, properties);
             rvAttachment.setAdapter(adapterAttachment);
 
+            vSeparatorAttachments = attachments.findViewById(R.id.vSeparatorAttachments);
+            ibExpanderAttachments = attachments.findViewById(R.id.ibExpanderAttachments);
+            tvAttachments = attachments.findViewById(R.id.tvAttachments);
             cbInline = attachments.findViewById(R.id.cbInline);
             ibSaveAttachments = attachments.findViewById(R.id.ibSaveAttachments);
             ibDownloadAttachments = attachments.findViewById(R.id.ibDownloadAttachments);
@@ -962,7 +967,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpAction = vsBody.findViewById(R.id.grpAction);
             grpCalendar = vsBody.findViewById(R.id.grpCalendar);
             grpCalendarResponse = vsBody.findViewById(R.id.grpCalendarResponse);
-            grpAttachments = attachments.findViewById(R.id.grpAttachments);
             grpImages = vsBody.findViewById(R.id.grpImages);
 
             if (large_buttons) {
@@ -1691,7 +1695,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             grpAction.setVisibility(View.GONE);
             grpCalendar.setVisibility(View.GONE);
             grpCalendarResponse.setVisibility(View.GONE);
-            grpAttachments.setVisibility(View.GONE);
             grpImages.setVisibility(View.GONE);
 
             ivPlain.setVisibility(View.GONE);
@@ -1748,6 +1751,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             clearCalendar();
 
+            rvAttachment.setVisibility(View.GONE);
+            vSeparatorAttachments.setVisibility(View.GONE);
+            ibExpanderAttachments.setVisibility(View.GONE);
+            tvAttachments.setVisibility(View.GONE);
             cbInline.setVisibility(View.GONE);
             ibSaveAttachments.setVisibility(View.GONE);
             ibDownloadAttachments.setVisibility(View.GONE);
@@ -3489,6 +3496,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 attachments = new ArrayList<>();
             properties.setAttachments(message.id, attachments);
 
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean hide_attachments = prefs.getBoolean("hide_attachments", false);
+
             boolean show_inline = properties.getValue("inline", message.id);
             Log.i("Show inline=" + show_inline);
 
@@ -3528,13 +3538,32 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     calendar = attachment;
             }
 
+            rvAttachment.setVisibility(show.size() > 0 && !hide_attachments ? View.VISIBLE : View.GONE);
+
+            vSeparatorAttachments.setVisibility(show.size() > 0 ? View.VISIBLE : View.GONE);
+
+            tvAttachments.setText(context.getResources()
+                    .getQuantityString(R.plurals.title_attachments, show.size(), show.size()));
+            tvAttachments.setVisibility(show.size() > 0 && hide_attachments ? View.VISIBLE : View.GONE);
+
+            ibExpanderAttachments.setImageLevel(hide_attachments ? 1 /* more */ : 0 /* less */);
+            ibExpanderAttachments.setVisibility(show.size() > 0 ? View.VISIBLE : View.GONE);
+            ibExpanderAttachments.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    prefs.edit().putBoolean("hide_attachments", !hide_attachments).apply();
+                    cowner.restart();
+                    bindAttachments(message, properties.getAttachments(message.id), false);
+                }
+            });
+
             cbInline.setOnCheckedChangeListener(null);
             cbInline.setChecked(show_inline);
-            cbInline.setVisibility(has_inline ? View.VISIBLE : View.GONE);
+            cbInline.setVisibility(has_inline && !hide_attachments ? View.VISIBLE : View.GONE);
 
-            ibSaveAttachments.setVisibility(available > 1 && unavailable == 0 ? View.VISIBLE : View.GONE);
-            ibDownloadAttachments.setVisibility(downloadable > 1 && suitable ? View.VISIBLE : View.GONE);
-            tvNoInternetAttachments.setVisibility(downloading && !suitable ? View.VISIBLE : View.GONE);
+            ibSaveAttachments.setVisibility(available > 1 && unavailable == 0 && !hide_attachments ? View.VISIBLE : View.GONE);
+            ibDownloadAttachments.setVisibility(downloadable > 1 && suitable && !hide_attachments ? View.VISIBLE : View.GONE);
+            tvNoInternetAttachments.setVisibility(downloading && !suitable && !hide_attachments ? View.VISIBLE : View.GONE);
 
             cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -3555,8 +3584,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     }
                 }
             });
-
-            grpAttachments.setVisibility(show.size() > 0 ? View.VISIBLE : View.GONE);
 
             if (calendar != null && bind_extras)
                 bindCalendar(message, calendar);
