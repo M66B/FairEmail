@@ -234,12 +234,19 @@ public class ParameterList {
 	    if (type == HeaderTokenizer.Token.EOF) // done
 		break;
 
-	    if ((char)type == ';') {
+	    if ((char)type == ';' || type == HeaderTokenizer.Token.ATOM) {
 		// expect parameter name
-		tk = h.next();
-		// tolerate trailing semicolon, even though it violates the spec
-		if (tk.getType() == HeaderTokenizer.Token.EOF)
-		    break;
+            if (type == HeaderTokenizer.Token.ATOM)
+                eu.faircode.email.Log.e("In parameter list <" + s + ">" +
+                        ", at " + h.getNextPos() +
+                        ", expected ';', allowing \"" +
+                        tk.getValue() + "\"");
+            else {
+                tk = h.next();
+                // tolerate trailing semicolon, even though it violates the spec
+                if (tk.getType() == HeaderTokenizer.Token.EOF)
+                    break;
+            }
 		// parameter name must be a MIME Atom
 		if (tk.getType() != HeaderTokenizer.Token.ATOM) {
 			if (!recovered && !eu.faircode.email.BuildConfig.PLAY_STORE_RELEASE)
