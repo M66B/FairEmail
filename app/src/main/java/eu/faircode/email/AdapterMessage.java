@@ -5266,7 +5266,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private void onShowInlineAttachments(TupleMessageEx message, boolean isChecked) {
             properties.setValue("inline", message.id, isChecked);
             cowner.restart();
-            bindAttachments(message, properties.getAttachments(message.id), true);
+            bindAttachments(message, properties.getAttachments(message.id), false);
         }
 
         private void onSaveAttachments(TupleMessageEx message) {
