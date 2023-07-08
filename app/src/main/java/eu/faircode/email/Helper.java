@@ -92,6 +92,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
@@ -863,6 +865,25 @@ public class Helper {
     }
 
     // View
+
+    static void setStatusBarColor(Activity activity, Integer color) {
+        if (!BuildConfig.DEBUG)
+            return;
+        if (activity == null)
+            return;
+        Window window = activity.getWindow();
+        if (window == null)
+            return;
+
+        if (color == null) {
+            //window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(Helper.resolveColor(window.getContext(), R.attr.colorPrimaryDark));
+        } else {
+            //window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            //window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(color);
+        }
+    }
 
     static Integer actionBarHeight = null;
 
