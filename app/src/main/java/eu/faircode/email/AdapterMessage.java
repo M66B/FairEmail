@@ -350,6 +350,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener,
             View.OnLongClickListener,
+            CompoundButton.OnCheckedChangeListener,
             View.OnLayoutChangeListener {
         private ViewCardOptional card;
         private View view;
@@ -1048,6 +1049,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibCopyHeaders.setOnClickListener(this);
                 ibCloseHeaders.setOnClickListener(this);
 
+                ibExpanderAttachments.setOnClickListener(this);
+                cbInline.setOnCheckedChangeListener(this);
+
                 ibSaveAttachments.setOnClickListener(this);
                 ibDownloadAttachments.setOnClickListener(this);
 
@@ -1164,6 +1168,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 ibCopyHeaders.setOnClickListener(null);
                 ibCloseHeaders.setOnClickListener(null);
+
+                ibExpanderAttachments.setOnClickListener(null);
+                cbInline.setOnCheckedChangeListener(null);
 
                 ibSaveAttachments.setOnClickListener(null);
                 ibDownloadAttachments.setOnClickListener(null);
@@ -3548,31 +3555,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             ibExpanderAttachments.setImageLevel(hide_attachments ? 1 /* more */ : 0 /* less */);
             ibExpanderAttachments.setVisibility(show.size() > 0 ? View.VISIBLE : View.GONE);
-            ibExpanderAttachments.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    prefs.edit().putBoolean("hide_attachments", !hide_attachments).apply();
-                    cowner.restart();
-                    bindAttachments(message, properties.getAttachments(message.id), false);
-                }
-            });
 
-            cbInline.setOnCheckedChangeListener(null);
             cbInline.setChecked(show_inline);
             cbInline.setVisibility(has_inline && !hide_attachments ? View.VISIBLE : View.GONE);
 
             ibSaveAttachments.setVisibility(available > 1 && unavailable == 0 && !hide_attachments ? View.VISIBLE : View.GONE);
             ibDownloadAttachments.setVisibility(downloadable > 1 && suitable && !hide_attachments ? View.VISIBLE : View.GONE);
             tvNoInternetAttachments.setVisibility(downloading && !suitable && !hide_attachments ? View.VISIBLE : View.GONE);
-
-            cbInline.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    properties.setValue("inline", message.id, isChecked);
-                    cowner.restart();
-                    bindAttachments(message, properties.getAttachments(message.id), true);
-                }
-            });
 
             rvAttachment.post(new Runnable() {
                 @Override
@@ -4281,6 +4270,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onCopyHeaders(message);
                 } else if (id == R.id.ibCloseHeaders) {
                     onMenuShowHeaders(message);
+                } else if (id == R.id.ibExpanderAttachments) {
+                    onExpandAttachments(message);
                 } else if (id == R.id.ibSaveAttachments) {
                     onSaveAttachments(message);
                 } else if (id == R.id.ibDownloadAttachments) {
@@ -4611,6 +4602,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 return true;
             }
             return false;
+        }
+
+        @Override
+        public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+            final TupleMessageEx message = getMessage();
+            if (message == null)
+                return;
+
+            int id = compoundButton.getId();
+            if (id == R.id.cbInline) {
+                onShowInlineAttachments(message, isChecked);
+            }
         }
 
         public boolean onKeyPressed(KeyEvent event) {
@@ -5251,6 +5254,19 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:attachment:download");
+        }
+
+        private void onExpandAttachments(TupleMessageEx message) {
+            boolean hide_attachments = prefs.getBoolean("hide_attachments", false);
+            prefs.edit().putBoolean("hide_attachments", !hide_attachments).apply();
+            cowner.restart();
+            bindAttachments(message, properties.getAttachments(message.id), false);
+        }
+
+        private void onShowInlineAttachments(TupleMessageEx message, boolean isChecked) {
+            properties.setValue("inline", message.id, isChecked);
+            cowner.restart();
+            bindAttachments(message, properties.getAttachments(message.id), true);
         }
 
         private void onSaveAttachments(TupleMessageEx message) {
