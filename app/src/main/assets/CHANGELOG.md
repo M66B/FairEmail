@@ -9,7 +9,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### Next version
 
 * Added collapsible attachment section
-* Added support for multipart/digest messages
+* Added support for *multipart/digest* messages
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

@@ -9,7 +9,7 @@ Ubirajara
 Next version
 
 * Added collapsible attachment section
-* Added support for multipart/digest messages
+* Added support for *multipart/digest* messages
 * Small improvements and minor bug fixes
 * Updated translations
 
