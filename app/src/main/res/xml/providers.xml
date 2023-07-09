@@ -1603,6 +1603,7 @@
     </provider>
     <provider
         name="Mail.com"
+        documentation="Using third-party email clients requires a premium mail.com subscription. This is not a limitation of FairEmail."
         link="https://support.mail.com/premium/imap/server.html#indexlink_help_premium_imap">
         <imap
             host="imap.mail.com"
