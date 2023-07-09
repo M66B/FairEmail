@@ -376,7 +376,7 @@ public class FragmentFolders extends FragmentBase {
             @Override
             public boolean onLongClick(View v) {
                 FragmentDialogIdentity.onDrafts(
-                        getContext(),
+                        getActivity(),
                         getViewLifecycleOwner(),
                         getParentFragmentManager(),
                         fabCompose, account);
