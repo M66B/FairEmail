@@ -385,7 +385,7 @@
     <string name="title_advanced_suggest_frequently">Sortiraj predložene adrese prema učestalosti korištenja</string>
     <string name="title_advanced_alt_re_fwd">Alternativni prefiks za odgovor/prosljeđenje</string>
     <string name="title_advanced_send_chips">Prikaži balone s adresom</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Koristi boju identiteta za donju alatnu traku</string>
+    <string name="title_advanced_send_nav_color">Koristi boju identiteta za donju alatnu traku</string>
     <string name="title_advanced_send_reminders">Prikaži podsjetnike</string>
     <string name="title_advanced_send_delayed">Odgodi slanje poruka</string>
     <string name="title_advanced_attach_new">Kreiraj novu skicu poruke za dijeljene adrese i datoteke</string>

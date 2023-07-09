@@ -399,7 +399,7 @@
     <string name="title_advanced_suggest_frequently">Сартаваць прапанаваныя адрасы паводле частаты выкарыстання</string>
     <string name="title_advanced_alt_re_fwd">Альтэрнатыўны прэфікс для адказу/перанакіравання</string>
     <string name="title_advanced_send_chips">Паказаць карткі адрасоў</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Выкарыстоўваць колер ідэнтыфікатара для ніжняй панэлі дзеянняў</string>
+    <string name="title_advanced_send_nav_color">Выкарыстоўваць колер ідэнтыфікатара для ніжняй панэлі дзеянняў</string>
     <string name="title_advanced_send_reminders">Паказваць напаміны</string>
     <string name="title_advanced_send_delayed">Затрымка адпраўкі паведамленняў</string>
     <string name="title_advanced_attach_new">Ствараць новы чарнавік паведамлення для абагуленых адрасоў і файлаў</string>

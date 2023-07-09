@@ -358,7 +358,7 @@
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
     <string name="title_advanced_alt_re_fwd">替代回复/转发前缀</string>
     <string name="title_advanced_send_chips">卡片化显示地址</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">将身份颜色用于底部操作栏</string>
+    <string name="title_advanced_send_nav_color">将身份颜色用于底部操作栏</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
     <string name="title_advanced_attach_new">为共享地址和文件创建新的消息草稿</string>

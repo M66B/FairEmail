@@ -397,7 +397,7 @@
     <string name="title_advanced_suggest_frequently">Сортировать предлагаемые адреса по частоте использования</string>
     <string name="title_advanced_alt_re_fwd">Альтернативный префикс ответа/пересылки</string>
     <string name="title_advanced_send_chips">Показывать пузыри адреса</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Использовать цвет идентификатора для нижней панели действий</string>
+    <string name="title_advanced_send_nav_color">Использовать цвет идентификатора для нижней панели действий</string>
     <string name="title_advanced_send_reminders">Показывать напоминания</string>
     <string name="title_advanced_send_delayed">Задержка отправки сообщений</string>
     <string name="title_advanced_attach_new">Создавать новый черновик сообщения для общих адресов и файлов</string>

@@ -371,7 +371,7 @@
     <string name="title_advanced_suggest_frequently">Ordenar direcciones sugeridas por frecuencia de uso</string>
     <string name="title_advanced_alt_re_fwd">Prefijo alternativo de respuesta/reenvío</string>
     <string name="title_advanced_send_chips">Mostrar burbujas de dirección</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Usar el color de identidad para la barra de acción inferior</string>
+    <string name="title_advanced_send_nav_color">Usar el color de identidad para la barra de acción inferior</string>
     <string name="title_advanced_send_reminders">Mostrar recordatorios</string>
     <string name="title_advanced_send_delayed">Diferir envío de mensajes</string>
     <string name="title_advanced_attach_new">Crear un nuevo borrador de mensajes para direcciones y archivos compartidos</string>

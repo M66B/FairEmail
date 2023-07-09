@@ -71,6 +71,10 @@
         <item quantity="one">Verwijder één bericht definitief?</item>
         <item quantity="other">Verwijder %1$d berichten definitief?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Eén bijlage</item>
+        <item quantity="other">%1$d bijlagen</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Behandel één bericht als spam?</item>
         <item quantity="other">Behandel %1$d berichten als spam?</item>
@@ -370,7 +374,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_suggest_frequently">Sorteer voorgestelde adressen op gebruiksfrequentie</string>
     <string name="title_advanced_alt_re_fwd">Alternatief antwoord/doorsturen voorvoegsel</string>
     <string name="title_advanced_send_chips">Toon adresballonnen</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Gebruik de identiteitskleur voor de onderste actiebalk</string>
+    <string name="title_advanced_send_nav_color">Gebruik de identiteitskleur voor de onderste actiebalk</string>
     <string name="title_advanced_send_reminders">Toon herinneringen</string>
     <string name="title_advanced_send_delayed">Verzenden van berichten uitstellen</string>
     <string name="title_advanced_attach_new">Maak een nieuw conceptbericht voor gedeelde adressen en bestanden</string>
@@ -514,6 +518,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_preview_lines">Aantal lijnen voorbeeld</string>
     <string name="title_advanced_align_header">Lijn trefwoorden, voorbeeldtekst en notities verticaal uit</string>
     <string name="title_advanced_addresses">Adresgegevens standaard weergeven</string>
+    <string name="title_advanced_hide_attachments">Bijlagen standaard samenvouwen</string>
     <string name="title_advanced_unzip">Toon de inhoud van gecomprimeerde bijlagen</string>
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_thumbnails">Afbeeldingsminiaturen weergeven na de berichttekst</string>

@@ -371,7 +371,7 @@
     <string name="title_advanced_suggest_frequently">Ταξινόμηση των προτεινόμενων διευθύνσεων με βάση τη συχνότητα που χρησιμοποιούνται</string>
     <string name="title_advanced_alt_re_fwd">Εναλλακτικό πρόθεμα απάντησης/προώθησης</string>
     <string name="title_advanced_send_chips">Προβολή διευθύνσεων μέσα σε φυσαλίδες</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Χρήση του χρώματος ταυτότητας για την κάτω γραμμή ενεργειών</string>
+    <string name="title_advanced_send_nav_color">Χρήση του χρώματος ταυτότητας για την κάτω γραμμή ενεργειών</string>
     <string name="title_advanced_send_reminders">Εμφάνιση υπενθυμίσεων</string>
     <string name="title_advanced_send_delayed">Καθυστέρηση αποστολής μηνυμάτων</string>
     <string name="title_advanced_attach_new">Δημιουργία νέου προσχεδίου μηνύματος για κοινόχρηστες διευθύνσεις και αρχεία</string>

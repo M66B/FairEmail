@@ -397,7 +397,7 @@
     <string name="title_advanced_suggest_frequently">Sortuj sugerowane adresy według częstotliwości używania</string>
     <string name="title_advanced_alt_re_fwd">Alternatywny prefiks odpowiedzi/przekazywania</string>
     <string name="title_advanced_send_chips">Pokaż dymki adresowe</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Użyj koloru identyfikatora w dolnym pasku zadań</string>
+    <string name="title_advanced_send_nav_color">Użyj koloru identyfikatora w dolnym pasku zadań</string>
     <string name="title_advanced_send_reminders">Pokaż przypomnienia</string>
     <string name="title_advanced_send_delayed">Opóźnienie wysyłania wiadomości</string>
     <string name="title_advanced_attach_new">Utwórz nowy szkic wiadomości dla udostępnianych adresów i plików</string>

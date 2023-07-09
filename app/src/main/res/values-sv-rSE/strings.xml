@@ -368,7 +368,7 @@
     <string name="title_advanced_suggest_frequently">Sortera föreslagna adresser vid användningsfrekvens</string>
     <string name="title_advanced_alt_re_fwd">Alternativt svar-/vidarebefordringsprefix</string>
     <string name="title_advanced_send_chips">Visa adressbubblor</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Använd identitetsfärgen för den nedre åtgärdsfältet</string>
+    <string name="title_advanced_send_nav_color">Använd identitetsfärgen för den nedre åtgärdsfältet</string>
     <string name="title_advanced_send_reminders">Visa påminnelser</string>
     <string name="title_advanced_send_delayed">Fördröj sändning av meddelanden</string>
     <string name="title_advanced_attach_new">Skapa ett nytt utkast till meddelande för delade adresser och filer</string>

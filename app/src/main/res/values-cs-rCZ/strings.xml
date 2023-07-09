@@ -398,7 +398,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
     <string name="title_advanced_alt_re_fwd">Alternativní adresa pro odpovědi/přeposílání</string>
     <string name="title_advanced_send_chips">Zobrazit bubliny s kontakty</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Použít barvu identity pro dolní panel akcí</string>
+    <string name="title_advanced_send_nav_color">Použít barvu identity pro dolní panel akcí</string>
     <string name="title_advanced_send_reminders">Zobrazit připomínky</string>
     <string name="title_advanced_send_delayed">Pozdržet odesílání zpráv</string>
     <string name="title_advanced_attach_new">Vytvořit nový koncept zprávy pro sdílené adresy a soubory</string>

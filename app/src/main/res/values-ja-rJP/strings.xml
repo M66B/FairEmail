@@ -359,6 +359,7 @@
     <string name="title_advanced_suggest_frequently">提案するアドレスを使用頻度で並べ替え</string>
     <string name="title_advanced_alt_re_fwd">返信/転送のプレフィックスを変更</string>
     <string name="title_advanced_send_chips">アドレスバルーンを表示</string>
+    <string name="title_advanced_send_nav_color">下部のボタンアクションバーを、ID の色にする</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
     <string name="title_advanced_attach_new">アドレスやファイルをアプリに共有したとき、新しい下書きを作成</string>
@@ -654,7 +655,8 @@
     <string name="title_advanced_sign_default">デフォルトで電子署名</string>
     <string name="title_advanced_encrypt_default">デフォルトで暗号化</string>
     <string name="title_advanced_encrypt_auto">すべての宛先の鍵が有効なときは自動で暗号化</string>
-    <string name="title_advanced_auto_decrypt">メッセージを自動復号</string>
+    <string name="title_advanced_auto_verify">電子署名されたメッセージを自動検証</string>
+    <string name="title_advanced_auto_decrypt">暗号化されたメッセージを自動復号</string>
     <string name="title_advanced_auto_undo_decrypt">会話の終了時に復号を元に戻す</string>
     <string name="title_advanced_openpgp">OpenPGP プロバイダー</string>
     <string name="title_advanced_autocrypt">Autocrypt を使用</string>

@@ -355,7 +355,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_suggest_frequently">Urutkan alamat yang disarankan pada frekuensi penggunaan</string>
     <string name="title_advanced_alt_re_fwd">Awalan balasan/meneruskan cadangan</string>
     <string name="title_advanced_send_chips">Tampilkan bubbles alamat</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Gunakan warna penanda untuk bilah tindakan bagian bawah</string>
+    <string name="title_advanced_send_nav_color">Gunakan warna penanda untuk bilah tindakan bagian bawah</string>
     <string name="title_advanced_send_reminders">Tampilkan Pengingat</string>
     <string name="title_advanced_send_delayed">Tunda pengiriman pesan</string>
     <string name="title_advanced_attach_new">Buat draf pesan baru untuk alamat dan file bersama</string>

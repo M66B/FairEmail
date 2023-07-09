@@ -370,7 +370,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_suggest_frequently">Sortearje foarstelle adressen op gebrûksfrekwinsje</string>
     <string name="title_advanced_alt_re_fwd">Alternatyf antwurd/trochstjoere foarfoechsel</string>
     <string name="title_advanced_send_chips">Adresballonnen toane</string>
-    <string name="title_advanced_send_nav_color" comment="title_advanced_send_nav_color&#10;Title for option in the send-settings tab page">Brûk de identiteitskleur foar de ûnderste aksjebalke</string>
+    <string name="title_advanced_send_nav_color">Brûk de identiteitskleur foar de ûnderste aksjebalke</string>
     <string name="title_advanced_send_reminders">Oantinkens toane</string>
     <string name="title_advanced_send_delayed">Ferstjoeren fan berjochten útstelle</string>
     <string name="title_advanced_attach_new">Meitsje in nij konsept foar dielde adressen en bestannen</string>
