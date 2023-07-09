@@ -38,9 +38,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
-import androidx.core.view.GravityCompat;
-import androidx.core.widget.NestedScrollView;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -249,21 +246,7 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
         }.execute(context, owner, args, "identity:compose");
     }
 
-    static void onDrafts(FragmentActivity activity, LifecycleOwner owner, FragmentManager manager, FloatingActionButton fabCompose, long account) {
-        if (activity == null)
-            return;
-
-        if (BuildConfig.DEBUG) {
-            DrawerLayoutEx drawerLayout = activity.findViewById(R.id.drawer_layout);
-            NestedScrollView drawerContainer = activity.findViewById(R.id.drawer_container);
-            if (drawerLayout != null &&
-                    drawerContainer != null &&
-                    !drawerLayout.isLocked(drawerContainer)) {
-                drawerLayout.openDrawer(GravityCompat.START);
-                return;
-            }
-        }
-
+    static void onDrafts(Context context, LifecycleOwner owner, FragmentManager manager, FloatingActionButton fabCompose, long account) {
         Bundle args = new Bundle();
         args.putLong("account", account);
 
@@ -294,7 +277,7 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
                 if (drafts == null)
                     return;
 
-                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(activity);
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
                 lbm.sendBroadcast(
                         new Intent(ActivityView.ACTION_VIEW_MESSAGES)
                                 .putExtra("account", drafts.account)
@@ -306,6 +289,6 @@ public class FragmentDialogIdentity extends FragmentDialogBase {
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(manager, ex);
             }
-        }.execute(activity, owner, args, "view:drafts");
+        }.execute(context, owner, args, "view:drafts");
     }
 }

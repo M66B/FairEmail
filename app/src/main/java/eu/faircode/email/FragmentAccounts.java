@@ -272,7 +272,7 @@ public class FragmentAccounts extends FragmentBase {
             @Override
             public boolean onLongClick(View v) {
                 FragmentDialogIdentity.onDrafts(
-                        getActivity(),
+                        getContext(),
                         getViewLifecycleOwner(),
                         getParentFragmentManager(),
                         fabCompose, -1L);
