@@ -399,6 +399,21 @@
                 app:layout_constraintStart_toEndOf="@+id/tvOutboxCount" />
 
             <ImageButton
+                android:id="@+id/ibSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.4"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/title_search"
+                android:padding="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/etSearch"
+                app:layout_constraintEnd_toStartOf="@id/ibSeen"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/twotone_search_24"
+                app:tint="?attr/colorAccent" />
+
+            <ImageButton
                 android:id="@+id/ibSeen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -409,7 +424,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/etSearch"
                 app:layout_constraintEnd_toStartOf="@id/ibUnflagged"
                 app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ibSearch"
                 app:srcCompat="@drawable/twotone_drafts_24"
                 app:tint="?attr/colorAccent" />
 

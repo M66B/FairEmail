@@ -265,6 +265,7 @@ public class FragmentMessages extends FragmentBase
     private ImageButton ibUp;
     private ImageButton ibOutbox;
     private TextView tvOutboxCount;
+    private ImageButton ibSearch;
     private ImageButton ibSeen;
     private ImageButton ibUnflagged;
     private ImageButton ibSnoozed;
@@ -575,6 +576,7 @@ public class FragmentMessages extends FragmentBase
         ibOutbox = view.findViewById(R.id.ibOutbox);
         tvOutboxCount = view.findViewById(R.id.tvOutboxCount);
         tvDebug = view.findViewById(R.id.tvDebug);
+        ibSearch = view.findViewById(R.id.ibSearch);
         ibSeen = view.findViewById(R.id.ibSeen);
         ibUnflagged = view.findViewById(R.id.ibUnflagged);
         ibSnoozed = view.findViewById(R.id.ibSnoozed);
@@ -1275,6 +1277,13 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
+        ibSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onMenuSearch();
+            }
+        });
+
         ibSeen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1874,6 +1883,7 @@ public class FragmentMessages extends FragmentBase
         tvDebug.setVisibility(
                 BuildConfig.DEBUG && viewType != AdapterMessage.ViewType.THREAD
                         ? View.VISIBLE : View.GONE);
+        ibSearch.setVisibility(View.GONE);
         ibSeen.setVisibility(View.GONE);
         ibUnflagged.setVisibility(View.GONE);
         ibSnoozed.setVisibility(View.GONE);
@@ -5756,6 +5766,8 @@ public class FragmentMessages extends FragmentBase
             menu.findItem(R.id.menu_edit_properties).setVisible(viewType == AdapterMessage.ViewType.FOLDER && !outbox);
 
             // In some cases onPrepareOptionsMenu can be called before onCreateView
+            if (ibSearch == null)
+                ibSearch = view.findViewById(R.id.ibSearch);
             if (ibSeen == null)
                 ibSeen = view.findViewById(R.id.ibSeen);
             if (ibUnflagged == null)
@@ -5767,6 +5779,7 @@ public class FragmentMessages extends FragmentBase
             ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
             ibSnoozed.setImageResource(filter_snoozed ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
 
+            ibSearch.setVisibility(quick_filter && folder && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
             ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
             ibUnflagged.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
             ibSnoozed.setVisibility(quick_filter && folder && !drafts ? View.VISIBLE : View.GONE);
