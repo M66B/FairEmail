@@ -160,6 +160,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swAlignHeader;
 
     private SwitchCompat swAddresses;
+    private SwitchCompat swHideAttachments;
     private TextView tvMessageZoom;
     private SeekBar sbMessageZoom;
     private SwitchCompat swOverviewMode;
@@ -212,7 +213,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "subject_top", "subject_italic", "highlight_subject", "font_size_subject", "subject_ellipsize",
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines", "align_header",
-            "addresses",
+            "addresses", "hide_attachments",
             "message_zoom", "overview_mode", "override_width",
             "hyphenation", "display_font", "contrast", "monospaced_pre",
             "text_separators",
@@ -328,6 +329,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         tvPreviewLinesHint = view.findViewById(R.id.tvPreviewLinesHint);
         swAlignHeader = view.findViewById(R.id.swAlignHeader);
         swAddresses = view.findViewById(R.id.swAddresses);
+        swHideAttachments = view.findViewById(R.id.swHideAttachments);
         tvMessageZoom = view.findViewById(R.id.tvMessageZoom);
         sbMessageZoom = view.findViewById(R.id.sbMessageZoom);
         swOverviewMode = view.findViewById(R.id.swOverviewMode);
@@ -1147,6 +1149,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swHideAttachments.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("hide_attachments", checked).apply();
+            }
+        });
+
         sbMessageZoom.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -1572,6 +1581,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swAlignHeader.setChecked(prefs.getBoolean("align_header", false));
 
             swAddresses.setChecked(prefs.getBoolean("addresses", false));
+            swHideAttachments.setChecked(prefs.getBoolean("hide_attachments", false));
 
             int message_zoom = prefs.getInt("message_zoom", 100);
             tvMessageZoom.setText(getString(R.string.title_advanced_message_text_zoom2, NF.format(message_zoom)));

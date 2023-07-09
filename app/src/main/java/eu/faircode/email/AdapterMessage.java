@@ -3503,11 +3503,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 attachments = new ArrayList<>();
             properties.setAttachments(message.id, attachments);
 
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean hide_attachments = prefs.getBoolean("hide_attachments", false);
-
+            boolean hide_attachments = properties.getValue("hide_attachments", message.id);
             boolean show_inline = properties.getValue("inline", message.id);
-            Log.i("Show inline=" + show_inline);
+            Log.i("Hide attachments=" + hide_attachments + " Show inline=" + show_inline);
 
             int available = 0;
             int unavailable = 0;
@@ -3547,14 +3545,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             rvAttachment.setVisibility(show.size() > 0 && !hide_attachments ? View.VISIBLE : View.GONE);
 
-            vSeparatorAttachments.setVisibility(show.size() > 0 ? View.VISIBLE : View.GONE);
+            vSeparatorAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
             tvAttachments.setText(context.getResources()
-                    .getQuantityString(R.plurals.title_attachments, show.size(), show.size()));
-            tvAttachments.setVisibility(show.size() > 0 && hide_attachments ? View.VISIBLE : View.GONE);
+                    .getQuantityString(R.plurals.title_attachments, attachments.size(), attachments.size()));
+            tvAttachments.setVisibility(attachments.size() > 0 && hide_attachments ? View.VISIBLE : View.GONE);
 
             ibExpanderAttachments.setImageLevel(hide_attachments ? 1 /* more */ : 0 /* less */);
-            ibExpanderAttachments.setVisibility(show.size() > 0 ? View.VISIBLE : View.GONE);
+            ibExpanderAttachments.setVisibility(attachments.size() > 0 ? View.VISIBLE : View.GONE);
 
             cbInline.setChecked(show_inline);
             cbInline.setVisibility(has_inline && !hide_attachments ? View.VISIBLE : View.GONE);
@@ -5257,8 +5255,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onExpandAttachments(TupleMessageEx message) {
-            boolean hide_attachments = prefs.getBoolean("hide_attachments", false);
-            prefs.edit().putBoolean("hide_attachments", !hide_attachments).apply();
+            boolean hide_attachments = properties.getValue("hide_attachments", message.id);
+            properties.setValue("hide_attachments", message.id, !hide_attachments);
             cowner.restart();
             bindAttachments(message, properties.getAttachments(message.id), false);
         }
