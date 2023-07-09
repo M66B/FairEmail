@@ -1790,9 +1790,11 @@ public class Log {
         StringBuilder sb = new StringBuilder();
         sb.append(context.getString(title)).append("\n\n");
         if (args != null) {
-            sb.append(args.getString("issue"));
-            if (args.getBoolean("contact"))
-                sb.append("\n\n").append("Prior contact");
+            sb.append(args.getString("issue")).append('\n');
+            if (args.containsKey("account"))
+                sb.append('\n').append("Account: ").append(args.getString("account"));
+            if (args.containsKey("contact"))
+                sb.append('\n').append("Prior contact: ").append(args.getBoolean("contact"));
         }
         sb.append("\n\n");
         sb.append(getAppInfo(context));

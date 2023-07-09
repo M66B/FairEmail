@@ -30,13 +30,18 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FragmentDialogDebug extends FragmentDialogBase {
     private boolean enabled;
@@ -50,8 +55,10 @@ public class FragmentDialogDebug extends FragmentDialogBase {
         final Context context = getContext();
         View view = LayoutInflater.from(context).inflate(R.layout.dialog_debug, null);
         final EditText etIssue = view.findViewById(R.id.etIssue);
+        final Spinner spAccount = view.findViewById(R.id.spAccount);
         final CheckBox cbContact = view.findViewById(R.id.cbContact);
 
+        final ArrayAdapter<EntityAccount> adapterAccount;
         etIssue.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -78,6 +85,44 @@ public class FragmentDialogDebug extends FragmentDialogBase {
             }
         });
 
+        adapterAccount = new ArrayAdapter<>(context, R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityAccount>());
+        adapterAccount.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spAccount.setAdapter(adapterAccount);
+
+        new SimpleTask<List<EntityAccount>>() {
+            @Override
+            protected List<EntityAccount> onExecute(Context context, Bundle args) {
+                DB db = DB.getInstance(context);
+
+                return db.account().getSynchronizingAccounts(null);
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, List<EntityAccount> accounts) {
+                if (accounts == null)
+                    accounts = new ArrayList<>();
+
+                EntityAccount none = new EntityAccount();
+                none.id = -1L;
+                none.name = "-";
+                none.primary = false;
+                accounts.add(0, none);
+
+                EntityAccount all = new EntityAccount();
+                all.id = 0L;
+                all.name = getString(R.string.title_widget_account_all);
+                all.primary = false;
+                accounts.add(1, all);
+
+                adapterAccount.addAll(accounts);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, new Bundle(), "debug:accounts");
+
         return new AlertDialog.Builder(context)
                 .setView(view)
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
@@ -86,6 +131,10 @@ public class FragmentDialogDebug extends FragmentDialogBase {
                         Bundle args = getArguments();
                         args.putString("issue", etIssue.getText().toString());
                         args.putBoolean("contact", cbContact.isChecked());
+
+                        EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
+                        if (account != null)
+                            args.putString("account", account.id + "/" + account.name + "/" + account.user);
 
                         sendResult(RESULT_OK);
                     }
