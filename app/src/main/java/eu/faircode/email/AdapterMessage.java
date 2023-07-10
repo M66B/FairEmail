@@ -312,6 +312,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean authentication;
     private boolean authentication_indicator;
     private boolean infra;
+    private boolean tld_flags;
 
     private boolean autoclose_unseen;
     private boolean collapse_marked;
@@ -1428,19 +1429,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (viewType == ViewType.THREAD)
                     if (outgoing || message.from == null || message.from.length == 0)
                         tvFrom.setCompoundDrawablesRelative(null, null, null, null);
-                    else if (BuildConfig.DEBUG) {
+                    else if (tld_flags) {
                         String email = ((InternetAddress) message.from[0]).getAddress();
                         String domain = UriHelper.getEmailDomain(email);
                         String tld = UriHelper.getTld(context, domain);
                         int resid = context.getResources().getIdentifier(
                                 "flag_" + tld, "drawable", context.getPackageName());
                         Drawable d = (resid > 0 ? context.getDrawable(resid) : null);
-                        if (d == null)
-                            tvFrom.setCompoundDrawablesRelative(null, null, null, null);
-                        else {
-                            d.setBounds(0, 0, dp24, dp24);
-                            tvFrom.setCompoundDrawablesRelative(d, null, null, null);
-                        }
+                        tvFrom.setCompoundDrawablesRelativeWithIntrinsicBounds(d, null, null, null);
                     }
 
                 tvFrom.setText(MessageHelper.formatAddresses(senders, format, false));
@@ -7718,7 +7714,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.dp1 = Helper.dp2pixels(context, 1);
         this.dp12 = Helper.dp2pixels(context, 12);
-        this.dp24 = Helper.dp2pixels(context, 24);
         this.dp60 = Helper.dp2pixels(context, 60);
 
         this.accessibility = Helper.isAccessibilityEnabled(context);
@@ -7828,6 +7823,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.authentication = prefs.getBoolean("authentication", true);
         this.authentication_indicator = prefs.getBoolean("authentication_indicator", false);
         this.infra = prefs.getBoolean("infra", false);
+        this.tld_flags = prefs.getBoolean("tld_flags", false);
         this.language_detection = prefs.getBoolean("language_detection", false);
         this.autoclose_unseen = prefs.getBoolean("autoclose_unseen", false);
         this.collapse_marked = prefs.getBoolean("collapse_marked", true);
