@@ -529,6 +529,7 @@
     <string name="title_advanced_preview_lines">Broj linija za pregled</string>
     <string name="title_advanced_align_header">Vertikalno poravnaj ključne riječi, pregled teksta i bilješke</string>
     <string name="title_advanced_addresses">Proširi detalje adrese po zadanom</string>
+    <string name="title_advanced_hide_attachments">Skupi priloge po zadanom</string>
     <string name="title_advanced_unzip">Prikaži sadržaj kompresovanih priloga</string>
     <string name="title_advanced_attachments_alt">Prikaži priloge poslije teksta poruke</string>
     <string name="title_advanced_thumbnails">Prikaži sličice fotografija poslije teksta poruke</string>

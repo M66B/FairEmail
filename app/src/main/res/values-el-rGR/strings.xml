@@ -71,6 +71,10 @@
         <item quantity="one">Οριστική διαγραφή %1$d μηνύματος;</item>
         <item quantity="other">Οριστική διαγραφή %1$d μηνυμάτων;</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Ένα συνημμένο</item>
+        <item quantity="other">%1$d συνημμένα</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Αντιμετώπιση %1$d μηνύματος ως ανεπιθύμητου;</item>
         <item quantity="other">Αντιμετώπιση %1$d μηνυμάτων ως ανεπιθύμητων;</item>
@@ -515,6 +519,7 @@
     <string name="title_advanced_preview_lines">Αριθμός των γραμμών της προεπισκόπησης</string>
     <string name="title_advanced_align_header">Κατακόρυφη στοίχιση λέξεων-κλειδιών, προεπισκόπησης κειμένου και σημειώσεων</string>
     <string name="title_advanced_addresses">Να αναπτύσσονται οι λεπτομέρειες της διεύθυνσης από προεπιλογή</string>
+    <string name="title_advanced_hide_attachments">Σύμπτυξη συνημμένων από προεπιλογή</string>
     <string name="title_advanced_unzip">Να προβάλλονται τα περιεχόμενα των συμπιεσμένων συνημμένων</string>
     <string name="title_advanced_attachments_alt">Να προβάλλονται τα συνημμένα μετά το κείμενο του μηνύματος</string>
     <string name="title_advanced_thumbnails">Να προβάλλονται οι μικρογραφίες μετά από το κείμενο του μηνύματος</string>

@@ -71,6 +71,10 @@
         <item quantity="one">Eliminar permanentemente %1$d mensagem?</item>
         <item quantity="other">Eliminar permanentemente %1$d mensagens?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Um anexo</item>
+        <item quantity="other">%1$d anexos</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Definir %1$d mensagem como indesejada?</item>
         <item quantity="other">Definir %1$d mensagens como indesejadas?</item>
@@ -517,6 +521,7 @@
     <string name="title_advanced_preview_lines">Número de linhas de pré-visualização</string>
     <string name="title_advanced_align_header">Alinhe verticalmente as palavras-chave, pré-visualizar texto e notas</string>
     <string name="title_advanced_addresses">Mostrar detalhes do endereço por pré-definição</string>
+    <string name="title_advanced_hide_attachments">Esconder anexos por padrão</string>
     <string name="title_advanced_unzip">Mostrar conteúdo de anexos comprimidos</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas das imagens após o texto da mensagem</string>
@@ -559,7 +564,7 @@
     <string name="title_advanced_conversation_actions">Sugerir ações (Android 10+)</string>
     <string name="title_advanced_conversation_actions_replies">Sugerir mensagens de resposta (Android 10+)</string>
     <string name="title_advanced_language_detection">Detectar idioma do texto da mensagem</string>
-    <string name="title_advanced_photo_picker">Use o seletor de fotos do Android</string>
+    <string name="title_advanced_photo_picker">Usar o selector de fotos do Android</string>
     <string name="title_advanced_pull_refresh">Arrastar para baixo para atualizar</string>
     <string name="title_advanced_pull_all">Sincronizar todas as pastas</string>
     <string name="title_advanced_autoscroll">Voltar ao topo quando recebe novas mensagens</string>

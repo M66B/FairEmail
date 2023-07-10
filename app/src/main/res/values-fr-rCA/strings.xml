@@ -71,6 +71,10 @@
         <item quantity="one">Supprimer définitivement %1$d message?</item>
         <item quantity="other">Supprimer définitivement %1$d messages?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Une pièce jointe</item>
+        <item quantity="other">%1$d pièces jointes</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Traiter %1$d message comme indésirable?</item>
         <item quantity="other">Traiter %1$d messages comme indésirables?</item>
@@ -516,6 +520,7 @@
     <string name="title_advanced_preview_lines">Nombre de lignes d’aperçu</string>
     <string name="title_advanced_align_header">Aligner verticalement les mots-clés, le texte de prévisualisation et les notes</string>
     <string name="title_advanced_addresses">Afficher les détails de l’adresse par défaut</string>
+    <string name="title_advanced_hide_attachments">Réduire les pièces jointes par défaut</string>
     <string name="title_advanced_unzip">Afficher le contenu des pièces jointes compressées</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_thumbnails">Afficher les vignettes des images après le texte du message</string>

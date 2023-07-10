@@ -89,6 +89,12 @@
         <item quantity="many">Usunąć trwale %1$d wiadomości?</item>
         <item quantity="other">Usunąć trwale %1$d wiadomości?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Jeden załącznik</item>
+        <item quantity="few">%1$d załączniki</item>
+        <item quantity="many">%1$d załączników</item>
+        <item quantity="other">%1$d załączników</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Traktować wiadomość %1$d jako spam?</item>
         <item quantity="few">Traktować wiadomości %1$d jako spam?</item>
@@ -541,6 +547,7 @@
     <string name="title_advanced_preview_lines">Liczba linii podglądu</string>
     <string name="title_advanced_align_header">Wyrównaj pionowo słowa kluczowe, podgląd tekstu i notatki</string>
     <string name="title_advanced_addresses">Domyślnie pokazuj szczegóły adresu</string>
+    <string name="title_advanced_hide_attachments">Domyślnie zwijaj załączniki</string>
     <string name="title_advanced_unzip">Pokaż zawartość skompresowanych załączników</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_thumbnails">Pokaż miniatury obrazów po tekście wiadomości</string>

@@ -71,6 +71,10 @@
         <item quantity="one">Eliminare permanentemente %1$d messaggio?</item>
         <item quantity="other">Eliminare permanentemente %1$d messaggi?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Un allegato</item>
+        <item quantity="other">%1$d allegati</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Trattare %1$d messaggio come spam?</item>
         <item quantity="other">Trattare %1$d messaggi come spam?</item>
@@ -372,7 +376,7 @@
     <string name="title_advanced_suggest_frequently">Ordina gli indirizzi suggeriti per frequenza d\'uso</string>
     <string name="title_advanced_alt_re_fwd">Prefisso alternativo di risposta/inoltro</string>
     <string name="title_advanced_send_chips">Mostra le bolle degli indirizzi</string>
-    <string name="title_advanced_send_nav_color">Usa il colore dell\'identità per la barra d\'azioni in basso</string>
+    <string name="title_advanced_send_nav_color">Utilizza il colore dell\'identità per la barra delle azioni inferiore</string>
     <string name="title_advanced_send_reminders">Mostra promemoria</string>
     <string name="title_advanced_send_delayed">Ritarda invio dei messaggi</string>
     <string name="title_advanced_attach_new">Crea un nuovo messaggio di bozza per indirizzi e file condivisi</string>
@@ -516,6 +520,7 @@
     <string name="title_advanced_preview_lines">Numero di righe d\'anteprima</string>
     <string name="title_advanced_align_header">Allinea verticalmente le parole chiave, il testo di anteprima e le note</string>
     <string name="title_advanced_addresses">Espandi i dettagli dell\'indirizzo di default</string>
+    <string name="title_advanced_hide_attachments">Comprimi gli allegati di default</string>
     <string name="title_advanced_unzip">Mostra i contenuti degli allegati compressi</string>
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_thumbnails">Mostra miniature delle immagini dopo il testo del messaggio</string>

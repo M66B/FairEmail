@@ -56,8 +56,8 @@
         <item quantity="other">%1$d neue Nachrichten</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="one">%1$d noch zu sendende Nachricht</item>
-        <item quantity="other">%1$d noch zu sendende Nachrichten</item>
+        <item quantity="one">%1$d zu versendende Nachricht</item>
+        <item quantity="other">%1$d zu versendende Nachrichten</item>
     </plurals>
     <plurals name="title_tile_unseen">
         <item quantity="one">%1$d neue</item>
@@ -71,6 +71,10 @@
         <item quantity="one">%1$d Nachricht dauerhaft löschen?</item>
         <item quantity="other">%1$d Nachrichten dauerhaft löschen?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Ein Anhang</item>
+        <item quantity="other">%1$d Anhänge</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">%1$d Nachricht als Spam behandeln?</item>
         <item quantity="other">%1$d Nachrichten als Spam behandeln?</item>
@@ -78,7 +82,7 @@
     <string name="title_ask_spam_who">Nachricht von %1$s als Spam behandeln?</string>
     <string name="title_junk_hint">Ihr E-Mail-Anbieter ist für das Filtern von Spam zuständig. Eine E-Mail-App verfügt nicht über alle benötigten Informationen, um das zuverlässig zu gewährleisten.</string>
     <string name="title_junk_pop_hint">        Nachrichten von gesperrten Absendern werden nicht heruntergeladen.
-        Wenn »Nachrichten auf dem Server belassen« deaktiviert ist, gehen diese Nachrichten dauerhaft verloren!
+        Wenn »Nachrichten auf Server belassen« deaktiviert ist, gehen diese Nachrichten dauerhaft verloren!
     </string>
     <string name="title_block">%1$s sperren</string>
     <string name="title_block_sender">Absender sperren</string>
@@ -448,7 +452,7 @@
     <string name="title_advanced_two_row">Zwei Zeilen verwenden</string>
     <string name="title_advanced_two_col">Zwei Spalten verwenden</string>
     <string name="title_advanced_min_screen_size">Minimale Bildschirmgröße zum Aufteilen des Bildschirms</string>
-    <string name="title_advanced_close_pane">Zeile oder Spalte beim Schließen einer Unterhaltung einklappen</string>
+    <string name="title_advanced_close_pane">Zeile oder Spalte beim Schließen einer Unterhaltung zusammenklappen</string>
     <string name="title_advanced_open_pane">Mit zwei Zeilen oder zwei Spalten beginnen</string>
     <string name="title_advanced_column_width">Spaltenbreite/Zeilenhöhe der Nachricht: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Obere Symbolleiste beim Scrollen von Nachrichten ausblenden</string>
@@ -482,8 +486,8 @@
     <string name="title_advanced_color_stripe">Farbstreifen anzeigen</string>
     <string name="title_advanced_color_stripe_wide">Breite Farbstreifen verwenden</string>
     <string name="title_advanced_avatars">Kontaktfotos anzeigen</string>
-    <string name="title_advanced_bimi_unverified">Nicht verifizierter Absender</string>
-    <string name="title_advanced_bimi_verified">Bestätigter Absender</string>
+    <string name="title_advanced_bimi_unverified">Ungeprüfter Absender</string>
+    <string name="title_advanced_bimi_verified">Überprüfter Absender</string>
     <string name="title_advanced_gravatars">Gravatare anzeigen</string>
     <string name="title_advanced_libravatars">Libravatare anzeigen</string>
     <string name="title_advanced_favicons">Favicons anzeigen</string>
@@ -517,6 +521,7 @@
     <string name="title_advanced_preview_lines">Anzahl der Vorschauzeilen</string>
     <string name="title_advanced_align_header">Schlagwörter, Vorschautext und Notizen vertikal ausrichten</string>
     <string name="title_advanced_addresses">Adressdetails standardmäßig ausklappen</string>
+    <string name="title_advanced_hide_attachments">Anhänge standardmäßig einklappen</string>
     <string name="title_advanced_unzip">Inhalt von komprimierten Anhängen anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_thumbnails">Vorschaubilder nach dem Nachrichtentext anzeigen</string>
@@ -573,12 +578,12 @@
     <string name="title_advanced_expand_first">Automatisch die erste Nachricht ausklappen, wenn die Unterhaltung gelesen wird</string>
     <string name="title_advanced_expand_all">Alle gelesenen Nachrichten automatisch ausklappen</string>
     <string name="title_advanced_expand_one">Jeweils nur eine Nachricht ausklappen</string>
-    <string name="title_advanced_collapse_multiple">Nachrichten in einer Unterhaltung mit mehreren Nachrichten bei »Zurück« zusammenfassen</string>
+    <string name="title_advanced_collapse_multiple">Nachrichten in einer Unterhaltung mit mehreren Nachrichten bei »Zurück« zusammenklappen</string>
     <string name="title_advanced_autoclose">Unterhaltungen automatisch schließen</string>
     <string name="title_advanced_autoclose_send">Unterhaltungen nach dem Senden von Nachrichten automatisch schließen</string>
     <string name="title_advanced_onclose">Beim Schließen einer Unterhaltung</string>
-    <string name="title_advanced_autoclose_unread">Unterhaltungen schließen, wenn Nachrichten als ungelesen markiert werden</string>
-    <string name="title_advanced_collapse_marked">Manuell als gelesen oder ungelesen gekennzeichnete Nachrichten einklappen</string>
+    <string name="title_advanced_autoclose_unread">Unterhaltungen schließen, wenn Nachrichten als ungelesen gekennzeichnet werden</string>
+    <string name="title_advanced_collapse_marked">Manuell als gelesen oder ungelesen gekennzeichnete Nachrichten zusammenklappen</string>
     <string name="title_advanced_undo">Anzeigedauer von »Rückgängig«</string>
     <string name="title_advanced_quick_filter">Unaufdringliche Schnellfiltersymbole anzeigen</string>
     <string name="title_advanced_quick_scroll">Unaufdringliche Symbole für schnellen Bildlauf nach oben oder unten anzeigen</string>
@@ -821,7 +826,7 @@
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
     <string name="title_advanced_notify_car_hint">Verbunden bedeutet, dass etwas projiziert wird, zum Beispiel eine Karte für die Navigation</string>
-    <string name="title_advanced_notify_remove_hint">Benachrichtigung über neue Nachrichten werden immer entfernt, wenn sie weggewischt werden oder wenn Nachrichten als gelesen markiert werden</string>
+    <string name="title_advanced_notify_remove_hint">Benachrichtigungen über neue Nachrichten werden immer entfernt, wenn sie weggewischt oder als gelesen gekennzeichnet werden</string>
     <string name="title_advanced_notify_manage_hint">Auf den Kanalnamen tippen, um die Kanaleigenschaften festzulegen</string>
     <string name="title_advanced_notify_manage_default_hint">Zum Einstellen des Standardtons usw.</string>
     <string name="title_advanced_notify_manage_service_hint">Zum Deaktivieren der Benachrichtigung für die App-Überwachung</string>
@@ -848,7 +853,7 @@
     <string name="title_create_folder_name">Ordnername</string>
     <string name="title_create_folder_parent">Übergeordneter Ordner</string>
     <string name="title_advanced_swipe_actions">Wischgesten festlegen</string>
-    <string name="title_advanced_swipe_actions_hint">Das wird die Aktion fürs Links- und Rechtswischen aller IMAP-Konten festlegen</string>
+    <string name="title_advanced_swipe_actions_hint">Damit wird die Aktion für Links- und Rechtswischen für alle IMAP-Konten festgelegt</string>
     <string name="title_advanced_swipe_sensitivity">Empfindlichkeit für das Links-/Rechts-Wischen</string>
     <string name="title_select">Auswählen &#8230;</string>
     <string name="title_identity_name">Ihr Name</string>
@@ -970,7 +975,7 @@
     <string name="title_last_connected">Zuletzt verbunden: %1$s</string>
     <string name="title_backoff_until">Warten nach einem Fehler bis: %1$s</string>
     <string name="title_storage_quota">Server-Speicherauslastung: %1$s/%2$s</string>
-    <string name="title_pop_support">Das POP3-Protokoll kann nur Nachrichten aus dem Posteingang herunterladen und löschen. Es ist nicht möglich, Nachrichten als gelesen zu markieren, Spam zu melden, Nachrichten zu verschieben usw. Verwenden Sie daher nach Möglichkeit das IMAP-Protokoll.</string>
+    <string name="title_pop_support">Das POP3-Protokoll kann nur Nachrichten aus dem Posteingang herunterladen und löschen. Es ist nicht möglich, Nachrichten als gelesen zu kennzeichnen, Spam zu melden, Nachrichten zu verschieben usw. Verwenden Sie daher nach Möglichkeit das IMAP-Protokoll.</string>
     <string name="title_pop_sent">Wenn Ihr Gerät verloren geht oder gestohlen wird, können gesendete Nachrichten verloren gehen.</string>
     <string name="title_pop_warning">Falls ein POP3-Server den Befehl UIDL nicht unterstützt, kann eine hohe Datenauslastung entstehen. Stellen Sie also die unten stehende Abfragefrequenz entsprechend ein.</string>
     <string name="title_pop_folders">Das POP3-Protokoll unterstützt das Erstellen von Ordnern nicht</string>
@@ -985,7 +990,7 @@
     <string name="title_service_protocol">Bitte überprüfen Sie das Protokoll (SSL/TLS oder STARTTLS)</string>
     <string name="title_service_error10">Dieses Konto muss erneut authentifiziert werden, was über den Schnelleinrichtungsassistenten erfolgen kann</string>
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
-    <string name="title_advanced_expand_read">Nachrichten beim Ausklappen als gelesen markieren</string>
+    <string name="title_advanced_expand_read">Nachrichten beim Ausklappen als gelesen kennzeichnen</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
     <string name="title_synchronize_subfolders">Unterordner</string>
     <string name="title_synchronize_more">Weitere Nachrichten abrufen</string>
@@ -1002,7 +1007,7 @@
     <string name="title_delete_local">Lokale Nachrichten löschen</string>
     <string name="title_delete_browsed">Durchsuchte Nachrichten löschen</string>
     <string name="title_expunge">Endgültiges Löschen</string>
-    <string name="title_expunge_remark">Dadurch werden alle zum Löschen markierte Nachrichten dauerhaft gelöscht</string>
+    <string name="title_expunge_remark">Dadurch werden alle zum Löschen gekennzeichneten Nachrichten dauerhaft gelöscht</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
     <string name="title_empty_spam">Spamordner leeren</string>
     <string name="title_edit_properties">Eigenschaften bearbeiten</string>
@@ -1065,7 +1070,7 @@
     <string name="title_auto_classify_target">Für diesen Ordner klassifizierte Nachrichten automatisch in diesen Ordner verschieben</string>
     <string name="title_sync_days">Zu synchronisierende E-Mails (Tage)</string>
     <string name="title_sync_days_remark">Das Erhöhen dieses Wertes erhöht den Akku- und Datenverbrauch</string>
-    <string name="title_keep_days">E-Mails aufbewahren (Tage)</string>
+    <string name="title_keep_days">Nachrichten aufbewahren (Tage)</string>
     <string name="title_keep_days_remark">Alte Nachrichten werden vom Gerät entfernt, aber auf dem Server belassen</string>
     <string name="title_keep_all">Alle E-Mails aufbewahren</string>
     <string name="title_poll_system">Systemordner so einstellen, dass periodisch nach neuen Nachrichten gesucht wird</string>
@@ -1105,7 +1110,7 @@
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">AW: %1$s</string>
     <string name="title_subject_forward_alt">Wg: %1$s</string>
-    <string name="title_seen">Gelesen</string>
+    <string name="title_seen">Als gelesen kennzeichnen</string>
     <string name="title_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_toggle_seen">Gelesen/Ungelesen</string>
     <string name="title_hide">Ausblenden</string>
@@ -1186,7 +1191,7 @@
     <string name="title_move_to_account">Verschieben nach %1$s &#8230;</string>
     <string name="title_report_spam">Als Spam behandeln</string>
     <string name="title_delete_permanently">Dauerhaft löschen</string>
-    <string name="title_delete_attachments">Anhänge entfernen</string>
+    <string name="title_delete_attachments">Anhänge löschen</string>
     <string name="title_delete_attachments_remark">        Damit Anhänge entfernt werden können, muss eine neue Nachricht hinzugefügt und die alte Nachricht gelöscht werden.
         Da dies eventuell fehlschlägt, wird die alte Nachricht in den Papierkorb verschoben.
     </string>
@@ -1536,7 +1541,7 @@
     <string name="title_select_language">Sprache wählen</string>
     <string name="title_select_all">Alle auswählen</string>
     <string name="title_select_found">Alle gefundenen Nachrichten auswählen</string>
-    <string name="title_mark_all_read">Alle als gelesen markieren</string>
+    <string name="title_mark_all_read">Alle als gelesen kennzeichnen</string>
     <string name="title_view_thread">Unterhaltung ansehen</string>
     <string name="title_force_sync">Synchronisation erzwingen</string>
     <string name="title_force_send">Senden erzwingen</string>
@@ -1569,7 +1574,7 @@
     <string name="title_answer_placeholder_lastname">Nachname des Absenders</string>
     <string name="title_answer_placeholder_date">Aktuelles Datum</string>
     <string name="title_rule_noop">Keine Aktion</string>
-    <string name="title_rule_seen">Gelesen kennzeichnen</string>
+    <string name="title_rule_seen">Als gelesen kennzeichnen</string>
     <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>
     <string name="title_rule_hide">Ausblenden</string>
     <string name="title_rule_ignore">Benachrichtigungen unterdrücken</string>
@@ -1955,7 +1960,7 @@
     <string name="title_accessibility_searches">Suchanfragen</string>
     <string name="title_accessibility_menus">Menüs</string>
     <string name="title_accessibility_extras">Extras</string>
-    <string name="title_accessibility_collapsed">Eingeklappt</string>
+    <string name="title_accessibility_collapsed">Zusammengeklappt</string>
     <string name="title_accessibility_expanded">Ausgeklappt</string>
     <string name="title_accessibility_seen">Gelesen</string>
     <string name="title_accessibility_unseen">Ungelesen</string>

@@ -89,6 +89,12 @@
         <item quantity="many">Удалить %1$d сообщений навсегда?</item>
         <item quantity="other">Удалить %1$d сообщений навсегда?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Одно вложение</item>
+        <item quantity="few">%1$d вложения</item>
+        <item quantity="many">%1$d вложений</item>
+        <item quantity="other">%1$d вложений</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Считать %1$d сообщение спамом?</item>
         <item quantity="few">Считать %1$d сообщения спамом?</item>
@@ -432,7 +438,7 @@
     <string name="title_advanced_reply_move">При ответе на сообщение сохранять ответ в той же папке</string>
     <string name="title_advanced_reply_move_inbox">Также для сообщений во \"Входящих\"</string>
     <string name="title_advanced_auto_link">Автоматическое создание ссылок</string>
-    <string name="title_advanced_plain_only">По умолчанию отправлять простым текстом</string>
+    <string name="title_advanced_plain_only">Отправлять простым текстом по умолчанию</string>
     <string name="title_advanced_plain_only_reply">Автоматически использовать обычный текст только при ответе на сообщение с обычным текстом</string>
     <string name="title_advanced_flow">\"Пластичное\" форматирование простого текста</string>
     <string name="title_advanced_usenet_signature">Стиль подписи Usenet</string>
@@ -446,7 +452,7 @@
     <string name="title_advanced_rlah">В роуминге как дома</string>
     <string name="title_advanced_download_headers">Загружать все заголовки сообщений</string>
     <string name="title_advanced_download_eml">Загружать оригиналы сообщений</string>
-    <string name="title_advanced_download_plain">По умолчанию загружать только обычный текст (если доступно)</string>
+    <string name="title_advanced_download_plain">Загружать только обычный текст по умолчанию (если доступно)</string>
     <string name="title_advanced_validated">Требовать проверенное подключение</string>
     <string name="title_advanced_validated_captive">Требовать подключение, подтверждённое порталом авторизации</string>
     <string name="title_advanced_vpn_only">Подключаться только через VPN</string>
@@ -540,7 +546,8 @@
     <string name="title_advanced_preview_italic">Показывать предпросмотр сообщения курсивом</string>
     <string name="title_advanced_preview_lines">Количество строк предпросмотра</string>
     <string name="title_advanced_align_header">Вертикальное выравнивание ключевых слов, предпросмотра текста и заметок</string>
-    <string name="title_advanced_addresses">По умолчанию показывать подробную информацию об адресах</string>
+    <string name="title_advanced_addresses">Показывать подробную информацию об адресах по умолчанию</string>
+    <string name="title_advanced_hide_attachments">Сворачивать вложения по умолчанию</string>
     <string name="title_advanced_unzip">Показывать содержимое сжатых вложений</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_thumbnails">Показывать миниатюры изображений после текста сообщения</string>
@@ -549,7 +556,7 @@
     <string name="title_advanced_override_width">Отключить фиксированную ширину в оригинальных сообщениях</string>
     <string name="title_advanced_hyphenation">Автоматическая расстановка переносов</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
-    <string name="title_advanced_monospaced">По умолчанию использовать моноширинный шрифт для текста сообщения</string>
+    <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения по умолчанию</string>
     <string name="title_advanced_monospaced_pre">Использовать моноширинный шрифт для форматированного текста</string>
     <string name="title_advanced_background_color">Использовать цвета фона</string>
     <string name="title_advanced_text_color">Использовать цвета текста</string>

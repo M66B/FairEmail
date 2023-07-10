@@ -62,6 +62,9 @@
     <plurals name="title_deleting_messages">
         <item quantity="other">%1$d 件のメッセージを完全に削除しますか？</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="other">添付ファイル %1$d 件</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="other">%1$d 件のメッセージを迷惑メールとして扱いますか？</item>
     </plurals>
@@ -503,6 +506,7 @@
     <string name="title_advanced_preview_lines">プレビューの行数</string>
     <string name="title_advanced_align_header">キーワード、プレビューテキスト、メモを垂直方向に揃える</string>
     <string name="title_advanced_addresses">デフォルトでアドレスの詳細を展開</string>
+    <string name="title_advanced_hide_attachments">デフォルトで添付ファイルを折りたたむ</string>
     <string name="title_advanced_unzip">圧縮された添付ファイルの内容を表示</string>
     <string name="title_advanced_attachments_alt">本文の後に添付ファイルを表示</string>
     <string name="title_advanced_thumbnails">本文の後に画像サムネイルを表示</string>

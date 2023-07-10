@@ -398,6 +398,7 @@
     <string name="title_advanced_suggest_frequently">Сортувати запропоновані адреси за частотою використання</string>
     <string name="title_advanced_alt_re_fwd">Альтернативний префікс для відповіді/пересилання</string>
     <string name="title_advanced_send_chips">Показати бульбашки адрес</string>
+    <string name="title_advanced_send_nav_color">Використовувати ідентичний колір для нижньої панелі інструментів</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
     <string name="title_advanced_attach_new">Створити чернетку нового повідомлення при поширенні адрес та файлів</string>
@@ -541,6 +542,7 @@
     <string name="title_advanced_preview_lines">Кількість рядків для попереднього перегляду</string>
     <string name="title_advanced_align_header">Вирівнювати по вертикалі, ключові слова, текст попереднього перегляду та примітки</string>
     <string name="title_advanced_addresses">Розгорнути деталі адреси за замовчуванням</string>
+    <string name="title_advanced_hide_attachments">Згорнути вкладення за замовчуванням</string>
     <string name="title_advanced_unzip">Показувати вміст стиснутих вкладень</string>
     <string name="title_advanced_attachments_alt">Показати вкладення після тексту повідомлення</string>
     <string name="title_advanced_thumbnails">Показувати ескізи зображень після повідомлення</string>
@@ -693,6 +695,7 @@
     <string name="title_advanced_sign_default">Підписати за замовчуванням</string>
     <string name="title_advanced_encrypt_default">Шифрувати за замовчуванням</string>
     <string name="title_advanced_encrypt_auto">Автоматично шифрувати при доступності всіх ключів одержувачів</string>
+    <string name="title_advanced_auto_verify">Автоматично підтверджувати підписані повідомлення</string>
     <string name="title_advanced_auto_decrypt">Автоматично розшифрувати повідомлення</string>
     <string name="title_advanced_auto_undo_decrypt">Скасувати дешифрування при закритті розмови</string>
     <string name="title_advanced_openpgp">OpenPGP додаток</string>

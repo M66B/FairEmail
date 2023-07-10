@@ -89,6 +89,12 @@
         <item quantity="many">למחוק %1$d הודעות לצמיתות?</item>
         <item quantity="other">למחוק %1$d הודעות לצמיתות?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">קובץ מצורף</item>
+        <item quantity="two">%1$d קבצים מצורפים</item>
+        <item quantity="many">%1$d קבצים מצורפים</item>
+        <item quantity="other">%1$d קבצים מצורפים</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">להתייחס אל ההודעה כספאם?</item>
         <item quantity="two">האם לסמן %1$d הודעות כדואר זבל?</item>
@@ -398,6 +404,7 @@
     <string name="title_advanced_suggest_frequently">סידור הכתובות המוצעות לפי תדירות השימוש</string>
     <string name="title_advanced_alt_re_fwd">קידומת חלופית לתגובה/העברה</string>
     <string name="title_advanced_send_chips">הצגת בועיות כתובות</string>
+    <string name="title_advanced_send_nav_color">להשתמש בצבע הזהות לסרגל הפעולות התחתון</string>
     <string name="title_advanced_send_reminders">הצגת תזכורות</string>
     <string name="title_advanced_send_delayed">השהיית שליחת הודעות</string>
     <string name="title_advanced_attach_new">יצירת הודעת טיוטה לכתובות וקבצים משותפים</string>
@@ -541,6 +548,7 @@
     <string name="title_advanced_preview_lines">מספר השורות בתצוגה המקדימה</string>
     <string name="title_advanced_align_header">ליישר אנכית מילות מפתח, טקסט של תצוגה מקדימה ופתקיות</string>
     <string name="title_advanced_addresses">הרחבת פרטי הכתובת כברירת מחדל</string>
+    <string name="title_advanced_hide_attachments">צמצום קבצים מצורפים כברירת מחדל</string>
     <string name="title_advanced_unzip">הצגת תוכן הקבצים המצורפים הדחוסים</string>
     <string name="title_advanced_attachments_alt">הצגת הקבצים המצורפים אחרי טקסט ההודעה</string>
     <string name="title_advanced_thumbnails">הצגת תמונות ממוזערות אחרי טקסט ההודעה</string>
@@ -693,6 +701,7 @@
     <string name="title_advanced_sign_default">חתימה כבררת מחדל</string>
     <string name="title_advanced_encrypt_default">הצפנה כבררת מחדל</string>
     <string name="title_advanced_encrypt_auto">להצפין אוטומטית כשכל מפתחות הנמענים זמינים</string>
+    <string name="title_advanced_auto_verify">לאמת הודעות חתומות אוטומטית</string>
     <string name="title_advanced_auto_decrypt">פענוח הודעות אוטומטית</string>
     <string name="title_advanced_auto_undo_decrypt">להשתמש בפענוח עם סגירת דיון</string>
     <string name="title_advanced_openpgp">ספק OpenPGP</string>

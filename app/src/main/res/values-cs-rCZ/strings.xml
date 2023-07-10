@@ -89,6 +89,12 @@
         <item quantity="many">Trvale smazat %1$d zpráv?</item>
         <item quantity="other">Trvale smazat %1$d zpráv?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Jedna příloha</item>
+        <item quantity="few">%1$d přílohy</item>
+        <item quantity="many">%1$d příloh</item>
+        <item quantity="other">%1$d příloh</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Považovat %1$d zprávu za nevyžádanou?</item>
         <item quantity="few">Považovat %1$d zprávy za nevyžádané?</item>
@@ -542,6 +548,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_preview_lines">Počet řádků náhledu</string>
     <string name="title_advanced_align_header">Vertikálně zarovnat klíčová slova, náhled textu a poznámky</string>
     <string name="title_advanced_addresses">Automaticky zobrazit detaily adresy</string>
+    <string name="title_advanced_hide_attachments">Sbalit přílohy ve výchozím nastavení</string>
     <string name="title_advanced_unzip">Zobrazit obsah komprimovaných příloh</string>
     <string name="title_advanced_attachments_alt">Zobrazit přílohy pod textem zprávy</string>
     <string name="title_advanced_thumbnails">Zobrazit náhledy obrázků pod textem zprávy</string>
