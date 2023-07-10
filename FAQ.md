@@ -119,7 +119,6 @@ Related questions:
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
 * A [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2688) causes invalid PGP signatures when using a hardware token.
-* A [bug in Crowdin](https://crowdin.com/messages/536694) blocks updating FAQ.md (this text) for translation.
 * Search suggestions causes the keyboard losing focus on Android 12L.
 * [A bug](https://techcommunity.microsoft.com/t5/outlook/outlook-office-365-imap-idle-is-broken/m-p/3616242) in the Outlook IMAP server causes delayed new message notifications.
 
@@ -1677,7 +1676,7 @@ Alternatively, you might be able to enable the *Files* app again using the Andro
 Yes, you can translate the texts of FairEmail in your own language [on Crowdin](https://crowdin.com/project/open-source-email).
 Registration is free.
 
-If you would like your name or alias to be included in the list of contributors in *About* the app,
+If you would like a new language to be added, or your name or alias to be included in the list of contributors in *About* the app,
 please [contact me](https://contact.faircode.eu/?product=fairemailsupport).
 
 <br />
