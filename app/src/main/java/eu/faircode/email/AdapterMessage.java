@@ -229,7 +229,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private int dp1;
     private int dp12;
-    private int dp24;
     private int dp60;
 
     private boolean suitable;
