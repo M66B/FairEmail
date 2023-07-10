@@ -229,6 +229,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private int dp1;
     private int dp12;
+    private int dp24;
     private int dp60;
 
     private boolean suitable;
@@ -1423,8 +1424,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 : R.string.title_from_to,
                         formatAddresses(senders, format, maxRecipients),
                         formatAddresses(recipients, format, maxRecipients)));
-            } else
+            } else {
+                if (viewType == ViewType.THREAD)
+                    if (outgoing || message.from == null || message.from.length == 0)
+                        tvFrom.setCompoundDrawablesRelative(null, null, null, null);
+                    else if (BuildConfig.DEBUG) {
+                        String email = ((InternetAddress) message.from[0]).getAddress();
+                        String domain = UriHelper.getEmailDomain(email);
+                        String tld = UriHelper.getTld(context, domain);
+                        int resid = context.getResources().getIdentifier(
+                                "flag_" + tld, "drawable", context.getPackageName());
+                        Drawable d = (resid > 0 ? context.getDrawable(resid) : null);
+                        if (d == null)
+                            tvFrom.setCompoundDrawablesRelative(null, null, null, null);
+                        else {
+                            d.setBounds(0, 0, dp24, dp24);
+                            tvFrom.setCompoundDrawablesRelative(d, null, null, null);
+                        }
+                    }
+
                 tvFrom.setText(MessageHelper.formatAddresses(senders, format, false));
+            }
 
             tvFrom.setPaintFlags(tvFrom.getPaintFlags() & ~Paint.UNDERLINE_TEXT_FLAG);
             tvSize.setText(message.totalSize == null ? null : Helper.humanReadableByteCount(message.totalSize));
@@ -7698,6 +7718,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         this.dp1 = Helper.dp2pixels(context, 1);
         this.dp12 = Helper.dp2pixels(context, 12);
+        this.dp24 = Helper.dp2pixels(context, 24);
         this.dp60 = Helper.dp2pixels(context, 60);
 
         this.accessibility = Helper.isAccessibilityEnabled(context);
