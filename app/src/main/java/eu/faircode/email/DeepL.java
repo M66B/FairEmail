@@ -116,7 +116,35 @@ public class DeepL {
 
                 int frequency = prefs.getInt("translated_" + target, 0);
 
-                String resname = "language_" + target.toLowerCase().replace('-', '_');
+                String flag;
+                if ("CS".equals(target))
+                    flag = "CZ";
+                else if ("DA".equals(target))
+                    flag = "DK";
+                else if ("EL".equals(target))
+                    flag = "GR";
+                else if ("ET".equals(target))
+                    flag = "EE";
+                else if ("JA".equals(target))
+                    flag = "JP";
+                else if ("KO".equals(target))
+                    flag = "KR";
+                else if ("NB".equals(target))
+                    flag = "NO";
+                else if ("SL".equals(target))
+                    flag = "SI";
+                else if ("SV".equals(target))
+                    flag = "SE";
+                else if ("UK".equals(target))
+                    flag = "UA";
+                else if ("ZH".equals(target))
+                    flag = "CN";
+                else {
+                    String[] t = target.split("-");
+                    flag = t[t.length - 1];
+                }
+
+                String resname = "flag_" + flag.toLowerCase();
                 int resid = res.getIdentifier(resname, "drawable", pkg);
 
                 languages.add(new Language(name, target, formality,
