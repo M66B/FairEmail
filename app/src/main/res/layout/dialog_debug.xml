@@ -39,10 +39,21 @@
             android:gravity="top"
             android:imeOptions="actionNone|flagNoEnterAction"
             android:inputType="textCapSentences|textMultiLine|textAutoCorrect"
+            android:minHeight="60dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvIssue" />
+
+        <TextView
+            android:id="@+id/tvIssueRemark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_debug_info_issue_remark"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etIssue" />
 
         <TextView
             android:id="@+id/tvAccount"
@@ -52,7 +63,7 @@
             android:text="@string/title_widget_account"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etIssue" />
+            app:layout_constraintTop_toBottomOf="@+id/tvIssueRemark" />
 
         <Spinner
             android:id="@+id/spAccount"
