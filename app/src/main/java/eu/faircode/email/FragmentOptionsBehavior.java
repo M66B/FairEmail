@@ -93,7 +93,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoRead;
     private SwitchCompat swAutoUnflag;
     private SwitchCompat swResetImportance;
-    private SwitchCompat swThreadSentTrash;
     private SwitchCompat swPhotoPicker;
     private SwitchCompat swFlagSnoozed;
     private SwitchCompat swAutoImportant;
@@ -102,6 +101,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoHideAnswer;
     private SwitchCompat swSwipeReply;
     private SwitchCompat swMoveThreadSent;
+    private SwitchCompat swThreadSentTrash;
     private Button btnDefaultFolder;
     private TextView tvDefaultFolder;
 
@@ -120,8 +120,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "autoexpand", "expand_first", "expand_all", "expand_one", "collapse_multiple",
             "autoclose", "onclose", "autoclose_unseen", "autoclose_send", "collapse_marked",
             "undo_timeout",
-            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance", "thread_sent_trash",
-            "reset_snooze", "auto_block_sender", "auto_hide_answer", "swipe_reply", "move_thread_sent", "default_folder"
+            "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance",
+            "reset_snooze", "auto_block_sender", "auto_hide_answer", "swipe_reply",
+            "move_thread_sent", "thread_sent_trash",
+            "default_folder"
     };
 
     @Override
@@ -174,7 +176,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoRead = view.findViewById(R.id.swAutoRead);
         swAutoUnflag = view.findViewById(R.id.swAutoUnflag);
         swResetImportance = view.findViewById(R.id.swResetImportance);
-        swThreadSentTrash = view.findViewById(R.id.swThreadSentTrash);
         swPhotoPicker = view.findViewById(R.id.swPhotoPicker);
         swFlagSnoozed = view.findViewById(R.id.swFlagSnoozed);
         swAutoImportant = view.findViewById(R.id.swAutoImportant);
@@ -183,6 +184,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoHideAnswer = view.findViewById(R.id.swAutoHideAnswer);
         swSwipeReply = view.findViewById(R.id.swSwipeReply);
         swMoveThreadSent = view.findViewById(R.id.swMoveThreadSent);
+        swThreadSentTrash = view.findViewById(R.id.swThreadSentTrash);
         btnDefaultFolder = view.findViewById(R.id.btnDefaultFolder);
         tvDefaultFolder = view.findViewById(R.id.tvDefaultFolder);
 
@@ -517,13 +519,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swThreadSentTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("thread_sent_trash", checked).apply();
-            }
-        });
-
         swPhotoPicker.setVisibility(Helper.hasPhotoPicker() ? View.VISIBLE : View.GONE);
         swPhotoPicker.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -578,6 +573,13 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("move_thread_sent", checked).apply();
+            }
+        });
+
+        swThreadSentTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("thread_sent_trash", checked).apply();
             }
         });
 
@@ -723,7 +725,6 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             swAutoRead.setChecked(prefs.getBoolean("autoread", false));
             swAutoUnflag.setChecked(prefs.getBoolean("autounflag", false));
             swResetImportance.setChecked(prefs.getBoolean("reset_importance", false));
-            swThreadSentTrash.setChecked(prefs.getBoolean("thread_sent_trash", true));
 
             swPhotoPicker.setChecked(prefs.getBoolean("photo_picker", true));
             swFlagSnoozed.setChecked(prefs.getBoolean("flag_snoozed", false));
@@ -732,7 +733,10 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             swAutoBlockSender.setChecked(prefs.getBoolean("auto_block_sender", true));
             swAutoHideAnswer.setChecked(prefs.getBoolean("auto_hide_answer", !accessibility));
             swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
+
             swMoveThreadSent.setChecked(prefs.getBoolean("move_thread_sent", false));
+            swThreadSentTrash.setChecked(prefs.getBoolean("thread_sent_trash", true));
+
             tvDefaultFolder.setText(prefs.getString("default_folder", null));
         } catch (Throwable ex) {
             Log.e(ex);

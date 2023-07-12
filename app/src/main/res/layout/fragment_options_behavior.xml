@@ -715,17 +715,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAutoUnflag"
                     app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swThreadSentTrash"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_thread_sent_trash"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swResetImportance"
-                    app:switchPadding="12dp" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 
@@ -855,6 +844,17 @@
                     app:layout_constraintTop_toBottomOf="@id/swSwipeReply"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swThreadSentTrash"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_thread_sent_trash"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swMoveThreadSent"
+                    app:switchPadding="12dp" />
+
                 <Button
                     android:id="@+id/btnDefaultFolder"
                     style="?android:attr/buttonStyleSmall"
@@ -866,7 +866,7 @@
                     android:tag="disable"
                     android:text="@string/title_advanced_default_folder"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swMoveThreadSent" />
+                    app:layout_constraintTop_toBottomOf="@id/swThreadSentTrash" />
 
                 <TextView
                     android:id="@+id/tvDefaultFolderHint"
