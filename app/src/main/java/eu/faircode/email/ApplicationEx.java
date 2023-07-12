@@ -720,6 +720,11 @@ public class ApplicationEx extends Application
                         if (!prefs.contains("filter_" + type + "_" + name))
                             editor.putBoolean("filter_" + type + "_" + name, prefs.getBoolean("filter_" + name, false));
                     }
+        } else if (version < 2084) {
+            boolean thread_sent_trash = prefs.getBoolean("thread_sent_trash", false);
+            if (thread_sent_trash)
+                editor.putBoolean("move_thread_sent", true);
+            editor.remove("thread_sent_trash");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

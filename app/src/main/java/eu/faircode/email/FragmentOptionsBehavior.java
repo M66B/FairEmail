@@ -100,8 +100,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
     private SwitchCompat swAutoBlockSender;
     private SwitchCompat swAutoHideAnswer;
     private SwitchCompat swSwipeReply;
+    private SwitchCompat swMoveThreadAll;
     private SwitchCompat swMoveThreadSent;
-    private SwitchCompat swThreadSentTrash;
     private Button btnDefaultFolder;
     private TextView tvDefaultFolder;
 
@@ -122,7 +122,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             "undo_timeout",
             "autoread", "flag_snoozed", "autounflag", "auto_important", "reset_importance",
             "reset_snooze", "auto_block_sender", "auto_hide_answer", "swipe_reply",
-            "move_thread_sent", "thread_sent_trash",
+            "move_thread_all", "move_thread_sent",
             "default_folder"
     };
 
@@ -183,8 +183,8 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         swAutoBlockSender = view.findViewById(R.id.swAutoBlockSender);
         swAutoHideAnswer = view.findViewById(R.id.swAutoHideAnswer);
         swSwipeReply = view.findViewById(R.id.swSwipeReply);
+        swMoveThreadAll = view.findViewById(R.id.swMoveThreadAll);
         swMoveThreadSent = view.findViewById(R.id.swMoveThreadSent);
-        swThreadSentTrash = view.findViewById(R.id.swThreadSentTrash);
         btnDefaultFolder = view.findViewById(R.id.btnDefaultFolder);
         tvDefaultFolder = view.findViewById(R.id.tvDefaultFolder);
 
@@ -569,17 +569,18 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
+        swMoveThreadAll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("move_thread_all", checked).apply();
+                swMoveThreadSent.setEnabled(!checked);
+            }
+        });
+
         swMoveThreadSent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("move_thread_sent", checked).apply();
-            }
-        });
-
-        swThreadSentTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("thread_sent_trash", checked).apply();
             }
         });
 
@@ -734,8 +735,9 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             swAutoHideAnswer.setChecked(prefs.getBoolean("auto_hide_answer", !accessibility));
             swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
 
+            swMoveThreadAll.setChecked(prefs.getBoolean("move_thread_all", false));
             swMoveThreadSent.setChecked(prefs.getBoolean("move_thread_sent", false));
-            swThreadSentTrash.setChecked(prefs.getBoolean("thread_sent_trash", true));
+            swMoveThreadSent.setEnabled(!swMoveThreadAll.isChecked());
 
             tvDefaultFolder.setText(prefs.getString("default_folder", null));
         } catch (Throwable ex) {

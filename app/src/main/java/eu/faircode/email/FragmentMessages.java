@@ -336,7 +336,8 @@ public class FragmentMessages extends FragmentBase
     private boolean threading;
     private boolean swipenav;
     private boolean seekbar;
-    private boolean thread_sent_trash;
+    private boolean move_thread_all;
+    private boolean move_thread_sent;
     private boolean actionbar;
     private int actionbar_delete_id;
     private int actionbar_archive_id;
@@ -488,8 +489,8 @@ public class FragmentMessages extends FragmentBase
                 args.getBoolean("force_threading"));
         swipenav = prefs.getBoolean("swipenav", true);
         seekbar = prefs.getBoolean("seekbar", false);
-        thread_sent_trash = (prefs.getBoolean("thread_sent_trash", true) ||
-                EntityFolder.SENT.equals(type));
+        move_thread_all = prefs.getBoolean("move_thread_all", false);
+        move_thread_sent = (move_thread_all || prefs.getBoolean("move_thread_sent", false));
         actionbar = prefs.getBoolean("actionbar", true);
         boolean actionbar_swap = prefs.getBoolean("actionbar_swap", false);
         actionbar_delete_id = (actionbar_swap ? R.id.action_archive : R.id.action_delete);
@@ -1378,7 +1379,7 @@ public class FragmentMessages extends FragmentBase
                 args.putString("thread", thread);
                 args.putLong("id", id);
                 args.putString("type", folderType);
-                args.putBoolean("thread_sent_trash", thread_sent_trash);
+                args.putBoolean("move_thread_sent", move_thread_sent);
                 args.putBoolean("filter_archive", filter_archive);
 
                 new SimpleTask<ArrayList<MessageTarget>>() {
@@ -1388,7 +1389,7 @@ public class FragmentMessages extends FragmentBase
                         String thread = args.getString("thread");
                         long id = args.getLong("id");
                         String type = args.getString("type");
-                        boolean thread_sent_trash = args.getBoolean("thread_sent_trash");
+                        boolean move_thread_sent = args.getBoolean("move_thread_sent");
                         boolean filter_archive = args.getBoolean("filter_archive");
 
                         ArrayList<MessageTarget> result = new ArrayList<>();
@@ -1415,7 +1416,7 @@ public class FragmentMessages extends FragmentBase
                                         !EntityFolder.DRAFTS.equals(sourceFolder.type) && !EntityFolder.OUTBOX.equals(sourceFolder.type) &&
                                         !(EntityFolder.SENT.equals(sourceFolder.type) && EntityFolder.ARCHIVE.equals(targetFolder.type)) &&
                                         !(EntityFolder.SENT.equals(sourceFolder.type) && EntityFolder.JUNK.equals(targetFolder.type)) &&
-                                        (!EntityFolder.SENT.equals(sourceFolder.type) || !EntityFolder.TRASH.equals(targetFolder.type) || thread_sent_trash) &&
+                                        (!EntityFolder.SENT.equals(sourceFolder.type) || !EntityFolder.TRASH.equals(targetFolder.type) || move_thread_sent) &&
                                         !EntityFolder.TRASH.equals(sourceFolder.type) && !EntityFolder.JUNK.equals(sourceFolder.type))
                                     result.add(new MessageTarget(context, threaded, account, sourceFolder, account, targetFolder));
                             }
@@ -2139,6 +2140,7 @@ public class FragmentMessages extends FragmentBase
                                 args.putLong("account", account);
                                 args.putString("thread", thread);
                                 args.putLong("id", id);
+                                args.putBoolean("move_thread_sent", move_thread_sent);
                                 args.putBoolean("filter_archive", filter_archive);
                                 args.putLongArray("disabled", new long[]{folder});
 
@@ -4543,7 +4545,8 @@ public class FragmentMessages extends FragmentBase
         args.putString("type", type);
         args.putBoolean("block", block);
         args.putLongArray("ids", getSelection());
-        args.putBoolean("thread_sent_trash", thread_sent_trash);
+        args.putBoolean("move_thread_all", move_thread_all);
+        args.putBoolean("move_thread_sent", move_thread_sent);
         args.putBoolean("filter_archive", filter_archive);
 
         new SimpleTask<ArrayList<MessageTarget>>() {
@@ -4552,7 +4555,8 @@ public class FragmentMessages extends FragmentBase
                 String type = args.getString("type");
                 boolean block = args.getBoolean("block");
                 long[] ids = args.getLongArray("ids");
-                boolean thread_sent_trash = args.getBoolean("thread_sent_trash");
+                boolean move_thread_all = args.getBoolean("move_thread_all");
+                boolean move_thread_sent = args.getBoolean("move_thread_sent");
                 boolean filter_archive = args.getBoolean("filter_archive");
 
                 ArrayList<MessageTarget> result = new ArrayList<>();
@@ -4577,16 +4581,20 @@ public class FragmentMessages extends FragmentBase
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread,
                                 threading ? null : id,
-                                EntityFolder.TRASH.equals(targetFolder.type) ? null : message.folder);
+                                move_thread_all || move_thread_sent ? null : message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
                             if (sourceFolder == null ||
                                     sourceFolder.read_only ||
                                     sourceFolder.id.equals(targetFolder.id))
                                 continue;
+
+                            if (!threaded.folder.equals(message.folder) &&
+                                    !(move_thread_all ||
+                                            (move_thread_sent && EntityFolder.SENT.equals(sourceFolder.type))))
+                                continue;
+
                             if (EntityFolder.TRASH.equals(targetFolder.type)) {
-                                if (EntityFolder.SENT.equals(sourceFolder.type) && !thread_sent_trash)
-                                    continue;
                                 if (EntityFolder.ARCHIVE.equals(sourceFolder.type) && filter_archive)
                                     continue;
                                 if (EntityFolder.JUNK.equals(sourceFolder.type) && !threaded.folder.equals(message.folder))
@@ -4630,6 +4638,9 @@ public class FragmentMessages extends FragmentBase
         args.putBoolean("cancopy", true);
         args.putLongArray("disabled", Helper.toLongArray(disabled));
         args.putLongArray("messages", getSelection());
+        args.putBoolean("move_thread_all", move_thread_all);
+        args.putBoolean("move_thread_sent", move_thread_sent);
+        args.putBoolean("filter_archive", filter_archive);
 
         FragmentDialogSelectFolder fragment = new FragmentDialogSelectFolder();
         fragment.setArguments(args);
@@ -4646,6 +4657,9 @@ public class FragmentMessages extends FragmentBase
                 long[] ids = args.getLongArray("ids");
                 long tid = args.getLong("folder");
                 boolean copy = args.getBoolean("copy");
+                boolean move_thread_all = args.getBoolean("move_thread_all");
+                boolean move_thread_sent = args.getBoolean("move_thread_sent");
+                boolean filter_archive = args.getBoolean("filter_archive");
 
                 ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -4671,13 +4685,26 @@ public class FragmentMessages extends FragmentBase
                             continue;
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
-                                message.account, message.thread, threading ? null : id, message.folder);
+                                message.account, message.thread, threading ? null : id,
+                                move_thread_all || move_thread_sent ? null : message.folder);
                         for (EntityMessage threaded : messages) {
                             EntityFolder sourceFolder = db.folder().getFolder(threaded.folder);
                             if (sourceFolder == null ||
                                     sourceFolder.read_only ||
                                     sourceFolder.id.equals(targetFolder.id))
                                 continue;
+
+                            if (!threaded.folder.equals(message.folder) &&
+                                    !(move_thread_all ||
+                                            (move_thread_sent && EntityFolder.SENT.equals(sourceFolder.type))))
+                                continue;
+
+                            if (EntityFolder.TRASH.equals(targetFolder.type)) {
+                                if (EntityFolder.ARCHIVE.equals(sourceFolder.type) && filter_archive)
+                                    continue;
+                                if (EntityFolder.JUNK.equals(sourceFolder.type) && !threaded.folder.equals(message.folder))
+                                    continue;
+                            }
 
                             result.add(new MessageTarget(context, threaded, sourceAccount, sourceFolder, targetAccount, targetFolder).setCopy(copy));
                         }
@@ -4715,11 +4742,9 @@ public class FragmentMessages extends FragmentBase
                 long aid = args.getLong("account");
                 String thread = args.getString("thread");
                 long id = args.getLong("id");
+                boolean move_thread_sent = args.getBoolean("move_thread_sent");
                 boolean filter_archive = args.getBoolean("filter_archive");
                 long tid = args.getLong("folder");
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean move_thread_sent = prefs.getBoolean("move_thread_sent", false);
 
                 ArrayList<MessageTarget> result = new ArrayList<>();
 
@@ -7171,7 +7196,7 @@ public class FragmentMessages extends FragmentBase
             args.putLong("account", account);
             args.putString("thread", thread);
             args.putLong("id", id);
-            args.putBoolean("thread_sent_trash", thread_sent_trash);
+            args.putBoolean("move_thread_sent", move_thread_sent);
             args.putBoolean("filter_archive", filter_archive);
 
             new SimpleTask<ActionData>() {
@@ -7180,7 +7205,7 @@ public class FragmentMessages extends FragmentBase
                     long aid = args.getLong("account");
                     String thread = args.getString("thread");
                     long id = args.getLong("id");
-                    boolean thread_sent_trash = args.getBoolean("thread_sent_trash");
+                    boolean move_thread_sent = args.getBoolean("move_thread_sent");
                     boolean filter_archive = args.getBoolean("filter_archive");
 
                     EntityAccount account;
@@ -7217,7 +7242,7 @@ public class FragmentMessages extends FragmentBase
                             if (!folder.read_only &&
                                     !EntityFolder.DRAFTS.equals(folder.type) &&
                                     !EntityFolder.OUTBOX.equals(folder.type) &&
-                                    (!EntityFolder.SENT.equals(folder.type) || thread_sent_trash) &&
+                                    (!EntityFolder.SENT.equals(folder.type) || move_thread_sent) &&
                                     !EntityFolder.TRASH.equals(folder.type) &&
                                     !EntityFolder.JUNK.equals(folder.type))
                                 trashable = true;
