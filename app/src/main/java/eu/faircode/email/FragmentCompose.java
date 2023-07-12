@@ -5496,7 +5496,7 @@ public class FragmentCompose extends FragmentBase {
                                         String from = ((InternetAddress) preferred).getAddress();
                                         String name = ((InternetAddress) preferred).getPersonal();
                                         EntityLog.log(context, "Preferred=" + name + " <" + from + ">");
-                                        if (TextUtils.isEmpty(from) || from.equals(recognized.email))
+                                        if (TextUtils.isEmpty(from) || from.equalsIgnoreCase(recognized.email))
                                             from = null;
                                         if (!recognized.reply_extra_name ||
                                                 TextUtils.isEmpty(name) || name.equals(recognized.name))
