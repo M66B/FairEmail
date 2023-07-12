@@ -339,11 +339,32 @@ class Shortcuts {
     }
 
     static boolean can(Context context) {
-        return ShortcutManagerCompat.isRequestPinShortcutSupported(context.getApplicationContext());
+        try {
+            return ShortcutManagerCompat.isRequestPinShortcutSupported(context.getApplicationContext());
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                java.lang.IllegalStateException: User 10 is locked or not running
+                        at android.os.Parcel.createExceptionOrNull(Parcel.java:2394)
+                        at android.os.Parcel.createException(Parcel.java:2370)
+                        at android.os.Parcel.readException(Parcel.java:2353)
+                        at android.os.Parcel.readException(Parcel.java:2295)
+                        at android.content.pm.IShortcutService$Stub$Proxy.isRequestPinItemSupported(IShortcutService.java:1253)
+                        at android.content.pm.ShortcutManager.isRequestPinShortcutSupported(ShortcutManager.java:542)
+                        at androidx.core.content.pm.ShortcutManagerCompat$$InternalSyntheticApiModelOutline$1$8e6ce95527e1069e0571cafad12c473a04f9df49417a7f35f83879c4b29aa5f0$2.m(ShortcutManagerCompat)
+                        at androidx.core.content.pm.ShortcutManagerCompat.isRequestPinShortcutSupported(ShortcutManagerCompat:155)
+                        at eu.faircode.email.Shortcuts.can(Shortcuts:342)
+             */
+            return false;
+        }
     }
 
     static void requestPinShortcut(Context context, ShortcutInfoCompat info) {
-        ShortcutManagerCompat.requestPinShortcut(context.getApplicationContext(), info, null);
+        try {
+            ShortcutManagerCompat.requestPinShortcut(context.getApplicationContext(), info, null);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     static void cleanup(Context context) {
