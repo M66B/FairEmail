@@ -1395,6 +1395,10 @@ This might apply to notification sounds and vibrations too.
 
 Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
 
+Some apps create a notification channel for each selectable color and let you (indirectly) select these channels when selecting a color.
+Since FairEmail uses notification channels for configurable notification properties for accounts, folders and senders ([see this FAQ](#user-content-faq145)),
+this is not a feasible solution for FairEmail because it would result in an unmanageable number of notification channels.
+
 <br />
 
 <a name="faq22"></a>
