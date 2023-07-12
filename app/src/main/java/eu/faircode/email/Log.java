@@ -2515,6 +2515,8 @@ public class Log {
                                 " ops=" + db.operation().getOperationCount(account.id) +
                                 " schedule=" + (!ignore_schedule) + (ignore_schedule ? " !!!" : "") +
                                 " unmetered=" + unmetered + (unmetered ? " !!!" : "") +
+                                " quota=" + (account.quota_usage == null ? "-" : Helper.humanReadableByteCount(account.quota_usage)) +
+                                "/" + (account.quota_limit == null ? "-" : Helper.humanReadableByteCount(account.quota_limit)) +
                                 " " + account.state +
                                 (account.last_connected == null ? "" : " " + dtf.format(account.last_connected)) +
                                 (account.error == null ? "" : "\r\n" + account.error) +
@@ -2575,6 +2577,7 @@ public class Log {
                                         EmailService.getEncryptionName(identity.encryption) +
                                         (identity.insecure ? " !!!" : "") +
                                         " ops=" + db.operation().getOperationCount(EntityOperation.SEND) +
+                                        " max=" + (identity.max_size == null ? "-" : Helper.humanReadableByteCount(identity.max_size)) +
                                         " " + identity.state +
                                         (identity.last_connected == null ? "" : " " + dtf.format(identity.last_connected)) +
                                         (identity.error == null ? "" : "\r\n" + identity.error) +
