@@ -5700,7 +5700,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     List<String> result = new ArrayList<>();
                     if (folders != null)
                         for (EntityFolder folder : folders)
-                            if (EntityFolder.USER.equals(folder.type) && BuildConfig.DEBUG)
+                            if (EntityFolder.USER.equals(folder.type))
                                 result.add(folder.name);
 
                     Collator collator = Collator.getInstance(Locale.getDefault());
