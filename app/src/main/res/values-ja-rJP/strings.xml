@@ -577,7 +577,6 @@
     <string name="title_advanced_autoread">移動するメッセージを自動で既読にする</string>
     <string name="title_advanced_autounstar">移動するメッセージのスターを自動で取り消す</string>
     <string name="title_advanced_reset_importance">移動するメッセージの重要度をリセット</string>
-    <string name="title_advanced_thread_sent_trash">会話をごみ箱に移動するとき、送信済みメッセージもごみ箱に移動</string>
     <string name="title_advanced_star_snoozed">スヌーズしたメッセージに自動でスターを付ける</string>
     <string name="title_advanced_auto_important">スター付きメッセージを自動で重要にマーク</string>
     <string name="title_advanced_cancel_snooze">メッセージを移動するときスヌーズをキャンセル</string>

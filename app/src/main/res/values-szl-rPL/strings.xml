@@ -618,13 +618,13 @@
     <string name="title_advanced_autoread">Automatycznie oznacz wiadomość jako przeczytaną przy przenoszeniu</string>
     <string name="title_advanced_autounstar">Automatycznie usuwaj gwiazdki z wiadomości przy ich przenoszeniu</string>
     <string name="title_advanced_reset_importance">Resetuj ważność przy przenoszeniu wiadomości</string>
-    <string name="title_advanced_thread_sent_trash">Podczas usuwania konwersacji do kosza, usuń również wysłane wiadomości</string>
     <string name="title_advanced_star_snoozed">Automatycznie dodawaj gwiazdkę przy usypianiu wiadomości</string>
     <string name="title_advanced_auto_important">Wiadomości oznaczone gwiazdką automatycznie ustaw jako ważne</string>
     <string name="title_advanced_cancel_snooze">Anuluj drzemkę przy przenoszeniu wiadomości</string>
     <string name="title_advanced_auto_block_sender">Automatycznie blokuj nadawcę podczas zgłaszania spamu</string>
     <string name="title_advanced_auto_hide_answer">Automatycznie ukryj przycisk odpowiedzi podczas przewijania</string>
     <string name="title_advanced_swipe_reply">Przesuń rozszerzone wiadomości w prawo, aby odpowiedzieć</string>
+    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Podczas przenoszenia konwersacji, przenoś wszystkie wiadomości</string>
     <string name="title_advanced_move_thread_sent">Podczas przenoszenia konwersacji, przeniesione zostaną również wysłane wiadomości</string>
     <string name="title_advanced_default_snooze">Domyślny czas odłożenia/opóźnienia</string>
     <string name="title_advanced_default_folder">Wybierz folder domyślny</string>
@@ -1938,6 +1938,7 @@
     <string name="title_debug_info_remark">Opisz proszę problem i wskaż moment jego wystąpienia:</string>
     <string name="title_crash_info_remark">Opisz proszę, co robisz, w momencie awarii aplikacji:</string>
     <string name="title_debug_info_issue">Opis problemu (wymagany)</string>
+    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Istotne są szczegóły, takie jak: szacunkowy czas wystąpienia problemu, dokładny komunikat o błędzie itp.</string>
     <string name="title_debug_info_contact">Ostatnio kontaktowaliśmy się w sprawie tego problemu</string>
     <string name="title_unexpected_info_remark">Opisz proszę, co robiłeś, w momencie awarii aplikacji:</string>
     <string name="title_widget_title_count">Liczba nowych wiadomości</string>

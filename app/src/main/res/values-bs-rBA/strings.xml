@@ -600,13 +600,13 @@
     <string name="title_advanced_autoread">Automatski označi poruke kao pročitane pri premještanju istih</string>
     <string name="title_advanced_autounstar">Automatski ukloni zvjezdicu s poruka pri premještanju istih</string>
     <string name="title_advanced_reset_importance">Resetuj važnost pri premještanju poruka</string>
-    <string name="title_advanced_thread_sent_trash">Pri brisanju konverzacije, također izbriši i poslane poruke</string>
     <string name="title_advanced_star_snoozed">Automatski dodaj zvjezdicu za odložene poruke</string>
     <string name="title_advanced_auto_important">Automatski označi poruke sa zvjezdicom kao važne</string>
     <string name="title_advanced_cancel_snooze">Otkaži odgađanje pri premještanju poruka</string>
     <string name="title_advanced_auto_block_sender">Automatski blokiraj pošiljaoca kada se prijavljuje spam</string>
     <string name="title_advanced_auto_hide_answer">Automatski sakrij dugme za odgovor prilikom pomjeranja</string>
     <string name="title_advanced_swipe_reply">Prstom prevucite proširene poruke na desno za odgovor</string>
+    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Pri premještanju konverzacije, premjesti sve poruke</string>
     <string name="title_advanced_move_thread_sent">Pri premještanju konverzacije, premjesti i poslane poruke</string>
     <string name="title_advanced_default_snooze">Zadano vrijeme odlaganja/odgađanja</string>
     <string name="title_advanced_default_folder">Izaberite zadani folder</string>
@@ -1924,6 +1924,7 @@
     <string name="title_debug_info_remark">Molimo, opišite problem i navedite vrijeme kada se dogodio:</string>
     <string name="title_crash_info_remark">Molimo, opišite šta ste radili kada se aplikacija srušila:</string>
     <string name="title_debug_info_issue">Opis problema (neophodno)</string>
+    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Detalji, poput procjenjenog vremena problema, tačne poruke o greškama itd., su značajni</string>
     <string name="title_debug_info_contact">Nedavno smo kontaktirani o ovom problemu</string>
     <string name="title_unexpected_info_remark">Molimo, opišite šta ste radili kada se pojavila greška:</string>
     <string name="title_widget_title_count">Brojač novih poruka</string>

@@ -585,7 +585,6 @@
     <string name="title_advanced_autoread">Marcar mensaje como leído automáticamente al moverlo</string>
     <string name="title_advanced_autounstar">Eliminar automáticamente la estrella de los mensajes al ser movidos</string>
     <string name="title_advanced_reset_importance">Restablecer importancia al mover mensajes</string>
-    <string name="title_advanced_thread_sent_trash">Al eliminar una conversación, también eliminar mensajes enviados</string>
     <string name="title_advanced_star_snoozed">Destacar automáticamente al posponer mensajes</string>
     <string name="title_advanced_auto_important">Hacer que los mensajes destacados sean importantes automáticamente</string>
     <string name="title_advanced_cancel_snooze">Cancelar posponer al mover mensajes</string>

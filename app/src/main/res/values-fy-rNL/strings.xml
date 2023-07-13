@@ -71,6 +71,10 @@
         <item quantity="one">Ferwiderje %1$d berjocht permanint?</item>
         <item quantity="other">%1$d berjochten permanint fuortsmite?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Ien bylage</item>
+        <item quantity="other">%1$d bylagen</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Behannelje %1$d berjocht as ûnpost?</item>
         <item quantity="other">%1$d berjochten as net-winske behannelje?</item>
@@ -514,6 +518,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_preview_lines">Oantal foarbyldrigels</string>
     <string name="title_advanced_align_header">Trefwurden, foarbyldtekst en notysjes fertikaal útlynje</string>
     <string name="title_advanced_addresses">Adresgegevens standert útklappe</string>
+    <string name="title_advanced_hide_attachments">Bylagen standert ynklappe</string>
     <string name="title_advanced_unzip">Ynhâld fan komprimearre bylagen toane</string>
     <string name="title_advanced_attachments_alt">Bylagen nei de berjochttekst toane</string>
     <string name="title_advanced_thumbnails">Miniatuerôfbylding nei de berjochttekst toane</string>
@@ -584,13 +589,13 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_autoread">By ferpleatsen fan berjochten automatysk as lêzen markearje</string>
     <string name="title_advanced_autounstar">By ferpleatsen fan berjochten automatysk stjerren fuortsmite</string>
     <string name="title_advanced_reset_importance">By ferpleatsen fan berjochten wichtichheid opnij ynstelle</string>
-    <string name="title_advanced_thread_sent_trash">Wannear in petear fuortsmiten wurdt, ek ferstjoerde berjochten fuortsmite</string>
     <string name="title_advanced_star_snoozed">By slommerjen fan berjochten automatysk stjer tafoegje</string>
     <string name="title_advanced_auto_important">Berjochten mei stjer automatyske wichtich meitsje</string>
     <string name="title_advanced_cancel_snooze">By it ferpleatsen fan berjochten it slommerjen annulearje</string>
     <string name="title_advanced_auto_block_sender">By it rapportearjen fan net-winske de ôfstjoerder automatysk blokkearje</string>
     <string name="title_advanced_auto_hide_answer">Antwurdknop automatysk ferstopje by skowen</string>
     <string name="title_advanced_swipe_reply">Fei útklapte berjochten nei rjochts om te beäntwurdzjen</string>
+    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Wannear’t in petear ferpleatst wurdt, alle berjochten ferpleatse</string>
     <string name="title_advanced_move_thread_sent">Wannear’t in petear ferpleatst wurdt, ek ferstjoerde berjochten ferpleatse</string>
     <string name="title_advanced_default_snooze">Standert slommerdoer/fertragingstiid</string>
     <string name="title_advanced_default_folder">Standert map selektearje</string>
@@ -1901,6 +1906,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_debug_info_remark">Beskriuw it probleem en jou de tiid fan it probleem oan:</string>
     <string name="title_crash_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
     <string name="title_debug_info_issue">Probleembeskriuwing (fereaske)</string>
+    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Details, lykas de skatte tiid fan it probleem, de eksakte flatermelding, ensfh., binne wichtich</string>
     <string name="title_debug_info_contact">Wy hawwe koartlyn kontakt han oer dit probleem</string>
     <string name="title_unexpected_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
     <string name="title_widget_title_count">Oantal nije berjochten</string>

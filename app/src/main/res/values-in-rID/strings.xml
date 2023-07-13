@@ -575,13 +575,13 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_autoread">Secara otomatis menandai pesan telah terbaca saat memindahkan pesan</string>
     <string name="title_advanced_autounstar">Secara otomatis menghapus bintang saat memindahkan pesan</string>
     <string name="title_advanced_reset_importance">Atur ulang \'label penting\' saat pesan di pindah</string>
-    <string name="title_advanced_thread_sent_trash">Saat menghapus percakapan, hapus juga pesan yang terkirim</string>
     <string name="title_advanced_star_snoozed">Secara otomatis menambahkan bintang saat penundaan pesan</string>
     <string name="title_advanced_auto_important">Secara otomatis pesan berbintang menjadi pesan penting</string>
     <string name="title_advanced_cancel_snooze">Batalkan tunda untuk memindahkan pesan</string>
     <string name="title_advanced_auto_block_sender">Otomatis blok pengirim saat melaporkan spam</string>
     <string name="title_advanced_auto_hide_answer">Otomatis sembunyikan tombol jawab saat scroll</string>
     <string name="title_advanced_swipe_reply">Usap ke kanan pesan yang dibentangkan untuk balas</string>
+    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Saat memindahkan percakapan, pindahkan semua pesan</string>
     <string name="title_advanced_move_thread_sent">Saat memindahkan percakapan, pindahkan juga pesan terkirim</string>
     <string name="title_advanced_default_snooze">Waktu tunda/jeda bawaan</string>
     <string name="title_advanced_default_folder">Pilih folder default</string>
@@ -1890,6 +1890,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_debug_info_remark">Silakan jelaskan masalahnya dan waktu terjadinya masalah:</string>
     <string name="title_crash_info_remark">Mohon jelaskan apa yang sedang Anda lakukan saat aplikasi berhenti:</string>
     <string name="title_debug_info_issue">Deskripsi masalah (wajib diisi)</string>
+    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Detail, seperti perkiraan waktu masalah, pesan error yang muncul, dll. diperlukan</string>
     <string name="title_debug_info_contact">Kami baru-baru ini memiliki kontak tentang masalah ini</string>
     <string name="title_unexpected_info_remark">Mohon jelaskan apa yang sedang Anda lakukan saat Anda mendapat pesan kesalahan:</string>
     <string name="title_widget_title_count">Hitung pesan baru</string>

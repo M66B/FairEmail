@@ -71,6 +71,10 @@
         <item quantity="one">%1$d mesaj birdəfəlik silinsin?</item>
         <item quantity="other">%1$d mesaj birdəfəlik silinsin?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Bir qoşma</item>
+        <item quantity="other">%1$d qoşma</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">%1$d mesaj spam hesab edilsin?</item>
         <item quantity="other">%1$d mesaj spam hesab edilsin?</item>
@@ -372,6 +376,7 @@
     <string name="title_advanced_suggest_frequently">Təklif edilən ünvanları istifadə tezliyinə görə sırala</string>
     <string name="title_advanced_alt_re_fwd">Alternativ cavab/yönləndirmə prefiksi</string>
     <string name="title_advanced_send_chips">Ünvan şarlarını göstər</string>
+    <string name="title_advanced_send_nav_color">Alt əməliyyat sətri üçün kimlik rəngini istifadə et</string>
     <string name="title_advanced_send_reminders">Xatırladıcıları göstər</string>
     <string name="title_advanced_send_delayed">Göndərilən mesajların gecikməsi</string>
     <string name="title_advanced_attach_new">Paylaşılan ünvanlar və fayllar üçün yeni bir qaralama mesajı yaradın</string>
@@ -515,6 +520,7 @@
     <string name="title_advanced_preview_lines">Önbaxış sətir sayı</string>
     <string name="title_advanced_align_header">Açar sözləri, önbaxış mətnlərini və qeydləri şaquli hizala</string>
     <string name="title_advanced_addresses">Ünvan təfsilatlarını ilkin olaraq göstər</string>
+    <string name="title_advanced_hide_attachments">Qoşmaları ilkin olaraq yığcamlaşdır</string>
     <string name="title_advanced_unzip">Sıxışdırılmış qoşmaların məzmunlarını göstər</string>
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
     <string name="title_advanced_thumbnails">Mesaj mətnindən sonra təsvir eskizlərini göstər</string>
@@ -585,13 +591,13 @@
     <string name="title_advanced_autoread">Mesajları köçürəndə mesajları avtomatik oxundu kimi işarələ</string>
     <string name="title_advanced_autounstar">Mesajları köçürəndə ulduzları mesajlardan avtomatik çıxart</string>
     <string name="title_advanced_reset_importance">Mesajları köçürəndə vacibliyi sıfırla</string>
-    <string name="title_advanced_thread_sent_trash">Bir danışıq tullantı qutusuna atılanda, göndərilən mesajlarda tullantı qutusuna atılacaq</string>
     <string name="title_advanced_star_snoozed">Mesajları ertələyəndə avtomatik ulduz əlavə et</string>
     <string name="title_advanced_auto_important">Ulduzlu mesajları avtomatik olaraq vacib et</string>
     <string name="title_advanced_cancel_snooze">Hərəkətli mesajlarda ertələməni ləğv et</string>
     <string name="title_advanced_auto_block_sender">Spam bildirirkən göndərəni avtomatik əngəllə</string>
     <string name="title_advanced_auto_hide_answer">Sürüşdürərkən cavablandırma düyməsini avtomatik gizlət</string>
     <string name="title_advanced_swipe_reply">Genişləndirilmiş mesajları cavablandırmaq üçün sağa sürüşdür</string>
+    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Bir danışığı daşıyanda, bütün mesajları da daşı</string>
     <string name="title_advanced_move_thread_sent">Bir danışıq daşınanda, göndərilmiş mesajlar da daşınır</string>
     <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
     <string name="title_advanced_default_folder">İlkin qovluğu seçin</string>
@@ -667,6 +673,7 @@
     <string name="title_advanced_sign_default">İlkin olaraq imzala</string>
     <string name="title_advanced_encrypt_default">İlkin olaraq şifrələ</string>
     <string name="title_advanced_encrypt_auto">Bütün alıcıların açarları əlçatan olduqda avtomatik şifrələ</string>
+    <string name="title_advanced_auto_verify">İmzalı mesajları avtomatik təsdiqlə</string>
     <string name="title_advanced_auto_decrypt">Mesajların şifrələrini avtomatik aç</string>
     <string name="title_advanced_auto_undo_decrypt">Danışığı bağlayanda şifrə açmanı geri al</string>
     <string name="title_advanced_openpgp">OpenPGP provayderi</string>
@@ -1908,6 +1915,7 @@
     <string name="title_debug_info_remark">Zəhmət olmasa probleminizi təsvir edin və problemin vaxtını göstərin:</string>
     <string name="title_crash_info_remark">Zəhmət olmasa tətbiq çökərkən tətbiqdə nə etdiyinizi təsvir edin:</string>
     <string name="title_debug_info_issue">Problem açıqlaması (tələb olunur)</string>
+    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Problemin təxmini müddəti, tam xəta mesajı və sair kimi detallar vacibdir</string>
     <string name="title_debug_info_contact">Təzəlikcə bu problemlə bağlı əlaqə saxladıq</string>
     <string name="title_unexpected_info_remark">Zəhmət olmasa xəta alanda nə etdiyinizi izah edin:</string>
     <string name="title_widget_title_count">Yeni mesaj sayı</string>

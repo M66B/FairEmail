@@ -584,7 +584,6 @@
     <string name="title_advanced_autoread">Merkitse viestit luetuiksi siirrettäessä</string>
     <string name="title_advanced_autounstar">Poista tähti viestejä siirrettäessä</string>
     <string name="title_advanced_reset_importance">Palauta oma tärkeysjärjestys oletusasetukseen siirrettäessä</string>
-    <string name="title_advanced_thread_sent_trash">Siirrä roskakoriin myös lähetetyt viestit, kun keskustelu siirretään roskakoriin</string>
     <string name="title_advanced_star_snoozed">Lisää tähti torkutettaessa viestejä</string>
     <string name="title_advanced_auto_important">Merkitse tähdelliset viestit tärkeiksi</string>
     <string name="title_advanced_cancel_snooze">Peruuta torkku, kun viestejä siirrettään</string>

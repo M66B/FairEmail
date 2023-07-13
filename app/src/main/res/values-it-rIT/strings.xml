@@ -591,13 +591,13 @@
     <string name="title_advanced_autoread">Contrassegna automaticamente i messaggi come letti allo spostamento</string>
     <string name="title_advanced_autounstar">Rimuovi automaticamente le stelle dai messaggi al loro spostamento</string>
     <string name="title_advanced_reset_importance">Ripristina l\'importanza allo spostamento dei messaggi</string>
-    <string name="title_advanced_thread_sent_trash">Cestinando una conversazionwe, elimina anche i messaggi inviati</string>
     <string name="title_advanced_star_snoozed">Aggiungi automaticamente la stella posticipando i messaggi</string>
     <string name="title_advanced_auto_important">Rendi automaticamente importanti i messaggi stellati</string>
     <string name="title_advanced_cancel_snooze">Annulla posticipazione allo spostamento dei messaggi</string>
     <string name="title_advanced_auto_block_sender">Blocca automaticamente il mittente alla segnalazione di spam</string>
     <string name="title_advanced_auto_hide_answer">Nascondi automaticamente il pulsante di risposta durante lo scorrimento</string>
     <string name="title_advanced_swipe_reply">Scorri verso destra i messaggi estesi per rispondere</string>
+    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Spostando una conversazione, sposta tutti i messaggi</string>
     <string name="title_advanced_move_thread_sent">Spostando una conversazione, sposta anche i messaggi inviati</string>
     <string name="title_advanced_default_snooze">Tempo di posticipazione/ritardo predefinito</string>
     <string name="title_advanced_default_folder">Seleziona la cartella predefinita</string>
@@ -1916,6 +1916,7 @@
     <string name="title_debug_info_remark">Sei pregato di descrivere il problema e indicare quando si è verificato:</string>
     <string name="title_crash_info_remark">Sei pregato di descrivere cosa stavi facendo quando l\'app si arrestata in modo anomalo:</string>
     <string name="title_debug_info_issue">Descrizione del problema (obbligatoria)</string>
+    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">I dettagli come il tempo stimato del problema, il messaggio di errore esatto, ecc., sono importanti</string>
     <string name="title_debug_info_contact">Abbiamo recentemente appreso riguardo questo problema</string>
     <string name="title_unexpected_info_remark">Sei pregato di descrivere cosa stavi facendo quando hai ottenuto l\'errore:</string>
     <string name="title_widget_title_count">Conteggio nuovi messaggi</string>

@@ -89,6 +89,12 @@
         <item quantity="many">Выдаліць %1$d паведамленняў назаўсёды?</item>
         <item quantity="other">Выдаліць %1$d паведамленняў назаўсёды?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Адно ўкладанне</item>
+        <item quantity="few">%1$d укладанні</item>
+        <item quantity="many">%1$d укладанняў</item>
+        <item quantity="other">%1$d укладанняў</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Пазначыць %1$d паведамленне як спам?</item>
         <item quantity="few">Пазначыць %1$d паведамленні як спам?</item>
@@ -543,6 +549,7 @@
     <string name="title_advanced_preview_lines">Колькасць радкоў для папярэдняга прагляду</string>
     <string name="title_advanced_align_header">Вертыкальнае выраўноўванне ключавых слоў, папярэдні прагляд тэксту і нататак</string>
     <string name="title_advanced_addresses">Разгортваць звесткі аб адрасе па змаўчанні</string>
+    <string name="title_advanced_hide_attachments">Згортваць укладанні па змаўчанні</string>
     <string name="title_advanced_unzip">Паказваць змест сціснутых укладанняў</string>
     <string name="title_advanced_attachments_alt">Паказваць укладанні пасля тэксту паведамлення</string>
     <string name="title_advanced_thumbnails">Паказваць мініяцюры выяў пасля тэксту паведамлення</string>
@@ -613,13 +620,13 @@
     <string name="title_advanced_autoread">Аўтаматычна адзначаць паведамленні як прачытаныя ў пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_autounstar">Аўтаматычна выдаляць пазнакі пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_reset_importance">Скідваць важнасць паведамленняў пры іх перамяшчэнні</string>
-    <string name="title_advanced_thread_sent_trash">Пры выдаленні размовы таксама выдаляць адпраўленыя паведамленні</string>
     <string name="title_advanced_star_snoozed">Аўтаматычна пазначаць адкладзеныя паведамленні</string>
     <string name="title_advanced_auto_important">Аўтаматычна рабіць важнымі пазначаныя паведамленні</string>
     <string name="title_advanced_cancel_snooze">Адмяняць адкладанне пры перамяшчэнні паведамленняў</string>
     <string name="title_advanced_auto_block_sender">Аўтаматычна блакіраваць адпраўніка пры паведамленні пра спам</string>
     <string name="title_advanced_auto_hide_answer">Аўтаматычна хаваць кнопку адказу пры пракручванні</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
+    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Пры перамяшчэнні размовы перамяшчаць усе паведамленні</string>
     <string name="title_advanced_move_thread_sent">Пры перамяшчэнні размовы таксама перамяшчаць адпраўленыя паведамленні</string>
     <string name="title_advanced_default_snooze">Час адкладання/затрымкі па змаўчанні</string>
     <string name="title_advanced_default_folder">Выбраць папку па змаўчанні</string>
@@ -1939,6 +1946,7 @@
     <string name="title_debug_info_remark">Калі ласка, апішыце праблему і пазначце час узнікнення гэтай праблемы:</string>
     <string name="title_crash_info_remark">Калі ласка, апішыце, што вы рабілі, калі праграма выйшла з ладу:</string>
     <string name="title_debug_info_issue">Апісанне праблемы (абавязкова)</string>
+    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Звесткі, такія як прыблізны час узнікнення праблемы, дакладнае паведамленне аб памылцы і г. д., з\'яўляюцца важнымі</string>
     <string name="title_debug_info_contact">Мы нядаўна абмяркоўвалі гэту праблему</string>
     <string name="title_unexpected_info_remark">Калі ласка, апішыце, што вы рабілі, калі з\'явілася памылка:</string>
     <string name="title_widget_title_count">Колькасць новых паведамленняў</string>
