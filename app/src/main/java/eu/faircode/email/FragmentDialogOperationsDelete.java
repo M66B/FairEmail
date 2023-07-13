@@ -142,6 +142,9 @@ public class FragmentDialogOperationsDelete extends FragmentDialogBase {
                                     db.endTransaction();
                                 }
 
+                                if (deleted > 0)
+                                    ServiceSynchronize.reload(context, null, true, "deleted operations");
+
                                 return deleted;
                             }
 
