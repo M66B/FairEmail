@@ -4277,6 +4277,7 @@ class Core {
         boolean notify_known = prefs.getBoolean("notify_known", false);
         boolean native_dkim = prefs.getBoolean("native_dkim", false);
         boolean experiments = prefs.getBoolean("experiments", false);
+        boolean mdn = prefs.getBoolean("mdn", experiments);
         boolean pro = ActivityBilling.isPro(context);
 
         long uid = ifolder.getUID(imessage);
@@ -4614,7 +4615,7 @@ class Core {
             List<Header> headers = (needsHeaders ? helper.getAllHeaders() : null);
             String body = (needsBody ? parts.getHtml(context, download_plain) : null);
 
-            if (experiments && helper.isReport())
+            if (mdn && helper.isReport())
                 try {
                     MessageHelper.Report r = parts.getReport();
                     boolean client_id = prefs.getBoolean("client_id", true);
