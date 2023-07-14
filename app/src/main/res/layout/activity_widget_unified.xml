@@ -225,6 +225,16 @@
             app:layout_constraintTop_toBottomOf="@id/cbAvatars" />
 
         <CheckBox
+            android:id="@+id/cbCaption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_widget_caption"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbAccountName" />
+
+        <CheckBox
             android:id="@+id/cbRefresh"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -232,7 +242,7 @@
             android:checked="true"
             android:text="@string/title_widget_refresh"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbAccountName" />
+            app:layout_constraintTop_toBottomOf="@id/cbCaption" />
 
         <CheckBox
             android:id="@+id/cbCompose"

@@ -72,6 +72,7 @@ public class ActivityWidgetUnified extends ActivityBase {
     private TextView tvSubjectLinesHint;
     private CheckBox cbAvatars;
     private CheckBox cbAccountName;
+    private CheckBox cbCaption;
     private CheckBox cbRefresh;
     private CheckBox cbCompose;
     private Button btnSave;
@@ -114,6 +115,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         int subject_lines = prefs.getInt("widget." + appWidgetId + ".subject_lines", 1);
         boolean avatars = prefs.getBoolean("widget." + appWidgetId + ".avatars", false);
         boolean account_name = prefs.getBoolean("widget." + appWidgetId + ".account_name", true);
+        boolean caption = prefs.getBoolean("widget." + appWidgetId + ".caption", true);
         boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
         boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
 
@@ -139,6 +141,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         tvSubjectLinesHint = findViewById(R.id.tvSubjectLinesHint);
         cbAvatars = findViewById(R.id.cbAvatars);
         cbAccountName = findViewById(R.id.cbAccountName);
+        cbCaption = findViewById(R.id.cbCaption);
         cbRefresh = findViewById(R.id.cbRefresh);
         cbCompose = findViewById(R.id.cbCompose);
         btnSave = findViewById(R.id.btnSave);
@@ -282,6 +285,7 @@ public class ActivityWidgetUnified extends ActivityBase {
                 editor.putInt("widget." + appWidgetId + ".subject_lines", spSubjectLines.getSelectedItemPosition() + 1);
                 editor.putBoolean("widget." + appWidgetId + ".avatars", cbAvatars.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".account_name", cbAccountName.isChecked());
+                editor.putBoolean("widget." + appWidgetId + ".caption", cbCaption.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".refresh", cbRefresh.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".compose", cbCompose.isChecked());
                 editor.putInt("widget." + appWidgetId + ".version", BuildConfig.VERSION_CODE);
@@ -416,6 +420,7 @@ public class ActivityWidgetUnified extends ActivityBase {
         cbAccountName.setChecked(account_name);
         spSubjectLines.setSelection(subject_lines - 1);
         tvSubjectLinesHint.setText(getString(R.string.title_advanced_preview_lines_hint, NF.format(HtmlHelper.PREVIEW_SIZE)));
+        cbCaption.setChecked(caption);
         cbRefresh.setChecked(refresh);
         cbCompose.setChecked(compose);
 

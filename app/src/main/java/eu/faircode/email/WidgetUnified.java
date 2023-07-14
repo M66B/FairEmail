@@ -56,6 +56,7 @@ public class WidgetUnified extends AppWidgetProvider {
             boolean separators = prefs.getBoolean("widget." + appWidgetId + ".separators", true);
             int font = prefs.getInt("widget." + appWidgetId + ".font", 0);
             int padding = prefs.getInt("widget." + appWidgetId + ".padding", 0);
+            boolean caption = prefs.getBoolean("widget." + appWidgetId + ".caption", true);
             boolean refresh = prefs.getBoolean("widget." + appWidgetId + ".refresh", false);
             boolean compose = prefs.getBoolean("widget." + appWidgetId + ".compose", false);
             int version = prefs.getInt("widget." + appWidgetId + ".version", 0);
@@ -99,10 +100,15 @@ public class WidgetUnified extends AppWidgetProvider {
             int px = getPaddingPx(padding, context);
             views.setViewPadding(R.id.title, px, px, px, px);
 
-            if (name == null)
-                views.setTextViewText(R.id.title, context.getString(R.string.title_folder_unified));
-            else
-                views.setTextViewText(R.id.title, name);
+            if (caption) {
+                if (name == null)
+                    views.setTextViewText(R.id.title, context.getString(R.string.title_folder_unified));
+                else
+                    views.setTextViewText(R.id.title, name);
+            } else
+                views.setTextViewText(R.id.title, null);
+            views.setViewVisibility(R.id.title, caption || refresh || compose ? View.VISIBLE : View.GONE);
+            views.setViewVisibility(R.id.padding, caption || refresh || compose ? View.GONE : View.VISIBLE);
 
             views.setOnClickPendingIntent(R.id.title, pi);
 

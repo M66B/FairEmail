@@ -54,6 +54,12 @@
         </LinearLayout>
 
         <FrameLayout
+            android:id="@+id/padding"
+            android:layout_width="match_parent"
+            android:layout_height="9dp"
+            android:visibility="gone" />
+
+        <FrameLayout
             android:id="@+id/separator"
             android:layout_width="match_parent"
             android:layout_height="1dp"
