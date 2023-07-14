@@ -1916,7 +1916,7 @@
     <string name="title_debug_info_remark">Sei pregato di descrivere il problema e indicare quando si è verificato:</string>
     <string name="title_crash_info_remark">Sei pregato di descrivere cosa stavi facendo quando l\'app si arrestata in modo anomalo:</string>
     <string name="title_debug_info_issue">Descrizione del problema (obbligatoria)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">I dettagli come il tempo stimato del problema, il messaggio di errore esatto, ecc., sono importanti</string>
+    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">I dettagli, come il tempo stimato del problema, il messaggio d\'errore esatto, etc., sono importanti</string>
     <string name="title_debug_info_contact">Abbiamo recentemente appreso riguardo questo problema</string>
     <string name="title_unexpected_info_remark">Sei pregato di descrivere cosa stavi facendo quando hai ottenuto l\'errore:</string>
     <string name="title_widget_title_count">Conteggio nuovi messaggi</string>
