@@ -1826,9 +1826,7 @@ public class Log {
             draft.msgid = EntityMessage.generateMessageId();
             draft.thread = draft.msgid;
             draft.to = new Address[]{myAddress()};
-            draft.subject = context.getString(R.string.app_name) + " " +
-                    BuildConfig.VERSION_NAME + BuildConfig.REVISION +
-                    " debug info - " + source;
+            draft.subject = context.getString(R.string.app_name) + " " + getVersionInfo(context) + " debug info - " + source;
             draft.received = new Date().getTime();
             draft.seen = true;
             draft.ui_seen = true;
@@ -1975,6 +1973,16 @@ public class Log {
         }
     }
 
+    private static String getVersionInfo(Context context) {
+        return String.format("%s%s/%d%s%s%s\r\n",
+                BuildConfig.VERSION_NAME,
+                BuildConfig.REVISION,
+                Helper.hasValidFingerprint(context) ? 1 : 3,
+                BuildConfig.PLAY_STORE_RELEASE ? "p" : "",
+                BuildConfig.DEBUG ? "d" : "",
+                ActivityBilling.isPro(context) ? "+" : "-");
+    }
+
     private static StringBuilder getAppInfo(Context context) {
         StringBuilder sb = new StringBuilder();
 
@@ -1988,14 +1996,7 @@ public class Log {
         String installer = pm.getInstallerPackageName(BuildConfig.APPLICATION_ID);
 
         // Get version info
-        sb.append(String.format("%s %s/%d%s%s%s%s\r\n",
-                context.getString(R.string.app_name),
-                BuildConfig.VERSION_NAME + BuildConfig.REVISION,
-                Helper.hasValidFingerprint(context) ? 1 : 3,
-                BuildConfig.PLAY_STORE_RELEASE ? "p" : "",
-                Helper.hasPlayStore(context) ? "s" : "",
-                BuildConfig.DEBUG ? "d" : "",
-                ActivityBilling.isPro(context) ? "+" : "-"));
+        sb.append(String.format("%s %s\r\n", context.getString(R.string.app_name), getVersionInfo(context)));
         sb.append(String.format("Package: %s uid: %d\r\n",
                 BuildConfig.APPLICATION_ID, android.os.Process.myUid()));
         sb.append(String.format("Android: %s (SDK device=%d target=%d)\r\n",
@@ -2009,6 +2010,7 @@ public class Log {
 
         sb.append(String.format("Installer: %s\r\n", installer));
         sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
+        sb.append(String.format("Play Store: %s\r\n", Helper.hasPlayStore(context)));
         sb.append(String.format("Updated: %s\r\n", new Date(Helper.getUpdateTime(context))));
         sb.append(String.format("Last cleanup: %s\r\n", new Date(last_cleanup)));
         sb.append(String.format("Now: %s\r\n", new Date()));
