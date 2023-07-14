@@ -3127,10 +3127,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             HtmlHelper.highlightSearched(context, document, searched);
 
                         boolean overview_mode = prefs.getBoolean("overview_mode", false);
-                        boolean override_width = prefs.getBoolean("override_width", false);
                         HtmlHelper.setViewport(document, overview_mode);
-                        if (override_width)
-                            HtmlHelper.overrideWidth(document);
                         if (inline || show_images)
                             HtmlHelper.embedInlineImages(context, message.id, document, show_images);
 
@@ -4550,9 +4547,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_fit_width, 2, R.string.title_fit_width)
                         .setCheckable(true)
                         .setChecked(prefs.getBoolean("overview_mode", false));
-                popupMenu.getMenu().add(Menu.NONE, R.string.title_disable_widths, 3, R.string.title_disable_widths)
-                        .setCheckable(true)
-                        .setChecked(prefs.getBoolean("override_width", false));
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_monospaced_pre, 4, R.string.title_monospaced_pre)
                         .setCheckable(true)
                         .setChecked(prefs.getBoolean("monospaced_pre", false));
@@ -4565,15 +4559,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             onActionOpenFull(message);
                             return true;
                         } else if (itemId == R.string.title_fit_width ||
-                                itemId == R.string.title_disable_widths ||
                                 itemId == R.string.title_monospaced_pre) {
                             boolean enabled = !item.isChecked();
                             item.setChecked(enabled);
 
                             if (itemId == R.string.title_fit_width)
                                 prefs.edit().putBoolean("overview_mode", enabled).apply();
-                            else if (itemId == R.string.title_disable_widths)
-                                prefs.edit().putBoolean("override_width", enabled).apply();
                             else if (itemId == R.string.title_monospaced_pre)
                                 prefs.edit().putBoolean("monospaced_pre", enabled).apply();
 
@@ -7234,10 +7225,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (BuildConfig.DEBUG) {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         boolean overview_mode = prefs.getBoolean("overview_mode", false);
-                        boolean override_width = prefs.getBoolean("override_width", false);
                         HtmlHelper.setViewport(d, overview_mode);
-                        if (override_width)
-                            HtmlHelper.overrideWidth(d);
                     }
 
                     d.head().prependElement("meta").attr("charset", "utf-8");

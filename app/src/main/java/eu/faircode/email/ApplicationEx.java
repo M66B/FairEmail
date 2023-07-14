@@ -725,6 +725,11 @@ public class ApplicationEx extends Application
             if (thread_sent_trash)
                 editor.putBoolean("move_thread_sent", true);
             editor.remove("thread_sent_trash");
+        } else if (version < 2086) {
+            boolean override_width = prefs.getBoolean("override_width", false);
+            if (override_width)
+                editor.putBoolean("overview_mode", true);
+            editor.remove("override_width");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

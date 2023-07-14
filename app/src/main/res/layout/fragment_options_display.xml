@@ -1756,29 +1756,6 @@
                     app:layout_constraintTop_toBottomOf="@id/swOverviewMode" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swOverrideWidth"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:text="@string/title_advanced_override_width"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvOverViewModeHint"
-                    app:switchPadding="12dp" />
-
-                <TextView
-                    android:id="@+id/tvOverrideWidthHint"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_override_width_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swOverrideWidth" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swContrast"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1786,7 +1763,7 @@
                     android:text="@string/title_advanced_contrast"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvOverrideWidthHint"
+                    app:layout_constraintTop_toBottomOf="@id/tvOverViewModeHint"
                     app:switchPadding="12dp" />
 
                 <TextView
