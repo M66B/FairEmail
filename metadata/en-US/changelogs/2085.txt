@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Ubirajara
 
+Next version
+
+* Added option to disable message list widget title
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2085 - 2023-07-14
 
 * Improved Android 14 compatibility
