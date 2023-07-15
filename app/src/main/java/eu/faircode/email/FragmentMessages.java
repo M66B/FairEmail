@@ -7325,6 +7325,9 @@ public class FragmentMessages extends FragmentBase
     }
 
     private void updateCompose() {
+        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            return;
+
         if (!accessibility &&
                 (viewType == AdapterMessage.ViewType.UNIFIED ||
                         viewType == AdapterMessage.ViewType.FOLDER))
