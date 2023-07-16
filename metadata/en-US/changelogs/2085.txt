@@ -10,6 +10,7 @@ Next version
 
 * Added option to disable message list widget title
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated translations
 
 1.2085 - 2023-07-14
