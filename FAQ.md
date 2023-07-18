@@ -194,7 +194,8 @@ The cause might be [changes in Android 7 Nougat](https://ericsink.com/entries/sq
 * &#x2714; ~~Move notification action~~
 * &#x2714; ~~S/MIME support~~
 * &#x2714; ~~Search for settings~~
-* &#x2714; Many more ...
+* POP3 folders
+* Bottom action bar
 
 Anything on this list is in random order and *might* be added in the near future.
 
