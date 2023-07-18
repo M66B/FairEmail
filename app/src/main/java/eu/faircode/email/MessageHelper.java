@@ -3800,7 +3800,7 @@ public class MessageHelper {
                             Log.w(ex);
                         }
 
-                        if (cs == null) {
+                        if (cs == null || StandardCharsets.ISO_8859_1.equals(cs)) {
                             // <meta charset="utf-8" />
                             // <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                             String excerpt = result.substring(0, Math.min(MAX_META_EXCERPT, result.length()));
@@ -3826,34 +3826,37 @@ public class MessageHelper {
                                         if (StandardCharsets.US_ASCII.equals(c))
                                             break;
 
-                                        // Check if really UTF-8
-                                        if (StandardCharsets.UTF_8.equals(c) && !CharsetHelper.isUTF8(result)) {
-                                            Log.w("Charset meta=" + meta + " !isUTF8");
-                                            break;
-                                        }
-
                                         // 16 bits charsets cannot be converted to 8 bits
                                         if (CHARSET16.contains(c)) {
                                             Log.w("Charset meta=" + meta);
                                             break;
                                         }
 
-                                        Charset detected = CharsetHelper.detect(result, c);
-                                        if (c.equals(detected))
+                                        // Check if really UTF-8
+                                        if (StandardCharsets.UTF_8.equals(c) && !CharsetHelper.isUTF8(result)) {
+                                            Log.w("Charset meta=" + meta + " !isUTF8");
                                             break;
+                                        }
+
+                                        // Check if same as detected charset
+                                        Charset detected = CharsetHelper.detect(result, c);
+                                        if (!c.equals(detected)) {
+                                            Log.w("Charset meta=" + meta + " !is" + detected);
+                                            break;
+                                        }
 
                                         // Common detected/meta
                                         // - windows-1250, windows-1257 / ISO-8859-1
                                         // - ISO-8859-1 / windows-1252
                                         // - US-ASCII / windows-1250, windows-1252, ISO-8859-1, ISO-8859-15, UTF-8
 
-                                        if (StandardCharsets.US_ASCII.equals(detected) &&
-                                                ("ISO-8859-15".equals(c.name()) ||
-                                                        "windows-1250".equals(c.name()) ||
-                                                        "windows-1252".equals(c.name()) ||
-                                                        StandardCharsets.UTF_8.equals(c) ||
-                                                        StandardCharsets.ISO_8859_1.equals(c)))
-                                            break;
+                                        //if (StandardCharsets.US_ASCII.equals(detected) &&
+                                        //        ("ISO-8859-15".equals(c.name()) ||
+                                        //                "windows-1250".equals(c.name()) ||
+                                        //                "windows-1252".equals(c.name()) ||
+                                        //                StandardCharsets.UTF_8.equals(c) ||
+                                        //                StandardCharsets.ISO_8859_1.equals(c)))
+                                        //    break;
 
                                         // Convert
                                         Log.w("Converting detected=" + detected + " meta=" + c);
