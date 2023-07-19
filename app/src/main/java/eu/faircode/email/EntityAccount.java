@@ -181,7 +181,8 @@ public class EntityAccount extends EntityOrder implements Serializable {
     }
 
     boolean isOutlook() {
-        return "outlook.office365.com".equalsIgnoreCase(host);
+        return ("outlook.office365.com".equalsIgnoreCase(host) ||
+                "imap-mail.outlook.com".equals(host));
     }
 
     static boolean isOutlook(String id) {
