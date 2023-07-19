@@ -6,6 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
+### 1.2087 - 2023-07-19
+
+* Fixed duplicate sent messages for Outlook in some cases
+* Small improvements and minor bug fixes
+
 ### 1.2086 - 2023-07-19
 
 * Added option to disable message list widget title
