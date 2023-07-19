@@ -3848,13 +3848,13 @@ public class MessageHelper {
                                         // - ISO-8859-1 / windows-1252
                                         // - US-ASCII / windows-1250, windows-1252, ISO-8859-1, ISO-8859-15, UTF-8
 
-                                        //if (StandardCharsets.US_ASCII.equals(detected) &&
-                                        //        ("ISO-8859-15".equals(c.name()) ||
-                                        //                "windows-1250".equals(c.name()) ||
-                                        //                "windows-1252".equals(c.name()) ||
-                                        //                StandardCharsets.UTF_8.equals(c) ||
-                                        //                StandardCharsets.ISO_8859_1.equals(c)))
-                                        //    break;
+                                        if (StandardCharsets.US_ASCII.equals(detected) &&
+                                                ("ISO-8859-15".equals(c.name()) ||
+                                                        "windows-1250".equals(c.name()) ||
+                                                        "windows-1252".equals(c.name()) ||
+                                                        StandardCharsets.UTF_8.equals(c) ||
+                                                        StandardCharsets.ISO_8859_1.equals(c)))
+                                            break;
 
                                         // Convert
                                         Log.w("Converting detected=" + detected + " meta=" + c);
