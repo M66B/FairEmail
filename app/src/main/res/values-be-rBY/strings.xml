@@ -626,7 +626,7 @@
     <string name="title_advanced_auto_block_sender">Аўтаматычна блакіраваць адпраўніка пры паведамленні пра спам</string>
     <string name="title_advanced_auto_hide_answer">Аўтаматычна хаваць кнопку адказу пры пракручванні</string>
     <string name="title_advanced_swipe_reply">Для адказу правядзіце пальцам управа па разгорнутым паведамленні</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Пры перамяшчэнні размовы перамяшчаць усе паведамленні</string>
+    <string name="title_advanced_move_thread_all">Пры перамяшчэнні размовы перамяшчаць усе паведамленні</string>
     <string name="title_advanced_move_thread_sent">Пры перамяшчэнні размовы таксама перамяшчаць адпраўленыя паведамленні</string>
     <string name="title_advanced_default_snooze">Час адкладання/затрымкі па змаўчанні</string>
     <string name="title_advanced_default_folder">Выбраць папку па змаўчанні</string>
@@ -1946,7 +1946,7 @@
     <string name="title_debug_info_remark">Калі ласка, апішыце праблему і пазначце час узнікнення гэтай праблемы:</string>
     <string name="title_crash_info_remark">Калі ласка, апішыце, што вы рабілі, калі праграма выйшла з ладу:</string>
     <string name="title_debug_info_issue">Апісанне праблемы (абавязкова)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Звесткі, такія як прыблізны час узнікнення праблемы, дакладнае паведамленне аб памылцы і г. д., з\'яўляюцца важнымі</string>
+    <string name="title_debug_info_issue_remark">Звесткі, такія як прыблізны час узнікнення праблемы, дакладнае паведамленне аб памылцы і г. д., з\'яўляюцца важнымі</string>
     <string name="title_debug_info_contact">Мы нядаўна абмяркоўвалі гэту праблему</string>
     <string name="title_unexpected_info_remark">Калі ласка, апішыце, што вы рабілі, калі з\'явілася памылка:</string>
     <string name="title_widget_title_count">Колькасць новых паведамленняў</string>
@@ -1970,6 +1970,7 @@
     <string name="title_widget_subject_lines">Максімальная колькасць радкоў у тэме</string>
     <string name="title_widget_avatars">Паказваць аватары кантактаў</string>
     <string name="title_widget_account_name">Паказаць імя ўліковага запісу</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Паказаць загаловак</string>
     <string name="title_widget_refresh">Паказваць кнопку абнаўлення паведамленняў</string>
     <string name="title_widget_compose">Паказаць кнопку для стварэння новага паведамлення</string>
     <string name="title_widget_background">Колер фону</string>

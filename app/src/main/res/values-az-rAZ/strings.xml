@@ -597,7 +597,7 @@
     <string name="title_advanced_auto_block_sender">Spam bildirirkən göndərəni avtomatik əngəllə</string>
     <string name="title_advanced_auto_hide_answer">Sürüşdürərkən cavablandırma düyməsini avtomatik gizlət</string>
     <string name="title_advanced_swipe_reply">Genişləndirilmiş mesajları cavablandırmaq üçün sağa sürüşdür</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Bir danışığı daşıyanda, bütün mesajları da daşı</string>
+    <string name="title_advanced_move_thread_all">Bir danışığı daşıyanda, bütün mesajları da daşı</string>
     <string name="title_advanced_move_thread_sent">Bir danışıq daşınanda, göndərilmiş mesajlar da daşınır</string>
     <string name="title_advanced_default_snooze">İlkin ertələmə/gecikmə vaxtı</string>
     <string name="title_advanced_default_folder">İlkin qovluğu seçin</string>
@@ -1915,7 +1915,7 @@
     <string name="title_debug_info_remark">Zəhmət olmasa probleminizi təsvir edin və problemin vaxtını göstərin:</string>
     <string name="title_crash_info_remark">Zəhmət olmasa tətbiq çökərkən tətbiqdə nə etdiyinizi təsvir edin:</string>
     <string name="title_debug_info_issue">Problem açıqlaması (tələb olunur)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Problemin təxmini müddəti, tam xəta mesajı və sair kimi detallar vacibdir</string>
+    <string name="title_debug_info_issue_remark">Problemin təxmini müddəti, tam xəta mesajı və sair kimi detallar vacibdir</string>
     <string name="title_debug_info_contact">Təzəlikcə bu problemlə bağlı əlaqə saxladıq</string>
     <string name="title_unexpected_info_remark">Zəhmət olmasa xəta alanda nə etdiyinizi izah edin:</string>
     <string name="title_widget_title_count">Yeni mesaj sayı</string>
@@ -1939,6 +1939,7 @@
     <string name="title_widget_subject_lines">Mövzu sətrinin maksimum sayı</string>
     <string name="title_widget_avatars">Əlaqə avatarlarını göstər</string>
     <string name="title_widget_account_name">Hesab adını göstər</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Başlığı göstər</string>
     <string name="title_widget_refresh">Mesajları təzələ düyməsini göstər</string>
     <string name="title_widget_compose">Yeni mesaj yarat düyməsini göstər</string>
     <string name="title_widget_background">Arxaplan rəngi</string>

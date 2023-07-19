@@ -582,7 +582,7 @@
     <string name="title_advanced_auto_block_sender">报告垃圾邮件时自动屏蔽发件人</string>
     <string name="title_advanced_auto_hide_answer">在滚动时自动隐藏回复按钮</string>
     <string name="title_advanced_swipe_reply">右滑展开的邮件进行回复</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">移动对话时，移动所有消息</string>
+    <string name="title_advanced_move_thread_all">移动对话时，移动所有消息</string>
     <string name="title_advanced_move_thread_sent">移动会话时也移动已发送的邮件</string>
     <string name="title_advanced_default_snooze">默认打盹/延迟时间</string>
     <string name="title_advanced_default_folder">选择默认文件夹</string>
@@ -1893,7 +1893,7 @@
     <string name="title_debug_info_remark">请描述问题及问题发生的时间：</string>
     <string name="title_crash_info_remark">请描述应用崩溃时您的操作</string>
     <string name="title_debug_info_issue">问题描述(必填)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">详细信息，例如问题的估计时间、确切的错误信息等等都是重要的。</string>
+    <string name="title_debug_info_issue_remark">详细信息，例如问题的估计时间、确切的错误信息等等都是重要的。</string>
     <string name="title_debug_info_contact">别人最近因为这个问题联系过我们</string>
     <string name="title_unexpected_info_remark">请描述应用出错时您的操作:</string>
     <string name="title_widget_title_count">新消息计数</string>
@@ -1917,6 +1917,7 @@
     <string name="title_widget_subject_lines">最大主题行数</string>
     <string name="title_widget_avatars">显示联系人头像</string>
     <string name="title_widget_account_name">显示账户名称</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">显示标题</string>
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>
     <string name="title_widget_background">背景颜色</string>

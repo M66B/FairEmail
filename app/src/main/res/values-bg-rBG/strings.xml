@@ -194,6 +194,7 @@
     <string name="title_setup_defaults">Възстановяване по подразбиране</string>
     <string name="title_setup_reset_questions">Отказване на запитването</string>
     <string name="title_setup_reset_general">Общи въпроси</string>
+    <string name="title_setup_reset_files">Преглед на файловете</string>
     <string name="title_setup_reset_images">Показване на изображения</string>
     <string name="title_setup_reset_full">Показване на оригиналните съобщения</string>
     <string name="title_advanced_hint_title">Разширени настройки</string>
@@ -215,6 +216,8 @@
     <string name="title_advanced_optimize">Автоматично оптимизиране</string>
     <string name="title_advanced_always">Получаване съобщения от тези акаунти винаги</string>
     <string name="title_advanced_schedule">График</string>
+    <string name="title_advanced_schedule_workdays">Работни дни</string>
+    <string name="title_advanced_schedule_weekend">Уикенд</string>
     <string name="title_advanced_advanced">Разширени</string>
     <string name="title_advanced_quick_sync">Бързо синхронизиране</string>
     <string name="title_advanced_no_date">Съобщения без дата</string>
@@ -238,11 +241,13 @@
     <string name="title_advanced_suggest_frequently">Сортиране на предложените адреси по използваемост</string>
     <string name="title_advanced_send_reminders">Показване на напомняния</string>
     <string name="title_advanced_send_delayed">Отложено изпращане на съобщение</string>
+    <string name="title_advanced_compose_color">Стандартен цвят на текста</string>
     <string name="title_advanced_compose_font">Шрифт по подразбиране</string>
     <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
     <string name="title_advanced_extended_reply">Използвай разширено заглавие за отговор/препращане</string>
     <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
     <string name="title_advanced_resize_reply">Преоразмерете изображенията в текста за отговор</string>
+    <string name="title_advanced_resize_paste">Преоразмеряване на поставените образи</string>
     <string name="title_advanced_signature_location">Положение на подписа</string>
     <string name="title_advanced_signature_new">Употреба на подпис за нови съобщения</string>
     <string name="title_advanced_signature_reply">Употреба на подпис при отговор</string>
@@ -272,10 +277,12 @@
     <string name="title_advanced_caption_message">Съобщение</string>
     <string name="title_advanced_caption_message_header">Заглавка на съобщението</string>
     <string name="title_advanced_caption_message_body">Тяло на съобщението</string>
+    <string name="title_advanced_caption_file">Файл</string>
     <string name="title_advanced_portrait">Режим портрет</string>
     <string name="title_advanced_landscape">Режим пейзаж</string>
     <string name="title_advanced_two_row">Употреба на два реда</string>
     <string name="title_advanced_two_col">Употреба на две колони</string>
+    <string name="title_advanced_open_pane">Начало с два реда или две колони</string>
     <string name="title_advanced_nav_options">Показване на възможности на менюто за навигиране</string>
     <string name="title_advanced_nav_pin">Закачане на менюто за навигиране</string>
     <string name="title_advanced_nav_hide_title">Скривате ли възможности на менюто за навигиране?</string>
@@ -340,6 +347,7 @@
     <string name="title_advanced_double_back">Двойно назад за изход</string>
     <string name="title_advanced_language_detection">Разпознаване езика на текста на съобщението</string>
     <string name="title_advanced_pull_refresh">Плъзни надолу за опресняване</string>
+    <string name="title_advanced_pull_all">Синхрон на всички папки</string>
     <string name="title_advanced_autoscroll">Превърти в началото при нови съобщения</string>
     <string name="title_advanced_double_tap">Двойно натискане за маркиране на съобщението прочетено/непрочетено</string>
     <string name="title_advanced_swipenav">Плъзни наляво/надясно за следващ/предишен разговор</string>
@@ -358,7 +366,7 @@
     <string name="title_advanced_reset_importance">Нулирай важността при преместване на съобщения</string>
     <string name="title_advanced_star_snoozed">Автоматично добавяне на звезда при отхвърлени съобщения</string>
     <string name="title_advanced_auto_important">Автоматично прави съобщенията със звезда важни</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Премествайки разговор, премествате всички съобщения</string>
+    <string name="title_advanced_move_thread_all">Премествайки разговор, премествате всички съобщения</string>
     <string name="title_advanced_notifications">Управление на известията</string>
     <string name="title_advanced_notifications_default">Канал по подразбиране</string>
     <string name="title_advanced_badge">Покажети иконата на стартовия панел с брой нови съобщения</string>
@@ -388,6 +396,7 @@
     <string name="title_advanced_notifications_background">Използвайте фонова услуга за синхронизиране на съобщения</string>
     <string name="title_advanced_notifications_background_hint">Услугата за фон може да бъде спряна от Android по всяко време, но не изисква известие за лентата на състоянието</string>
     <string name="title_advanced_confirm_links">Потвърдете отварянето на връзката</string>
+    <string name="title_advanced_confirm_files">Потвърждаване преглеждане на файловете</string>
     <string name="title_advanced_ask_images">Потвърдете показването на изображения</string>
     <string name="title_advanced_confirm_html">Показване на преформатирани съобщения по подразбиране</string>
     <string name="title_advanced_hide_timezone">Изпращане на съобщения без данни за часовата зона</string>
@@ -417,7 +426,9 @@
     <string name="title_advanced_classification">Класифициране на съобщенията</string>
     <string name="title_advanced_language">Език</string>
     <string name="title_advanced_language_system">Система</string>
+    <string name="title_advanced_lt_user">Потребителско име (незадължително)</string>
     <string name="title_advanced_deepl">Интегриране с DeepL</string>
+    <string name="title_advanced_openai_model">Модел</string>
     <string name="title_advanced_sdcard">Желая да употребявам sd карта</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
     <string name="title_advanced_experiments">Пробване на експерименталните функции</string>
@@ -452,6 +463,7 @@
     <string name="title_advanced_startup_hint">Дълго натиснете която и да е папка в списъка с папки, за да я добавите или премахнете от списъка на обединените папки</string>
     <string name="title_advanced_date_hint">Съобщенията са групирани по дата само ако са сортирани по време</string>
     <string name="title_advanced_navbar_colorize_hint">За да работи това зависи от версията и варианта на Android</string>
+    <string name="title_advanced_split_hint">Това ще раздели екрана на части</string>
     <string name="title_advanced_threading_hint">Групови съобщения, свързани помежду си</string>
     <string name="title_advanced_highlight_hint">Акцентираният цвят на темата ще бъде използван за подчертаване</string>
     <string name="title_advanced_privacy_risk">Възможно е да съществува риск за поверителността</string>
@@ -595,6 +607,7 @@
     <string name="title_edit_contact">Редактиране на контакт</string>
     <string name="title_contact_email">Имейл</string>
     <string name="title_contact_name">Име</string>
+    <string name="title_contact_group">Група</string>
     <string name="title_create_sub_folder">Създаване на подпапка</string>
     <string name="title_empty_trash_ask">Да се изтрият ли всички съобщения за постоянно?</string>
     <string name="title_empty_spam_ask">Да се изтрият ли всички спам съобщения за постоянно?</string>
@@ -610,6 +623,7 @@
     <string name="title_show_folders">Показвана не скрити папки</string>
     <string name="title_show_flagged">Показване на броя на съобщенията със звезда</string>
     <string name="title_subscribed_only">Само абонирани</string>
+    <string name="title_apply_to_all">Прилагане към всички</string>
     <string name="title_hide_folder">Скриване на папката</string>
     <string name="title_unified_folder">Показване в обединената входяща поща</string>
     <string name="title_navigation_folder">Покажи в менюто за навигация</string>
@@ -711,6 +725,7 @@
     <string name="title_move_to_account">Премести в %1$s &#8230;</string>
     <string name="title_report_spam">Третиране като спам</string>
     <string name="title_delete_permanently">Изтрийте за постоянно</string>
+    <string name="title_delete_attachments">Изтриване на прикаченото</string>
     <string name="title_snooze">Дрямка &#8230;</string>
     <string name="title_archive">Архив</string>
     <string name="title_reply">Отговори</string>
@@ -748,12 +763,14 @@
     <string name="title_ask_delete">Изтрий съобщението завинаги?</string>
     <string name="title_ask_delete_answer">Изтриване на шаблонът за отговор трайно?</string>
     <string name="title_ask_delete_rule">Изтриване на правилото за постоянно?</string>
+    <string name="title_ask_delete_attachments">Премахвате ли всички прикачвания?</string>
     <string name="title_ask_discard">Отхвърляте ли черновата?</string>
     <string name="title_ask_show_html">При показването на оригиналното съобщение може да изтече чувствителна поверителна информация</string>
     <string name="title_ask_show_html_remark">Показване на оригиналното съобщение с тъмен фон не е възможно, защото може да причини невидими тъмни текстове и изображения</string>
     <string name="title_ask_show_html_images">Винаги показвайте изображенията при показване на оригиналните съобщения</string>
     <string name="title_ask_show_image">При показването на изображението може да изтече поверителна информация</string>
     <string name="title_ask_show_image_hint">Изображенията които са разпознати като проследяващи няма да се показват</string>
+    <string name="title_ask_view_file">Да се преглежда ли файлът %1$s?</string>
     <string name="title_ask_delete_local">Да се изтрият ли локалните съобщения? Съобщенията ще останат на отдалечения сървър.</string>
     <string name="title_ask_help">Помогнете за подобряване на FairEmail</string>
     <string name="title_ask_reporting">Изпрати репорт с грешки?</string>
@@ -838,6 +855,7 @@
     <string name="title_translate_configure">Конфигуриране &#8230;</string>
     <string name="title_translate_key">Въведете ключ</string>
     <string name="title_translating">Превод &#8230;</string>
+    <string name="title_translate_replace">Замяна на изходния текст с преведен текст</string>
     <string name="title_edit_plain_text">Редактирай като обикновен текст</string>
     <string name="title_edit_formatted_text">Редактиране като преформатиран текст</string>
     <string name="title_select_certificate">Изберете публичен ключ</string>
@@ -926,6 +944,7 @@
     <string name="title_search_flag_size">размер &gt; %1$s</string>
     <string name="title_search_device">Търсене в устройството</string>
     <string name="title_search_server">Търсене в сървъра</string>
+    <string name="title_search_server_wait">Чака се сървърът</string>
     <string name="title_search_in">Търсене в</string>
     <string name="title_search_sender">Търсене на подател</string>
     <string name="title_save_search_name">Име</string>
@@ -1272,6 +1291,7 @@
     <string name="title_widget_font_size">Големина на текста</string>
     <string name="title_widget_padding">Размер на отстъпа</string>
     <string name="title_widget_semi_transparent">Полупрозрачен фон</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Показване на заглавието</string>
     <string name="title_widget_background">Цвят на фона</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важно</string>

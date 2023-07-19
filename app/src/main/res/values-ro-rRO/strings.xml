@@ -610,7 +610,7 @@
     <string name="title_advanced_auto_block_sender">Blochează automat expeditorul când raportezi spam-ul</string>
     <string name="title_advanced_auto_hide_answer">Ascunde automat butonul de răspuns la derulare</string>
     <string name="title_advanced_swipe_reply">Glisați mesajele extinse spre dreapta pentru a răspunde</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Când mutați o conversație, mutați toate mesajele</string>
+    <string name="title_advanced_move_thread_all">Când mutați o conversație, mutați toate mesajele</string>
     <string name="title_advanced_move_thread_sent">Atunci când mutați o conversație, mutați și mesajele trimise</string>
     <string name="title_advanced_default_snooze">Timpul implicit de amânare/prelungire</string>
     <string name="title_advanced_default_folder">Selectați directorul implicit</string>
@@ -1924,7 +1924,7 @@
     <string name="title_debug_info_remark">Va rog sa descrieți problema și să indicați momentul când s-a produs:</string>
     <string name="title_crash_info_remark">Vă rugăm să descrieți ce făceați atunci când aplicația s-a oprit:</string>
     <string name="title_debug_info_issue">Descrierea problemei (necesar)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Detaliile, cum ar fi momentul estimat al problemei, mesajul de eroare exact etc., sunt importante</string>
+    <string name="title_debug_info_issue_remark">Detaliile, cum ar fi momentul estimat al problemei, mesajul de eroare exact etc., sunt importante</string>
     <string name="title_debug_info_contact">Recent am avut contact cu această problemă</string>
     <string name="title_unexpected_info_remark">Vă rugăm să descrieți ce faceți atunci când ați primit eroarea:</string>
     <string name="title_widget_title_count">Contor mesaje noi</string>
@@ -1948,6 +1948,7 @@
     <string name="title_widget_subject_lines">Numărul maxim de linii de subiect</string>
     <string name="title_widget_avatars">Afișați avatarele de contact</string>
     <string name="title_widget_account_name">Arată numele contului</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Arată titlul</string>
     <string name="title_widget_refresh">Buton de afișare a mesajelor de reîmprospătare</string>
     <string name="title_widget_compose">Afișați butonul de redactare a unui mesaj nou</string>
     <string name="title_widget_background">Culoare fundal</string>

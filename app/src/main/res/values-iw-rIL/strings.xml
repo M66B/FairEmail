@@ -625,7 +625,7 @@
     <string name="title_advanced_auto_block_sender">לחסום את השולח אוטומטית בעת דיווח על ספאם</string>
     <string name="title_advanced_auto_hide_answer">להסתיר את כפתור המענה אוטומטית בעת הגלילה</string>
     <string name="title_advanced_swipe_reply">החלקת הודעות מורחבות לימין פותחת מענה</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">בעת העברת דיון, להעביר את כל ההודעות</string>
+    <string name="title_advanced_move_thread_all">בעת העברת דיון, להעביר את כל ההודעות</string>
     <string name="title_advanced_move_thread_sent">בעת העברת דיון, להעביר גם את ההודעות שנשלחו</string>
     <string name="title_advanced_default_snooze">זמן בררת המחדל לדחיית/השהיית תזכורות</string>
     <string name="title_advanced_default_folder">בחירת תיקיית ברירת מחדל</string>
@@ -1943,7 +1943,7 @@
     <string name="title_debug_info_remark">נא לתאר את התקלה ולציין את מועדה:</string>
     <string name="title_crash_info_remark">נא לתאר באנגלית מה עשית כשהיישומון קרס:</string>
     <string name="title_debug_info_issue">תיאור התקלה (חובה)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">פרטים כגון זמן תקלה משוערך, הודעת השגיאה המדויקת וכו׳ הם חיוניים</string>
+    <string name="title_debug_info_issue_remark">פרטים כגון זמן תקלה משוערך, הודעת השגיאה המדויקת וכו׳ הם חיוניים</string>
     <string name="title_debug_info_contact">לאחרונה יצרנו קשר סביב הבעיה הזאת</string>
     <string name="title_unexpected_info_remark">נא לתאר באנגלית מה עשית כשהופיעה השגיאה:</string>
     <string name="title_widget_title_count">מונה הודעות חדשות</string>
@@ -1967,6 +1967,7 @@
     <string name="title_widget_subject_lines">מספר שורות הנושא המרבי</string>
     <string name="title_widget_avatars">הצגת תמונות אנשי קשר</string>
     <string name="title_widget_account_name">הצגת שם החשבון</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">הצגת כותרת</string>
     <string name="title_widget_refresh">הצגת כפתור רענון הודעות</string>
     <string name="title_widget_compose">הצגת כפתור כתיבת הודעה חדשה</string>
     <string name="title_widget_background">צבע הרקע</string>

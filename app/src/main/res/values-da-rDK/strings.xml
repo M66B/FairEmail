@@ -590,7 +590,7 @@
     <string name="title_advanced_auto_block_sender">Blokér automatisk afsenderen ved spamanmeldelse</string>
     <string name="title_advanced_auto_hide_answer">Skjul automatisk svarknappen når der scrolles</string>
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Når en samtale flyttes, flyt alle beskeder</string>
+    <string name="title_advanced_move_thread_all">Når en samtale flyttes, flyt alle beskeder</string>
     <string name="title_advanced_move_thread_sent">Når en samtale flyttes, flyt også sendte beskeder</string>
     <string name="title_advanced_default_snooze">Standard slumre-/forsinkelsestid</string>
     <string name="title_advanced_default_folder">Vælg standardmappe</string>
@@ -1905,7 +1905,7 @@
     <string name="title_debug_info_remark">Beskriv venligst problemet og angiv tidspunktet for problemet:</string>
     <string name="title_crash_info_remark">Beskriv venligst, hvad du foretog dig, da app\'en gik ned:</string>
     <string name="title_debug_info_issue">Problematikbeskrivelse (obligatorisk)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Detaljer, såsom anslåede tidspunkt for problematikken, den nøjagtige fejlmeddelelse mv., er vigtige</string>
+    <string name="title_debug_info_issue_remark">Detaljer, såsom anslåede tidspunkt for problematikken, den nøjagtige fejlmeddelelse mv., er vigtige</string>
     <string name="title_debug_info_contact">Der har over tid indsendt flere fejlanmeldelser med denne mangel</string>
     <string name="title_unexpected_info_remark">Beskriv, hvad du foretog dig, da fejlen opstod:</string>
     <string name="title_widget_title_count">Ny besked-tæller</string>
@@ -1929,6 +1929,7 @@
     <string name="title_widget_subject_lines">Maks. antal emnelinjer</string>
     <string name="title_widget_avatars">Vis kontaktavatarer</string>
     <string name="title_widget_account_name">Vis kontonavn</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Vis titel</string>
     <string name="title_widget_refresh">Vis Opfrisk beskeder-knap</string>
     <string name="title_widget_compose">Vis Skriv ny besked-knap</string>
     <string name="title_widget_background">Baggrundsfarve</string>

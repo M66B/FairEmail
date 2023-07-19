@@ -447,7 +447,7 @@
     <string name="title_delete_operation_deleted">%1$dଟି ପ୍ରକ୍ରିୟା ଵିଲୋପ ହେଲା</string>
     <string name="title_delete_contacts">ଦୃଶ୍ୟମାନ ସ୍ଥାନୀୟ ସମ୍ପର୍କଗୁଡ଼ିକ ବିଲୋପ କରିବେ କି?</string>
     <string name="title_no_operations">କୌଣସି ଵିଚାରାଧୀନ ପ୍ରକ୍ରିୟା ନାହିଁ</string>
-    <string name="title_check_operations">ସଞ୍ଚାଳନ ପାଇଁ ଯାଞ୍ଚ କରୁଛି</string>
+    <string name="title_check_operations">ପ୍ରକ୍ରିୟା ପାଇଁ ଯାଞ୍ଚ ଚାଲିଛି</string>
     <string name="title_hint_operations">ପ୍ରକ୍ରିୟା ଵିଲୋପ କରିବା ଫଳରେ ଵାର୍ତ୍ତାଗୁଡ଼ିକ ଅଦୃଶ୍ୟ ହୋଇପାରେ ଏଵଂ ସୀଙ୍କ୍ରୋନାଇଜେଶନ୍ ସମସ୍ୟା ଉପୁଜିପାରେ</string>
     <string name="title_op_title_raw">ଅପକ୍ୱ ଵାର୍ତ୍ତା ଡାଉନଲୋଡ୍ ହେଉଛି</string>
     <string name="title_folder_name">ଫୋଲ୍ଡର୍ ନାମ</string>
@@ -488,7 +488,7 @@
     <string name="title_importance_high">ଉଚ୍ଚ</string>
     <string name="title_search_in_text">ପାଠ୍ୟରେ ଖୋଜନ୍ତୁ &#8230;</string>
     <string name="title_resend">ପୁନଃପ୍ରେରଣ</string>
-    <string name="title_fetching_headers">ବାର୍ତ୍ତାର ଶୀର୍ଷଲେଖଗୁଡ଼ିକ ଡାଉନଲୋଡ୍ କରୁଛି &#8230;</string>
+    <string name="title_fetching_headers">ବାର୍ତ୍ତାର ଶୀର୍ଷଲେଖଗୁଡ଼ିକ ଡାଉନଲୋଡ୍ ହେଉଛି &#8230;</string>
     <string name="title_force_light">ହାଲୁକା ଥିମ୍ ବାଧ୍ୟ କରନ୍ତୁ</string>
     <string name="title_event">କ୍ୟାଲେଣ୍ଡରରେ ଯୋଗ କରନ୍ତୁ</string>
     <string name="title_pin">ସର୍ଟକଟ୍ ଯୋଡ଼ନ୍ତୁ</string>
@@ -728,7 +728,7 @@
     <string name="title_legend_p">ପୂର୍ବବର୍ତ୍ତୀ</string>
     <string name="title_legend_r">ପ୍ରତ୍ୟୁତ୍ତର</string>
     <string name="title_hint_important">ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ</string>
-    <string name="title_hint_battery">ଯେହେତୁ FairEmail ଡିଫଲ୍ଟ ଭାବରେ ସର୍ଵଦା ଵାର୍ତ୍ତା ଗ୍ରହଣ କରେ, ଆଣ୍ଡ୍ରଏଡ୍ ସବୁଵେଳେ ସକ୍ରିୟ ଥିବା ଭଳି FairEmailକୁ ରିପୋର୍ଟ କରିବ। ତେଣୁ ଏହା ଦେଖାଯାଏ ଯେପରି FairEmail ସର୍ଵଦା ବ୍ୟାଟେରୀ ପାୱାର ଵ୍ୟଵହାର କରୁଛି ଯଦିଓ ଵାସ୍ତଵରେ ଏହା ନୁହେଁ।</string>
+    <string name="title_hint_battery">ଯେହେତୁ FairEmail ଡିଫଲ୍ଟ ଭାବରେ ସର୍ଵଦା ଵାର୍ତ୍ତା ଗ୍ରହଣ କରେ, ଆଣ୍ଡ୍ରଏଡ୍ ସବୁଵେଳେ ସକ୍ରିୟ ଥିବା ଭଳି FairEmailକୁ ରିପୋର୍ଟ କରିବ। ଏଣୁ ଏପରି ମନହୁଏ ସତେ ଯେମିତି FairEmail ସର୍ଵଦା ବ୍ୟାଟେରୀ ପାୱାର ଵ୍ୟଵହାର କରୁଛି ଯଦିଓ ଵାସ୍ତଵରେ ଏହା ନୁହେଁ।</string>
     <string name="title_hint_contact_actions">ବିକଳ୍ପ ପାଇଁ ଲମ୍ବା ସ୍ପର୍ଶ କରନ୍ତୁ</string>
     <string name="title_remark_owner"><a href="https://ipinfo.io/">ipinfo.io</a>ରୁ ସୂଚନା ଆଦୟ କରାଯିବ</string>
     <string name="title_updated">ସଂସ୍କରଣ %1$s କୁ ଅପଡେଟ୍ ଉପଲବ୍ଧ ଅଛି</string>

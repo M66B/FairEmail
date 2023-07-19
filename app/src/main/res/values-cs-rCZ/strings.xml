@@ -625,7 +625,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_auto_block_sender">Automaticky zablokovat odesílatele při hlášení spamu</string>
     <string name="title_advanced_auto_hide_answer">Automaticky skrýt tlačítko odpovědi při posouvání</string>
     <string name="title_advanced_swipe_reply">Přejeďte rozbalené zprávy doprava pro odpověď</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Při přesunu konverzace přesuňte všechny zprávy</string>
+    <string name="title_advanced_move_thread_all">Při přesunu konverzace přesuňte všechny zprávy</string>
     <string name="title_advanced_move_thread_sent">Při přesunu konverzace také přesunout odeslané zprávy</string>
     <string name="title_advanced_default_snooze">Výchozí doba odložení/zpoždění</string>
     <string name="title_advanced_default_folder">Vybrat výchozí složku</string>
@@ -1939,7 +1939,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_debug_info_remark">Prosím, popište problém a uveďte čas, kdy k němu došlo:</string>
     <string name="title_crash_info_remark">Popište prosím, co jste dělali, když došlo k pádu aplikace:</string>
     <string name="title_debug_info_issue">Popis problému (povinné)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Důležité jsou podrobnosti, jako je odhadovaná doba problému, přesná chybová zpráva atd.,</string>
+    <string name="title_debug_info_issue_remark">Důležité jsou podrobnosti, jako je odhadovaná doba problému, přesná chybová zpráva atd.,</string>
     <string name="title_debug_info_contact">Nedávno jsme měli kontakt o tomto problému</string>
     <string name="title_unexpected_info_remark">Popište prosím, co jste dělali, když došlo k chybě:</string>
     <string name="title_widget_title_count">Počet nových zpráv</string>
@@ -1963,6 +1963,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_subject_lines">Maximální počet řádků předmětu</string>
     <string name="title_widget_avatars">Zobrazit avatary kontaktů</string>
     <string name="title_widget_account_name">Zobrazit název účtu</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Zobrazit název</string>
     <string name="title_widget_refresh">Zobrazit tlačítko pro obnovení zpráv</string>
     <string name="title_widget_compose">Zobrazit tlačítko pro vytvoření nové zprávy</string>
     <string name="title_widget_background">Barva pozadí</string>

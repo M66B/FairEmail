@@ -263,7 +263,7 @@
     <string name="title_setup_password_different">Lösenord matchar inte</string>
     <string name="title_setup_password_invalid">Felaktigt lösenord eller skadad inställningsfil</string>
     <string name="title_setup_import_accounts">Importera konton och identiteter</string>
-    <string name="title_setup_import_delete">Ta bort befintliga konton först</string>
+    <string name="title_setup_import_delete">Radera befintliga konton först</string>
     <string name="title_setup_import_rules">Importera filterregler</string>
     <string name="title_setup_import_contacts">Importera lokala kontakter</string>
     <string name="title_setup_import_answers">Importera svarsmallar</string>
@@ -593,7 +593,7 @@
     <string name="title_advanced_auto_block_sender">Blockera avsändaren automatiskt vid rapportering av skräppost</string>
     <string name="title_advanced_auto_hide_answer">Dölj svarsknappen automatiskt när du skrollar</string>
     <string name="title_advanced_swipe_reply">Svep expanderade meddelanden till höger för att svara</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Flytta alla meddelanden när en konversation flyttas</string>
+    <string name="title_advanced_move_thread_all">Flytta alla meddelanden när en konversation flyttas</string>
     <string name="title_advanced_move_thread_sent">När en konversation flyttas, flytta också skickade meddelanden</string>
     <string name="title_advanced_default_snooze">Standardlängd på slumra</string>
     <string name="title_advanced_default_folder">Välj standardmapp</string>
@@ -1168,7 +1168,7 @@
     <string name="title_copy">Kopiera &#8230;</string>
     <string name="title_copy_to">Kopiera till &#8230;</string>
     <string name="title_subscribe">Prenumerera</string>
-    <string name="title_delete">Ta bort</string>
+    <string name="title_delete">Radera</string>
     <string name="title_delete_all">Radera alla</string>
     <string name="title_more">Mer</string>
     <string name="title_less">Mindre</string>
@@ -1761,7 +1761,7 @@
     <string name="title_legend_sync_state">Synkroniseringstillstånd</string>
     <string name="title_legend_download_state">Hämtningstillstånd</string>
     <string name="title_legend_save">Spara</string>
-    <string name="title_legend_delete">Ta bort</string>
+    <string name="title_legend_delete">Radera</string>
     <string name="title_legend_count">Antal</string>
     <string name="title_legend_folder_type">Mapptyp</string>
     <string name="title_legend_enter">Öppna</string>
@@ -1901,13 +1901,13 @@
     <string name="title_rules_search_hint">Sök namn eller villkor</string>
     <string name="title_rules_export">Exportera regler</string>
     <string name="title_rules_import">Importera regler</string>
-    <string name="title_rules_delete_all">Ta bort alla regler</string>
-    <string name="title_rules_delete_all_confirm">Ta bort alla regler?</string>
+    <string name="title_rules_delete_all">Radera alla regler</string>
+    <string name="title_rules_delete_all_confirm">Radera alla regler?</string>
     <string name="title_debug_info">Felsökningsinformation</string>
     <string name="title_debug_info_remark">Beskriv problemet och ange tidpunkten för problemet:</string>
     <string name="title_crash_info_remark">Beskriv vad du gjorde när appen kraschade:</string>
     <string name="title_debug_info_issue">Beskrivning av problem (obligatoriskt)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Detaljer, såsom tiden då problemet inträffade, det exakta felmeddelandet, etc., är viktiga</string>
+    <string name="title_debug_info_issue_remark">Detaljer, såsom tiden då problemet inträffade, det exakta felmeddelandet, etc., är viktiga</string>
     <string name="title_debug_info_contact">Vi hade nyligen kontakt om detta problem</string>
     <string name="title_unexpected_info_remark">Vänligen beskriv vad du gjorde när du fick felet:</string>
     <string name="title_widget_title_count">Antal nya meddelanden</string>
@@ -1931,6 +1931,7 @@
     <string name="title_widget_subject_lines">Maximalt antal ämnesrader</string>
     <string name="title_widget_avatars">Visa kontaktavatarer</string>
     <string name="title_widget_account_name">Visa kontonamn</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Visa rubrik</string>
     <string name="title_widget_refresh">Visa knappen för att uppdatera meddelanden</string>
     <string name="title_widget_compose">Visa knapp för nytt meddelande</string>
     <string name="title_widget_background">Bakgrundsfärg</string>

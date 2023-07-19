@@ -581,7 +581,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_auto_block_sender">Otomatis blok pengirim saat melaporkan spam</string>
     <string name="title_advanced_auto_hide_answer">Otomatis sembunyikan tombol jawab saat scroll</string>
     <string name="title_advanced_swipe_reply">Usap ke kanan pesan yang dibentangkan untuk balas</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Saat memindahkan percakapan, pindahkan semua pesan</string>
+    <string name="title_advanced_move_thread_all">Saat memindahkan percakapan, pindahkan semua pesan</string>
     <string name="title_advanced_move_thread_sent">Saat memindahkan percakapan, pindahkan juga pesan terkirim</string>
     <string name="title_advanced_default_snooze">Waktu tunda/jeda bawaan</string>
     <string name="title_advanced_default_folder">Pilih folder default</string>
@@ -1890,7 +1890,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_debug_info_remark">Silakan jelaskan masalahnya dan waktu terjadinya masalah:</string>
     <string name="title_crash_info_remark">Mohon jelaskan apa yang sedang Anda lakukan saat aplikasi berhenti:</string>
     <string name="title_debug_info_issue">Deskripsi masalah (wajib diisi)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Detail, seperti perkiraan waktu masalah, pesan error yang muncul, dll. diperlukan</string>
+    <string name="title_debug_info_issue_remark">Detail, seperti perkiraan waktu masalah, pesan error yang muncul, dll. diperlukan</string>
     <string name="title_debug_info_contact">Kami baru-baru ini memiliki kontak tentang masalah ini</string>
     <string name="title_unexpected_info_remark">Mohon jelaskan apa yang sedang Anda lakukan saat Anda mendapat pesan kesalahan:</string>
     <string name="title_widget_title_count">Hitung pesan baru</string>
@@ -1914,6 +1914,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_widget_subject_lines">Jumlah garis subjek maksimal</string>
     <string name="title_widget_avatars">Tampilkan foto kontak</string>
     <string name="title_widget_account_name">Tampilkan nama akun</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Tampilkan judul</string>
     <string name="title_widget_refresh">Tampilkan tombol penyegaran pesan</string>
     <string name="title_widget_compose">Tampilkan tombol pesan baru</string>
     <string name="title_widget_background">Warna latar belakang</string>

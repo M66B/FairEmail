@@ -71,6 +71,10 @@
         <item quantity="one">¿Eliminar %1$d mensaje permanentemente?</item>
         <item quantity="other">¿Eliminar %1$d mensajes permanentemente?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Un archivo adjunto</item>
+        <item quantity="other">%1$d archivos adjuntos</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">¿Tratar %1$d mensaje como spam?</item>
         <item quantity="other">¿Tratar %1$d mensajes como spam?</item>
@@ -515,6 +519,7 @@
     <string name="title_advanced_preview_lines">Número de líneas de vista previa</string>
     <string name="title_advanced_align_header">Alinear palabras clave, textos de previsualización y notas verticalmente</string>
     <string name="title_advanced_addresses">Mostrar detalles de dirección por defecto</string>
+    <string name="title_advanced_hide_attachments">Colapsar archivos adjuntos por defecto</string>
     <string name="title_advanced_unzip">Mostrar contenido de adjuntos comprimidos</string>
     <string name="title_advanced_attachments_alt">Mostrar adjuntos después del texto del mensaje</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas de la imagen después del texto del mensaje</string>
@@ -591,6 +596,7 @@
     <string name="title_advanced_auto_block_sender">Bloquear automáticamente al remitente al reportar como spam</string>
     <string name="title_advanced_auto_hide_answer">Ocultar automáticamente el botón de respuesta al desplazarse</string>
     <string name="title_advanced_swipe_reply">Deslice los mensajes expandidos a la derecha para responder</string>
+    <string name="title_advanced_move_thread_all">Al mover una conversación, mover todos los mensajes</string>
     <string name="title_advanced_move_thread_sent">Al mover una conversación, también mover mensajes enviados</string>
     <string name="title_advanced_default_snooze">Tiempo de posponer/retraso por defecto</string>
     <string name="title_advanced_default_folder">Seleccionar carpeta por defecto</string>
@@ -1903,6 +1909,7 @@
     <string name="title_debug_info_remark">Por favor describa el problema e indique el momento del mismo:</string>
     <string name="title_crash_info_remark">Por favor describa que estaba haciendo cuando la app falló:</string>
     <string name="title_debug_info_issue">Descripción del problema (Requerido)</string>
+    <string name="title_debug_info_issue_remark">Detalles, como el tiempo estimado del problema, el mensaje de error exacto, etc., son importantes</string>
     <string name="title_debug_info_contact">Recientemente hemos tenido contacto con este problema</string>
     <string name="title_unexpected_info_remark">Por favor describa lo que estaba haciendo cuando obtuvo el error:</string>
     <string name="title_widget_title_count">Recuento de mensajes</string>
@@ -1926,6 +1933,7 @@
     <string name="title_widget_subject_lines">Número máximo de líneas del asunto</string>
     <string name="title_widget_avatars">Mostrar avatares de contactos</string>
     <string name="title_widget_account_name">Mostrar el nombre de la cuenta</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Mostrar título</string>
     <string name="title_widget_refresh">Mostrar botón de actualizar mensajes</string>
     <string name="title_widget_compose">Mostrar botón de redactar nuevo mensaje</string>
     <string name="title_widget_background">Color de fondo</string>

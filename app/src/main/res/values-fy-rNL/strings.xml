@@ -595,7 +595,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_auto_block_sender">By it rapportearjen fan net-winske de ôfstjoerder automatysk blokkearje</string>
     <string name="title_advanced_auto_hide_answer">Antwurdknop automatysk ferstopje by skowen</string>
     <string name="title_advanced_swipe_reply">Fei útklapte berjochten nei rjochts om te beäntwurdzjen</string>
-    <string name="title_advanced_move_thread_all" comment="title_advanced_move_thread_all&#10;Title for option in behavior-settings tab page">Wannear’t in petear ferpleatst wurdt, alle berjochten ferpleatse</string>
+    <string name="title_advanced_move_thread_all">Wannear’t in petear ferpleatst wurdt, alle berjochten ferpleatse</string>
     <string name="title_advanced_move_thread_sent">Wannear’t in petear ferpleatst wurdt, ek ferstjoerde berjochten ferpleatse</string>
     <string name="title_advanced_default_snooze">Standert slommerdoer/fertragingstiid</string>
     <string name="title_advanced_default_folder">Standert map selektearje</string>
@@ -1906,7 +1906,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_debug_info_remark">Beskriuw it probleem en jou de tiid fan it probleem oan:</string>
     <string name="title_crash_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
     <string name="title_debug_info_issue">Probleembeskriuwing (fereaske)</string>
-    <string name="title_debug_info_issue_remark" comment="title_debug_info_issue_remark&#10;Remark for debug info confirmation dialog">Details, lykas de skatte tiid fan it probleem, de eksakte flatermelding, ensfh., binne wichtich</string>
+    <string name="title_debug_info_issue_remark">Details, lykas de skatte tiid fan it probleem, de eksakte flatermelding, ensfh., binne wichtich</string>
     <string name="title_debug_info_contact">Wy hawwe koartlyn kontakt han oer dit probleem</string>
     <string name="title_unexpected_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
     <string name="title_widget_title_count">Oantal nije berjochten</string>
@@ -1930,6 +1930,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_widget_subject_lines">Maksimaal oantal ûnderwerpregels</string>
     <string name="title_widget_avatars">Kontaktavatars toane</string>
     <string name="title_widget_account_name">Accountnamme toane</string>
+    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Toan titel</string>
     <string name="title_widget_refresh">Knop foar it ferfarskjen fan berjochten toane</string>
     <string name="title_widget_compose">Knop foar it opstellen fan in nij berjocht toane</string>
     <string name="title_widget_background">Eftergrûnkleur</string>
