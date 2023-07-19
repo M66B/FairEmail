@@ -3840,10 +3840,8 @@ public class MessageHelper {
 
                                         // Check if same as detected charset
                                         Charset detected = CharsetHelper.detect(result, c);
-                                        if (!c.equals(detected)) {
-                                            Log.w("Charset meta=" + meta + " !is" + detected);
+                                        if (c.equals(detected) && !StandardCharsets.ISO_8859_1.equals(cs))
                                             break;
-                                        }
 
                                         // Common detected/meta
                                         // - windows-1250, windows-1257 / ISO-8859-1
