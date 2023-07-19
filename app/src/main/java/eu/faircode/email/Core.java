@@ -2263,7 +2263,7 @@ class Core {
                 : ifolder.search(new MessageIDTerm(message.msgid));
 
         // Fallback
-        if (false)
+        if (account.isOutlook())
             if (imessages == null || imessages.length == 0)
                 try {
                     // Needed for Outlook
