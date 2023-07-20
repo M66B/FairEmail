@@ -1425,11 +1425,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         formatAddresses(senders, format, maxRecipients),
                         formatAddresses(recipients, format, maxRecipients)));
             } else {
-                if (viewType == ViewType.THREAD)
-                    if (outgoing || message.from == null || message.from.length == 0)
+                if (tld_flags && viewType == ViewType.THREAD) {
+                    Address[] a = (message.reply == null || message.reply.length == 0 ? message.from : message.reply);
+                    if (outgoing || a == null || a.length == 0)
                         tvFrom.setCompoundDrawablesRelative(null, null, null, null);
-                    else if (tld_flags) {
-                        String email = ((InternetAddress) message.from[0]).getAddress();
+                    else {
+                        String email = ((InternetAddress) a[0]).getAddress();
                         String domain = UriHelper.getEmailDomain(email);
                         String tld = UriHelper.getTld(context, domain);
                         int resid = context.getResources().getIdentifier(
@@ -1437,6 +1438,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         Drawable d = (resid > 0 ? context.getDrawable(resid) : null);
                         tvFrom.setCompoundDrawablesRelativeWithIntrinsicBounds(d, null, null, null);
                     }
+                }
 
                 tvFrom.setText(MessageHelper.formatAddresses(senders, format, false));
             }
