@@ -1387,6 +1387,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
         final Snackbar snackbar = Snackbar.make(content, title, Snackbar.LENGTH_INDEFINITE)
                 .setGestureInsetBottomIgnored(true);
+        Helper.setSnackbarLines(snackbar, 7);
 
         lastSnackbar = snackbar;
 
