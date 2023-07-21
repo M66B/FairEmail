@@ -2510,7 +2510,7 @@ public class Log {
                                 EmailService.getEncryptionName(account.encryption) +
                                 (account.insecure ? " !!!" : "") +
                                 " sync=" + account.synchronize +
-                                " exempted=" + account.poll_exempted +
+                                " exempted=" + account.poll_exempted + (pollInterval > 0 && account.poll_exempted ? " !!!" : "") +
                                 " poll=" + account.poll_interval +
                                 " ondemand=" + account.ondemand + (account.ondemand ? " !!!" : "") +
                                 " msgs=" + content + "/" + messages + " max=" + account.max_messages +
