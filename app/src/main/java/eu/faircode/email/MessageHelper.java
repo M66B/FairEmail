@@ -5242,19 +5242,27 @@ public class MessageHelper {
                 .replaceAll("[^\\p{ASCII}]", "");
     }
 
-    static String sanitizeEmail(String email) {
-        if (email == null)
-            return null;
+    static InternetAddress buildAddress(String email, String name, boolean suggest) {
+        try {
+            InternetAddress address = (email == null ? new InternetAddress() : new InternetAddress(email));
 
-        if (email.contains("<") && email.contains(">"))
-            try {
-                InternetAddress address = new InternetAddress(email);
-                return address.getAddress();
-            } catch (AddressException ex) {
-                Log.e(ex);
+            if (suggest && !TextUtils.isEmpty(name) &&
+                    TextUtils.isEmpty(address.getPersonal())) {
+                try {
+                    address.setPersonal(name, StandardCharsets.UTF_8.name());
+                } catch (UnsupportedEncodingException ex) {
+                    Log.i(ex);
+                }
             }
 
-        return email;
+            if (TextUtils.isEmpty(address.getAddress()) && TextUtils.isEmpty(address.getAddress()))
+                return null;
+
+            return address;
+        } catch (AddressException ex) {
+            Log.e(ex);
+            return null;
+        }
     }
 
     static String sanitizeName(String name) {

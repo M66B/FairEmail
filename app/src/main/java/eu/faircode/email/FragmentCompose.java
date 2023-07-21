@@ -1132,13 +1132,13 @@ public class FragmentCompose extends FragmentBase {
                         colEmail = cursor.getColumnIndex("email");
 
                     String name = cursor.getString(colName);
-                    String email = MessageHelper.sanitizeEmail(cursor.getString(colEmail));
-                    if (name == null || !suggest_names)
+                    String email = cursor.getString(colEmail);
+
+                    InternetAddress address = MessageHelper.buildAddress(email, name, suggest_names);
+                    if (address == null)
                         return email;
-                    else {
-                        Address address = new InternetAddress(email, name, StandardCharsets.UTF_8.name());
-                        return MessageHelper.formatAddressesCompose(new Address[]{address});
-                    }
+
+                    return MessageHelper.formatAddressesCompose(new Address[]{address});
                 } catch (Throwable ex) {
                     Log.e(ex);
                     return ex.toString();
@@ -3287,10 +3287,14 @@ public class FragmentCompose extends FragmentBase {
                         int colEmail = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Email.ADDRESS);
                         int colName = cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME);
                         if (colEmail >= 0 && colName >= 0) {
-                            String email = MessageHelper.sanitizeEmail(cursor.getString(colEmail));
+                            String email = cursor.getString(colEmail);
                             String name = cursor.getString(colName);
 
-                            args.putString("email", email);
+                            InternetAddress selected = MessageHelper.buildAddress(email, name, suggest_names);
+                            if (selected == null)
+                                return null;
+
+                            args.putString("email", selected.getAddress());
 
                             try {
                                 db.beginTransaction();
@@ -3315,7 +3319,7 @@ public class FragmentCompose extends FragmentBase {
                                 if (address != null)
                                     list.addAll(Arrays.asList(address));
 
-                                list.add(new InternetAddress(email, suggest_names ? name : null, StandardCharsets.UTF_8.name()));
+                                list.add(selected);
 
                                 if (requestCode == REQUEST_CONTACT_TO)
                                     draft.to = list.toArray(new Address[0]);
