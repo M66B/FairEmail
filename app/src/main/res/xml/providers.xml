@@ -2118,17 +2118,4 @@
             port="465"
             starttls="false" />
     </provider>
-    <provider
-        name="SoftBank"
-        domain="softbank\\.ne\\.jp"
-        link="https://www.softbank.jp/mobile/service/mail-address-portability/mms/">
-        <imap
-            host="imap.softbank.ne.jp"
-            port="993"
-            starttls="false" />
-        <smtp
-            host="smtp.softbank.ne.jp"
-            port="465"
-            starttls="false" />
-    </provider>
 </providers>
