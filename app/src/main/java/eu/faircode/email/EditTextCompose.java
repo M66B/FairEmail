@@ -96,7 +96,7 @@ public class EditTextCompose extends FixedEditText {
     void init(Context context) {
         Helper.setKeyboardIncognitoMode(this, context);
 
-        colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+        colorPrimary = Helper.resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
         colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
         quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
         quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);

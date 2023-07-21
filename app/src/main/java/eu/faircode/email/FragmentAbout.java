@@ -120,7 +120,7 @@ public class FragmentAbout extends FragmentBase {
         });
 
         TypedValue style = new TypedValue();
-        context.getTheme().resolveAttribute(R.style.TextAppearance_AppCompat_Small, style, true);
+        context.getTheme().resolveAttribute(androidx.appcompat.R.style.TextAppearance_AppCompat_Small, style, true);
 
         List<Contributor> contributors = Contributor.loadContributors(context);
         for (Contributor contributor : contributors) {

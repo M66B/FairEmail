@@ -7718,7 +7718,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorCardBackground = Helper.resolveColor(context, R.attr.colorCardBackground);
         boolean color_stripe_wide = prefs.getBoolean("color_stripe_wide", false);
         this.colorStripeWidth = Helper.dp2pixels(context, color_stripe_wide ? 12 : 6);
-        this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        this.colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         this.textColorPrimary = Helper.resolveColor(context, android.R.attr.textColorPrimary);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
         this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
@@ -7735,9 +7735,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
         this.colorEncrypt = Helper.resolveColor(context, R.attr.colorEncrypt);
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
-        this.colorError = Helper.resolveColor(context, R.attr.colorError);
+        this.colorError = Helper.resolveColor(context, androidx.appcompat.R.attr.colorError);
         this.colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
-        this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
+        this.colorControlNormal = Helper.resolveColor(context, androidx.appcompat.R.attr.colorControlNormal);
 
         this.hasWebView = Helper.hasWebView(context);
         this.pin = Shortcuts.can(context);

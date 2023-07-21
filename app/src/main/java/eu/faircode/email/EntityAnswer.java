@@ -433,7 +433,7 @@ public class EntityAnswer implements Serializable {
         Drawable icon = context.getResources().getDrawable(R.drawable.twotone_star_24);
         icon.setBounds(0, 0, iconSize, iconSize);
         icon = icon.getConstantState().newDrawable().mutate();
-        int color = Helper.resolveColor(context, R.attr.colorAccent);
+        int color = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         icon.setTint(color);
 
         for (EntityAnswer answer : favorites) {

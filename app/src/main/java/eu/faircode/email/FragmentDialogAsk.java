@@ -53,7 +53,7 @@ public class FragmentDialogAsk extends FragmentDialogBase {
         int faq = args.getInt("faq");
 
         final Context context = getContext();
-        final int colorError = Helper.resolveColor(context, R.attr.colorError);
+        final int colorError = Helper.resolveColor(context, androidx.appcompat.R.attr.colorError);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 

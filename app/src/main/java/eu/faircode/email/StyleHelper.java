@@ -972,7 +972,7 @@ public class StyleHelper {
         Context context = etBody.getContext();
         Editable edit = etBody.getText();
 
-        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        int colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
         int bulletRadius = context.getResources().getDimensionPixelSize(R.dimen.bullet_radius_size);
         int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
@@ -1104,7 +1104,7 @@ public class StyleHelper {
         Context context = etBody.getContext();
         Editable edit = etBody.getText();
 
-        int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+        int colorPrimary = Helper.resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
         final int colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
         int quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
         int quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
@@ -1671,13 +1671,13 @@ public class StyleHelper {
             NumberSpan n = (NumberSpan) span;
             int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
             int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
-            int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+            int colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
             return (T) new NumberSpan(bulletIndent, bulletGap, colorAccent, n.getTextSize(), n.getLevel(), n.getIndex() + 1);
         } else if (BulletSpanEx.class.isAssignableFrom(type)) {
             BulletSpanEx b = (BulletSpanEx) span;
             int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
-                int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+                int colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
                 int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
                 return (T) new BulletSpanEx(bulletIndent, bulletGap, colorAccent, b.getLevel());
             } else
@@ -1705,7 +1705,7 @@ public class StyleHelper {
     static void renumber(Editable text, boolean clean, Context context) {
         int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);
         int bulletIndent = context.getResources().getDimensionPixelSize(R.dimen.bullet_indent_size);
-        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        int colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
 
         Log.i("Renumber clean=" + clean + " text=" + text);
 

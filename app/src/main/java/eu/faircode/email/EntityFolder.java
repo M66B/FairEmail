@@ -455,13 +455,13 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
     static Integer getDefaultColor(String type, Context context) {
         if (EntityFolder.TRASH.equals(type) || EntityFolder.JUNK.equals(type))
-            return Helper.resolveColor(context, R.attr.colorError);
+            return Helper.resolveColor(context, androidx.appcompat.R.attr.colorError);
         return null;
     }
 
     static Integer getDefaultColor(Long action, String type, Context context) {
         if (EntityMessage.SWIPE_ACTION_DELETE.equals(action))
-            return Helper.resolveColor(context, R.attr.colorError);
+            return Helper.resolveColor(context, androidx.appcompat.R.attr.colorError);
         return getDefaultColor(type, context);
     }
 

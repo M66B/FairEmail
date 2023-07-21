@@ -7384,7 +7384,7 @@ public class FragmentCompose extends FragmentBase {
                 final long id = args.getLong("id");
                 final boolean show_images = args.getBoolean("show_images", false);
 
-                int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
+                int colorPrimary = Helper.resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
                 final int colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
                 int quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
                 int quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
@@ -7726,7 +7726,7 @@ public class FragmentCompose extends FragmentBase {
             if (identity != null && nav_color) {
                 Integer color = (identity.color == null ? identity.accountColor : identity.color);
                 bottom_navigation.setBackgroundColor(color == null
-                        ? Helper.resolveColor(context, R.attr.colorPrimary) : color);
+                        ? Helper.resolveColor(context, androidx.appcompat.R.attr.colorPrimary) : color);
             }
 
             Spanned signature = null;

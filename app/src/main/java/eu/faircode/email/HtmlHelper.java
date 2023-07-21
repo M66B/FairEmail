@@ -479,7 +479,7 @@ public class HtmlHelper {
 
         int textSizeSmall;
         TypedArray ta = context.obtainStyledAttributes(
-                R.style.TextAppearance_AppCompat_Small, new int[]{android.R.attr.textSize});
+                androidx.appcompat.R.style.TextAppearance_AppCompat_Small, new int[]{android.R.attr.textSize});
         if (ta == null)
             textSizeSmall = Helper.dp2pixels(context, 6);
         else {
@@ -3119,8 +3119,8 @@ public class HtmlHelper {
         boolean debug = prefs.getBoolean("debug", false);
         boolean monospaced_pre = prefs.getBoolean("monospaced_pre", false);
 
-        final int colorPrimary = Helper.resolveColor(context, R.attr.colorPrimary);
-        final int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        final int colorPrimary = Helper.resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
+        final int colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         final int colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
         final int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
         int bulletGap = context.getResources().getDimensionPixelSize(R.dimen.bullet_gap_size);

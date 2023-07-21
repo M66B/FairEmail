@@ -123,7 +123,7 @@ public class PopupMenuLifecycle extends PopupMenu {
             icon = new ColorDrawable(Color.TRANSPARENT);
         else {
             icon = icon.getConstantState().newDrawable().mutate();
-            int color = Helper.resolveColor(context, R.attr.colorAccent);
+            int color = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
             icon.setTint(color);
             if (!menuItem.isEnabled())
                 icon.setAlpha(Math.round(Helper.LOW_LIGHT * 255));

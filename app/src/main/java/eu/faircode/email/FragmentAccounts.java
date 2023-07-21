@@ -116,7 +116,7 @@ public class FragmentAccounts extends FragmentBase {
 
         // Wire controls
 
-        int colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
+        int colorPrimary = Helper.resolveColor(getContext(), androidx.appcompat.R.attr.colorPrimary);
         swipeRefresh.setColorSchemeColors(Color.WHITE, Color.WHITE, Color.WHITE);
         swipeRefresh.setProgressBackgroundColorSchemeColor(colorPrimary);
         swipeRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

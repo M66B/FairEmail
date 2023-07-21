@@ -59,7 +59,7 @@ public class TextViewAutoCompleteAction extends AppCompatAutoCompleteTextView {
             TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.TextViewAutoCompleteAction, 0, 0);
             drawable = a.getDrawable(R.styleable.TextViewAutoCompleteAction_end_drawable);
         }
-        int colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
+        int colorControlNormal = Helper.resolveColor(context, androidx.appcompat.R.attr.colorControlNormal);
         drawable.setTint(colorControlNormal);
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
 

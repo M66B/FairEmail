@@ -35,12 +35,12 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FixedRecyclerView extends RecyclerView {
     public FixedRecyclerView(@NonNull Context context) {
         super(context);
-        initFastScrollerEx(context, null, R.attr.recyclerViewStyle);
+        initFastScrollerEx(context, null, androidx.recyclerview.R.attr.recyclerViewStyle);
     }
 
     public FixedRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        initFastScrollerEx(context, attrs, R.attr.recyclerViewStyle);
+        initFastScrollerEx(context, attrs, androidx.recyclerview.R.attr.recyclerViewStyle);
     }
 
     public FixedRecyclerView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyle) {
@@ -49,22 +49,22 @@ public class FixedRecyclerView extends RecyclerView {
     }
 
     private void initFastScrollerEx(Context context, AttributeSet attrs, int defStyleAttr) {
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.RecyclerView,
+        TypedArray a = context.obtainStyledAttributes(attrs, androidx.recyclerview.R.styleable.RecyclerView,
                 defStyleAttr, 0);
         StateListDrawable verticalThumbDrawable = (StateListDrawable) a
-                .getDrawable(R.styleable.RecyclerView_fastScrollVerticalThumbDrawable);
+                .getDrawable(androidx.recyclerview.R.styleable.RecyclerView_fastScrollVerticalThumbDrawable);
         Drawable verticalTrackDrawable = a
-                .getDrawable(R.styleable.RecyclerView_fastScrollVerticalTrackDrawable);
+                .getDrawable(androidx.recyclerview.R.styleable.RecyclerView_fastScrollVerticalTrackDrawable);
         StateListDrawable horizontalThumbDrawable = (StateListDrawable) a
-                .getDrawable(R.styleable.RecyclerView_fastScrollHorizontalThumbDrawable);
+                .getDrawable(androidx.recyclerview.R.styleable.RecyclerView_fastScrollHorizontalThumbDrawable);
         Drawable horizontalTrackDrawable = a
-                .getDrawable(R.styleable.RecyclerView_fastScrollHorizontalTrackDrawable);
+                .getDrawable(androidx.recyclerview.R.styleable.RecyclerView_fastScrollHorizontalTrackDrawable);
         Resources resources = getContext().getResources();
         new FastScrollerEx(this, verticalThumbDrawable, verticalTrackDrawable,
                 horizontalThumbDrawable, horizontalTrackDrawable,
                 resources.getDimensionPixelSize(R.dimen.fastscroll_default_thickness),
-                resources.getDimensionPixelSize(R.dimen.fastscroll_minimum_range),
-                resources.getDimensionPixelOffset(R.dimen.fastscroll_margin));
+                resources.getDimensionPixelSize(androidx.recyclerview.R.dimen.fastscroll_minimum_range),
+                resources.getDimensionPixelOffset(androidx.recyclerview.R.dimen.fastscroll_margin));
     }
 
     @Override

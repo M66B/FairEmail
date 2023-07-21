@@ -139,7 +139,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
         final Context context = getContext();
         this.textColorTertiary = Helper.resolveColor(context, android.R.attr.textColorTertiary);
-        this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        this.colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
     }
 
     @Override

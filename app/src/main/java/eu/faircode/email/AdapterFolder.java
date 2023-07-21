@@ -1366,7 +1366,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
         boolean highlight_unread = prefs.getBoolean("highlight_unread", true);
         int colorHighlight = prefs.getInt("highlight_color", Helper.resolveColor(context, R.attr.colorUnreadHighlight));
         this.colorUnread = (highlight_unread ? colorHighlight : Helper.resolveColor(context, R.attr.colorUnread));
-        this.colorControlNormal = Helper.resolveColor(context, R.attr.colorControlNormal);
+        this.colorControlNormal = Helper.resolveColor(context, androidx.appcompat.R.attr.colorControlNormal);
         this.colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
         this.debug = prefs.getBoolean("debug", false);
 

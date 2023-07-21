@@ -241,7 +241,7 @@ public class FragmentOptions extends FragmentBase {
         tabLayout.setupWithViewPager(pager);
 
         final Context context = getContext();
-        int colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        int colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         for (int i = 0; i < tabLayout.getTabCount(); i++) {
             Drawable d = ContextCompat.getDrawable(context, PAGE_ICONS[i]);
             d.setColorFilter(colorAccent, PorterDuff.Mode.SRC_ATOP);

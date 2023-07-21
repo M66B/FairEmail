@@ -380,7 +380,7 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
         this.inflater = LayoutInflater.from(context);
 
         this.contacts = Helper.hasPermission(context, Manifest.permission.READ_CONTACTS);
-        this.colorAccent = Helper.resolveColor(context, R.attr.colorAccent);
+        this.colorAccent = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
         this.textColorSecondary = Helper.resolveColor(context, android.R.attr.textColorSecondary);
 
         setHasStableIds(true);

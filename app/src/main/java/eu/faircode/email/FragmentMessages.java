@@ -506,8 +506,8 @@ public class FragmentMessages extends FragmentBase
         swipe_reply = prefs.getBoolean("swipe_reply", false);
         quick_actions = prefs.getBoolean("quick_actions", true);
 
-        colorPrimary = Helper.resolveColor(getContext(), R.attr.colorPrimary);
-        colorAccent = Helper.resolveColor(getContext(), R.attr.colorAccent);
+        colorPrimary = Helper.resolveColor(getContext(), androidx.appcompat.R.attr.colorPrimary);
+        colorAccent = Helper.resolveColor(getContext(), androidx.appcompat.R.attr.colorAccent);
         colorSeparator = Helper.resolveColor(getContext(), R.attr.colorSeparator);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
 
@@ -5642,7 +5642,7 @@ public class FragmentMessages extends FragmentBase
 
             boolean filter_active = (filter_seen || filter_unflagged || filter_unknown ||
                     (language_detection && !TextUtils.isEmpty(filter_language)));
-            int filterColor = Helper.resolveColor(context, R.attr.colorAccent);
+            int filterColor = Helper.resolveColor(context, androidx.appcompat.R.attr.colorAccent);
             float filterLighten = 0.7f - (float) ColorUtils.calculateLuminance(filterColor);
             if (filterLighten > 0)
                 filterColor = ColorUtils.blendARGB(filterColor, Color.WHITE, filterLighten);

@@ -155,7 +155,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
         prefs.registerOnSharedPreferenceChangeListener(this);
 
-        int colorPrimaryDark = Helper.resolveColor(this, R.attr.colorPrimaryDark);
+        int colorPrimaryDark = Helper.resolveColor(this, androidx.appcompat.R.attr.colorPrimaryDark);
 
         try {
             Drawable d = getDrawable(R.drawable.baseline_mail_24);
@@ -895,7 +895,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
     }
 
     public void showActionBar(boolean show) {
-        ViewGroup abv = findViewById(R.id.action_bar);
+        ViewGroup abv = findViewById(androidx.appcompat.R.id.action_bar);
         if (abv == null)
             return;
 

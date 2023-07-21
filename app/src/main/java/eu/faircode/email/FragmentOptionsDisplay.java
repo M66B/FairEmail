@@ -663,7 +663,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("navbar_colorize", checked).apply();
                 setNavigationBarColor(
-                        checked ? Helper.resolveColor(getContext(), R.attr.colorPrimaryDark) : Color.BLACK);
+                        checked ? Helper.resolveColor(getContext(), androidx.appcompat.R.attr.colorPrimaryDark) : Color.BLACK);
             }
         });
 

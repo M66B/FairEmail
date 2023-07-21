@@ -876,7 +876,7 @@ public class Helper {
 
         if (color == null) {
             //window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(Helper.resolveColor(window.getContext(), R.attr.colorPrimaryDark));
+            window.setStatusBarColor(Helper.resolveColor(window.getContext(), androidx.appcompat.R.attr.colorPrimaryDark));
         } else {
             //window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             //window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -1108,8 +1108,8 @@ public class Helper {
             }
         } else {
             boolean navbar_colorize = prefs.getBoolean("navbar_colorize", false);
-            int colorPrimary = resolveColor(context, R.attr.colorPrimary);
-            int colorPrimaryDark = resolveColor(context, R.attr.colorPrimaryDark);
+            int colorPrimary = resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
+            int colorPrimaryDark = resolveColor(context, androidx.appcompat.R.attr.colorPrimaryDark);
 
             CustomTabColorSchemeParams.Builder schemes = new CustomTabColorSchemeParams.Builder()
                     .setToolbarColor(colorPrimary)
@@ -1792,13 +1792,13 @@ public class Helper {
         try {
             if (zoom == 0)
                 ta = context.obtainStyledAttributes(
-                        R.style.TextAppearance_AppCompat_Small, new int[]{android.R.attr.textSize});
+                        androidx.appcompat.R.style.TextAppearance_AppCompat_Small, new int[]{android.R.attr.textSize});
             else if (zoom == 2)
                 ta = context.obtainStyledAttributes(
-                        R.style.TextAppearance_AppCompat_Large, new int[]{android.R.attr.textSize});
+                        androidx.appcompat.R.style.TextAppearance_AppCompat_Large, new int[]{android.R.attr.textSize});
             else
                 ta = context.obtainStyledAttributes(
-                        R.style.TextAppearance_AppCompat_Medium, new int[]{android.R.attr.textSize});
+                        androidx.appcompat.R.style.TextAppearance_AppCompat_Medium, new int[]{android.R.attr.textSize});
             return ta.getDimension(0, 0);
         } finally {
             if (ta != null)
