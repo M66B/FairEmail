@@ -5680,7 +5680,6 @@ public class FragmentMessages extends FragmentBase
             boolean language_detection = prefs.getBoolean("language_detection", false);
             String filter_language = prefs.getString("filter_language", null);
             boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
-            boolean debug = prefs.getBoolean("debug", false);
             boolean large_buttons = prefs.getBoolean("large_buttons", false);
             boolean compact = prefs.getBoolean("compact", false);
             boolean confirm_links = prefs.getBoolean("confirm_links", true);
@@ -5831,7 +5830,7 @@ public class FragmentMessages extends FragmentBase
             menu.findItem(R.id.menu_force_send).setVisible(outbox);
 
             menu.findItem(R.id.menu_expunge).setVisible(viewType == AdapterMessage.ViewType.FOLDER &&
-                    (perform_expunge || debug));
+                    (!perform_expunge || BuildConfig.DEBUG));
 
             menu.findItem(R.id.menu_edit_properties).setVisible(viewType == AdapterMessage.ViewType.FOLDER && !outbox);
 
