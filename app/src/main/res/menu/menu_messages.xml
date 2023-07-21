@@ -231,6 +231,12 @@
             app:showAsAction="never" />
 
         <item
+            android:id="@+id/menu_expunge"
+            android:icon="@drawable/twotone_delete_forever_24"
+            android:title="@string/title_expunge"
+            app:showAsAction="never" />
+
+        <item
             android:id="@+id/menu_edit_properties"
             android:icon="@drawable/twotone_edit_24"
             android:title="@string/title_edit_properties"

@@ -2353,6 +2353,57 @@ public class FragmentMessages extends FragmentBase
         }.execute(this, args, "messages:refresh");
     }
 
+    private void onExpunge() {
+        new AlertDialog.Builder(view.getContext())
+                .setIcon(R.drawable.twotone_warning_24)
+                .setTitle(R.string.title_expunge)
+                .setMessage(R.string.title_expunge_remark)
+                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        expunge();
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Do nothing
+                    }
+                })
+                .show();
+    }
+
+    private void expunge() {
+        Bundle args = new Bundle();
+        args.putLong("id", folder);
+
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                ToastEx.makeText(getContext(), R.string.title_executing, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                DB db = DB.getInstance(context);
+                EntityFolder folder = db.folder().getFolder(id);
+                if (folder == null)
+                    return null;
+
+                EntityOperation.queue(context, folder, EntityOperation.EXPUNGE);
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "messages:expunge");
+
+    }
+
     private AdapterMessage.IProperties iProperties = new AdapterMessage.IProperties() {
         @Override
         public void setValue(String key, String value) {
@@ -5629,6 +5680,7 @@ public class FragmentMessages extends FragmentBase
             boolean language_detection = prefs.getBoolean("language_detection", false);
             String filter_language = prefs.getString("filter_language", null);
             boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+            boolean debug = prefs.getBoolean("debug", false);
             boolean large_buttons = prefs.getBoolean("large_buttons", false);
             boolean compact = prefs.getBoolean("compact", false);
             boolean confirm_links = prefs.getBoolean("confirm_links", true);
@@ -5778,6 +5830,9 @@ public class FragmentMessages extends FragmentBase
             menu.findItem(R.id.menu_force_sync).setVisible(viewType == AdapterMessage.ViewType.UNIFIED);
             menu.findItem(R.id.menu_force_send).setVisible(outbox);
 
+            menu.findItem(R.id.menu_expunge).setVisible(viewType == AdapterMessage.ViewType.FOLDER &&
+                    (perform_expunge || debug));
+
             menu.findItem(R.id.menu_edit_properties).setVisible(viewType == AdapterMessage.ViewType.FOLDER && !outbox);
 
             // In some cases onPrepareOptionsMenu can be called before onCreateView
@@ -5921,6 +5976,9 @@ public class FragmentMessages extends FragmentBase
             return true;
         } else if (itemId == R.id.menu_force_send) {
             onSwipeRefresh();
+            return true;
+        } else if (itemId == R.id.menu_expunge) {
+            onExpunge();
             return true;
         } else if (itemId == R.id.menu_edit_properties) {
             onMenuEditProperties();
