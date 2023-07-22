@@ -118,7 +118,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="48dp"
             android:fontFamily="monospace"
-            android:text="DELETE, PURGE, EXPUNGE"
+            android:text="DELETE, PURGE, EXPUNGE, DETACH"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"

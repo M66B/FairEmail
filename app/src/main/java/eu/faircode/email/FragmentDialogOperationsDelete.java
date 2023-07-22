@@ -123,6 +123,7 @@ public class FragmentDialogOperationsDelete extends FragmentDialogBase {
                                         addAll(ops, db.operation().getOperations(EntityOperation.DELETE));
                                         addAll(ops, db.operation().getOperations(EntityOperation.PURGE));
                                         addAll(ops, db.operation().getOperations(EntityOperation.EXPUNGE));
+                                        addAll(ops, db.operation().getOperations(EntityOperation.DETACH));
                                     }
 
                                     for (EntityOperation op : ops) {
