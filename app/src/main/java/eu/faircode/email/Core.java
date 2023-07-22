@@ -638,6 +638,7 @@ class Core {
                                 (op.tries >= LOCAL_RETRY_MAX &&
                                         EntityOperation.BODY.equals(op.name)) ||
                                 EntityOperation.ATTACHMENT.equals(op.name) ||
+                                EntityOperation.DETACH.equals(op.name) ||
                                 EntityOperation.SUBJECT.equals(op.name) ||
                                 ((op.tries >= LOCAL_RETRY_MAX || attachments > 0) &&
                                         EntityOperation.ADD.equals(op.name)) ||
