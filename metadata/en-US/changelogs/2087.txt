@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Ubirajara
 
+Next version
+
+* Added message menu item to edit subject
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2087 - 2023-07-19
 
 * Fixed duplicate sent messages for Outlook in some cases
