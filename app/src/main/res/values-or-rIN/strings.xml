@@ -259,7 +259,6 @@
     <string name="title_advanced_name_email">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଦେଖାଇବା</string>
     <string name="title_advanced_highlight_subject">ଵିଷୟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_highlight_color">ହାଇଲାଇଟ୍ ରଙ୍ଗ</string>
-    <string name="title_advanced_override_width">ମୂଳ ବାର୍ତ୍ତାରେ ସ୍ଥିର ଓସାର ଅକ୍ଷମ କରନ୍ତୁ</string>
     <string name="title_advanced_background_color">ପୃଷ୍ଠପଟ ରଙ୍ଗ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_text_color">ପାଠ୍ୟ ରଙ୍ଗ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_text_size">ପାଠ୍ୟ ଆକାର ଵ୍ୟଵହାର କରିବା</string>
@@ -343,7 +342,6 @@
     <string name="title_advanced_startup_hint">ସନ୍ନିଵିଷ୍ଟ ଫୋଲ୍ଡର୍ ତାଲିକାରେ ଯେକୌଣସି ଫୋଲ୍ଡରକୁ ଯୋଡ଼ିବା କିମ୍ୱା ଅପସାରଣ କରିବାକୁ ହେଲେ ଫୋଲ୍ଡର୍ ତାଲିକାରେ ଥିବା ସେଇ ଫୋଲ୍ଡରଟି ଉପରେ ଲମ୍ବା ସ୍ପର୍ଶ କରନ୍ତୁ</string>
     <string name="title_advanced_date_hint">ସମୟାନୁସାର ସଜାଯାଇଥିଲେ ହି ବାର୍ତ୍ତାଗୁଡ଼ିକ ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରାଯିବ</string>
     <string name="title_advanced_highlight_hint">ଥିମର ଆକ୍ସେଣ୍ଟ ରଙ୍ଗ ହାଇଲାଇଟ୍ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହେବ</string>
-    <string name="title_advanced_override_width_hint">ଏହା ବାର୍ତ୍ତାଗୁଡ଼ିକୁ ସଂକୀର୍ଣ୍ଣ କରିପାରେ, କିନ୍ତୁ ଅଦ୍ଭୁତ ଦେଖାଯାଏ</string>
     <string name="title_advanced_expandall_hint">ଏକାଧିକ ବାର୍ତ୍ତା ସମ୍ପ୍ରସାରଣ ହୋଇଥିବା ବେଳେ ଉତ୍ତର ବଟନ୍ ଦେଖାଯିବ ନାହିଁ କାରଣ ବଟନ୍ କେଉଁ ବାର୍ତ୍ତା ପାଇଁ ପ୍ରଯୁଜ୍ୟ ତାହା ଅସ୍ପଷ୍ଟ ଅଟେ</string>
     <string name="title_advanced_display_autolock_nav_hint">%1$d ସେକେଣ୍ଡର ଅନୁଗ୍ରହ ସମୟ ରହିବ</string>
     <string name="title_advanced_move_hint">ଆକାଉଣ୍ଟ୍ ସେଟିଂସରେ ଲକ୍ଷ୍ୟସ୍ଥଳ ଫୋଲ୍ଡର୍ ଵିନ୍ୟାସ କରାଯାଇପାରିବ</string>

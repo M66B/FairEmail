@@ -539,7 +539,6 @@
     <string name="title_advanced_thumbnails">Arată miniaturile imaginilor după textul mesajului</string>
     <string name="title_advanced_message_text_zoom2">Zoom implicit al textului mesajului: %1$s %%</string>
     <string name="title_advanced_overview_mode">Măriți mesajele originale pentru a se potrivi cu ecranul</string>
-    <string name="title_advanced_override_width">Dezactivați lățimile fixe în mesajele originale</string>
     <string name="title_advanced_hyphenation">Folosește despărțirea în silabe automată</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
     <string name="title_advanced_monospaced">Folosește implicit fontul proporțional pentru textul mesajului</string>
@@ -809,7 +808,6 @@
     <string name="title_advanced_preview_lines_hint">Maxim %s caractere în total</string>
     <string name="title_advanced_preview_issue">Derularea poate fi lentă din cauza unei erori în unele versiuni de Android atunci când numărul de linii este mare</string>
     <string name="title_advanced_overview_mode_hint">Acest lucru poate duce la fonturi foarte mici</string>
-    <string name="title_advanced_override_width_hint">Acest lucru poate face ca mesajele să fie mai înguste, dar și să arate ciudat</string>
     <string name="title_advanced_monospaced_pre_hint">Mesajele care conțin doar text simplu vor fi considerate ca fiind preformatate</string>
     <string name="title_advanced_placeholders_hint">Acest lucru se aplică numai mesajelor reformatate</string>
     <string name="title_advanced_inline_hint">Imaginile integrate sunt cele include în mesaj</string>
@@ -1948,7 +1946,7 @@
     <string name="title_widget_subject_lines">Numărul maxim de linii de subiect</string>
     <string name="title_widget_avatars">Afișați avatarele de contact</string>
     <string name="title_widget_account_name">Arată numele contului</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Arată titlul</string>
+    <string name="title_widget_caption">Arată titlul</string>
     <string name="title_widget_refresh">Buton de afișare a mesajelor de reîmprospătare</string>
     <string name="title_widget_compose">Afișați butonul de redactare a unui mesaj nou</string>
     <string name="title_widget_background">Culoare fundal</string>

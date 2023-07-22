@@ -465,7 +465,6 @@
     <string name="title_advanced_thumbnails">Prikaži minijature slika nakon teksta poruke</string>
     <string name="title_advanced_message_text_zoom2">Zadano zumiranje teksta poruke: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zumiraj izvorne poruke tako da stanu na zaslon</string>
-    <string name="title_advanced_override_width">Onemogući fiksne širine u izvornim porukama</string>
     <string name="title_advanced_hyphenation">Koristi automatsko umetanje crtica</string>
     <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
     <string name="title_advanced_monospaced">Za tekst poruke prema zadanim postavkama koristi jednakoprostorni (monospace) font</string>
@@ -689,7 +688,6 @@
     <string name="title_advanced_preview_lines_hint">Najviše %s znak(ov)a ukupno</string>
     <string name="title_advanced_preview_issue">Pomicanje može biti sporo zbog pogreške u nekim verzijama Androida kada je broj linija veći od jedan</string>
     <string name="title_advanced_overview_mode_hint">Ovo može rezultirati vrlo malim fontovima</string>
-    <string name="title_advanced_override_width_hint">Ovo može učiniti poruke užima, ali i izgledati čudno</string>
     <string name="title_advanced_monospaced_pre_hint">Samo poruke u obliku običnog teksta smatrat će se unaprijed formatiranima</string>
     <string name="title_advanced_placeholders_hint">Ovo se odnosi samo na preformatirane poruke</string>
     <string name="title_advanced_inline_hint">Inline slike su slike uključene u poruku</string>

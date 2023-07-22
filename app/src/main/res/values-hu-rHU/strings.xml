@@ -453,7 +453,6 @@
     <string name="title_advanced_thumbnails">A csatolmányok a szöveg után jelenjenek meg</string>
     <string name="title_advanced_message_text_zoom2">Szöveg nagyítás alapértelmezett érték: %1$s %%</string>
     <string name="title_advanced_overview_mode">Eredeti üzenetek kinagyítására teljes képernyőre</string>
-    <string name="title_advanced_override_width">Állandó szélesség kikapcsolása az eredeti üzenetekben</string>
     <string name="title_advanced_hyphenation">Automatikus elválasztás használata</string>
     <string name="title_advanced_contrast">Magas kontraszt használata az üzenetek szövegéhez</string>
     <string name="title_advanced_monospaced">Fix szélességű betűtípus használata az üzenetek szövegéhez</string>
@@ -680,7 +679,6 @@
     <string name="title_advanced_preview_lines_hint">Legfeljebb %s karakter összesen</string>
     <string name="title_advanced_preview_issue">A görgetés bizonyos Android verziók hibája miatt lassú lehet, egynél több sor esetén</string>
     <string name="title_advanced_overview_mode_hint">Ez nagyon kis betűméretet eredményezhet</string>
-    <string name="title_advanced_override_width_hint">Vékonyíthatja az üzeneteket, de furán nézhet ki</string>
     <string name="title_advanced_monospaced_pre_hint">Formázatlan üzeneteket előformázottnak tekinti</string>
     <string name="title_advanced_placeholders_hint">Ez csak az újraformázott szövegre érvényes</string>
     <string name="title_advanced_inline_hint">Beágyazott képek az üzenet szövegébe beszúrt képek</string>

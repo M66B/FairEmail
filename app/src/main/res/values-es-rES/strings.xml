@@ -525,7 +525,6 @@
     <string name="title_advanced_thumbnails">Mostrar miniaturas de la imagen después del texto del mensaje</string>
     <string name="title_advanced_message_text_zoom2">Zoom por defecto del texto del mensaje: %1$s %%</string>
     <string name="title_advanced_overview_mode">Hacer zoom en mensajes originales para ajustarse a la pantalla</string>
-    <string name="title_advanced_override_width">Desactivar anchos fijos en los mensajes originales</string>
     <string name="title_advanced_hyphenation">Usar separación automática</string>
     <string name="title_advanced_contrast">Utilizar contraste alto para el texto del mensaje</string>
     <string name="title_advanced_monospaced">Usar fuente monoespaciada para el texto del mensaje por defecto</string>
@@ -795,7 +794,6 @@
     <string name="title_advanced_preview_lines_hint">Máximo %s caracteres en total</string>
     <string name="title_advanced_preview_issue">El desplazamiento puede ser lento debido a un error en algunas versiones de Android cuando el número de líneas es más de una</string>
     <string name="title_advanced_overview_mode_hint">Esto puede resultar en fuentes muy pequeñas</string>
-    <string name="title_advanced_override_width_hint">Esto puede hacer que los mensajes sean más estrechos, pero también pueden verse extraños</string>
     <string name="title_advanced_monospaced_pre_hint">Los mensajes de texto plano se considerarán preformateados</string>
     <string name="title_advanced_placeholders_hint">Esto sólo se aplica a los mensajes reformateados</string>
     <string name="title_advanced_inline_hint">Las imágenes embebidas son imágenes incluídas en el mensaje</string>
@@ -1933,7 +1931,7 @@
     <string name="title_widget_subject_lines">Número máximo de líneas del asunto</string>
     <string name="title_widget_avatars">Mostrar avatares de contactos</string>
     <string name="title_widget_account_name">Mostrar el nombre de la cuenta</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Mostrar título</string>
+    <string name="title_widget_caption">Mostrar título</string>
     <string name="title_widget_refresh">Mostrar botón de actualizar mensajes</string>
     <string name="title_widget_compose">Mostrar botón de redactar nuevo mensaje</string>
     <string name="title_widget_background">Color de fondo</string>

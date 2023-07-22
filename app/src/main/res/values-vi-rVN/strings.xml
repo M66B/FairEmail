@@ -465,7 +465,6 @@
     <string name="title_advanced_thumbnails">Hiện hình ảnh xem trước sau văn bản thư</string>
     <string name="title_advanced_message_text_zoom2">Độ phóng văn bản thư mặc định: %1$s %%</string>
     <string name="title_advanced_overview_mode">Phóng thư gốc để vừa với màn hình</string>
-    <string name="title_advanced_override_width">Tắt độ rộng cố định trong thư gốc</string>
     <string name="title_advanced_hyphenation">Sử dụng gạch ngang tự động</string>
     <string name="title_advanced_contrast">Sử dụng độ tương phản cao cho văn bản thư</string>
     <string name="title_advanced_monospaced">Sử dụng phông chữ đơn cách cho văn bản thư theo mặc định</string>
@@ -695,7 +694,6 @@
     <string name="title_advanced_preview_lines_hint">Tổng cộng tối đa %s kí tự</string>
     <string name="title_advanced_preview_issue">Việc cuộn có thể chậm do một lỗi trong một số phiên bản Android khi số dòng nhiều hơn một</string>
     <string name="title_advanced_overview_mode_hint">Cái này có thể dẫn đến các phông chữ rất nhỏ</string>
-    <string name="title_advanced_override_width_hint">Việc này có thể làm cho thư hẹp hơn, nhưng cũng trông khá lạ</string>
     <string name="title_advanced_monospaced_pre_hint">Các thư chỉ có văn bản thuần sẽ được coi là đã định dạng trước</string>
     <string name="title_advanced_placeholders_hint">Cái này chỉ áp dụng cho các thư được định dạng lại</string>
     <string name="title_advanced_inline_hint">Hình ảnh tích hợp là hình ảnh được bao gồm trong thư</string>

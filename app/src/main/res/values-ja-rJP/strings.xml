@@ -512,7 +512,6 @@
     <string name="title_advanced_thumbnails">本文の後に画像サムネイルを表示</string>
     <string name="title_advanced_message_text_zoom2">デフォルトの本文のテキスト拡大率: %1$s %%</string>
     <string name="title_advanced_overview_mode">画面に合わせて元のメッセージを拡大</string>
-    <string name="title_advanced_override_width">元のメッセージの幅の固定を無効にする</string>
     <string name="title_advanced_hyphenation">自動ハイフンを使用</string>
     <string name="title_advanced_contrast">本文にハイコントラストテーマを使用</string>
     <string name="title_advanced_monospaced">デフォルトで本文に等幅フォントを使用</string>
@@ -583,6 +582,7 @@
     <string name="title_advanced_auto_block_sender">メッセージを迷惑メールとして報告したとき、差出人を自動でブロック</string>
     <string name="title_advanced_auto_hide_answer">スクロール時に返信ボタンを隠す</string>
     <string name="title_advanced_swipe_reply">展開したメッセージを右にスワイプして返信</string>
+    <string name="title_advanced_move_thread_all">会話を移動するとき、すべてのメッセージを移動</string>
     <string name="title_advanced_move_thread_sent">会話を移動するとき、送信済みメッセージも移動</string>
     <string name="title_advanced_default_snooze">デフォルトのスヌーズ/遅延時間</string>
     <string name="title_advanced_default_folder">デフォルトのフォルダーを選択</string>
@@ -781,7 +781,6 @@
     <string name="title_advanced_preview_lines_hint">合計 %s 文字</string>
     <string name="title_advanced_preview_issue">行が複数の場合、一部の Android バージョンのバグによりスクロールが遅くなる可能性があります</string>
     <string name="title_advanced_overview_mode_hint">フォントが非常に小さくなることがあります</string>
-    <string name="title_advanced_override_width_hint">メッセージを小さくすることができますが、おかしな見た目になることもあります</string>
     <string name="title_advanced_monospaced_pre_hint">プレーンテキストのみのメッセージは書式設定済みとみなされます</string>
     <string name="title_advanced_placeholders_hint">再フォーマットされたメッセージにのみ適用されます</string>
     <string name="title_advanced_inline_hint">インライン画像はメッセージに含まれる画像のことです</string>
@@ -1900,6 +1899,7 @@
     <string name="title_debug_info_remark">(英語) 問題の詳細と発生日時を教えてください:</string>
     <string name="title_crash_info_remark">(英語) アプリがクラッシュしたときに何をしていたかを説明してください:</string>
     <string name="title_debug_info_issue">問題の説明 (必須・英語で)</string>
+    <string name="title_debug_info_issue_remark">デバッグには、問題発生の推定時刻や正確なエラーメッセージなどの詳細情報が重要です</string>
     <string name="title_debug_info_contact">最近、この問題について連絡がありました</string>
     <string name="title_unexpected_info_remark">(英語) エラーが発生したときに何をしていたか説明してください:</string>
     <string name="title_widget_title_count">新着メッセージ数</string>
@@ -1923,6 +1923,7 @@
     <string name="title_widget_subject_lines">件名の最大行数</string>
     <string name="title_widget_avatars">連絡先のアバターを表示</string>
     <string name="title_widget_account_name">アカウント名を表示</string>
+    <string name="title_widget_caption">件名を表示</string>
     <string name="title_widget_refresh">メッセージ更新ボタンを表示</string>
     <string name="title_widget_compose">メッセージ新規作成ボタンを表示</string>
     <string name="title_widget_background">背景色</string>

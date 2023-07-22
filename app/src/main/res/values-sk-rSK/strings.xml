@@ -540,7 +540,6 @@
     <string name="title_advanced_thumbnails">Zobraziť miniatúry obrázkov za textom správy</string>
     <string name="title_advanced_message_text_zoom2">Predvolené priblíženie textu správy: %1$s %%</string>
     <string name="title_advanced_overview_mode">Pôvodné zobrazenie správy prispôsobiť veľkosti obrazovky</string>
-    <string name="title_advanced_override_width">Potlačiť pevnú šírku v pôvodných správach</string>
     <string name="title_advanced_hyphenation">Použiť automatické delenie slov</string>
     <string name="title_advanced_contrast">Vysoký kontrast pre text správy</string>
     <string name="title_advanced_monospaced">Text správy písmom s pevnou šírkou</string>
@@ -804,7 +803,6 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_advanced_preview_lines_hint">Maximálny počet %s znakov</string>
     <string name="title_advanced_preview_issue">Scrollovanie môže byť pomalé kvôli chybe v niektorých verziách Androidu, ak je počet položiek väčší než 1</string>
     <string name="title_advanced_overview_mode_hint">Výsledkom môžu byť veľmi malé písmená</string>
-    <string name="title_advanced_override_width_hint">Zúži zobrazenie správ, ale môže to vyzerať hrozne</string>
     <string name="title_advanced_monospaced_pre_hint">Správy vo formáte obyčajného textu budú považované za preformátované</string>
     <string name="title_advanced_placeholders_hint">Má vplyv len na preformátované správy</string>
     <string name="title_advanced_inline_hint">Zakomponované obrázky sú obrázky, ktoré sú súčasťou správy</string>

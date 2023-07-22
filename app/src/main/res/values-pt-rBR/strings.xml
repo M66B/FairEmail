@@ -525,7 +525,6 @@
     <string name="title_advanced_thumbnails">Mostrar miniaturas das imagens após o texto da mensagem</string>
     <string name="title_advanced_message_text_zoom2">Zoom padrão da mensagem: %1$s %%</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para adequar à tela</string>
-    <string name="title_advanced_override_width">Desabilitar larguras fixas nas mensagens originais</string>
     <string name="title_advanced_hyphenation">Usar hifenização automática</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_monospaced">Usar a fonte mono-espaçada para o texto da mensagem por padrão</string>
@@ -795,7 +794,6 @@
     <string name="title_advanced_preview_lines_hint">Máximo de %s caracteres no total</string>
     <string name="title_advanced_preview_issue">Rolagem pode ser lenta devido a um bug em algumas versões do Android quando o número de linhas é mais de uma</string>
     <string name="title_advanced_overview_mode_hint">Isso pode resultar em fontes muito pequenas</string>
-    <string name="title_advanced_override_width_hint">Isso pode tornar as mensagens mais estreitas, mas também parecer estranhas</string>
     <string name="title_advanced_monospaced_pre_hint">Mensagens simples de texto serão consideradas pré-formatadas</string>
     <string name="title_advanced_placeholders_hint">Isso se aplica apenas a mensagens reformatadas</string>
     <string name="title_advanced_inline_hint">Imagens em linha são incluídas na mensagem</string>
@@ -1935,7 +1933,7 @@
     <string name="title_widget_subject_lines">Número máximo de linhas para o assunto</string>
     <string name="title_widget_avatars">Mostrar avatares dos contatos</string>
     <string name="title_widget_account_name">Mostrar nome da conta</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Mostrar título</string>
+    <string name="title_widget_caption">Mostrar título</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão compor nova mensagem</string>
     <string name="title_widget_background">Cor de fundo</string>

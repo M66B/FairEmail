@@ -524,7 +524,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_thumbnails">Afbeeldingsminiaturen weergeven na de berichttekst</string>
     <string name="title_advanced_message_text_zoom2">Standaard berichttekst zoom: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zoom oorspronkelijke berichten zodat ze op het scherm passen</string>
-    <string name="title_advanced_override_width">Schakel vaste breedtes uit in originele berichten</string>
     <string name="title_advanced_hyphenation">Gebruik automatische koppeltekens</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
     <string name="title_advanced_monospaced">Gebruik standaard vaste breedte lettertype voor berichttekst</string>
@@ -794,7 +793,6 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_preview_lines_hint">Maximaal %s tekens in totaal</string>
     <string name="title_advanced_preview_issue">Scrollen kan langzaam zijn vanwege een fout in sommige Android-versies wanneer het aantal regels meer dan één is</string>
     <string name="title_advanced_overview_mode_hint">Dit kan resulteren in zeer kleine lettertypen</string>
-    <string name="title_advanced_override_width_hint">Dit kan berichten smaller maken, maar er ook vreemd laten uitzien</string>
     <string name="title_advanced_monospaced_pre_hint">Alleen platte tekst berichten worden beschouwd als vooraf opgemaakt</string>
     <string name="title_advanced_placeholders_hint">Dit geldt alleen voor opnieuw opgemaakte berichten</string>
     <string name="title_advanced_inline_hint">Inline afbeeldingen zijn afbeeldingen opgenomen in het bericht</string>
@@ -1180,6 +1178,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_unsubscribe">Uitschrijven</string>
     <string name="title_message_rule">Maak regel</string>
     <string name="title_no_junk">Geen spam</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Bewerk onderwerp &#8230;</string>
     <string name="title_move_to">Verplaats naar &#8230;</string>
     <string name="title_move_to_folder">Verplaats naar &#8230;</string>
     <string name="title_move_to_account">Verplaats naar %1$s &#8230;</string>
@@ -1926,7 +1925,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_subject_lines">Maximaal aantal onderwerpregels</string>
     <string name="title_widget_avatars">Toon avatars van contacten</string>
     <string name="title_widget_account_name">Toon de accountnaam</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Toon titel</string>
+    <string name="title_widget_caption">Toon titel</string>
     <string name="title_widget_refresh">Toon knop voor het verversen van berichten</string>
     <string name="title_widget_compose">Toon knop voor het opstellen van een nieuw bericht</string>
     <string name="title_widget_background">Achtergrondkleur</string>

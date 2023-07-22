@@ -548,7 +548,6 @@
     <string name="title_advanced_thumbnails">Показувати ескізи зображень після повідомлення</string>
     <string name="title_advanced_message_text_zoom2">Масштаб тексту за замовчуванням: %1$s %%</string>
     <string name="title_advanced_overview_mode">Автоматичне масштабування оригінальних повідомлень</string>
-    <string name="title_advanced_override_width">Відключити фіксовані ширини в оригінальних повідомленнях</string>
     <string name="title_advanced_hyphenation">Використовувати автоматичну дефісацію</string>
     <string name="title_advanced_contrast">Використовувати високо-контрастний текст для повідомленнь</string>
     <string name="title_advanced_monospaced">Використовувати моноширинний шрифт для тексту повідомлень за замовчуванням</string>
@@ -817,7 +816,6 @@
     <string name="title_advanced_preview_lines_hint">Максимум: %s символів</string>
     <string name="title_advanced_preview_issue">Прокручування може бути повільним через помилку у деяких версіях Android, коли кількість рядків більше одного</string>
     <string name="title_advanced_overview_mode_hint">Це може призвести до дуже малих шрифтів</string>
-    <string name="title_advanced_override_width_hint">Це може зробити повідомлення вужчими, але і воно може виглядати дивно</string>
     <string name="title_advanced_monospaced_pre_hint">Лише текстові повідомлення вважатимуться попередньо відформатованими</string>
     <string name="title_advanced_placeholders_hint">Це стосується лише для переформатованих повідомлень</string>
     <string name="title_advanced_inline_hint">Вбудовані зображення включені в повідомлення</string>
@@ -1956,7 +1954,7 @@
     <string name="title_widget_subject_lines">Максимальна кількість рядків в темі</string>
     <string name="title_widget_avatars">Показувати аватари контактів</string>
     <string name="title_widget_account_name">Показати ім\'я облікового запису</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Показувати заголовок</string>
+    <string name="title_widget_caption">Показувати заголовок</string>
     <string name="title_widget_refresh">Показувати кнопку оновлення повідомлень</string>
     <string name="title_widget_compose">Показати кнопку створення нового повідомлення</string>
     <string name="title_widget_background">Колір тла</string>

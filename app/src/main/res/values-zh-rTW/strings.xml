@@ -458,7 +458,6 @@
     <string name="title_advanced_thumbnails">顯示圖片縮圖於訊息本文之後</string>
     <string name="title_advanced_message_text_zoom2">預設訊息本文文字縮放: %1$s %%</string>
     <string name="title_advanced_overview_mode">縮放原始訊息以適配螢幕</string>
-    <string name="title_advanced_override_width">於原始訊息中停用固定寬度</string>
     <string name="title_advanced_hyphenation">使用自動連字符號</string>
     <string name="title_advanced_contrast">應用高對比於訊息本文上</string>
     <string name="title_advanced_monospaced">訊息本文預設使用等寬字型</string>
@@ -684,7 +683,6 @@
     <string name="title_advanced_preview_lines_hint">總計最多 %s 字元</string>
     <string name="title_advanced_preview_issue">由於某些 Android 版本的 bug，當有多行時，滾動可能會變遲緩</string>
     <string name="title_advanced_overview_mode_hint">可能導致字型變很小</string>
-    <string name="title_advanced_override_width_hint">這可使訊息顯示更緊湊，但也可能導致顯示異常</string>
     <string name="title_advanced_monospaced_pre_hint">僅純文字訊息會被視作經預排的</string>
     <string name="title_advanced_placeholders_hint">僅適用於經過重排的訊息</string>
     <string name="title_advanced_inline_hint">行內圖片是包含於訊息中的圖片</string>

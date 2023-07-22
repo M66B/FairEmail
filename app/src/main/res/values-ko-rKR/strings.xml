@@ -394,7 +394,6 @@
     <string name="title_advanced_unzip">압축한 첨부 파일의 내용 표시</string>
     <string name="title_advanced_attachments_alt">메시지 택스트 이후에 첨부파일 표시</string>
     <string name="title_advanced_thumbnails">메시지 텍스트 이후에 이미지 썸네일 표시</string>
-    <string name="title_advanced_override_width">원본 메시지의 너비 고정 비활성화</string>
     <string name="title_advanced_hyphenation">하이픈 자동 삽입</string>
     <string name="title_advanced_contrast">메시지 텍스트에 고대비 적용</string>
     <string name="title_advanced_monospaced">기본적으로 메시지 텍스트에 고정폭 글꼴 사용</string>

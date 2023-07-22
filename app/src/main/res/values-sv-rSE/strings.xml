@@ -522,7 +522,6 @@
     <string name="title_advanced_thumbnails">Visa miniatyrbilder efter meddelandetexten</string>
     <string name="title_advanced_message_text_zoom2">Standard meddelandetext zoom: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zooma originalmeddelanden för att passa skärmen</string>
-    <string name="title_advanced_override_width">Inaktivera fasta bredder i ursprungliga meddelanden</string>
     <string name="title_advanced_hyphenation">Använd automatisk avstavning</string>
     <string name="title_advanced_contrast">Använd hög kontrast för meddelandetext</string>
     <string name="title_advanced_monospaced">Använd monospaced typsnitt för meddelandetext som standard</string>
@@ -792,7 +791,6 @@
     <string name="title_advanced_preview_lines_hint">Max %s tecken totalt</string>
     <string name="title_advanced_preview_issue">Scrollningen kan vara långsam på grund av en bugg i vissa Android-versioner när antalet rader är mer än en</string>
     <string name="title_advanced_overview_mode_hint">Detta kan resultera i mycket små typsnitt</string>
-    <string name="title_advanced_override_width_hint">Detta kan göra meddelanden smalare, men också att de visas konstigt</string>
     <string name="title_advanced_monospaced_pre_hint">Enkla textmeddelanden kommer att betraktas som förformaterade</string>
     <string name="title_advanced_placeholders_hint">Detta gäller endast omformaterade meddelanden</string>
     <string name="title_advanced_inline_hint">Infogade bilder är bilder som ingår i meddelandet</string>
@@ -1931,7 +1929,7 @@
     <string name="title_widget_subject_lines">Maximalt antal ämnesrader</string>
     <string name="title_widget_avatars">Visa kontaktavatarer</string>
     <string name="title_widget_account_name">Visa kontonamn</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Visa rubrik</string>
+    <string name="title_widget_caption">Visa rubrik</string>
     <string name="title_widget_refresh">Visa knappen för att uppdatera meddelanden</string>
     <string name="title_widget_compose">Visa knapp för nytt meddelande</string>
     <string name="title_widget_background">Bakgrundsfärg</string>

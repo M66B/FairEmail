@@ -475,7 +475,6 @@
     <string name="title_advanced_thumbnails">Mostrar as miniaturas das imaxes despois do texto da mensaxe</string>
     <string name="title_advanced_message_text_zoom2">Factor de ampliación do texto da mensaxe por defecto %1$s %%</string>
     <string name="title_advanced_overview_mode">Ampliar as mensaxes orixinais para encher a pantalla</string>
-    <string name="title_advanced_override_width">Desactivar o ancho fixo das mensaxes orixinais</string>
     <string name="title_advanced_hyphenation">Usar partición automática de palabras</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto das mensaxes</string>
     <string name="title_advanced_monospaced">Usar fontes de ancho fixo para o texto das mensaxes por defecto</string>
@@ -709,7 +708,6 @@
     <string name="title_advanced_preview_lines_hint">Maximo de %s caracteres en total</string>
     <string name="title_advanced_preview_issue">O desprazamento pode ser lento por un fallo en algunhas versións de Android cando o número de liñas é máis de un</string>
     <string name="title_advanced_overview_mode_hint">As fontes poderíanse ver moi pequenas</string>
-    <string name="title_advanced_override_width_hint">Isto fará as mensaxes máis estreitas, pero tamén poderían verse raras</string>
     <string name="title_advanced_monospaced_pre_hint">As mensaxes que so sexan texto se considerarán como preformatadas</string>
     <string name="title_advanced_placeholders_hint">Isto só se aplica ás mensaxes reformatadas</string>
     <string name="title_advanced_inline_hint">As imaxes en liña son as que están incluídas na mensaxe</string>

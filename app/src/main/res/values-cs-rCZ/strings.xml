@@ -554,7 +554,6 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_thumbnails">Zobrazit náhledy obrázků pod textem zprávy</string>
     <string name="title_advanced_message_text_zoom2">Výchozí zvětšení textu zprávy: %1$s %%</string>
     <string name="title_advanced_overview_mode">Přizpůsobit zobrazení původních zpráv šířce obrazovky</string>
-    <string name="title_advanced_override_width">Zakázat pevné šířky v originálních zprávách</string>
     <string name="title_advanced_hyphenation">Použít automatický rozdělovník</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
     <string name="title_advanced_monospaced">Automaticky použít neproporcionální písmo pro text zprávy</string>
@@ -824,7 +823,6 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_preview_lines_hint">Maximálně %s znaků celkem</string>
     <string name="title_advanced_preview_issue">Je-li počet řádků větší než jeden, může být posouvání pomalé díky chybě v některých verzích Androidu</string>
     <string name="title_advanced_overview_mode_hint">Může mít za následek velmi malé písmo</string>
-    <string name="title_advanced_override_width_hint">To může zúžit zprávy, ale také to vypadat podivně</string>
     <string name="title_advanced_monospaced_pre_hint">Pouze prosté textové zprávy budou považovány za předformátované</string>
     <string name="title_advanced_placeholders_hint">Platí pouze pro přeformátované zprávy</string>
     <string name="title_advanced_inline_hint">Vložené obrázky jsou obrázky v těle zprávy</string>
@@ -1963,7 +1961,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_subject_lines">Maximální počet řádků předmětu</string>
     <string name="title_widget_avatars">Zobrazit avatary kontaktů</string>
     <string name="title_widget_account_name">Zobrazit název účtu</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Zobrazit název</string>
+    <string name="title_widget_caption">Zobrazit název</string>
     <string name="title_widget_refresh">Zobrazit tlačítko pro obnovení zpráv</string>
     <string name="title_widget_compose">Zobrazit tlačítko pro vytvoření nové zprávy</string>
     <string name="title_widget_background">Barva pozadí</string>

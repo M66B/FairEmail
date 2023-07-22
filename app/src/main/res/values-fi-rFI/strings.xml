@@ -519,7 +519,6 @@
     <string name="title_advanced_thumbnails">Näytä kuvien esikatselukuvat viestin tekstin jälkeen</string>
     <string name="title_advanced_message_text_zoom2">Viestien tekstin oletuszoomaus: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zoomaa alkuperäiset viestit ruudulle sopivaksi</string>
-    <string name="title_advanced_override_width">Poista alkuperäisten viestien kiinteät leveydet</string>
     <string name="title_advanced_hyphenation">Käytä automaattista tavutusta</string>
     <string name="title_advanced_contrast">Käytä voimakasta kontrastia viestien tekstille</string>
     <string name="title_advanced_monospaced">Käytä tasavälistä kirjasinta oletuksena viestien tekstille</string>
@@ -787,7 +786,6 @@
     <string name="title_advanced_preview_lines_hint">Enintään %s merkkiä</string>
     <string name="title_advanced_preview_issue">Vierittäminen voi olla hidasta joissakin Android-versioissa olevan bugin takia, kun rivien lukumäärä on enemmän kuin yksi</string>
     <string name="title_advanced_overview_mode_hint">Tämä voi aiheuttaa hyvin pieniä kirjasimia</string>
-    <string name="title_advanced_override_width_hint">Tämä voi kaventaa viestejä, mutta myös näyttää oudolta</string>
     <string name="title_advanced_monospaced_pre_hint">Muotoilematonta tekstiä olevat viestit käsitellään valmiiksi muotoiltuina</string>
     <string name="title_advanced_placeholders_hint">Tämä koskee vain uudelleenmuotoiltuja viestejä</string>
     <string name="title_advanced_inline_hint">Tekstiin upotetut kuvat ovat viestin tekstin joukossa olevat kuvat</string>

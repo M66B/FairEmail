@@ -518,7 +518,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_thumbnails">İleti metninden sonra görsellerin önizlemelerini göster</string>
     <string name="title_advanced_message_text_zoom2">Varsayılan mesaj metni yakınlaştırma: %1$s %%</string>
     <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>
-    <string name="title_advanced_override_width">Orijinal mesajlarda sabit genişlikleri devre dışı bırakın</string>
     <string name="title_advanced_hyphenation">Otomatik hecelemeyi kullan</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
     <string name="title_advanced_monospaced">İleti metninde varsayılan olarak sabit genişlikli yazı tipi kullan</string>
@@ -784,7 +783,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_preview_lines_hint">Toplamda maksimum %s karakter</string>
     <string name="title_advanced_preview_issue">Bazı Android sürümlerindeki bir hata nedeniyle satır sayısı birden fazla olduğunda kaydırma yavaş olabilir</string>
     <string name="title_advanced_overview_mode_hint">Bu çok küçük yazı tiplerine neden olabilir</string>
-    <string name="title_advanced_override_width_hint">Bu, mesajları daraltabilir, ancak aynı zamanda garip görünebilir</string>
     <string name="title_advanced_monospaced_pre_hint">Yalnızca düz metin iletiler önceden biçimlendirilmiş olarak kabul edilecektir</string>
     <string name="title_advanced_placeholders_hint">Bu yalnızca yeniden biçimlendirilmiş mesajlar için geçerlidir</string>
     <string name="title_advanced_inline_hint">Satıriçi resimler mesajın içine eklenen resimlerdir</string>

@@ -510,7 +510,6 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_thumbnails">Tampilkan thumbnail gambar setelah teks pesan</string>
     <string name="title_advanced_message_text_zoom2">Perbesaran tulisan pesan bawaan: %1$s %%</string>
     <string name="title_advanced_overview_mode">Zoom pesan asli agar pas dengan layar</string>
-    <string name="title_advanced_override_width">Nonaktifkan lebar tetap di pesan asli</string>
     <string name="title_advanced_hyphenation">Gunakan penandahubungan otomatis</string>
     <string name="title_advanced_contrast">Gunakan kontras tinggi untuk teks pesan</string>
     <string name="title_advanced_monospaced">Gunakan huruf monospace untuk teks pesan secara standar</string>
@@ -779,7 +778,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_preview_lines_hint">%s total karakter maksimum</string>
     <string name="title_advanced_preview_issue">Scrolling/menggulir bisa terasa lambat karena bug dalam beberapa versi Android ketika jumlah garis lebih dari satu</string>
     <string name="title_advanced_overview_mode_hint">Hal ini bisa membuat huruf yang sangat kecil</string>
-    <string name="title_advanced_override_width_hint">Ini dapat membuat pesan menjadi lebih sempit, tetapi tampilan menjadi aneh</string>
     <string name="title_advanced_monospaced_pre_hint">Pesan teks biasa akan dianggap telah diformat sebelumnya</string>
     <string name="title_advanced_placeholders_hint">Ini berlaku untuk pesan yang diformat ulang</string>
     <string name="title_advanced_inline_hint">Gambar inline akan menyisipkan gambar dalam pesan</string>
@@ -1914,7 +1912,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_widget_subject_lines">Jumlah garis subjek maksimal</string>
     <string name="title_widget_avatars">Tampilkan foto kontak</string>
     <string name="title_widget_account_name">Tampilkan nama akun</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Tampilkan judul</string>
+    <string name="title_widget_caption">Tampilkan judul</string>
     <string name="title_widget_refresh">Tampilkan tombol penyegaran pesan</string>
     <string name="title_widget_compose">Tampilkan tombol pesan baru</string>
     <string name="title_widget_background">Warna latar belakang</string>

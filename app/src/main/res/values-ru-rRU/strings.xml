@@ -553,7 +553,6 @@
     <string name="title_advanced_thumbnails">Показывать миниатюры изображений после текста сообщения</string>
     <string name="title_advanced_message_text_zoom2">Масштаб текста сообщения по умолчанию: %1$s%%</string>
     <string name="title_advanced_overview_mode">Изменять масштаб исходных сообщений к размеру экрана</string>
-    <string name="title_advanced_override_width">Отключить фиксированную ширину в оригинальных сообщениях</string>
     <string name="title_advanced_hyphenation">Автоматическая расстановка переносов</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
     <string name="title_advanced_monospaced">Использовать моноширинный шрифт для текста сообщения по умолчанию</string>
@@ -824,7 +823,6 @@
     <string name="title_advanced_preview_lines_hint">Всего не более %s символов</string>
     <string name="title_advanced_preview_issue">Прокрутка может быть медленной из-за ошибки в некоторых версиях Android, когда строк больше одной</string>
     <string name="title_advanced_overview_mode_hint">Может привести к очень маленьким шрифтам</string>
-    <string name="title_advanced_override_width_hint">Может сделать сообщения более узкими, но странно выглядящими</string>
     <string name="title_advanced_monospaced_pre_hint">Сообщения, содержащие только простой текст, будут рассматриваться как форматированные</string>
     <string name="title_advanced_placeholders_hint">Относится только к изменённым сообщениям</string>
     <string name="title_advanced_inline_hint">Встроенные изображения – это изображения, включённые в сообщение</string>
@@ -1966,7 +1964,7 @@
     <string name="title_widget_subject_lines">Максимальное число строк темы</string>
     <string name="title_widget_avatars">Показывать аватары контактов</string>
     <string name="title_widget_account_name">Показывать имя учётной записи</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Показывать заголовок</string>
+    <string name="title_widget_caption">Показывать заголовок</string>
     <string name="title_widget_refresh">Показать кнопку обновления сообщений</string>
     <string name="title_widget_compose">Показать кнопку создания нового сообщения</string>
     <string name="title_widget_background">Цвет фона</string>

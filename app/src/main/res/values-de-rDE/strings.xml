@@ -527,7 +527,6 @@
     <string name="title_advanced_thumbnails">Vorschaubilder nach dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_message_text_zoom2">Standard der Nachrichtentextvergrößerung: %1$s %%</string>
     <string name="title_advanced_overview_mode">Originalnachrichten an Bildschirmgröße anpassen</string>
-    <string name="title_advanced_override_width">Festgelegte Breiten in Originalnachrichten deaktivieren</string>
     <string name="title_advanced_hyphenation">Automatische Worttrennung verwenden</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
     <string name="title_advanced_monospaced">Festbreitenschriftarten standardmäßig für den Nachrichtentext verwenden</string>
@@ -798,7 +797,6 @@
     <string name="title_advanced_preview_lines_hint">Maximal %s Zeichen</string>
     <string name="title_advanced_preview_issue">Der Bildlauf kann aufgrund eines Fehlers in einigen Android-Versionen langsam sein, wenn die Anzahl der Zeilen mehr als eine ist</string>
     <string name="title_advanced_overview_mode_hint">Das kann zu einer sehr kleinen Schrift führen</string>
-    <string name="title_advanced_override_width_hint">Dies kann nicht nur dazu führen, dass die Nachrichten schmaler werden, sondern auch ungewohnt aussehen.</string>
     <string name="title_advanced_monospaced_pre_hint">Unformatierte Textnachrichten werden als vorformatiert betrachtet</string>
     <string name="title_advanced_placeholders_hint">Das gilt nur für umformatierte Nachrichten</string>
     <string name="title_advanced_inline_hint">Eingebettete Bilder sind in der Nachricht enthaltene Bilder</string>
@@ -1941,7 +1939,7 @@
     <string name="title_widget_subject_lines">Maximale Betreffzeilenanzahl</string>
     <string name="title_widget_avatars">Kontaktavatare anzeigen</string>
     <string name="title_widget_account_name">Kontonamen anzeigen</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Titel anzeigen</string>
+    <string name="title_widget_caption">Titel anzeigen</string>
     <string name="title_widget_refresh">Schaltfläche »Nachrichten aktualisieren« anzeigen</string>
     <string name="title_widget_compose">Schaltfläche »Neue Nachricht verfassen« anzeigen</string>
     <string name="title_widget_background">Hintergrundfarbe</string>

@@ -555,7 +555,6 @@
     <string name="title_advanced_thumbnails">Паказваць мініяцюры выяў пасля тэксту паведамлення</string>
     <string name="title_advanced_message_text_zoom2">Стандартны маштаб тэксту паведамлення: %1$s %%</string>
     <string name="title_advanced_overview_mode">Павялічваць маштаб арыгінальных паведамленняў пад памер экрана</string>
-    <string name="title_advanced_override_width">Адключыць фіксаваную шырыню ў зыходных паведамленнях</string>
     <string name="title_advanced_hyphenation">Выкарыстоўваць аўтаматычны перанос</string>
     <string name="title_advanced_contrast">Ужываць высокі кантраст да тэксту паведамлення</string>
     <string name="title_advanced_monospaced">Выкарыстоўваць шрыфт аднолькавай шырыні для тэксту паведамлення па змаўчанні</string>
@@ -825,7 +824,6 @@
     <string name="title_advanced_preview_lines_hint">Максімальная колькасць сімвалаў: %s</string>
     <string name="title_advanced_preview_issue">Пракручванне можа быць запаволена з-за памылкі ў некаторых версіях Android, калі колькасць радкоў перавышае 1 радок</string>
     <string name="title_advanced_overview_mode_hint">Гэта опцыя можа прывесці да адлюстравання вельмі дробных шрыфтоў</string>
-    <string name="title_advanced_override_width_hint">Гэта опцыя можа зрабіць паведамленні больш вузкімі, але гэта можа дзіўна выглядаць</string>
     <string name="title_advanced_monospaced_pre_hint">Паведамленні, якія змяшчаюць толькі звычайны тэкст, будуць разглядацца як папярэдне адфармаціраваныя</string>
     <string name="title_advanced_placeholders_hint">Гэта адносіцца толькі да змененых паведамленняў</string>
     <string name="title_advanced_inline_hint">Убудаваныя выявы - гэта выявы, уключаныя ў паведамленне</string>
@@ -1970,7 +1968,7 @@
     <string name="title_widget_subject_lines">Максімальная колькасць радкоў у тэме</string>
     <string name="title_widget_avatars">Паказваць аватары кантактаў</string>
     <string name="title_widget_account_name">Паказаць імя ўліковага запісу</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Паказаць загаловак</string>
+    <string name="title_widget_caption">Паказаць загаловак</string>
     <string name="title_widget_refresh">Паказваць кнопку абнаўлення паведамленняў</string>
     <string name="title_widget_compose">Паказаць кнопку для стварэння новага паведамлення</string>
     <string name="title_widget_background">Колер фону</string>

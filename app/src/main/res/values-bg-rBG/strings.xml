@@ -1017,6 +1017,7 @@
     <string name="title_rule_caption">Редакция правило</string>
     <string name="title_rule_title">Правилото важи за</string>
     <string name="title_rule_name">Име</string>
+    <string name="title_rule_group">Група</string>
     <string name="title_rule_order">Подреждане</string>
     <string name="title_rule_enabled">Активирано</string>
     <string name="title_rule_stop">Спри правилото след изпълнението му</string>
@@ -1291,7 +1292,7 @@
     <string name="title_widget_font_size">Големина на текста</string>
     <string name="title_widget_padding">Размер на отстъпа</string>
     <string name="title_widget_semi_transparent">Полупрозрачен фон</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Показване на заглавието</string>
+    <string name="title_widget_caption">Показване на заглавието</string>
     <string name="title_widget_background">Цвят на фона</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важно</string>

@@ -527,7 +527,6 @@
     <string name="title_advanced_thumbnails">Mostrar miniaturas das imagens após o texto da mensagem</string>
     <string name="title_advanced_message_text_zoom2">Zoom padrão do texto da mensagem %1$s %%</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para caber na tela</string>
-    <string name="title_advanced_override_width">Desativar largura fixa nas mensagens originais</string>
     <string name="title_advanced_hyphenation">Usar Hifenização Automática</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
     <string name="title_advanced_monospaced">Usar a fonte monospaced para o texto da mensagem por padrão</string>
@@ -797,7 +796,6 @@
     <string name="title_advanced_preview_lines_hint">Máximo %s caracteres no total</string>
     <string name="title_advanced_preview_issue">O movimento de deslizar pode ser lento devido a um erro em algumas versões Android, quando o número de linhas é superior a uma</string>
     <string name="title_advanced_overview_mode_hint">Isto pode resultar em tipos de letra muito pequenos</string>
-    <string name="title_advanced_override_width_hint">Isto pode tornar as mensagens mais estreitas, mas também pode parecer estranho</string>
     <string name="title_advanced_monospaced_pre_hint">Mensagens de texto simples serão consideradas como pré-formatadas</string>
     <string name="title_advanced_placeholders_hint">Apenas se aplica a mensagens reformatadas</string>
     <string name="title_advanced_inline_hint">Imagens embutidas estão incluídas na mensagem</string>
@@ -1940,7 +1938,7 @@
     <string name="title_widget_subject_lines">Número máximo de linhas de assunto</string>
     <string name="title_widget_avatars">Mostrar avatares dos contactos</string>
     <string name="title_widget_account_name">Mostrar nome da conta</string>
-    <string name="title_widget_caption" comment="title_widget_caption&#10;Title for option to disable message list widget caption">Mostrar Título</string>
+    <string name="title_widget_caption">Mostrar Título</string>
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
     <string name="title_widget_background">Cor do fundo</string>
