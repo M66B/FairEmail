@@ -68,7 +68,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private Button btnConsume;
     private ImageView ivConnected;
 
-    private static final int HIDE_BANNER = 4; // weeks
+    private static final int HIDE_BANNER = 8; // weeks
 
     @Override
     @Nullable
