@@ -433,6 +433,7 @@ public class FragmentMessages extends FragmentBase
     private static final int REQUEST_QUICK_ACTIONS = 27;
     static final int REQUEST_BLOCK_SENDERS = 28;
     static final int REQUEST_CALENDAR = 29;
+    static final int REQUEST_EDIT_SUBJECT = 30;
 
     static final String ACTION_STORE_RAW = BuildConfig.APPLICATION_ID + ".STORE_RAW";
     static final String ACTION_VERIFYDECRYPT = BuildConfig.APPLICATION_ID + ".VERIFYDECRYPT";
@@ -8558,6 +8559,10 @@ public class FragmentMessages extends FragmentBase
                     if (resultCode == RESULT_OK)
                         onInsertCalendar(data.getBundleExtra("args"));
                     break;
+                case REQUEST_EDIT_SUBJECT:
+                    if (resultCode == RESULT_OK)
+                        onEditSubject(data.getBundleExtra("args"));
+                    break;
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -10019,6 +10024,34 @@ public class FragmentMessages extends FragmentBase
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "insert:calendar");
+    }
+
+    private void onEditSubject(Bundle args) {
+        new SimpleTask<Void>() {
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                String subject = args.getString("subject");
+
+                DB db = DB.getInstance(context);
+
+                EntityMessage message = db.message().getMessage(id);
+                if (message == null)
+                    return null;
+
+                if (TextUtils.isEmpty(subject))
+                    subject = null;
+
+                EntityOperation.queue(context, message, EntityOperation.SUBJECT, subject);
+
+                return null;
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "edit:subject");
     }
 
     private void onMoveAskAcross(final ArrayList<MessageTarget> result) {

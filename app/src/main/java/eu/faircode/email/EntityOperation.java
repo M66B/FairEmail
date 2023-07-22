@@ -107,6 +107,7 @@ public class EntityOperation {
     static final String EXPUNGE = "expunge";
     static final String REPORT = "report";
     static final String DOWNLOAD = "download";
+    static final String SUBJECT = "subject";
 
     private static final int MAX_FETCH = 100; // operations
     private static final long FORCE_WITHIN = 30 * 1000; // milliseconds
@@ -529,6 +530,9 @@ public class EntityOperation {
             } else if (ATTACHMENT.equals(name))
                 db.attachment().setProgress(jargs.getLong(0), 0);
 
+            else if (SUBJECT.equals(name))
+                db.message().setMessageUiHide(message.id, true);
+
             else if (DETACH.equals(name))
                 db.message().setMessageUiHide(message.id, true);
 
@@ -936,6 +940,9 @@ public class EntityOperation {
             } catch (JSONException ex) {
                 Log.e(ex);
             }
+
+        if (SUBJECT.equals(name) && message != null)
+            db.message().setMessageUiHide(message, false);
 
         if (DETACH.equals(name) && message != null)
             db.message().setMessageUiHide(message, false);

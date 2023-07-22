@@ -45,6 +45,11 @@
         </item>
 
         <item
+            android:id="@+id/menu_edit_subject"
+            android:icon="@drawable/twotone_subject_24"
+            android:title="@string/title_edit_subject" />
+
+        <item
             android:id="@+id/menu_move_to"
             android:icon="@drawable/twotone_drive_file_move_24"
             android:title="@string/title_move_to" />

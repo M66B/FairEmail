@@ -547,6 +547,10 @@ class Core {
                                     onDownload(context, jargs, account, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
                                     break;
 
+                                case EntityOperation.SUBJECT:
+                                    onSubject(context, jargs, account, folder, message, (IMAPStore) istore, (IMAPFolder) ifolder, state);
+                                    break;
+
                                 default:
                                     throw new IllegalArgumentException("Unknown operation=" + op.name);
                             }
@@ -634,6 +638,7 @@ class Core {
                                 (op.tries >= LOCAL_RETRY_MAX &&
                                         EntityOperation.BODY.equals(op.name)) ||
                                 EntityOperation.ATTACHMENT.equals(op.name) ||
+                                EntityOperation.SUBJECT.equals(op.name) ||
                                 ((op.tries >= LOCAL_RETRY_MAX || attachments > 0) &&
                                         EntityOperation.ADD.equals(op.name)) ||
                                 (op.tries >= LOCAL_RETRY_MAX &&
@@ -3064,6 +3069,43 @@ class Core {
 
         MimeMessage imessage = (MimeMessage) ifolder.getMessageByUID(uid);
         downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, new SyncStats());
+    }
+
+    private static void onSubject(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws JSONException, MessagingException, IOException {
+        DB db = DB.getInstance(context);
+
+        String subject = (jargs.isNull(0) ? null : jargs.getString(0));
+
+        EntityFolder trash = db.folder().getFolderByType(message.account, EntityFolder.TRASH);
+
+        // Get message
+        Message imessage = ifolder.getMessageByUID(message.uid);
+        if (imessage == null)
+            throw new MessageRemovedException();
+
+        String msgid = EntityMessage.generateMessageId();
+        String ref = (TextUtils.isEmpty(message.references)
+                ? message.msgid
+                : message.references + " " + message.msgid);
+        MimeMessage icopy = new MimeMessageEx((MimeMessage) imessage, msgid);
+        icopy.setSubject(subject); // Update or delete subject
+        icopy.addHeader("References", MessageHelper.limitReferences(ref));
+
+        ifolder.appendMessages(new Message[]{icopy});
+
+        Long uid = findUid(context, account, ifolder, msgid);
+        if (uid != null) {
+            JSONArray fargs = new JSONArray();
+            fargs.put(uid);
+            onFetch(context, fargs, folder, istore, ifolder, state);
+        }
+
+        if (trash == null) {
+            imessage.setFlag(Flags.Flag.DELETED, true);
+            expunge(context, ifolder, Arrays.asList(imessage));
+        } else {
+            EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);
+        }
     }
 
     private static void onSynchronizeMessages(

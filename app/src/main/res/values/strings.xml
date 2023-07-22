@@ -1446,6 +1446,7 @@
     <string name="title_unsubscribe">Unsubscribe</string>
     <string name="title_message_rule">Create rule</string>
     <string name="title_no_junk">Not spam</string>
+    <string name="title_edit_subject">Edit subject &#8230;</string>
     <string name="title_move_to">Move to &#8230;</string>
     <string name="title_move_to_folder">Move to &#8230;</string>
     <string name="title_move_to_account">Move to %1$s &#8230;</string>

@@ -5721,6 +5721,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             }.execute(context, owner, args, "labels:fetch");
         }
 
+        private void onActionEditSubject(TupleMessageEx message) {
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putString("subject", message.subject);
+
+            FragmentDialogEditSubject fragment = new FragmentDialogEditSubject();
+            fragment.setArguments(args);
+            fragment.setTargetFragment(parentFragment, FragmentMessages.REQUEST_EDIT_SUBJECT);
+            fragment.show(parentFragment.getParentFragmentManager(), "message:subject");
+        }
+
         private void onActionMove(TupleMessageEx message, final boolean copy) {
             if (message.accountProtocol == EntityAccount.TYPE_POP &&
                     EntityFolder.TRASH.equals(message.folderType) && !message.accountLeaveDeleted) {
@@ -5942,6 +5953,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_set_importance_normal).setEnabled(can && !EntityMessage.PRIORITIY_NORMAL.equals(i));
             popupMenu.getMenu().findItem(R.id.menu_set_importance_high).setEnabled(can && !EntityMessage.PRIORITIY_HIGH.equals(i));
 
+            popupMenu.getMenu().findItem(R.id.menu_edit_subject)
+                    .setEnabled(message.uid != null && !message.folderReadOnly)
+                    .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP && !Helper.isPlayStoreInstall());
+
             popupMenu.getMenu().findItem(R.id.menu_move_to)
                     .setEnabled(message.uid != null && !message.folderReadOnly)
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP);
@@ -6043,6 +6058,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                     } else if (itemId == R.id.menu_set_importance_high) {
                         onMenuSetImportance(message, EntityMessage.PRIORITIY_HIGH);
+                        return true;
+                    } else if (itemId == R.id.menu_edit_subject) {
+                        onActionEditSubject(message);
                         return true;
                     } else if (itemId == R.id.menu_move_to) {
                         onActionMove(message, false);
