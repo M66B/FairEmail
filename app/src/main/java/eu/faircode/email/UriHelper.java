@@ -460,7 +460,8 @@ public class UriHelper {
     }
 
     static Uri fix(Uri uri) {
-        if ("HTTP".equals(uri.getScheme()) || "HTTPS".equals(uri.getScheme())) {
+        if ((!"http".equals(uri.getScheme()) && "http".equalsIgnoreCase(uri.getScheme())) ||
+                (!"https".equals(uri.getScheme()) && "https".equalsIgnoreCase(uri.getScheme()))) {
             String u = uri.toString();
             int semi = u.indexOf(':');
             if (semi > 0)
