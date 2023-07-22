@@ -520,6 +520,7 @@ The low priority status bar notification shows the number of pending operations,
 * *raw*: download raw message
 * *body*: download message text
 * *attachment*: download attachment
+* *detach*: delete attachment
 * *sync*: synchronize local and remote messages
 * *subscribe*: subscribe to remote folder
 * *purge*: delete all messages from remote folder
