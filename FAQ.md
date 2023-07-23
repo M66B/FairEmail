@@ -1041,7 +1041,7 @@ Common errors:
 * *Private key does not match any encryption keys*: the selected key cannot be used to decrypt the message, probably because it is the incorrect key
 * *No private key*: no certificate was selected or no certificate was available in the Android keystore
 * *Memory allocation failed*: Android supports keys up to 4096 bits only (Android [issue 199605614](https://issuetracker.google.com/issues/199605614))
-* *message-digest attribute value does not match calculated value*: the signature doesn't match the message, possible because the message was changed.
+* *message-digest attribute value does not match calculated value*: the signature doesn't match the message, possibly because the message was changed, or because an incorrect or key was used
 
 In case the certificate chain is incorrect, you can tap on the little info button to show the all certificates.
 After the certificate details the issuer or "selfSign" is shown.
