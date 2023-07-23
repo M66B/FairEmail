@@ -4489,9 +4489,13 @@ public class FragmentCompose extends FragmentBase {
                                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                         .putExtra("tab", "encryption"));
                             else {
+                                EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+
                                 PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
                                 popupMenu.getMenu().add(Menu.NONE, R.string.title_send_dialog, 1, R.string.title_send_dialog);
-                                popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_manage_certificates, 2, R.string.title_advanced_manage_certificates);
+                                if (identity != null)
+                                    popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, 2, R.string.title_reset_sign_key);
+                                popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_manage_certificates, 3, R.string.title_advanced_manage_certificates);
 
                                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                                     @Override
@@ -4505,6 +4509,41 @@ public class FragmentCompose extends FragmentBase {
                                             fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
                                             fragment.show(getParentFragmentManager(), "compose:send");
                                             return true;
+                                        } else if (itemId == R.string.title_reset_sign_key) {
+                                            Bundle args = new Bundle();
+                                            args.putLong("id", identity.id);
+
+                                            new SimpleTask<Void>() {
+                                                @Override
+                                                protected void onPostExecute(Bundle args) {
+                                                    ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                                                }
+
+                                                @Override
+                                                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                                    long id = args.getLong("id");
+
+                                                    DB db = DB.getInstance(context);
+                                                    try {
+                                                        db.beginTransaction();
+
+                                                        db.identity().setIdentitySignKey(id, null);
+                                                        db.identity().setIdentitySignKeyAlias(id, null);
+                                                        db.identity().setIdentityEncrypt(id, 0);
+
+                                                        db.setTransactionSuccessful();
+                                                    } finally {
+                                                        db.endTransaction();
+                                                    }
+
+                                                    return null;
+                                                }
+
+                                                @Override
+                                                protected void onException(Bundle args, Throwable ex) {
+                                                    Log.unexpectedError(getParentFragmentManager(), ex);
+                                                }
+                                            }.execute(FragmentCompose.this, args, "identity:reset");
                                         } else if (itemId == R.string.title_advanced_manage_certificates) {
                                             startActivity(new Intent(getContext(), ActivitySetup.class)
                                                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
