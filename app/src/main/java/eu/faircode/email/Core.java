@@ -129,7 +129,6 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.search.AndTerm;
 import javax.mail.search.ComparisonTerm;
 import javax.mail.search.FlagTerm;
 import javax.mail.search.HeaderTerm;
@@ -2146,9 +2145,8 @@ class Core {
         if (trash == null) {
             imessage.setFlag(Flags.Flag.DELETED, true);
             expunge(context, ifolder, Arrays.asList(imessage));
-        } else {
+        } else
             EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);
-        }
     }
 
     static boolean deletePart(Part part, Part attachment) throws MessagingException, IOException {
@@ -3104,9 +3102,8 @@ class Core {
         if (trash == null) {
             imessage.setFlag(Flags.Flag.DELETED, true);
             expunge(context, ifolder, Arrays.asList(imessage));
-        } else {
+        } else
             EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);
-        }
     }
 
     private static void onSynchronizeMessages(
