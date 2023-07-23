@@ -9298,6 +9298,7 @@ public class FragmentMessages extends FragmentBase
 
                     int count = -1;
                     boolean decoded = false;
+                    Throwable last = null;
                     while (!decoded)
                         try (FileInputStream fis = new FileInputStream(input)) {
                             // Create parser
@@ -9330,6 +9331,7 @@ public class FragmentMessages extends FragmentBase
                                             args.putString("algo", algo);
                                         } catch (CMSException ex) {
                                             Log.w(ex);
+                                            last = ex;
                                         }
                                         break; // only one try
                                     }
@@ -9345,6 +9347,7 @@ public class FragmentMessages extends FragmentBase
                                         break;
                                     } catch (CMSException ex) {
                                         Log.w(ex);
+                                        last = ex;
                                     }
                                 } else
                                     break; // out of recipients
@@ -9356,7 +9359,9 @@ public class FragmentMessages extends FragmentBase
                     if (!decoded) {
                         if (message.identity != null)
                             db.identity().setIdentitySignKeyAlias(message.identity, null);
-                        throw new IllegalArgumentException(context.getString(R.string.title_unknown_key));
+                        String msg = (last == null ? null : last.getMessage());
+                        throw new IllegalArgumentException(context.getString(R.string.title_unknown_key) +
+                                (TextUtils.isEmpty(msg) ? "" : " (" + msg + ")"));
                     }
                 }
 
