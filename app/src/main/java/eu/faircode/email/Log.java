@@ -549,6 +549,7 @@ public class Log {
                         String theme = prefs.getString("theme", "blue_orange_system");
                         event.addMetadata("extra", "theme", theme);
                         event.addMetadata("extra", "package", BuildConfig.APPLICATION_ID);
+                        event.addMetadata("extra", "locale", Locale.getDefault().toString());
                     }
 
                     return should;
