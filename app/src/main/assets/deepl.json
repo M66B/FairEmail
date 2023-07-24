@@ -72,7 +72,7 @@
   {
     "language": "JA",
     "name": "Japanese",
-    "supports_formality": false
+    "supports_formality": true
   },
   {
     "language": "KO",
