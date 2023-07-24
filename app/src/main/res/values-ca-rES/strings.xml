@@ -433,7 +433,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_min_screen_size">Mida mínima de la pantalla per dividir la pantalla</string>
     <string name="title_advanced_close_pane">Col·lapsar una fila o columna en tancar una conversa</string>
     <string name="title_advanced_open_pane">Comenceu amb dues files o dues columnes</string>
-    <string name="title_advanced_column_width">Amplada de la columna del missatge / Alçada de fila: %1 $ s %%</string>
+    <string name="title_advanced_column_width">Amplada de la columna del missatge / Alçada de fila: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Oculta la barra d’eines superior quan es desplaça els missatges</string>
     <string name="title_advanced_nav_options">Mostra les opcions del menú de navegació</string>
     <string name="title_advanced_nav_categories">Mostra les categories de comptes al menú de navegació</string>
