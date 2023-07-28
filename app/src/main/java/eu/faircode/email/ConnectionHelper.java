@@ -27,6 +27,7 @@ import android.net.LinkProperties;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.net.TransportInfo;
 import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
@@ -346,11 +347,6 @@ public class ConnectionHelper {
         }
 
         // VPN: evaluate underlying networks
-        Integer transport = null;
-        if (caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR))
-            transport = NetworkCapabilities.TRANSPORT_CELLULAR;
-        else if (caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI))
-            transport = NetworkCapabilities.TRANSPORT_WIFI;
 
         boolean underlying = false;
         for (Network network : networks) {
@@ -378,11 +374,8 @@ public class ConnectionHelper {
                 continue;
             }
 
-            if (!caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN) &&
-                    (caps.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                            caps.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) &&
-                    (transport != null && !caps.hasTransport(transport))) {
-                Log.i("isMetered: underlying other transport");
+            if (caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN)) {
+                Log.i("isMetered: underlying VPN transport");
                 continue;
             }
 
