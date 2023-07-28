@@ -772,6 +772,7 @@
     <string name="title_unsubscribe">لغو اشتراک</string>
     <string name="title_message_rule">ساخت قانون</string>
     <string name="title_no_junk">هرزنامه نیست</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">ویرایش موضوع &#8230;</string>
     <string name="title_move_to">انتقال به &#8230;</string>
     <string name="title_move_to_folder">انتقال به &#8230;</string>
     <string name="title_move_to_account">انتقال به %1$s &#8230;</string>

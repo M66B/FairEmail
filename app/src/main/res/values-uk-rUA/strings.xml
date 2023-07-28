@@ -89,6 +89,12 @@
         <item quantity="many">Видалити %1$d повідомлень безповоротно?</item>
         <item quantity="other">Видалити %1$d повідомлень безповоротно?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Одне вкладення</item>
+        <item quantity="few">%1$d вкладення</item>
+        <item quantity="many">%1$d вкладень</item>
+        <item quantity="other">%1$d вкладень</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Вважати %1$d повідомлення як спам?</item>
         <item quantity="few">Вважати %1$d повідомлень як спам?</item>
@@ -1203,6 +1209,7 @@
     <string name="title_unsubscribe">Відписатися</string>
     <string name="title_message_rule">Створити правило</string>
     <string name="title_no_junk">Не спам</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Редагування теми &#8230;</string>
     <string name="title_move_to">Перемістити до &#8230;</string>
     <string name="title_move_to_folder">Перемістити до &#8230;</string>
     <string name="title_move_to_account">Перемістити в %1$s &#8230;</string>

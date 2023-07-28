@@ -1168,6 +1168,7 @@
     <string name="title_unsubscribe">購読解除</string>
     <string name="title_message_rule">ルールを作成</string>
     <string name="title_no_junk">迷惑メールでないと報告</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">件名を編集&#8230;</string>
     <string name="title_move_to">&#8230;に移動</string>
     <string name="title_move_to_folder">&#8230;に移動</string>
     <string name="title_move_to_account">%1$s に移動&#8230;</string>

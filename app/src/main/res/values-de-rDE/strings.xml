@@ -1184,6 +1184,7 @@
     <string name="title_unsubscribe">Abbestellen</string>
     <string name="title_message_rule">Regel erstellen</string>
     <string name="title_no_junk">Kein Spam</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Betreff bearbeiten &#8230;</string>
     <string name="title_move_to">Verschieben nach &#8230;</string>
     <string name="title_move_to_folder">Verschieben nach &#8230;</string>
     <string name="title_move_to_account">Verschieben nach %1$s &#8230;</string>

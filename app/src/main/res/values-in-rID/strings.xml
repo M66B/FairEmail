@@ -25,7 +25,7 @@
     <string name="channel_alert">Peringatan Server</string>
     <string name="channel_group_contacts">Kontak</string>
     <string name="channel_service_description">Menyinkronkan dan memantau akun</string>
-    <string name="channel_send_description">Pengiriman pesan</string>
+    <string name="channel_send_description">Mengirim pesan</string>
     <string name="channel_notification_description">Pemberitahuan pesan baru</string>
     <string name="channel_progress_description">Pemberitahuan progres aktivitas yang berjalan lebih lama</string>
     <plurals name="page_conversation">
@@ -1163,6 +1163,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_unsubscribe">Berhenti langganan</string>
     <string name="title_message_rule">Buat aturan</string>
     <string name="title_no_junk">Bukan spam</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Sunting subjek &#8230;</string>
     <string name="title_move_to">Pindahkan ke &#8230;</string>
     <string name="title_move_to_folder">Pindahkan ke &#8230;</string>
     <string name="title_move_to_account">Pindahkan ke %1$s&#8230;</string>

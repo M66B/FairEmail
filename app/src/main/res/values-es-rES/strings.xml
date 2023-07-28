@@ -1180,6 +1180,7 @@
     <string name="title_unsubscribe">Darse de baja</string>
     <string name="title_message_rule">Crear regla</string>
     <string name="title_no_junk">No es Spam</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Editar asunto &#8230;</string>
     <string name="title_move_to">Mover a &#8230;</string>
     <string name="title_move_to_folder">Mover a &#8230;</string>
     <string name="title_move_to_account">Mover a %1$s &#8230;</string>

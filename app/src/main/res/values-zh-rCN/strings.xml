@@ -1164,6 +1164,7 @@
     <string name="title_unsubscribe">取消订阅</string>
     <string name="title_message_rule">创建规则</string>
     <string name="title_no_junk">不是垃圾邮件</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">编辑标题 &#8230;</string>
     <string name="title_move_to">移动到 &#8230;</string>
     <string name="title_move_to_folder">移动到 &#8230;</string>
     <string name="title_move_to_account">移动到 %1$s &#8230;</string>

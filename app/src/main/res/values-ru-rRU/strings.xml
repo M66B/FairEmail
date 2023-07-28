@@ -1210,6 +1210,7 @@
     <string name="title_unsubscribe">Отписаться</string>
     <string name="title_message_rule">Создать правило</string>
     <string name="title_no_junk">Не спам</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Изменить тему&#8230;</string>
     <string name="title_move_to">Переместить в&#8230;</string>
     <string name="title_move_to_folder">Переместить в&#8230;</string>
     <string name="title_move_to_account">Переместить в %1$s&#8230;</string>

@@ -1182,6 +1182,7 @@
     <string name="title_unsubscribe">Abunəlikdən çıx</string>
     <string name="title_message_rule">Qayda yarat</string>
     <string name="title_no_junk">Spam deyil</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Mövzuya düzəliş et &#8230;</string>
     <string name="title_move_to">Köçürt &#8230;</string>
     <string name="title_move_to_folder">Köçürt &#8230;</string>
     <string name="title_move_to_account">%1$s &#8230; köçürt</string>

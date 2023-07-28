@@ -1183,6 +1183,7 @@
     <string name="title_unsubscribe">Disiscriviti</string>
     <string name="title_message_rule">Crea una regola</string>
     <string name="title_no_junk">Non spam</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Modifica l\'oggetto&#8230;</string>
     <string name="title_move_to">Sposta in&#8230;</string>
     <string name="title_move_to_folder">Sposta in&#8230;</string>
     <string name="title_move_to_account">Sposta in %1$s&#8230;</string>

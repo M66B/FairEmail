@@ -1177,6 +1177,7 @@
     <string name="title_unsubscribe">Avbryt prenumeration</string>
     <string name="title_message_rule">Skapa regel</string>
     <string name="title_no_junk">Inte skräppost</string>
+    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Redigera ämne &#8230;</string>
     <string name="title_move_to">Flytta till &#8230;</string>
     <string name="title_move_to_folder">Flytta till &#8230;</string>
     <string name="title_move_to_account">Flytta till %1$s &#8230;</string>
