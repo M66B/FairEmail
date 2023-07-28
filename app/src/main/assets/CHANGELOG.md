@@ -6,9 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
-### Next version
+### 1.2088 - 2023-07-28
 
+* Improved Android 14 compatibility
 * Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2087 - 2023-07-19
