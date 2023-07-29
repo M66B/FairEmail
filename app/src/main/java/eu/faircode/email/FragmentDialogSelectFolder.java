@@ -27,10 +27,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -404,12 +408,28 @@ public class FragmentDialogSelectFolder extends FragmentDialogBase {
                     tvNoFolder.setVisibility(View.VISIBLE);
                 else {
                     if (data.favorites != null && data.favorites.size() > 0) {
+                        Integer textColor = null;
+                        try {
+                            TypedValue tv = new TypedValue();
+                            Resources.Theme theme = context.getTheme();
+                            theme.resolveAttribute(android.R.attr.textAppearanceButton, tv, true);
+                            int[] attr = new int[]{android.R.attr.textColor};
+                            TypedArray ta = theme.obtainStyledAttributes(tv.resourceId, attr);
+                            textColor = ta.getColor(0, Color.BLACK);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+
                         Button[] btn = new Button[]{btnFavorite1, btnFavorite2, btnFavorite3};
                         for (int i = 0; i < btn.length; i++)
                             if (i < data.favorites.size()) {
                                 EntityFolder favorite = data.favorites.get(i);
                                 btn[i].setTag(favorite.id);
                                 btn[i].setText(favorite.getDisplayName(context));
+                                if (textColor != null)
+                                    btn[i].setTextColor(
+                                            favorite.color == null || !HtmlHelper.hasColor(favorite.color)
+                                                    ? textColor : favorite.color);
                                 btn[i].setVisibility(View.VISIBLE);
                             } else
                                 btn[i].setVisibility(View.INVISIBLE);

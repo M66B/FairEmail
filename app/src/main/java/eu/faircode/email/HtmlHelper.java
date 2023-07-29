@@ -2134,7 +2134,7 @@ public class HtmlHelper {
         return color;
     }
 
-    private static boolean hasColor(int color) {
+    static boolean hasColor(int color) {
         int r = Color.red(color);
         int g = Color.green(color);
         int b = Color.blue(color);
