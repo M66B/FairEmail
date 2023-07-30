@@ -4255,10 +4255,15 @@ public class FragmentCompose extends FragmentBase {
 
                 // Build content
                 File sinput = new File(tmp, draft.id + ".smime_sign");
-                try (OutputStream os = new MessageHelper.CanonicalizingStream(
-                        new BufferedOutputStream(new FileOutputStream(sinput)), EntityAttachment.SMIME_CONTENT, null)) {
-                    bpContent.writeTo(os);
-                }
+                if (EntityMessage.SMIME_SIGNONLY.equals(type))
+                    try (OutputStream os = new MessageHelper.CanonicalizingStream(
+                            new BufferedOutputStream(new FileOutputStream(sinput)), EntityAttachment.SMIME_CONTENT, null)) {
+                        bpContent.writeTo(os);
+                    }
+                else
+                    try (FileOutputStream fos = new FileOutputStream(sinput)) {
+                        bpContent.writeTo(fos);
+                    }
 
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
                     EntityAttachment cattachment = new EntityAttachment();
