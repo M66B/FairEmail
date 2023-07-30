@@ -503,7 +503,7 @@ public class FragmentMessages extends FragmentBase
         quick_scroll = prefs.getBoolean("quick_scroll", true);
         addresses = prefs.getBoolean("addresses", false);
         hide_attachments = prefs.getBoolean("hide_attachments", false);
-        auto_hide_answer = prefs.getBoolean("auto_hide_answer", !accessibility);
+        auto_hide_answer = prefs.getBoolean("auto_hide_answer", false);
         swipe_reply = prefs.getBoolean("swipe_reply", false);
         quick_actions = prefs.getBoolean("quick_actions", true);
 
@@ -7386,10 +7386,9 @@ public class FragmentMessages extends FragmentBase
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
 
-        if (!accessibility &&
-                (viewType == AdapterMessage.ViewType.UNIFIED ||
-                        viewType == AdapterMessage.ViewType.FOLDER))
-            if (scrolling)
+        if (viewType == AdapterMessage.ViewType.UNIFIED ||
+                viewType == AdapterMessage.ViewType.FOLDER)
+            if (auto_hide_answer && scrolling && !accessibility)
                 fabCompose.hide();
             else
                 fabCompose.show();

@@ -732,7 +732,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             swAutoImportant.setChecked(prefs.getBoolean("auto_important", false));
             swResetSnooze.setChecked(prefs.getBoolean("reset_snooze", true));
             swAutoBlockSender.setChecked(prefs.getBoolean("auto_block_sender", true));
-            swAutoHideAnswer.setChecked(prefs.getBoolean("auto_hide_answer", !accessibility));
+            swAutoHideAnswer.setChecked(prefs.getBoolean("auto_hide_answer", false));
             swSwipeReply.setChecked(prefs.getBoolean("swipe_reply", false));
 
             swMoveThreadAll.setChecked(prefs.getBoolean("move_thread_all", false));
