@@ -6,6 +6,14 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
+### 1.2089 - 2023-08-01
+
+* Fixed S/MIME encrypt+sign
+* Fixed selecting images on older Android versions
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2088 - 2023-07-28
 
 * Improved Android 14 compatibility
