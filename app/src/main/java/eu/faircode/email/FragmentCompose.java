@@ -3500,7 +3500,7 @@ public class FragmentCompose extends FragmentBase {
             // https://developer.android.com/reference/android/provider/MediaStore#ACTION_PICK_IMAGES
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             boolean photo_picker = prefs.getBoolean("photo_picker", true);
-            if (photo_picker)
+            if (photo_picker && Helper.hasPhotoPicker())
                 try {
                     Log.i("Using photo picker");
                     pickImages.launch(new PickVisualMediaRequest.Builder()
