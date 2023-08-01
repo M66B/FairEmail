@@ -409,16 +409,17 @@ public class FragmentDialogSelectFolder extends FragmentDialogBase {
                 else {
                     if (data.favorites != null && data.favorites.size() > 0) {
                         Integer textColor = null;
-                        try {
-                            TypedValue tv = new TypedValue();
-                            Resources.Theme theme = context.getTheme();
-                            theme.resolveAttribute(android.R.attr.textAppearanceButton, tv, true);
-                            int[] attr = new int[]{android.R.attr.textColor};
-                            TypedArray ta = theme.obtainStyledAttributes(tv.resourceId, attr);
-                            textColor = ta.getColor(0, Color.BLACK);
-                        } catch (Throwable ex) {
-                            Log.e(ex);
-                        }
+                        if (BuildConfig.DEBUG)
+                            try {
+                                TypedValue tv = new TypedValue();
+                                Resources.Theme theme = context.getTheme();
+                                theme.resolveAttribute(android.R.attr.textAppearanceButton, tv, true);
+                                int[] attr = new int[]{android.R.attr.textColor};
+                                TypedArray ta = theme.obtainStyledAttributes(tv.resourceId, attr);
+                                textColor = ta.getColor(0, Color.BLACK);
+                            } catch (Throwable ex) {
+                                Log.e(ex);
+                            }
 
                         Button[] btn = new Button[]{btnFavorite1, btnFavorite2, btnFavorite3};
                         for (int i = 0; i < btn.length; i++)
