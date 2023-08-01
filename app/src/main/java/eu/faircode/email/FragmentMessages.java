@@ -10558,6 +10558,7 @@ public class FragmentMessages extends FragmentBase
         Boolean hasTrash;
         Boolean hasJunk;
         Boolean isInbox;
+        Boolean isSent;
         Boolean isArchive;
         Boolean isTrash;
         Boolean isJunk;
@@ -10588,7 +10589,7 @@ public class FragmentMessages extends FragmentBase
             if (read_only)
                 return false;
             return (hasJunk && !isJunk && !isDrafts) ||
-                    (hasPop && !hasImap);
+                    (hasPop && isInbox && !isSent && !hasImap);
         }
 
         boolean canTrash() {
@@ -10666,6 +10667,7 @@ public class FragmentMessages extends FragmentBase
                     isInbox = true;
 
                 result.isInbox = (result.isInbox == null ? isInbox : result.isInbox && isInbox);
+                result.isSent = (result.isSent == null ? isSent : result.isSent && isSent);
                 result.isArchive = (result.isArchive == null ? isArchive : result.isArchive && isArchive);
                 result.isTrash = (result.isTrash == null ? isTrash : result.isTrash && isTrash);
                 result.isJunk = (result.isJunk == null ? isJunk : result.isJunk && isJunk);
@@ -10742,6 +10744,7 @@ public class FragmentMessages extends FragmentBase
             }
 
             if (result.isInbox == null) result.isInbox = false;
+            if (result.isSent == null) result.isSent = false;
             if (result.isArchive == null) result.isArchive = false;
             if (result.isTrash == null) result.isTrash = false;
             if (result.isJunk == null) result.isJunk = false;
