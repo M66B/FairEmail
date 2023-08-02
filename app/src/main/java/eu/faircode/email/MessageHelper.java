@@ -2304,8 +2304,10 @@ public class MessageHelper {
         } else if ("rsa-sha256".equals(a)) {
             halgo = "SHA-256";
             salgo = "SHA256withRSA";
+        } else if ("ed25519-sha256".equals(a)) {
+            halgo = "SHA-256";
+            salgo = "Ed25519";
         } else {
-            // TODO: Ed25519
             Log.i("DKIM a=" + a);
             return null;
         }
@@ -2448,7 +2450,7 @@ public class MessageHelper {
             Log.i("DKIM pubkey=" + p);
 
             X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(Base64.decode(p, Base64.DEFAULT));
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            KeyFactory keyFactory = KeyFactory.getInstance("Ed25519".equals(salgo) ? "Ed25519" : "RSA");
             PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
             Signature sig = Signature.getInstance(salgo); // a=
 
