@@ -1995,7 +1995,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (ignore)
                     ServiceUI.ignore(this, id, group);
                 intent.putExtra("id", id);
-                if (account > 0 && folder > 0 && !TextUtils.isEmpty(type) && BuildConfig.DEBUG) {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ActivityView.this);
+                boolean notify_open_folder = prefs.getBoolean("notify_open_folder", false);
+                if (account > 0 && folder > 0 && !TextUtils.isEmpty(type) && notify_open_folder) {
                     if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                         getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 

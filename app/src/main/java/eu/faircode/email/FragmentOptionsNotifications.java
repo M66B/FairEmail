@@ -117,6 +117,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swMessagingStyle;
     private ImageButton ibCar;
     private SwitchCompat swBiometricsNotify;
+    private SwitchCompat swNotifyOpenFolder;
     private SwitchCompat swBackground;
     private SwitchCompat swAlertOnce;
     private ImageButton ibTileSync;
@@ -142,7 +143,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "notify_subtext", "notify_preview", "notify_preview_all", "notify_preview_only", "notify_transliterate",
             "wearable_preview",
             "notify_messaging",
-            "biometrics_notify", "background_service", "alert_once"
+            "biometrics_notify", "notify_open_folder", "background_service", "alert_once"
     };
 
     @Override
@@ -206,6 +207,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swMessagingStyle = view.findViewById(R.id.swMessagingStyle);
         ibCar = view.findViewById(R.id.ibCar);
         swBiometricsNotify = view.findViewById(R.id.swBiometricsNotify);
+        swNotifyOpenFolder = view.findViewById(R.id.swNotifyOpenFolder);
         swBackground = view.findViewById(R.id.swBackground);
         swAlertOnce = view.findViewById(R.id.swAlertOnce);
         ibTileSync = view.findViewById(R.id.ibTileSync);
@@ -694,6 +696,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        swNotifyOpenFolder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("notify_open_folder", checked).apply();
+            }
+        });
+
         swBackground.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -844,6 +853,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", false));
             swMessagingStyle.setChecked(prefs.getBoolean("notify_messaging", false));
             swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", true));
+            swNotifyOpenFolder.setChecked(prefs.getBoolean("notify_open_folder", false));
             swBackground.setChecked(prefs.getBoolean("background_service", false));
             swAlertOnce.setChecked(!prefs.getBoolean("alert_once", true));
 
