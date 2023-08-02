@@ -147,7 +147,14 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                     }
 
                     DB db = DB.getInstance(context);
-                    return db.message().getMessage(id);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message != null) {
+                        EntityFolder folder = db.folder().getFolder(message.folder);
+                        if (folder != null)
+                            args.putString("type", folder.type);
+                    }
+
+                    return message;
                 }
 
                 @Override
@@ -157,13 +164,16 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                     if (message == null)
                         return;
 
+                    String type = args.getString("type");
+
                     Intent thread = new Intent(ActivityMain.this, ActivityView.class);
                     thread.setAction("thread:" + message.id);
                     thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     thread.putExtra("account", message.account);
                     thread.putExtra("folder", message.folder);
+                    thread.putExtra("type", type);
                     thread.putExtra("thread", message.thread);
-                    thread.putExtra("filter_archive", true);
+                    thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(type));
                     thread.putExtra("pinned", true);
                     thread.putExtra("msgid", message.msgid);
 

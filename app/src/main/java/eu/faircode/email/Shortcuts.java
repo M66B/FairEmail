@@ -278,14 +278,15 @@ class Shortcuts {
     }
 
     @NonNull
-    static ShortcutInfoCompat.Builder getShortcut(Context context, EntityMessage message, String label, ContactInfo[] contactInfo) {
+    static ShortcutInfoCompat.Builder getShortcut(Context context, TupleMessageEx message, String label, ContactInfo[] contactInfo) {
         Intent thread = new Intent(context, ActivityView.class);
         thread.setAction("thread:" + message.id);
         thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         thread.putExtra("account", message.account);
         thread.putExtra("folder", message.folder);
+        thread.putExtra("type", message.folderType);
         thread.putExtra("thread", message.thread);
-        thread.putExtra("filter_archive", true);
+        thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType));
         thread.putExtra("pinned", true);
         thread.putExtra("msgid", message.msgid);
 

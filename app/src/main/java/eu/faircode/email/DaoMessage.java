@@ -278,7 +278,7 @@ public interface DaoMessage {
             " AND ui_hide")
     LiveData<List<Long>> liveHiddenThread(long account, String thread);
 
-    @Query("SELECT message.* FROM message" +
+    @Query("SELECT message.id FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE message.account = :account" +
             " AND message.thread = :thread" +
@@ -288,7 +288,7 @@ public interface DaoMessage {
             " AND folder.type <> '" + EntityFolder.ARCHIVE + "'" +
             " AND NOT ui_seen" +
             " AND NOT ui_hide")
-    LiveData<List<EntityMessage>> liveUnreadThread(long account, String thread);
+    LiveData<List<Long>> liveUnreadThread(long account, String thread);
 
     static String FTS_STATS = "SELECT SUM(fts) AS fts, COUNT(*) AS total FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +

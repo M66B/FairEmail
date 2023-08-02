@@ -5861,6 +5861,7 @@ class Core {
             thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             thread.putExtra("account", message.account);
             thread.putExtra("folder", message.folder);
+            thread.putExtra("type", message.folderType);
             thread.putExtra("thread", message.thread);
             thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(message.folderType));
             thread.putExtra("ignore", notify_remove);

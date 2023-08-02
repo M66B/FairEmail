@@ -6337,21 +6337,21 @@ public class FragmentCompose extends FragmentBase {
 
             boolean threading = prefs.getBoolean("threading", true);
             if (threading)
-                db.message().liveUnreadThread(data.draft.account, data.draft.thread).observe(getViewLifecycleOwner(), new Observer<List<EntityMessage>>() {
+                db.message().liveUnreadThread(data.draft.account, data.draft.thread).observe(getViewLifecycleOwner(), new Observer<List<Long>>() {
                     private int lastDiff = 0;
-                    private List<EntityMessage> base = null;
+                    private List<Long> base = null;
 
                     @Override
-                    public void onChanged(List<EntityMessage> messages) {
-                        if (messages == null)
+                    public void onChanged(List<Long> ids) {
+                        if (ids == null)
                             return;
 
                         if (base == null) {
-                            base = messages;
+                            base = ids;
                             return;
                         }
 
-                        int diff = (messages.size() - base.size());
+                        int diff = (ids.size() - base.size());
                         if (diff > lastDiff) {
                             lastDiff = diff;
                             String msg = getResources().getQuantityString(
@@ -6362,21 +6362,51 @@ public class FragmentCompose extends FragmentBase {
                             snackbar.setAction(R.string.title_show, new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    EntityMessage message = messages.get(0);
-                                    boolean notify_remove = prefs.getBoolean("notify_remove", true);
+                                    Bundle args = new Bundle();
+                                    args.putLong("id", ids.get(0));
 
-                                    Intent thread = new Intent(v.getContext(), ActivityView.class);
-                                    thread.setAction("thread:" + message.id);
-                                    // No group
-                                    thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                    thread.putExtra("account", message.account);
-                                    thread.putExtra("folder", message.folder);
-                                    thread.putExtra("thread", message.thread);
-                                    thread.putExtra("filter_archive", true);
-                                    thread.putExtra("ignore", notify_remove);
+                                    new SimpleTask<EntityMessage>() {
+                                        @Override
+                                        protected EntityMessage onExecute(Context context, Bundle args) throws Throwable {
+                                            long id = args.getLong("id");
 
-                                    v.getContext().startActivity(thread);
-                                    getActivity().finish();
+                                            DB db = DB.getInstance(context);
+                                            EntityMessage message = db.message().getMessage(id);
+                                            if (message != null) {
+                                                EntityFolder folder = db.folder().getFolder(message.id);
+                                                if (folder != null)
+                                                    args.putString("type", folder.type);
+                                            }
+
+                                            return message;
+                                        }
+
+                                        @Override
+                                        protected void onExecuted(Bundle args, EntityMessage message) {
+                                            boolean notify_remove = prefs.getBoolean("notify_remove", true);
+
+                                            String type = args.getString("type");
+
+                                            Intent thread = new Intent(v.getContext(), ActivityView.class);
+                                            thread.setAction("thread:" + message.id);
+                                            // No group
+                                            thread.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                            thread.putExtra("account", message.account);
+                                            thread.putExtra("folder", message.folder);
+                                            thread.putExtra("type", type);
+                                            thread.putExtra("thread", message.thread);
+                                            thread.putExtra("filter_archive", !EntityFolder.ARCHIVE.equals(type));
+                                            thread.putExtra("ignore", notify_remove);
+
+                                            v.getContext().startActivity(thread);
+                                            getActivity().finish();
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Log.unexpectedError(getParentFragmentManager(), ex);
+                                        }
+                                    }.execute(FragmentCompose.this, args, "compose:unread");
                                 }
                             });
                             snackbar.show();
