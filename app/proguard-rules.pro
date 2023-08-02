@@ -95,6 +95,7 @@
 -keep class com.microsoft.aad.adal.** {*;}
 -keep class com.microsoft.identity.common.** {*;}
 -dontwarn com.nimbusds.jose.**
+-dontwarn org.bouncycastle.pkix.jcajce.**
 -keepclassmembers enum * {*;} #GSON
 
 #Bouncy castle
