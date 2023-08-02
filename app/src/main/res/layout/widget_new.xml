@@ -20,7 +20,7 @@
             android:adjustViewBounds="true"
             android:contentDescription="@string/title_legend_count"
             android:padding="3dp"
-            android:scaleType="fitCenter"
+            android:scaleType="fitXY"
             android:src="@drawable/baseline_mail_widget_24"
             app:tint="@color/colorWidgetForeground" />
 
