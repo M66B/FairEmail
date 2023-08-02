@@ -255,9 +255,9 @@ public class Bimi {
                             for (int i = 0; i != logotypeExtn.size(); i++) {
                                 ASN1TaggedObject subjectLogo = ASN1TaggedObject.getInstance(logotypeExtn.getObjectAt(i));
                                 if (subjectLogo.getTagNo() == 2) {
-                                    ASN1TaggedObject logotypeInfo = (ASN1TaggedObject) subjectLogo.getObject();
+                                    ASN1TaggedObject logotypeInfo = (ASN1TaggedObject) subjectLogo.getBaseObject();
                                     if (logotypeInfo.getTagNo() == 0) {
-                                        ASN1Sequence logotypeData = (ASN1Sequence) logotypeInfo.getObject();
+                                        ASN1Sequence logotypeData = (ASN1Sequence) logotypeInfo.getBaseObject();
                                         ASN1Sequence logotypeImage = (ASN1Sequence) logotypeData.getObjectAt(0);
                                         ASN1Sequence logotypeDetails = (ASN1Sequence) logotypeImage.getObjectAt(0);
 

@@ -482,7 +482,7 @@ dependencies {
     def vcard_version = "0.11.3"
     def relinker_version = "1.4.5"
     def markwon_version = "4.6.2"
-    def bouncycastle_version = "1.71"
+    def bouncycastle_version = "1.76"
     def colorpicker_version = "0.0.15"
     def overscroll_version = "1.1.1"
     def appauth_version = "0.11.1"
