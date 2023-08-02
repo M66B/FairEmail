@@ -85,6 +85,7 @@ import android.view.Display;
 import android.view.InflateException;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -3085,6 +3086,10 @@ public class Log {
             long size = 0;
             File file = attachment.getFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                size += write(os, String.format("Photo picker=%b\r\n", Helper.hasPhotoPicker()));
+                size += write(os, String.format("Double tap timeout=%d\r\n", ViewConfiguration.getDoubleTapTimeout()));
+                size += write(os, String.format("Long press timeout=%d\r\n", ViewConfiguration.getLongPressTimeout()));
+
                 for (Class<?> cls : new Class[]{
                         ActivitySendSelf.class,
                         ActivitySearch.class,
