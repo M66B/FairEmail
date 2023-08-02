@@ -2152,9 +2152,13 @@ public class MessageHelper {
             if (val.length > 0) {
                 if ("fail".equals(val[0]))
                     result = false;
-                else if ("pass".equals(val[0]))
+                else if ("pass".equals(val[0])) {
+                    // https://www.rfc-editor.org/rfc/rfc7489#section-3.1.1
+                    if ("dkim".equals(type))
+                        return true;
                     if (result == null)
                         result = true;
+                }
             }
         }
 
