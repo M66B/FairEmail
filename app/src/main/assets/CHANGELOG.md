@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
+### Next version
+
+* Updated [Bouncy Castle](https://www.bouncycastle.org/)
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2089 - 2023-08-01
 
 * Fixed S/MIME encrypt+sign

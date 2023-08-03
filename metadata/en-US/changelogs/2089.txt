@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Ubirajara
 
+Next version
+
+* Updated Bouncy Castle
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2089 - 2023-08-01
 
 * Fixed S/MIME encrypt+sign
