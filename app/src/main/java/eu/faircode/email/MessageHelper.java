@@ -66,6 +66,9 @@ import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveStreamFactory;
 import org.apache.commons.compress.archivers.zip.UnsupportedZipFeatureException;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
+import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
+import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
+import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -2453,10 +2456,30 @@ public class MessageHelper {
             String p = pubkey.replaceAll("\\s+", "");
             Log.i("DKIM pubkey=" + p);
 
-            X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(Base64.decode(p, Base64.DEFAULT));
+            String hash = kv.get("b");
+            if (hash == null)
+                return null;
+            String s = hash.replaceAll("\\s+", "");
+            Log.i("DKIM signature=" + s);
+
+            byte[] data = head.toString().getBytes();
+            byte[] key = Base64.decode(p, Base64.DEFAULT);
+            byte[] signature = Base64.decode(s, Base64.DEFAULT);
+
+            if ("Ed25519".equals(salgo)) {
+                if (false) {
+                    // https://www.rfc-editor.org/rfc/rfc8037#page-9
+                    data = "eyJhbGciOiJFZERTQSJ9.RXhhbXBsZSBvZiBFZDI1NTE5IHNpZ25pbmc".getBytes(StandardCharsets.UTF_8);
+                    key = Base64.decode("11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo", Base64.URL_SAFE);
+                    signature = Base64.decode("hgyY0il_MGCjP0JzlnLWG1PPOt7-09PGcvMg3AIbQR6dWbhijcNR4ki4iylGjg5BhVsPt9g7sVvpAr_MuM0KAg", Base64.URL_SAFE);
+                }
+                key = new SubjectPublicKeyInfo(new AlgorithmIdentifier(EdECObjectIdentifiers.id_Ed25519), key).getEncoded();
+            }
+
+            X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(key);
             KeyFactory keyFactory = KeyFactory.getInstance("Ed25519".equals(salgo) ? "Ed25519" : "RSA");
             PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
-            Signature sig = Signature.getInstance(salgo); // a=
+            Signature sig = Signature.getInstance("Ed25519".equals(salgo) ? "EdDSA" : salgo); // a=
 
             // https://stackoverflow.com/a/43984402/1794097
             if (pubKey instanceof RSAPublicKey)
@@ -2469,19 +2492,12 @@ public class MessageHelper {
                     Log.e(ex);
                 }
 
-            String hash = kv.get("b");
-            if (hash == null)
-                return null;
-            String s = hash.replaceAll("\\s+", "");
-            Log.i("DKIM signature=" + s);
-
-            byte[] signature = Base64.decode(s, Base64.DEFAULT);
-
             sig.initVerify(pubKey);
-            sig.update(head.toString().getBytes());
+            sig.update(data);
 
             boolean verified = sig.verify(signature);
             Log.i("DKIM valid=" + verified +
+                    " algo=" + salgo +
                     " dns=" + dns +
                     " from=" + formatAddresses(getFrom()));
 
