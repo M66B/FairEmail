@@ -66,8 +66,6 @@ import org.apache.commons.compress.archivers.ArchiveInputStream;
 import org.apache.commons.compress.archivers.ArchiveStreamFactory;
 import org.apache.commons.compress.archivers.zip.UnsupportedZipFeatureException;
 import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
-import org.bouncycastle.crypto.params.Ed25519PublicKeyParameters;
-import org.bouncycastle.crypto.signers.Ed25519Signer;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -2455,46 +2453,35 @@ public class MessageHelper {
             String p = pubkey.replaceAll("\\s+", "");
             Log.i("DKIM pubkey=" + p);
 
+            X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(Base64.decode(p, Base64.DEFAULT));
+            KeyFactory keyFactory = KeyFactory.getInstance("Ed25519".equals(salgo) ? "Ed25519" : "RSA");
+            PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
+            Signature sig = Signature.getInstance(salgo); // a=
+
+            // https://stackoverflow.com/a/43984402/1794097
+            if (pubKey instanceof RSAPublicKey)
+                try {
+                    int keylen = ((RSAPublicKey) pubKey).getModulus().bitLength();
+                    Log.i("DKIM RSA pubkey length=" + keylen);
+                    if (keylen < DKIM_MIN_KEY_LENGTH)
+                        throw new IllegalArgumentException("RSA pubkey length " + keylen + " < " + DKIM_MIN_KEY_LENGTH);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+
             String hash = kv.get("b");
             if (hash == null)
                 return null;
             String s = hash.replaceAll("\\s+", "");
             Log.i("DKIM signature=" + s);
 
-            byte[] data = head.toString().getBytes();
-            byte[] key = Base64.decode(p, Base64.DEFAULT);
             byte[] signature = Base64.decode(s, Base64.DEFAULT);
 
-            boolean verified;
-            if ("Ed25519".equals(salgo)) {
-                Ed25519Signer verifier = new Ed25519Signer();
-                verifier.init(false, new Ed25519PublicKeyParameters(key));
-                verifier.update(data, 0, data.length);
-                verified = verifier.verifySignature(signature);
-            } else {
-                X509EncodedKeySpec pubKeySpec = new X509EncodedKeySpec(key);
-                KeyFactory keyFactory = KeyFactory.getInstance("RSA");
-                PublicKey pubKey = keyFactory.generatePublic(pubKeySpec);
-                Signature sig = Signature.getInstance(salgo); // a=
+            sig.initVerify(pubKey);
+            sig.update(head.toString().getBytes());
 
-                // https://stackoverflow.com/a/43984402/1794097
-                if (pubKey instanceof RSAPublicKey)
-                    try {
-                        int keylen = ((RSAPublicKey) pubKey).getModulus().bitLength();
-                        Log.i("DKIM RSA pubkey length=" + keylen);
-                        if (keylen < DKIM_MIN_KEY_LENGTH)
-                            throw new IllegalArgumentException("RSA pubkey length " + keylen + " < " + DKIM_MIN_KEY_LENGTH);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-
-                sig.initVerify(pubKey);
-                sig.update(data);
-                verified = sig.verify(signature);
-            }
-
+            boolean verified = sig.verify(signature);
             Log.i("DKIM valid=" + verified +
-                    " algo=" + salgo +
                     " dns=" + dns +
                     " from=" + formatAddresses(getFrom()));
 
