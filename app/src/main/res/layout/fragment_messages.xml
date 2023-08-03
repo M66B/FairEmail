@@ -50,7 +50,7 @@
                 android:drawableStart="@drawable/twotone_notifications_off_24"
                 android:drawablePadding="6dp"
                 android:paddingHorizontal="12dp"
-                android:paddingTop="6dp"
+                android:paddingVertical="6dp"
                 android:text="@string/title_hint_notifications"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:drawableTint="?android:attr/textColorSecondary"
@@ -58,25 +58,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vSeparatorAirplane" />
 
-            <TextView
-                android:id="@+id/tvNotificationsRemark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:padding="6dp"
-                android:text="@string/title_hint_notifications_remark"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvNotifications" />
-
             <View
                 android:id="@+id/vSeparatorNotifications"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="?attr/colorSeparator"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvNotificationsRemark" />
+                app:layout_constraintTop_toBottomOf="@id/tvNotifications" />
 
             <TextView
                 android:id="@+id/tvBatteryOptimizations"
@@ -500,7 +488,7 @@
                 android:id="@+id/grpNotifications"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                app:constraint_referenced_ids="tvNotifications,tvNotificationsRemark,vSeparatorNotifications" />
+                app:constraint_referenced_ids="tvNotifications,vSeparatorNotifications" />
 
             <androidx.constraintlayout.widget.Group
                 android:id="@+id/grpBatteryOptimizations"

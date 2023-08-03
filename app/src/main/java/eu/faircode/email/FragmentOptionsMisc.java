@@ -328,7 +328,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "redmi_note",
             "accept_space", "accept_unsupported",
             "junk_hint",
-            "last_update_check", "last_announcement_check"
+            "last_update_check", "last_announcement_check",
+            "notifications_reminder"
     };
 
     @Override

@@ -647,9 +647,7 @@ public class FragmentMessages extends FragmentBase
         tvNotifications.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ActivitySetup.class)
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                v.getContext().startActivity(intent);
+                new FragmentDialogNotifications().show(getParentFragmentManager(), "notifications");
             }
         });
 
@@ -5145,11 +5143,6 @@ public class FragmentMessages extends FragmentBase
         updateAirplaneMode(ConnectionHelper.airplaneMode(context));
         context.registerReceiver(airplanemode, new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED));
 
-        boolean canNotify =
-                (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
-                        hasPermission(Manifest.permission.POST_NOTIFICATIONS));
-        grpNotifications.setVisibility(canNotify ? View.GONE : View.VISIBLE);
-
         boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context));
         //boolean canSchedule = AlarmManagerCompatEx.canScheduleExactAlarms(context);
         boolean enabled = prefs.getBoolean("enabled", true);
@@ -5174,6 +5167,7 @@ public class FragmentMessages extends FragmentBase
                                     ;
 
         prefs.registerOnSharedPreferenceChangeListener(this);
+        onSharedPreferenceChanged(prefs, "notifications_reminder");
         onSharedPreferenceChanged(prefs, "pro");
 
         if (viewType == AdapterMessage.ViewType.UNIFIED || viewType == AdapterMessage.ViewType.FOLDER) {
@@ -5229,6 +5223,16 @@ public class FragmentMessages extends FragmentBase
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+        if (grpNotifications != null && "notifications_reminder".equals(key)) {
+            boolean canNotify =
+                    (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                            hasPermission(Manifest.permission.POST_NOTIFICATIONS));
+            if (canNotify)
+                prefs.edit().remove("notifications_reminder").apply();
+            boolean notifications_reminder = prefs.getBoolean("notifications_reminder", true);
+            grpNotifications.setVisibility(canNotify || !notifications_reminder ? View.GONE : View.VISIBLE);
+        }
+
         if (grpSupport != null &&
                 ("pro".equals(key) || "banner_hidden".equals(key))) {
             boolean pro = ActivityBilling.isPro(getContext());
