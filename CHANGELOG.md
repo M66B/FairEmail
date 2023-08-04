@@ -6,10 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
-### Next version
+### 1.2090 - 2023-08-04
 
-* Updated [Bouncy Castle](https://www.bouncycastle.org/)
 * Small improvements and minor bug fixes
+* Updated [Bouncy Castle](https://www.bouncycastle.org/)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2089 - 2023-08-01
