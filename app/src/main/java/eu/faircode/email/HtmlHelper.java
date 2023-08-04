@@ -1530,82 +1530,91 @@ public class HtmlHelper {
                     }
 
                     Matcher matcher = pattern.matcher(text);
-                    if (matcher.find()) {
-                        Element span = document.createElement("span");
+                    if (matcher.find())
+                        try {
+                            Element span = document.createElement("span");
 
-                        int pos = 0;
-                        do {
-                            boolean linked = false;
-                            Node parent = tnode.parent();
-                            while (parent != null) {
-                                if ("a".equals(parent.nodeName())) {
-                                    linked = true;
-                                    break;
+                            int pos = 0;
+                            do {
+                                boolean linked = false;
+                                Node parent = tnode.parent();
+                                while (parent != null) {
+                                    if ("a".equals(parent.nodeName())) {
+                                        linked = true;
+                                        break;
+                                    }
+                                    parent = parent.parent();
                                 }
-                                parent = parent.parent();
-                            }
 
-                            String group = matcher.group();
-                            int start = matcher.start();
-                            int end = matcher.end();
+                                String group = matcher.group();
+                                int start = matcher.start();
+                                int end = matcher.end();
+                                if (start < pos || start > end) {
+                                    Log.e("Autolink pos=" + pos +
+                                            " start=" + start + " end=" + end +
+                                            " len=" + group.length() + "/" + text.length());
+                                    return;
+                                }
 
-                            // Workarounds
-                            if (group.endsWith(".")) {
-                                end--;
-                                group = group.substring(0, group.length() - 1);
-                            }
-                            if (group.startsWith("(")) {
-                                start++;
-                                group = group.substring(1);
-                            }
-                            if (group.endsWith(")")) {
-                                end--;
-                                group = group.substring(0, group.length() - 1);
-                            }
-                            if (end < text.length() && text.charAt(end) == '$') {
-                                end++;
-                                group += '$';
-                            }
+                                // Workarounds
+                                if (group.endsWith(".")) {
+                                    end--;
+                                    group = group.substring(0, group.length() - 1);
+                                }
+                                if (group.startsWith("(")) {
+                                    start++;
+                                    group = group.substring(1);
+                                }
+                                if (group.endsWith(")")) {
+                                    end--;
+                                    group = group.substring(0, group.length() - 1);
+                                }
+                                if (end < text.length() && text.charAt(end) == '$') {
+                                    end++;
+                                    group += '$';
+                                }
 
-                            boolean email = group.contains("@") && !group.contains(":");
-                            Log.i("Web url=" + group + " " + start + "..." + end + "/" + text.length() +
-                                    " linked=" + linked + " email=" + email + " count=" + links);
+                                boolean email = group.contains("@") && !group.contains(":");
+                                Log.i("Web url=" + group + " " + start + "..." + end + "/" + text.length() +
+                                        " linked=" + linked + " email=" + email + " count=" + links);
 
-                            if (linked)
-                                span.appendText(text.substring(pos, end));
-                            else {
-                                span.appendText(text.substring(pos, start));
-
-                                Element a = document.createElement("a");
-                                if (BuildConfig.DEBUG && GPA_PATTERN.matcher(group).matches())
-                                    a.attr("href", BuildConfig.GPA_URI + group);
+                                if (linked)
+                                    span.appendText(text.substring(pos, end));
                                 else {
-                                    String url = (email ? "mailto:" : "") + group;
-                                    if (outbound)
-                                        try {
-                                            Uri uri = UriHelper.guessScheme(Uri.parse(url));
-                                            a.attr("href", uri.toString());
-                                        } catch (Throwable ex) {
-                                            Log.e(ex);
+                                    span.appendText(text.substring(pos, start));
+
+                                    Element a = document.createElement("a");
+                                    if (BuildConfig.DEBUG && GPA_PATTERN.matcher(group).matches())
+                                        a.attr("href", BuildConfig.GPA_URI + group);
+                                    else {
+                                        String url = (email ? "mailto:" : "") + group;
+                                        if (outbound)
+                                            try {
+                                                Uri uri = UriHelper.guessScheme(Uri.parse(url));
+                                                a.attr("href", uri.toString());
+                                            } catch (Throwable ex) {
+                                                Log.e(ex);
+                                                a.attr("href", url);
+                                            }
+                                        else
                                             a.attr("href", url);
-                                        }
-                                    else
-                                        a.attr("href", url);
+                                    }
+                                    a.text(group);
+                                    span.appendChild(a);
+
+                                    links++;
                                 }
-                                a.text(group);
-                                span.appendChild(a);
 
-                                links++;
-                            }
+                                pos = end;
+                            } while (links < MAX_AUTO_LINK && matcher.find());
 
-                            pos = end;
-                        } while (links < MAX_AUTO_LINK && matcher.find());
+                            span.appendText(text.substring(pos));
 
-                        span.appendText(text.substring(pos));
-
-                        tnode.before(span);
-                        tnode.text("");
-                    }
+                            tnode.before(span);
+                            tnode.text("");
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
                 }
             }
 
