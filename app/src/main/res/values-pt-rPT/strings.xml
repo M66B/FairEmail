@@ -636,6 +636,7 @@
     <string name="title_advanced_wearable_preview">Enviar notificações apenas com uma visualização de mensagem para wearables</string>
     <string name="title_advanced_notify_messaging">Utilizar o \'estilo de mensagens\' do Android como formato de notificação</string>
     <string name="title_advanced_biometrics_notify">Mostrar conteúdo de notificação ao usar autenticação biométrica</string>
+    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Abrir pasta quando abrir nova mensagem</string>
     <string name="title_advanced_light">Usar luz de notificações</string>
     <string name="title_advanced_sound">Selecionar som de notificação</string>
     <string name="title_advanced_notify_screen_on">Ligar o ecrã por breves instantes para novas notificações de mensagens</string>
@@ -1183,7 +1184,7 @@
     <string name="title_unsubscribe">Cancelar Subscrição</string>
     <string name="title_message_rule">Criar regra</string>
     <string name="title_no_junk">Não é spam</string>
-    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Editar assunto &#8230;</string>
+    <string name="title_edit_subject">Editar assunto &#8230;</string>
     <string name="title_move_to">Mover para &#8230;</string>
     <string name="title_move_to_folder">Mover para &#8230;</string>
     <string name="title_move_to_account">Mover para %1$s &#8230;</string>
@@ -1785,6 +1786,7 @@
     <string name="title_hint_folder_sync">Para limitar o uso de bateria e rede, por predefinição, nem todas as pastas e mensagens serão sincronizadas</string>
     <string name="title_hint_airplane">O modo de avião está ligado</string>
     <string name="title_hint_notifications">Sem permissão de notificação</string>
+    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Permissões de notificação são também necessárias para alertas de (conta). Notificações para novas mensagens podem ser desativadas nas configurações.</string>
     <string name="title_hint_battery_optimizations">Otimizações da bateria continuam ativadas</string>
     <string name="title_hint_support">Se tiver alguma questão ou um problema, por favor utilize o menu de suporte para obter ajuda</string>
     <string name="title_hint_message_actions">Deslize para a esquerda para o lixo; Deslize para a direita para o arquivo (se disponível); As acções de deslizar pode ser configuradas nas definições de conta</string>

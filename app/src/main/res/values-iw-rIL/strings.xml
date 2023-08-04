@@ -663,6 +663,7 @@
     <string name="title_advanced_wearable_preview">לשלוח התראות עם תמצית הודעה בלבד להתקנים לבישים</string>
     <string name="title_advanced_notify_messaging">להשתמש בתצורת התראות ‚בסגנון התכתבות’ של Android</string>
     <string name="title_advanced_biometrics_notify">להציג את תוכן ההתראה בעת שימוש באימות ביומטרי</string>
+    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">פתיחת תיקייה בעת פתיחת הודעה חדשה</string>
     <string name="title_advanced_light">להשתמש בנורית התראה</string>
     <string name="title_advanced_sound">בחירת צליל התראה</string>
     <string name="title_advanced_notify_screen_on">להפעיל את המסך לזמן קצר עבור התראות על הודעות חדשות</string>
@@ -1210,7 +1211,7 @@
     <string name="title_unsubscribe">ביטול מינוי</string>
     <string name="title_message_rule">יצירת כלל</string>
     <string name="title_no_junk">לא ספאם</string>
-    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">עריכת הנושא&#8230;</string>
+    <string name="title_edit_subject">עריכת הנושא&#8230;</string>
     <string name="title_move_to">העברה אל&#8230;</string>
     <string name="title_move_to_folder">העברה אל&#8230;</string>
     <string name="title_move_to_account">העברה אל %1$s&#8230;</string>
@@ -1812,6 +1813,7 @@
     <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כבררת מחדל</string>
     <string name="title_hint_airplane">מצב טיסה מופעל</string>
     <string name="title_hint_notifications">אין הרשאות להתראות</string>
+    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">נדרשות הרשאות גם להתראות (חשבון). אפשר לכבות התראות על הודעות חדשות בהגדרות.</string>
     <string name="title_hint_battery_optimizations">מיטובי סוללה עדיין פעילים</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>

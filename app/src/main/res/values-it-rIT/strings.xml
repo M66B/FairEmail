@@ -635,6 +635,7 @@
     <string name="title_advanced_wearable_preview">Invia solo le notifiche con un\'anteprima del messaggio agli indossabili</string>
     <string name="title_advanced_notify_messaging">Usa il formato di notifica \'stile di messagistica\' di Android</string>
     <string name="title_advanced_biometrics_notify">Mostra il contenuto della notifica usando l\'autenticazione biometrica</string>
+    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Apri la cartella all\'apertura di un nuovo messaggio</string>
     <string name="title_advanced_light">Usa il LED di notifica</string>
     <string name="title_advanced_sound">Seleziona il suono di notifica</string>
     <string name="title_advanced_notify_screen_on">Accendi brevemente lo schermo per le notifiche dei nuovi messaggi</string>
@@ -1183,7 +1184,7 @@
     <string name="title_unsubscribe">Disiscriviti</string>
     <string name="title_message_rule">Crea una regola</string>
     <string name="title_no_junk">Non spam</string>
-    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Modifica l\'oggetto&#8230;</string>
+    <string name="title_edit_subject">Modifica l\'oggetto&#8230;</string>
     <string name="title_move_to">Sposta in&#8230;</string>
     <string name="title_move_to_folder">Sposta in&#8230;</string>
     <string name="title_move_to_account">Sposta in %1$s&#8230;</string>
@@ -1785,6 +1786,7 @@
     <string name="title_hint_folder_sync">Per limitare l\'uso della batteria e di rete, non tutte le cartelle e messaggi saranno sincronizzati di default</string>
     <string name="title_hint_airplane">La modalità offline è attivata</string>
     <string name="title_hint_notifications">Nessun\'autorizzazione di notifica</string>
+    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Le autorizzazioni di notifica sono necessarie anche per gli avvisi (profili). Le notifiche di nuovi messaggi possono essere disattivate nelle impostazioni.</string>
     <string name="title_hint_battery_optimizations">Le ottimizzazioni della batteria sono ancora abilitate</string>
     <string name="title_hint_support">Se hai una domanda o un problema, sei pregato di usare il menu di supporto per ricevere aiuto</string>
     <string name="title_hint_message_actions">Scorri a sinistra per cestinare; Scorri a destra per archiviare (se disponibile); Le azioni di scorrimento sono configurabili nelle impostazioni del profilo</string>

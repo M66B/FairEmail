@@ -662,6 +662,7 @@
     <string name="title_advanced_wearable_preview">Powiadomienia z podglądem wiadomości wysyłaj tylko do urządzeń do noszenia</string>
     <string name="title_advanced_notify_messaging">Użyj formatu powiadomień w stylu wiadomości systemu Android</string>
     <string name="title_advanced_biometrics_notify">Pokaż treść powiadomienia podczas korzystania z uwierzytelniania biometrycznego</string>
+    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Otwórz folder podczas otwierania nowej wiadomości</string>
     <string name="title_advanced_light">Użyj diody powiadomień</string>
     <string name="title_advanced_sound">Wybierz dźwięk powiadomienia</string>
     <string name="title_advanced_notify_screen_on">Włącz ekran na chwilę, aby uzyskać powiadomienia o nowych wiadomościach</string>
@@ -1208,7 +1209,7 @@
     <string name="title_unsubscribe">Anuluj subskrypcję</string>
     <string name="title_message_rule">Utwórz regułę</string>
     <string name="title_no_junk">To nie jest spam</string>
-    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Edytuj temat &#8230;</string>
+    <string name="title_edit_subject">Edytuj temat &#8230;</string>
     <string name="title_move_to">Przenieś do &#8230;</string>
     <string name="title_move_to_folder">Przenieś do &#8230;</string>
     <string name="title_move_to_account">Przenieś do %1$s &#8230;</string>
@@ -1809,6 +1810,7 @@
     <string name="title_hint_folder_sync">W celu ograniczenia użycia baterii i sieci nie wszystkie foldery i wiadomości będą domyślnie synchronizowane</string>
     <string name="title_hint_airplane">Tryb samolotowy jest włączony</string>
     <string name="title_hint_notifications">Brak uprawnień dla powiadomień</string>
+    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Uprawnienia powiadomień są również wymagane dla ostrzeżeń dotyczących konta. Powiadomienia dla nowych wiadomości mogą być wyłączone w ustawieniach.</string>
     <string name="title_hint_battery_optimizations">Optymalizacja baterii jest nadal włączona</string>
     <string name="title_hint_support">Jeśli masz pytanie lub problem, użyj menu Pomoc, aby uzyskać pomoc</string>
     <string name="title_hint_message_actions">Przesuń w lewo, aby wyrzucić do kosza; Przesuń w prawo, aby zarchiwizować (jeśli dostępne); Działania przeciągnięcia można skonfigurować w ustawieniach konta</string>

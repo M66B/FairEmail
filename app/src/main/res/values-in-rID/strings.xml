@@ -1163,7 +1163,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_unsubscribe">Berhenti langganan</string>
     <string name="title_message_rule">Buat aturan</string>
     <string name="title_no_junk">Bukan spam</string>
-    <string name="title_edit_subject" comment="title_edit_subject&#10;Title for menu item to edit the subject of a message">Sunting subjek &#8230;</string>
+    <string name="title_edit_subject">Sunting subjek &#8230;</string>
     <string name="title_move_to">Pindahkan ke &#8230;</string>
     <string name="title_move_to_folder">Pindahkan ke &#8230;</string>
     <string name="title_move_to_account">Pindahkan ke %1$s&#8230;</string>
