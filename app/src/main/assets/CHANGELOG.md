@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
+### 1.2091 - 2023-08-05
+
+* Fixed crash
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2090 - 2023-08-04
 
 * Small improvements and minor bug fixes
