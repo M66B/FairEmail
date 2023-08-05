@@ -2010,9 +2010,9 @@ public class Log {
             sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
         }
 
+        sb.append(String.format("Play Store: %s\r\n", Helper.hasPlayStore(context)));
         sb.append(String.format("Installer: %s\r\n", installer));
         sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
-        sb.append(String.format("Play Store: %s\r\n", Helper.hasPlayStore(context)));
         sb.append(String.format("Updated: %s\r\n", new Date(Helper.getUpdateTime(context))));
         sb.append(String.format("Last cleanup: %s\r\n", new Date(last_cleanup)));
         sb.append(String.format("Now: %s\r\n", new Date()));
@@ -2537,6 +2537,7 @@ public class Log {
                                         folder.type + (folder.inherited_type == null ? "" : "/" + folder.inherited_type) +
                                         (folder.unified ? " unified" : "") +
                                         (folder.notify ? " notify" : "") +
+                                        (Boolean.TRUE.equals(folder.subscribed) ? " subscribed" : "") +
                                         " poll=" + folder.poll + (folder.poll || EntityFolder.INBOX.equals(folder.type) ? "" : " !!! ") +
                                         " factor=" + folder.poll_factor +
                                         " days=" + getDays(folder.sync_days) + "/" + getDays(folder.keep_days) +
