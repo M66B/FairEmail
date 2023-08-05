@@ -539,7 +539,7 @@ public class HtmlHelper {
             sheets = parseStyles(parsed.head().select("style"));
 
         Safelist safelist = Safelist.relaxed()
-                .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt", "mark")
+                .addTags("hr", "abbr", "big", "font", "dfn", "del", "s", "tt", "mark", "address")
                 .addAttributes(":all", "class")
                 .addAttributes(":all", "style")
                 .addAttributes("span", "dir")
@@ -1099,6 +1099,12 @@ public class HtmlHelper {
             hs.tagName("strong");
             hs.attr("x-line-after", "true");
         }
+
+        // Replace addresses by link
+        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
+        for (Element address : document.select("address"))
+            address.tagName("a")
+                    .attr("href", "geo:0,0?q=" + Uri.encode(address.text()));
 
         // Paragraphs
         for (Element p : document.select("p")) {

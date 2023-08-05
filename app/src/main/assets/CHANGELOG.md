@@ -6,6 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
+### Next version
+
+* Replace [address element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address) by [geo](https://en.wikipedia.org/wiki/Geo_URI_scheme) link
+
 ### 1.2091 - 2023-08-05
 
 * Fixed crash
