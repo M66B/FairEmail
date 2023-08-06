@@ -267,13 +267,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                 onEditAccount(intent);
             else if ("identities".equals(target) && id > 0)
                 onEditIdentity(intent);
-            else if ("oauth".equals(target)) {
-                FragmentOAuth fragment = new FragmentOAuth();
-                fragment.setArguments(intent.getExtras());
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("quick");
-                fragmentTransaction.commit();
-            } else {
+            else if ("gmail".equals(target))
+                onGmail(intent);
+            else if ("oauth".equals(target))
+                onOAuth(intent);
+            else {
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 if ("accounts".equals(target))
                     fragmentTransaction.replace(R.id.content_frame, new FragmentAccounts()).addToBackStack("accounts");

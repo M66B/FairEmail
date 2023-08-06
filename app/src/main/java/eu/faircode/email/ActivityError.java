@@ -71,7 +71,6 @@ public class ActivityError extends ActivityBase {
         long identity = intent.getLongExtra("identity", -1L);
         int protocol = intent.getIntExtra("protocol", -1);
         int auth_type = intent.getIntExtra("auth_type", -1);
-        boolean authorize = intent.getBooleanExtra("authorize", false);
         String personal = intent.getStringExtra("personal");
         String address = intent.getStringExtra("address");
         int faq = intent.getIntExtra("faq", -1);
@@ -80,16 +79,42 @@ public class ActivityError extends ActivityBase {
         tvMessage.setMovementMethod(LinkMovementMethod.getInstance());
         tvMessage.setText(message);
 
-        btnPassword.setText(authorize ? R.string.title_setup_oauth_authorize : R.string.title_password);
+        boolean password = (auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD);
+
+        btnPassword.setText(password ? R.string.title_password : R.string.title_setup_oauth_authorize);
         btnPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(
                 0, 0,
-                authorize ? R.drawable.twotone_check_24 : R.drawable.twotone_edit_24, 0);
+                password ? R.drawable.twotone_edit_24 : R.drawable.twotone_check_24, 0);
 
         btnPassword.setVisibility(account < 0 ? View.GONE : View.VISIBLE);
         btnPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (authorize)
+                if (auth_type == ServiceAuthenticator.AUTH_TYPE_GMAIL)
+                    startActivity(new Intent(ActivityError.this, ActivitySetup.class)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                            .putExtra("target", "gmail")
+                            .putExtra("personal", personal)
+                            .putExtra("address", address));
+                else if (auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH) {
+                    try {
+                        EmailProvider eprovider = EmailProvider.getProvider(ActivityError.this, provider);
+                        startActivity(new Intent(ActivityError.this, ActivitySetup.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                .putExtra("target", "oauth")
+                                .putExtra("id", eprovider.id)
+                                .putExtra("name", eprovider.description)
+                                .putExtra("privacy", eprovider.oauth.privacy)
+                                .putExtra("askAccount", eprovider.oauth.askAccount)
+                                .putExtra("askTenant", eprovider.oauth.askTenant())
+                                .putExtra("personal", personal)
+                                .putExtra("address", address));
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        startActivity(new Intent(ActivityError.this, ActivitySetup.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                    }
+                } else if (auth_type == ServiceAuthenticator.AUTH_TYPE_GRAPH)
                     startActivity(new Intent(ActivityError.this, ActivitySetup.class)
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                             .putExtra("target", "oauth")

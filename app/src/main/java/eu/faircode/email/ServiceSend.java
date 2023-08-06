@@ -491,8 +491,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                                             intent.putExtra("provider", "outlookgraph");
                                             intent.putExtra("account", identity.account);
                                             intent.putExtra("protocol", protocol);
+                                            intent.putExtra("auth_type", AUTH_TYPE_GRAPH);
                                             intent.putExtra("identity", identity.id);
-                                            intent.putExtra("authorize", true);
                                             intent.putExtra("personal", identity.name);
                                             intent.putExtra("address", identity.user);
                                             intent.putExtra("faq", 14);

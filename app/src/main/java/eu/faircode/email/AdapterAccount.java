@@ -420,8 +420,10 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_log, order++, R.string.title_log);
             }
 
-            if (debug)
+            if (debug || BuildConfig.DEBUG) {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_reset, order++, R.string.title_reset);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_setup_oauth_authorize, order++, R.string.title_setup_oauth_authorize);
+            }
 
             popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                 @Override
@@ -459,6 +461,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                         return true;
                     } else if (itemId == R.string.title_reset) {
                         onActionReset();
+                        return true;
+                    } else if (itemId == R.string.title_setup_oauth_authorize) {
+                        onActionAuthorize();
                         return true;
                     }
                     return false;
@@ -682,6 +687,20 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "account:reset");
+                }
+
+                private void onActionAuthorize() {
+                    Intent intent = new Intent(context, ActivityError.class);
+                    intent.putExtra("title", "Test");
+                    intent.putExtra("message", account.error);
+                    intent.putExtra("provider", account.provider);
+                    intent.putExtra("account", account.id);
+                    intent.putExtra("protocol", account.protocol);
+                    intent.putExtra("auth_type", account.auth_type);
+                    intent.putExtra("personal", "personal");
+                    intent.putExtra("address", "address");
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    context.startActivity(intent);
                 }
 
                 private void onDelete() {
