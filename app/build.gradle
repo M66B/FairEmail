@@ -370,6 +370,11 @@ task copyChangelog(type: Copy) {
 
 preBuild.dependsOn copyChangelog
 
+task updateFAQ(type: Exec) {
+    workingDir "${rootDir}"
+    commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FAQ FairEmail"  FAQ.md -o index.html'
+}
+
 task downloadPSL(type: Download) {
     // https://github.com/michel-kraemer/gradle-download-task
     src "https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat"
