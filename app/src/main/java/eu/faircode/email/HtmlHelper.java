@@ -1103,8 +1103,9 @@ public class HtmlHelper {
         // Replace addresses by link
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
         for (Element address : document.select("address"))
-            address.tagName("a")
-                    .attr("href", "geo:0,0?q=" + Uri.encode(address.text()));
+            if (address.select("a").size() == 0)
+                address.tagName("a")
+                        .attr("href", "geo:0,0?q=" + Uri.encode(address.text()));
 
         // Paragraphs
         for (Element p : document.select("p")) {
