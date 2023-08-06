@@ -4,16 +4,16 @@
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F)
 
 &#x1F1EC;&#x1F1E7; If you have a question, please check the following frequently asked questions first.
-[At the bottom](#user-content-quick-support),
+[At the bottom](#quick-support),
 you can find out how to ask other questions, request features, and report bugs.
 You will receive an answer in your own language.
 
 &#x1F1E9;&#x1F1EA; Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen.
-[Unten](#user-content-quick-support) erfahren Sie, wie Sie andere Fragen stellen, Funktionen anfordern und Fehler melden können.
+[Unten](#quick-support) erfahren Sie, wie Sie andere Fragen stellen, Funktionen anfordern und Fehler melden können.
 Sie erhalten eine Antwort in Ihrer eigenen Sprache.
 
 &#x1F1EB;&#x1F1F7; Si vous avez une question, veuillez d'abord vérifier les questions fréquemment posées suivantes.
-[En bas](#user-content-quick-support), vous pouvez découvrir comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
+[En bas](#quick-support), vous pouvez découvrir comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
 Vous recevrez une réponse dans votre propre langue.
 
 ## Tutorials
@@ -22,12 +22,12 @@ Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for t
 
 ## Index
 
-* [Authorizing accounts](#user-content-authorizing-accounts)
-* [How to ...?](#user-content-howto)
-* [Known problems](#user-content-known-problems)
-* [Planned features](#user-content-planned-features)
-* [Frequently Asked Questions](#user-content-frequently-asked-questions) (FAQ)
-* [Get support](#user-content-get-support)
+* [Authorizing accounts](#authorizing-accounts)
+* [How to ...?](#howto)
+* [Known problems](#known-problems)
+* [Planned features](#planned-features)
+* [Frequently Asked Questions](#frequently-asked-questions) (FAQ)
+* [Get support](#get-support)
 
 <h2><a name="authorizing-accounts"></a>Authorizing accounts</h2>
 
@@ -46,13 +46,13 @@ for instance when two-factor authentication is enabled.
 
 For authorizing:
 
-* Gmail / G suite, see [question 6](#user-content-faq6)
-* Outlook / Live / Hotmail, see [question 14](#user-content-faq14)
-* Office 365, see [question 156](#user-content-faq156)
-* Microsoft Exchange, see [question 8](#user-content-faq8)
-* Yahoo, AOL and Sky, see [question 88](#user-content-faq88)
-* Apple iCloud, see [question 148](#user-content-faq148) ([German](https://support.apple.com/de-de/HT204397))
-* Free.fr, see [question 157](#user-content-faq157)
+* Gmail / G suite, see [question 6](#faq6)
+* Outlook / Live / Hotmail, see [question 14](#faq14)
+* Office 365, see [question 156](#faq156)
+* Microsoft Exchange, see [question 8](#faq8)
+* Yahoo, AOL and Sky, see [question 88](#faq88)
+* Apple iCloud, see [question 148](#faq148) ([German](https://support.apple.com/de-de/HT204397))
+* Free.fr, see [question 157](#faq157)
 * Posteo: please check if [additional email account protection](https://posteo.de/en/help/activating-additional-email-account-protection) ([German](https://posteo.de/hilfe/zusaetzlichen-postfachschutz-deaktivieren)) isn't enabled
 * Posteo: not that there is [no spam folder](https://posteo.de/en/help/how-does-the-posteo-spam-filter-work) ([German](https://posteo.de/hilfe/wie-funktioniert-der-posteo-spamfilter))
 * Web.de: please check if [IMAP is enabled](https://hilfe.web.de/pop-imap/imap/imap-serverdaten.html)
@@ -64,12 +64,12 @@ For authorizing:
 * Yandex: please check if [IMAP is enabled](https://yandex.com/support/mail/mail-clients/others.html)
 * Comcast/Xfinity: please check if [third part email access](https://www.xfinity.com/support/articles/third-party-email-access) is enabled
 
-Please see [here](#user-content-faq22) for common error messages and solutions.
+Please see [here](#faq22) for common error messages and solutions.
 
 Related questions:
 
-* [Is OAuth supported?](#user-content-faq111)
-* [Why is ActiveSync &trade; not supported?](#user-content-faq133)
+* [Is OAuth supported?](#faq111)
+* [Why is ActiveSync &trade; not supported?](#faq133)
 
 <a name="howto">
 
@@ -91,8 +91,8 @@ Related questions:
 * Delete an account/identity: (Main) Settings, tap Manual setup, tap Accounts/Identities, tap the account/identity, trash icon top right
 * Delete a folder: long press the folder in the folder list, Edit properties, trash icon top right
 * Undo send: Outbox, swipe the message in the list left or right
-* Delete a contact: please [see this FAQ](#user-content-faq171)
-* Store sent messages in the inbox: please [see this FAQ](#user-content-faq142)
+* Delete a contact: please [see this FAQ](#faq171)
+* Store sent messages in the inbox: please [see this FAQ](#faq142)
 * Change system folders: (Main) Settings, tap Manual setup, tap Accounts, tap account, at the bottom
 * Export/import settings: (Main) Settings, navigation (left side) menu
 
@@ -114,7 +114,7 @@ Related questions:
 * ~~The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.~~
 * ~~A [bug in AndroidX](https://issuetracker.google.com/issues/64729576) makes it hard to grap the fast scroller. A workaround was added.~~
 * ~~Encryption with YubiKey results into an infinite loop. This seems to be caused by a [bug in OpenKeychain](https://github.com/open-keychain/open-keychain/issues/2507).~~
-* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#user-content-faq126).
+* A preview of a message text doesn't (always) appear on Samsung watches because [setLocalOnly](https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)) seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also [this FAQ](#faq126).
 * A [bug in Android 6.0](https://issuetracker.google.com/issues/37068143) causes a crash with *... Invalid offset: ... Valid range is ...* when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.
 * Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.
 * Language detection [is not working anymore](https://issuetracker.google.com/issues/173337263) on Pixel devices with (upgraded to?) Android 11
@@ -203,200 +203,200 @@ Anything on this list is in random order and *might* be added in the near future
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23frequently-asked-questions)
 
-* [(1) Which permissions are needed and why?](#user-content-faq1)
-* [(2) Why is there a permanent notification shown?](#user-content-faq2)
-* [(3) What are operations and why are they pending?](#user-content-faq3)
-* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#user-content-faq4)
-* [(5) How can I customize the message view?](#user-content-faq5)
-* [(6) How can I login to Gmail / G suite?](#user-content-faq6)
-* [(7) Why are sent messages not appearing (directly) in the sent folder?](#user-content-faq7)
-* [(8) Can I use a Microsoft Exchange account?](#user-content-faq8)
-* [(9) What are identities / how do I add an alias / configure a default CC or BCC address?](#user-content-faq9)
-* [~~(11) Why is POP not supported?~~](#user-content-faq11)
-* [~~(10) What does 'UIDPLUS not supported' mean?~~](#user-content-faq10)
-* [(12) How does encryption/decryption work?](#user-content-faq12)
-* [(13) How does search on device/server work?](#user-content-faq13)
-* [(14) How can I set up an Outlook / Live / Hotmail account?](#user-content-faq14)
-* [(15) Why does the message text keep loading?](#user-content-faq15)
-* [(16) Why are messages not being synchronized?](#user-content-faq16)
-* [~~(17) Why does manual synchronize not work?~~](#user-content-faq17)
-* [(18) Why is the message preview not always shown?](#user-content-faq18)
-* [(19) Why are the pro features so expensive?](#user-content-faq19)
-* [(20) Can I get a refund?](#user-content-faq20)
-* [(21) How do I enable the notification light?](#user-content-faq21)
-* [(22) What does account/folder error ... mean?](#user-content-faq22)
-* [(23) Why do I get alert ...?](#user-content-faq23)
-* [(24) What is browse messages on the server?](#user-content-faq24)
-* [(25) Why can't I select/open/save an image, attachment or a file?](#user-content-faq25)
-* [(26) Can I help to translate FairEmail in my own language?](#user-content-faq26)
-* [(27) How can I distinguish between embedded and external images?](#user-content-faq27)
-* [(28) How can I manage status bar notifications?](#user-content-faq28)
-* [(29) How can I get new message notifications for other folders?](#user-content-faq29)
-* [(30) How can I use the provided quick settings?](#user-content-faq30)
-* [(31) How can I use the provided shortcuts?](#user-content-faq31)
-* [(32) How can I check if reading email is really safe?](#user-content-faq32)
-* [(33) Why are edited sender addresses not working?](#user-content-faq33)
-* [(34) How are identities matched?](#user-content-faq34)
-* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#user-content-faq35)
-* [(36) How are settings files encrypted?](#user-content-faq36)
-* [(37) How are passwords stored?](#user-content-faq37)
-* [(39) How can I reduce the battery usage of FairEmail?](#user-content-faq39)
-* [(40) How can I reduce the data usage of FairEmail?](#user-content-faq40)
-* [(41) How can I fix the error 'Handshake failed'?](#user-content-faq41)
-* [(42) Can you add a new provider to the list of providers?](#user-content-faq42)
-* [(43) Can you show the original ...?](#user-content-faq43)
-* [(44) Can you show contact photos / identicons in the sent folder?](#user-content-faq44)
-* [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!'?](#user-content-faq45)
-* [(46) Why does the message list keep refreshing?](#user-content-faq46)
-* [(47) How do I solve the error 'No primary account or no drafts folder'?](#user-content-faq47)
-* [~~(48) How do I solve the error 'No primary account or no archive folder'?~~](#user-content-faq48)
-* [(49) How do I fix 'An outdated app sent a file path instead of a file stream'?](#user-content-faq49)
-* [(50) Can you add an option to synchronize all messages?](#user-content-faq50)
-* [(51) How are folders sorted?](#user-content-faq51)
-* [(52) Why does it take some time to reconnect to an account?](#user-content-faq52)
-* [(53) Can you stick the message action bar to the top/bottom?](#user-content-faq53)
-* [~~(54) How do I use a namespace prefix?~~](#user-content-faq54)
-* [(55) How can I mark all messages as read / move or delete all messages?](#user-content-faq55)
-* [(56) Can you add support for JMAP?](#user-content-faq56)
-* [(57) Can I use HTML in signatures?](#user-content-faq57)
-* [(58) What does an open/closed email icon mean?](#user-content-faq58)
-* [(59) Can original messages be opened in the browser?](#user-content-faq59)
-* [(60) Did you know ...?](#user-content-faq60)
-* [(61) Why are some messages shown dimmed?](#user-content-faq61)
-* [(62) Which authentication methods are supported?](#user-content-faq62)
-* [(63) How are images resized for displaying on screens?](#user-content-faq63)
-* [~~(64) Can you add custom actions for swipe left/right?~~](#user-content-faq64)
-* [(65) Why are some attachments shown dimmed?](#user-content-faq65)
-* [(66) Is FairEmail available in the Google Play Family Library?](#user-content-faq66)
-* [(67) How can I snooze conversations?](#user-content-faq67)
-* [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#user-content-faq68)
-* [(69) Can you add auto scroll up on new message?](#user-content-faq69)
-* [(70) When will messages be auto expanded?](#user-content-faq70)
-* [(71) How do I use filter rules?](#user-content-faq71)
-* [(72) What are primary accounts/identities?](#user-content-faq72)
-* [(73) Is moving messages across accounts safe/efficient?](#user-content-faq73)
-* [(74) Why do I see duplicate messages?](#user-content-faq74)
-* [(75) Can you make an iOS, Windows, Linux, etc version?](#user-content-faq75)
-* [(76) What does 'Clear local messages' do?](#user-content-faq76)
-* [(77) Why are messages sometimes shown with a small delay?](#user-content-faq77)
-* [(78) How do I use schedules?](#user-content-faq78)
-* [(79) How do I use synchronize on demand (manual)?](#user-content-faq79)
-* [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#user-content-faq80)
-* [(81) Can you make the background of the original message view dark in dark themes?](#user-content-faq81)
-* [(82) What is a tracking image?](#user-content-faq82)
-* [(84) What are local contacts for?](#user-content-faq84)
-* [(85) Why is an identity not available?](#user-content-faq85)
-* [~~(86) What are 'extra privacy features'?~~](#user-content-faq86)
-* [(87) What does 'invalid credentials' mean?](#user-content-faq87)
-* [(88) How can I use a Yahoo/AT&T, AOL or Sky account?](#user-content-faq88)
-* [(89) How can I send plain text only messages?](#user-content-faq89)
-* [(90) Why are some texts linked while not being a link?](#user-content-faq90)
-* [~~(91) Can you add periodical synchronization to save battery power?~~](#user-content-faq91)
-* [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#user-content-faq92)
-* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#user-content-faq93)
-* [(94) What does the red/orange stripe at the end of the header mean?](#user-content-faq94)
-* [(95) Why are not all apps shown when selecting an attachment or image?](#user-content-faq95)
-* [(96) Where can I find the IMAP and SMTP settings?](#user-content-faq96)
-* [(97) What is 'cleanup'?](#user-content-faq97)
-* [(98) Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
-* [(99) Can you add a rich text or markdown editor?](#user-content-faq99)
-* [(100) How can I synchronize Gmail categories?](#user-content-faq100)
-* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#user-content-faq101)
-* [(102) How can I enable auto rotation of images?](#user-content-faq102)
-* [(103) How can I record audio?](#user-content-faq158)
-* [(104) What do I need to know about error reporting?](#user-content-faq104)
-* [(105) How does the roam-like-at-home option work?](#user-content-faq105)
-* [(106) Which launchers can show a badge count with the number of unread messages?](#user-content-faq106)
-* [(107) How do I use colored stars?](#user-content-faq107)
-* [~~(108) Can you add permanently delete messages from any folder?~~](#user-content-faq108)
-* [~~(109) Why is 'select account' available in official versions only?~~](#user-content-faq109)
-* [(110) Why are (some) messages empty and/or attachments corrupted?](#user-content-faq110)
-* [(111) Is OAuth supported?](#user-content-faq111)
-* [(112) Which email provider do you recommend?](#user-content-faq112)
-* [(113) How does biometric authentication work?](#user-content-faq113)
-* [(114) Can you add an import for the settings of other email apps?](#user-content-faq114)
-* [~~(115) Can you add email address chips?~~](#user-content-faq115)
-* [~~(116) How can I show images in messages from trusted senders by default?~~](#user-content-faq116)
-* [(117) How can I restore a purchase (on another device) ?](#user-content-faq117)
-* [(118) What does 'Remove tracking parameters' exactly?](#user-content-faq118)
-* [~~(119) Can you add colors to the unified inbox widget?~~](#user-content-faq119)
-* [(120) Why are new message notifications not removed on opening the app?](#user-content-faq120)
-* [(121) How are messages grouped into a conversation?](#user-content-faq121)
-* [~~(122) Why is the recipient name/email address show with a warning color?~~](#user-content-faq122)
-* [(123) What will happen when FairEmail cannot connect to an email server?](#user-content-faq123)
-* [(124) Why do I get 'Message too large or too complex to display'?](#user-content-faq124)
-* [(125) What are the current experimental features?](#user-content-faq125)
-* [(126) Can message previews be sent to my wearable?](#user-content-faq126)
-* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#user-content-faq127)
-* [(128) How can I reset asked questions, for example to show images?](#user-content-faq128)
-* [(129) Are ProtonMail, Tutanota, etc supported?](#user-content-faq129)
-* [(130) What does message error ... mean?](#user-content-faq130)
-* [(131) Can you change the direction for swiping to previous/next message?](#user-content-faq131)
-* [(132) Why are new message notifications silent?](#user-content-faq132)
-* [(133) Why is ActiveSync &trade; not supported?](#user-content-faq133)
-* [(134) Can you add leave messages on the server?](#user-content-faq134)
-* [(135) Why are trashed messages and drafts shown in conversations?](#user-content-faq135)
-* [(136) How can I delete an account/identity/folder?](#user-content-faq136)
-* [(137) How can I reset 'Don't ask again'?](#user-content-faq137)
-* [(138) Can you add calendar/contact/tasks/notes management?](#user-content-faq138)
-* [(139) How do I fix 'User is authenticated but not connected'?](#user-content-faq139)
-* [(140) Why does the message text contain strange characters?](#user-content-faq140)
-* [(141) How can I fix 'A drafts folder is required to send messages'?](#user-content-faq141)
-* [(142) How can I store sent messages in the inbox?](#user-content-faq142)
-* [~~(143) Can you add a trash folder for POP3 accounts?~~](#user-content-faq143)
-* [(144) How can I record voice notes?](#user-content-faq144)
-* [(145) How can I set a notification sound for an account, folder, sender or condition?](#user-content-faq145)
-* [(146) How can I fix incorrect message times?](#user-content-faq146)
-* [(147) What should I know about third party versions?](#user-content-faq147)
-* [(148) How can I use an Apple iCloud account?](#user-content-faq148)
-* [(149) How does the unread message count widget work?](#user-content-faq149)
-* [(150) Can you add cancelling calendar invites?](#user-content-faq150)
-* [(151) Can you add backup/restore of messages?](#user-content-faq151)
-* [(152) How can I insert a contact group?](#user-content-faq152)
-* [(153) Why does permanently deleting Gmail message not work?](#user-content-faq153)
-* [~~(154) Can you add favicons as contact photos?~~](#user-content-faq154)
-* [(155) What is a winmail.dat file?](#user-content-faq155)
-* [(156) How can I set up an Office 365 account?](#user-content-faq156)
-* [(157) How can I set up an Free.fr account?](#user-content-faq157)
-* [(158) Which camera / audio recorder do you recommend?](#user-content-faq158)
-* [(159) What are Disconnect's tracker protection lists?](#user-content-faq159)
-* [(160) Can you add permanent deletion of messages without confirmation?](#user-content-faq160)
-* [(161) Can you add a setting to change the primary and accent color?](#user-content-faq161)
-* [(162) Is IMAP NOTIFY supported?](#user-content-faq162)
-* [(163) What is message classification?](#user-content-faq163)
-* [(164) Can you add customizable themes?](#user-content-faq164)
-* [(165) Is Android Auto supported?](#user-content-faq165)
-* [(166) Can I snooze a message across multiple devices?](#user-content-faq166)
-* [(167) How can I use DeepL?](#user-content-faq167)
-* [(168) What is a spam block list?](#user-content-faq168)
-* [(169) Why does the app not start automatically?](#user-content-faq169)
-* [(170) Why can't folders be created with POP3?](#user-content-faq170)
-* [(171) How can I delete a contact?](#user-content-faq171)
-* [(172) How can I import contacts?](#user-content-faq172)
-* [(173) What is the difference between Play store / GitHub / F-Droid version?](#user-content-faq173)
-* [(174) Is auto discovery supported?](#user-content-faq174)
-* [(175) Why should battery optimizations be disabled?](#user-content-faq175)
-* [(176) When will a message be considered safely transported?](#user-content-faq176)
-* [(177) What does 'Sensitivity' mean?](#user-content-faq177)
-* [(178) Why are widgets not updating?](#user-content-faq178)
-* [(179) What are reply templates?](#user-content-faq179)
-* [(180) How do I use LanguageTool?](#user-content-faq180)
-* [(181) How do I use VirusTotal?](#user-content-faq181)
-* [(182) How can I select how a link should be opened?](#user-content-faq182)
-* [(183) How do I use Send?](#user-content-faq183)
-* [(184) How do I password protect content?](#user-content-faq184)
-* [(185) Can I install FairEmail on Windows?](#user-content-faq185)
-* [(186) How can I let the app auto store iCalendar invitations?](#user-content-faq186)
-* [(187) Are colored stars synchronized across devices?](#user-content-faq187)
-* [(188) Why is Google backup disabled?](#user-content-faq188)
-* [(189) What is cloud sync?](#user-content-faq189)
-* [(190) How do I use OpenAI (ChatGPT)?](#user-content-faq190)
-* [(191) How do I download and keep older messages on my device?](#user-content-faq191)
-* [(192) How can I resolve 'Couldn't connect to host, port: ...; timeout ...;' ?](#user-content-faq192)
-* [(193) How can I import Outlook contacts?](#user-content-faq193)
-* [(194) How can I set up automatic deletion of old messages?](#user-content-faq194)
+* [(1) Which permissions are needed and why?](#faq1)
+* [(2) Why is there a permanent notification shown?](#faq2)
+* [(3) What are operations and why are they pending?](#faq3)
+* [(4) How can I use an invalid security certificate / empty password / plain text connection?](#faq4)
+* [(5) How can I customize the message view?](#faq5)
+* [(6) How can I login to Gmail / G suite?](#faq6)
+* [(7) Why are sent messages not appearing (directly) in the sent folder?](#faq7)
+* [(8) Can I use a Microsoft Exchange account?](#faq8)
+* [(9) What are identities / how do I add an alias / configure a default CC or BCC address?](#faq9)
+* [~~(11) Why is POP not supported?~~](#faq11)
+* [~~(10) What does 'UIDPLUS not supported' mean?~~](#faq10)
+* [(12) How does encryption/decryption work?](#faq12)
+* [(13) How does search on device/server work?](#faq13)
+* [(14) How can I set up an Outlook / Live / Hotmail account?](#faq14)
+* [(15) Why does the message text keep loading?](#faq15)
+* [(16) Why are messages not being synchronized?](#faq16)
+* [~~(17) Why does manual synchronize not work?~~](#faq17)
+* [(18) Why is the message preview not always shown?](#faq18)
+* [(19) Why are the pro features so expensive?](#faq19)
+* [(20) Can I get a refund?](#faq20)
+* [(21) How do I enable the notification light?](#faq21)
+* [(22) What does account/folder error ... mean?](#faq22)
+* [(23) Why do I get alert ...?](#faq23)
+* [(24) What is browse messages on the server?](#faq24)
+* [(25) Why can't I select/open/save an image, attachment or a file?](#faq25)
+* [(26) Can I help to translate FairEmail in my own language?](#faq26)
+* [(27) How can I distinguish between embedded and external images?](#faq27)
+* [(28) How can I manage status bar notifications?](#faq28)
+* [(29) How can I get new message notifications for other folders?](#faq29)
+* [(30) How can I use the provided quick settings?](#faq30)
+* [(31) How can I use the provided shortcuts?](#faq31)
+* [(32) How can I check if reading email is really safe?](#faq32)
+* [(33) Why are edited sender addresses not working?](#faq33)
+* [(34) How are identities matched?](#faq34)
+* [(35) Why should I be careful with viewing images, attachments, the original message, and opening links?](#faq35)
+* [(36) How are settings files encrypted?](#faq36)
+* [(37) How are passwords stored?](#faq37)
+* [(39) How can I reduce the battery usage of FairEmail?](#faq39)
+* [(40) How can I reduce the data usage of FairEmail?](#faq40)
+* [(41) How can I fix the error 'Handshake failed'?](#faq41)
+* [(42) Can you add a new provider to the list of providers?](#faq42)
+* [(43) Can you show the original ...?](#faq43)
+* [(44) Can you show contact photos / identicons in the sent folder?](#faq44)
+* [(45) How can I fix 'This key is not available. To use it, you must import it as one of your own!'?](#faq45)
+* [(46) Why does the message list keep refreshing?](#faq46)
+* [(47) How do I solve the error 'No primary account or no drafts folder'?](#faq47)
+* [~~(48) How do I solve the error 'No primary account or no archive folder'?~~](#faq48)
+* [(49) How do I fix 'An outdated app sent a file path instead of a file stream'?](#faq49)
+* [(50) Can you add an option to synchronize all messages?](#faq50)
+* [(51) How are folders sorted?](#faq51)
+* [(52) Why does it take some time to reconnect to an account?](#faq52)
+* [(53) Can you stick the message action bar to the top/bottom?](#faq53)
+* [~~(54) How do I use a namespace prefix?~~](#faq54)
+* [(55) How can I mark all messages as read / move or delete all messages?](#faq55)
+* [(56) Can you add support for JMAP?](#faq56)
+* [(57) Can I use HTML in signatures?](#faq57)
+* [(58) What does an open/closed email icon mean?](#faq58)
+* [(59) Can original messages be opened in the browser?](#faq59)
+* [(60) Did you know ...?](#faq60)
+* [(61) Why are some messages shown dimmed?](#faq61)
+* [(62) Which authentication methods are supported?](#faq62)
+* [(63) How are images resized for displaying on screens?](#faq63)
+* [~~(64) Can you add custom actions for swipe left/right?~~](#faq64)
+* [(65) Why are some attachments shown dimmed?](#faq65)
+* [(66) Is FairEmail available in the Google Play Family Library?](#faq66)
+* [(67) How can I snooze conversations?](#faq67)
+* [~~(68) Why can Adobe Acrobat reader not open PDF attachments / Microsoft apps not open attached documents?~~](#faq68)
+* [(69) Can you add auto scroll up on new message?](#faq69)
+* [(70) When will messages be auto expanded?](#faq70)
+* [(71) How do I use filter rules?](#faq71)
+* [(72) What are primary accounts/identities?](#faq72)
+* [(73) Is moving messages across accounts safe/efficient?](#faq73)
+* [(74) Why do I see duplicate messages?](#faq74)
+* [(75) Can you make an iOS, Windows, Linux, etc version?](#faq75)
+* [(76) What does 'Clear local messages' do?](#faq76)
+* [(77) Why are messages sometimes shown with a small delay?](#faq77)
+* [(78) How do I use schedules?](#faq78)
+* [(79) How do I use synchronize on demand (manual)?](#faq79)
+* [~~(80) How do I fix the error 'Unable to load BODYSTRUCTURE'?~~](#faq80)
+* [(81) Can you make the background of the original message view dark in dark themes?](#faq81)
+* [(82) What is a tracking image?](#faq82)
+* [(84) What are local contacts for?](#faq84)
+* [(85) Why is an identity not available?](#faq85)
+* [~~(86) What are 'extra privacy features'?~~](#faq86)
+* [(87) What does 'invalid credentials' mean?](#faq87)
+* [(88) How can I use a Yahoo/AT&T, AOL or Sky account?](#faq88)
+* [(89) How can I send plain text only messages?](#faq89)
+* [(90) Why are some texts linked while not being a link?](#faq90)
+* [~~(91) Can you add periodical synchronization to save battery power?~~](#faq91)
+* [(92) Can you add spam filtering, verification of the DKIM signature and SPF authorization?](#faq92)
+* [(93) Can you allow installation/data storage on external storage media (sdcard)?](#faq93)
+* [(94) What does the red/orange stripe at the end of the header mean?](#faq94)
+* [(95) Why are not all apps shown when selecting an attachment or image?](#faq95)
+* [(96) Where can I find the IMAP and SMTP settings?](#faq96)
+* [(97) What is 'cleanup'?](#faq97)
+* [(98) Why can I still pick contacts after revoking contacts permissions?](#faq98)
+* [(99) Can you add a rich text or markdown editor?](#faq99)
+* [(100) How can I synchronize Gmail categories?](#faq100)
+* [(101) What does the blue/orange dot at the bottom of the conversations mean?](#faq101)
+* [(102) How can I enable auto rotation of images?](#faq102)
+* [(103) How can I record audio?](#faq158)
+* [(104) What do I need to know about error reporting?](#faq104)
+* [(105) How does the roam-like-at-home option work?](#faq105)
+* [(106) Which launchers can show a badge count with the number of unread messages?](#faq106)
+* [(107) How do I use colored stars?](#faq107)
+* [~~(108) Can you add permanently delete messages from any folder?~~](#faq108)
+* [~~(109) Why is 'select account' available in official versions only?~~](#faq109)
+* [(110) Why are (some) messages empty and/or attachments corrupted?](#faq110)
+* [(111) Is OAuth supported?](#faq111)
+* [(112) Which email provider do you recommend?](#faq112)
+* [(113) How does biometric authentication work?](#faq113)
+* [(114) Can you add an import for the settings of other email apps?](#faq114)
+* [~~(115) Can you add email address chips?~~](#faq115)
+* [~~(116) How can I show images in messages from trusted senders by default?~~](#faq116)
+* [(117) How can I restore a purchase (on another device) ?](#faq117)
+* [(118) What does 'Remove tracking parameters' exactly?](#faq118)
+* [~~(119) Can you add colors to the unified inbox widget?~~](#faq119)
+* [(120) Why are new message notifications not removed on opening the app?](#faq120)
+* [(121) How are messages grouped into a conversation?](#faq121)
+* [~~(122) Why is the recipient name/email address show with a warning color?~~](#faq122)
+* [(123) What will happen when FairEmail cannot connect to an email server?](#faq123)
+* [(124) Why do I get 'Message too large or too complex to display'?](#faq124)
+* [(125) What are the current experimental features?](#faq125)
+* [(126) Can message previews be sent to my wearable?](#faq126)
+* [(127) How can I fix 'Syntactically invalid HELO argument(s)'?](#faq127)
+* [(128) How can I reset asked questions, for example to show images?](#faq128)
+* [(129) Are ProtonMail, Tutanota, etc supported?](#faq129)
+* [(130) What does message error ... mean?](#faq130)
+* [(131) Can you change the direction for swiping to previous/next message?](#faq131)
+* [(132) Why are new message notifications silent?](#faq132)
+* [(133) Why is ActiveSync &trade; not supported?](#faq133)
+* [(134) Can you add leave messages on the server?](#faq134)
+* [(135) Why are trashed messages and drafts shown in conversations?](#faq135)
+* [(136) How can I delete an account/identity/folder?](#faq136)
+* [(137) How can I reset 'Don't ask again'?](#faq137)
+* [(138) Can you add calendar/contact/tasks/notes management?](#faq138)
+* [(139) How do I fix 'User is authenticated but not connected'?](#faq139)
+* [(140) Why does the message text contain strange characters?](#faq140)
+* [(141) How can I fix 'A drafts folder is required to send messages'?](#faq141)
+* [(142) How can I store sent messages in the inbox?](#faq142)
+* [~~(143) Can you add a trash folder for POP3 accounts?~~](#faq143)
+* [(144) How can I record voice notes?](#faq144)
+* [(145) How can I set a notification sound for an account, folder, sender or condition?](#faq145)
+* [(146) How can I fix incorrect message times?](#faq146)
+* [(147) What should I know about third party versions?](#faq147)
+* [(148) How can I use an Apple iCloud account?](#faq148)
+* [(149) How does the unread message count widget work?](#faq149)
+* [(150) Can you add cancelling calendar invites?](#faq150)
+* [(151) Can you add backup/restore of messages?](#faq151)
+* [(152) How can I insert a contact group?](#faq152)
+* [(153) Why does permanently deleting Gmail message not work?](#faq153)
+* [~~(154) Can you add favicons as contact photos?~~](#faq154)
+* [(155) What is a winmail.dat file?](#faq155)
+* [(156) How can I set up an Office 365 account?](#faq156)
+* [(157) How can I set up an Free.fr account?](#faq157)
+* [(158) Which camera / audio recorder do you recommend?](#faq158)
+* [(159) What are Disconnect's tracker protection lists?](#faq159)
+* [(160) Can you add permanent deletion of messages without confirmation?](#faq160)
+* [(161) Can you add a setting to change the primary and accent color?](#faq161)
+* [(162) Is IMAP NOTIFY supported?](#faq162)
+* [(163) What is message classification?](#faq163)
+* [(164) Can you add customizable themes?](#faq164)
+* [(165) Is Android Auto supported?](#faq165)
+* [(166) Can I snooze a message across multiple devices?](#faq166)
+* [(167) How can I use DeepL?](#faq167)
+* [(168) What is a spam block list?](#faq168)
+* [(169) Why does the app not start automatically?](#faq169)
+* [(170) Why can't folders be created with POP3?](#faq170)
+* [(171) How can I delete a contact?](#faq171)
+* [(172) How can I import contacts?](#faq172)
+* [(173) What is the difference between Play store / GitHub / F-Droid version?](#faq173)
+* [(174) Is auto discovery supported?](#faq174)
+* [(175) Why should battery optimizations be disabled?](#faq175)
+* [(176) When will a message be considered safely transported?](#faq176)
+* [(177) What does 'Sensitivity' mean?](#faq177)
+* [(178) Why are widgets not updating?](#faq178)
+* [(179) What are reply templates?](#faq179)
+* [(180) How do I use LanguageTool?](#faq180)
+* [(181) How do I use VirusTotal?](#faq181)
+* [(182) How can I select how a link should be opened?](#faq182)
+* [(183) How do I use Send?](#faq183)
+* [(184) How do I password protect content?](#faq184)
+* [(185) Can I install FairEmail on Windows?](#faq185)
+* [(186) How can I let the app auto store iCalendar invitations?](#faq186)
+* [(187) Are colored stars synchronized across devices?](#faq187)
+* [(188) Why is Google backup disabled?](#faq188)
+* [(189) What is cloud sync?](#faq189)
+* [(190) How do I use OpenAI (ChatGPT)?](#faq190)
+* [(191) How do I download and keep older messages on my device?](#faq191)
+* [(192) How can I resolve 'Couldn't connect to host, port: ...; timeout ...;' ?](#faq192)
+* [(193) How can I import Outlook contacts?](#faq193)
+* [(194) How can I set up automatic deletion of old messages?](#faq194)
 
-[I have another question.](#user-content-get-support)
+[I have another question.](#get-support)
 
 <a name="faq1"></a>
 **(1) Which permissions are needed and why?**
@@ -412,7 +412,7 @@ The following Android permissions are **required**:
 * *schedule exact alarm* (SCHEDULE_EXACT_ALARM): to use exact alarm scheduling (Android 12 and later), for example to snooze messages
 * *prevent device from sleeping* (WAKE_LOCK): to keep the device awake while performing actions, like synchronization of messages
 * *use fingerprint hardware* (USE_FINGERPRINT) and *use biometric hardware* (USE_BIOMETRIC): to use biometric authentication (fingerprint, face unlock, etc)
-* *ask to ingore battery optimizations* (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS): to disable battery optimizations, please see [this FAQ](#user-content-faq175) for more information
+* *ask to ingore battery optimizations* (REQUEST_IGNORE_BATTERY_OPTIMIZATIONS): to disable battery optimizations, please see [this FAQ](#faq175) for more information
 * *allow the app to show notifications* (POST_NOTIFICATIONS): to show new message notifications and (account) warnings and errors (Android 13 and later only)
 * *Google Play (in-app) billing service* (BILLING): for in-app purchases
 
@@ -422,17 +422,17 @@ The following Android permissions are **optional**:
 
 * *read your contacts* (READ_CONTACTS): to auto complete addresses, to show contact photos and [to pick contacts](https://developer.android.com/guide/components/intents-common#PickContactDat)
 * *find accounts on the device* (GET_ACCOUNTS): to select an account when using the Gmail quick setup
-* *read the contents of your shared storage (SD card)* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#user-content-faq49)
+* *read the contents of your shared storage (SD card)* (READ_EXTERNAL_STORAGE): to accept files from other, outdated apps, see also [this FAQ](#faq49)
 * Android 5.1 Lollipop and before: *use accounts on the device* (USE_CREDENTIALS): to select an account when using the Gmail quick setup (not requested on later Android versions)
 * Android 5.1 Lollipop and before: *Read profile* (READ_PROFILE): to read your name when using the Gmail quick setup (not requested on later Android versions)
-* GitHub version only: *read and write calendar data* (READ_CALENDAR/WRITE_CALENDAR): to [auto-store invitations](#user-content-faq186)
+* GitHub version only: *read and write calendar data* (READ_CALENDAR/WRITE_CALENDAR): to [auto-store invitations](#faq186)
 
 [Optional permissions](https://developer.android.com/training/permissions/requesting) are supported on Android 6 Marshmallow and later only.
 On earlier Android versions you will be asked to grant the permissions on installing FairEmail.
 
 <br />
 
-The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#user-content-faq106)):
+The following permissions are needed to show the count of unread messages as a badge (see also [this FAQ](#faq106)):
 
 * *com.sec.android.provider.badge.permission.READ*
 * *com.sec.android.provider.badge.permission.WRITE*
@@ -479,7 +479,7 @@ However, you can disable the notification yourself, without side effects, via th
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting first
 
 You can also switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power.
-See [here](#user-content-faq39) for more details about battery usage.
+See [here](#faq39) for more details about battery usage.
 
 Android 8 Oreo might also show a status bar notification with the text *Apps are running in the background*.
 Please see [here](https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/) about how you can disable this notification.
@@ -531,7 +531,7 @@ The low priority status bar notification shows the number of pending operations,
 * *report*: process delivery or read receipt (experimental)
 
 Operations are processed only when there is a connection to the email server or when manually synchronizing.
-See also [this FAQ](#user-content-faq16).
+See also [this FAQ](#faq16).
 
 <br />
 
@@ -626,8 +626,8 @@ In the display section of the settings you can enable or disable for example:
 * *Show stars*: to hide stars (favorites)
 * *Show message preview*: to show 1-4 lines of the message text
 * *Show address details by default*: to expand the addresses section by default
-* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#user-content-faq35)
-* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#user-content-faq35)
+* *Automatically show original message for known contacts*: to automatically show original messages for contacts on your device, please read [this FAQ](#faq35)
+* *Automatically show images for known contacts*: to automatically show images for contacts on your device, please read [this FAQ](#faq35)
 
 Note that messages can be previewed only when the message text was downloaded.
 Larger message texts are not downloaded by default on metered (generally mobile) networks.
@@ -804,11 +804,11 @@ for the Microsoft documentation about configuring an email client.
 There is also a section about common connection errors and solutions.
 
 Some older Exchange server versions have a bug causing empty message and corrupt attachments.
-Please see [this FAQ](#user-content-faq110) for a workaround.
+Please see [this FAQ](#faq110) for a workaround.
 
-Please see [this FAQ](#user-content-faq133) about ActiveSync &trade; support.
+Please see [this FAQ](#faq133) about ActiveSync &trade; support.
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Please see [this FAQ](#faq111) about OAuth support.
 
 <br />
 
@@ -837,7 +837,7 @@ You can configure a default CC or BCC address in the advanced identity settings.
 
 FairEmail will automatically update the passwords of related identities when you update the password of the associated account or a related identity.
 
-See [this FAQ](#user-content-faq33) on editing the username of email addresses.
+See [this FAQ](#faq33) on editing the username of email addresses.
 
 <br />
 
@@ -1246,14 +1246,14 @@ See [here](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-
 
 See [here](https://support.office.com/en-us/article/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040) for Microsoft's instructions.
 
-Please see [this FAQ](#user-content-faq139) for possible causes of the error *... User is authenticated but not connected ...*.
+Please see [this FAQ](#faq139) for possible causes of the error *... User is authenticated but not connected ...*.
 
 For unknown reasons, some Outlook/Hotmail accounts cannot send messages
 because of the server error '*535 5.7.3 Authentication unsuccessful*'.
 This can be resolved by authenticating the account with an (app) password (see above) instead of with OAuth.
 You should use the "*Other provider*" wizard instead of "*Outlook / Office 365 (OAuth)*" in this case.
 
-For setting up an Office 365 account, please see [this FAQ](#user-content-faq156).
+For setting up an Office 365 account, please see [this FAQ](#faq156).
 
 <br />
 
@@ -1268,9 +1268,9 @@ The message text will keep loading if there is no connection to the account, see
 or if there other operations, like synchronizing messages, are being executed.
 
 You can check the account and folder list for the account and folder state (see the legend for the meaning of the icons)
-and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#user-content-faq3) for the meaning of the operations).
+and the operation list accessible via the main navigation menu for pending operations (see [this FAQ](#faq3) for the meaning of the operations).
 
-If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#user-content-faq123), you can force synchronization via the three dots menu.
+If FairEmail is holding off because of prior connectivity issues, please see [this FAQ](#faq123), you can force synchronization via the three dots menu.
 
 In the receive settings you can set the maximum size for automatically downloading of messages on metered connections.
 
@@ -1295,7 +1295,7 @@ Possible causes of messages not being synchronized (sent or received) are:
 
 So, check your account and folder settings and check if the accounts/folders are connected (see the legend in the navigation menu for the meaning of the icons).
 
-If there are any error messages, please see [this FAQ](#user-content-faq22).
+If there are any error messages, please see [this FAQ](#faq22).
 
 On some devices, where there are lots of applications competing for memory, Android may stop the synchronization service as a last resort.
 
@@ -1308,7 +1308,7 @@ If you have a Doogee device, please [see here](https://android.stackexchange.com
 Disabling battery optimizations (setup step 3) reduces the chance Android will stop the synchronization service.
 
 In case of successive connection errors, FairEmail will hold off increasingly longer to not drain the battery of your device.
-This is described in [this FAQ](#user-content-faq123).
+This is described in [this FAQ](#faq123).
 
 <br />
 
@@ -1329,7 +1329,7 @@ This is described in [this FAQ](#user-content-faq123).
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq18)
 
 The preview of the message text cannot be shown if the message body has not been downloaded yet.
-See also [this FAQ](#user-content-faq15).
+See also [this FAQ](#faq15).
 
 <br />
 
@@ -1398,7 +1398,7 @@ This might apply to notification sounds and vibrations too.
 Setting a light color before Android 8 is not supported and on Android 8 and later not possible.
 
 Some apps create a notification channel for each selectable color and let you (indirectly) select these channels when selecting a color.
-Since FairEmail uses notification channels for configurable notification properties for accounts, folders and senders ([see this FAQ](#user-content-faq145)),
+Since FairEmail uses notification channels for configurable notification properties for accounts, folders and senders ([see this FAQ](#faq145)),
 this is not a feasible solution for FairEmail because it would result in an unmanageable number of notification channels.
 
 <br />
@@ -1412,7 +1412,7 @@ FairEmail does not hide errors like similar apps often do, so it is easier to di
 
 FairEmail will automatically try to connect again after a delay.
 This delay will be doubled after each failed attempt to prevent draining the battery and to prevent from being locked out permanently.
-Please see [this FAQ](#user-content-faq123) for more information about this.
+Please see [this FAQ](#faq123) for more information about this.
 
 There are general errors and errors specific to Gmail accounts (see below).
 
@@ -1429,11 +1429,11 @@ Sometimes it is necessary to enable external access (IMAP/SMTP) on the website o
 Other possible causes are that the account is blocked or that logging in has been administratively restricted in some way,
 for example by allowing to login from certain networks / IP addresses only.
 
-* **Free.fr**: please see [this FAQ](#user-content-faq157)
-* **Gmail / G suite**: please see [this FAQ](#user-content-faq6)
-* **iCloud**: please see [this FAQ](#user-content-faq148)
+* **Free.fr**: please see [this FAQ](#faq157)
+* **Gmail / G suite**: please see [this FAQ](#faq6)
+* **iCloud**: please see [this FAQ](#faq148)
 * **Posteo**: please check if [additional email account protection](https://posteo.de/en/help/activating-additional-email-account-protection) isn't enabled.
-* **Yahoo, AOL and Sky**: please see [this FAQ](#user-content-faq88)
+* **Yahoo, AOL and Sky**: please see [this FAQ](#faq88)
 
 If needed, you can update a password in the account settings:
 navigation menu (left side menu), tap *Settings*, tap *Manual setup*, tap *Accounts* and tap on the account.
@@ -1443,7 +1443,7 @@ you can run the quick setup wizard again and tick *Authorize existing account ag
 Note that this requires a recent version of the app.
 
 The error *... Too many bad auth attempts ...* likely means that you are using a Yahoo account password instead of an app password.
-Please see [this FAQ](#user-content-faq88) about how to set up a Yahoo account.
+Please see [this FAQ](#faq88) about how to set up a Yahoo account.
 
 The message *... +OK ...* likely means that a POP3 port (usually port number 995) is being used for an IMAP account (usually port number 993).
 
@@ -1483,11 +1483,11 @@ The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*
 The error *... Connection dropped by server? ...* means that the email server unexpectedly terminated the connection.
 This sometimes happen when there were too many (simultaneous) connections in a too short time or when a wrong password was used too often.
 In this case, please make sure your password is correct and disable receiving in the receive settings for about 30 minutes and try again.
-If needed, see [this FAQ](#user-content-faq23) about how you can reduce the number of connections.
+If needed, see [this FAQ](#faq23) about how you can reduce the number of connections.
 
 The error *... Unexpected end of zlib input stream ...* means that not all data was received, possibly due to a bad or interrupted connection.
 
-The error *... connection failure ...* could indicate [Too many simultaneous connections](#user-content-faq23).
+The error *... connection failure ...* could indicate [Too many simultaneous connections](#faq23).
 
 The warning *... Unsupported encoding ...* means that the character set of the message is unknown or not supported.
 FairEmail will assume ISO-8859-1 (Latin1), which will in most cases result in showing the message correctly.
@@ -1501,11 +1501,11 @@ Authenticating the account again with the quick setup wizard will probably resol
 Another possible cause is a bug in an older Exchange version, please [see here](https://bugzilla.mozilla.org/show_bug.cgi?id=886261).
 In this case the system administrator needs to update the server software.
 
-Please [see here](#user-content-faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
+Please [see here](#faq4) for the errors *... Untrusted ... not in certificate ...*, *... Invalid security certificate (Can't verify identity of server) ...* or *... Trust anchor for certification path not found ...*
 
-Please [see here](#user-content-faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
+Please [see here](#faq127) for the error *... Syntactically invalid HELO argument(s) ...*.
 
-Please [see here](#user-content-faq41) for the error *... Handshake failed ...*.
+Please [see here](#faq41) for the error *... Handshake failed ...*.
 
 See [here](https://linux.die.net/man/3/connect) for what error codes like EHOSTUNREACH and ETIMEDOUT mean.
 
@@ -1559,7 +1559,7 @@ If you want to use the Gmail SMTP server to workaround a too strict outgoing spa
 * Change the identity settings like this (Settings, tap Manual setup, tap Identities, tap identity):
 
 &emsp;&emsp;Username: *your Gmail address*<br />
-&emsp;&emsp;Password: *[an app password](#user-content-faq6)*<br />
+&emsp;&emsp;Password: *[an app password](#faq6)*<br />
 &emsp;&emsp;Host: *smtp.gmail.com*<br />
 &emsp;&emsp;Port: *465*<br />
 &emsp;&emsp;Encryption: *SSL/TLS*<br />
@@ -1593,7 +1593,7 @@ see [here](https://support.google.com/accounts/answer/7519408?hl=en&ref_topic=92
 
 The error *... 334 ... OAUTH2 asked for more ...* probably means that the account needs to be authorized again, which you can do with the quick setup wizard in the settings.
 
-When in doubt, you can ask for [support](#user-content-get-support).
+When in doubt, you can ask for [support](#get-support).
 
 <br />
 
@@ -1720,7 +1720,7 @@ for example to set a specific notification sound or to show notifications on the
 
 FairEmail has the following notification channels:
 
-* Service: used for the notification of the synchronize service, see also [this FAQ](#user-content-faq2)
+* Service: used for the notification of the synchronize service, see also [this FAQ](#faq2)
 * Send: used for the notification of the send service
 * Notifications: used for new message notifications
 * Warning: used for warning notifications
@@ -1731,7 +1731,7 @@ In short: tap on the notification channel name to access the channel settings.
 
 On Android before Android 8 Oreo you can set the notification sound in the settings.
 
-See [this FAQ](#user-content-faq21) if your device has a notification light.
+See [this FAQ](#faq21) if your device has a notification light.
 
 <br />
 
@@ -1869,7 +1869,7 @@ Setting identity colors is a pro feature.
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq35)
 
-Viewing remotely stored images (see also [this FAQ](#user-content-faq27)) and opening links might not only tell the sender that you have seen the message,
+Viewing remotely stored images (see also [this FAQ](#faq27)) and opening links might not only tell the sender that you have seen the message,
 but will also leak your IP address.
 See also this question: [Why email's link is more dangerous than web search's link?](https://security.stackexchange.com/questions/241139/why-emails-link-is-more-dangerous-than-web-searchs-link).
 
@@ -1961,7 +1961,7 @@ because connecting to the server and comparing the local and remote messages are
 
 If you know that the connection (reception) is bad, it might be worthwhile to decrease the timeout value in the connection-settings tab page to 10–20 seconds,
 so that the app discovers earlier that no connection is possible,
-so that the mechanism as described in [this FAQ](#user-content-faq123) is used faster.
+so that the mechanism as described in [this FAQ](#faq123) is used faster.
 
 [On some devices](https://dontkillmyapp.com/) it is necessary to *disable* battery optimizations (setup step 3) to keep connections to email servers open.
 In fact, leaving battery optimizations enabled can result in extra battery usage for all devices, even though this sounds contradictory!
@@ -2064,7 +2064,7 @@ Most providers provide encrypted connections using different ports, typically po
 If your provider doesn't support encrypted connections, you should ask to make this possible.
 If this isn't an option, you could enable *Allow insecure connections* both in the advanced settings AND the account/identity settings.
 
-See also [this FAQ](#user-content-faq4).
+See also [this FAQ](#faq4).
 
 The error '*Handshake failed ... SSLV3_ALERT_ILLEGAL_PARAMETER ...*' is either caused by a bug in the SSL protocol implementation
 or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.
@@ -2165,7 +2165,7 @@ If you see a 'spinner' at the top of the message list, the folder is still being
 You can see the progress of the synchronization in the folder list. See the legend about what the icons and numbers mean.
 
 The speed of your device and internet connection and the number of days to synchronize messages determine how long synchronization will take.
-Note that you shouldn't set the number of days to synchronize messages to more than one day in most cases, see also [this FAQ](#user-content-faq39).
+Note that you shouldn't set the number of days to synchronize messages to more than one day in most cases, see also [this FAQ](#faq39).
 
 <br />
 
@@ -2183,7 +2183,7 @@ so you'll need to select one account to be the primary account and/or you'll nee
 This can also happen when you try to reply to a message or to forward a message from an account with no drafts folder
 while there is no primary account or when the primary account does not have a drafts folder.
 
-Please see [this FAQ](#user-content-faq141) for some more information.
+Please see [this FAQ](#faq141) for some more information.
 
 <br />
 
@@ -2213,7 +2213,7 @@ You can fix this by switching to an up-to-date file manager or an app designed f
 Alternatively, you can grant FairEmail read access to the storage space on your device in the Android app settings.
 Note that this workaround [won't work on Android Q](https://developer.android.com/preview/privacy/scoped-storage) anymore.
 
-See also [question 25](#user-content-faq25)
+See also [question 25](#faq25)
 and [what Google writes about it](https://developer.android.com/training/secure-file-sharing/share-file#RespondToRequest).
 
 <br />
@@ -2251,7 +2251,7 @@ can be used to manually order the folders.
 
 There is no reliable way to know if an account connection was terminated gracefully or forcefully.
 Trying to reconnect to an account while the account connection was terminated forcefully too often can result in problems
-like [too many simultaneous connections](#user-content-faq23) or even the account being blocked.
+like [too many simultaneous connections](#faq23) or even the account being blocked.
 To prevent such problems, FairEmail waits 90 seconds until trying to reconnect again.
 
 You can long press *Settings* in the navigation menu to reconnect immediately.
@@ -2422,7 +2422,7 @@ You might need to manually synchronize the folder, for example by pulling down.
 
 You can view these messages, but you cannot move these messages again until the previous move has been confirmed.
 
-Pending [operations](#user-content-faq3) are shown in the operations view accessible from the main navigation menu.
+Pending [operations](#faq3) are shown in the operations view accessible from the main navigation menu.
 
 <br />
 
@@ -2487,7 +2487,7 @@ Automatically resizing of inline and/or attached images and the maximum target i
 ~~You can select the folder to move to in the account settings.~~
 
 ~~Other actions, like marking messages read and snoozing messages are available via multiple selection.~~
-~~You can long press a message to start multiple selection. See also [this question](#user-content-faq55).~~
+~~You can long press a message to start multiple selection. See also [this question](#faq55).~~
 
 ~~Swiping left or right to mark a message read or unread is unnatural because the message first goes away and later comes back in a different shape.~~
 ~~Note that there is an advanced option to mark messages automatically read on moving,~~
@@ -2505,7 +2505,7 @@ Automatically resizing of inline and/or attached images and the maximum target i
 
 Inline (image) attachments are shown dimmed.
 [Inline attachments](https://tools.ietf.org/html/rfc2183) are supposed to be downloaded and shown automatically,
-but since FairEmail doesn't always download attachments automatically, see also [this FAQ](#user-content-faq40),
+but since FairEmail doesn't always download attachments automatically, see also [this FAQ](#faq40),
 FairEmail shows all attachment types. To distinguish inline and regular attachments, inline attachments are shown dimmed.
 
 <br />
@@ -2535,7 +2535,7 @@ Select the time the conversation(s) should snooze and confirm by tapping OK.
 The conversations will be hidden for the selected time and shown again afterwards.
 You will receive a new message notification as reminder.
 
-It is also possible to snooze messages with [a rule](#user-content-faq71),
+It is also possible to snooze messages with [a rule](#faq71),
 which will also allow you to move messages to a folder to let them be auto snoozed.
 
 You can show snoozed messages by unchecking *Filter out* > *Hidden* in the three dot overflow menu.
@@ -2862,7 +2862,7 @@ This means that messages with multiple labels will be shown multiple times as we
 A lot of knowledge and experience is required to successfully develop an app for a specific platform,
 which is why I develop apps for Android only.
 
-You can install FairEmail on recent Windows versions, though, see [here](#user-content-faq185), and also on ChromeOS via the Play Store.
+You can install FairEmail on recent Windows versions, though, see [here](#faq185), and also on ChromeOS via the Play Store.
 
 <br />
 
@@ -2915,7 +2915,7 @@ like for example multiple synchronization periods per day or different synchroni
 It is possible to install FairEmail in multiple user profiles, for example a personal and a work profile, and to configure FairEmail differently in each profile,
 which is another possibility to have different synchronization schedules and to synchronize a different set of accounts.
 
-It is also possible to create [filter rules](#user-content-faq71) with a time condition and to snooze messages until the end time of the time condition.
+It is also possible to create [filter rules](#faq71) with a time condition and to snooze messages until the end time of the time condition.
 This way it is possible to *snooze* business related messages until the start of the business hours.
 This also means that the messages will be on your device for when there is (temporarily) no internet connection. How to:
 
@@ -3005,7 +3005,7 @@ You can use pull-down-to-refresh in a message list or use the folder menu *Synch
 
 If you want to synchronize some or all folders of an account manually, just disable synchronization for the folders (but not of the account).
 
-You'll likely want to disabled [browse on server](#user-content-faq24) too.
+You'll likely want to disabled [browse on server](#faq24) too.
 
 <br />
 
@@ -3061,7 +3061,7 @@ Local contact information is based on names and addresses found in incoming and 
 
 The main use of the local contacts storage is to offer auto completion when no contacts permission has been granted to FairEmail.
 
-Another use is to generate [shortcuts](#user-content-faq31) on recent Android versions to quickly send a message to frequently contacted people.
+Another use is to generate [shortcuts](#faq31) on recent Android versions to quickly send a message to frequently contacted people.
 This is also why the number of times contacted and the last time contacted is being recorded
 and why you can make a contact a favorite or exclude it from favorites by long pressing it.
 
@@ -3095,7 +3095,7 @@ FairEmail will try to select the best identity based on the *to* address of the 
 ~~The advanced option *extra privacy features* enables:~~
 
 * ~~Looking up the owner of the IP address of a link~~
-* ~~Detection and removal of [tracking images](#user-content-faq82)~~
+* ~~Detection and removal of [tracking images](#faq82)~~
 
 <br />
 
@@ -3133,7 +3133,7 @@ For instructions about how to create an app password, please see here:
 * [for AOL](https://help.aol.com/articles/Create-and-manage-app-password) ~~**Important**: app password generation is broken, [frustrating many people](https://aol.uservoice.com/forums/912886-aol-mail/suggestions/45235399-i-wanted-to-generate-a-third-party-app-password-bu) because this means you can use the AOL app and the browser only.~~
 * [for Sky](https://www.sky.com/help/articles/getting-started-with-sky-yahoo-mail) (under *Other email apps*)
 
-Please see [this FAQ](#user-content-faq111) about OAuth support.
+Please see [this FAQ](#faq111) about OAuth support.
 
 Note that Yahoo, AOL, and Sky do not support standard push messages.
 The Yahoo email app uses a proprietary, undocumented protocol for push messages.
@@ -3186,7 +3186,7 @@ Note that original messages are shown exactly as they are, which means also that
 ~~Synchronizing messages is an expensive proces because the local and remote messages need to be compared,~~
 ~~so periodically synchronizing messages will not result in saving battery power, more likely the contrary.~~
 
-~~See [this FAQ](#user-content-faq39) about optimizing battery usage.~~
+~~See [this FAQ](#faq39) about optimizing battery usage.~~
 
 <br />
 
@@ -3211,11 +3211,11 @@ Spam filtering based on message headers might have been feasible,
 but unfortunately this technique is [patented by Microsoft](https://patents.google.com/patent/US7543076).
 
 Recent versions of FairEmail can filter spam to a certain extent using a message classifier.
-Please see [this FAQ](#user-content-faq163) for more information about this.
+Please see [this FAQ](#faq163) for more information about this.
 
 Of course you can report messages as spam with FairEmail,
 which will move the reported messages to the spam folder and train the spam filter of the provider, which is how it is supposed to work.
-This can be done automatically with [filter rules](#user-content-faq71) too.
+This can be done automatically with [filter rules](#faq71) too.
 Blocking the sender will create a filter rule to automatically move future messages of the same sender into the spam folder.
 
 Note that the POP3 protocol gives access to the inbox only. So, it is won't be possible to report spam for POP3 accounts.
@@ -3288,7 +3288,7 @@ You can change these settings by long pressing a folder in the folder list and s
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq94)
 
 The red/orange stripe at the left side of the header means that the DKIM, SPF or DMARC authentication failed.
-See also [this FAQ](#user-content-faq92).
+See also [this FAQ](#faq92).
 
 <br />
 
@@ -3475,7 +3475,7 @@ If it doesn't work, this cannot be fixed by changes in FairEmail.
 If you are using Nova launcher and you want to show the number of notifications in the launcher icon (maximum 10; imposed by Nova launcher),
 you'll need to enable *Notification access* in the Android *Special app access* settings for Nova launcher on recent Android versions.
 
-Some launchers display a dot or a '1' for [the monitoring notification](#user-content-faq2),
+Some launchers display a dot or a '1' for [the monitoring notification](#faq2),
 despite FairEmail explicitly requesting not to show a *badge* for this notification.
 This could be caused by a bug in the launcher app or in your Android version.
 Please double check if the notification dot (badge) is disabled for the receive (service) notification channel.
@@ -3498,7 +3498,7 @@ The number of new, unread messages will be in an integer "*count*" parameter.
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq107)
 
 You can set a colored star via the *more* message menu, via multiple selection (started by long pressing a message),
-by long pressing a star in a conversation or automatically by using [rules](#user-content-faq71).
+by long pressing a star in a conversation or automatically by using [rules](#faq71).
 
 You need to know that colored stars are not supported by the IMAP protocol and can therefore not be synchronized to an email server.
 This means that colored stars will not be visible in other email clients and will be lost on downloading messages again.
@@ -3534,7 +3534,7 @@ However, not all servers support IMAP keywords and besides that there are no sta
 ~~You can solve this in two ways:~~
 
 * ~~Switch to the official version of FairEmail, see [here](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) for the options~~
-* ~~Use app specific passwords, see [this FAQ](#user-content-faq6)~~
+* ~~Use app specific passwords, see [this FAQ](#faq6)~~
 
 ~~Using *select account* in third party builds is not possible in recent versions anymore.~~
 ~~In older versions this was possible, but it will now result in the error *UNREGISTERED_ON_API_CONSOLE*.~~
@@ -3577,7 +3577,7 @@ The OAuth [jump page](https://oauth.faircode.eu/) exists
 for when [Android App Links](https://developer.android.com/training/app-links/verify-site-associations)
 are not available, for example when using a non Play store version of the app, or do not work for some reason.
 
-OAuth is not supported for third party builds like the F-Droid build, please [see here](#user-content-faq147) about why not.
+OAuth is not supported for third party builds like the F-Droid build, please [see here](#faq147) about why not.
 
 Since version 1.1859 there is support for custom OAuth.
 To use custom OAuth, an XML file containing the server and OAuth data, like the client secret, should be created and imported.
@@ -3605,7 +3605,7 @@ Please see these websites for lists of privacy oriented email providers with adv
 * [Privacy Tools](https://www.privacytools.io/providers/email/)
 
 **Important**: Some providers, like ProtonMail and Tutanota, use proprietary email protocols, which make it impossible to use third party email apps.
-Please see [this FAQ](#user-content-faq129) for more information.
+Please see [this FAQ](#faq129) for more information.
 
 Using your own (custom) domain name, which is supported by most email providers, will make it easier to switch to another email provider.
 
@@ -3623,7 +3623,7 @@ The inactivity period duration can be configured in the miscellaneous settings.
 When biometric authentication is enabled new message notifications will not show any content and FairEmail won't be visible on the Android recents screen.
 
 Biometric authentication is meant to prevent others from seeing your messages only.
-FairEmail relies on device encryption for data encryption, see also [this FAQ](#user-content-faq37).
+FairEmail relies on device encryption for data encryption, see also [this FAQ](#faq37).
 
 Biometric authentication is a pro feature.
 
@@ -3752,7 +3752,7 @@ On Android 7 Nougat and later new message notifications will be [grouped](https:
 Tapping on the summary notification will open the unified inbox.
 The summary notification can be expanded to view individual new message notifications.
 Tapping on an individual new message notification will open the conversation the message it is part of.
-See [this FAQ](#user-content-faq70) about when messages in a conversation will be auto expanded and marked read.
+See [this FAQ](#faq70) about when messages in a conversation will be auto expanded and marked read.
 
 <br />
 
@@ -3880,7 +3880,7 @@ It is probably a good idea to enable *Show keywords in message header* in the di
 Note that the email server needs to support IMAP flags (keywords) for this feature.
 
 Filter rules will be applied to the received receipt, so it is possible to move/archive the receipt.
-See [this FAQ](#user-content-faq71) for a header condition to recognize receipts.
+See [this FAQ](#faq71) for a header condition to recognize receipts.
 
 <br />
 
@@ -3924,7 +3924,7 @@ Unfortunately, it is not possible to workaround this problem.
 
 Ongoing notifications shouldn't be bridged, but some companion apps bridge all notifications.
 This results in the "monitoring" status bar notification to be bridged.
-The workaround is to disable this notification, see [this FAQ](#user-content-faq2).
+The workaround is to disable this notification, see [this FAQ](#faq2).
 
 <br />
 
@@ -3999,7 +3999,7 @@ The error will almost always include a reason. Common reasons are that the messa
 The warning *Message too large to fit into the available memory* means that the message was larger than 10 MiB.
 Even if your device has plenty of storage space Android provides limited working memory to apps, which limits the size of messages that can be handled.
 
-Please see [here](#user-content-faq22) for other error messages.
+Please see [here](#faq22) for other error messages.
 
 <br />
 
@@ -4152,7 +4152,7 @@ The confusing Microsoft specific server error *User is authenticated but not con
 * External access is administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) about how an administrator can enable it again
 * SMTP is administratively disabled, please see [this article](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/authenticated-client-smtp-submission) about how an administrator can enable it again
 * Required server components are disabled, please see [this article](https://learn.microsoft.com/en-us/exchange/troubleshoot/user-and-shared-mailboxes/pop3-imap-owa-activesync-office-365) about enabling IMAP, MAPI, etc.
-* Push messages are enabled for too many folders: see [this FAQ](#user-content-faq23) for more information and a workaround
+* Push messages are enabled for too many folders: see [this FAQ](#faq23) for more information and a workaround
 * There were too many login attempts in a too short time, for example by using multiple email clients at the same time
 * The wrong account was selected in the Microsoft account selector, for example an account with a different email address or a personal instead of a business account
 * An ad blocker or DNS changer is being used
@@ -4175,7 +4175,7 @@ The Outlook/Office 365 quick setup wizard supports setting up shared mailboxes.
 When using a shared mailbox, you might want to enable the option *Synchronize shared folder lists* in the receive settings.
 
 Sometimes it helps to use the *Other provider* wizard instead of the *Outlook/Office 365* wizard.
-You might need an app password for this, please see [this FAQ](#user-content-faq14).
+You might need an app password for this, please see [this FAQ](#faq14).
 
 Background: this error happens if logging in to an account succeeded (with OAuth), but logging in to the email (IMAP/SMTP) server fails for some reason.
 
@@ -4231,7 +4231,7 @@ The best solution would be to enable showing the sent folder in the unified inbo
 by long pressing the sent folder in the folder list and enabling *Show in unified inbox*.
 This way all messages can stay where they belong, while allowing to see both incoming and outgoing messages at one place.
 
-If this is not an option, you can [create a rule](#user-content-faq71) to automatically move sent messages to the inbox
+If this is not an option, you can [create a rule](#faq71) to automatically move sent messages to the inbox
 or set a default CC or BCC address in the advanced identity settings (via the manual setup in the main setup screen) to send yourself a copy.
 
 <br />
@@ -4307,7 +4307,7 @@ Conditional: (since version 1.1803; experimental)
 * Long press the folder (inbox) in the folder list and select *Edit rules*
 * Add a rule with the big 'plus' button at the bottom right
 * Configure a rule condition, select *Play sound* as rule action and select a sound
-* For more information about filter rules, please [see here](#user-content-faq71)
+* For more information about filter rules, please [see here](#faq71)
 
 The order of precendence is: conditional sound, sender sound, folder sound, account sound and (default) notification sound.
 
@@ -4357,8 +4357,8 @@ because Android refuses to install ("*App was not installed*") the same app with
 Note that the GitHub version will automatically check for updates.
 When desired, this can be turned off in the miscellaneous settings.
 
-Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#user-content-downloads) for all download option
-and [see here](#user-content-faq173) for the differences between the different release types.
+Please [see here](https://github.com/M66B/FairEmail/blob/master/README.md#downloads) for all download option
+and [see here](#faq173) for the differences between the different release types.
 
 If you have a problem with the F-Droid build, please check if there is a newer GitHub version first.
 
@@ -4652,7 +4652,7 @@ The option *Use local spam filter* in the report spam dialog will turn on messag
 and auto classification for the spam folder.
 Please understand that this is not a replacement for the spam filter of the email server and
 can result in [false positives and false negatives](https://en.wikipedia.org/wiki/False_positives_and_false_negatives).
-See also [this FAQ](#user-content-faq92).
+See also [this FAQ](#faq92).
 
 A practical example: suppose there is a folder 'marketing' and auto message classification is enabled for this folder.
 Each time you move a message into this folder you'll train FairEmail that similar messages belong in this folder.
@@ -4691,7 +4691,7 @@ You can delete all classification data by turning classification in the miscella
 This will be necessary when classification for a folder is enabled or disabled (or when a folder is deleted)
 because classification is based on comparision.
 
-[Filter rules](#user-content-faq71) will be executed before classification.
+[Filter rules](#faq71) will be executed before classification.
 If one or more filter rules were executed for a message, message classification will be skipped
 because it is assumed that the message will be processed by the filter rules in this case.
 
@@ -4907,11 +4907,11 @@ This is not how it should work on Android, which is more open to sharing informa
 
 Related questions:
 
-* [What are local contacts for?](#user-content-faq84)
-* [Why can I still pick contacts after revoking contacts permissions?](#user-content-faq98)
-* [Can you add calendar/contact/tasks/notes management?](#user-content-faq138)
-* [How can I insert a contact group?](#user-content-faq152)
-* [How can I delete a contact?](#user-content-faq171)
+* [What are local contacts for?](#faq84)
+* [Why can I still pick contacts after revoking contacts permissions?](#faq98)
+* [Can you add calendar/contact/tasks/notes management?](#faq138)
+* [How can I insert a contact group?](#faq152)
+* [How can I delete a contact?](#faq171)
 
 <br />
 
@@ -4920,19 +4920,19 @@ Related questions:
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq173)
 
-* The Play Store version does not support Android Auto, see [this FAQ](#user-content-faq165) for more information
+* The Play Store version does not support Android Auto, see [this FAQ](#faq165) for more information
 * The Play Store version does not support Amazon devices with Android 5 Lollipop because there are critical bugs in this Android version of Amazon
 * The Play Store version does not support Gravatars/Libravatars due to Play Store policies
-* The Play Store version does not support auto-storing iCalendar invitations, see [this FAQ](#user-content-faq186) for more information
+* The Play Store version does not support auto-storing iCalendar invitations, see [this FAQ](#faq186) for more information
 * The Play Store version is released about once a month only because I am tired of 1-star ratings for *Too many updates*. If you want to receive more updates, you can join the [Play Store test program](https://play.google.com/apps/testing/eu.faircode.email).
 * The GitHub version will check for [updates on GitHub](https://github.com/M66B/FairEmail/releases) and is updated more frequently, but updates need to be installed manually
 * The GitHub version has some different links, some more features and options, and some different default values (more geared to advanced users)
 * The GitHub version can be installed as an update over the Play store version, whereas the F-Droid build can't (see below for more details)
-* The F-Droid build does not support OAuth, see [this FAQ](#user-content-faq147) about why not
+* The F-Droid build does not support OAuth, see [this FAQ](#faq147) about why not
 * The F-Droid build does not include [Google Play Billing](https://developer.android.com/google/play/billing/integrate), so Play store purchases cannot be reused
-* The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub version, see also [this FAQ](#user-content-faq147)
+* The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub version, see also [this FAQ](#faq147)
 
-The Play store and GitHub version are signed with the [same digital signature](https://github.com/M66B/FairEmail#user-content-downloads) (security certificate).
+The Play store and GitHub version are signed with the [same digital signature](https://github.com/M66B/FairEmail#downloads) (security certificate).
 The F-Droid build is signed by the F-Droid organization with a different digital key.
 This means you can't update the F-Droid build with the Play store or GitHub version or the other way around without reinstalling.
 However, it is possible to install the GitHub version over the Play store version,
@@ -5139,7 +5139,7 @@ If you disabled confirming links, you can enable this (temporarily) again in the
 
 Note that you might need to enable confirming links and reset questions to show the link confirmation dialog again.
 
-Please see [this FAQ](#user-content-faq35) on why you should be careful when opening links.
+Please see [this FAQ](#faq35) on why you should be careful when opening links.
 
 <br />
 
@@ -5188,7 +5188,7 @@ Images will be replaced with placeholders to reduce the content size, but other 
 If the content is too long, there will be a popup *Text too long*.
 
 The content size limit is also why complete messages (possibly including a long reply chain) cannot be password protected.
-You can use [PGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) or [S/MIME](https://en.wikipedia.org/wiki/S/MIME) encryption for this (see [this FAQ](#user-content-faq12)).
+You can use [PGP](https://en.wikipedia.org/wiki/Pretty_Good_Privacy) or [S/MIME](https://en.wikipedia.org/wiki/S/MIME) encryption for this (see [this FAQ](#faq12)).
 
 [Cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting) is prevented by using [DOMPurify](https://github.com/cure53/DOMPurify) (Apache License Version 2.0).
 
@@ -5273,7 +5273,7 @@ Unfortunately, it is not possible to enable cloud backup for other backup softwa
 Whether Google backup is enabled needs to be specified in the app manifest. So, unfortunately, it isn't possible to add an option for this.
 
 As a replacement, you can back up and restore all settings, including the account settings and credentials, via the backup-settings tab page.
-This backup export uses a proper encryption method, [see here](#user-content-faq36).
+This backup export uses a proper encryption method, [see here](#faq36).
 
 <br />
 
@@ -5371,7 +5371,7 @@ Please read the remark in the confirmation dialog box.
 
 Note that starred (favorite) messages will be kept on your device "forever".
 
-Instead of downloading many messages to your device, consider [searching for messages on the email server](#user-content-faq13).
+Instead of downloading many messages to your device, consider [searching for messages on the email server](#faq13).
 
 <br>
 
