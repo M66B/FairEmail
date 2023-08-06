@@ -820,7 +820,7 @@ Please see [this FAQ](#user-content-faq111) about OAuth support.
 Identities represent email addresses you are sending *from* via an email (SMTP) server.
 
 Some providers allow you to have multiple aliases.
-The easiest way to create an alias is to copy the main identity, and change the email address and perhaps the (display) name. 
+The easiest way to create an alias is to copy the main identity, and change the email address and perhaps the (display) name.
 You should not change the username!
 For this, please go to the settings via the navigation menu (left side menu), tap on *Manual setup and account options*, tap on *Identities*, long press the main identity, and select to copy it.
 
@@ -3229,6 +3229,9 @@ If you are wondering why a message was moved into the spam folder, these are all
 * The message classifier (miscellaneous settings tab page) moved the message into the spam folder.
 * A filter rule (navigation menu = left side menu of the start screen), for example a block domain name rule, moved the message into the spam folder.
 * An email address or a network address is on a block list (receive settings tab page).
+
+Note that a sender will automatically be blocked when a message is moved into the spam folder.
+You can disable this behavior by disabling the option *Automatically block the sender when reporting spam* in the behavior settings tab page.
 
 If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
 
