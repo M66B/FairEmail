@@ -867,7 +867,7 @@ public class ContactInfo {
             if ("mailbox.org".equals(host))
                 order += 30;
             else
-                order += 10;
+                order += 20;
         }
 
         if (isIco)
@@ -923,7 +923,11 @@ public class ContactInfo {
                 throw new FileNotFoundException("decodeStream");
             if (bitmap.getWidth() <= 1 || bitmap.getHeight() <= 1)
                 throw new IOException("Too small");
+            Log.i("GOT favicon " + url);
             return new Favicon(bitmap, url.toString());
+        } catch (Throwable ex) {
+            Log.i("GET favicon " + url + " error=" + ex.getMessage());
+            throw ex;
         } finally {
             connection.disconnect();
         }
