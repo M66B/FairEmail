@@ -325,7 +325,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 db.endTransaction();
             }
 
-            return found;
+            if (state.ids.size() > 0)
+                return found;
         }
 
         while (found < pageSize && !state.destroyed) {
