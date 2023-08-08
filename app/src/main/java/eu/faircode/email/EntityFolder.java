@@ -328,8 +328,10 @@ public class EntityFolder extends EntityOrder implements Serializable {
             return;
 
         this.synchronize = parent.synchronize;
-        this.poll = parent.poll;
-        this.poll_factor = parent.poll_factor;
+        if (EntityFolder.USER.equals(parent.type)) {
+            this.poll = parent.poll;
+            this.poll_factor = parent.poll_factor;
+        }
         this.download = parent.download;
         //this.auto_classify_source = parent.auto_classify_source;
         //this.auto_classify_target = parent.auto_classify_target;
