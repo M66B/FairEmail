@@ -47,3 +47,4 @@ FairEmail uses:
 * [MaterialDings](https://github.com/Accusoft/MaterialDings). Copyright (c) 2018 Accusoft Corporation. [MIT License](https://github.com/Accusoft/MaterialDings/blob/master/LICENSE.md).
 * [Send](https://github.com/timvisee/send). [Mozilla Public License 2.0](https://github.com/timvisee/send/blob/master/LICENSE).
 * [DetectHtml](https://github.com/dbennett455/DetectHtml). [The MIT License](https://github.com/dbennett455/DetectHtml/blob/master/LICENSE).
+* [Elephant Bird](https://github.com/twitter/elephant-bird). [Apache License Version 2.0](https://github.com/twitter/elephant-bird/blob/master/LICENSE).

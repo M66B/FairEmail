@@ -114,6 +114,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         CheckBox cbKeywords = dview.findViewById(R.id.cbKeywords);
         CheckBox cbMessage = dview.findViewById(R.id.cbMessage);
         TextView tvSearchTextUnsupported = dview.findViewById(R.id.tvSearchTextUnsupported);
+        CheckBox cbAttachments = dview.findViewById(R.id.cbAttachments);
         CheckBox cbNotes = dview.findViewById(R.id.cbNotes);
         CheckBox cbHeaders = dview.findViewById(R.id.cbHeaders);
         CheckBox cbHtml = dview.findViewById(R.id.cbHtml);
@@ -123,7 +124,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         CheckBox cbFlagged = dview.findViewById(R.id.cbFlagged);
         CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
         CheckBox cbEncrypted = dview.findViewById(R.id.cbEncrypted);
-        CheckBox cbAttachments = dview.findViewById(R.id.cbAttachments);
+        CheckBox cbWithAttachments = dview.findViewById(R.id.cbWithAttachments);
         Spinner spMessageSize = dview.findViewById(R.id.spMessageSize);
         Button btnBefore = dview.findViewById(R.id.btnBefore);
         Button btnAfter = dview.findViewById(R.id.btnAfter);
@@ -430,6 +431,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         criteria.in_subject = cbSubject.isChecked();
                         criteria.in_keywords = cbKeywords.isChecked();
                         criteria.in_message = cbMessage.isChecked();
+                        criteria.in_attachments = cbAttachments.isChecked();
                         criteria.in_notes = cbNotes.isChecked();
                         criteria.in_headers = cbHeaders.isChecked();
                         criteria.in_html = cbHtml.isChecked();
@@ -437,7 +439,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         criteria.with_flagged = cbFlagged.isChecked();
                         criteria.with_hidden = cbHidden.isChecked();
                         criteria.with_encrypted = cbEncrypted.isChecked();
-                        criteria.with_attachments = cbAttachments.isChecked();
+                        criteria.with_attachments = cbWithAttachments.isChecked();
 
                         if (!criteria.fts) {
                             int pos = spMessageSize.getSelectedItemPosition();

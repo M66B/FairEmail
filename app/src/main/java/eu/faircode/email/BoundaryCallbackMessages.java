@@ -39,6 +39,7 @@ import com.sun.mail.imap.protocol.IMAPProtocol;
 import com.sun.mail.imap.protocol.IMAPResponse;
 import com.sun.mail.imap.protocol.SearchSequence;
 import com.sun.mail.util.MessageRemovedIOException;
+import com.twitter.elephantbird.util.StreamSearcher;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,9 +47,12 @@ import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
 import java.lang.reflect.Constructor;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -341,6 +345,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         //criteria.in_subject,
                         //criteria.in_keywords,
                         //criteria.in_message,
+                        //criteria.in_attachments,
                         //criteria.in_notes,
                         //criteria.in_headers,
                         criteria.with_unseen,
@@ -866,6 +871,37 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 Log.e(ex);
             }
 
+        if (criteria.in_attachments && !TextUtils.isEmpty(criteria.query))
+            try {
+                DB db = DB.getInstance(context);
+                List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+                if (attachments != null)
+                    for (EntityAttachment attachment : attachments) {
+                        File file = attachment.getFile(context);
+                        if (file.exists() && file.length() > 0) {
+                            byte[] sample = new byte[(int) Math.min(4096, file.length())];
+                            try (InputStream is = new FileInputStream(file)) {
+                                Helper.readBuffer(is, sample);
+                            }
+
+                            Charset detected = CharsetHelper.detect(sample, null);
+                            if (detected == null)
+                                detected = StandardCharsets.ISO_8859_1;
+
+                            Log.i("Searching for " + criteria.query +
+                                    " as " + detected +
+                                    " in " + file.getName() + ":" + file.length());
+                            try (InputStream is = new FileInputStream(file)) {
+                                StreamSearcher searcher = new StreamSearcher(criteria.query.getBytes(detected));
+                                if (searcher.search(is) > 0)
+                                    return true;
+                            }
+                        }
+                    }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
         return false;
     }
 
@@ -987,6 +1023,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean in_subject = true;
         boolean in_keywords = true;
         boolean in_message = true;
+        boolean in_attachments = false;
         boolean in_notes = true;
         boolean in_headers = false;
         boolean in_html = false;
@@ -1272,6 +1309,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.in_subject == other.in_subject &&
                         this.in_keywords == other.in_keywords &&
                         this.in_message == other.in_message &&
+                        this.in_attachments == other.in_attachments &&
                         this.in_notes == other.in_notes &&
                         this.in_headers == other.in_headers &&
                         this.in_html == other.in_html &&
@@ -1300,6 +1338,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             json.put("in_subject", in_subject);
             json.put("in_keywords", in_keywords);
             json.put("in_message", in_message);
+            json.put("in_attachments", in_attachments);
             json.put("in_notes", in_notes);
             json.put("in_headers", in_headers);
             json.put("in_html", in_html);
@@ -1347,6 +1386,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             criteria.in_subject = json.optBoolean("in_subject");
             criteria.in_keywords = json.optBoolean("in_keywords");
             criteria.in_message = json.optBoolean("in_message");
+            criteria.in_attachments = json.optBoolean("in_attachments");
             criteria.in_notes = json.optBoolean("in_notes");
             criteria.in_headers = json.optBoolean("in_headers");
             criteria.in_html = json.optBoolean("in_html");
@@ -1395,6 +1435,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     " subject=" + in_subject +
                     " keywords=" + in_keywords +
                     " message=" + in_message +
+                    " attachment=" + in_attachments +
                     " notes=" + in_notes +
                     " headers=" + in_headers +
                     " html=" + in_html +
