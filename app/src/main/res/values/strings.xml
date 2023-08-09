@@ -575,6 +575,7 @@
     <string name="title_advanced_libravatars">Show Libravatars</string>
     <string name="title_advanced_favicons">Show favicons</string>
     <string name="title_advanced_favicons_partial">Scan only the first %1$s of the web page</string>
+    <string name="title_advanced_favicons_manifest">Scan web app manifests</string>
     <string name="title_advanced_generated_icons">Show generated icons</string>
     <string name="title_advanced_identicons">Show identicons</string>
     <string name="title_advanced_circular">Show round icons</string>

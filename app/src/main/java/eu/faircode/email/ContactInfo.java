@@ -640,6 +640,7 @@ public class ContactInfo {
     private static Favicon parseFavicon(URL base, int scaleToPixels, Context context) throws IOException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean favicons_partial = prefs.getBoolean("favicons_partial", true);
+        boolean favicons_manifest = prefs.getBoolean("favicons_manifest", false);
 
         Log.i("PARSE favicon " + base);
         HttpURLConnection connection = ConnectionHelper
@@ -681,7 +682,7 @@ public class ContactInfo {
         imgs.addAll(doc.head().select("meta[itemprop=image]"));
 
         // https://developer.mozilla.org/en-US/docs/Web/Manifest/icons
-        if (imgs.size() == 0 || BuildConfig.DEBUG)
+        if (imgs.size() == 0 || favicons_manifest)
             for (Element manifest : doc.head().select("link[rel=manifest]"))
                 try {
                     String href = manifest.attr("href");

@@ -121,6 +121,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private TextView tvLibravatarPrivacy;
     private SwitchCompat swFavicons;
     private SwitchCompat swFaviconsPartial;
+    private SwitchCompat swFaviconsManifest;
     private TextView tvFaviconsHint;
     private SwitchCompat swGeneratedIcons;
     private SwitchCompat swIdenticons;
@@ -205,7 +206,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "hide_toolbar", "nav_options", "nav_categories", "nav_last_sync", "nav_count", "nav_unseen_drafts", "nav_count_pinned", "navbar_colorize",
             "threading", "threading_unread", "indentation", "seekbar", "actionbar", "actionbar_swap", "actionbar_color",
             "highlight_unread", "highlight_color", "color_stripe", "color_stripe_wide",
-            "avatars", "bimi", "gravatars", "libravatars", "favicons", "favicons_partial", "generated_icons", "identicons",
+            "avatars", "bimi", "gravatars", "libravatars", "favicons", "favicons_partial", "favicons_manifest", "generated_icons", "identicons",
             "circular", "saturation", "brightness", "threshold",
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
             "font_size_sender", "sender_ellipsize",
@@ -290,6 +291,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         tvLibravatarPrivacy = view.findViewById(R.id.tvLibravatarPrivacy);
         swFavicons = view.findViewById(R.id.swFavicons);
         swFaviconsPartial = view.findViewById(R.id.swFaviconsPartial);
+        swFaviconsManifest = view.findViewById(R.id.swFaviconsManifest);
         tvFaviconsHint = view.findViewById(R.id.tvFaviconsHint);
         swGeneratedIcons = view.findViewById(R.id.swGeneratedIcons);
         swIdenticons = view.findViewById(R.id.swIdenticons);
@@ -849,6 +851,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("favicons", checked).apply();
                 swFaviconsPartial.setEnabled(checked);
+                swFaviconsManifest.setEnabled(checked);
                 ContactInfo.clearCache(compoundButton.getContext());
             }
         });
@@ -857,6 +860,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("favicons_partial", checked).apply();
+                ContactInfo.clearCache(compoundButton.getContext());
+            }
+        });
+
+        swFaviconsManifest.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("favicons_manifest", checked).apply();
                 ContactInfo.clearCache(compoundButton.getContext());
             }
         });
@@ -1498,6 +1509,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             swFavicons.setChecked(prefs.getBoolean("favicons", false));
             swFaviconsPartial.setChecked(prefs.getBoolean("favicons_partial", true));
             swFaviconsPartial.setEnabled(swFavicons.isChecked());
+            swFaviconsManifest.setChecked(prefs.getBoolean("favicons_manifest", false));
+            swFaviconsManifest.setEnabled(swFavicons.isChecked());
             swGeneratedIcons.setChecked(prefs.getBoolean("generated_icons", true));
             swIdenticons.setChecked(prefs.getBoolean("identicons", false));
             swIdenticons.setEnabled(swGeneratedIcons.isChecked());
