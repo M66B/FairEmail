@@ -1077,14 +1077,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     @Override
     protected void onStart() {
         super.onStart();
-        if (BuildConfig.DEBUG)
+        if (!Helper.isPlayStoreInstall())
             infoTracker.addWindowLayoutInfoListener(this, Runnable::run, layoutStateChangeCallback);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        if (BuildConfig.DEBUG)
+        if (!Helper.isPlayStoreInstall())
             infoTracker.removeWindowLayoutInfoListener(layoutStateChangeCallback);
     }
 
@@ -2549,10 +2549,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     private final Consumer<WindowLayoutInfo> layoutStateChangeCallback = new Consumer<WindowLayoutInfo>() {
         @Override
         public void accept(WindowLayoutInfo info) {
-            List<DisplayFeature> features = info.getDisplayFeatures();
-            Log.i("Display features=" + features.size());
-            for (DisplayFeature feature : features)
-                EntityLog.log(ActivityView.this, "Display feature bounds=" + feature.getBounds());
+            EntityLog.log(ActivityView.this, "Window layout=" + info);
         }
     };
 }
