@@ -525,7 +525,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             criteria.in_subject = false;
             criteria.in_keywords = false;
             criteria.in_message = false;
-            criteria.in_attachments = false;
             criteria.in_notes = false;
             criteria.with_unseen = true;
             FragmentMessages.search(
@@ -540,7 +539,6 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             criteria.in_subject = false;
             criteria.in_keywords = false;
             criteria.in_message = false;
-            criteria.in_attachments = false;
             criteria.in_notes = false;
             criteria.with_flagged = true;
             FragmentMessages.search(

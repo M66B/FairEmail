@@ -2427,7 +2427,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             criteria.in_subject = false;
             criteria.in_keywords = false;
             criteria.in_message = false;
-            criteria.in_attachments = false;
             criteria.in_notes = false;
         }
 

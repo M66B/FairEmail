@@ -225,7 +225,19 @@ public class CharsetHelper {
 
         try {
             byte[] octets = text.getBytes(StandardCharsets.ISO_8859_1);
-            DetectResult detected = _detect(octets, ref);
+
+            byte[] sample;
+            if (octets.length < MAX_SAMPLE_SIZE)
+                sample = octets;
+            else {
+                sample = new byte[MAX_SAMPLE_SIZE];
+                System.arraycopy(octets, 0, sample, 0, MAX_SAMPLE_SIZE);
+            }
+
+            Log.i("compact_enc_det sample=" + sample.length);
+            DetectResult detected = jni_detect_charset(sample,
+                    ref == null ? StandardCharsets.ISO_8859_1.name() : ref.name(),
+                    Locale.getDefault().getLanguage());
 
             if (TextUtils.isEmpty(detected.charset)) {
                 Log.e("compact_enc_det result=" + detected);
@@ -250,34 +262,7 @@ public class CharsetHelper {
         }
     }
 
-    public static Charset detect(byte[] octets, Charset ref) {
-        try {
-            DetectResult detected = _detect(octets, ref);
-            if (TextUtils.isEmpty(detected.charset))
-                return null;
-            return Charset.forName(detected.charset);
-        } catch (Throwable ex) {
-            Log.w(ex);
-            return null;
-        }
-    }
-
-    private static DetectResult _detect(byte[] octets, Charset ref) {
-        byte[] sample;
-        if (octets.length < MAX_SAMPLE_SIZE)
-            sample = octets;
-        else {
-            sample = new byte[MAX_SAMPLE_SIZE];
-            System.arraycopy(octets, 0, sample, 0, MAX_SAMPLE_SIZE);
-        }
-
-        Log.i("compact_enc_det sample=" + sample.length);
-        return jni_detect_charset(sample,
-                ref == null ? StandardCharsets.ISO_8859_1.name() : ref.name(),
-                Locale.getDefault().getLanguage());
-    }
-
-    public static class DetectResult {
+    private static class DetectResult {
         String charset;
         int sample_size;
         int bytes_consumed;
