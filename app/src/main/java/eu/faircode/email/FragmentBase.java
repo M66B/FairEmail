@@ -508,7 +508,7 @@ public class FragmentBase extends Fragment {
         Intent create = new Intent(Intent.ACTION_CREATE_DOCUMENT);
         create.addCategory(Intent.CATEGORY_OPENABLE);
         create.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
-        create.setType(attachment.type);
+        create.setType(attachment.getMimeType());
         create.putExtra(Intent.EXTRA_TITLE, attachment.name);
         Helper.openAdvanced(context, create);
         PackageManager pm = context.getPackageManager();
