@@ -594,15 +594,9 @@
             app:constraint_referenced_ids="
             cbSearchIndex,tvSearchIndexHint,
             cbSenders,cbRecipients,cbSubject,cbKeywords,
-            cbMessage,tvSearchTextHint,tvSearchTextUnsupported,cbNotes,
+            cbMessage,tvSearchTextHint,tvSearchTextUnsupported,
+            cbAttachments,tvSearchAttachmentsHint,cbNotes,
             tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbWithAttachments,
             tvDate,btnAfter,btnBefore,tvBefore,tvAfter,cbSearchDevice" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpAttachments"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:visibility="gone"
-            app:constraint_referenced_ids="cbAttachments,tvSearchAttachmentsHint" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

@@ -1763,7 +1763,7 @@
     <string name="title_search_index_hint">Searching via the search index is fast, but only finds whole words.</string>
     <string name="title_search_text_hint">Searching for text in messages, when there are a large number of messages, might not work on some servers</string>
     <string name="title_search_text_unsupported">\'%s\' means that the mail server doesn\'t support searching in message texts</string>
-    <string name="title_search_attachments_hint" translatable="false">This will be slow when there are many or large attachments</string>
+    <string name="title_search_attachments_hint">This will be slow when there are many or large attachments</string>
     <string name="title_search_size_hint">Searching for messages by size, when there are a large number of messages, might not work on some servers</string>
     <string name="title_search_more">More options</string>
     <string name="title_search_use_index">Use search index</string>
@@ -1772,7 +1772,7 @@
     <string name="title_search_in_subject">In subject</string>
     <string name="title_search_in_keywords">In keywords (if supported)</string>
     <string name="title_search_in_message">In message text</string>
-    <string name="title_search_in_attachments" translatable="false">In attachments (on device only)</string>
+    <string name="title_search_in_attachments">In attachments (on device only)</string>
     <string name="title_search_in_notes">In local notes</string>
     <string name="title_search_in_headers" translatable="false">In headers</string>
     <string name="title_search_in_html" translatable="false">In HTML</string>
