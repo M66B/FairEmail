@@ -81,8 +81,8 @@ public class ActivityBilling extends ActivityBase implements
     static final String ACTION_PURCHASE_ERROR = BuildConfig.APPLICATION_ID + ".ACTION_PURCHASE_ERROR";
 
     private static final String SKU_TEST = "android.test.purchased";
-    private static final long MAX_SKU_CACHE_DURATION = 24 * 3600 * 1000L; // milliseconds
-    private static final long MAX_SKU_NOACK_DURATION = 24 * 3600 * 1000L; // milliseconds
+    private static final long MAX_SKU_CACHE_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
+    private static final long MAX_SKU_NOACK_DURATION = 3 * 24 * 3600 * 1000L; // milliseconds
 
     @Override
     @SuppressLint("MissingSuperCall")
