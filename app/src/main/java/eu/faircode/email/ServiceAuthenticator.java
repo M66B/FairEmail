@@ -173,7 +173,7 @@ public class ServiceAuthenticator extends Authenticator {
 
             EntityLog.log(context, EntityLog.Type.General, "Token" +
                     " provider=" + id + ":" + getAuthTypeName(auth_type) +
-                    " user" + user +
+                    " user=" + user +
                     " expiration=" + (expiration == null ? null : new Date(expiration)) +
                     " need=" + needsRefresh + "/" + authState.getNeedsTokenRefresh() +
                     " force=" + forceRefresh);
