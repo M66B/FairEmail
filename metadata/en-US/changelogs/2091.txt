@@ -9,6 +9,9 @@ Ubirajara
 Next version
 
 * Replace address element link
+* Small improvements and minor bug fixes
+* Updated AndroidX
+* Updated translations
 
 1.2091 - 2023-08-05
 
