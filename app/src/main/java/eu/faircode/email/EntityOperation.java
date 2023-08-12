@@ -718,6 +718,7 @@ public class EntityOperation {
                 // Synchronize will delete messages when needed
                 Log.i("POP3: DELETE hide " + f.type);
                 db.message().setMessageUiHide(m.id, true);
+                db.message().setMessageFound(m.id, false);
             } else {
                 Log.i("POP3: local DELETE " + f.type);
                 db.message().deleteMessage(m.id);
