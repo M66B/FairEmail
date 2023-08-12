@@ -284,6 +284,7 @@ public class FixedEditText extends AppCompatEditText {
     @Override
     public ActionMode startActionMode(ActionMode.Callback callback, int type) {
         try {
+            // callback class: android.widget.Editor$TextActionModeCallback
             return super.startActionMode(callback, type);
         } catch (Throwable ex) {
             Log.e(ex);
