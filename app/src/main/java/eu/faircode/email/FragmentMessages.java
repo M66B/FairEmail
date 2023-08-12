@@ -10606,7 +10606,7 @@ public class FragmentMessages extends FragmentBase
         boolean canDelete() {
             if (read_only)
                 return false;
-            return (!hasPop || !Boolean.TRUE.equals(leave_deleted) || !isInbox);
+            return (!hasPop || !Boolean.TRUE.equals(leave_deleted) || (isTrash || isDrafts || isSent));
         }
 
         boolean canMove() {
