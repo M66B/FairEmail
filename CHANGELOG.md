@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
-### Next version
+### 1.2092 - 2023-08-12
 
 * Replace [address element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address) by [geo](https://en.wikipedia.org/wiki/Geo_URI_scheme) link
 * Small improvements and minor bug fixes
