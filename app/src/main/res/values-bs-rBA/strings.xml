@@ -644,7 +644,7 @@
     <string name="title_advanced_wearable_preview">Šalji samo obavještenja sa pregledom poruka na nosive uređaje</string>
     <string name="title_advanced_notify_messaging">Koristi format obavještenja kao kod Androidovog \'stila dopisivanja\'</string>
     <string name="title_advanced_biometrics_notify">Prikaži sadržaj obavještenja kada se koristi biometrijska provjera</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Otvori folder pri otvaranju novih poruka</string>
+    <string name="title_advanced_notify_open_folder">Otvori folder pri otvaranju novih poruka</string>
     <string name="title_advanced_light">Koristi notifikacijsko svjetlo</string>
     <string name="title_advanced_sound">Izaberi zvuk obavještenja</string>
     <string name="title_advanced_notify_screen_on">Kratko uključi ekran za obavještenja o novim porukama</string>
@@ -1794,7 +1794,7 @@
     <string name="title_hint_folder_sync">Da bi ograničili potrošnju baterije i podataka, po zadanom neće biti sinhronizirani svi folderi i poruke</string>
     <string name="title_hint_airplane">Način rada u avionu je uključen</string>
     <string name="title_hint_notifications">Nema dozvola za notifikacije</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Dozvole za obavještenja su neophodne i za upozorenja računa. Obavještenja za nove poruke mogu se isključiti u postavkama.</string>
+    <string name="title_hint_notifications_remark">Dozvole za obavještenja su neophodne i za upozorenja računa. Obavještenja za nove poruke mogu se isključiti u postavkama.</string>
     <string name="title_hint_battery_optimizations">Optimizacije baterije su još uključene</string>
     <string name="title_hint_support">Ukoliko imate pitanje ili problem, molimo da koristite meni za podršku i pomoć</string>
     <string name="title_hint_message_actions">Prevucite lijevo za otpad; Prevucite desno za arhiviranje (ukoliko postoji); Radnje prevlačenja mogu se podesiti u postavkama računa</string>

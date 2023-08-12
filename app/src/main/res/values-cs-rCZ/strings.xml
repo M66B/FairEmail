@@ -519,6 +519,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_libravatars">Zobrazit Libravatary</string>
     <string name="title_advanced_favicons">Zobrazit ikony stránek</string>
     <string name="title_advanced_favicons_partial">Skenovat pouze prvních %1$s na webové stránce</string>
+    <string name="title_advanced_favicons_manifest">Skenovat manifest webové aplikace</string>
     <string name="title_advanced_generated_icons">Zobrazit generované ikony</string>
     <string name="title_advanced_identicons">Zobrazit identikony</string>
     <string name="title_advanced_circular">Zobrazit kulaté ikony</string>
@@ -663,7 +664,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_wearable_preview">Do nositelného zařízení posílat pouze oznámení s náhledem zprávy</string>
     <string name="title_advanced_notify_messaging">Použít formát oznámení Androidu s polem pro rychlou odpověď</string>
     <string name="title_advanced_biometrics_notify">Zobrazit obsah oznámení při použití biometrického ověření</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Otevřít složku při otevírání nové zprávy</string>
+    <string name="title_advanced_notify_open_folder">Otevřít složku při otevírání nové zprávy</string>
     <string name="title_advanced_light">Použít oznamovací LED</string>
     <string name="title_advanced_sound">Vybrat zvuk oznámení</string>
     <string name="title_advanced_notify_screen_on">Krátce zapnout obrazovku při upozornění na nové zprávy</string>
@@ -1810,7 +1811,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_hint_folder_sync">Pro omezení spotřeby baterie a dat nebudou ve výchozím stavu synchronizovány všechny zprávy ani složky</string>
     <string name="title_hint_airplane">Režim Letadlo je zapnutý</string>
     <string name="title_hint_notifications">Žádná oprávnění pro oznámení</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Oprávnění k notifikacím jsou vyžadována také pro upozornění pro (účet). Upozornění pro nové zprávy mohou být vypnuta v nastavení.</string>
+    <string name="title_hint_notifications_remark">Oprávnění k notifikacím jsou vyžadována také pro upozornění pro (účet). Upozornění pro nové zprávy mohou být vypnuta v nastavení.</string>
     <string name="title_hint_battery_optimizations">Optimalizace baterie je stále povolena</string>
     <string name="title_hint_support">Máte-li dotaz nebo problém, použijte prosím menu podpory pro získání pomoci</string>
     <string name="title_hint_message_actions">Tažením doleva hodit do koše; Tažením doprava archivovat (je-li k dispozici); Akce tažením lze změnit v nastavení účtu</string>

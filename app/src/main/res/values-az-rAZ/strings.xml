@@ -491,6 +491,7 @@
     <string name="title_advanced_libravatars">\"Libravatar\"ları göstər</string>
     <string name="title_advanced_favicons">\"Favicon\"ları göstər</string>
     <string name="title_advanced_favicons_partial">Veb səhifədəki yalnız ilk %1$s skan edilsin</string>
+    <string name="title_advanced_favicons_manifest">Veb tətbiq manifestlərini skan et</string>
     <string name="title_advanced_generated_icons">Yaradılmış nişanları göstər</string>
     <string name="title_advanced_identicons">Kimlikləri göstər</string>
     <string name="title_advanced_circular">Dairəvi nişanları göstər</string>
@@ -635,7 +636,7 @@
     <string name="title_advanced_wearable_preview">Yalnız mesaj önbaxışı olan bildirişləri geyinilə bilən cihazlara göndər</string>
     <string name="title_advanced_notify_messaging">Android \"mesajlaşma stili\" bildiriş formatını istifadə edin</string>
     <string name="title_advanced_biometrics_notify">Bildiriş məzmununu, biometrik kimlik təsdiqləmə istifadə edərkən göstər</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Yeni mesajı açdıqda qovluğu aç</string>
+    <string name="title_advanced_notify_open_folder">Yeni mesajı açdıqda qovluğu aç</string>
     <string name="title_advanced_light">Bildiriş işığını istifadə et</string>
     <string name="title_advanced_sound">Bildiriş səsini seç</string>
     <string name="title_advanced_notify_screen_on">Yeni mesaj bildirişləri üçün ekranı qısa aç</string>
@@ -1785,7 +1786,7 @@
     <string name="title_hint_folder_sync">Batareya və şəbəkə istifadəsini məhdudlaşdırmaq üçün bütün qovluqlar və bütün mesajlar ilkin olaraq sinxronlaşdırılmayacaq</string>
     <string name="title_hint_airplane">Təyyarə rejimi açıqdır</string>
     <string name="title_hint_notifications">Bildiriş icazəsi yoxdur</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">(Hesab) xəbərdarlıqları üçün bildiriş icazələri tələb olunur. Yeni mesajlar üçün bildirişlər tənzimləmələrdən söndürülə bilər.</string>
+    <string name="title_hint_notifications_remark">(Hesab) xəbərdarlıqları üçün bildiriş icazələri tələb olunur. Yeni mesajlar üçün bildirişlər tənzimləmələrdən söndürülə bilər.</string>
     <string name="title_hint_battery_optimizations">Batareya optimallaşdırma hələ də fəaldır</string>
     <string name="title_hint_support">Sualınız və ya probleminiz varsa, zəhmət olmasa kömək almaq üçün dəstək menyusundan faydalanın</string>
     <string name="title_hint_message_actions">Tullantıya atmaq üçün sola sürüşdürün; (əgər varsa) arxivləmək üçün sağa; Sürüşdürmə əməliyyatları hesab tənzimləmələrindən konfiqurasiya edilə bilər</string>

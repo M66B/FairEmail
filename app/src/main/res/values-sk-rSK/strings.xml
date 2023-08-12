@@ -656,7 +656,7 @@
     <string name="title_advanced_wearable_preview">Upozornenia s náhľadom správy posielať len na nositeľné zariadenia</string>
     <string name="title_advanced_notify_messaging">Použiť štýl upozornení správ systému Android</string>
     <string name="title_advanced_biometrics_notify">Zobrazovať obsah upozornení pri použití biometrického overenia</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Otvoriť priečinok pri otvorení novej správy</string>
+    <string name="title_advanced_notify_open_folder">Otvoriť priečinok pri otvorení novej správy</string>
     <string name="title_advanced_light">Zobrazovať LED upozornenia</string>
     <string name="title_advanced_sound">Vybrať zvuk upozornenia</string>
     <string name="title_advanced_notify_screen_on">Rozsvietiť obrazovku pri zobrazení upozornenia na novú správu</string>
@@ -1804,7 +1804,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_hint_folder_sync">Nie všetky priečinky a všetky správy budú predvolene synchronizované z dôvodu šetrenia energie a prenosu údajov</string>
     <string name="title_hint_airplane">Je zapnutý režim v lietadle</string>
     <string name="title_hint_notifications">Nemáš oprávnenia na notifikácie</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Oprávnenia na upozornenia sú potrebné aj pre hlásenia o účte. Upozornenia na nové správy môžete vypnúť v nastaveniach.</string>
+    <string name="title_hint_notifications_remark">Oprávnenia na upozornenia sú potrebné aj pre hlásenia o účte. Upozornenia na nové správy môžete vypnúť v nastaveniach.</string>
     <string name="title_hint_battery_optimizations">Optimalizácia batérie je stále zapnutá</string>
     <string name="title_hint_support">Ak máte otázky alebo chcete nahlásiť problémy, pomoc získate cez ponuku Podpora</string>
     <string name="title_hint_message_actions">Potiahnutím vľavo premiestnite do koša. Potiahnutím vpravo archivujete (ak je to možné). Tieto akcie je možné zmeniť v nastaveniach účtu</string>

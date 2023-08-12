@@ -58,6 +58,7 @@
     <string name="title_block">حظر %1$s</string>
     <string name="title_block_sender">حظر المرسل</string>
     <string name="title_block_sender_domain">حظر دومين \'%1$s\'</string>
+    <string name="title_block_sender_remark">الحظر يعني الانتقال تلقائيا إلى ملف الرسائل غير المرغوب فيها</string>
     <string name="title_block_sender_hint">        حظر المرسل هو ميزة مجانية.
         حظر دومين المرسل باستخدام قواعد الفلتر، هي ميزة احترافية.
     </string>
@@ -183,6 +184,7 @@
     <string name="title_setup_doze_battery">استخدام عالي للبطارية؟</string>
     <string name="title_setup_doze_stopped">المزامنة توقفت؟</string>
     <string name="title_setup_doze_device">ربما يكون هذا مطلوبا لهذا الجهاز</string>
+    <string name="title_setup_alarm_12">التطبيق لن يعمل بفعالية</string>
     <string name="title_setup_inexact">تم تعطيل المنبهات &amp; والتذكيرات</string>
     <string name="title_setup_background">القيود الخلفية مفعلة</string>
     <string name="title_setup_data">وضع حفظ البيانات قد فعل</string>
@@ -261,6 +263,7 @@
     <string name="title_setup_reset_questions">إعادة تعيين الأسئلة</string>
     <string name="title_setup_reset_general">أسئلة عامّة</string>
     <string name="title_setup_reset_links">تأكيد الروابط</string>
+    <string name="title_setup_reset_files">الاطلاع على الملفات</string>
     <string name="title_setup_reset_images">إظهار الصور</string>
     <string name="title_setup_reset_full">إظهار الرسائل الأصلية</string>
     <string name="title_check_gmail_oauth">سوف تستمر حسابات جيميل الخاصة بك في العمل بعد 30 مايو 2022</string>
@@ -288,7 +291,9 @@
     <string name="title_advanced_default">جميع الخيارات تستخدم قيم قياسية شائعة، التي لا تحتاج إلى تغييرها لاستخدام التطبيق</string>
     <string name="title_advanced_receive">تلقي الرسائل لجميع الحسابات</string>
     <string name="title_advanced_when">متى</string>
+    <string name="title_advanced_always">استقبل دوما الرسائل من هذه الحسابات</string>
     <string name="title_advanced_schedule">برمجة</string>
+    <string name="title_advanced_schedule_workdays">أيام العمل</string>
     <string name="title_advanced_advanced">الإعدادات المتقدمة</string>
     <string name="title_advanced_send_reminders">إظهار التذكيرات</string>
     <string name="title_advanced_compose_color">لون النص الافتراضي</string>

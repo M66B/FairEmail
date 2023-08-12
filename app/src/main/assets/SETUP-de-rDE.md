@@ -28,9 +28,9 @@ Wenn das Konto manuell konfiguriert wurde, müssen Sie wahrscheinlich auch die I
 
 Zur Verwendung von Alias-Adressen bitte [diese F&A](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) beachten.
 
-## Berechtigungen gewähren, um auf Kontaktinformationen zugreifen zu können
+## Berechtigungen erteilen, um auf Kontaktinformationen zugreifen zu können
 
-Wenn Sie E-Mail-Adressen nachsehen, Kontaktfotos anzeigen lassen möchten usw., müssen Sie FairEmail die Erlaubnis zum Lesen von Kontaktinformationen erteilen. Einfach auf *Berechtigungen erteilen* tippen und *Zulassen* auswählen.
+Wenn Sie E-Mail-Adressen nachsehen, Kontaktfotos anzeigen lassen möchten usw., müssen Sie FairEmail die Berechtigung zum Lesen von Kontaktinformationen erteilen. Einfach auf *Berechtigungen erteilen* tippen und *Zulassen* auswählen.
 
 ## Akkuoptimierungen einrichten, um E-Mails fortlaufend zu erhalten
 

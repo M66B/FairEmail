@@ -226,7 +226,7 @@
     <string name="title_setup_go">前往</string>
     <string name="title_setup_to_do">待办事项</string>
     <string name="title_setup_done">完成</string>
-    <string name="title_setup_still">仍待处理</string>
+    <string name="title_setup_still">待处理</string>
     <string name="title_setup_error">出错</string>
     <string name="title_setup_manual_setup">手动设置</string>
     <string name="title_setup_pop">使用 POP3（不推荐）</string>
@@ -476,6 +476,7 @@
     <string name="title_advanced_libravatars">显示 Libravatars 头像</string>
     <string name="title_advanced_favicons">显示网页图标</string>
     <string name="title_advanced_favicons_partial">只扫描网页的前 %1$s 数据</string>
+    <string name="title_advanced_favicons_manifest">扫描Web应用清单</string>
     <string name="title_advanced_generated_icons">显示生成的图标</string>
     <string name="title_advanced_identicons">显示哈希头像</string>
     <string name="title_advanced_circular">使用圆形图标</string>
@@ -620,7 +621,7 @@
     <string name="title_advanced_wearable_preview">只向可穿戴设备发送有消息预览的通知</string>
     <string name="title_advanced_notify_messaging">使用安卓 \'消息样式\' 通知格式</string>
     <string name="title_advanced_biometrics_notify">使用生物认证时显示通知内容</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">打开新消息时打开文件夹</string>
+    <string name="title_advanced_notify_open_folder">打开新消息时打开文件夹</string>
     <string name="title_advanced_light">使用指示灯</string>
     <string name="title_advanced_sound">选择通知提示音</string>
     <string name="title_advanced_notify_screen_on">短暂打开屏幕以获取新消息通知</string>
@@ -950,7 +951,7 @@
     <string name="title_delete_account">删除帐户</string>
     <string name="title_account_delete">确定永久删除这个账户吗？</string>
     <string name="title_identity_delete">确定永久删除这个身份吗？</string>
-    <string name="title_edit_html">以 HTML 格式编辑</string>
+    <string name="title_edit_html">保存为HTML可编辑版本</string>
     <string name="title_check_html">检查 HTML</string>
     <string name="title_import_file">导入文件</string>
     <string name="title_sign_key">签名密钥：%1$s</string>
@@ -1765,7 +1766,7 @@
     <string name="title_hint_folder_sync">为了降低电量和网络流量的消耗，默认不会同步全部的文件夹和消息</string>
     <string name="title_hint_airplane">飞行模式已开启</string>
     <string name="title_hint_notifications">无通知权限</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">(账户) 提醒也需要通知权限。新消息的通知可以在设置中关闭。</string>
+    <string name="title_hint_notifications_remark">(账户) 提醒也需要通知权限。新消息的通知可以在设置中关闭。</string>
     <string name="title_hint_battery_optimizations">电池优化仍已启用</string>
     <string name="title_hint_support">如果您要提问或有疑问，请使用支持选项获取帮助</string>
     <string name="title_hint_message_actions">向左滑移动到回收站；向右滑存档（如果支持） ；可在账户设置中配置滑动操作</string>

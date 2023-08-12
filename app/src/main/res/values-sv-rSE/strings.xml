@@ -487,6 +487,7 @@
     <string name="title_advanced_libravatars">Visa Libravatars</string>
     <string name="title_advanced_favicons">Visa favicons</string>
     <string name="title_advanced_favicons_partial">Skanna bara den första %1$s av webbsidan</string>
+    <string name="title_advanced_favicons_manifest">Skanna webbapp manifest efter favicon</string>
     <string name="title_advanced_generated_icons">Visa genererade ikoner</string>
     <string name="title_advanced_identicons">Visa identicons</string>
     <string name="title_advanced_circular">Visa runda ikoner</string>
@@ -631,7 +632,7 @@
     <string name="title_advanced_wearable_preview">Skicka endast aviseringar med en förhandsgranskning av meddelanden till bärbara enheter</string>
     <string name="title_advanced_notify_messaging">Använd Android \'meddelandestil\' aviseringsformat</string>
     <string name="title_advanced_biometrics_notify">Visa aviseringsinnehåll när du använder biometrisk autentisering</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Öppna mappen när nytt meddelande öppnas</string>
+    <string name="title_advanced_notify_open_folder">Öppna mappen när nytt meddelande öppnas</string>
     <string name="title_advanced_light">Använda aviseringslampan</string>
     <string name="title_advanced_sound">Välj aviseringsljud</string>
     <string name="title_advanced_notify_screen_on">Slå på skärmen en kort stund när det kommer nya meddelanden</string>
@@ -1778,7 +1779,7 @@
     <string name="title_hint_folder_sync">För att begränsa batteri- och nätverksanvändning synkroniseras inte alla mappar och inte alla meddelanden som standard</string>
     <string name="title_hint_airplane">Flygplansläge är på</string>
     <string name="title_hint_notifications">Inga aviseringsbehörigheter</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Aviseringsbehörigheter krävs för (konto) varningar också. Aviseringar för nya meddelanden kan stängas av i inställningarna.</string>
+    <string name="title_hint_notifications_remark">Aviseringsbehörigheter krävs för (konto) varningar också. Aviseringar för nya meddelanden kan stängas av i inställningarna.</string>
     <string name="title_hint_battery_optimizations">Batterioptimeringar är fortfarande aktiverade</string>
     <string name="title_hint_support">Om du har en fråga eller ett problem, vänligen använd supportmenyn för att få hjälp</string>
     <string name="title_hint_message_actions">Dra åt vänster för att kasta; Svep åt höger för att arkivera (om tillgängligt); Svepåtgärderna kan konfigureras i kontoinställningarna</string>

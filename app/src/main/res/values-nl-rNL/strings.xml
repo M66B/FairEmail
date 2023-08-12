@@ -489,6 +489,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_libravatars">Toon Libravatars</string>
     <string name="title_advanced_favicons">Toon favicons</string>
     <string name="title_advanced_favicons_partial">Alleen de eerste %1$s van de webpagina scannen</string>
+    <string name="title_advanced_favicons_manifest">Scan webapp-manifesten</string>
     <string name="title_advanced_generated_icons">Toon gegenereerde iconen</string>
     <string name="title_advanced_identicons">Toon identicons</string>
     <string name="title_advanced_circular">Toon ronde iconen</string>
@@ -633,7 +634,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_wearable_preview">Stuur alleen meldingen met een berichtvoorbeeld naar wearables</string>
     <string name="title_advanced_notify_messaging">Gebruik Android \'messaging style\' notificatieformaat</string>
     <string name="title_advanced_biometrics_notify">Toon notificatie inhoud bij het gebruik van biometrische verificatie</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Map openen bij het openen van nieuw bericht</string>
+    <string name="title_advanced_notify_open_folder">Map openen bij het openen van nieuw bericht</string>
     <string name="title_advanced_light">Gebruik meldingslicht</string>
     <string name="title_advanced_sound">Selecteer meldingsgeluid</string>
     <string name="title_advanced_notify_screen_on">Schakel het scherm kort in voor nieuwe berichtmeldingen</string>
@@ -1774,7 +1775,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_hint_folder_sync">Om het gebruik van de batterij en het netwerk te beperken, worden niet alle mappen en niet alle berichten standaard gesynchroniseerd</string>
     <string name="title_hint_airplane">Vliegtuigmodus is ingeschakeld</string>
     <string name="title_hint_notifications">Geen meldingsrechten</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Meldingsrechten zijn vereist voor (account) meldingen. Meldingen voor nieuwe berichten kunnen worden uitgeschakeld in de instellingen.</string>
+    <string name="title_hint_notifications_remark">Meldingsrechten zijn vereist voor (account) meldingen. Meldingen voor nieuwe berichten kunnen worden uitgeschakeld in de instellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaties nog steeds ingeschakeld</string>
     <string name="title_hint_support">Als u een vraag of een probleem heeft, gebruik dan het menu ondersteuning om hulp te krijgen</string>
     <string name="title_hint_message_actions">Veeg naar links om weg te gooien; Veeg naar rechts om te archiveren (indien beschikbaar); De veegacties kunnen worden geconfigureerd in de accountinstellingen</string>

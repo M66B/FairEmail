@@ -206,7 +206,7 @@
     <string name="title_setup_quick_configure">Zum Bearbeiten des Namens, der Farbe, der Wischgesten usw.</string>
     <string name="title_setup_manage">Verwalten</string>
     <string name="title_setup_grant">Zulassen</string>
-    <string name="title_setup_grant_again">Benötigte Rechte erteilen</string>
+    <string name="title_setup_grant_again">Benötigte Berechtigungen erteilen</string>
     <string name="title_setup_exchange_support">Wird Microsoft Exchange unterstützt?</string>
     <string name="title_setup_identity_what">Was ist eine Identität?</string>
     <string name="title_setup_free">Kann diese App kostenlos verwendet werden?</string>
@@ -492,6 +492,7 @@
     <string name="title_advanced_libravatars">Libravatare anzeigen</string>
     <string name="title_advanced_favicons">Favicons anzeigen</string>
     <string name="title_advanced_favicons_partial">Nur die ersten %1$s der Webseite scannen</string>
+    <string name="title_advanced_favicons_manifest">Web-App-Manifeste scannen</string>
     <string name="title_advanced_generated_icons">Generierte Symbole anzeigen (Anfangsbuchstaben)</string>
     <string name="title_advanced_identicons">Identicons anzeigen</string>
     <string name="title_advanced_circular">Runde Symbole anzeigen</string>
@@ -636,7 +637,7 @@
     <string name="title_advanced_wearable_preview">Nur Benachrichtigungen mit einer Nachrichtenvorschau an Wearables senden</string>
     <string name="title_advanced_notify_messaging">Androids Benachrichtigungsformat »messaging style« verwenden</string>
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt beim Verwenden der biometrischen Authentifizierung anzeigen</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Ordner öffnen, wenn eine neue Nachricht geöffnet wird</string>
+    <string name="title_advanced_notify_open_folder">Ordner öffnen, wenn eine neue Nachricht geöffnet wird</string>
     <string name="title_advanced_light">Benachrichtigungslicht verwenden</string>
     <string name="title_advanced_sound">Benachrichtigungston auswählen</string>
     <string name="title_advanced_notify_screen_on">Kurzes Einschalten des Bildschirms für Benachrichtigungen über neue Nachrichten</string>
@@ -1008,7 +1009,7 @@
     <string name="title_expunge">Endgültiges Löschen</string>
     <string name="title_expunge_remark">Dadurch werden alle zum Löschen gekennzeichneten Nachrichten dauerhaft gelöscht</string>
     <string name="title_empty_trash">Papierkorb leeren</string>
-    <string name="title_empty_spam">Spamordner leeren</string>
+    <string name="title_empty_spam">Spam-Ordner leeren</string>
     <string name="title_edit_properties">Eigenschaften bearbeiten</string>
     <string name="title_edit_rules">Regeln bearbeiten</string>
     <string name="title_execute_rules">Regeln ausführen</string>
@@ -1219,7 +1220,7 @@
     <string name="title_no_recorder">Keine geeignete App zur Audioaufnahme verfügbar</string>
     <string name="title_no_camera">Keine passende Kamera-App verfügbar</string>
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
-    <string name="title_no_stream">FairEmail hat keine Berechtigung diese Datei direkt zu lesen</string>
+    <string name="title_no_stream">FairEmail hat keine Berechtigung, um diese Datei direkt zu lesen</string>
     <string name="title_no_stream_help">Das kann gelöst werden, indem man die Datei mit einer moderneren Dateiverwaltungs-App auswählt oder FairEmail die Berechtigung zum Lesen von Dateien erteilt.</string>
     <string name="title_no_permissions">Der Anwendung, die zur Auswahl einer Datei verwendet wurde, fehlt die Leseberechtigung</string>
     <string name="title_no_internet">Keine oder keine passende Internetverbindung</string>
@@ -1786,8 +1787,8 @@
     <string name="title_hint_folder_actions">Halten Sie zum Anzeigen der Optionen einen Ordner gedrückt, um ihn z. B. zum Navigationsmenü für den Schnellzugriff hinzuzufügen</string>
     <string name="title_hint_folder_sync">Um Akkuverbrauch und Datennutzung zu reduzieren, werden standardmäßig nicht alle Ordner und E-Mails synchronisiert</string>
     <string name="title_hint_airplane">Flugzeugmodus aktiviert</string>
-    <string name="title_hint_notifications">Keine Benachrichtigungserlaubnis</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Benachrichtigungsberechtigungen sind auch für (Konto-)Benachrichtigungen erforderlich. Benachrichtigungen für neue Nachrichten können in den Einstellungen deaktiviert werden.</string>
+    <string name="title_hint_notifications">Keine Benachrichtigungsberechtigungen</string>
+    <string name="title_hint_notifications_remark">Benachrichtigungsberechtigungen sind auch für (Konto-)Benachrichtigungen erforderlich. Benachrichtigungen für neue Nachrichten können in den Einstellungen deaktiviert werden.</string>
     <string name="title_hint_battery_optimizations">Akkuoptimierung ist immer noch aktiv</string>
     <string name="title_hint_support">Wenn Sie eine Frage oder ein Problem haben, verwenden Sie bitte die Hilfe im Menü</string>
     <string name="title_hint_message_actions">Für den Papierkorb nach links wischen; zum Archivieren nach rechts wischen (falls verfügbar); die Wischgesten können in den Kontoeinstellungen konfiguriert werden</string>

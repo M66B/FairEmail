@@ -520,6 +520,7 @@
     <string name="title_advanced_libravatars">Паказваць лібраватары (Libravatars)</string>
     <string name="title_advanced_favicons">Паказваць значкі сайтаў</string>
     <string name="title_advanced_favicons_partial">Сканіраваць толькі першыя %1$s вэб-старонкі</string>
+    <string name="title_advanced_favicons_manifest">Сканіраванне маніфестаў вэб-праграм</string>
     <string name="title_advanced_generated_icons">Паказваць генерыраваныя значкі</string>
     <string name="title_advanced_identicons">Паказваць значкі ідэнтыфікатараў</string>
     <string name="title_advanced_circular">Паказваць круглыя значкі</string>
@@ -664,7 +665,7 @@
     <string name="title_advanced_wearable_preview">Адпраўляць апавяшчэнні з папярэднім выглядам паведамлення толькі на партатыўныя прылады</string>
     <string name="title_advanced_notify_messaging">Выкарыстоўваць \'фармат апавяшчэнняў\' у стылі Android</string>
     <string name="title_advanced_biometrics_notify">Паказваць змест апавяшчэнняў пры выкарыстанні біяметрычнай аўтэнтыфікацыі</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Адкрываць папку пры адкрыцці новага паведамлення</string>
+    <string name="title_advanced_notify_open_folder">Адкрываць папку пры адкрыцці новага паведамлення</string>
     <string name="title_advanced_light">Выкарыстоўваць індыкатар апавяшчэнняў</string>
     <string name="title_advanced_sound">Выбраць гук апавяшчэння</string>
     <string name="title_advanced_notify_screen_on">Кароткае ўключэнне экрана пры апавяшчэннях аб новых паведамленнях</string>
@@ -1816,7 +1817,7 @@
     <string name="title_hint_folder_sync">Для абмежавання выкарыстання батарэі і сеткі, не ўсе папкі і не ўсе паведамленні будуць сінхранізаваны па змаўчанні</string>
     <string name="title_hint_airplane">Рэжым палёту ўключаны</string>
     <string name="title_hint_notifications">Няма дазволаў на апавяшчэнні</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Дазволы на апавяшчэнні таксама патрабуюцца для папярэджанняў (для ўліковага запісу). Апавяшчэнні аб новых паведамленнях можна адключыць у наладах.</string>
+    <string name="title_hint_notifications_remark">Дазволы на апавяшчэнні таксама патрабуюцца для папярэджанняў (для ўліковага запісу). Апавяшчэнні аб новых паведамленнях можна адключыць у наладах.</string>
     <string name="title_hint_battery_optimizations">Аптцміўацыя батарэі ўсё яшчэ ўключана</string>
     <string name="title_hint_support">Калі ў вас ёсць пытанне або праблема, калі ласка, па дапамогу звяртайцеся праз меню падтрымкі</string>
     <string name="title_hint_message_actions">Для выдалення правядзіце пальцам улева; Для архівацыі (калі даступна) правядзіце пальцам управа; Жэсты можна наладзіць у наладах уліковага запісу</string>

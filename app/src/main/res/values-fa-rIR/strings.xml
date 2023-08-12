@@ -395,6 +395,7 @@
     <string name="title_advanced_libravatars">نمایش Libravatar ها</string>
     <string name="title_advanced_favicons">نمایش فاوآیکون‌ها</string>
     <string name="title_advanced_favicons_partial">تنها %1$s صفحه اول از صفحات وب را اسکن کن</string>
+    <string name="title_advanced_favicons_manifest">اسکن فهرست اپلیکیشن‌های مبتنی بر وب</string>
     <string name="title_advanced_generated_icons">نمایس آیکون‌های تولید شده</string>
     <string name="title_advanced_identicons">نمایش identicons</string>
     <string name="title_advanced_circular">نمایش آیکون‌های گرد</string>

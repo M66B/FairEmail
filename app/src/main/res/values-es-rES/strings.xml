@@ -490,6 +490,7 @@
     <string name="title_advanced_libravatars">Mostrar Libravatars</string>
     <string name="title_advanced_favicons">Mostrar favicons</string>
     <string name="title_advanced_favicons_partial">Escanear solo los primeros %1$s de la página web</string>
+    <string name="title_advanced_favicons_manifest">Escanear manifiestos de aplicación web</string>
     <string name="title_advanced_generated_icons">Mostrar iconos generados</string>
     <string name="title_advanced_identicons">Mostrar identicons</string>
     <string name="title_advanced_circular">Mostrar iconos redondos</string>
@@ -634,7 +635,7 @@
     <string name="title_advanced_wearable_preview">Sólo enviar notificaciones con vista previa de mensaje a dispositivos wearables</string>
     <string name="title_advanced_notify_messaging">Usar formato de notificación \'estilo de mensajería\' de Android</string>
     <string name="title_advanced_biometrics_notify">Mostrar contenido de notificación al usar autenticación biométrica</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Abrir carpeta al abrir un nuevo mensaje</string>
+    <string name="title_advanced_notify_open_folder">Abrir carpeta al abrir un nuevo mensaje</string>
     <string name="title_advanced_light">Usar luz de notificación</string>
     <string name="title_advanced_sound">Seleccionar sonido de notificación</string>
     <string name="title_advanced_notify_screen_on">Activar brevemente la pantalla para notificaciones de mensajes nuevos</string>
@@ -1780,7 +1781,7 @@
     <string name="title_hint_folder_sync">Para limitar el uso de batería y redes, no todas las carpetas y mensajes serán sincronizados por defecto</string>
     <string name="title_hint_airplane">El modo avión está activado</string>
     <string name="title_hint_notifications">Sin permisos de notificación</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Los permisos de notificación también son necesarios para las alertas (de cuenta). Las notificaciones de nuevos mensajes pueden desactivarse en la configuración.</string>
+    <string name="title_hint_notifications_remark">Los permisos de notificación también son necesarios para las alertas (de cuenta). Las notificaciones de nuevos mensajes pueden desactivarse en la configuración.</string>
     <string name="title_hint_battery_optimizations">Optimizaciones de uso de batería habilitadas</string>
     <string name="title_hint_support">Si tiene una pregunta o problema, por favor use el menú de soporte para obtener ayuda</string>
     <string name="title_hint_message_actions">Desliza a la izquierda para enviar a la papelera; Desliza a la derecha para archivar (si está disponible); las acciones de deslizamiento pueden configurarse en la configuración de la cuenta</string>

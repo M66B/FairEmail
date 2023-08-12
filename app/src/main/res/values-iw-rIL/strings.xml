@@ -519,6 +519,7 @@
     <string name="title_advanced_libravatars">הצגת Libravatarים</string>
     <string name="title_advanced_favicons">הצגת סמלי אתרים</string>
     <string name="title_advanced_favicons_partial">לסרוק רק את %1$s הראשונים של עמוד האינטרנט</string>
+    <string name="title_advanced_favicons_manifest">סריקת מניפסטים של יישומוני דפדפן</string>
     <string name="title_advanced_generated_icons">הצגת סמלים שנוצרו אוטומטית</string>
     <string name="title_advanced_identicons">הצגת סמלי זיהוי</string>
     <string name="title_advanced_circular">הצגת סמלים מעוגלים</string>
@@ -663,7 +664,7 @@
     <string name="title_advanced_wearable_preview">לשלוח התראות עם תמצית הודעה בלבד להתקנים לבישים</string>
     <string name="title_advanced_notify_messaging">להשתמש בתצורת התראות ‚בסגנון התכתבות’ של Android</string>
     <string name="title_advanced_biometrics_notify">להציג את תוכן ההתראה בעת שימוש באימות ביומטרי</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">פתיחת תיקייה בעת פתיחת הודעה חדשה</string>
+    <string name="title_advanced_notify_open_folder">פתיחת תיקייה בעת פתיחת הודעה חדשה</string>
     <string name="title_advanced_light">להשתמש בנורית התראה</string>
     <string name="title_advanced_sound">בחירת צליל התראה</string>
     <string name="title_advanced_notify_screen_on">להפעיל את המסך לזמן קצר עבור התראות על הודעות חדשות</string>
@@ -1813,7 +1814,7 @@
     <string name="title_hint_folder_sync">כדי להגביל שימוש בסוללה וברשת לא כל התיקיות ולא כל ההודעות יסונכרנו כבררת מחדל</string>
     <string name="title_hint_airplane">מצב טיסה מופעל</string>
     <string name="title_hint_notifications">אין הרשאות להתראות</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">נדרשות הרשאות גם להתראות (חשבון). אפשר לכבות התראות על הודעות חדשות בהגדרות.</string>
+    <string name="title_hint_notifications_remark">נדרשות הרשאות גם להתראות (חשבון). אפשר לכבות התראות על הודעות חדשות בהגדרות.</string>
     <string name="title_hint_battery_optimizations">מיטובי סוללה עדיין פעילים</string>
     <string name="title_hint_support">יש לך לך שאלה או טענה, נא להשתמש בתפריט התמיכה לקבלת עזרה</string>
     <string name="title_hint_message_actions">החלקה שמאלה לאשפה, החלקה ימינה לארעיון (אם זמין), ניתן להגדיר את פעולות ההחלקה בהגדרות החשבון</string>

@@ -477,6 +477,7 @@
     <string name="title_advanced_libravatars">Libravatar を表示</string>
     <string name="title_advanced_favicons">ファビコンを表示</string>
     <string name="title_advanced_favicons_partial">ウェブページの最初の %1$s だけをスキャン</string>
+    <string name="title_advanced_favicons_manifest">ウェブアプリ マニフェストをスキャン</string>
     <string name="title_advanced_generated_icons">アイコンを生成して表示</string>
     <string name="title_advanced_identicons">Identicon を表示</string>
     <string name="title_advanced_circular">丸アイコンを表示</string>
@@ -621,6 +622,7 @@
     <string name="title_advanced_wearable_preview">プレビュー付き通知のみウェアラブルに送信</string>
     <string name="title_advanced_notify_messaging">Android の「Messaging Style」の通知フォーマットを使用</string>
     <string name="title_advanced_biometrics_notify">生体認証の使用中も通知コンテンツを表示</string>
+    <string name="title_advanced_notify_open_folder">新しいメッセージを開くとき、フォルダーを開く</string>
     <string name="title_advanced_light">通知 LED を使用</string>
     <string name="title_advanced_sound">通知音を選択</string>
     <string name="title_advanced_notify_screen_on">画面を一時オンにして新着メッセージ通知を表示</string>
@@ -1770,6 +1772,7 @@
     <string name="title_hint_folder_sync">バッテリーとネットワークの使用を抑えるためにデフォルトでは一部のフォルダーとメッセージのみ同期されます</string>
     <string name="title_hint_airplane">機内モードが ON です</string>
     <string name="title_hint_notifications">通知が許可されていません</string>
+    <string name="title_hint_notifications_remark">(アカウントの) アラートにも通知の権限が必要です。新着メッセージの通知は設定でオフにもできます。</string>
     <string name="title_hint_battery_optimizations">まだ電池最適化が有効です</string>
     <string name="title_hint_support">質問や問題がある場合はサポートメニューを使用してヘルプにアクセスしてください</string>
     <string name="title_hint_message_actions">左にスワイプしてごみ箱に移動し、右にスワイプしてアーカイブ (利用可能な場合) します。スワイプ操作はアカウント設定で変更できます</string>

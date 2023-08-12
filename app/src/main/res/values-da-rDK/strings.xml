@@ -628,7 +628,7 @@
     <string name="title_advanced_wearable_preview">Send kun notifikationer med en beskedforhåndsvisning til wearables</string>
     <string name="title_advanced_notify_messaging">Benyt Android \'beskedstil\' notifikationsformat</string>
     <string name="title_advanced_biometrics_notify">Vis notifikationsindhold ved brug af biometrisk godkendelse</string>
-    <string name="title_advanced_notify_open_folder" comment="title_advanced_notify_open_folder&#10;Title of option in notification settings tab page">Åbn mappe ved åbning af ny besked</string>
+    <string name="title_advanced_notify_open_folder">Åbn mappe ved åbning af ny besked</string>
     <string name="title_advanced_light">Benyt notifikations-LED</string>
     <string name="title_advanced_sound">Vælg notifikationslyd</string>
     <string name="title_advanced_notify_screen_on">Tænd kortvarigt skærmen ved nye beskednotifikationer</string>
@@ -1775,7 +1775,7 @@
     <string name="title_hint_folder_sync">For at reducere strøm- og dataforbruget synkroniseres visse mapper og beskeder ikke som standard</string>
     <string name="title_hint_airplane">Flytilstand er Til</string>
     <string name="title_hint_notifications">Ingen notifikationstilladelser</string>
-    <string name="title_hint_notifications_remark" comment="title_hint_notifications_remark&#10;Remark below a banner telling that notification permissions should be granted">Notifikationstilladelser kræves også for (konto-)advarsler. Notifikationer til nye beskeder kan slås fra i indstillingerne.</string>
+    <string name="title_hint_notifications_remark">Notifikationstilladelser kræves også for (konto-)advarsler. Notifikationer til nye beskeder kan slås fra i indstillingerne.</string>
     <string name="title_hint_battery_optimizations">Batterioptimering er stadig slået til</string>
     <string name="title_hint_support">Har du et spørgsmål eller problem, så benyt venligst supportmenuen for at få hjælp</string>
     <string name="title_hint_message_actions">Stryg til venstre for Papirkurv; Stryg til højre for at arkivere (hvis tilgængeligt); Strygehandlingerne kan opsættes i kontoindstillingerne</string>
