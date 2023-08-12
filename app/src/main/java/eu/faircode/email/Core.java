@@ -2381,6 +2381,23 @@ class Core {
                 " keep_alive=" + keep_alive +
                 " force=" + force);
 
+        // Fix folder poll setting
+        boolean fixed = prefs.getBoolean("fixed_poll." + account.id, false);
+        if (!fixed && account.created != null && account.created > 1691193600 * 1000L /* August 5, 2023 */)
+            try {
+                EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
+                List<EntityFolder> children = db.folder().getChildFolders(inbox.id);
+                for (EntityFolder child : children)
+                    if (!child.poll) {
+                        db.folder().setFolderPoll(child.id, true);
+                        EntityLog.log(context, "Fixed poll=" + child.name + ":" + child.type);
+                    }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            } finally {
+                prefs.edit().putBoolean("fixed_poll." + account.id, true).apply();
+            }
+
         if (force)
             sync_folders = true;
         if (keep_alive)
