@@ -164,6 +164,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private SwitchCompat swHideAttachments;
     private TextView tvMessageZoom;
     private SeekBar sbMessageZoom;
+    private SwitchCompat swEditorZoom;
     private SwitchCompat swOverviewMode;
 
     private SwitchCompat swContrast;
@@ -214,7 +215,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines", "align_header",
             "addresses", "hide_attachments",
-            "message_zoom", "overview_mode",
+            "message_zoom", "editor_zoom", "overview_mode",
             "hyphenation", "display_font", "contrast", "monospaced_pre",
             "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra",
@@ -333,6 +334,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         swHideAttachments = view.findViewById(R.id.swHideAttachments);
         tvMessageZoom = view.findViewById(R.id.tvMessageZoom);
         sbMessageZoom = view.findViewById(R.id.sbMessageZoom);
+        swEditorZoom = view.findViewById(R.id.swEditorZoom);
         swOverviewMode = view.findViewById(R.id.swOverviewMode);
         swContrast = view.findViewById(R.id.swContrast);
         swHyphenation = view.findViewById(R.id.swHyphenation);
@@ -1187,6 +1189,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swEditorZoom.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("editor_zoom", checked).apply();
+            }
+        });
+
         swOverviewMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1592,6 +1601,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             if (message_zoom >= 50 && message_zoom <= 250)
                 sbMessageZoom.setProgress(message_zoom - 50);
 
+            swEditorZoom.setChecked(prefs.getBoolean("editor_zoom", true));
             swOverviewMode.setChecked(prefs.getBoolean("overview_mode", false));
 
             swContrast.setChecked(prefs.getBoolean("contrast", false));

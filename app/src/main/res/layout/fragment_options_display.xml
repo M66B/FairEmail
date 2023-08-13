@@ -1747,6 +1747,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvMessageZoom" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swEditorZoom"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_editor_text_zoom"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sbMessageZoom"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swOverviewMode"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1754,7 +1766,7 @@
                     android:text="@string/title_advanced_overview_mode"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sbMessageZoom"
+                    app:layout_constraintTop_toBottomOf="@id/swEditorZoom"
                     app:switchPadding="12dp" />
 
                 <TextView

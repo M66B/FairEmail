@@ -112,7 +112,8 @@ public class FragmentAnswer extends FragmentBase {
         String compose_font = prefs.getString("compose_font", "");
         boolean compact = prefs.getBoolean("compose_compact", false);
         int zoom = prefs.getInt("compose_zoom", compact ? 0 : 1);
-        int message_zoom = prefs.getInt("message_zoom", 100);
+        boolean editor_zoom = prefs.getBoolean("editor_zoom", true);
+        int message_zoom = (editor_zoom ? prefs.getInt("message_zoom", 100) : 100);
 
         setSubtitle(R.string.title_answer_caption);
         setHasOptionsMenu(true);

@@ -2174,7 +2174,8 @@ public class FragmentCompose extends FragmentBase {
     private void setZoom() {
         final Context context = getContext();
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int message_zoom = prefs.getInt("message_zoom", 100);
+        boolean editor_zoom = prefs.getBoolean("editor_zoom", true);
+        int message_zoom = (editor_zoom ? prefs.getInt("message_zoom", 100) : 100);
         float textSize = Helper.getTextSize(context, zoom);
         if (textSize != 0) {
             etBody.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize * message_zoom / 100f);
