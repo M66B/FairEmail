@@ -198,6 +198,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             });
     }
 
+    void clearCache() {
+        this.hash = null;
+    }
+
     void setOnPageLoaded(Runnable runnable) {
         Log.i("Set on page finished");
         onPageLoaded = runnable;
