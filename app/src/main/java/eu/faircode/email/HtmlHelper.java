@@ -1102,6 +1102,7 @@ public class HtmlHelper {
 
         // Replace addresses by link
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
+        // https://en.wikipedia.org/wiki/Geo_URI_scheme
         for (Element address : document.select("address"))
             if (address.select("a").size() == 0)
                 address.tagName("a")
