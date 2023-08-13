@@ -2466,6 +2466,7 @@ public class MessageHelper {
             byte[] key = Base64.decode(p, Base64.DEFAULT);
             byte[] signature = Base64.decode(s, Base64.DEFAULT);
 
+            // https://datatracker.ietf.org/doc/html/rfc8463
             if ("Ed25519".equals(salgo)) {
                 if (false) {
                     // https://www.rfc-editor.org/rfc/rfc8037#page-9
