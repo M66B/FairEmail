@@ -44,7 +44,6 @@ import java.util.concurrent.atomic.AtomicInteger;
  * applied only for EmojiSpans. Therefore any other span change operation works the same way as in
  * the framework.
  *
- * @hide
  */
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 public final class SpannableBuilder extends eu.faircode.email.SpannableStringBuilderEx {
@@ -59,7 +58,6 @@ public final class SpannableBuilder extends eu.faircode.email.SpannableStringBui
     private final @NonNull List<WatcherWrapper> mWatchers = new ArrayList<>();
 
     /**
-     * @hide
      */
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     SpannableBuilder(@NonNull Class<?> watcherClass) {
@@ -68,7 +66,6 @@ public final class SpannableBuilder extends eu.faircode.email.SpannableStringBui
     }
 
     /**
-     * @hide
      */
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     SpannableBuilder(@NonNull Class<?> watcherClass, @NonNull CharSequence text) {
@@ -78,7 +75,6 @@ public final class SpannableBuilder extends eu.faircode.email.SpannableStringBui
     }
 
     /**
-     * @hide
      */
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     SpannableBuilder(@NonNull Class<?> watcherClass, @NonNull CharSequence text, int start,
@@ -89,7 +85,6 @@ public final class SpannableBuilder extends eu.faircode.email.SpannableStringBui
     }
 
     /**
-     * @hide
      */
     @NonNull
     @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
@@ -137,7 +132,6 @@ public final class SpannableBuilder extends eu.faircode.email.SpannableStringBui
             mWatchers.add(span);
             what = span;
         }
-
         super.setSpan(what, start, end, flags);
     }
 
@@ -255,7 +249,6 @@ public final class SpannableBuilder extends eu.faircode.email.SpannableStringBui
     }
 
     /**
-     * @hide
      */
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     public void beginBatchEdit() {
@@ -263,7 +256,6 @@ public final class SpannableBuilder extends eu.faircode.email.SpannableStringBui
     }
 
     /**
-     * @hide
      */
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     public void endBatchEdit() {
