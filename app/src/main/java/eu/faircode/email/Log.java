@@ -2504,7 +2504,7 @@ public class Log {
                         } catch (Throwable ignored) {
                         }
 
-                        size += write(os, account.name + (account.primary ? "*" : "") +
+                        size += write(os, account.id + ":" + account.name + (account.primary ? "*" : "") +
                                 " " + (account.protocol == EntityAccount.TYPE_IMAP ? "IMAP" : "POP") +
                                 " [" + (account.provider == null ? "" : account.provider) +
                                 ":" + ServiceAuthenticator.getAuthTypeName(account.auth_type) + "]" +
@@ -2533,7 +2533,7 @@ public class Log {
                                 int unseen = db.message().countUnseen(folder.id);
                                 int hidden = db.message().countHidden(folder.id);
                                 int notifying = db.message().countNotifying(folder.id);
-                                size += write(os, "- " + folder.name + " " +
+                                size += write(os, "- " + folder.id + ":" + folder.name + " " +
                                         folder.type + (folder.inherited_type == null ? "" : "/" + folder.inherited_type) +
                                         (folder.unified ? " unified" : "") +
                                         (folder.notify ? " notify" : "") +
