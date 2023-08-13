@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<providers>
+    <provider
+        name="Gov GCC High"
+        description="Office 365 Gov GCC High"
+        id="office365gov"
+        link="https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq14"
+        noop="true"
+        order="5"
+        partial="false"
+        useip="false">
+        <imap
+            host="outlook.office365.us"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.office365.us"
+            port="587"
+            starttls="true" />
+        <oauth
+            askAccount="true"
+            authorizationEndpoint="https://login.microsoftonline.us/{tenant}/oauth2/v2.0/authorize"
+            clientId="3514cf2c-e7a3-45a2-80d4-6a3c3498eca0"
+            enabled="true"
+            privacy="https://privacy.microsoft.com/privacystatement"
+            prompt="login"
+            redirectUri="msauth.eu.faircode.email://auth"
+            scopes="profile,openid,email,offline_access,https://outlook.office.com/IMAP.AccessAsUser.All,https://outlook.office.com/SMTP.Send"
+            tokenEndpoint="https://login.microsoftonline.us/{tenant}/oauth2/v2.0/token"
+            tokenScopes="true" />
+    </provider>
+</providers>
