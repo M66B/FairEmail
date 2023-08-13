@@ -2329,6 +2329,9 @@ public class MessageHelper {
 
             Log.i("DKIM got " + records[0].response);
             Map<String, String> dk = getKeyValues(records[0].response);
+            // DKIM version and key type are not always present
+            //  v=DKIM1; k=rsa; p=...
+            //  v=DKIM1; k=ed25519; p=...
 
             String canonic = kv.get("c");
             Log.i("DKIM canonicalization=" + canonic);
