@@ -2389,7 +2389,7 @@ class Core {
                 EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
                 List<EntityFolder> children = db.folder().getChildFolders(inbox.id);
                 for (EntityFolder child : children)
-                    if (!child.poll) {
+                    if (!child.poll && EntityFolder.USER.equals(child.type)) {
                         count++;
                         db.folder().setFolderPoll(child.id, true);
                         EntityLog.log(context, "Fixed poll=" + child.name + ":" + child.type);
