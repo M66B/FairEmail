@@ -81,6 +81,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -916,11 +917,11 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         String scheme = uri.getScheme();
         if ("https".equals(scheme)) {
             String host = uri.getHost();
-            return (TextUtils.isEmpty(host) ? null : host);
+            return (TextUtils.isEmpty(host) ? null : host.toLowerCase(Locale.ROOT));
         } else if ("mailto".equals(scheme)) {
             MailTo mailto = MailTo.parse(uri);
             String to = mailto.getTo();
-            return (TextUtils.isEmpty(to) ? null : to);
+            return (TextUtils.isEmpty(to) ? null : to.toLowerCase(Locale.ROOT));
         } else
             return null;
     }
