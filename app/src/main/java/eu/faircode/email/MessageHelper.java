@@ -2474,6 +2474,7 @@ public class MessageHelper {
                     key = Base64.decode("11qYAYKxCrfVS_7TyWQHOg7hcvPapiMlrwIaaPcHURo", Base64.URL_SAFE);
                     signature = Base64.decode("hgyY0il_MGCjP0JzlnLWG1PPOt7-09PGcvMg3AIbQR6dWbhijcNR4ki4iylGjg5BhVsPt9g7sVvpAr_MuM0KAg", Base64.URL_SAFE);
                 }
+                data = MessageDigest.getInstance("SHA-256").digest(head.toString().getBytes());
                 key = new SubjectPublicKeyInfo(new AlgorithmIdentifier(EdECObjectIdentifiers.id_Ed25519), key).getEncoded();
             }
 
