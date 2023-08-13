@@ -2385,13 +2385,17 @@ class Core {
         boolean fixed = prefs.getBoolean("fixed_poll." + account.id, false);
         if (!fixed && account.created != null && account.created > 1691193600 * 1000L /* August 5, 2023 */)
             try {
+                int count = 0;
                 EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
                 List<EntityFolder> children = db.folder().getChildFolders(inbox.id);
                 for (EntityFolder child : children)
                     if (!child.poll) {
+                        count++;
                         db.folder().setFolderPoll(child.id, true);
                         EntityLog.log(context, "Fixed poll=" + child.name + ":" + child.type);
                     }
+                if (count > 0)
+                    Log.e("Fixed poll count=" + count);
             } catch (Throwable ex) {
                 Log.e(ex);
             } finally {
