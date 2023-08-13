@@ -3376,18 +3376,8 @@ class Core {
                         message.receipt_request = helper.getReceiptRequested();
                         message.receipt_to = helper.getReceiptTo();
                         message.bimi_selector = helper.getBimiSelector();
-
-                        if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
-                            List<String> signers = helper.verifyDKIM(context);
-                            message.signedby = (signers.size() == 0 ? null : TextUtils.join(",", signers));
-                        }
-
                         message.tls = helper.getTLS();
                         message.dkim = MessageHelper.getAuthentication("dkim", authentication);
-                        if (Boolean.TRUE.equals(message.dkim) &&
-                                native_dkim && !BuildConfig.PLAY_STORE_RELEASE &&
-                                TextUtils.isEmpty(message.signedby))
-                            message.dkim = false;
                         message.spf = MessageHelper.getAuthentication("spf", authentication);
                         if (message.spf == null && helper.getSPF())
                             message.spf = true;
@@ -3436,6 +3426,24 @@ class Core {
 
                         if (MessageHelper.equalEmail(message.submitter, message.from))
                             message.submitter = null;
+
+                        if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
+                            List<String> signers = helper.verifyDKIM(context);
+                            message.signedby = (signers.size() == 0 ? null : TextUtils.join(",", signers));
+                            if (Boolean.TRUE.equals(message.dkim)) {
+                                if (signers.size() == 0)
+                                    message.dkim = false;
+                            } else {
+                                if (message.from != null)
+                                    for (Address from : message.from) {
+                                        String domain = UriHelper.getEmailDomain(((InternetAddress) from).getAddress());
+                                        if (domain != null && signers.contains(domain)) {
+                                            message.dkim = true;
+                                            break;
+                                        }
+                                    }
+                            }
+                        }
 
                         if (message.size == null && message.total != null)
                             message.size = message.total;
@@ -4504,18 +4512,8 @@ class Core {
             message.receipt_request = helper.getReceiptRequested();
             message.receipt_to = helper.getReceiptTo();
             message.bimi_selector = helper.getBimiSelector();
-
-            if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
-                List<String> signers = helper.verifyDKIM(context);
-                message.signedby = (signers.size() == 0 ? null : TextUtils.join(",", signers));
-            }
-
             message.tls = helper.getTLS();
             message.dkim = MessageHelper.getAuthentication("dkim", authentication);
-            if (Boolean.TRUE.equals(message.dkim) &&
-                    native_dkim && !BuildConfig.PLAY_STORE_RELEASE &&
-                    TextUtils.isEmpty(message.signedby))
-                message.dkim = false;
             message.spf = MessageHelper.getAuthentication("spf", authentication);
             if (message.spf == null && helper.getSPF())
                 message.spf = true;
@@ -4575,6 +4573,24 @@ class Core {
 
             if (MessageHelper.equalEmail(message.submitter, message.from))
                 message.submitter = null;
+
+            if (native_dkim && !BuildConfig.PLAY_STORE_RELEASE) {
+                List<String> signers = helper.verifyDKIM(context);
+                message.signedby = (signers.size() == 0 ? null : TextUtils.join(",", signers));
+                if (Boolean.TRUE.equals(message.dkim)) {
+                    if (signers.size() == 0)
+                        message.dkim = false;
+                } else {
+                    if (message.from != null)
+                        for (Address from : message.from) {
+                            String domain = UriHelper.getEmailDomain(((InternetAddress) from).getAddress());
+                            if (domain != null && signers.contains(domain)) {
+                                message.dkim = true;
+                                break;
+                            }
+                        }
+                }
+            }
 
             // Borrow reply name from sender name
             if (message.from != null && message.from.length == 1 &&
