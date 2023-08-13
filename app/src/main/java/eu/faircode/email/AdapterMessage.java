@@ -6254,9 +6254,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 boolean confirm_links = prefs.getBoolean("confirm_links", true);
 
                 String chost = FragmentDialogOpenLink.getConfirmHost(uri);
-                boolean sanitize_links = prefs.getBoolean("sanitize_links", false);
                 boolean confirm_link = (chost == null || prefs.getBoolean(chost + ".confirm_link", true));
-                if (always_confirm || sanitize_links || (confirm_links && confirm_link)) {
+                if (always_confirm || (confirm_links && confirm_link)) {
                     Bundle args = new Bundle();
                     args.putParcelable("uri", uri);
                     args.putString("title", title);
