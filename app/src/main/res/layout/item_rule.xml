@@ -22,9 +22,32 @@
                 android:layout_height="24dp"
                 android:contentDescription="@string/title_rule_daily"
                 app:layout_constraintBottom_toBottomOf="@+id/ivStop"
+                app:layout_constraintEnd_toStartOf="@id/ivHeaders"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/ivStop"
                 app:srcCompat="@drawable/twotone_hourglass_top_24" />
+
+            <ImageView
+                android:id="@+id/ivHeaders"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/title_rule_daily"
+                app:layout_constraintBottom_toBottomOf="@+id/ivStop"
+                app:layout_constraintStart_toEndOf="@id/ivDaily"
+                app:layout_constraintTop_toTopOf="@+id/ivStop"
+                app:srcCompat="@drawable/twotone_code_24"
+                app:tint="?attr/colorWarning" />
+
+            <ImageView
+                android:id="@+id/ivBody"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="@string/title_rule_daily"
+                app:layout_constraintBottom_toBottomOf="@+id/ivStop"
+                app:layout_constraintStart_toEndOf="@id/ivHeaders"
+                app:layout_constraintTop_toTopOf="@+id/ivStop"
+                app:srcCompat="@drawable/twotone_text_snippet_24"
+                app:tint="?attr/colorWarning" />
 
             <TextView
                 android:id="@+id/tvName"
@@ -37,7 +60,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 app:layout_constraintBottom_toBottomOf="@+id/ivStop"
                 app:layout_constraintEnd_toStartOf="@+id/tvOrder"
-                app:layout_constraintStart_toEndOf="@id/ivDaily"
+                app:layout_constraintStart_toEndOf="@id/ivBody"
                 app:layout_constraintTop_toTopOf="@+id/ivStop" />
 
             <TextView

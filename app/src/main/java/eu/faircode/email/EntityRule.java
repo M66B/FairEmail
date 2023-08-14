@@ -141,12 +141,20 @@ public class EntityRule {
     private static final int MAX_NOTES_LENGTH = 512; // characters
 
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
+        return needsHeaders(rules);
+    }
+
+    static boolean needsHeaders(List<EntityRule> rules) {
         return needs(rules, "header");
     }
 
     static boolean needsBody(EntityMessage message, List<EntityRule> rules) {
         if (message.encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
             return false;
+        return needsBody(rules);
+    }
+
+    static boolean needsBody(List<EntityRule> rules) {
         return needs(rules, "body") || needs(rules, "notes_jsoup");
     }
 

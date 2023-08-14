@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -45,6 +46,7 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -57,6 +59,7 @@ import java.text.Collator;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -70,6 +73,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     private LifecycleOwner owner;
     private LayoutInflater inflater;
 
+    private boolean debug;
     private DateFormat DF;
     private NumberFormat NF = NumberFormat.getNumberInstance();
 
@@ -82,6 +86,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         private View view;
         private ImageView ivDaily;
+        private ImageView ivHeaders;
+        private ImageView ivBody;
         private TextView tvName;
         private TextView tvOrder;
         private ImageView ivStop;
@@ -97,6 +103,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
 
             view = itemView.findViewById(R.id.clItem);
             ivDaily = itemView.findViewById(R.id.ivDaily);
+            ivHeaders = itemView.findViewById(R.id.ivHeaders);
+            ivBody = itemView.findViewById(R.id.ivBody);
             tvName = itemView.findViewById(R.id.tvName);
             tvOrder = itemView.findViewById(R.id.tvOrder);
             ivStop = itemView.findViewById(R.id.ivStop);
@@ -117,8 +125,15 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         }
 
         private void bindTo(TupleRuleEx rule) {
+            boolean needsHeaders = (debug || BuildConfig.DEBUG) &&
+                    EntityRule.needsHeaders(Arrays.asList(rule));
+            boolean needsBody = (debug || BuildConfig.DEBUG) &&
+                    EntityRule.needsBody(Arrays.asList(rule));
+
             view.setActivated(!rule.enabled);
             ivDaily.setVisibility(rule.daily ? View.VISIBLE : View.GONE);
+            ivHeaders.setVisibility(needsHeaders ? View.VISIBLE : View.GONE);
+            ivBody.setVisibility(needsBody ? View.VISIBLE : View.GONE);
             tvName.setText(rule.name);
             tvOrder.setText(Integer.toString(rule.order));
             ivStop.setVisibility(rule.stop ? View.VISIBLE : View.INVISIBLE);
@@ -585,6 +600,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
         this.context = parentFragment.getContext();
         this.owner = parentFragment.getViewLifecycleOwner();
         this.inflater = LayoutInflater.from(context);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.debug = prefs.getBoolean("debug", false);
 
         this.DF = Helper.getDateTimeInstance(this.context);
 
