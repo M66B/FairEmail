@@ -2676,6 +2676,7 @@ You can select one of these actions to apply to matching messages:
 * Add star
 * Set importance (local priority)
 * Add keyword
+* Add local notes (since version 1.2094)
 * Move
 * Copy (Gmail: label)
 * Delete permanently (since version 1.1801)

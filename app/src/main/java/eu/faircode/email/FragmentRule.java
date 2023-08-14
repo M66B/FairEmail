@@ -169,6 +169,9 @@ public class FragmentRule extends FragmentBase {
 
     private TextView tvAutomation;
 
+    private EditText etNotes;
+    private ViewButtonColor btnColorNotes;
+
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
 
@@ -186,6 +189,7 @@ public class FragmentRule extends FragmentBase {
     private Group grpAutomation;
     private Group grpDelete;
     private Group grpLocalOnly;
+    private Group grpNotes;
 
     private ArrayAdapter<String> adapterGroup;
     private ArrayAdapter<String> adapterDay;
@@ -215,6 +219,7 @@ public class FragmentRule extends FragmentBase {
     private final static int REQUEST_DATE_AFTER = 11;
     private final static int REQUEST_DATE_BEFORE = 12;
     private final static int REQUEST_FOLDER = 13;
+    private final static int REQUEST_COLOR_NOTES = 14;
 
     private static final List<String> HEADER_CONDITIONS = Collections.unmodifiableList(Arrays.asList(
             "$$seen$",
@@ -354,6 +359,9 @@ public class FragmentRule extends FragmentBase {
 
         tvAutomation = view.findViewById(R.id.tvAutomation);
 
+        etNotes = view.findViewById(R.id.etNotes);
+        btnColorNotes = view.findViewById(R.id.btnColorNotes);
+
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
         pbWait = view.findViewById(R.id.pbWait);
@@ -372,6 +380,7 @@ public class FragmentRule extends FragmentBase {
         grpAutomation = view.findViewById(R.id.grpAutomation);
         grpDelete = view.findViewById(R.id.grpDelete);
         grpLocalOnly = view.findViewById(R.id.grpLocalOnly);
+        grpNotes = view.findViewById(R.id.grpNotes);
 
         adapterGroup = new ArrayAdapter<>(getContext(), R.layout.spinner_item1_dropdown, android.R.id.text1);
         etGroup.setThreshold(1);
@@ -625,8 +634,10 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_SNOOZE, getString(R.string.title_rule_snooze)));
         actions.add(new Action(EntityRule.TYPE_FLAG, getString(R.string.title_rule_flag)));
         actions.add(new Action(EntityRule.TYPE_IMPORTANCE, getString(R.string.title_rule_importance)));
-        if (protocol == EntityAccount.TYPE_IMAP) {
+        if (protocol == EntityAccount.TYPE_IMAP)
             actions.add(new Action(EntityRule.TYPE_KEYWORD, getString(R.string.title_rule_keyword)));
+        actions.add(new Action(EntityRule.TYPE_NOTES, getString(R.string.title_rule_notes)));
+        if (protocol == EntityAccount.TYPE_IMAP) {
             actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
             actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
         }
@@ -787,6 +798,21 @@ public class FragmentRule extends FragmentBase {
                         EntityRule.EXTRA_SENDER,
                         EntityRule.EXTRA_SUBJECT})));
 
+        btnColorNotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle args = new Bundle();
+                args.putInt("color", btnColorNotes.getColor());
+                args.putString("title", getString(R.string.title_rule_notes));
+                args.putBoolean("reset", true);
+
+                FragmentDialogColor fragment = new FragmentDialogColor();
+                fragment.setArguments(args);
+                fragment.setTargetFragment(FragmentRule.this, REQUEST_COLOR_NOTES);
+                fragment.show(getParentFragmentManager(), "rule:color:notes");
+            }
+        });
+
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -822,6 +848,7 @@ public class FragmentRule extends FragmentBase {
         grpAutomation.setVisibility(View.GONE);
         grpDelete.setVisibility(View.GONE);
         grpLocalOnly.setVisibility(View.GONE);
+        grpNotes.setVisibility(View.GONE);
 
         pbWait.setVisibility(View.VISIBLE);
 
@@ -990,6 +1017,12 @@ public class FragmentRule extends FragmentBase {
                 case REQUEST_FOLDER:
                     if (resultCode == RESULT_OK && data != null)
                         onFolderSelected(data.getBundleExtra("args"));
+                    break;
+                case REQUEST_COLOR_NOTES:
+                    if (resultCode == RESULT_OK && data != null) {
+                        Bundle args = data.getBundleExtra("args");
+                        btnColorNotes.setColor(args.getInt("color"));
+                    }
                     break;
             }
         } catch (Throwable ex) {
@@ -1319,6 +1352,13 @@ public class FragmentRule extends FragmentBase {
                                     etAlarmDuration.setEnabled(alarm);
                                     etAlarmDuration.setText(duration == 0 ? null : Integer.toString(duration));
                                     break;
+
+                                case EntityRule.TYPE_NOTES:
+                                    etNotes.setText(jaction.getString("notes"));
+                                    btnColorNotes.setColor(
+                                            !jaction.has("color") || jaction.isNull("color")
+                                                    ? null : jaction.getInt("color"));
+                                    break;
                             }
 
                             for (int pos = 0; pos < adapterAction.getCount(); pos++)
@@ -1376,6 +1416,7 @@ public class FragmentRule extends FragmentBase {
         grpAutomation.setVisibility(type == EntityRule.TYPE_AUTOMATION ? View.VISIBLE : View.GONE);
         grpDelete.setVisibility(type == EntityRule.TYPE_DELETE ? View.VISIBLE : View.GONE);
         grpLocalOnly.setVisibility(type == EntityRule.TYPE_LOCAL_ONLY ? View.VISIBLE : View.GONE);
+        grpNotes.setVisibility(type == EntityRule.TYPE_NOTES ? View.VISIBLE : View.GONE);
     }
 
     private void onActionDelete() {
@@ -1705,6 +1746,13 @@ public class FragmentRule extends FragmentBase {
                         } catch (NumberFormatException ex) {
                             Log.e(ex);
                         }
+                    break;
+
+                case EntityRule.TYPE_NOTES:
+                    jaction.put("notes", etNotes.getText().toString());
+                    int ncolor = btnColorNotes.getColor();
+                    if (ncolor != Color.TRANSPARENT)
+                        jaction.put("color", ncolor);
                     break;
             }
         }

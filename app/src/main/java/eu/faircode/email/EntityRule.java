@@ -126,6 +126,7 @@ public class EntityRule {
     static final int TYPE_DELETE = 15;
     static final int TYPE_SOUND = 16;
     static final int TYPE_LOCAL_ONLY = 17;
+    static final int TYPE_NOTES = 18;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -603,6 +604,8 @@ public class EntityRule {
                 return onActionSound(context, message, jaction);
             case TYPE_LOCAL_ONLY:
                 return onActionLocalOnly(context, message, jaction);
+            case TYPE_NOTES:
+                return onActionNotes(context, message, jaction);
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type + " name=" + name);
         }
@@ -680,6 +683,11 @@ public class EntityRule {
             case TYPE_SOUND:
                 return;
             case TYPE_LOCAL_ONLY:
+                return;
+            case TYPE_NOTES:
+                String notes = jargs.optString("notes");
+                if (TextUtils.isEmpty(notes))
+                    throw new IllegalArgumentException(context.getString(R.string.title_rule_notes_missing));
                 return;
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type);
@@ -1313,6 +1321,16 @@ public class EntityRule {
 
         message.ui_local_only = true;
         db.message().setMessageUiLocalOnly(message.id, message.ui_local_only);
+
+        return true;
+    }
+
+    private boolean onActionNotes(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+        String notes = jargs.getString("notes");
+        Integer color = (jargs.has("color") ? jargs.getInt("color") : null);
+
+        DB db = DB.getInstance(context);
+        db.message().setMessageNotes(message.id, notes, color);
 
         return true;
     }

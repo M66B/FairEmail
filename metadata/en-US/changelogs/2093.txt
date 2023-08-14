@@ -6,6 +6,11 @@ For support you can use the contact form.
 
 Ubirajara
 
+Next version
+
+* Added rule action to add local notes
+* Updated translations
+
 1.2093 - 2023-08-14
 
 * Small improvements and minor bug fixes

@@ -207,6 +207,9 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                         resend = jaction.optBoolean("resend");
                         setAction(resend ? R.string.title_rule_resend : getAction(type), to);
                     }
+                } else if (type == EntityRule.TYPE_NOTES) {
+                    String notes = jaction.getString("notes");
+                    setAction(getAction(type), notes);
                 } else
                     setAction(getAction(type), null);
 
@@ -557,6 +560,8 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     return R.string.title_rule_sound;
                 case EntityRule.TYPE_LOCAL_ONLY:
                     return R.string.title_rule_local_only;
+                case EntityRule.TYPE_NOTES:
+                    return R.string.title_rule_notes;
                 default:
                     throw new IllegalArgumentException("Unknown action type=" + type);
             }
