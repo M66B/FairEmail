@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -33,7 +32,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatEditText;
-import androidx.preference.PreferenceManager;
 
 public class FixedEditText extends AppCompatEditText {
     public FixedEditText(@NonNull Context context) {
@@ -276,8 +274,6 @@ public class FixedEditText extends AppCompatEditText {
     @Override
     public ActionMode startActionMode(ActionMode.Callback callback) {
         try {
-            if (skipActionMode())
-                return null;
             return super.startActionMode(callback);
         } catch (Throwable ex) {
             Log.e(ex);
@@ -289,26 +285,10 @@ public class FixedEditText extends AppCompatEditText {
     public ActionMode startActionMode(ActionMode.Callback callback, int type) {
         try {
             // callback class: android.widget.Editor$TextActionModeCallback
-            if (skipActionMode())
-                return null;
             return super.startActionMode(callback, type);
         } catch (Throwable ex) {
             Log.e(ex);
             return null;
-        }
-    }
-
-    private boolean skipActionMode() {
-        try {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            if (!prefs.contains("skip_action_mode")) {
-                if ("fuxi_eea".equals(Build.PRODUCT) && Build.VERSION.SDK_INT == Build.VERSION_CODES.TIRAMISU)
-                    return true;
-            }
-            return prefs.getBoolean("skip_action_mode", false);
-        } catch (Throwable ex) {
-            Log.e(ex);
-            return false;
         }
     }
 
