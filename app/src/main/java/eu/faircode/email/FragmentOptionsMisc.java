@@ -240,6 +240,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swDupMsgId;
     private SwitchCompat swThreadByRef;
     private SwitchCompat swMdn;
+    private SwitchCompat swSkipActionMode;
     private EditText etKeywords;
     private SwitchCompat swTestIab;
     private Button btnImportProviders;
@@ -302,7 +303,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "max_backoff_power", "logarithmic_backoff",
             "exact_alarms",
             "native_dkim", "native_arc", "native_arc_whitelist",
-            "infra", "tld_flags", "dup_msgids", "thread_byref", "mdn", "global_keywords", "test_iab"
+            "infra", "tld_flags", "dup_msgids", "thread_byref", "mdn", "skip_action_mode",
+            "global_keywords", "test_iab"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -491,6 +493,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDupMsgId = view.findViewById(R.id.swDupMsgId);
         swThreadByRef = view.findViewById(R.id.swThreadByRef);
         swMdn = view.findViewById(R.id.swMdn);
+        swSkipActionMode = view.findViewById(R.id.swSkipActionMode);
         etKeywords = view.findViewById(R.id.etKeywords);
         swTestIab = view.findViewById(R.id.swTestIab);
         btnImportProviders = view.findViewById(R.id.btnImportProviders);
@@ -1857,6 +1860,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swSkipActionMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("skip_action_mode", checked).apply();
+            }
+        });
+
         etKeywords.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -2603,6 +2613,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
             swThreadByRef.setChecked(prefs.getBoolean("thread_byref", true));
             swMdn.setChecked(prefs.getBoolean("mdn", swExperiments.isChecked()));
+            swSkipActionMode.setChecked(prefs.getBoolean("skip_action_mode", false));
             etKeywords.setText(prefs.getString("global_keywords", null));
             swTestIab.setChecked(prefs.getBoolean("test_iab", false));
 
