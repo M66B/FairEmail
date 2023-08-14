@@ -71,6 +71,10 @@
         <item quantity="one">Slet %1$d besked permanent?</item>
         <item quantity="other">Slet %1$d beskeder permanent?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Én vedhæftning</item>
+        <item quantity="other">%1$d vedhæftninger</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Håndtér %1$d besked som spam?</item>
         <item quantity="other">Håndter %1$d beskeder som spam?</item>
@@ -219,7 +223,7 @@
     <string name="title_setup_doze_remark">For at sende og modtage e-mail pålideligt i baggrunden</string>
     <string name="title_setup_doze_explanation">Batterioptimeringer bør deaktiveres for appen for at sikre pålidelig baggrundsbeskedafsendelse og -modtagelse</string>
     <string name="title_setup_doze_hint">Selvom dette kan lyde selvmodsigende, vil deaktivering af batterioptimering for denne app resultere i lavere strømforbrug</string>
-    <string name="title_setup_doze_aggressively">Denne enhed kan muligvis stoppe synkroniseringstjenesten</string>
+    <string name="title_setup_doze_aggressively">Denne enhed stopper muligvis synktjenesten</string>
     <string name="title_setup_doze_why">Hvorfor bør batterioptimeringer deaktiveres?</string>
     <string name="title_setup_doze_instructions">Ændr i næste Android-dialog \"Ikke optimeret\" til \"Alle apps\", vælg denne app og \"Optimér ikke\"</string>
     <string name="title_setup_doze_battery">Højt strømforbrug?</string>
@@ -229,7 +233,7 @@
     <string name="title_setup_inexact">Alarmer og påmindelser er deaktiveret</string>
     <string name="title_setup_background">Baggrundsbegrænsninger er aktive</string>
     <string name="title_setup_data">Datasparer er aktiveret</string>
-    <string name="title_setup_always">Ny besked-notifikationer i realtid</string>
+    <string name="title_setup_always">Nye besked-notifikationer i realtid</string>
     <string name="title_setup_always_remark">Hvis aktiveret, vil ustabile forbindelser, gammelt netværkshardware mv. kunne betyde højere strømforbrug</string>
     <string name="title_setup_advanced_options">Vis avancerede indstillinger</string>
     <string name="title_setup_inbox">Gå til Indbakke</string>
@@ -372,8 +376,10 @@
     <string name="title_advanced_suggest_frequently">Sortér foreslåede adresser efter brugsfrekvens</string>
     <string name="title_advanced_alt_re_fwd">Alternativt besvarelses-/videresendelsespræfiks</string>
     <string name="title_advanced_send_chips">Vis adressebobler</string>
+    <string name="title_advanced_send_nav_color">Brug identitetsfarven til den nederste handlingsbjælke</string>
     <string name="title_advanced_send_reminders">Vis påmindelser</string>
     <string name="title_advanced_send_delayed">Udsæt afsendelsen af beskeder</string>
+    <string name="title_advanced_attach_new">Opret et nyt beskedudkast til delte adresser og filer</string>
     <string name="title_advanced_answer_caption">Indstillinger for svar-knap</string>
     <string name="title_advanced_answer_default">Kort tryk på svarknappen vil:</string>
     <string name="title_advanced_answer_action">Langt tryk på svarknappen vil:</string>
@@ -485,6 +491,7 @@
     <string name="title_advanced_libravatars">Vis Libravatars</string>
     <string name="title_advanced_favicons">Vis favoritkoner</string>
     <string name="title_advanced_favicons_partial">Skan kun de første %1$s af websiden</string>
+    <string name="title_advanced_favicons_manifest">Skan web-app manifester</string>
     <string name="title_advanced_generated_icons">Vis genererede ikoner</string>
     <string name="title_advanced_identicons">Vis identikoner</string>
     <string name="title_advanced_circular">Vis runde ikoner</string>
@@ -514,10 +521,12 @@
     <string name="title_advanced_preview_lines">Antal forhåndsvisningslinier</string>
     <string name="title_advanced_align_header">Lodret justering af nøgleord, forhåndsvisning af tekst og noter</string>
     <string name="title_advanced_addresses">Vis adresseoplysninger som standard</string>
+    <string name="title_advanced_hide_attachments">Skjul vedhæftninger som standard</string>
     <string name="title_advanced_unzip">Vis indhold af komprimerede vedhæftninger</string>
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
     <string name="title_advanced_thumbnails">Vis billedminiaturer efter beskedteksten</string>
     <string name="title_advanced_message_text_zoom2">Standard beskedtekstzoom %1$s%%</string>
+    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Zoom også beskedtekst i besked-editoren</string>
     <string name="title_advanced_overview_mode">Zoom originale beskeder for skærmtilpasning</string>
     <string name="title_advanced_hyphenation">Brug automatisk orddeling</string>
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
@@ -587,7 +596,7 @@
     <string name="title_advanced_auto_important">Gør automatisk stjernemarkerede beskeder vigtige</string>
     <string name="title_advanced_cancel_snooze">Afbryd udsættelse ved flytning af beskeder</string>
     <string name="title_advanced_auto_block_sender">Blokér automatisk afsenderen ved spamanmeldelse</string>
-    <string name="title_advanced_auto_hide_answer">Skjul automatisk svarknappen når der scrolles</string>
+    <string name="title_advanced_auto_hide_answer">Skjul automatisk svarknappen, når der rulles</string>
     <string name="title_advanced_swipe_reply">Stryg udvidede beskeder til højre for at besvare</string>
     <string name="title_advanced_move_thread_all">Når en samtale flyttes, flyt alle beskeder</string>
     <string name="title_advanced_move_thread_sent">Når en samtale flyttes, flyt også sendte beskeder</string>
@@ -760,6 +769,7 @@
     <string name="title_advanced_reply_move_hint">E-mailserveren kan dog stadig føje beskederne til beskedafsendelsesmappen</string>
     <string name="title_advanced_compose_color_hint">Meget lyse eller mørke farver vil gøre meddelelser ulæselige for modtageren</string>
     <string name="title_advanced_write_below_hint">En modtager kan gå glip af dit svar, når eksempelvis en længere besked afkortes</string>
+    <string name="title_advanced_attach_new_hint">Ellers føj delte adresser eller filer til det aktuelle beskedudkast</string>
     <string name="title_advanced_usenet_hint">Indsæt \'-- \' mellem teksten og signaturen</string>
     <string name="title_advanced_remove_signature_hint">Dette kan resultere i, at for lidt/meget tekst fjernes</string>
     <string name="title_advanced_metered_hint">Forbrugsbaserede forbindelser er typisk mobildataforbindelser eller betalte Wi-Fi hotspots</string>
@@ -805,6 +815,7 @@
     <string name="title_advanced_sender_hint">De fleste udbydere tillader ikke ændrede afsenderadresser</string>
     <string name="title_advanced_bcc_hint">Adressen vises ikke, men tilføjes ved afsendelse</string>
     <string name="title_advanced_internal_hint">En advarsel vises, når der sendes til et andet domæne</string>
+    <string name="title_advanced_uri">Detaljerne for den valgte kontakt vil blive brugt til vCard-vedhæftninger</string>
     <string name="title_advanced_e2e_encryption">Indstillinger for ende-til-ende kryptering</string>
     <string name="title_advanced_display_harmful_hint">Deaktivering af denne indstilling kan være skadelig for din datafortrolighed</string>
     <string name="title_advanced_display_hidden_hint">Dette kan resultere i underligt udseende/dobbelte tekster</string>
@@ -855,6 +866,7 @@
     <string name="title_advanced_sender_regex">Regex, der skal matche brugernavn for indgående e-mailadresser</string>
     <string name="title_identity_reply_to">Svar til-adresse</string>
     <string name="title_identity_internal">Interne domænenavne (kommasepareret)</string>
+    <string name="title_identity_uri">Link kontakt</string>
     <string name="title_identity_unicode">Tillad UTF-8 i besked-headere</string>
     <string name="title_identity_unicode_remark">De fleste servere understøtter ikke dette</string>
     <string name="title_identity_octetmime">Tillad 8BITMIME</string>
@@ -1492,6 +1504,7 @@
     <string name="title_search_flag_size">størrelse &gt; %1$s</string>
     <string name="title_search_device">Søg på enhed</string>
     <string name="title_search_server">Søg på server</string>
+    <string name="title_search_server_wait">Venter på server</string>
     <string name="title_search_in">Søg i</string>
     <string name="title_search_sender">Søg efter afsender</string>
     <string name="title_search_delete">Slet gemt søgning?</string>
@@ -1810,7 +1823,7 @@
     <string name="title_reset_open">Sæt eller ryd standard-apps</string>
     <string name="title_select_app">Vælg app</string>
     <string name="title_updated">Opdatering til version %1$s tilgængelig</string>
-    <string name="title_no_update">Ingen opdatering er tilgængelig</string>
+    <string name="title_no_update">Ingen tilgængelig opdatering</string>
     <string name="title_issue">Har du et spørgsmål eller problem?</string>
     <string name="title_yes">Ja</string>
     <string name="title_no">Nej</string>

@@ -80,6 +80,11 @@
         <item quantity="few">Izbrisati trajno %1$d poruke?</item>
         <item quantity="other">Izbrisati trajno %1$d poruka?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Jedan prilog</item>
+        <item quantity="few">%1$d priloga</item>
+        <item quantity="other">%1$d priloga</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">Tretirati %1$d poruku kao spam?</item>
         <item quantity="few">Tretirati %1$d poruke kao spam?</item>
@@ -500,6 +505,7 @@
     <string name="title_advanced_libravatars">Prikaži Libravatare</string>
     <string name="title_advanced_favicons">Prikaži fav ikonice</string>
     <string name="title_advanced_favicons_partial">Skeniraj samo prva(ih) %1$s web stranice</string>
+    <string name="title_advanced_favicons_manifest">Skeniraj manifeste web aplikacija</string>
     <string name="title_advanced_generated_icons">Prikaži generisane ikonice</string>
     <string name="title_advanced_identicons">Prikaži identitet ikonice</string>
     <string name="title_advanced_circular">Prikaži zaobljene ikonice</string>
@@ -534,6 +540,7 @@
     <string name="title_advanced_attachments_alt">Prikaži priloge poslije teksta poruke</string>
     <string name="title_advanced_thumbnails">Prikaži sličice fotografija poslije teksta poruke</string>
     <string name="title_advanced_message_text_zoom2">Zadani nivo zumiranja teksta: %1$s %%</string>
+    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Zumiraj tekst poruke i u uređivaču poruka</string>
     <string name="title_advanced_overview_mode">Zumiraj originalne poruke da popune ekran</string>
     <string name="title_advanced_hyphenation">Koristi automatsko umetanje crtica</string>
     <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
