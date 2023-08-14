@@ -7891,12 +7891,15 @@ public class FragmentCompose extends FragmentBase {
     @NonNull
     private static UriInfo getInfo(Uri uri, Context context) {
         UriInfo result = new UriInfo();
+
+        DocumentFile dfile = null;
         try {
-            DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
+            dfile = DocumentFile.fromSingleUri(context, uri);
             if (dfile != null) {
                 result.name = dfile.getName();
                 result.type = dfile.getType();
                 result.size = dfile.length();
+                EntityLog.log(context, "UriInfo dfile " + result + " uri=" + uri);
             }
         } catch (Throwable ex) {
             Log.e(ex);
@@ -7924,6 +7927,8 @@ public class FragmentCompose extends FragmentBase {
         if (result.size != null && result.size <= 0)
             result.size = null;
 
+        EntityLog.log(context, "UriInfo result " + result + " uri=" + uri);
+
         return result;
     }
 
@@ -7934,6 +7939,12 @@ public class FragmentCompose extends FragmentBase {
 
         boolean isImage() {
             return ImageHelper.isImage(type);
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return "name=" + name + " type=" + type + " size=" + size;
         }
     }
 
