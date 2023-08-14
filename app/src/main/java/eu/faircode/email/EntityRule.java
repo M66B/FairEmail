@@ -44,6 +44,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -135,7 +136,7 @@ public class EntityRule {
     static final String EXTRA_SUBJECT = "subject";
     static final String EXTRA_RECEIVED = "received";
 
-    private static final String JSOUP_PREFIX = "jsoup:";
+    static final String JSOUP_PREFIX = "jsoup:";
     private static final long SEND_DELAY = 5000L; // milliseconds
 
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
@@ -145,7 +146,7 @@ public class EntityRule {
     static boolean needsBody(EntityMessage message, List<EntityRule> rules) {
         if (message.encrypt != null && !EntityMessage.ENCRYPT_NONE.equals(message.encrypt))
             return false;
-        return needs(rules, "body");
+        return needs(rules, "body") || needs(rules, "notes_jsoup");
     }
 
     private static boolean needs(List<EntityRule> rules, String what) {
@@ -179,7 +180,7 @@ public class EntityRule {
             if (rule.group != null && stopped.contains(rule.group))
                 continue;
             if (rule.matches(context, message, headers, html)) {
-                if (rule.execute(context, message))
+                if (rule.execute(context, message, html))
                     applied++;
                 if (rule.stop)
                     if (rule.group == null)
@@ -554,8 +555,8 @@ public class EntityRule {
         return matched;
     }
 
-    boolean execute(Context context, EntityMessage message) throws JSONException {
-        boolean executed = _execute(context, message);
+    boolean execute(Context context, EntityMessage message, String html) throws JSONException {
+        boolean executed = _execute(context, message, html);
         if (this.id != null && executed) {
             DB db = DB.getInstance(context);
             db.rule().applyRule(id, new Date().getTime());
@@ -563,7 +564,7 @@ public class EntityRule {
         return executed;
     }
 
-    private boolean _execute(Context context, EntityMessage message) throws JSONException, IllegalArgumentException {
+    private boolean _execute(Context context, EntityMessage message, String html) throws JSONException, IllegalArgumentException {
         JSONObject jaction = new JSONObject(action);
         int type = jaction.getInt("type");
         EntityLog.log(context, EntityLog.Type.Rules, message,
@@ -605,7 +606,7 @@ public class EntityRule {
             case TYPE_LOCAL_ONLY:
                 return onActionLocalOnly(context, message, jaction);
             case TYPE_NOTES:
-                return onActionNotes(context, message, jaction);
+                return onActionNotes(context, message, jaction, html);
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type + " name=" + name);
         }
@@ -1325,9 +1326,26 @@ public class EntityRule {
         return true;
     }
 
-    private boolean onActionNotes(Context context, EntityMessage message, JSONObject jargs) throws JSONException {
+    private boolean onActionNotes(Context context, EntityMessage message, JSONObject jargs, String html) throws JSONException {
         String notes = jargs.getString("notes");
         Integer color = (jargs.has("color") ? jargs.getInt("color") : null);
+
+        if (notes.startsWith(JSOUP_PREFIX)) {
+            if (html == null && message.content) {
+                File file = message.getFile(context);
+                try {
+                    html = Helper.readText(file);
+                } catch (IOException ex) {
+                    Log.e(ex);
+                }
+            }
+            if (html != null) {
+                Document d = JsoupEx.parse(html);
+                Elements e = d.select(notes.substring(JSOUP_PREFIX.length()));
+                if (e.size() > 0)
+                    notes = e.text();
+            }
+        }
 
         DB db = DB.getInstance(context);
         db.message().setMessageNotes(message.id, notes, color);

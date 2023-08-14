@@ -3074,7 +3074,7 @@ class Core {
                 if (!message.content)
                     throw new IllegalArgumentException("Message without content id=" + rule.id + ":" + rule.name);
 
-                rule.execute(context, message);
+                rule.execute(context, message, null);
             }
 
             db.setTransactionSuccessful();

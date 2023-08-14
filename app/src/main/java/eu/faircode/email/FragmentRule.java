@@ -1509,6 +1509,16 @@ public class FragmentRule extends FragmentBase {
                     JSONObject jdate = jcondition.optJSONObject("date");
                     JSONObject jschedule = jcondition.optJSONObject("schedule");
 
+                    JSONObject jaction = new JSONObject(action);
+                    int type = jaction.getInt("type");
+                    if (type == EntityRule.TYPE_NOTES) {
+                        String notes = jaction.optString("notes");
+                        if (notes.startsWith(EntityRule.JSOUP_PREFIX)) {
+                            jcondition.put("notes_jsoup", true);
+                            condition = jcondition.toString();
+                        }
+                    }
+
                     if (jsender == null &&
                             jrecipient == null &&
                             jsubject == null &&

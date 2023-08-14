@@ -409,7 +409,7 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                                         continue;
 
                                     if (rule.matches(context, message, null, null))
-                                        if (rule.execute(context, message))
+                                        if (rule.execute(context, message, null))
                                             applied++;
 
                                     db.setTransactionSuccessful();
