@@ -1342,9 +1342,10 @@ public class EntityRule {
             }
             if (html != null) {
                 Document d = JsoupEx.parse(html);
-                Elements e = d.select(notes.substring(JSOUP_PREFIX.length()));
-                if (e.size() > 0)
-                    notes = e.text();
+                String selector = notes.substring(JSOUP_PREFIX.length());
+                Element e = d.select(selector).first();
+                if (e != null)
+                    notes = e.ownText();
             }
         }
 
