@@ -2383,7 +2383,10 @@ class Core {
 
         // Fix folder poll setting
         boolean fixed = prefs.getBoolean("fixed_poll." + account.id, false);
-        if (!fixed && account.created != null && account.created > 1691193600 * 1000L /* August 5, 2023 */)
+        if (!fixed &&
+                account.created != null &&
+                account.created > 1691193600 * 1000L /* 2023-08-05 00:00 */ &&
+                account.created < 1692223200 * 1000L /* 2023-05-17 00:00 */)
             try {
                 int count = 0;
                 EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
