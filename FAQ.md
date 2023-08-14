@@ -2646,7 +2646,7 @@ Since version 1.1996 it is possible to use [Jsoup selectors](https://jsoup.org/c
 by prefixing the selector by *jsoup:* and entering it as text contains condition, like for example:
 
 ```
-html > body > div > a[href=https://example.org]
+jsoup:html > body > div > a[href=https://example.org]
 ```
 
 You can use multiple rules, possibly with a *stop processing*, for an *or* or a *not* condition.
@@ -2691,6 +2691,14 @@ and to set up auto deletion for the trash folder in the folder properties (long 
 
 If you want to forward a message, consider to use a *move* action instead.
 This will be more reliable than forwarding because forwarded messages might be considered as spam.
+
+<br>
+
+It is possible to use a [Jsoup selector](https://jsoup.org/cookbook/extracting-data/selector-syntax) to select the text for notes, for example:
+
+```
+jsoup:td > span:containsOwn(€)
+```
 
 <br>
 

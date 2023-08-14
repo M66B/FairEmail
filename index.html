@@ -1426,7 +1426,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p>When using a regex, you need to take care to match the complete address.</p>
 <p>Note that message texts are normalized when not using a regex, which means that all whitespaces (spaces, tabs, line breaks, etc) are replaced by a single space. This makes it easier to match texts on multiple lines or when the line break is at different places.</p>
 <p>Since version 1.1996 it is possible to use <a href="https://jsoup.org/cookbook/extracting-data/selector-syntax">Jsoup selectors</a> to match HTML elements, by prefixing the selector by <em>jsoup:</em> and entering it as text contains condition, like for example:</p>
-<pre><code>html &gt; body &gt; div &gt; a[href=https://example.org]</code></pre>
+<pre><code>jsoup:html &gt; body &gt; div &gt; a[href=https://example.org]</code></pre>
 <p>You can use multiple rules, possibly with a <em>stop processing</em>, for an <em>or</em> or a <em>not</em> condition.</p>
 <p>Matching is not case sensitive, unless you use <a href="https://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>. Please see <a href="https://developer.android.com/reference/java/util/regex/Pattern">here</a> for the documentation of Java regular expressions. Note that you need to match the complete text from the first to the last character. You can test a regex <a href="https://regexr.com/">here</a>.</p>
 <p>Note that a regular expression supports an <em>or</em> operator, so if you want to match multiple senders, you can do this:</p>
@@ -1443,6 +1443,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <li>Add star</li>
 <li>Set importance (local priority)</li>
 <li>Add keyword</li>
+<li>Add local notes (since version 1.2094)</li>
 <li>Move</li>
 <li>Copy (Gmail: label)</li>
 <li>Delete permanently (since version 1.1801)</li>
@@ -1453,6 +1454,9 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 </ul>
 <p><strong>Important</strong>: permanent deletion is <strong>irreversible</strong>. Instead, consider to move messages to the trash folder and to set up auto deletion for the trash folder in the folder properties (long press the folder in the folder list of an account).</p>
 <p>If you want to forward a message, consider to use a <em>move</em> action instead. This will be more reliable than forwarding because forwarded messages might be considered as spam.</p>
+<p><br></p>
+<p>It is possible to use a <a href="https://jsoup.org/cookbook/extracting-data/selector-syntax">Jsoup selector</a> to select the text for notes, for example:</p>
+<pre><code>jsoup:td &gt; span:containsOwn(€)</code></pre>
 <p><br></p>
 <p>A <em>move</em> action can optionally create subfolders (since version 1.1966) to move messages to, for which you can use the following placeholders:</p>
 <pre><code>$day$ (since version 1.2030)
