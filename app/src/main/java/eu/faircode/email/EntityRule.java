@@ -138,6 +138,7 @@ public class EntityRule {
 
     static final String JSOUP_PREFIX = "jsoup:";
     private static final long SEND_DELAY = 5000L; // milliseconds
+    private static final int MAX_NOTES_LENGTH = 512; // characters
 
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
         return needs(rules, "header");
@@ -1346,6 +1347,11 @@ public class EntityRule {
                     notes = e.text();
             }
         }
+
+        if (TextUtils.isEmpty(notes))
+            notes = null;
+        else if (notes.length() > MAX_NOTES_LENGTH)
+            notes = notes.substring(0, MAX_NOTES_LENGTH);
 
         DB db = DB.getInstance(context);
         db.message().setMessageNotes(message.id, notes, color);
