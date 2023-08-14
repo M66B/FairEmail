@@ -20,7 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.os.Build;
 import android.util.AttributeSet;
@@ -33,7 +32,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatEditText;
-import androidx.preference.PreferenceManager;
 
 public class FixedEditText extends AppCompatEditText {
     public FixedEditText(@NonNull Context context) {
@@ -276,12 +274,9 @@ public class FixedEditText extends AppCompatEditText {
     @Override
     public ActionMode startActionMode(ActionMode.Callback callback) {
         try {
-            if (getActionModeCrashes())
-                return null;
             return super.startActionMode(callback);
         } catch (Throwable ex) {
             Log.e(ex);
-            setActionModeCrashes();
             return null;
         }
     }
@@ -290,129 +285,10 @@ public class FixedEditText extends AppCompatEditText {
     public ActionMode startActionMode(ActionMode.Callback callback, int type) {
         try {
             // callback class: android.widget.Editor$TextActionModeCallback
-            if (getActionModeCrashes())
-                return null;
             return super.startActionMode(callback, type);
         } catch (Throwable ex) {
             Log.e(ex);
-            setActionModeCrashes();
             return null;
-        }
-    }
-
-    private boolean getActionModeCrashes() {
-        try {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean action_mode_crashes = prefs.getBoolean("action_mode_crashes", false);
-            if (action_mode_crashes)
-                Log.w("Action mode crashes");
-            return action_mode_crashes;
-        } catch (Throwable ex) {
-            Log.e(ex);
-            return false;
-        }
-    }
-
-    private void setActionModeCrashes() {
-        /*
-            load action failed: miuix.textaction.Classify
-            java.lang.ClassNotFoundException: miuix.textaction.Classify
-                at java.lang.Class.classForName(Native Method)
-                at java.lang.Class.forName(Class.java:454)
-                at java.lang.Class.forName(Class.java:379)
-                at miuix.toolbar.TextActionManager.loadTextActions(TextActionManager.java:70)
-                at miuix.toolbar.TextActionManager.<init>(TextActionManager.java:35)
-                at miuix.toolbar.FloatingActionMode.<init>(FloatingActionMode.java:148)
-                at miuix.toolbar.FloatingActionModeHelper.startActionMode(FloatingActionModeHelper.java:24)
-                at java.lang.reflect.Method.invoke(Native Method)
-                at com.android.internal.policy.DecorViewStubImpl.createActionMode(DecorViewStubImpl.java:41)
-                at com.android.internal.policy.DecorView.startActionMode(DecorView.java:1011)
-                at com.android.internal.policy.DecorView.startActionModeForChild(DecorView.java:959)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.View.startActionMode(View.java:7747)
-                at eu.faircode.email.FixedEditText.startActionMode(SourceFile:6)
-                at android.widget.Editor.startActionModeInternal(Editor.java:2529)
-                at android.widget.SelectionActionModeHelper.startActionMode(SelectionActionModeHelper.java:300)
-                at android.widget.SelectionActionModeHelper.startSelectionActionMode(SelectionActionModeHelper.java:281)
-                at android.widget.SelectionActionModeHelper.lambda$startSelectionActionModeWithSmartSelectAnimation$0$android-widget-SelectionActionModeHelper(SelectionActionModeHelper.java:335)
-                at android.widget.SelectionActionModeHelper$$ExternalSyntheticLambda9.run(Unknown Source:4)
-                at android.widget.SelectionActionModeHelper.startSelectionActionModeWithSmartSelectAnimation(SelectionActionModeHelper.java:343)
-                at android.widget.SelectionActionModeHelper.$r8$lambda$mMDhXh3JQs_q5UuyTdq2CLenZJk(Unknown Source:0)
-                at android.widget.SelectionActionModeHelper$$ExternalSyntheticLambda11.accept(Unknown Source:4)
-                at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.onPostExecute(SelectionActionModeHelper.java:1044)
-                at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.onPostExecute(SelectionActionModeHelper.java:992)
-                at android.os.AsyncTask.finish(AsyncTask.java:771)
-                at android.os.AsyncTask.-$$Nest$mfinish(Unknown Source:0)
-                at android.os.AsyncTask$InternalHandler.handleMessage(AsyncTask.java:788)
-                at android.os.Handler.dispatchMessage(Handler.java:106)
-                at android.os.Looper.loopOnce(Looper.java:210)
-                at android.os.Looper.loop(Looper.java:299)
-                at android.app.ActivityThread.main(ActivityThread.java:8244)
-                at java.lang.reflect.Method.invoke(Native Method)
-                at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:559)
-                at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:954)
-            Caused by: java.lang.ClassNotFoundException: miuix.textaction.Classify
-                ... 42 more
-            load action failed: miuix.textaction.Translate
-            java.lang.ClassNotFoundException: miuix.textaction.Translate
-                at java.lang.Class.classForName(Native Method)
-                at java.lang.Class.forName(Class.java:454)
-                at java.lang.Class.forName(Class.java:379)
-                at miuix.toolbar.TextActionManager.loadTextActions(TextActionManager.java:70)
-                at miuix.toolbar.TextActionManager.<init>(TextActionManager.java:35)
-                at miuix.toolbar.FloatingActionMode.<init>(FloatingActionMode.java:148)
-                at miuix.toolbar.FloatingActionModeHelper.startActionMode(FloatingActionModeHelper.java:24)
-                at java.lang.reflect.Method.invoke(Native Method)
-                at com.android.internal.policy.DecorViewStubImpl.createActionMode(DecorViewStubImpl.java:41)
-                at com.android.internal.policy.DecorView.startActionMode(DecorView.java:1011)
-                at com.android.internal.policy.DecorView.startActionModeForChild(DecorView.java:959)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.ViewGroup.startActionModeForChild(ViewGroup.java:1044)
-                at android.view.View.startActionMode(View.java:7747)
-                at eu.faircode.email.FixedEditText.startActionMode(SourceFile:6)
-                at android.widget.Editor.startActionModeInternal(Editor.java:2529)
-                at android.widget.SelectionActionModeHelper.startActionMode(SelectionActionModeHelper.java:300)
-                at android.widget.SelectionActionModeHelper.startSelectionActionMode(SelectionActionModeHelper.java:281)
-                at android.widget.SelectionActionModeHelper.lambda$startSelectionActionModeWithSmartSelectAnimation$0$android-widget-SelectionActionModeHelper(SelectionActionModeHelper.java:335)
-                at android.widget.SelectionActionModeHelper$$ExternalSyntheticLambda9.run(Unknown Source:4)
-                at android.widget.SelectionActionModeHelper.startSelectionActionModeWithSmartSelectAnimation(SelectionActionModeHelper.java:343)
-                at android.widget.SelectionActionModeHelper.$r8$lambda$mMDhXh3JQs_q5UuyTdq2CLenZJk(Unknown Source:0)
-                at android.widget.SelectionActionModeHelper$$ExternalSyntheticLambda11.accept(Unknown Source:4)
-                at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.onPostExecute(SelectionActionModeHelper.java:1044)
-                at android.widget.SelectionActionModeHelper$TextClassificationAsyncTask.onPostExecute(SelectionActionModeHelper.java:992)
-                at android.os.AsyncTask.finish(AsyncTask.java:771)
-                at android.os.AsyncTask.-$$Nest$mfinish(Unknown Source:0)
-                at android.os.AsyncTask$InternalHandler.handleMessage(AsyncTask.java:788)
-                at android.os.Handler.dispatchMessage(Handler.java:106)
-                at android.os.Looper.loopOnce(Looper.java:210)
-                at android.os.Looper.loop(Looper.java:299)
-                at android.app.ActivityThread.main(ActivityThread.java:8244)
-                at java.lang.reflect.Method.invoke(Native Method)
-                at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:559)
-                at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:954)
-            Caused by: java.lang.ClassNotFoundException: miuix.textaction.Translate
-                ... 42 more
-         */
-        try {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            prefs.edit().putBoolean("action_mode_crashes", true).apply();
-        } catch (Throwable ex) {
-            Log.e(ex);
         }
     }
 

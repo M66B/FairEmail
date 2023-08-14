@@ -329,8 +329,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "accept_space", "accept_unsupported",
             "junk_hint",
             "last_update_check", "last_announcement_check",
-            "notifications_reminder",
-            "action_mode_crashes"
+            "notifications_reminder"
     };
 
     @Override

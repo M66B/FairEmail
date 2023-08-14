@@ -366,13 +366,11 @@ public class ApplicationEx extends Application
 
     static void upgrade(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        SharedPreferences.Editor editor = prefs.edit();
-
         int version = prefs.getInt("version", BuildConfig.VERSION_CODE);
-        if (version != BuildConfig.VERSION_CODE) {
+        if (version != BuildConfig.VERSION_CODE)
             EntityLog.log(context, "Upgrading from " + version + " to " + BuildConfig.VERSION_CODE);
-            editor.remove("action_mode_crashes");
-        }
+
+        SharedPreferences.Editor editor = prefs.edit();
 
         if (version < BuildConfig.VERSION_CODE)
             editor.remove("crash_report_count");
@@ -732,7 +730,7 @@ public class ApplicationEx extends Application
             if (override_width)
                 editor.putBoolean("overview_mode", true);
             editor.remove("override_width");
-        } else if (version < 2089) {
+        } else if (version < 2089){
             if (!prefs.contains("auto_hide_answer"))
                 editor.putBoolean("auto_hide_answer", !Helper.isAccessibilityEnabled(context));
         }
