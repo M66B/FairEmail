@@ -362,7 +362,7 @@
     <string name="title_advanced_section_encryption">Шифрование</string>
     <string name="title_advanced_section_notifications">Уведомления</string>
     <string name="title_advanced_section_misc">Разное</string>
-    <string name="title_advanced_section_backup">Резервное копирование</string>
+    <string name="title_advanced_section_backup">Резервирование</string>
     <string name="title_advanced_default">Все настройки имеют общеиспользуемые стандартные параметры, не нуждающиеся в изменении для использования приложения</string>
     <string name="title_advanced_receive">Получать сообщения со всех учётных записей</string>
     <string name="title_advanced_when">Когда</string>
@@ -553,7 +553,7 @@
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_thumbnails">Показывать миниатюры изображений после текста сообщения</string>
     <string name="title_advanced_message_text_zoom2">Масштаб текста сообщения по умолчанию: %1$s%%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Масштабировать текст сообщения в редакторе</string>
+    <string name="title_advanced_editor_text_zoom">Масштабировать текст сообщения в редакторе</string>
     <string name="title_advanced_overview_mode">Изменять масштаб исходных сообщений к размеру экрана</string>
     <string name="title_advanced_hyphenation">Автоматическая расстановка переносов</string>
     <string name="title_advanced_contrast">Использовать высокий контраст для текста сообщений</string>
@@ -1611,6 +1611,7 @@
     <string name="title_rule_keyword">Ключевое слово</string>
     <string name="title_rule_keyword_add">Добавить</string>
     <string name="title_rule_keyword_delete">Удалить</string>
+    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Локальные заметки</string>
     <string name="title_rule_move">Переместить</string>
     <string name="title_rule_copy">Копировать (пометить)</string>
     <string name="title_rule_answer">Ответить/переслать</string>
@@ -1669,6 +1670,7 @@
     <string name="title_rule_answer_missing">Шаблон отсутствует</string>
     <string name="title_rule_keyword_missing">Ключевое слово отсутствует</string>
     <string name="title_rule_automation_hint">Это отправит цель \"%1$s\" с дополнениями \"%2$s\"</string>
+    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Локальные заметки отсутствуют</string>
     <string name="title_rule_delete_hint">Окончательное удаление является необратимым, поэтому убедитесь в корректности условий правила!</string>
     <string name="title_rule_edit_group">Изменить группу&#8230;</string>
     <string name="title_rule_execute">Выполнить</string>

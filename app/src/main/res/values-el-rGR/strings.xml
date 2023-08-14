@@ -525,7 +525,7 @@
     <string name="title_advanced_attachments_alt">Να προβάλλονται τα συνημμένα μετά το κείμενο του μηνύματος</string>
     <string name="title_advanced_thumbnails">Να προβάλλονται οι μικρογραφίες μετά από το κείμενο του μηνύματος</string>
     <string name="title_advanced_message_text_zoom2">Μεγέθυνση κειμένου μηνύματος από προεπιλογή: %1$s %%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Μεγέθυνση του κειμένου του μηνύματος και κατά την επεξεργασία του μηνύματος</string>
+    <string name="title_advanced_editor_text_zoom">Μεγέθυνση του κειμένου του μηνύματος και κατά την επεξεργασία του μηνύματος</string>
     <string name="title_advanced_overview_mode">Μεγέθυνση αρχικού μηνύματος για προσαρμογή στην οθόνη</string>
     <string name="title_advanced_hyphenation">Χρήση αυτόματου συλλαβισμού</string>
     <string name="title_advanced_contrast">Χρήση υψηλής αντίθεσης για το κείμενο του μηνύματος</string>
@@ -1578,6 +1578,7 @@
     <string name="title_rule_keyword">Λέξη-κλειδί</string>
     <string name="title_rule_keyword_add">Προσθήκη</string>
     <string name="title_rule_keyword_delete">Διαγραφή</string>
+    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Τοπικές σημειώσεις</string>
     <string name="title_rule_move">Μετακίνηση</string>
     <string name="title_rule_copy">Αντιγραφή (ετικέτα)</string>
     <string name="title_rule_answer">Απάντηση/Προώθηση</string>
@@ -1636,6 +1637,7 @@
     <string name="title_rule_answer_missing">Λείπει πρότυπο</string>
     <string name="title_rule_keyword_missing">Λείπει λέξη-κλειδί</string>
     <string name="title_rule_automation_hint">Αυτό θα στείλει την πρόθεση %1$s μαζί με τα έξτρα %2$s</string>
+    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Λείπουν οι τοπικές σημειώσεις</string>
     <string name="title_rule_delete_hint">Η οριστική διαγραφή είναι μη αναστρέψιμη, οπότε βεβαιωθείτε πως οι συνθήκες του κανόνα είναι σωστές!</string>
     <string name="title_rule_edit_group">Επεξεργασία ομάδας &#8230;</string>
     <string name="title_rule_execute">Εκτέλεση τώρα</string>

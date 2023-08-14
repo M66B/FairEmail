@@ -526,7 +526,7 @@
     <string name="title_advanced_attachments_alt">Mostra allegati dopo il testo del messaggio</string>
     <string name="title_advanced_thumbnails">Mostra miniature delle immagini dopo il testo del messaggio</string>
     <string name="title_advanced_message_text_zoom2">Ingrandimento predefinito del testo del messaggio %1$s%%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Ingrandisci il testo del messaggio anche nell\'editor dei messaggi</string>
+    <string name="title_advanced_editor_text_zoom">Ingrandisci il testo del messaggio anche nell\'editor dei messaggi</string>
     <string name="title_advanced_overview_mode">Ingrandisci i messaggi originali per adattarsi allo schermo</string>
     <string name="title_advanced_hyphenation">Usa la sillabazione automatica</string>
     <string name="title_advanced_contrast">Usa il contrasto elevato per il testo del messaggio</string>
@@ -1585,6 +1585,7 @@
     <string name="title_rule_keyword">Parola chiave</string>
     <string name="title_rule_keyword_add">Aggiungi</string>
     <string name="title_rule_keyword_delete">Elimina</string>
+    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Note locali</string>
     <string name="title_rule_move">Sposta</string>
     <string name="title_rule_copy">Copia (etichetta)</string>
     <string name="title_rule_answer">Rispondi/inoltra</string>
@@ -1643,6 +1644,7 @@
     <string name="title_rule_answer_missing">Modello mancante</string>
     <string name="title_rule_keyword_missing">Parola chiave mancante</string>
     <string name="title_rule_automation_hint">Questo invierà l\'intento \'%1$s\' con \'%2$s\' extra</string>
+    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Note locali mancanti</string>
     <string name="title_rule_delete_hint">L\'eliminazione permanente è irreversibile, quindi assicurati che le condizioni della regola siano corrette!</string>
     <string name="title_rule_edit_group">Modifica gruppo &#8230;</string>
     <string name="title_rule_execute">Esegui ora</string>

@@ -524,7 +524,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_attachments_alt">Bijlagen weergeven na de berichttekst</string>
     <string name="title_advanced_thumbnails">Afbeeldingsminiaturen weergeven na de berichttekst</string>
     <string name="title_advanced_message_text_zoom2">Standaard berichttekst zoom: %1$s %%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Zoom berichttekst ook in de berichteditor</string>
+    <string name="title_advanced_editor_text_zoom">Zoom berichttekst ook in de berichteditor</string>
     <string name="title_advanced_overview_mode">Zoom oorspronkelijke berichten zodat ze op het scherm passen</string>
     <string name="title_advanced_hyphenation">Gebruik automatische koppeltekens</string>
     <string name="title_advanced_contrast">Gebruik hoge contrast voor berichttekst</string>
@@ -1573,6 +1573,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_keyword">Sleutelwoord</string>
     <string name="title_rule_keyword_add">Voeg toe</string>
     <string name="title_rule_keyword_delete">Verwijder</string>
+    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Lokale notities</string>
     <string name="title_rule_move">Verplaatsen</string>
     <string name="title_rule_copy">Kopiëren (label)</string>
     <string name="title_rule_answer">Beantwoorden/doorsturen</string>
@@ -1631,6 +1632,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_answer_missing">Sjabloon ontbreekt</string>
     <string name="title_rule_keyword_missing">Sleutelwoord ontbreekt</string>
     <string name="title_rule_automation_hint">Dit zal de intent \'%1$s\' sturen met de extra\'s \'%2$s\'</string>
+    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Lokale notities ontbreken</string>
     <string name="title_rule_delete_hint">Definitieve verwijdering is onomkeerbaar, dus zorg ervoor dat de voorwaarden van de regel correct zijn!</string>
     <string name="title_rule_edit_group">Groep bewerken &#8230;</string>
     <string name="title_rule_execute">Nu uitvoeren</string>

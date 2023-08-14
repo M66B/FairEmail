@@ -554,7 +554,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_attachments_alt">Zobrazit přílohy pod textem zprávy</string>
     <string name="title_advanced_thumbnails">Zobrazit náhledy obrázků pod textem zprávy</string>
     <string name="title_advanced_message_text_zoom2">Výchozí zvětšení textu zprávy: %1$s %%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Změnit přiblížení textu zprávy také v editoru zpráv</string>
+    <string name="title_advanced_editor_text_zoom">Změnit přiblížení textu zprávy také v editoru zpráv</string>
     <string name="title_advanced_overview_mode">Přizpůsobit zobrazení původních zpráv šířce obrazovky</string>
     <string name="title_advanced_hyphenation">Použít automatický rozdělovník</string>
     <string name="title_advanced_contrast">Použít vysoký kontrast pro text zprávy</string>
@@ -1609,6 +1609,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_keyword">Klíčové slovo</string>
     <string name="title_rule_keyword_add">Přidat</string>
     <string name="title_rule_keyword_delete">Odstranit</string>
+    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Místní poznámky</string>
     <string name="title_rule_move">Přesunout</string>
     <string name="title_rule_copy">Kopírovat (štítek)</string>
     <string name="title_rule_answer">Odpovědět/přeposlat</string>
@@ -1667,6 +1668,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_answer_missing">Chybí šablona</string>
     <string name="title_rule_keyword_missing">Chybí klíčové slovo</string>
     <string name="title_rule_automation_hint">Bude odesláno volání (intent) „%1$s“ s doplňujícími informacemi (extras) „%2$s“</string>
+    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Místní poznámky chybí</string>
     <string name="title_rule_delete_hint">Trvalé smazání je nevratné, takže se ujistěte, že jsou podmínky pravidla správné!</string>
     <string name="title_rule_edit_group">Upravit skupinu &#8230;</string>
     <string name="title_rule_execute">Provést nyní</string>

@@ -555,6 +555,7 @@
     <string name="title_advanced_attachments_alt">Паказваць укладанні пасля тэксту паведамлення</string>
     <string name="title_advanced_thumbnails">Паказваць мініяцюры выяў пасля тэксту паведамлення</string>
     <string name="title_advanced_message_text_zoom2">Стандартны маштаб тэксту паведамлення: %1$s %%</string>
+    <string name="title_advanced_editor_text_zoom">Павялічваць тэкст паведамлення таксама ў рэдактары паведамленняў</string>
     <string name="title_advanced_overview_mode">Павялічваць маштаб арыгінальных паведамленняў пад памер экрана</string>
     <string name="title_advanced_hyphenation">Выкарыстоўваць аўтаматычны перанос</string>
     <string name="title_advanced_contrast">Ужываць высокі кантраст да тэксту паведамлення</string>

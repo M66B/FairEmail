@@ -526,8 +526,8 @@
     <string name="title_advanced_unzip">Inhalt von komprimierten Anhängen anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_thumbnails">Vorschaubilder nach dem Nachrichtentext anzeigen</string>
-    <string name="title_advanced_message_text_zoom2">Standardskalierung des Nachrichtentextes: %1$s %%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Nachrichtentext auch im Verfassenfenster skalieren</string>
+    <string name="title_advanced_message_text_zoom2">Standardgröße des Nachrichtentextes: %1$s %%</string>
+    <string name="title_advanced_editor_text_zoom">Größe des Nachrichtentextes auch im Verfassenfenster anpassen</string>
     <string name="title_advanced_overview_mode">Originalnachrichten an Bildschirmgröße anpassen</string>
     <string name="title_advanced_hyphenation">Automatische Worttrennung verwenden</string>
     <string name="title_advanced_contrast">Hohen Kontrast für den Nachrichtentext verwenden</string>
@@ -1586,6 +1586,7 @@
     <string name="title_rule_keyword">Schlagwort</string>
     <string name="title_rule_keyword_add">Hinzufügen</string>
     <string name="title_rule_keyword_delete">Löschen</string>
+    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Lokale Notizen</string>
     <string name="title_rule_move">Verschieben</string>
     <string name="title_rule_copy">Kopieren (Label)</string>
     <string name="title_rule_answer">Antworten/Weiterleiten</string>
@@ -1644,6 +1645,7 @@
     <string name="title_rule_answer_missing">Vorlage fehlt</string>
     <string name="title_rule_keyword_missing">Schlagwort fehlt</string>
     <string name="title_rule_automation_hint">Das wird den Intent »%1$s« mit den Extras »%2$s« senden</string>
+    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Lokale Notizen fehlen</string>
     <string name="title_rule_delete_hint">Das dauerhafte Löschen kann nicht widerrufen werden. Stellen Sie daher sicher, dass die Bedingungen der Regel richtig sind!</string>
     <string name="title_rule_edit_group">Gruppe bearbeiten &#8230;</string>
     <string name="title_rule_execute">Jetzt ausführen</string>

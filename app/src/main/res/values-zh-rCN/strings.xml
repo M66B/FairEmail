@@ -511,7 +511,7 @@
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
     <string name="title_advanced_message_text_zoom2">默认消息文本缩放： %1$s %%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">同时也在邮件编辑窗中缩放内容文本</string>
+    <string name="title_advanced_editor_text_zoom">同时也在邮件编辑窗中缩放内容文本</string>
     <string name="title_advanced_overview_mode">缩放原始消息以适应屏幕</string>
     <string name="title_advanced_hyphenation">使用自动连字符</string>
     <string name="title_advanced_contrast">对消息文本使用高对比度颜色</string>

@@ -512,7 +512,7 @@
     <string name="title_advanced_attachments_alt">本文の後に添付ファイルを表示</string>
     <string name="title_advanced_thumbnails">本文の後に画像サムネイルを表示</string>
     <string name="title_advanced_message_text_zoom2">デフォルトの本文のテキスト拡大率: %1$s %%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">メッセージ編集画面でも、テキストにズーム</string>
+    <string name="title_advanced_editor_text_zoom">メッセージ編集画面でも、テキストにズーム</string>
     <string name="title_advanced_overview_mode">画面に合わせて元のメッセージを拡大</string>
     <string name="title_advanced_hyphenation">自動ハイフンを使用</string>
     <string name="title_advanced_contrast">本文にハイコントラストテーマを使用</string>

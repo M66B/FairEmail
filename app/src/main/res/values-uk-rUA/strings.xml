@@ -180,7 +180,7 @@
     <string name="title_setup">Налаштування</string>
     <string name="title_setup_help">Довідка</string>
     <string name="title_setup_quick">Швидке налаштування</string>
-    <string name="title_setup_intro">Налаштування облікового запису лише за три кроки, і після цього ви зможете відправляти та отримувати листи</string>
+    <string name="title_setup_intro">Налаштування облікового запису займе лише три кроки, і після цього ви зможете відправляти та отримувати листи</string>
     <string name="title_setup_simple">Немає необхідності змінювати будь-які інші параметри</string>
     <string name="title_setup_issue">FairEmail створено для захисту ваших особистих даних, на його розробку було витрачено тисячі годин роботи. Якщо у вас виникнуть проблеми з додатком, перш ніж залишити поганий відгук, зв\'яжіться, будь ласка, зі мною. Буду радий допомогти!</string>
     <string name="title_setup_analytics">FairEmail не показує рекламу і не відстежує та не аналізує вашу поведінку. Для звітування про помилки використовується Bugsnag, що вимкнено за замовчуванням.</string>
@@ -194,7 +194,7 @@
     <string name="title_setup_wizard">Майстер налаштування</string>
     <string name="title_setup_wizard_tutorials">Навчальні матеріали</string>
     <string name="title_setup_wizard_multiple">Майстер можна використати кілька разів, щоб налаштувати кілька облікових записів</string>
-    <string name="title_setup_wizard_new">Вкажіть нову електронну адресу</string>
+    <string name="title_setup_wizard_new">Мені потрібна нова адреса електронної пошти</string>
     <string name="title_setup_manual">Ручне налаштування та параметри облікових записів</string>
     <string name="title_setup_classic">Класична конфігурація</string>
     <string name="title_setup_documentation">Перегляньте документацію свого постачальника пошти для правильної конфігурації сервера електронної пошти</string>
@@ -554,7 +554,7 @@
     <string name="title_advanced_attachments_alt">Показати вкладення після тексту повідомлення</string>
     <string name="title_advanced_thumbnails">Показувати ескізи зображень після повідомлення</string>
     <string name="title_advanced_message_text_zoom2">Масштаб тексту повідомлень за замовчуванням: %1$s %%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Масштабувати текст повідомлення також і в редакторі повідомлень</string>
+    <string name="title_advanced_editor_text_zoom">Масштабувати текст повідомлення також і в редакторі повідомлень</string>
     <string name="title_advanced_overview_mode">Масштабувати оригінальні повідомлення відповідно до розміру екрана</string>
     <string name="title_advanced_hyphenation">Використовувати автоматичне розставляння переносів</string>
     <string name="title_advanced_contrast">Використовувати висококонтрастний текст для повідомлень</string>
@@ -729,7 +729,7 @@
     <string name="title_advanced_sort_answers">Сортувати шаблони відповідей за частотою використання</string>
     <string name="title_advanced_shortcuts">Показувати контакти, які часто використовуються, в системному меню «Поділитися»</string>
     <string name="title_advanced_fts">Створювати індекс для пошуку</string>
-    <string name="title_advanced_fts_indexed">%1$d з %2$d повідомлень індексовано (%3$s)</string>
+    <string name="title_advanced_fts_indexed">%1$d з %2$d повідомлень проіндексовано (%3$s)</string>
     <string name="title_advanced_classification">Класифікувати повідомлення</string>
     <string name="title_advanced_class_min_chance">Мінімальна ймовірність належності до класу: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Мінімальна відмінність між класами: %1$s %%</string>
@@ -970,7 +970,7 @@
     <string name="title_no_email">Немає адреси електронної пошти</string>
     <string name="title_email_invalid">Невірна адреса електронної пошти: \'%1$s\'</string>
     <string name="title_address_duplicate">Адреса \'%1$s\' повторюється</string>
-    <string name="title_address_parse_error">Адреса \'%1$s\' недійсна: %2$s</string>
+    <string name="title_address_parse_error">Адреса «%1$s» недійсна: %2$s</string>
     <string name="title_no_account">Обліковий запис відсутній</string>
     <string name="title_no_host">Не вказано ім’я хосту</string>
     <string name="title_no_user">Не вказано ім\'я користувача</string>
@@ -984,7 +984,7 @@
     <string name="title_no_idle">Цей постачальник не підтримує push повідомлення. Це сповільнить приймання нових повідомлень і збільшить використання акумулятора.</string>
     <string name="title_no_utf8">Цей постачальник не підтримує UTF-8</string>
     <string name="title_no_sync">Помилка синхронізації від %1$s</string>
-    <string name="title_reply_domain">Домен відправника (%1$s) і домен заголовку reply (%2$s) відрізняється</string>
+    <string name="title_reply_domain">Домен адреси відправника (%1$s) і домен адреси для відповіді (%2$s) відрізняються</string>
     <string name="title_identity_required">Для надсилання email необхідна Особа</string>
     <string name="title_drafts_required">Тека для чернеток необхідна для надсилання електронної пошти</string>
     <string name="title_drafts_select">Для надсилання електронної пошти необхідно вибрати теку для чернеток в налаштуваннях облікового запису</string>
@@ -1186,7 +1186,7 @@
     <string name="title_auto_confirm">Автоматично підтверджувати через декілька секунд</string>
     <string name="title_buttons">Виберіть кнопки</string>
     <string name="title_buttons_hint">Доступні поточні дії залежать від типу облікового запису і конфігурації</string>
-    <string name="title_button_search_similar">Пошук схожих повідомлень</string>
+    <string name="title_button_search_similar">Шукати схожі повідомлення</string>
     <string name="title_button_search_text">Шукати в тексті повідомлення</string>
     <string name="title_configure_buttons">Налаштувати кнопки &#8230;</string>
     <string name="title_quick_actions">Вибрати дії</string>
@@ -1442,12 +1442,12 @@
     <string name="title_attachment_filename">Деякі поштові клієнти не можуть обробляти імена файлів довші за 60 символів</string>
     <string name="title_plain_reminder">Все форматування буде втрачено</string>
     <string name="title_dsn_reminder">Постійні, або жорсткі, повернення листів шкодять репутації адреси електронної пошти первісного відправника!</string>
-    <string name="title_size_reminder">Розмір повідомлення (%1$s) більше за ліміт, встановлений сервером (%2$s)</string>
+    <string name="title_size_reminder">Розмір повідомлення (%1$s) більший за ліміт, встановлений сервером (%2$s)</string>
     <string name="title_attachments_missing">Не всі вкладення завантажено</string>
     <string name="title_dialog_hint">Це діалогове вікно може бути знову ввімкнено через меню трьох крапок в верхній панелі дій</string>
     <string name="title_draft_deleted">Чернетку відкинуто</string>
     <string name="title_draft_saved">Чернетку збережено</string>
-    <string name="title_ask_send_via">Надіслати повідомлення до %1$s через %2$s?</string>
+    <string name="title_ask_send_via">Надіслати повідомлення для %1$s через %2$s?</string>
     <string name="title_queued">Повідомлення надсилається</string>
     <string name="title_queued_at">Повідомлення буде відправлено близько %1$s</string>
     <string name="title_sign">Підписати</string>
@@ -1490,16 +1490,16 @@
     <string name="title_search">Пошук</string>
     <string name="title_search_for_hint">Введіть текст</string>
     <string name="title_search_hint">        Спочатку пошук виконується на пристрої.
-        Для також для пошуку на сервері, натисніть кнопку \'пошук знову\'.
+        Для пошуку також і на сервері, натисніть кнопку «Шукати на сервері».
     </string>
     <string name="title_search_index_hint">Пошук за допомогою індексу пошуку швидкий, але знайде лише цілі слова.</string>
     <string name="title_search_text_hint">Пошук тексту в повідомленнях, при великій кількості повідомлень, може не працювати на деяких серверах</string>
-    <string name="title_search_text_unsupported">\'%s\' означає, що поштовий сервер не підтримує пошук в повідомленнях</string>
+    <string name="title_search_text_unsupported">«%s» означає, що поштовий сервер не підтримує пошук в текстах повідомлень</string>
     <string name="title_search_size_hint">Пошук повідомлень за розміром, при великій кількості повідомлень, може не працювати на деяких серверах</string>
     <string name="title_search_more">Більше опцій</string>
     <string name="title_search_use_index">Використовувати індексацію для пошуку</string>
-    <string name="title_search_in_senders">У відправників (від)</string>
-    <string name="title_search_in_recipients">В одержувачів (кому, копія)</string>
+    <string name="title_search_in_senders">У відправниках (від)</string>
+    <string name="title_search_in_recipients">В одержувачах (кому, копія)</string>
     <string name="title_search_in_subject">У темі</string>
     <string name="title_search_in_keywords">У ключових словах (якщо підтримується)</string>
     <string name="title_search_in_message">У тексті повідомлення</string>
@@ -1511,7 +1511,7 @@
     <string name="title_search_with_encrypted">Зашифровані (лише на пристрої)</string>
     <string name="title_search_with_attachments">З вкладеннями (лише на пристрої)</string>
     <string name="title_search_with_size">Розмір повідомлення більше ніж</string>
-    <string name="title_search_in_trash">В корзині</string>
+    <string name="title_search_in_trash">В кошику</string>
     <string name="title_search_in_junk">У спамі</string>
     <string name="title_search_with_range">Проміжок дат</string>
     <string name="title_search_with_before">До</string>
@@ -1526,7 +1526,7 @@
     <string name="title_search_flag_invite">запрошення</string>
     <string name="title_search_flag_size">розмір &gt; %1$s</string>
     <string name="title_search_device">Пошук на пристрої</string>
-    <string name="title_search_server">Пошук на сервері</string>
+    <string name="title_search_server">Шукати на сервері</string>
     <string name="title_search_server_wait">Очікування сервера</string>
     <string name="title_search_in">Пошук у</string>
     <string name="title_search_sender">Пошук відправника</string>
@@ -1608,6 +1608,7 @@
     <string name="title_rule_keyword">Ключове слово</string>
     <string name="title_rule_keyword_add">Додати</string>
     <string name="title_rule_keyword_delete">Вилучити</string>
+    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Локальні нотатки</string>
     <string name="title_rule_move">Перемістити</string>
     <string name="title_rule_copy">Копіювати (мітку)</string>
     <string name="title_rule_answer">Відповісти/переслати</string>
@@ -1633,17 +1634,17 @@
     <string name="title_rule_header">Заголовок містить</string>
     <string name="title_rule_body">Текст містить</string>
     <string name="title_rule_skip_quotes">Пропускати цитований текст</string>
-    <string name="title_rule_body_remark">Використання цієї умови завжди завантажить текст повідомлення, який може уповільнити синхронізацію списку повідомлень</string>
+    <string name="title_rule_body_remark">При використанні цієї умови завжди завантажуватиметься текст повідомлення, що може уповільнити синхронізацію списку повідомлень</string>
     <string name="title_rule_time_abs">Абсолютний час (отримано) між</string>
     <string name="title_rule_time_after">Отримано після</string>
     <string name="title_rule_time_before">Отримано до</string>
     <string name="title_rule_time_rel">Відносний час (отримано) між</string>
     <string name="title_rule_time_every_day">Щодня</string>
-    <string name="title_rule_younger">Повідомленя, не пізніше ніж (години)</string>
+    <string name="title_rule_younger">Повідомлення, отримані за останні (години)</string>
     <string name="title_rule_regex">Регулярний вираз</string>
     <string name="title_rule_and">ТА</string>
     <string name="title_rule_action">Дія</string>
-    <string name="title_rule_action_remark">Ця дія буде застосована до нових повідомлень, які надходять до теки %1$s</string>
+    <string name="title_rule_action_remark">Ця дія буде застосована до нових повідомлень, які надходять до теки «%1$s»</string>
     <string name="title_rule_hours">Годин</string>
     <string name="title_rule_schedule_end">Починаючи з часу закінчення дії правила</string>
     <string name="title_rule_folder">Тека</string>
@@ -1665,7 +1666,8 @@
     <string name="title_rule_identity_missing">Немає осіб</string>
     <string name="title_rule_answer_missing">Шаблон відсутній</string>
     <string name="title_rule_keyword_missing">Відсутнє ключове слово</string>
-    <string name="title_rule_automation_hint">Це надішле intent \'%1$s\' з доповненнями \'%2$s</string>
+    <string name="title_rule_automation_hint">Це надішле intent «%1$s з доповненнями «%2$s»</string>
+    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Локальні нотатки відсутні</string>
     <string name="title_rule_delete_hint">Постійне видалення є незворотнім, тому переконайтеся, що умови правила правильні!</string>
     <string name="title_rule_edit_group">Редагувати групу &#8230;</string>
     <string name="title_rule_execute">Виконати зараз</string>
@@ -1719,7 +1721,7 @@
     <string name="title_legend_primary">Основна</string>
     <string name="title_legend_subscribed">Підписано на</string>
     <string name="title_legend_rule">Має правила</string>
-    <string name="title_legend_similar">Пошук схожих повідомлень</string>
+    <string name="title_legend_similar">Шукати схожі повідомлення</string>
     <string name="title_legend_notify">Сповіщати про нові повідомлення</string>
     <string name="title_legend_sync_keep">Кількість днів для синхронізації/збережених повідомлень</string>
     <string name="title_legend_download_fetch">Кількість завантажених повідомлень / заголовків</string>

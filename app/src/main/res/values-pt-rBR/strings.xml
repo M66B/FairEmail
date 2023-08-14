@@ -525,7 +525,7 @@
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas das imagens após o texto da mensagem</string>
     <string name="title_advanced_message_text_zoom2">Zoom padrão da mensagem: %1$s %%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Amplie o texto da mensagem também no editor de mensagens</string>
+    <string name="title_advanced_editor_text_zoom">Amplie o texto da mensagem também no editor de mensagens</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para adequar à tela</string>
     <string name="title_advanced_hyphenation">Usar hifenização automática</string>
     <string name="title_advanced_contrast">Usar alto contraste para o texto da mensagem</string>
@@ -1581,6 +1581,7 @@
     <string name="title_rule_keyword">Palavra-chave</string>
     <string name="title_rule_keyword_add">Adicionar</string>
     <string name="title_rule_keyword_delete">Deletar</string>
+    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Notas locais</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
     <string name="title_rule_answer">Responder/encaminhar</string>
@@ -1639,6 +1640,7 @@
     <string name="title_rule_answer_missing">Modelo faltando</string>
     <string name="title_rule_keyword_missing">Palavra-chave faltando</string>
     <string name="title_rule_automation_hint">Isto enviará a intenção \'%1$s\' com os extras \'%2$s\'</string>
+    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Notas locais ausentes</string>
     <string name="title_rule_delete_hint">A exclusão permanente é irreversível, por isso certifique-se de que as condições de regra estão corretas!</string>
     <string name="title_rule_edit_group">Editar grupo &#8230;</string>
     <string name="title_rule_execute">Execute agora</string>

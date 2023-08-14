@@ -526,7 +526,7 @@
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
     <string name="title_advanced_thumbnails">Vis billedminiaturer efter beskedteksten</string>
     <string name="title_advanced_message_text_zoom2">Standard beskedtekstzoom %1$s%%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Zoom også beskedtekst i besked-editoren</string>
+    <string name="title_advanced_editor_text_zoom">Zoom også beskedtekst i besked-editoren</string>
     <string name="title_advanced_overview_mode">Zoom originale beskeder for skærmtilpasning</string>
     <string name="title_advanced_hyphenation">Brug automatisk orddeling</string>
     <string name="title_advanced_contrast">Benyt høj kontrast til beskedtekst</string>
@@ -1585,6 +1585,7 @@
     <string name="title_rule_keyword">Nøgleord</string>
     <string name="title_rule_keyword_add">Tilføj</string>
     <string name="title_rule_keyword_delete">Slet</string>
+    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Lokale notater</string>
     <string name="title_rule_move">Flyt</string>
     <string name="title_rule_copy">Kopiér (etiket)</string>
     <string name="title_rule_answer">Besvar/videresend</string>
@@ -1643,6 +1644,7 @@
     <string name="title_rule_answer_missing">Skabelon mangler</string>
     <string name="title_rule_keyword_missing">Nøgleord mangler</string>
     <string name="title_rule_automation_hint">Dette vil sende intent \'%1$s\' med ekstra \'%2$s\'</string>
+    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Lokale notater mangler</string>
     <string name="title_rule_delete_hint">Permanent sletning er irreversibel, så sørg for, at regelbetingelserne er korrekte!</string>
     <string name="title_rule_edit_group">Redigér gruppe &#8230;</string>
     <string name="title_rule_execute">Eksekvér nu</string>

@@ -540,7 +540,7 @@
     <string name="title_advanced_attachments_alt">Prikaži priloge poslije teksta poruke</string>
     <string name="title_advanced_thumbnails">Prikaži sličice fotografija poslije teksta poruke</string>
     <string name="title_advanced_message_text_zoom2">Zadani nivo zumiranja teksta: %1$s %%</string>
-    <string name="title_advanced_editor_text_zoom" comment="title_advanced_editor_text_zoom&#10;Title for option to enable the message zoom percentage to the message editor too">Zumiraj tekst poruke i u uređivaču poruka</string>
+    <string name="title_advanced_editor_text_zoom">Zumiraj tekst poruke i u uređivaču poruka</string>
     <string name="title_advanced_overview_mode">Zumiraj originalne poruke da popune ekran</string>
     <string name="title_advanced_hyphenation">Koristi automatsko umetanje crtica</string>
     <string name="title_advanced_contrast">Koristi visoki kontrast za tekst poruke</string>
@@ -1598,6 +1598,7 @@
     <string name="title_rule_keyword">Ključna riječ</string>
     <string name="title_rule_keyword_add">Dodaj</string>
     <string name="title_rule_keyword_delete">Izbriši</string>
+    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Lokalne bilješke</string>
     <string name="title_rule_move">Premjesti</string>
     <string name="title_rule_copy">Kopiraj (oznaku)</string>
     <string name="title_rule_answer">Odgovori/proslijedi</string>
@@ -1656,6 +1657,7 @@
     <string name="title_rule_answer_missing">Nedostaje prijedložak</string>
     <string name="title_rule_keyword_missing">Nedostaje ključna riječ</string>
     <string name="title_rule_automation_hint">Ovo će poslati opis zadatka \'%1$s\' sa dodacima \'%2$s\'</string>
+    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Nedostaju lokalne bilješke</string>
     <string name="title_rule_delete_hint">Trajno brisanje je nepovratna radnja, zato osigurajte da su uvjeti ispravni!</string>
     <string name="title_rule_edit_group">Uredi grupu &#8230;</string>
     <string name="title_rule_execute">Izvrši sada</string>
