@@ -2700,6 +2700,8 @@ It is possible to use a [Jsoup selector](https://jsoup.org/cookbook/extracting-d
 jsoup:td > span:containsOwn(€)
 ```
 
+The text of the first matched HTML element up to 512 characters will be used as text for the local note.
+
 <br>
 
 A *move* action can optionally create subfolders (since version 1.1966) to move messages to, for which you can use the following placeholders:

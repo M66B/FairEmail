@@ -1457,6 +1457,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p><br></p>
 <p>It is possible to use a <a href="https://jsoup.org/cookbook/extracting-data/selector-syntax">Jsoup selector</a> to select the text for notes, for example:</p>
 <pre><code>jsoup:td &gt; span:containsOwn(€)</code></pre>
+<p>The text of the first matched HTML element up to 512 characters will be used as text for the local note.</p>
 <p><br></p>
 <p>A <em>move</em> action can optionally create subfolders (since version 1.1966) to move messages to, for which you can use the following placeholders:</p>
 <pre><code>$day$ (since version 1.2030)
