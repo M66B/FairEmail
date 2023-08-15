@@ -62,6 +62,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.mail.Address;
@@ -1351,9 +1352,25 @@ public class EntityRule {
             if (html != null) {
                 Document d = JsoupEx.parse(html);
                 String selector = notes.substring(JSOUP_PREFIX.length());
+                String regex = null;
+                if (selector.endsWith(("}"))) {
+                    int b = selector.lastIndexOf('{');
+                    if (b > 0) {
+                        regex = selector.substring(b + 1, selector.length() - 1);
+                        selector = selector.substring(0, b);
+                    }
+                }
+
                 Element e = d.select(selector).first();
-                if (e != null)
+                if (e != null) {
                     notes = e.ownText();
+                    if (!TextUtils.isEmpty(regex)) {
+                        Pattern p = Pattern.compile(regex);
+                        Matcher m = p.matcher(notes);
+                        if (m.matches() && m.groupCount() > 0)
+                            notes = m.group(1);
+                    }
+                }
             }
         }
 
