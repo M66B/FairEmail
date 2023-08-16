@@ -2283,6 +2283,31 @@
                     app:layout_constraintTop_toBottomOf="@id/swThreadByRef"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swDeleteConfirmation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_delete_confirmation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swMdn"
+                    app:switchPadding="12dp" />
+
+                <TextView
+                    android:id="@+id/tvDeleteConfirmationHint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="48dp"
+                    android:text="@string/title_advanced_deletion_confirmation_hint"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="?attr/colorError"
+                    android:textStyle="bold|italic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swDeleteConfirmation" />
+
                 <EditText
                     android:id="@+id/etKeywords"
                     android:layout_width="0dp"
@@ -2293,7 +2318,7 @@
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swMdn" />
+                    app:layout_constraintTop_toBottomOf="@id/tvDeleteConfirmationHint" />
 
                 <TextView
                     android:id="@+id/tvKeywordsHint"

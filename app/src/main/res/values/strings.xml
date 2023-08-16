@@ -902,6 +902,8 @@
     <string name="title_advanced_dup_msgid" translatable="false">Duplicates by message ID</string>
     <string name="title_advanced_thread_by_ref" translatable="false">Thread by common reference</string>
     <string name="title_advanced_mdn" translatable="false">Process MDNs</string>
+    <string name="title_advanced_delete_confirmation" translatable="false">Permanent deletion confirmation</string>
+    <string name="title_advanced_deletion_confirmation_hint" translatable="false">If you turn this off, please do not complain if you accidentally delete messages irreversibly</string>
     <string name="title_advanced_global_keywords" translatable="false">Global keywords</string>
     <string name="title_advanced_test_iab" translatable="false">Test IAB</string>
     <string name="title_advanced_import_providers" translatable="false">Import providers</string>

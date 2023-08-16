@@ -4557,10 +4557,20 @@ public class FragmentMessages extends FragmentBase
                 aargs.putLongArray("ids", Helper.toLongArray(ids));
                 aargs.putBoolean("warning", true);
 
-                FragmentDialogAsk ask = new FragmentDialogAsk();
-                ask.setArguments(aargs);
-                ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_DELETE);
-                ask.show(getParentFragmentManager(), "messages:delete");
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean delete_confirmation = prefs.getBoolean("delete_confirmation", true);
+
+                if (delete_confirmation) {
+                    FragmentDialogAsk ask = new FragmentDialogAsk();
+                    ask.setArguments(aargs);
+                    ask.setTargetFragment(FragmentMessages.this, REQUEST_MESSAGES_DELETE);
+                    ask.show(getParentFragmentManager(), "messages:delete");
+                } else {
+                    Intent data = new Intent();
+                    data.putExtra("args", aargs);
+                    onActivityResult(REQUEST_MESSAGES_DELETE, RESULT_OK, data);
+                    return;
+                }
             }
 
             @Override
@@ -4909,7 +4919,9 @@ public class FragmentMessages extends FragmentBase
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
                 boolean delete_asked = prefs.getBoolean("delete_asked", false);
-                if (leave_deleted && delete_asked) {
+                boolean delete_confirmation = prefs.getBoolean("delete_confirmation", true);
+
+                if (leave_deleted ? delete_asked : !delete_confirmation) {
                     Intent data = new Intent();
                     data.putExtra("args", aargs);
                     onActivityResult(REQUEST_MESSAGES_DELETE, RESULT_OK, data);
