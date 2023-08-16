@@ -171,6 +171,11 @@
             android:title="@string/title_thread_info" />
 
         <item
+            android:id="@+id/menu_jsoup"
+            android:icon="@drawable/twotone_code_24"
+            android:title="@string/title_jsoup" />
+
+        <item
             android:id="@+id/menu_reset_questions"
             android:icon="@drawable/twotone_restart_alt_24"
             android:title="@string/title_reset_message_questions" />

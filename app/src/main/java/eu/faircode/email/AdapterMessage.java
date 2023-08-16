@@ -6012,6 +6012,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             popupMenu.getMenu().findItem(R.id.menu_thread_info)
                     .setVisible(BuildConfig.TEST_RELEASE || BuildConfig.DEBUG || debug);
+            popupMenu.getMenu().findItem(R.id.menu_jsoup)
+                    .setVisible(BuildConfig.DEBUG || debug)
+                    .setEnabled(message.content);
 
             popupMenu.getMenu().findItem(R.id.menu_resync)
                     .setEnabled(message.uid != null ||
@@ -6130,6 +6133,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                     } else if (itemId == R.id.menu_thread_info) {
                         onMenuThreadInfo(message);
+                        return true;
+                    } else if (itemId == R.id.menu_jsoup) {
+                        onMenuJsoup(message);
                         return true;
                     } else if (itemId == R.id.menu_reset_questions) {
                         onMenuResetQuestions(message);
@@ -6631,6 +6637,73 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 }
             }.execute(context, owner, args, "message:resync");
 
+        }
+
+        private void onMenuJsoup(TupleMessageEx message) {
+            if (!tvBody.hasSelection())
+                return;
+
+            Bundle args = new Bundle();
+            args.putLong("id", message.id);
+            args.putString("selected",
+                    tvBody.getText().subSequence(tvBody.getSelectionStart(), tvBody.getSelectionEnd()).toString());
+
+            new SimpleTask<List<String>>() {
+                @Override
+                protected List<String> onExecute(Context context, Bundle args) throws IOException {
+                    long id = args.getLong("id");
+                    String selected = args.getString("selected");
+
+                    Map<String, EntityMessage> map = new HashMap<>();
+
+                    DB db = DB.getInstance(context);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null || !message.content)
+                        return null;
+
+                    Document d = JsoupEx.parse(message.getFile(context));
+
+                    List<String> result = new ArrayList<>();
+                    for (Element element : d.select(String.format("*:containsOwn(%s)", selected))) {
+                        List<String> path = new ArrayList<>();
+                        Element e = element;
+                        while (e != null && e.parent() != null /* skip #root */) {
+                            int index = 0;
+                            for (Element p : e.previousElementSiblings())
+                                if (Objects.equals(e.tagName(), p.tagName()))
+                                    index++;
+                            path.add(String.format("%s:eq(%d)", e.tagName(), index));
+                            e = e.parent();
+                        }
+                        Collections.reverse(path);
+                        result.add(TextUtils.join(" > ", path));
+                    }
+
+                    return result;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, List<String> jsoup) {
+                    if (jsoup != null && jsoup.size() > 0) {
+                        ClipboardManager clipboard = Helper.getSystemService(context, ClipboardManager.class);
+                        if (clipboard == null)
+                            return;
+
+                        ClipData clip = ClipData.newPlainText(
+                                context.getString(R.string.app_name),
+                                jsoup.get(0));
+                        clipboard.setPrimaryClip(clip);
+
+                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+                            ToastEx.makeText(context, jsoup.get(0), Toast.LENGTH_LONG).show();
+                    }
+                }
+
+                @Override
+                protected void onException(Bundle args, Throwable ex) {
+                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                }
+            }.execute(context, owner, args, "message:jsoup");
         }
 
         private void onMenuResetQuestions(TupleMessageEx message) {

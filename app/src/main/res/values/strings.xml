@@ -1724,6 +1724,7 @@
     <string name="title_encrypt">Encrypt</string>
     <string name="title_decrypt">Decrypt</string>
     <string name="title_thread_info" translatable="false">Thread info</string>
+    <string name="title_jsoup" translatable="false">Jsoup</string>
     <string name="title_reset_message_questions">Reset link questions</string>
     <string name="title_resync">Resync</string>
     <string name="title_charset">Encoding</string>
