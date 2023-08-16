@@ -6011,7 +6011,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_raw_send_thread).setEnabled(canRaw);
 
             popupMenu.getMenu().findItem(R.id.menu_thread_info)
-                    .setVisible(BuildConfig.TEST_RELEASE || BuildConfig.DEBUG || debug);
+                    .setVisible(BuildConfig.DEBUG || debug);
             popupMenu.getMenu().findItem(R.id.menu_jsoup)
                     .setVisible(BuildConfig.DEBUG || debug)
                     .setEnabled(message.content);
@@ -6636,7 +6636,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                 }
             }.execute(context, owner, args, "message:resync");
-
         }
 
         private void onMenuJsoup(TupleMessageEx message) {
