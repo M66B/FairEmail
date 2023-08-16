@@ -681,6 +681,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 submenu.add(Menu.FIRST, R.string.title_navigation_folder, 6, R.string.title_navigation_folder);
                 submenu.add(Menu.FIRST, R.string.title_navigation_folder_hide, 7, R.string.title_navigation_folder_hide);
                 submenu.add(Menu.FIRST, R.string.title_synchronize_more, 8, R.string.title_synchronize_more);
+                submenu.add(Menu.FIRST, R.string.title_download_batch_enable, 9, R.string.title_download_batch_enable);
+                submenu.add(Menu.FIRST, R.string.title_download_batch_disable, 10, R.string.title_download_batch_disable);
             }
 
             if (folder.account != null && folder.accountProtocol == EntityAccount.TYPE_IMAP)
@@ -727,6 +729,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             return true;
                         } else if (itemId == R.string.title_synchronize_more) {
                             onActionSyncMore(true);
+                            return true;
+                        } else if (itemId == R.string.title_download_batch_enable) {
+                            onActionEnableDownload(true);
+                            return true;
+                        } else if (itemId == R.string.title_download_batch_disable) {
+                            onActionEnableDownload(false);
                             return true;
                         }
                         return false;
@@ -1035,6 +1043,42 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     FragmentDialogSync sync = new FragmentDialogSync();
                     sync.setArguments(args);
                     sync.show(parentFragment.getParentFragmentManager(), "folder:months");
+                }
+
+                private void onActionEnableDownload(boolean enabled) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", folder.id);
+                    args.putBoolean("enabled", enabled);
+
+                    new SimpleTask<Void>() {
+                        @Override
+                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                            long id = args.getLong("id");
+                            boolean enabled = args.getBoolean("enabled");
+
+                            DB db = DB.getInstance(context);
+                            try {
+                                db.beginTransaction();
+                                List<EntityFolder> children = db.folder().getChildFolders(id);
+                                if (children == null)
+                                    return null;
+
+                                for (EntityFolder child : children)
+                                    db.folder().setFolderDownload(child.id, enabled);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            return null;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "children:download");
                 }
 
                 private void onActionProperty(int property, boolean enabled) {

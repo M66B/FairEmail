@@ -1251,6 +1251,8 @@
     <string name="title_synchronize_batch_disable">Disable synchronization</string>
     <string name="title_notify_batch_enable">Enable new message notifications</string>
     <string name="title_notify_batch_disable">Disable new message notifications</string>
+    <string name="title_download_batch_enable">Download texts and attachments</string>
+    <string name="title_download_batch_disable">Download headers only</string>
     <string name="title_delete_local">Delete local messages</string>
     <string name="title_delete_browsed">Delete browsed/searched messages</string>
     <string name="title_expunge">Expunge</string>
