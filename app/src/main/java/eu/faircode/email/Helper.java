@@ -940,14 +940,18 @@ public class Helper {
     }
 
     static Intent getChooser(Context context, Intent intent) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean app_chooser = prefs.getBoolean("app_chooser", true);
+        if (!app_chooser)
+            return intent;
+
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
             PackageManager pm = context.getPackageManager();
             if (pm.queryIntentActivities(intent, 0).size() == 1)
                 return intent;
-            else
-                return Intent.createChooser(intent, context.getString(R.string.title_select_app));
-        } else
-            return Intent.createChooser(intent, context.getString(R.string.title_select_app));
+        }
+
+        return Intent.createChooser(intent, context.getString(R.string.title_select_app));
     }
 
     static void share(Context context, File file, String type, String name) {
