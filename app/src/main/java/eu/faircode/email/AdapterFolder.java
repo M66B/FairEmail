@@ -662,12 +662,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         .setCheckable(true)
                         .setChecked(folder.hide);
 
-            int childs = 0;
+            int children = 0;
             if (folder.child_refs != null)
                 for (TupleFolderEx child : folder.child_refs)
                     if (child.selectable)
-                        childs++;
-            if (childs > 0) {
+                        children++;
+            if (children > 0) {
                 SubMenu submenu = popupMenu.getMenu()
                         .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_synchronize_subfolders);
 
@@ -808,16 +808,16 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     return false;
                 }
 
-                private void onActionSync(boolean childs) {
+                private void onActionSync(boolean children) {
                     Bundle args = new Bundle();
                     args.putLong("folder", folder.id);
-                    args.putBoolean("childs", childs);
+                    args.putBoolean("children", children);
 
                     new SimpleTask<Void>() {
                         @Override
                         protected Void onExecute(Context context, Bundle args) {
                             long fid = args.getLong("folder");
-                            boolean childs = args.getBoolean("childs");
+                            boolean children = args.getBoolean("children");
 
                             if (!ConnectionHelper.getNetworkState(context).isSuitable())
                                 throw new IllegalStateException(context.getString(R.string.title_no_internet));
@@ -833,9 +833,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                                     return null;
 
                                 if (folder.selectable)
-                                    EntityOperation.sync(context, folder.id, true, !childs);
+                                    EntityOperation.sync(context, folder.id, true, !children);
 
-                                if (childs) {
+                                if (children) {
                                     List<EntityFolder> folders = db.folder().getChildFolders(folder.id);
                                     if (folders != null)
                                         for (EntityFolder child : folders)
@@ -902,11 +902,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
-                                List<EntityFolder> childs = db.folder().getChildFolders(id);
-                                if (childs == null)
+                                List<EntityFolder> children = db.folder().getChildFolders(id);
+                                if (children == null)
                                     return null;
 
-                                for (EntityFolder child : childs)
+                                for (EntityFolder child : children)
                                     db.folder().setFolderSynchronize(child.id, enabled);
 
                                 db.setTransactionSuccessful();
@@ -923,7 +923,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
-                    }.execute(context, owner, args, "enable");
+                    }.execute(context, owner, args, "children:sync");
                 }
 
                 private void onActionEnableNotify(boolean enabled) {
@@ -940,11 +940,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
-                                List<EntityFolder> childs = db.folder().getChildFolders(id);
-                                if (childs == null)
+                                List<EntityFolder> children = db.folder().getChildFolders(id);
+                                if (children == null)
                                     return null;
 
-                                for (EntityFolder child : childs)
+                                for (EntityFolder child : children)
                                     db.folder().setFolderNotify(child.id, enabled);
 
                                 db.setTransactionSuccessful();
@@ -959,7 +959,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
-                    }.execute(context, owner, args, "enable");
+                    }.execute(context, owner, args, "children:notify");
                 }
 
                 private void onActionUnifiedInbox(boolean add) {
@@ -976,11 +976,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
-                                List<EntityFolder> childs = db.folder().getChildFolders(id);
-                                if (childs == null)
+                                List<EntityFolder> children = db.folder().getChildFolders(id);
+                                if (children == null)
                                     return null;
 
-                                for (EntityFolder child : childs)
+                                for (EntityFolder child : children)
                                     db.folder().setFolderUnified(child.id, add);
 
                                 db.setTransactionSuccessful();
@@ -995,7 +995,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
-                    }.execute(context, owner, args, "unified");
+                    }.execute(context, owner, args, "children:unified");
                 }
 
                 private void onActionEnableNavigationMenu(boolean enabled) {
@@ -1012,11 +1012,11 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                             DB db = DB.getInstance(context);
                             try {
                                 db.beginTransaction();
-                                List<EntityFolder> childs = db.folder().getChildFolders(id);
-                                if (childs == null)
+                                List<EntityFolder> children = db.folder().getChildFolders(id);
+                                if (children == null)
                                     return null;
 
-                                for (EntityFolder child : childs)
+                                for (EntityFolder child : children)
                                     db.folder().setFolderNavigation(child.id, enabled);
 
                                 db.setTransactionSuccessful();
@@ -1031,7 +1031,7 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                         protected void onException(Bundle args, Throwable ex) {
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
-                    }.execute(context, owner, args, "enable");
+                    }.execute(context, owner, args, "children:navigation");
                 }
 
                 private void onActionSyncMore(boolean children) {
