@@ -1363,15 +1363,18 @@ public class EntityRule {
                 }
 
                 Element e = d.select(selector).first();
-                if (e == null)
+                if (e == null) {
                     notes = null;
-                else {
+                    Log.w("Nothing selected Jsoup=" + selector);
+                } else {
                     notes = e.ownText();
                     if (!TextUtils.isEmpty(regex)) {
                         Pattern p = Pattern.compile(regex);
                         Matcher m = p.matcher(notes);
                         if (m.matches() && m.groupCount() > 0)
                             notes = m.group(1);
+                        else
+                            Log.w("Nothing selected regex=" + regex + " value=" + notes);
                     }
                 }
             }
