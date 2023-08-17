@@ -1349,6 +1349,7 @@ public class EntityRule {
                     Log.e(ex);
                 }
             }
+
             if (html != null) {
                 Document d = JsoupEx.parse(html);
                 String selector = notes.substring(JSOUP_PREFIX.length());
@@ -1362,7 +1363,9 @@ public class EntityRule {
                 }
 
                 Element e = d.select(selector).first();
-                if (e != null) {
+                if (e == null)
+                    notes = null;
+                else {
                     notes = e.ownText();
                     if (!TextUtils.isEmpty(regex)) {
                         Pattern p = Pattern.compile(regex);
