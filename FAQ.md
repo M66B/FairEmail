@@ -5484,6 +5484,7 @@ A feature will be considered useful to most people if more than 0.1% of the user
 
 Features not fulfilling these requirements will likely be rejected.
 This is also to keep maintenance and support in the long term feasible.
+Please see also this Wikipedia article about [feature creep](https://en.wikipedia.org/wiki/Feature_creep).
 
 Note that there are already more features and options in FairEmail than in any other Android email client.
 
