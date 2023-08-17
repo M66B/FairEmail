@@ -258,12 +258,21 @@ public class CloudSync {
         if (accounts == null || accounts.size() == 0)
             return;
 
+        List<String> uuidAccounts = new ArrayList<>();
+        List<String> uuidIdentities = new ArrayList<>();
+
         JSONArray jupload = new JSONArray();
 
         JSONArray jaccountuuidlist = new JSONArray();
         for (EntityAccount account : accounts)
             if (account.synchronize && !TextUtils.isEmpty(account.uuid) &&
                     account.auth_type != ServiceAuthenticator.AUTH_TYPE_GMAIL) {
+                if (uuidAccounts.contains(account.uuid)) {
+                    Log.w("Duplicate account uuid=" + account.uuid);
+                    continue;
+                } else
+                    uuidAccounts.add(account.uuid);
+
                 jaccountuuidlist.put(account.uuid);
 
                 JSONArray jidentitieuuids = new JSONArray();
@@ -271,6 +280,12 @@ public class CloudSync {
                 if (identities != null)
                     for (EntityIdentity identity : identities)
                         if (identity.synchronize && !TextUtils.isEmpty(identity.uuid)) {
+                            if (uuidIdentities.contains(identity.uuid)) {
+                                Log.w("Duplicate identity uuid=" + identity.uuid);
+                                continue;
+                            } else
+                                uuidIdentities.add(identity.uuid);
+
                             jidentitieuuids.put(identity.uuid);
 
                             JSONObject jidentity = identity.toJSON();
