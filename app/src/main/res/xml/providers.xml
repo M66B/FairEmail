@@ -2118,4 +2118,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="TPG.com.au"
+        domain="tpg\\.com\\.au"
+        link="https://support.tpg.com.au/email-settings#toc_4">
+        <imap
+            host="mail.tpg.com.au"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="mail.tpg.com.au"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
