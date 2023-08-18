@@ -105,6 +105,9 @@ public interface DaoIdentity {
     @Update
     void updateIdentity(EntityIdentity identity);
 
+    @Query("UPDATE identity SET uuid = :uuid WHERE id = :id AND NOT (uuid IS :uuid)")
+    int setIdentityUuid(long id, String uuid);
+
     @Query("UPDATE identity SET synchronize = :synchronize WHERE id = :id AND NOT (synchronize IS :synchronize)")
     int setIdentitySynchronize(long id, boolean synchronize);
 

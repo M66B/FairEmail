@@ -192,6 +192,9 @@ public interface DaoAccount {
     @Update
     void updateAccount(EntityAccount account);
 
+    @Query("UPDATE account SET uuid = :uuid WHERE id = :id AND NOT (uuid IS :uuid)")
+    int setAccountUuid(long id, String uuid);
+
     @Query("UPDATE account SET synchronize = :synchronize WHERE id = :id AND NOT (synchronize IS :synchronize)")
     int setAccountSynchronize(long id, boolean synchronize);
 

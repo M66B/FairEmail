@@ -56,6 +56,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -269,7 +270,8 @@ public class CloudSync {
                     account.auth_type != ServiceAuthenticator.AUTH_TYPE_GMAIL) {
                 if (uuidAccounts.contains(account.uuid)) {
                     Log.w("Duplicate account uuid=" + account.uuid);
-                    continue;
+                    account.uuid = UUID.randomUUID().toString();
+                    db.account().setAccountUuid(account.id, account.uuid);
                 } else
                     uuidAccounts.add(account.uuid);
 
@@ -282,7 +284,8 @@ public class CloudSync {
                         if (identity.synchronize && !TextUtils.isEmpty(identity.uuid)) {
                             if (uuidIdentities.contains(identity.uuid)) {
                                 Log.w("Duplicate identity uuid=" + identity.uuid);
-                                continue;
+                                identity.uuid = UUID.randomUUID().toString();
+                                db.identity().setIdentityUuid(identity.id, identity.uuid);
                             } else
                                 uuidIdentities.add(identity.uuid);
 
