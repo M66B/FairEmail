@@ -231,7 +231,8 @@ public class EntityAttachment {
         if ("audio/mid".equals(type))
             return "audio/midi";
 
-        if ("audio-x/wav".equals(type))
+        if ("audio/x-wav".equals(type) ||
+                "audio-x/wav".equals(type))
             return "audio/wav";
 
         // https://www.rfc-editor.org/rfc/rfc3555.txt
@@ -320,6 +321,9 @@ public class EntityAttachment {
 
         if ("ogg".equals(extension))
             return "application/ogg";
+
+        if ("wav".equals(extension))
+            return "audio/wav";
 
         // Images
 
