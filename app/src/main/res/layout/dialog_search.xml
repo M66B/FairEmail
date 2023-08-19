@@ -207,6 +207,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnSearch1" />
 
+        <TextView
+            android:id="@+id/tvHintFts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/title_search_hint_fts"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHint" />
+
         <ImageButton
             android:id="@+id/ibMore"
             android:layout_width="wrap_content"
@@ -215,7 +227,7 @@
             android:background="?android:attr/selectableItemBackgroundBorderless"
             android:padding="3dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvHint"
+            app:layout_constraintTop_toBottomOf="@id/tvHintFts"
             app:srcCompat="@drawable/expander" />
 
         <TextView

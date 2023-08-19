@@ -105,6 +105,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         ImageButton ibInvite = dview.findViewById(R.id.ibInvite);
         ImageButton ibAttachment = dview.findViewById(R.id.ibAttachment);
         ImageButton ibNotes = dview.findViewById(R.id.ibNotes);
+        TextView tvHintFts = dview.findViewById(R.id.tvHintFts);
         ibMore = dview.findViewById(R.id.ibMore);
         tvMore = dview.findViewById(R.id.tvMore);
         CheckBox cbSearchIndex = dview.findViewById(R.id.cbSearchIndex);
@@ -252,6 +253,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         });
 
+        tvHintFts.setVisibility(last_fts && fts && pro ? View.VISIBLE : View.GONE);
+
         View.OnClickListener onMore = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -288,6 +291,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_fts", isChecked).apply();
+                tvHintFts.setVisibility(isChecked && fts && pro ? View.VISIBLE : View.GONE);
             }
         });
 
