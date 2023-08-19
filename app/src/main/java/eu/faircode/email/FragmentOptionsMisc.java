@@ -115,6 +115,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExternalAnswer;
     private SwitchCompat swShortcuts;
     private SwitchCompat swFts;
+    private SwitchCompat swFtsFallback;
     private SwitchCompat swClassification;
     private TextView tvClassMinProbability;
     private SeekBar sbClassMinProbability;
@@ -279,7 +280,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private static final long MIN_FILE_SIZE = 1024 * 1024L;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "sort_answers", "shortcuts", "fts",
+            "sort_answers", "shortcuts", "fts", "fts_fallback",
             "classification", "class_min_probability", "class_min_difference",
             "show_filtered",
             "language",
@@ -368,6 +369,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExternalAnswer = view.findViewById(R.id.swExternalAnswer);
         swShortcuts = view.findViewById(R.id.swShortcuts);
         swFts = view.findViewById(R.id.swFts);
+        swFtsFallback = view.findViewById(R.id.swFtsFallback);
         swClassification = view.findViewById(R.id.swClassification);
         ibClassification = view.findViewById(R.id.ibClassification);
         tvClassMinProbability = view.findViewById(R.id.tvClassMinProbability);
@@ -586,6 +588,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("fts", checked).apply();
+                swFtsFallback.setEnabled(checked);
 
                 WorkerFts.init(getContext(), true);
 
@@ -616,6 +619,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         }
                     }.execute(FragmentOptionsMisc.this, args, "fts:reset");
                 }
+            }
+        });
+
+        swFtsFallback.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("fts_fallback", checked).apply();
             }
         });
 
@@ -2472,6 +2482,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swExternalAnswer.setChecked(Helper.isComponentEnabled(getContext(), ActivityAnswer.class));
             swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
             swFts.setChecked(prefs.getBoolean("fts", false));
+            swFtsFallback.setChecked(prefs.getBoolean("fts_fallback", true));
+            swFtsFallback.setEnabled(swFts.isChecked());
 
             swClassification.setChecked(prefs.getBoolean("classification", false));
 

@@ -365,6 +365,7 @@ public class FragmentMessages extends FragmentBase
     private boolean reset = false;
     private boolean initialized = false;
     private boolean loading = false;
+    private boolean scan = false;
     private boolean swiping = false;
     private boolean scrolling = false;
     private boolean navigating = false;
@@ -6862,6 +6863,7 @@ public class FragmentMessages extends FragmentBase
 
         initialized = false;
         loading = false;
+        scan = false;
         vmodel.setCallback(getViewLifecycleOwner(), callback);
         vmodel.setObserver(getViewLifecycleOwner(), observer);
     }
@@ -6870,7 +6872,13 @@ public class FragmentMessages extends FragmentBase
         @Override
         public void onLoading() {
             loading = true;
+            scan = false;
             updateListState("Loading", SimpleTask.getCount(), adapter == null ? 0 : adapter.getItemCount());
+        }
+
+        public void onScan() {
+            scan = true;
+            updateListState("Scan", SimpleTask.getCount(), adapter == null ? 0 : adapter.getItemCount());
         }
 
         @Override
@@ -6988,12 +6996,18 @@ public class FragmentMessages extends FragmentBase
                 (language_detection && !TextUtils.isEmpty(filter_language) && !outbox));
 
         boolean none = (items == 0 && initialized);
+        boolean partial = (viewType == AdapterMessage.ViewType.SEARCH && !server && loading && scan && items == 0);
         boolean searching = (viewType == AdapterMessage.ViewType.SEARCH && server && (!initialized || loading) && items == 0);
         boolean filtered = (filter_active && viewType != AdapterMessage.ViewType.SEARCH);
 
         pbWait.setVisibility(loading || tasks > 0 ? View.VISIBLE : View.GONE);
-        tvNoEmail.setText(searching ? R.string.title_search_server_wait : R.string.title_no_messages);
-        tvNoEmail.setVisibility(none || searching ? View.VISIBLE : View.GONE);
+        if (partial)
+            tvNoEmail.setText(R.string.title_search_device_scan);
+        else if (searching)
+            tvNoEmail.setText(R.string.title_search_server_wait);
+        else
+            tvNoEmail.setText(R.string.title_no_messages);
+        tvNoEmail.setVisibility(none || scan || searching ? View.VISIBLE : View.GONE);
         tvNoEmailHint.setVisibility(none && filtered ? View.VISIBLE : View.GONE);
 
         if (BuildConfig.DEBUG)
@@ -7001,8 +7015,11 @@ public class FragmentMessages extends FragmentBase
 
         Log.i("List state who=" + Helper.getWho(this) + "" +
                 " reason=" + reason +
-                " tasks=" + tasks + " loading=" + loading +
-                " items=" + items + " initialized=" + initialized +
+                " tasks=" + tasks +
+                " initialized=" + initialized +
+                " loading=" + loading +
+                " scan=" + scan +
+                " items=" + items +
                 " wait=" + (pbWait.getVisibility() == View.VISIBLE) +
                 " no=" + (tvNoEmail.getVisibility() == View.VISIBLE));
     }

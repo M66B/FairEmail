@@ -108,6 +108,8 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
     interface IBoundaryCallbackMessages {
         void onLoading();
 
+        void onScan();
+
         void onLoaded(int found);
 
         void onWarning(String message);
@@ -325,8 +327,19 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 db.endTransaction();
             }
 
-            if (state.ids.size() > 0)
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean fts_fallback = prefs.getBoolean("fts_fallback", true);
+
+            if (!fts_fallback || state.ids.size() > 0 || state.matches != null)
                 return found;
+            else
+                ApplicationEx.getMainHandler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (intf != null)
+                            intf.onScan();
+                    }
+                });
         }
 
         while (found < pageSize && !state.destroyed) {
