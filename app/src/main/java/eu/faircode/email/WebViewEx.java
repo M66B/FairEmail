@@ -56,13 +56,14 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
 
     private static String userAgent = null;
 
+    static final int DEFAULT_VIEWPORT_HEIGHT = 8000;
     private static final long PAGE_LOADED_FALLBACK_DELAY = 1500L; // milliseconds
 
     public WebViewEx(Context context) {
         super(context);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        this.viewportHeight = prefs.getInt("viewport_height", 8000);
+        this.viewportHeight = prefs.getInt("viewport_height", DEFAULT_VIEWPORT_HEIGHT);
         boolean overview_mode = prefs.getBoolean("overview_mode", false);
         boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
 

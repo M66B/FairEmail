@@ -1632,6 +1632,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        etViewportHeight.setHint(Integer.toString(WebViewEx.DEFAULT_VIEWPORT_HEIGHT));
         etViewportHeight.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -1646,7 +1647,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void afterTextChanged(Editable edit) {
                 try {
-                    prefs.edit().putInt("viewport_height", Integer.parseInt(edit.toString())).apply();
+                    String vh = edit.toString();
+                    if (TextUtils.isEmpty(vh))
+                        prefs.edit().remove("viewport_height").apply();
+                    else
+                        prefs.edit().putInt("viewport_height", Integer.parseInt(vh)).apply();
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
@@ -2597,7 +2602,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swUndoManager.setChecked(prefs.getBoolean("undo_manager", false));
             swBrowserZoom.setChecked(prefs.getBoolean("browser_zoom", false));
             swFakeDark.setChecked(prefs.getBoolean("fake_dark", false));
-            etViewportHeight.setText(Integer.toString(prefs.getInt("viewport_height", 8000)));
+            if (prefs.contains("viewport_height")) {
+                int vh = prefs.getInt("viewport_height", WebViewEx.DEFAULT_VIEWPORT_HEIGHT);
+                etViewportHeight.setText(Integer.toString(vh));
+            } else
+                etViewportHeight.setText(null);
             swShowRecent.setChecked(prefs.getBoolean("show_recent", false));
             swModSeq.setChecked(prefs.getBoolean("use_modseq", true));
             swPreamble.setChecked(prefs.getBoolean("preamble", false));
