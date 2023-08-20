@@ -897,14 +897,18 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         if (word.size() == 0)
             return true;
 
+        // \b is limited to [0-9A-Za-z_]
+        String b = "(^|\\s+)";
+        String a = "($|\\s+)";
+
         StringBuilder sb = new StringBuilder();
-        sb.append(partial ? ".*(" : ".*?\\b(");
+        sb.append(partial ? ".*(" : ".*?" + b + "(");
         for (int i = 0; i < word.size(); i++) {
             if (i > 0)
                 sb.append("\\s+");
             sb.append(Pattern.quote(word.get(i)));
         }
-        sb.append(partial ? ").*" : ")\\b.*?");
+        sb.append(partial ? ").*" : ")" + a + ".*?");
 
         Pattern pat = Pattern.compile(sb.toString(), Pattern.DOTALL);
         return pat.matcher(text).matches();
