@@ -126,6 +126,7 @@ import javax.mail.Store;
 import javax.mail.StoreClosedException;
 import javax.mail.UIDFolder;
 import javax.mail.internet.AddressException;
+import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
@@ -2169,6 +2170,15 @@ class Core {
                         disposition = Part.ATTACHMENT;
 
                     multipart.removeBodyPart(i);
+
+                    try {
+                        // Can't upload empty message/rfc822
+                        ContentType ct = new ContentType(contentType);
+                        if ("message/rfc822".equalsIgnoreCase(ct.getBaseType()))
+                            contentType = "application/octet-stream";
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                    }
 
                     BodyPart placeholderPart = new MimeBodyPart();
                     placeholderPart.setContent("", contentType);
