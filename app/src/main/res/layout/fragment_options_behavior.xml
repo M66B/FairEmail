@@ -759,6 +759,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
                     android:checked="true"
+                    android:tag="nosuggest"
                     android:text="@string/title_advanced_photo_picker"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

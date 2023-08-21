@@ -375,6 +375,8 @@ public class ApplicationEx extends Application
         if (version < BuildConfig.VERSION_CODE)
             editor.remove("crash_report_count");
 
+        editor.remove("photo_picker");
+
         if (!BuildConfig.TEST_RELEASE)
             editor.remove("test1").remove("test2").remove("test3").remove("test4").remove("test5");
 
@@ -730,7 +732,7 @@ public class ApplicationEx extends Application
             if (override_width)
                 editor.putBoolean("overview_mode", true);
             editor.remove("override_width");
-        } else if (version < 2089){
+        } else if (version < 2089) {
             if (!prefs.contains("auto_hide_answer"))
                 editor.putBoolean("auto_hide_answer", !Helper.isAccessibilityEnabled(context));
         }
