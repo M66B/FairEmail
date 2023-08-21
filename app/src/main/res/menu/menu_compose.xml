@@ -94,13 +94,17 @@
             android:id="@+id/menu_manage_android_contacts"
             android:icon="@drawable/twotone_contacts_24"
             android:title="@string/title_manage_android_contacts"
-            app:showAsAction="never" />
+            app:showAsAction="never">
+            <menu />
+        </item>
 
         <item
             android:id="@+id/menu_manage_local_contacts"
             android:icon="@drawable/twotone_import_contacts_24"
             android:title="@string/title_manage_local_contacts"
-            app:showAsAction="never" />
+            app:showAsAction="never">
+            <menu />
+        </item>
 
         <item
             android:id="@+id/menu_answer_insert"
