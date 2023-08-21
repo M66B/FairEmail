@@ -1869,6 +1869,7 @@ public class FragmentCompose extends FragmentBase {
         menu.findItem(R.id.menu_media).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_compact).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_contact_group).setEnabled(state == State.LOADED);
+        menu.findItem(R.id.menu_manage_android_contacts).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_manage_local_contacts).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_answer_insert).setEnabled(state == State.LOADED);
         menu.findItem(R.id.menu_answer_create).setEnabled(state == State.LOADED);
@@ -2013,6 +2014,9 @@ public class FragmentCompose extends FragmentBase {
             return true;
         } else if (itemId == R.id.menu_contact_group) {
             onMenuContactGroup();
+            return true;
+        } else if (itemId == R.id.menu_manage_android_contacts) {
+            onMenuManageAndroidContacts();
             return true;
         } else if (itemId == R.id.menu_manage_local_contacts) {
             onMenuManageLocalContacts();
@@ -2266,6 +2270,11 @@ public class FragmentCompose extends FragmentBase {
 
     private void onMenuContactGroup() {
         onMenuContactGroup(view.findFocus());
+    }
+
+    private void onMenuManageAndroidContacts() {
+        Intent intent = new Intent(Intent.ACTION_VIEW, ContactsContract.Contacts.CONTENT_URI);
+        startActivity(intent);
     }
 
     private void onMenuManageLocalContacts() {
