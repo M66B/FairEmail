@@ -375,7 +375,8 @@ public class ApplicationEx extends Application
         if (version < BuildConfig.VERSION_CODE)
             editor.remove("crash_report_count");
 
-        editor.remove("photo_picker");
+        if (!BuildConfig.DEBUG)
+            editor.remove("photo_picker");
 
         if (!BuildConfig.TEST_RELEASE)
             editor.remove("test1").remove("test2").remove("test3").remove("test4").remove("test5");
