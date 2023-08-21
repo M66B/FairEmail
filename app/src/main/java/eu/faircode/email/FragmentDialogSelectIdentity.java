@@ -77,6 +77,7 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
 
             @Override
             protected void onExecuted(Bundle args, List<TupleIdentityEx> identities) {
+                EntityLog.log(context, "Composable identities=" + (identities == null ? null : identities.size()));
                 adapter.addAll(identities);
             }
 
