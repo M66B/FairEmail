@@ -7901,6 +7901,7 @@ public class FragmentCompose extends FragmentBase {
     private static UriInfo getInfo(Uri uri, Context context) {
         UriInfo result = new UriInfo();
 
+        // https://stackoverflow.com/questions/76094229/android-13-photo-video-picker-file-name-from-the-uri-is-garbage
         DocumentFile dfile = null;
         try {
             dfile = DocumentFile.fromSingleUri(context, uri);
