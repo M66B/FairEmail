@@ -519,7 +519,7 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
             }
         });
 
-        swPhotoPicker.setVisibility(Helper.hasPhotoPicker() && BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
+        swPhotoPicker.setVisibility(Helper.hasPhotoPicker() ? View.VISIBLE : View.GONE);
         swPhotoPicker.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {

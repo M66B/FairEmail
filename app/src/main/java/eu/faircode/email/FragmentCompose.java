@@ -3525,7 +3525,7 @@ public class FragmentCompose extends FragmentBase {
             Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
             intent.addCategory(Intent.CATEGORY_OPENABLE);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            intent.setType("image/*");
+            intent.setType("*/*");
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             if (intent.resolveActivity(pm) == null) // GET_CONTENT whitelisted
                 noStorageAccessFramework();
@@ -3584,7 +3584,7 @@ public class FragmentCompose extends FragmentBase {
                     EntityAttachment attachment = addAttachment(context, id, uri, type, image, resize, privacy);
                     if (attachment == null)
                         continue;
-                    if (!image)
+                    if (!image || !attachment.isImage())
                         continue;
 
                     File file = attachment.getFile(context);
