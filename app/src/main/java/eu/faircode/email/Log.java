@@ -2078,8 +2078,8 @@ public class Log {
             }
         }
 
-        sb.append(String.format("Log main: %b protocol: %b debug: %b build: %b\r\n",
-                main_log, protocol, Log.isDebugLogLevel(), BuildConfig.DEBUG));
+        sb.append(String.format("Log main: %b protocol: %b debug: %b build: %b test: %b\r\n",
+                main_log, protocol, Log.isDebugLogLevel(), BuildConfig.DEBUG, BuildConfig.TEST_RELEASE));
 
         int[] contacts = ContactInfo.getStats();
         sb.append(String.format("Contact lookup: %d cached: %d\r\n",
