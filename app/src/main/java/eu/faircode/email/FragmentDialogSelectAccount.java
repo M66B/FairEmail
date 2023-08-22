@@ -52,16 +52,21 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
-                EntityAccount account = (EntityAccount) getItem(position);
 
-                View vwColor = view.findViewById(R.id.vwColor);
-                TextView tv = view.findViewById(android.R.id.text1);
+                try {
+                    EntityAccount account = getItem(position);
 
-                int vpad = (getCount() > 10 ? dp6 : dp12);
-                tv.setPadding(0, vpad, 0, vpad);
+                    View vwColor = view.findViewById(R.id.vwColor);
+                    TextView tv = view.findViewById(android.R.id.text1);
 
-                vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
-                tv.setText(account.name);
+                    int vpad = (getCount() > 10 ? dp6 : dp12);
+                    tv.setPadding(0, vpad, 0, vpad);
+
+                    vwColor.setBackgroundColor(account.color == null ? Color.TRANSPARENT : account.color);
+                    tv.setText(account.name);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
 
                 return view;
             }

@@ -51,17 +51,22 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
-                TupleIdentityEx identity = getItem(position);
 
-                View vwColor = view.findViewById(R.id.vwColor);
-                TextView tv = view.findViewById(android.R.id.text1);
+                try {
+                    TupleIdentityEx identity = getItem(position);
 
-                int vpad = (getCount() > 10 ? dp6 : dp12);
-                tv.setPadding(0, vpad, 0, vpad);
+                    View vwColor = view.findViewById(R.id.vwColor);
+                    TextView tv = view.findViewById(android.R.id.text1);
 
-                Integer color = (identity.color == null ? identity.accountColor : identity.color);
-                vwColor.setBackgroundColor(color == null ? Color.TRANSPARENT : color);
-                tv.setText(identity.getDisplayName());
+                    int vpad = (getCount() > 10 ? dp6 : dp12);
+                    tv.setPadding(0, vpad, 0, vpad);
+
+                    Integer color = (identity.color == null ? identity.accountColor : identity.color);
+                    vwColor.setBackgroundColor(color == null ? Color.TRANSPARENT : color);
+                    tv.setText(identity.getDisplayName());
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
 
                 return view;
             }
