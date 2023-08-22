@@ -13,11 +13,12 @@
         android:layout_marginStart="6dp"
         app:layout_constraintBottom_toBottomOf="@android:id/text1"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@android:id/text1"
         app:layout_constraintTop_toTopOf="@android:id/text1" />
 
     <TextView
         android:id="@android:id/text1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:paddingVertical="12dp"
