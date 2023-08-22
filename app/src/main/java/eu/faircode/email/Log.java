@@ -263,14 +263,14 @@ public class Log {
     }
 
     public static int i(String msg) {
-        if (level <= android.util.Log.INFO || BuildConfig.DEBUG)
+        if (level <= android.util.Log.INFO || BuildConfig.DEBUG || BuildConfig.TEST_RELEASE)
             return android.util.Log.i(TAG, msg);
         else
             return 0;
     }
 
     public static int i(String tag, String msg) {
-        if (level <= android.util.Log.INFO || BuildConfig.DEBUG)
+        if (level <= android.util.Log.INFO || BuildConfig.DEBUG || BuildConfig.TEST_RELEASE)
             return android.util.Log.i(tag, msg);
         else
             return 0;
