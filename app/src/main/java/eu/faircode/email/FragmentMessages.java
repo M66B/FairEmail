@@ -6372,7 +6372,7 @@ public class FragmentMessages extends FragmentBase
         fragment.setArguments(args);
 
         FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("thread");
+        fragmentTransaction.replace(R.id.content_frame, fragment, "thread").addToBackStack("thread");
         fragmentTransaction.commit();
     }
 
@@ -7626,7 +7626,7 @@ public class FragmentMessages extends FragmentBase
                 int res = (pane ? R.id.content_pane : R.id.content_frame);
                 if (getActivity() != null && getActivity().findViewById(res) != null) {
                     FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(res, fragment).addToBackStack("thread");
+                    fragmentTransaction.replace(res, fragment, "thread").addToBackStack("thread");
                     fragmentTransaction.commit();
                 }
             }

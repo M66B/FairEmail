@@ -122,6 +122,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -1777,6 +1778,21 @@ public class Helper {
         ActivityOptions options = ActivityOptions.makeBasic();
         options.setPendingIntentBackgroundActivityLaunchAllowed(true);
         return options.toBundle();
+    }
+
+    static Fragment recreateFragment(Fragment fragment, FragmentManager fm) {
+        try {
+            Fragment.SavedState savedState = fm.saveFragmentInstanceState(fragment);
+            Bundle args = fragment.getArguments();
+
+            Fragment newFragment = fragment.getClass().newInstance();
+            newFragment.setInitialSavedState(savedState);
+            newFragment.setArguments(args);
+
+            return newFragment;
+        } catch (Throwable e) {
+            throw new RuntimeException("Cannot recreate fragment=" + fragment, e);
+        }
     }
 
     // Graphics
