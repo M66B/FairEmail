@@ -87,7 +87,6 @@ public class FragmentDialogSelectAccount extends FragmentDialogBase {
                         if (!account.isOutlook())
                             accounts.remove(account);
                 adapter.addAll(accounts);
-                adapter.notifyDataSetChanged();
             }
 
             @Override
