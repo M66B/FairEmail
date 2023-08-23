@@ -174,7 +174,7 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
         @Override
         @NonNull
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new ViewHolder(inflater.inflate(R.layout.spinner_account, parent, false));
+            return new ViewHolder(inflater.inflate(R.layout.item_account_select, parent, false));
         }
 
         @Override
