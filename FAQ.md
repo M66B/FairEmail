@@ -1839,6 +1839,8 @@ If you want to match a catch-all email address, this regex is usually fine, prov
 .*
 ```
 
+The username of a message being replied to will be used as the default username when editing of usernames is enabled in the advanced identity settings.
+
 If you want to *not* match specific addresses, you can use something like this:
 
 ```
