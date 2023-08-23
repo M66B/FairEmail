@@ -2630,7 +2630,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
             swThreadByRef.setChecked(prefs.getBoolean("thread_byref", true));
             swMdn.setChecked(prefs.getBoolean("mdn", swExperiments.isChecked()));
-            swAppChooser.setChecked(prefs.getBoolean("app_chooser", true));
+            swAppChooser.setChecked(prefs.getBoolean("app_chooser", false));
             swDeleteConfirmation.setChecked(prefs.getBoolean("delete_confirmation", true));
             etKeywords.setText(prefs.getString("global_keywords", null));
             swTestIab.setChecked(prefs.getBoolean("test_iab", false));

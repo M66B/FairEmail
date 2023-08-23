@@ -942,7 +942,7 @@ public class Helper {
 
     static Intent getChooser(Context context, Intent intent) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean app_chooser = prefs.getBoolean("app_chooser", true);
+        boolean app_chooser = prefs.getBoolean("app_chooser", false);
         if (!app_chooser)
             return intent;
 
