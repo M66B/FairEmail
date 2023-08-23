@@ -2131,4 +2131,19 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Countermail"
+        appPassword="true"
+        documentation="Instead of a password you should use &lt;a href=&quot;https://support.countermail.com/kb/faq.php?id=14&quot;&gt;an IMAP-key&lt;/a&gt;"
+        domain="countermail\\.com"
+        link="https://support.countermail.com/kb/faq.php?id=14">
+        <imap
+            host="imap1.countermail.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="imap1.countermail.com"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
