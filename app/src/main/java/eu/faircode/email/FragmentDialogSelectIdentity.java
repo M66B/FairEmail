@@ -25,6 +25,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -136,7 +137,8 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
 
                 Integer color = (identity.color == null ? identity.accountColor : identity.color);
                 vwColor.setBackgroundColor(color == null ? Color.TRANSPARENT : color);
-                tv.setText(identity.getDisplayName());
+                String name = identity.getDisplayName();
+                tv.setText(TextUtils.isEmpty(name) ? identity.email : name);
             }
 
             @Override
