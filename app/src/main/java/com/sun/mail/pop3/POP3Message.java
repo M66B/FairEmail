@@ -612,6 +612,12 @@ public class POP3Message extends MimeMessage implements ReadableMime {
 		    } finally {
 			hdrs.close();
 		    }
+			// Some servers truncate the headers
+			if (headers.getHeader("Content-Type", null) == null) {
+				hdrSize = -1;
+				headers = null;
+				fetchContent = true;
+			}
 		}
 	    }
 

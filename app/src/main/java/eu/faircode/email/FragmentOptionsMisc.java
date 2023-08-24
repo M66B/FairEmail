@@ -2616,7 +2616,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swAuthSasl.setChecked(prefs.getBoolean("auth_sasl", true));
             swAuthApop.setChecked(prefs.getBoolean("auth_apop", false));
             swUseTop.setChecked(prefs.getBoolean("use_top", true));
-            swForgetTop.setChecked(prefs.getBoolean("forget_top", true));
+            swForgetTop.setChecked(prefs.getBoolean("forget_top", false));
             swKeepAlivePoll.setChecked(prefs.getBoolean("keep_alive_poll", false));
             swEmptyPool.setChecked(prefs.getBoolean("empty_pool", true));
             swIdleDone.setChecked(prefs.getBoolean("idle_done", true));

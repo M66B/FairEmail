@@ -195,7 +195,7 @@ public class EmailService implements AutoCloseable {
         boolean auth_sasl = prefs.getBoolean("auth_sasl", true);
         boolean auth_apop = prefs.getBoolean("auth_apop", false);
         boolean use_top = prefs.getBoolean("use_top", true);
-        boolean forget_top = prefs.getBoolean("forget_top", true);
+        boolean forget_top = prefs.getBoolean("forget_top", false);
         Log.i("Authenticate" +
                 " plain=" + auth_plain +
                 " login=" + auth_login +
