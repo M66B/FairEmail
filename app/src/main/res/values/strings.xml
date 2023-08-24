@@ -887,6 +887,7 @@
     <string name="title_advanced_auth_sasl" translatable="false">SASL</string>
     <string name="title_advanced_auth_apop" translatable="false">APOP</string>
     <string name="title_advanced_use_top" translatable="false">Use TOP</string>
+    <string name="title_advanced_forget_top" translatable="false">Forget TOP headers</string>
     <string name="title_advanced_idle_done" translatable="false">IDLE/DONE</string>
     <string name="title_advanced_fast_fetch" translatable="false">Fast FETCH</string>
     <string name="title_advanced_max_backoff" translatable="false">Max. back-off: %1$d s</string>

@@ -224,6 +224,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAuthSasl;
     private SwitchCompat swAuthApop;
     private SwitchCompat swUseTop;
+    private SwitchCompat swForgetTop;
     private SwitchCompat swKeepAlivePoll;
     private SwitchCompat swEmptyPool;
     private SwitchCompat swIdleDone;
@@ -299,7 +300,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "browser_zoom", "fake_dark",
             "show_recent",
             "use_modseq", "preamble", "uid_command", "perform_expunge", "uid_expunge",
-            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", "use_top",
+            "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", "use_top", "forget_top",
             "keep_alive_poll", "empty_pool", "idle_done", "fast_fetch",
             "max_backoff_power", "logarithmic_backoff",
             "exact_alarms",
@@ -477,6 +478,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAuthSasl = view.findViewById(R.id.swAuthSasl);
         swAuthApop = view.findViewById(R.id.swAuthApop);
         swUseTop = view.findViewById(R.id.swUseTop);
+        swForgetTop = view.findViewById(R.id.swForgetTop);
         swKeepAlivePoll = view.findViewById(R.id.swKeepAlivePoll);
         swEmptyPool = view.findViewById(R.id.swEmptyPool);
         swIdleDone = view.findViewById(R.id.swIdleDone);
@@ -1738,6 +1740,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swForgetTop.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("forget_top", checked).apply();
+            }
+        });
+
         swKeepAlivePoll.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2607,6 +2616,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swAuthSasl.setChecked(prefs.getBoolean("auth_sasl", true));
             swAuthApop.setChecked(prefs.getBoolean("auth_apop", false));
             swUseTop.setChecked(prefs.getBoolean("use_top", true));
+            swForgetTop.setChecked(prefs.getBoolean("forget_top", true));
             swKeepAlivePoll.setChecked(prefs.getBoolean("keep_alive_poll", false));
             swEmptyPool.setChecked(prefs.getBoolean("empty_pool", true));
             swIdleDone.setChecked(prefs.getBoolean("idle_done", true));
