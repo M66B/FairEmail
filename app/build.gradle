@@ -99,6 +99,7 @@ android {
     }
     packagingOptions {
         jniLibs {
+            useLegacyPackaging = true // https://issuetracker.google.com/issues/127691101
             excludes += [
                     'org/apache/**'
             ]
