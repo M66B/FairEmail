@@ -127,13 +127,17 @@ public class TextHelper {
         }
     }
 
-    static String transliterate(Context context, String text) {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
-            return text;
-
+    static String transliterateNotification(Context context, String text) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean notify_transliterate = prefs.getBoolean("notify_transliterate", false);
         if (!notify_transliterate)
+            return text;
+
+        return transliterate(context, text);
+    }
+
+    static String transliterate(Context context, String text) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
             return text;
 
         try {
