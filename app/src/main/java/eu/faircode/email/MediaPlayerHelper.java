@@ -1,7 +1,10 @@
 package eu.faircode.email;
 
 import android.app.NotificationManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -49,6 +52,8 @@ public class MediaPlayerHelper {
     private static void play(Context context, Uri uri, boolean alarm, int duration) throws IOException {
         Semaphore sem = new Semaphore(0);
 
+        Log.i("Play uri=" + uri);
+
         AudioAttributes attrs = new AudioAttributes.Builder()
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
                 .setUsage(alarm ? AudioAttributes.USAGE_ALARM : AudioAttributes.USAGE_NOTIFICATION)
@@ -74,15 +79,35 @@ public class MediaPlayerHelper {
         });
         mediaPlayer.prepareAsync();
 
-        try {
-            boolean acquired = sem.tryAcquire(duration, TimeUnit.SECONDS);
-            EntityLog.log(context, "Alarm acquired=" + acquired);
-            if (!acquired) {
-                mediaPlayer.stop();
-                mediaPlayer.release();
+        BroadcastReceiver receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Log.i("Received " + intent);
+                if (intent.getAction().equals(Intent.ACTION_SCREEN_OFF) ||
+                        intent.getAction().equals(Intent.ACTION_SCREEN_ON))
+                    sem.release();
             }
-        } catch (Throwable ex) {
-            Log.w(ex);
+        };
+
+        try {
+            IntentFilter iff = new IntentFilter();
+            iff.addAction(Intent.ACTION_SCREEN_OFF);
+            iff.addAction(Intent.ACTION_SCREEN_ON);
+            context.registerReceiver(receiver, iff);
+
+            try {
+                boolean acquired = sem.tryAcquire(duration, TimeUnit.SECONDS);
+                EntityLog.log(context, "Alarm acquired=" + acquired +
+                        " playing=" + mediaPlayer.isPlaying());
+                if (!acquired || mediaPlayer.isPlaying()) {
+                    mediaPlayer.stop();
+                    mediaPlayer.release();
+                }
+            } catch (Throwable ex) {
+                Log.w(ex);
+            }
+        } finally {
+            context.unregisterReceiver(receiver);
         }
     }
 
