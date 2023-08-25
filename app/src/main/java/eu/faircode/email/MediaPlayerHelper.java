@@ -1,13 +1,16 @@
 package eu.faircode.email;
 
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 
+import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -20,6 +23,17 @@ import java.util.concurrent.TimeUnit;
 public class MediaPlayerHelper {
     static final int DEFAULT_SOUND_DURATION = 30; // seconds
     static final int DEFAULT_ALARM_DURATION = 30; // seconds
+
+    private static Object lock = new Object();
+    private static Semaphore sem;
+
+    static void stop(Context context) {
+        EntityLog.log(context, "Alarm stop");
+        synchronized (lock) {
+            if (sem != null)
+                sem.release();
+        }
+    }
 
     static void queue(Context context, String uri) {
         try {
@@ -47,7 +61,9 @@ public class MediaPlayerHelper {
     }
 
     private static void play(Context context, Uri uri, boolean alarm, int duration) throws IOException {
-        Semaphore sem = new Semaphore(0);
+        synchronized (lock) {
+            sem = new Semaphore(0);
+        }
 
         AudioAttributes attrs = new AudioAttributes.Builder()
                 .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -67,22 +83,56 @@ public class MediaPlayerHelper {
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                mp.stop();
-                mp.release();
                 sem.release();
             }
         });
         mediaPlayer.prepareAsync();
 
+        NotificationManager nm = Helper.getSystemService(context, NotificationManager.class);
+        if (alarm) {
+            Intent intent = new Intent(context, ServiceUI.class)
+                    .setAction("alarm");
+            PendingIntent piStop = PendingIntentCompat.getService(
+                    context, ServiceUI.PI_ALARM, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            NotificationCompat.Action.Builder actionStop = new NotificationCompat.Action.Builder(
+                    R.drawable.twotone_stop_24,
+                    context.getString(R.string.title_rule_alarm_stop),
+                    piStop)
+                    .setSemanticAction(NotificationCompat.Action.SEMANTIC_ACTION_MUTE)
+                    .setShowsUserInterface(false)
+                    .setAllowGeneratedReplies(false);
+
+            NotificationCompat.Builder builder =
+                    new NotificationCompat.Builder(context, "alerts")
+                            .setSmallIcon(R.drawable.baseline_warning_white_24)
+                            .setContentTitle(context.getString(R.string.title_rule_alarm_title))
+                            .setSilent(true)
+                            .setAutoCancel(false)
+                            .addAction(actionStop.build())
+                            .setShowWhen(true)
+                            .setPriority(NotificationCompat.PRIORITY_MAX)
+                            .setOnlyAlertOnce(true)
+                            .setCategory(NotificationCompat.CATEGORY_ALARM)
+                            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+
+            nm.notify("alarm", 1, builder.build());
+        }
+
         try {
             boolean acquired = sem.tryAcquire(duration, TimeUnit.SECONDS);
             EntityLog.log(context, "Alarm acquired=" + acquired);
-            if (!acquired) {
-                mediaPlayer.stop();
-                mediaPlayer.release();
-            }
+            mediaPlayer.stop();
+            mediaPlayer.release();
         } catch (Throwable ex) {
             Log.w(ex);
+        } finally {
+            if (alarm)
+                nm.cancel("alarm", 1);
+        }
+
+        synchronized (lock) {
+            sem = null;
         }
     }
 

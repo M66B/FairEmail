@@ -58,6 +58,7 @@ public class ServiceUI extends IntentService {
     static final int PI_SNOOZE = 10;
     static final int PI_IGNORED = 11;
     static final int PI_DELETE = 12;
+    static final int PI_ALARM = 13;
 
     public ServiceUI() {
         this(ServiceUI.class.getName());
@@ -175,6 +176,10 @@ public class ServiceUI extends IntentService {
 
                 case "exists":
                     // ignore
+                    break;
+
+                case "alarm":
+                    onAlarm(intent);
                     break;
 
                 default:
@@ -500,6 +505,10 @@ public class ServiceUI extends IntentService {
         long aid = intent.getLongExtra("account", -1L);
         long fid = intent.getLongExtra("folder", -1L);
         onSync(aid, fid, fid < 0);
+    }
+
+    private void onAlarm(Intent intent) {
+        MediaPlayerHelper.stop(this);
     }
 
     static void sync(Context context, Long account) {
