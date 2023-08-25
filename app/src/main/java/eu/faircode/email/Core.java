@@ -2277,6 +2277,11 @@ class Core {
         Message[] imessages = ifolder.search(account.isOutlook()
                 ? new HeaderTerm(MessageHelper.HEADER_CORRELATION_ID, message.msgid)
                 : new MessageIDTerm(message.msgid));
+        EntityLog.log(context, "MMM exists" +
+                " retry=" + retry +
+                " host=" + account.host +
+                " outlook=" + account.isOutlook() +
+                " messages=" + (imessages == null ? null : imessages.length));
 
         // Searching for random header:
         //   iCloud: NO [UNAVAILABLE] Unexpected exception
