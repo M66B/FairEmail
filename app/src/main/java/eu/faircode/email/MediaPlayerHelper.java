@@ -75,7 +75,9 @@ public class MediaPlayerHelper {
         mediaPlayer.prepareAsync();
 
         try {
-            if (!sem.tryAcquire(duration, TimeUnit.SECONDS)) {
+            boolean acquired = sem.tryAcquire(duration, TimeUnit.SECONDS);
+            EntityLog.log(context, "Alarm acquired=" + acquired);
+            if (!acquired) {
                 mediaPlayer.stop();
                 mediaPlayer.release();
             }
