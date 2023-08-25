@@ -1381,7 +1381,7 @@
                     android:id="@+id/grpNotes"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    app:constraint_referenced_ids="tvNotes,etNotes,btnColorNotes" />
+                    app:constraint_referenced_ids="tvNotes,etNotes,tvColorNotes,btnColorNotes" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </eu.faircode.email.ScrollViewEx>
 
