@@ -24,8 +24,8 @@ public class MediaPlayerHelper {
     static final int DEFAULT_SOUND_DURATION = 30; // seconds
     static final int DEFAULT_ALARM_DURATION = 30; // seconds
 
-    private static Object lock = new Object();
     private static Semaphore sem;
+    private static final Object lock = new Object();
 
     static void stop(Context context) {
         EntityLog.log(context, "Alarm stop");
