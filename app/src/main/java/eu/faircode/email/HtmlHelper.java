@@ -695,9 +695,9 @@ public class HtmlHelper {
                             .trim()
                             .toLowerCase(Locale.ROOT);
                     String value = param.substring(colon + 1)
+                            .replace("!important", "")
                             .trim()
                             .toLowerCase(Locale.ROOT)
-                            .replace("!important", "")
                             .replaceAll("\\s+", " ");
                     kv.put(key, value);
                 }
