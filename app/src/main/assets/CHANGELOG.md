@@ -17,6 +17,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Fixed multi term search with non-alphanumeric characters
 * Fixed deleting of *message/rfc822* attachments (GitHub version only)
 * Fixed option to disable Android photo picker with a workaround
+* Improved CSS processing
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
