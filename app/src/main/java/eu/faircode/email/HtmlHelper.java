@@ -1904,9 +1904,12 @@ public class HtmlHelper {
                 baseParams.remove(key);
             }
 
-        for (String key : baseParams.keySet())
-            if (!STYLE_NO_INHERIT.contains(key) || element)
+        for (String key : baseParams.keySet()) {
+            String value = baseParams.get(key);
+            boolean important = (value != null && value.contains("!important"));
+            if (!STYLE_NO_INHERIT.contains(key) || element || important)
                 result.put(key, baseParams.get(key));
+        }
 
         return TextUtils.join(";", result.values());
     }
