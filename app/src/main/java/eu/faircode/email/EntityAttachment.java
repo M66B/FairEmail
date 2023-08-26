@@ -133,9 +133,6 @@ public class EntityAttachment {
     }
 
     boolean isGzip() {
-        if (BuildConfig.PLAY_STORE_RELEASE)
-            return false;
-
         if ("application/gzip".equals(type))
             return true;
 
