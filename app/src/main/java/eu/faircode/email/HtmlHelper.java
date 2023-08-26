@@ -1798,11 +1798,18 @@ public class HtmlHelper {
                                     style = mergeStyles(style, srule.getStyle().getCssText(), false);
                                 break;
                             case Selector.SAC_CONDITIONAL_SELECTOR:
-                                ConditionalSelectorImpl cselector = (ConditionalSelectorImpl) selector;
-                                if (cselector.getCondition().getConditionType() == SAC_CLASS_CONDITION) {
-                                    ClassConditionImpl ccondition = (ClassConditionImpl) cselector.getCondition();
-                                    if (clazz.equalsIgnoreCase(ccondition.getValue()))
-                                        style = mergeStyles(style, srule.getStyle().getCssText(), false);
+                                if (!TextUtils.isEmpty(clazz)) {
+                                    ConditionalSelectorImpl cselector = (ConditionalSelectorImpl) selector;
+                                    if (cselector.getCondition().getConditionType() == SAC_CLASS_CONDITION) {
+                                        ClassConditionImpl ccondition = (ClassConditionImpl) cselector.getCondition();
+                                        String value = ccondition.getValue();
+                                        for (String cls : clazz.split("\\s+"))
+                                            if (cls.equalsIgnoreCase(value)) {
+                                                style = mergeStyles(style, srule.getStyle().getCssText(), false);
+                                                break;
+                                            }
+
+                                    }
                                 }
                                 break;
                         }
