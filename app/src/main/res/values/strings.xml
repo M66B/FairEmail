@@ -600,6 +600,7 @@
     <string name="title_advanced_compact_mode_remark">Compact mode only</string>
 
     <string name="title_advanced_highlight_color">Highlight color</string>
+    <string name="title_advanced_priority_indicator">Show priority indicator</string>
     <string name="title_advanced_keywords">Show keywords in message header</string>
     <string name="title_advanced_labels">Show Gmail labels in message header</string>
     <string name="title_advanced_flags">Show stars</string>

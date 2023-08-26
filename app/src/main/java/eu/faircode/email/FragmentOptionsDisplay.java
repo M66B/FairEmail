@@ -150,6 +150,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
     private Spinner spFontSizeSubject;
     private Spinner spSubjectEllipsize;
 
+    private SwitchCompat swPriorityIndicator;
     private SwitchCompat swKeywords;
     private SwitchCompat swLabels;
     private SwitchCompat swFlags;
@@ -212,7 +213,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "email_format", "prefer_contact", "only_contact", "distinguish_contacts", "show_recipients",
             "font_size_sender", "sender_ellipsize",
             "subject_top", "subject_italic", "highlight_subject", "font_size_subject", "subject_ellipsize",
-            "keywords_header", "labels_header", "flags", "flags_background",
+            "priority_indicator", "keywords_header", "labels_header", "flags", "flags_background",
             "preview", "preview_italic", "preview_lines", "align_header",
             "addresses", "hide_attachments",
             "message_zoom", "editor_zoom", "overview_mode",
@@ -321,6 +322,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         spFontSizeSubject = view.findViewById(R.id.spFontSizeSubject);
         spSubjectEllipsize = view.findViewById(R.id.spSubjectEllipsize);
 
+        swPriorityIndicator = view.findViewById(R.id.swPriorityIndicator);
         swKeywords = view.findViewById(R.id.swKeywords);
         swLabels = view.findViewById(R.id.swLabels);
         swFlags = view.findViewById(R.id.swFlags);
@@ -1088,6 +1090,13 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             }
         });
 
+        swPriorityIndicator.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("priority_indicator", checked).apply();
+            }
+        });
+
         swKeywords.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -1582,6 +1591,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
                     break;
                 }
 
+            swPriorityIndicator.setChecked(prefs.getBoolean("priority_indicator", true));
             swKeywords.setChecked(prefs.getBoolean("keywords_header", false));
             swLabels.setChecked(prefs.getBoolean("labels_header", true));
             swFlags.setChecked(prefs.getBoolean("flags", true));
