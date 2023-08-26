@@ -21,10 +21,12 @@ package eu.faircode.email;
 
 import android.app.IntentService;
 import android.app.NotificationManager;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.RemoteInput;
@@ -326,6 +328,13 @@ public class ServiceUI extends IntentService {
         if (outbox == null)
             throw new IllegalArgumentException("outbox not found");
 
+
+        ClipData clip = intent.getClipData();
+        Intent inner = (clip != null && clip.getItemCount() > 0 ? clip.getItemAt(0).getIntent() : null);
+
+        EntityLog.log(this, "Reply direct intent=" + intent +
+                " extras: " + TextUtils.join(" ", Log.getExtras(intent.getExtras())) +
+                " inner=" + inner + " extras: " + TextUtils.join(" ", Log.getExtras(inner.getExtras())));
         Bundle results = RemoteInput.getResultsFromIntent(intent);
         String body = results.getString("text");
         if (body != null)
