@@ -1825,9 +1825,8 @@ public class HtmlHelper {
         if (media instanceof MediaListImpl) {
             MediaListImpl _media = (MediaListImpl) media;
             for (int i = 0; i < _media.getLength(); i++) {
-                String query = _media.mediaQuery(i).getCssText(null);
-                if ("all".equals(query) ||
-                        "screen".equals(query) || "only screen".equals(query))
+                String type = _media.mediaQuery(i).getMedia();
+                if ("all".equals(type) || "screen".equals(type) || _media.mediaQuery(i).isNot())
                     return true;
             }
         } else
