@@ -332,10 +332,12 @@ public class ServiceUI extends IntentService {
         ClipData clip = intent.getClipData();
         Intent inner = (clip != null && clip.getItemCount() > 0 ? clip.getItemAt(0).getIntent() : null);
 
+        Bundle results = RemoteInput.getResultsFromIntent(intent);
         EntityLog.log(this, "Reply direct intent=" + intent +
                 " extras: " + TextUtils.join(" ", Log.getExtras(intent.getExtras())) +
-                " inner=" + inner + " extras: " + TextUtils.join(" ", Log.getExtras(inner.getExtras())));
-        Bundle results = RemoteInput.getResultsFromIntent(intent);
+                " inner=" + inner + (inner == null ? "" : " extras: " + TextUtils.join(" ", Log.getExtras(inner.getExtras()))) +
+                " results: " + Log.getExtras(results));
+
         String body = results.getString("text");
         if (body != null)
             body = "<p>" + body.replaceAll("\\r?\\n", "<br>") + "</p>";
