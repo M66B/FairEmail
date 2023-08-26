@@ -206,7 +206,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swReplyMove = view.findViewById(R.id.swReplyMove);
         swReplyMoveInbox = view.findViewById(R.id.swReplyMoveInbox);
 
-        List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
+        List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext(), false);
 
         List<CharSequence> fn = new ArrayList<>();
         fn.add("-");
@@ -792,7 +792,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             btnComposeColor.setColor(prefs.getInt("compose_color", Color.TRANSPARENT));
 
             String compose_font = prefs.getString("compose_font", "");
-            List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext());
+            List<StyleHelper.FontDescriptor> fonts = StyleHelper.getFonts(getContext(), false);
             for (int pos = 0; pos < fonts.size(); pos++) {
                 StyleHelper.FontDescriptor font = fonts.get(pos);
                 if (font.type.equals(compose_font)) {
