@@ -338,9 +338,8 @@ public class ServiceUI extends IntentService {
                 " inner=" + inner + (inner == null ? "" : " extras: " + TextUtils.join(" ", Log.getExtras(inner.getExtras()))) +
                 " results: " + Log.getExtras(results));
 
-        String body = results.getString("text");
-        if (body != null)
-            body = "<p>" + body.replaceAll("\\r?\\n", "<br>") + "</p>";
+        Object obj = results.get("text");
+        String body = (obj == null ? null : "<p>" + obj.toString().replaceAll("\\r?\\n", "<br>") + "</p>");
 
         String text = HtmlHelper.getFullText(body);
         String language = HtmlHelper.getLanguage(this, ref.subject, text);
