@@ -6,18 +6,18 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
 
-### Next version
+### 1.2095 - 2023-08-26
 
 * Added workaround for opening *audio/x-wav* attachments (not supported by all sound players)
 * Added batch enable/disable downloading of headers only for all child folders
 * Added notification to disable alarm sound initiated by filter rules
+* Improved CSS processing for reformatted message view
 * Restoring conversation thread on rotation changes from/to one/two rows/columns
 * Disabled Android app chooser by default because of a bug in MIUI
 * Fixed decoding of POP3 messages when *Content-Type* is missing due to truncated TOP headers
 * Fixed multi term search with non-alphanumeric characters
 * Fixed deleting of *message/rfc822* attachments (GitHub version only)
 * Fixed option to disable Android photo picker with a workaround
-* Improved CSS processing
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
