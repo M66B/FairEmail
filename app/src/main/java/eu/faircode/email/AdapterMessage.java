@@ -291,7 +291,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private String subject_ellipsize;
 
     private boolean show_filtered;
-    private boolean priority_indicator;
     private boolean keywords_header;
     private boolean labels_header;
     private boolean flags;
@@ -1383,15 +1382,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             } else
                 ibAuth.setVisibility(View.GONE);
 
-            if (priority_indicator || outgoing) {
-                if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority)) {
-                    ibPriority.setImageLevel(message.ui_priority);
-                    ibPriority.setVisibility(View.VISIBLE);
-                } else if (EntityMessage.PRIORITIY_LOW.equals(message.ui_priority)) {
-                    ibPriority.setImageLevel(message.ui_priority);
-                    ibPriority.setVisibility(View.VISIBLE);
-                } else
-                    ibPriority.setVisibility(View.GONE);
+            if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_priority)) {
+                ibPriority.setImageLevel(message.ui_priority);
+                ibPriority.setVisibility(View.VISIBLE);
+            } else if (EntityMessage.PRIORITIY_LOW.equals(message.ui_priority)) {
+                ibPriority.setImageLevel(message.ui_priority);
+                ibPriority.setVisibility(View.VISIBLE);
             } else
                 ibPriority.setVisibility(View.GONE);
 
@@ -7889,7 +7885,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.sender_ellipsize = prefs.getString("sender_ellipsize", "end");
         this.subject_ellipsize = prefs.getString("subject_ellipsize", "full");
         this.show_filtered = prefs.getBoolean("show_filtered", false);
-        this.priority_indicator = prefs.getBoolean("priority_indicator", true);
         this.keywords_header = prefs.getBoolean("keywords_header", false);
         this.labels_header = prefs.getBoolean("labels_header", true);
         this.flags = prefs.getBoolean("flags", true);
