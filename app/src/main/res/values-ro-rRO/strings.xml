@@ -539,6 +539,7 @@
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_thumbnails">Arată miniaturile imaginilor după textul mesajului</string>
     <string name="title_advanced_message_text_zoom2">Zoom implicit al textului mesajului: %1$s %%</string>
+    <string name="title_advanced_editor_text_zoom">Măriți și textul mesajului în editorul de mesaje</string>
     <string name="title_advanced_overview_mode">Măriți mesajele originale pentru a se potrivi cu ecranul</string>
     <string name="title_advanced_hyphenation">Folosește despărțirea în silabe automată</string>
     <string name="title_advanced_contrast">Folosește contrast ridicat pentru text</string>
@@ -1593,6 +1594,7 @@
     <string name="title_rule_keyword">Cuvânt cheie</string>
     <string name="title_rule_keyword_add">Adaugă</string>
     <string name="title_rule_keyword_delete">Şterge</string>
+    <string name="title_rule_notes">Note locale</string>
     <string name="title_rule_move">Mută</string>
     <string name="title_rule_copy">Copiere (etichetă)</string>
     <string name="title_rule_answer">Răspunde/redirecționare</string>
@@ -1651,6 +1653,7 @@
     <string name="title_rule_answer_missing">Șablon lipsă</string>
     <string name="title_rule_keyword_missing">Lipsește cuvântul cheie</string>
     <string name="title_rule_automation_hint">Aceasta va trimite intenția \'%1$s\' și extra \'%2$s\'</string>
+    <string name="title_rule_notes_missing">Lipsesc notele locale</string>
     <string name="title_rule_delete_hint">Ștergerea permanentă este ireversibilă, așa că asigurați-vă că condițiile regulii sunt corecte!</string>
     <string name="title_rule_edit_group">Editează grupul &#8230;</string>
     <string name="title_rule_execute">Execută acum</string>

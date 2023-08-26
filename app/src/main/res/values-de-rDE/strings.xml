@@ -1005,6 +1005,8 @@
     <string name="title_synchronize_batch_disable">Synchronisation deaktivieren</string>
     <string name="title_notify_batch_enable">Benachrichtigung über neue Nachrichten aktivieren</string>
     <string name="title_notify_batch_disable">Benachrichtigung über neue Nachrichten deaktivieren</string>
+    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Texte und Anhänge herunterladen</string>
+    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Nur Kopfzeilen herunterladen</string>
     <string name="title_delete_local">Lokale Nachrichten löschen</string>
     <string name="title_delete_browsed">Durchsuchte Nachrichten löschen</string>
     <string name="title_expunge">Endgültiges Löschen</string>
@@ -1357,6 +1359,7 @@
     <string name="title_add_image_privacy">Vertrauliche Daten entfernen</string>
     <string name="title_add_image_privacy_remark">Geografischer Aufnahmeort, Lizenzschlüssel, Dateinamen usw.</string>
     <string name="title_add_resize_pixels">&lt; %1$d Pixel</string>
+    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">Die Android-Fotoauswahl übergibt Dateinamen nicht mehr</string>
     <string name="title_add_image_select">Datei auswählen</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>
     <string name="title_attachment_file">Anhang hinzufügen</string>
@@ -1368,6 +1371,7 @@
     <string name="title_image_dialog">Bildoptionen anzeigen</string>
     <string name="title_style_toolbar">Symbolleistenstil</string>
     <string name="title_media_toolbar">Mediensymbolleiste</string>
+    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Android-Kontakte verwalten</string>
     <string name="title_manage_local_contacts">Lokale Kontakte verwalten</string>
     <string name="title_insert_contact_group">Kontaktgruppe einfügen</string>
     <string name="title_insert_template">Vorlage einfügen</string>
@@ -1470,6 +1474,7 @@
     <string name="title_search_hint">        Die Suche erfolgt zunächst auf dem Gerät.
         Um den Server ebenfalls zu durchsuchen, tippen Sie auf die Schaltfläche »Erneut suchen«.
     </string>
+    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Benutze den Suchindex: nur ganze Wörter</string>
     <string name="title_search_index_hint">Die Suche über den Suchindex ist sehr schnell, kann aber nur ganze Wörter finden.</string>
     <string name="title_search_text_hint">Das Suchen nach Text in Nachrichten funktioniert bei einer großen Anzahl von Nachrichten auf einigen Servern möglicherweise nicht</string>
     <string name="title_search_text_unsupported">\'%s\' bedeutet, dass der Mail-Server die Suche in Nachrichtentexten nicht unterstützt</string>
@@ -1586,7 +1591,7 @@
     <string name="title_rule_keyword">Schlagwort</string>
     <string name="title_rule_keyword_add">Hinzufügen</string>
     <string name="title_rule_keyword_delete">Löschen</string>
-    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Lokale Notizen</string>
+    <string name="title_rule_notes">Lokale Notizen</string>
     <string name="title_rule_move">Verschieben</string>
     <string name="title_rule_copy">Kopieren (Label)</string>
     <string name="title_rule_answer">Antworten/Weiterleiten</string>
@@ -1645,7 +1650,7 @@
     <string name="title_rule_answer_missing">Vorlage fehlt</string>
     <string name="title_rule_keyword_missing">Schlagwort fehlt</string>
     <string name="title_rule_automation_hint">Das wird den Intent »%1$s« mit den Extras »%2$s« senden</string>
-    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Lokale Notizen fehlen</string>
+    <string name="title_rule_notes_missing">Lokale Notizen fehlen</string>
     <string name="title_rule_delete_hint">Das dauerhafte Löschen kann nicht widerrufen werden. Stellen Sie daher sicher, dass die Bedingungen der Regel richtig sind!</string>
     <string name="title_rule_edit_group">Gruppe bearbeiten &#8230;</string>
     <string name="title_rule_execute">Jetzt ausführen</string>
@@ -1666,6 +1671,8 @@
     <string name="title_rule_use_as_alarm">Als Wecker verwenden</string>
     <string name="title_rule_alarm_hint">Dies ignoriert die Nicht-stören-Regeln</string>
     <string name="title_rule_alarm_duration">Maximale Alarmdauer (Sekunden)</string>
+    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Wecker</string>
+    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Stoppen</string>
     <string name="title_legend_section_synchronize">Synchronisieren</string>
     <string name="title_legend_section_folders">Ordner</string>
     <string name="title_legend_section_messages">Nachrichten</string>

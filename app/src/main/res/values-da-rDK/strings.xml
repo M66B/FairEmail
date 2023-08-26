@@ -1004,6 +1004,8 @@
     <string name="title_synchronize_batch_disable">Deaktivér synkronisering</string>
     <string name="title_notify_batch_enable">Aktivér ny besked notifikation</string>
     <string name="title_notify_batch_disable">Deaktivér ny besked notifikation</string>
+    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Download tekster og vedhæftninger</string>
+    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Download kun overskrifter</string>
     <string name="title_delete_local">Slet lokale beskeder</string>
     <string name="title_delete_browsed">Slet gennemsete/søgte beskeder</string>
     <string name="title_expunge">Fjern permanent</string>
@@ -1356,6 +1358,7 @@
     <string name="title_add_image_privacy">Fjern personsensitive data</string>
     <string name="title_add_image_privacy_remark">Geografisk placering, serienumre, filnavne mv.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">Android-fotovælger medtager ikke længere filnavne</string>
     <string name="title_add_image_select">Vælg fil</string>
     <string name="title_add_attachment">Tilføj vedhæftning</string>
     <string name="title_attachment_file">Vedhæft fil</string>
@@ -1367,6 +1370,7 @@
     <string name="title_image_dialog">Vis Billed-muligheder</string>
     <string name="title_style_toolbar">Tilpas værktøjslinje</string>
     <string name="title_media_toolbar">Medieværktøjsbjælke</string>
+    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Håndtér Android-kontakter</string>
     <string name="title_manage_local_contacts">Håndtér lokale kontakter</string>
     <string name="title_insert_contact_group">Indsæt kontaktgruppe</string>
     <string name="title_insert_template">Indsæt skabelon</string>
@@ -1469,6 +1473,7 @@
     <string name="title_search_hint">        Indledningsvis udføres søgningen på enheden.
         For også at søge på serveren, så tryk på knappen \'søg igen\'.
     </string>
+    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Brug af søgeindeks: Kun hele ord</string>
     <string name="title_search_index_hint">Søgning via søgeindekset er hurtig, men vil kun finde hele ord.</string>
     <string name="title_search_text_hint">Søgning efter tekst i beskeder, når der er et stort antal heraf, fungerer muligvis ikke på alle servere</string>
     <string name="title_search_text_unsupported">\'%s\' betyder, at e-mailserveren ikke understøtter søgning i beskedtekster</string>
@@ -1585,7 +1590,7 @@
     <string name="title_rule_keyword">Nøgleord</string>
     <string name="title_rule_keyword_add">Tilføj</string>
     <string name="title_rule_keyword_delete">Slet</string>
-    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Lokale notater</string>
+    <string name="title_rule_notes">Lokale notater</string>
     <string name="title_rule_move">Flyt</string>
     <string name="title_rule_copy">Kopiér (etiket)</string>
     <string name="title_rule_answer">Besvar/videresend</string>
@@ -1644,7 +1649,7 @@
     <string name="title_rule_answer_missing">Skabelon mangler</string>
     <string name="title_rule_keyword_missing">Nøgleord mangler</string>
     <string name="title_rule_automation_hint">Dette vil sende intent \'%1$s\' med ekstra \'%2$s\'</string>
-    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Lokale notater mangler</string>
+    <string name="title_rule_notes_missing">Lokale notater mangler</string>
     <string name="title_rule_delete_hint">Permanent sletning er irreversibel, så sørg for, at regelbetingelserne er korrekte!</string>
     <string name="title_rule_edit_group">Redigér gruppe &#8230;</string>
     <string name="title_rule_execute">Eksekvér nu</string>
@@ -1665,6 +1670,8 @@
     <string name="title_rule_use_as_alarm">Benyt som alarm</string>
     <string name="title_rule_alarm_hint">Dette vil tilsidesætte \"Forstyr ikke\"-regler</string>
     <string name="title_rule_alarm_duration">Maks. alarmvarighed (sekunder)</string>
+    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Alarm</string>
+    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Stop</string>
     <string name="title_legend_section_synchronize">Synkronisér</string>
     <string name="title_legend_section_folders">Mapper</string>
     <string name="title_legend_section_messages">Beskeder</string>

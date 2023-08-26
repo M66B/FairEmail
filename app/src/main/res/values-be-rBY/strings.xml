@@ -1615,6 +1615,7 @@
     <string name="title_rule_keyword">Ключавое слова</string>
     <string name="title_rule_keyword_add">Дадаць</string>
     <string name="title_rule_keyword_delete">Выдаліць</string>
+    <string name="title_rule_notes">Лакальныя нататкі</string>
     <string name="title_rule_move">Перамясціць</string>
     <string name="title_rule_copy">Капіраваць (ярлык)</string>
     <string name="title_rule_answer">Адказаць/пераслаць</string>
@@ -1673,6 +1674,7 @@
     <string name="title_rule_answer_missing">Шаблон адсутнічае</string>
     <string name="title_rule_keyword_missing">Адсутнічае ключавое слова</string>
     <string name="title_rule_automation_hint">Гэта адправіць мэту \'%1$s\' з дадатковымі элементамі \'%2$s\'</string>
+    <string name="title_rule_notes_missing">Лакальныя нататкі адсутнічаюць</string>
     <string name="title_rule_delete_hint">Канчатковае выдаленне з\'яўляецца незваротным, таму пераканайцеся, што ўмовы правіла правільныя!</string>
     <string name="title_rule_edit_group">Рэдагаваць групу &#8230;</string>
     <string name="title_rule_execute">Выканаць зараз</string>

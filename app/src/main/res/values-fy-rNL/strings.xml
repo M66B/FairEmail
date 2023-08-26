@@ -489,6 +489,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_libravatars">Libravatars toane</string>
     <string name="title_advanced_favicons">Favicons toane</string>
     <string name="title_advanced_favicons_partial">Allinnich de earste %1$s fan de webside scanne</string>
+    <string name="title_advanced_favicons_manifest">Webapp-manifesten scannen</string>
     <string name="title_advanced_generated_icons">Generearre ikoanen toane</string>
     <string name="title_advanced_identicons">Identykons toane</string>
     <string name="title_advanced_circular">Rûne ikoanen toane</string>
@@ -523,6 +524,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_attachments_alt">Bylagen nei de berjochttekst toane</string>
     <string name="title_advanced_thumbnails">Miniatuerôfbylding nei de berjochttekst toane</string>
     <string name="title_advanced_message_text_zoom2">Standert zoom berjochttekst: %1$s %%</string>
+    <string name="title_advanced_editor_text_zoom">Berjochttekst ek yn de berjochtbewurker zoome</string>
     <string name="title_advanced_overview_mode">Zoom orizjinele berjochten om op it skerm te passen</string>
     <string name="title_advanced_hyphenation">Automatyske keppeltekens brûke</string>
     <string name="title_advanced_contrast">Heech kontrast foar berjochttekst brûke</string>
@@ -633,6 +635,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_wearable_preview">Allinnich notifikaasjes mei berjochtfoarbyld nei wearables stjoere</string>
     <string name="title_advanced_notify_messaging">Brûk notifikaasjeformaat fan Android-berjochtestyl</string>
     <string name="title_advanced_biometrics_notify">Toan notifikaasjeynhâld by it gebrûk fan biometryske ferifikaasje</string>
+    <string name="title_advanced_notify_open_folder">Map iepenje by it iepenjen fan nij berjocht</string>
     <string name="title_advanced_light">Notifikaasjeljocht brûke</string>
     <string name="title_advanced_sound">Meldingslûd selektearje</string>
     <string name="title_advanced_notify_screen_on">Skeakelje it skerm koart yn foar nije berjochtmeldingen</string>
@@ -1177,6 +1180,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_unsubscribe">Ofmelde</string>
     <string name="title_message_rule">Regel meitsje</string>
     <string name="title_no_junk">Net net-winske</string>
+    <string name="title_edit_subject">Underwerp &#8230; bewurkje</string>
     <string name="title_move_to">Ferpleatse nei&#8230;</string>
     <string name="title_move_to_folder">Ferpleatse nei&#8230;</string>
     <string name="title_move_to_account">Ferpleatse nei %1$s&#8230;</string>
@@ -1572,6 +1576,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_rule_keyword">Kaaiwurd</string>
     <string name="title_rule_keyword_add">Tafoegje</string>
     <string name="title_rule_keyword_delete">Fuortsmite</string>
+    <string name="title_rule_notes">Lokale notysjes</string>
     <string name="title_rule_move">Ferpleatse</string>
     <string name="title_rule_copy">Kopiearje (label)</string>
     <string name="title_rule_answer">Beäntwurdzje/trochstjoere</string>
@@ -1630,6 +1635,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_rule_answer_missing">Sjabloan ûntbrekt</string>
     <string name="title_rule_keyword_missing">Kaaiwurd ûntbrekt</string>
     <string name="title_rule_automation_hint">Dit sil de bedoeling ‘%1$s’ mei de ekstra’s ‘%2$s’ stjoere</string>
+    <string name="title_rule_notes_missing">Lokale notysjes ûntbrekke</string>
     <string name="title_rule_delete_hint">Permanint fuortsmite kin net ûngedien makke wurde, dus soargje derfoar dat de betingsten fan de regel korrekt binne!</string>
     <string name="title_rule_edit_group">Groep bewurkje&#8230;</string>
     <string name="title_rule_execute">No útfiere</string>
@@ -1775,6 +1781,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_hint_folder_sync">Om batterij- en netwurkgebrûk te beheinen sille net alle mappen en net alle berjochten standert syngronisearre wurde</string>
     <string name="title_hint_airplane">Fleantúchmodus is ynskeakele</string>
     <string name="title_hint_notifications">Gjin meldingsrjochten</string>
+    <string name="title_hint_notifications_remark">Meldingsrjochten binne fereaske foar (account)meldingen. Meldingen foar nije berjochten kinne útskeakele wurde yn de ynstellingen.</string>
     <string name="title_hint_battery_optimizations">Batterij-optimalisaasjes noch hieltyd ynskeakele</string>
     <string name="title_hint_support">As jo in fraach of in probleem hawwe, brûk dan it stipemenu om help te krijen</string>
     <string name="title_hint_message_actions">Fei links nei jiskefet; Fei rjochts nei argyf (as beskikber); De fei-aksjes kinne ynsteld wurde yn de accountynstellingen</string>

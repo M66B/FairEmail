@@ -1004,6 +1004,8 @@
     <string name="title_synchronize_batch_disable">Desactivar sincronização</string>
     <string name="title_notify_batch_enable">Activar notificações para novas mensagens</string>
     <string name="title_notify_batch_disable">Desactivar as notificações de novas mensagens</string>
+    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Descarregar textos e anexos</string>
+    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Descarregar apenas cabeçalhos</string>
     <string name="title_delete_local">Eliminar mensagens locais</string>
     <string name="title_delete_browsed">Eliminar msgs navegadas/pesquisadas</string>
     <string name="title_expunge">Eliminar permanentemente (msgs. sinalizadas)</string>
@@ -1356,6 +1358,7 @@
     <string name="title_add_image_privacy">Remover dados confidenciais da imagem</string>
     <string name="title_add_image_privacy_remark">Localização geográfica, números de série, nomes de ficheiro, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeis</string>
+    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">O seletor de fotos Android já não passa nomes de ficheiros</string>
     <string name="title_add_image_select">Seleccionar o ficheiro</string>
     <string name="title_add_attachment">Adicionar anexo</string>
     <string name="title_attachment_file">Anexar ficheiro</string>
@@ -1367,6 +1370,7 @@
     <string name="title_image_dialog">Mostrar opções de imagem</string>
     <string name="title_style_toolbar">Estilo da barra de ferramentas</string>
     <string name="title_media_toolbar">Barra de ferramentas de conteúdos multimédia</string>
+    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Gerir contatos do Android</string>
     <string name="title_manage_local_contacts">Gerir contactos locais</string>
     <string name="title_insert_contact_group">Inserir grupo de contactos</string>
     <string name="title_insert_template">Inserir modelo</string>
@@ -1469,6 +1473,7 @@
     <string name="title_search_hint">        Inicialmente, a procura é efetuada no dispositivo.
         Para procurar também no servidor, clique no botão \'procurar novamente\'.
     </string>
+    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Ao usar o índice de pesquisa: apenas palavras inteiras</string>
     <string name="title_search_index_hint">A procura é rápida através do índice de pesquisa, mas só encontra palavras inteiras.</string>
     <string name="title_search_text_hint">A pesquisar por texto nas mensagens, quando existam um grande número de mensagens, talvez não funcione com alguns servidores</string>
     <string name="title_search_text_unsupported">\'%s\' significa que o servidor de email não suporta pesquisa através de textos de mensagens</string>
@@ -1585,7 +1590,7 @@
     <string name="title_rule_keyword">Palavra chave</string>
     <string name="title_rule_keyword_add">Adicionar</string>
     <string name="title_rule_keyword_delete">Eliminar</string>
-    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Notas locais</string>
+    <string name="title_rule_notes">Notas locais</string>
     <string name="title_rule_move">Mover</string>
     <string name="title_rule_copy">Copiar (etiqueta)</string>
     <string name="title_rule_answer">Responder/encaminhar</string>
@@ -1644,7 +1649,7 @@
     <string name="title_rule_answer_missing">Modelo em falta</string>
     <string name="title_rule_keyword_missing">Palavra-chave em falta</string>
     <string name="title_rule_automation_hint">Isto enviará o \"intent\" (objecto de mensagem) \'%1$s\' com os extras \'%2$s\'</string>
-    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Notas locais em falta</string>
+    <string name="title_rule_notes_missing">Notas locais em falta</string>
     <string name="title_rule_delete_hint">A eliminação permanente é irreversível, por isso certifique-se de que as condições da regra estão corretas!</string>
     <string name="title_rule_edit_group">Editar grupo &#8230;</string>
     <string name="title_rule_execute">Executar agora</string>
@@ -1665,6 +1670,8 @@
     <string name="title_rule_use_as_alarm">Utilizar como alarme</string>
     <string name="title_rule_alarm_hint">Isto irá ignorar as regras do \"não perturbe\"</string>
     <string name="title_rule_alarm_duration">Duração máxima do alarme (em segundos)</string>
+    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Alarme</string>
+    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Parar</string>
     <string name="title_legend_section_synchronize">Sincronizar</string>
     <string name="title_legend_section_folders">Pastas</string>
     <string name="title_legend_section_messages">Mensagens</string>

@@ -1004,6 +1004,8 @@
     <string name="title_synchronize_batch_disable">Disabilita la sincronizzazione</string>
     <string name="title_notify_batch_enable">Abilita le notifiche dei nuovi messaggi</string>
     <string name="title_notify_batch_disable">Disabilita le notifiche dei nuovi messaggi</string>
+    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Scarica testi e allegati</string>
+    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Scarica solo intestazioni</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_delete_browsed">Elimina i messaggi sfogliati/cercati</string>
     <string name="title_expunge">Espugna</string>
@@ -1356,6 +1358,7 @@
     <string name="title_add_image_privacy">Rimuovi i dati sensibili alla privacy</string>
     <string name="title_add_image_privacy_remark">Geolocalizzazione, numeri di serie, nomi dei file, etc.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixel</string>
+    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">Il selettore di foto Android non passa più nomi di file</string>
     <string name="title_add_image_select">Seleziona file</string>
     <string name="title_add_attachment">Aggiungi allegato</string>
     <string name="title_attachment_file">Allega file</string>
@@ -1367,6 +1370,7 @@
     <string name="title_image_dialog">Mostra opzioni dell\'immagine</string>
     <string name="title_style_toolbar">Stile barra strumenti</string>
     <string name="title_media_toolbar">Barra multimediale</string>
+    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Gestisci i contatti di Android</string>
     <string name="title_manage_local_contacts">Gestisci i contatti locali</string>
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
     <string name="title_insert_template">Inserisci modello</string>
@@ -1469,6 +1473,7 @@
     <string name="title_search_hint">        Inizialmente, la ricerca è eseguita sul dispositivo.
         Per cercare anche nel server, tocca il pulsante \'cerca di nuovo\'.
     </string>
+    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Utilizzare l\'indice di ricerca: solo parole intere</string>
     <string name="title_search_index_hint">La ricerca tramite indice di ricerca è veloce, ma trova solo parole intere.</string>
     <string name="title_search_text_hint">La ricerca del testo nei messaggi, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_text_unsupported">\'%s\' significa che il server email non supporta la ricerca nei testi dei messaggi</string>
@@ -1585,7 +1590,7 @@
     <string name="title_rule_keyword">Parola chiave</string>
     <string name="title_rule_keyword_add">Aggiungi</string>
     <string name="title_rule_keyword_delete">Elimina</string>
-    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Note locali</string>
+    <string name="title_rule_notes">Note locali</string>
     <string name="title_rule_move">Sposta</string>
     <string name="title_rule_copy">Copia (etichetta)</string>
     <string name="title_rule_answer">Rispondi/inoltra</string>
@@ -1644,7 +1649,7 @@
     <string name="title_rule_answer_missing">Modello mancante</string>
     <string name="title_rule_keyword_missing">Parola chiave mancante</string>
     <string name="title_rule_automation_hint">Questo invierà l\'intento \'%1$s\' con \'%2$s\' extra</string>
-    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Note locali mancanti</string>
+    <string name="title_rule_notes_missing">Note locali mancanti</string>
     <string name="title_rule_delete_hint">L\'eliminazione permanente è irreversibile, quindi assicurati che le condizioni della regola siano corrette!</string>
     <string name="title_rule_edit_group">Modifica gruppo &#8230;</string>
     <string name="title_rule_execute">Esegui ora</string>
@@ -1665,6 +1670,8 @@
     <string name="title_rule_use_as_alarm">Usa come sveglia</string>
     <string name="title_rule_alarm_hint">Questo ignorerà le regole \"non disturbare\"</string>
     <string name="title_rule_alarm_duration">Durata massima della sveglia (secondi)</string>
+    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Sveglia</string>
+    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Ferma</string>
     <string name="title_legend_section_synchronize">Sincronizza</string>
     <string name="title_legend_section_folders">Cartelle</string>
     <string name="title_legend_section_messages">Messaggi</string>

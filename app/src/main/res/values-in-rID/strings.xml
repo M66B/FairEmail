@@ -1561,6 +1561,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_keyword">Kata kunci</string>
     <string name="title_rule_keyword_add">Tambah</string>
     <string name="title_rule_keyword_delete">Hapus</string>
+    <string name="title_rule_notes">Catatan lokal</string>
     <string name="title_rule_move">Pindahkan</string>
     <string name="title_rule_copy">Salin (label)</string>
     <string name="title_rule_answer">Balas/teruskan</string>

@@ -526,6 +526,7 @@
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
     <string name="title_advanced_thumbnails">Mesaj mətnindən sonra təsvir eskizlərini göstər</string>
     <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
+    <string name="title_advanced_editor_text_zoom">Mesajın mətnini redaktorda da yaxınlaşdır</string>
     <string name="title_advanced_overview_mode">Orijinal mesajı tam ekrana qədər yaxınlaşdır</string>
     <string name="title_advanced_hyphenation">Avto-defis istifadə et</string>
     <string name="title_advanced_contrast">Mesaj mətni üçün yüksək ziddiyyət istifadə et</string>
@@ -1002,6 +1003,8 @@
     <string name="title_synchronize_batch_disable">Sinxronlaşdırmanı sıradan çıxart</string>
     <string name="title_notify_batch_enable">Yeni mesaj bildirişlərini fəallaşdır</string>
     <string name="title_notify_batch_disable">Yeni mesaj bildirişlərini sıradan çıxart</string>
+    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Mətnləri və qoşmaları endir</string>
+    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Yalnız başlıqları endir</string>
     <string name="title_delete_local">Yerli mesajları sil</string>
     <string name="title_delete_browsed">Nəzər yetirilmiş/axtarılmış mesajları sil</string>
     <string name="title_expunge">Birdəfəlik sil</string>
@@ -1354,6 +1357,7 @@
     <string name="title_add_image_privacy">Gizliliyiniz üçün həssas verilənləri silin</string>
     <string name="title_add_image_privacy_remark">Coğrafi yerləşmə, seriya nömrələri, fayl adları və s.</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
+    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">Android foto seçici artıq fayl adlarını ötürmür</string>
     <string name="title_add_image_select">Fayl seç</string>
     <string name="title_add_attachment">Qoşma əlavə et</string>
     <string name="title_attachment_file">Fayl qoş</string>
@@ -1365,6 +1369,7 @@
     <string name="title_image_dialog">Təsvir seçimlərini göstər</string>
     <string name="title_style_toolbar">Stil alət sətri</string>
     <string name="title_media_toolbar">Media alət sətri</string>
+    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Android-in kontaktlarını idarə et</string>
     <string name="title_manage_local_contacts">Yerli əlaqələri idarə et</string>
     <string name="title_insert_contact_group">Əlaqə qrupuna daxil et</string>
     <string name="title_insert_template">Şablon əlavə et</string>
@@ -1467,6 +1472,7 @@
     <string name="title_search_hint">        Axtarış, ilk olaraq cihazda həyata keçirilir.
         Serverdə də axtarış etmək üçün \"yenidən axtar\" düyməsinə toxunun.
     </string>
+    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Axtarış indekslərini istifadə et: yalnız tam sözlər</string>
     <string name="title_search_index_hint">Axtarış indeksi ilə axtarış sürətlidir, ancaq yalnız bütün sözləri tapır.</string>
     <string name="title_search_text_hint">Həddindən çox mesaj olanda, mesajlarda mətn axtarışı bəzi serverlərdə işləməyə bilər</string>
     <string name="title_search_text_unsupported">\'%s\', poçt serverinin mesaj mətnlərində axtarışı dəstəkləmədiyi mənasını verir</string>
@@ -1583,6 +1589,7 @@
     <string name="title_rule_keyword">Açar söz</string>
     <string name="title_rule_keyword_add">Əlavə et</string>
     <string name="title_rule_keyword_delete">Sil</string>
+    <string name="title_rule_notes">Yerli qeydlər</string>
     <string name="title_rule_move">Köçürt</string>
     <string name="title_rule_copy">Kopyala (etiket)</string>
     <string name="title_rule_answer">Cavabla/yönləndir</string>
@@ -1641,6 +1648,7 @@
     <string name="title_rule_answer_missing">Şablon əskikdir</string>
     <string name="title_rule_keyword_missing">Açar söz əskikdir</string>
     <string name="title_rule_automation_hint">Bu, \"%2$s\" əlavələri ilə \"%1$s\" hədəfini göndərəcək</string>
+    <string name="title_rule_notes_missing">Yerli qeydlər əskikdir</string>
     <string name="title_rule_delete_hint">Birdəfəlik silmə əməliyyatının geri dönüşü yoxdur, ona görə də qayda şərtlərinin doğru olduğuna əmin olun!</string>
     <string name="title_rule_edit_group">Qrupa düzəliş et &#8230;</string>
     <string name="title_rule_execute">İndi icra et</string>
@@ -1661,6 +1669,8 @@
     <string name="title_rule_use_as_alarm">Alarm kimi istifadə et</string>
     <string name="title_rule_alarm_hint">Bu, \"narahat etməyin\" qaydalarına əhəmiyyət verməyəcək</string>
     <string name="title_rule_alarm_duration">Maksimum alarm müddəti (saniyə)</string>
+    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Zəngli saat</string>
+    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Dayandır</string>
     <string name="title_legend_section_synchronize">Sinxronlaşdırma</string>
     <string name="title_legend_section_folders">Qovluqlar</string>
     <string name="title_legend_section_messages">Mesaj</string>

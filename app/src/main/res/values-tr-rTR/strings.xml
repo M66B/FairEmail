@@ -71,6 +71,10 @@
         <item quantity="one">%1$d ileti kalıcı olarak silinsin mi?</item>
         <item quantity="other">%1$d ileti kalıcı olarak silinsin mi?</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="one">Bir ek</item>
+        <item quantity="other">%1$d ek</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="one">%1$d iletisi gereksiz posta sayılsın mı?</item>
         <item quantity="other">%1$d iletileri gereksiz posta sayılsın mı?</item>
@@ -370,6 +374,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_suggest_frequently">Önerilen adresleri kullanım sıklığına göre sıralayın</string>
     <string name="title_advanced_alt_re_fwd">Alternatif yanıt/iletme öneki</string>
     <string name="title_advanced_send_chips">Adres balonlarını göster</string>
+    <string name="title_advanced_send_nav_color">Alttaki eylem çubuğu için kimlik rengini kullanın</string>
     <string name="title_advanced_send_reminders">Hatırlatıcıları göster</string>
     <string name="title_advanced_send_delayed">Mesaj göndermede gecikme</string>
     <string name="title_advanced_attach_new">Paylaşılan adresler ve dosyalar için yeni bir taslak mesaj oluştur</string>
@@ -484,6 +489,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_libravatars">Libravatar\'ları göster</string>
     <string name="title_advanced_favicons">Faviconları göster</string>
     <string name="title_advanced_favicons_partial">Web sayfasının yalnızca ilk %1$s tarayın</string>
+    <string name="title_advanced_favicons_manifest">Web uygulaması bildirimlerini tarayın</string>
     <string name="title_advanced_generated_icons">Oluşturulan simgeleri göster</string>
     <string name="title_advanced_identicons">Kimliklerini göster</string>
     <string name="title_advanced_circular">Yuvarlak simgeleri göster</string>
@@ -513,10 +519,12 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_preview_lines">Önizleme satırı sayısı</string>
     <string name="title_advanced_align_header">Anahtar kelimeleri, önizleme metnini ve notları dikey olarak hizalayın</string>
     <string name="title_advanced_addresses">Öntanımlı olarak adres ayrıntılarını göster</string>
+    <string name="title_advanced_hide_attachments">Ekleri varsayılan olarak daralt</string>
     <string name="title_advanced_unzip">Sıkıştırılmış eklerin içeriğini göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_thumbnails">İleti metninden sonra görsellerin önizlemelerini göster</string>
     <string name="title_advanced_message_text_zoom2">Varsayılan mesaj metni yakınlaştırma: %1$s %%</string>
+    <string name="title_advanced_editor_text_zoom">Mesaj metnini mesaj düzenleyicide de yakınlaştırın</string>
     <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>
     <string name="title_advanced_hyphenation">Otomatik hecelemeyi kullan</string>
     <string name="title_advanced_contrast">İleti metni için yüksek karşıtlık kullan</string>
@@ -556,6 +564,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_language_detection">İletinin dilini tespit et</string>
     <string name="title_advanced_photo_picker">Android fotoğraf seçiciyi kullan</string>
     <string name="title_advanced_pull_refresh">Yenilemek için aşağıya çekin</string>
+    <string name="title_advanced_pull_all">Tüm klasörleri senkronize et</string>
     <string name="title_advanced_autoscroll">Yeni iletiler almak için üst tarafı kaydırın</string>
     <string name="title_advanced_double_tap">İletiyi okundu/okunmadı olarak işaretlemek için iki kez dokunun</string>
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
@@ -587,6 +596,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_auto_block_sender">Spam bildirirken göndereni otomatik olarak engelle</string>
     <string name="title_advanced_auto_hide_answer">Kaydırma sırasında yanıt düğmesini otomatik olarak gizle</string>
     <string name="title_advanced_swipe_reply">Genişletilmiş mesajları yanıtlamak için sağa kaydırın</string>
+    <string name="title_advanced_move_thread_all">Bir görüşmeyi taşırken tüm mesajları taşı</string>
     <string name="title_advanced_move_thread_sent">Bir görüşmeyi taşırken, gönderilen mesajları da taşıyın</string>
     <string name="title_advanced_default_snooze">Varsayılan erteleme/gecikme süresi</string>
     <string name="title_advanced_default_folder">Varsayılan klasörü seçin</string>
@@ -625,6 +635,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_wearable_preview">Sadece mesaj önizlemesi olan bildirimleri giyilebilirler cihazlara gönderin</string>
     <string name="title_advanced_notify_messaging">Android \'mesajlaşma stili\' bildirim biçimini kullanın</string>
     <string name="title_advanced_biometrics_notify">Biyometrik kimlik doğrulamayı kullanırken bildirim içeriğini göster</string>
+    <string name="title_advanced_notify_open_folder">Yeni mesajı açarken klasörü aç</string>
     <string name="title_advanced_light">Bildirim ışığını kullan</string>
     <string name="title_advanced_sound">Bildirim sesini seçin</string>
     <string name="title_advanced_notify_screen_on">Yeni mesaj bildirimleri için ekranı kısaca aç</string>
@@ -662,6 +673,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
     <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
     <string name="title_advanced_encrypt_auto">Tüm alıcıların anahtarları kullanılabilir olduğunda otomatik olarak şifrele</string>
+    <string name="title_advanced_auto_verify">İmzalı mesajları otomatik olarak doğrula</string>
     <string name="title_advanced_auto_decrypt">İletilerin şifrelerini otomatik olarak çöz</string>
     <string name="title_advanced_auto_undo_decrypt">Görüşmeyi kapatırken şifre çözmeyi geri al</string>
     <string name="title_advanced_openpgp">OpenPGP sağlayıcı</string>
@@ -746,6 +758,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_lookup_mx_hint">Bu, DNS MX kayıtlarının olup olmadığını kontrol eder</string>
     <string name="title_advanced_sync_delay_hint">Bu, iletilerin senkronizasyonunu yavaşlatır</string>
     <string name="title_advanced_folder_nav_hint">Bu, her zaman bir mesaj listesinden ilgili hesabın klasör listesine dönecektir</string>
+    <string name="title_advanced_pull_all_hint">Klasörler veya hesaplar listesini aşağı çekerken</string>
     <string name="title_advanced_suggest_names_hint">Devre dışı bırakılırsa, kişileri seçerken yalnızca e-posta adresleri kullanılacaktır</string>
     <string name="title_advanced_suggest_local_hint">Android tarafından sağlanan kişilere ek olarak. Kişi verileri yeni gönderilen veya alınan mesajlar için yalnızca etkin olduğunda saklanacaktır.</string>
     <string name="title_advanced_auto_identity_hint">Bu, yeni mesajlar için bir alıcı seçerken kullanılan son kimliği seçecektir</string>
@@ -1168,6 +1181,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_unsubscribe">Abonelikten çık</string>
     <string name="title_message_rule">Kural oluştur</string>
     <string name="title_no_junk">Spam değil</string>
+    <string name="title_edit_subject">Konuyu düzenle &#8230;</string>
     <string name="title_move_to">&#8230;\'a taşı</string>
     <string name="title_move_to_folder">&#8230;\'a taşı</string>
     <string name="title_move_to_account">%1$s&#8230; taşı</string>
@@ -1563,6 +1577,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_keyword">Anahtar kelime</string>
     <string name="title_rule_keyword_add">Ekle</string>
     <string name="title_rule_keyword_delete">Sil</string>
+    <string name="title_rule_notes">Yerel notlar</string>
     <string name="title_rule_move">Taşı</string>
     <string name="title_rule_copy">Kopyala (etiket)</string>
     <string name="title_rule_answer">Cevapla/İleri</string>
@@ -1621,6 +1636,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_answer_missing">Şablon eksik</string>
     <string name="title_rule_keyword_missing">Anahtar kelime eksik</string>
     <string name="title_rule_automation_hint">%1$s gönderme isteğinizi %2$s ekleyerek gönderecek</string>
+    <string name="title_rule_notes_missing">Yerel notlar eksik</string>
     <string name="title_rule_delete_hint">Kalıcı silme işlemi geri alınamaz, bu nedenle kural koşullarının doğru olduğundan emin olun!</string>
     <string name="title_rule_edit_group">Grubu düzenle &#8230;</string>
     <string name="title_rule_execute">Şimdi çalıştır</string>
@@ -1766,6 +1782,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_hint_folder_sync">Pil ve ağ kullanımını sınırlamak için tüm klasörler ve tüm mesajlar varsayılan olarak senkronize edilmeyecektir</string>
     <string name="title_hint_airplane">Uçak modu açık</string>
     <string name="title_hint_notifications">Bildirim izni yok</string>
+    <string name="title_hint_notifications_remark">(Hesap) uyarıları için de bildirim izinleri gereklidir. Yeni mesajlara ilişkin bildirimler ayarlardan kapatılabilir.</string>
     <string name="title_hint_battery_optimizations">Pil optimizasyonu halen etkin</string>
     <string name="title_hint_support">Bir soru ya da bir probleminiz varsa, lütfen yardım almak için destek menüsünü kullanın</string>
     <string name="title_hint_message_actions">Çöp için sola kaydırın; Arşiv için sağa kaydırın (mevcut ise); Kaydırma eylemleri hesap ayarlarından yapılandırılabilir</string>
@@ -1895,6 +1912,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_debug_info_remark">Lütfen sorunu açıklayın ve sorunun zamanını belirtin:</string>
     <string name="title_crash_info_remark">Lütfen uygulama çöktüğü sırada ne yaptığınızı açıklayın:</string>
     <string name="title_debug_info_issue">Sorun açıklaması (zorunlu)</string>
+    <string name="title_debug_info_issue_remark">Sorunun tahmini süresi, tam hata mesajı vb. gibi ayrıntılar önemlidir</string>
     <string name="title_debug_info_contact">Bu sorun hakkında yakın zamanda haberleşmiştik</string>
     <string name="title_unexpected_info_remark">Lütfen hatayı aldığınızda ne yaptığınızı açıklayın:</string>
     <string name="title_widget_title_count">Yeni mesaj sayısı</string>
@@ -1918,6 +1936,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_widget_subject_lines">Maksimum konu satırı sayısı</string>
     <string name="title_widget_avatars">Kişi avatarlarını göster</string>
     <string name="title_widget_account_name">Hesap ismini göster</string>
+    <string name="title_widget_caption">Başlığı göster</string>
     <string name="title_widget_refresh">Mesajları yenile düğmesini göster</string>
     <string name="title_widget_compose">Yeni mesaj oluştur düğmesini göster</string>
     <string name="title_widget_background">Arka plan rengi</string>

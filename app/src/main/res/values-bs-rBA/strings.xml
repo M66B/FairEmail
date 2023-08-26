@@ -1017,6 +1017,8 @@
     <string name="title_synchronize_batch_disable">Isključi sinhronizaciju</string>
     <string name="title_notify_batch_enable">Uključi obavještenja za nove poruke</string>
     <string name="title_notify_batch_disable">Isključi obavještenja za nove poruke</string>
+    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Preuzmi tekstove i priloge</string>
+    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Preuzmi samo zaglavlja</string>
     <string name="title_delete_local">Izbriši lokalne poruke</string>
     <string name="title_delete_browsed">Izbrisane pretraživane poruke</string>
     <string name="title_expunge">Trajno uklanjanje</string>
@@ -1369,6 +1371,7 @@
     <string name="title_add_image_privacy">Ukloni osjetljive podatke</string>
     <string name="title_add_image_privacy_remark">Geografska lokacija, serijski brojevi, nazivi datoteka, itd.</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksela</string>
+    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">Izbornik fotografija na Androidu više ne pruža nazive datoteka</string>
     <string name="title_add_image_select">Izaberi datoteku</string>
     <string name="title_add_attachment">Dodaj prilog</string>
     <string name="title_attachment_file">Priloži datoteku</string>
@@ -1380,6 +1383,7 @@
     <string name="title_image_dialog">Prikaži opcije za slike</string>
     <string name="title_style_toolbar">Alatna traka stilova</string>
     <string name="title_media_toolbar">Medijska alatna traka</string>
+    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Upravljanje kontaktima na Androidu</string>
     <string name="title_manage_local_contacts">Upravljaj lokalnim kontaktima</string>
     <string name="title_insert_contact_group">Ubaci grupu kontakata</string>
     <string name="title_insert_template">Ubaci prijedložak</string>
@@ -1482,6 +1486,7 @@
     <string name="title_search_hint">        U početku, pretraga se izvršava na uređaju.
         Da bi pretraživali i server, dodirnite dugme \'traži ponovo\'.
     </string>
+    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Korištenje indeksa pretrage: samo za potpune riječi</string>
     <string name="title_search_index_hint">Traženje putem indeksa pretraživanja je brzo, ali pronalazi samo cijele riječi.</string>
     <string name="title_search_text_hint">Pretraživanje teksta u porukama, kada postoji veliki broj poruka, možda neće raditi na nekim serverima</string>
     <string name="title_search_text_unsupported">\'%s\' znači da mail server ne podržava šretraživanje teksta u porukama</string>
@@ -1598,7 +1603,7 @@
     <string name="title_rule_keyword">Ključna riječ</string>
     <string name="title_rule_keyword_add">Dodaj</string>
     <string name="title_rule_keyword_delete">Izbriši</string>
-    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Lokalne bilješke</string>
+    <string name="title_rule_notes">Lokalne bilješke</string>
     <string name="title_rule_move">Premjesti</string>
     <string name="title_rule_copy">Kopiraj (oznaku)</string>
     <string name="title_rule_answer">Odgovori/proslijedi</string>
@@ -1657,7 +1662,7 @@
     <string name="title_rule_answer_missing">Nedostaje prijedložak</string>
     <string name="title_rule_keyword_missing">Nedostaje ključna riječ</string>
     <string name="title_rule_automation_hint">Ovo će poslati opis zadatka \'%1$s\' sa dodacima \'%2$s\'</string>
-    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Nedostaju lokalne bilješke</string>
+    <string name="title_rule_notes_missing">Nedostaju lokalne bilješke</string>
     <string name="title_rule_delete_hint">Trajno brisanje je nepovratna radnja, zato osigurajte da su uvjeti ispravni!</string>
     <string name="title_rule_edit_group">Uredi grupu &#8230;</string>
     <string name="title_rule_execute">Izvrši sada</string>
@@ -1678,6 +1683,8 @@
     <string name="title_rule_use_as_alarm">Koristi kao alarm</string>
     <string name="title_rule_alarm_hint">Ovo će ignorisati pravila \"neometanja\"</string>
     <string name="title_rule_alarm_duration">Maksimalno trajanje alarma (sekunde)</string>
+    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Alarm</string>
+    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Zaustavi</string>
     <string name="title_legend_section_synchronize">Sinhronizuj</string>
     <string name="title_legend_section_folders">Folderi</string>
     <string name="title_legend_section_messages">Poruke</string>

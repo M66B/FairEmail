@@ -504,7 +504,7 @@
     <string name="title_advanced_preview">显示邮件预览</string>
     <string name="title_advanced_preview_italic">斜体字显示邮件预览</string>
     <string name="title_advanced_preview_lines">预览行数</string>
-    <string name="title_advanced_align_header">垂直对齐关键词、预览文本和注释</string>
+    <string name="title_advanced_align_header">垂直对齐关键字、预览文本和备注</string>
     <string name="title_advanced_addresses">默认展开地址详情</string>
     <string name="title_advanced_hide_attachments">默认折叠附件</string>
     <string name="title_advanced_unzip">显示压缩附件的内容</string>
@@ -987,6 +987,8 @@
     <string name="title_synchronize_batch_disable">禁用同步</string>
     <string name="title_notify_batch_enable">启用新消息通知</string>
     <string name="title_notify_batch_disable">禁用新消息通知</string>
+    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">下载文本和附件</string>
+    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">仅下载标头</string>
     <string name="title_delete_local">删除本地消息</string>
     <string name="title_delete_browsed">删除浏览过/搜索过的消息</string>
     <string name="title_expunge">Expunge</string>
@@ -1110,7 +1112,7 @@
     <string name="title_fetching_headers">正在下载邮件标头 &#8230;</string>
     <string name="title_new_message">新消息</string>
     <string name="title_editasnew">作为新邮件编辑</string>
-    <string name="title_edit_notes">编辑本地笔记</string>
+    <string name="title_edit_notes">编辑本地备注</string>
     <string name="title_create_rule">创建规则 &#8230;</string>
     <string name="title_full_screen">全屏</string>
     <string name="title_force_light">强制使用浅色主题</string>
@@ -1335,6 +1337,7 @@
     <string name="title_add_image_privacy">移除隐私敏感数据</string>
     <string name="title_add_image_privacy_remark">地理位置、序列号、文件名等</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
+    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">Android 照片选择器不再传递文件名</string>
     <string name="title_add_image_select">选择文件</string>
     <string name="title_add_attachment">添加附件</string>
     <string name="title_attachment_file">插入附件</string>
@@ -1346,6 +1349,7 @@
     <string name="title_image_dialog">显示图像选项</string>
     <string name="title_style_toolbar">样式工具栏</string>
     <string name="title_media_toolbar">媒体工具栏</string>
+    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">管理 Android 联系人</string>
     <string name="title_manage_local_contacts">管理本地联系人</string>
     <string name="title_insert_contact_group">插入联系人组</string>
     <string name="title_insert_template">插入模板</string>
@@ -1448,6 +1452,7 @@
     <string name="title_search_hint">        首先，搜索在设备上执行。
         要搜索服务器，点击“再次搜索”按钮。
     </string>
+    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">使用搜索索引：仅限整个词</string>
     <string name="title_search_index_hint">通过搜索索引确实很快，但只能找到整个单词</string>
     <string name="title_search_text_hint">当消息数量很多时，在消息中搜索文本可能无法在某些服务器上正常运作</string>
     <string name="title_search_text_unsupported">\'%s\' 表示邮件服务器不支持在邮件文本中搜索</string>
@@ -1459,7 +1464,7 @@
     <string name="title_search_in_subject">主题</string>
     <string name="title_search_in_keywords">关键词 (如果支持)</string>
     <string name="title_search_in_message">消息文本</string>
-    <string name="title_search_in_notes">在本地笔记中</string>
+    <string name="title_search_in_notes">本地备注内容</string>
     <string name="title_search_with">限定以下搜索</string>
     <string name="title_search_with_unseen">未读邮件</string>
     <string name="title_search_with_flagged">星标邮件</string>
@@ -1564,6 +1569,7 @@
     <string name="title_rule_keyword">关键词</string>
     <string name="title_rule_keyword_add">添加</string>
     <string name="title_rule_keyword_delete">删除</string>
+    <string name="title_rule_notes">本地备注</string>
     <string name="title_rule_move">移动</string>
     <string name="title_rule_copy">复制（标签）</string>
     <string name="title_rule_answer">回复/转发</string>
@@ -1622,6 +1628,7 @@
     <string name="title_rule_answer_missing">缺少模板</string>
     <string name="title_rule_keyword_missing">缺少关键词</string>
     <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
+    <string name="title_rule_notes_missing">本地备注缺失</string>
     <string name="title_rule_delete_hint">永久删除是不可逆的，所以请确保规则条件的正确性！</string>
     <string name="title_rule_edit_group">编辑组&#8230;</string>
     <string name="title_rule_execute">立即执行</string>
@@ -1642,6 +1649,8 @@
     <string name="title_rule_use_as_alarm">用作警报</string>
     <string name="title_rule_alarm_hint">这将忽略“勿扰”规则</string>
     <string name="title_rule_alarm_duration">警报最长持续时间 (秒)</string>
+    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">警报</string>
+    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">停止</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>

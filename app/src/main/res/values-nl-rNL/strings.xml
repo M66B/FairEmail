@@ -1000,6 +1000,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_synchronize_batch_disable">Synchronisatie uitschakelen</string>
     <string name="title_notify_batch_enable">Schakel meldingen voor nieuwe berichten in</string>
     <string name="title_notify_batch_disable">Schakel meldingen voor nieuwe berichten uit</string>
+    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Download teksten en bijlagen</string>
+    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Alleen koppen downloaden</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>
     <string name="title_expunge">Uitwissen</string>
@@ -1347,6 +1349,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_add_image_privacy">Verwijder privacy gevoelige gegevens</string>
     <string name="title_add_image_privacy_remark">Geografische locatie, serienummers, bestandsnamen, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">De Android fotokiezer geeft bestandnamen niet langer door</string>
     <string name="title_add_image_select">Selecteer bestand</string>
     <string name="title_add_attachment">Bijlage toevoegen</string>
     <string name="title_attachment_file">Bestand bijvoegen</string>
@@ -1358,6 +1361,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_image_dialog">Toon afbeeldingsopties</string>
     <string name="title_style_toolbar">Stijl werkbalk</string>
     <string name="title_media_toolbar">Media werkbalk</string>
+    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Android-contacten beheren</string>
     <string name="title_manage_local_contacts">Beheer lokale contacten</string>
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
@@ -1458,6 +1462,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_search">Zoek</string>
     <string name="title_search_for_hint">Voer tekst in</string>
     <string name="title_search_hint">In eerste instantie wordt de zoekopdracht uitgevoerd op het apparaat.Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
+    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Gebruik van de zoekindex: alleen hele woorden</string>
     <string name="title_search_index_hint">Zoeken via de zoekindex gaat snel, maar vindt alleen hele woorden.</string>
     <string name="title_search_text_hint">Zoeken naar tekst in berichten, wanneer er een groot aantal berichten is, werkt mogelijk niet op sommige servers</string>
     <string name="title_search_text_unsupported">\'%s\' betekent dat de mailserver het zoeken in berichtteksten niet ondersteunt</string>
@@ -1573,7 +1578,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_keyword">Sleutelwoord</string>
     <string name="title_rule_keyword_add">Voeg toe</string>
     <string name="title_rule_keyword_delete">Verwijder</string>
-    <string name="title_rule_notes" comment="title_rule_notes&#10;Title for filter rule action">Lokale notities</string>
+    <string name="title_rule_notes">Lokale notities</string>
     <string name="title_rule_move">Verplaatsen</string>
     <string name="title_rule_copy">Kopiëren (label)</string>
     <string name="title_rule_answer">Beantwoorden/doorsturen</string>
@@ -1632,7 +1637,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_answer_missing">Sjabloon ontbreekt</string>
     <string name="title_rule_keyword_missing">Sleutelwoord ontbreekt</string>
     <string name="title_rule_automation_hint">Dit zal de intent \'%1$s\' sturen met de extra\'s \'%2$s\'</string>
-    <string name="title_rule_notes_missing" comment="title_rule_notes_missing&#10;Text for an error message">Lokale notities ontbreken</string>
+    <string name="title_rule_notes_missing">Lokale notities ontbreken</string>
     <string name="title_rule_delete_hint">Definitieve verwijdering is onomkeerbaar, dus zorg ervoor dat de voorwaarden van de regel correct zijn!</string>
     <string name="title_rule_edit_group">Groep bewerken &#8230;</string>
     <string name="title_rule_execute">Nu uitvoeren</string>
@@ -1653,6 +1658,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_use_as_alarm">Als alarm gebruiken</string>
     <string name="title_rule_alarm_hint">Dit zal \"niet storen\" regels negeren</string>
     <string name="title_rule_alarm_duration">Maximale alarmduur (seconden)</string>
+    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Alarm</string>
+    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Stop</string>
     <string name="title_legend_section_synchronize">Synchroniseren</string>
     <string name="title_legend_section_folders">Mappen</string>
     <string name="title_legend_section_messages">Berichten</string>

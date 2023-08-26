@@ -518,6 +518,7 @@
     <string name="title_advanced_libravatars">Pokaż Libravatary</string>
     <string name="title_advanced_favicons">Pokaż favikony</string>
     <string name="title_advanced_favicons_partial">Skanuj tylko pierwsze %1$s strony internetowej</string>
+    <string name="title_advanced_favicons_manifest">Skanuj manifesty aplikacji internetowych</string>
     <string name="title_advanced_generated_icons">Pokaż wygenerowane ikony</string>
     <string name="title_advanced_identicons">Pokaż ikony kontaktów</string>
     <string name="title_advanced_circular">Pokaż okrągłe ikony</string>
@@ -1029,6 +1030,8 @@
     <string name="title_synchronize_batch_disable">Wyłącz synchronizację</string>
     <string name="title_notify_batch_enable">Włącz powiadomienia o nowej wiadomości</string>
     <string name="title_notify_batch_disable">Wyłącz powiadomienia o nowej wiadomości</string>
+    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Pobieraj teksty i załączniki</string>
+    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Pobieraj tylko nagłówki</string>
     <string name="title_delete_local">Usuń wiadomości lokalne</string>
     <string name="title_delete_browsed">Usuń przejrzane/przeszukane wiadomości</string>
     <string name="title_expunge">Usuń trwale</string>
@@ -1378,6 +1381,7 @@
     <string name="title_add_image_privacy">Usuń wrażliwe prywatne dane</string>
     <string name="title_add_image_privacy_remark">Lokalizacja geograficzna, numery seryjne, nazwy plików itp</string>
     <string name="title_add_resize_pixels">&lt; %1$d pikseli</string>
+    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">Selektor zdjęć Androida nie przekazuje już nazw plików</string>
     <string name="title_add_image_select">Wybierz plik</string>
     <string name="title_add_attachment">Dodaj załącznik</string>
     <string name="title_attachment_file">Dołącz plik</string>
@@ -1389,6 +1393,7 @@
     <string name="title_image_dialog">Pokaż opcje obrazu</string>
     <string name="title_style_toolbar">Styl paska narzędzi</string>
     <string name="title_media_toolbar">Pasek mediów</string>
+    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Zarządzaj kontaktami Androida</string>
     <string name="title_manage_local_contacts">Zarządzaj kontaktami lokalnymi</string>
     <string name="title_insert_contact_group">Wstaw grupę kontaktów</string>
     <string name="title_insert_template">Wstaw szablon</string>
@@ -1491,6 +1496,7 @@
     <string name="title_search_hint">        Wyszukiwanie początkowo obejmie wiadomości zapisane na Twoim urządzeniu.
         Aby wyszukać również na serwerze, dotknij przycisku \'Szukaj ponownie\'.
     </string>
+    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Używa indeksu wyszukiwania: tylko całe słowa</string>
     <string name="title_search_index_hint">Wyszukiwanie za pomocą indeksu wyszukiwania jest szybkie, ale znajduje tylko całe słowa.</string>
     <string name="title_search_text_hint">Wyszukiwanie tekstu w wiadomościach może nie działać na niektórych serwerach, gdy istnieje duża liczba wiadomości</string>
     <string name="title_search_text_unsupported">\'%s\' oznacza, że serwer pocztowy nie obsługuje wyszukiwania w tekstach wiadomości</string>
@@ -1608,6 +1614,7 @@
     <string name="title_rule_keyword">Słowo kluczowe</string>
     <string name="title_rule_keyword_add">Dodaj</string>
     <string name="title_rule_keyword_delete">Usuń</string>
+    <string name="title_rule_notes">Lokalne notatki</string>
     <string name="title_rule_move">Przenieś</string>
     <string name="title_rule_copy">Kopiuj (etykieta)</string>
     <string name="title_rule_answer">Odpowiedz/prześlij dalej</string>
@@ -1666,6 +1673,7 @@
     <string name="title_rule_answer_missing">Brak szablonu</string>
     <string name="title_rule_keyword_missing">Brak słowa kluczowego</string>
     <string name="title_rule_automation_hint">Zostanie wysłany zamiar (intent) \'%1$s\' z dodatkami (extras) \'%2$s\'</string>
+    <string name="title_rule_notes_missing">Brak notatek lokalnych</string>
     <string name="title_rule_delete_hint">Trwałe usunięcie jest nieodwracalne, więc upewnij się, że warunki reguły są poprawne!</string>
     <string name="title_rule_edit_group">Edytuj grupę &#8230;</string>
     <string name="title_rule_execute">Wykonaj teraz</string>
@@ -1686,6 +1694,8 @@
     <string name="title_rule_use_as_alarm">Użyj jako alarmu</string>
     <string name="title_rule_alarm_hint">To zignoruje zasady \"nie przeszkadzać\"</string>
     <string name="title_rule_alarm_duration">Maksymalny czas trwania alarmu (sekundy)</string>
+    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Alarm</string>
+    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Stop</string>
     <string name="title_legend_section_synchronize">Synchronizuj</string>
     <string name="title_legend_section_folders">Foldery</string>
     <string name="title_legend_section_messages">Wiadomości</string>
