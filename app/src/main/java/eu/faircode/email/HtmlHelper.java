@@ -1795,7 +1795,7 @@ public class HtmlHelper {
                                 if (tag == null
                                         ? eselector.getLocalName() == null
                                         : tag.equalsIgnoreCase(eselector.getLocalName()))
-                                    style = mergeStyles(style, srule.getStyle().getCssText(), false);
+                                    style = mergeStyles(style, srule.getStyle().getCssText());
                                 break;
                             case Selector.SAC_CONDITIONAL_SELECTOR:
                                 if (!TextUtils.isEmpty(clazz)) {
@@ -1805,7 +1805,7 @@ public class HtmlHelper {
                                         String value = ccondition.getValue();
                                         for (String cls : clazz.split("\\s+"))
                                             if (cls.equalsIgnoreCase(value)) {
-                                                style = mergeStyles(style, srule.getStyle().getCssText(), false);
+                                                style = mergeStyles(style, srule.getStyle().getCssText());
                                                 break;
                                             }
 
@@ -1842,10 +1842,6 @@ public class HtmlHelper {
     }
 
     static String mergeStyles(String base, String style) {
-        return mergeStyles(base, style, true);
-    }
-
-    private static String mergeStyles(String base, String style, boolean element) {
         Map<String, String> result = new HashMap<>();
 
         // Base style
@@ -1877,19 +1873,18 @@ public class HtmlHelper {
                 //https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Cascade_and_inheritance#controlling_inheritance
                 boolean initial = false; // no value
                 boolean inherit = false; // parent value
-                if (element)
-                    switch (value) {
-                        case "inherit":
-                            inherit = true;
-                            break;
-                        case "initial":
-                            initial = true;
-                            break;
-                        case "unset":
-                        case "revert":
-                            inherit = !STYLE_NO_INHERIT.contains(key);
-                            break;
-                    }
+                switch (value) {
+                    case "inherit":
+                        inherit = true;
+                        break;
+                    case "initial":
+                        initial = true;
+                        break;
+                    case "unset":
+                    case "revert":
+                        inherit = !STYLE_NO_INHERIT.contains(key);
+                        break;
+                }
 
                 if (initial || inherit)
                     Log.i("CSS " + value + "=" + key);
@@ -1905,8 +1900,7 @@ public class HtmlHelper {
             }
 
         for (String key : baseParams.keySet())
-            if (!STYLE_NO_INHERIT.contains(key) || element)
-                result.put(key, baseParams.get(key));
+            result.put(key, baseParams.get(key));
 
         return TextUtils.join(";", result.values());
     }
