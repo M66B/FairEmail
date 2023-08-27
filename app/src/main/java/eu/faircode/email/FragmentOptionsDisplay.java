@@ -1287,7 +1287,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         });
 
         tvUnzipHint.setText(getString(R.string.compressed,
-                TextUtils.join(",", MessageHelper.UNZIP_FORMATS),
+                TextUtils.join(", ", MessageHelper.UNZIP_FORMATS),
                 Integer.toString(MessageHelper.MAX_UNZIP_COUNT),
                 Helper.humanReadableByteCount(MessageHelper.MAX_UNZIP_SIZE)));
 

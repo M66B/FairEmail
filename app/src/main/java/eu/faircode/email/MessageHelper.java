@@ -183,9 +183,9 @@ public class MessageHelper {
     static final int MAX_UNZIP_COUNT = 20;
     static final long MAX_UNZIP_SIZE = 1000 * 1000 * 1000L;
 
-    static final List<String> UNZIP_FORMATS = BuildConfig.PLAY_STORE_RELEASE
-            ? Collections.unmodifiableList(Arrays.asList("zip"))
-            : Collections.unmodifiableList(Arrays.asList("zip, gz, tar.gz"));
+    static final List<String> UNZIP_FORMATS = Collections.unmodifiableList(Arrays.asList(
+            "zip", "gz", "tar.gz"
+    ));
 
     static final List<String> RECEIVED_WORDS = Collections.unmodifiableList(Arrays.asList(
             "from", "by", "via", "with", "id", "for"
