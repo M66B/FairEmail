@@ -2289,7 +2289,8 @@ class Core {
                     " host=" + account.host +
                     " outlook=" + account.isOutlook() +
                     " messages=" + (imessages == null ? null : imessages.length));
-            imessages = ifolder.search(new HeaderTerm("X-Microsoft-Original-Message-ID", message.msgid));
+            imessages = ifolder.search(
+                    new HeaderTerm(MessageHelper.HEADER_MICROSOFT_ORIGINAL_MESSAGE_ID, message.msgid));
         }
 
         // Searching for random header:
@@ -4411,6 +4412,16 @@ class Core {
             String msgid = helper.getMessageID();
             Log.i(folder.name + " searching for " + msgid);
             List<EntityMessage> dups = db.message().getMessagesByMsgId(folder.account, msgid);
+            if (dups.size() == 0 &&
+                    account.isOutlook() &&
+                    EntityFolder.SENT.equals(folder.type)) {
+                String originalId = imessage.getHeader(MessageHelper.HEADER_MICROSOFT_ORIGINAL_MESSAGE_ID, null);
+                if (originalId != null) {
+                    dups = db.message().getMessagesByMsgId(folder.account, originalId);
+                    EntityLog.log(context, folder.name + " found with original ID" +
+                            " msgid=" + msgid + " count=" + dups.size());
+                }
+            }
             for (EntityMessage dup : dups) {
                 EntityFolder dfolder = db.folder().getFolder(dup.folder);
                 Log.i(folder.name + " found as id=" + dup.id + "/" + dup.uid +
