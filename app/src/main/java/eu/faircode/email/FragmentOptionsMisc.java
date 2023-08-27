@@ -243,6 +243,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swMdn;
     private SwitchCompat swAppChooser;
     private SwitchCompat swDeleteConfirmation;
+    private SwitchCompat swDmarcViewer;
     private EditText etKeywords;
     private SwitchCompat swTestIab;
     private Button btnImportProviders;
@@ -497,6 +498,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swMdn = view.findViewById(R.id.swMdn);
         swAppChooser = view.findViewById(R.id.swAppChooser);
         swDeleteConfirmation = view.findViewById(R.id.swDeleteConfirmation);
+        swDmarcViewer = view.findViewById(R.id.swDmarcViewer);
         etKeywords = view.findViewById(R.id.etKeywords);
         swTestIab = view.findViewById(R.id.swTestIab);
         btnImportProviders = view.findViewById(R.id.btnImportProviders);
@@ -1889,6 +1891,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swDmarcViewer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                Helper.enableComponent(compoundButton.getContext(), ActivityDmarc.class, checked);
+            }
+        });
+
         etKeywords.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -2642,6 +2651,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swMdn.setChecked(prefs.getBoolean("mdn", swExperiments.isChecked()));
             swAppChooser.setChecked(prefs.getBoolean("app_chooser", false));
             swDeleteConfirmation.setChecked(prefs.getBoolean("delete_confirmation", true));
+            swDmarcViewer.setChecked(Helper.isComponentEnabled(getContext(), ActivityDmarc.class));
             etKeywords.setText(prefs.getString("global_keywords", null));
             swTestIab.setChecked(prefs.getBoolean("test_iab", false));
 
