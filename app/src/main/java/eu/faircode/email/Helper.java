@@ -46,6 +46,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.UriPermission;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.ComponentInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -705,6 +706,32 @@ public class Helper {
     static boolean isComponentEnabled(Context context, Class<?> clazz) {
         PackageManager pm = context.getPackageManager();
         int state = pm.getComponentEnabledSetting(new ComponentName(context, clazz));
+
+        if (state == PackageManager.COMPONENT_ENABLED_STATE_DEFAULT) {
+            try {
+                PackageInfo pi = pm.getPackageInfo(context.getPackageName(),
+                        PackageManager.GET_ACTIVITIES |
+                                PackageManager.GET_RECEIVERS |
+                                PackageManager.GET_SERVICES |
+                                PackageManager.GET_PROVIDERS |
+                                PackageManager.GET_DISABLED_COMPONENTS);
+
+                List<ComponentInfo> components = new ArrayList<>();
+                if (pi.activities != null)
+                    Collections.addAll(components, pi.activities);
+                if (pi.services != null)
+                    Collections.addAll(components, pi.services);
+                if (pi.providers != null)
+                    Collections.addAll(components, pi.providers);
+
+                for (ComponentInfo component : components)
+                    if (component.name.equals(clazz.getName()))
+                        return component.isEnabled();
+            } catch (PackageManager.NameNotFoundException ex) {
+                Log.w(ex);
+            }
+        }
+
         return (state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED);
     }
 
