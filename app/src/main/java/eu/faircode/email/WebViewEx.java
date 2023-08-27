@@ -29,6 +29,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.util.Pair;
 import android.view.InputDevice;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.DownloadListener;
@@ -353,6 +354,37 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         return super.onTouchEvent(event);
     }
 
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        intf.onUserInterAction();
+        return super.dispatchKeyEvent(event);
+    }
+
+    @Override
+    public boolean dispatchKeyShortcutEvent(KeyEvent event) {
+        intf.onUserInterAction();
+        return super.dispatchKeyShortcutEvent(event);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN)
+            intf.onUserInterAction();
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    public boolean dispatchTrackballEvent(MotionEvent event) {
+        intf.onUserInterAction();
+        return super.dispatchTrackballEvent(event);
+    }
+
+    @Override
+    public boolean dispatchGenericMotionEvent(MotionEvent event) {
+        intf.onUserInterAction();
+        return super.dispatchGenericMotionEvent(event);
+    }
+
     public static boolean isFeatureSupported(Context context, String feature) {
         if (WebViewFeature.ALGORITHMIC_DARKENING.equals(feature)) {
             if (BuildConfig.DEBUG) {
@@ -429,5 +461,7 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
         void onScrollChange(int dx, int dy, int scrollX, int scrollY);
 
         boolean onOpenLink(String url);
+
+        void onUserInterAction();
     }
 }

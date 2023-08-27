@@ -2893,6 +2893,16 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     Uri uri = Uri.parse(url);
                                     return ViewHolder.this.onOpenLink(uri, null, EntityFolder.JUNK.equals(message.folderType));
                                 }
+
+                                @Override
+                                public void onUserInterAction() {
+                                    try {
+                                        Log.i("WebView user interaction");
+                                        parentFragment.getActivity().onUserInteraction();
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }
                             });
                     webView.setImages(show_images, inline);
                     webView.setOnTouchListener(touchListener);
