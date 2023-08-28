@@ -215,9 +215,34 @@ public class FragmentDialogSelectFolder extends FragmentDialogBase {
                 dismiss();
             }
         };
+
+        View.OnLongClickListener llistener = new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                Long id = (Long) v.getTag();
+                if (id == null)
+                    return false;
+
+                Bundle args = getArguments();
+                args.putLong("folder", id);
+                args.putBoolean("copy", true);
+
+                sendResult(RESULT_OK);
+                dismiss();
+
+                return true;
+            }
+        };
+
         btnFavorite1.setOnClickListener(listener);
         btnFavorite2.setOnClickListener(listener);
         btnFavorite3.setOnClickListener(listener);
+
+        if (cancopy) {
+            btnFavorite1.setOnLongClickListener(llistener);
+            btnFavorite2.setOnLongClickListener(llistener);
+            btnFavorite3.setOnLongClickListener(llistener);
+        }
 
         ibResetFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
