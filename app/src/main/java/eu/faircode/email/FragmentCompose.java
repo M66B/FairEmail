@@ -7922,7 +7922,7 @@ public class FragmentCompose extends FragmentBase {
             try {
                 new ContentType(result.type);
             } catch (ParseException ex) {
-                Log.w(ex);
+                Log.w(new Throwable(result.type, ex));
                 result.type = null;
             }
 
