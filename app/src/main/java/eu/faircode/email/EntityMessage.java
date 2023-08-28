@@ -27,6 +27,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
 import android.util.Pair;
 
@@ -556,6 +557,13 @@ public class EntityMessage implements Serializable {
 
         Element div = document.createElement("div")
                 .attr("fairemail", "reply");
+        try {
+            String text = p.text();
+            boolean rtl = TextDirectionHeuristics.FIRSTSTRONG_LTR.isRtl(text, 0, text.length());
+            div.attr("dir", rtl ? "rtl" : "ltr");
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
         if (!TextUtils.isEmpty(compose_font))
             div.attr("style", "font-family: " + StyleHelper.getFamily(compose_font));
         if (separate)
