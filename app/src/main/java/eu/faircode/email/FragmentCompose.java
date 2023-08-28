@@ -5758,8 +5758,6 @@ public class FragmentCompose extends FragmentBase {
                             Element reply = document.createElement("div");
                             reply.attr("fairemail", "reference");
 
-                            reply.appendElement("br");
-
                             // Build reply header
                             boolean separate_reply = prefs.getBoolean("separate_reply", false);
                             boolean extended_reply = prefs.getBoolean("extended_reply", false);
