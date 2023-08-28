@@ -464,9 +464,6 @@ public class FragmentOAuth extends FragmentBase {
                 if (descriptor.useCustomTab && !tabs)
                     accept = false;
 
-                if ("com.brave.browser".equals(descriptor.packageName) && Boolean.TRUE.equals(descriptor.useCustomTab))
-                    accept = false;
-
                 EntityLog.log(context,
                         "OAuth browser=" + descriptor.packageName +
                                 ":" + descriptor.version +
