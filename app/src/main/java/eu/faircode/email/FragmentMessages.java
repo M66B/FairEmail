@@ -397,6 +397,7 @@ public class FragmentMessages extends FragmentBase
     final private LongSparseArray<TupleAccountSwipes> accountSwipes = new LongSparseArray<>();
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
+    private final ObjectHolder<Boolean> showToolbar = new ObjectHolder<>(true);
 
     private static final ExecutorService executor =
             Helper.getBackgroundExecutor(1, "more");
@@ -1165,8 +1166,6 @@ public class FragmentMessages extends FragmentBase
         });
 
         rvMessage.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            private boolean show = true;
-
             @Override
             public void onScrolled(@NonNull RecyclerView rv, int dx, int dy) {
                 if (dy != 0) {
@@ -1180,17 +1179,17 @@ public class FragmentMessages extends FragmentBase
 
                 if (hide_toolbar && dy != 0)
                     try {
-                        show = (dy < 0 || rv.computeVerticalScrollOffset() == 0);
+                        showToolbar.value = (dy < 0 || rv.computeVerticalScrollOffset() == 0);
                     } catch (Throwable ex) {
                         Log.e(ex);
-                        show = true;
+                        showToolbar.value = true;
                     }
             }
 
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView rv, int newState) {
                 if (hide_toolbar && newState != RecyclerView.SCROLL_STATE_DRAGGING)
-                    showActionBar(show);
+                    showActionBar(showToolbar.value);
             }
         });
 
@@ -1231,6 +1230,8 @@ public class FragmentMessages extends FragmentBase
         ibUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showToolbar.value = true;
+                showActionBar(true);
                 scrollToVisibleItem(llm, false);
             }
         });
