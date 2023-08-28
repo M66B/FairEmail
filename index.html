@@ -1067,6 +1067,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p>Note that the domain name (the parts after the @ sign) always needs to be equal to the domain name of the identity. Since version 1.1640 it is possible to match the full email address with a regex, which can be useful for matching alias domain names.</p>
 <p>If you want to match a catch-all email address, this regex is usually fine, provided all usernames for the domain are yours:</p>
 <pre><code>.*</code></pre>
+<p>The username of a message being replied to will be used as the default username when editing of usernames is enabled in the advanced identity settings.</p>
 <p>If you want to <em>not</em> match specific addresses, you can use something like this:</p>
 <pre><code>^(?!marcel$|johanna$).*</code></pre>
 <p>If you like to match the special purpose email addresses abc@example.com and xyx@example.com and like to have a fallback email address main@example.com as well, you could do something like this:</p>
@@ -1316,6 +1317,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <li>Did you know that you can long press the image action to show the image dialog, even if it was disabled? (since version 1.1772)</li>
 <li>Did you know that you can long press the “] [” button to fit original messages to the screen width? (this might result in “thin” messages)</li>
 <li>Did you know that you can long press on the save drafts button for a grammar, style, and spell check via <a href="https://languagetool.org/">LanguageTools</a>?</li>
+<li>Did you know that you can long press a folder in the folder selection dialog to copy instead of move a message?</li>
 </ul>
 <p><br /></p>
 <p><a name="faq61"></a> <strong>(61) Why are some messages shown dimmed?</strong></p>

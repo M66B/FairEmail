@@ -2407,6 +2407,7 @@ but even Google's Chrome cannot handle this.
 * Did you know that you can long press the image action to show the image dialog, even if it was disabled? (since version 1.1772)
 * Did you know that you can long press the "] \[" button to fit original messages to the screen width? (this might result in "thin" messages)
 * Did you know that you can long press on the save drafts button for a grammar, style, and spell check via [LanguageTools](https://languagetool.org/)?
+* Did you know that you can long press a folder in the folder selection dialog to copy instead of move a message?
 
 <br />
 
