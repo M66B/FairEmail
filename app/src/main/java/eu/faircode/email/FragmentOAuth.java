@@ -28,6 +28,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -35,6 +36,7 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -89,6 +91,7 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.mail.AuthenticationFailedException;
@@ -119,6 +122,7 @@ public class FragmentOAuth extends FragmentBase {
     private CheckBox cbPop;
     private CheckBox cbRecent;
     private CheckBox cbUpdate;
+    private TextView tvBrave;
     private Button btnOAuth;
     private ContentLoadingProgressBar pbOAuth;
     private TextView tvConfiguring;
@@ -175,6 +179,7 @@ public class FragmentOAuth extends FragmentBase {
         cbPop = view.findViewById(R.id.cbPop);
         cbRecent = view.findViewById(R.id.cbRecent);
         cbUpdate = view.findViewById(R.id.cbUpdate);
+        tvBrave = view.findViewById(R.id.tvBrave);
         btnOAuth = view.findViewById(R.id.btnOAuth);
         pbOAuth = view.findViewById(R.id.pbOAuth);
         tvConfiguring = view.findViewById(R.id.tvConfiguring);
@@ -234,6 +239,28 @@ public class FragmentOAuth extends FragmentBase {
                     : R.drawable.google_signin_background_light));
             btnOAuth.setPaddingRelative(dp12, 0, dp12, 0);
         }
+
+
+        boolean brave = false;
+        try {
+            PackageManager pm = getContext().getPackageManager();
+            Intent intent = new Intent(Intent.ACTION_VIEW)
+                    .addCategory(Intent.CATEGORY_BROWSABLE)
+                    .setData(Uri.parse("http://example.com"));
+            int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
+            List<ResolveInfo> browsers = pm.queryIntentActivities(intent, flags);
+            for (ResolveInfo browser : browsers)
+                if (browser.activityInfo.packageName.startsWith("com.brave.browser")) {
+                    // _beta _nightly
+                    brave = true;
+                    break;
+                }
+        } catch (Throwable ex) {
+            Log.e(ex);
+            brave = true;
+        }
+
+        tvBrave.setVisibility(brave ? View.VISIBLE : View.GONE);
 
         btnOAuth.setOnClickListener(new View.OnClickListener() {
             @Override

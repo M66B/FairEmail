@@ -130,6 +130,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbRecent" />
 
+        <TextView
+            android:id="@+id/tvBrave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_setup_oauth_brave"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="bold|italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbUpdate" />
+
         <Button
             android:id="@+id/btnOAuth"
             android:layout_width="wrap_content"
@@ -140,7 +151,7 @@
             android:tag="disable"
             android:text="@string/title_setup_oauth_authorize"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbUpdate" />
+            app:layout_constraintTop_toBottomOf="@id/tvBrave" />
 
         <eu.faircode.email.ContentLoadingProgressBar
             android:id="@+id/pbOAuth"
