@@ -148,6 +148,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -1580,6 +1581,18 @@ public class Helper {
 
     static boolean isAndroid12() {
         return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
+    }
+
+    static String getMIUIVersion() {
+        try {
+            Class<?> c = Class.forName("android.os.SystemProperties");
+            Method get = c.getMethod("get", String.class);
+            String miui = (String) get.invoke(c, "ro.miui.ui.version.code");
+            return (TextUtils.isEmpty(miui) ? null : miui);
+        } catch (Throwable ex) {
+            Log.w(ex);
+            return null;
+        }
     }
 
     static String getUiModeType(Context context) {

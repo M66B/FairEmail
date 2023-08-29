@@ -2004,6 +2004,9 @@ public class Log {
         sb.append(String.format("Android: %s (SDK device=%d target=%d)\r\n",
                 Build.VERSION.RELEASE, Build.VERSION.SDK_INT, Helper.getTargetSdk(context)));
 
+        String miui = Helper.getMIUIVersion();
+        sb.append(String.format("MIUI: %s\r\n", miui == null ? "-" : miui));
+
         boolean reporting = prefs.getBoolean("crash_reports", false);
         if (reporting || BuildConfig.TEST_RELEASE) {
             String uuid = prefs.getString("uuid", null);
