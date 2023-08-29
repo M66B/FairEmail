@@ -632,6 +632,7 @@ public class FragmentQuickSetup extends FragmentBase {
                                 identity.user = user;
                                 identity.password = password;
                                 identity.fingerprint = smtp_fingerprint;
+
                                 identity.use_ip = provider.useip;
                                 identity.synchronize = true;
                                 identity.primary = true;
@@ -642,11 +643,15 @@ public class FragmentQuickSetup extends FragmentBase {
                             } else {
                                 args.putLong("account", update.id);
                                 EntityLog.log(context, "Quick setup update account=" + update.name);
+
                                 db.account().setAccountSynchronize(update.id, true);
                                 db.account().setAccountPassword(update.id, password, AUTH_TYPE_PASSWORD, null);
-                                db.account().setAccountFingerprint(update.id, imap_fingerprint);
+                                db.account().setAccountFingerprint(update.id, imap_fingerprint,
+                                        BuildConfig.PLAY_STORE_RELEASE && !TextUtils.isEmpty(imap_fingerprint));
+
                                 db.identity().setIdentityPassword(update.id, update.user, password, update.auth_type, AUTH_TYPE_PASSWORD, null);
-                                db.identity().setIdentityFingerprint(update.id, smtp_fingerprint);
+                                db.identity().setIdentityFingerprint(update.id, smtp_fingerprint,
+                                        BuildConfig.PLAY_STORE_RELEASE && !TextUtils.isEmpty(smtp_fingerprint));
                             }
 
                             db.setTransactionSuccessful();
