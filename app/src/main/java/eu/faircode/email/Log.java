@@ -2005,7 +2005,9 @@ public class Log {
                 Build.VERSION.RELEASE, Build.VERSION.SDK_INT, Helper.getTargetSdk(context)));
 
         String miui = Helper.getMIUIVersion();
-        sb.append(String.format("MIUI: %s\r\n", miui == null ? "-" : miui));
+        boolean autostart = (miui != null && Helper.getMIUIAutostart(context));
+        sb.append(String.format("MIUI: %s autostart=%b\r\n",
+                miui == null ? "-" : miui, autostart));
 
         boolean reporting = prefs.getBoolean("crash_reports", false);
         if (reporting || BuildConfig.TEST_RELEASE) {
