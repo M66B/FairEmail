@@ -1587,6 +1587,7 @@ public class Helper {
         try {
             Class<?> c = Class.forName("android.os.SystemProperties");
             Method get = c.getMethod("get", String.class);
+            get.setAccessible(true);
             String miui = (String) get.invoke(c, "ro.miui.ui.version.code");
             return (TextUtils.isEmpty(miui) ? null : miui);
         } catch (Throwable ex) {
