@@ -2145,4 +2145,18 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="SoHosted"
+        domain="sohosted\\.com"
+        link="https://support.hoasted.com/article/235-e-mail-instellen-op-google-android"
+        mx=".*\\.sohosted\\.com">
+        <imap
+            host="hostingsecure.email"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="hostingsecure.email"
+            port="465"
+            starttls="false" />
+    </provider>
 </providers>
