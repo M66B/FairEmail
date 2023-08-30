@@ -203,7 +203,6 @@ public class Helper {
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
 
-    static final String PACKAGE_CHROME = "com.android.chrome";
     static final String PACKAGE_WEBVIEW = "https://play.google.com/store/apps/details?id=com.google.android.webview";
     static final String PRIVACY_URI = "https://github.com/M66B/FairEmail/blob/master/PRIVACY.md";
     static final String TUTORIALS_URI = "https://github.com/M66B/FairEmail/tree/master/tutorials#main";
@@ -1200,11 +1199,34 @@ public class Helper {
             return false;
 
         try {
-            return CustomTabsClient.connectAndInitialize(context, PACKAGE_CHROME);
+            /*
+                E AndroidRuntime: FATAL EXCEPTION: main
+                E AndroidRuntime: Process: eu.faircode.email.debug, PID: 25922
+                E AndroidRuntime: java.lang.IllegalStateException: Custom Tabs Service connected before an applicationcontext has been provided.
+                E AndroidRuntime: 	at androidx.browser.customtabs.CustomTabsServiceConnection.onServiceConnected(CustomTabsServiceConnection.java:52)
+                E AndroidRuntime: 	at android.app.LoadedApk$ServiceDispatcher.doConnected(LoadedApk.java:2198)
+                E AndroidRuntime: 	at android.app.LoadedApk$ServiceDispatcher$RunConnection.run(LoadedApk.java:2231)
+                E AndroidRuntime: 	at android.os.Handler.handleCallback(Handler.java:958)
+                E AndroidRuntime: 	at android.os.Handler.dispatchMessage(Handler.java:99)
+                E AndroidRuntime: 	at android.os.Looper.loopOnce(Looper.java:205)
+                E AndroidRuntime: 	at android.os.Looper.loop(Looper.java:294)
+                E AndroidRuntime: 	at android.app.ActivityThread.main(ActivityThread.java:8177)
+                E AndroidRuntime: 	at java.lang.reflect.Method.invoke(Native Method)
+                E AndroidRuntime: 	at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:552)
+                E AndroidRuntime: 	at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:971)
+             */
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            String open_with_pkg = prefs.getString("open_with_pkg", null);
+            boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
+            if (open_with_tabs && !TextUtils.isEmpty(open_with_pkg)) {
+                Log.i("MMM warming up " + open_with_pkg);
+                return CustomTabsClient.connectAndInitialize(context, open_with_pkg);
+            }
         } catch (Throwable ex) {
             Log.w(ex);
-            return false;
         }
+
+        return false;
     }
 
     static String getFAQLocale() {
