@@ -2668,6 +2668,52 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvKeywordsEx.setVisibility(!show_addresses || keywords == null ? View.GONE : View.VISIBLE);
                 tvKeywordsEx.setText(keywords);
             }
+
+            view.post(new RunnableEx("setTextIsSelectable") {
+                @Override
+                public void delegate() {
+                    if (!owner.getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+
+                    tvSignedBy.setTextIsSelectable(false);
+                    tvSubmitter.setTextIsSelectable(false);
+                    tvDeliveredTo.setTextIsSelectable(false);
+                    tvFromEx.setTextIsSelectable(false);
+                    tvTo.setTextIsSelectable(false);
+                    tvReplyTo.setTextIsSelectable(false);
+                    tvCc.setTextIsSelectable(false);
+                    tvBcc.setTextIsSelectable(false);
+                    tvIdentity.setTextIsSelectable(false);
+                    tvSent.setTextIsSelectable(false);
+                    tvReceived.setTextIsSelectable(false);
+                    tvStored.setTextIsSelectable(false);
+                    tvSizeEx.setTextIsSelectable(false);
+                    tvLanguage.setTextIsSelectable(false);
+                    tvThread.setTextIsSelectable(false);
+                    tvSubject.setTextIsSelectable(false);
+                    tvFlags.setTextIsSelectable(false);
+                    tvKeywordsEx.setTextIsSelectable(false);
+
+                    tvSignedBy.setTextIsSelectable(tvSignedBy.getVisibility() == View.VISIBLE);
+                    tvSubmitter.setTextIsSelectable(tvSubmitter.getVisibility() == View.VISIBLE);
+                    tvDeliveredTo.setTextIsSelectable(tvDeliveredTo.getVisibility() == View.VISIBLE);
+                    tvFromEx.setTextIsSelectable(tvFromEx.getVisibility() == View.VISIBLE);
+                    tvTo.setTextIsSelectable(tvTo.getVisibility() == View.VISIBLE);
+                    tvReplyTo.setTextIsSelectable(tvReplyTo.getVisibility() == View.VISIBLE);
+                    tvCc.setTextIsSelectable(tvCc.getVisibility() == View.VISIBLE);
+                    tvBcc.setTextIsSelectable(tvBcc.getVisibility() == View.VISIBLE);
+                    tvIdentity.setTextIsSelectable(tvIdentity.getVisibility() == View.VISIBLE);
+                    tvSent.setTextIsSelectable(tvSent.getVisibility() == View.VISIBLE);
+                    tvReceived.setTextIsSelectable(tvReceived.getVisibility() == View.VISIBLE);
+                    tvStored.setTextIsSelectable(tvStored.getVisibility() == View.VISIBLE);
+                    tvSizeEx.setTextIsSelectable(tvSizeEx.getVisibility() == View.VISIBLE);
+                    tvLanguage.setTextIsSelectable(tvLanguage.getVisibility() == View.VISIBLE);
+                    tvThread.setTextIsSelectable(tvThread.getVisibility() == View.VISIBLE);
+                    tvSubject.setTextIsSelectable(tvSubjectEx.getVisibility() == View.VISIBLE);
+                    tvFlags.setTextIsSelectable(tvFlags.getVisibility() == View.VISIBLE);
+                    tvKeywordsEx.setTextIsSelectable(tvKeywordsEx.getVisibility() == View.VISIBLE && keywords_header);
+                }
+            });
         }
 
         private void bindHeaders(TupleMessageEx message, boolean scroll) {
