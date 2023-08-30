@@ -198,8 +198,8 @@
     <string name="title_setup_manual">Ручне налаштування та параметри облікових записів</string>
     <string name="title_setup_classic">Класична конфігурація</string>
     <string name="title_setup_documentation">Перегляньте документацію свого постачальника пошти для правильної конфігурації сервера електронної пошти</string>
-    <string name="title_setup_account_remark">Отримати email</string>
-    <string name="title_setup_identity_remark">Надіслати email</string>
+    <string name="title_setup_account_remark">Отримання електронної пошти</string>
+    <string name="title_setup_identity_remark">Надсилання електронної пошти</string>
     <string name="title_setup_account_identity_hint">Ви можете налаштувати ім\'я, колір та дії, що виконуватимуться при проведенні пальцем, в налаштуваннях облікового запису та налаштувати підпис в налаштуваннях профілів</string>
     <string name="title_setup_accounts">Облікові записи</string>
     <string name="title_setup_identities">Профілі</string>
@@ -220,6 +220,7 @@
     <string name="title_setup_oauth_rationale">Авторизувати доступ до вашого облікового запису %1$s</string>
     <string name="title_setup_oauth_update">Авторизувати наявний обліковий запис знову (або ж створити новий обліковий запис)</string>
     <string name="title_setup_oauth_updated">Авторизація облікового запису була оновлена</string>
+    <string name="title_setup_oauth_brave">При використанні браузера Brave ви повинні в його налаштуваннях увімкнути опцію, що дозволяє іншим додаткам відкривати посилання в Brave</string>
     <string name="title_setup_oauth_authorize">Авторизувати</string>
     <string name="title_setup_select_account">Обрати обліковий запис</string>
     <string name="title_setup_instructions">Інструкції з встановлення</string>
@@ -285,7 +286,7 @@
          Для повторного імпортування налаштувань необхідно ввести пароль, тому не забудьте його!
     </string>
     <string name="title_setup_export_do">Файл експорту міститиме всі налаштування і дані, але не повідомлення і не зображення, що містяться в підписах</string>
-    <string name="title_setup_scroll">Діалоги для введення можуть бути прокручуванні!</string>
+    <string name="title_setup_scroll">Діалоги для введення можуть бути прокручувані!</string>
     <string name="title_setup_backup">Як створити резервну копію повідомлень?</string>
     <string name="title_setup_password">Пароль</string>
     <string name="title_setup_password_chars">Пароль містить елементи керування або пробіли</string>
@@ -413,7 +414,7 @@
     <string name="title_advanced_answer_action">При тривалому натисканні на кнопку відповіді:</string>
     <string name="title_advanced_answer_hint">Дії кнопки відповіді можна також налаштувати на вкладці \"Відправити\"</string>
     <string name="title_advanced_answer_warning">Не всі дії можливі без меню вибору!</string>
-    <string name="title_advanced_send_pending">Показати ненав\'язливий значок при затримці відправлення</string>
+    <string name="title_advanced_send_pending">Показувати ненав\'язливий значок при затримці відправлення</string>
     <string name="title_advanced_auto_save_paragraph">Автоматично зберігати чернетку після кожного абзацу</string>
     <string name="title_advanced_auto_save_dot">Автоматично зберігати чернетку після кожного речення</string>
     <string name="title_advanced_compose_color">Колір тексту за замовчуванням</string>
@@ -426,8 +427,8 @@
     <string name="title_advanced_extended_reply">Використовувати розширений заголовок відповіді/пересилання</string>
     <string name="title_advanced_write_above">Писати перед текстом відправника</string>
     <string name="title_advanced_write_below">Писати під текстом відправника</string>
-    <string name="title_advanced_quote_reply">Цитувати текст відповіді</string>
-    <string name="title_advanced_limit_reply">Обмежити кількість вкладених лапок</string>
+    <string name="title_advanced_quote_reply">Цитувати текст, на який ви відповідаєте</string>
+    <string name="title_advanced_limit_reply">Обмежити кількість вкладених цитувань</string>
     <string name="title_advanced_resize_reply">Змінити розмір зображень в тексті відповіді</string>
     <string name="title_advanced_resize_paste">Змінити розмір вставлених зображень</string>
     <string name="title_advanced_signature_location">Положення підпису</string>
@@ -483,13 +484,13 @@
     <string name="title_advanced_open_pane">Починати з двох рядків або двох стовпців</string>
     <string name="title_advanced_column_width">Співвідношення ширини стовпця або висоти рядка, в яких показується повідомлення, до ширини або висоти екрана: %1$s %%</string>
     <string name="title_advanced_hide_toolbar">Приховувати верхню панель інструментів під час прокрутки повідомлень</string>
-    <string name="title_advanced_nav_options">Показати параметри меню навігації</string>
+    <string name="title_advanced_nav_options">Показувати параметри меню навігації</string>
     <string name="title_advanced_nav_categories">Показувати категорії облікових записів у навігаційному меню</string>
     <string name="title_advanced_nav_pin">Прикріпити меню навігації</string>
     <string name="title_advanced_nav_hide_title">Приховати параметри меню навігації?</string>
     <string name="title_advanced_nav_hide_message">Ви можете знову включити ці опції в налаштуваннях перегляду</string>
     <string name="title_advanced_nav_last_sync">Показувати час останньої синхронізації в меню навігації</string>
-    <string name="title_advanced_nav_message_count">Показати кількість локально збережених повідомлень в меню навігації</string>
+    <string name="title_advanced_nav_message_count">Показувати кількість локально збережених повідомлень в меню навігації</string>
     <string name="title_advanced_nav_unseen_drafts">Показувати кількість непрочитаних чернеток у меню навігації</string>
     <string name="title_advanced_nav_pinned_count">Показувати кількість непрочитаних повідомлень у закріпленому навігаційному меню</string>
     <string name="title_advanced_startup">Показувати на стартовому екрані</string>
@@ -498,7 +499,7 @@
     <string name="title_advanced_cards_beige">Використовувати бежевий фон під час використання карткового стилю (тільки для світлої теми)</string>
     <string name="title_advanced_tabular_background">Використовувати колір картки як колір тла при використанні табличного стилю</string>
     <string name="title_advanced_cards_shadow">Використовувати тінь для непрочитаних повідомлень при використанні карткового стилю</string>
-    <string name="title_advanced_cards_shadow_border">Показати рамку</string>
+    <string name="title_advanced_cards_shadow_border">Показувати рамку</string>
     <string name="title_advanced_cards_shadow_highlight">Використовувати колір підсвітки замість кольору акценту</string>
     <string name="title_advanced_tabular_dividers">Роздільні лінії під час використання табличного стилю</string>
     <string name="title_advanced_date_header">Групувати за датою</string>
@@ -551,7 +552,7 @@
     <string name="title_advanced_addresses">За замовчуванням розкрити деталі адрес</string>
     <string name="title_advanced_hide_attachments">Згортати вкладення за замовчуванням</string>
     <string name="title_advanced_unzip">Показувати вміст стиснутих вкладень</string>
-    <string name="title_advanced_attachments_alt">Показати вкладення після тексту повідомлення</string>
+    <string name="title_advanced_attachments_alt">Показувати вкладення після тексту повідомлення</string>
     <string name="title_advanced_thumbnails">Показувати ескізи зображень після повідомлення</string>
     <string name="title_advanced_message_text_zoom2">Масштаб тексту повідомлень за замовчуванням: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Масштабувати текст повідомлення також і в редакторі повідомлень</string>
@@ -572,12 +573,12 @@
     <string name="title_advanced_images_inline">Автоматично показувати вбудовані зображення</string>
     <string name="title_advanced_button_extra">Показувати додаткові кнопки внизу повідомлення</string>
     <string name="title_advanced_seekbar">Відмітити крапкою відносне положення розмови</string>
-    <string name="title_advanced_actionbar">Показати панель дій для розмови</string>
+    <string name="title_advanced_actionbar">Показувати панель дій для розмови</string>
     <string name="title_advanced_actionbar_swap">Поміняти місцями кнопки Кошик та Архів</string>
     <string name="title_advanced_actionbar_color">Використовувати колір аккаунта як тло у панелі дій для розмови</string>
     <string name="title_advanced_category_header">Групувати за категорією облікового запису</string>
     <string name="title_advanced_navbar_colorize">Розфарбувати панель навігації Android</string>
-    <string name="title_advanced_list_count">Показати кількість повідомлень або розмов у верхній панелі дій</string>
+    <string name="title_advanced_list_count">Показувати кількість повідомлень або розмов у верхній панелі дій</string>
     <string name="title_advanced_bundled_fonts">Використовувати вбудовані шрифти</string>
     <string name="title_advanced_parse_classes">Аналізувати таблиці стилів</string>
     <string name="title_advanced_authentication">Показувати попередження про автентифікацію</string>
@@ -827,7 +828,7 @@
     <string name="title_advanced_overview_mode_hint">Це може зробити шрифти дуже малими</string>
     <string name="title_advanced_monospaced_pre_hint">Повідомлення, що складаються з простого тексту, вважатимуться попередньо відформатованими</string>
     <string name="title_advanced_placeholders_hint">Це стосується лише переформатованих повідомлень</string>
-    <string name="title_advanced_inline_hint">Вбудовані зображення включені в повідомлення</string>
+    <string name="title_advanced_inline_hint">Вбудовані зображення є включеними в зміст повідомлення</string>
     <string name="compressed">Вміст стиснутих файлів (%1$s) із кількістю файлів, більшою за %2$s, або з файлами, більшими за %3$s, не буде показаний</string>
     <string name="title_advanced_parse_classes_hint">Це буде більш точно показувати повідомлення, але, можливо, з затримкою</string>
     <string name="title_advanced_default_folder_hint">        Android може попросити дозвіл на доступ до вибраної теки, навіть якщо застосунку це не потрібно.
@@ -941,7 +942,7 @@
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Використовувати локальну IP-адресу замість імені хоста</string>
     <string name="title_ehlo">Перепризначення HELO/EHLO</string>
-    <string name="title_primary">Основна</string>
+    <string name="title_primary">Основний</string>
     <string name="title_primary_account">Основний (обліковий запис за замовчуванням)</string>
     <string name="title_primary_identity">Основний (профіль за замовчуванням)</string>
     <string name="title_self_identity">Видалити адресу електронної пошти під час відповіді</string>
@@ -1030,8 +1031,8 @@
     <string name="title_synchronize_batch_disable">Вимкнути синхронізацію</string>
     <string name="title_notify_batch_enable">Дозволити сповіщення про нові повідомлення</string>
     <string name="title_notify_batch_disable">Вимкнути сповіщення про нові повідомлення</string>
-    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Завантажувати тексти та вкладення</string>
-    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Завантажувати лише заголовки</string>
+    <string name="title_download_batch_enable">Завантажувати тексти та вкладення</string>
+    <string name="title_download_batch_disable">Завантажувати лише заголовки</string>
     <string name="title_delete_local">Видалити локальні повідомлення</string>
     <string name="title_delete_browsed">Видалити переглянуті/знайденні повідомлення</string>
     <string name="title_expunge">Витерти</string>
@@ -1315,7 +1316,7 @@
     <string name="title_sent">Надіслано:</string>
     <string name="title_received">Отримано:</string>
     <string name="title_date">Дата:</string>
-    <string name="title_stored">Збережене:</string>
+    <string name="title_stored">Збережено:</string>
     <string name="title_size">Розмір:</string>
     <string name="title_language">Мова:</string>
     <string name="title_subject">Тема:</string>
@@ -1381,7 +1382,7 @@
     <string name="title_add_image_privacy">Вилучити конфіденційні дані</string>
     <string name="title_add_image_privacy_remark">Географічне розташування, серійні номери, назви файлів тощо</string>
     <string name="title_add_resize_pixels">&lt; %1$d пікселів</string>
-    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">Програма вибору фото Android більше не передає імена файлів</string>
+    <string name="title_add_image_select_remark">Програма вибору фото Android більше не передає імена файлів</string>
     <string name="title_add_image_select">Оберіть файл</string>
     <string name="title_add_attachment">Додати вкладення</string>
     <string name="title_attachment_file">Прикріпити файл</string>
@@ -1393,7 +1394,7 @@
     <string name="title_image_dialog">Показувати параметри зображення</string>
     <string name="title_style_toolbar">Панель інструментів стилю</string>
     <string name="title_media_toolbar">Панель інструментів мультимедіа</string>
-    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Керування контактами Android</string>
+    <string name="title_manage_android_contacts">Керування контактами Android</string>
     <string name="title_manage_local_contacts">Керування локальними контактами</string>
     <string name="title_insert_contact_group">Вставити групу контактів</string>
     <string name="title_insert_template">Вставити шаблон</string>
@@ -1496,7 +1497,7 @@
     <string name="title_search_hint">        Спочатку пошук виконується на пристрої.
         Для пошуку також і на сервері, натисніть кнопку «Шукати на сервері».
     </string>
-    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">При використанні пошукового індексу: лише за цілими словами</string>
+    <string name="title_search_hint_fts">При використанні пошукового індексу: лише за цілими словами</string>
     <string name="title_search_index_hint">Пошук за допомогою індексу пошуку швидкий, але знайде лише цілі слова.</string>
     <string name="title_search_text_hint">Пошук тексту в повідомленнях, при великій кількості повідомлень, може не працювати на деяких серверах</string>
     <string name="title_search_text_unsupported">«%s» означає, що поштовий сервер не підтримує пошук в текстах повідомлень</string>
@@ -1693,8 +1694,8 @@
     <string name="title_rule_use_as_alarm">Використовувати як будильник</string>
     <string name="title_rule_alarm_hint">Правила режиму \"не турбувати\" ігноруватимуться</string>
     <string name="title_rule_alarm_duration">Тривалість сигнала будильника (у секундах)</string>
-    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Будильник</string>
-    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Зупинити</string>
+    <string name="title_rule_alarm_title">Будильник</string>
+    <string name="title_rule_alarm_stop">Зупинити</string>
     <string name="title_legend_section_synchronize">Синхронізація</string>
     <string name="title_legend_section_folders">Теки</string>
     <string name="title_legend_section_messages">Повідомлення</string>
@@ -1852,7 +1853,7 @@
     <string name="title_ip_owner">IP-адреса власника</string>
     <string name="title_default_apps">Додатки за замовчуванням</string>
     <string name="title_reset_open">Встановлення або очищення додатків за замовчуванням</string>
-    <string name="title_select_app">Оберіть додаток</string>
+    <string name="title_select_app">Обрати додаток</string>
     <string name="title_updated">Доступно оновлення до версії %1$s</string>
     <string name="title_no_update">Оновлення відсутні</string>
     <string name="title_issue">У вас є питання або проблема?</string>
@@ -1863,13 +1864,13 @@
     <string name="title_undo">Скасувати</string>
     <string name="title_redo">Повторити</string>
     <string name="title_insert_line">Вставити лінію</string>
-    <string name="title_select_block">Виберіть блок</string>
+    <string name="title_select_block">Вибрати блок</string>
     <string name="title_insert_brackets">Дужки</string>
     <string name="title_insert_quotes">Цитата</string>
     <string name="title_lt_add">Додати слово</string>
     <string name="title_lt_delete">Видалити слово</string>
     <string name="title_add">Додати</string>
-    <string name="title_browse">Відкрити за допомогою</string>
+    <string name="title_browse">Відкрити в</string>
     <string name="title_info">Інформація</string>
     <string name="title_download">Завантаження</string>
     <string name="title_report">Звіт</string>
@@ -2136,8 +2137,8 @@
         <item>Тільки підпис PGP</item>
         <item>Тільки шифрування PGP</item>
         <item>Підпис+шифрування PGP</item>
-        <item>Тільки S/MIME підпис</item>
-        <item>S/MIME підпис+шифрування</item>
+        <item>Тільки підпис S/MIME</item>
+        <item>Підпис+шифрування S/MIME</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 Б</item>

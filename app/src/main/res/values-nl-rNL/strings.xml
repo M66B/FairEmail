@@ -86,7 +86,7 @@
     </string>
     <string name="title_block">Blokkeer %1$s</string>
     <string name="title_block_sender">Blokkeer afzender</string>
-    <string name="title_block_sender_domain">Blokkeer domein \'%1$s\'</string>
+    <string name="title_block_sender_domain">Blokkeer domein ‘%1$s’</string>
     <string name="title_block_sender_remark">Blokkeren betekent automatisch verplaatsen naar de spammap</string>
     <string name="title_block_sender_hint">Het blokkeren van een afzender is een gratis functie.
 Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro functie is.    </string>
@@ -112,7 +112,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_notification_waiting">Wachten op een geschikte verbinding</string>
     <string name="title_notification_idle">Inactief</string>
     <string name="title_notification_failed">\'%1$s\' is mislukt</string>
-    <string name="title_notification_alert">Serverwaarschuwing: \'%1$s\'</string>
+    <string name="title_notification_alert">Serverwaarschuwing: ‘%1$s’</string>
     <string name="title_notification_sending_left">Resterende pogingen: %1$d</string>
     <string name="title_notification_sending_retry">Verzenden zal opnieuw worden geprobeerd bij wijzigingen in de internetverbinding of het naar beneden trekken van de outbox</string>
     <string name="title_notification_sending_failed">Verzenden naar %1$s mislukt</string>
@@ -190,6 +190,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_setup_oauth_rationale">Autoriseer toegang tot uw %1$s account</string>
     <string name="title_setup_oauth_update">Autoriseer een bestaand account opnieuw (anders een nieuwe account aanmaken)</string>
     <string name="title_setup_oauth_updated">Accountautorisatie is bijgewerkt</string>
+    <string name="title_setup_oauth_brave">Bij het gebruik van de Brave-browser, moet u de optie in de instellingen van Brave om app-koppelingen in apps buiten Brave te laten openen inschakelen</string>
     <string name="title_setup_oauth_authorize">Autoriseren</string>
     <string name="title_setup_select_account">Selecteer account</string>
     <string name="title_setup_instructions">Installatie-instructies</string>
@@ -1000,8 +1001,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_synchronize_batch_disable">Synchronisatie uitschakelen</string>
     <string name="title_notify_batch_enable">Schakel meldingen voor nieuwe berichten in</string>
     <string name="title_notify_batch_disable">Schakel meldingen voor nieuwe berichten uit</string>
-    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Download teksten en bijlagen</string>
-    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Alleen koppen downloaden</string>
+    <string name="title_download_batch_enable">Download teksten en bijlagen</string>
+    <string name="title_download_batch_disable">Alleen koppen downloaden</string>
     <string name="title_delete_local">Verwijder lokale berichten</string>
     <string name="title_delete_browsed">Verwijder gebladerde/gezochte berichten</string>
     <string name="title_expunge">Uitwissen</string>
@@ -1349,7 +1350,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_add_image_privacy">Verwijder privacy gevoelige gegevens</string>
     <string name="title_add_image_privacy_remark">Geografische locatie, serienummers, bestandsnamen, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
-    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">De Android fotokiezer geeft bestandnamen niet langer door</string>
+    <string name="title_add_image_select_remark">De Android fotokiezer geeft bestandnamen niet langer door</string>
     <string name="title_add_image_select">Selecteer bestand</string>
     <string name="title_add_attachment">Bijlage toevoegen</string>
     <string name="title_attachment_file">Bestand bijvoegen</string>
@@ -1361,7 +1362,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_image_dialog">Toon afbeeldingsopties</string>
     <string name="title_style_toolbar">Stijl werkbalk</string>
     <string name="title_media_toolbar">Media werkbalk</string>
-    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Android-contacten beheren</string>
+    <string name="title_manage_android_contacts">Android-contacten beheren</string>
     <string name="title_manage_local_contacts">Beheer lokale contacten</string>
     <string name="title_insert_contact_group">Contactgroep toevoegen</string>
     <string name="title_insert_template">Sjabloon invoegen</string>
@@ -1462,7 +1463,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_search">Zoek</string>
     <string name="title_search_for_hint">Voer tekst in</string>
     <string name="title_search_hint">In eerste instantie wordt de zoekopdracht uitgevoerd op het apparaat.Tik op de knop \'opnieuw zoeken\' om ook op de server te zoeken.</string>
-    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Gebruik van de zoekindex: alleen hele woorden</string>
+    <string name="title_search_hint_fts">Gebruik van de zoekindex: alleen hele woorden</string>
     <string name="title_search_index_hint">Zoeken via de zoekindex gaat snel, maar vindt alleen hele woorden.</string>
     <string name="title_search_text_hint">Zoeken naar tekst in berichten, wanneer er een groot aantal berichten is, werkt mogelijk niet op sommige servers</string>
     <string name="title_search_text_unsupported">\'%s\' betekent dat de mailserver het zoeken in berichtteksten niet ondersteunt</string>
@@ -1658,8 +1659,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_use_as_alarm">Als alarm gebruiken</string>
     <string name="title_rule_alarm_hint">Dit zal \"niet storen\" regels negeren</string>
     <string name="title_rule_alarm_duration">Maximale alarmduur (seconden)</string>
-    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Alarm</string>
-    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Stop</string>
+    <string name="title_rule_alarm_title">Alarm</string>
+    <string name="title_rule_alarm_stop">Stop</string>
     <string name="title_legend_section_synchronize">Synchroniseren</string>
     <string name="title_legend_section_folders">Mappen</string>
     <string name="title_legend_section_messages">Berichten</string>

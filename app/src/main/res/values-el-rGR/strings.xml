@@ -191,6 +191,7 @@
     <string name="title_setup_oauth_rationale">Παραχωρήστε πρόσβαση στον λογαριασμό σας %1$s</string>
     <string name="title_setup_oauth_update">Εκ νέου εξουσιοδότηση ενός ήδη υπάρχοντος λογαριασμού (διαφορετικά, δημιουργήστε έναν καινούργιο λογαριασμό)</string>
     <string name="title_setup_oauth_updated">Η εξουσιοδότηση λογαριασμού ενημερώθηκε</string>
+    <string name="title_setup_oauth_brave">Όταν χρησιμοποιείτε τον περιηγητή Brave, πρέπει να ενεργοποιήσετε την επιλογή στις ρυθμίσεις του Brave, για να επιτρέπεται στους συνδέσμους εφαρμογών να ανοίγουν σε εφαρμογές έξω από το Brave</string>
     <string name="title_setup_oauth_authorize">Εξουσιοδότηση</string>
     <string name="title_setup_select_account">Επιλογή λογαριασμού</string>
     <string name="title_setup_instructions">Οδηγίες ρύθμισης</string>
@@ -1000,8 +1001,8 @@
     <string name="title_synchronize_batch_disable">Απενεργοποίηση συγχρονισμού</string>
     <string name="title_notify_batch_enable">Ενεργοποίηση ειδοποιήσεων για νέα μηνύματα</string>
     <string name="title_notify_batch_disable">Απενεργοποίηση ειδοποιήσεων για νέα μηνύματα</string>
-    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Λήψη κειμένων και συνημμένων</string>
-    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Λήψη κεφαλίδων μόνο</string>
+    <string name="title_download_batch_enable">Λήψη κειμένων και συνημμένων</string>
+    <string name="title_download_batch_disable">Λήψη κεφαλίδων μόνο</string>
     <string name="title_delete_local">Διαγραφή τοπικών μηνυμάτων</string>
     <string name="title_delete_browsed">Διαγραφή των φυλλομετρημένων/αναζητημένων μηνυμάτων</string>
     <string name="title_expunge">Οριστική διαγραφή</string>
@@ -1351,7 +1352,7 @@
     <string name="title_add_image_privacy">Αφαίρεση ευαίσθητων προσωπικών δεδομένων</string>
     <string name="title_add_image_privacy_remark">Γεωγραφική θέση, σειριακοί αριθμοί, ονόματα αρχείων, κλπ</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
-    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">Ο επιλογέας φωτογραφιών του Android δεν μεταφέρει πλέον τα ονόματα των αρχείων</string>
+    <string name="title_add_image_select_remark">Ο επιλογέας φωτογραφιών του Android δεν μεταφέρει πλέον τα ονόματα των αρχείων</string>
     <string name="title_add_image_select">Επιλογή αρχείου</string>
     <string name="title_add_attachment">Προσθήκη συνημμένου</string>
     <string name="title_attachment_file">Επισύναψη αρχείου</string>
@@ -1363,7 +1364,7 @@
     <string name="title_image_dialog">Προβολή επιλογών εικόνας</string>
     <string name="title_style_toolbar">Γραμμή εργαλείων στιλ</string>
     <string name="title_media_toolbar">Γραμμή εργαλείων πολυμέσων</string>
-    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Διαχείριση επαφών Android</string>
+    <string name="title_manage_android_contacts">Διαχείριση επαφών Android</string>
     <string name="title_manage_local_contacts">Διαχείριση τοπικών επαφών</string>
     <string name="title_insert_contact_group">Εισαγωγή ομάδας επαφών</string>
     <string name="title_insert_template">Εισαγωγή προτύπου</string>
@@ -1466,7 +1467,7 @@
     <string name="title_search_hint">        Αρχικά, η αναζήτηση εκτελείται στα αποθηκευμένα στη συσκευή μηνύματα.
         Για αναζήτηση και στον διακομιστή, πατήστε το κουμπί \"αναζήτηση ξανά\".
     </string>
-    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Χρησιμοποιώντας το ευρετήριο αναζήτησης: ολόκληρες λέξεις μόνο</string>
+    <string name="title_search_hint_fts">Χρησιμοποιώντας το ευρετήριο αναζήτησης: ολόκληρες λέξεις μόνο</string>
     <string name="title_search_index_hint">Η αναζήτηση μέσω του ευρετηρίου αναζήτησης είναι γρήγορη, αλλά βρίσκει μόνο ολόκληρες λέξεις.</string>
     <string name="title_search_text_hint">Η αναζήτηση κειμένου μέσα σε μηνύματα μπορεί να μη λειτουργήσει σε κάποιους διακομιστές όταν υπάρχει μεγάλος αριθμός μηνυμάτων</string>
     <string name="title_search_text_unsupported">%s σημαίνει ότι ο διακομιστής αλληλογραφίας δεν υποστηρίζει αναζήτηση σε κείμενα μηνυμάτων</string>
@@ -1663,8 +1664,8 @@
     <string name="title_rule_use_as_alarm">Να χρησιμοποιείται ως ξυπνητήρι</string>
     <string name="title_rule_alarm_hint">Αυτό θα αγνοήσει τους κανόνες \"Μην ενοχλείτε\"</string>
     <string name="title_rule_alarm_duration">Μέγιστη διάρκεια ξυπνητηριού (δευτερόλεπτα)</string>
-    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Ξυπνητήρι</string>
-    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Διακοπή</string>
+    <string name="title_rule_alarm_title">Ξυπνητήρι</string>
+    <string name="title_rule_alarm_stop">Διακοπή</string>
     <string name="title_legend_section_synchronize">Συγχρονισμός</string>
     <string name="title_legend_section_folders">Φάκελοι</string>
     <string name="title_legend_section_messages">Μηνύματα</string>

@@ -219,6 +219,7 @@
     <string name="title_setup_oauth_rationale">Аўтарызуйце доступ да вашага ўліковага запісу %1$s</string>
     <string name="title_setup_oauth_update">Паўторна аўтарызаваць існуючы ўліковы запіс (у адваротным выпадку стварыць новы ўліковы запіс)</string>
     <string name="title_setup_oauth_updated">Аўтарызацыя ўліковага запісу была абноўлена</string>
+    <string name="title_setup_oauth_brave">Пры выкарыстанні браўзера Brave вам неабходна ўключыць опцыю ў наладах Brave, якая дазваляе адкрыццё спасылак на праграмы ў знешніх праграмах</string>
     <string name="title_setup_oauth_authorize">Аўтарызавацца</string>
     <string name="title_setup_select_account">Выберыце ўліковы запіс</string>
     <string name="title_setup_instructions">Інструкцыі па канфігурацыі</string>
@@ -1034,6 +1035,8 @@
     <string name="title_synchronize_batch_disable">Адключыць сінхранізацыю</string>
     <string name="title_notify_batch_enable">Уключыць апавяшчэнні аб новых паведамленнях</string>
     <string name="title_notify_batch_disable">Адключыць апавяшчэнні аб новых паведамленнях</string>
+    <string name="title_download_batch_enable">Загружаць тэкст і ўкладанні</string>
+    <string name="title_download_batch_disable">Загружаць толькі загалоўкі</string>
     <string name="title_delete_local">Выдаліць лакальныя паведамленні</string>
     <string name="title_delete_browsed">Выдаліць прагледжаныя/знойдзеныя паведамленні</string>
     <string name="title_expunge">Сцерці</string>
@@ -1386,6 +1389,7 @@
     <string name="title_add_image_privacy">Выдаліць канфідэнцыяльныя даныя</string>
     <string name="title_add_image_privacy_remark">Геаграфічнае месцазнаходжанне, серыйныя нумары, назвы файлаў і г.д.</string>
     <string name="title_add_resize_pixels">&lt; %1$d пікселяў</string>
+    <string name="title_add_image_select_remark">Сродак выбару фатаграфій Android больш не перадае назвы файлаў</string>
     <string name="title_add_image_select">Выберыце файл</string>
     <string name="title_add_attachment">Дадаць укладанне</string>
     <string name="title_attachment_file">Укласці файл</string>
@@ -1397,6 +1401,7 @@
     <string name="title_image_dialog">Паказваць параметры выяў</string>
     <string name="title_style_toolbar">Стыль панэлі інструментаў</string>
     <string name="title_media_toolbar">Панэль інструментаў мультымедыя</string>
+    <string name="title_manage_android_contacts">Кіраванне кантактамі Android</string>
     <string name="title_manage_local_contacts">Кіраванне лакальнымі кантактамі</string>
     <string name="title_insert_contact_group">Уставіць групу кантактаў</string>
     <string name="title_insert_template">Уставіць шаблон</string>
@@ -1499,6 +1504,7 @@
     <string name="title_search_hint">        Першапачаткова пошук выконваецца на прыладзе.
         Каб таксама шукаць на серверы, націсніце кнопку \'шукаць яшчэ раз\'.
     </string>
+    <string name="title_search_hint_fts">Выкарыстанне пошукавага індэкса: толькі цэлыя словы</string>
     <string name="title_search_index_hint">Пошук праз пошукавы індэкс хуткі, але знаходзіць толькі цэлыя словы.</string>
     <string name="title_search_text_hint">Пошук тэксту ў паведамленнях можа не працаваць на некаторых серверах пры вялікай колькасці паведамленняў</string>
     <string name="title_search_text_unsupported">\'%s\' азначае, што паштовы сервер не падтрымлівае пошук у тэкстах паведамленняў</string>
@@ -1695,6 +1701,8 @@
     <string name="title_rule_use_as_alarm">Выкарыстоўваць як будзільнік</string>
     <string name="title_rule_alarm_hint">Гэта дазволіць ігнараваць правілы \"не турбаваць\"</string>
     <string name="title_rule_alarm_duration">Максімальная працягласць будзільніка (секунды)</string>
+    <string name="title_rule_alarm_title">Сігнал</string>
+    <string name="title_rule_alarm_stop">Спыніць</string>
     <string name="title_legend_section_synchronize">Сінхранізацыя</string>
     <string name="title_legend_section_folders">Папкі</string>
     <string name="title_legend_section_messages">Паведамленні</string>

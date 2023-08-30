@@ -190,6 +190,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_oauth_rationale">%1$s hesabınıza erişim için yetkilendirin</string>
     <string name="title_setup_oauth_update">Mevcut bir hesabı yeniden yetkilendir (aksi takdirde yeni bir hesap oluştur)</string>
     <string name="title_setup_oauth_updated">Hesap yetkilendirme güncellendi</string>
+    <string name="title_setup_oauth_brave">Brave tarayıcısını kullanırken uygulama bağlantılarının Brave dışındaki uygulamalarda açılmasına izin vermek için Brave\'in ayarlarındaki seçeneği etkinleştirmeniz gerekir</string>
     <string name="title_setup_oauth_authorize">Yetkilendir</string>
     <string name="title_setup_select_account">Hesap seç</string>
     <string name="title_setup_instructions">Kurulum yönergeleri</string>
@@ -1001,6 +1002,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_synchronize_batch_disable">Senkronizasyonunu Devre Dışı Bırak</string>
     <string name="title_notify_batch_enable">Yeni mesaj bildirimlerini etkinleştir</string>
     <string name="title_notify_batch_disable">Yeni mesaj bildirimlerini devre dışı bırak</string>
+    <string name="title_download_batch_enable">Metinleri ve ekleri indir</string>
+    <string name="title_download_batch_disable">Yalnızca başlıkları indir</string>
     <string name="title_delete_local">Yerel iletileri sil</string>
     <string name="title_delete_browsed">Gözatılmış/aranmış iletileri sil</string>
     <string name="title_expunge">Sil</string>
@@ -1349,6 +1352,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_add_image_privacy">Mahremiyetiniz için önemli verileri sil</string>
     <string name="title_add_image_privacy_remark">Coğrafi konum, seri numaraları, dosya adları vb</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
+    <string name="title_add_image_select_remark">Android fotoğraf seçici artık dosya adlarını aktarmıyor</string>
     <string name="title_add_image_select">Dosya seçin</string>
     <string name="title_add_attachment">Ek ekle</string>
     <string name="title_attachment_file">Dosya iliştir</string>
@@ -1360,6 +1364,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_image_dialog">Görsel seçeneklerini göster</string>
     <string name="title_style_toolbar">Stil araç çubuğu</string>
     <string name="title_media_toolbar">Medya araç çubuğu</string>
+    <string name="title_manage_android_contacts">Android\'in kişilerini yönet</string>
     <string name="title_manage_local_contacts">Yerel kişileri yönet</string>
     <string name="title_insert_contact_group">Kişi grubuna ekle</string>
     <string name="title_insert_template">Kalıp ekle</string>
@@ -1461,6 +1466,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_search_for_hint">Metin giriniz</string>
     <string name="title_search_hint">        Başlangıçta, arama cihazda gerçekleştirilir.        Sunucuyu da aramak için \'Tekrar Ara\' düğmesine dokunun.
     </string>
+    <string name="title_search_hint_fts">Arama dizini kullanımı: yalnızca tam kelimeler</string>
     <string name="title_search_index_hint">Arama dizini aracılığıyla arama yapmak hızlıdır, ancak yalnızca tam sözcükleri bulur.</string>
     <string name="title_search_text_hint">Mesajlarda metin arama, çok sayıda mesaj varken, bazı sunucularda çalışmayabilir</string>
     <string name="title_search_text_unsupported">\'%s\', posta sunucusunun mesaj metinlerinde aramayı desteklemediği anlamına gelir</string>
@@ -1657,6 +1663,8 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_use_as_alarm">Alarm olarak kullan</string>
     <string name="title_rule_alarm_hint">Bu, \"rahatsız etmeyin\" kurallarını yok sayar</string>
     <string name="title_rule_alarm_duration">Maksimum alarm süresi (saniye)</string>
+    <string name="title_rule_alarm_title">Alarm</string>
+    <string name="title_rule_alarm_stop">Dur</string>
     <string name="title_legend_section_synchronize">Senkronize et</string>
     <string name="title_legend_section_folders">Klasörler</string>
     <string name="title_legend_section_messages">İletiler</string>

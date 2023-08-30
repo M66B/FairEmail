@@ -1016,6 +1016,8 @@
     <string name="title_synchronize_batch_disable">Dezactivează sincronizarea</string>
     <string name="title_notify_batch_enable">Activați notificările de mesaje noi</string>
     <string name="title_notify_batch_disable">Dezactivarea notificărilor de mesaje noi</string>
+    <string name="title_download_batch_enable">Descarcă texte și atașamente</string>
+    <string name="title_download_batch_disable">Descarcă doar anteturi</string>
     <string name="title_delete_local">Șterge mesajul local</string>
     <string name="title_delete_browsed">Șterge mesajele răsfoite/căutate</string>
     <string name="title_expunge">Eliminați</string>
@@ -1365,6 +1367,7 @@
     <string name="title_add_image_privacy">Elimină datele confidențiale</string>
     <string name="title_add_image_privacy_remark">Locație geografică, numere de serie, nume de fișiere etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeli</string>
+    <string name="title_add_image_select_remark">Selectorul de fotografii Android nu mai expune numele fișierelor</string>
     <string name="title_add_image_select">Selectare fișier</string>
     <string name="title_add_attachment">Adaugă ataşament</string>
     <string name="title_attachment_file">Atașare fișier</string>
@@ -1376,6 +1379,7 @@
     <string name="title_image_dialog">Afișare opțiuni imagine</string>
     <string name="title_style_toolbar">Bara de stil</string>
     <string name="title_media_toolbar">Bară atașare</string>
+    <string name="title_manage_android_contacts">Gestionează contactele Android</string>
     <string name="title_manage_local_contacts">Gestionați contactele locale</string>
     <string name="title_insert_contact_group">Introduceți grup de contacte</string>
     <string name="title_insert_template">Introduceți șablon</string>
@@ -1478,6 +1482,7 @@
     <string name="title_search_hint">        Inițial, căutarea se efectuează pe dispozitiv.
         Pentru a căuta și pe server apăsați butonul \'căutare din nou\'.
     </string>
+    <string name="title_search_hint_fts">Folosind indexul căutării: doar cuvinte întregi</string>
     <string name="title_search_index_hint">Căutarea prin intermediul indexului de căutare este rapidă, dar găsește doar cuvinte întregi.</string>
     <string name="title_search_text_hint">Se caută text în mesaje, atunci când există un număr mare de mesaje, s-ar putea să nu funcționeze pe unele servere</string>
     <string name="title_search_text_unsupported">\'%s\' înseamnă că serverul de e-mail nu acceptă căutarea în textele mesajelor</string>
@@ -1674,6 +1679,8 @@
     <string name="title_rule_use_as_alarm">Utilizează ca alarmă</string>
     <string name="title_rule_alarm_hint">Acest lucru va ignora regulile \"nu deranjați\"</string>
     <string name="title_rule_alarm_duration">Durata maximă a alarmei (secunde)</string>
+    <string name="title_rule_alarm_title">Alarmă</string>
+    <string name="title_rule_alarm_stop">Oprire</string>
     <string name="title_legend_section_synchronize">Sincronizare</string>
     <string name="title_legend_section_folders">Dosare</string>
     <string name="title_legend_section_messages">Mesaje</string>

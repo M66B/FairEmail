@@ -191,6 +191,7 @@
     <string name="title_setup_oauth_rationale">Auktorisera åtkomst till ditt %1$s konto</string>
     <string name="title_setup_oauth_update">Auktorisera ett befintligt konto igen (annars skapa ett nytt konto)</string>
     <string name="title_setup_oauth_updated">Kontoauktorisering har uppdaterats</string>
+    <string name="title_setup_oauth_brave">När du använder webbläsaren Brave så måste du aktivera alternativet i Braves inställningar för att tillåta att applänkar öppnas i appar utanför Brave</string>
     <string name="title_setup_oauth_authorize">Auktorisera</string>
     <string name="title_setup_select_account">Välj konto</string>
     <string name="title_setup_instructions">Inställningsinstruktioner</string>
@@ -999,6 +1000,8 @@
     <string name="title_synchronize_batch_disable">Inaktivera synkronisering</string>
     <string name="title_notify_batch_enable">Aktivera aviseringar för nya meddelanden</string>
     <string name="title_notify_batch_disable">Inaktivera aviseringar för nya meddelanden</string>
+    <string name="title_download_batch_enable">Ladda ner texter och bilagor</string>
+    <string name="title_download_batch_disable">Hämta endast teknisk meddelandeinformation (hoppa över text och bilagor)</string>
     <string name="title_delete_local">Ta bort lokala meddelanden</string>
     <string name="title_delete_browsed">Ta bort bläddrade/sökta meddelanden</string>
     <string name="title_expunge">Radera permanent</string>
@@ -1348,6 +1351,7 @@
     <string name="title_add_image_privacy">Ta bort sekretesskänslig data</string>
     <string name="title_add_image_privacy_remark">Geografisk plats, serienummer, filnamn etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixlar</string>
+    <string name="title_add_image_select_remark">Androids fotoväljare skickar inte längre filnamn</string>
     <string name="title_add_image_select">Välj fil</string>
     <string name="title_add_attachment">Lägg till bilaga</string>
     <string name="title_attachment_file">Bifoga fil</string>
@@ -1359,6 +1363,7 @@
     <string name="title_image_dialog">Visa bildalternativ</string>
     <string name="title_style_toolbar">Stilmall verktygsfält</string>
     <string name="title_media_toolbar">Verktygsfält för media</string>
+    <string name="title_manage_android_contacts">Hantera Android-kontakter</string>
     <string name="title_manage_local_contacts">Hantera lokala kontakter</string>
     <string name="title_insert_contact_group">Infoga kontaktgrupp</string>
     <string name="title_insert_template">Infoga mall</string>
@@ -1461,6 +1466,7 @@
     <string name="title_search_hint">        Till en början görs sökningen på enheten.
         Tryck på knappen \"Sök igen\" för att söka på servern.
     </string>
+    <string name="title_search_hint_fts">Använd sökindex: endast hela ord</string>
     <string name="title_search_index_hint">Sökning via index är snabbt, men kommer bara att hitta hela ord.</string>
     <string name="title_search_text_hint">Sökning efter text i meddelanden, när det finns ett stort antal meddelanden, kanske inte fungerar på vissa servrar</string>
     <string name="title_search_text_unsupported">\'%s\' betyder att e-postservern inte stöder sökning i meddelandetexter</string>
@@ -1657,6 +1663,8 @@
     <string name="title_rule_use_as_alarm">Använd som larm</string>
     <string name="title_rule_alarm_hint">Det här kommer att ignorera \"stör ej\"-reglerna</string>
     <string name="title_rule_alarm_duration">Maxtid för alarm (sekunder)</string>
+    <string name="title_rule_alarm_title">Alarm</string>
+    <string name="title_rule_alarm_stop">Inaktivera</string>
     <string name="title_legend_section_synchronize">Synkronisera</string>
     <string name="title_legend_section_folders">Mappar</string>
     <string name="title_legend_section_messages">Meddelanden</string>

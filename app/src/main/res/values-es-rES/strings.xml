@@ -191,6 +191,7 @@
     <string name="title_setup_oauth_rationale">Autorizar acceso a su cuenta %1$s</string>
     <string name="title_setup_oauth_update">Volver a autorizar una cuenta existente (de lo contrario crear una nueva cuenta)</string>
     <string name="title_setup_oauth_updated">Se ha actualizado la autorización de la cuenta</string>
+    <string name="title_setup_oauth_brave">Al usar el navegador Brave, debe activar la opción en la configuración de Brave para permitir que los enlaces de aplicaciones se abran en aplicaciones fuera de Brave</string>
     <string name="title_setup_oauth_authorize">Autorizar</string>
     <string name="title_setup_select_account">Seleccionar cuenta</string>
     <string name="title_setup_instructions">Instrucciones de configuración</string>
@@ -1002,6 +1003,8 @@
     <string name="title_synchronize_batch_disable">Desactivar sincronización</string>
     <string name="title_notify_batch_enable">Activar notificaciones de mensajes nuevos</string>
     <string name="title_notify_batch_disable">Desactivar notificaciones de mensajes nuevos</string>
+    <string name="title_download_batch_enable">Descargar textos y archivos adjuntos</string>
+    <string name="title_download_batch_disable">Descargar solo encabezados</string>
     <string name="title_delete_local">Eliminar mensajes locales</string>
     <string name="title_delete_browsed">Eliminar mensajes explorados/buscados</string>
     <string name="title_expunge">Purgar</string>
@@ -1351,6 +1354,7 @@
     <string name="title_add_image_privacy">Eliminar datos de privacidad sensibles</string>
     <string name="title_add_image_privacy_remark">Ubicación geográfica, números de serie, nombres de archivos, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d píxeles</string>
+    <string name="title_add_image_select_remark">El selector de fotos de Android ya no pasa los nombres de archivo</string>
     <string name="title_add_image_select">Seleccionar archivo</string>
     <string name="title_add_attachment">Agregar adjunto</string>
     <string name="title_attachment_file">Adjuntar archivo</string>
@@ -1362,6 +1366,7 @@
     <string name="title_image_dialog">Mostrar opciones de imagen</string>
     <string name="title_style_toolbar">Barra de herramientas de estilo</string>
     <string name="title_media_toolbar">Barra de herramientas multimedia</string>
+    <string name="title_manage_android_contacts">Administrar contactos de Android</string>
     <string name="title_manage_local_contacts">Administrar contactos locales</string>
     <string name="title_insert_contact_group">Insertar grupo de contactos</string>
     <string name="title_insert_template">Insertar plantilla</string>
@@ -1463,6 +1468,7 @@
     <string name="title_search_for_hint">Ingrese texto</string>
     <string name="title_search_hint">        Inicialmente, la búsqueda se realiza en el dispositivo.        Para buscar también en el servidor, pulse el botón \'Buscar de nuevo\'.
     </string>
+    <string name="title_search_hint_fts">Usando el índice de búsqueda: sólo palabras completas</string>
     <string name="title_search_index_hint">Buscar a través del índice de búsqueda es rápido, pero sólo encontrará palabras completas.</string>
     <string name="title_search_text_hint">Buscar texto en mensajes puede no funcionar en algunos servidores cuando hay un gran número de mensajes</string>
     <string name="title_search_text_unsupported">\'%s\' significa que el servidor de correo no soporta la búsqueda en texto de mensajes</string>
@@ -1659,6 +1665,8 @@
     <string name="title_rule_use_as_alarm">Usar como alarma</string>
     <string name="title_rule_alarm_hint">Esto ignorará las reglas \"no molestar\"</string>
     <string name="title_rule_alarm_duration">Duración máxima de la alarma (segundos)</string>
+    <string name="title_rule_alarm_title">Alarma</string>
+    <string name="title_rule_alarm_stop">Parar</string>
     <string name="title_legend_section_synchronize">Sincronizar</string>
     <string name="title_legend_section_folders">Carpetas</string>
     <string name="title_legend_section_messages">Mensajes</string>

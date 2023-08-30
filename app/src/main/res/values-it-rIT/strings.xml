@@ -191,6 +191,7 @@
     <string name="title_setup_oauth_rationale">Autorizza l\'accesso al tuo profilo di %1$s</string>
     <string name="title_setup_oauth_update">Autorizza nuovamente un profilo esistente (altrimenti creane uno nuovo)</string>
     <string name="title_setup_oauth_updated">Autorizzazione del profilo aggiornata</string>
+    <string name="title_setup_oauth_brave">Quando si utilizza il browser Brave, è necessario attivare l\'opzione nelle impostazioni di Brave per consentire l\'apertura dei link delle applicazioni al di fuori di Brave</string>
     <string name="title_setup_oauth_authorize">Autorizza</string>
     <string name="title_setup_select_account">Seleziona profilo</string>
     <string name="title_setup_instructions">Istruzioni di configurazione</string>
@@ -1004,8 +1005,8 @@
     <string name="title_synchronize_batch_disable">Disabilita la sincronizzazione</string>
     <string name="title_notify_batch_enable">Abilita le notifiche dei nuovi messaggi</string>
     <string name="title_notify_batch_disable">Disabilita le notifiche dei nuovi messaggi</string>
-    <string name="title_download_batch_enable" comment="title_download_batch_enable&#10;Title for menu item in popup menu to enable downloading text and attachments for subfolders.">Scarica testi e allegati</string>
-    <string name="title_download_batch_disable" comment="title_download_batch_disable&#10;Title for menu item in popup menu to disable downloading text and attachments for subfolders (=headers only)">Scarica solo intestazioni</string>
+    <string name="title_download_batch_enable">Scarica testi e allegati</string>
+    <string name="title_download_batch_disable">Scarica solo intestazioni</string>
     <string name="title_delete_local">Elimina i messaggi locali</string>
     <string name="title_delete_browsed">Elimina i messaggi sfogliati/cercati</string>
     <string name="title_expunge">Espugna</string>
@@ -1358,7 +1359,7 @@
     <string name="title_add_image_privacy">Rimuovi i dati sensibili alla privacy</string>
     <string name="title_add_image_privacy_remark">Geolocalizzazione, numeri di serie, nomi dei file, etc.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixel</string>
-    <string name="title_add_image_select_remark" comment="title_add_image_select_remark&#10;Remark in image options dialog">Il selettore di foto Android non passa più nomi di file</string>
+    <string name="title_add_image_select_remark">Il selettore di foto Android non passa più nomi di file</string>
     <string name="title_add_image_select">Seleziona file</string>
     <string name="title_add_attachment">Aggiungi allegato</string>
     <string name="title_attachment_file">Allega file</string>
@@ -1370,7 +1371,7 @@
     <string name="title_image_dialog">Mostra opzioni dell\'immagine</string>
     <string name="title_style_toolbar">Stile barra strumenti</string>
     <string name="title_media_toolbar">Barra multimediale</string>
-    <string name="title_manage_android_contacts" comment="title_manage_android_contacts&#10;Title for menu item in three-dots overflow menu of the message editor">Gestisci i contatti di Android</string>
+    <string name="title_manage_android_contacts">Gestisci i contatti di Android</string>
     <string name="title_manage_local_contacts">Gestisci i contatti locali</string>
     <string name="title_insert_contact_group">Inserisci gruppo di contatto</string>
     <string name="title_insert_template">Inserisci modello</string>
@@ -1473,7 +1474,7 @@
     <string name="title_search_hint">        Inizialmente, la ricerca è eseguita sul dispositivo.
         Per cercare anche nel server, tocca il pulsante \'cerca di nuovo\'.
     </string>
-    <string name="title_search_hint_fts" comment="title_search_hint_fts&#10;Remark in the search options dialog">Utilizzare l\'indice di ricerca: solo parole intere</string>
+    <string name="title_search_hint_fts">Utilizzare l\'indice di ricerca: solo parole intere</string>
     <string name="title_search_index_hint">La ricerca tramite indice di ricerca è veloce, ma trova solo parole intere.</string>
     <string name="title_search_text_hint">La ricerca del testo nei messaggi, quando ci sono molti messaggi, potrebbe non funzionare su alcuni server</string>
     <string name="title_search_text_unsupported">\'%s\' significa che il server email non supporta la ricerca nei testi dei messaggi</string>
@@ -1670,8 +1671,8 @@
     <string name="title_rule_use_as_alarm">Usa come sveglia</string>
     <string name="title_rule_alarm_hint">Questo ignorerà le regole \"non disturbare\"</string>
     <string name="title_rule_alarm_duration">Durata massima della sveglia (secondi)</string>
-    <string name="title_rule_alarm_title" comment="title_rule_alarm_title&#10;Title for notification to disable alarm sound caused by filter rule action">Sveglia</string>
-    <string name="title_rule_alarm_stop" comment="title_rule_alarm_stop&#10;Title for action in a notification to disable alarm sound caused by filter rule action">Ferma</string>
+    <string name="title_rule_alarm_title">Sveglia</string>
+    <string name="title_rule_alarm_stop">Ferma</string>
     <string name="title_legend_section_synchronize">Sincronizza</string>
     <string name="title_legend_section_folders">Cartelle</string>
     <string name="title_legend_section_messages">Messaggi</string>

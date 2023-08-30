@@ -177,6 +177,7 @@
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可する</string>
     <string name="title_setup_oauth_update">設定済みのアカウントをもう一度認証する (設定されていない場合、新しいアカウントを作成)</string>
     <string name="title_setup_oauth_updated">アカウントの認証情報が更新されました</string>
+    <string name="title_setup_oauth_brave">Brave ブラウザを使用している場合、Brave の設定で「Brave外のアプリでアプリのリンクを開くことを許可」を有効にしてください</string>
     <string name="title_setup_oauth_authorize">認証</string>
     <string name="title_setup_select_account">アカウントを選択</string>
     <string name="title_setup_instructions">設定方法</string>
@@ -989,6 +990,8 @@
     <string name="title_synchronize_batch_disable">同期を無効にする</string>
     <string name="title_notify_batch_enable">新着メッセージの通知を有効にする</string>
     <string name="title_notify_batch_disable">新着メッセージの通知を無効にする</string>
+    <string name="title_download_batch_enable">本文と添付ファイルをダウンロード</string>
+    <string name="title_download_batch_disable">ヘッダーのみダウンロード</string>
     <string name="title_delete_local">ローカルのメッセージを削除</string>
     <string name="title_delete_browsed">閲覧/検索したメッセージを削除</string>
     <string name="title_expunge">完全削除</string>
@@ -1341,6 +1344,7 @@
     <string name="title_add_image_privacy">プライバシーデータを削除</string>
     <string name="title_add_image_privacy_remark">位置情報、シリアル番号、ファイル名など</string>
     <string name="title_add_resize_pixels">&lt; %1$d ピクセル</string>
+    <string name="title_add_image_select_remark">Android 写真選択ツールは、ファイル名を取得できなくなりました</string>
     <string name="title_add_image_select">ファイルを選択</string>
     <string name="title_add_attachment">添付ファイルを追加</string>
     <string name="title_attachment_file">ファイルを添付</string>
@@ -1352,6 +1356,7 @@
     <string name="title_image_dialog">画像オプションを表示</string>
     <string name="title_style_toolbar">スタイルツールバー</string>
     <string name="title_media_toolbar">メディアツールバー</string>
+    <string name="title_manage_android_contacts">Android の連絡先を管理</string>
     <string name="title_manage_local_contacts">ローカルの連絡先を管理</string>
     <string name="title_insert_contact_group">連絡先グループを挿入</string>
     <string name="title_insert_template">テンプレートを挿入</string>
@@ -1454,6 +1459,7 @@
     <string name="title_search_hint">       はじめに、お使いのデバイスに保存されているメッセージを検索します。
         サーバーも検索するには「もう一度検索」ボタンをタップします
     </string>
+    <string name="title_search_hint_fts">検索インデックスを使用: 単語全体のみ検索</string>
     <string name="title_search_index_hint">検索インデックスを介した検索は高速ですが、単語全体しか検索されません。</string>
     <string name="title_search_text_hint">本文を検索しています。多数のメッセージがある場合、一部のサーバーで正しく動作しない可能性があります</string>
     <string name="title_search_text_unsupported">「%s」はメールサーバーが本文の検索に対応していないことを意味します</string>
@@ -1650,6 +1656,8 @@
     <string name="title_rule_use_as_alarm">アラームに設定</string>
     <string name="title_rule_alarm_hint">サイレントモードを無視します</string>
     <string name="title_rule_alarm_duration">自動消音時間 (秒)</string>
+    <string name="title_rule_alarm_title">アラーム</string>
+    <string name="title_rule_alarm_stop">停止</string>
     <string name="title_legend_section_synchronize">同期</string>
     <string name="title_legend_section_folders">フォルダー</string>
     <string name="title_legend_section_messages">メッセージ</string>
