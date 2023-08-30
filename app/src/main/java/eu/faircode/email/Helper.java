@@ -1222,7 +1222,7 @@ public class Helper {
             String open_with_pkg = prefs.getString("open_with_pkg", null);
             boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
             if (open_with_tabs && !TextUtils.isEmpty(open_with_pkg)) {
-                Log.i("MMM warming up " + open_with_pkg);
+                Log.i("Warming up " + open_with_pkg);
                 return CustomTabsClient.connectAndInitialize(context, open_with_pkg);
             }
         } catch (Throwable ex) {
