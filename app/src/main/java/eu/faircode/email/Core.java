@@ -4845,6 +4845,7 @@ class Core {
 
                     if (body != null ||
                             (message.size != null && message.size < maxSize) ||
+                            account.isWpPl() ||
                             (MessageClassifier.isEnabled(context)) && folder.auto_classify_source)
                         try {
                             if (body == null)

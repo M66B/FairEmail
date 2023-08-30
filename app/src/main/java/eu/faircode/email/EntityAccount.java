@@ -209,6 +209,10 @@ public class EntityAccount extends EntityOrder implements Serializable {
         return "imap.aol.com".equalsIgnoreCase(host);
     }
 
+    boolean isWpPl() {
+        return "imap.wp.pl".equalsIgnoreCase(host);
+    }
+
     boolean isICloud() {
         return "imap.mail.me.com".equalsIgnoreCase(host);
     }
