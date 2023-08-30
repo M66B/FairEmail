@@ -576,7 +576,10 @@ public class HtmlHelper {
         if (BuildConfig.DEBUG)
             for (Element e : document.select("span:matchesOwn(^UUID: " + Helper.REGEX_UUID + ")")) {
                 String t = e.text();
-                String uuid = t.substring(t.indexOf(' ') + 1);
+                int sp = t.indexOf(' ');
+                if (sp < 0)
+                    continue;
+                String uuid = t.substring(sp + 1);
                 e.html("UUID: <a href='" + BuildConfig.BUGSNAG_URI + uuid + "'>" + uuid + "</a>");
             }
 
