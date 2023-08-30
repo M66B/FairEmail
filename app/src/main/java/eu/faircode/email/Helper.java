@@ -1618,7 +1618,7 @@ public class Helper {
         }
     }
 
-    static Boolean getMIUIAutostart(Context context) {
+    static boolean getMIUIAutostart(Context context) {
         try {
             Class<?> c = Class.forName("android.miui.AppOpsUtils");
             Method m = c.getDeclaredMethod("getApplicationAutoStart", Context.class, String.class);
@@ -1627,7 +1627,7 @@ public class Helper {
             return (result != null && result.equals(0));
         } catch (Throwable ex) {
             Log.w(ex);
-            return null;
+            return false;
         }
     }
 
