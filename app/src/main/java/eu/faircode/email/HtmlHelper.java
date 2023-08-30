@@ -573,6 +573,13 @@ public class HtmlHelper {
 
         final Document document = new Cleaner(safelist).clean(parsed);
 
+        if (BuildConfig.DEBUG)
+            for (Element e : document.select("span:matchesOwn(^UUID: " + Helper.REGEX_UUID + ")")) {
+                String t = e.text();
+                String uuid = t.substring(t.indexOf(' ') + 1);
+                e.html("UUID: <a href='" + BuildConfig.BUGSNAG_URI + uuid + "'>" + uuid + "</a>");
+            }
+
         // Remove tracking pixels
         if (disable_tracking)
             removeTrackingPixels(context, document);

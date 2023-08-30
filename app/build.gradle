@@ -186,6 +186,7 @@ android {
             buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
             buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
             buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
+            buildConfigField "String", "BUGSNAG_URI", localProperties.getProperty("bugsnag.uri", "\"\"")
             buildConfigField "String", "DEV_DOMAIN", localProperties.getProperty("dev.domain", "\"\"")
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
@@ -211,6 +212,7 @@ android {
             buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
             buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
             buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
+            buildConfigField "String", "BUGSNAG_URI", localProperties.getProperty("bugnsag.uri", "\"\"")
             buildConfigField "String", "DEV_DOMAIN", localProperties.getProperty("dev.domain", "\"\"")
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
@@ -236,6 +238,7 @@ android {
             buildConfigField "String", "TX_URI", "\"\""
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
+            buildConfigField "String", "BUGSNAG_URI", "\"\""
             buildConfigField "String", "DEV_DOMAIN", "\"\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
@@ -262,6 +265,7 @@ android {
             buildConfigField "String", "TX_URI", "\"\""
             buildConfigField "String", "GPA_URI", "\"\""
             buildConfigField "String", "INFO_URI", "\"\""
+            buildConfigField "String", "BUGSNAG_URI", "\"\""
             buildConfigField "String", "DEV_DOMAIN", "\"\""
             buildConfigField "String", "FDROID", "\"\""
         }
