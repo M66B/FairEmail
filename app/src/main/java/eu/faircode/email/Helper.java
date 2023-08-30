@@ -28,6 +28,7 @@ import android.Manifest;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
@@ -1618,16 +1619,17 @@ public class Helper {
         }
     }
 
-    static boolean getMIUIAutostart(Context context) {
+    // 0=allowed, 1=denied
+    static Integer getMIUIAutostart(Context context) {
         try {
+            @SuppressLint("PrivateApi")
             Class<?> c = Class.forName("android.miui.AppOpsUtils");
             Method m = c.getDeclaredMethod("getApplicationAutoStart", Context.class, String.class);
             m.setAccessible(true);
-            Integer result = (Integer) m.invoke(null, context, context.getPackageName());
-            return (result != null && result.equals(0));
+            return (Integer) m.invoke(null, context, context.getPackageName());
         } catch (Throwable ex) {
             Log.w(ex);
-            return false;
+            return null;
         }
     }
 
