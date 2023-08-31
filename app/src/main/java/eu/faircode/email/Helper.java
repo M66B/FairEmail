@@ -2176,7 +2176,7 @@ public class Helper {
         return getRelativeTimeSpanString(context, millis, true, true);
     }
 
-    static CharSequence getRelativeTimeSpanString(Context context, long millis, boolean withTime, boolean withDate) {
+    private static CharSequence getRelativeTimeSpanString(Context context, long millis, boolean withTime, boolean withDate) {
         Calendar cal0 = Calendar.getInstance();
         Calendar cal1 = Calendar.getInstance();
         cal0.setTimeInMillis(millis);
