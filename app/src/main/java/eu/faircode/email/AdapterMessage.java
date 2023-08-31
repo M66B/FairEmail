@@ -1450,7 +1450,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ? View.VISIBLE : View.GONE);
             SpannableStringBuilder time;
             if (date_time)
-                time = new SpannableStringBuilderEx(DTFS.format(message.received));
+                time = new SpannableStringBuilderEx(Helper.getRelativeDateTimeSpanString(context, message.received));
             else if (date_week)
                 time = new SpannableStringBuilderEx(Helper.getRelativeDateSpanString(context, message.received));
             else

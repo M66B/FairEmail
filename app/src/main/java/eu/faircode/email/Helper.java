@@ -2165,24 +2165,30 @@ public class Helper {
     }
 
     static CharSequence getRelativeDateSpanString(Context context, long millis) {
-        Calendar cal0 = Calendar.getInstance();
-        Calendar cal1 = Calendar.getInstance();
-        cal0.setTimeInMillis(millis);
-        boolean thisMonth = (cal0.get(Calendar.MONTH) == cal1.get(Calendar.MONTH));
-        boolean thisYear = (cal0.get(Calendar.YEAR) == cal1.get(Calendar.YEAR));
-        String skeleton = (thisMonth && thisYear ? "MMM-d" : "Y-M-d");
-        String format = android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
-        return new SimpleDateFormat(format).format(millis);
+        return getRelativeTimeSpanString(context, millis, false, true);
     }
 
     static CharSequence getRelativeTimeSpanString(Context context, long millis) {
-        long now = System.currentTimeMillis();
-        long span = Math.abs(now - millis);
-        Time nowTime = new Time();
-        Time thenTime = new Time();
-        nowTime.set(now);
-        thenTime.set(millis);
-        if (span < DateUtils.DAY_IN_MILLIS && nowTime.weekDay == thenTime.weekDay)
+        return getRelativeTimeSpanString(context, millis, true, false);
+    }
+
+    static CharSequence getRelativeDateTimeSpanString(Context context, long millis) {
+        return getRelativeTimeSpanString(context, millis, true, true);
+    }
+
+    static CharSequence getRelativeTimeSpanString(Context context, long millis, boolean withTime, boolean withDate) {
+        Calendar cal0 = Calendar.getInstance();
+        Calendar cal1 = Calendar.getInstance();
+        cal0.setTimeInMillis(millis);
+
+        boolean thisYear = (cal0.get(Calendar.YEAR) == cal1.get(Calendar.YEAR));
+        boolean thisMonth = (cal0.get(Calendar.MONTH) == cal1.get(Calendar.MONTH));
+        boolean thisDay = (cal0.get(Calendar.DAY_OF_MONTH) == cal1.get(Calendar.DAY_OF_MONTH));
+        if (withDate) {
+            String skeleton = (thisMonth && thisYear ? "MMM-d" : "Y-M-d") + (withTime ? " Hm" : "");
+            String format = android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
+            return new SimpleDateFormat(format).format(millis);
+        } else if (thisYear && thisMonth && thisDay)
             return getTimeInstance(context, SimpleDateFormat.SHORT).format(millis);
         else
             return DateUtils.getRelativeTimeSpanString(context, millis);
