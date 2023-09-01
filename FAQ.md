@@ -395,6 +395,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(192) How can I resolve 'Couldn't connect to host, port: ...; timeout ...;' ?](#faq192)
 * [(193) How can I import Outlook contacts?](#faq193)
 * [(194) How can I set up automatic deletion of old messages?](#faq194)
+* [(195) Why are all messages in the archive folder of Gmail?](#faq195)
 
 [I have another question.](#get-support)
 
@@ -5448,6 +5449,18 @@ Auto deletion will be done on a full sync only.
 For the inboxes, you can use *Force sync* in the three-dots overflow menu of the start screen.
 For other folders, you can long press the folder in the folder list of the account (*not* the navigation menu), and select *Synchronize now* in the pop-up menu.
 You can also pull down the messages list of any folder to sync it, and repeat this again within 30 seconds for a full sync.
+
+<br>
+
+<a name="faq195"></a>
+**(195) Why are all messages in the archive folder of Gmail?**
+
+The Gmail server stores all messages, except the messages in the draft, sent, trash and spam messages folder in the all messages' folder (=archive folder).
+FairEmail is an email client, which basically displays what is on the email server, and therefore it will show these messages too.
+
+To be clear: FairEmail does not store the messages in the archive folder, unless you explicitly archive a message.
+
+This has advantages, though, because it makes searching in all messages easier.
 
 <br>
 

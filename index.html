@@ -373,6 +373,7 @@
 <li><a href="#faq192">(192) How can I resolve ‘Couldn’t connect to host, port: …; timeout …;’ ?</a></li>
 <li><a href="#faq193">(193) How can I import Outlook contacts?</a></li>
 <li><a href="#faq194">(194) How can I set up automatic deletion of old messages?</a></li>
+<li><a href="#faq195">(195) Why are all messages in the archive folder of Gmail?</a></li>
 </ul>
 <p><a href="#get-support">I have another question.</a></p>
 <p><a name="faq1"></a> <strong>(1) Which permissions are needed and why?</strong></p>
@@ -2697,6 +2698,11 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <p>Unread, starred and snoozed messages and messages younger than 24 hours will not be automatically deleted. You can enable auto deletion of unread messages in the receive-settings tab page (option <em>Delete old unread messages</em>).</p>
 <p>Note that it isn’t a good idea to automatically delete recent messages, especially not for the spam folder because there might be legitimate messages in the spam folder. There is a button or menu item (depending on the screen size) in the top action bar/menu of the trash and spam folder to empty the folder. This way there is at least a visual check.</p>
 <p>Auto deletion will be done on a full sync only. For the inboxes, you can use <em>Force sync</em> in the three-dots overflow menu of the start screen. For other folders, you can long press the folder in the folder list of the account (<em>not</em> the navigation menu), and select <em>Synchronize now</em> in the pop-up menu. You can also pull down the messages list of any folder to sync it, and repeat this again within 30 seconds for a full sync.</p>
+<p><br></p>
+<p><a name="faq195"></a> <strong>(195) Why are all messages in the archive folder of Gmail?</strong></p>
+<p>The Gmail server stores all messages, except the messages in the draft, sent, trash and spam messages folder in the all messages’ folder (=archive folder). FairEmail is an email client, which basically displays what is on the email server, and therefore it will show these messages too.</p>
+<p>To be clear: FairEmail does not store the messages in the archive folder, unless you explicitly archive a message.</p>
+<p>This has advantages, though, because it makes searching in all messages easier.</p>
 <p><br></p>
 <h2>
 <a name="get-support"></a>Get support
