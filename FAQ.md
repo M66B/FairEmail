@@ -396,6 +396,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(193) How can I import Outlook contacts?](#faq193)
 * [(194) How can I set up automatic deletion of old messages?](#faq194)
 * [(195) Why are all messages in the archive folder of Gmail?](#faq195)
+* [(196) Can you add empty trash on leaving the app?](#faq196)
 
 [I have another question.](#get-support)
 
@@ -5461,6 +5462,22 @@ FairEmail is an email client, which basically displays what is on the email serv
 To be clear: FairEmail does not store the messages in the archive folder, unless you explicitly archive a message.
 
 This has advantages, though, because it makes searching in all messages easier.
+
+<br>
+
+<a name="faq196"></a>
+**(196) Can you add empty trash on leaving the app?**
+
+Besides that leaving an app is an ambiguous action, automatically deleting trashed messages is a risky action because deleted messages can't be restored anymore.
+A message could accidentally be trashed, and you could switch to another app, which could be interpreted as leaving the app, and the message would be gone forever.
+
+Instead, you can configure auto-deletion of older messages, which is safer because the messages won't be deleted immediately.
+For this, please tap on the account name in the navigation menu (left side menu) to go to the folder list of the account.
+In the folder list, long press the trash messages folder and select to edit the folder properties.
+Near the end of the properties screen, there is a checkbox to enable auto-deletion.
+You might want to change the number of days to keep messages on your device.
+
+Note that the reference time is the time the message was first stored on the device, not the date/time of the message itself.
 
 <br>
 

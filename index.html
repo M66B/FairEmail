@@ -374,6 +374,7 @@
 <li><a href="#faq193">(193) How can I import Outlook contacts?</a></li>
 <li><a href="#faq194">(194) How can I set up automatic deletion of old messages?</a></li>
 <li><a href="#faq195">(195) Why are all messages in the archive folder of Gmail?</a></li>
+<li><a href="#faq196">(196) Can you add empty trash on leaving the app?</a></li>
 </ul>
 <p><a href="#get-support">I have another question.</a></p>
 <p><a name="faq1"></a> <strong>(1) Which permissions are needed and why?</strong></p>
@@ -2703,6 +2704,11 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <p>The Gmail server stores all messages, except the messages in the draft, sent, trash and spam messages folder in the all messages’ folder (=archive folder). FairEmail is an email client, which basically displays what is on the email server, and therefore it will show these messages too.</p>
 <p>To be clear: FairEmail does not store the messages in the archive folder, unless you explicitly archive a message.</p>
 <p>This has advantages, though, because it makes searching in all messages easier.</p>
+<p><br></p>
+<p><a name="faq196"></a> <strong>(196) Can you add empty trash on leaving the app?</strong></p>
+<p>Besides that leaving an app is an ambiguous action, automatically deleting trashed messages is a risky action because deleted messages can’t be restored anymore. A message could accidentally be trashed, and you could switch to another app, which could be interpreted as leaving the app, and the message would be gone forever.</p>
+<p>Instead, you can configure auto-deletion of older messages, which is safer because the messages won’t be deleted immediately. For this, please tap on the account name in the navigation menu (left side menu) to go to the folder list of the account. In the folder list, long press the trash messages folder and select to edit the folder properties. Near the end of the properties screen, there is a checkbox to enable auto-deletion. You might want to change the number of days to keep messages on your device.</p>
+<p>Note that the reference time is the time the message was first stored on the device, not the date/time of the message itself.</p>
 <p><br></p>
 <h2>
 <a name="get-support"></a>Get support
