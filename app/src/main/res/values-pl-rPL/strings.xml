@@ -700,6 +700,9 @@
     <string name="title_advanced_mnemonic_hint">Każda otrzymana wiadomość e-mail z poniższymi słowami w temacie, automatycznie i natychmiast usunie dane aplikacji</string>
     <string name="title_advanced_clear_all">Usuń dane aplikacji</string>
     <string name="title_advanced_clear_all_remark">Dane aplikacji zostaną nieodwracalnie usunięte!</string>
+    <string name="title_advanced_default_encryption">        Domyślna metoda szyfrowania (PGP lub S/MIME) będzie przechowywana dla każdej tożsamości po wysłaniu podpisanej lub zaszyfrowanej wiadomości.
+        Metoda szyfrowania może być wybrana przed wysłaniem w oknie dialogowym opcji wysyłania (przytrzymując przycisk wyślij).
+    </string>
     <string name="title_advanced_sign_default">Domyślnie podpisuj</string>
     <string name="title_advanced_encrypt_default">Domyślnie szyfruj</string>
     <string name="title_advanced_encrypt_auto">Automatycznie zaszyfruj, gdy wszystkie klucze odbiorców są dostępne</string>
@@ -1910,6 +1913,7 @@
     <string name="title_loading">Ładowanie &#8230;</string>
     <string name="title_fetching_again">Ponowne pobieranie wiadomości z serwera</string>
     <string name="title_go_back">Powrót</string>
+    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Użyj ustawień globalnych</string>
     <string name="title_conversation_actions">Akcje</string>
     <string name="title_conversation_action_reply">Odpowiedz z \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiuj: \'%1$s\'</string>

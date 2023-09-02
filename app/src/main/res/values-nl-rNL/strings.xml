@@ -671,6 +671,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_mnemonic_hint">Elke e-mail ontvangen met de onderstaande woorden in de onderwerpregel zal automatisch en onmiddellijk de app gegevens verwijderen</string>
     <string name="title_advanced_clear_all">Verwijder de app gegevens</string>
     <string name="title_advanced_clear_all_remark">De app gegevens worden onomkeerbaar verwijderd!</string>
+    <string name="title_advanced_default_encryption">De standaard versleutelingsmethode (PGP of S/MIME) wordt per identiteit opgeslagen na het verzenden van een ondertekend of versleuteld bericht.
+         De versleutelingsmethode kan voor verzending worden geselecteerd in het dialoogvenster met verzendopties (houd de knop Verzenden lang ingedrukt).    </string>
     <string name="title_advanced_sign_default">Standaard ondertekenen</string>
     <string name="title_advanced_encrypt_default">Standaard versleutelen</string>
     <string name="title_advanced_encrypt_auto">Automatisch versleutelen wanneer alle sleutels van de ontvanger beschikbaar zijn</string>
@@ -1874,6 +1876,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_loading">Laden &#8230;</string>
     <string name="title_fetching_again">Bericht opnieuw van de server ophalen</string>
     <string name="title_go_back">Ga terug</string>
+    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Gebruik globale standaardwaarde</string>
     <string name="title_conversation_actions">Acties</string>
     <string name="title_conversation_action_reply">Antwoord met: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopieer: \'%1$s\'</string>

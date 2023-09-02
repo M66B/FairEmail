@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail 搜尋</string>
+    <string name="app_send_self">发送给自己</string>
     <string name="app_changelog">變更紀錄</string>
     <string name="app_welcome">FairEmail 是一款專注於隱私和安全的開源電子郵件應用程式。因此，其中一些功能的工作方式可能與您所熟悉的不同。</string>
     <string name="app_limitations">例如，預設重排訊息以移除不安全的元件並改善可讀性，並且為了安全，連結的開啟還需要獲得確認。如有需要，兩者皆可停用。</string>
@@ -9,6 +10,8 @@
     <string name="app_continue">仍要繼續</string>
     <string name="app_exit">再一次執行‘返回’操作以退出</string>
     <string name="app_cake">剩餘儲存空間不足</string>
+    <string name="app_cake_remaining">设备上的剩余存储空间：%1$s</string>
+    <string name="app_cake_required">所需的最小存储空间：%1$s</string>
     <string name="app_updated">最近更新於: %1$s</string>
     <string name="app_download">下載自：%1$s</string>
     <string name="channel_service">監控臺</string>
@@ -16,6 +19,7 @@
     <string name="channel_notification">電子郵件</string>
     <string name="channel_progress">進度</string>
     <string name="channel_update">更新</string>
+    <string name="channel_announcements">公告</string>
     <string name="channel_warning">警告</string>
     <string name="channel_error">錯誤</string>
     <string name="channel_alert">伺服器警報</string>
@@ -58,6 +62,9 @@
     <plurals name="title_deleting_messages">
         <item quantity="other">您要永久刪除這 %1$d 則訊息嗎？</item>
     </plurals>
+    <plurals name="title_attachments">
+        <item quantity="other">%d 個附件</item>
+    </plurals>
     <plurals name="title_ask_spam">
         <item quantity="other">您要將這 %1$d 則訊息作垃圾郵件處理嗎？</item>
     </plurals>
@@ -69,6 +76,7 @@
     <string name="title_block">封鎖 %1$s</string>
     <string name="title_block_sender">封鎖寄件者</string>
     <string name="title_block_sender_domain">封鎖域名 \'%1$s\'</string>
+    <string name="title_block_sender_remark">阻止意味着自动移至垃圾邮件文件夹</string>
     <string name="title_block_sender_hint">        封鎖寄件者是一項免費功能。
         使用篩選器規則封鎖寄件者網域則是一項專業版功能。
     </string>
@@ -160,11 +168,16 @@
     <string name="title_setup_gmail_support">因為 Android 會檢查程式的數字簽名，所以只有 FairEmail 在 Play Store 和 GitHub 發布的版本支持授權 Google 帳戶</string>
     <string name="title_setup_gmail_rationale">請授予權限以選擇帳戶並讀取您的姓名</string>
     <string name="title_setup_gmail_permissions">Google 會請求權限以讀取、撰寫、傳送及永久刪除您的電子郵件。FairEmail 永遠不會在您未予明確同意的前提下刪除您的訊息。</string>
+    <string name="title_setup_gmail_login">如果 Chrome 已登录帐户，则只能通过 Android 添加新帐户。 通过 Chrome 同步设置注销 Chrome 可以避免这种情况。</string>
+    <string name="title_setup_gmail_max">如果出现错误消息“您登录的帐户数量已达到上限”，您需要从所有 Google 帐户中注销浏览器。</string>
+    <string name="title_setup_gmail_on_device">为什么我需要选择设备上的帐户？</string>
     <string name="title_setup_gmail_password">我要使用密碼登入帳戶而不使用綁定裝置作為認證</string>
     <string name="title_setup_office_auth">“驗證失敗”錯誤可能是由系統管理員停用 IMAP/SMTP 所致</string>
+    <string name="title_setup_office_auth_5_7_3">请尝试“其他提供商”快速设置向导</string>
     <string name="title_setup_oauth_rationale">授權存取您的 %1$s 帳戶</string>
     <string name="title_setup_oauth_update">重新授權現有帳戶 (否則請新建帳戶)</string>
     <string name="title_setup_oauth_updated">帳戶授權已更新</string>
+    <string name="title_setup_oauth_brave">使用 Brave 浏览器时，您必须在 Brave 设置中启用该选项，以允许在 Brave 之外的应用程序中打开应用程序链接</string>
     <string name="title_setup_oauth_authorize">授權</string>
     <string name="title_setup_select_account">選擇帳戶</string>
     <string name="title_setup_instructions">設置說明</string>
@@ -185,23 +198,30 @@
     <string name="title_setup_free">這個應用程式是免費的嗎？</string>
     <string name="title_setup_permissions">授予權限</string>
     <string name="title_setup_permissions_remark">存取聯絡人資訊 (可選項)</string>
+    <string name="title_setup_permissions_calendar">存储邀请（可选）</string>
     <string name="title_setup_permissions_explanation">需要聯絡人權限才能查詢聯絡人資料及建議聯絡人</string>
     <string name="title_setup_permissions_notify">顯示新的訊息通知 (選填)</string>
     <string name="title_setup_permissions_notify_explanation">允許通知權限才可以在狀態欄顯示新的通知訊息</string>
     <string name="title_setup_permission_why">為何需要哪些權限？</string>
     <string name="title_setup_permission_import_contacts">如何匯入聯絡人</string>
+    <string name="title_setup_import_graph_contact">Outlook 联系人</string>
+    <string name="title_setup_import_graph_new">新联系人：%1$s</string>
     <string name="title_setup_doze">停用電池效能最佳化設定</string>
     <string name="title_setup_doze_remark">更可靠地在後台收發電子郵件</string>
     <string name="title_setup_doze_explanation">請停用電池效能最佳化設定，以確保應用程式能可靠地在背景傳送和接收訊息</string>
     <string name="title_setup_doze_hint">雖然可能有點自相矛盾，但關閉此應用的電池效能最佳化設定可節省電池用量</string>
+    <string name="title_setup_doze_aggressively">该设备可能会停止同步服务</string>
     <string name="title_setup_doze_why">為何應該關閉電池最佳化？</string>
     <string name="title_setup_doze_instructions">在接下來的 Android 對話方塊中，將\"未套用最佳化設定\"更改為\"所有應用程式\"，選取本程式並選擇\"不要最佳化\"</string>
     <string name="title_setup_doze_battery">很耗電嗎？</string>
     <string name="title_setup_doze_stopped">不會同步？</string>
     <string name="title_setup_doze_device">此裝置可能需要這項設定</string>
+    <string name="title_setup_alarm_12">该应用程序将无法正常工作</string>
     <string name="title_setup_inexact">闹钟 &amp; 提醒權限已被停用</string>
     <string name="title_setup_background">背景活動限制已啟用</string>
     <string name="title_setup_data">數據節省模式已啟用</string>
+    <string name="title_setup_always">停用新訊息通知</string>
+    <string name="title_setup_always_remark">如果启用，不稳定的连接、旧的网络硬件等可能会导致电池使用量更高</string>
     <string name="title_setup_advanced_options">顯示進階選項</string>
     <string name="title_setup_inbox">轉至收件匣</string>
     <string name="title_setup_go">開始</string>

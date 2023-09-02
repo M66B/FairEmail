@@ -7,9 +7,12 @@
     <string name="app_limitations">For example, messages are reformatted by default to remove unsafe elements and to improve readability, and opening links needs to be confirmed for safety. Both can be disabled if desired.</string>
     <string name="app_unsupported">Bugs present in the Android version of this specific device can lead to system crashes</string>
     <string name="app_data_loss">All data may be lost</string>
+    <string name="app_continue">Continue anyway</string>
+    <string name="app_exit">Go \'back\' again to exit</string>
     <string name="app_cake">Insufficient server storage space left!</string>
     <string name="app_cake_remaining">Remaining local storage space: %1$s</string>
     <string name="app_cake_required">Minimum required local storage space: %1$s</string>
+    <string name="app_updated">Last updated %1$s</string>
     <string name="channel_send">Send</string>
     <string name="channel_service_description">Synchronising and monitoring of accounts</string>
     <string name="tile_synchronize">Synchronise</string>

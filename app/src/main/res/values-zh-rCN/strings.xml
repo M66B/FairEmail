@@ -658,6 +658,9 @@
     <string name="title_advanced_mnemonic_hint">如果收到任何标题行含有以下文字的电子邮件，应用程序数据将立即被自动删除</string>
     <string name="title_advanced_clear_all">删除应用数据</string>
     <string name="title_advanced_clear_all_remark">应用数据将不可逆转地删除！</string>
+    <string name="title_advanced_default_encryption">        发送带签名或加密的邮件后，将为每个身份存储默认加密方法（PGP 或 S/MIME）
+        发送前可以在发送选项对话框中选择加密方式（长按发送按钮）
+    </string>
     <string name="title_advanced_sign_default">使用默认签名</string>
     <string name="title_advanced_encrypt_default">使用默认加密</string>
     <string name="title_advanced_encrypt_auto">当所有收件人的公钥可用时自动加密</string>

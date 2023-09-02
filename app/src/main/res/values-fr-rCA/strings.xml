@@ -673,6 +673,9 @@
     <string name="title_advanced_mnemonic_hint">Tout courriel reçu contenant les mots ci-dessous dans l\'objet supprimera automatiquement et immédiatement toutes les données de l\'application sur cet appareil</string>
     <string name="title_advanced_clear_all">Supprimer les données de l\'application</string>
     <string name="title_advanced_clear_all_remark">Les données de l\'application seront définitivement supprimées!</string>
+    <string name="title_advanced_default_encryption">        La méthode de chiffrement par défaut (PGP ou S/MIME) sera stockée pour chaque identité après avoir envoyé un message signé ou chiffré.
+        La méthode de chiffrement peut être sélectionnée avant l\'envoi dans la boîte de dialogue des options d\'envoi (appui long sur le bouton d\'envoi).
+    </string>
     <string name="title_advanced_sign_default">Signer par défaut</string>
     <string name="title_advanced_encrypt_default">Chiffrer par défaut</string>
     <string name="title_advanced_encrypt_auto">Chiffrer automatiquement lorsque toutes les clés des destinataires sont disponibles</string>
@@ -1886,6 +1889,7 @@
     <string name="title_loading">Chargement&#8230;</string>
     <string name="title_fetching_again">Nouvelle récupération du message depuis le serveur</string>
     <string name="title_go_back">Retour</string>
+    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Utiliser le paramètre général</string>
     <string name="title_conversation_actions">Actions</string>
     <string name="title_conversation_action_reply">Répondre avec : \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copier : \'%1$s\'</string>

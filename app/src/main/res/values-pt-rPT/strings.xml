@@ -674,6 +674,9 @@
     <string name="title_advanced_mnemonic_hint">A recepção de qualquer correio electrónico com as palavras abaixo indicadas no assunto irá, de forma automática e imediata, eliminar todos os dados da aplicação</string>
     <string name="title_advanced_clear_all">Eliminar os dados da aplicação</string>
     <string name="title_advanced_clear_all_remark">Os dados da aplicação serão definitivamente eliminados!</string>
+    <string name="title_advanced_default_encryption">        O método de encriptação por defeito (PGP ou S/MIME) vai ser guardado por identidade depois de enviar um email assinado ou encriptado.
+        O método de encriptação pode ser selecionado antes do envio na caixa de diálogo das opções de envio (pressão longa no botão de enviar).
+    </string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
     <string name="title_advanced_encrypt_auto">Criptografar automaticamente quando as chaves de todos os destinatários estiverem disponíveis</string>
@@ -1886,6 +1889,7 @@
     <string name="title_loading">A carregar &#8230;</string>
     <string name="title_fetching_again">A procurar novamente a mensagem do servidor</string>
     <string name="title_go_back">Retroceder</string>
+    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Usar predefinição global</string>
     <string name="title_conversation_actions">Acções</string>
     <string name="title_conversation_action_reply">Resposta com: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copiar: \'%1$s\'</string>

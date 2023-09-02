@@ -674,6 +674,9 @@
     <string name="title_advanced_mnemonic_hint">Jede E-Mail mit den folgenden Wörtern in der Betreffzeile wird automatisch und sofort die App-Daten auf diesem Gerät löschen</string>
     <string name="title_advanced_clear_all">App-Daten löschen</string>
     <string name="title_advanced_clear_all_remark">Die App-Daten werden unwiderruflich gelöscht!</string>
+    <string name="title_advanced_default_encryption">        Die Standardmethode zum Verschlüsseln (PGP oder S/MIME) wird nach dem Senden einer signierten oder verschlüsselten Nachricht für jede Identität einzeln gespeichert.
+        Die Verschlüsselungsmethode kann vor dem Senden in den Sendeoptionen ausgewählt werden (»Senden« gedrückt halten).
+    </string>
     <string name="title_advanced_sign_default">Standardmäßig signieren</string>
     <string name="title_advanced_encrypt_default">Standardmäßig verschlüsseln</string>
     <string name="title_advanced_encrypt_auto">Automatisch verschlüsseln, wenn alle Empfängerschlüssel verfügbar sind</string>
@@ -1887,6 +1890,7 @@
     <string name="title_loading">Wird geladen &#8230;</string>
     <string name="title_fetching_again">Nachricht wird erneut vom Server abgerufen</string>
     <string name="title_go_back">Zurück</string>
+    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Allgemeine Einstellung verwenden</string>
     <string name="title_conversation_actions">Aktionen</string>
     <string name="title_conversation_action_reply">Antworten mit: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopieren: \'%1$s\'</string>

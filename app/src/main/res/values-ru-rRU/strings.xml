@@ -700,6 +700,9 @@
     <string name="title_advanced_mnemonic_hint">Любое сообщение, полученное со следующими словами в строке темы, автоматически удалит данные приложения</string>
     <string name="title_advanced_clear_all">Удаление данных приложения</string>
     <string name="title_advanced_clear_all_remark">Данные приложения будут безвозвратно удалены!</string>
+    <string name="title_advanced_default_encryption">        Метод шифрования по умолчанию (PGP или S/MIME) будет сохранён для каждого идентификатора после отправки подписанного или зашифрованного сообщения.
+        Можно выбрать метод шифрования непосредственно перед отправкой в диалоговом окне \"Параметры отправки\", вызываемом долгим нажатием кнопки \"Отправить\".
+    </string>
     <string name="title_advanced_sign_default">Подписывать по умолчанию</string>
     <string name="title_advanced_encrypt_default">Шифровать по умолчанию</string>
     <string name="title_advanced_encrypt_auto">Автоматически шифровать, если доступны ключи всех получателей</string>
@@ -1912,6 +1915,7 @@
     <string name="title_loading">Загрузка&#8230;</string>
     <string name="title_fetching_again">Заново загружаем сообщения с сервера</string>
     <string name="title_go_back">Назад</string>
+    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Использовать общее значение по умолчанию</string>
     <string name="title_conversation_actions">Действия</string>
     <string name="title_conversation_action_reply">Ответить на: \"%1$s\"</string>
     <string name="title_conversation_action_copy">Копировать: \"%1$s\"</string>

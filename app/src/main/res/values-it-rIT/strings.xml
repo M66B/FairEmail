@@ -673,6 +673,9 @@
     <string name="title_advanced_mnemonic_hint">Qualsiasi email ricevuta con le seguenti parole nella riga dell\'oggetto eliminerà automaticamente e immediatamente i dati dell\'app</string>
     <string name="title_advanced_clear_all">Elimina i dati dell\'app</string>
     <string name="title_advanced_clear_all_remark">I dati dell\'app saranno eliminati irreversibilmente!</string>
+    <string name="title_advanced_default_encryption">        Il metodo di cifratura predefinito (PGP o S/MIME) verrà memorizzato per identità dopo l\'invio di un messaggio firmato o cifrato.
+        Il metodo di cifratura può essere selezionato prima di inviare nella finestra di dialogo delle opzioni di invio (premere a lungo il pulsante di invio).
+    </string>
     <string name="title_advanced_sign_default">Firma di default</string>
     <string name="title_advanced_encrypt_default">Crittografa di default</string>
     <string name="title_advanced_encrypt_auto">Crittografa automaticamente quando le chiavi di tutti i destinatari sono disponibili</string>
@@ -1886,6 +1889,7 @@
     <string name="title_loading">Caricamento&#8230;</string>
     <string name="title_fetching_again">Recuperando di nuovo il messaggio dal server</string>
     <string name="title_go_back">Torna indietro</string>
+    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Usa l\'impostazione generale</string>
     <string name="title_conversation_actions">Azioni</string>
     <string name="title_conversation_action_reply">Rispondi con: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copia: \'%1$s\'</string>

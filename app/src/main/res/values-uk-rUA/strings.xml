@@ -198,8 +198,8 @@
     <string name="title_setup_manual">Ручне налаштування та параметри облікових записів</string>
     <string name="title_setup_classic">Класична конфігурація</string>
     <string name="title_setup_documentation">Перегляньте документацію свого постачальника пошти для правильної конфігурації сервера електронної пошти</string>
-    <string name="title_setup_account_remark">Отримання електронної пошти</string>
-    <string name="title_setup_identity_remark">Надсилання електронної пошти</string>
+    <string name="title_setup_account_remark">Отримання пошти</string>
+    <string name="title_setup_identity_remark">Надсилання пошти</string>
     <string name="title_setup_account_identity_hint">Ви можете налаштувати ім\'я, колір та дії, що виконуватимуться при проведенні пальцем, в налаштуваннях облікового запису та налаштувати підпис в налаштуваннях профілів</string>
     <string name="title_setup_accounts">Облікові записи</string>
     <string name="title_setup_identities">Профілі</string>
@@ -701,6 +701,9 @@
     <string name="title_advanced_mnemonic_hint">Видалити дані застосунку</string>
     <string name="title_advanced_clear_all">Видалити дані застосунку</string>
     <string name="title_advanced_clear_all_remark">Дані застосунку будуть видалені назавжди!</string>
+    <string name="title_advanced_default_encryption">        Метод шифрування за замовчуванням (PGP або S/MIME) буде збережено для кожного профілю після надсилання підписаного або зашифрованого повідомлення.
+         Метод шифрування можна вибрати перед надсиланням у діалоговому вікні параметрів надсилання (натисніть і утримуйте кнопку «Надіслати»).
+    </string>
     <string name="title_advanced_sign_default">Підписувати за замовчуванням</string>
     <string name="title_advanced_encrypt_default">Шифрувати за замовчуванням</string>
     <string name="title_advanced_encrypt_auto">Автоматично шифрувати при доступності всіх ключів одержувачів</string>
@@ -1327,7 +1330,7 @@
     <string name="title_save">Зберегти</string>
     <string name="title_send">Надіслати</string>
     <string name="title_sending">Надсилання &#8230;</string>
-    <string name="title_send_now">Надіслати зараз</string>
+    <string name="title_send_now">Надісл. зараз</string>
     <string name="title_send_via">Надіслати через</string>
     <string name="title_send_at">Надіслати &#8230;</string>
     <string name="title_send_auto_archive">Архівувати повідомлення з відповіддю</string>
@@ -1556,7 +1559,7 @@
     <string name="title_sort_on_order">Порядок</string>
     <string name="title_sort_on_applied">Кількість застосувань</string>
     <string name="title_sort_on_last_applied">Востаннє застосовано</string>
-    <string name="title_filter">Відфільтрувати</string>
+    <string name="title_filter">Приховати</string>
     <string name="title_filter_seen">Прочитані</string>
     <string name="title_filter_unflagged">Необрані</string>
     <string name="title_filter_unknown">Невідомі відправники</string>
@@ -1908,6 +1911,7 @@
     <string name="title_loading">Завантаження &#8230;</string>
     <string name="title_fetching_again">Знову отримую повідомлення з сервера</string>
     <string name="title_go_back">Назад</string>
+    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Використовувати загальне типове значення</string>
     <string name="title_conversation_actions">Дії</string>
     <string name="title_conversation_action_reply">Відповісти з: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Копіювати: \'%1$s\'</string>

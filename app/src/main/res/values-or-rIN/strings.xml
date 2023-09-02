@@ -109,6 +109,7 @@
     <string name="title_setup_gmail_on_device">ମୋତେ କାହିଁକି ଯେ ଗୋଟିଏ ଡିଵାଇସରେ-ଥିବା ଆକାଉଣ୍ଟକୁ ଚୟନ କରିବାକୁ ପଡ଼ିବ?</string>
     <string name="title_setup_gmail_password">ମୁଁ ଏକ ଡିଵାଇସ୍‌ରେ-ଥିବା ଆକାଉଣ୍ଟ୍ ବଦଳରେ ପାସ୍‌ୱର୍ଡ଼ ସହିତ ଗୋଟିଏ ଆକାଉଣ୍ଟ୍‌କୁ ପ୍ରାଧିକରଣ କରିବାକୁ ଚାହୁଁଅଛି</string>
     <string name="title_setup_oauth_updated">ଆକାଉଣ୍ଟ୍ ପ୍ରାଧିକରଣ ଅଦ୍ୟତନ କରାଯାଇଥିଲା</string>
+    <string name="title_setup_oauth_brave">Brave ବ୍ରାଉଜର୍ ବ୍ୟବହାର କରିବାବେଳେ, Brave ବାହାରେ ଆପ୍ ଲିଙ୍କ୍‌ଗୁଡ଼ିକ ଖୋଲିବାକୁ ଅନୁମତି ଦେବା ଲାଗି ଆପଣ Braveର ସେଟିଂରେ ଥିବା ବିକଳ୍ପଟିକୁ ସକ୍ଷମ କରିନେବା ଆବଶ୍ୟକ</string>
     <string name="title_setup_oauth_authorize">ପ୍ରାଧିକୃତ କରନ୍ତୁ</string>
     <string name="title_setup_select_account">ଆକାଉଣ୍ଟ୍ ବାଛନ୍ତୁ</string>
     <string name="title_setup_instructions">ସେଟଅପ୍ ନିର୍ଦ୍ଦେଶାବଳୀ</string>
@@ -423,6 +424,7 @@
     <string name="title_synchronize_batch_disable">ସୀଙ୍କ୍ରୋନାଇଜେସନ୍ ଅକ୍ଷମ କରିବା</string>
     <string name="title_notify_batch_enable">ନୂଆ ଵାର୍ତ୍ତା ଵିଜ୍ଞପ୍ତି ସକ୍ଷମ କରିବା</string>
     <string name="title_notify_batch_disable">ନୂଆ ଵାର୍ତ୍ତା ଵିଜ୍ଞପ୍ତି ଅକ୍ଷମ କରିବା</string>
+    <string name="title_download_batch_enable">ପାଠ୍ୟ ଏବଂ ସଂଲଗ୍ନଗୁଡ଼ିକ ଡାଉନଲୋଡ୍ କରିବା</string>
     <string name="title_expunge">କାଢ଼ିଦିଅନ୍ତୁ</string>
     <string name="title_expunge_remark">ଏହା ବିଲୋପ ପାଇଁ ଚିହ୍ନିତ ସମସ୍ତ ବାର୍ତ୍ତାକୁ ସବୁଦିନ ପାଇଁ ବିଲୋପ କରିବ</string>
     <string name="title_empty_trash">ଆଵର୍ଜନା ପାତ୍ର ଖାଲି କରିବା</string>
