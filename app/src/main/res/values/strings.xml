@@ -774,6 +774,10 @@
     <string name="title_advanced_clear_all">Delete the app data</string>
     <string name="title_advanced_clear_all_remark">The app data will be irreversibly deleted!</string>
 
+    <string name="title_advanced_default_encryption">
+        The default encryption method (PGP or S/MIME) will be stored per identity after sending a signed or encrypted message.
+        The encryption method can be selected before sending in the send options dialog box (long press the send button).
+    </string>
     <string name="title_advanced_sign_default">Sign by default</string>
     <string name="title_advanced_encrypt_default">Encrypt by default</string>
     <string name="title_advanced_encrypt_auto">Automatically encrypt when all recipients\' keys are available</string>
