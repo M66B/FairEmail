@@ -292,6 +292,7 @@ public class FragmentCompose extends FragmentBase {
     private int zoom = 0;
     private boolean nav_color;
     private boolean lt_enabled;
+    private boolean lt_sentence;
     private boolean lt_auto;
 
     private long working = -1;
@@ -359,6 +360,7 @@ public class FragmentCompose extends FragmentBase {
         nav_color = prefs.getBoolean("send_nav_color", false);
 
         lt_enabled = LanguageTool.isEnabled(context);
+        lt_sentence = LanguageTool.isSentence(context);
         lt_auto = LanguageTool.isAuto(context);
 
         if (compose_color != Color.TRANSPARENT && Helper.isDarkTheme(context))
@@ -670,7 +672,7 @@ public class FragmentCompose extends FragmentBase {
         etBody.addTextChangedListener(StyleHelper.getTextWatcher(etBody));
 
         etBody.addTextChangedListener(new TextWatcher() {
-            private boolean save = false;
+            private Integer save = null;
             private Integer added = null;
             private boolean inserted = false;
             private Pair<Integer, Integer> lt = null;
@@ -692,10 +694,11 @@ public class FragmentCompose extends FragmentBase {
                     char c = text.charAt(index);
                     char b = text.charAt(index - 1);
 
-                    save = (auto_save_paragraph && c == '\n' && b != '\n') ||
-                            (auto_save_dot && Helper.isEndChar(c) && !Helper.isEndChar(b));
-                    if (save)
+                    if ((auto_save_paragraph && c == '\n' && b != '\n') ||
+                            (auto_save_dot && Helper.isEndChar(c) && !Helper.isEndChar(b))) {
                         Log.i("Save=" + index);
+                        save = index;
+                    }
 
                     if (c == '\n') {
                         Log.i("Added=" + index);
@@ -734,15 +737,30 @@ public class FragmentCompose extends FragmentBase {
                         added = null;
                     }
 
-                if (save)
+                if (save != null)
                     try {
+                        if (lt == null && lt_sentence) {
+                            int start = save;
+                            while (start > 0 &&
+                                    text.charAt(start - 1) != '\n' &&
+                                    !Helper.isEndChar(text.charAt(start - 1)))
+                                start--;
+                            while (start < save)
+                                if (Character.isWhitespace(text.charAt(start)))
+                                    start++;
+                                else
+                                    break;
+                            if (start < save)
+                                lt = new Pair<>(start, save + 1);
+                        }
+
                         if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
                             Bundle extras = new Bundle();
                             extras.putBoolean("silent", true);
                             onAction(R.id.action_save, extras, "paragraph");
                         }
                     } finally {
-                        save = false;
+                        save = null;
                     }
 
                 if (lt != null)
@@ -7625,7 +7643,7 @@ public class FragmentCompose extends FragmentBase {
                 if (postShow != null)
                     getMainHandler().post(postShow);
 
-                if (lt_auto)
+                if (lt_sentence || lt_auto)
                     onLanguageTool(0, etBody.length(), true);
             }
 

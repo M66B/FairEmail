@@ -71,6 +71,13 @@ public class LanguageTool {
         return (lt_enabled && lt_auto);
     }
 
+    static boolean isSentence(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean lt_enabled = prefs.getBoolean("lt_enabled", false);
+        boolean lt_sentence = prefs.getBoolean("lt_sentence", false);
+        return (lt_enabled && lt_sentence);
+    }
+
     static JSONArray getLanguages(Context context) throws IOException, JSONException {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         String lt_uri = prefs.getString("lt_uri", LT_URI_PLUS);

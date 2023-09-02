@@ -144,6 +144,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private SwitchCompat swLanguageTool;
     private TextView tvLanguageToolPrivacy;
+    private SwitchCompat swLanguageToolSentence;
     private SwitchCompat swLanguageToolAuto;
     private SwitchCompat swLanguageToolPicky;
     private EditText etLanguageTool;
@@ -285,7 +286,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "classification", "class_min_probability", "class_min_difference",
             "show_filtered",
             "language",
-            "lt_enabled", "lt_auto", "lt_picky", "lt_uri", "lt_user", "lt_key",
+            "lt_enabled", "lt_sentence", "lt_auto", "lt_picky", "lt_uri", "lt_user", "lt_key",
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
@@ -399,6 +400,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swLanguageTool = view.findViewById(R.id.swLanguageTool);
         tvLanguageToolPrivacy = view.findViewById(R.id.tvLanguageToolPrivacy);
+        swLanguageToolSentence = view.findViewById(R.id.swLanguageToolSentence);
         swLanguageToolAuto = view.findViewById(R.id.swLanguageToolAuto);
         swLanguageToolPicky = view.findViewById(R.id.swLanguageToolPicky);
         etLanguageTool = view.findViewById(R.id.etLanguageTool);
@@ -858,6 +860,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("lt_enabled", checked).apply();
+                swLanguageToolSentence.setEnabled(checked);
                 swLanguageToolAuto.setEnabled(checked);
                 swLanguageToolPicky.setEnabled(checked);
             }
@@ -868,6 +871,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Uri.parse(Helper.LT_PRIVACY_URI), true);
+            }
+        });
+
+        swLanguageToolSentence.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("lt_sentence", checked).apply();
             }
         });
 
@@ -2538,6 +2548,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 spLanguage.setSelection(selected);
 
             swLanguageTool.setChecked(prefs.getBoolean("lt_enabled", false));
+            swLanguageToolSentence.setChecked(prefs.getBoolean("lt_sentence", false));
+            swLanguageToolSentence.setEnabled(swLanguageTool.isChecked());
             swLanguageToolAuto.setChecked(prefs.getBoolean("lt_auto", true));
             swLanguageToolAuto.setEnabled(swLanguageTool.isChecked());
             swLanguageToolPicky.setChecked(prefs.getBoolean("lt_picky", false));
