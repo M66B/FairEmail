@@ -1267,8 +1267,10 @@ public class MessageHelper {
                             attachment.id = db.attachment().insertAttachment(attachment);
 
                             File file = attachment.getFile(context);
-                            try (VCardWriter writer = new VCardWriter(file, VCardVersion.V3_0)) {
-                                writer.write(vcard);
+                            try (OutputStream os = new FileOutputStream(file)) {
+                                try (VCardWriter writer = new VCardWriter(os, VCardVersion.V3_0)) {
+                                    writer.write(vcard);
+                                }
                             }
 
                             attachment.size = file.length();
