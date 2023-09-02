@@ -121,6 +121,7 @@ public class EntityIdentity {
     public Boolean encrypt_default = false;
     @NonNull
     public Integer encrypt = 0; // Default method 0=PGP 1=S/MIME
+    public Integer receipt_type;
     @NonNull
     public Boolean delivery_receipt = false; // obsolete
     @NonNull
@@ -381,6 +382,7 @@ public class EntityIdentity {
                 Objects.equals(i1.sign_default, other.sign_default) &&
                 Objects.equals(i1.encrypt_default, other.encrypt_default) &&
                 Objects.equals(i1.encrypt, other.encrypt) &&
+                Objects.equals(i1.receipt_type, other.receipt_type) &&
                 // delivery_receipt
                 // read_receipt
                 // store_sent

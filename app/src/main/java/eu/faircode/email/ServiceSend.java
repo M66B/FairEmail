@@ -759,6 +759,8 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
 
                 if (message.receipt_request != null && message.receipt_request) {
                     int receipt_type = prefs.getInt("receipt_type", 2);
+                    if (ident.receipt_type != null)
+                        receipt_type = ident.receipt_type;
                     if (receipt_type == 1 || receipt_type == 2) // Delivery receipt
                         iservice.setDsnNotify("SUCCESS,FAILURE,DELAY");
                 }

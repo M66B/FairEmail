@@ -71,6 +71,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import java.io.FileNotFoundException;
 import java.net.UnknownHostException;
 import java.security.cert.X509Certificate;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -129,6 +130,7 @@ public class FragmentIdentity extends FragmentBase {
     private TextView tvUriPro;
     private CheckBox cbSignDefault;
     private CheckBox cbEncryptDefault;
+    private Spinner spReceiptType;
     private CheckBox cbUnicode;
     private CheckBox cbOctetMime;
     private EditText etMaxSize;
@@ -233,6 +235,7 @@ public class FragmentIdentity extends FragmentBase {
         tvUriPro = view.findViewById(R.id.tvUriPro);
         cbSignDefault = view.findViewById(R.id.cbSignDefault);
         cbEncryptDefault = view.findViewById(R.id.cbEncryptDefault);
+        spReceiptType = view.findViewById(R.id.spReceiptType);
         cbUnicode = view.findViewById(R.id.cbUnicode);
         cbOctetMime = view.findViewById(R.id.cbOctetMime);
         etMaxSize = view.findViewById(R.id.etMaxSize);
@@ -510,6 +513,12 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
+        ArrayList<String> receiptNames = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.receiptNames)));
+        receiptNames.add(0, getString(R.string.title_global_default));
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, receiptNames);
+        adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spReceiptType.setAdapter(adapter);
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -735,6 +744,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("uri", (String) btnUri.getTag());
         args.putBoolean("sign_default", cbSignDefault.isChecked());
         args.putBoolean("encrypt_default", cbEncryptDefault.isChecked());
+        args.putInt("receipt_type", spReceiptType.getSelectedItemPosition() - 1);
         args.putBoolean("unicode", cbUnicode.isChecked());
         args.putBoolean("octetmime", cbOctetMime.isChecked());
         args.putString("max_size", etMaxSize.getText().toString());
@@ -820,6 +830,7 @@ public class FragmentIdentity extends FragmentBase {
                 String uri = args.getString("uri");
                 boolean sign_default = args.getBoolean("sign_default");
                 boolean encrypt_default = args.getBoolean("encrypt_default");
+                Integer receipt_type = args.getInt("receipt_type");
                 boolean unicode = args.getBoolean("unicode");
                 boolean octetmime = args.getBoolean("octetmime");
                 String max_size = args.getString("max_size");
@@ -909,6 +920,9 @@ public class FragmentIdentity extends FragmentBase {
                 if (TextUtils.isEmpty(signature))
                     signature = null;
 
+                if (receipt_type < 0)
+                    receipt_type = null;
+
                 Long user_max_size = (TextUtils.isEmpty(max_size) ? null : Integer.parseInt(max_size) * 1000 * 1000L);
 
                 DB db = DB.getInstance(context);
@@ -981,6 +995,8 @@ public class FragmentIdentity extends FragmentBase {
                     if (!Objects.equals(identity.sign_default, sign_default))
                         return true;
                     if (!Objects.equals(identity.encrypt_default, encrypt_default))
+                        return true;
+                    if (!Objects.equals(identity.receipt_type, receipt_type))
                         return true;
                     if (!Objects.equals(identity.unicode, unicode))
                         return true;
@@ -1084,6 +1100,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.uri = uri;
                     identity.sign_default = sign_default;
                     identity.encrypt_default = encrypt_default;
+                    identity.receipt_type = receipt_type;
                     identity.unicode = unicode;
                     identity.octetmime = octetmime;
                     identity.sent_folder = null;
@@ -1271,6 +1288,7 @@ public class FragmentIdentity extends FragmentBase {
                     etInternal.setText(identity == null ? null : identity.internal);
                     btnUri.setTag(identity == null ? null : identity.uri);
                     tvUriInfo.setText(identity == null ? null : getUriInfo(identity.uri));
+                    spReceiptType.setSelection(identity == null || identity.receipt_type == null ? 0 : identity.receipt_type + 1);
                     cbSignDefault.setChecked(identity != null && identity.sign_default);
                     cbEncryptDefault.setChecked(identity != null && identity.encrypt_default);
                     cbUnicode.setChecked(identity != null && identity.unicode);

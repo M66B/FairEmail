@@ -848,6 +848,28 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSignDefault" />
 
+        <TextView
+            android:id="@+id/tvReceiptType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="48dp"
+            android:text="@string/title_advanced_receipt"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorPrimary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbEncryptDefault" />
+
+        <Spinner
+            android:id="@+id/spReceiptType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:entries="@array/receiptNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvReceiptType" />
+
         <CheckBox
             android:id="@+id/cbUnicode"
             android:layout_width="wrap_content"
@@ -855,7 +877,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_identity_unicode"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbEncryptDefault" />
+            app:layout_constraintTop_toBottomOf="@id/spReceiptType" />
 
         <TextView
             android:id="@+id/tvUnicodeHint"
@@ -1032,6 +1054,7 @@
                 tvInternal,etInternal,tvInternalHint,
                 btnUri,tvUriHint,tvUriInfo,tvUriPro,
                 tvE2Encryption,cbSignDefault,cbEncryptDefault,
+                tvReceiptType,spReceiptType,
                 cbUnicode,tvUnicodeHint,cbOctetMime,tvMaxSize,etMaxSize" />
 
         <androidx.constraintlayout.widget.Group

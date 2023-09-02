@@ -336,6 +336,9 @@ public class MessageHelper {
         boolean encrypt_subject = prefs.getBoolean("encrypt_subject", false);
         boolean forward_new = prefs.getBoolean("forward_new", true);
 
+        if (identity != null && identity.receipt_type != null)
+            receipt_type = identity.receipt_type;
+
         Map<String, String> c = new HashMap<>();
         c.put("id", message.id == null ? null : Long.toString(message.id));
         c.put("encrypt", message.encrypt + "/" + message.ui_encrypt);
