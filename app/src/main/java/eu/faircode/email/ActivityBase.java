@@ -191,8 +191,10 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
         FragmentManager fm = getSupportFragmentManager();
 
         Fragment bfragment = fm.findFragmentByTag("androidx.biometric.BiometricFragment");
+        if (bfragment == null)
+            bfragment = fm.findFragmentByTag("androidx.biometric.FingerprintDialogFragment");
         if (bfragment != null) {
-            Log.e("Orphan BiometricFragment");
+            Log.e("Orphan fragment tag=" + bfragment.getTag());
             fm.beginTransaction().remove(bfragment).commitNowAllowingStateLoss();
             /*
                 java.lang.RuntimeException: Unable to start activity ComponentInfo{eu.faircode.email/eu.faircode.email.ActivitySetup}: androidx.fragment.app.Fragment$InstantiationException: Unable to instantiate fragment androidx.biometric.FingerprintDialogFragment: could not find Fragment constructor
