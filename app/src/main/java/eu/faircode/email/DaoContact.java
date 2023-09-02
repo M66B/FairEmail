@@ -99,6 +99,11 @@ public interface DaoContact {
             " OR type = " + EntityContact.TYPE_FROM + ")")
     int countContacts();
 
+    @Query("SELECT COUNT(*) FROM contact" +
+            " WHERE account = :account" +
+            " AND type = " + EntityContact.TYPE_JUNK)
+    int countBlocked(long account);
+
     @Insert
     long insertContact(EntityContact contact);
 

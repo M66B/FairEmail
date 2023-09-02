@@ -2419,7 +2419,7 @@ public class Log {
                         " auto_optimize=" + auto_optimize + (auto_optimize ? " !!!" : "") +
                         " notifications=" + (filter == null ? null :
                         Helper.getInterruptionFilter(filter) +
-                                (filter == NotificationManager.INTERRUPTION_FILTER_ALL ? "" : "!!!")) + "\r\n" +
+                                (filter == NotificationManager.INTERRUPTION_FILTER_ALL ? "" : " !!!")) + "\r\n" +
                         "accounts=" + accounts.size() +
                         " folders=" + db.folder().countSync() + "/" + db.folder().countTotal() +
                         " messages=" + db.message().countTotal() +
@@ -2499,6 +2499,8 @@ public class Log {
                             messages += folder.messages;
                         }
 
+                        int blocked = db.contact().countBlocked(account.id);
+
                         boolean unmetered = false;
                         boolean ignore_schedule = false;
                         try {
@@ -2522,6 +2524,7 @@ public class Log {
                                 " poll=" + account.poll_interval +
                                 " ondemand=" + account.ondemand + (account.ondemand ? " !!!" : "") +
                                 " msgs=" + content + "/" + messages + " max=" + account.max_messages +
+                                " blocked=" + blocked + (blocked == 0 ? "" : " !!!") +
                                 " ops=" + db.operation().getOperationCount(account.id) +
                                 " schedule=" + (!ignore_schedule) + (ignore_schedule ? " !!!" : "") +
                                 " unmetered=" + unmetered + (unmetered ? " !!!" : "") +
