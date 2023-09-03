@@ -739,11 +739,12 @@ public class FragmentCompose extends FragmentBase {
 
                 if (save != null)
                     try {
-                        if (lt == null && lt_sentence) {
+                        if (lt == null && lt_sentence &&
+                                Helper.isSentenceChar(text.charAt(save))) {
                             int start = save;
                             while (start > 0 &&
                                     text.charAt(start - 1) != '\n' &&
-                                    !Helper.isEndChar(text.charAt(start - 1)))
+                                    !Helper.isSentenceChar(text.charAt(start - 1)))
                                 start--;
                             while (start < save)
                                 if (Character.isWhitespace(text.charAt(start)))
