@@ -1008,7 +1008,7 @@ public interface DaoMessage {
             " AND (ui_seen OR :unseen)" +
             " AND NOT ui_flagged" +
             " AND stored < :sync_time" + // moved, browsed
-            " AND (ui_snoozed IS NULL OR ui_snoozed =" + Long.MAX_VALUE+")")
+            " AND (ui_snoozed IS NULL OR ui_snoozed =" + Long.MAX_VALUE + ")")
     List<Long> getMessagesBefore(long folder, long sync_time, long keep_time, boolean unseen);
 
     @Query("DELETE FROM message" +
@@ -1028,7 +1028,8 @@ public interface DaoMessage {
             " AND id NOT IN (" +
             "    SELECT id FROM message" +
             "    WHERE folder = :folder" +
+            "    AND stored < :before" +
             "    ORDER BY received DESC" +
             "    LIMIT :keep)")
-    int deleteMessagesKeep(long folder, int keep);
+    int deleteMessagesKeep(long folder, int keep, long before);
 }

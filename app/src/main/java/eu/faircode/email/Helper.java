@@ -1601,7 +1601,9 @@ public class Helper {
                 isSamsung() ||
                 isOnePlus() ||
                 isHuawei() ||
-                isXiaomi());
+                isXiaomi() ||
+                isMeizu() ||
+                isAsus());
     }
 
     static boolean isAndroid12() {
