@@ -57,6 +57,7 @@ public class FragmentDialogDebug extends FragmentDialogBase {
         final EditText etIssue = view.findViewById(R.id.etIssue);
         final Spinner spAccount = view.findViewById(R.id.spAccount);
         final CheckBox cbContact = view.findViewById(R.id.cbContact);
+        final CheckBox cbSend = view.findViewById(R.id.cbSend);
 
         final ArrayAdapter<EntityAccount> adapterAccount;
         etIssue.addTextChangedListener(new TextWatcher() {
@@ -131,6 +132,7 @@ public class FragmentDialogDebug extends FragmentDialogBase {
                         Bundle args = getArguments();
                         args.putString("issue", etIssue.getText().toString());
                         args.putBoolean("contact", cbContact.isChecked());
+                        args.putBoolean("send", cbSend.isChecked());
 
                         EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
                         if (account != null)

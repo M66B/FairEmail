@@ -2279,6 +2279,7 @@
     <string name="title_debug_info_issue">Problem description (required)</string>
     <string name="title_debug_info_issue_remark">Details, such as the estimated time of the problem, the exact error message, etc., are important</string>
     <string name="title_debug_info_contact">We recently had contact about this problem</string>
+    <string name="title_debug_info_send">Send immediately</string>
     <string name="title_unexpected_info_remark">Please describe what you were doing when you got the error:</string>
     <string name="title_issue_subject" translatable="false">FairEmail %1$s issue</string>
 

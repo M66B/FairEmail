@@ -2271,15 +2271,55 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected Long onExecute(Context context, Bundle args) throws IOException, JSONException {
-                return Log.getDebugInfo(context, "main", R.string.title_debug_info_remark, null, null, args).id;
+                boolean send = args.getBoolean("send");
+
+                long id = Log.getDebugInfo(context, "main", R.string.title_debug_info_remark, null, null, args).id;
+
+                if (send) {
+                    boolean sent = false;
+                    DB db = DB.getInstance(context);
+                    try {
+                        db.beginTransaction();
+
+                        EntityMessage draft = db.message().getMessage(id);
+                        if (draft != null) {
+                            EntityFolder outbox = db.folder().getOutbox();
+                            if (outbox == null) {
+                                Log.w("Outbox missing");
+                                outbox = EntityFolder.getOutbox();
+                                outbox.id = db.folder().insertFolder(outbox);
+                            }
+
+                            draft.folder = outbox.id;
+                            db.message().updateMessage(draft);
+
+                            EntityOperation.queue(context, draft, EntityOperation.SEND);
+
+                            db.setTransactionSuccessful();
+
+                            sent = true;
+                        }
+                    } finally {
+                        db.endTransaction();
+                    }
+
+                    if (sent) {
+                        ToastEx.makeText(context, R.string.title_debug_info_send, Toast.LENGTH_LONG).show();
+                        ServiceSend.start(context);
+                        return null;
+                    }
+                }
+
+                return id;
             }
 
             @Override
             protected void onExecuted(Bundle args, Long id) {
-                if (id != null)
-                    startActivity(new Intent(ActivityView.this, ActivityCompose.class)
-                            .putExtra("action", "edit")
-                            .putExtra("id", id));
+                if (id == null)
+                    return;
+                startActivity(new Intent(ActivityView.this, ActivityCompose.class)
+                        .putExtra("action", "edit")
+                        .putExtra("id", id));
             }
 
             @Override
