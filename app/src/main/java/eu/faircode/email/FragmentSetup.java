@@ -1390,7 +1390,11 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
                                 taskGraph.execute(FragmentSetup.this, args, "graph:contacts");
                             } catch (Throwable ex) {
-                                Log.unexpectedError(getParentFragmentManager(), ex);
+                                try {
+                                    Log.unexpectedError(getParentFragmentManager(), ex);
+                                } catch (Throwable exex) {
+                                    Log.w(exex);
+                                }
                             }
                         }
                     });
