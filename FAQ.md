@@ -477,7 +477,7 @@ which will let Android display a status bar notification notifying you about pot
 The service can't be started without a notification and the app can't disable the notification either.
 However, you can disable the notification yourself, without side effects, via the notification settings of FairEmail:
 
-* Android 8 Oreo and later: tap the *Receive channel* button and disable the channel via the Android settings (this won't disable new message notifications)
+* Android 8 Oreo and later: tap the *Monitoring channel* button and disable the channel via the Android settings (this won't disable new message notifications)
 * Android 7 Nougat and before: enabled *Use background service to synchronize messages*, but be sure to read the remark below the setting first
 
 You can also switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power.
@@ -493,7 +493,7 @@ and is needed to prevent Android from stopping the service when the device is sl
 ([doze mode](https://developer.android.com/training/monitoring-device-state/doze-standby)).
 
 Most, if not all, other email apps don't show a notification
-with as "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
+with a "side effect" that new messages are often not or late being reported and that messages are not or late being sent.
 
 Some other email apps download all your messages to their servers first and push messages via
 [Firebase Cloud Messaging](https://firebase.google.com/docs/cloud-messaging/) to your device.
