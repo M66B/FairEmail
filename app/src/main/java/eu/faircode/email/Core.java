@@ -160,6 +160,7 @@ class Core {
     private static final long EXISTS_RETRY_DELAY = 20 * 1000L; // milliseconds
     private static final int FIND_RETRY_COUNT = 3; // times
     private static final long FIND_RETRY_DELAY = 5 * 1000L; // milliseconds
+    private static final int POP3_KEEP_EXTRA = 100; // messages
     private static final long POP3_KEEP_DELETED = 3 * 24 * 3600 * 1000L; // milliseconds
 
     private static final Map<Long, List<EntityIdentity>> accountIdentities = new HashMap<>();
@@ -3647,7 +3648,7 @@ class Core {
             if (account.max_messages != null && !account.leave_on_device) {
                 int hidden = db.message().setMessagesUiHide(folder.id, Math.abs(account.max_messages));
                 int deleted = db.message().deleteMessagesKeep(folder.id,
-                        Math.abs(account.max_messages) + 100, new Date().getTime() - POP3_KEEP_DELETED);
+                        Math.abs(account.max_messages) + flagged + POP3_KEEP_EXTRA, new Date().getTime() - POP3_KEEP_DELETED);
                 EntityLog.log(context, account.name + " POP" +
                         " cleanup max=" + account.max_messages +
                         " hidden=" + hidden +
