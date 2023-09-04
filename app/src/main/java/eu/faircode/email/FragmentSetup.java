@@ -903,11 +903,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                 try {
                     db.beginTransaction();
 
-                    EntityFolder outbox = db.folder().getOutbox();
-                    if (outbox == null) {
-                        outbox = EntityFolder.getOutbox();
-                        outbox.id = db.folder().insertFolder(outbox);
-                    }
+                    EntityFolder.getOutbox(context);
 
                     db.setTransactionSuccessful();
                 } finally {

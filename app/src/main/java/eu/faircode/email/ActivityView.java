@@ -2276,37 +2276,24 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 long id = Log.getDebugInfo(context, "main", R.string.title_debug_info_remark, null, null, args).id;
 
                 if (send) {
-                    boolean sent = false;
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
                         EntityMessage draft = db.message().getMessage(id);
                         if (draft != null) {
-                            EntityFolder outbox = db.folder().getOutbox();
-                            if (outbox == null) {
-                                Log.w("Outbox missing");
-                                outbox = EntityFolder.getOutbox();
-                                outbox.id = db.folder().insertFolder(outbox);
-                            }
-
-                            draft.folder = outbox.id;
+                            draft.folder = EntityFolder.getOutbox(context).id;
                             db.message().updateMessage(draft);
 
                             EntityOperation.queue(context, draft, EntityOperation.SEND);
 
                             db.setTransactionSuccessful();
 
-                            sent = true;
+                            args.putBoolean("sent", true);
+                            return null;
                         }
                     } finally {
                         db.endTransaction();
-                    }
-
-                    if (sent) {
-                        ToastEx.makeText(context, R.string.title_debug_info_send, Toast.LENGTH_LONG).show();
-                        ServiceSend.start(context);
-                        return null;
                     }
                 }
 
@@ -2315,6 +2302,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onExecuted(Bundle args, Long id) {
+                boolean sent = args.getBoolean("sent");
+                if (sent) {
+                    ToastEx.makeText(ActivityView.this, R.string.title_debug_info_send, Toast.LENGTH_LONG).show();
+                    ServiceSend.start(ActivityView.this);
+                    return;
+                }
+
                 if (id == null)
                     return;
                 startActivity(new Intent(ActivityView.this, ActivityCompose.class)

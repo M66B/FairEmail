@@ -287,11 +287,7 @@ public class ServiceExternal extends Service {
         if (to == null || to.length == 0)
             throw new IllegalArgumentException("No to recipients: " + toName);
 
-        EntityFolder outbox = db.folder().getOutbox();
-        if (outbox == null) {
-            outbox = EntityFolder.getOutbox();
-            outbox.id = db.folder().insertFolder(outbox);
-        }
+        EntityFolder outbox = EntityFolder.getOutbox(context);
 
         Address[] from = new Address[]{
                 new InternetAddress(identity.get(0).email, identity.get(0).name, StandardCharsets.UTF_8.name())};

@@ -397,13 +397,23 @@ public class EntityFolder extends EntityOrder implements Serializable {
         return result;
     }
 
-    static EntityFolder getOutbox() {
-        EntityFolder outbox = new EntityFolder();
+    @NonNull
+    static EntityFolder getOutbox(Context context) {
+        DB db = DB.getInstance(context);
+        EntityFolder outbox = db.folder().getOutbox();
+        if (outbox != null)
+            return outbox;
+
+        Log.w("Outbox missing");
+
+        outbox = new EntityFolder();
         outbox.name = "OUTBOX";
         outbox.type = EntityFolder.OUTBOX;
         outbox.synchronize = false;
         outbox.sync_days = 0;
         outbox.keep_days = 0;
+        outbox.id = db.folder().insertFolder(outbox);
+
         return outbox;
     }
 

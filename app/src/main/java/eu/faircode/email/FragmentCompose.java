@@ -7120,12 +7120,7 @@ public class FragmentCompose extends FragmentBase {
                         }
 
                     } else if (action == R.id.action_send) {
-                        EntityFolder outbox = db.folder().getOutbox();
-                        if (outbox == null) {
-                            Log.w("Outbox missing");
-                            outbox = EntityFolder.getOutbox();
-                            outbox.id = db.folder().insertFolder(outbox);
-                        }
+                        EntityFolder outbox = EntityFolder.getOutbox(context);
 
                         // Delay sending message
                         if (draft.ui_snoozed == null && send_delayed != 0) {
