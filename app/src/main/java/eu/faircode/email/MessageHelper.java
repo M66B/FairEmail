@@ -69,6 +69,8 @@ import org.apache.commons.compress.compressors.gzip.GzipCompressorInputStream;
 import org.bouncycastle.asn1.edec.EdECObjectIdentifiers;
 import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -3497,6 +3499,10 @@ public class MessageHelper {
             return "text/html".equalsIgnoreCase(contentType.getBaseType());
         }
 
+        boolean isMarkdown() {
+            return "text/markdown".equalsIgnoreCase(contentType.getBaseType());
+        }
+
         boolean isReport() {
             String ct = contentType.getBaseType();
             return (Report.isDeliveryStatus(ct) ||
@@ -3902,6 +3908,16 @@ public class MessageHelper {
                         ByteArrayOutputStream bos = new ByteArrayOutputStream();
                         Helper.copy(h.part.getDataHandler().getInputStream(), bos);
                         result = bos.toString(override);
+                    }
+                } else if (h.isMarkdown()) {
+                    try {
+                        Parser p = Parser.builder().build();
+                        org.commonmark.node.Node d = p.parse(result);
+                        HtmlRenderer r = HtmlRenderer.builder().build();
+                        return r.render(d);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                        return HtmlHelper.formatPlainText(Log.formatThrowable(ex));
                     }
                 } else if (h.isReport()) {
                     Report report = new Report(h.contentType.getBaseType(), result);
@@ -5027,6 +5043,9 @@ public class MessageHelper {
                     if ("text/html".equalsIgnoreCase(ct))
                         filename += ".html";
                 }
+
+                if ("text/markdown".equalsIgnoreCase(ct))
+                    parts.extra.add(new PartHolder(part, contentType));
 
                 if (Report.isDeliveryStatus(ct) ||
                         Report.isDispositionNotification(ct) ||
