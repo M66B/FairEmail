@@ -744,7 +744,8 @@ public class FragmentCompose extends FragmentBase {
                             int start = save;
                             while (start > 0 &&
                                     text.charAt(start - 1) != '\n' &&
-                                    !Helper.isSentenceChar(text.charAt(start - 1)))
+                                    !(Character.isWhitespace(text.charAt(start)) &&
+                                            Helper.isSentenceChar(text.charAt(start - 1))))
                                 start--;
                             while (start < save)
                                 if (Character.isWhitespace(text.charAt(start)))
