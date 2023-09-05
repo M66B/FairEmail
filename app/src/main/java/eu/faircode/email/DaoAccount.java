@@ -62,6 +62,7 @@ public interface DaoAccount {
             "    AND folder.type <> '" + EntityFolder.JUNK + "'" +
             "    AND folder.type <> '" + EntityFolder.DRAFTS + "'" +
             "    AND folder.type <> '" + EntityFolder.OUTBOX + "'" +
+            "    AND folder.count_unread" +
             "    AND NOT ui_seen" +
             "    AND NOT ui_hide) AS unseen" +
             ", (SELECT COUNT(identity.id)" +
