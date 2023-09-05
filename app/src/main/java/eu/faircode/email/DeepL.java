@@ -379,6 +379,7 @@ public class DeepL {
             boolean formal = prefs.getBoolean("deepl_formal", true);
             boolean small = prefs.getBoolean("deepl_small", false);
             boolean replace = prefs.getBoolean("deepl_replace", false);
+            boolean highlight = prefs.getBoolean("deepl_highlight", true);
             boolean html = prefs.getBoolean("deepl_html", false);
             int subscription = prefs.getInt("deepl_subscription", BuildConfig.DEBUG ? 17 : 0);
 
@@ -389,6 +390,7 @@ public class DeepL {
             final TextView tvFormal = view.findViewById(R.id.tvFormal);
             final CheckBox cbSmall = view.findViewById(R.id.cbSmall);
             final CheckBox cbReplace = view.findViewById(R.id.cbReplace);
+            final CheckBox cbHighlight = view.findViewById(R.id.cbHighlight);
             final CheckBox cbHtml = view.findViewById(R.id.cbHtml);
             final TextView tvUsage = view.findViewById(R.id.tvUsage);
             final TextView tvPrivacy = view.findViewById(R.id.tvPrivacy);
@@ -439,6 +441,7 @@ public class DeepL {
             cbSmall.setChecked(small);
             cbReplace.setChecked(replace);
             cbReplace.setEnabled(!small);
+            cbHighlight.setChecked(highlight);
             cbHtml.setChecked(html);
 
             tvUsage.setVisibility(View.GONE);
@@ -502,6 +505,7 @@ public class DeepL {
                             editor.putBoolean("deepl_formal", cbFormal.isChecked());
                             editor.putBoolean("deepl_small", cbSmall.isChecked());
                             editor.putBoolean("deepl_replace", cbReplace.isChecked());
+                            editor.putBoolean("deepl_highlight", cbHighlight.isChecked());
                             editor.putBoolean("deepl_html", cbHtml.isChecked());
                             editor.apply();
                         }

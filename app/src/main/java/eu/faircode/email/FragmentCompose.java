@@ -2783,10 +2783,14 @@ public class FragmentCompose extends FragmentBase {
 
                         @Override
                         protected void onPreExecute(Bundle args) {
-                            int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
-                            highlightSpan = new BackgroundColorSpan(textColorHighlight);
-                            etBody.getText().setSpan(highlightSpan, paragraph.first, paragraph.second,
-                                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                            boolean deepl_highlight = prefs.getBoolean("deepl_highlight", true);
+                            if (deepl_highlight) {
+                                int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
+                                highlightSpan = new BackgroundColorSpan(textColorHighlight);
+                                etBody.getText().setSpan(highlightSpan, paragraph.first, paragraph.second,
+                                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+                            }
                             toast = ToastEx.makeText(context, R.string.title_translating, Toast.LENGTH_SHORT);
                             toast.show();
                         }

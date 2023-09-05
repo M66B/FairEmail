@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:fadeScrollbars="false"
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
@@ -100,13 +101,22 @@
             app:layout_constraintTop_toBottomOf="@id/cbSmall" />
 
         <CheckBox
+            android:id="@+id/cbHighlight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_translate_highlight"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbReplace" />
+
+        <CheckBox
             android:id="@+id/cbHtml"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="@string/title_translate_html"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbReplace" />
+            app:layout_constraintTop_toBottomOf="@id/cbHighlight" />
 
         <TextView
             android:id="@+id/tvHtml"
