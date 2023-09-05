@@ -670,6 +670,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
                     this.collapsed == other.collapsed &&
                     this.unified == other.unified &&
                     this.navigation == other.navigation &&
+                    this.count_unread == other.count_unread &&
                     this.notify == other.notify &&
                     Objects.equals(this.total, other.total) &&
                     Helper.equal(this.keywords, other.keywords) &&
@@ -718,6 +719,7 @@ public class EntityFolder extends EntityOrder implements Serializable {
         json.put("collapsed", collapsed);
         json.put("unified", unified);
         json.put("navigation", navigation);
+        json.put("count_unread", count_unread);
         json.put("notify", notify);
         return json;
     }
@@ -789,6 +791,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
 
         if (json.has("navigation"))
             folder.navigation = json.getBoolean("navigation");
+
+        if (json.has("count_unread"))
+            folder.count_unread = json.getBoolean("count_unread");
 
         if (json.has("notify"))
             folder.notify = json.getBoolean("notify");
