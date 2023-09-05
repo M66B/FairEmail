@@ -383,6 +383,14 @@ public class ConnectionHelper {
                 continue;
             }
 
+            boolean captive = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_CAPTIVE_PORTAL);
+            if ((require_validated || (require_validated_captive && captive)) &&
+                    Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
+                    !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)) {
+                Log.i("isMetered: underlying not validated captive=" + captive);
+                continue;
+            }
+
             if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
                 underlying = true;
                 Log.i("isMetered: underlying is connected");
