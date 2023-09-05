@@ -2908,7 +2908,9 @@ public class FragmentCompose extends FragmentBase {
             @Override
             protected void onPreExecute(Bundle args) {
                 if (silent) {
-                    if (!BuildConfig.PLAY_STORE_RELEASE) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                    boolean lt_highlight = prefs.getBoolean("lt_highlight", !BuildConfig.PLAY_STORE_RELEASE);
+                    if (lt_highlight) {
                         int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
                         highlightSpan = new BackgroundColorSpan(textColorHighlight);
                         etBody.getText().setSpan(highlightSpan, start, end,

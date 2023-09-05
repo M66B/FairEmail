@@ -826,6 +826,7 @@
     <string name="title_advanced_lt">LanguageTool integration</string>
     <string name="title_advanced_lt_sentence">Check every sentence</string>
     <string name="title_advanced_lt_auto">Check paragraph after a new line</string>
+    <string name="title_advanced_lt_highlight">Highlight the text being checked</string>
     <string name="title_advanced_lt_user">Username (optional)</string>
     <string name="title_advanced_lt_key">API key (optional)</string>
     <string name="title_advanced_deepl">DeepL integration</string>

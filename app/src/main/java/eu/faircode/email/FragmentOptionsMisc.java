@@ -147,6 +147,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swLanguageToolSentence;
     private SwitchCompat swLanguageToolAuto;
     private SwitchCompat swLanguageToolPicky;
+    private SwitchCompat swLanguageToolHighlight;
     private EditText etLanguageTool;
     private EditText etLanguageToolUser;
     private TextInputLayout tilLanguageToolKey;
@@ -286,7 +287,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "classification", "class_min_probability", "class_min_difference",
             "show_filtered",
             "language",
-            "lt_enabled", "lt_sentence", "lt_auto", "lt_picky", "lt_uri", "lt_user", "lt_key",
+            "lt_enabled", "lt_sentence", "lt_auto", "lt_picky", "lt_highlight", "lt_uri", "lt_user", "lt_key",
             "deepl_enabled",
             "vt_enabled", "vt_apikey",
             "send_enabled", "send_host", "send_dlimit", "send_tlimit",
@@ -403,6 +404,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swLanguageToolSentence = view.findViewById(R.id.swLanguageToolSentence);
         swLanguageToolAuto = view.findViewById(R.id.swLanguageToolAuto);
         swLanguageToolPicky = view.findViewById(R.id.swLanguageToolPicky);
+        swLanguageToolHighlight = view.findViewById(R.id.swLanguageToolHighlight);
         etLanguageTool = view.findViewById(R.id.etLanguageTool);
         etLanguageToolUser = view.findViewById(R.id.etLanguageToolUser);
         tilLanguageToolKey = view.findViewById(R.id.tilLanguageToolKey);
@@ -863,6 +865,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 swLanguageToolSentence.setEnabled(checked);
                 swLanguageToolAuto.setEnabled(checked);
                 swLanguageToolPicky.setEnabled(checked);
+                swLanguageToolHighlight.setEnabled(checked);
             }
         });
 
@@ -892,6 +895,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("lt_picky", checked).apply();
+            }
+        });
+
+        swLanguageToolHighlight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("lt_highlight", checked).apply();
             }
         });
 
@@ -2554,6 +2564,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swLanguageToolAuto.setEnabled(swLanguageTool.isChecked());
             swLanguageToolPicky.setChecked(prefs.getBoolean("lt_picky", false));
             swLanguageToolPicky.setEnabled(swLanguageTool.isChecked());
+            swLanguageToolHighlight.setChecked(prefs.getBoolean("lt_highlight", !BuildConfig.PLAY_STORE_RELEASE));
+            swLanguageToolHighlight.setEnabled(swLanguageTool.isChecked());
             etLanguageTool.setText(prefs.getString("lt_uri", null));
             etLanguageToolUser.setText(prefs.getString("lt_user", null));
             tilLanguageToolKey.getEditText().setText(prefs.getString("lt_key", null));
