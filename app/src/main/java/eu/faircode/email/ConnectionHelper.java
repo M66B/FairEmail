@@ -311,17 +311,17 @@ public class ConnectionHelper {
                 Log.i("isMetered: not validated captive=" + captive);
                 return null;
             }
-        }
 
-        if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED)) {
-            Log.i("isMetered: active restricted");
-            return null;
-        }
+            if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_RESTRICTED)) {
+                Log.i("isMetered: active restricted");
+                return null;
+            }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
-                !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
-            Log.i("isMetered: active background");
-            return null;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
+                    !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_FOREGROUND)) {
+                Log.i("isMetered: active background");
+                return null;
+            }
         }
 
         if (vpn_only) {
