@@ -530,8 +530,15 @@ public class ConnectionHelper {
             return false;
 
         try {
-            for (Network network : cm.getAllNetworks()) {
-                NetworkCapabilities caps = cm.getNetworkCapabilities(network);
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+                for (Network network : cm.getAllNetworks()) {
+                    NetworkCapabilities caps = cm.getNetworkCapabilities(network);
+                    if (caps != null && caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN))
+                        return true;
+                }
+            } else {
+                Network active = cm.getActiveNetwork();
+                NetworkCapabilities caps = (active == null ? null : cm.getNetworkCapabilities(active));
                 if (caps != null && caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN))
                     return true;
             }
