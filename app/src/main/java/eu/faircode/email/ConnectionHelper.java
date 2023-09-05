@@ -333,9 +333,7 @@ public class ConnectionHelper {
                 return null;
         }
 
-        if (standalone_vpn ||
-                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
-            // Standalone VPN: internet not checked
+        if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
             // NET_CAPABILITY_NOT_METERED is unreliable on older Android versions
             boolean metered = cm.isActiveNetworkMetered();
             Log.i("isMetered: active not VPN metered=" + metered);
@@ -345,8 +343,8 @@ public class ConnectionHelper {
         // Active network is a VPN
 
         Network[] networks = cm.getAllNetworks();
-        if (networks != null && networks.length == 1) {
-            // Standalone VPN
+        if (standalone_vpn && networks != null && networks.length == 1) {
+            // Internet not checked/validated
             boolean metered = cm.isActiveNetworkMetered();
             Log.i("isMetered: active VPN metered=" + metered);
             return metered;
