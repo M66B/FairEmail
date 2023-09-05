@@ -3914,10 +3914,10 @@ public class MessageHelper {
                         Parser p = Parser.builder().build();
                         org.commonmark.node.Node d = p.parse(result);
                         HtmlRenderer r = HtmlRenderer.builder().build();
-                        return r.render(d);
+                        result = r.render(d);
                     } catch (Throwable ex) {
                         Log.e(ex);
-                        return HtmlHelper.formatPlainText(Log.formatThrowable(ex));
+                        result = HtmlHelper.formatPlainText(Log.formatThrowable(ex));
                     }
                 } else if (h.isReport()) {
                     Report report = new Report(h.contentType.getBaseType(), result);
