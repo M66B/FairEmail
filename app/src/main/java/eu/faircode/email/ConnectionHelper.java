@@ -300,9 +300,10 @@ public class ConnectionHelper {
 
         if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
             if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
-                Log.i("isMetered: no internet");
+                Log.i("isMetered: active no internet");
                 return null;
             }
+
             boolean captive = caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_CAPTIVE_PORTAL);
             if ((require_validated || (require_validated_captive && captive)) &&
                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
@@ -330,17 +331,23 @@ public class ConnectionHelper {
                 return null;
         }
 
-        if (standalone_vpn ||
-                caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
+        if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
             // NET_CAPABILITY_NOT_METERED is unreliable on older Android versions
             boolean metered = cm.isActiveNetworkMetered();
             Log.i("isMetered: active not VPN metered=" + metered);
             return metered;
         }
 
+        // Active network is VPN network
+
         Network[] networks = cm.getAllNetworks();
-        if (networks != null && networks.length == 1) {
+        if (standalone_vpn || (networks != null && networks.length == 1)) {
             // Standalone VPN
+            if (!caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)) {
+                Log.i("isMetered: VPN no internet");
+                return null;
+            }
+
             boolean metered = cm.isActiveNetworkMetered();
             Log.i("isMetered: active VPN metered=" + metered);
             return metered;
