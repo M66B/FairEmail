@@ -344,6 +344,7 @@ public class ConnectionHelper {
         Network[] networks = cm.getAllNetworks();
         if (standalone_vpn && networks != null && networks.length == 1) {
             // Internet not checked/validated
+            // Used for USB/Ethernet internet connection
             boolean metered = cm.isActiveNetworkMetered();
             Log.i("isMetered: active VPN metered=" + metered);
             return metered;
@@ -390,14 +391,12 @@ public class ConnectionHelper {
                 continue;
             }
 
-            if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN)) {
-                underlying = true;
-                Log.i("isMetered: underlying is connected");
+            underlying = true;
+            Log.i("isMetered: underlying is connected");
 
-                if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
-                    Log.i("isMetered: underlying is unmetered");
-                    return false;
-                }
+            if (caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED)) {
+                Log.i("isMetered: underlying is unmetered");
+                return false;
             }
         }
 
