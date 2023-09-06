@@ -15,18 +15,6 @@
 [![GitHub release](https://img.shields.io/github/release/M66B/FairEmail.svg)](https://github.com/M66B/FairEmail/releases/latest)
 [![GitHub commits since tagged version](https://img.shields.io/github/commits-since/M66B/FairEmail/0.1.svg?logo=github)](https://github.com/M66B/FairEmail/commits/)
 
-## FairEmail isn't supported anymore
-
-I've stopped supporting all my Android apps for several reasons.
-Google can block developers accounts and remove apps from the Play Store for random reasons, and practically seen there is no support for developers.
-Since 99% of the app installations are via the Play Store, this is not workable.
-Moreover, I am tired of being harassed non-stop with unreasonable reviews and hate email.
-Summarized, the stress level is higher than the fun level.
-If you are angry about this, please redirect your anger to Google.
-Note that you either paid nothing or a one-time fee, for which you can't expect things to go on endlessly.
-
-<br>
-
 *Fully featured, open source, privacy oriented email app for Android*
 
 FairEmail is easy to set up and works with virtually all email providers, including Gmail, Outlook and Yahoo!
