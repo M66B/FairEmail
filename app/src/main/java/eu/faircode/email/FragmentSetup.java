@@ -346,6 +346,10 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                 ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ss.length(), 0);
                 menu.add(Menu.FIRST, R.string.title_setup_pop3, order++, ss);
 
+                ss = new SpannableString(getString(R.string.title_setup_import));
+                ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ss.length(), 0);
+                menu.add(Menu.FIRST, R.string.title_setup_import, order++, ss);
+
                 popupMenu.insertIcons(context);
 
                 MenuCompat.setGroupDividerEnabled(menu, true);
@@ -396,6 +400,18 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                         } else if (itemId == R.string.title_setup_pop3) {
                             lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_QUICK_POP3));
                             return true;
+                        } else if (itemId == R.string.title_setup_import) {
+                            FragmentActivity activity = getActivity();
+                            if (activity == null)
+                                return false;
+                            for (int i = 0; i < FragmentOptions.PAGE_TITLES.length; i++)
+                                if (FragmentOptions.PAGE_TITLES[i] == R.string.title_advanced_section_backup) {
+                                    Bundle result = new Bundle();
+                                    result.putInt("page", i);
+                                    activity.getSupportFragmentManager().setFragmentResult("options:tab", result);
+                                    return true;
+                                }
+                            return false;
                         } else if (itemId == R.string.menu_faq) {
                             Helper.view(getContext(), Helper.getSupportUri(getContext(), "Providers:support"), false);
                             return true;
