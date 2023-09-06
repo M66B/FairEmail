@@ -122,7 +122,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         boolean disconnect_links = prefs.getBoolean("disconnect_links", true);
 
         // Preload web view
-        Helper.customTabsWarmup(context);
+        //Helper.customTabsWarmup(context);
 
         final Uri uri = UriHelper.guessScheme(_uri);
 
