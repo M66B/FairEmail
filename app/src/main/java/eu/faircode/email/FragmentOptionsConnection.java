@@ -287,10 +287,10 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 try {
                     System.setProperty("fairemail.tcp_keep_alive", Boolean.toString(checked));
+                    prefs.edit().putBoolean("tcp_keep_alive", checked).apply();
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
-                prefs.edit().putBoolean("tcp_keep_alive", checked).apply();
             }
         });
 
