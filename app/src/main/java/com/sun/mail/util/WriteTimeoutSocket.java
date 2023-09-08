@@ -325,6 +325,7 @@ public class WriteTimeoutSocket extends Socket {
     	//The loop handles issues with non-public classes between 
     	//java.net.Socket and the actual socket type held in this object.
     	//Must inspect java.net.Socket to ensure compatiblity with old behavior.
+        /*
     	for (Class<?> k = socket.getClass(); k != Object.class; k = k.getSuperclass()) {
             try {
                 Method m = k.getDeclaredMethod("getFileDescriptor$");  
@@ -336,6 +337,9 @@ public class WriteTimeoutSocket extends Socket {
             }
         }
         return null;
+         */
+        android.os.ParcelFileDescriptor pfd = android.os.ParcelFileDescriptor.fromSocket(socket);
+        return (pfd == null ? null :pfd.getFileDescriptor());
     }
 }
 
