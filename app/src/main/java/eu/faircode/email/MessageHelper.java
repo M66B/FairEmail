@@ -550,6 +550,8 @@ public class MessageHelper {
                     // Read receipt
                     imessage.addHeader("Disposition-Notification-To", to);
                     imessage.addHeader("Read-Receipt-To", to);
+                    if (receipt_legacy)
+                        imessage.addHeader("Return-Receipt-To", to);
                     imessage.addHeader("X-Confirm-Reading-To", to);
                 }
             }
