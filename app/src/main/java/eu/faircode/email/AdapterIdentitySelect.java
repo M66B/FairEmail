@@ -31,6 +31,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.util.List;
+import java.util.Objects;
 
 public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
     private Context context;
@@ -81,7 +82,10 @@ public class AdapterIdentitySelect extends ArrayAdapter<TupleIdentityEx> {
             text1.setText(identity.getDisplayName() + " <" + identity.email + ">");
         else {
             text1.setText(identity.getDisplayName() + (identity.primary ? " ★" : ""));
-            text2.setText(identity.accountName + ":" + identity.email);
+            if (Objects.equals(identity.accountName, identity.email))
+                text2.setText(identity.email);
+            else
+                text2.setText(identity.accountName + ":" + identity.email);
         }
 
         tvExtra1.setText(identity.max_size == null ? null : Helper.humanReadableByteCount(identity.max_size));
