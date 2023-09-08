@@ -661,6 +661,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         AlertDialog dialog = new AlertDialog.Builder(context)
                 .setView(dview)
                 .setPositiveButton(android.R.string.ok, null)
+                .setCancelable(false)
                 .setOnDismissListener(new DialogInterface.OnDismissListener() {
                     @Override
                     public void onDismiss(DialogInterface dialogInterface) {
