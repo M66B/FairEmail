@@ -1136,6 +1136,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                                 continue;
 
+                            if ("tcp_keep_alive".equals(key))
+                                continue;
+
                             // Prevent restart
                             if ("secure".equals(key) ||
                                     "load_emoji".equals(key) ||
