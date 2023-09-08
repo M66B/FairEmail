@@ -545,6 +545,7 @@ public class MessageHelper {
                 }
 
                 // https://tools.ietf.org/html/rfc3798
+                // https://en.wikipedia.org/wiki/Return_receipt
                 if (receipt_type == 0 || receipt_type == 2) {
                     // Read receipt
                     imessage.addHeader("Disposition-Notification-To", to);
@@ -2094,6 +2095,8 @@ public class MessageHelper {
         Address[] receipt = getAddressHeader("Disposition-Notification-To");
         if (receipt == null || receipt.length == 0)
             receipt = getAddressHeader("Read-Receipt-To");
+        if (receipt == null || receipt.length == 0)
+            receipt = getAddressHeader("Return-Receipt-To");
         if (receipt == null || receipt.length == 0)
             receipt = getAddressHeader("X-Confirm-Reading-To");
         return receipt;
