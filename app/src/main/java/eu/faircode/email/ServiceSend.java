@@ -1001,7 +1001,6 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     static void start(Context context) {
         try {
             ContextCompat.startForegroundService(context, new Intent(context, ServiceSend.class));
-            Thread.sleep(Helper.FOREGROUND_SERVICE_YIELD);
         } catch (Throwable ex) {
             Log.e(ex);
         }

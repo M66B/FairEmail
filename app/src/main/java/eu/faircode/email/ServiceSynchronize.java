@@ -3493,7 +3493,6 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 context.startService(intent);
             else
                 ContextCompat.startForegroundService(context, intent);
-            Thread.sleep(Helper.FOREGROUND_SERVICE_YIELD);
         } catch (Throwable ex) {
             Log.e(ex);
         }
