@@ -476,7 +476,7 @@ public class LanguageTool {
             super(context, suggestions, flags);
             underlineColor = Helper.resolveColor(context,
                     Build.VERSION.SDK_INT < Build.VERSION_CODES.Q
-                            ? android.R.attr.textColorHighlight
+                            ? android.R.attr.colorActivatedHighlight
                             : android.R.attr.colorError);
             underlineThickness = Helper.dp2pixels(context, (getFlags() & FLAG_MISSPELLED) != 0 ? 2 : 1);
         }
