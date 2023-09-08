@@ -49,6 +49,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -651,6 +652,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
         final int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
 
         View dview = LayoutInflater.from(context).inflate(R.layout.dialog_import_progress, null);
+        ProgressBar pbWait = dview.findViewById(R.id.pbWait);
         TextView tvLog = dview.findViewById(R.id.tvLog);
         tvLog.setText(null);
 
@@ -698,6 +700,11 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             private SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
             @Override
+            protected void onPreExecute(Bundle args) {
+                pbWait.setVisibility(View.VISIBLE);
+            }
+
+            @Override
             protected void onProgress(CharSequence status, Bundle data) {
                 ssb.append(status).append("\n");
                 tvLog.setText(ssb);
@@ -705,6 +712,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
             @Override
             protected void onPostExecute(Bundle args) {
+                pbWait.setVisibility(View.GONE);
                 ok.setEnabled(true);
             }
 
