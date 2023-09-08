@@ -136,7 +136,7 @@ public class ApplicationEx extends Application
         });
 
         if (BuildConfig.DEBUG &&
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && false) {
             StrictMode.VmPolicy policy = new StrictMode.VmPolicy.Builder(StrictMode.getVmPolicy())
                     .detectNonSdkApiUsage()
                     .penaltyListener(getMainExecutor(), new StrictMode.OnVmViolationListener() {
@@ -204,7 +204,10 @@ public class ApplicationEx extends Application
 
         try {
             boolean tcp_keep_alive = prefs.getBoolean("tcp_keep_alive", false);
-            System.setProperty("fairemail.tcp_keep_alive", Boolean.toString(tcp_keep_alive));
+            if (tcp_keep_alive)
+                System.setProperty("fairemail.tcp_keep_alive", Boolean.toString(tcp_keep_alive));
+            else
+                System.clearProperty("fairemail.tcp_keep_alive");
         } catch (Throwable ex) {
             Log.e(ex);
         }
