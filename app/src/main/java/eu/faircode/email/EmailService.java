@@ -1337,7 +1337,7 @@ public class EmailService implements AutoCloseable {
                 " reuse=" + reuse +
                 " delay=" + delay);
 
-        if (keepAlive || BuildConfig.DEBUG) {
+        if (keepAlive) {
             Log.e("Socket keep-alive=" + keepAlive);
             socket.setKeepAlive(false); // sets SOL_SOCKET/SO_KEEPALIVE
         }
