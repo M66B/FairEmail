@@ -624,8 +624,16 @@ public class FragmentOptionsEncryption extends FragmentBase
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        setOptions();
+        getMainHandler().removeCallbacks(update);
+        getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }
+
+    private Runnable update = new RunnableEx("encryption") {
+        @Override
+        protected void delegate() {
+            setOptions();
+        }
+    };
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

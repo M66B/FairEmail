@@ -568,8 +568,16 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        setOptions();
+        getMainHandler().removeCallbacks(update);
+        getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }
+
+    private Runnable update = new RunnableEx("privacy") {
+        @Override
+        protected void delegate() {
+            setOptions();
+        }
+    };
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

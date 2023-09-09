@@ -68,6 +68,8 @@ public class FragmentOptions extends FragmentBase {
     private String searching = null;
     private SuggestData data = null;
 
+    static final long DELAY_SETOPTIONS = 20; // ms
+
     private static final int[] TAB_PAGES = {
             R.layout.fragment_setup,
             R.layout.fragment_options_synchronize,

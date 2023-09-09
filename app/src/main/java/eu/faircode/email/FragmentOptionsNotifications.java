@@ -792,8 +792,16 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        setOptions();
+        getMainHandler().removeCallbacks(update);
+        getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }
+
+    private Runnable update = new RunnableEx("notifications") {
+        @Override
+        protected void delegate() {
+            setOptions();
+        }
+    };
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

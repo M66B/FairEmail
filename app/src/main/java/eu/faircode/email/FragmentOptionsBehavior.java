@@ -633,8 +633,16 @@ public class FragmentOptionsBehavior extends FragmentBase implements SharedPrefe
         if ("default_snooze".equals(key))
             return;
 
-        setOptions();
+        getMainHandler().removeCallbacks(update);
+        getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }
+
+    private Runnable update = new RunnableEx("behavior") {
+        @Override
+        protected void delegate() {
+            setOptions();
+        }
+    };
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

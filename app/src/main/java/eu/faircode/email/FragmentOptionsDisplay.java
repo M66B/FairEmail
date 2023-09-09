@@ -1409,8 +1409,16 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
         if ("message_zoom".equals(key))
             return;
 
-        setOptions();
+        getMainHandler().removeCallbacks(update);
+        getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }
+
+    private Runnable update = new RunnableEx("display") {
+        @Override
+        protected void delegate() {
+            setOptions();
+        }
+    };
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

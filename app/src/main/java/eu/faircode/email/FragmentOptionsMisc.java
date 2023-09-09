@@ -2386,8 +2386,16 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("native_arc_whitelist".equals(key))
             return;
 
-        setOptions();
+        getMainHandler().removeCallbacks(update);
+        getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }
+
+    private Runnable update = new RunnableEx("misc") {
+        @Override
+        protected void delegate() {
+            setOptions();
+        }
+    };
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

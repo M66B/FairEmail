@@ -285,6 +285,15 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 "cloud_activated".equals(key) ||
                 "cloud_busy".equals(key) ||
                 "cloud_last_sync".equals(key)) {
+            getMainHandler().removeCallbacks(update);
+            getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
+        }
+    }
+
+    private Runnable update = new RunnableEx("backup") {
+        @Override
+        protected void delegate() {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
             String user = prefs.getString("cloud_user", null);
             String password = prefs.getString("cloud_password", null);
             boolean auth = !(TextUtils.isEmpty(user) || TextUtils.isEmpty(password));
@@ -301,8 +310,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
             grpLogin.setVisibility(auth ? View.GONE : View.VISIBLE);
             grpActivate.setVisibility(auth && !activated && !busy ? View.VISIBLE : View.GONE);
             grpLogout.setVisibility(auth ? View.VISIBLE : View.GONE);
+
         }
-    }
+    };
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {

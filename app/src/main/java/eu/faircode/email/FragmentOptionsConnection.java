@@ -381,8 +381,16 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         if ("timeout".equals(key))
             return;
 
-        setOptions();
+        getMainHandler().removeCallbacks(update);
+        getMainHandler().postDelayed(update, FragmentOptions.DELAY_SETOPTIONS);
     }
+
+    private Runnable update = new RunnableEx("connection") {
+        @Override
+        protected void delegate() {
+            setOptions();
+        }
+    };
 
     @Override
     public void onResume() {
