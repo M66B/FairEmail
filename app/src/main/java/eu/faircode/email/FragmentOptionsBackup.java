@@ -1158,6 +1158,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                             if (key != null && key.startsWith("widget."))
                                 continue;
+                            if (key != null && key.startsWith("unset."))
+                                continue;
 
                             if ("external_search".equals(key)) {
                                 boolean external_search = jsetting.getBoolean("value");
