@@ -739,6 +739,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
 
                 NoStreamException.check(uri, context);
 
+                ServiceSynchronize.stop(context);
+                ServiceSend.stop(context);
+
                 StringBuilder data = new StringBuilder();
                 Log.i("Reading URI=" + uri);
                 ContentResolver resolver = context.getContentResolver();
@@ -1251,7 +1254,6 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     db.endTransaction();
                 }
 
-                ServiceSynchronize.eval(context, "import");
                 Log.i("Imported data");
 
                 SpannableStringBuilder ssb = new SpannableStringBuilderEx();
@@ -1259,6 +1261,11 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, ssb.length(), 0);
                 postProgress(ssb, null);
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                ServiceSynchronize.eval(context, "import");
             }
 
             @Override
