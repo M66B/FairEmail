@@ -652,9 +652,9 @@ public interface DaoMessage {
 
     @Query("SELECT uid FROM message" +
             " WHERE folder = :folder" +
-            " AND NOT ui_busy IS NULL" +
-            " AND ui_busy > :time" +
-            " AND NOT uid IS NULL")
+            " AND NOT uid IS NULL" +
+            " AND ((NOT ui_busy IS NULL AND ui_busy > :time)" +
+            " OR (EXISTS (SELECT * FROM operation WHERE operation.id = message.id)))")
     List<Long> getBusyUids(long folder, long time);
 
     @Query("SELECT id, uidl, msgid, ui_hide, ui_busy, ui_flagged FROM message" +
