@@ -93,6 +93,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             Helper.getBackgroundExecutor(1, "send");
 
     private static final int RETRY_MAX = 3;
+    private static final long RETRY_WAIT = 5000L; // milliseconds
     private static final int CONNECTIVITY_DELAY = 5000; // milliseconds
     private static final int PROGRESS_UPDATE_INTERVAL = 1000; // milliseconds
 
@@ -451,7 +452,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                         Log.e(outbox.name, ex);
                         EntityLog.log(this, "Send " + Log.formatThrowable(ex, false));
 
-                        boolean unrecoverable = (op.tries >= RETRY_MAX ||
+                        boolean unrecoverable = (op.tries > RETRY_MAX ||
                                 ex instanceof OutOfMemoryError ||
                                 ex instanceof MessageRemovedException ||
                                 ex instanceof FileNotFoundException ||
@@ -516,8 +517,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                             Log.w("Unrecoverable");
                             db.operation().deleteOperation(op.id);
                             ops.remove(op);
-                        } else
+                        } else {
+                            Thread.sleep(RETRY_WAIT);
                             throw ex;
+                        }
                     } finally {
                         EntityLog.log(this, "Send end op=" + op.id + "/" + op.name);
                         db.operation().setOperationState(op.id, null);
