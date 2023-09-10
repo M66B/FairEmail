@@ -194,7 +194,8 @@ public class FragmentOptions extends FragmentBase {
 
             @Override
             public void onPageSelected(int position) {
-                if (position > 0) {
+                if (position > 0 && position < PAGE_TITLES.length &&
+                        PAGE_TITLES[position] != R.string.title_advanced_section_backup) {
                     final Context context = getContext();
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                     boolean setup_advanced = prefs.getBoolean("setup_advanced", false);
