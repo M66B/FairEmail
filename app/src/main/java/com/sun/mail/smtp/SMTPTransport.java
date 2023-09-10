@@ -1313,7 +1313,7 @@ public class SMTPTransport extends Transport {
 
 	    Integer _fd = null;
 	    try {
-			if (eu.faircode.email.BuildConfig.DEBUG)
+			if (eu.faircode.email.BuildConfig.DEBUG && false)
 				_fd = ParcelFileDescriptor.fromSocket(serverSocket).getFd();
 		} catch (Throwable ex) {
 			eu.faircode.email.Log.w(ex);
