@@ -500,7 +500,7 @@ public class LanguageTool {
                     fUnderlineColor.set(tp, underlineColor);
                     fUnderlineThickness.set(tp, underlineThickness);
                 } catch (Throwable ex) {
-                    Log.w(ex);
+                    Log.i(ex);
                     tp.bgColor = highlightColor;
                 }
             else {
