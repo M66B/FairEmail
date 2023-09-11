@@ -409,6 +409,8 @@ public class LanguageTool {
     }
 
     static void applySuggestions(EditText etBody, int start, int end, List<Suggestion> suggestions) {
+        if (etBody == null)
+            return;
         Editable edit = etBody.getText();
         if (edit == null)
             return;
