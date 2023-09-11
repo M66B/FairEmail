@@ -421,8 +421,8 @@ public class LanguageTool {
 
         if (suggestions != null)
             for (LanguageTool.Suggestion suggestion : suggestions) {
-                Log.i("LT adding=" + suggestion + " issue=" + suggestion.issueType);
                 boolean misspelled = ("misspelling".equals(suggestion.issueType) ||
+                        "typographical".equals(suggestion.issueType) ||
                         "whitespace".equals(suggestion.issueType));
                 SuggestionSpan span = new SuggestionSpanEx(etBody.getContext(),
                         suggestion.replacements.toArray(new String[0]), misspelled);
@@ -431,7 +431,8 @@ public class LanguageTool {
                 if (s < 0 || s > edit.length() || e < 0 || e > edit.length()) {
                     Log.w("LT " + s + "..." + e + " length=" + edit.length());
                     continue;
-                }
+                } else
+                    Log.i("LT text='" + edit.subSequence(s, e) + "' " + suggestion);
                 edit.setSpan(span, s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
     }
@@ -460,16 +461,16 @@ public class LanguageTool {
     }
 
     static class Suggestion {
-        String title; // shortMessage
-        String description; // message
-        int offset;
-        int length;
-        List<String> replacements;
-        String issueType;
+        public String title; // shortMessage
+        public String description; // message
+        public int offset;
+        public int length;
+        public List<String> replacements;
+        public String issueType;
 
         @Override
         public String toString() {
-            return title;
+            return issueType + " " + title + " " + description;
         }
     }
 
