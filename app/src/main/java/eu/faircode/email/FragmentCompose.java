@@ -2002,7 +2002,10 @@ public class FragmentCompose extends FragmentBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.menu_encrypt) {
+        if (itemId == android.R.id.home) {
+            onExit();
+            return true;
+        } else if (itemId == R.id.menu_encrypt) {
             onMenuEncrypt();
             return true;
         } else if (itemId == R.id.menu_translate) {
