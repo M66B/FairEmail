@@ -8,6 +8,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Added support for *text/markdown* message parts
+* Added support for *text/x-diff* and *text/x-patch* message parts
 * Small improvements and minor bug fixes
 * Updated libraries
 * Updated [translations](https://crowdin.com/project/open-source-email)
