@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
@@ -42,6 +43,7 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -289,6 +291,10 @@ public class LanguageTool {
 
                 if (suggestion.replacements.size() > 0)
                     result.add(suggestion);
+
+                JSONObject jrule = jmatch.optJSONObject("rule");
+                if (jrule != null)
+                    suggestion.issueType = jrule.optString("issueType");
             }
 
             return result;
@@ -415,13 +421,11 @@ public class LanguageTool {
 
         if (suggestions != null)
             for (LanguageTool.Suggestion suggestion : suggestions) {
-                Log.i("LT adding=" + suggestion);
-                int flags = ("Spelling mistake".equals(suggestion.title)
-                        || Build.VERSION.SDK_INT < Build.VERSION_CODES.S
-                        ? SuggestionSpan.FLAG_MISSPELLED
-                        : SuggestionSpan.FLAG_GRAMMAR_ERROR);
+                Log.i("LT adding=" + suggestion + " issue=" + suggestion.issueType);
+                boolean misspelled = ("misspelling".equals(suggestion.issueType) ||
+                        "whitespace".equals(suggestion.issueType));
                 SuggestionSpan span = new SuggestionSpanEx(etBody.getContext(),
-                        suggestion.replacements.toArray(new String[0]), flags);
+                        suggestion.replacements.toArray(new String[0]), misspelled);
                 int s = start + suggestion.offset;
                 int e = s + suggestion.length;
                 if (s < 0 || s > edit.length() || e < 0 || e > edit.length()) {
@@ -461,6 +465,7 @@ public class LanguageTool {
         int offset;
         int length;
         List<String> replacements;
+        String issueType;
 
         @Override
         public String toString() {
@@ -469,22 +474,34 @@ public class LanguageTool {
     }
 
     private static class SuggestionSpanEx extends SuggestionSpan {
+        private final int highlightColor;
         private final int underlineColor;
         private final int underlineThickness;
 
-        public SuggestionSpanEx(Context context, String[] suggestions, int flags) {
-            super(context, suggestions, flags);
-            underlineColor = Helper.resolveColor(context,
-                    Build.VERSION.SDK_INT < Build.VERSION_CODES.Q
-                            ? android.R.attr.textColorHighlight
-                            : android.R.attr.colorError);
-            underlineThickness = Helper.dp2pixels(context, (getFlags() & FLAG_MISSPELLED) != 0 ? 2 : 1);
+        public SuggestionSpanEx(Context context, String[] suggestions, boolean misspelled) {
+            super(context, suggestions,
+                    misspelled || Build.VERSION.SDK_INT < Build.VERSION_CODES.S
+                            ? SuggestionSpan.FLAG_MISSPELLED
+                            : SuggestionSpan.FLAG_GRAMMAR_ERROR);
+            highlightColor = Helper.resolveColor(context, android.R.attr.textColorHighlight);
+            underlineColor = (misspelled ? Color.RED : highlightColor);
+            underlineThickness = Helper.dp2pixels(context, misspelled ? 2 : 2);
         }
 
         @Override
         public void updateDrawState(TextPaint tp) {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
-                tp.bgColor = underlineColor;
+                try {
+                    Field fUnderlineColor = tp.getClass().getDeclaredField("underlineColor");
+                    Field fUnderlineThickness = tp.getClass().getDeclaredField("underlineThickness");
+                    fUnderlineColor.setAccessible(true);
+                    fUnderlineThickness.setAccessible(true);
+                    fUnderlineColor.set(tp, underlineColor);
+                    fUnderlineThickness.set(tp, underlineThickness);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                    tp.bgColor = highlightColor;
+                }
             else {
                 tp.underlineColor = underlineColor;
                 tp.underlineThickness = underlineThickness;
