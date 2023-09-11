@@ -701,6 +701,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_mnemonic_hint">Jakýkoli přijatý e-mail s níže uvedenými slovy v předmětu automaticky a okamžitě odstraní data aplikace</string>
     <string name="title_advanced_clear_all">Odstranit data aplikace</string>
     <string name="title_advanced_clear_all_remark">Data aplikace budou nevratně smazána!</string>
+    <string name="title_advanced_default_encryption">       Výchozí metoda šifrování (PGP nebo S/MIME) se po odeslání podepsané nebo zašifrované zprávy uloží pro každou identitu.
+        Metodu šifrování lze vybrat před odesláním v dialogovém okně možností odeslání (dlouhým stisknutím tlačítka Odeslat).
+    </string>
     <string name="title_advanced_sign_default">Automaticky podepisovat</string>
     <string name="title_advanced_encrypt_default">Automaticky šifrovat</string>
     <string name="title_advanced_encrypt_auto">Automaticky zašifrovat, když jsou k dispozici klíče všech příjemců</string>
@@ -738,7 +741,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_language">Jazyk</string>
     <string name="title_advanced_language_system">Systémový</string>
     <string name="title_advanced_lt">Integrace LanguageTool</string>
+    <string name="title_advanced_lt_sentence">Zkontrolovat každou větu</string>
     <string name="title_advanced_lt_auto">Zkontrolujte odstavec po novém řádku</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Zvýraznit zkontrolovaný text</string>
     <string name="title_advanced_lt_user">Uživatelské jméno (volitelné)</string>
     <string name="title_advanced_lt_key">API klíč (volitelné)</string>
     <string name="title_advanced_deepl">DeepL integrace</string>
@@ -1408,6 +1413,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_translate_formal">Použít formální jazyk</string>
     <string name="title_translate_small">Použít malé písmo pro zdrojový text</string>
     <string name="title_translate_replace">Nahradit zdrojový text přeloženým textem</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Zvýraznit přeložený text</string>
     <string name="title_translate_html">Zachovat formátování</string>
     <string name="title_translate_html_hint">Toto spotřebovává více znaků</string>
     <string name="title_translate_usage">Využití: %1$s / %2$s (%3$d %%)</string>
@@ -1910,6 +1916,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_loading">Načítání &#8230;</string>
     <string name="title_fetching_again">Opětovné získávání zprávy ze serveru</string>
     <string name="title_go_back">Vrátit se zpět</string>
+    <string name="title_global_default">Použít globální výchozí nastavení</string>
     <string name="title_conversation_actions">Akce</string>
     <string name="title_conversation_action_reply">Odpovědět s: „%1$s“</string>
     <string name="title_conversation_action_copy">Kopírovat: „%1$s“</string>
@@ -1954,6 +1961,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_debug_info_issue">Popis problému (povinné)</string>
     <string name="title_debug_info_issue_remark">Důležité jsou podrobnosti, jako je odhadovaná doba problému, přesná chybová zpráva atd.,</string>
     <string name="title_debug_info_contact">Nedávno jsme měli kontakt o tomto problému</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Odeslat okamžitě</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Normálně budou informace o ladění nejprve uloženy jako koncept zprávy, abyste mohli zkontrolovat, co bude odesláno</string>
     <string name="title_unexpected_info_remark">Popište prosím, co jste dělali, když došlo k chybě:</string>
     <string name="title_widget_title_count">Počet nových zpráv</string>
     <string name="title_widget_title_list">Seznam zpráv</string>

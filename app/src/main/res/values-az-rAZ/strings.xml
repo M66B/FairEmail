@@ -673,6 +673,9 @@
     <string name="title_advanced_mnemonic_hint">Mövzu sətrində aşağıdakı sözləri ehtiva edən istənilən alınmış e-poçt, tətbiq verilənlərini avtomatik olaraq dərhal siləcək</string>
     <string name="title_advanced_clear_all">Tətbiq verilənlərini sil</string>
     <string name="title_advanced_clear_all_remark">Tətbiq verilənləri geri qaytarılmayacaq formada silinəcək!</string>
+    <string name="title_advanced_default_encryption">        İmzalı və ya şifrələnmiş mesaj göndərildikdən sonra hər kimlik üçün ilkin şifrələmə üsulu (PGP və ya S/MIME) saxlanılacaq.
+        Şifrələmə üsulu, göndərmə seçimləri dialoq qutusunda göndərməzdən əvvəl seçilə bilər (göndərmə düyməsinə uzun basın).
+    </string>
     <string name="title_advanced_sign_default">İlkin olaraq imzala</string>
     <string name="title_advanced_encrypt_default">İlkin olaraq şifrələ</string>
     <string name="title_advanced_encrypt_auto">Bütün alıcıların açarları əlçatan olduqda avtomatik şifrələ</string>
@@ -711,7 +714,9 @@
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">LanguageTool inteqrasiyası</string>
+    <string name="title_advanced_lt_sentence">Hər bir cümləni yoxla</string>
     <string name="title_advanced_lt_auto">Yeni bir sətirdən sonra paraqrafı yoxla</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Yoxlanılan mətni vurğula</string>
     <string name="title_advanced_lt_user">İstifadəçi adı (ixtiyari)</string>
     <string name="title_advanced_lt_key">API açarı (ixtiyari)</string>
     <string name="title_advanced_deepl">DeepL inteqrasiyası</string>
@@ -1383,6 +1388,7 @@
     <string name="title_translate_formal">Rəsmi formu istifadə et</string>
     <string name="title_translate_small">Mənbə mətni üçün kiçik şrift istifadə et</string>
     <string name="title_translate_replace">Mənbə mətni tərcümə edilmiş mətnlə əvəz et</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Tərcümə edilən mətni vurğula</string>
     <string name="title_translate_html">Formatlamanı qoru</string>
     <string name="title_translate_html_hint">Bu, daha çox simvolu istehlak edəcək</string>
     <string name="title_translate_usage">İstifadə: %1$s / %2$s (%3$d %%)</string>
@@ -1885,6 +1891,7 @@
     <string name="title_loading">Yüklənir &#8230;</string>
     <string name="title_fetching_again">Mesaj serverdən təkrar alınır</string>
     <string name="title_go_back">Geri qayıt</string>
+    <string name="title_global_default">Qlobal ilkin halı istifadə et</string>
     <string name="title_conversation_actions">Əməliyyatlar</string>
     <string name="title_conversation_action_reply">\'%1$s\' ilə cavabla</string>
     <string name="title_conversation_action_copy">Kopyala: \'%1$s\'</string>
@@ -1930,6 +1937,8 @@
     <string name="title_debug_info_issue">Problem açıqlaması (tələb olunur)</string>
     <string name="title_debug_info_issue_remark">Problemin təxmini müddəti, tam xəta mesajı və sair kimi detallar vacibdir</string>
     <string name="title_debug_info_contact">Təzəlikcə bu problemlə bağlı əlaqə saxladıq</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Dərhal göndər</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Normalda sazlama məlumatı əvvəlcə qaralama mesajı olaraq saxlanılır, beləliklə nəyin göndəriləcəyini seçə bilərsiniz</string>
     <string name="title_unexpected_info_remark">Zəhmət olmasa xəta alanda nə etdiyinizi izah edin:</string>
     <string name="title_widget_title_count">Yeni mesaj sayı</string>
     <string name="title_widget_title_list">Mesaj siyahısı</string>

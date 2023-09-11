@@ -1277,6 +1277,7 @@
     <string name="title_crash_info_remark">لطفاً توضیح دهید که در هنگام کرش برنامه درحال انجام چه کاری بودید:</string>
     <string name="title_debug_info_issue">شرح مشکل (لازم)</string>
     <string name="title_debug_info_contact">پیشتر درباره این مشکل پیام دریافت کرده‌ایم</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">ارسال فوری</string>
     <string name="title_widget_title_count">شمار پیام جدید</string>
     <string name="title_widget_title_list">لیست پیام‌ها</string>
     <string name="title_power_menu_off">خاموش</string>

@@ -671,6 +671,9 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_mnemonic_hint">Konu satırında aşağıdaki kelimeleri içeren herhangi bir e-posta, uygulama verilerini otomatik olarak ve hemen siler</string>
     <string name="title_advanced_clear_all">Uygulama verilerini sil</string>
     <string name="title_advanced_clear_all_remark">Uygulama verileri geri alınamaz şekilde silinecek!</string>
+    <string name="title_advanced_default_encryption">        İmzalı veya şifreli bir mesaj gönderildikten sonra varsayılan şifreleme yöntemi (PGP veya S/MIME) kimlik başına saklanacaktır.
+        Şifreleme yöntemi, gönderme seçenekleri iletişim kutusunda göndermeden önce seçilebilir (gönder düğmesine uzun basın).
+    </string>
     <string name="title_advanced_sign_default">Varsayılan olarak imzala</string>
     <string name="title_advanced_encrypt_default">Varsayılan olarak şifrele</string>
     <string name="title_advanced_encrypt_auto">Tüm alıcıların anahtarları kullanılabilir olduğunda otomatik olarak şifrele</string>
@@ -708,6 +711,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Dil Aracı entegrasyonu</string>
+    <string name="title_advanced_lt_sentence">Her cümleyi kontrol et</string>
     <string name="title_advanced_lt_auto">Yeni bir satırdan sonra paragrafı kontrol et</string>
     <string name="title_advanced_lt_user">Kullanıcı adı (isteğe bağlı)</string>
     <string name="title_advanced_lt_key">API anahtarı (isteğe bağlı)</string>
@@ -1878,6 +1882,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_loading">Yükleniyor &#8230;</string>
     <string name="title_fetching_again">Mesaj sunucudan tekrar alınıyor</string>
     <string name="title_go_back">Geri dön</string>
+    <string name="title_global_default">Genel varsayılanı kullan</string>
     <string name="title_conversation_actions">Eylemler</string>
     <string name="title_conversation_action_reply">\'%1$s\' ile yanıtla</string>
     <string name="title_conversation_action_copy">Kopyala: \'%1$s\'</string>

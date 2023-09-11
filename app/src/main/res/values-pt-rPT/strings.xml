@@ -675,7 +675,7 @@
     <string name="title_advanced_clear_all">Eliminar os dados da aplicação</string>
     <string name="title_advanced_clear_all_remark">Os dados da aplicação serão definitivamente eliminados!</string>
     <string name="title_advanced_default_encryption">        O método de encriptação por defeito (PGP ou S/MIME) vai ser guardado por identidade depois de enviar um email assinado ou encriptado.
-        O método de encriptação pode ser selecionado antes do envio na caixa de diálogo das opções de envio (pressão longa no botão de enviar).
+        O tipo de encriptação pode ser selecionado antes do envio na caixa de diálogo das opções de envio (pressão longa no botão de enviar).
     </string>
     <string name="title_advanced_sign_default">Assinar por padrão</string>
     <string name="title_advanced_encrypt_default">Encriptar por padrão</string>
@@ -715,7 +715,9 @@
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integração LanguageTool</string>
+    <string name="title_advanced_lt_sentence">Verifique cada frase</string>
     <string name="title_advanced_lt_auto">Verificar parágrafo depois de uma nova linha</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Destacar o texto a ser verificado</string>
     <string name="title_advanced_lt_user">Nome do utilizador (opcional)</string>
     <string name="title_advanced_lt_key">Chave da API (opcional)</string>
     <string name="title_advanced_deepl">Integração DeepL</string>
@@ -1387,6 +1389,7 @@
     <string name="title_translate_formal">Utilizar o formulário formal</string>
     <string name="title_translate_small">Utilizar um tipo de letra pequeno para o texto original</string>
     <string name="title_translate_replace">Substituir texto original por texto traduzido</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Destacar o texto a ser traduzido</string>
     <string name="title_translate_html">Guardar formatação</string>
     <string name="title_translate_html_hint">Esta opção consumirá mais caracteres</string>
     <string name="title_translate_usage">Utilização: %1$s / %2$s (%3$d %%)</string>
@@ -1889,7 +1892,7 @@
     <string name="title_loading">A carregar &#8230;</string>
     <string name="title_fetching_again">A procurar novamente a mensagem do servidor</string>
     <string name="title_go_back">Retroceder</string>
-    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Usar predefinição global</string>
+    <string name="title_global_default">Usar predefinição global</string>
     <string name="title_conversation_actions">Acções</string>
     <string name="title_conversation_action_reply">Resposta com: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copiar: \'%1$s\'</string>
@@ -1935,6 +1938,8 @@
     <string name="title_debug_info_issue">Descrição do problema (obrigatório)</string>
     <string name="title_debug_info_issue_remark">Detalhes, como o tempo estimado do problema, a mensagem de erro exata, etc., são importantes</string>
     <string name="title_debug_info_contact">Recentemente tivemos contacto sobre esse problema</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Enviar imediatamente</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Normalmente, a informação de depuração é armazenada primeiro como rascunho, para que possa verificar o que vai ser enviado</string>
     <string name="title_unexpected_info_remark">Por favor, descreva o que fazia quando obteve o erro:</string>
     <string name="title_widget_title_count">Novo contador de mensagens</string>
     <string name="title_widget_title_list">Lista de mensagens</string>

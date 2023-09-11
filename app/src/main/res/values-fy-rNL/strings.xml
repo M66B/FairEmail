@@ -671,6 +671,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_mnemonic_hint">Elk e-mailberjocht ûntfongen mei de ûndersteande wurden yn de ûnderwerprigel sil automatysk en daliks de app-gegevens fuortsmite</string>
     <string name="title_advanced_clear_all">Smyt de app-gegevens fuort</string>
     <string name="title_advanced_clear_all_remark">De app-gegevens wurde ûnomkearber fuortsmiten!</string>
+    <string name="title_advanced_default_encryption">De standert fersiferingsmetoade (PGP of S/MIME) wurdt per identiteit bewarre nei it ferstjoeren fan in ûndertekene of fersifere berjocht.
+         De fersiferingsmetoade kin foar ferstjoering selektearre wurde yn it dialoochfinster mei ferstjoeropsjes (hâld de knop Fertsjoere lang yndrukt).    </string>
     <string name="title_advanced_sign_default">Standert ûndertekenje</string>
     <string name="title_advanced_encrypt_default">Standert fersiferje</string>
     <string name="title_advanced_encrypt_auto">Automatysk fersiferje wannear’t alle kaaien fan de ûntfanger beskikber binne</string>
@@ -708,7 +710,9 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_lt">LanguageTool-yntegraasje</string>
+    <string name="title_advanced_lt_sentence">Kontrolearje elke sin</string>
     <string name="title_advanced_lt_auto">Alinea nei in nije rigel kontrolearje</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">De tekst dy’t kontrolearre wurdt markearje</string>
     <string name="title_advanced_lt_user">Brûkersnamme (opsjoneel)</string>
     <string name="title_advanced_lt_key">API-kaai (opsjoneel)</string>
     <string name="title_advanced_deepl">DeepL-yntegraasje</string>
@@ -1376,6 +1380,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_translate_formal">Formele foarm brûke</string>
     <string name="title_translate_small">Brûk in lyts lettertype foar de boarnetekst</string>
     <string name="title_translate_replace">Boarnetekst ferfange troch oersette tekst</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">De tekst dy’t oerset wurdt markearje</string>
     <string name="title_translate_html">Opmaak behâlde</string>
     <string name="title_translate_html_hint">Dit sil mear tekens ferbrûke</string>
     <string name="title_translate_usage">Gebrûk: %1$s / %2$s (%3$d %%)</string>
@@ -1877,6 +1882,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_loading">Lade&#8230;</string>
     <string name="title_fetching_again">Berjocht opnij fan de server ophelje</string>
     <string name="title_go_back">Gean werom</string>
+    <string name="title_global_default">Globale standertwearde brûke</string>
     <string name="title_conversation_actions">Aksjes</string>
     <string name="title_conversation_action_reply">Beäntwurdzje mei: ‘%1$s’</string>
     <string name="title_conversation_action_copy">Kopiearje: ‘%1$s’</string>
@@ -1921,6 +1927,8 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_debug_info_issue">Probleembeskriuwing (fereaske)</string>
     <string name="title_debug_info_issue_remark">Details, lykas de skatte tiid fan it probleem, de eksakte flatermelding, ensfh., binne wichtich</string>
     <string name="title_debug_info_contact">Wy hawwe koartlyn kontakt han oer dit probleem</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Daliks ferstjoere</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Normaal sil de debugynfo earst bewarre wurde as konseptberjocht, sadat jo kontrolearje kinne wat der ferstjoerd wurdt</string>
     <string name="title_unexpected_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
     <string name="title_widget_title_count">Oantal nije berjochten</string>
     <string name="title_widget_title_list">Berjochtlist</string>

@@ -710,7 +710,9 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_lt">LanguageTool integratie</string>
+    <string name="title_advanced_lt_sentence">Controleer elke zin</string>
     <string name="title_advanced_lt_auto">Controleer alinea na een nieuwe regel</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Markeer de tekst die gecontroleerd wordt</string>
     <string name="title_advanced_lt_user">Gebruikersnaam (optioneel)</string>
     <string name="title_advanced_lt_key">API key (optioneel)</string>
     <string name="title_advanced_deepl">DeepL integratie</string>
@@ -1377,6 +1379,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_translate_formal">Gebruik formele vorm</string>
     <string name="title_translate_small">Gebruik een klein lettertype voor de brontekst</string>
     <string name="title_translate_replace">Vervang brontekst door vertaalde tekst</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Markeer de tekst die vertaald wordt</string>
     <string name="title_translate_html">Opmaak behouden</string>
     <string name="title_translate_html_hint">Dit zal meer tekens verbruiken</string>
     <string name="title_translate_usage">Gebruik: %1$s / %2$s (%3$d %%)</string>
@@ -1876,7 +1879,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_loading">Laden &#8230;</string>
     <string name="title_fetching_again">Bericht opnieuw van de server ophalen</string>
     <string name="title_go_back">Ga terug</string>
-    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Gebruik globale standaardwaarde</string>
+    <string name="title_global_default">Gebruik globale standaardwaarde</string>
     <string name="title_conversation_actions">Acties</string>
     <string name="title_conversation_action_reply">Antwoord met: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopieer: \'%1$s\'</string>
@@ -1920,6 +1923,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_debug_info_issue">Probleembeschrijving (vereist)</string>
     <string name="title_debug_info_issue_remark">Details, zoals de geschatte tijd van het probleem, de exacte foutmelding, enz., zijn belangrijk</string>
     <string name="title_debug_info_contact">Onlangs hadden we contact over dit probleem</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Onmiddellijk verzenden</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Normaal zal de debug info eerst worden opgeslagen als conceptbericht, zodat u kunt controleren wat er wordt verzonden</string>
     <string name="title_unexpected_info_remark">Beschrijf alstublieft wat u aan het doen was toen de foutmelding kwam:</string>
     <string name="title_widget_title_count">Aantal nieuwe berichten</string>
     <string name="title_widget_title_list">Berichtenlijst</string>

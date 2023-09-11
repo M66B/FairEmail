@@ -702,6 +702,9 @@
     <string name="title_advanced_mnemonic_hint">Любое атрыманае паведамленне з прыведзенымі ніжэй словамі ў тэме аўтаматычна і неадкладна выдаліць даныя праграмы</string>
     <string name="title_advanced_clear_all">Выдаліць даныя праграмы</string>
     <string name="title_advanced_clear_all_remark">Даныя праграмы будуць выдалены незваротна!</string>
+    <string name="title_advanced_default_encryption">Метад шыфравання па змаўчанні (PGP або S/MIME) будзе захоўвацца для кожнага ідэнтыфікатара пасля адпраўкі падпісанага або зашыфраванага паведамлення.
+         Метад шыфравання можна выбраць перад адпраўкай у дыялогавым акне параметраў адпраўкі (выклікаецца доўгім націсканнем на кнопку адпраўкі).
+    </string>
     <string name="title_advanced_sign_default">Падпісваць па змаўчанні</string>
     <string name="title_advanced_encrypt_default">Шыфраваць па змаўчанні</string>
     <string name="title_advanced_encrypt_auto">Аўтаматычна шыфраваць, калі ключы ўсіх атрымальнікаў даступныя</string>
@@ -740,6 +743,7 @@
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Сістэмная</string>
     <string name="title_advanced_lt">Інтэграцыя з LanguageTool</string>
+    <string name="title_advanced_lt_sentence">Правяраць кожны сказ</string>
     <string name="title_advanced_lt_auto">Правяраць абзац пасля новага радка</string>
     <string name="title_advanced_lt_user">Імя карыстальніка (неабавязкова)</string>
     <string name="title_advanced_lt_key">Ключ API (неабавязкова)</string>
@@ -1916,6 +1920,7 @@
     <string name="title_loading">Загрузка &#8230;</string>
     <string name="title_fetching_again">Паўторная загрузка паведамлення з сервера</string>
     <string name="title_go_back">Назад</string>
+    <string name="title_global_default">Выкарыстоўваць тыповае агульнае значэнне</string>
     <string name="title_conversation_actions">Дзеянні</string>
     <string name="title_conversation_action_reply">Адказаць з: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Капіраваць: \'%1$s\'</string>

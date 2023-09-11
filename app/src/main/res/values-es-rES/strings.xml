@@ -672,6 +672,9 @@
     <string name="title_advanced_mnemonic_hint">Cualquier correo electrónico recibido con las siguientes palabras en la línea de asunto borrará automática e inmediatamente los datos de la aplicación</string>
     <string name="title_advanced_clear_all">Borrar los datos de la aplicación</string>
     <string name="title_advanced_clear_all_remark">¡Los datos de la aplicación serán irreversiblemente eliminados!</string>
+    <string name="title_advanced_default_encryption">        El método de cifrado por defecto (PGP o S/MIME) será almacenado por identidad luego de enviar un mensaje firmado o cifrado.
+        El método de cifrado puede ser seleccionado antes de enviar en el diálogo de opciones de envío (mantener pulsado botón de enviar).
+    </string>
     <string name="title_advanced_sign_default">Firmar por defecto</string>
     <string name="title_advanced_encrypt_default">Cifrar por defecto</string>
     <string name="title_advanced_encrypt_auto">Cifrar automáticamente cuando las claves de todos los destinatarios están disponibles</string>
@@ -709,7 +712,9 @@
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integración con LanguageTool</string>
+    <string name="title_advanced_lt_sentence">Comprobar cada oración</string>
     <string name="title_advanced_lt_auto">Comprobar párrafo después de una nueva línea</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Resaltar el texto que se está comprobando</string>
     <string name="title_advanced_lt_user">Nombre de usuario (opcional)</string>
     <string name="title_advanced_lt_key">Clave API (opcional)</string>
     <string name="title_advanced_deepl">Integración con DeepL</string>
@@ -1379,6 +1384,7 @@
     <string name="title_translate_formal">Usar modo formal</string>
     <string name="title_translate_small">Usar una fuente pequeña para el texto fuente</string>
     <string name="title_translate_replace">Reemplazar texto original por texto traducido</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Resaltar el texto que se está traduciendo</string>
     <string name="title_translate_html">Conservar formato</string>
     <string name="title_translate_html_hint">Esto consumirá más caracteres</string>
     <string name="title_translate_usage">Uso: %1$s / %2$s (%3$d %%)</string>
@@ -1880,6 +1886,7 @@
     <string name="title_loading">Cargando &#8230;</string>
     <string name="title_fetching_again">Obteniendo mensaje nuevamente del servidor</string>
     <string name="title_go_back">Atrás</string>
+    <string name="title_global_default">Usar global por defecto</string>
     <string name="title_conversation_actions">Acciones</string>
     <string name="title_conversation_action_reply">Responder con: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copiar: \'%1$s\'</string>
@@ -1924,6 +1931,8 @@
     <string name="title_debug_info_issue">Descripción del problema (Requerido)</string>
     <string name="title_debug_info_issue_remark">Detalles, como el tiempo estimado del problema, el mensaje de error exacto, etc., son importantes</string>
     <string name="title_debug_info_contact">Recientemente hemos tenido contacto con este problema</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Enviar inmediatamente</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Normalmente, la información de depuración se almacenará primero como borrador, así puede comprobar qué se enviará</string>
     <string name="title_unexpected_info_remark">Por favor describa lo que estaba haciendo cuando obtuvo el error:</string>
     <string name="title_widget_title_count">Recuento de mensajes</string>
     <string name="title_widget_title_list">Lista de mensajes</string>

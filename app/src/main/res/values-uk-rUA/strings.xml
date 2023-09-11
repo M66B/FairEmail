@@ -657,7 +657,7 @@
     <string name="title_advanced_notify_action_reply">Відповісти</string>
     <string name="title_advanced_notify_action_reply_direct">Пряма відповідь</string>
     <string name="title_advanced_notify_action_flag">Позначити</string>
-    <string name="title_advanced_notify_action_seen">Прочитати</string>
+    <string name="title_advanced_notify_action_seen">Прочитано</string>
     <string name="title_advanced_notify_action_hide">Приховати</string>
     <string name="title_advanced_notify_action_snooze">Відкласти</string>
     <string name="title_advanced_notify_remove">Видаляти сповіщення про нове повідомлення при натисканні</string>
@@ -741,7 +741,9 @@
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Системи</string>
     <string name="title_advanced_lt">Інтеграція з LanguageTool</string>
+    <string name="title_advanced_lt_sentence">Перевіряти кожне речення</string>
     <string name="title_advanced_lt_auto">Перевіряти абзац після нового рядка</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Підсвічувати текст, що перевіряється</string>
     <string name="title_advanced_lt_user">Ім\'я користувача (необов\'язково)</string>
     <string name="title_advanced_lt_key">API-ключ (необов\'язково)</string>
     <string name="title_advanced_deepl">Інтеграція з DeepL</string>
@@ -1410,6 +1412,7 @@
     <string name="title_translate_formal">Використовувати формальний стиль</string>
     <string name="title_translate_small">Використовувати малий шрифт для початкового тексту</string>
     <string name="title_translate_replace">Замінити вихідний текст на перекладений текст</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Виділіть текст, що перекладається</string>
     <string name="title_translate_html">Зберігати форматування</string>
     <string name="title_translate_html_hint">Це буде споживати більше символів</string>
     <string name="title_translate_usage">Використання: %1$s / %2$s (%3$d %%)</string>
@@ -1911,7 +1914,7 @@
     <string name="title_loading">Завантаження &#8230;</string>
     <string name="title_fetching_again">Знову отримую повідомлення з сервера</string>
     <string name="title_go_back">Назад</string>
-    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Використовувати загальне типове значення</string>
+    <string name="title_global_default">Використовувати загальне типове значення</string>
     <string name="title_conversation_actions">Дії</string>
     <string name="title_conversation_action_reply">Відповісти з: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Копіювати: \'%1$s\'</string>
@@ -1957,6 +1960,8 @@
     <string name="title_debug_info_issue">Опис проблеми (обов\'язково)</string>
     <string name="title_debug_info_issue_remark">Важливими є такі деталі, як приблизний час виникнення проблеми, точне повідомлення про помилку тощо</string>
     <string name="title_debug_info_contact">Нещодавно ми зв\'язувались щодо цієї проблеми</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Надіслати негайно</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Зазвичай інформація про налагодження буде збережена як чернетка, щоб ви могли перевірити, що буде надіслано</string>
     <string name="title_unexpected_info_remark">Будь ласка, опишіть, що ви робили, коли додаток зазнав краху:</string>
     <string name="title_widget_title_count">Кількість нових повідомлень</string>
     <string name="title_widget_title_list">Список повідомлень</string>

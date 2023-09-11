@@ -48,25 +48,25 @@
         <item quantity="other">%1$d 件の操作が保留されています</item>
     </plurals>
     <plurals name="title_notification_unseen">
-        <item quantity="other">新着メッセージ %1$d 件</item>
+        <item quantity="other">新着メッセージ %1$d 通</item>
     </plurals>
     <plurals name="title_notification_unsent">
-        <item quantity="other">%1$d 件のメッセージを送信しています</item>
+        <item quantity="other">メッセージ %1$d 通を送信しています</item>
     </plurals>
     <plurals name="title_tile_unseen">
-        <item quantity="other">新着 %1$d 件</item>
+        <item quantity="other">新着 %1$d 通</item>
     </plurals>
     <plurals name="title_moving_messages">
-        <item quantity="other">%1$d 件のメッセージを移動しますか？</item>
+        <item quantity="other">メッセージ %1$d 通を移動しますか？</item>
     </plurals>
     <plurals name="title_deleting_messages">
-        <item quantity="other">%1$d 件のメッセージを完全に削除しますか？</item>
+        <item quantity="other">メッセージ %1$d 通を完全に削除しますか？</item>
     </plurals>
     <plurals name="title_attachments">
         <item quantity="other">添付ファイル %1$d 件</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="other">%1$d 件のメッセージを迷惑メールとして扱いますか？</item>
+        <item quantity="other">メッセージ %1$d 通を迷惑メールとして扱いますか？</item>
     </plurals>
     <string name="title_ask_spam_who">%1$s からのメッセージを迷惑メールとして扱いますか？</string>
     <string name="title_junk_hint">迷惑メールフィルタリングはメールプロバイダーが行うべきものです。メールクライアントは正しく迷惑メールを区別するために必要な情報を取得できません。</string>
@@ -82,7 +82,7 @@
     </string>
     <string name="title_blocked_senders">ブロックした差出人</string>
     <plurals name="title_ask_block_sender">
-        <item quantity="other">%1$s 件のメッセージの差出人をブロックしますか？</item>
+        <item quantity="other">メッセージ %1$s 通の差出人をブロックしますか？</item>
     </plurals>
     <plurals name="title_hours">
         <item quantity="other">%1$s 時間</item>
@@ -216,7 +216,7 @@
     <string name="title_setup_doze_battery">バッテリー使用量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
     <string name="title_setup_doze_device">このデバイスでは必要と思われます</string>
-    <string name="title_setup_alarm_12">アプリは正しく動作しません</string>
+    <string name="title_setup_alarm_12">このアプリは正常に動作しません</string>
     <string name="title_setup_inexact">アラームとリマインダーが無効です</string>
     <string name="title_setup_background">バックグラウンドでの制限が有効です</string>
     <string name="title_setup_data">データセーバーが有効です</string>
@@ -343,7 +343,7 @@
     <string name="title_advanced_sync_folders">フォルダーリストを同期</string>
     <string name="title_advanced_sync_folders_poll">フォルダーリストをアクティブに同期</string>
     <string name="title_advanced_sync_shared_folders">共有フォルダーリストを同期</string>
-    <string name="title_advanced_sync_added">新しいユーザーフォルダーの同期を有効にする</string>
+    <string name="title_advanced_sync_added">新規作成したユーザーフォルダーの同期を有効にする</string>
     <string name="title_advanced_subscriptions">購読したフォルダーの管理</string>
     <string name="title_advanced_check_authentication">メッセージ認証を確認</string>
     <string name="title_advanced_check_tls">Transport Layer Security (TLS) を確認</string>
@@ -363,10 +363,10 @@
     <string name="title_advanced_suggest_frequently">提案するアドレスを使用頻度で並べ替え</string>
     <string name="title_advanced_alt_re_fwd">返信/転送のプレフィックスを変更</string>
     <string name="title_advanced_send_chips">アドレスバルーンを表示</string>
-    <string name="title_advanced_send_nav_color">下部のボタンアクションバーを、ID の色にする</string>
+    <string name="title_advanced_send_nav_color">下部のボタンアクションバーをユーザー ID の色にする</string>
     <string name="title_advanced_send_reminders">リマインダーを表示</string>
     <string name="title_advanced_send_delayed">メッセージ送信を遅延させる</string>
-    <string name="title_advanced_attach_new">アドレスやファイルをアプリに共有したとき、新しい下書きを作成</string>
+    <string name="title_advanced_attach_new">URI やファイルをアプリに共有したとき、新しい下書きを作成</string>
     <string name="title_advanced_answer_caption">返信ボタン設定</string>
     <string name="title_advanced_answer_default">返信ボタンを短く押したときのアクション:</string>
     <string name="title_advanced_answer_action">返信ボタンを長押ししたときのアクション:</string>
@@ -659,10 +659,13 @@
     <string name="title_advanced_mnemonic_hint">件名に以下の単語を含むメールを受信すると、自動でアプリのデータを削除します</string>
     <string name="title_advanced_clear_all">アプリのデータを削除</string>
     <string name="title_advanced_clear_all_remark">削除したアプリのデータは元に戻せません！</string>
-    <string name="title_advanced_sign_default">デフォルトで電子署名</string>
+    <string name="title_advanced_default_encryption">        デフォルトの暗号化方法 (PGP または S/MIME) はデジタル署名や暗号化されたメッセージの送信後にユーザー ID ごとに保存されます。
+        暗号化方法は、(送信ボタンを長押しすると表示される) 送信ダイアログボックスで送信前に選択できます。
+    </string>
+    <string name="title_advanced_sign_default">デフォルトでデジタル署名</string>
     <string name="title_advanced_encrypt_default">デフォルトで暗号化</string>
     <string name="title_advanced_encrypt_auto">すべての宛先の鍵が有効なときは自動で暗号化</string>
-    <string name="title_advanced_auto_verify">電子署名されたメッセージを自動検証</string>
+    <string name="title_advanced_auto_verify">デジタル署名されたメッセージを自動検証</string>
     <string name="title_advanced_auto_decrypt">暗号化されたメッセージを自動復号</string>
     <string name="title_advanced_auto_undo_decrypt">会話の終了時に復号を元に戻す</string>
     <string name="title_advanced_openpgp">OpenPGP プロバイダー</string>
@@ -670,7 +673,7 @@
     <string name="title_advanced_autocrypt_mutual">Autocrypt Mutual モード</string>
     <string name="title_advanced_encrypt_subject">件名を暗号化</string>
     <string name="title_advanced_import_pgp">鍵をインポート</string>
-    <string name="title_advanced_sign_algo">電子署名アルゴリズム</string>
+    <string name="title_advanced_sign_algo">デジタル署名のアルゴリズム</string>
     <string name="title_advanced_encrypt_algo">暗号化アルゴリズム</string>
     <string name="title_advanced_remark_algo">        すべてのメールクライアントがすべてのアルゴリズムに対応しているわけではないことに注意してください。
         デフォルトのアルゴリズム SHA256 と AES128 は一般的に対応されています。
@@ -697,7 +700,9 @@
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_lt">LanguageTool を統合</string>
+    <string name="title_advanced_lt_sentence">一文ごとに確認</string>
     <string name="title_advanced_lt_auto">改行後に段落を確認</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">確認済みのテキストをハイライト</string>
     <string name="title_advanced_lt_user">ユーザー名 (オプション)</string>
     <string name="title_advanced_lt_key">API キー (オプション)</string>
     <string name="title_advanced_deepl">DeepL を統合</string>
@@ -957,7 +962,7 @@
     <string name="title_edit_html">HTML として編集</string>
     <string name="title_check_html">HTML を確認</string>
     <string name="title_import_file">ファイルをインポート</string>
-    <string name="title_sign_key">電子署名鍵: %1$s</string>
+    <string name="title_sign_key">デジタル署名鍵: %1$s</string>
     <string name="title_last_connected">最終接続: %1$s</string>
     <string name="title_backoff_until">失敗後、次まで待機中: %1$s</string>
     <string name="title_storage_quota">サーバーのストレージ使用量: %1$s/%2$s</string>
@@ -1273,7 +1278,7 @@
     <string name="title_reply_to">返信先:</string>
     <string name="title_cc">CC:</string>
     <string name="title_bcc">BCC:</string>
-    <string name="title_recipients">%1$d 件の宛先</string>
+    <string name="title_recipients">宛先 %1$d 件</string>
     <string name="title_via_identity">経由:</string>
     <string name="title_sent">送信:</string>
     <string name="title_received">受信:</string>
@@ -1369,6 +1374,7 @@
     <string name="title_translate_formal">書き言葉を使用</string>
     <string name="title_translate_small">ソーステキストに小さなフォントを使用</string>
     <string name="title_translate_replace">元テキストのを翻訳されたテキストに置き換える</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">翻訳済みのテキストをハイライト</string>
     <string name="title_translate_html">書式を維持</string>
     <string name="title_translate_html_hint">より多くの文字数を利用します</string>
     <string name="title_translate_usage">利用文字数: %1$s / %2$s (%3$d %%)</string>
@@ -1417,7 +1423,7 @@
     <string name="title_ask_send_via">%2$s 経由で %1$s にメッセージを送信しますか？</string>
     <string name="title_queued">メッセージを送信しています</string>
     <string name="title_queued_at">メッセージは %1$s 前後に送信されます</string>
-    <string name="title_sign">電子署名</string>
+    <string name="title_sign">デジタル署名</string>
     <string name="title_verify">検証</string>
     <string name="title_encrypt">暗号化</string>
     <string name="title_decrypt">復号</string>
@@ -1431,24 +1437,24 @@
     <string name="title_no_openpgp_remark">PGP エンドツーエンド暗号化は先に設定が必要です</string>
     <string name="title_user_interaction">OpenKeychain へ転送しています</string>
     <string name="title_padlock">鍵をタップしてメッセージを復号</string>
-    <string name="title_signed_data">電子署名を確認して本文を表示</string>
-    <string name="title_not_encrypted">メッセージは電子署名または暗号化されていません</string>
-    <string name="title_no_sign_key">電子署名鍵が選択されていません</string>
-    <string name="title_reset_sign_key">電子署名鍵をリセット</string>
+    <string name="title_signed_data">デジタル署名を検証して本文を表示</string>
+    <string name="title_not_encrypted">メッセージはデジタル署名または暗号化されていません</string>
+    <string name="title_no_sign_key">デジタル署名鍵が選択されていません</string>
+    <string name="title_reset_sign_key">デジタル署名をリセット</string>
     <string name="title_reset_selected_keys">選択された鍵をリセット</string>
     <string name="title_reset_selected_keys_hint">新しい証明書がある場合などに使用します</string>
-    <string name="title_signature_none">メッセージは電子署名されていません</string>
-    <string name="title_signature_valid">メッセージの電子署名が有効です</string>
-    <string name="title_signature_valid_from">メッセージの電子署名が有効です: %1$s</string>
-    <string name="title_signature_unconfirmed">メッセージの電子署名は有効ですが確認されていません</string>
-    <string name="title_signature_unconfirmed_from">メッセージの電子署名は有効ですが確認されていません: %1$s</string>
-    <string name="title_signature_invalid">メッセージの電子署名が無効です</string>
-    <string name="title_signature_invalid_reason">メッセージの電子署名が無効です: %1$s</string>
-    <string name="title_signature_key_missing">電子署名の検証に対応する公開鍵がありません</string>
+    <string name="title_signature_none">メッセージはデジタル署名されていません</string>
+    <string name="title_signature_valid">メッセージは有効にデジタル署名されています</string>
+    <string name="title_signature_valid_from">メッセージは有効にデジタル署名されています: %1$s</string>
+    <string name="title_signature_unconfirmed">メッセージのデジタル署名は有効ですが、未確認です</string>
+    <string name="title_signature_unconfirmed_from">メッセージのデジタル署名は有効ですが、未確認です: %1$s</string>
+    <string name="title_signature_invalid">メッセージのデジタル署名が無効です</string>
+    <string name="title_signature_invalid_reason">メッセージのデジタル署名が無効です: %1$s</string>
+    <string name="title_signature_key_missing">デジタル署名の検証に対応する公開鍵がありません</string>
     <string name="title_signature_certificate_invalid">証明書チェーンが無効です</string>
     <string name="title_signature_sender">差出人のメールアドレス</string>
-    <string name="title_signature_email">電子署名のメールアドレス</string>
-    <string name="title_signature_mismatch">差出人のメールアドレスが電子署名と一致しません</string>
+    <string name="title_signature_email">デジタル署名のメールアドレス</string>
+    <string name="title_signature_mismatch">差出人のメールアドレスがデジタル署名と一致しません</string>
     <string name="title_signature_algorithm">アルゴリズム</string>
     <string name="title_signature_subject">サブジェクト</string>
     <string name="title_signature_validity">有効期間</string>
@@ -1707,7 +1713,7 @@
     <string name="title_legend_sensitivity_confidential">機密度: 機密 (社外秘)</string>
     <string name="title_legend_importance">重要</string>
     <string name="title_legend_importance_low">重要でない</string>
-    <string name="title_legend_signed">電子署名されたメッセージ</string>
+    <string name="title_legend_signed">デジタル署名されたメッセージ</string>
     <string name="title_legend_encrypted">暗号化されたメッセージ</string>
     <string name="title_legend_auth">認証に失敗しました</string>
     <string name="title_legend_found">発見されたメッセージ</string>
@@ -1871,6 +1877,7 @@
     <string name="title_loading">読み込んでいます&#8230;</string>
     <string name="title_fetching_again">サーバーからメッセージを再取得しています</string>
     <string name="title_go_back">戻る</string>
+    <string name="title_global_default">グローバルデフォルトを使用</string>
     <string name="title_conversation_actions">アクション</string>
     <string name="title_conversation_action_reply">返信: \'%1$s\'</string>
     <string name="title_conversation_action_copy">コピー: \'%1$s\'</string>
@@ -1916,6 +1923,8 @@
     <string name="title_debug_info_issue">問題の説明 (必須・英語で)</string>
     <string name="title_debug_info_issue_remark">デバッグには、問題発生の推定時刻や正確なエラーメッセージなどの詳細情報が重要です</string>
     <string name="title_debug_info_contact">最近、この問題について連絡がありました</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">すぐに送信</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">通常では、デバッグ情報はまず下書きメッセージとして保存されるため、何が送信されるか確認できます</string>
     <string name="title_unexpected_info_remark">(英語) エラーが発生したときに何をしていたか説明してください:</string>
     <string name="title_widget_title_count">新着メッセージ数</string>
     <string name="title_widget_title_list">メッセージリスト</string>
@@ -1951,7 +1960,7 @@
     <string name="title_keyword_label4">ToDo</string>
     <string name="title_keyword_label5">後で</string>
     <plurals name="title_accessibility_messages">
-        <item quantity="other">%1$d 件のメッセージ</item>
+        <item quantity="other">メッセージ %1$d 通</item>
     </plurals>
     <string name="title_accessibility_accounts">アカウント</string>
     <string name="title_accessibility_folders">フォルダー</string>
@@ -2094,11 +2103,11 @@
     </string-array>
     <string-array name="encryptNames">
         <item>なし</item>
-        <item>PGP 電子署名のみ</item>
+        <item>PGP デジタル署名のみ</item>
         <item>PGP 暗号化のみ</item>
-        <item>PGP 電子署名 + 暗号化</item>
-        <item>S/MIME 電子署名のみ</item>
-        <item>S/MIME 電子署名 + 暗号化</item>
+        <item>PGP デジタル署名 + 暗号化</item>
+        <item>S/MIME デジタル署名のみ</item>
+        <item>S/MIME デジタル署名 + 暗号化</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>

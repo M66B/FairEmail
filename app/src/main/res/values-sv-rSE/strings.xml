@@ -706,6 +706,7 @@
     <string name="title_advanced_language">Språk</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">Språkintegration för verktyg</string>
+    <string name="title_advanced_lt_sentence">Kontrollera varje mening</string>
     <string name="title_advanced_lt_auto">Kontrollera paragraf efter en ny rad</string>
     <string name="title_advanced_lt_user">Användarnamn (frivilligt)</string>
     <string name="title_advanced_lt_key">API-nyckel (frivilligt)</string>
@@ -1878,6 +1879,7 @@
     <string name="title_loading">Läser in &#8230;</string>
     <string name="title_fetching_again">Hämtar meddelande igen från servern</string>
     <string name="title_go_back">Gå tillbaka</string>
+    <string name="title_global_default">Använd global standard</string>
     <string name="title_conversation_actions">Åtgärder</string>
     <string name="title_conversation_action_reply">Svara med: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiera: \'%1$s\'</string>

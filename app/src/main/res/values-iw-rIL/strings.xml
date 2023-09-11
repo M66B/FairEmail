@@ -701,6 +701,9 @@
     <string name="title_advanced_mnemonic_hint">כל הודעה שהתקבלה עם המילים שלהלן כחלק מהנושא ימחקו את נתוני היישומון אוטומטית ומיידית</string>
     <string name="title_advanced_clear_all">מחיקת נתוני היישומון</string>
     <string name="title_advanced_clear_all_remark">נתוני היישומון יימחקו ללא אפשרות לשחזור!</string>
+    <string name="title_advanced_default_encryption">        שיטת ההצפנה כברירת מחדל (PGP או S/MIME) תאוחסן עבור כל זהות בנפרד לאחר שליחת הודעה חתומה או מוצפנת.
+        אפשר לבחור את שיטת ההצפנה בטרם השליחה בחלונית אפשרויות השליחה (לחיצה ארוכה על כפתור השליחה).
+    </string>
     <string name="title_advanced_sign_default">חתימה כבררת מחדל</string>
     <string name="title_advanced_encrypt_default">הצפנה כבררת מחדל</string>
     <string name="title_advanced_encrypt_auto">להצפין אוטומטית כשכל מפתחות הנמענים זמינים</string>
@@ -739,7 +742,9 @@
     <string name="title_advanced_language">שפה</string>
     <string name="title_advanced_language_system">מערכת</string>
     <string name="title_advanced_lt">שילוב מול LanguageTool</string>
+    <string name="title_advanced_lt_sentence">לבדוק כל משפט</string>
     <string name="title_advanced_lt_auto">בדיקת פסקה אחרי שורה חדשה</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">הדגשת הטקסט המסומן</string>
     <string name="title_advanced_lt_user">שם משתמש (רשות)</string>
     <string name="title_advanced_lt_key">מפתח API (רשות)</string>
     <string name="title_advanced_deepl">שילוב של DeepL</string>
@@ -1411,6 +1416,7 @@
     <string name="title_translate_formal">להשתמש בשפה רשמית</string>
     <string name="title_translate_small">להשתמש בגופן קטן לטקסט המקור</string>
     <string name="title_translate_replace">החלפת טקסט המקור בטקסט מתורגם</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">הדגשת הטקסט המתורגם</string>
     <string name="title_translate_html">שימור עיצוב</string>
     <string name="title_translate_html_hint">יצרוך יותר תווים</string>
     <string name="title_translate_usage">שימוש: %1$s / %2$s (%3$d %%)</string>
@@ -1913,6 +1919,7 @@
     <string name="title_loading">בטעינה &#8230;</string>
     <string name="title_fetching_again">ההודעה נמשכת מהשרת שוב</string>
     <string name="title_go_back">חזרה</string>
+    <string name="title_global_default">להשתמש בברירת המחדל הכללית</string>
     <string name="title_conversation_actions">פעולות</string>
     <string name="title_conversation_action_reply">להגיב עם: ‚%1$s’</string>
     <string name="title_conversation_action_copy">העתקה: ‚%1$s’</string>
@@ -1958,6 +1965,8 @@
     <string name="title_debug_info_issue">תיאור התקלה (חובה)</string>
     <string name="title_debug_info_issue_remark">פרטים כגון זמן תקלה משוערך, הודעת השגיאה המדויקת וכו׳ הם חיוניים</string>
     <string name="title_debug_info_contact">לאחרונה יצרנו קשר סביב הבעיה הזאת</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">לשלוח מייד</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">בדרך כלל, פרטי השגיאה יאוחסנו כהודעת טיוטה תחילה, כדי לאפשר לך לסקור מה יישלח</string>
     <string name="title_unexpected_info_remark">נא לתאר באנגלית מה עשית כשהופיעה השגיאה:</string>
     <string name="title_widget_title_count">מונה הודעות חדשות</string>
     <string name="title_widget_title_list">רשימת הודעות</string>

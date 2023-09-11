@@ -741,7 +741,9 @@
     <string name="title_advanced_language">Язык</string>
     <string name="title_advanced_language_system">Системный</string>
     <string name="title_advanced_lt">Интеграция с LanguageTool</string>
+    <string name="title_advanced_lt_sentence">Проверять каждое предложение</string>
     <string name="title_advanced_lt_auto">Проверять абзац после новой строки</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Выделять проверяемый текст</string>
     <string name="title_advanced_lt_user">Пользователь (необязательно)</string>
     <string name="title_advanced_lt_key">Ключ API (необязательно)</string>
     <string name="title_advanced_deepl">Интеграция с DeepL</string>
@@ -1413,6 +1415,7 @@
     <string name="title_translate_formal">Использовать формальный стиль</string>
     <string name="title_translate_small">Использовать мелкий шрифт для исходного текста</string>
     <string name="title_translate_replace">Заменять исходный текст переводом</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Выделять переводимый текст</string>
     <string name="title_translate_html">Сохранять форматирование</string>
     <string name="title_translate_html_hint">Будет использоваться больше символов</string>
     <string name="title_translate_usage">Использование: %1$s / %2$s (%3$d %%)</string>
@@ -1915,7 +1918,7 @@
     <string name="title_loading">Загрузка&#8230;</string>
     <string name="title_fetching_again">Заново загружаем сообщения с сервера</string>
     <string name="title_go_back">Назад</string>
-    <string name="title_global_default" comment="title_global_default&#10;Title for selection option to indicate to use the global setting, instead of a more specific setting">Использовать общее значение по умолчанию</string>
+    <string name="title_global_default">Использовать общее значение по умолчанию</string>
     <string name="title_conversation_actions">Действия</string>
     <string name="title_conversation_action_reply">Ответить на: \"%1$s\"</string>
     <string name="title_conversation_action_copy">Копировать: \"%1$s\"</string>
@@ -1961,6 +1964,8 @@
     <string name="title_debug_info_issue">Описание проблемы (обязательно)</string>
     <string name="title_debug_info_issue_remark">Важны такие детали, как предполагаемое время возникновения проблемы, точное сообщение об ошибке и т.д.</string>
     <string name="title_debug_info_contact">Недавно мы общались по поводу этой проблемы</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Отправлять сразу</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Обычно отладочная информация сначала сохраняется в виде черновика сообщения, так что вы можете проверить, что будет отправлено</string>
     <string name="title_unexpected_info_remark">Пожалуйста, опишите, что вы делали, когда получили ошибку:</string>
     <string name="title_widget_title_count">Количество новых сообщений</string>
     <string name="title_widget_title_list">Список сообщений</string>

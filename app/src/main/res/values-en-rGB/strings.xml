@@ -32,7 +32,7 @@
 Other: %1$d minutes</string>
     <string name="menu_answers">Templates</string>
     <string name="menu_rules">Filter rules</string>
-    <string name="menu_operations">Executions</string>
+    <string name="menu_operations">Jobs</string>
     <string name="menu_contacts">Local contacts</string>
     <string name="menu_setup">Configuration</string>
     <string name="menu_legend">Key</string>
@@ -113,7 +113,8 @@ Other: %1$d minutes</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_empty_trash_ask">Remove all deleted messages permanently?</string>
     <string name="title_empty_trash_all_ask">Remove all deleted messages of all accounts permanently?</string>
-    <string name="title_hint_operations">Deleting operations can result in disappearing messages and synchronisation problems</string>
+    <string name="title_no_operations">No pending jobs</string>
+    <string name="title_hint_operations">Deleting jobs can result in disappearing messages and synchronisation problems</string>
     <string name="title_synchronize_folder">Synchronise (receive messages)</string>
     <string name="title_poll_folder">Check periodically instead of continuous synchronise</string>
     <string name="title_sync_days">Synchronise messages (days)</string>

@@ -672,6 +672,9 @@
     <string name="title_advanced_mnemonic_hint">Οποιοδήποτε μήνυμα έχει ληφθεί και έχει τις παρακάτω λέξεις στη γραμμή θέματος, θα διαγράψει αυτόματα και αμέσως τα δεδομένα της εφαρμογής</string>
     <string name="title_advanced_clear_all">Διαγραφή των δεδομένων της εφαρμογής</string>
     <string name="title_advanced_clear_all_remark">Τα δεδομένα της εφαρμογής θα διαγραφούν αμετάκλητα!</string>
+    <string name="title_advanced_default_encryption">        Η προκαθορισμένη μέθοδος κρυπτογράφησης (PGP ή S/MIME) θα αποθηκευτεί για κάθε ταυτότητα ξεχωριστά μετά την αποστολή ενός υπογεγραμμένου ή κρυπτογραφημένου μηνύματος.
+        Η μέθοδος κρυπτογράφησης μπορεί να επιλεχθεί πριν την αποστολή, στο παράθυρο διαλόγου των επιλογών αποστολής (παρατεταμένο πάτημα στο κουμπί αποστολής).
+    </string>
     <string name="title_advanced_sign_default">Υπογραφή από προεπιλογή</string>
     <string name="title_advanced_encrypt_default">Κρυπτογράφηση από προεπιλογή</string>
     <string name="title_advanced_encrypt_auto">Αυτόματη κρυπτογράφηση όταν τα κλειδιά όλων των παραληπτών είναι διαθέσιμα</string>
@@ -708,7 +711,9 @@
     <string name="title_advanced_language">Γλώσσα</string>
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_lt">Ενσωμάτωση του LanguageTool</string>
+    <string name="title_advanced_lt_sentence">Έλεγχος κάθε πρότασης</string>
     <string name="title_advanced_lt_auto">Έλεγχος της παραγράφου μετά από μία νέα γραμμή</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Επισήμανση του υπό έλεγχο κειμένου</string>
     <string name="title_advanced_lt_user">Όνομα χρήστη (προαιρετικό)</string>
     <string name="title_advanced_lt_key">Κλειδί API (προαιρετικό)</string>
     <string name="title_advanced_deepl">Ενσωμάτωση DeepL</string>
@@ -1377,6 +1382,7 @@
     <string name="title_translate_formal">Χρήση επίσημου ύφους</string>
     <string name="title_translate_small">Χρήση μιας μικρής γραμματοσειράς για το πηγαίο κείμενο</string>
     <string name="title_translate_replace">Αντικατάσταση πηγαίου κειμένου από μεταφρασμένο κείμενο</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Επισήμανση του υπό μετάφραση κειμένου</string>
     <string name="title_translate_html">Διατήρηση μορφοποίησης</string>
     <string name="title_translate_html_hint">Για αυτό θα χρειαστούν περισσότεροι χαρακτήρες</string>
     <string name="title_translate_usage">Χρήση: %1$s / %2$s (%3$d %%)</string>
@@ -1879,6 +1885,7 @@
     <string name="title_loading">Φόρτωση &#8230;</string>
     <string name="title_fetching_again">Ανάκτηση του μηνύματος εκ νέου από τον διακομιστή</string>
     <string name="title_go_back">Μετάβαση πίσω</string>
+    <string name="title_global_default">Χρήση της γενικής προεπιλογής</string>
     <string name="title_conversation_actions">Ενέργειες</string>
     <string name="title_conversation_action_reply">Απάντηση με: %1$s</string>
     <string name="title_conversation_action_copy">Αντιγραφή: %1$s</string>
@@ -1923,6 +1930,8 @@
     <string name="title_debug_info_issue">Περιγραφή προβλήματος (απαιτείται)</string>
     <string name="title_debug_info_issue_remark">Λεπτομέρειες, όπως ο εκτιμώμενος χρόνος του προβλήματος, το ακριβές μήνυμα σφάλματος κλπ., είναι σημαντικές</string>
     <string name="title_debug_info_contact">Είχαμε πρόσφατα επικοινωνήσει σχετικά με αυτό το πρόβλημα</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Άμεση αποστολή</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Κανονικά, οι πληροφορίες αποσφαλμάτωσης θα αποθηκευτούν πρώτα ως πρόχειρο μήνυμα, ώστε να μπορείτε να ελέγξετε τι θα αποσταλεί</string>
     <string name="title_unexpected_info_remark">Παρακαλούμε, περιγράψτε τι κάνατε όταν λάβατε το μήνυμα σφάλματος:</string>
     <string name="title_widget_title_count">Αριθμός νέων μηνυμάτων</string>
     <string name="title_widget_title_list">Λίστα μηνυμάτων</string>

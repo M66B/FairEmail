@@ -1852,6 +1852,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_loading">Memuat &#8230;</string>
     <string name="title_fetching_again">Mengambil pesan lagi dari server</string>
     <string name="title_go_back">Kembali</string>
+    <string name="title_global_default">Gunakan setelan global</string>
     <string name="title_conversation_actions">Tindakan</string>
     <string name="title_conversation_action_reply">Balas dengan: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Salin: \'%1$s\'</string>
