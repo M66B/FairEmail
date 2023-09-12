@@ -14,7 +14,7 @@ Just select the appropriate provider or *Other provider* and enter your name, em
 
 If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
 
-## Настройка на профил - за получаване на имейл
+## Настройка на акаунт - за получаване на имейл
 
 To add an account, tap *Manual setup and more options*, tap *Accounts* and tap the 'plus' button at the bottom and select IMAP (or POP3). Изберете доставчик от списъка, въведете потребител, който обикновено е вашият имейл адрес и въведете парола. Натиснете *Проверка*, за да може FairEmail да се свърже с имейл сървъра и да извлече списъка със системни папки. След като прегледате системните папки можете да добавите акаунта, като натиснете * Запази*.
 

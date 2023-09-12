@@ -1562,7 +1562,7 @@
     <string name="title_sort_on_order">Порядок</string>
     <string name="title_sort_on_applied">Кількість застосувань</string>
     <string name="title_sort_on_last_applied">Востаннє застосовано</string>
-    <string name="title_filter">Приховати</string>
+    <string name="title_filter">Відфільтрувати</string>
     <string name="title_filter_seen">Прочитані</string>
     <string name="title_filter_unflagged">Необрані</string>
     <string name="title_filter_unknown">Невідомі відправники</string>
