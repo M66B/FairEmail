@@ -3930,7 +3930,10 @@ public class MessageHelper {
                         result = HtmlHelper.formatPlainText(Log.formatThrowable(ex));
                     }
                 } else if (h.isPatch()) {
-                    result = "<pre style=\"font-family: monospace; font-size:small;\">" + HtmlHelper.formatPlainText(result) + "</pre>";
+                    result = "<hr>" +
+                            "<pre style=\"font-family: monospace; font-size:small;\">" +
+                            HtmlHelper.formatPlainText(result) +
+                            "</pre>";
                 } else if (h.isReport()) {
                     Report report = new Report(h.contentType.getBaseType(), result);
                     result = report.html;
