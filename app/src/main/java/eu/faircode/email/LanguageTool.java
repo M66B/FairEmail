@@ -289,12 +289,11 @@ public class LanguageTool {
                     suggestion.replacements.add(jreplacement.getString("value"));
                 }
 
-                if (suggestion.replacements.size() > 0)
-                    result.add(suggestion);
-
                 JSONObject jrule = jmatch.optJSONObject("rule");
                 if (jrule != null)
                     suggestion.issueType = jrule.optString("issueType");
+
+                result.add(suggestion);
             }
 
             return result;
@@ -484,7 +483,7 @@ public class LanguageTool {
         public SuggestionSpanEx(Context context, String[] suggestions, boolean misspelled) {
             super(context, suggestions,
                     misspelled || Build.VERSION.SDK_INT < Build.VERSION_CODES.S
-                            ? SuggestionSpan.FLAG_MISSPELLED
+                            ? SuggestionSpan.FLAG_MISSPELLED | SuggestionSpan.FLAG_EASY_CORRECT
                             : SuggestionSpan.FLAG_GRAMMAR_ERROR);
             highlightColor = Helper.resolveColor(context, android.R.attr.textColorHighlight);
             underlineColor = (misspelled ? Color.RED : highlightColor);
