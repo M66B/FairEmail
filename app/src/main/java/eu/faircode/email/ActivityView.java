@@ -244,7 +244,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         int layout = (config.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK);
         Log.i("Orientation=" + config.orientation + " layout=" + layout +
                 " portrait rows=" + portrait2 + " cols=" + portrait2c + " min=" + portrait_min_size +
-                " landscape cols=" + landscape + " min=" + landscape);
+                " landscape cols=" + landscape + " min=" + landscape_min_size);
         boolean duo = Helper.isSurfaceDuo();
         boolean close_pane = prefs.getBoolean("close_pane", !duo);
         boolean open_pane = (!close_pane && prefs.getBoolean("open_pane", false));
