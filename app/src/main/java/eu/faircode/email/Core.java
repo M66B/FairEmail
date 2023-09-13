@@ -2039,8 +2039,18 @@ class Core {
 
         // Get message
         Message imessage = ifolder.getMessageByUID(message.uid);
-        if (imessage == null)
-            throw new MessageRemovedException();
+        if (imessage == null) {
+            File file = message.getFile(context);
+            Helper.writeText(file, "");
+            db.message().setMessageContent(message.id,
+                    true,
+                    null,
+                    null,
+                    null,
+                    context.getString(R.string.title_not_existing));
+            return;
+            //throw new MessageRemovedException();
+        }
 
         MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
         MessageHelper.MessageParts parts = helper.getMessageParts();
