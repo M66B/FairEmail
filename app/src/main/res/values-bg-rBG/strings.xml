@@ -167,6 +167,7 @@
     <string name="title_setup_import_graph_new">Нови контакти: %1$s</string>
     <string name="title_setup_doze">Изключване на оптимизирането на батерията</string>
     <string name="title_setup_doze_explanation">Оптимизиране на батерията трябва да се изключи за приложения, за да се осигури надеждно изпращане и получаване на съобщения във фонов режим</string>
+    <string name="title_setup_doze_aggressively">Това устройство може да спре услугата за синхро.</string>
     <string name="title_setup_doze_battery">Висока конс. на батерия?</string>
     <string name="title_setup_doze_stopped">Спирате ли синхрото?</string>
     <string name="title_setup_doze_device">Това вероятно се изисква за устройството</string>
@@ -362,6 +363,7 @@
     <string name="title_advanced_unzip">Показване на съдържание на компресирани прикачвания</string>
     <string name="title_advanced_attachments_alt">Покажи прикачените файлове след текста на съобщението</string>
     <string name="title_advanced_thumbnails">Показване на миниатюри на изображения след текста на съобщението</string>
+    <string name="title_advanced_message_text_zoom2">Подразбиращ се мащаб на текста на съобщение: %1$s %%</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
     <string name="title_advanced_monospaced">Използвайте monospaced шрифт за текст на съобщението по подразбиране</string>
     <string name="title_advanced_text_color">Избери цвят на текста</string>
@@ -594,6 +596,7 @@
     <string name="title_port">Номер на порт</string>
     <string name="title_user">Потребителско име</string>
     <string name="title_password">Парола</string>
+    <string name="title_password_storage">Как се складират паролите?</string>
     <string name="title_case_sensitive">Потребителските имена и пароли обикновено различават главни от малки букви</string>
     <string name="title_client_certificate">Сертификат на клиента</string>
     <string name="title_realm">Област</string>
@@ -694,6 +697,7 @@
     <string name="title_delete_operation_flag">Операции за знамена</string>
     <string name="title_delete_operation_delete">Изтриване на операции</string>
     <string name="title_delete_operation_deleted">%1$d изтрити операции</string>
+    <string name="title_delete_contacts">Изтривате ли видимите местни контакти?</string>
     <string name="title_no_operations">Няма чакащи операции</string>
     <string name="title_check_operations">Проверяване за операции</string>
     <string name="title_hint_operations">Изтриването на операции може да доведе до изчезване на съобщения и проблеми със синхронизацията</string>
@@ -791,6 +795,7 @@
     <string name="title_download_all">Изтегляне на всичко</string>
     <string name="title_save_all">Запис на всичко</string>
     <string name="title_save_eml">Запиши необработено съобщение</string>
+    <string name="title_save_file">Запазване на файла</string>
     <string name="title_buttons">Изберете бутони</string>
     <string name="title_button_search_similar">Търсене на подобни съобщения</string>
     <string name="title_quick_actions">Изберете действия</string>

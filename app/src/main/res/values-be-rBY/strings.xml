@@ -745,6 +745,7 @@
     <string name="title_advanced_lt">Інтэграцыя з LanguageTool</string>
     <string name="title_advanced_lt_sentence">Правяраць кожны сказ</string>
     <string name="title_advanced_lt_auto">Правяраць абзац пасля новага радка</string>
+    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Вылучаць тэкст пры праверцы</string>
     <string name="title_advanced_lt_user">Імя карыстальніка (неабавязкова)</string>
     <string name="title_advanced_lt_key">Ключ API (неабавязкова)</string>
     <string name="title_advanced_deepl">Інтэграцыя з DeepL</string>
@@ -1418,6 +1419,7 @@
     <string name="title_translate_formal">Выкарыстоўваць афіцыйны стыль</string>
     <string name="title_translate_small">Выкарыстоўваць дробны шрыфт для зыходнага тэксту</string>
     <string name="title_translate_replace">Замяняць зыходны тэкст на перакладзены</string>
+    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Вылучаць тэкст пры перакладзе</string>
     <string name="title_translate_html">Захоўваць фарматаванне</string>
     <string name="title_translate_html_hint">Будзе выкарыстоўвацца больш сімвалаў</string>
     <string name="title_translate_usage">Выкарыстанне: %1$s / %2$s (%3$d %%)</string>
@@ -1966,6 +1968,8 @@
     <string name="title_debug_info_issue">Апісанне праблемы (абавязкова)</string>
     <string name="title_debug_info_issue_remark">Звесткі, такія як прыблізны час узнікнення праблемы, дакладнае паведамленне аб памылцы і г. д., з\'яўляюцца важнымі</string>
     <string name="title_debug_info_contact">Мы нядаўна абмяркоўвалі гэту праблему</string>
+    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Адправіць неадкладна</string>
+    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Звычайна інфармацыя аб адладцы спачатку захоўваецца як чарнавік паведамлення, каб вы маглі праверыць, што будзе адпраўлена</string>
     <string name="title_unexpected_info_remark">Калі ласка, апішыце, што вы рабілі, калі з\'явілася памылка:</string>
     <string name="title_widget_title_count">Колькасць новых паведамленняў</string>
     <string name="title_widget_title_list">Спіс паведамленняў</string>
