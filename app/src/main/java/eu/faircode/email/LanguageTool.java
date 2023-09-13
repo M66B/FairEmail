@@ -22,13 +22,12 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.LocaleList;
 import android.text.Editable;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
-import android.text.TextPaint;
 import android.text.TextUtils;
 import android.text.style.SuggestionSpan;
 import android.util.Pair;
@@ -43,7 +42,6 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
@@ -425,7 +423,24 @@ public class LanguageTool {
                 boolean misspelled = ("misspelling".equals(suggestion.issueType) ||
                         "typographical".equals(suggestion.issueType) ||
                         "whitespace".equals(suggestion.issueType));
+                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+                if (!TextUtils.isEmpty(suggestion.title))
+                    ssb.append(suggestion.title);
+                if (!TextUtils.isEmpty(suggestion.description)) {
+                    if (ssb.length() > 0)
+                        ssb.append(": ");
+                    ssb.append(suggestion.description);
+                }
+                if (!TextUtils.isEmpty(suggestion.issueType)) {
+                    int len = ssb.length();
+                    if (len > 0)
+                        ssb.append(" (");
+                    ssb.append(suggestion.issueType);
+                    if (len > 0)
+                        ssb.append(")");
+                }
                 SuggestionSpan span = new SuggestionSpanEx(etBody.getContext(),
+                        ssb.toString(),
                         suggestion.replacements.toArray(new String[0]), misspelled);
                 int s = start + suggestion.offset;
                 int e = s + suggestion.length;
@@ -472,42 +487,6 @@ public class LanguageTool {
         @Override
         public String toString() {
             return issueType + " " + title + " " + description;
-        }
-    }
-
-    private static class SuggestionSpanEx extends SuggestionSpan {
-        private final int highlightColor;
-        private final int underlineColor;
-        private final int underlineThickness;
-
-        public SuggestionSpanEx(Context context, String[] suggestions, boolean misspelled) {
-            super(context, suggestions,
-                    misspelled || Build.VERSION.SDK_INT < Build.VERSION_CODES.S
-                            ? SuggestionSpan.FLAG_MISSPELLED | SuggestionSpan.FLAG_EASY_CORRECT
-                            : SuggestionSpan.FLAG_GRAMMAR_ERROR);
-            highlightColor = Helper.resolveColor(context, android.R.attr.textColorHighlight);
-            underlineColor = (misspelled ? Color.RED : highlightColor);
-            underlineThickness = Helper.dp2pixels(context, misspelled ? 2 : 2);
-        }
-
-        @Override
-        public void updateDrawState(TextPaint tp) {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
-                try {
-                    Field fUnderlineColor = tp.getClass().getDeclaredField("underlineColor");
-                    Field fUnderlineThickness = tp.getClass().getDeclaredField("underlineThickness");
-                    fUnderlineColor.setAccessible(true);
-                    fUnderlineThickness.setAccessible(true);
-                    fUnderlineColor.set(tp, underlineColor);
-                    fUnderlineThickness.set(tp, underlineThickness);
-                } catch (Throwable ex) {
-                    Log.i(ex);
-                    tp.bgColor = highlightColor;
-                }
-            else {
-                tp.underlineColor = underlineColor;
-                tp.underlineThickness = underlineThickness;
-            }
         }
     }
 }

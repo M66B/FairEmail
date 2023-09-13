@@ -114,6 +114,8 @@ public class EditTextCompose extends FixedEditText {
                                 order++, context.getString(R.string.title_insert_brackets));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_quotes,
                                 order++, context.getString(R.string.title_insert_quotes));
+                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_setup_help,
+                                order++, context.getString(R.string.title_setup_help));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_lt_add,
                                 order++, context.getString(R.string.title_lt_add));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_lt_delete,
@@ -131,6 +133,10 @@ public class EditTextCompose extends FixedEditText {
                     boolean selection = (start >= 0 && start < end);
                     Context context = getContext();
                     Editable edit = getText();
+                    SuggestionSpanEx[] suggestion = (edit == null ? null
+                            : edit.getSpans(start, end, SuggestionSpanEx.class));
+                    boolean hasSuggestions = (suggestion != null && suggestion.length > 0 &&
+                            !TextUtils.isEmpty(suggestion[0].getDescription()));
                     boolean dictionary = (selection &&
                             context instanceof AppCompatActivity &&
                             LanguageTool.isPremium(context) &&
@@ -138,6 +144,7 @@ public class EditTextCompose extends FixedEditText {
                             edit.subSequence(start, end).toString().indexOf(' ') < 0);
                     menu.findItem(R.string.title_insert_brackets).setVisible(selection);
                     menu.findItem(R.string.title_insert_quotes).setVisible(selection);
+                    menu.findItem(R.string.title_setup_help).setVisible(hasSuggestions);
                     menu.findItem(R.string.title_lt_add).setVisible(dictionary);
                     menu.findItem(R.string.title_lt_delete).setVisible(dictionary);
                     return false;
@@ -151,7 +158,12 @@ public class EditTextCompose extends FixedEditText {
                             return surround("(", ")");
                         else if (id == R.string.title_insert_quotes)
                             return surround("\"", "\"");
-                        else if (id == R.string.title_lt_add)
+                        else if (id == R.string.title_setup_help) {
+                            if (showSuggestion()) {
+                                mode.finish();
+                                return true;
+                            }
+                        } else if (id == R.string.title_lt_add)
                             return modifyDictionary(true);
                         else if (id == R.string.title_lt_delete)
                             return modifyDictionary(false);
@@ -226,6 +238,21 @@ public class EditTextCompose extends FixedEditText {
                         }
                     }.execute(activity, args, "dictionary:modify");
 
+                    return true;
+                }
+
+                private boolean showSuggestion() {
+                    Editable edit = getText();
+                    if (edit == null)
+                        return false;
+                    int start = getSelectionStart();
+                    int end = getSelectionEnd();
+                    if (end <= start)
+                        return false;
+                    SuggestionSpanEx[] suggestions = edit.getSpans(start, end, SuggestionSpanEx.class);
+                    if (suggestions == null || suggestions.length == 0)
+                        return false;
+                    ToastEx.makeText(getContext(), suggestions[0].getDescription(), Toast.LENGTH_LONG).show();
                     return true;
                 }
             });
