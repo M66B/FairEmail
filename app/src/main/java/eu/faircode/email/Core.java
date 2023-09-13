@@ -4466,7 +4466,7 @@ class Core {
                                 MimeMessage existing = (MimeMessage) ifolder.getMessageByUID(dup.uid);
                                 if (existing != null &&
                                         msgid.equals(existing.getHeader(MessageHelper.HEADER_CORRELATION_ID, null))) {
-                                    Log.e(folder.name + " late draft" +
+                                    Log.w(folder.name + " late draft" +
                                             " host=" + account.host + " uid=" + dup.uid + "<" + uid);
                                     existing.setFlag(Flags.Flag.DELETED, true);
                                     expunge(context, ifolder, Arrays.asList(existing));
@@ -4474,7 +4474,7 @@ class Core {
                                 }
                             } else if (dup.uid > uid) {
                                 if (msgid.equals(imessage.getHeader(MessageHelper.HEADER_CORRELATION_ID, null))) {
-                                    Log.e(folder.name + " late draft" +
+                                    Log.w(folder.name + " late draft" +
                                             " host=" + account.host + " uid=" + dup.uid + ">" + uid);
                                     imessage.setFlag(Flags.Flag.DELETED, true);
                                     expunge(context, ifolder, Arrays.asList(imessage));
