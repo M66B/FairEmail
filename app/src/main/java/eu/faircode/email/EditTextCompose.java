@@ -77,6 +77,10 @@ public class EditTextCompose extends FixedEditText {
     private int colorBlockquote;
     private int quoteGap;
     private int quoteStripe;
+    private boolean lt_description;
+
+    private int lastStart = -1;
+    private int lastEnd = -1;
 
     public EditTextCompose(Context context) {
         super(context);
@@ -96,12 +100,13 @@ public class EditTextCompose extends FixedEditText {
     void init(Context context) {
         Helper.setKeyboardIncognitoMode(this, context);
 
-        colorPrimary = Helper.resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
-        colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
-        quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
-        quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
+        this.colorPrimary = Helper.resolveColor(context, androidx.appcompat.R.attr.colorPrimary);
+        this.colorBlockquote = Helper.resolveColor(context, R.attr.colorBlockquote, colorPrimary);
+        this.quoteGap = context.getResources().getDimensionPixelSize(R.dimen.quote_gap_size);
+        this.quoteStripe = context.getResources().getDimensionPixelSize(R.dimen.quote_stripe_width);
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        this.lt_description = prefs.getBoolean("lt_description", false);
         boolean undo_manager = prefs.getBoolean("undo_manager", false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -114,8 +119,6 @@ public class EditTextCompose extends FixedEditText {
                                 order++, context.getString(R.string.title_insert_brackets));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_insert_quotes,
                                 order++, context.getString(R.string.title_insert_quotes));
-                        menu.add(Menu.CATEGORY_SECONDARY, R.string.title_setup_help,
-                                order++, context.getString(R.string.title_setup_help));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_lt_add,
                                 order++, context.getString(R.string.title_lt_add));
                         menu.add(Menu.CATEGORY_SECONDARY, R.string.title_lt_delete,
@@ -144,7 +147,6 @@ public class EditTextCompose extends FixedEditText {
                             edit.subSequence(start, end).toString().indexOf(' ') < 0);
                     menu.findItem(R.string.title_insert_brackets).setVisible(selection);
                     menu.findItem(R.string.title_insert_quotes).setVisible(selection);
-                    menu.findItem(R.string.title_setup_help).setVisible(hasSuggestions);
                     menu.findItem(R.string.title_lt_add).setVisible(dictionary);
                     menu.findItem(R.string.title_lt_delete).setVisible(dictionary);
                     return false;
@@ -158,13 +160,6 @@ public class EditTextCompose extends FixedEditText {
                             return surround("(", ")");
                         else if (id == R.string.title_insert_quotes)
                             return surround("\"", "\"");
-                        else if (id == R.string.title_setup_help) {
-                            if (showSuggestion()) {
-                                mode.finish();
-                                return true;
-                            }
-                        } else if (id == R.string.title_lt_add)
-                            return modifyDictionary(true);
                         else if (id == R.string.title_lt_delete)
                             return modifyDictionary(false);
                     }
@@ -238,21 +233,6 @@ public class EditTextCompose extends FixedEditText {
                         }
                     }.execute(activity, args, "dictionary:modify");
 
-                    return true;
-                }
-
-                private boolean showSuggestion() {
-                    Editable edit = getText();
-                    if (edit == null)
-                        return false;
-                    int start = getSelectionStart();
-                    int end = getSelectionEnd();
-                    if (end <= start)
-                        return false;
-                    SuggestionSpanEx[] suggestions = edit.getSpans(start, end, SuggestionSpanEx.class);
-                    if (suggestions == null || suggestions.length == 0)
-                        return false;
-                    ToastEx.makeText(getContext(), suggestions[0].getDescription(), Toast.LENGTH_LONG).show();
                     return true;
                 }
             });
@@ -477,6 +457,20 @@ public class EditTextCompose extends FixedEditText {
         super.onSelectionChanged(selStart, selEnd);
         if (selectionListener != null)
             selectionListener.onSelected(hasSelection());
+
+        if (selStart != lastStart && selEnd != lastEnd) {
+            lastStart = selStart;
+            lastEnd = selEnd;
+            Editable edit = getText();
+            if (lastStart >= 0 && edit != null && lt_description) {
+                SuggestionSpanEx[] suggestions = getText().getSpans(selStart, selEnd, SuggestionSpanEx.class);
+                if (suggestions != null && suggestions.length > 0) {
+                    String description = suggestions[0].getDescription();
+                    if (!TextUtils.isEmpty(description))
+                        ToastEx.makeText(getContext(), description, Toast.LENGTH_LONG).show();
+                }
+            }
+        }
     }
 
     @Override
