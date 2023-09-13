@@ -2945,7 +2945,7 @@ class Core {
         for (String name : local.keySet()) {
             EntityFolder folder = local.get(name);
             if (EntityFolder.INBOX.equals(folder.type)) {
-                Log.e(account.host + " keep inbox");
+                Log.w(account.host + " keep inbox");
                 continue;
             }
             List<EntityFolder> childs = parentFolders.get(name);
