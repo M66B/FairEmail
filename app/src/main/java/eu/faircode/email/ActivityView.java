@@ -696,9 +696,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 ibExpanderExtra.setImageLevel(minimal ? 1 /* more */ : 0 /* less */);
                 rvMenuExtra.setVisibility(minimal ? View.GONE : View.VISIBLE);
                 if (!minimal)
-                    getMainHandler().post(new Runnable() {
+                    getMainHandler().post(new RunnableEx("fullScroll") {
                         @Override
-                        public void run() {
+                        public void delegate() {
                             drawerContainer.fullScroll(View.FOCUS_DOWN);
                         }
                     });
