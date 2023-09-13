@@ -237,7 +237,7 @@ public class ParameterList {
 	    if ((char)type == ';' || type == HeaderTokenizer.Token.ATOM) {
 		// expect parameter name
             if (type == HeaderTokenizer.Token.ATOM)
-                eu.faircode.email.Log.e("In parameter list <" + s + ">" +
+                eu.faircode.email.Log.w("In parameter list <" + s + ">" +
                         ", at " + h.getNextPos() +
                         ", expected ';', allowing \"" +
                         tk.getValue() + "\"");
@@ -250,7 +250,7 @@ public class ParameterList {
 		// parameter name must be a MIME Atom
 		if (tk.getType() != HeaderTokenizer.Token.ATOM) {
 			if (!recovered && !eu.faircode.email.BuildConfig.PLAY_STORE_RELEASE)
-				eu.faircode.email.Log.e("In parameter list <" + s + ">" +
+				eu.faircode.email.Log.w("In parameter list <" + s + ">" +
 						", at " + h.getNextPos() +
 						", expected parameter name, " +
 						"got \"" + tk.getValue() + "\"");
@@ -263,7 +263,7 @@ public class ParameterList {
 		tk = h.next();
 		if ((char)tk.getType() != '=') {
 			if (!recovered && !eu.faircode.email.BuildConfig.PLAY_STORE_RELEASE)
-				eu.faircode.email.Log.e("In parameter list <" + s + ">" +
+				eu.faircode.email.Log.w("In parameter list <" + s + ">" +
 						", at " + h.getNextPos() +
 						", expected '=', " +
 						"got \"" + tk.getValue() + "\"");
@@ -284,7 +284,7 @@ public class ParameterList {
 		if (type != HeaderTokenizer.Token.ATOM &&
 		    type != HeaderTokenizer.Token.QUOTEDSTRING) {
 			if (!recovered && !eu.faircode.email.BuildConfig.PLAY_STORE_RELEASE)
-				eu.faircode.email.Log.e("In parameter list <" + s + ">" +
+				eu.faircode.email.Log.w("In parameter list <" + s + ">" +
 						", at " + h.getNextPos() +
 						", expected parameter value, " +
 						"got \"" + tk.getValue() + "\"");
@@ -317,7 +317,7 @@ public class ParameterList {
 		    list.put(lastName, value);
                 } else {
 			if (!recovered && !eu.faircode.email.BuildConfig.PLAY_STORE_RELEASE)
-				eu.faircode.email.Log.e("In parameter list <" + s + ">" +
+				eu.faircode.email.Log.w("In parameter list <" + s + ">" +
 						", at " + h.getNextPos() +
 						", expected ';', got \"" +
 						tk.getValue() + "\"");
