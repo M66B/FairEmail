@@ -4920,6 +4920,7 @@ public class MessageHelper {
                         !("mixed".equalsIgnoreCase(ct.getSubType()) ||
                                 "alternative".equalsIgnoreCase(ct.getSubType()) ||
                                 "related".equalsIgnoreCase(ct.getSubType()) ||
+                                "relative".equalsIgnoreCase(ct.getSubType()) || // typo?
                                 "report".equalsIgnoreCase(ct.getSubType()) ||
                                 "parallel".equalsIgnoreCase(ct.getSubType()) ||
                                 "digest".equalsIgnoreCase(ct.getSubType()) ||
