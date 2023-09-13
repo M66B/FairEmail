@@ -799,6 +799,19 @@
             starttls="false" />
     </provider>
     <provider
+        name="Zoho pro"
+        documentation="You might need to use &lt;a href=&quot;https://help.zoho.com/portal/en/kb/bigin/channels/email/articles/generate-an-app-specific-password&quot;&gt;an app password&lt;/a&gt;."
+        maxtls="1.2">
+        <imap
+            host="imappro.zoho.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtppro.zoho.com"
+            port="465"
+            starttls="false" />
+    </provider>
+    <provider
         name="Mail.ru"
         domain="mail\\.ru,inbox\\.ru,list\\.ru,bk\\.ru"
         id="mailru"
