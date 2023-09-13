@@ -1028,7 +1028,8 @@ public interface DaoMessage {
             " AND id NOT IN (" +
             "    SELECT id FROM message" +
             "    WHERE folder = :folder" +
+            "    AND stored < :before" +
             "    ORDER BY received DESC" +
             "    LIMIT :keep)")
-    int deleteMessagesKeep(long folder, int keep);
+    int deleteMessagesKeep(long folder, int keep, long before);
 }
