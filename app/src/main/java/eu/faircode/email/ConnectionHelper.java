@@ -535,17 +535,14 @@ public class ConnectionHelper {
         if (cm == null)
             return false;
 
+        // The active network doesn't necessarily have VPN transport
+        //   active=... caps=[ Transports: WIFI Capabilities: ...&NOT_VPN&...
+        //   network=... caps=[ Transports: WIFI|VPN Capabilities: ...
+
         try {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                for (Network network : cm.getAllNetworks()) {
-                    NetworkCapabilities caps = cm.getNetworkCapabilities(network);
-                    if (caps != null && !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN))
-                        return true;
-                }
-            } else {
-                Network active = cm.getActiveNetwork();
-                NetworkCapabilities caps = (active == null ? null : cm.getNetworkCapabilities(active));
-                if (caps != null && !caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_NOT_VPN))
+            for (Network network : cm.getAllNetworks()) {
+                NetworkCapabilities caps = cm.getNetworkCapabilities(network);
+                if (caps != null && caps.hasTransport(NetworkCapabilities.TRANSPORT_VPN))
                     return true;
             }
         } catch (Throwable ex) {
