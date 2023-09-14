@@ -694,6 +694,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Integrasi LanguageTool</string>
     <string name="title_advanced_lt_auto">Periksa paragraf setelah baris baru</string>
+    <string name="title_advanced_lt_highlight">Sorot teks yang sedang diperiksa</string>
     <string name="title_advanced_lt_user">Nama Pengguna (opsional)</string>
     <string name="title_advanced_lt_key">Kunci API (opsional)</string>
     <string name="title_advanced_deepl">Integrasi DeepL</string>
@@ -1357,6 +1358,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_translate_formal">Gunakan format formal</string>
     <string name="title_translate_small">Gunakan font kecil untuk tulisan sumber</string>
     <string name="title_translate_replace">Ganti teks sumber dengan teks terjemahan</string>
+    <string name="title_translate_highlight">Sorot teks yang sedang diterjemah</string>
     <string name="title_translate_html">Simpan format</string>
     <string name="title_translate_html_hint">Hal ini akan menggunakan banyak karakter</string>
     <string name="title_translate_usage">Penggunaan: %1$s / %2$s (%3$d %%)</string>
@@ -1897,6 +1899,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_debug_info_issue">Deskripsi masalah (wajib diisi)</string>
     <string name="title_debug_info_issue_remark">Detail, seperti perkiraan waktu masalah, pesan error yang muncul, dll. diperlukan</string>
     <string name="title_debug_info_contact">Kami baru-baru ini memiliki kontak tentang masalah ini</string>
+    <string name="title_debug_info_send">Kirim segera</string>
+    <string name="title_debug_info_send_remark">Biasanya, info debug akan terlebih dahulu disimpan sebagai pesan konsep, jadi Anda bisa memeriksa apa yang akan dikirim</string>
     <string name="title_unexpected_info_remark">Mohon jelaskan apa yang sedang Anda lakukan saat Anda mendapat pesan kesalahan:</string>
     <string name="title_widget_title_count">Hitung pesan baru</string>
     <string name="title_widget_title_list">Daftar pesan</string>

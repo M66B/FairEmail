@@ -700,7 +700,7 @@
     <string name="title_advanced_lt">LanguageTool 集成</string>
     <string name="title_advanced_lt_sentence">检查每个句子</string>
     <string name="title_advanced_lt_auto">换行后检查段落</string>
-    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">突出显示正在检查的文本</string>
+    <string name="title_advanced_lt_highlight">突出显示正在检查的文本</string>
     <string name="title_advanced_lt_user">用户名 (选填)</string>
     <string name="title_advanced_lt_key">API 密钥 (选填)</string>
     <string name="title_advanced_deepl">DeepL 集成</string>
@@ -1368,7 +1368,7 @@
     <string name="title_translate_formal">使用正式语言形式</string>
     <string name="title_translate_small">对源文本使用一个小字体</string>
     <string name="title_translate_replace">用翻译文本替换源文本</string>
-    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">突出显示正在翻译的文本</string>
+    <string name="title_translate_highlight">突出显示正在翻译的文本</string>
     <string name="title_translate_html">保留格式</string>
     <string name="title_translate_html_hint">这将耗费更多字符</string>
     <string name="title_translate_usage">用量： %1$s / %2$s (%3$d %%)</string>
@@ -1915,8 +1915,8 @@
     <string name="title_debug_info_issue">问题描述(必填)</string>
     <string name="title_debug_info_issue_remark">详细信息，例如问题的估计时间、确切的错误信息等等都是重要的。</string>
     <string name="title_debug_info_contact">别人最近因为这个问题联系过我们</string>
-    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">立即发送</string>
-    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">调试信息通常会先存储为草稿信息，所以您可以检查发送的内容</string>
+    <string name="title_debug_info_send">立即发送</string>
+    <string name="title_debug_info_send_remark">调试信息通常会先存储为草稿信息，所以您可以检查发送的内容</string>
     <string name="title_unexpected_info_remark">请描述应用出错时您的操作:</string>
     <string name="title_widget_title_count">新消息计数</string>
     <string name="title_widget_title_list">消息列表</string>

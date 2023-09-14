@@ -730,7 +730,8 @@
     <string name="title_advanced_lt">LanguageTool integracija</string>
     <string name="title_advanced_lt_sentence">Provjeri svaku rečenicu</string>
     <string name="title_advanced_lt_auto">Provjeri pasus nakon nove linije</string>
-    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Markiraj tekst za provjeru</string>
+    <string name="title_advanced_lt_highlight">Markiraj tekst za provjeru</string>
+    <string name="title_advanced_lt_description" comment="title_advanced_lt_description&#10;Title for option to show LanguageTool issue (style, spelling, etc) when tapping on the underlined text">Prikaži skočni prozor s opisom problema</string>
     <string name="title_advanced_lt_user">Korisničko ime (opcionalno)</string>
     <string name="title_advanced_lt_key">API ključ (opcionalno)</string>
     <string name="title_advanced_deepl">DeepL integracija</string>
@@ -1402,7 +1403,7 @@
     <string name="title_translate_formal">Koristi formalni oblik</string>
     <string name="title_translate_small">Koristi mali font za izvorni tekst</string>
     <string name="title_translate_replace">Zamijeni izvorni tekst prevedenim tekstom</string>
-    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Markiraj tekst za prijevod</string>
+    <string name="title_translate_highlight">Markiraj tekst za prijevod</string>
     <string name="title_translate_html">Zadrži formatiranje</string>
     <string name="title_translate_html_hint">Ovo će zauzimati više znakova</string>
     <string name="title_translate_usage">Iskorištenje: %1$s / %2$s (%3$d %%)</string>
@@ -1906,6 +1907,7 @@
     <string name="title_fetching_again">Ponovno dohvatanje poruka sa servera</string>
     <string name="title_go_back">Idi nazad</string>
     <string name="title_global_default">Koristi opće postavke</string>
+    <string name="title_not_existing" comment="title_not_existing&#10;Warning message for when a message on the device doesn't exist on the email server anymore.">Ova poruka ne postoji više na e-mail serveru</string>
     <string name="title_conversation_actions">Radnje</string>
     <string name="title_conversation_action_reply">Odgovori koristeći: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiraj: \'%1$s\'</string>
@@ -1951,8 +1953,8 @@
     <string name="title_debug_info_issue">Opis problema (neophodno)</string>
     <string name="title_debug_info_issue_remark">Detalji, poput procjenjenog vremena problema, tačne poruke o greškama itd., su značajni</string>
     <string name="title_debug_info_contact">Nedavno smo kontaktirani o ovom problemu</string>
-    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Pošalji odmah</string>
-    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">Obično, informacije o uklanjanju grešaka čuvat će se prvo kao nacrt poruke, tako da možete provjeriti šta će se poslati</string>
+    <string name="title_debug_info_send">Pošalji odmah</string>
+    <string name="title_debug_info_send_remark">Obično, informacije o uklanjanju grešaka čuvat će se prvo kao nacrt poruke, tako da možete provjeriti šta će se poslati</string>
     <string name="title_unexpected_info_remark">Molimo, opišite šta ste radili kada se pojavila greška:</string>
     <string name="title_widget_title_count">Brojač novih poruka</string>
     <string name="title_widget_title_list">Spisak poruka</string>

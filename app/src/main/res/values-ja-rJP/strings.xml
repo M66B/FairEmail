@@ -702,7 +702,7 @@
     <string name="title_advanced_lt">LanguageTool を統合</string>
     <string name="title_advanced_lt_sentence">一文ごとに確認</string>
     <string name="title_advanced_lt_auto">改行後に段落を確認</string>
-    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">確認済みのテキストをハイライト</string>
+    <string name="title_advanced_lt_highlight">確認済みのテキストをハイライト</string>
     <string name="title_advanced_lt_user">ユーザー名 (オプション)</string>
     <string name="title_advanced_lt_key">API キー (オプション)</string>
     <string name="title_advanced_deepl">DeepL を統合</string>
@@ -1374,7 +1374,7 @@
     <string name="title_translate_formal">書き言葉を使用</string>
     <string name="title_translate_small">ソーステキストに小さなフォントを使用</string>
     <string name="title_translate_replace">元テキストのを翻訳されたテキストに置き換える</string>
-    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">翻訳済みのテキストをハイライト</string>
+    <string name="title_translate_highlight">翻訳済みのテキストをハイライト</string>
     <string name="title_translate_html">書式を維持</string>
     <string name="title_translate_html_hint">より多くの文字数を利用します</string>
     <string name="title_translate_usage">利用文字数: %1$s / %2$s (%3$d %%)</string>
@@ -1923,8 +1923,8 @@
     <string name="title_debug_info_issue">問題の説明 (必須・英語で)</string>
     <string name="title_debug_info_issue_remark">デバッグには、問題発生の推定時刻や正確なエラーメッセージなどの詳細情報が重要です</string>
     <string name="title_debug_info_contact">最近、この問題について連絡がありました</string>
-    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">すぐに送信</string>
-    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">通常では、デバッグ情報はまず下書きメッセージとして保存されるため、何が送信されるか確認できます</string>
+    <string name="title_debug_info_send">すぐに送信</string>
+    <string name="title_debug_info_send_remark">通常では、デバッグ情報はまず下書きメッセージとして保存されるため、何が送信されるか確認できます</string>
     <string name="title_unexpected_info_remark">(英語) エラーが発生したときに何をしていたか説明してください:</string>
     <string name="title_widget_title_count">新着メッセージ数</string>
     <string name="title_widget_title_list">メッセージリスト</string>

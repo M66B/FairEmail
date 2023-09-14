@@ -744,7 +744,7 @@
     <string name="title_advanced_lt">שילוב מול LanguageTool</string>
     <string name="title_advanced_lt_sentence">לבדוק כל משפט</string>
     <string name="title_advanced_lt_auto">בדיקת פסקה אחרי שורה חדשה</string>
-    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">הדגשת הטקסט המסומן</string>
+    <string name="title_advanced_lt_highlight">הדגשת הטקסט המסומן</string>
     <string name="title_advanced_lt_user">שם משתמש (רשות)</string>
     <string name="title_advanced_lt_key">מפתח API (רשות)</string>
     <string name="title_advanced_deepl">שילוב של DeepL</string>
@@ -1416,7 +1416,7 @@
     <string name="title_translate_formal">להשתמש בשפה רשמית</string>
     <string name="title_translate_small">להשתמש בגופן קטן לטקסט המקור</string>
     <string name="title_translate_replace">החלפת טקסט המקור בטקסט מתורגם</string>
-    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">הדגשת הטקסט המתורגם</string>
+    <string name="title_translate_highlight">הדגשת הטקסט המתורגם</string>
     <string name="title_translate_html">שימור עיצוב</string>
     <string name="title_translate_html_hint">יצרוך יותר תווים</string>
     <string name="title_translate_usage">שימוש: %1$s / %2$s (%3$d %%)</string>
@@ -1965,8 +1965,8 @@
     <string name="title_debug_info_issue">תיאור התקלה (חובה)</string>
     <string name="title_debug_info_issue_remark">פרטים כגון זמן תקלה משוערך, הודעת השגיאה המדויקת וכו׳ הם חיוניים</string>
     <string name="title_debug_info_contact">לאחרונה יצרנו קשר סביב הבעיה הזאת</string>
-    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">לשלוח מייד</string>
-    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">בדרך כלל, פרטי השגיאה יאוחסנו כהודעת טיוטה תחילה, כדי לאפשר לך לסקור מה יישלח</string>
+    <string name="title_debug_info_send">לשלוח מייד</string>
+    <string name="title_debug_info_send_remark">בדרך כלל, פרטי השגיאה יאוחסנו כהודעת טיוטה תחילה, כדי לאפשר לך לסקור מה יישלח</string>
     <string name="title_unexpected_info_remark">נא לתאר באנגלית מה עשית כשהופיעה השגיאה:</string>
     <string name="title_widget_title_count">מונה הודעות חדשות</string>
     <string name="title_widget_title_list">רשימת הודעות</string>

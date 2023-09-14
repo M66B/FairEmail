@@ -728,7 +728,7 @@
     <string name="title_advanced_lt">Integrare cu LanguageTool</string>
     <string name="title_advanced_lt_sentence">Verificați fiecare propoziție</string>
     <string name="title_advanced_lt_auto">Verifică paragraful după o nouă linie</string>
-    <string name="title_advanced_lt_highlight" comment="title_advanced_lt_highlight&#10;Title for LanguageTool option">Evidențiați textul care se verifică</string>
+    <string name="title_advanced_lt_highlight">Evidențiați textul care se verifică</string>
     <string name="title_advanced_lt_user">Nume utilizator (opţional)</string>
     <string name="title_advanced_lt_key">Cheie API (opțional)</string>
     <string name="title_advanced_deepl">Integrare DeepL</string>
@@ -1398,7 +1398,7 @@
     <string name="title_translate_formal">Folosiți forma oficială</string>
     <string name="title_translate_small">Utilizați un font mic pentru textul sursă</string>
     <string name="title_translate_replace">Înlocuiește textul sursă cu textul tradus</string>
-    <string name="title_translate_highlight" comment="title_translate_highlight&#10;Title for open dialog of DeepL">Evidențiați textul care se traduce</string>
+    <string name="title_translate_highlight">Evidențiați textul care se traduce</string>
     <string name="title_translate_html">Păstrați formatarea</string>
     <string name="title_translate_html_hint">Acest lucru va consuma mai multe caractere</string>
     <string name="title_translate_usage">Utilizare: %1$s / %2$s (%3$d %%)</string>
@@ -1946,8 +1946,8 @@
     <string name="title_debug_info_issue">Descrierea problemei (necesar)</string>
     <string name="title_debug_info_issue_remark">Detaliile, cum ar fi momentul estimat al problemei, mesajul de eroare exact etc., sunt importante</string>
     <string name="title_debug_info_contact">Recent am avut contact cu această problemă</string>
-    <string name="title_debug_info_send" comment="title_debug_info_send&#10;Option in debug info dialog">Trimiteți imediat</string>
-    <string name="title_debug_info_send_remark" comment="title_debug_info_send_remark&#10;Remark in debug info dialog">În mod normal, informațiile de depanare vor fi stocate mai întâi ca mesaj preliminar, astfel încât să puteți verifica ce va fi trimis</string>
+    <string name="title_debug_info_send">Trimiteți imediat</string>
+    <string name="title_debug_info_send_remark">În mod normal, informațiile de depanare vor fi stocate mai întâi ca mesaj preliminar, astfel încât să puteți verifica ce va fi trimis</string>
     <string name="title_unexpected_info_remark">Vă rugăm să descrieți ce faceți atunci când ați primit eroarea:</string>
     <string name="title_widget_title_count">Contor mesaje noi</string>
     <string name="title_widget_title_list">Listă mesaje</string>
