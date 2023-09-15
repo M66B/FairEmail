@@ -1894,7 +1894,7 @@
     <string name="title_fetching_again">A procurar novamente a mensagem do servidor</string>
     <string name="title_go_back">Retroceder</string>
     <string name="title_global_default">Usar predefinição global</string>
-    <string name="title_not_existing" comment="title_not_existing&#10;Warning message for when a message on the device doesn't exist on the email server anymore.">Esta mensagem não existe mais no servidor de e-mails</string>
+    <string name="title_not_existing" comment="title_not_existing&#10;Warning message for when a message on the device doesn't exist on the email server anymore.">Esta mensagem já não existe no servidor de e-mail</string>
     <string name="title_conversation_actions">Acções</string>
     <string name="title_conversation_action_reply">Resposta com: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copiar: \'%1$s\'</string>
