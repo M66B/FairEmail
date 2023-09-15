@@ -215,7 +215,7 @@ public class TextHelper {
         } catch (TimeoutException ex) {
             Log.e(new Throwable("Conversation actions", ex));
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            prefs.edit().putBoolean("conversation_actions", false);
+            prefs.edit().putBoolean("conversation_actions", false).apply();
             return null;
         } catch (Throwable ex) {
             Log.e(ex);
