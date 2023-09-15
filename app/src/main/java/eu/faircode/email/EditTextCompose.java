@@ -111,7 +111,8 @@ public class EditTextCompose extends FixedEditText {
         boolean undo_manager = prefs.getBoolean("undo_manager", false);
 
         addTextChangedListener(new TextWatcher() {
-            private Integer arrow;
+            private Integer left;
+            private Integer right;
             private boolean replacing = false;
 
             @Override
@@ -127,21 +128,29 @@ public class EditTextCompose extends FixedEditText {
                     if (c == '>' &&
                             text.charAt(index - 1) == '-' &&
                             text.charAt(index - 2) == '-') {
-                        arrow = index - 2;
+                        left = index - 2;
+                    } else if (c == '-' &&
+                            text.charAt(index - 1) == '-' &&
+                            text.charAt(index - 2) == '<') {
+                        right = index - 2;
                     }
                 }
             }
 
             @Override
             public void afterTextChanged(Editable text) {
-                if (arrow != null && !replacing)
+                if (!replacing && (left != null || right != null))
                     try {
                         replacing = true;
-                        text.replace(arrow, arrow + 3, "→");
+                        if (left != null)
+                            text.replace(left, left + 3, "\u2192"); // ←
+                        else if (right != null)
+                            text.replace(right, right + 3, "\u2190"); // →
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
-                        arrow = null;
+                        left = null;
+                        right = null;
                         replacing = false;
                     }
             }
