@@ -2481,8 +2481,11 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuIdentitySelect() {
+        Bundle args = new Bundle();
+        args.putBoolean("add", true);
+
         FragmentDialogSelectIdentity fragment = new FragmentDialogSelectIdentity();
-        fragment.setArguments(new Bundle());
+        fragment.setArguments(args);
         fragment.setTargetFragment(this, REQUEST_SELECT_IDENTITY);
         fragment.show(getParentFragmentManager(), "select:identity");
     }
@@ -4795,6 +4798,15 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onSelectIdentity(Bundle args) {
+        long id = args.getLong("id");
+        if (id < 0) {
+            getContext().startActivity(new Intent(getContext(), ActivitySetup.class)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                    .putExtra("manual", true)
+                    .putExtra("scroll", true));
+            return;
+        }
+
         new SimpleTask<EntityIdentity>() {
             @Override
             protected EntityIdentity onExecute(Context context, Bundle args) throws Throwable {

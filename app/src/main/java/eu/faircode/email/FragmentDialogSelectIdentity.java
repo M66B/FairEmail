@@ -23,6 +23,7 @@ import static android.app.Activity.RESULT_OK;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -46,6 +47,8 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         final Context context = getContext();
 
+        final Bundle args = getArguments();
+
         final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_account_select, null);
         RecyclerView rvSelect = dview.findViewById(R.id.rvSelect);
         final ContentLoadingProgressBar pbWait = dview.findViewById(R.id.pbWait);
@@ -54,12 +57,22 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
         rvSelect.setHasFixedSize(false);
         rvSelect.setLayoutManager(new LinearLayoutManager(context));
 
-        Dialog dialog = new AlertDialog.Builder(context)
+        AlertDialog.Builder builder = new AlertDialog.Builder(context)
                 .setIcon(R.drawable.twotone_person_24)
                 .setTitle(R.string.title_list_identities)
                 .setView(dview)
-                .setNegativeButton(android.R.string.cancel, null)
-                .create();
+                .setNegativeButton(android.R.string.cancel, null);
+
+        if (args != null && args.getBoolean("add"))
+            builder.setNeutralButton(R.string.title_add, new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    args.putLong("id", -1L);
+                    sendResult(RESULT_OK);
+                }
+            });
+
+        Dialog dialog = builder.create();
 
         new SimpleTask<List<TupleIdentityEx>>() {
             @Override
