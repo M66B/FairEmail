@@ -4264,6 +4264,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (message.identityEmail.equalsIgnoreCase(((InternetAddress) from).getAddress()))
                             return true;
 
+                if (message.submitter != null)
+                    for (Address submitter : message.submitter)
+                        if (message.identityEmail.equalsIgnoreCase(((InternetAddress) submitter).getAddress()))
+                            return true;
+
                 return false;
             }
         }
