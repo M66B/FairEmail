@@ -409,6 +409,19 @@ public class EntityMessage implements Serializable {
         return notJunk;
     }
 
+    boolean isForwarder() {
+        if (from == null || from.length != 1)
+            return false;
+        if (submitter == null || submitter.length != 1)
+            return false;
+        String email = ((InternetAddress) from[0]).getAddress();
+        String domain = UriHelper.getEmailDomain(email);
+        return "duck.com".equals(domain) ||
+                "simplelogin.co".equals(domain) ||
+                "mozmail.com".equals(domain) ||
+                "anonaddy.me".equals(domain);
+    }
+
     String[] checkFromDomain(Context context) {
         return MessageHelper.equalRootDomain(context, from, smtp_from);
     }

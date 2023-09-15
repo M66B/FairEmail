@@ -1260,7 +1260,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             message.folderUnified && EntityFolder.isOutgoing(message.folderType)) ||
                     EntityFolder.isOutgoing(message.folderInheritedType);
             String selector = (reverse ? null : message.bimi_selector);
-            Address[] addresses = (reverse ? message.to : message.from);
+            Address[] addresses = (reverse ? message.to : (message.isForwarder() ? message.submitter : message.from));
             Address[] senders = ContactInfo.fillIn(
                     reverse && !show_recipients ? message.to : message.senders, prefer_contact, only_contact);
             Address[] recipients = ContactInfo.fillIn(
