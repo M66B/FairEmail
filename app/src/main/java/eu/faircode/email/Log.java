@@ -2699,6 +2699,9 @@ public class Log {
             attachment.progress = 0;
             attachment.id = db.attachment().insertAttachment(attachment);
 
+            Boolean isValidated = null;
+            Boolean isCaptive = null;
+
             long size = 0;
             File file = attachment.getFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
@@ -2738,6 +2741,18 @@ public class Log {
 
                     NetworkCapabilities caps = cm.getNetworkCapabilities(network);
                     size += write(os, " caps=" + caps + "\r\n");
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (isValidated == null)
+                            isValidated = false;
+                        if (caps != null && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED))
+                            isValidated = true;
+
+                        if (isCaptive == null)
+                            isCaptive = false;
+                        if (caps != null && caps.hasCapability(NetworkCapabilities.NET_CAPABILITY_CAPTIVE_PORTAL))
+                            isCaptive = true;
+                    }
 
                     LinkProperties props = cm.getLinkProperties(network);
                     size += write(os, " props=" + props + "\r\n");
@@ -2794,9 +2809,15 @@ public class Log {
                 size += write(os, "metered=" + metered + (metered ? "" : " !!!") + "\r\n");
                 size += write(os, "roaming=" + roaming + (roaming ? "" : " !!!") + "\r\n");
                 size += write(os, "rlah=" + rlah + (rlah ? "" : " !!!") + "\r\n");
+
+                size += write(os, "captive=" + (isCaptive == null ? "-" : Boolean.toString(isCaptive)) + "\r\n");
+                size += write(os, "validation=" + require_validated + (require_validated ? " !!!" : "") +
+                        " captive=" + require_validated_captive + (require_validated_captive ? "" : " !!!") + "\r\n");
+                size += write(os, "validated=" + (isValidated == null ? "-" : Boolean.toString(isValidated)) +
+                        (Boolean.FALSE.equals(isValidated) &&
+                                (Boolean.TRUE.equals(isCaptive) ? require_validated_captive : require_validated) ? " !!!" : "") + "\r\n");
+
                 size += write(os, "standalone_vpn=" + standalone_vpn + (standalone_vpn ? " !!!" : "") + "\r\n");
-                size += write(os, "validated=" + require_validated + (require_validated ? " !!!" : "") + "\r\n");
-                size += write(os, "validated/captive=" + require_validated_captive + (require_validated_captive ? "" : " !!!") + "\r\n");
                 size += write(os, "vpn_only=" + vpn_only + (vpn_only ? " !!!" : "") + "\r\n");
 
                 size += write(os, "\r\n");
