@@ -35,6 +35,7 @@ import android.text.Editable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.TextWatcher;
 import android.text.style.QuoteSpan;
 import android.text.style.StyleSpan;
 import android.util.AttributeSet;
@@ -108,6 +109,43 @@ public class EditTextCompose extends FixedEditText {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         this.lt_description = prefs.getBoolean("lt_description", false);
         boolean undo_manager = prefs.getBoolean("undo_manager", false);
+
+        addTextChangedListener(new TextWatcher() {
+            private Integer arrow;
+            private boolean replacing = false;
+
+            @Override
+            public void beforeTextChanged(CharSequence text, int start, int count, int after) {
+                // Do nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence text, int start, int before, int count) {
+                int index = start + before;
+                if (count - before == 1 && index > 1) {
+                    char c = text.charAt(index);
+                    if (c == '>' &&
+                            text.charAt(index - 1) == '-' &&
+                            text.charAt(index - 2) == '-') {
+                        arrow = index - 2;
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable text) {
+                if (arrow != null && !replacing)
+                    try {
+                        replacing = true;
+                        text.replace(arrow, arrow + 3, "→");
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    } finally {
+                        arrow = null;
+                        replacing = false;
+                    }
+            }
+        });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             setCustomSelectionActionModeCallback(new ActionMode.Callback() {
