@@ -2646,11 +2646,24 @@ public class MessageHelper {
         return result.toArray(new Address[0]);
     }
 
-    Address[] getSender() throws MessagingException {
+    Address[] getSubmitter() throws MessagingException {
         Address[] sender = getAddressHeader("X-Google-Original-From");
         if (sender == null)
+            sender = getAddressHeader("Duck-Original-From");
+        if (sender == null)
+            sender = getAddressHeader("X-SimpleLogin-Original-From");
+        if (sender == null)
+            sender = getAddressHeader("X-AnonAddy-Original-From-Header");
+        if (sender == null)
             sender = getAddressHeader("Sender");
-
+        if (sender == null) {
+            Address[] from = getAddressHeader("From");
+            if (from != null && from.length == 1) {
+                String email = ((InternetAddress) from[0]).getAddress();
+                if (email != null && email.endsWith("@mozmail.com"))
+                    sender = getAddressHeader("Resent-From");
+            }
+        }
         return sender;
     }
 

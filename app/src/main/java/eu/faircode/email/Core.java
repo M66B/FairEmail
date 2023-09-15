@@ -3427,7 +3427,7 @@ class Core {
                         message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
                         message.smtp_from = helper.getMailFrom(authentication);
                         message.return_path = helper.getReturnPath();
-                        message.submitter = helper.getSender();
+                        message.submitter = helper.getSubmitter();
                         message.from = helper.getFrom();
                         message.to = helper.getTo();
                         message.cc = helper.getCc();
@@ -4575,7 +4575,7 @@ class Core {
             message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
             message.smtp_from = helper.getMailFrom(authentication);
             message.return_path = helper.getReturnPath();
-            message.submitter = helper.getSender();
+            message.submitter = helper.getSubmitter();
             message.from = helper.getFrom();
             message.to = helper.getTo();
             message.cc = helper.getCc();
