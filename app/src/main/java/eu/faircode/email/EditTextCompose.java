@@ -111,8 +111,9 @@ public class EditTextCompose extends FixedEditText {
         boolean undo_manager = prefs.getBoolean("undo_manager", false);
 
         addTextChangedListener(new TextWatcher() {
-            private Integer left;
-            private Integer right;
+            private Integer replace;
+            private Integer length;
+            private String what;
             private boolean replacing = false;
 
             @Override
@@ -128,29 +129,29 @@ public class EditTextCompose extends FixedEditText {
                     if (c == '>' &&
                             text.charAt(index - 1) == '-' &&
                             text.charAt(index - 2) == '-') {
-                        left = index - 2;
+                        replace = index - 2;
+                        length = 3;
+                        what = "→";
                     } else if (c == '-' &&
                             text.charAt(index - 1) == '-' &&
                             text.charAt(index - 2) == '<') {
-                        right = index - 2;
+                        replace = index - 2;
+                        length = 3;
+                        what = "←";
                     }
                 }
             }
 
             @Override
             public void afterTextChanged(Editable text) {
-                if (!replacing && (left != null || right != null))
+                if (!replacing && replace != null)
                     try {
                         replacing = true;
-                        if (left != null)
-                            text.replace(left, left + 3, "\u2192"); // ←
-                        else if (right != null)
-                            text.replace(right, right + 3, "\u2190"); // →
+                        text.replace(replace, replace + length, what);
                     } catch (Throwable ex) {
                         Log.e(ex);
                     } finally {
-                        left = null;
-                        right = null;
+                        replace = null;
                         replacing = false;
                     }
             }
