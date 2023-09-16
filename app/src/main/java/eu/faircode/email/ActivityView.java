@@ -2476,10 +2476,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     }
 
     private void onViewThread(Intent intent) {
+        boolean found = intent.getBooleanExtra("found", false);
+
         if (lastSnackbar != null && lastSnackbar.isShown())
             lastSnackbar.dismiss();
 
-        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+        if (!found && getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             getSupportFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();
@@ -2489,7 +2491,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         args.putLong("id", intent.getLongExtra("id", -1));
         args.putInt("lpos", intent.getIntExtra("lpos", -1));
         args.putBoolean("filter_archive", intent.getBooleanExtra("filter_archive", true));
-        args.putBoolean("found", intent.getBooleanExtra("found", false));
+        args.putBoolean("found", found);
         args.putString("searched", intent.getStringExtra("searched"));
         args.putBoolean("pinned", intent.getBooleanExtra("pinned", false));
         args.putString("msgid", intent.getStringExtra("msgid"));
