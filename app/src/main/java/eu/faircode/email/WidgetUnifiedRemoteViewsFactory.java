@@ -225,7 +225,9 @@ public class WidgetUnifiedRemoteViewsFactory implements RemoteViewsService.Remot
             views.setViewVisibility(R.id.stripe, hasColor && color_stripe ? View.VISIBLE : View.GONE);
 
             if (avatars) {
-                ContactInfo[] info = ContactInfo.get(context, message.account, null, message.bimi_selector, message.from);
+                ContactInfo[] info = ContactInfo.get(context,
+                        message.account, null, message.bimi_selector,
+                        message.isForwarder() ? message.submitter : message.from);
                 views.setImageViewBitmap(R.id.avatar, info.length == 0 ? null : info[0].getPhotoBitmap());
             }
             views.setViewVisibility(R.id.avatar, avatars ? View.VISIBLE : View.GONE);

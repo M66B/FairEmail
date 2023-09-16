@@ -5780,8 +5780,8 @@ class Core {
         for (int m = 0; m < messages.size() && m < MAX_NOTIFICATION_DISPLAY; m++) {
             TupleMessageEx message = messages.get(m);
             ContactInfo[] info = ContactInfo.get(context,
-                    message.account, message.folderType,
-                    message.bimi_selector, message.from);
+                    message.account, message.folderType, message.bimi_selector,
+                    message.isForwarder() ? message.submitter : message.from);
 
             Address[] modified = (message.from == null
                     ? new InternetAddress[0]
