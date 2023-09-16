@@ -2481,8 +2481,16 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (lastSnackbar != null && lastSnackbar.isShown())
             lastSnackbar.dismiss();
 
-        if (!found && getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-            getSupportFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+        if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+            if (found) {
+                List<Fragment> fragments = getSupportFragmentManager().getFragments();
+                if (fragments.size() > 0) {
+                    Bundle args = fragments.get(fragments.size() - 1).getArguments();
+                    if (args != null && args.getBoolean("found"))
+                        getSupportFragmentManager().popBackStack();
+                }
+            } else
+                getSupportFragmentManager().popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
         Bundle args = new Bundle();
         args.putLong("account", intent.getLongExtra("account", -1));
