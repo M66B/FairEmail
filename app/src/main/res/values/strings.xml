@@ -811,7 +811,7 @@
 
     <string name="title_advanced_power_menu">Add actions to the Android power menu</string>
     <string name="title_advanced_send_self">Add \'send to self\' to Android\'s share menu</string>
-    <string name="title_advanced_external_search">Allow other apps to search in messages</string>
+    <string name="title_advanced_external_search">Add \'FairEmail search\' to Android text selection menu</string>
     <string name="title_advanced_sort_answers">Sort reply templates by frequency of use</string>
     <string name="title_advanced_external_answer" translatable="false">Provide reply templates to other apps</string>
     <string name="title_advanced_shortcuts">Show frequently used contacts in Android share menu</string>
