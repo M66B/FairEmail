@@ -199,6 +199,7 @@ public class Helper {
     static final int AUTH_AUTOLOCK_GRACE = 15; // seconds
     static final int PIN_FAILURE_DELAY = 3; // seconds
     static final long PIN_FAILURE_DELAY_MAX = 20 * 60 * 1000L; // milliseconds
+    static final float BNV_LUMINANCE_THRESHOLD = 0.7f;
 
     static final String PGP_OPENKEYCHAIN_PACKAGE = "org.sufficientlysecure.keychain";
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";

@@ -404,7 +404,6 @@ public class FragmentMessages extends FragmentBase
 
     private static final int MAX_MORE = 100; // messages
     private static final int MAX_SEND_RAW = 50; // messages
-    private static final float LUMINANCE_THRESHOLD = 0.7f;
     private static final int ITEM_CACHE_SIZE = 10; // Default: 2 items
 
     private static final int REQUEST_RAW = 1;
@@ -7360,9 +7359,9 @@ public class FragmentMessages extends FragmentBase
 
                         Integer itemColor = null;
                         float lum = (float) ColorUtils.calculateLuminance(color);
-                        if (lum > LUMINANCE_THRESHOLD)
+                        if (lum > Helper.BNV_LUMINANCE_THRESHOLD)
                             itemColor = Color.BLACK;
-                        else if ((1.0f - lum) > LUMINANCE_THRESHOLD)
+                        else if ((1.0f - lum) > Helper.BNV_LUMINANCE_THRESHOLD)
                             itemColor = Color.WHITE;
 
                         if (itemColor != null)

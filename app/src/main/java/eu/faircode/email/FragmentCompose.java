@@ -321,7 +321,6 @@ public class FragmentCompose extends FragmentBase {
     // http://regex.info/blog/lightroom-goodies/jpeg-quality
 
     private static final int MAX_QUOTE_LEVEL = 5;
-    private static final float LUMINANCE_THRESHOLD = 0.7f;
 
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
@@ -7860,9 +7859,9 @@ public class FragmentCompose extends FragmentBase {
                 else {
                     Integer icolor = null;
                     float lum = (float) ColorUtils.calculateLuminance(color);
-                    if (lum > LUMINANCE_THRESHOLD)
+                    if (lum > Helper.BNV_LUMINANCE_THRESHOLD)
                         icolor = Color.BLACK;
-                    else if ((1.0f - lum) > LUMINANCE_THRESHOLD)
+                    else if ((1.0f - lum) > Helper.BNV_LUMINANCE_THRESHOLD)
                         icolor = Color.WHITE;
                     if (icolor == null)
                         itemColor = ContextCompat.getColorStateList(context, R.color.action_foreground);
