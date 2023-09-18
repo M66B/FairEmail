@@ -686,7 +686,6 @@
     <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
     <string name="title_advanced_power_menu">Dodaj dejanja v Androidov meni za izklop</string>
-    <string name="title_advanced_external_search">Dovoli drugim programom iskati v sporočilih</string>
     <string name="title_advanced_sort_answers">Razvrsti predloge za odgovor po pogostosti uporabe</string>
     <string name="title_advanced_shortcuts">V Androidovem meniju za deljenje prikaži pogosto uporabljene stike</string>
     <string name="title_advanced_fts">Zgradi iskalno kazalo</string>

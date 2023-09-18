@@ -599,7 +599,6 @@
     <string name="title_advanced_manage_keys_hint">         A renszser biztonsági beállításainak megnyitása.         A biztonsági kulcsok és aláírások általában itt találhatóak.
     </string>
     <string name="title_advanced_power_menu">Addjon hozzá műveleteket az Android power menühöz</string>
-    <string name="title_advanced_external_search">Keresés engedélyezése az üzenetekben más alkalmazások számára</string>
     <string name="title_advanced_shortcuts">Gyakran használt névjegyek megjelenítése az Android megosztás menüjében</string>
     <string name="title_advanced_fts">Keresési index létrehozása</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d üzenet indexelve (%3$s)</string>

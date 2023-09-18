@@ -716,7 +716,6 @@
     </string>
     <string name="title_advanced_power_menu">Pridať akcie do ponuky zariadení systému Android</string>
     <string name="title_advanced_send_self">Pridať \'Poslať sebe\' do menu zdieľania v systéme</string>
-    <string name="title_advanced_external_search">Povoliť ďalším aplikáciám hľadať v správach</string>
     <string name="title_advanced_sort_answers">Zotriediť šablóny odpovedí podľa frekvencie používania</string>
     <string name="title_advanced_shortcuts">Zobraziť často používané kontakty v menu zdieľania Androidu</string>
     <string name="title_advanced_fts">Zostaviť index pre vyhľadávanie</string>

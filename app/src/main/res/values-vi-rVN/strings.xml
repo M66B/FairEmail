@@ -612,7 +612,6 @@
     <string name="title_advanced_manage_keys_hint">        Cái này sẽ mở cài đặt bảo mật của Android.        Các mã khóa và chứng chỉ có thể nói chung được tìm thấy ở Nâng cao - Mã hóa và thông tin xác thực.
     </string>
     <string name="title_advanced_power_menu">Thêm các hành động vào menu nguồn của Android</string>
-    <string name="title_advanced_external_search">Cho phép các ứng dụng khác tìm kiếm trong thư</string>
     <string name="title_advanced_sort_answers">Sắp xếp mẫu thư trả lời theo tần suất sử dụng</string>
     <string name="title_advanced_shortcuts">Hiện các liên hệ hay sử dụng trong menu chia sẻ của Android</string>
     <string name="title_advanced_fts">Xây dựng mục lục tìm kiếm</string>

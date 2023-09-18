@@ -3,7 +3,7 @@
     <string name="app_search">Шукати в FairEmail</string>
     <string name="app_send_self">Надіслати собі</string>
     <string name="app_changelog">Список змін</string>
-    <string name="app_welcome">FairEmail - це додаток з відкритим вихідним кодом, орієнтований на конфіденційність та безпеку. Тому деякі функції можуть відрізнятися від того, до чого ви звикли.</string>
+    <string name="app_welcome">FairEmail — це застосунок з відкритим вихідним кодом, орієнтований на конфіденційність та безпеку. Тому деякі функції можуть відрізнятися від того, до чого ви звикли.</string>
     <string name="app_limitations">Наприклад, повідомлення переформатуються за замовчуванням, щоб видалити небезпечні елементи та покращити читання, а також відкриття посилань потрібно підтверджувати з метою безпеки. За бажанням, обидві дії можуть бути відключені.</string>
     <string name="app_unsupported">Помилки у версії Android цього конкретного пристрою викликають аварійне завершення роботи</string>
     <string name="app_data_loss">Всі дані можуть бути втрачені</string>
@@ -162,7 +162,7 @@
     <string name="menu_privacy">Конфіденційність</string>
     <string name="menu_about">Про застосунок</string>
     <string name="menu_pro">Можливості Pro-версії</string>
-    <string name="menu_rate">Оцінити додаток</string>
+    <string name="menu_rate">Оцінити застосунок</string>
     <string name="title_welcome">Вітаємо</string>
     <string name="title_eula">Ліцензійна угода</string>
     <string name="title_license">Ліцензія ПЗ з відкритим вихідним кодом</string>
@@ -238,7 +238,7 @@
     <string name="title_setup_grant_again">Надати необхідні дозволи</string>
     <string name="title_setup_exchange_support">Чи підтримується Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Що таке профіль?</string>
-    <string name="title_setup_free">Чи можна використовувати цей додаток безплатно?</string>
+    <string name="title_setup_free">Чи можна використовувати цей застосунок безплатно?</string>
     <string name="title_setup_permissions">Надати дозволи</string>
     <string name="title_setup_permissions_remark">Для доступу до інформації про контакти (необов\'язково)</string>
     <string name="title_setup_permissions_calendar">Для зберігання запрошень (необов\'язково)</string>
@@ -259,7 +259,7 @@
     <string name="title_setup_doze_battery">Високе споживання заряду акумулятора?</string>
     <string name="title_setup_doze_stopped">Синхронізацію зупинено?</string>
     <string name="title_setup_doze_device">Це, ймовірно, необхідно для цього пристрою</string>
-    <string name="title_setup_alarm_12">Додаток не працюватиме належним чином</string>
+    <string name="title_setup_alarm_12">Застосунок не працюватиме належним чином</string>
     <string name="title_setup_inexact">Будильник &amp; нагадування вимкнені</string>
     <string name="title_setup_background">Фонові обмеження увімкнено</string>
     <string name="title_setup_data">Задіяно економію передачі даних</string>
@@ -729,7 +729,7 @@
     </string>
     <string name="title_advanced_power_menu">Додати дії до меню живлення в Android</string>
     <string name="title_advanced_send_self">Додати \"Надіслати собі\" в системне меню \"Поділитися\"</string>
-    <string name="title_advanced_external_search">Дозволити іншим програмам шукати в повідомленнях</string>
+    <string name="title_advanced_external_search">Додати «Шукати в FairEmail» до меню вибору тексту Android</string>
     <string name="title_advanced_sort_answers">Сортувати шаблони відповідей за частотою використання</string>
     <string name="title_advanced_shortcuts">Показувати контакти, які часто використовуються, в системному меню «Поділитися»</string>
     <string name="title_advanced_fts">Створювати індекс для пошуку</string>
@@ -744,7 +744,7 @@
     <string name="title_advanced_lt_sentence">Перевіряти кожне речення</string>
     <string name="title_advanced_lt_auto">Перевіряти абзац після нового рядка</string>
     <string name="title_advanced_lt_highlight">Підсвічувати текст, що перевіряється</string>
-    <string name="title_advanced_lt_description" comment="title_advanced_lt_description&#10;Title for option to show LanguageTool issue (style, spelling, etc) when tapping on the underlined text">Показати спливаюче вікно з описом проблеми</string>
+    <string name="title_advanced_lt_description">Показати спливаюче вікно з описом проблеми</string>
     <string name="title_advanced_lt_user">Ім\'я користувача (необов\'язково)</string>
     <string name="title_advanced_lt_key">API-ключ (необов\'язково)</string>
     <string name="title_advanced_deepl">Інтеграція з DeepL</string>
@@ -872,7 +872,7 @@
     <string name="title_advanced_notify_no_grouping">Ця версія Android не підтримує групування сповіщень</string>
     <string name="title_advanced_notify_no_channels">Ця версія Android не підтримує канали сповіщень</string>
     <string name="title_advanced_fts_hint">Увімкнення цієї функції покращує продуктивність пошуку, але також збільшує використання батареї та потребує більше місця для зберігання</string>
-    <string name="title_advanced_english_hint">Це призведе до перезапуску додатка</string>
+    <string name="title_advanced_english_hint">Це призведе до перезапуску застосунку</string>
     <string name="title_advanced_experiments_hint">Список експериментальних функцій</string>
     <string name="title_advanced_protocol_hint">Це істотно збільшить використання акумулятора та простору для зберігання!</string>
     <string name="title_advanced_debug_hint">В різних місцях додатка буде показана інформація для налагодження в не дуже приємному вигляді</string>
@@ -897,7 +897,7 @@
     <string name="title_advanced_sender_name">Використовувати ім\'я, коли адресу відправника було відредаговано</string>
     <string name="title_advanced_reply_name">Скопіювати ім\'я з отриманого повідомлення</string>
     <string name="title_advanced_sender_regex">Регулярний вираз, що застосовується до імені користувача з вхідних адрес електронної пошти</string>
-    <string name="title_identity_reply_to">Відповісти на адресу</string>
+    <string name="title_identity_reply_to">Адреса для відповіді</string>
     <string name="title_identity_internal">Внутрішні доменні імена (розділені комами)</string>
     <string name="title_identity_uri">Прив\'язати контакт</string>
     <string name="title_identity_unicode">Дозволити UTF-8 у заголовках повідомлень</string>
@@ -913,7 +913,7 @@
     <string name="title_account_linked">Пов\'язаний обліковий запис</string>
     <string name="title_account_name">Назва облікового запису</string>
     <string name="title_account_category">Категорія</string>
-    <string name="title_account_name_hint">Використовується для диференціювання тек</string>
+    <string name="title_account_name_hint">Використовується для розрізнення тек</string>
     <string name="title_account_interval_hint">Частота оновлення з\'єднання для push-повідомлень або частота перевірки на нові повідомлення</string>
     <string name="title_account_noop_hint">Це буде оновлювати підключення активніше, але також буде використовувати більше заряду акумулятора</string>
     <string name="title_account_partial_fetch_hint">Вимкнути це лише у випадку пустих повідомлень або пошкоджених вкладень</string>
@@ -943,7 +943,7 @@
     <string name="title_user">Ім\'я користувача</string>
     <string name="title_password">Пароль</string>
     <string name="title_password_storage">Як зберігаються паролі?</string>
-    <string name="title_case_sensitive">Імена користувачів і паролі зазвичай залежні від регістру</string>
+    <string name="title_case_sensitive">Імена користувачів і паролі зазвичай чутливі до регістру</string>
     <string name="title_client_certificate">Сертифікат клієнта</string>
     <string name="title_realm">Realm</string>
     <string name="title_use_ip">Використовувати локальну IP-адресу замість імені хоста</string>
@@ -951,7 +951,7 @@
     <string name="title_primary">Основний</string>
     <string name="title_primary_account">Основний (обліковий запис за замовчуванням)</string>
     <string name="title_primary_identity">Основний (профіль за замовчуванням)</string>
-    <string name="title_self_identity">Видалити адресу електронної пошти під час відповіді</string>
+    <string name="title_self_identity">Видаляти адресу електронної пошти при відповіді</string>
     <string name="title_leave_on_server">Залишати повідомлення на сервері</string>
     <string name="title_client_delete">Активно видаляти повідомлення після завантаження</string>
     <string name="title_leave_deleted">Залишати видалені повідомлення на сервері</string>
@@ -1256,7 +1256,7 @@
     <string name="title_no_saf">Компонент для доступу до сховища недоступний</string>
     <string name="title_no_stream">FairEmail не має дозволу на безпосереднє читання цього файлу</string>
     <string name="title_no_stream_help">Виберіть файл у більш сучасному застосунку для керування файлами, або надайте дозвіл на читання файлів</string>
-    <string name="title_no_permissions">Додаток був використаний для вибору файлу, на читання якого не мав дозвіл</string>
+    <string name="title_no_permissions">Застосунок був використаний для вибору файлу, на читання якого не мав дозвіл</string>
     <string name="title_no_internet">Відсутнє або не відповідне підключення до Інтернету</string>
     <string name="title_no_connection">Підключення до одного або декількох облікових записів &#8230;</string>
     <string name="title_no_folder">Тека не існує</string>
@@ -1835,9 +1835,10 @@
     <string name="title_hint_message_selection">Довго натисніть на повідомлення, щоб почати вибирати кілька повідомлень; Натиснувши потягніть вгору або вниз, щоб обрати більше повідомлень</string>
     <string name="title_hint_message_junk">Поштовий клієнт лише показує повідомлення, які наявні на поштовому сервері.
 За фільтрацію спаму відповідає саме сервер, а не клієнт.
-Якщо ви отримуєте багато спаму, зверніться до служби підтримки вашого поштового сервісу і не звинувачуйте додаток!    </string>
+Якщо ви отримуєте багато спаму, зверніться до служби підтримки вашого поштового сервісу і не звинувачуйте застосунок!
+    </string>
     <string name="title_hint_important">Важливо</string>
-    <string name="title_hint_sync">Завантаження повідомлень може зайняти деякий час, в залежності від пристрою, швидкості провайдера, інтернет-з\'єднання та кількості повідомлень. При завантаженні повідомлень додаток може реагувати повільніше.</string>
+    <string name="title_hint_sync">Завантаження повідомлень може зайняти деякий час, в залежності від пристрою, швидкості провайдера, інтернет-з\'єднання та кількості повідомлень. При завантаженні повідомлень застосунок може реагувати повільніше.</string>
     <string name="title_hint_sync_note">За замовчуванням, не всі повідомлення будуть завантажені, щоб обмежити обсяг використаної пам\'яті, а також використання акумулятора. Це можна змінити, натиснувши з утриманням на теку в списку тек і вибравши \"Отримати більше повідомлень\".</string>
     <string name="title_hint_battery">Оскільки FairEmail за замовчуванням завжди отримує повідомлення, Android буде повідомляти, що FairEmail є завжди активним. Тому виглядає так, ніби FairEmail завжди споживає заряд акумулятора, хоча насправді це не так.</string>
     <string name="title_hint_reformat">За замовчуванням FairEmail переформатовує повідомлення з міркувань конфіденційності та безпеки. Для перегляду оригінального повідомлення натисніть на іконку «Повний екран» над текстом повідомлення.</string>
@@ -1860,7 +1861,7 @@
     <string name="title_ip_owner">IP-адреса власника</string>
     <string name="title_default_apps">Додатки за замовчуванням</string>
     <string name="title_reset_open">Встановлення або очищення додатків за замовчуванням</string>
-    <string name="title_select_app">Обрати додаток</string>
+    <string name="title_select_app">Обрати застосунок</string>
     <string name="title_updated">Доступно оновлення до версії %1$s</string>
     <string name="title_no_update">Оновлення відсутні</string>
     <string name="title_issue">У вас є питання або проблема?</string>
@@ -1916,7 +1917,7 @@
     <string name="title_fetching_again">Знову отримую повідомлення з сервера</string>
     <string name="title_go_back">Назад</string>
     <string name="title_global_default">Використовувати загальне типове значення</string>
-    <string name="title_not_existing" comment="title_not_existing&#10;Warning message for when a message on the device doesn't exist on the email server anymore.">Цього повідомлення більше не існує на поштовому сервері</string>
+    <string name="title_not_existing">Цього повідомлення більше не існує на поштовому сервері</string>
     <string name="title_conversation_actions">Дії</string>
     <string name="title_conversation_action_reply">Відповісти з: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Копіювати: \'%1$s\'</string>
@@ -1935,9 +1936,9 @@
         FairEmail показує маленьке повідомлення, щоб нагадати Вам про це. Воно буде вилучено, якщо ви купите Pro-функції.
     </string>
     <string name="title_pro_whichever">Незалежно від того, яка функція визначена як функція про-версії, завжди знайдеться хтось, хто буде цим невдоволений та вимагатиме, щоб ця функція була безплатною. Будь ласка, не будьте таким.</string>
-    <string name="title_pro_google">FairEmail ініціює покупку в Play Store, але зрештою Google керує усім процесом покупки. Тому, будь ласка, не звинувачуйте додаток у разі будь-яких проблем!</string>
+    <string name="title_pro_google">FairEmail ініціює покупку в Play Store, але зрештою Google керує усім процесом покупки. Тому, будь ласка, не звинувачуйте застосунок у разі будь-яких проблем!</string>
     <string name="title_pro_hide">Приховати невелике повідомлення протягом %1$d тижнів</string>
-    <string name="title_pro_hint">Купівля Pro-функцій дозволить вам використовувати всі поточні та майбутні Pro-функції, та допоможе підтримувати та обслуговувати цей додаток.</string>
+    <string name="title_pro_hint">Купівля Pro-функцій дозволить вам використовувати всі поточні та майбутні Pro-функції, та допоможе підтримувати та обслуговувати цей застосунок.</string>
     <string name="title_pro_price">Чому Pro-функції такі дорогі?</string>
     <string name="title_pro_family">Чи можна використовувати сімейну бібліотеку Google Play?</string>
     <string name="title_pro_restore">Як можна відновити покупку (на іншому пристрої)?</string>
@@ -1958,13 +1959,13 @@
     <string name="title_rules_delete_all_confirm">Видалити всі правила?</string>
     <string name="title_debug_info">Інформація налагодження</string>
     <string name="title_debug_info_remark">Опишіть проблему й зазначте момент її виникнення:</string>
-    <string name="title_crash_info_remark">Будь ласка, опишіть, що ви робили, коли додаток аварійно завершив роботу:</string>
+    <string name="title_crash_info_remark">Будь ласка, опишіть, що ви робили, коли застосунок аварійно завершив роботу:</string>
     <string name="title_debug_info_issue">Опис проблеми (обов\'язково)</string>
     <string name="title_debug_info_issue_remark">Важливими є такі деталі, як приблизний час виникнення проблеми, точне повідомлення про помилку тощо</string>
     <string name="title_debug_info_contact">Нещодавно ми зв\'язувались щодо цієї проблеми</string>
     <string name="title_debug_info_send">Надіслати негайно</string>
     <string name="title_debug_info_send_remark">Зазвичай інформація про налагодження буде збережена як чернетка, щоб ви могли перевірити, що буде надіслано</string>
-    <string name="title_unexpected_info_remark">Будь ласка, опишіть, що ви робили, коли додаток зазнав краху:</string>
+    <string name="title_unexpected_info_remark">Будь ласка, опишіть, що ви робили, коли у вас виникла помилка:</string>
     <string name="title_widget_title_count">Кількість нових повідомлень</string>
     <string name="title_widget_title_list">Список повідомлень</string>
     <string name="title_widget_title_sync">Синхронізацію увімк/вимк</string>

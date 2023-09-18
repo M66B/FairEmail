@@ -625,7 +625,6 @@
     <string name="title_advanced_manage_keys_hint">Isto abrirá os axustes de seguridade de Android        As chaves e os certificados atópanse normalmente baixo Avanzado - Cifrado e credenciais.
     </string>
     <string name="title_advanced_power_menu">Engadir accións ao menú de enerxía de Android</string>
-    <string name="title_advanced_external_search">Permitir que outras aplicacións poidan buscar nas mensaxes</string>
     <string name="title_advanced_sort_answers">Ordenar os padróns por frecuencia de uso</string>
     <string name="title_advanced_shortcuts">Amosar os contactos frecuentes no menú de compartir de Android</string>
     <string name="title_advanced_fts">Crear o índice de busca</string>

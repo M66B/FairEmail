@@ -627,7 +627,6 @@
         金鑰和證書通常可在“進階 -- 加密和憑證”下找到。
     </string>
     <string name="title_advanced_power_menu">新增控制項至 Android 電源選單</string>
-    <string name="title_advanced_external_search">允許其他程式在訊息中搜尋</string>
     <string name="title_advanced_sort_answers">篩選經常使用的回覆範本</string>
     <string name="title_advanced_shortcuts">在 Adnroid 分享選單中顯示常用的聯絡人</string>
     <string name="title_advanced_fts">建立搜尋索引</string>

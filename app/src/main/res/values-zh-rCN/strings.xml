@@ -686,7 +686,7 @@
     </string>
     <string name="title_advanced_power_menu">添加操作到 Android 电源菜单</string>
     <string name="title_advanced_send_self">将 \'发送给自己\' 添加到 Android 的共享菜单</string>
-    <string name="title_advanced_external_search">允许其他应用搜索邮件</string>
+    <string name="title_advanced_external_search">将 \'FairEmail 搜索 \' 添加到 Android 文本选择菜单</string>
     <string name="title_advanced_sort_answers">按使用频率对回复模板进行排序</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
     <string name="title_advanced_fts">创建搜索索引</string>
@@ -701,7 +701,7 @@
     <string name="title_advanced_lt_sentence">检查每个句子</string>
     <string name="title_advanced_lt_auto">换行后检查段落</string>
     <string name="title_advanced_lt_highlight">突出显示正在检查的文本</string>
-    <string name="title_advanced_lt_description" comment="title_advanced_lt_description&#10;Title for option to show LanguageTool issue (style, spelling, etc) when tapping on the underlined text">显示问题描述的弹出窗口</string>
+    <string name="title_advanced_lt_description">显示问题描述的弹出窗口</string>
     <string name="title_advanced_lt_user">用户名 (选填)</string>
     <string name="title_advanced_lt_key">API 密钥 (选填)</string>
     <string name="title_advanced_deepl">DeepL 集成</string>
@@ -1873,7 +1873,7 @@
     <string name="title_fetching_again">再次从服务器获取消息</string>
     <string name="title_go_back">返回</string>
     <string name="title_global_default">使用全局默认设置</string>
-    <string name="title_not_existing" comment="title_not_existing&#10;Warning message for when a message on the device doesn't exist on the email server anymore.">邮件服务器上不再存在此消息</string>
+    <string name="title_not_existing">邮件服务器上不再存在此消息</string>
     <string name="title_conversation_actions">操作</string>
     <string name="title_conversation_action_reply">回复：\'%1$s\'</string>
     <string name="title_conversation_action_copy">复制: \'%1$s\'</string>

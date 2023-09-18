@@ -513,7 +513,6 @@
     <string name="title_advanced_ca">CA certificate های نصب شده</string>
     <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
-    <string name="title_advanced_external_search">اجازه به دیگر برنامه‌ها برای جستجو در پیام‌ها</string>
     <string name="title_advanced_sort_answers">قالب‌های پاسخ‌گویی را بر اساس تناوب استفاده از آنها مرتب کن</string>
     <string name="title_advanced_shortcuts">نمایش مخاطبین مکررا استفاده شده در فهرست اشتراک‌گذاری اندروید</string>
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
@@ -522,7 +521,7 @@
     <string name="title_advanced_language">زبان</string>
     <string name="title_advanced_language_system">سیستم</string>
     <string name="title_advanced_lt">یکپارچگی ابزارهای زبانی</string>
-    <string name="title_advanced_lt_description" comment="title_advanced_lt_description&#10;Title for option to show LanguageTool issue (style, spelling, etc) when tapping on the underlined text">نمایش پاپ‌آپ همراه با شرح مشکل</string>
+    <string name="title_advanced_lt_description">نمایش پاپ‌آپ همراه با شرح مشکل</string>
     <string name="title_advanced_watchdog">بطور دوره ای بررسی کن که آیا FairEmail هنوز فعال است یا خیر</string>
     <string name="title_advanced_experiments">امتحان ویژگی‌های آزمایشی</string>
     <string name="title_advanced_crash_reports">ارسال گزارش‌های خطا</string>
@@ -1247,7 +1246,7 @@
     <string name="title_snooze_now">تعویق</string>
     <string name="title_loading">درحال بارگذاری &#8230;</string>
     <string name="title_fetching_again">در حال واکشی دوباره پیام از سرور</string>
-    <string name="title_not_existing" comment="title_not_existing&#10;Warning message for when a message on the device doesn't exist on the email server anymore.">این پیام دیگر روی سرور ایمیل وجود ندارد</string>
+    <string name="title_not_existing">این پیام دیگر روی سرور ایمیل وجود ندارد</string>
     <string name="title_conversation_actions">کنش‌ها</string>
     <string name="title_conversation_action_reply">پاسخ با: \'%1$s\'</string>
     <string name="title_conversation_action_copy">کپی: \'%1$s\'</string>

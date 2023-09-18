@@ -730,7 +730,7 @@
     </string>
     <string name="title_advanced_power_menu">הוספת פעולות לתפריט הכיבוי של Android</string>
     <string name="title_advanced_send_self">הוספת ‚שליחה לעצמי’ לתפריט השיתוף של Android</string>
-    <string name="title_advanced_external_search">לאפשר ליישומונים אחרים לחפש בהודעות</string>
+    <string name="title_advanced_external_search">הוספת ‚חיפוש ב־FairEmail‘ לתפריט בחירת טקסט ב־Android</string>
     <string name="title_advanced_sort_answers">סידור תבניות המענה לפי תדירות השימוש</string>
     <string name="title_advanced_shortcuts">הצגת אנשי קשר בשימוש תדיר בתפריט השיתוף של Android</string>
     <string name="title_advanced_fts">בניית אינדקס חיפוש</string>
@@ -745,6 +745,7 @@
     <string name="title_advanced_lt_sentence">לבדוק כל משפט</string>
     <string name="title_advanced_lt_auto">בדיקת פסקה אחרי שורה חדשה</string>
     <string name="title_advanced_lt_highlight">הדגשת הטקסט המסומן</string>
+    <string name="title_advanced_lt_description">הצגת חלונית קופצת עם תיאור הבעיה</string>
     <string name="title_advanced_lt_user">שם משתמש (רשות)</string>
     <string name="title_advanced_lt_key">מפתח API (רשות)</string>
     <string name="title_advanced_deepl">שילוב של DeepL</string>
@@ -1920,6 +1921,7 @@
     <string name="title_fetching_again">ההודעה נמשכת מהשרת שוב</string>
     <string name="title_go_back">חזרה</string>
     <string name="title_global_default">להשתמש בברירת המחדל הכללית</string>
+    <string name="title_not_existing">ההודעה הזאת לא קיימת עוד בשרת הדואר</string>
     <string name="title_conversation_actions">פעולות</string>
     <string name="title_conversation_action_reply">להגיב עם: ‚%1$s’</string>
     <string name="title_conversation_action_copy">העתקה: ‚%1$s’</string>

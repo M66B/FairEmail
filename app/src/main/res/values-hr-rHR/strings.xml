@@ -608,7 +608,6 @@
         Ključevi i certifikati mogu se pronaći pod Napredno - Šifriranje i vjerodajnice.
     </string>
     <string name="title_advanced_power_menu">Dodaj radnje u Androidov izbornik napajanja</string>
-    <string name="title_advanced_external_search">Dopusti drugim aplikacijama da pretražuju u porukama</string>
     <string name="title_advanced_sort_answers">Razvrstaj predloške odgovora prema učestalosti korištenja</string>
     <string name="title_advanced_shortcuts">Prikaži često korištene kontakte u Androidovom izborniku za dijeljenje</string>
     <string name="title_advanced_fts">Gradi registar pretrage</string>

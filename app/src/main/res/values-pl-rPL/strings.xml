@@ -728,7 +728,6 @@
     </string>
     <string name="title_advanced_power_menu">Dodaj akcje do menu zasilania Androida</string>
     <string name="title_advanced_send_self">Dodaj \'wyślij do siebie\' do menu udostępniania w Androidzie</string>
-    <string name="title_advanced_external_search">Zezwalaj innym aplikacjom na wyszukiwanie w wiadomościach</string>
     <string name="title_advanced_sort_answers">Sortuj szablony odpowiedzi według częstotliwości ich używania</string>
     <string name="title_advanced_shortcuts">Pokaż często używane kontakty w menu udostępniania Androida</string>
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
@@ -743,7 +742,7 @@
     <string name="title_advanced_lt_sentence">Sprawdzaj każde zdanie</string>
     <string name="title_advanced_lt_auto">Sprawdź akapit po nowym wierszu</string>
     <string name="title_advanced_lt_highlight">Podświetl sprawdzany tekst</string>
-    <string name="title_advanced_lt_description" comment="title_advanced_lt_description&#10;Title for option to show LanguageTool issue (style, spelling, etc) when tapping on the underlined text">Pokaż wyskakujące okienko z opisem problemu</string>
+    <string name="title_advanced_lt_description">Pokaż wyskakujące okienko z opisem problemu</string>
     <string name="title_advanced_lt_user">Nazwa użytkownika (opcjonalnie)</string>
     <string name="title_advanced_lt_key">Klucz API (opcjonalnie)</string>
     <string name="title_advanced_deepl">Integracja z DeepL</string>
@@ -1918,7 +1917,7 @@
     <string name="title_fetching_again">Ponowne pobieranie wiadomości z serwera</string>
     <string name="title_go_back">Powrót</string>
     <string name="title_global_default">Użyj ustawień globalnych</string>
-    <string name="title_not_existing" comment="title_not_existing&#10;Warning message for when a message on the device doesn't exist on the email server anymore.">Ta wiadomość nie istnieje już na serwerze pocztowym</string>
+    <string name="title_not_existing">Ta wiadomość nie istnieje już na serwerze pocztowym</string>
     <string name="title_conversation_actions">Akcje</string>
     <string name="title_conversation_action_reply">Odpowiedz z \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopiuj: \'%1$s\'</string>

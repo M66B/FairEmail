@@ -699,7 +699,6 @@
     <string name="title_advanced_manage_keys_hint">        Αυτό θα ανοίξει τις ρυθμίσεις ασφαλείας του Android.        Τα κλειδιά και τα πιστοποιητικά βρίσκονται γενικά στις ρυθμίσεις: \"Σύνθετες - Κρυπτογράφηση και διαπιστευτήρια\".    </string>
     <string name="title_advanced_power_menu">Προσθήκη ενεργειών στο μενού ελέγχου συσκευών του Android</string>
     <string name="title_advanced_send_self">Προσθήκη \"αποστολή στον εαυτό μου\" στο μενού κοινοποίησης του Android</string>
-    <string name="title_advanced_external_search">Να επιτρέπεται σε άλλες εφαρμογές να διενεργούν αναζητήσεις στα μηνύματα</string>
     <string name="title_advanced_sort_answers">Ταξινόμηση προτύπων απάντησης κατά συχνότητα χρήσης</string>
     <string name="title_advanced_shortcuts">Προβολή των πιο συχνά χρησιμοποιούμενων επαφών στο μενού \"Κοινοποίηση\" του Android</string>
     <string name="title_advanced_fts">Κατασκευή ευρετηρίου αναζήτησης</string>
@@ -714,6 +713,7 @@
     <string name="title_advanced_lt_sentence">Έλεγχος κάθε πρότασης</string>
     <string name="title_advanced_lt_auto">Έλεγχος της παραγράφου μετά από μία νέα γραμμή</string>
     <string name="title_advanced_lt_highlight">Επισήμανση του υπό έλεγχο κειμένου</string>
+    <string name="title_advanced_lt_description">Εμφάνιση αναδυόμενου παραθύρου με περιγραφή του προβλήματος</string>
     <string name="title_advanced_lt_user">Όνομα χρήστη (προαιρετικό)</string>
     <string name="title_advanced_lt_key">Κλειδί API (προαιρετικό)</string>
     <string name="title_advanced_deepl">Ενσωμάτωση DeepL</string>
@@ -1886,6 +1886,7 @@
     <string name="title_fetching_again">Ανάκτηση του μηνύματος εκ νέου από τον διακομιστή</string>
     <string name="title_go_back">Μετάβαση πίσω</string>
     <string name="title_global_default">Χρήση της γενικής προεπιλογής</string>
+    <string name="title_not_existing">Αυτό το μήνυμα δεν υπάρχει πλέον στον διακομιστή αλληλογραφίας</string>
     <string name="title_conversation_actions">Ενέργειες</string>
     <string name="title_conversation_action_reply">Απάντηση με: %1$s</string>
     <string name="title_conversation_action_copy">Αντιγραφή: %1$s</string>

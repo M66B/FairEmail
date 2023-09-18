@@ -322,9 +322,11 @@
     <string name="title_advanced_two_col">Употреба на две колони</string>
     <string name="title_advanced_min_screen_size">Минимална големина на екрана за разделен екран</string>
     <string name="title_advanced_open_pane">Начало с два реда или две колони</string>
+    <string name="title_advanced_hide_toolbar">Скриване на връхната лента с инструменти, превъртайки съобщения</string>
     <string name="title_advanced_nav_options">Показване на възможности на менюто за навигиране</string>
     <string name="title_advanced_nav_pin">Закачане на менюто за навигиране</string>
     <string name="title_advanced_nav_hide_title">Скривате ли възможности на менюто за навигиране?</string>
+    <string name="title_advanced_nav_last_sync">Показване на последното синхро в менюто навигация</string>
     <string name="title_advanced_nav_unseen_drafts">Показване на броя на непрочетените чернови в менюто за навигиране</string>
     <string name="title_advanced_startup">Показване при стартиране</string>
     <string name="title_advanced_cards">Използвайте стил на карти вместо табличен стил</string>
@@ -333,6 +335,7 @@
     <string name="title_advanced_date_header">Групиране по дата</string>
     <string name="title_advanced_date_fixed">Показване на фиксирана дата на заглавката най-отгоре</string>
     <string name="title_advanced_date_bold">Показване на датата в удебелен формат</string>
+    <string name="title_advanced_date_time">Винаги да се показват и датата, и часът</string>
     <string name="title_advanced_threading">Групиране на разговори</string>
     <string name="title_advanced_threading_unread">Показване на броя на непрочетените съобщения в разговорите</string>
     <string name="title_advanced_indentation">Ляв/десен отстъп на получени/изпратени съобщения в разговори</string>
@@ -343,6 +346,7 @@
     <string name="title_advanced_gravatars">Покажи Gravatars</string>
     <string name="title_advanced_libravatars">Показване на либраватарите (Libravatars)</string>
     <string name="title_advanced_favicons">Показване на фаворити</string>
+    <string name="title_advanced_favicons_manifest">Сканиране на манифести на уеб приложения</string>
     <string name="title_advanced_generated_icons">Показване на генерираните икони</string>
     <string name="title_advanced_identicons">Покажи икони за идентичност</string>
     <string name="title_advanced_circular">Закръглени икони</string>
@@ -363,6 +367,7 @@
     <string name="title_advanced_preview">Покажи преглед на съобщението</string>
     <string name="title_advanced_preview_italic">Покажи преглед на съобщението наклонено</string>
     <string name="title_advanced_preview_lines">Редове на показване</string>
+    <string name="title_advanced_align_header">Вертикално подравнени ключови думи, онагледен текст и бележки</string>
     <string name="title_advanced_addresses">Покажи адреса по подразбиране</string>
     <string name="title_advanced_unzip">Показване на съдържание на компресирани прикачвания</string>
     <string name="title_advanced_attachments_alt">Покажи прикачените файлове след текста на съобщението</string>
@@ -403,21 +408,27 @@
     <string name="title_advanced_expand_one">Рзгъване на съобщенията едно по едно</string>
     <string name="title_advanced_collapse_multiple">Свиване на съобщенията от разговор с много съобщения при натискане \"назад\"</string>
     <string name="title_advanced_autoclose">Автоматично затваряне на разговори</string>
+    <string name="title_advanced_autoclose_send">Автоматично затваряне на разговорите след изпращане на съобщенията</string>
     <string name="title_advanced_onclose">При затваряне на разговор</string>
     <string name="title_advanced_quick_filter">Показване на ненатрапчиви икони за бърз филтър</string>
     <string name="title_advanced_quick_scroll">Показване на ненатрапчиви икони за бързо превъртане нагоре/надолу</string>
+    <string name="title_advanced_quick_actions">Показване на бързи действия, когато съобщенията са избрани</string>
     <string name="title_advanced_autoread">Автоматично маркиране на съобщения като прочетени при преместване им</string>
     <string name="title_advanced_autounstar">Автоматично премахване на звездите от съобщенията при преместване им</string>
     <string name="title_advanced_reset_importance">Нулирай важността при преместване на съобщения</string>
     <string name="title_advanced_star_snoozed">Автоматично добавяне на звезда при отхвърлени съобщения</string>
     <string name="title_advanced_auto_important">Автоматично прави съобщенията със звезда важни</string>
+    <string name="title_advanced_auto_block_sender">Автоматично блокиране на изпращача, докладвайки спам</string>
+    <string name="title_advanced_auto_hide_answer">Автоматично скриване на бутон за отговор, превъртайки</string>
     <string name="title_advanced_move_thread_all">Премествайки разговор, премествате всички съобщения</string>
+    <string name="title_advanced_move_thread_sent">Премествайки разговора, преместват се и изпратените съобщения</string>
     <string name="title_advanced_default_folder">Изберете подразбираща се папка</string>
     <string name="title_advanced_notifications">Управление на известията</string>
     <string name="title_advanced_notifications_default">Канал по подразбиране</string>
     <string name="title_advanced_notifications_newest_first">Показване първо на най-новите известия</string>
     <string name="title_advanced_badge">Покажети иконата на стартовия панел с брой нови съобщения</string>
     <string name="title_advanced_unseen_ignored">Нека броят на новите съобщения съответства на броя на известията</string>
+    <string name="title_advanced_notify_grouping">Известия за групата</string>
     <string name="title_advanced_notify_known">Показвайте известия само за контакти</string>
     <string name="title_advanced_notify_summary">Показване на обобщено известие</string>
     <string name="title_advanced_notify_preview">Визуализация на съобщението в известията</string>
@@ -467,13 +478,17 @@
     <string name="title_advanced_ca">Инсталирани на CA сертификати</string>
     <string name="title_advanced_manage_keys_hint">        This will open to the Android security settings.        Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
-    <string name="title_advanced_external_search">Разрешаване на други приложения да търсят в съобщения</string>
+    <string name="title_advanced_send_self">Добавяне на \'изпращане на себе си\' към менюто за споделяне на Android</string>
+    <string name="title_advanced_external_search">Добавяне на \'Търсене във FairEmail\' към менюто за избран текст на Android</string>
     <string name="title_advanced_shortcuts">Показвайте често използвани контакти в менюто за споделяне на Android</string>
     <string name="title_advanced_fts">Изграждане индекс за търсене</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d индексирани съобщения (%3$s)</string>
     <string name="title_advanced_classification">Класифициране на съобщенията</string>
     <string name="title_advanced_language">Език</string>
     <string name="title_advanced_language_system">Система</string>
+    <string name="title_advanced_lt_sentence">Проверка на всяко изречение</string>
+    <string name="title_advanced_lt_highlight">Изтъкнатият текст се проверява</string>
+    <string name="title_advanced_lt_description">Показване на изскачащ прозорец с опис на проблема</string>
     <string name="title_advanced_lt_user">Потребителско име (незадължително)</string>
     <string name="title_advanced_lt_key">Ключ API (по избор)</string>
     <string name="title_advanced_deepl">Интегриране с DeepL</string>
@@ -999,6 +1014,7 @@
     <string name="title_translating">Превод &#8230;</string>
     <string name="title_translate_small">Употреба на малък шрифт за изходния текст</string>
     <string name="title_translate_replace">Замяна на изходния текст с преведен текст</string>
+    <string name="title_translate_highlight">Изтъкнатият текст се превежда</string>
     <string name="title_translate_html_hint">Това ще похаби още знаци</string>
     <string name="title_translate_usage">Употреба: %1$s / %2$s (%3$d %%)</string>
     <string name="title_translate_tap">Почукнете на текста, за да се преведе</string>
@@ -1060,6 +1076,7 @@
     <string name="title_no_sign_key">Няма избран ключ за подписване</string>
     <string name="title_reset_sign_key">Нулиране на ключ за подписване</string>
     <string name="title_reset_selected_keys">Нулиране на избраните ключове</string>
+    <string name="title_reset_selected_keys_hint">Може да се употребява в случай на ново удостоверение и т.н.</string>
     <string name="title_signature_none">Съобщението не е подписано</string>
     <string name="title_signature_valid">Подписът на съобщението е валиден</string>
     <string name="title_signature_valid_from">Валиден подпис на съобщението: %1$s</string>
@@ -1079,6 +1096,7 @@
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Търсене</string>
     <string name="title_search_for_hint">Въведете текст</string>
+    <string name="title_search_hint_fts">Употреба на индекса за търсене: само цели думи</string>
     <string name="title_search_index_hint">Търсене чрез индекса за търсене е бързо, но намира само цели думи.</string>
     <string name="title_search_text_hint">Търсене на текст в съобщения, когато има голям брой съобщения, може да не работи на някои сървъри</string>
     <string name="title_search_size_hint">Търсене на съобщения по размер, когато има голям брой съобщения, може да не работи на някои сървъри</string>
@@ -1215,6 +1233,7 @@
     <string name="title_rule_time_before">Получено преди</string>
     <string name="title_rule_time_rel">Относително време (получено) между</string>
     <string name="title_rule_time_every_day">Всеки ден</string>
+    <string name="title_rule_younger">Съобщения по-нови от (час.)</string>
     <string name="title_rule_regex">Регулярен</string>
     <string name="title_rule_and">И</string>
     <string name="title_rule_action">Действие</string>
@@ -1240,6 +1259,7 @@
     <string name="title_rule_keyword_missing">Липсва ключова дума</string>
     <string name="title_rule_automation_hint">Това ще изпрати намерението %1$s с екстрите %2$s</string>
     <string name="title_rule_notes_missing">Липсват местни бележки</string>
+    <string name="title_rule_edit_group">Редактиране на групата &#8230;</string>
     <string name="title_rule_execute">Изпълни сега</string>
     <string name="title_rule_applied">Засегнати съобщения: %1$d</string>
     <string name="title_rule_check">Проверка</string>
@@ -1255,6 +1275,7 @@
     <string name="title_rule_tts_content">Текст</string>
     <string name="title_rule_select_sound">Изберете звук</string>
     <string name="title_rule_alarm_hint">Това ще пренебрегне правилата \"не ме притеснявайте\"</string>
+    <string name="title_rule_alarm_title">Будилник</string>
     <string name="title_rule_alarm_stop">Спиране</string>
     <string name="title_legend_section_synchronize">Синхронизиране</string>
     <string name="title_legend_section_folders">Папки</string>
@@ -1454,6 +1475,7 @@
     <string name="title_loading">Зареждане &#8230;</string>
     <string name="title_fetching_again">Извличане на съобщението от сървъра отново</string>
     <string name="title_go_back">Обратно</string>
+    <string name="title_not_existing">Това съобщение вече не съществува в сървъра на пощата</string>
     <string name="title_conversation_actions">Действия</string>
     <string name="title_conversation_action_reply">Отговорете с: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Копиране: \'%1$s\'</string>

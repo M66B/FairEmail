@@ -681,7 +681,6 @@ Alogaritma bawaan SHA256 dan AES128 didukung secara umum.    </string>
 Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kredensial.    </string>
     <string name="title_advanced_power_menu">Tambahkan aksi untuk kekuatan menu android</string>
     <string name="title_advanced_send_self">Tambahkan \'kirim ke diri sendiri\' ke menu berbagi Android</string>
-    <string name="title_advanced_external_search">Izinkan aplikasi lain untuk menelusuri pengolah pesan FairMail</string>
     <string name="title_advanced_sort_answers">Urutkan template balasan berdasarkan frekuensi penggunaan</string>
     <string name="title_advanced_shortcuts">Tampilkan kontak yang sering digunakan di menu berbagi pada Android</string>
     <string name="title_advanced_fts">Membangun indeks pencarian</string>

@@ -703,7 +703,7 @@
     </string>
     <string name="title_advanced_power_menu">Aktionen zum Android-Ein/Aus-Menü hinzufügen</string>
     <string name="title_advanced_send_self">»An mich senden« zum Android-Teilen-Menü hinzufügen</string>
-    <string name="title_advanced_external_search">Anderen Apps erlauben, in Nachrichten zu suchen</string>
+    <string name="title_advanced_external_search">»FairEmail-Suche« zum Android-Textauswahlmenü hinzufügen</string>
     <string name="title_advanced_sort_answers">Antwortvorlagen nach Verwendungshäufigkeit sortieren</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
@@ -718,7 +718,7 @@
     <string name="title_advanced_lt_sentence">Jeden Satz prüfen</string>
     <string name="title_advanced_lt_auto">Absatz nach einer neuen Zeile prüfen</string>
     <string name="title_advanced_lt_highlight">Den zu prüfenden Text hervorheben</string>
-    <string name="title_advanced_lt_description" comment="title_advanced_lt_description&#10;Title for option to show LanguageTool issue (style, spelling, etc) when tapping on the underlined text">Pop-up mit Problembeschreibung anzeigen</string>
+    <string name="title_advanced_lt_description">Pop-up mit Problembeschreibung anzeigen</string>
     <string name="title_advanced_lt_user">Benutzername (optional)</string>
     <string name="title_advanced_lt_key">API-Schlüssel (optional)</string>
     <string name="title_advanced_deepl">DeepL-Integration</string>
@@ -1895,7 +1895,7 @@
     <string name="title_fetching_again">Nachricht wird erneut vom Server abgerufen</string>
     <string name="title_go_back">Zurück</string>
     <string name="title_global_default">Voreinstellungen verwenden</string>
-    <string name="title_not_existing" comment="title_not_existing&#10;Warning message for when a message on the device doesn't exist on the email server anymore.">Diese Nachricht ist auf dem E-Mail-Server nicht mehr vorhanden</string>
+    <string name="title_not_existing">Diese Nachricht ist auf dem E-Mail-Server nicht mehr vorhanden</string>
     <string name="title_conversation_actions">Aktionen</string>
     <string name="title_conversation_action_reply">Antworten mit: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Kopieren: \'%1$s\'</string>

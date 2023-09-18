@@ -731,7 +731,6 @@
     </string>
     <string name="title_advanced_power_menu">Дадаць дзеянні ў меню сілкавання Android</string>
     <string name="title_advanced_send_self">Дадаць опцыю \'адправіць сабе\' у меню абагульвання Android</string>
-    <string name="title_advanced_external_search">Дазволіць іншым праграмам пошук у паведамленнях</string>
     <string name="title_advanced_sort_answers">Сартаваць шаблоны адказаў паводле частаты выкарыстання</string>
     <string name="title_advanced_shortcuts">Паказваць кантакты, якія часта выкарыстоўваюцца, у меню абагульвання Android</string>
     <string name="title_advanced_fts">Стварыць пошукавы індэкс</string>

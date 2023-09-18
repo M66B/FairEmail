@@ -468,7 +468,6 @@
     <string name="title_advanced_ca">Installerte CA-sertifikater</string>
     <string name="title_advanced_manage_keys_hint">        Dette vil åpnes i Android sikkerhetsinnstillinger.        Nøkler og sertifikater kan vanligvis bli funnet under Avansert - Kryptering og legitimasjon.
     </string>
-    <string name="title_advanced_external_search">Tillat andre apper å søke i meldinger</string>
     <string name="title_advanced_shortcuts">Vis ofte brukte kontakter i Android-menyen</string>
     <string name="title_advanced_fts">Bygg søkeindeks</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meldinger indeksert (%3$s)</string>

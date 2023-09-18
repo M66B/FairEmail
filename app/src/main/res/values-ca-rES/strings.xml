@@ -591,7 +591,6 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_advanced_ca">Certificats CA instal·lats</string>
     <string name="title_advanced_manage_keys_hint">Això obrirà la configuració de Seguretat d\'Android.        Les claus i certificats es poden trobat generalment a Avançat - Xifrat i credencials.
     </string>
-    <string name="title_advanced_external_search">Permet que altres aplicacions cerquin missatges</string>
     <string name="title_advanced_shortcuts">Mostra els contactes més freqüents al menú de compartició d\'Android</string>
     <string name="title_advanced_fts">Construint índex de cerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d missatges indexats (%3$s)</string>
