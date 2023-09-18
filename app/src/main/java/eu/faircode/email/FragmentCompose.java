@@ -118,6 +118,7 @@ import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.graphics.ColorUtils;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
@@ -320,6 +321,7 @@ public class FragmentCompose extends FragmentBase {
     // http://regex.info/blog/lightroom-goodies/jpeg-quality
 
     private static final int MAX_QUOTE_LEVEL = 5;
+    private static final float LUMINANCE_THRESHOLD = 0.7f;
 
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
@@ -7851,6 +7853,33 @@ public class FragmentCompose extends FragmentBase {
                 Integer color = (identity.color == null ? identity.accountColor : identity.color);
                 bottom_navigation.setBackgroundColor(color == null
                         ? Helper.resolveColor(context, androidx.appcompat.R.attr.colorPrimary) : color);
+
+                ColorStateList itemColor;
+                if (color == null)
+                    itemColor = ContextCompat.getColorStateList(context, R.color.action_foreground);
+                else {
+                    Integer icolor = null;
+                    float lum = (float) ColorUtils.calculateLuminance(color);
+                    if (lum > LUMINANCE_THRESHOLD)
+                        icolor = Color.BLACK;
+                    else if ((1.0f - lum) > LUMINANCE_THRESHOLD)
+                        icolor = Color.WHITE;
+                    if (icolor == null)
+                        itemColor = ContextCompat.getColorStateList(context, R.color.action_foreground);
+                    else
+                        itemColor = new ColorStateList(
+                                new int[][]{
+                                        new int[]{android.R.attr.state_enabled},
+                                        new int[]{}
+                                },
+                                new int[]{
+                                        icolor,
+                                        Color.GRAY
+                                }
+                        );
+                }
+                bottom_navigation.setItemIconTintList(itemColor);
+                bottom_navigation.setItemTextColor(itemColor);
             }
 
             Spanned signature = null;
