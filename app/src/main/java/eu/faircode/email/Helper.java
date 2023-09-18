@@ -191,7 +191,6 @@ public class Helper {
 
     static final float LOW_LIGHT = 0.6f;
 
-    static final int OPERATION_WORKERS = 3;
     static final int WAKELOCK_MAX = 30 * 60 * 1000; // milliseconds
     static final int BUFFER_SIZE = 8192; // Same as in Files class
     static final long MIN_REQUIRED_SPACE = 100 * 1000L * 1000L;
