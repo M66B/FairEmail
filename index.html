@@ -433,14 +433,14 @@
 <p>To reliably receive messages in the background the app needs to start a service, which will let Android display a status bar notification notifying you about potential battery usage.</p>
 <p>The service can’t be started without a notification and the app can’t disable the notification either. However, you can disable the notification yourself, without side effects, via the notification settings of FairEmail:</p>
 <ul>
-<li>Android 8 Oreo and later: tap the <em>Receive channel</em> button and disable the channel via the Android settings (this won’t disable new message notifications)</li>
+<li>Android 8 Oreo and later: tap the <em>Monitoring channel</em> button and disable the channel via the Android settings (this won’t disable new message notifications)</li>
 <li>Android 7 Nougat and before: enabled <em>Use background service to synchronize messages</em>, but be sure to read the remark below the setting first</li>
 </ul>
 <p>You can also switch to periodically synchronization of messages in the receive settings to remove the notification, but be aware that this might use more battery power. See <a href="#faq39">here</a> for more details about battery usage.</p>
 <p>Android 8 Oreo might also show a status bar notification with the text <em>Apps are running in the background</em>. Please see <a href="https://www.reddit.com/r/Android/comments/7vw7l4/psa_turn_off_background_apps_notification/">here</a> about how you can disable this notification.</p>
 <p><em>Background</em></p>
 <p>The service is a <a href="https://developer.android.com/reference/android/app/Service.html#startForeground(int,%20android.app.Notification)">foreground service</a> and is needed to prevent Android from stopping the service when the device is sleeping (<a href="https://developer.android.com/training/monitoring-device-state/doze-standby">doze mode</a>).</p>
-<p>Most, if not all, other email apps don’t show a notification with as “side effect” that new messages are often not or late being reported and that messages are not or late being sent.</p>
+<p>Most, if not all, other email apps don’t show a notification with a “side effect” that new messages are often not or late being reported and that messages are not or late being sent.</p>
 <p>Some other email apps download all your messages to their servers first and push messages via <a href="https://firebase.google.com/docs/cloud-messaging/">Firebase Cloud Messaging</a> to your device. For your privacy this is not a nice solution …</p>
 <p><br /></p>
 <p><a name="faq3"></a> <strong>(3) What are operations and why are they pending?</strong></p>
@@ -2562,7 +2562,8 @@ _submission._tcp SRV 0 1 587 smtp.example.com.</code></pre>
 <p>After writing some text, you can long press on the save draft button to perform a grammar, style, and spell check via <a href="https://languagetool.org/">LanguageTool</a>. Texts with suggestions will be marked and if you tap on a marked suggestion, it will be shown by the keyboard if the keyboard supports this, else you can double tap or long press the marked text to show suggestions.</p>
 <p>Since version 1.1974 there is an option to check paragraphs after a new line.</p>
 <p>The suboption <em>Use formal form</em> can be enabled to let LanguageTool suggest more formal text (business, legal, etc).</p>
-<p>Since version 1.2000 you can configure a username and an API key to access the premium features. You can long press text to select a word, and add it to or remove it from the personal dictionary via the <em>copy/paste</em> pop-up menu.</p>
+<p>Since version 1.2000 you can configure a username and an API key to access the premium features. If you are looking for the API key, please <a href="https://languagetool.org/editor/settings/access-tokens">go here</a>.</p>
+<p>You can long press text to select a word, and add it to or remove it from the personal dictionary via the <em>copy/paste</em> pop-up menu.</p>
 <p><br /></p>
 <p><a name="faq181"></a> <strong>(181) How do I use VirusTotal?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq181">Google Translate</a></p>
