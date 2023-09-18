@@ -123,22 +123,26 @@ public class EditTextCompose extends FixedEditText {
 
             @Override
             public void onTextChanged(CharSequence text, int start, int before, int count) {
-                int index = start + before;
-                if (count - before == 1 && index > 1) {
-                    char c = text.charAt(index);
-                    if (c == '>' &&
-                            text.charAt(index - 1) == '-' &&
-                            text.charAt(index - 2) == '-') {
-                        replace = index - 2;
-                        length = 3;
-                        what = "→";
-                    } else if (c == '-' &&
-                            text.charAt(index - 1) == '-' &&
-                            text.charAt(index - 2) == '<') {
-                        replace = index - 2;
-                        length = 3;
-                        what = "←";
+                try {
+                    int index = start + before;
+                    if (count - before == 1 && index > 1) {
+                        char c = text.charAt(index);
+                        if (c == '>' &&
+                                text.charAt(index - 1) == '-' &&
+                                text.charAt(index - 2) == '-') {
+                            replace = index - 2;
+                            length = 3;
+                            what = "→";
+                        } else if (c == '-' &&
+                                text.charAt(index - 1) == '-' &&
+                                text.charAt(index - 2) == '<') {
+                            replace = index - 2;
+                            length = 3;
+                            what = "←";
+                        }
                     }
+                } catch (Throwable ex) {
+                    Log.e(ex);
                 }
             }
 
