@@ -7358,11 +7358,24 @@ public class FragmentMessages extends FragmentBase
                         int color = args.getInt("color");
                         bottom_navigation.setBackgroundColor(color);
 
+                        Integer itemColor = null;
                         float lum = (float) ColorUtils.calculateLuminance(color);
                         if (lum > LUMINANCE_THRESHOLD)
-                            bottom_navigation.setItemIconTintList(ColorStateList.valueOf(Color.BLACK));
+                            itemColor = Color.BLACK;
                         else if ((1.0f - lum) > LUMINANCE_THRESHOLD)
-                            bottom_navigation.setItemIconTintList(ColorStateList.valueOf(Color.WHITE));
+                            itemColor = Color.WHITE;
+
+                        if (itemColor != null)
+                            bottom_navigation.setItemIconTintList(new ColorStateList(
+                                    new int[][]{
+                                            new int[]{android.R.attr.state_enabled},
+                                            new int[]{}
+                                    },
+                                    new int[]{
+                                            itemColor,
+                                            Color.GRAY
+                                    }
+                            ));
                     }
 
                     bottom_navigation.setTag(data);
