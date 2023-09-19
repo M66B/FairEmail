@@ -490,7 +490,8 @@ class ImageHelper {
                         try {
                             if (slow)
                                 semaphore.acquire();
-                            d = downloadImage(context, id, source, null);
+                            String mimeType = (source.endsWith(".svg") ? "image/svg+xml" : null);
+                            d = downloadImage(context, id, source, mimeType);
                         } finally {
                             if (slow)
                                 semaphore.release();
@@ -645,7 +646,8 @@ class ImageHelper {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
                 try {
-                    return getScaledDrawable(context, file, null, dm.widthPixels);
+                    String mimeType = (source.endsWith(".svg") ? "image/svg+xml" : null);
+                    return getScaledDrawable(context, file, mimeType, dm.widthPixels);
                 } catch (IOException ex) {
                     Log.i(ex);
                     return null;
@@ -680,7 +682,7 @@ class ImageHelper {
                 try (FileOutputStream fos = new FileOutputStream(file)) {
                     Helper.copy(urlConnection.getInputStream(), fos);
                 }
-                return getScaledDrawable(context, file, null, dm.widthPixels);
+                return getScaledDrawable(context, file, mimeType, dm.widthPixels);
             }
 
             bm = getScaledBitmap(
