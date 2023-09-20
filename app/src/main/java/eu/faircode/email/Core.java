@@ -5773,6 +5773,8 @@ class Core {
         String sound = prefs.getString("sound", null);
         boolean alert_once = prefs.getBoolean("alert_once", true);
         boolean perform_expunge = prefs.getBoolean("perform_expunge", true);
+        boolean delete_confirmation = prefs.getBoolean("delete_confirmation", true);
+
 
         // Get contact info
         Map<Long, Address[]> messageFrom = new HashMap<>();
@@ -6089,7 +6091,8 @@ class Core {
             }
 
             if (notify_trash &&
-                    ((message.accountProtocol == EntityAccount.TYPE_POP && message.accountLeaveDeleted) ||
+                    (!delete_confirmation ||
+                            (message.accountProtocol == EntityAccount.TYPE_POP && message.accountLeaveDeleted) ||
                             (message.accountProtocol == EntityAccount.TYPE_IMAP && !perform_expunge))) {
                 Intent delete = new Intent(context, ServiceUI.class)
                         .setAction("delete:" + message.id)
