@@ -3491,6 +3491,9 @@ This feature depends on support of your launcher.
 FairEmail merely 'broadcasts' the number of unread messages using the ShortcutBadger library.
 If it doesn't work, this cannot be fixed by changes in FairEmail.
 
+An alternative is to use the unread messages count home screen widget.
+You can add this widget by long pressing on an empty place on the home screen.
+
 If you are using Nova launcher and you want to show the number of notifications in the launcher icon (maximum 10; imposed by Nova launcher),
 you'll need to enable *Notification access* in the Android *Special app access* settings for Nova launcher on recent Android versions.
 
