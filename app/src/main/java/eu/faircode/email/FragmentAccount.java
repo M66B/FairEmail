@@ -38,7 +38,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -61,6 +60,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.text.method.LinkMovementMethodCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
@@ -645,7 +645,7 @@ public class FragmentAccount extends FragmentBase {
         btnHelp.setVisibility(View.GONE);
         btnSupport.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
-        tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
+        tvInstructions.setMovementMethod(LinkMovementMethodCompat.getInstance());
 
         grpServer.setVisibility(View.GONE);
         grpAuthorize.setVisibility(View.GONE);

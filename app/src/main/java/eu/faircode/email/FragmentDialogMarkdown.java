@@ -23,7 +23,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -33,6 +32,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.text.method.LinkMovementMethodCompat;
 
 import java.io.InputStream;
 
@@ -105,7 +105,7 @@ public class FragmentDialogMarkdown extends FragmentDialogBase {
             @Override
             protected void onExecuted(Bundle args, Spanned markdown) {
                 tvMarkdown.setText(markdown);
-                tvMarkdown.setMovementMethod(LinkMovementMethod.getInstance());
+                tvMarkdown.setMovementMethod(LinkMovementMethodCompat.getInstance());
             }
 
             @Override

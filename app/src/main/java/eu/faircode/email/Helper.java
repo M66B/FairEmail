@@ -96,7 +96,6 @@ import android.view.ViewParent;
 import android.view.Window;
 import android.view.accessibility.AccessibilityManager;
 import android.view.inputmethod.EditorInfo;
-import android.view.inputmethod.InputMethodManager;
 import android.webkit.MimeTypeMap;
 import android.webkit.WebView;
 import android.widget.Button;
@@ -119,6 +118,7 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.view.SoftwareKeyboardControllerCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.Fragment;
@@ -1979,33 +1979,18 @@ public class Helper {
     }
 
     static void showKeyboard(final View view) {
-        final Context context = view.getContext();
-        InputMethodManager imm = Helper.getSystemService(context, InputMethodManager.class);
-        if (imm == null)
-            return;
-
-        view.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Log.i("showKeyboard view=" + view);
-                    imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
-                } catch (Throwable ex) {
-                    Log.e(ex);
-                }
-            }
-        }, 250);
+        try {
+            Log.i("showKeyboard view=" + view);
+            new SoftwareKeyboardControllerCompat(view).show();
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     static void hideKeyboard(final View view) {
-        final Context context = view.getContext();
-        InputMethodManager imm = Helper.getSystemService(context, InputMethodManager.class);
-        if (imm == null)
-            return;
-
         try {
             Log.i("hideKeyboard view=" + view);
-            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+            new SoftwareKeyboardControllerCompat(view).hide();
         } catch (Throwable ex) {
             Log.e(ex);
         }

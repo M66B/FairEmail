@@ -38,7 +38,6 @@ import android.provider.ContactsContract;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -62,6 +61,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.PopupMenu;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.text.method.LinkMovementMethodCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
 
@@ -247,7 +247,7 @@ public class FragmentIdentity extends FragmentBase {
         btnHelp = view.findViewById(R.id.btnHelp);
         btnSupport = view.findViewById(R.id.btnSupport);
         tvInstructions = view.findViewById(R.id.tvInstructions);
-        tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
+        tvInstructions.setMovementMethod(LinkMovementMethodCompat.getInstance());
 
         pbWait = view.findViewById(R.id.pbWait);
 

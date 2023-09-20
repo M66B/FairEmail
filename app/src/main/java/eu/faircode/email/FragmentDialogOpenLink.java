@@ -44,7 +44,6 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.method.LinkMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.util.Pair;
@@ -71,6 +70,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.core.net.MailTo;
+import androidx.core.text.method.LinkMovementMethodCompat;
 import androidx.core.util.PatternsCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -432,7 +432,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
             }
         });
 
-        tvOwnerRemark.setMovementMethod(LinkMovementMethod.getInstance());
+        tvOwnerRemark.setMovementMethod(LinkMovementMethodCompat.getInstance());
 
         btnWhois.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -470,7 +470,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
                         final TextView tvWhois = dview.findViewById(R.id.tvWhois);
                         final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
 
-                        tvWhois.setMovementMethod(LinkMovementMethod.getInstance());
+                        tvWhois.setMovementMethod(LinkMovementMethodCompat.getInstance());
 
                         ibInfo.setOnClickListener(new View.OnClickListener() {
                             @Override

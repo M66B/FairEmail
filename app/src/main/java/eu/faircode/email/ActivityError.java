@@ -21,11 +21,12 @@ package eu.faircode.email;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import androidx.core.text.method.LinkMovementMethodCompat;
 
 public class ActivityError extends ActivityBase {
     static final int PI_ERROR = 1;
@@ -76,7 +77,7 @@ public class ActivityError extends ActivityBase {
         int faq = intent.getIntExtra("faq", -1);
 
         tvTitle.setText(title);
-        tvMessage.setMovementMethod(LinkMovementMethod.getInstance());
+        tvMessage.setMovementMethod(LinkMovementMethodCompat.getInstance());
         tvMessage.setText(message);
 
         boolean password = (auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD);

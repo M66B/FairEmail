@@ -67,7 +67,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 import android.text.method.ArrowKeyMovementMethod;
-import android.text.method.LinkMovementMethod;
 import android.text.method.MovementMethod;
 import android.text.style.DynamicDrawableSpan;
 import android.text.style.ForegroundColorSpan;
@@ -121,6 +120,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.graphics.ColorUtils;
+import androidx.core.text.method.LinkMovementMethodCompat;
 import androidx.core.view.MenuCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -852,7 +852,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvKeywordsEx = vsBody.findViewById(R.id.tvKeywordsEx);
 
             tvHeaders = vsBody.findViewById(R.id.tvHeaders);
-            tvHeaders.setMovementMethod(LinkMovementMethod.getInstance());
+            tvHeaders.setMovementMethod(LinkMovementMethodCompat.getInstance());
             ibCopyHeaders = vsBody.findViewById(R.id.ibCopyHeaders);
             ibCloseHeaders = vsBody.findViewById(R.id.ibCloseHeaders);
             pbHeaders = vsBody.findViewById(R.id.pbHeaders);
@@ -3506,7 +3506,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                         onCopy();
                                         break;
                                     default:
-                                        raction.getActionIntent().send();
+                                        raction.getActionIntent().send(); // PendingIntentCompat.send()
                                 }
                             } catch (Throwable ex) {
                                 Log.e(ex);

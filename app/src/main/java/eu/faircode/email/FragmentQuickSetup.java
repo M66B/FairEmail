@@ -32,7 +32,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.text.method.LinkMovementMethod;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +47,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.text.method.LinkMovementMethodCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 
@@ -273,7 +273,7 @@ public class FragmentQuickSetup extends FragmentBase {
         tvArgument.setVisibility(View.GONE);
         tvErrorHint.setVisibility(View.GONE);
         tvInstructions.setVisibility(View.GONE);
-        tvInstructions.setMovementMethod(LinkMovementMethod.getInstance());
+        tvInstructions.setMovementMethod(LinkMovementMethodCompat.getInstance());
         btnHelp.setVisibility(View.GONE);
         cbUpdate.setChecked(update);
         cbUpdate.setVisibility(View.GONE);
