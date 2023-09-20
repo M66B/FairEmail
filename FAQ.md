@@ -794,6 +794,7 @@ Firstly, Exchange *protocol* (EWS) is not the same as Exchange *server* or Excha
 The Microsoft Exchange Web Services &trade; (EWS) protocol [is being phased out](https://techcommunity.microsoft.com/t5/Exchange-Team-Blog/Upcoming-changes-to-Exchange-Web-Services-EWS-API-for-Office-365/ba-p/608055).
 Microsoft stopped updating the EWS libraries [in 2016](https://github.com/OfficeDev/ews-java-api).
 So, it makes little sense to add this protocol anymore.
+Moreover, Microsoft announced that [EWS will be retired on October 1, 2026](https://techcommunity.microsoft.com/t5/exchange-team-blog/retirement-of-exchange-web-services-in-exchange-online/ba-p/3924440).
 
 You can use a Microsoft Exchange account if it is accessible via IMAP, which is almost always the case because all Exchange servers support the standard IMAP protocol.
 See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
