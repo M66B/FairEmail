@@ -6088,9 +6088,7 @@ class Core {
 
                     wactions.add(actionTrash.build());
                 }
-            }
-
-            if (notify_trash &&
+            } else if (notify_trash &&
                     (!delete_confirmation ||
                             (message.accountProtocol == EntityAccount.TYPE_POP && message.accountLeaveDeleted) ||
                             (message.accountProtocol == EntityAccount.TYPE_IMAP && !perform_expunge))) {
