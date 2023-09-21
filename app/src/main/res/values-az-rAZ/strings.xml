@@ -702,6 +702,7 @@
     </string>
     <string name="title_advanced_power_menu">Android enerji menyusuna əməliyyat əlavə et</string>
     <string name="title_advanced_send_self">Android-in paylaşma menyusuna \"özünə göndər\"i əlavə edin</string>
+    <string name="title_advanced_external_search">Android mətn seçim menyusuna \"FairEmail axtarışı\"nı əlavə et</string>
     <string name="title_advanced_sort_answers">Cavab şablonlarını istifadə tezliyinə görə sırala</string>
     <string name="title_advanced_shortcuts">Tez-tez istifadə olunan əlaqələri Android paylaşma menyusunda göstər</string>
     <string name="title_advanced_fts">Axtarış indeksini quraşdır</string>

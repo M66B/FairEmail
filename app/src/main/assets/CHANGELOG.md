@@ -4,7 +4,16 @@
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
-### [Ubirajara](https://en.wikipedia.org/wiki/Ubirajara_jubatus)
+### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
+
+### 1.2104 - 2023-09-21
+
+* Improved SVG support
+* Small improvements and minor bug fixes
+* Updated libraries
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2103 - 2023-09-18
 

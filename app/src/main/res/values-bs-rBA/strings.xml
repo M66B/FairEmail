@@ -716,6 +716,7 @@
     </string>
     <string name="title_advanced_power_menu">Dodaj radnje na Androidov meni za uključenje/gašenje</string>
     <string name="title_advanced_send_self">Dodaj opciju \"pošalji sebi\" na Android meniju \"podijeli\"</string>
+    <string name="title_advanced_external_search">Dodaj \'Pretraži FairEmail\' u Androidov izbornik za selektovani tekst</string>
     <string name="title_advanced_sort_answers">Sortiraj prijedloške za odgovore prema učestalosti korištenja</string>
     <string name="title_advanced_shortcuts">Prikaži često korištene kontakte u Android meniju za dijeljenje</string>
     <string name="title_advanced_fts">Kreiraj indeks pretraživanja</string>

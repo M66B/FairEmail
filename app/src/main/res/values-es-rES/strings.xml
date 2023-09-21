@@ -700,6 +700,7 @@
     </string>
     <string name="title_advanced_power_menu">Añadir acciones al menú de apagado de Android</string>
     <string name="title_advanced_send_self">Añadir \'enviar a sí mismo\' al menú de compartir de Android</string>
+    <string name="title_advanced_external_search">Añadir \'Buscar en Fairemail\' al menú de selección de texto de Android</string>
     <string name="title_advanced_sort_answers">Ordenar plantillas de respuesta por frecuencia de uso</string>
     <string name="title_advanced_shortcuts">Mostrar contactos frecuentes en el menú compartir de Android</string>
     <string name="title_advanced_fts">Crear índice de búsqueda</string>

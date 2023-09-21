@@ -699,6 +699,7 @@
     <string name="title_advanced_manage_keys_hint">        Αυτό θα ανοίξει τις ρυθμίσεις ασφαλείας του Android.        Τα κλειδιά και τα πιστοποιητικά βρίσκονται γενικά στις ρυθμίσεις: \"Σύνθετες - Κρυπτογράφηση και διαπιστευτήρια\".    </string>
     <string name="title_advanced_power_menu">Προσθήκη ενεργειών στο μενού ελέγχου συσκευών του Android</string>
     <string name="title_advanced_send_self">Προσθήκη \"αποστολή στον εαυτό μου\" στο μενού κοινοποίησης του Android</string>
+    <string name="title_advanced_external_search">Προσθήκη \"Αναζήτηση FairEmail\" στο μενού επιλογής κειμένου του Android</string>
     <string name="title_advanced_sort_answers">Ταξινόμηση προτύπων απάντησης κατά συχνότητα χρήσης</string>
     <string name="title_advanced_shortcuts">Προβολή των πιο συχνά χρησιμοποιούμενων επαφών στο μενού \"Κοινοποίηση\" του Android</string>
     <string name="title_advanced_fts">Κατασκευή ευρετηρίου αναζήτησης</string>

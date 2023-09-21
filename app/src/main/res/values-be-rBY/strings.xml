@@ -731,6 +731,7 @@
     </string>
     <string name="title_advanced_power_menu">Дадаць дзеянні ў меню сілкавання Android</string>
     <string name="title_advanced_send_self">Дадаць опцыю \'адправіць сабе\' у меню абагульвання Android</string>
+    <string name="title_advanced_external_search">Дадаць пункт \'Шукаць у FairEmail\' у меню выбару тэксту Android</string>
     <string name="title_advanced_sort_answers">Сартаваць шаблоны адказаў паводле частаты выкарыстання</string>
     <string name="title_advanced_shortcuts">Паказваць кантакты, якія часта выкарыстоўваюцца, у меню абагульвання Android</string>
     <string name="title_advanced_fts">Стварыць пошукавы індэкс</string>
@@ -745,6 +746,7 @@
     <string name="title_advanced_lt_sentence">Правяраць кожны сказ</string>
     <string name="title_advanced_lt_auto">Правяраць абзац пасля новага радка</string>
     <string name="title_advanced_lt_highlight">Вылучаць тэкст пры праверцы</string>
+    <string name="title_advanced_lt_description">Паказваць усплывальнае акно з апісаннем праблемы</string>
     <string name="title_advanced_lt_user">Імя карыстальніка (неабавязкова)</string>
     <string name="title_advanced_lt_key">Ключ API (неабавязкова)</string>
     <string name="title_advanced_deepl">Інтэграцыя з DeepL</string>
@@ -1922,6 +1924,7 @@
     <string name="title_fetching_again">Паўторная загрузка паведамлення з сервера</string>
     <string name="title_go_back">Назад</string>
     <string name="title_global_default">Выкарыстоўваць тыповае агульнае значэнне</string>
+    <string name="title_not_existing">Гэтага паведамлення больш не існуе на паштовым серверы</string>
     <string name="title_conversation_actions">Дзеянні</string>
     <string name="title_conversation_action_reply">Адказаць з: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Капіраваць: \'%1$s\'</string>

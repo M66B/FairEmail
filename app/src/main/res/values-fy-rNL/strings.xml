@@ -698,6 +698,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     </string>
     <string name="title_advanced_power_menu">Aksjes oan it Android-powermenu tafoegje</string>
     <string name="title_advanced_send_self">‘Nei josels stjoere’ oan it Android-dielmenu tafoegje</string>
+    <string name="title_advanced_external_search">Foegje ‘FairEmail sykje’ ta oan Android-tekstseleksjemenu</string>
     <string name="title_advanced_sort_answers">Antwurdsjabloanen op brûksfrekwinse sortearje</string>
     <string name="title_advanced_shortcuts">Faak brûkte kontakten yn Android-dielmenu toane</string>
     <string name="title_advanced_fts">Sykyndeks opbouwe</string>

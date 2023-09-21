@@ -3,9 +3,9 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 2103 }
+def getVersionCode = { -> return 2104 }
 def getRevision = { -> return "a" }
-def getReleaseName = { -> return "Ubirajara" }
+def getReleaseName = { -> return "Vallibonavenatrix" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
 def keystoreProperties = new Properties()

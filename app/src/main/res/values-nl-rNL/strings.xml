@@ -698,7 +698,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     </string>
     <string name="title_advanced_power_menu">Acties toevoegen aan het Android power menu</string>
     <string name="title_advanced_send_self">Voeg \'Stuur naar jezelf\' toe aan het Android-deelmenu</string>
-    <string name="title_advanced_external_search">Voeg \'FairEmail zoeken\' toe aan Android tekst selectie menu</string>
+    <string name="title_advanced_external_search">Voeg ‘FairEmail zoeken’ toe aan Android-tekstselectiemenu</string>
     <string name="title_advanced_sort_answers">Sorteer antwoordsjablonen op gebruiksfrequentie</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
     <string name="title_advanced_fts">Zoekindex opbouwen</string>

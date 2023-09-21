@@ -688,6 +688,7 @@
     </string>
     <string name="title_advanced_power_menu">Android の電源メニューにアクションを追加</string>
     <string name="title_advanced_send_self">Android の共有メニューに「自分に送信」を追加</string>
+    <string name="title_advanced_external_search">Android のテキスト選択メニューに「FairEmail を検索」を追加</string>
     <string name="title_advanced_sort_answers">返信テンプレートを使用頻度で並べ替え</string>
     <string name="title_advanced_shortcuts">頻繁に使用する連絡先を Android 共有メニューに表示</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>

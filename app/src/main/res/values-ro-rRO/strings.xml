@@ -714,6 +714,7 @@
     </string>
     <string name="title_advanced_power_menu">Adăugați acțiuni în meniul de alimentare Android</string>
     <string name="title_advanced_send_self">Adaugă \'trimite-mi mie\' în meniul de partajare Android</string>
+    <string name="title_advanced_external_search">Adaugă \'căutare FairEmail\' în meniul de selecție text Android</string>
     <string name="title_advanced_sort_answers">Sortați șabloanele de răspuns în funcție de frecvența de utilizare</string>
     <string name="title_advanced_shortcuts">Arată contactele utilizate frecvent în meniul de partajare Android</string>
     <string name="title_advanced_fts">Creează index de căutare</string>
@@ -728,6 +729,7 @@
     <string name="title_advanced_lt_sentence">Verificați fiecare propoziție</string>
     <string name="title_advanced_lt_auto">Verifică paragraful după o nouă linie</string>
     <string name="title_advanced_lt_highlight">Evidențiați textul care se verifică</string>
+    <string name="title_advanced_lt_description">Arată pop-up cu descrierea problemei</string>
     <string name="title_advanced_lt_user">Nume utilizator (opţional)</string>
     <string name="title_advanced_lt_key">Cheie API (opțional)</string>
     <string name="title_advanced_deepl">Integrare DeepL</string>
@@ -1901,6 +1903,7 @@
     <string name="title_fetching_again">Se descarcă iar mesajele de pe server</string>
     <string name="title_go_back">Înapoi</string>
     <string name="title_global_default">Folosește setarea generală</string>
+    <string name="title_not_existing">Acest mesaj nu mai există pe serverul de mail</string>
     <string name="title_conversation_actions">Acțiuni</string>
     <string name="title_conversation_action_reply">Răspunde cu: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Copiază: \'%1$s\'</string>

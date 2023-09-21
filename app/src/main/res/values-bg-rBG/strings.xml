@@ -188,6 +188,8 @@
     <string name="title_setup_close">Затваряне на настройките</string>
     <string name="title_setup_export">Експортиране на настройките</string>
     <string name="title_setup_import">Внасяне на настройки</string>
+    <string name="title_setup_scroll">Диалоговите прозорци за въвеждане може да се превъртат!</string>
+    <string name="title_setup_backup">Как резервно да се копират съобщенията?</string>
     <string name="title_setup_password">Парола</string>
     <string name="title_setup_password_chars">Паролата съдържа контролни символи или интервали</string>
     <string name="title_setup_password_repeat">Повторете паролата</string>
@@ -262,6 +264,7 @@
     <string name="title_advanced_gmail_thread">Стил на Gmail за групиране на съобщенията за акаунти в Gmail</string>
     <string name="title_advanced_sync_folders">Синхронизиране на списъка с папки</string>
     <string name="title_advanced_sync_shared_folders">Синхронизиране на споделени списъци с папки</string>
+    <string name="title_advanced_sync_added">Включване на синхрото за новите потребителски папки</string>
     <string name="title_advanced_subscriptions">Управление на абонирани папки</string>
     <string name="title_advanced_check_authentication">Проверка на съобщението за удостоверяване</string>
     <string name="title_advanced_check_mx">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
@@ -276,6 +279,9 @@
     <string name="title_advanced_send_chips">Показване на адресни мехурчета</string>
     <string name="title_advanced_send_reminders">Показване на напомняния</string>
     <string name="title_advanced_send_delayed">Отложено изпращане на съобщение</string>
+    <string name="title_advanced_answer_caption">Настройки на бутона отговор</string>
+    <string name="title_advanced_answer_default">Кратко натискане на бутона за отговор ще:</string>
+    <string name="title_advanced_answer_warning">Не всички действия са възможни без менюто за избор!</string>
     <string name="title_advanced_compose_color">Стандартен цвят на текста</string>
     <string name="title_advanced_compose_font">Шрифт по подразбиране</string>
     <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
@@ -373,6 +379,7 @@
     <string name="title_advanced_attachments_alt">Покажи прикачените файлове след текста на съобщението</string>
     <string name="title_advanced_thumbnails">Показване на миниатюри на изображения след текста на съобщението</string>
     <string name="title_advanced_message_text_zoom2">Подразбиращ се мащаб на текста на съобщение: %1$s %%</string>
+    <string name="title_advanced_editor_text_zoom">Мащабиране на текста на съобщението в редактора</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
     <string name="title_advanced_monospaced">Използвайте monospaced шрифт за текст на съобщението по подразбиране</string>
     <string name="title_advanced_text_color">Избери цвят на текста</string>
@@ -463,6 +470,7 @@
     <string name="title_advanced_secure">Скриване от екрана на последно използвани приложения и предотвратяване правенето снимка на екрана</string>
     <string name="title_advanced_pin">ПИН</string>
     <string name="title_advanced_biometrics_timeout">Време на изчакване за биометрично удостоверяване</string>
+    <string name="title_advanced_clear_all_hint">Това ще изтрие всички данни на приложението от устройството, включващо настроените имейл акаунти, съобщения, а и всички събрани данни.</string>
     <string name="title_advanced_sign_default">Подписване по подразбиране</string>
     <string name="title_advanced_encrypt_default">Криптиране по подразбиране</string>
     <string name="title_advanced_auto_decrypt">Автоматично декриптиране на съобщение</string>
@@ -484,6 +492,7 @@
     <string name="title_advanced_fts">Изграждане индекс за търсене</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d индексирани съобщения (%3$s)</string>
     <string name="title_advanced_classification">Класифициране на съобщенията</string>
+    <string name="title_advanced_show_filtered">Иконата на филтъра на показ при приложени правила</string>
     <string name="title_advanced_language">Език</string>
     <string name="title_advanced_language_system">Система</string>
     <string name="title_advanced_lt_sentence">Проверка на всяко изречение</string>
@@ -493,6 +502,8 @@
     <string name="title_advanced_lt_key">Ключ API (по избор)</string>
     <string name="title_advanced_deepl">Интегриране с DeepL</string>
     <string name="title_advanced_virus_total">Интегриране с VirusTotal</string>
+    <string name="title_advanced_send">Интегриране със Send</string>
+    <string name="title_advanced_openai">Интеграция с OpenAI (ChatGPT)</string>
     <string name="title_advanced_openai_model">Модел</string>
     <string name="title_advanced_openai_temperature">Температура: %1$s</string>
     <string name="title_advanced_openai_moderation">Модериране на съдържанието</string>
@@ -600,6 +611,7 @@
     <string name="title_account_name_hint">Използва се за разграничаване на папки</string>
     <string name="title_account_interval_hint">Честота на опресняване на връзката за push съобщения или честота на проверка за нови съобщения</string>
     <string name="title_account_partial_fetch_hint">Деактивирайте това само в случай на празни съобщения или повредени прикачени файлове</string>
+    <string name="title_account_raw_fetch_hint">Включването на това ще увеличи консумацията на батерията и данните</string>
     <string name="title_color">Цвят</string>
     <string name="title_calendar">Календар</string>
     <string name="title_background">Фон</string>
@@ -853,6 +865,7 @@
     <string name="title_unsubscribe">Отписване</string>
     <string name="title_message_rule">Създай правило</string>
     <string name="title_no_junk">Не е спам</string>
+    <string name="title_edit_subject">Промяна на темата &#8230;</string>
     <string name="title_move_to">Премести в &#8230;</string>
     <string name="title_move_to_folder">Премести в &#8230;</string>
     <string name="title_move_to_account">Премести в %1$s &#8230;</string>
@@ -868,6 +881,7 @@
     <string name="title_reply_list">Отговори на списък</string>
     <string name="title_reply_receipt">Изпрати разписка за прочетено</string>
     <string name="title_reply_template">Отговор с шаблон</string>
+    <string name="title_reply_menu">Показването на менюто за избор</string>
     <string name="title_move_undo">Премести в %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s неуспешна идентификация</string>
     <string name="title_receipt_subject">Разписка за прочетено: %1$s</string>
@@ -991,6 +1005,7 @@
     <string name="title_add_image_resize">Размер</string>
     <string name="title_add_image_privacy_remark">Географско разположение, серийни номера, имена на файлове и т.н.</string>
     <string name="title_add_resize_pixels">&lt; %1$d пиксела</string>
+    <string name="title_add_image_select_remark">Подбирачът на снимки на Android вече не предава имена на файлове</string>
     <string name="title_add_image_select">Избиране на файл</string>
     <string name="title_add_attachment">Прикачване на файл</string>
     <string name="title_attachment_file">Прикачи файл</string>

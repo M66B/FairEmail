@@ -14,7 +14,7 @@
     <string name="app_cake_required">Espace de stockage minimum requis : %1$s</string>
     <string name="app_updated">Dernière mise à jour : %1$s</string>
     <string name="app_download">Téléchargé depuis : %1$s</string>
-    <string name="channel_service">Moniteur</string>
+    <string name="channel_service">Surveillance</string>
     <string name="channel_send">Envoi</string>
     <string name="channel_notification">E-mail</string>
     <string name="channel_progress">Progression</string>
@@ -702,7 +702,7 @@
     </string>
     <string name="title_advanced_power_menu">Ajouter des actions au menu alimentation d\'Android</string>
     <string name="title_advanced_send_self">Ajouter « Envoyer à soi-même » au menu de partage d\'Android</string>
-    <string name="title_advanced_external_search">Ajouter « Recherche FairEmail » au menu de sélection de texte Android</string>
+    <string name="title_advanced_external_search">Ajouter « Recherche FairEmail » au menu de sélection de texte d\'Android</string>
     <string name="title_advanced_sort_answers">Trier les modèles de réponse par fréquence d\'utilisation</string>
     <string name="title_advanced_shortcuts">Afficher les contacts fréquemment utilisés dans le menu « Partager » d’Android</string>
     <string name="title_advanced_fts">Construire l\'index de recherche</string>
