@@ -74,7 +74,7 @@
             android:padding="6dp"
             android:scaleType="fitCenter"
             android:tooltipText="@string/title_advanced_more"
-            app:srcCompat="@drawable/twotone_more_horiz_24"
+            app:srcCompat="@drawable/twotone_pending_24"
             tools:ignore="MissingConstraints" />
 
         <ImageButton
