@@ -5153,7 +5153,10 @@ public class FragmentMessages extends FragmentBase
         cm.registerNetworkCallback(builder.build(), networkCallback);
 
         updateAirplaneMode(ConnectionHelper.airplaneMode(context));
-        context.registerReceiver(airplanemode, new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED));
+        ContextCompat.registerReceiver(context,
+                airplanemode,
+                new IntentFilter(Intent.ACTION_AIRPLANE_MODE_CHANGED),
+                ContextCompat.RECEIVER_NOT_EXPORTED);
 
         boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(context));
         //boolean canSchedule = AlarmManagerCompatEx.canScheduleExactAlarms(context);

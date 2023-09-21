@@ -212,22 +212,37 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         IntentFilter iif = new IntentFilter();
         iif.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         iif.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-        registerReceiver(connectionChangedReceiver, iif);
+        ContextCompat.registerReceiver(this,
+                connectionChangedReceiver,
+                iif,
+                ContextCompat.RECEIVER_NOT_EXPORTED);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-            registerReceiver(idleModeChangedReceiver, new IntentFilter(PowerManager.ACTION_DEVICE_IDLE_MODE_CHANGED));
+            ContextCompat.registerReceiver(this,
+                    idleModeChangedReceiver,
+                    new IntentFilter(PowerManager.ACTION_DEVICE_IDLE_MODE_CHANGED),
+                    ContextCompat.RECEIVER_NOT_EXPORTED);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            registerReceiver(dataSaverChanged, new IntentFilter(ConnectivityManager.ACTION_RESTRICT_BACKGROUND_CHANGED));
+            ContextCompat.registerReceiver(this,
+                    dataSaverChanged,
+                    new IntentFilter(ConnectivityManager.ACTION_RESTRICT_BACKGROUND_CHANGED),
+                    ContextCompat.RECEIVER_NOT_EXPORTED);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             IntentFilter suspend = new IntentFilter();
             suspend.addAction(Intent.ACTION_MY_PACKAGE_SUSPENDED);
             suspend.addAction(Intent.ACTION_MY_PACKAGE_UNSUSPENDED);
-            registerReceiver(suspendChanged, suspend);
+            ContextCompat.registerReceiver(this,
+                    suspendChanged,
+                    suspend,
+                    ContextCompat.RECEIVER_NOT_EXPORTED);
         }
 
-        registerReceiver(batteryChanged, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+        ContextCompat.registerReceiver(this,
+                batteryChanged,
+                new IntentFilter(Intent.ACTION_BATTERY_CHANGED),
+                ContextCompat.RECEIVER_NOT_EXPORTED);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
 

@@ -179,7 +179,10 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
         IntentFilter iif = new IntentFilter();
         iif.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
         iif.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
-        registerReceiver(connectionChangedReceiver, iif);
+        ContextCompat.registerReceiver(this,
+                connectionChangedReceiver,
+                iif,
+                ContextCompat.RECEIVER_NOT_EXPORTED);
 
         PreferenceManager.getDefaultSharedPreferences(this).registerOnSharedPreferenceChangeListener(this);
     }

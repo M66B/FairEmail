@@ -41,6 +41,7 @@ import android.webkit.CookieManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.content.ContextCompat;
 import androidx.core.os.LocaleListCompat;
 import androidx.emoji2.text.DefaultEmojiCompatConfig;
 import androidx.emoji2.text.EmojiCompat;
@@ -264,7 +265,10 @@ public class ApplicationEx extends Application
             }
         }
 
-        registerReceiver(onScreenOff, new IntentFilter(Intent.ACTION_SCREEN_OFF));
+        ContextCompat.registerReceiver(this,
+                onScreenOff,
+                new IntentFilter(Intent.ACTION_SCREEN_OFF),
+                ContextCompat.RECEIVER_NOT_EXPORTED);
 
         long end = new Date().getTime();
         Log.i("App created " + (end - start) + " ms");
