@@ -175,7 +175,7 @@ public class ApplicationEx extends Application
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final boolean crash_reports = prefs.getBoolean("crash_reports", false);
         final boolean leak_canary = prefs.getBoolean("leak_canary", false);
-        final boolean load_emoji = prefs.getBoolean("load_emoji", false);
+        final boolean load_emoji = prefs.getBoolean("load_emoji", true);
 
         prev = Thread.getDefaultUncaughtExceptionHandler();
 
@@ -225,16 +225,17 @@ public class ApplicationEx extends Application
 
         // https://issuetracker.google.com/issues/233525229
         Log.i("Load emoji=" + load_emoji);
-        if (!load_emoji)
-            try {
-                FontRequestEmojiCompatConfig crying = DefaultEmojiCompatConfig.create(this);
-                if (crying != null) {
-                    crying.setMetadataLoadStrategy(EmojiCompat.LOAD_STRATEGY_MANUAL);
-                    EmojiCompat.init(crying);
-                }
-            } catch (Throwable ex) {
-                Log.e(ex);
+        try {
+            FontRequestEmojiCompatConfig crying = DefaultEmojiCompatConfig.create(this);
+            if (crying != null) {
+                crying.setMetadataLoadStrategy(EmojiCompat.LOAD_STRATEGY_MANUAL);
+                EmojiCompat.init(crying);
+                if (load_emoji)
+                    EmojiCompat.get().load();
             }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
 
         EmailProvider.init(this);
         EncryptionHelper.init(this);

@@ -96,6 +96,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsClient;
 import androidx.browser.customtabs.CustomTabsServiceConnection;
+import androidx.emoji2.text.EmojiCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
@@ -2095,6 +2096,35 @@ public class Log {
 
         String charset = MimeUtility.getDefaultJavaCharset();
         sb.append(String.format("Default charset: %s/%s\r\n", charset, MimeUtility.mimeCharset(charset)));
+
+        String emoji;
+        try {
+            if (EmojiCompat.isConfigured()) {
+                int emojiState = EmojiCompat.get().getLoadState();
+                switch (emojiState) {
+                    case EmojiCompat.LOAD_STATE_LOADING:
+                        emoji = "Loading";
+                        break;
+                    case EmojiCompat.LOAD_STATE_SUCCEEDED:
+                        emoji = "Loaded";
+                        break;
+                    case EmojiCompat.LOAD_STATE_FAILED:
+                        emoji = "Failed";
+                        break;
+                    case EmojiCompat.LOAD_STATE_DEFAULT:
+                        emoji = "Not loaded";
+                        break;
+                    default:
+                        emoji = "?" + emojiState;
+                }
+            } else
+                emoji = "Disabled";
+        } catch (Throwable ex) {
+            Log.e(ex);
+            emoji = ex.toString();
+        }
+
+        sb.append("Emoji: ").append(emoji).append("\r\n");
 
         sb.append("Transliterate: ")
                 .append(TextHelper.canTransliterate())

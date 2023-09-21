@@ -646,7 +646,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             tvGenericUserAgent.setText(WebViewEx.getUserAgent(getContext()));
             swGenericUserAgent.setChecked(prefs.getBoolean("generic_ua", false));
             swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", false));
-            swLoadEmoji.setChecked(prefs.getBoolean("load_emoji", false));
+            swLoadEmoji.setChecked(prefs.getBoolean("load_emoji", true));
 
             long time = prefs.getLong("disconnect_last", -1);
             DateFormat DF = SimpleDateFormat.getDateTimeInstance();
