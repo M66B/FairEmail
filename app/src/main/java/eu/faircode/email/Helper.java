@@ -2177,10 +2177,10 @@ public class Helper {
                 return new SimpleDateFormat(format).format(millis);
             } catch (Throwable ex) {
                 Log.e(ex);
-                if (withTime)
-                    return getDateTimeInstance(context).format(millis);
-                else
-                    return getDateInstance(context).format(millis);
+                DateFormat df = (withTime
+                        ? getDateTimeInstance(context, SimpleDateFormat.SHORT, SimpleDateFormat.SHORT)
+                        : getDateInstance(context, SimpleDateFormat.SHORT));
+                return df.format(millis);
             }
         } else if (thisYear && thisMonth && thisDay)
             return getTimeInstance(context, SimpleDateFormat.SHORT).format(millis);
