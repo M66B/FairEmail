@@ -2171,9 +2171,17 @@ public class Helper {
         boolean thisMonth = (cal0.get(Calendar.MONTH) == cal1.get(Calendar.MONTH));
         boolean thisDay = (cal0.get(Calendar.DAY_OF_MONTH) == cal1.get(Calendar.DAY_OF_MONTH));
         if (withDate) {
-            String skeleton = (thisMonth && thisYear ? "MMM-d" : "Y-M-d") + (withTime ? " Hm" : "");
-            String format = android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
-            return new SimpleDateFormat(format).format(millis);
+            try {
+                String skeleton = (thisMonth && thisYear ? "MMM-d" : "yyyy-M-d") + (withTime ? " Hm" : "");
+                String format = android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
+                return new SimpleDateFormat(format).format(millis);
+            } catch (Throwable ex) {
+                Log.e(ex);
+                if (withTime)
+                    return getDateTimeInstance(context).format(millis);
+                else
+                    return getDateInstance(context).format(millis);
+            }
         } else if (thisYear && thisMonth && thisDay)
             return getTimeInstance(context, SimpleDateFormat.SHORT).format(millis);
         else
