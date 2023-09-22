@@ -867,10 +867,29 @@
             android:id="@+id/spReceiptType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="6dp"
             android:entries="@array/receiptNames"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvReceiptType" />
+
+        <TextView
+            android:id="@+id/tvSensitivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_send_sensitivity"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spReceiptType" />
+
+        <Spinner
+            android:id="@+id/spSensitivity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:entries="@array/sensitivityNames"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSensitivity" />
 
         <CheckBox
             android:id="@+id/cbUnicode"
@@ -879,7 +898,7 @@
             android:layout_marginTop="12dp"
             android:text="@string/title_identity_unicode"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/spReceiptType" />
+            app:layout_constraintTop_toBottomOf="@id/spSensitivity" />
 
         <TextView
             android:id="@+id/tvUnicodeHint"
@@ -1057,6 +1076,7 @@
                 btnUri,tvUriHint,tvUriInfo,tvUriPro,
                 tvE2Encryption,cbSignDefault,cbEncryptDefault,
                 tvReceiptType,spReceiptType,
+                tvSensitivity,spSensitivity,
                 cbUnicode,tvUnicodeHint,cbOctetMime,tvMaxSize,etMaxSize" />
 
         <androidx.constraintlayout.widget.Group

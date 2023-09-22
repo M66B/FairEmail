@@ -127,6 +127,8 @@ public class EntityIdentity {
     @NonNull
     public Boolean read_receipt = false; // obsolete
     @NonNull
+    public Integer sensitivity = 0; // Normal
+    @NonNull
     public Boolean store_sent = false; // obsolete
     public Long sent_folder = null; // obsolete
     public Long sign_key = null; // OpenPGP

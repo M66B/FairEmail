@@ -131,6 +131,7 @@ public class FragmentIdentity extends FragmentBase {
     private CheckBox cbSignDefault;
     private CheckBox cbEncryptDefault;
     private Spinner spReceiptType;
+    private Spinner spSensitivity;
     private CheckBox cbUnicode;
     private CheckBox cbOctetMime;
     private EditText etMaxSize;
@@ -236,6 +237,7 @@ public class FragmentIdentity extends FragmentBase {
         cbSignDefault = view.findViewById(R.id.cbSignDefault);
         cbEncryptDefault = view.findViewById(R.id.cbEncryptDefault);
         spReceiptType = view.findViewById(R.id.spReceiptType);
+        spSensitivity = view.findViewById(R.id.spSensitivity);
         cbUnicode = view.findViewById(R.id.cbUnicode);
         cbOctetMime = view.findViewById(R.id.cbOctetMime);
         etMaxSize = view.findViewById(R.id.etMaxSize);
@@ -515,9 +517,9 @@ public class FragmentIdentity extends FragmentBase {
 
         ArrayList<String> receiptNames = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.receiptNames)));
         receiptNames.add(0, getString(R.string.title_global_default));
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, receiptNames);
-        adapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
-        spReceiptType.setAdapter(adapter);
+        ArrayAdapter<String> radapter = new ArrayAdapter<>(getContext(), R.layout.spinner_item1, android.R.id.text1, receiptNames);
+        radapter.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spReceiptType.setAdapter(radapter);
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -745,6 +747,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putBoolean("sign_default", cbSignDefault.isChecked());
         args.putBoolean("encrypt_default", cbEncryptDefault.isChecked());
         args.putInt("receipt_type", spReceiptType.getSelectedItemPosition() - 1);
+        args.putInt("sensitivity", spSensitivity.getSelectedItemPosition());
         args.putBoolean("unicode", cbUnicode.isChecked());
         args.putBoolean("octetmime", cbOctetMime.isChecked());
         args.putString("max_size", etMaxSize.getText().toString());
@@ -831,6 +834,7 @@ public class FragmentIdentity extends FragmentBase {
                 boolean sign_default = args.getBoolean("sign_default");
                 boolean encrypt_default = args.getBoolean("encrypt_default");
                 Integer receipt_type = args.getInt("receipt_type");
+                int sensitivity = args.getInt("sensitivity");
                 boolean unicode = args.getBoolean("unicode");
                 boolean octetmime = args.getBoolean("octetmime");
                 String max_size = args.getString("max_size");
@@ -998,6 +1002,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.receipt_type, receipt_type))
                         return true;
+                    if (!Objects.equals(identity.sensitivity, sensitivity))
+                        return true;
                     if (!Objects.equals(identity.unicode, unicode))
                         return true;
                     if (!Objects.equals(identity.octetmime, octetmime))
@@ -1101,6 +1107,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.sign_default = sign_default;
                     identity.encrypt_default = encrypt_default;
                     identity.receipt_type = receipt_type;
+                    identity.sensitivity = sensitivity;
                     identity.unicode = unicode;
                     identity.octetmime = octetmime;
                     identity.sent_folder = null;
@@ -1289,6 +1296,7 @@ public class FragmentIdentity extends FragmentBase {
                     btnUri.setTag(identity == null ? null : identity.uri);
                     tvUriInfo.setText(identity == null ? null : getUriInfo(identity.uri));
                     spReceiptType.setSelection(identity == null || identity.receipt_type == null ? 0 : identity.receipt_type + 1);
+                    spSensitivity.setSelection(identity == null ? 0 : identity.sensitivity);
                     cbSignDefault.setChecked(identity != null && identity.sign_default);
                     cbEncryptDefault.setChecked(identity != null && identity.encrypt_default);
                     cbUnicode.setChecked(identity != null && identity.unicode);

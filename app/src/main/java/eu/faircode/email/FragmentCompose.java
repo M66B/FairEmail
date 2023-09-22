@@ -1492,6 +1492,8 @@ public class FragmentCompose extends FragmentBase {
 
                 db.message().setMessageUiEncrypt(draft.id, draft.ui_encrypt);
 
+                db.message().setMessageSensitivity(draft.id, identity.sensitivity < 1 ? null : identity.sensitivity);
+
                 return draft.ui_encrypt;
             }
 
@@ -5448,6 +5450,8 @@ public class FragmentCompose extends FragmentBase {
 
                     if (receipt_default)
                         data.draft.receipt_request = true;
+
+                    data.draft.sensitivity = (selected.sensitivity < 1 ? null : selected.sensitivity);
 
                     Document document = Document.createShell("");
 
