@@ -6,6 +6,13 @@ For support you can use the contact form.
 
 Vallibonavenatrix
 
+Next version
+
+* Added advanced identity option for default sensitivity
+* Ignoring maximum width media queries
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2104 - 2023-09-21
 
 * Improved SVG support

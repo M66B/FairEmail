@@ -6,6 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
+### Next version
+
+* Added advanced identity option for default [sensitivity](https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55)
+* Ignoring maximum width [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries)
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2104 - 2023-09-21
 
 * Improved SVG support
