@@ -72,6 +72,7 @@ import androidx.preference.PreferenceManager;
 import com.steadystate.css.dom.CSSMediaRuleImpl;
 import com.steadystate.css.dom.CSSStyleRuleImpl;
 import com.steadystate.css.dom.MediaListImpl;
+import com.steadystate.css.dom.Property;
 import com.steadystate.css.parser.CSSOMParser;
 import com.steadystate.css.parser.SACParserCSS3;
 import com.steadystate.css.parser.selectors.ClassConditionImpl;
@@ -1843,9 +1844,24 @@ public class HtmlHelper {
             MediaListImpl _media = (MediaListImpl) media;
             for (int i = 0; i < _media.getLength(); i++) {
                 String type = _media.mediaQuery(i).getMedia();
-                if ("all".equals(type) || "screen".equals(type) || _media.mediaQuery(i).isNot())
-                    return true;
+
+                boolean hasMaxWidth = false;
+                List<Property> props = _media.mediaQuery(i).getProperties();
+                if (props != null)
+                    for (Property prop : props) {
+                        if ("max-width".equals(prop.getName()) ||
+                                "max-device-width".equals(prop.getName())) {
+                            hasMaxWidth = true;
+                            break;
+                        }
+                    }
+                if (!hasMaxWidth)
+                    if ("all".equals(type) || "screen".equals(type) || _media.mediaQuery(i).isNot()) {
+                        Log.i("Using media=" + media.getMediaText());
+                        return true;
+                    }
             }
+            Log.i("Not using media=" + media.getMediaText());
         } else
             Log.e("Media class=" + media.getClass().getName());
         return false;
