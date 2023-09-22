@@ -326,6 +326,8 @@ public class EntityFolder extends EntityOrder implements Serializable {
             return;
         if (!EntityFolder.USER.equals(type))
             return;
+        if (!EntityFolder.USER.equals(parent.type))
+            return;
 
         this.synchronize = parent.synchronize;
         if (EntityFolder.USER.equals(parent.type)) {
