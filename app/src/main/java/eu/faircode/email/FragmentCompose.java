@@ -5858,7 +5858,7 @@ public class FragmentCompose extends FragmentBase {
                             for (Element element : e.select("*")) {
                                 String tag = element.tagName();
                                 String clazz = element.attr("class");
-                                String style = HtmlHelper.processStyles(tag, clazz, null, sheets);
+                                String style = HtmlHelper.processStyles(context, tag, clazz, null, sheets);
                                 style = HtmlHelper.mergeStyles(style, element.attr("style"));
                                 if (!TextUtils.isEmpty(style))
                                     element.attr("style", style);

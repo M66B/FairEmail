@@ -7391,7 +7391,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     List<CSSStyleSheet> sheets =
                             HtmlHelper.parseStyles(d.head().select("style"));
                     for (Element element : d.select("*")) {
-                        String computed = HtmlHelper.processStyles(
+                        String computed = HtmlHelper.processStyles(context,
                                 element.tagName(),
                                 element.className(),
                                 element.attr("style"),

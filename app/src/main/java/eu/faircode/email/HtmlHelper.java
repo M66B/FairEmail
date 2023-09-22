@@ -663,7 +663,7 @@ public class HtmlHelper {
             // Class style
             String tag = element.tagName();
             String clazz = element.className();
-            String style = processStyles(tag, clazz, null, sheets);
+            String style = processStyles(context, tag, clazz, null, sheets);
 
             // Element style
             style = mergeStyles(style, element.attr("style"));
@@ -1780,17 +1780,17 @@ public class HtmlHelper {
         return sheets;
     }
 
-    static String processStyles(String tag, String clazz, String style, List<CSSStyleSheet> sheets) {
+    static String processStyles(Context context, String tag, String clazz, String style, List<CSSStyleSheet> sheets) {
         for (CSSStyleSheet sheet : sheets)
-            if (isScreenMedia(sheet.getMedia())) {
-                style = processStyles(null, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR);
-                style = processStyles(tag, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR);
-                style = processStyles(tag, clazz, style, sheet.getCssRules(), Selector.SAC_CONDITIONAL_SELECTOR);
+            if (isScreenMedia(context, sheet.getMedia())) {
+                style = processStyles(context, null, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR);
+                style = processStyles(context, tag, clazz, style, sheet.getCssRules(), Selector.SAC_ELEMENT_NODE_SELECTOR);
+                style = processStyles(context, tag, clazz, style, sheet.getCssRules(), Selector.SAC_CONDITIONAL_SELECTOR);
             }
         return style;
     }
 
-    private static String processStyles(String tag, String clazz, String style, CSSRuleList rules, int stype) {
+    private static String processStyles(Context context, String tag, String clazz, String style, CSSRuleList rules, int stype) {
         for (int i = 0; rules != null && i < rules.getLength(); i++) {
             CSSRule rule = rules.item(i);
             switch (rule.getType()) {
@@ -1829,15 +1829,15 @@ public class HtmlHelper {
 
                 case CSSRule.MEDIA_RULE:
                     CSSMediaRuleImpl mrule = (CSSMediaRuleImpl) rule;
-                    if (isScreenMedia(mrule.getMedia()))
-                        style = processStyles(tag, clazz, style, mrule.getCssRules(), stype);
+                    if (isScreenMedia(context, mrule.getMedia()))
+                        style = processStyles(context, tag, clazz, style, mrule.getCssRules(), stype);
                     break;
             }
         }
         return style;
     }
 
-    private static boolean isScreenMedia(MediaList media) {
+    private static boolean isScreenMedia(Context context, MediaList media) {
         // https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries
         // https://developers.google.com/gmail/design/reference/supported_css#supported_types
         if (media instanceof MediaListImpl) {
