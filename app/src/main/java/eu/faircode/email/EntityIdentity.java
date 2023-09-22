@@ -244,8 +244,11 @@ public class EntityIdentity {
         json.put("sign_default", sign_default);
         json.put("encrypt_default", encrypt_default);
         // not encrypt
+        if (receipt_type != null)
+            json.put("receipt_type", receipt_type);
         // delivery_receipt
         // read_receipt
+        json.put("sensitivity", sensitivity);
         // not store_sent
         // not sent_folder
         // not sign_key
@@ -333,6 +336,12 @@ public class EntityIdentity {
         if (json.has("encrypt_default"))
             identity.encrypt_default = json.getBoolean("encrypt_default");
 
+        if (json.has("receipt_type"))
+            identity.receipt_type = json.getInt("receipt_type");
+
+        if (json.has("sensitivity"))
+            identity.sensitivity = json.getInt("sensitivity");
+
         return identity;
     }
 
@@ -387,6 +396,7 @@ public class EntityIdentity {
                 Objects.equals(i1.receipt_type, other.receipt_type) &&
                 // delivery_receipt
                 // read_receipt
+                Objects.equals(i1.sensitivity, other.sensitivity) &&
                 // store_sent
                 // sent_folder
                 Objects.equals(i1.sign_key, other.sign_key) &&
