@@ -376,6 +376,7 @@ public class MessageHelper {
         }
 
         // Sensitivity
+        // https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55
         if (EntityMessage.SENSITIVITY_PERSONAL.equals(message.sensitivity))
             imessage.addHeader("Sensitivity", "Personal");
         else if (EntityMessage.SENSITIVITY_PRIVATE.equals(message.sensitivity))
