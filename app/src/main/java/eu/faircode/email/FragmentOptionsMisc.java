@@ -136,6 +136,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private TextView tvAnnouncementsPrivacy;
     private SwitchCompat swCrashReports;
     private TextView tvUuid;
+    private ImageButton ibCrashReports;
     private Button btnReset;
     private SwitchCompat swCleanupAttachments;
     private Button btnCleanup;
@@ -394,6 +395,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvAnnouncementsPrivacy = view.findViewById(R.id.tvAnnouncementsPrivacy);
         swCrashReports = view.findViewById(R.id.swCrashReports);
         tvUuid = view.findViewById(R.id.tvUuid);
+        ibCrashReports = view.findViewById(R.id.ibCrashReports);
         btnReset = view.findViewById(R.id.btnReset);
         swCleanupAttachments = view.findViewById(R.id.swCleanupAttachments);
         btnCleanup = view.findViewById(R.id.btnCleanup);
@@ -828,6 +830,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         .putBoolean("crash_reports", checked)
                         .apply();
                 Log.setCrashReporting(checked);
+            }
+        });
+
+        ibCrashReports.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 104);
             }
         });
 
