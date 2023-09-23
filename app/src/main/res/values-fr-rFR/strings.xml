@@ -874,6 +874,7 @@
     <string name="title_identity_reply_to">Répondre à l\'adresse</string>
     <string name="title_identity_internal">Noms de domaine internes (séparés par des virgules)</string>
     <string name="title_identity_uri">Lier le contact</string>
+    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Sensibilité par défaut</string>
     <string name="title_identity_unicode">Autoriser UTF-8 dans les en-têtes de message</string>
     <string name="title_identity_unicode_remark">La plupart des serveurs ne prennent pas ceci en charge</string>
     <string name="title_identity_octetmime">Autoriser 8BITMIME</string>

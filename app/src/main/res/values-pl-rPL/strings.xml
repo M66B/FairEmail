@@ -728,6 +728,7 @@
     </string>
     <string name="title_advanced_power_menu">Dodaj akcje do menu zasilania Androida</string>
     <string name="title_advanced_send_self">Dodaj \'wyślij do siebie\' do menu udostępniania w Androidzie</string>
+    <string name="title_advanced_external_search">Dodaj \'Wyszukiwanie FairEmail\' do menu wyboru tekstu Androida</string>
     <string name="title_advanced_sort_answers">Sortuj szablony odpowiedzi według częstotliwości ich używania</string>
     <string name="title_advanced_shortcuts">Pokaż często używane kontakty w menu udostępniania Androida</string>
     <string name="title_advanced_fts">Utwórz indeks wyszukiwania</string>
@@ -899,6 +900,7 @@
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_internal">Wewnętrzne nazwy domen (oddzielone przecinkami)</string>
     <string name="title_identity_uri">Połącz kontakt</string>
+    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Domyślna czułość</string>
     <string name="title_identity_unicode">Zezwalaj na UTF-8 w nagłówkach wiadomości</string>
     <string name="title_identity_unicode_remark">Większość serwerów nie wspiera tego</string>
     <string name="title_identity_octetmime">Zezwalaj na 8BITMIME</string>

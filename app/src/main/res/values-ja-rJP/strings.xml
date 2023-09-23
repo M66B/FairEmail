@@ -859,6 +859,7 @@
     <string name="title_identity_reply_to">返信先 (Reply to)</string>
     <string name="title_identity_internal">内部ドメイン名 (カンマ区切り)</string>
     <string name="title_identity_uri">連絡先をリンク</string>
+    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">デフォルトの機密度</string>
     <string name="title_identity_unicode">メッセージヘッダーで UTF-8 を許可</string>
     <string name="title_identity_unicode_remark">ほとんどのサーバーが対応していません</string>
     <string name="title_identity_octetmime">8BITMIME を許可</string>

@@ -901,6 +901,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_identity_reply_to">Odpověď na adresu</string>
     <string name="title_identity_internal">Názvy interních domén (oddělené čárkou)</string>
     <string name="title_identity_uri">Propojit kontakt</string>
+    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Výchozí citlivost</string>
     <string name="title_identity_unicode">Povolit UTF-8 v záhlaví zprávy</string>
     <string name="title_identity_unicode_remark">Většina serverů toto nepodporuje</string>
     <string name="title_identity_octetmime">Povolit 8BITMIME</string>

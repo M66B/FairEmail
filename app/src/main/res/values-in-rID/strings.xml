@@ -177,6 +177,7 @@
     <string name="title_setup_oauth_rationale">Izinkan akses ke akun %1$s Anda</string>
     <string name="title_setup_oauth_update">Otorisasi kembali akun yang sudah ada (jika tidak, buat akun baru)</string>
     <string name="title_setup_oauth_updated">Ulang kembali otorisasi akun</string>
+    <string name="title_setup_oauth_brave">Ketika menggunakan Brave browser, anda harus mengaktifkan pilihan di pengaturan Brave untuk mengizinkan link app membuka aplikasi di luar Brave</string>
     <string name="title_setup_oauth_authorize">Perizinan</string>
     <string name="title_setup_select_account">Pilih Akun</string>
     <string name="title_setup_instructions">Instruksi Penyiapan</string>
@@ -681,6 +682,7 @@ Alogaritma bawaan SHA256 dan AES128 didukung secara umum.    </string>
 Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kredensial.    </string>
     <string name="title_advanced_power_menu">Tambahkan aksi untuk kekuatan menu android</string>
     <string name="title_advanced_send_self">Tambahkan \'kirim ke diri sendiri\' ke menu berbagi Android</string>
+    <string name="title_advanced_external_search">Tambahkan \"pencarian FairEmail\" ke menu pemilih teks Android</string>
     <string name="title_advanced_sort_answers">Urutkan template balasan berdasarkan frekuensi penggunaan</string>
     <string name="title_advanced_shortcuts">Tampilkan kontak yang sering digunakan di menu berbagi pada Android</string>
     <string name="title_advanced_fts">Membangun indeks pencarian</string>
@@ -692,8 +694,10 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_language">Bahasa</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Integrasi LanguageTool</string>
+    <string name="title_advanced_lt_sentence">Periksa setiap kalimat</string>
     <string name="title_advanced_lt_auto">Periksa paragraf setelah baris baru</string>
     <string name="title_advanced_lt_highlight">Sorot teks yang sedang diperiksa</string>
+    <string name="title_advanced_lt_description">Tampilkan tampilan dengan deskripsi masalah</string>
     <string name="title_advanced_lt_user">Nama Pengguna (opsional)</string>
     <string name="title_advanced_lt_key">Kunci API (opsional)</string>
     <string name="title_advanced_deepl">Integrasi DeepL</string>
@@ -849,6 +853,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_identity_reply_to">Balas ke alamat</string>
     <string name="title_identity_internal">Nama domain internal ( dipisahkan dengan koma (,) )</string>
     <string name="title_identity_uri">Tautan kontak</string>
+    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">sensitivitas default</string>
     <string name="title_identity_unicode">Izinkan UTF-8 di header pesan</string>
     <string name="title_identity_unicode_remark">Kebanyakan server tidak support ini</string>
     <string name="title_identity_octetmime">Izinkan 8BITMIME</string>
@@ -985,6 +990,8 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_synchronize_batch_disable">Nonaktifkan sinkronisasi</string>
     <string name="title_notify_batch_enable">Aktifkan pemberitahuan pesan baru</string>
     <string name="title_notify_batch_disable">Nonaktifkan pemberitahuan pesan baru</string>
+    <string name="title_download_batch_enable">Mengunduh teks dan lampiran</string>
+    <string name="title_download_batch_disable">Unduh header saja</string>
     <string name="title_delete_local">Hapus pesan di perangkat</string>
     <string name="title_delete_browsed">Hapus histori penjelajahan/pencarian pesan</string>
     <string name="title_expunge">Hilangkan</string>
@@ -1334,6 +1341,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_add_image_privacy">Hapus privasi data sensitif</string>
     <string name="title_add_image_privacy_remark">Lokasi geografis, nomor seri, nama file, dll</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
+    <string name="title_add_image_select_remark">Pemilih foto Android tidak lagi melewati nama file</string>
     <string name="title_add_image_select">Pilih file</string>
     <string name="title_add_attachment">Tambahkan lampiran</string>
     <string name="title_attachment_file">Lampirkan file</string>
@@ -1345,6 +1353,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_image_dialog">Tampilkan opsi gambar</string>
     <string name="title_style_toolbar">Gaya toolbar</string>
     <string name="title_media_toolbar">Tombol media</string>
+    <string name="title_manage_android_contacts">Kelola kontak Android</string>
     <string name="title_manage_local_contacts">Kelola kontak lokal</string>
     <string name="title_insert_contact_group">Sisipkan grup kontak</string>
     <string name="title_insert_template">Sisipkan template</string>
@@ -1447,6 +1456,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_search_for_hint">Masukkan teks</string>
     <string name="title_search_hint">Awalnya, pencarian akan mencari pesan yang ada di perangkat Anda.
         Untuk mencari di server juga, ketuk tombol \'cari lagi\'.    </string>
+    <string name="title_search_hint_fts">Gunakan indeks pencarian: seluruh kata saja</string>
     <string name="title_search_index_hint">Cari melalui indeks pencarian lebih cepat, tetapi hanya menemukan keseluruhan kata.</string>
     <string name="title_search_text_hint">Mencari tulisan dalam pesan, bila terdapat pesan dalam jumlah besar, mungkin tidak dapat dilakukan di beberapa server</string>
     <string name="title_search_text_unsupported">\'%s\' berarti server surel tidak mendukung pencarian tulisan dalam pesan</string>
@@ -1621,6 +1631,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_answer_missing">Templat hilang</string>
     <string name="title_rule_keyword_missing">Kata kunci hilang</string>
     <string name="title_rule_automation_hint">Ini akan mengirim inten \'%1$s\' dengan tambahan \'%2$s\'</string>
+    <string name="title_rule_notes_missing">Catatan lokal hilang</string>
     <string name="title_rule_delete_hint">Penghapusan permanen tidak dapat dibatalkan, jadi pastikan kondisi aturan sudah benar!</string>
     <string name="title_rule_edit_group">Ubah grup &#8230;</string>
     <string name="title_rule_execute">Eksekusi sekarang</string>
@@ -1641,6 +1652,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_use_as_alarm">Gunakan sebagai alarm</string>
     <string name="title_rule_alarm_hint">Ini akan mengabaikan aturan \"jangan ganggu\"</string>
     <string name="title_rule_alarm_duration">Durasi alarm maksimum (seconds)</string>
+    <string name="title_rule_alarm_title">Alarm</string>
+    <string name="title_rule_alarm_stop">Berhenti</string>
     <string name="title_legend_section_synchronize">Sinkronisasi</string>
     <string name="title_legend_section_folders">Folder</string>
     <string name="title_legend_section_messages">Pesan</string>
@@ -1854,6 +1867,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_fetching_again">Mengambil pesan lagi dari server</string>
     <string name="title_go_back">Kembali</string>
     <string name="title_global_default">Gunakan setelan global</string>
+    <string name="title_not_existing">Pesan ini sudah tidak ada di server email</string>
     <string name="title_conversation_actions">Tindakan</string>
     <string name="title_conversation_action_reply">Balas dengan: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Salin: \'%1$s\'</string>

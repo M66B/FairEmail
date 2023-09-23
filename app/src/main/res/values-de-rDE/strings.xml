@@ -875,6 +875,7 @@
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_internal">Interne Domainnamen (durch Kommata getrennt)</string>
     <string name="title_identity_uri">Kontakt verknüpfen</string>
+    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Standardvertraulichkeit</string>
     <string name="title_identity_unicode">UTF-8 in Nachrichtenkopfzeilen zulassen</string>
     <string name="title_identity_unicode_remark">Die meisten Server unterstützen dies nicht</string>
     <string name="title_identity_octetmime">8BITMIME erlauben</string>
@@ -1727,7 +1728,7 @@
     <string name="title_legend_priority_low">Hat niedrige Priorität</string>
     <string name="title_legend_sensitivity_personal">Ist persönlich</string>
     <string name="title_legend_sensitivity_private">Ist privat</string>
-    <string name="title_legend_sensitivity_confidential">Ist Vertraulich</string>
+    <string name="title_legend_sensitivity_confidential">Ist vertraulich</string>
     <string name="title_legend_importance">Wichtig</string>
     <string name="title_legend_importance_low">Nicht wichtig</string>
     <string name="title_legend_signed">Signiert</string>

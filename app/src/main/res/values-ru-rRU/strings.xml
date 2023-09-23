@@ -901,6 +901,7 @@
     <string name="title_identity_reply_to">Обратный адрес</string>
     <string name="title_identity_internal">Внутренние доменные имена (через запятую)</string>
     <string name="title_identity_uri">Связать контакт</string>
+    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Чувствительность по умолчанию</string>
     <string name="title_identity_unicode">Использовать UTF-8 в заголовках сообщений</string>
     <string name="title_identity_unicode_remark">Большинство серверов это не поддерживают</string>
     <string name="title_identity_octetmime">Использовать 8BITMIME</string>

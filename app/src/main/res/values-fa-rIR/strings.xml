@@ -573,6 +573,7 @@
     <string name="title_identity_email">آدرس ایمیل شما</string>
     <string name="title_advanced_sender">اجازه ویرایش آدرس فرستنده</string>
     <string name="title_identity_reply_to">پاسخ به آدرس</string>
+    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">حساسیت پیش‌فرض</string>
     <string name="title_identity_unicode_remark">بیشتر سرور‌ها از این پشتیبانی نمی‌کنند</string>
     <string name="title_identity_octetmime">به 8BITMIME اجازه بده</string>
     <string name="title_identity_max_size">بیشترین اندازه پیام (MB)</string>
