@@ -1114,6 +1114,7 @@
     <string name="title_identity_reply_to">Reply to address</string>
     <string name="title_identity_internal">Internal domain names (comma separated)</string>
     <string name="title_identity_uri">Link contact</string>
+    <string name="title_identity_sensitivity">Default sensitivity</string>
     <string name="title_identity_unicode">Allow UTF-8 in message headers</string>
     <string name="title_identity_unicode_remark">Most servers do not support this</string>
     <string name="title_identity_octetmime">Allow 8BITMIME</string>
