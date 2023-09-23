@@ -198,7 +198,9 @@ public class FragmentContacts extends FragmentBase {
 
         MenuItem menuSearch = menu.findItem(R.id.menu_search);
         SearchView searchView = (SearchView) menuSearch.getActionView();
-        searchView.setQueryHint(getString(R.string.title_search));
+
+        if (searchView != null)
+            searchView.setQueryHint(getString(R.string.title_search));
 
         final String search = searching;
         view.post(new RunnableEx("contacts:search") {

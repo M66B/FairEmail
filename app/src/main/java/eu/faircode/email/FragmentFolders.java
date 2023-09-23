@@ -641,7 +641,9 @@ public class FragmentFolders extends FragmentBase {
 
         MenuItem menuSearch = menu.findItem(R.id.menu_search_folder);
         SearchView searchView = (SearchView) menuSearch.getActionView();
-        searchView.setQueryHint(getString(R.string.title_search));
+
+        if (searchView != null)
+            searchView.setQueryHint(getString(R.string.title_search));
 
         final String search = searching;
         view.post(new RunnableEx("folders:search") {

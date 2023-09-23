@@ -274,7 +274,8 @@ public class FragmentOptions extends FragmentBase {
         final MenuItem menuSearch = menu.findItem(R.id.menu_search);
         final SearchView searchView = (SearchView) menuSearch.getActionView();
 
-        searchView.setQueryHint(getString(R.string.title_search));
+        if (searchView != null)
+            searchView.setQueryHint(getString(R.string.title_search));
 
         final SearchView.OnSuggestionListener onSuggestionListener = new SearchView.OnSuggestionListener() {
             @Override

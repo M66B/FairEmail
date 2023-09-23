@@ -243,7 +243,9 @@ public class FragmentAnswers extends FragmentBase {
 
         MenuItem menuSearch = menu.findItem(R.id.menu_search);
         SearchView searchView = (SearchView) menuSearch.getActionView();
-        searchView.setQueryHint(getString(R.string.title_rules_search_hint));
+
+        if (searchView != null)
+            searchView.setQueryHint(getString(R.string.title_rules_search_hint));
 
         final String search = searching;
         view.post(new RunnableEx("answers:search") {
