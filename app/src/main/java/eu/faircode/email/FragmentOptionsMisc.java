@@ -1332,74 +1332,74 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnRepair.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AlertDialog.Builder(view.getContext())
-                        .setIcon(R.drawable.twotone_bug_report_24)
-                        .setTitle(R.string.title_advanced_repair)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                new SimpleTask<Void>() {
-                                    @Override
-                                    protected void onPostExecute(Bundle args) {
-                                        prefs.edit().remove("debug").apply();
-                                    }
-
-                                    @Override
-                                    protected Void onExecute(Context context, Bundle args) throws Throwable {
-                                        DB db = DB.getInstance(context);
-
-                                        List<EntityAccount> accounts = db.account().getAccounts();
-                                        if (accounts == null)
-                                            return null;
-
-                                        for (EntityAccount account : accounts) {
-                                            if (account.protocol != EntityAccount.TYPE_IMAP)
-                                                continue;
-
-                                            List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
-                                            if (folders == null)
-                                                continue;
-
-                                            EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
-                                            for (EntityFolder folder : folders) {
-                                                if (inbox == null && "inbox".equalsIgnoreCase(folder.name))
-                                                    folder.type = EntityFolder.INBOX;
-
-                                                if (!EntityFolder.USER.equals(folder.type) &&
-                                                        !EntityFolder.SYSTEM.equals(folder.type)) {
-                                                    EntityLog.log(context, "Repairing " + account.name + ":" + folder.type);
-                                                    folder.setProperties();
-                                                    folder.setSpecials(account);
-                                                    db.folder().updateFolder(folder);
-                                                }
-                                            }
+                if (BuildConfig.DEBUG)
+                    new AlertDialog.Builder(view.getContext())
+                            .setIcon(R.drawable.twotone_bug_report_24)
+                            .setTitle(R.string.title_advanced_repair)
+                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    new SimpleTask<Void>() {
+                                        @Override
+                                        protected void onPostExecute(Bundle args) {
+                                            prefs.edit().remove("debug").apply();
                                         }
 
-                                        return null;
-                                    }
+                                        @Override
+                                        protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                            DB db = DB.getInstance(context);
 
-                                    @Override
-                                    protected void onExecuted(Bundle args, Void data) {
-                                        ToastEx.makeText(v.getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
-                                        ServiceSynchronize.reload(v.getContext(), null, true, "repair");
-                                    }
+                                            List<EntityAccount> accounts = db.account().getAccounts();
+                                            if (accounts == null)
+                                                return null;
 
-                                    @Override
-                                    protected void onException(Bundle args, Throwable ex) {
-                                        Log.unexpectedError(getParentFragmentManager(), ex);
-                                    }
-                                }.execute(FragmentOptionsMisc.this, new Bundle(), "repair");
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                // Do nothing
-                            }
-                        })
-                        .show();
+                                            for (EntityAccount account : accounts) {
+                                                if (account.protocol != EntityAccount.TYPE_IMAP)
+                                                    continue;
+
+                                                List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
+                                                if (folders == null)
+                                                    continue;
+
+                                                EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
+                                                for (EntityFolder folder : folders) {
+                                                    if (inbox == null && "inbox".equalsIgnoreCase(folder.name))
+                                                        folder.type = EntityFolder.INBOX;
+
+                                                    if (!EntityFolder.USER.equals(folder.type) &&
+                                                            !EntityFolder.SYSTEM.equals(folder.type)) {
+                                                        EntityLog.log(context, "Repairing " + account.name + ":" + folder.type);
+                                                        folder.setProperties();
+                                                        folder.setSpecials(account);
+                                                        db.folder().updateFolder(folder);
+                                                    }
+                                                }
+                                            }
+
+                                            return null;
+                                        }
+
+                                        @Override
+                                        protected void onExecuted(Bundle args, Void data) {
+                                            ToastEx.makeText(v.getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                                            ServiceSynchronize.reload(v.getContext(), null, true, "repair");
+                                        }
+
+                                        @Override
+                                        protected void onException(Bundle args, Throwable ex) {
+                                            Log.unexpectedError(getParentFragmentManager(), ex);
+                                        }
+                                    }.execute(FragmentOptionsMisc.this, new Bundle(), "repair");
+                                }
+                            })
+                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Do nothing
+                                }
+                            })
+                            .show();
             }
-
         });
 
         btnDaily.setOnClickListener(new View.OnClickListener() {
