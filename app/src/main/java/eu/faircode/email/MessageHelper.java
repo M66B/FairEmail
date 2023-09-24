@@ -2176,7 +2176,10 @@ public class MessageHelper {
                             Boolean none = null;
                             for (String p : v.substring(s + 1, e).split("\\s+")) {
                                 String[] kv = p.split("=");
-                                if (kv.length == 2 && "none".equalsIgnoreCase(kv[1]))
+                                // Without getting the DMARC DNS record, it isn't possible to check the sub/domain
+                                if (kv.length == 2 &&
+                                        ("p".equalsIgnoreCase(kv[0]) || "sp".equalsIgnoreCase(kv[0])) &&
+                                        "none".equalsIgnoreCase(kv[1]))
                                     none = (none == null || none) && "none".equalsIgnoreCase(kv[1]);
                             }
                             if (none != null && none)
