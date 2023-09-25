@@ -187,6 +187,7 @@ public class Helper {
     private static Boolean hasWebView = null;
     private static Boolean hasPlayStore = null;
     private static Boolean hasValidFingerprint = null;
+    private static Boolean isSmartwatch = null;
 
     static final float LOW_LIGHT = 0.6f;
 
@@ -611,7 +612,7 @@ public class Helper {
 
     static Boolean isIgnoringOptimizations(Context context) {
         try {
-            if (isArc())
+            if (isArc() || isWatch(context))
                 return true;
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
@@ -1561,6 +1562,25 @@ public class Helper {
     static boolean isArc() {
         // https://github.com/google/talkback/blob/master/utils/src/main/java/com/google/android/accessibility/utils/FeatureSupport.java
         return (Build.DEVICE != null) && Build.DEVICE.matches(".+_cheets|cheets_.+");
+    }
+
+    static boolean isWatch(Context context) {
+        if (isSmartwatch == null)
+            isSmartwatch = _isWatch(context);
+        return isSmartwatch;
+    }
+
+    private static boolean _isWatch(Context context) {
+        try {
+            UiModeManager uimm = Helper.getSystemService(context, UiModeManager.class);
+            if (uimm == null)
+                return false;
+            int uiModeType = uimm.getCurrentModeType();
+            return (uiModeType == Configuration.UI_MODE_TYPE_WATCH);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return false;
+        }
     }
 
     static boolean isStaminaEnabled(Context context) {
