@@ -188,10 +188,6 @@ public class EditTextCompose extends FixedEditText {
                     boolean selection = (start >= 0 && start < end);
                     Context context = getContext();
                     Editable edit = getText();
-                    SuggestionSpanEx[] suggestion = (edit == null ? null
-                            : edit.getSpans(start, end, SuggestionSpanEx.class));
-                    boolean hasSuggestions = (suggestion != null && suggestion.length > 0 &&
-                            !TextUtils.isEmpty(suggestion[0].getDescription()));
                     boolean dictionary = (selection &&
                             context instanceof AppCompatActivity &&
                             LanguageTool.isPremium(context) &&
