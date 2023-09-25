@@ -36,7 +36,7 @@ public class SuggestionSpanEx extends SuggestionSpan {
     public SuggestionSpanEx(Context context, String description, String[] suggestions, boolean misspelled) {
         super(context, suggestions,
                 misspelled || Build.VERSION.SDK_INT < Build.VERSION_CODES.S
-                        ? SuggestionSpan.FLAG_MISSPELLED | SuggestionSpan.FLAG_EASY_CORRECT
+                        ? SuggestionSpan.FLAG_MISSPELLED
                         : SuggestionSpan.FLAG_GRAMMAR_ERROR);
         this.description = description;
         highlightColor = Helper.resolveColor(context, android.R.attr.textColorHighlight);
