@@ -881,7 +881,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         if (TextUtils.isEmpty(text))
             return false;
 
-        text = Fts4DbHelper.breakText(text);
+        text = Fts4DbHelper.processBreakText(text);
 
         List<String> word = new ArrayList<>();
         for (String w : query.trim().split("\\s+"))
@@ -892,7 +892,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 if (!html && text.contains(Fts4DbHelper.preprocessText(w.substring(1))))
                     return false;
             } else
-                word.addAll(Arrays.asList(Fts4DbHelper.breakText(w).split("\\s+")));
+                word.addAll(Arrays.asList(Fts4DbHelper.processBreakText(w).split("\\s+")));
 
         if (word.size() == 0)
             return true;

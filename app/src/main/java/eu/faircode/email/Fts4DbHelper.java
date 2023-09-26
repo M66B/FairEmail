@@ -118,10 +118,10 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         cv.put("folder", message.folder);
         cv.put("time", message.received);
         cv.put("address", MessageHelper.formatAddresses(address.toArray(new Address[0]), true, false));
-        cv.put("subject", breakText(message.subject));
+        cv.put("subject", processBreakText(message.subject));
         cv.put("keyword", TextUtils.join(" ", message.keywords));
-        cv.put("text", breakText(text));
-        cv.put("notes", breakText(message.notes));
+        cv.put("text", processBreakText(text));
+        cv.put("notes", processBreakText(message.notes));
         db.insertWithOnConflict("message", null, cv, SQLiteDatabase.CONFLICT_FAIL);
     }
 
@@ -138,12 +138,14 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
                 .replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
     }
 
-    static String breakText(String text) {
+    static String processBreakText(String text) {
         if (TextUtils.isEmpty(text))
             return "";
 
-        text = preprocessText(text);
+        return breakText(preprocessText(text));
+    }
 
+    static String breakText(String text) {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
             return text;
 
@@ -187,7 +189,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
             SQLiteDatabase db,
             Long account, Long folder, long[] exclude,
             BoundaryCallbackMessages.SearchCriteria criteria, String query) {
-        String search = escape(breakText(query));
+        String search = escape(processBreakText(query));
 
         String select = "";
         if (account != null)

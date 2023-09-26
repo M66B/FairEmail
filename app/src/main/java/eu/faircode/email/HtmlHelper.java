@@ -3009,7 +3009,8 @@ public class HtmlHelper {
             sb.insert(0, ".*?\\b(");
             sb.append(")\\b.*?");
 
-            Pattern p = Pattern.compile(sb.toString(), Pattern.DOTALL);
+            // TODO: match für for fur
+            Pattern p = Pattern.compile(sb.toString(), Pattern.DOTALL | Pattern.CASE_INSENSITIVE);
 
             NodeTraversor.traverse(new NodeVisitor() {
                 @Override
@@ -3017,9 +3018,7 @@ public class HtmlHelper {
                     if (node instanceof TextNode)
                         try {
                             TextNode tnode = (TextNode) node;
-                            String whole = tnode.getWholeText();
-                            String text = Fts4DbHelper.preprocessText(whole);
-                            String ref = (whole.length() == text.length() ? whole : text);
+                            String text = tnode.getWholeText();
 
                             Matcher result = p.matcher(text);
 
@@ -3029,7 +3028,7 @@ public class HtmlHelper {
                                 int start = result.start(1);
                                 int end = result.end(1);
 
-                                holder.appendText(ref.substring(prev, start));
+                                holder.appendText(text.substring(prev, start));
 
                                 Element span = document.createElement("span");
                                 span.attr("style", mergeStyles(
@@ -3037,7 +3036,7 @@ public class HtmlHelper {
                                         "font-size:larger !important;" +
                                                 "font-weight:bold !important;" +
                                                 "background-color:" + encodeWebColor(color) + " !important"));
-                                span.text(ref.substring(start, end));
+                                span.text(text.substring(start, end));
                                 holder.appendChild(span);
 
                                 prev = end;
@@ -3047,7 +3046,7 @@ public class HtmlHelper {
                                 return;
 
                             if (prev < text.length())
-                                holder.appendText(ref.substring(prev));
+                                holder.appendText(text.substring(prev));
 
                             tnode.before(holder);
                             tnode.text("");
