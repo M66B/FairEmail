@@ -2609,6 +2609,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } catch (UnsupportedEncodingException ignored) {
                 }
 
+            tvIdentityTitle.setTextColor(message.identityColor == null ? textColorTertiary : message.identityColor);
             tvIdentityTitle.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
             tvIdentity.setVisibility(show_addresses && via != null ? View.VISIBLE : View.GONE);
             tvIdentity.setText(via == null ? null : formatAddresses(new Address[]{via}, true));
