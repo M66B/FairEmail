@@ -201,6 +201,9 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.UUID;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Pattern;
 
 import javax.activation.DataHandler;
@@ -319,6 +322,7 @@ public class FragmentCompose extends FragmentBase {
     static final int REDUCED_IMAGE_SIZE = 1440; // pixels
     private static final int REDUCED_IMAGE_QUALITY = 90; // percent
     // http://regex.info/blog/lightroom-goodies/jpeg-quality
+    private static final int COPY_ATTACHMENT_TIMEOUT = 60; // seconds
 
     private static final int MAX_QUOTE_LEVEL = 5;
 
@@ -5035,8 +5039,21 @@ public class FragmentCompose extends FragmentBase {
                 if (is == null)
                     throw new FileNotFoundException(uri.toString());
 
+                final InputStream reader = is;
                 byte[] buffer = new byte[Helper.BUFFER_SIZE];
-                for (int len = is.read(buffer); len != -1; len = is.read(buffer)) {
+                Callable<Integer> readTask = new Callable<Integer>() {
+                    @Override
+                    public Integer call() throws Exception {
+                        return reader.read(buffer);
+                    }
+                };
+
+                while (true) {
+                    Future<Integer> future = Helper.getDownloadTaskExecutor().submit(readTask);
+                    int len = future.get(COPY_ATTACHMENT_TIMEOUT, TimeUnit.SECONDS);
+                    if (len == -1)
+                        break;
+
                     size += len;
                     os.write(buffer, 0, len);
 
