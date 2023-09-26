@@ -2710,7 +2710,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvSizeEx.setTextIsSelectable(tvSizeEx.getVisibility() == View.VISIBLE);
                     tvLanguage.setTextIsSelectable(tvLanguage.getVisibility() == View.VISIBLE);
                     tvThread.setTextIsSelectable(tvThread.getVisibility() == View.VISIBLE);
-                    tvSubject.setTextIsSelectable(tvSubjectEx.getVisibility() == View.VISIBLE);
+                    tvSubjectEx.setTextIsSelectable(tvSubjectEx.getVisibility() == View.VISIBLE);
                     tvFlags.setTextIsSelectable(tvFlags.getVisibility() == View.VISIBLE);
                     tvKeywordsEx.setTextIsSelectable(tvKeywordsEx.getVisibility() == View.VISIBLE && keywords_header);
                 }
