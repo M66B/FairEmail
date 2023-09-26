@@ -447,6 +447,17 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swUpDown"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_up_down"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swVolumeNav"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swReversed"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -455,7 +466,7 @@
                     android:text="@string/title_advanced_reversed"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swVolumeNav"
+                    app:layout_constraintTop_toBottomOf="@id/swUpDown"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

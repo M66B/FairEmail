@@ -1345,6 +1345,14 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
+        if (prefs.getBoolean("updown", false)) {
+            boolean reversed = prefs.getBoolean("reversed", false);
+            bottom_navigation.getMenu().findItem(R.id.action_prev)
+                    .setIcon(reversed ? R.drawable.baseline_arrow_upward_24 : R.drawable.baseline_arrow_downward_24);
+            bottom_navigation.getMenu().findItem(R.id.action_next)
+                    .setIcon(reversed ? R.drawable.baseline_arrow_downward_24 : R.drawable.baseline_arrow_upward_24);
+        }
+
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

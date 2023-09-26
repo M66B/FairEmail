@@ -661,6 +661,7 @@
     <string name="title_advanced_double_tap">Double tap to mark message read/unread</string>
     <string name="title_advanced_swipenav">Swipe left/right to go to next/previous conversation</string>
     <string name="title_advanced_volumenav">Volume up/down to go to next/previous conversation</string>
+    <string name="title_advanced_up_down">Use up/down arrows for next/previous conversation</string>
     <string name="title_advanced_reversed">Reverse navigation direction</string>
     <string name="title_advanced_swipe_close">Swipe down to close conversation</string>
     <string name="title_advanced_swipe_move">Swipe up to move conversation</string>
