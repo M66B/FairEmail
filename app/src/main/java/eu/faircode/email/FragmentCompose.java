@@ -5053,6 +5053,10 @@ public class FragmentCompose extends FragmentBase {
                     int len = future.get(COPY_ATTACHMENT_TIMEOUT, TimeUnit.SECONDS);
                     if (len == -1)
                         break;
+                    if (len == 0) {
+                        Thread.sleep(500L);
+                        continue;
+                    }
 
                     size += len;
                     os.write(buffer, 0, len);
