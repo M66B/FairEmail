@@ -2287,6 +2287,7 @@
     <string name="title_debug_info_contact">We recently had contact about this problem</string>
     <string name="title_debug_info_send">Send immediately</string>
     <string name="title_debug_info_send_remark">Normally, the debug info will be stored as draft message first, so you can check what will be sent</string>
+    <string name="title_debug_info_question">Please use the info button if you just have a question</string>
     <string name="title_unexpected_info_remark">Please describe what you were doing when you got the error:</string>
     <string name="title_issue_subject" translatable="false">FairEmail %1$s issue</string>
 

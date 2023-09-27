@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:fadeScrollbars="false"
     android:padding="24dp"
     android:scrollbarStyle="outsideOverlay">
 
@@ -12,15 +13,30 @@
 
         <TextView
             android:id="@+id/tvCaption"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_bug_report_24"
             android:drawablePadding="6dp"
             android:drawableTint="?android:attr/textColorPrimary"
             android:text="@string/title_debug_info"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintEnd_toStartOf="@+id/ibInfo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/ibInfo"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/title_info"
+            android:padding="6dp"
+            android:scaleType="fitCenter"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/twotone_info_24"
+            app:tint="?attr/colorAccent" />
 
         <TextView
             android:id="@+id/tvIssue"
@@ -39,7 +55,6 @@
             android:gravity="top"
             android:imeOptions="actionNone|flagNoEnterAction"
             android:inputType="textCapSentences|textMultiLine|textAutoCorrect"
-            android:minHeight="60dp"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -100,5 +115,16 @@
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSend" />
+
+        <TextView
+            android:id="@+id/tvQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_debug_info_question"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textStyle="italic|bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSendRemark" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
