@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2106 - 2023-09-27
 
 * Added option to use up/down arrows for next/previous conversation
 * Small improvements and minor bug fixes
