@@ -573,6 +573,7 @@
     <string name="title_advanced_double_tap">Toque duplo para marcar a mensagem como lida/não lida</string>
     <string name="title_advanced_swipenav">Deslize para a esquerda/direita para ir para próxima/anterior conversa</string>
     <string name="title_advanced_volumenav">Volume para cima/baixo para ir para próxima/anterior conversa</string>
+    <string name="title_advanced_up_down">Use as setas cima/baixo para a próxima/anterior conversa</string>
     <string name="title_advanced_reversed">Inverter direção de navegação</string>
     <string name="title_advanced_swipe_close">Deslize para baixo para fechar uma conversa</string>
     <string name="title_advanced_swipe_move">Deslize para cima para mover conversa</string>
@@ -874,7 +875,7 @@
     <string name="title_identity_reply_to">Responder para o endereço</string>
     <string name="title_identity_internal">Nomes de domínio internos (separados por vírgula)</string>
     <string name="title_identity_uri">Vincular contato</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Sensibilidade padrão</string>
+    <string name="title_identity_sensitivity">Sensibilidade padrão</string>
     <string name="title_identity_unicode">Permitir UTF-8 nos cabeçalhos da mensagem</string>
     <string name="title_identity_unicode_remark">A maioria dos servidores não suporta isto</string>
     <string name="title_identity_octetmime">Permitir 8BITMIME</string>

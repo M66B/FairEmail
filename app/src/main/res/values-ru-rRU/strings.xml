@@ -599,6 +599,7 @@
     <string name="title_advanced_double_tap">Двойное нажатие для отметки сообщений прочитанными/непрочитанными</string>
     <string name="title_advanced_swipenav">Смахивание влево/вправо для перехода к следующему/предыдущему диалогу</string>
     <string name="title_advanced_volumenav">Кнопки увеличения/уменьшения громкости для перехода к следующему/предыдущему диалогу</string>
+    <string name="title_advanced_up_down">Используйте стрелки вверх/вниз для перехода к следующему/предыдущему диалогу</string>
     <string name="title_advanced_reversed">Обратное направление навигации</string>
     <string name="title_advanced_swipe_close">Смахивание вниз, чтобы закрыть диалог</string>
     <string name="title_advanced_swipe_move">Смахивание вверх, чтобы переместить диалог</string>
@@ -901,7 +902,7 @@
     <string name="title_identity_reply_to">Обратный адрес</string>
     <string name="title_identity_internal">Внутренние доменные имена (через запятую)</string>
     <string name="title_identity_uri">Связать контакт</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Чувствительность по умолчанию</string>
+    <string name="title_identity_sensitivity">Чувствительность по умолчанию</string>
     <string name="title_identity_unicode">Использовать UTF-8 в заголовках сообщений</string>
     <string name="title_identity_unicode_remark">Большинство серверов это не поддерживают</string>
     <string name="title_identity_octetmime">Использовать 8BITMIME</string>

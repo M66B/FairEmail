@@ -600,6 +600,7 @@
     <string name="title_advanced_double_tap">נגיעה כפולה תסמן הודעות כנקראו/לא נקראו</string>
     <string name="title_advanced_swipenav">החלקה שמאלה/ימינה כדי להתקדם/לחזור ברמת דיון</string>
     <string name="title_advanced_volumenav">כפתור עצמת שמע למעלה/למטה כדי להתקדם/לחזור ברמת דיון</string>
+    <string name="title_advanced_up_down">יש להשתמש בכפתורים למעלה/למטה למעבר לדיון הבא/הקודם</string>
     <string name="title_advanced_reversed">כיוון ניווט הפוך</string>
     <string name="title_advanced_swipe_close">החלקה מטה סוגרת את הדיון</string>
     <string name="title_advanced_swipe_move">החלקה מעלה מעבירה את הדיון</string>
@@ -901,7 +902,7 @@
     <string name="title_identity_reply_to">כתובת למענה</string>
     <string name="title_identity_internal">שמות תחום פנימיים (עם פסיקים מפרידים)</string>
     <string name="title_identity_uri">קישור פרטי קשר</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">רגישות ברירת מחדל</string>
+    <string name="title_identity_sensitivity">רגישות ברירת מחדל</string>
     <string name="title_identity_unicode">לאפשר UTF-8 בכותרות הודעות</string>
     <string name="title_identity_unicode_remark">רוב השרתים לא תומכים בזה</string>
     <string name="title_identity_octetmime">לאפשר 8BITMIME</string>

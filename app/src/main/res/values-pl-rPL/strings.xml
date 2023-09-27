@@ -599,6 +599,7 @@
     <string name="title_advanced_double_tap">Podwójne kliknięcie, aby oznaczyć odczytane/nieodczytane</string>
     <string name="title_advanced_swipenav">Przesuń w lewo/prawo, aby przejść do następnej/poprzedniej konwersacji</string>
     <string name="title_advanced_volumenav">Zwiększanie/zmniejszanie głośności, aby przejść do następnej/poprzedniej konwersacji</string>
+    <string name="title_advanced_up_down">Użyj strzałek w górę/w dół dla następnej/poprzedniej konwersacji</string>
     <string name="title_advanced_reversed">Odwróć kierunek nawigacji</string>
     <string name="title_advanced_swipe_close">Przesuń palcem w dół, aby zamknąć konwersację</string>
     <string name="title_advanced_swipe_move">Przesuń w górę, aby przenieść konwersację</string>
@@ -900,7 +901,7 @@
     <string name="title_identity_reply_to">Odpowiedz na adres</string>
     <string name="title_identity_internal">Wewnętrzne nazwy domen (oddzielone przecinkami)</string>
     <string name="title_identity_uri">Połącz kontakt</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Domyślna czułość</string>
+    <string name="title_identity_sensitivity">Domyślna czułość</string>
     <string name="title_identity_unicode">Zezwalaj na UTF-8 w nagłówkach wiadomości</string>
     <string name="title_identity_unicode_remark">Większość serwerów nie wspiera tego</string>
     <string name="title_identity_octetmime">Zezwalaj na 8BITMIME</string>

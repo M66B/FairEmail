@@ -573,6 +573,7 @@
     <string name="title_advanced_double_tap">Doppelt antippen, um eine Nachricht als gelesen bzw. ungelesen zu kennzeichnen</string>
     <string name="title_advanced_swipenav">Nach links/rechts wischen, um nächste/vorige Unterhaltung anzuzeigen</string>
     <string name="title_advanced_volumenav">Lautstärke hoch/runter, um zur nächsten/vorherigen Unterhaltung zu wechseln</string>
+    <string name="title_advanced_up_down">Pfeile nach oben/unten verwenden, um zur nächsten/vorherigen Unterhaltung zu wechseln</string>
     <string name="title_advanced_reversed">Navigationsrichtung umkehren</string>
     <string name="title_advanced_swipe_close">Zum Schließen der Unterhaltung nach unten wischen</string>
     <string name="title_advanced_swipe_move">Zum Verschieben der Unterhaltung nach oben wischen</string>
@@ -875,7 +876,7 @@
     <string name="title_identity_reply_to">Antwortadresse</string>
     <string name="title_identity_internal">Interne Domainnamen (durch Kommata getrennt)</string>
     <string name="title_identity_uri">Kontakt verknüpfen</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Standardvertraulichkeit</string>
+    <string name="title_identity_sensitivity">Standardvertraulichkeit</string>
     <string name="title_identity_unicode">UTF-8 in Nachrichtenkopfzeilen zulassen</string>
     <string name="title_identity_unicode_remark">Die meisten Server unterstützen dies nicht</string>
     <string name="title_identity_octetmime">8BITMIME erlauben</string>
@@ -1944,6 +1945,7 @@
     <string name="title_debug_info_contact">Wir hatten kürzlich Kontakt bezüglich dieses Problems</string>
     <string name="title_debug_info_send">Sofort senden</string>
     <string name="title_debug_info_send_remark">Standardmäßig werden die Informationen zur Fehlerdiagnose als Entwurf gespeichert, sodass Sie vorher überprüfen können, was übermittelt wird</string>
+    <string name="title_debug_info_question">Bitte verwenden Sie den Info-Button, wenn Sie nur eine Frage haben</string>
     <string name="title_unexpected_info_remark">Bitte beschreiben Sie, was Sie getan haben, als Sie den Fehler erhielten:</string>
     <string name="title_widget_title_count">Anzahl neuer Nachrichten</string>
     <string name="title_widget_title_list">Nachrichtenliste</string>

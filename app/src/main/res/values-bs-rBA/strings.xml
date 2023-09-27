@@ -586,6 +586,7 @@
     <string name="title_advanced_double_tap">Dupli dodir za markiranje poruke kao pročitana/nepročitana</string>
     <string name="title_advanced_swipenav">Prevuci prstom lijevo/desno za skok na sljedeću/prethodnu konverzaciju</string>
     <string name="title_advanced_volumenav">Dugme pojačaj/stišaj za skok na sljedeću/prethodnu konverzaciju</string>
+    <string name="title_advanced_up_down">Strelice gore/dolje za sljedeću/prethodnu konverzaciju</string>
     <string name="title_advanced_reversed">Obrnuti smjer navigacije</string>
     <string name="title_advanced_swipe_close">Prevuci dolje za zatvaranje konverzacije</string>
     <string name="title_advanced_swipe_move">Prevuci gore za premještanje konverzacije</string>
@@ -887,6 +888,7 @@
     <string name="title_identity_reply_to">Odgovori na adresu</string>
     <string name="title_identity_internal">Interni nazivi domena (razdvojeni zarezima)</string>
     <string name="title_identity_uri">Poveži kontakt</string>
+    <string name="title_identity_sensitivity">Zadana osjetljivost</string>
     <string name="title_identity_unicode">Dopusti UTF-8 standard u zaglavljima poruka</string>
     <string name="title_identity_unicode_remark">Većina servera ne podržava ovo</string>
     <string name="title_identity_octetmime">Dopusti 8BITMIME</string>

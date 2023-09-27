@@ -557,6 +557,7 @@
     <string name="title_advanced_double_tap">双击标记消息已读/未读</string>
     <string name="title_advanced_swipenav">左右滑动切换邮件</string>
     <string name="title_advanced_volumenav">音量上/下键切换邮件</string>
+    <string name="title_advanced_up_down">使用上/下键查看下一次/上一次对话</string>
     <string name="title_advanced_reversed">反转导航方向</string>
     <string name="title_advanced_swipe_close">向下滑动关闭对话</string>
     <string name="title_advanced_swipe_move">向上滑动以移动对话</string>
@@ -858,7 +859,7 @@
     <string name="title_identity_reply_to">回复给该地址</string>
     <string name="title_identity_internal">内部域名(逗号分隔)</string>
     <string name="title_identity_uri">关联联系人</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">默认灵敏度</string>
+    <string name="title_identity_sensitivity">默认灵敏度</string>
     <string name="title_identity_unicode">在消息头中允许 UTF-8</string>
     <string name="title_identity_unicode_remark">大多数服务器不支持这一功能</string>
     <string name="title_identity_octetmime">允许 8BITMIME</string>

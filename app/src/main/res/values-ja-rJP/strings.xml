@@ -558,6 +558,7 @@
     <string name="title_advanced_double_tap">ダブルタップでメッセージを既読/未読にする</string>
     <string name="title_advanced_swipenav">左/右にスワイプして次/前の会話に移動</string>
     <string name="title_advanced_volumenav">音量を上/下して次/前の会話に移動</string>
+    <string name="title_advanced_up_down">上/下の矢印で前/後の会話に移動</string>
     <string name="title_advanced_reversed">ナビゲーション方向を逆にする</string>
     <string name="title_advanced_swipe_close">下にスワイプして会話を閉じる</string>
     <string name="title_advanced_swipe_move">上にスワイプして会話を移動</string>
@@ -624,7 +625,7 @@
     <string name="title_advanced_wearable_preview">プレビュー付き通知のみウェアラブルに送信</string>
     <string name="title_advanced_notify_messaging">Android の「Messaging Style」の通知フォーマットを使用</string>
     <string name="title_advanced_biometrics_notify">生体認証の使用中も通知コンテンツを表示</string>
-    <string name="title_advanced_notify_open_folder">新しいメッセージを開くとき、フォルダーを開く</string>
+    <string name="title_advanced_notify_open_folder">新着メッセージを開くとき、フォルダーを開く</string>
     <string name="title_advanced_light">通知 LED を使用</string>
     <string name="title_advanced_sound">通知音を選択</string>
     <string name="title_advanced_notify_screen_on">画面を一時オンにして新着メッセージ通知を表示</string>
@@ -859,7 +860,7 @@
     <string name="title_identity_reply_to">返信先 (Reply to)</string>
     <string name="title_identity_internal">内部ドメイン名 (カンマ区切り)</string>
     <string name="title_identity_uri">連絡先をリンク</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">デフォルトの機密度</string>
+    <string name="title_identity_sensitivity">デフォルトの機密度</string>
     <string name="title_identity_unicode">メッセージヘッダーで UTF-8 を許可</string>
     <string name="title_identity_unicode_remark">ほとんどのサーバーが対応していません</string>
     <string name="title_identity_octetmime">8BITMIME を許可</string>
@@ -1122,7 +1123,7 @@
     <string name="title_forward">転送</string>
     <string name="title_resend">再送</string>
     <string name="title_fetching_headers">メッセージヘッダーをダウンロードしています&#8230;</string>
-    <string name="title_new_message">新しいメッセージ</string>
+    <string name="title_new_message">新着メッセージ</string>
     <string name="title_editasnew">新規として編集</string>
     <string name="title_edit_notes">ローカルメモを編集</string>
     <string name="title_create_rule">ルールを作成&#8230;</string>
@@ -1188,7 +1189,7 @@
     <string name="title_report_spam">迷惑メールとして扱う</string>
     <string name="title_delete_permanently">完全に削除</string>
     <string name="title_delete_attachments">添付ファイルを削除</string>
-    <string name="title_delete_attachments_remark">        添付ファイルを削除すると、新しいメッセージが追加されて、古いメッセージが削除されます。
+    <string name="title_delete_attachments_remark">        添付ファイルを削除すると、新規にメッセージが追加されて、古いメッセージが削除されます。
         失敗すると、古いメッセージはごみ箱に移動されます。
     </string>
     <string name="title_snooze">スヌーズ&#8230;</string>
@@ -2057,11 +2058,11 @@
         <item>Bcc</item>
     </string-array>
     <string-array name="biometricsTimeoutNames">
-        <item>1分</item>
-        <item>2分</item>
-        <item>5分</item>
-        <item>10分</item>
-        <item>20分</item>
+        <item>1 分</item>
+        <item>2 分</item>
+        <item>5 分</item>
+        <item>10 分</item>
+        <item>20 分</item>
     </string-array>
     <string-array name="ellipsizeNames">
         <item>先頭を短縮</item>

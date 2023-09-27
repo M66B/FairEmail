@@ -571,6 +571,7 @@
     <string name="title_advanced_double_tap">Doble toque para marcar mensaje como leído/no leído</string>
     <string name="title_advanced_swipenav">Deslice a la izquierda/derecha para ir a la siguiente/anterior conversación</string>
     <string name="title_advanced_volumenav">Volumen arriba/abajo para ir a la conversación siguiente/anterior</string>
+    <string name="title_advanced_up_down">Usar flechas arriba/abajo para ir a la conversación siguiente/anterior</string>
     <string name="title_advanced_reversed">Invertir la dirección de navegación</string>
     <string name="title_advanced_swipe_close">Deslice hacia abajo para cerrar la conversación</string>
     <string name="title_advanced_swipe_move">Deslice hacia arriba para mover la conversación</string>
@@ -872,6 +873,7 @@
     <string name="title_identity_reply_to">Responder a la dirección</string>
     <string name="title_identity_internal">Nombres de dominio internos (separados por comas)</string>
     <string name="title_identity_uri">Vincular contacto</string>
+    <string name="title_identity_sensitivity">Sensibilidad por defecto</string>
     <string name="title_identity_unicode">Permitir UTF-8 en los encabezados de mensajes</string>
     <string name="title_identity_unicode_remark">La mayoría de servidores no soportan esto</string>
     <string name="title_identity_octetmime">Permitir 8BITMIME</string>

@@ -570,6 +570,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_double_tap">Dubbel tik om bericht gelezen/ongelezen te markeren</string>
     <string name="title_advanced_swipenav">Veeg links/rechts om naar het volgende/vorige gesprek te gaan</string>
     <string name="title_advanced_volumenav">Volume omhoog/omlaag om naar het volgende/vorige gesprek te gaan</string>
+    <string name="title_advanced_up_down">Gebruik de pijlen omhoog/omlaag voor het volgende/vorige gesprek</string>
     <string name="title_advanced_reversed">Keer navigatierichting om</string>
     <string name="title_advanced_swipe_close">Veeg naar beneden om gesprek te sluiten</string>
     <string name="title_advanced_swipe_move">Veeg omhoog om gesprek te verplaatsen</string>
@@ -870,7 +871,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_identity_reply_to">Antwoord op adres</string>
     <string name="title_identity_internal">Interne domeinnamen (komma gescheiden)</string>
     <string name="title_identity_uri">Koppel contact</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Standaard gevoeligheid</string>
+    <string name="title_identity_sensitivity">Standaard gevoeligheid</string>
     <string name="title_identity_unicode">UTF-8 in berichtkoppen toestaan</string>
     <string name="title_identity_unicode_remark">De meeste servers ondersteunen dit niet</string>
     <string name="title_identity_octetmime">8BITMIME toestaan</string>
@@ -1928,6 +1929,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_debug_info_contact">Onlangs hadden we contact over dit probleem</string>
     <string name="title_debug_info_send">Onmiddellijk verzenden</string>
     <string name="title_debug_info_send_remark">Normaal zal de debug info eerst worden opgeslagen als conceptbericht, zodat u kunt controleren wat er wordt verzonden</string>
+    <string name="title_debug_info_question">Gebruik a.u.b. de info knop als u alleen een vraag heeft</string>
     <string name="title_unexpected_info_remark">Beschrijf alstublieft wat u aan het doen was toen de foutmelding kwam:</string>
     <string name="title_widget_title_count">Aantal nieuwe berichten</string>
     <string name="title_widget_title_list">Berichtenlijst</string>

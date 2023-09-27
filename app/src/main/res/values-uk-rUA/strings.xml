@@ -600,6 +600,7 @@
     <string name="title_advanced_double_tap">Подвійне натискання позначатиме повідомлення прочитаним або непрочитаним</string>
     <string name="title_advanced_swipenav">Перехід до наступної/попередньої розмови проведенням пальцем вліво/вправо</string>
     <string name="title_advanced_volumenav">Перехід до наступної/попередньої розмови натисканням на кнопки збільшення/зменшення гучності</string>
+    <string name="title_advanced_up_down">Використовувати стрілки вгору/вниз для переходу до наступної/попередньої розмови</string>
     <string name="title_advanced_reversed">Зворотній напрямок навігації</string>
     <string name="title_advanced_swipe_close">Проведіть униз, щоб закрити розмову</string>
     <string name="title_advanced_swipe_move">Проведіть пальцем угору, щоб перемістити розмову</string>
@@ -900,7 +901,7 @@
     <string name="title_identity_reply_to">Адреса для відповіді</string>
     <string name="title_identity_internal">Внутрішні доменні імена (розділені комами)</string>
     <string name="title_identity_uri">Прив\'язати контакт</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Конфіденційність за замовчуванням</string>
+    <string name="title_identity_sensitivity">Конфіденційність за замовчуванням</string>
     <string name="title_identity_unicode">Дозволити UTF-8 у заголовках повідомлень</string>
     <string name="title_identity_unicode_remark">Більшість серверів не підтримують це</string>
     <string name="title_identity_octetmime">Дозволити 8BITMIME</string>

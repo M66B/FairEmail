@@ -572,6 +572,7 @@
     <string name="title_advanced_double_tap">Mesajı oxundu/oxunmadı kimi işarələmək üçün iki dəfə toxun</string>
     <string name="title_advanced_swipenav">Sonrakı/əvvəlki danışığa getmək üçün sola/sağa sürüşdürün</string>
     <string name="title_advanced_volumenav">Sonrakı/əvvəlki danışığa getmək üçün səs artırma/azaltma düymələrini istifadə et</string>
+    <string name="title_advanced_up_down">Sonrakı/əvvəlki danışıqlar üçün yuxarı/aşağı oxları istifadə et</string>
     <string name="title_advanced_reversed">Naviqasiya istiqamətini tərsinə çevir</string>
     <string name="title_advanced_swipe_close">Danışığı bağlamaq üçün aşağı sürüşdür</string>
     <string name="title_advanced_swipe_move">Danışığı köçürtmək üçün yuxarı sürüşdür</string>
@@ -873,6 +874,7 @@
     <string name="title_identity_reply_to">Cavablama ünvanı</string>
     <string name="title_identity_internal">Daxili domen adları (vergüllə ayrılan)</string>
     <string name="title_identity_uri">Kontaktı əlaqələndir</string>
+    <string name="title_identity_sensitivity">İlkin həssaslıq</string>
     <string name="title_identity_unicode">Mesaj başlığında \"UTF-8\"ə icazə ver</string>
     <string name="title_identity_unicode_remark">Əksər server bunu dəstəkləmir</string>
     <string name="title_identity_octetmime">8BITMIME-ə icazə ver</string>

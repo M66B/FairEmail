@@ -572,6 +572,7 @@
     <string name="title_advanced_double_tap">Dobbelttryk for at markere besked læst/ulæst</string>
     <string name="title_advanced_swipenav">Stryg til venstre/højre for at gå til næste/forrige samtale</string>
     <string name="title_advanced_volumenav">Lydstyrke op/ned for at gå til næste/foregående samtale</string>
+    <string name="title_advanced_up_down">Brug op-/ned-pile for næste/foregående konversation</string>
     <string name="title_advanced_reversed">Omvendt navigeringsretning</string>
     <string name="title_advanced_swipe_close">Stryg nedad for at lukke samtale</string>
     <string name="title_advanced_swipe_move">Stryg opad for at flytte samtale</string>
@@ -874,7 +875,7 @@
     <string name="title_identity_reply_to">Svar til-adresse</string>
     <string name="title_identity_internal">Interne domænenavne (kommasepareret)</string>
     <string name="title_identity_uri">Link kontakt</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">Standard følsomhed</string>
+    <string name="title_identity_sensitivity">Standard følsomhed</string>
     <string name="title_identity_unicode">Tillad UTF-8 i besked-headere</string>
     <string name="title_identity_unicode_remark">De fleste servere understøtter ikke dette</string>
     <string name="title_identity_octetmime">Tillad 8BITMIME</string>

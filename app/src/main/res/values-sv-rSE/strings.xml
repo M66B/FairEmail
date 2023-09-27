@@ -568,6 +568,7 @@
     <string name="title_advanced_double_tap">Dubbeltryck för att markera meddelande läst/oläst</string>
     <string name="title_advanced_swipenav">Svep vänster/höger för att gå till nästa/föregående konversation</string>
     <string name="title_advanced_volumenav">Använd volymknappen upp/ned för att gå till nästa/föregående konversation</string>
+    <string name="title_advanced_up_down">Använd upp-/nerpilar för nästa/föregående konversation</string>
     <string name="title_advanced_reversed">Omvänd navigeringsriktning</string>
     <string name="title_advanced_swipe_close">Svep nedåt för att stänga konversationen</string>
     <string name="title_advanced_swipe_move">Svep uppåt för att flytta konversation</string>
@@ -866,6 +867,7 @@
     <string name="title_identity_reply_to">Svara till adress</string>
     <string name="title_identity_internal">Interna domännamn (kommaseparerade)</string>
     <string name="title_identity_uri">Koppla kontakt</string>
+    <string name="title_identity_sensitivity">Standardkänslighet</string>
     <string name="title_identity_unicode">Tillåt UTF-8 i meddelandehuvuden</string>
     <string name="title_identity_unicode_remark">De flesta servrar stöder inte detta</string>
     <string name="title_identity_octetmime">Tillåt 8BITMIME</string>

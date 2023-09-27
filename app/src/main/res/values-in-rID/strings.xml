@@ -853,7 +853,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_identity_reply_to">Balas ke alamat</string>
     <string name="title_identity_internal">Nama domain internal ( dipisahkan dengan koma (,) )</string>
     <string name="title_identity_uri">Tautan kontak</string>
-    <string name="title_identity_sensitivity" comment="title_identity_sensitivity&#10;Title for advanced identity option to select default sensitivity.&#10; https://datatracker.ietf.org/doc/html/rfc4021#section-2.1.55">sensitivitas default</string>
+    <string name="title_identity_sensitivity">sensitivitas default</string>
     <string name="title_identity_unicode">Izinkan UTF-8 di header pesan</string>
     <string name="title_identity_unicode_remark">Kebanyakan server tidak support ini</string>
     <string name="title_identity_octetmime">Izinkan 8BITMIME</string>
