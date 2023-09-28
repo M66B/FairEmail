@@ -162,6 +162,12 @@ class Core {
     private static final long FIND_RETRY_DELAY = 5 * 1000L; // milliseconds
     private static final int POP3_KEEP_EXTRA = 100; // messages
 
+    // Android applies a rate limit when updating a notification.
+    // If you post updates to a notification too frequently—many in less than one second—
+    // the system might drop updates.
+    private static final int DEFAULT_MAX_NOTIFICATION_ENQUEUE_RATE = 5; // NotificationManagerService.java
+    private static final long NOTIFY_DELAY = 1000L / DEFAULT_MAX_NOTIFICATION_ENQUEUE_RATE; // milliseconds
+
     private static final Map<Long, List<EntityIdentity>> accountIdentities = new HashMap<>();
 
     static void clearIdentities() {
@@ -5703,8 +5709,15 @@ class Core {
                                             : " channel=" + notification.getChannelId()) +
                                     " sort=" + notification.getSortKey());
                     try {
-                        if (NotificationHelper.areNotificationsEnabled(nm))
+                        if (NotificationHelper.areNotificationsEnabled(nm)) {
                             nm.notify(tag, NotificationHelper.NOTIFICATION_TAGGED, notification);
+                            try {
+                                Thread.sleep(NOTIFY_DELAY);
+                            } catch (InterruptedException ex) {
+                                Log.w(ex);
+                            }
+                        }
+
                         // https://github.com/leolin310148/ShortcutBadger/wiki/Xiaomi-Device-Support
                         if (id == 0 && badge && Helper.isXiaomi())
                             ShortcutBadgerAlt.applyNotification(context, notification, current);
