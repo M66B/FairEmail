@@ -20,10 +20,13 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
 import android.text.TextPaint;
 import android.text.style.SuggestionSpan;
+
+import androidx.preference.PreferenceManager;
 
 import java.lang.reflect.Field;
 
@@ -34,14 +37,23 @@ public class SuggestionSpanEx extends SuggestionSpan {
     private final int underlineThickness;
 
     public SuggestionSpanEx(Context context, String description, String[] suggestions, boolean misspelled) {
-        super(context, suggestions,
-                misspelled || Build.VERSION.SDK_INT < Build.VERSION_CODES.S
-                        ? SuggestionSpan.FLAG_MISSPELLED
-                        : SuggestionSpan.FLAG_GRAMMAR_ERROR);
+        super(context, suggestions, 0);
+
+        int flags = (misspelled || Build.VERSION.SDK_INT < Build.VERSION_CODES.S
+                ? SuggestionSpan.FLAG_MISSPELLED
+                : SuggestionSpan.FLAG_GRAMMAR_ERROR);
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean easy_correct = prefs.getBoolean("easy_correct", false);
+        if (easy_correct)
+            flags |= SuggestionSpan.FLAG_EASY_CORRECT;
+
+        this.setFlags(flags);
+
         this.description = description;
         highlightColor = Helper.resolveColor(context, android.R.attr.textColorHighlight);
-        underlineColor = (misspelled ? Color.RED : highlightColor);
-        underlineThickness = Helper.dp2pixels(context, misspelled ? 2 : 2);
+        underlineColor = (BuildConfig.DEBUG ? Color.MAGENTA : (misspelled ? Color.RED : highlightColor));
+        underlineThickness = Helper.dp2pixels(context, misspelled ? 2 : (BuildConfig.DEBUG ? 1 : 2));
     }
 
     public String getDescription() {

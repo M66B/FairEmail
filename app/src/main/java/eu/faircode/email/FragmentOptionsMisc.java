@@ -240,6 +240,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swNativeDkim;
     private SwitchCompat swNativeArc;
     private EditText etNativeArcWhitelist;
+    private SwitchCompat swEasyCorrect;
     private SwitchCompat swInfra;
     private SwitchCompat swTldFlags;
     private SwitchCompat swDupMsgId;
@@ -310,7 +311,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "max_backoff_power", "logarithmic_backoff",
             "exact_alarms",
             "native_dkim", "native_arc", "native_arc_whitelist",
-            "infra", "tld_flags", "dup_msgids", "thread_byref", "mdn", "app_chooser", "delete_confirmation", "global_keywords", "test_iab"
+            "easy_correct", "infra", "tld_flags", "dup_msgids", "thread_byref", "mdn", "app_chooser", "delete_confirmation", "global_keywords", "test_iab"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -499,6 +500,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swNativeDkim = view.findViewById(R.id.swNativeDkim);
         swNativeArc = view.findViewById(R.id.swNativeArc);
         etNativeArcWhitelist = view.findViewById(R.id.etNativeArcWhitelist);
+        swEasyCorrect = view.findViewById(R.id.swEasyCorrect);
         swInfra = view.findViewById(R.id.swInfra);
         swTldFlags = view.findViewById(R.id.swTldFlags);
         swDupMsgId = view.findViewById(R.id.swDupMsgId);
@@ -1881,6 +1883,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swEasyCorrect.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("easy_correct", checked).apply();
+            }
+        });
+
         swInfra.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2697,6 +2706,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swNativeArc.setChecked(prefs.getBoolean("native_arc", true));
             etNativeArcWhitelist.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
             etNativeArcWhitelist.setText(prefs.getString("native_arc_whitelist", null));
+            swEasyCorrect.setChecked(prefs.getBoolean("easy_correct", false));
             swInfra.setChecked(prefs.getBoolean("infra", false));
             swTldFlags.setChecked(prefs.getBoolean("tld_flags", false));
             swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
