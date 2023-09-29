@@ -46,6 +46,10 @@ import androidx.core.os.LocaleListCompat;
 import androidx.emoji2.text.DefaultEmojiCompatConfig;
 import androidx.emoji2.text.EmojiCompat;
 import androidx.emoji2.text.FontRequestEmojiCompatConfig;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
+import androidx.lifecycle.ProcessLifecycleOwner;
 import androidx.preference.PreferenceManager;
 import androidx.work.WorkManager;
 
@@ -125,6 +129,22 @@ public class ApplicationEx extends Application
             UriHelper.test(this);
 
         CoalMine.install(this);
+
+        ProcessLifecycleOwner.get().getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_START)
+            public void onStart() {
+                log(true);
+            }
+
+            @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+            public void onStop() {
+                log(false);
+            }
+
+            private void log(boolean foreground) {
+                Log.breadcrumb("app", "foreground", Boolean.toString(foreground));
+            }
+        });
 
         registerActivityLifecycleCallbacks(lifecycleCallbacks);
 
