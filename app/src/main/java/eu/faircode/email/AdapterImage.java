@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.AnimatedImageDrawable;
@@ -40,6 +41,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
@@ -106,6 +108,14 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         String type = args.getString("type");
                         int max = args.getInt("max");
 
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean webp = prefs.getBoolean("webp", true);
+
+                        if ("image/webp".equalsIgnoreCase(type) && !webp) {
+                            args.putBoolean("nowebp", true);
+                            return null;
+                        }
+
                         args.putLong("size", file.length());
 
                         try {
@@ -142,7 +152,10 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                     @Override
                     protected void onExecuted(Bundle args, Drawable image) {
                         if (image == null)
-                            ivImage.setImageResource(R.drawable.twotone_broken_image_24);
+                            if (args.getBoolean("nowebp"))
+                                ivImage.setImageResource(R.drawable.twotone_warning_24);
+                            else
+                                ivImage.setImageResource(R.drawable.twotone_broken_image_24);
                         else
                             ivImage.setImageDrawable(image);
 

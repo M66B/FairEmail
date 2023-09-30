@@ -318,6 +318,7 @@ class ImageHelper {
                                         boolean show, int zoom, final float scale, final TextView view) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean inline = prefs.getBoolean("inline_images", false);
+        boolean webp = prefs.getBoolean("webp", true);
 
         final int px = Helper.dp2pixels(context, (zoom + 1) * 24);
         final Resources res = context.getResources();
@@ -343,6 +344,10 @@ class ImageHelper {
                 if (attachment == null) {
                     Log.i("Image not found CID=" + cid);
                     Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_broken_image_24);
+                    d.setBounds(0, 0, px, px);
+                    return d;
+                } else if ("image/webp".equalsIgnoreCase(attachment.type) && !webp) {
+                    Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_warning_24);
                     d.setBounds(0, 0, px, px);
                     return d;
                 } else if (!attachment.available) {
