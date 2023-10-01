@@ -322,6 +322,7 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                     document.body().prependChild(header);
                 }
 
+                args.putLong("received", message.received);
                 return new String[]{message.subject, document.body().html()};
             }
 
@@ -360,9 +361,10 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                             }
 
                             PrintManager printManager = (PrintManager) context.getSystemService(Context.PRINT_SERVICE);
-                            String jobName = activity.getString(R.string.app_name);
+                            String jobName = new SimpleDateFormat("yyyy-MM-dd HH:mm")
+                                    .format(args.getLong("received"));
                             if (!TextUtils.isEmpty(data[0]))
-                                jobName += " - " + data[0];
+                                jobName += " " + data[0];
 
                             Log.i("Print queue job=" + jobName);
                             PrintDocumentAdapter adapter = printWebView.createPrintDocumentAdapter(jobName);
