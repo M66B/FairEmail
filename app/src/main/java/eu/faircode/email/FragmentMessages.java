@@ -8931,9 +8931,11 @@ public class FragmentMessages extends FragmentBase
                                         db.message().setMessageStored(message.id, new Date().getTime());
                                         db.message().setMessageFts(message.id, false);
 
-                                        File raw = message.getRawFile(context);
-                                        Helper.copy(plain, raw);
-                                        db.message().setMessageRaw(message.id, true);
+                                        if (BuildConfig.DEBUG || debug) {
+                                            File raw = message.getRawFile(context);
+                                            Helper.copy(plain, raw);
+                                            db.message().setMessageRaw(message.id, true);
+                                        }
 
                                         db.setTransactionSuccessful();
                                     } catch (SQLiteConstraintException ex) {
