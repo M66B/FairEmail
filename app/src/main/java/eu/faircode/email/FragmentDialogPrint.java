@@ -150,6 +150,10 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                 if (message == null || !message.content)
                     return null;
 
+                EntityFolder folder = db.folder().getFolder(message.folder);
+                if (folder == null)
+                    return null;
+
                 File file = message.getFile(context);
                 if (!file.exists())
                     return null;
@@ -280,11 +284,13 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                     if (message.received != null && !draft) {
                         DateFormat DTF = Helper.getDateTimeInstance(context, SimpleDateFormat.LONG, SimpleDateFormat.LONG);
 
+                        boolean sent = (EntityFolder.SENT.equals(folder.type) && message.sent != null);
+
                         Element span = document.createElement("span");
                         Element strong = document.createElement("strong");
-                        strong.text(context.getString(R.string.title_received));
+                        strong.text(context.getString(sent ? R.string.title_sent : R.string.title_received));
                         span.appendChild(strong);
-                        span.appendText(" " + DTF.format(message.received));
+                        span.appendText(" " + DTF.format(sent ? message.sent : message.received));
                         span.appendElement("br");
                         header.appendChild(span);
                     }
@@ -361,7 +367,7 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                             }
 
                             PrintManager printManager = (PrintManager) context.getSystemService(Context.PRINT_SERVICE);
-                            String jobName = new SimpleDateFormat("yyyy-MM-dd HH:mm")
+                            String jobName = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
                                     .format(args.getLong("received"));
                             if (!TextUtils.isEmpty(data[0]))
                                 jobName += " " + data[0];
