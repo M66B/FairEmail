@@ -1348,9 +1348,9 @@ public class FragmentMessages extends FragmentBase
         if (prefs.getBoolean("updown", false)) {
             boolean reversed = prefs.getBoolean("reversed", false);
             bottom_navigation.getMenu().findItem(R.id.action_prev)
-                    .setIcon(reversed ? R.drawable.baseline_arrow_upward_24 : R.drawable.baseline_arrow_downward_24);
+                    .setIcon(reversed ? R.drawable.twotone_north_24 : R.drawable.twotone_south_24);
             bottom_navigation.getMenu().findItem(R.id.action_next)
-                    .setIcon(reversed ? R.drawable.baseline_arrow_downward_24 : R.drawable.baseline_arrow_upward_24);
+                    .setIcon(reversed ? R.drawable.twotone_south_24 : R.drawable.twotone_north_24);
         }
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -4073,15 +4073,15 @@ public class FragmentMessages extends FragmentBase
 
                 SubMenu importance = popupMenu.getMenu()
                         .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_set_importance)
-                        .setIcon(R.drawable.baseline_arrow_upward_24);
+                        .setIcon(R.drawable.twotone_north_24);
                 importance.add(Menu.NONE, R.string.title_importance_high, 1, R.string.title_importance_high)
-                        .setIcon(R.drawable.baseline_arrow_upward_24)
+                        .setIcon(R.drawable.twotone_north_24)
                         .setEnabled(!EntityMessage.PRIORITIY_HIGH.equals(result.importance));
                 importance.add(Menu.NONE, R.string.title_importance_normal, 2, R.string.title_importance_normal)
                         .setIcon(R.drawable.twotone_horizontal_rule_24)
                         .setEnabled(!EntityMessage.PRIORITIY_NORMAL.equals(result.importance));
                 importance.add(Menu.NONE, R.string.title_importance_low, 3, R.string.title_importance_low)
-                        .setIcon(R.drawable.baseline_arrow_downward_24)
+                        .setIcon(R.drawable.twotone_south_24)
                         .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(result.importance));
 
                 if (ids.length < MAX_SEND_RAW)

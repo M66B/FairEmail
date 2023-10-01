@@ -684,7 +684,7 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@id/ibBatchFlagColor"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_arrow_downward_24"
+                app:srcCompat="@drawable/twotone_south_24"
                 app:tint="@color/action_foreground" />
 
             <ImageButton
@@ -714,7 +714,7 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toStartOf="@+id/ibNormalImportance"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_arrow_upward_24"
+                app:srcCompat="@drawable/twotone_north_24"
                 app:tint="@color/action_foreground" />
 
             <ImageButton

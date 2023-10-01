@@ -258,7 +258,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvHighImportance"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvHighImportance"
-            app:srcCompat="@drawable/baseline_arrow_upward_24" />
+            app:srcCompat="@drawable/twotone_north_24" />
 
         <TextView
             android:id="@+id/tvHighImportance"
@@ -281,7 +281,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvLowImportance"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvLowImportance"
-            app:srcCompat="@drawable/baseline_arrow_downward_24" />
+            app:srcCompat="@drawable/twotone_south_24" />
 
         <TextView
             android:id="@+id/tvLowImportance"
