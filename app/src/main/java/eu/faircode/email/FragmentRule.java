@@ -172,6 +172,8 @@ public class FragmentRule extends FragmentBase {
     private EditText etNotes;
     private ViewButtonColor btnColorNotes;
 
+    private EditText etUrl;
+
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
 
@@ -190,6 +192,7 @@ public class FragmentRule extends FragmentBase {
     private Group grpDelete;
     private Group grpLocalOnly;
     private Group grpNotes;
+    private Group grpUrl;
 
     private ArrayAdapter<String> adapterGroup;
     private ArrayAdapter<String> adapterDay;
@@ -362,6 +365,8 @@ public class FragmentRule extends FragmentBase {
         etNotes = view.findViewById(R.id.etNotes);
         btnColorNotes = view.findViewById(R.id.btnColorNotes);
 
+        etUrl = view.findViewById(R.id.etUrl);
+
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
         pbWait = view.findViewById(R.id.pbWait);
@@ -381,6 +386,7 @@ public class FragmentRule extends FragmentBase {
         grpDelete = view.findViewById(R.id.grpDelete);
         grpLocalOnly = view.findViewById(R.id.grpLocalOnly);
         grpNotes = view.findViewById(R.id.grpNotes);
+        grpUrl = view.findViewById(R.id.grpUrl);
 
         adapterGroup = new ArrayAdapter<>(getContext(), R.layout.spinner_item1_dropdown, android.R.id.text1);
         etGroup.setThreshold(1);
@@ -646,6 +652,7 @@ public class FragmentRule extends FragmentBase {
         actions.add(new Action(EntityRule.TYPE_TTS, getString(R.string.title_rule_tts)));
         actions.add(new Action(EntityRule.TYPE_SOUND, getString(R.string.title_rule_sound)));
         actions.add(new Action(EntityRule.TYPE_AUTOMATION, getString(R.string.title_rule_automation)));
+        actions.add(new Action(EntityRule.TYPE_URL, getString(R.string.title_rule_url)));
         adapterAction.addAll(actions);
 
         spAction.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -849,6 +856,7 @@ public class FragmentRule extends FragmentBase {
         grpDelete.setVisibility(View.GONE);
         grpLocalOnly.setVisibility(View.GONE);
         grpNotes.setVisibility(View.GONE);
+        grpUrl.setVisibility(View.GONE);
 
         pbWait.setVisibility(View.VISIBLE);
 
@@ -1300,7 +1308,6 @@ public class FragmentRule extends FragmentBase {
                                     etKeyword.setText(jaction.getString("keyword"));
                                     rgKeyword.check(jaction.optBoolean("set", true)
                                             ? R.id.keyword_add : R.id.keyword_delete);
-
                                     break;
 
                                 case EntityRule.TYPE_MOVE:
@@ -1358,6 +1365,10 @@ public class FragmentRule extends FragmentBase {
                                     btnColorNotes.setColor(
                                             !jaction.has("color") || jaction.isNull("color")
                                                     ? null : jaction.getInt("color"));
+                                    break;
+
+                                case EntityRule.TYPE_URL:
+                                    etUrl.setText(jaction.getString("url"));
                                     break;
                             }
 
@@ -1417,6 +1428,7 @@ public class FragmentRule extends FragmentBase {
         grpDelete.setVisibility(type == EntityRule.TYPE_DELETE ? View.VISIBLE : View.GONE);
         grpLocalOnly.setVisibility(type == EntityRule.TYPE_LOCAL_ONLY ? View.VISIBLE : View.GONE);
         grpNotes.setVisibility(type == EntityRule.TYPE_NOTES ? View.VISIBLE : View.GONE);
+        grpUrl.setVisibility(type == EntityRule.TYPE_URL ? View.VISIBLE : View.GONE);
     }
 
     private void onActionDelete() {
@@ -1763,6 +1775,10 @@ public class FragmentRule extends FragmentBase {
                     int ncolor = btnColorNotes.getColor();
                     if (ncolor != Color.TRANSPARENT)
                         jaction.put("color", ncolor);
+                    break;
+
+                case EntityRule.TYPE_URL:
+                    jaction.put("url", etUrl.getText().toString().trim());
                     break;
             }
         }

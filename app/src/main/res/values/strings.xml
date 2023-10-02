@@ -1920,6 +1920,7 @@
     <string name="title_rule_keyword_add">Add</string>
     <string name="title_rule_keyword_delete">Delete</string>
     <string name="title_rule_notes">Local notes</string>
+    <string name="title_rule_url" translatable="false">URL</string>
     <string name="title_rule_move">Move</string>
     <string name="title_rule_copy">Copy (label)</string>
     <string name="title_rule_answer">Reply/forward</string>
@@ -1981,6 +1982,7 @@
     <string name="title_rule_keyword_missing">Keyword missing</string>
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
     <string name="title_rule_notes_missing">Local notes missing</string>
+    <string name="title_rule_url_missing" translatable="false">URL missing or invalid</string>
     <string name="title_rule_delete_hint">Permanent deletion is irreversible, so make sure the rule conditions are correct!</string>
     <string name="title_rule_local_only_hint" translatable="false">Try to avoid bridging notifications to other devices, such as smartwatches. Not all devices support this.</string>
     <string name="title_rule_edit_group">Edit group &#8230;</string>

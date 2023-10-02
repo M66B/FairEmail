@@ -32,6 +32,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
+import android.util.Patterns;
 
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
@@ -48,6 +49,9 @@ import org.jsoup.nodes.Element;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -128,6 +132,7 @@ public class EntityRule {
     static final int TYPE_SOUND = 16;
     static final int TYPE_LOCAL_ONLY = 17;
     static final int TYPE_NOTES = 18;
+    static final int TYPE_URL = 19;
 
     static final String ACTION_AUTOMATION = BuildConfig.APPLICATION_ID + ".AUTOMATION";
     static final String EXTRA_RULE = "rule";
@@ -139,6 +144,7 @@ public class EntityRule {
     static final String JSOUP_PREFIX = "jsoup:";
     private static final long SEND_DELAY = 5000L; // milliseconds
     private static final int MAX_NOTES_LENGTH = 512; // characters
+    private static final int URL_TIMEOUT = 15 * 1000; // milliseconds
 
     static boolean needsHeaders(EntityMessage message, List<EntityRule> rules) {
         return needsHeaders(rules);
@@ -181,7 +187,7 @@ public class EntityRule {
 
     static int run(Context context, List<EntityRule> rules,
                    EntityMessage message, List<Header> headers, String html)
-            throws JSONException, MessagingException {
+            throws JSONException, MessagingException, IOException {
         int applied = 0;
 
         List<String> stopped = new ArrayList<>();
@@ -564,7 +570,7 @@ public class EntityRule {
         return matched;
     }
 
-    boolean execute(Context context, EntityMessage message, String html) throws JSONException {
+    boolean execute(Context context, EntityMessage message, String html) throws JSONException, IOException {
         boolean executed = _execute(context, message, html);
         if (this.id != null && executed) {
             DB db = DB.getInstance(context);
@@ -573,7 +579,7 @@ public class EntityRule {
         return executed;
     }
 
-    private boolean _execute(Context context, EntityMessage message, String html) throws JSONException, IllegalArgumentException {
+    private boolean _execute(Context context, EntityMessage message, String html) throws JSONException, IllegalArgumentException, IOException {
         JSONObject jaction = new JSONObject(action);
         int type = jaction.getInt("type");
         EntityLog.log(context, EntityLog.Type.Rules, message,
@@ -616,6 +622,8 @@ public class EntityRule {
                 return onActionLocalOnly(context, message, jaction);
             case TYPE_NOTES:
                 return onActionNotes(context, message, jaction, html);
+            case TYPE_URL:
+                return onActionUrl(context, message, jaction, html);
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type + " name=" + name);
         }
@@ -698,6 +706,11 @@ public class EntityRule {
                 String notes = jargs.optString("notes");
                 if (TextUtils.isEmpty(notes))
                     throw new IllegalArgumentException(context.getString(R.string.title_rule_notes_missing));
+                return;
+            case TYPE_URL:
+                String url = jargs.optString("url");
+                if (TextUtils.isEmpty(url) || !Patterns.WEB_URL.matcher(url).matches())
+                    throw new IllegalArgumentException(context.getString(R.string.title_rule_url_missing));
                 return;
             default:
                 throw new IllegalArgumentException("Unknown rule type=" + type);
@@ -1382,6 +1395,29 @@ public class EntityRule {
 
         DB db = DB.getInstance(context);
         db.message().setMessageNotes(message.id, notes, color);
+
+        return true;
+    }
+
+    private boolean onActionUrl(Context context, EntityMessage message, JSONObject jargs, String html) throws JSONException, IOException {
+        String url = jargs.getString("url");
+
+        Log.i("GET " + url);
+
+        HttpURLConnection connection = null;
+        try {
+            connection = (HttpURLConnection) new URL(url).openConnection();
+            connection.setRequestMethod("GET");
+            connection.setDoOutput(false);
+            connection.setReadTimeout(URL_TIMEOUT);
+            connection.setConnectTimeout(URL_TIMEOUT);
+            connection.setInstanceFollowRedirects(true);
+            ConnectionHelper.setUserAgent(context, connection);
+            connection.connect();
+        } finally {
+            if (connection != null)
+                connection.disconnect();
+        }
 
         return true;
     }

@@ -3100,7 +3100,7 @@ class Core {
         } while (count > 0);
     }
 
-    private static void onRule(Context context, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException {
+    private static void onRule(Context context, JSONArray jargs, EntityMessage message) throws JSONException, MessagingException, IOException {
         // Deferred rule (download headers, body, etc)
         DB db = DB.getInstance(context);
 
