@@ -1402,6 +1402,22 @@ public class EntityRule {
     private boolean onActionUrl(Context context, EntityMessage message, JSONObject jargs, String html) throws JSONException, IOException {
         String url = jargs.getString("url");
 
+        InternetAddress iaddr =
+                (message.from == null || message.from.length == 0
+                        ? null : ((InternetAddress) message.from[0]));
+        String address = (iaddr == null ? null : iaddr.getAddress());
+        String personal = (iaddr == null ? null : iaddr.getPersonal());
+
+        // ISO 8601
+        DateFormat DTF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+        DTF.setTimeZone(java.util.TimeZone.getTimeZone("Zulu"));
+
+        url = url.replace("$" + EXTRA_RULE + "$", Uri.encode(name == null ? "" : name));
+        url = url.replace("$" + EXTRA_SENDER + "$", Uri.encode(address == null ? "" : address));
+        url = url.replace("$" + EXTRA_NAME + "$", Uri.encode(personal == null ? "" : personal));
+        url = url.replace("$" + EXTRA_SUBJECT + "$", Uri.encode(message.subject == null ? "" : message.subject));
+        url = url.replace("$" + EXTRA_RECEIVED + "$", Uri.encode(DTF.format(message.received)));
+
         Log.i("GET " + url);
 
         HttpURLConnection connection = null;
