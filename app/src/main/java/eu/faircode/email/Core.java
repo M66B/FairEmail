@@ -2406,6 +2406,7 @@ class Core {
     static void onSynchronizeFolders(
             Context context, EntityAccount account, Store istore, State state,
             boolean keep_alive, boolean force) throws MessagingException {
+        // Folder names: https://datatracker.ietf.org/doc/html/rfc2060#section-5.1.3
         DB db = DB.getInstance(context);
 
         if (account.protocol != EntityAccount.TYPE_IMAP)
