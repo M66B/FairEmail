@@ -1982,9 +1982,10 @@
     <string name="title_rule_keyword_missing">Keyword missing</string>
     <string name="title_rule_automation_hint">This will send the intent \'%1$s\' with the extras \'%2$s\'</string>
     <string name="title_rule_notes_missing">Local notes missing</string>
-    <string name="title_rule_url_missing" translatable="false">URL missing or invalid</string>
+    <string name="title_rule_url_missing">URL missing or invalid</string>
     <string name="title_rule_delete_hint">Permanent deletion is irreversible, so make sure the rule conditions are correct!</string>
     <string name="title_rule_local_only_hint" translatable="false">Try to avoid bridging notifications to other devices, such as smartwatches. Not all devices support this.</string>
+    <string name="title_rule_url_hint">You can use the following placeholders: %1$s</string>
     <string name="title_rule_edit_group">Edit group &#8230;</string>
 
     <string name="title_rule_execute">Execute now</string>
@@ -2742,6 +2743,13 @@
         <item>Work</item>
         <item>Other</item>
         <item>Mobile</item>
+    </string-array>
+
+    <string-array name="httpMethodNames" translatable="false">
+        <item>GET</item>
+        <item>HEAD</item>
+        <item>POST</item>
+        <item>PUT</item>
     </string-array>
 
     <string name="fingerprint" translatable="false">17BA15C1AF55D925F98B99CEA4375D4CDF4C174B</string>

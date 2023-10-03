@@ -172,7 +172,9 @@ public class FragmentRule extends FragmentBase {
     private EditText etNotes;
     private ViewButtonColor btnColorNotes;
 
+    private Spinner spUrlMethod;
     private EditText etUrl;
+    private TextView tvUrlHint;
 
     private BottomNavigationView bottom_navigation;
     private ContentLoadingProgressBar pbWait;
@@ -365,7 +367,9 @@ public class FragmentRule extends FragmentBase {
         etNotes = view.findViewById(R.id.etNotes);
         btnColorNotes = view.findViewById(R.id.btnColorNotes);
 
+        spUrlMethod = view.findViewById(R.id.spUrlMethod);
         etUrl = view.findViewById(R.id.etUrl);
+        tvUrlHint = view.findViewById(R.id.tvUrlHint);
 
         bottom_navigation = view.findViewById(R.id.bottom_navigation);
 
@@ -819,6 +823,15 @@ public class FragmentRule extends FragmentBase {
                 fragment.show(getParentFragmentManager(), "rule:color:notes");
             }
         });
+
+        tvUrlHint.setText(getString(R.string.title_rule_url_hint,
+                TextUtils.join(", ", new String[]{
+                        "$" + EntityRule.EXTRA_RULE + "$",
+                        "$" + EntityRule.EXTRA_SENDER + "$",
+                        "$" + EntityRule.EXTRA_NAME + "$",
+                        "$" + EntityRule.EXTRA_SUBJECT + "$",
+                        "$" + EntityRule.EXTRA_RECEIVED + "$",
+                })));
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -1369,6 +1382,13 @@ public class FragmentRule extends FragmentBase {
 
                                 case EntityRule.TYPE_URL:
                                     etUrl.setText(jaction.getString("url"));
+                                    String method = jaction.optString("method");
+                                    if (TextUtils.isEmpty(method))
+                                        method = "GET";
+                                    int pos = Arrays.asList(getResources().getStringArray(R.array.httpMethodNames))
+                                            .indexOf(method);
+                                    if (pos >= 0)
+                                        spUrlMethod.setSelection(pos);
                                     break;
                             }
 
@@ -1779,6 +1799,12 @@ public class FragmentRule extends FragmentBase {
 
                 case EntityRule.TYPE_URL:
                     jaction.put("url", etUrl.getText().toString().trim());
+                    int pos = spUrlMethod.getSelectedItemPosition();
+                    String[] methods = getResources().getStringArray(R.array.httpMethodNames);
+                    if (pos >= 0 && pos < methods.length)
+                        jaction.put("method", methods[pos]);
+                    else
+                        jaction.put("method", "GET");
                     break;
             }
         }

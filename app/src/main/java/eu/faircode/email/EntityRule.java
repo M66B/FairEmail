@@ -43,14 +43,15 @@ import androidx.room.PrimaryKey;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.HttpStatusException;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
@@ -1401,6 +1402,10 @@ public class EntityRule {
 
     private boolean onActionUrl(Context context, EntityMessage message, JSONObject jargs, String html) throws JSONException, IOException {
         String url = jargs.getString("url");
+        String method = jargs.optString("method");
+
+        if (TextUtils.isEmpty(method))
+            method = "GET";
 
         InternetAddress iaddr =
                 (message.from == null || message.from.length == 0
@@ -1418,18 +1423,41 @@ public class EntityRule {
         url = url.replace("$" + EXTRA_SUBJECT + "$", Uri.encode(message.subject == null ? "" : message.subject));
         url = url.replace("$" + EXTRA_RECEIVED + "$", Uri.encode(DTF.format(message.received)));
 
+        String body = null;
+        if ("POST".equals(method) || "PUT".equals(method)) {
+            Uri u = Uri.parse(url);
+            body = u.getQuery();
+            url = u.buildUpon().clearQuery().build().toString();
+        }
+
         Log.i("GET " + url);
 
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection) new URL(url).openConnection();
-            connection.setRequestMethod("GET");
-            connection.setDoOutput(false);
+            connection.setRequestMethod(method);
+            connection.setDoOutput(body != null);
             connection.setReadTimeout(URL_TIMEOUT);
             connection.setConnectTimeout(URL_TIMEOUT);
             connection.setInstanceFollowRedirects(true);
             ConnectionHelper.setUserAgent(context, connection);
             connection.connect();
+
+            if (body != null)
+                connection.getOutputStream().write(body.getBytes());
+
+            int status = connection.getResponseCode();
+            if (status < 200 || status > 299) {
+                String error = "Error " + status + ": " + connection.getResponseMessage();
+                try {
+                    InputStream is = connection.getErrorStream();
+                    if (is != null)
+                        error += "\n" + Helper.readStream(is);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+                throw new HttpStatusException(error, status, url);
+            }
         } finally {
             if (connection != null)
                 connection.disconnect();
