@@ -142,6 +142,10 @@ public class EntityRule {
     static final String EXTRA_SUBJECT = "subject";
     static final String EXTRA_RECEIVED = "received";
 
+    static final String[] EXTRA_ALL = new String[]{
+            EXTRA_RULE, EXTRA_SENDER, EXTRA_NAME, EXTRA_SUBJECT, EXTRA_RECEIVED
+    };
+
     static final String JSOUP_PREFIX = "jsoup:";
     private static final long SEND_DELAY = 5000L; // milliseconds
     private static final int MAX_NOTES_LENGTH = 512; // characters

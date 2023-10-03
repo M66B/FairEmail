@@ -804,13 +804,7 @@ public class FragmentRule extends FragmentBase {
 
         tvAutomation.setText(getString(R.string.title_rule_automation_hint,
                 EntityRule.ACTION_AUTOMATION,
-                TextUtils.join(", ", new String[]{
-                        EntityRule.EXTRA_RULE,
-                        EntityRule.EXTRA_SENDER,
-                        EntityRule.EXTRA_NAME,
-                        EntityRule.EXTRA_SUBJECT,
-                        EntityRule.EXTRA_RECEIVED,
-                })));
+                TextUtils.join(",", EntityRule.EXTRA_ALL)));
 
         btnColorNotes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -827,14 +821,10 @@ public class FragmentRule extends FragmentBase {
             }
         });
 
-        tvUrlHint.setText(getString(R.string.title_rule_url_hint,
-                TextUtils.join(", ", new String[]{
-                        "$" + EntityRule.EXTRA_RULE + "$",
-                        "$" + EntityRule.EXTRA_SENDER + "$",
-                        "$" + EntityRule.EXTRA_NAME + "$",
-                        "$" + EntityRule.EXTRA_SUBJECT + "$",
-                        "$" + EntityRule.EXTRA_RECEIVED + "$",
-                })));
+        List<String> extras = new ArrayList<>();
+        for (String extra : EntityRule.EXTRA_ALL)
+            extras.add("$" + extra + "$");
+        tvUrlHint.setText(getString(R.string.title_rule_url_hint, TextUtils.join(", ", extras)));
 
         bottom_navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
