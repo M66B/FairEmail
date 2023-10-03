@@ -1660,6 +1660,7 @@
     <string name="title_rule_keyword_missing">Mot-clé manquant</string>
     <string name="title_rule_automation_hint">Ceci enverra l’intent \'%1$s\' avec les extras \'%2$s\'</string>
     <string name="title_rule_notes_missing">Notes locales manquantes</string>
+    <string name="title_rule_url_missing">URL manquante ou invalide</string>
     <string name="title_rule_delete_hint">La suppression définitive est irréversible, assurez-vous donc que les conditions de la règle sont correctes!</string>
     <string name="title_rule_edit_group">Modifier le groupe&#8230;</string>
     <string name="title_rule_execute">Exécuter maintenant</string>
@@ -1944,6 +1945,7 @@
     <string name="title_debug_info_contact">Nous avons récemment pris contact à propos de ce problème</string>
     <string name="title_debug_info_send">Envoyer immédiatement</string>
     <string name="title_debug_info_send_remark">Normalement, les informations de débogage seront stockées en premier comme brouillon afin que vous puissiez vérifier ce qui sera envoyé</string>
+    <string name="title_debug_info_question">Veuillez utiliser le bouton Info si vous avez seulement une question</string>
     <string name="title_unexpected_info_remark">Veuillez décrire ce que vous faisiez lorsque vous avez eu l\'erreur :</string>
     <string name="title_widget_title_count">Nombre de nouveaux messages</string>
     <string name="title_widget_title_list">Liste des messages</string>

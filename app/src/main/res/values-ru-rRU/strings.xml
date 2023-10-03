@@ -1686,7 +1686,9 @@
     <string name="title_rule_keyword_missing">Ключевое слово отсутствует</string>
     <string name="title_rule_automation_hint">Это отправит цель \"%1$s\" с дополнениями \"%2$s\"</string>
     <string name="title_rule_notes_missing">Локальные заметки отсутствуют</string>
+    <string name="title_rule_url_missing">Ссылка отсутствует или неправильная</string>
     <string name="title_rule_delete_hint">Окончательное удаление является необратимым, поэтому убедитесь в корректности условий правила!</string>
+    <string name="title_rule_url_hint">Можно использовать следующие заполнители: %1$s</string>
     <string name="title_rule_edit_group">Изменить группу&#8230;</string>
     <string name="title_rule_execute">Выполнить</string>
     <string name="title_rule_applied">Затронутые сообщения: %1$d</string>
@@ -1970,6 +1972,7 @@
     <string name="title_debug_info_contact">Недавно мы общались по поводу этой проблемы</string>
     <string name="title_debug_info_send">Отправлять сразу</string>
     <string name="title_debug_info_send_remark">Обычно отладочная информация сначала сохраняется в виде черновика сообщения, так что вы можете проверить, что будет отправлено</string>
+    <string name="title_debug_info_question">Пожалуйста, используйте кнопку \"Информация\", только если у вас есть вопрос</string>
     <string name="title_unexpected_info_remark">Пожалуйста, опишите, что вы делали, когда получили ошибку:</string>
     <string name="title_widget_title_count">Количество новых сообщений</string>
     <string name="title_widget_title_list">Список сообщений</string>

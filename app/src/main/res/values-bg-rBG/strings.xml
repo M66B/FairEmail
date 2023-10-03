@@ -292,6 +292,7 @@
     <string name="title_advanced_signature_location">Положение на подписа</string>
     <string name="title_advanced_signature_new">Употреба на подпис за нови съобщения</string>
     <string name="title_advanced_signature_reply">Употреба на подпис при отговор</string>
+    <string name="title_advanced_signature_reply_once">Само за първия отговор</string>
     <string name="title_advanced_signature_forward">Употреба на подпис при пренасочване</string>
     <string name="title_advanced_discard_delete">При отказване на чернова за постоянно изтрий черновата</string>
     <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
@@ -382,6 +383,7 @@
     <string name="title_advanced_editor_text_zoom">Мащабиране на текста на съобщението в редактора</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
     <string name="title_advanced_monospaced">Използвайте monospaced шрифт за текст на съобщението по подразбиране</string>
+    <string name="title_advanced_background_color">Употреба на фонови цветове</string>
     <string name="title_advanced_text_color">Избери цвят на текста</string>
     <string name="title_advanced_text_size">Размер на текст</string>
     <string name="title_advanced_text_font">Използвай шрифтове</string>
@@ -409,6 +411,7 @@
     <string name="title_advanced_double_tap">Двойно натискане за маркиране на съобщението прочетено/непрочетено</string>
     <string name="title_advanced_swipenav">Плъзни наляво/надясно за следващ/предишен разговор</string>
     <string name="title_advanced_volumenav">Сила на звука нагоре/надолу за да преминаване към следващ/предишен разговор</string>
+    <string name="title_advanced_up_down">Употреба на стрелките нагоре/надолу за напред/назад на разговора</string>
     <string name="title_advanced_reversed">Смени посоката на навигация</string>
     <string name="title_advanced_autoexpand">Автоматично разгъване на съобщения</string>
     <string name="title_advanced_expand_all">Автоматично разгъване на всички прочетени съобщения</string>
@@ -496,6 +499,7 @@
     <string name="title_advanced_language">Език</string>
     <string name="title_advanced_language_system">Система</string>
     <string name="title_advanced_lt_sentence">Проверка на всяко изречение</string>
+    <string name="title_advanced_lt_auto">Проверка на абзаца след новия ред</string>
     <string name="title_advanced_lt_highlight">Изтъкнатият текст се проверява</string>
     <string name="title_advanced_lt_description">Показване на изскачащ прозорец с опис на проблема</string>
     <string name="title_advanced_lt_user">Потребителско име (незадължително)</string>
@@ -509,6 +513,8 @@
     <string name="title_advanced_openai_moderation">Модериране на съдържанието</string>
     <string name="title_advanced_sdcard">Желая да употребявам sd карта</string>
     <string name="title_advanced_watchdog">Периодична проверка дали FairEmail е активен</string>
+    <string name="title_advanced_updates">Проверка за обновяване на GitHub</string>
+    <string name="title_advanced_check_weekly">Седмична проверка вместо ежедневна</string>
     <string name="title_advanced_beta">Проверка за тестови версии на BitBucket</string>
     <string name="title_advanced_changelog">Проверка на дневника с промени след обновяване</string>
     <string name="title_advanced_announcements">Проверка за оповестявания</string>
@@ -518,6 +524,10 @@
     <string name="title_advanced_cleanup">Почистване</string>
     <string name="title_advanced_app">Настройки на приложението</string>
     <string name="title_advanced_more">Още опции</string>
+    <string name="title_advanced_main_log">Главен запис в дневника</string>
+    <string name="title_advanced_main_log_mem">Дневник за употреба на паметта</string>
+    <string name="title_advanced_protocol">Водене на дневник за протокола</string>
+    <string name="title_advanced_log_info">Дневник за отчетените грешки</string>
     <string name="title_advanced_debug">Режим за отстраняване на грешки</string>
     <string name="title_advanced_manual_hint">Ако получаването на съобщения е деактивирано, все още е възможно ръчно получаване на съобщения чрез изтегляне на списъка със съобщения</string>
     <string name="title_advanced_poll_battery">Това може да предизвика високо преизползване на батерията!</string>
@@ -589,6 +599,7 @@
     <string name="title_create_folder_parent">Родителска папка</string>
     <string name="title_advanced_swipe_actions">Действия при плъзгане с пръст</string>
     <string name="title_advanced_swipe_actions_hint">Това ще настрои плъзгане с пръст наляво и надясно за всички IMAP профили</string>
+    <string name="title_advanced_swipe_sensitivity">Чувствителност за плъзгане наляво-надясно</string>
     <string name="title_select">Избери &#8230;</string>
     <string name="title_identity_name">Вашето име</string>
     <string name="title_identity_email">Вашият адрес на имейл</string>
@@ -600,6 +611,10 @@
     <string name="title_advanced_sender_regex">Regex да отговаря на потребителското име на входящите имейл адреси</string>
     <string name="title_identity_reply_to">Отговори на адрес</string>
     <string name="title_identity_internal">Вътрешни имена на домейна (разделени със запетая)</string>
+    <string name="title_identity_sensitivity">Чувствителност по подразбиране</string>
+    <string name="title_identity_unicode">Позволяване на UTF-8 в заглавките на съобщението</string>
+    <string name="title_identity_unicode_remark">Повечето сървъри не поддържат това</string>
+    <string name="title_identity_octetmime">Позволяване на 8BITMIME</string>
     <string name="title_identity_max_size">Максимален размер на съобщението (MB)</string>
     <string name="title_identity_receipt">Заявка за доставка/четене по подразбиране</string>
     <string name="title_identity_use_ip_hint">В случай на „невалиден поздрав“, „заявка за валиден адрес“ или подобна грешка, променете тази настройка</string>
@@ -706,6 +721,7 @@
     <string name="title_synchronize_batch_disable">Изключване на синхронизирането</string>
     <string name="title_notify_batch_enable">Включване на известията за ново съобщение</string>
     <string name="title_notify_batch_disable">Изключване на известията за ново съобщение</string>
+    <string name="title_download_batch_enable">Изтегляне на текстовете и прикачванията</string>
     <string name="title_delete_local">Изтриване на локалните съобщения</string>
     <string name="title_delete_browsed">Изтриване на търсените съобщения</string>
     <string name="title_empty_trash">Изпразване на кошчето</string>
@@ -952,6 +968,7 @@
     <string name="title_sent">Изпратено:</string>
     <string name="title_received">Получено:</string>
     <string name="title_date">Дата:</string>
+    <string name="title_stored">Съхранено:</string>
     <string name="title_size">Размер:</string>
     <string name="title_language">Език:</string>
     <string name="title_subject">Тема:</string>
@@ -1549,6 +1566,7 @@
     <string name="title_widget_padding">Размер на отстъпа</string>
     <string name="title_widget_separator_lines">Показване на разделителни линии</string>
     <string name="title_widget_semi_transparent">Полупрозрачен фон</string>
+    <string name="title_widget_count_top">Броят непрочетено на показ най-отгоре</string>
     <string name="title_widget_avatars">Показване на аватарите на контактите</string>
     <string name="title_widget_account_name">Показване на името на акаунта</string>
     <string name="title_widget_caption">Показване на заглавието</string>

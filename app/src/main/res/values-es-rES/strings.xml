@@ -1654,7 +1654,9 @@
     <string name="title_rule_keyword_missing">Palabra clave faltante</string>
     <string name="title_rule_automation_hint">Esto enviará el intento \'%1$s\' con los extras \'%2$s\'</string>
     <string name="title_rule_notes_missing">Notas locales faltantes</string>
+    <string name="title_rule_url_missing">URL faltante o inválida</string>
     <string name="title_rule_delete_hint">La eliminación permanente es irreversible, ¡así que asegúrese de que las condiciones de la regla son correctas!</string>
+    <string name="title_rule_url_hint">Puede usar los siguientes marcadores de posición: %1$s</string>
     <string name="title_rule_edit_group">Editar grupo &#8230;</string>
     <string name="title_rule_execute">Ejecutar ahora</string>
     <string name="title_rule_applied">Mensajes afectados: %1$d</string>
@@ -1937,6 +1939,7 @@
     <string name="title_debug_info_contact">Recientemente hemos tenido contacto con este problema</string>
     <string name="title_debug_info_send">Enviar inmediatamente</string>
     <string name="title_debug_info_send_remark">Normalmente, la información de depuración se almacenará primero como borrador, así puede comprobar qué se enviará</string>
+    <string name="title_debug_info_question">Por favor utilice el botón de información sólo si tiene una pregunta</string>
     <string name="title_unexpected_info_remark">Por favor describa lo que estaba haciendo cuando obtuvo el error:</string>
     <string name="title_widget_title_count">Recuento de mensajes</string>
     <string name="title_widget_title_list">Lista de mensajes</string>

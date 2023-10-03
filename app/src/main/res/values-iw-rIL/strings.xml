@@ -1687,7 +1687,9 @@
     <string name="title_rule_keyword_missing">מילת מפתח חסרה</string>
     <string name="title_rule_automation_hint">פעולה זו תשלח את ה־intent‏ ‚%1$s’ עם התוספות ‚%2$s’</string>
     <string name="title_rule_notes_missing">חסרות הערות מקומיות</string>
+    <string name="title_rule_url_missing">הכתובת חסרה או שגויה</string>
     <string name="title_rule_delete_hint">מחיקה לצמיתות היא בלתי הפיכה, לכן כדאי לוודא שתנאי הכלל נכונים!</string>
+    <string name="title_rule_url_hint">תמיד אפשר להשתמש בממלאי המקום הבאים: %1$s</string>
     <string name="title_rule_edit_group">עריכת קבוצה&#8230;</string>
     <string name="title_rule_execute">לבצע כעת</string>
     <string name="title_rule_applied">הודעות שיושפעו: %1$d</string>
@@ -1971,6 +1973,7 @@
     <string name="title_debug_info_contact">לאחרונה יצרנו קשר סביב הבעיה הזאת</string>
     <string name="title_debug_info_send">לשלוח מייד</string>
     <string name="title_debug_info_send_remark">בדרך כלל, פרטי השגיאה יאוחסנו כהודעת טיוטה תחילה, כדי לאפשר לך לסקור מה יישלח</string>
+    <string name="title_debug_info_question">נא להשתמש בכפתור המידע אם יש לך רק שאלה</string>
     <string name="title_unexpected_info_remark">נא לתאר באנגלית מה עשית כשהופיעה השגיאה:</string>
     <string name="title_widget_title_count">מונה הודעות חדשות</string>
     <string name="title_widget_title_list">רשימת הודעות</string>

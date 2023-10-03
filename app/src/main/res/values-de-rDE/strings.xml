@@ -1661,7 +1661,9 @@
     <string name="title_rule_keyword_missing">Schlagwort fehlt</string>
     <string name="title_rule_automation_hint">Das wird den Intent »%1$s« mit den Extras »%2$s« senden</string>
     <string name="title_rule_notes_missing">Lokale Notizen fehlen</string>
+    <string name="title_rule_url_missing">URL fehlt oder ungültig</string>
     <string name="title_rule_delete_hint">Das dauerhafte Löschen kann nicht widerrufen werden. Stellen Sie daher sicher, dass die Bedingungen der Regel richtig sind!</string>
+    <string name="title_rule_url_hint">Sie können die folgenden Platzhalter verwenden: %1$s</string>
     <string name="title_rule_edit_group">Gruppe bearbeiten &#8230;</string>
     <string name="title_rule_execute">Jetzt ausführen</string>
     <string name="title_rule_applied">Betroffene Nachrichten: %1$d</string>
@@ -1945,7 +1947,7 @@
     <string name="title_debug_info_contact">Wir hatten kürzlich Kontakt bezüglich dieses Problems</string>
     <string name="title_debug_info_send">Sofort senden</string>
     <string name="title_debug_info_send_remark">Standardmäßig werden die Informationen zur Fehlerdiagnose als Entwurf gespeichert, sodass Sie vorher überprüfen können, was übermittelt wird</string>
-    <string name="title_debug_info_question">Bitte verwenden Sie den Info-Button, wenn Sie nur eine Frage haben</string>
+    <string name="title_debug_info_question">Bitte verwenden Sie die Info-Schaltfläche, wenn Sie nur eine Frage haben</string>
     <string name="title_unexpected_info_remark">Bitte beschreiben Sie, was Sie getan haben, als Sie den Fehler erhielten:</string>
     <string name="title_widget_title_count">Anzahl neuer Nachrichten</string>
     <string name="title_widget_title_list">Nachrichtenliste</string>

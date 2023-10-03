@@ -1921,6 +1921,7 @@
     <string name="title_debug_info_contact">别人最近因为这个问题联系过我们</string>
     <string name="title_debug_info_send">立即发送</string>
     <string name="title_debug_info_send_remark">调试信息通常会先存储为草稿信息，所以您可以检查发送的内容</string>
+    <string name="title_debug_info_question">如果您有问题，请使用信息按钮</string>
     <string name="title_unexpected_info_remark">请描述应用出错时您的操作:</string>
     <string name="title_widget_title_count">新消息计数</string>
     <string name="title_widget_title_list">消息列表</string>

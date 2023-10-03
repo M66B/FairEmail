@@ -1645,7 +1645,9 @@
     <string name="title_rule_keyword_missing">キーワードがありません</string>
     <string name="title_rule_automation_hint">インテント「%1$s」とエクストラ「%2$s」が送信されます</string>
     <string name="title_rule_notes_missing">ローカルメモなし</string>
+    <string name="title_rule_url_missing">URL がないか無効です</string>
     <string name="title_rule_delete_hint">完全削除は取り消せませんので、ルール条件が正しいことを確認してください！</string>
+    <string name="title_rule_url_hint">次のプレースホルダーを使用できます: %1$s</string>
     <string name="title_rule_edit_group">グループを編集&#8230;</string>
     <string name="title_rule_execute">今すぐ実行</string>
     <string name="title_rule_applied">影響を受けるメッセージ: %1$d</string>
@@ -1843,7 +1845,7 @@
     <string name="title_lt_delete">語句を削除</string>
     <string name="title_add">追加</string>
     <string name="title_browse">アプリで開く</string>
-    <string name="title_info">Info</string>
+    <string name="title_info">情報</string>
     <string name="title_download">ダウンロード</string>
     <string name="title_report">報告</string>
     <string name="title_fix">修正</string>
@@ -1929,6 +1931,7 @@
     <string name="title_debug_info_contact">最近、この問題について連絡がありました</string>
     <string name="title_debug_info_send">すぐに送信</string>
     <string name="title_debug_info_send_remark">通常では、デバッグ情報はまず下書きメッセージとして保存されるため、何が送信されるか確認できます</string>
+    <string name="title_debug_info_question">質問がある場合のみ、情報ボタンを使用してください</string>
     <string name="title_unexpected_info_remark">(英語) エラーが発生したときに何をしていたか説明してください:</string>
     <string name="title_widget_title_count">新着メッセージ数</string>
     <string name="title_widget_title_list">メッセージリスト</string>

@@ -1659,7 +1659,9 @@
     <string name="title_rule_keyword_missing">Açar söz əskikdir</string>
     <string name="title_rule_automation_hint">Bu, \"%2$s\" əlavələri ilə \"%1$s\" hədəfini göndərəcək</string>
     <string name="title_rule_notes_missing">Yerli qeydlər əskikdir</string>
+    <string name="title_rule_url_missing">URL əskikdir və ya yararsızdır</string>
     <string name="title_rule_delete_hint">Birdəfəlik silmə əməliyyatının geri dönüşü yoxdur, ona görə də qayda şərtlərinin doğru olduğuna əmin olun!</string>
+    <string name="title_rule_url_hint">Aşağıdakı yer tutanları istifadə edə bilərsiniz: %1$s</string>
     <string name="title_rule_edit_group">Qrupa düzəliş et &#8230;</string>
     <string name="title_rule_execute">İndi icra et</string>
     <string name="title_rule_applied">Təsirlənən mesajlar: %1$d</string>
@@ -1943,6 +1945,7 @@
     <string name="title_debug_info_contact">Təzəlikcə bu problemlə bağlı əlaqə saxladıq</string>
     <string name="title_debug_info_send">Dərhal göndər</string>
     <string name="title_debug_info_send_remark">Normalda sazlama məlumatı əvvəlcə qaralama mesajı olaraq saxlanılır, beləliklə nəyin göndəriləcəyini seçə bilərsiniz</string>
+    <string name="title_debug_info_question">Sadəcə bir sualınız varsa məlumat düyməsini istifadə edin</string>
     <string name="title_unexpected_info_remark">Zəhmət olmasa xəta alanda nə etdiyinizi izah edin:</string>
     <string name="title_widget_title_count">Yeni mesaj sayı</string>
     <string name="title_widget_title_list">Mesaj siyahısı</string>

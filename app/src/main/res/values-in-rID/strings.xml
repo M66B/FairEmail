@@ -1914,6 +1914,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_debug_info_contact">Kami baru-baru ini memiliki kontak tentang masalah ini</string>
     <string name="title_debug_info_send">Kirim segera</string>
     <string name="title_debug_info_send_remark">Biasanya, info debug akan terlebih dahulu disimpan sebagai pesan konsep, jadi Anda bisa memeriksa apa yang akan dikirim</string>
+    <string name="title_debug_info_question">Silakan gunakan tombol info jika Anda punya pertanyaan</string>
     <string name="title_unexpected_info_remark">Mohon jelaskan apa yang sedang Anda lakukan saat Anda mendapat pesan kesalahan:</string>
     <string name="title_widget_title_count">Hitung pesan baru</string>
     <string name="title_widget_title_list">Daftar pesan</string>

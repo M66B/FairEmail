@@ -1966,6 +1966,7 @@
     <string name="title_debug_info_contact">Ostatnio kontaktowaliśmy się w sprawie tego problemu</string>
     <string name="title_debug_info_send">Wyślij natychmiast</string>
     <string name="title_debug_info_send_remark">Zwykle informacje o debugowaniu są najpierw zapisywane jako wersja robocza wiadomości, dzięki czemu można sprawdzić, co zostanie wysłane</string>
+    <string name="title_debug_info_question">Używaj przycisku informacyjnego, jeśli masz tylko pytanie</string>
     <string name="title_unexpected_info_remark">Opisz proszę, co robiłeś, w momencie awarii aplikacji:</string>
     <string name="title_widget_title_count">Liczba nowych wiadomości</string>
     <string name="title_widget_title_list">Lista wiadomości</string>

@@ -1944,6 +1944,7 @@
     <string name="title_debug_info_contact">Der har over tid indsendt flere fejlanmeldelser med denne mangel</string>
     <string name="title_debug_info_send">Indsend straks</string>
     <string name="title_debug_info_send_remark">Normalt gemmes fejlretningsinfo som kladdebesked først, så man kan tjekke, hvad der indsendes</string>
+    <string name="title_debug_info_question">Brug venligst infoknappen, hvis du blot har et spørgsmål</string>
     <string name="title_unexpected_info_remark">Beskriv, hvad du foretog dig, da fejlen opstod:</string>
     <string name="title_widget_title_count">Ny besked-tæller</string>
     <string name="title_widget_title_list">Beskedliste</string>

@@ -571,6 +571,7 @@
     <string name="title_advanced_double_tap">Διπλό άγγιγμα για να επισημαίνεται ένα μήνυμα ως αναγνωσμένο/μη αναγνωσμένο</string>
     <string name="title_advanced_swipenav">Σύρετε αριστερά/δεξιά για να μεταβείτε στην επόμενη/προηγούμενη συζήτηση</string>
     <string name="title_advanced_volumenav">Πατήστε τα πλήκτρα έντασης πάνω/κάτω για να μεταβείτε στην επόμενη/προηγούμενη συζήτηση</string>
+    <string name="title_advanced_up_down">Χρήση των βελών πάνω/κάτω για επόμενη/προηγούμενη συνομιλία</string>
     <string name="title_advanced_reversed">Αντιστροφή της κατεύθυνσης πλοήγησης</string>
     <string name="title_advanced_swipe_close">Σύρετε προς τα κάτω για να κλείσετε μια συζήτηση</string>
     <string name="title_advanced_swipe_move">Σύρετε προς τα πάνω για να μετακινήσετε μια συζήτηση</string>
@@ -870,6 +871,7 @@
     <string name="title_identity_reply_to">Απάντηση στη διεύθυνση αυτή</string>
     <string name="title_identity_internal">Εσωτερικά ονόματα τομέα (χωρισμένα με κόμμα)</string>
     <string name="title_identity_uri">Σύνδεση επαφής</string>
+    <string name="title_identity_sensitivity">Προεπιλεγμένη ευαισθησία</string>
     <string name="title_identity_unicode">Να επιτρέπεται UTF-8 σε κεφαλίδες μηνυμάτων</string>
     <string name="title_identity_unicode_remark">Οι περισσότεροι διακομιστές δεν το υποστηρίζουν</string>
     <string name="title_identity_octetmime">Να επιτρέπεται 8BITMIME</string>
@@ -1934,6 +1936,7 @@
     <string name="title_debug_info_contact">Είχαμε πρόσφατα επικοινωνήσει σχετικά με αυτό το πρόβλημα</string>
     <string name="title_debug_info_send">Άμεση αποστολή</string>
     <string name="title_debug_info_send_remark">Κανονικά, οι πληροφορίες αποσφαλμάτωσης θα αποθηκευτούν πρώτα ως πρόχειρο μήνυμα, ώστε να μπορείτε να ελέγξετε τι θα αποσταλεί</string>
+    <string name="title_debug_info_question">Παρακαλούμε, χρησιμοποιήστε το κουμπί \"Πληροφορίες\", αν έχετε απλώς μια ερώτηση</string>
     <string name="title_unexpected_info_remark">Παρακαλούμε, περιγράψτε τι κάνατε όταν λάβατε το μήνυμα σφάλματος:</string>
     <string name="title_widget_title_count">Αριθμός νέων μηνυμάτων</string>
     <string name="title_widget_title_list">Λίστα μηνυμάτων</string>

@@ -1957,6 +1957,7 @@
     <string name="title_debug_info_contact">Nedavno smo kontaktirani o ovom problemu</string>
     <string name="title_debug_info_send">Pošalji odmah</string>
     <string name="title_debug_info_send_remark">Obično, informacije o uklanjanju grešaka čuvat će se prvo kao nacrt poruke, tako da možete provjeriti šta će se poslati</string>
+    <string name="title_debug_info_question">Molimo da koristite info dugme ako imate pitanje</string>
     <string name="title_unexpected_info_remark">Molimo, opišite šta ste radili kada se pojavila greška:</string>
     <string name="title_widget_title_count">Brojač novih poruka</string>
     <string name="title_widget_title_list">Spisak poruka</string>

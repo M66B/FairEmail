@@ -1684,7 +1684,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_rule_keyword_missing">Chybí klíčové slovo</string>
     <string name="title_rule_automation_hint">Bude odesláno volání (intent) „%1$s“ s doplňujícími informacemi (extras) „%2$s“</string>
     <string name="title_rule_notes_missing">Místní poznámky chybí</string>
+    <string name="title_rule_url_missing">Chybějící nebo neplatná adresa URL</string>
     <string name="title_rule_delete_hint">Trvalé smazání je nevratné, takže se ujistěte, že jsou podmínky pravidla správné!</string>
+    <string name="title_rule_url_hint">Můžete použít následující zástupné symboly: %1$s</string>
     <string name="title_rule_edit_group">Upravit skupinu &#8230;</string>
     <string name="title_rule_execute">Provést nyní</string>
     <string name="title_rule_applied">Ovlivněné zprávy: %1$d</string>
@@ -1967,6 +1969,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_debug_info_contact">Nedávno jsme měli kontakt o tomto problému</string>
     <string name="title_debug_info_send">Odeslat okamžitě</string>
     <string name="title_debug_info_send_remark">Normálně budou informace o ladění nejprve uloženy jako koncept zprávy, abyste mohli zkontrolovat, co bude odesláno</string>
+    <string name="title_debug_info_question">Prosím použijte informační tlačítko, pokud máte otázku</string>
     <string name="title_unexpected_info_remark">Popište prosím, co jste dělali, když došlo k chybě:</string>
     <string name="title_widget_title_count">Počet nových zpráv</string>
     <string name="title_widget_title_list">Seznam zpráv</string>

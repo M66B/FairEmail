@@ -601,6 +601,7 @@
     <string name="title_advanced_double_tap">Для адзначэння паведамлення прачытаным/непрачытаным выкарыстоўваць двайное націсканне</string>
     <string name="title_advanced_swipenav">Правядзіце пальцам улева/управа, каб перайсці да наступнай/папярэдняй размовы</string>
     <string name="title_advanced_volumenav">Выкарыстоўваць кнопкі павелічэння/памяншэння гучнасці для пераходу да наступнай/папярэдняй размовы</string>
+    <string name="title_advanced_up_down">Выкарыстоўваць стрэлкі уверх/уніз для пераходу да наступнай/папярэдняй размовы</string>
     <string name="title_advanced_reversed">Зваротны напрамак навігацыі</string>
     <string name="title_advanced_swipe_close">Каб закрыць размову правядзіце пальцам уніз</string>
     <string name="title_advanced_swipe_move">Каб перамясціць размову правядзіце пальцам уверх</string>
@@ -903,6 +904,7 @@
     <string name="title_identity_reply_to">Адрас адказу</string>
     <string name="title_identity_internal">Унутраныя даменныя імёны (падзеленыя коскамі)</string>
     <string name="title_identity_uri">Звязаць кантакт</string>
+    <string name="title_identity_sensitivity">Адчувальнасць па змаўчанні</string>
     <string name="title_identity_unicode">Дазволіць фармат UTF-8 у загалоўках паведамленняў</string>
     <string name="title_identity_unicode_remark">Большасць сервераў не падтрымліваюць гэту опцыю</string>
     <string name="title_identity_octetmime">Дазволіць 8BITMIME</string>
@@ -1972,6 +1974,7 @@
     <string name="title_debug_info_contact">Мы нядаўна абмяркоўвалі гэту праблему</string>
     <string name="title_debug_info_send">Адправіць неадкладна</string>
     <string name="title_debug_info_send_remark">Звычайна інфармацыя аб адладцы спачатку захоўваецца як чарнавік паведамлення, каб вы маглі праверыць, што будзе адпраўлена</string>
+    <string name="title_debug_info_question">Калі ласка, пры ўзнікненні пытанняў выкарыстоўвайце кнопку выкліку даведкі</string>
     <string name="title_unexpected_info_remark">Калі ласка, апішыце, што вы рабілі, калі з\'явілася памылка:</string>
     <string name="title_widget_title_count">Колькасць новых паведамленняў</string>
     <string name="title_widget_title_list">Спіс паведамленняў</string>

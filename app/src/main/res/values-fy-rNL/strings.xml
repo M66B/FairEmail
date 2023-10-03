@@ -570,6 +570,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_double_tap">Dûbeltikke om berjocht lêzen/net lêzen te markearjen</string>
     <string name="title_advanced_swipenav">Fei nei links/rjochts om nei folgjende/foarige petear te gean</string>
     <string name="title_advanced_volumenav">Folume omheech/omleech om nei folgjende/foarige petear te gean</string>
+    <string name="title_advanced_up_down">Brûk de pylken omheech/omleech foar it folgjende/foarige petear</string>
     <string name="title_advanced_reversed">Navigaasjerjochting omkeare</string>
     <string name="title_advanced_swipe_close">Fei omleech om petear te sluten</string>
     <string name="title_advanced_swipe_move">Fei omheech om petear te ferpleatsen</string>
@@ -869,6 +870,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_identity_reply_to">Antwurdzje op adres</string>
     <string name="title_identity_internal">Ynterne domeinnammen (komma skieden)</string>
     <string name="title_identity_uri">Kontakt keppelje</string>
+    <string name="title_identity_sensitivity">Standert gefoelichheid</string>
     <string name="title_identity_unicode">UTF-8 in berjochtkoppen tastean</string>
     <string name="title_identity_unicode_remark">De measte servers stypje dit net</string>
     <string name="title_identity_octetmime">8BITMIME tastean</string>
@@ -1931,6 +1933,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_debug_info_contact">Wy hawwe koartlyn kontakt han oer dit probleem</string>
     <string name="title_debug_info_send">Daliks ferstjoere</string>
     <string name="title_debug_info_send_remark">Normaal sil de debugynfo earst bewarre wurde as konseptberjocht, sadat jo kontrolearje kinne wat der ferstjoerd wurdt</string>
+    <string name="title_debug_info_question">Brûk de ynfoknop allinnich as jo in fraach hawwe</string>
     <string name="title_unexpected_info_remark">Beskriuw wat jo dien hawwe doe’t de app ferûngelokke:</string>
     <string name="title_widget_title_count">Oantal nije berjochten</string>
     <string name="title_widget_title_list">Berjochtlist</string>

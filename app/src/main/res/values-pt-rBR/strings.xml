@@ -571,6 +571,7 @@
     <string name="title_advanced_double_tap">Toque duplo para marcar mensagem lida/não lida</string>
     <string name="title_advanced_swipenav">Deslize para a esquerda/direita para ir para próxima/anterior conversa</string>
     <string name="title_advanced_volumenav">Volume para cima/baixo para ir para próxima/anterior conversa</string>
+    <string name="title_advanced_up_down">Use as setas para cima/para baixo para a conversa seguinte/anterior</string>
     <string name="title_advanced_reversed">Reverter a direção de navegação</string>
     <string name="title_advanced_swipe_close">Deslize para baixo para fechar uma conversa</string>
     <string name="title_advanced_swipe_move">Deslize para cima para mover a conversa</string>
@@ -1938,6 +1939,7 @@
     <string name="title_debug_info_contact">Recentemente tivemos contato sobre este problema</string>
     <string name="title_debug_info_send">Enviar imediatamente</string>
     <string name="title_debug_info_send_remark">Normalmente, as informações de depuração serão armazenadas primeiro como rascunho da mensagem, para que você possa verificar o que será enviado</string>
+    <string name="title_debug_info_question">Por favor, use o botão de informações se você tiver apenas uma pergunta</string>
     <string name="title_unexpected_info_remark">Por favor, descreva o que você estava fazendo quando recebeu o erro:</string>
     <string name="title_widget_title_count">Nova contagem de mensagens</string>
     <string name="title_widget_title_list">Lista de mensagem</string>

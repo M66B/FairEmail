@@ -585,6 +585,7 @@
     <string name="title_advanced_double_tap">Atingeți de două ori pentru a marca mesajul ca ne/citit</string>
     <string name="title_advanced_swipenav">Glisați stânga/dreapta pentru a merge la conversația următoare/anterioară</string>
     <string name="title_advanced_volumenav">Volum sus/jos pentru a merge la conversația următoare/anterioară</string>
+    <string name="title_advanced_up_down">Folosește săgețile sus/jos pentru conversația următoare/anterioară</string>
     <string name="title_advanced_reversed">Inversează direcția de navigare</string>
     <string name="title_advanced_swipe_close">Glisați în jos pentru a închide conversația</string>
     <string name="title_advanced_swipe_move">Glisați în sus pentru a muta conversația</string>
@@ -886,6 +887,7 @@
     <string name="title_identity_reply_to">Răspuns la adresa</string>
     <string name="title_identity_internal">Nume de domenii interne (separate prin virgulă)</string>
     <string name="title_identity_uri">Asociați contact</string>
+    <string name="title_identity_sensitivity">Sensibilitate implicită</string>
     <string name="title_identity_unicode">Permite UTF-8 în antetul mesajelor</string>
     <string name="title_identity_unicode_remark">Majoritatea serverelor nu acceptă acest lucru</string>
     <string name="title_identity_octetmime">Permite 8BITMIMIME</string>
@@ -1950,6 +1952,7 @@
     <string name="title_debug_info_contact">Recent am avut contact cu această problemă</string>
     <string name="title_debug_info_send">Trimiteți imediat</string>
     <string name="title_debug_info_send_remark">În mod normal, informațiile de depanare vor fi stocate mai întâi ca mesaj preliminar, astfel încât să puteți verifica ce va fi trimis</string>
+    <string name="title_debug_info_question">Vă rugăm să folosiți butonul pentru informații dacă aveți doar o întrebare</string>
     <string name="title_unexpected_info_remark">Vă rugăm să descrieți ce faceți atunci când ați primit eroarea:</string>
     <string name="title_widget_title_count">Contor mesaje noi</string>
     <string name="title_widget_title_list">Listă mesaje</string>

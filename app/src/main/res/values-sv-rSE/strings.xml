@@ -1932,6 +1932,7 @@
     <string name="title_debug_info_contact">Vi hade nyligen kontakt om detta problem</string>
     <string name="title_debug_info_send">Skicka omedelbart</string>
     <string name="title_debug_info_send_remark">Normalt kommer felsökningsinformationen att lagras som utkast först, så att du kan kontrollera vad som kommer att skickas</string>
+    <string name="title_debug_info_question">Använd info-knappen om du bara har en fråga</string>
     <string name="title_unexpected_info_remark">Vänligen beskriv vad du gjorde när du fick felet:</string>
     <string name="title_widget_title_count">Antal nya meddelanden</string>
     <string name="title_widget_title_list">Meddelandelista</string>

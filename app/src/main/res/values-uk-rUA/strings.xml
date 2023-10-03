@@ -1683,7 +1683,9 @@
     <string name="title_rule_keyword_missing">Відсутнє ключове слово</string>
     <string name="title_rule_automation_hint">Це надішле intent «%1$s з доповненнями «%2$s»</string>
     <string name="title_rule_notes_missing">Локальні нотатки відсутні</string>
+    <string name="title_rule_url_missing">URL-адреса відсутня або неправильна</string>
     <string name="title_rule_delete_hint">Постійне видалення є незворотнім, тому переконайтеся, що умови правила правильні!</string>
+    <string name="title_rule_url_hint">Ви можете використовувати наступні заповнювачі: %1$s</string>
     <string name="title_rule_edit_group">Редагувати групу &#8230;</string>
     <string name="title_rule_execute">Виконати зараз</string>
     <string name="title_rule_applied">Кількість повідомлень, щодо яких виконані правила: %1$d</string>
@@ -1967,6 +1969,7 @@
     <string name="title_debug_info_contact">Нещодавно ми зв\'язувались щодо цієї проблеми</string>
     <string name="title_debug_info_send">Надіслати негайно</string>
     <string name="title_debug_info_send_remark">Зазвичай інформація про налагодження буде збережена як чернетка, щоб ви могли перевірити, що буде надіслано</string>
+    <string name="title_debug_info_question">Будь ласка, скористайтеся кнопкою «Інформація», якщо ви просто хочете поставити питання</string>
     <string name="title_unexpected_info_remark">Будь ласка, опишіть, що ви робили, коли у вас виникла помилка:</string>
     <string name="title_widget_title_count">Кількість нових повідомлень</string>
     <string name="title_widget_title_list">Список повідомлень</string>

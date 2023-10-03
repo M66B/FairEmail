@@ -1944,6 +1944,7 @@
     <string name="title_debug_info_contact">Abbiamo recentemente appreso riguardo questo problema</string>
     <string name="title_debug_info_send">Invia immediatamente</string>
     <string name="title_debug_info_send_remark">Normalmente, le informazioni di debug saranno memorizzate come bozza di messaggio prima, in modo da poter controllare cosa verrà inviato</string>
+    <string name="title_debug_info_question">Sei pregato di utilizzare il pulsante Info se hai solo una domanda</string>
     <string name="title_unexpected_info_remark">Sei pregato di descrivere cosa stavi facendo quando hai ottenuto l\'errore:</string>
     <string name="title_widget_title_count">Conteggio nuovi messaggi</string>
     <string name="title_widget_title_list">Elenco dei messaggi</string>
