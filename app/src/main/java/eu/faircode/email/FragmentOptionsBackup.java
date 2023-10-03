@@ -1202,6 +1202,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                 case "float":
                                     if (value instanceof Double)
                                         editor.putFloat(key, ((Double) value).floatValue());
+                                    else if (value instanceof Integer)
+                                        editor.putFloat(key, ((Integer) value).floatValue());
                                     else
                                         editor.putFloat(key, (Float) value);
                                     break;
@@ -1220,7 +1222,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                             editor.putInt(key, i);
                                     } else if (value instanceof Long)
                                         editor.putLong(key, (Long) value);
-                                    else if (value instanceof Float || value instanceof Double)
+                                    else if (value instanceof Double)
+                                        editor.putFloat(key, ((Double) value).floatValue());
+                                    else if (value instanceof Float)
                                         editor.putFloat(key, (Float) value);
                                     else if (value instanceof String)
                                         editor.putString(key, (String) value);
