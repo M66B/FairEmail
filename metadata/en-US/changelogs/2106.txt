@@ -6,6 +6,13 @@ For support you can use the contact form.
 
 Vallibonavenatrix
 
+Next version
+
+* Added rule action to execute webhooks
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 1.2106 - 2023-09-27
 
 * Added option to use up/down arrows for next/previous conversation
