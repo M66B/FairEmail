@@ -2690,6 +2690,7 @@ You can select one of these actions to apply to matching messages:
 * Answer/forward (with template)
 * Text-to-speech (sender and subject)
 * Automation (Tasker, etc)
+* Webhook (since version 1.2107)
 
 **Important**: permanent deletion is **irreversible**.
 Instead, consider to move messages to the trash folder
@@ -2822,6 +2823,17 @@ Since version 1.2061 it is possible to execute rules with an automation app, lik
 ```
 (adb shell) am start-foreground-service -a eu.faircode.email.RULE --es account <account name> -es rule <unique rule name>
 ```
+
+<br />
+
+Since version 1.2107 it is possible to executed webhooks.
+The supported HTTP methods are GET, HEAD, POST and POST.
+The query parameters will be sent as body in the case of POST and PUT.
+This website might be useful for testing webhooks:
+
+[https://webhook.site/](https://webhook.site/)
+
+<br />
 
 Using rules is a pro feature.
 
