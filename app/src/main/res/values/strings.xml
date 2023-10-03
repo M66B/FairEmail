@@ -2748,6 +2748,7 @@
     <string-array name="httpMethodNames" translatable="false">
         <item>GET</item>
         <item>HEAD</item>
+        <item>OPTIONS</item>
         <item>POST</item>
         <item>PUT</item>
     </string-array>
