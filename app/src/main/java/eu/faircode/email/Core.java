@@ -5712,11 +5712,13 @@ class Core {
                     try {
                         if (NotificationHelper.areNotificationsEnabled(nm)) {
                             nm.notify(tag, NotificationHelper.NOTIFICATION_TAGGED, notification);
-                            try {
-                                Thread.sleep(NOTIFY_DELAY);
-                            } catch (InterruptedException ex) {
-                                Log.w(ex);
-                            }
+                            if (update.contains(id))
+                                try {
+                                    Log.i("Notify delay id=" + id);
+                                    Thread.sleep(NOTIFY_DELAY);
+                                } catch (InterruptedException ex) {
+                                    Log.w(ex);
+                                }
                         }
 
                         // https://github.com/leolin310148/ShortcutBadger/wiki/Xiaomi-Device-Support
