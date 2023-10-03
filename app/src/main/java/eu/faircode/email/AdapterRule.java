@@ -227,7 +227,10 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     setAction(getAction(type), notes);
                 } else if (type == EntityRule.TYPE_URL) {
                     String url = jaction.getString("url");
-                    setAction(getAction(type), url);
+                    String method = jaction.optString("method");
+                    if (TextUtils.isEmpty(method))
+                        method = "GET";
+                    setAction(getAction(type), method + " " + url);
                 } else
                     setAction(getAction(type), null);
 
