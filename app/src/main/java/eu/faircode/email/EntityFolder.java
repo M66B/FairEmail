@@ -319,6 +319,9 @@ public class EntityFolder extends EntityOrder implements Serializable {
             unified = true;
             notify = true;
         }
+
+        if ("poczta.o2.pl".equals(account.host) && INBOX.equals(name))
+            poll = true;
     }
 
     void inheritFrom(EntityFolder parent) {

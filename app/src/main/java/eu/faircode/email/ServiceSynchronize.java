@@ -1715,8 +1715,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
                     // https://tools.ietf.org/html/rfc2177
                     final boolean capIdle =
-                            iservice.hasCapability("IDLE") &&
-                                    !"poczta.o2.pl".equals(account.host);
+                            iservice.hasCapability("IDLE");
                     final boolean capUtf8 =
                             iservice.hasCapability("UTF8=ACCEPT") ||
                                     iservice.hasCapability("UTF8=ONLY");
