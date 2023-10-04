@@ -1673,7 +1673,9 @@
     <string name="title_rule_keyword_missing">Nedostaje ključna riječ</string>
     <string name="title_rule_automation_hint">Ovo će poslati opis zadatka \'%1$s\' sa dodacima \'%2$s\'</string>
     <string name="title_rule_notes_missing">Nedostaju lokalne bilješke</string>
+    <string name="title_rule_url_missing">URL nedostaje ili nije valjan</string>
     <string name="title_rule_delete_hint">Trajno brisanje je nepovratna radnja, zato osigurajte da su uvjeti ispravni!</string>
+    <string name="title_rule_url_hint">Možete koristiti slijedeća mjesta prikaza: %1$s</string>
     <string name="title_rule_edit_group">Uredi grupu &#8230;</string>
     <string name="title_rule_execute">Izvrši sada</string>
     <string name="title_rule_applied">Zahvaćene poruke: %1$d</string>

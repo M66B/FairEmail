@@ -1656,7 +1656,9 @@
     <string name="title_rule_keyword_missing">Palavra-chave faltando</string>
     <string name="title_rule_automation_hint">Isto enviará a intenção \'%1$s\' com os extras \'%2$s\'</string>
     <string name="title_rule_notes_missing">Notas locais ausentes</string>
+    <string name="title_rule_url_missing">URL ausente ou inválida</string>
     <string name="title_rule_delete_hint">A exclusão permanente é irreversível, por isso certifique-se de que as condições de regra estão corretas!</string>
+    <string name="title_rule_url_hint">Você pode usar os seguintes marcadores: %1$s</string>
     <string name="title_rule_edit_group">Editar grupo &#8230;</string>
     <string name="title_rule_execute">Execute agora</string>
     <string name="title_rule_applied">Mensagens afetadas: %1$d</string>

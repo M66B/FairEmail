@@ -1660,7 +1660,9 @@
     <string name="title_rule_keyword_missing">Nøgleord mangler</string>
     <string name="title_rule_automation_hint">Dette vil sende intent \'%1$s\' med ekstra \'%2$s\'</string>
     <string name="title_rule_notes_missing">Lokale notater mangler</string>
+    <string name="title_rule_url_missing">URL mangler eller ugyldig</string>
     <string name="title_rule_delete_hint">Permanent sletning er irreversibel, så sørg for, at regelbetingelserne er korrekte!</string>
+    <string name="title_rule_url_hint">Flg. variabler kan bruges: %1$s</string>
     <string name="title_rule_edit_group">Redigér gruppe &#8230;</string>
     <string name="title_rule_execute">Eksekvér nu</string>
     <string name="title_rule_applied">Berørte beskeder: %1$d</string>
