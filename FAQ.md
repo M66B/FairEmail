@@ -2827,7 +2827,7 @@ Since version 1.2061 it is possible to execute rules with an automation app, lik
 <br />
 
 Since version 1.2107 it is possible to executed webhooks.
-The supported HTTP methods are GET, HEAD, POST and POST.
+The supported HTTP methods are GET, HEAD, OPTIONS, POST and POST.
 The query parameters will be sent as body in the case of POST and PUT.
 This website might be useful for testing webhooks:
 

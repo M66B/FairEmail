@@ -1455,6 +1455,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <li>Answer/forward (with template)</li>
 <li>Text-to-speech (sender and subject)</li>
 <li>Automation (Tasker, etc)</li>
+<li>Webhook (since version 1.2107)</li>
 </ul>
 <p><strong>Important</strong>: permanent deletion is <strong>irreversible</strong>. Instead, consider to move messages to the trash folder and to set up auto deletion for the trash folder in the folder properties (long press the folder in the folder list of an account).</p>
 <p>If you want to forward a message, consider to use a <em>move</em> action instead. This will be more reliable than forwarding because forwarded messages might be considered as spam.</p>
@@ -1533,6 +1534,10 @@ $$aligned$ (since version 1.2049)</code></pre>
 <p><br /></p>
 <p>Since version 1.2061 it is possible to execute rules with an automation app, like for example Tasker.</p>
 <pre><code>(adb shell) am start-foreground-service -a eu.faircode.email.RULE --es account &lt;account name&gt; -es rule &lt;unique rule name&gt;</code></pre>
+<p><br /></p>
+<p>Since version 1.2107 it is possible to executed webhooks. The supported HTTP methods are GET, HEAD, OPTIONS, POST and POST. The query parameters will be sent as body in the case of POST and PUT. This website might be useful for testing webhooks:</p>
+<p><a href="https://webhook.site/">https://webhook.site/</a></p>
+<p><br /></p>
 <p>Using rules is a pro feature.</p>
 <p><br /></p>
 <p><a name="faq72"></a> <strong>(72) What are primary accounts/identities?</strong></p>
