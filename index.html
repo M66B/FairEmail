@@ -1535,7 +1535,8 @@ $$aligned$ (since version 1.2049)</code></pre>
 <p>Since version 1.2061 it is possible to execute rules with an automation app, like for example Tasker.</p>
 <pre><code>(adb shell) am start-foreground-service -a eu.faircode.email.RULE --es account &lt;account name&gt; -es rule &lt;unique rule name&gt;</code></pre>
 <p><br /></p>
-<p>Since version 1.2107 it is possible to executed webhooks. The supported HTTP methods are GET, HEAD, OPTIONS, POST and POST. The query parameters will be sent as body in the case of POST and PUT. This website might be useful for testing webhooks:</p>
+<p>Since version 1.2107 it is possible to executed webhooks. The supported HTTP methods are GET, HEAD, OPTIONS, POST and POST. The query parameters will be sent as body in the case of POST and PUT. Note that execution of webhooks won’t be retried. So, don’t use this for anything critical.</p>
+<p>This website might be useful for testing webhooks:</p>
 <p><a href="https://webhook.site/">https://webhook.site/</a></p>
 <p><br /></p>
 <p>Using rules is a pro feature.</p>
