@@ -578,6 +578,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
                                 account.host = provider.imap.host;
                                 account.encryption = aencryption;
+                                account.insecure = BuildConfig.PLAY_STORE_RELEASE;
                                 account.port = provider.imap.port;
                                 account.auth_type = AUTH_TYPE_PASSWORD;
                                 account.user = user;
