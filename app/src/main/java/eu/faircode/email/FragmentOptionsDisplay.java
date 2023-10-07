@@ -184,6 +184,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
     private SwitchCompat swListCount;
     private SwitchCompat swBundledFonts;
+    private SwitchCompat swNarrowFonts;
     private SwitchCompat swParseClasses;
     private SwitchCompat swBackgroundColor;
     private SwitchCompat swTextColor;
@@ -220,7 +221,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             "text_separators",
             "collapse_quotes", "image_placeholders", "inline_images", "button_extra",
             "unzip", "attachments_alt", "thumbnails",
-            "list_count", "bundled_fonts", "parse_classes",
+            "list_count", "bundled_fonts", "narrow_fonts", "parse_classes",
             "background_color", "text_color", "text_size", "text_font", "text_align", "text_titles",
             "authentication", "authentication_indicator"
     };
@@ -353,6 +354,7 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
         swListCount = view.findViewById(R.id.swListCount);
         swBundledFonts = view.findViewById(R.id.swBundledFonts);
+        swNarrowFonts = view.findViewById(R.id.swNarrowFonts);
         swParseClasses = view.findViewById(R.id.swParseClasses);
         swBackgroundColor = view.findViewById(R.id.swBackgroundColor);
         swTextColor = view.findViewById(R.id.swTextColor);
@@ -1316,6 +1318,14 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("bundled_fonts", checked).apply();
+                swNarrowFonts.setEnabled(checked);
+            }
+        });
+
+        swNarrowFonts.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("narrow_fonts", checked).apply();
             }
         });
 
@@ -1637,6 +1647,8 @@ public class FragmentOptionsDisplay extends FragmentBase implements SharedPrefer
 
             swListCount.setChecked(prefs.getBoolean("list_count", false));
             swBundledFonts.setChecked(prefs.getBoolean("bundled_fonts", true));
+            swNarrowFonts.setChecked(prefs.getBoolean("narrow_fonts", false));
+            swNarrowFonts.setEnabled(swBundledFonts.isChecked());
             swParseClasses.setChecked(prefs.getBoolean("parse_classes", true));
             swBackgroundColor.setChecked(prefs.getBoolean("background_color", false));
             swTextColor.setChecked(prefs.getBoolean("text_color", true));

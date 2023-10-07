@@ -47,3 +47,4 @@ FairEmail uses:
 * [MaterialDings](https://github.com/Accusoft/MaterialDings). Copyright (c) 2018 Accusoft Corporation. [MIT License](https://github.com/Accusoft/MaterialDings/blob/master/LICENSE.md).
 * [Send](https://github.com/timvisee/send). [Mozilla Public License 2.0](https://github.com/timvisee/send/blob/master/LICENSE).
 * [DetectHtml](https://github.com/dbennett455/DetectHtml). [The MIT License](https://github.com/dbennett455/DetectHtml/blob/master/LICENSE).
+* [Liberation Sans Narrow font](https://github.com/liberationfonts/liberation-sans-narrow). Copyright (C) 1989, 1991 Free Software Foundation, Inc. [GNU General Public License version 2 with exceptions](https://fedoraproject.org/wiki/Licensing/LiberationFontLicense).

@@ -640,6 +640,7 @@
     <string name="title_advanced_navbar_colorize">Colorize the Android navigation bar</string>
     <string name="title_advanced_list_count">Show the number of messages or conversations in the top action bar</string>
     <string name="title_advanced_bundled_fonts">Use bundled fonts</string>
+    <string name="title_advanced_narrow_fonts">Use narrow fonts</string>
     <string name="title_advanced_parse_classes">Parse style sheets</string>
     <string name="title_advanced_authentication">Show authentication warnings</string>
     <string name="title_advanced_authentication_hint">The underlying checks can be configured in the receive settings</string>
