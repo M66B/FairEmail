@@ -8,6 +8,7 @@ Vallibonavenatrix
 
 Next version
 
+* Added Montserrat font
 * Added Liberation Sans Narrow
 * Small improvements and minor bug fixes
 * Updated translations

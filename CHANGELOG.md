@@ -8,6 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Added [Montserrat](https://fonts.google.com/specimen/Montserrat) font
 * Added [Liberation Sans Narrow](https://github.com/liberationfonts/liberation-sans-narrow) font (advanced display options)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
