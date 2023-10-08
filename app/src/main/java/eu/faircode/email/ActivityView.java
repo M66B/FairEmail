@@ -2280,8 +2280,10 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         db.beginTransaction();
 
                         EntityMessage draft = db.message().getMessage(id);
-                        if (draft != null) {
+                        EntityIdentity primary = db.identity().getPrimaryIdentity();
+                        if (draft != null && primary != null) {
                             draft.folder = EntityFolder.getOutbox(context).id;
+                            draft.identity = primary.id;
                             db.message().updateMessage(draft);
 
                             EntityOperation.queue(context, draft, EntityOperation.SEND);
