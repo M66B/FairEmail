@@ -1420,7 +1420,7 @@
     <string name="title_print_header">Print header</string>
     <string name="title_print_images">Print images</string>
     <string name="title_print_images_remark">Downloading images might take some time</string>
-    <string name="title_print_block_quotes">Print block quotes</string>
+    <string name="title_print_block_quotes">Print block quotes lines</string>
     <string name="title_show_headers">Show headers</string>
     <string name="title_share_as_html">Share as HTML</string>
     <string name="title_raw_save">Save raw message</string>
