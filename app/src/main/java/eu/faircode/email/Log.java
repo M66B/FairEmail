@@ -1828,6 +1828,7 @@ public class Log {
             draft.identity = identity.id;
             draft.msgid = EntityMessage.generateMessageId();
             draft.thread = draft.msgid;
+            draft.from = new Address[]{new InternetAddress(identity.email, identity.name, StandardCharsets.UTF_8.name())};
             draft.to = new Address[]{myAddress()};
             draft.subject = context.getString(R.string.app_name) + " " + getVersionInfo(context) + " debug info - " + source;
             draft.received = new Date().getTime();
