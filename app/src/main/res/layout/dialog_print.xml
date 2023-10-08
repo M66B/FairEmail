@@ -38,6 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:checked="true"
             android:text="@string/title_print_header"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,6 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:checked="true"
             android:text="@string/title_print_images"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintStart_toStartOf="parent"
@@ -65,6 +67,17 @@
             app:layout_constraintTop_toBottomOf="@id/cbImages" />
 
         <CheckBox
+            android:id="@+id/cbBlockQuotes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:checked="true"
+            android:text="@string/title_print_block_quotes"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvImagesRemark" />
+
+        <CheckBox
             android:id="@+id/cbNotAgain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,6 +85,6 @@
             android:text="@string/title_no_ask_again"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvImagesRemark" />
+            app:layout_constraintTop_toBottomOf="@id/cbBlockQuotes" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
