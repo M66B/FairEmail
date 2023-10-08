@@ -25,6 +25,9 @@
             <item
                 android:id="@+id/menu_placeholder_date"
                 android:title="@string/title_answer_placeholder_date" />
+            <item
+                android:id="@+id/menu_placeholder_weekday"
+                android:title="@string/title_answer_placeholder_weekday" />
         </menu>
     </item>
 </menu>

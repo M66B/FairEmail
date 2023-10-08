@@ -365,6 +365,9 @@ public class FragmentAnswer extends FragmentBase {
             } else if (itemId == R.id.menu_placeholder_date) {
                 onMenuPlaceholder("$date$");
                 return true;
+            } else if (itemId == R.id.menu_placeholder_weekday) {
+                onMenuPlaceholder("$weekday$");
+                return true;
             }
         }
         return super.onOptionsItemSelected(item);

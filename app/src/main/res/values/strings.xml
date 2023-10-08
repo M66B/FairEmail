@@ -1907,6 +1907,7 @@
     <string name="title_answer_placeholder_firstname">Sender\'s first name</string>
     <string name="title_answer_placeholder_lastname">Sender\'s last name</string>
     <string name="title_answer_placeholder_date">Current date</string>
+    <string name="title_answer_placeholder_weekday">Day of week</string>
 
     <string name="title_rule_noop">No action</string>
     <string name="title_rule_seen">Mark read</string>

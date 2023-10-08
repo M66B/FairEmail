@@ -48,12 +48,14 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.text.Collator;
+import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -210,6 +212,8 @@ public class EntityAnswer implements Serializable {
                 s = text.indexOf("$date", s + v.length());
             }
         }
+
+        text = text.replace("$weekday$", new SimpleDateFormat("EEEE").format(new Date()));
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         for (String key : prefs.getAll().keySet())
