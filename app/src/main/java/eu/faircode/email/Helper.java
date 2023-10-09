@@ -2192,7 +2192,11 @@ public class Helper {
         boolean thisDay = (cal0.get(Calendar.DAY_OF_MONTH) == cal1.get(Calendar.DAY_OF_MONTH));
         if (withDate) {
             try {
-                String skeleton = (thisMonth && thisYear ? "MMM-d" : "yyyy-M-d") + (withTime ? " Hm" : "");
+                String skeleton = (thisMonth && thisYear ? "MMM-d" : "yyyy-M-d");
+                if (withTime) {
+                    boolean is24Hour = android.text.format.DateFormat.is24HourFormat(context);
+                    skeleton += (is24Hour ? " Hm" : " hm");
+                }
                 String format = android.text.format.DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
                 return new SimpleDateFormat(format).format(millis);
             } catch (Throwable ex) {
