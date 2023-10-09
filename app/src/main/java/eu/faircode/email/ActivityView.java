@@ -2019,19 +2019,23 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 boolean notify_open_folder = prefs.getBoolean("notify_open_folder", false);
                 if (account > 0 && folder > 0 && !TextUtils.isEmpty(type) && notify_open_folder) {
                     if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                        getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                        if (group >= 0)
+                            getSupportFragmentManager().popBackStack("unified", 0);
+                        else {
+                            getSupportFragmentManager().popBackStack("messages", FragmentManager.POP_BACK_STACK_INCLUSIVE);
 
-                        Bundle args = new Bundle();
-                        args.putLong("account", account);
-                        args.putLong("folder", folder);
-                        args.putString("type", type);
+                            Bundle args = new Bundle();
+                            args.putLong("account", account);
+                            args.putLong("folder", folder);
+                            args.putString("type", type);
 
-                        FragmentMessages fragment = new FragmentMessages();
-                        fragment.setArguments(args);
+                            FragmentMessages fragment = new FragmentMessages();
+                            fragment.setArguments(args);
 
-                        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
-                        fragmentTransaction.commit();
+                            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                            fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("messages");
+                            fragmentTransaction.commit();
+                        }
                     }
                 }
                 onViewThread(intent);
