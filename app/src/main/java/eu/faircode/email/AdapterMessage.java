@@ -4430,7 +4430,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else if (id == R.id.ibDownloading) {
                     Helper.viewFAQ(context, 15);
                 } else if (id == R.id.ibSeen || id == R.id.ibSeenBottom) {
-                    onMenuUnseen(message);
+                    onToggleSeen(message);
                 } else if (id == R.id.ibHide) {
                     onMenuHide(message);
                 } else if (id == R.id.ibImportance) {
@@ -6107,7 +6107,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         buttons.show(parentFragment.getParentFragmentManager(), "dialog:buttons");
                         return true;
                     } else if (itemId == R.id.menu_unseen) {
-                        onMenuUnseen(message);
+                        onToggleSeen(message);
                         return true;
                     } else if (itemId == R.id.menu_snooze) {
                         onMenuSnooze(message);
@@ -6446,7 +6446,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 Helper.reportNoViewer(context, uri, null);
         }
 
-        private void onMenuUnseen(final TupleMessageEx message) {
+        private void onToggleSeen(final TupleMessageEx message) {
             Bundle args = new Bundle();
             args.putLong("id", message.id);
             args.putBoolean("seen", !message.ui_seen);
@@ -7705,7 +7705,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onToggleMessage(message);
                     return true;
                 } else if (action == R.id.ibSeen) {
-                    onMenuUnseen(message);
+                    onToggleSeen(message);
                     return true;
                 } else if (action == R.id.ibAnswer) {
                     onActionAnswer(message, view);
