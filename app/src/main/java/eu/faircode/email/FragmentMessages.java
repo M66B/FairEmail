@@ -2736,6 +2736,16 @@ public class FragmentMessages extends FragmentBase
         }
 
         @Override
+        public int getSelectionCount() {
+            return getSelection().length;
+        }
+
+        @Override
+        public void moveSelection(String type, boolean block) {
+            onActionMoveSelection(type, block);
+        }
+
+        @Override
         public void reply(TupleMessageEx message, CharSequence selected, View anchor) {
             onReply(message, selected, anchor);
         }

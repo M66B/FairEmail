@@ -1456,6 +1456,7 @@
     <string name="title_quick_actions_clear">Clear selection after action</string>
 
     <string name="title_trash">Trash</string>
+    <string name="title_trash_selection">Trash selection</string>
     <string name="title_copy">Copy &#8230;</string>
     <string name="title_copy_to">Copy to &#8230;</string>
     <string name="title_subscribe">Subscribe</string>

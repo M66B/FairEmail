@@ -7665,6 +7665,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibTrash,
                         context.getString(R.string.title_trash)));
 
+                if (properties.getSelectionCount() > 0)
+                    info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibDelete,
+                            context.getString(R.string.title_trash_selection)));
+
                 if (ibAvatar.getVisibility() == View.VISIBLE && ibAvatar.isEnabled())
                     info.addAction(new AccessibilityNodeInfo.AccessibilityAction(R.id.ibAvatar,
                             context.getString(R.string.title_accessibility_view_contact)));
@@ -7715,6 +7719,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     return true;
                 } else if (action == R.id.ibTrash) {
                     onActionTrash(message, false);
+                    return true;
+                } else if (action == R.id.ibDelete) {
+                    properties.moveSelection(EntityFolder.TRASH, false);
                     return true;
                 } else if (action == R.id.ibAvatar) {
                     onViewContact(message);
@@ -8929,6 +8936,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         void ready(long id);
 
         void move(long id, String type);
+
+        int getSelectionCount();
+
+        void moveSelection(String type, boolean block);
 
         void reply(TupleMessageEx message, CharSequence selected, View anchor);
 
