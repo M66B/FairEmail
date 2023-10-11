@@ -245,7 +245,9 @@ public class DnsHelper {
                 record.query = name;
 
             return result.toArray(new DnsRecord[0]);
-        } catch (TextParseException ex) {
+        } catch (Throwable ex) {
+            // TextParseException
+            // Lookup static ctor: RuntimeException("Failed to initialize resolver")
             Log.e(ex);
             return new DnsRecord[0];
         }
