@@ -44,7 +44,7 @@ import java.util.Objects;
 
 public class OpenAI {
     private static final int MAX_OPENAI_LEN = 1000; // characters
-    private static final int TIMEOUT = 30; // seconds
+    private static final int TIMEOUT = 45; // seconds
 
     static boolean isAvailable(Context context) {
         if (TextUtils.isEmpty(BuildConfig.OPENAI_ENDPOINT))
