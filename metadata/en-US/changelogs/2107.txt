@@ -10,7 +10,11 @@ Next version
 
 * Added Montserrat font
 * Added Liberation Sans Narrow
+* Added *$weekday$* placeholder for templates
+* Added option to disabling printing of block quotes lines
+* Added accessibility actions to mark a message read/unread and to trash a conversation
 * Small improvements and minor bug fixes
+* Updated AndroidX
 * Updated translations
 
 1.2107 - 2023-10-04

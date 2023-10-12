@@ -10,7 +10,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Added [Montserrat](https://fonts.google.com/specimen/Montserrat) font
 * Added [Liberation Sans Narrow](https://github.com/liberationfonts/liberation-sans-narrow) font (advanced display options)
+* Added *$weekday$* placeholder for templates
+* Added option to disabling printing of block quotes lines
+* Added accessibility actions to mark a message read/unread and to trash a conversation
 * Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2107 - 2023-10-04
