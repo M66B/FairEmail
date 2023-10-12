@@ -2738,20 +2738,19 @@ class Core {
                         !EntityFolder.SYSTEM.equals(type)) {
 
                     // Rename system folders
-                    if (!EntityFolder.INBOX.equals(type))
-                        for (EntityFolder folder : new ArrayList<>(local.values()))
-                            if (type.equals(folder.type) &&
-                                    !fullName.equals(folder.name) &&
-                                    !local.containsKey(fullName) &&
-                                    !istore.getFolder(folder.name).exists()) {
-                                Log.e(account.host +
-                                        " renaming " + type + " folder" +
-                                        " from " + folder.name + " to " + fullName);
-                                local.remove(folder.name);
-                                local.put(fullName, folder);
-                                folder.name = fullName;
-                                db.folder().setFolderName(folder.id, fullName);
-                            }
+                    for (EntityFolder folder : new ArrayList<>(local.values()))
+                        if (type.equals(folder.type) &&
+                                !fullName.equals(folder.name) &&
+                                !local.containsKey(fullName) &&
+                                !istore.getFolder(folder.name).exists()) {
+                            Log.e(account.host +
+                                    " renaming " + type + " folder" +
+                                    " from " + folder.name + " to " + fullName);
+                            local.remove(folder.name);
+                            local.put(fullName, folder);
+                            folder.name = fullName;
+                            db.folder().setFolderName(folder.id, fullName);
+                        }
 
                     // Reselect system folders once
                     String key = "unset." + account.id + "." + type;
