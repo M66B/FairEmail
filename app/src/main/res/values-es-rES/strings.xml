@@ -551,6 +551,7 @@
     <string name="title_advanced_navbar_colorize">Colorear la barra de navegación de Android</string>
     <string name="title_advanced_list_count">Mostrar el número de mensajes o conversaciones en la barra de acción superior</string>
     <string name="title_advanced_bundled_fonts">Usar fuentes empaquetadas</string>
+    <string name="title_advanced_narrow_fonts">Usar fuentes estrechas</string>
     <string name="title_advanced_parse_classes">Analizar hojas de estilo</string>
     <string name="title_advanced_authentication">Mostrar advertencias de autenticación</string>
     <string name="title_advanced_authentication_hint">Las comprobaciones subyacentes se pueden configurar en la configuración de recepción</string>
@@ -1149,6 +1150,7 @@
     <string name="title_print_header">Imprimir encabezado</string>
     <string name="title_print_images">Imprimir imágenes</string>
     <string name="title_print_images_remark">La descarga de imágenes puede tardar algún tiempo</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Imprimir líneas de citas en bloque</string>
     <string name="title_show_headers">Mostrar encabezados</string>
     <string name="title_share_as_html">Compartir como HTML</string>
     <string name="title_raw_save">Guardar mensaje sin procesar</string>
@@ -1583,6 +1585,7 @@
     <string name="title_answer_placeholder_firstname">Nombre del remitente</string>
     <string name="title_answer_placeholder_lastname">Apellido del remitente</string>
     <string name="title_answer_placeholder_date">Fechal actual</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Día de la semana</string>
     <string name="title_rule_noop">Ninguna acción</string>
     <string name="title_rule_seen">Marcar como leído</string>
     <string name="title_rule_unseen">Marcar como no leído</string>

@@ -552,6 +552,7 @@
     <string name="title_advanced_navbar_colorize">Coloriser la barre de navigation d’Android</string>
     <string name="title_advanced_list_count">Afficher le nombre de messages ou de conversations dans la barre d\'action supérieure</string>
     <string name="title_advanced_bundled_fonts">Utiliser des polices groupées</string>
+    <string name="title_advanced_narrow_fonts">Utiliser des polices de caractères étroites</string>
     <string name="title_advanced_parse_classes">Utiliser les feuilles de style</string>
     <string name="title_advanced_authentication">Afficher les avertissements d\'authentification</string>
     <string name="title_advanced_authentication_hint">Les contrôles sous-jacents peuvent être configurés dans les paramètres de réception</string>
@@ -1152,6 +1153,7 @@
     <string name="title_print_header">Imprimer l\'en-tête</string>
     <string name="title_print_images">Imprimer les images</string>
     <string name="title_print_images_remark">Le téléchargement des images peut prendre un certain temps</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Imprimer les blocs de citation</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
     <string name="title_share_as_html">Partager en tant que HTML</string>
     <string name="title_raw_save">Enregistrer le message original</string>
@@ -1589,6 +1591,7 @@
     <string name="title_answer_placeholder_firstname">Prénom de l\'expéditeur</string>
     <string name="title_answer_placeholder_lastname">Nom de l\'expéditeur</string>
     <string name="title_answer_placeholder_date">Date actuelle</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Jour de la semaine</string>
     <string name="title_rule_noop">Aucune action</string>
     <string name="title_rule_seen">Marquer comme lu</string>
     <string name="title_rule_unseen">Marquer comme non lu</string>
@@ -1662,6 +1665,7 @@
     <string name="title_rule_notes_missing">Notes locales manquantes</string>
     <string name="title_rule_url_missing">URL manquante ou invalide</string>
     <string name="title_rule_delete_hint">La suppression définitive est irréversible, assurez-vous donc que les conditions de la règle sont correctes!</string>
+    <string name="title_rule_url_hint">Vous pouvez utiliser les variables suivantes: %1$s</string>
     <string name="title_rule_edit_group">Modifier le groupe&#8230;</string>
     <string name="title_rule_execute">Exécuter maintenant</string>
     <string name="title_rule_applied">Messages concernés : %1$d</string>
@@ -1854,7 +1858,7 @@
     <string name="title_insert_line">Insérer une ligne</string>
     <string name="title_select_block">Sélectionner le bloc</string>
     <string name="title_insert_brackets">Mettre entre parenthèses</string>
-    <string name="title_insert_quotes">Mettre entre guillemets</string>
+    <string name="title_insert_quotes">Citer</string>
     <string name="title_lt_add">Ajouter un mot</string>
     <string name="title_lt_delete">Supprimer un mot</string>
     <string name="title_add">Ajouter</string>

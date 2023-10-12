@@ -538,6 +538,7 @@
     <string name="title_advanced_navbar_colorize">Android ナビゲーションバーに色を付ける</string>
     <string name="title_advanced_list_count">上部アクションバーにメッセージ数または会話数を表示</string>
     <string name="title_advanced_bundled_fonts">バンドルされたフォントを使用</string>
+    <string name="title_advanced_narrow_fonts">幅狭フォントを使用</string>
     <string name="title_advanced_parse_classes">スタイルシートを解析</string>
     <string name="title_advanced_authentication">認証警告を表示</string>
     <string name="title_advanced_authentication_hint">受信設定で確認内容を設定します</string>
@@ -1137,6 +1138,7 @@
     <string name="title_print_header">見出しを印刷</string>
     <string name="title_print_images">画像を印刷</string>
     <string name="title_print_images_remark">画像のダウンロードには時間がかかる場合があります</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">ブロック引用の行を印刷</string>
     <string name="title_show_headers">ヘッダーを表示</string>
     <string name="title_share_as_html">HTML で共有</string>
     <string name="title_raw_save">元のメッセージを保存</string>
@@ -1574,6 +1576,7 @@
     <string name="title_answer_placeholder_firstname">差出人の名</string>
     <string name="title_answer_placeholder_lastname">差出人の姓</string>
     <string name="title_answer_placeholder_date">現在の日付</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">曜日</string>
     <string name="title_rule_noop">何もしない</string>
     <string name="title_rule_seen">既読にする</string>
     <string name="title_rule_unseen">未読にする</string>

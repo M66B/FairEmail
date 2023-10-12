@@ -552,6 +552,7 @@
     <string name="title_advanced_navbar_colorize">Colora la barra di navigazione di Android</string>
     <string name="title_advanced_list_count">Mostra il numero di messaggi o conversazioni nella barra d\'azione superiore</string>
     <string name="title_advanced_bundled_fonts">Usa font impacchettati</string>
+    <string name="title_advanced_narrow_fonts">Usa caratteri stretti</string>
     <string name="title_advanced_parse_classes">Analizza fogli di stile</string>
     <string name="title_advanced_authentication">Mostra avvisi d\'autenticazione</string>
     <string name="title_advanced_authentication_hint">I controlli sottostanti sono configurabili nelle impostazioni di ricezione</string>
@@ -1152,6 +1153,7 @@
     <string name="title_print_header">Stampa l\'intestazione</string>
     <string name="title_print_images">Stampa le immagini</string>
     <string name="title_print_images_remark">Scaricare le immagini potrebbe richiedere un po\' di tempo</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Stampa le citazioni in blocco</string>
     <string name="title_show_headers">Mostra le intestazioni</string>
     <string name="title_share_as_html">Condividi come HTML</string>
     <string name="title_raw_save">Salva il messaggio non elaborato</string>
@@ -1660,7 +1662,9 @@
     <string name="title_rule_keyword_missing">Parola chiave mancante</string>
     <string name="title_rule_automation_hint">Questo invierà l\'intento \'%1$s\' con \'%2$s\' extra</string>
     <string name="title_rule_notes_missing">Note locali mancanti</string>
+    <string name="title_rule_url_missing">URL mancante o non valido</string>
     <string name="title_rule_delete_hint">L\'eliminazione permanente è irreversibile, quindi assicurati che le condizioni della regola siano corrette!</string>
+    <string name="title_rule_url_hint">È possibile utilizzare i seguenti variabili: %1$s</string>
     <string name="title_rule_edit_group">Modifica gruppo &#8230;</string>
     <string name="title_rule_execute">Esegui ora</string>
     <string name="title_rule_applied">Messaggi interessati: %1$d</string>

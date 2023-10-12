@@ -579,6 +579,7 @@
     <string name="title_advanced_navbar_colorize">Раскрашивать панель навигации Android</string>
     <string name="title_advanced_list_count">Показывать количество сообщений или диалогов в верхней панели действий</string>
     <string name="title_advanced_bundled_fonts">Использовать встроенные шрифты</string>
+    <string name="title_advanced_narrow_fonts">Использовать узкие шрифты</string>
     <string name="title_advanced_parse_classes">Анализировать таблицы стилей</string>
     <string name="title_advanced_authentication">Показывать предупреждения аутентификации</string>
     <string name="title_advanced_authentication_hint">Соответствующие проверки могут быть настроены в параметрах получения</string>
@@ -1179,6 +1180,7 @@
     <string name="title_print_header">Печать заголовка</string>
     <string name="title_print_images">Печать изображений</string>
     <string name="title_print_images_remark">Загрузка изображений может занять некоторое время</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Печатать строки в блоке цитат</string>
     <string name="title_show_headers">Показать заголовки</string>
     <string name="title_share_as_html">Поделиться как HTML</string>
     <string name="title_raw_save">Сохранить оригинал сообщения</string>
@@ -1615,6 +1617,7 @@
     <string name="title_answer_placeholder_firstname">Имя отправителя</string>
     <string name="title_answer_placeholder_lastname">Фамилия отправителя</string>
     <string name="title_answer_placeholder_date">Текущая дата</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">День недели</string>
     <string name="title_rule_noop">Нет действия</string>
     <string name="title_rule_seen">Отметить прочитанным</string>
     <string name="title_rule_unseen">Отметить непрочитанным</string>

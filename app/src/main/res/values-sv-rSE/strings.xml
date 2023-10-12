@@ -548,6 +548,7 @@
     <string name="title_advanced_navbar_colorize">Färglägg navigeringsfältet för Android</string>
     <string name="title_advanced_list_count">Visa antalet meddelanden eller konversationer i det översta åtgärdsfältet</string>
     <string name="title_advanced_bundled_fonts">Använd medföljande typsnitt</string>
+    <string name="title_advanced_narrow_fonts">Använd smala typsnitt</string>
     <string name="title_advanced_parse_classes">Tolka stilmallar</string>
     <string name="title_advanced_authentication">Visa autentiseringsvarningar</string>
     <string name="title_advanced_authentication_hint">De underliggande kontrollerna kan konfigureras i mottagningsinställningarna</string>
@@ -1143,6 +1144,7 @@
     <string name="title_print_header">Visa header</string>
     <string name="title_print_images">Skriv ut bilder</string>
     <string name="title_print_images_remark">Nedladdning av bilder kan ta lite tid</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Skriv ut blockciterade rader</string>
     <string name="title_show_headers">Visa sidhuvuden</string>
     <string name="title_share_as_html">Dela som HTML</string>
     <string name="title_raw_save">Spara rent meddelande</string>
@@ -1578,6 +1580,7 @@
     <string name="title_answer_placeholder_firstname">Avsändarens förnamn</string>
     <string name="title_answer_placeholder_lastname">Avsändarens efternamn</string>
     <string name="title_answer_placeholder_date">Aktuellt datum</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Veckodag</string>
     <string name="title_rule_noop">Ingen åtgärd</string>
     <string name="title_rule_seen">Markera som läst</string>
     <string name="title_rule_unseen">Markera som oläst</string>
@@ -1649,7 +1652,9 @@
     <string name="title_rule_keyword_missing">Nyckelord saknas</string>
     <string name="title_rule_automation_hint">Detta kommer att skicka avsikten \'%1$s\' med extramaterial \'%2$s\'</string>
     <string name="title_rule_notes_missing">Lokala anteckningar saknas</string>
+    <string name="title_rule_url_missing">URL saknas eller är ogiltig</string>
     <string name="title_rule_delete_hint">Permanent borttagning är oåterkallelig, så se till att regelvillkoren är korrekta!</string>
+    <string name="title_rule_url_hint">Du kan använda följande platshållare: %1$s</string>
     <string name="title_rule_edit_group">Redigera grupp &#8230;</string>
     <string name="title_rule_execute">Verkställ nu</string>
     <string name="title_rule_applied">Berörda meddelanden: %1$d</string>

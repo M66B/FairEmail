@@ -580,6 +580,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_navbar_colorize">Obarvit navigační panel Androidu</string>
     <string name="title_advanced_list_count">Zobrazit počet zpráv nebo konverzací v horní liště akcí</string>
     <string name="title_advanced_bundled_fonts">Použít připojená písma</string>
+    <string name="title_advanced_narrow_fonts">Použít úzká písma</string>
     <string name="title_advanced_parse_classes">Parsovat šablony stylů</string>
     <string name="title_advanced_authentication">Zobrazit upozornění na ověření</string>
     <string name="title_advanced_authentication_hint">Základní kontroly mohou být nastaveny v nastavení příjmu</string>
@@ -1178,6 +1179,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_print_header">Vytisknout hlavičku</string>
     <string name="title_print_images">Tisknout obrázky</string>
     <string name="title_print_images_remark">Stažení obrázků může chvíli trvat</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Tisk řádků s blokovými uvozovkami</string>
     <string name="title_show_headers">Zobrazit hlavičky</string>
     <string name="title_share_as_html">Sdílet jako HTML</string>
     <string name="title_raw_save">Uložit zdrojovou zprávu</string>
@@ -1613,6 +1615,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_answer_placeholder_firstname">Křestní jméno odesílatele</string>
     <string name="title_answer_placeholder_lastname">Příjmení odesílatele</string>
     <string name="title_answer_placeholder_date">Aktuální datum</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Den v týdnu</string>
     <string name="title_rule_noop">Žádná akce</string>
     <string name="title_rule_seen">Označit přečtené</string>
     <string name="title_rule_unseen">Označit nepřečtené</string>

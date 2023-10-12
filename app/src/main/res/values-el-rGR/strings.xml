@@ -551,6 +551,7 @@
     <string name="title_advanced_navbar_colorize">Να χρωματίζεται η γραμμή πλοήγησης του Android</string>
     <string name="title_advanced_list_count">Προβολή του αριθμού μηνυμάτων ή συζητήσεων στην πάνω γραμμή ενεργειών</string>
     <string name="title_advanced_bundled_fonts">Χρήση γραμματοσειρών σε πακέτο</string>
+    <string name="title_advanced_narrow_fonts">Χρήση στενών γραμματοσειρών</string>
     <string name="title_advanced_parse_classes">Χρήση φύλλων στιλ</string>
     <string name="title_advanced_authentication">Να προβάλλονται προειδοποιήσεις ταυτοποίησης</string>
     <string name="title_advanced_authentication_hint">Οι υποκείμενοι έλεγχοι μπορούν να ρυθμιστούν στις ρυθμίσεις λήψης</string>
@@ -1147,6 +1148,7 @@
     <string name="title_print_header">Εκτύπωσε κεφαλίδα</string>
     <string name="title_print_images">Εκτύπωση εικόνων</string>
     <string name="title_print_images_remark">Το κατέβασμα των εικόνων μπορεί να πάρει κάποιο χρόνο</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Εκτύπωση γραμμών εσοχής στα παρατιθέμενα κείμενα</string>
     <string name="title_show_headers">Προβολή κεφαλίδων</string>
     <string name="title_share_as_html">Κοινοποίηση ως HTML</string>
     <string name="title_raw_save">Αποθήκευση αρχικού μηνύματος</string>
@@ -1582,6 +1584,7 @@
     <string name="title_answer_placeholder_firstname">Όνομα αποστολέα</string>
     <string name="title_answer_placeholder_lastname">Επίθετο αποστολέα</string>
     <string name="title_answer_placeholder_date">Τρέχουσα ημερομηνία</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Ημέρα της εβδομάδας</string>
     <string name="title_rule_noop">Καμία ενέργεια</string>
     <string name="title_rule_seen">Σήμανση ως αναγνωσμένου</string>
     <string name="title_rule_unseen">Σήμανση ως μη αναγνωσμένου</string>
@@ -1653,7 +1656,9 @@
     <string name="title_rule_keyword_missing">Λείπει λέξη-κλειδί</string>
     <string name="title_rule_automation_hint">Αυτό θα στείλει την πρόθεση %1$s μαζί με τα έξτρα %2$s</string>
     <string name="title_rule_notes_missing">Λείπουν οι τοπικές σημειώσεις</string>
+    <string name="title_rule_url_missing">URL λείπει ή είναι άκυρο</string>
     <string name="title_rule_delete_hint">Η οριστική διαγραφή είναι μη αναστρέψιμη, οπότε βεβαιωθείτε πως οι συνθήκες του κανόνα είναι σωστές!</string>
+    <string name="title_rule_url_hint">Μπορείτε να χρησιμοποιήσετε τα ακόλουθα σύμβολα υποκατάστασης: %1$s</string>
     <string name="title_rule_edit_group">Επεξεργασία ομάδας &#8230;</string>
     <string name="title_rule_execute">Εκτέλεση τώρα</string>
     <string name="title_rule_applied">Μηνύματα που αφορά: %1$d</string>

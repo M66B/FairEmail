@@ -537,6 +537,7 @@
     <string name="title_advanced_navbar_colorize">导航栏着色</string>
     <string name="title_advanced_list_count">在顶部操作栏中显示消息或对话的数量</string>
     <string name="title_advanced_bundled_fonts">使用捆绑的字体</string>
+    <string name="title_advanced_narrow_fonts">使用窄字体</string>
     <string name="title_advanced_parse_classes">解析样式表</string>
     <string name="title_advanced_authentication">显示身份验证警告</string>
     <string name="title_advanced_authentication_hint">可以在接收设置中配置底层检查</string>
@@ -1133,6 +1134,7 @@
     <string name="title_print_header">打印邮件头</string>
     <string name="title_print_images">打印图片</string>
     <string name="title_print_images_remark">下载图片可能需要一些时间</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">打印块引用行</string>
     <string name="title_show_headers">显示邮件头</string>
     <string name="title_share_as_html">以HTML格式分享</string>
     <string name="title_raw_save">保存原始消息</string>
@@ -1568,6 +1570,7 @@
     <string name="title_answer_placeholder_firstname">发件人名字</string>
     <string name="title_answer_placeholder_lastname">发件人姓氏</string>
     <string name="title_answer_placeholder_date">当前日期</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">一周中的一天</string>
     <string name="title_rule_noop">无操作</string>
     <string name="title_rule_seen">标为已读</string>
     <string name="title_rule_unseen">标记为未读</string>
@@ -1639,7 +1642,9 @@
     <string name="title_rule_keyword_missing">缺少关键词</string>
     <string name="title_rule_automation_hint">将使用参数 \'%2$s\' 发送 \'%1$s\' 的 intent</string>
     <string name="title_rule_notes_missing">本地备注缺失</string>
+    <string name="title_rule_url_missing">URL 丢失或无效</string>
     <string name="title_rule_delete_hint">永久删除是不可逆的，所以请确保规则条件的正确性！</string>
+    <string name="title_rule_url_hint">您可以使用以下占位符： %1$s</string>
     <string name="title_rule_edit_group">编辑组&#8230;</string>
     <string name="title_rule_execute">立即执行</string>
     <string name="title_rule_applied">受影响的消息: %1$d</string>

@@ -1650,7 +1650,9 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_rule_keyword_missing">Kaaiwurd ûntbrekt</string>
     <string name="title_rule_automation_hint">Dit sil de bedoeling ‘%1$s’ mei de ekstra’s ‘%2$s’ stjoere</string>
     <string name="title_rule_notes_missing">Lokale notysjes ûntbrekke</string>
+    <string name="title_rule_url_missing">URL ûntbrekt of is net jildich</string>
     <string name="title_rule_delete_hint">Permanint fuortsmite kin net ûngedien makke wurde, dus soargje derfoar dat de betingsten fan de regel korrekt binne!</string>
+    <string name="title_rule_url_hint">Jo kinne de folgjende plakhâlders brûke: %1$s</string>
     <string name="title_rule_edit_group">Groep bewurkje&#8230;</string>
     <string name="title_rule_execute">No útfiere</string>
     <string name="title_rule_applied">Belutsen berjochten: %1$d</string>

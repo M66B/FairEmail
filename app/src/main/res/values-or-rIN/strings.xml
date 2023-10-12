@@ -128,9 +128,9 @@
     <string name="title_setup_to_do">କରିବା ନିମନ୍ତେ</string>
     <string name="title_setup_done">ହୋଇଗଲା</string>
     <string name="title_setup_error">ତ୍ରୁଟି</string>
-    <string name="title_setup_pop">POP3 ଵ୍ୟଵହାର କରିବା (ସୁପାରିଶ କରୁନାହୁଁ)</string>
+    <string name="title_setup_pop">POP3 ବ୍ୟବହାର କରିବା (ସୁପାରିଶ କରୁନାହୁଁ)</string>
     <string name="title_setup_configuring">ଆକାଉଣ୍ଟ୍ ଵିନ୍ୟାସ କରୁଅଛି &#8230;</string>
-    <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‌ୱର୍ଡ଼ ଵ୍ୟଵହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
+    <string name="title_setup_app_password">ଆପଣଙ୍କୁ ଏକ ଆପ୍ ପାସ୍‌ୱର୍ଡ଼ ବ୍ୟବହାର କରିବାକୁ ପଡ଼ିପାରେ</string>
     <string name="title_setup_extra">ଅତିରିକ୍ତ</string>
     <string name="title_setup_close">ସେଟିଂ ବନ୍ଦ କରିବା</string>
     <string name="title_setup_export">ସେଟିଂ ରପ୍ତାନି କରିବା</string>
@@ -212,7 +212,7 @@
     <string name="title_advanced_sync_folders_poll">ଫୋଲ୍ଡର୍ ତାଲିକା ସକ୍ରିୟ ଭାଵେ ସୀଙ୍କ୍ରୋନାଇଜ୍ କରାଇବା</string>
     <string name="title_advanced_check_authentication">ଵାର୍ତ୍ତା ପ୍ରାମାଣିକରଣ ଯାଞ୍ଚ</string>
     <string name="title_advanced_keyboard_no_fullscreen">ପୂର୍ଣ୍ଣସ୍କ୍ରିନ୍ କୀବୋର୍ଡ୍ ପ୍ରତିରୋଧ କରନ୍ତୁ</string>
-    <string name="title_advanced_suggest_names">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_advanced_suggest_names">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_send_nav_color">ନିମ୍ନ କୃତ୍ୟ ଦଣ୍ଡିକା ପାଇଁ ସମାନ ରଙ୍ଗ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_answer_caption">ଉତ୍ତର ବଟନ ସେଟିଂ</string>
     <string name="title_advanced_answer_default">ଉତ୍ତର ବଟନ୍ ଉପରେ ହ୍ରସ୍ୱ ପ୍ରେସ୍ କଲେ:</string>
@@ -252,7 +252,7 @@
     <string name="title_advanced_tabular_dividers">ଟାବୁଲାର୍ ଶୈଳୀ ଵ୍ୟଵହାର କଲାଵେଳେ ଵିଭାଜକ ରେଖା ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_date_header">ତାରିଖ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_date_time">ସର୍ଵଦା ଉଭୟ ତାରିଖ ଆଉ ସମୟ ଦର୍ଶାଇବା</string>
-    <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_advanced_color_stripe_wide">ପ୍ରଶସ୍ତ ରଙ୍ଗ ଷ୍ଟ୍ରାଇପ୍ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_avatars">ସମ୍ପର୍କର ଫଟୋସବୁ ଦେଖାଇବା</string>
     <string name="title_advanced_gravatars">ଗ୍ରାଵତାରସବୁ ଦେଖାଇବା</string>
     <string name="title_advanced_libravatars">ଲିବ୍ରାଵତାରସବୁ ଦେଖାଇବା</string>
@@ -260,15 +260,16 @@
     <string name="title_advanced_name_email">ନା‍ଁ ଓ ଇମେଲ୍ ଠିକଣା ଦେଖାଇବା</string>
     <string name="title_advanced_highlight_subject">ଵିଷୟକୁ ହାଇଲାଇଟ୍ କରନ୍ତୁ</string>
     <string name="title_advanced_highlight_color">ହାଇଲାଇଟ୍ ରଙ୍ଗ</string>
-    <string name="title_advanced_background_color">ପୃଷ୍ଠପଟ ରଙ୍ଗ ଵ୍ୟଵହାର କରିବା</string>
-    <string name="title_advanced_text_color">ପାଠ୍ୟ ରଙ୍ଗ ଵ୍ୟଵହାର କରିବା</string>
-    <string name="title_advanced_text_size">ପାଠ୍ୟ ଆକାର ଵ୍ୟଵହାର କରିବା</string>
-    <string name="title_advanced_text_font">ଫଣ୍ଟ ଵ୍ୟଵହାର କରିବା</string>
-    <string name="title_advanced_text_align">ପାଠ୍ୟ ଶ୍ରେଣୀବଦ୍ଧତା ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_advanced_background_color">ପୃଷ୍ଠପଟ ରଙ୍ଗ ବ୍ୟବହାର କରିବା</string>
+    <string name="title_advanced_text_color">ପାଠ୍ୟ ରଙ୍ଗ ବ୍ୟବହାର କରିବା</string>
+    <string name="title_advanced_text_size">ପାଠ୍ୟ ଆକାର ବ୍ୟବହାର କରିବା</string>
+    <string name="title_advanced_text_font">ଫଣ୍ଟ ବ୍ୟବହାର କରିବା</string>
+    <string name="title_advanced_text_align">ପାଠ୍ୟ ଶ୍ରେଣୀବଦ୍ଧତା ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_button_extra">ଵାର୍ତ୍ତାର ତଳେ ଅତିରିକ୍ତ ବଟନ୍ ଦେଖାଇବା</string>
     <string name="title_advanced_actionbar">ବାର୍ତ୍ତାଳାପ କୃତ୍ୟ ଦଣ୍ଡିକା ଦେଖାଇବା</string>
     <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
     <string name="title_advanced_bundled_fonts">ବଣ୍ଡଲ୍ ହୋଇଥିବା ଫଣ୍ଟ ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_advanced_narrow_fonts">ସଂକୀର୍ଣ୍ଣ ଫଣ୍ଟ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_parse_classes">CSS କୁ ବିଶ୍ଳେଷଣ କରନ୍ତୁ</string>
     <string name="title_advanced_authentication_indicator">ପ୍ରାମାଣିକରଣ ସ୍ଥିତି ସୂଚକ ଦେଖାନ୍ତୁ</string>
     <string name="title_advanced_authentication_none">ପ୍ରାମାଣିକରଣ ନାହିଁ</string>
@@ -656,6 +657,7 @@
     <string name="title_answer_placeholder_email">ପ୍ରେରକଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
     <string name="title_answer_placeholder_firstname">ପ୍ରେରକଙ୍କ ପ୍ରଥମ ନାମ</string>
     <string name="title_answer_placeholder_lastname">ପ୍ରେରକଙ୍କ ଶେଷ ନାମ</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">ସପ୍ତାହର ଵାର</string>
     <string name="title_rule_noop">କିଛି କରନି</string>
     <string name="title_rule_hide">ଲୁଚାଅ</string>
     <string name="title_rule_ignore">ବିଜ୍ଞପ୍ତି ଦମନ</string>
@@ -692,7 +694,7 @@
     <string name="title_rule_tts_subject">ଵିଷୟ</string>
     <string name="title_rule_tts_content">ପାଠ୍ୟ</string>
     <string name="title_rule_select_sound">ଧ୍ୱନି ବାଛନ୍ତୁ</string>
-    <string name="title_rule_use_as_alarm">ଆଲାର୍ମ ଭାଵେ ଵ୍ୟଵହାର କରିବା</string>
+    <string name="title_rule_use_as_alarm">ଆଲାର୍ମ ଭାବେ ବ୍ୟବହାର କରିବା</string>
     <string name="title_legend_section_synchronize">ସୀଙ୍କ୍ରୋନାଇଜ୍</string>
     <string name="title_legend_section_folders">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="title_legend_section_messages">ଵାର୍ତ୍ତାଗୁଡ଼ିକ</string>

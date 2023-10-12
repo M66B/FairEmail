@@ -553,6 +553,7 @@
     <string name="title_advanced_navbar_colorize">Colorir a barra de navegação do Android</string>
     <string name="title_advanced_list_count">Mostrar o número de mensagens ou conversas na barra superior</string>
     <string name="title_advanced_bundled_fonts">Usar tipos de letra embutidos</string>
+    <string name="title_advanced_narrow_fonts">Usar fontes estreitas</string>
     <string name="title_advanced_parse_classes">Usar folhas de estilo</string>
     <string name="title_advanced_authentication">Mostrar avisos de autenticação</string>
     <string name="title_advanced_authentication_hint">As verificações subjacentes podem ser configuradas nas definições de recepção</string>
@@ -1152,6 +1153,7 @@
     <string name="title_print_header">Imprimir cabeçalho</string>
     <string name="title_print_images">Imprimir imagens</string>
     <string name="title_print_images_remark">A transferência de imagens pode demorar algum tempo</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Imprimir linhas de cotações em bloco</string>
     <string name="title_show_headers">Mostrar cabeçalhos</string>
     <string name="title_share_as_html">Partilhar como HTML</string>
     <string name="title_raw_save">Guardar mensagem original (raw)</string>
@@ -1589,6 +1591,7 @@
     <string name="title_answer_placeholder_firstname">Primeiro nome do remetente</string>
     <string name="title_answer_placeholder_lastname">Apelido do remetente</string>
     <string name="title_answer_placeholder_date">Data atual</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Dia da semana</string>
     <string name="title_rule_noop">Nenhuma acção</string>
     <string name="title_rule_seen">Marcar como lida</string>
     <string name="title_rule_unseen">Marcar como não lida</string>

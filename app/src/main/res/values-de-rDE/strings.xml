@@ -553,6 +553,7 @@
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_list_count">Anzahl der Nachrichten oder Unterhaltungen in der oberen Aktionsleiste anzeigen</string>
     <string name="title_advanced_bundled_fonts">Vorinstallierte Schriftarten verwenden</string>
+    <string name="title_advanced_narrow_fonts">Schmale Schriftarten verwenden</string>
     <string name="title_advanced_parse_classes">Stylesheets analysieren</string>
     <string name="title_advanced_authentication">Authentifizierungswarnungen anzeigen</string>
     <string name="title_advanced_authentication_hint">Die zugrunde liegenden Prüfungen können in den Empfangseinstellungen konfiguriert werden</string>
@@ -1153,6 +1154,7 @@
     <string name="title_print_header">Kopfzeilen mit drucken</string>
     <string name="title_print_images">Bilder drucken</string>
     <string name="title_print_images_remark">Das Herunterladen von Bildern kann einige Zeit dauern</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Zeilen mit Anführungszeichen drucken</string>
     <string name="title_show_headers">Kopfzeilen anzeigen</string>
     <string name="title_share_as_html">Als HTML weiterleiten</string>
     <string name="title_raw_save">Rohdaten speichern</string>
@@ -1590,6 +1592,7 @@
     <string name="title_answer_placeholder_firstname">Vorname des Absenders</string>
     <string name="title_answer_placeholder_lastname">Nachname des Absenders</string>
     <string name="title_answer_placeholder_date">Aktuelles Datum</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Wochentag</string>
     <string name="title_rule_noop">Keine Aktion</string>
     <string name="title_rule_seen">Als gelesen kennzeichnen</string>
     <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>
@@ -1661,7 +1664,7 @@
     <string name="title_rule_keyword_missing">Schlagwort fehlt</string>
     <string name="title_rule_automation_hint">Das wird den Intent »%1$s« mit den Extras »%2$s« senden</string>
     <string name="title_rule_notes_missing">Lokale Notizen fehlen</string>
-    <string name="title_rule_url_missing">URL fehlt oder ungültig</string>
+    <string name="title_rule_url_missing">Adresse fehlt oder ist ungültig</string>
     <string name="title_rule_delete_hint">Das dauerhafte Löschen kann nicht widerrufen werden. Stellen Sie daher sicher, dass die Bedingungen der Regel richtig sind!</string>
     <string name="title_rule_url_hint">Sie können die folgenden Platzhalter verwenden: %1$s</string>
     <string name="title_rule_edit_group">Gruppe bearbeiten &#8230;</string>

@@ -550,6 +550,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_navbar_colorize">Kleur de Android-navigatiebalk in</string>
     <string name="title_advanced_list_count">Toon het aantal berichten of gesprekken in de bovenste actiebalk</string>
     <string name="title_advanced_bundled_fonts">Gebruik gebundelde lettertypen</string>
+    <string name="title_advanced_narrow_fonts">Gebruik smalle lettertypen</string>
     <string name="title_advanced_parse_classes">Stijlbladen parsen</string>
     <string name="title_advanced_authentication">Toon authenticatiewaarschuwingen</string>
     <string name="title_advanced_authentication_hint">De onderliggende controles kunnen worden geconfigureerd in de ontvangstinstellingen</string>
@@ -1146,6 +1147,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_print_header">Kop afdrukken</string>
     <string name="title_print_images">Afbeeldingen afdrukken</string>
     <string name="title_print_images_remark">Afbeeldingen downloaden kan enige tijd duren</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Print blokcitaat lijnen</string>
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_share_as_html">Delen als HTML</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>
@@ -1576,6 +1578,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_answer_placeholder_firstname">Voornaam afzender</string>
     <string name="title_answer_placeholder_lastname">Achternaam afzender</string>
     <string name="title_answer_placeholder_date">Huidige datum</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Dag van de week</string>
     <string name="title_rule_noop">Geen actie</string>
     <string name="title_rule_seen">Markeer als gelezen</string>
     <string name="title_rule_unseen">Markeren als ongelezen</string>

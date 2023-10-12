@@ -552,6 +552,7 @@
     <string name="title_advanced_navbar_colorize">Farvelæg Android-navigeringsbjælken</string>
     <string name="title_advanced_list_count">Vis antallet af beskeder eller samtaler på øverste handlingsbjælke</string>
     <string name="title_advanced_bundled_fonts">Brug bundtede skrifttyper</string>
+    <string name="title_advanced_narrow_fonts">Brug pileskrifttyper</string>
     <string name="title_advanced_parse_classes">CSS-fortolkning</string>
     <string name="title_advanced_authentication">Vis godkendelsesadvarsler</string>
     <string name="title_advanced_authentication_hint">De underliggende tjek kan opsættes i modtagelsesindstillingerne</string>
@@ -1152,6 +1153,7 @@
     <string name="title_print_header">Udskriv header</string>
     <string name="title_print_images">Udskriv billeder</string>
     <string name="title_print_images_remark">Download af billeder kan tage lidt tid</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Udskriv blokcitaterlinjer</string>
     <string name="title_show_headers">Vis overskrifter</string>
     <string name="title_share_as_html">Del som HTML</string>
     <string name="title_raw_save">Gem besked i råformat</string>
@@ -1589,6 +1591,7 @@
     <string name="title_answer_placeholder_firstname">Afsenders: fornavn</string>
     <string name="title_answer_placeholder_lastname">Afsenders: efternavn</string>
     <string name="title_answer_placeholder_date">Aktuelle dato</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Ugedag</string>
     <string name="title_rule_noop">Ingen handling</string>
     <string name="title_rule_seen">Markér som læst</string>
     <string name="title_rule_unseen">Markér som ulæst</string>

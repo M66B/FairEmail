@@ -566,6 +566,7 @@
     <string name="title_advanced_navbar_colorize">Oboji navigacijsku traku Androida</string>
     <string name="title_advanced_list_count">Prikaži broj poruka ili konverzacija u gornjoj akcionoj traci</string>
     <string name="title_advanced_bundled_fonts">Koristi paketske fontove</string>
+    <string name="title_advanced_narrow_fonts">Koristi uske fontove</string>
     <string name="title_advanced_parse_classes">Raščlani stilske stranice</string>
     <string name="title_advanced_authentication">Prikaži upozorenja kod provjere</string>
     <string name="title_advanced_authentication_hint">Osnovne kontrole mogu se podesiti u postavkama za prijem</string>
@@ -1165,6 +1166,7 @@
     <string name="title_print_header">Štampaj zaglavlje</string>
     <string name="title_print_images">Štampaj slike</string>
     <string name="title_print_images_remark">Preuzimanje slika može malo potrajati</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Štampanje blokova linija navodnika</string>
     <string name="title_show_headers">Prikaži zaglavlja</string>
     <string name="title_share_as_html">Podijeli kao HTML</string>
     <string name="title_raw_save">Sačuvaj raw poruku</string>
@@ -1602,6 +1604,7 @@
     <string name="title_answer_placeholder_firstname">Ime pošiljaoca</string>
     <string name="title_answer_placeholder_lastname">Prezime pošiljaoca</string>
     <string name="title_answer_placeholder_date">Trenutni datum</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Dan u sedmici</string>
     <string name="title_rule_noop">Bez radnji</string>
     <string name="title_rule_seen">Oznaci kao pročitano</string>
     <string name="title_rule_unseen">Označi kao nepročitano</string>

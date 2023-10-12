@@ -580,6 +580,7 @@
     <string name="title_advanced_navbar_colorize">Розфарбувати панель навігації Android</string>
     <string name="title_advanced_list_count">Показувати кількість повідомлень або розмов у верхній панелі дій</string>
     <string name="title_advanced_bundled_fonts">Використовувати вбудовані шрифти</string>
+    <string name="title_advanced_narrow_fonts">Використовувати вузькі шрифти</string>
     <string name="title_advanced_parse_classes">Аналізувати таблиці стилів</string>
     <string name="title_advanced_authentication">Показувати попередження про автентифікацію</string>
     <string name="title_advanced_authentication_hint">Налаштування основних перевірок можливо в параметрах з приймання</string>
@@ -1173,10 +1174,11 @@
     <string name="title_event">Додати у календар</string>
     <string name="title_pin">Додати ярлик</string>
     <string name="title_pin_label">Назва посилання</string>
-    <string name="title_print">Друк</string>
+    <string name="title_print">Друкувати</string>
     <string name="title_print_header">Друкувати заголовок</string>
     <string name="title_print_images">Друкувати зображення</string>
     <string name="title_print_images_remark">Завантаження зображень може зайняти деякий час</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Друкувати лінії зліва від цитованого тексту</string>
     <string name="title_show_headers">Показати заголовки</string>
     <string name="title_share_as_html">Поділитися як HTML</string>
     <string name="title_raw_save">Зберегти raw-повідомлення</string>
@@ -1612,6 +1614,7 @@
     <string name="title_answer_placeholder_firstname">Ім\'я відправника</string>
     <string name="title_answer_placeholder_lastname">Прізвище відправника</string>
     <string name="title_answer_placeholder_date">Поточна дата</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">День тижня</string>
     <string name="title_rule_noop">Жодної дії</string>
     <string name="title_rule_seen">Позначити як прочитане</string>
     <string name="title_rule_unseen">Позначити як непрочитане</string>

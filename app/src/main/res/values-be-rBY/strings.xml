@@ -581,6 +581,7 @@
     <string name="title_advanced_navbar_colorize">Расфарбаваць панэль навігацыі Android</string>
     <string name="title_advanced_list_count">Паказаць колькасць паведамленняў або размоў у верхняй панэлі дзеянняў</string>
     <string name="title_advanced_bundled_fonts">Выкарыстоўваць убудаваныя шрыфты</string>
+    <string name="title_advanced_narrow_fonts">Выкарыстоўваць вузкія шрыфты</string>
     <string name="title_advanced_parse_classes">Аналізаваць табліцы стыляў</string>
     <string name="title_advanced_authentication">Паказаць папярэджанні аўтэнтыфікацыі</string>
     <string name="title_advanced_authentication_hint">Асноўныя праверкі можна наладзіць у наладах атрымання</string>
@@ -1182,6 +1183,7 @@
     <string name="title_print_header">Друкаваць загаловак</string>
     <string name="title_print_images">Друкаваць выявы</string>
     <string name="title_print_images_remark">Загрузка выяў можа заняць некаторы час</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Адлюстроўваць лініі ў блоках цытат</string>
     <string name="title_show_headers">Паказваць загалоўкі</string>
     <string name="title_share_as_html">Падзяліцца ў выглядзе HTML</string>
     <string name="title_raw_save">Захаваць неапрацаванае паведамленне</string>
@@ -1619,6 +1621,7 @@
     <string name="title_answer_placeholder_firstname">Імя адпраўніка</string>
     <string name="title_answer_placeholder_lastname">Прозвішча адпраўніка</string>
     <string name="title_answer_placeholder_date">Бягучая дата</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Дзень тыдня</string>
     <string name="title_rule_noop">Няма дзеяння</string>
     <string name="title_rule_seen">Пазначыць як прачытанае</string>
     <string name="title_rule_unseen">Пазначыць як непрачытанае</string>
@@ -1690,7 +1693,9 @@
     <string name="title_rule_keyword_missing">Адсутнічае ключавое слова</string>
     <string name="title_rule_automation_hint">Гэта адправіць мэту \'%1$s\' з дадатковымі элементамі \'%2$s\'</string>
     <string name="title_rule_notes_missing">Лакальныя нататкі адсутнічаюць</string>
+    <string name="title_rule_url_missing">URL-спасылка адсутнічае або несапраўдная</string>
     <string name="title_rule_delete_hint">Канчатковае выдаленне з\'яўляецца незваротным, таму пераканайцеся, што ўмовы правіла правільныя!</string>
+    <string name="title_rule_url_hint">Вы можаце выкарыстоўваць наступныя запаўняльнікі: %1$s</string>
     <string name="title_rule_edit_group">Рэдагаваць групу &#8230;</string>
     <string name="title_rule_execute">Выканаць зараз</string>
     <string name="title_rule_applied">Закранутыя паведамленні: %1$d</string>

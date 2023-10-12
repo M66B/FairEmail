@@ -565,6 +565,7 @@
     <string name="title_advanced_navbar_colorize">Colorează bara de navigație Android</string>
     <string name="title_advanced_list_count">Arată numărul de mesaje sau conversații în bara de acțiuni de sus</string>
     <string name="title_advanced_bundled_fonts">Utilizați fonturi incluse în pachet</string>
+    <string name="title_advanced_narrow_fonts">Folosește fonturi înguste</string>
     <string name="title_advanced_parse_classes">Utilizează foile de stil</string>
     <string name="title_advanced_authentication">Afișați avertismentele de autentificare</string>
     <string name="title_advanced_authentication_hint">Verificările subiacente pot fi configurate în setările de recepție</string>
@@ -1163,6 +1164,7 @@
     <string name="title_print_header">Tipărire antet</string>
     <string name="title_print_images">Imprimare imagini</string>
     <string name="title_print_images_remark">Descărcarea imaginilor ar putea dura ceva timp</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Tipărește liniile citat</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_share_as_html">Distribuie ca HTML</string>
     <string name="title_raw_save">Salvează mesaj original</string>
@@ -1598,6 +1600,7 @@
     <string name="title_answer_placeholder_firstname">Prenumele expeditorului</string>
     <string name="title_answer_placeholder_lastname">Numele de familie al expeditorului</string>
     <string name="title_answer_placeholder_date">Data curentă</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Ziua din săptămână</string>
     <string name="title_rule_noop">Nicio acțiune</string>
     <string name="title_rule_seen">Marcare ca citit</string>
     <string name="title_rule_unseen">Marcare ca necitit</string>
@@ -1669,7 +1672,9 @@
     <string name="title_rule_keyword_missing">Lipsește cuvântul cheie</string>
     <string name="title_rule_automation_hint">Aceasta va trimite intenția \'%1$s\' și extra \'%2$s\'</string>
     <string name="title_rule_notes_missing">Lipsesc notele locale</string>
+    <string name="title_rule_url_missing">Adresă lipsă sau invalidă</string>
     <string name="title_rule_delete_hint">Ștergerea permanentă este ireversibilă, așa că asigurați-vă că condițiile regulii sunt corecte!</string>
+    <string name="title_rule_url_hint">Puteți folosi următorii substituenți: %1$s</string>
     <string name="title_rule_edit_group">Editează grupul &#8230;</string>
     <string name="title_rule_execute">Execută acum</string>
     <string name="title_rule_applied">Mesaje afectate: %1$d</string>

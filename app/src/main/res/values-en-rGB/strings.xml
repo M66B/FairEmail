@@ -28,8 +28,6 @@
     <string name="title_notification_sending_left">Remaining attempts: %1$d</string>
     <string name="title_notification_sending_retry">Sending attempts will be tried on either Internet connection changes or pulling down in the outbox</string>
     <string name="title_notification_sending_failed">Failed to send to: %1$s</string>
-    <string name="title_factor_minutes">One: %1$d minute
-Other: %1$d minutes</string>
     <string name="menu_answers">Templates</string>
     <string name="menu_rules">Filter rules</string>
     <string name="menu_operations">Jobs</string>

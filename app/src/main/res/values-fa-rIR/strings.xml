@@ -1038,6 +1038,7 @@
     <string name="title_answer_hide">پنهان کردن از فهرست‌ها</string>
     <string name="title_answer_text">متن الگو</string>
     <string name="title_answer_placeholder_date">تاریخ فعلی</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">روز هفته</string>
     <string name="title_rule_noop">بدون کنش</string>
     <string name="title_rule_seen">علامت‌گذاری به‌عنوان خوانده شده</string>
     <string name="title_rule_unseen">علامت‌گذاری به‌عنوان خوانده نشده</string>

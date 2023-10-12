@@ -579,6 +579,7 @@
     <string name="title_advanced_navbar_colorize">Koloruj pasek nawigacji Androida</string>
     <string name="title_advanced_list_count">Pokaż liczbę wiadomości lub konwersacji na górnym pasku akcji</string>
     <string name="title_advanced_bundled_fonts">Użyj dołączonych czcionek</string>
+    <string name="title_advanced_narrow_fonts">Używaj wąskich czcionek</string>
     <string name="title_advanced_parse_classes">Parsowanie arkuszy stylów</string>
     <string name="title_advanced_authentication">Pokaż ostrzeżenia o uwierzytelnieniu</string>
     <string name="title_advanced_authentication_hint">Podstawowe kontrole można skonfigurować w ustawieniach odbioru</string>
@@ -1177,6 +1178,7 @@
     <string name="title_print_header">Wydrukuj nagłówek</string>
     <string name="title_print_images">Drukuj obrazy</string>
     <string name="title_print_images_remark">Pobieranie obrazów może zająć trochę czasu</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Drukuj wiersze z cudzysłowami blokowymi</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_share_as_html">Udostępnij jako HTML</string>
     <string name="title_raw_save">Zapisz nieprzetworzoną wiadomość</string>
@@ -1613,6 +1615,7 @@
     <string name="title_answer_placeholder_firstname">Imię nadawcy</string>
     <string name="title_answer_placeholder_lastname">Nazwisko nadawcy</string>
     <string name="title_answer_placeholder_date">Bieżąca data</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Dzień tygodnia</string>
     <string name="title_rule_noop">Brak akcji</string>
     <string name="title_rule_seen">Oznacz jako przeczytane</string>
     <string name="title_rule_unseen">Oznacz jako nieprzeczytane</string>
