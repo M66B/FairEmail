@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2108 - 2023-10-12
 
 * Added [Montserrat](https://fonts.google.com/specimen/Montserrat) font
 * Added [Liberation Sans Narrow](https://github.com/liberationfonts/liberation-sans-narrow) font (advanced display options)
