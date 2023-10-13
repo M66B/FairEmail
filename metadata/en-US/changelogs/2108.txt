@@ -8,7 +8,6 @@ Vallibonavenatrix
 
 1.2108 - 2023-10-12
 
-* Added Montserrat font
 * Added Liberation Sans Narrow
 * Added *$weekday$* placeholder for templates
 * Added option to disabling printing of block quotes lines
