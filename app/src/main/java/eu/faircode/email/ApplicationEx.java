@@ -761,6 +761,9 @@ public class ApplicationEx extends Application
         } else if (version < 2089) {
             if (!prefs.contains("auto_hide_answer"))
                 editor.putBoolean("auto_hide_answer", !Helper.isAccessibilityEnabled(context));
+        } else if (version < 2108) {
+            if (!prefs.getBoolean("updown", false))
+                editor.putBoolean("updown", false);
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)

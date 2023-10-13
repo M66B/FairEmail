@@ -1345,7 +1345,7 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
-        if (prefs.getBoolean("updown", false)) {
+        if (prefs.getBoolean("updown", true)) {
             boolean reversed = prefs.getBoolean("reversed", false);
             bottom_navigation.getMenu().findItem(R.id.action_prev)
                     .setIcon(reversed ? R.drawable.twotone_north_24 : R.drawable.twotone_south_24);
