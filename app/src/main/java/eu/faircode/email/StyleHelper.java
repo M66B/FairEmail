@@ -1930,7 +1930,9 @@ public class StyleHelper {
             if (all || narrow_fonts)
                 result.add(new FontDescriptor("sans narrow", "Liberation Sans Narrow (Arial Narrow)", true));
 
-            result.add(new FontDescriptor("montserrat", "Montserrat (Gotham, Proxima Nova)", true));
+            if (BuildConfig.DEBUG) {
+                result.add(new FontDescriptor("montserrat", "Montserrat", true));
+            }
 
             result.add(new FontDescriptor("comic sans", "OpenDyslexic", true));
         }
