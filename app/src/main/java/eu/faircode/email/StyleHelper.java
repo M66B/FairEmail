@@ -1838,10 +1838,11 @@ public class StyleHelper {
                 return ResourcesCompat.getFont(context.getApplicationContext(), R.font.fantasy);
 
             if (bundled_fonts) {
-                if (faces.contains("montserrat") ||
-                        faces.contains("gotham") ||
-                        faces.contains("proxima nova"))
-                    return ResourcesCompat.getFont(context.getApplicationContext(), R.font.montserrat);
+                if (BuildConfig.DEBUG)
+                    if (faces.contains("montserrat") ||
+                            faces.contains("gotham") ||
+                            faces.contains("proxima nova"))
+                        return ResourcesCompat.getFont(context.getApplicationContext(), R.font.montserrat);
 
                 if (faces.contains("arimo") ||
                         faces.contains("arial") ||
@@ -1930,9 +1931,8 @@ public class StyleHelper {
             if (all || narrow_fonts)
                 result.add(new FontDescriptor("sans narrow", "Liberation Sans Narrow (Arial Narrow)", true));
 
-            if (BuildConfig.DEBUG) {
+            if (BuildConfig.DEBUG)
                 result.add(new FontDescriptor("montserrat", "Montserrat", true));
-            }
 
             result.add(new FontDescriptor("comic sans", "OpenDyslexic", true));
         }
