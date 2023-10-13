@@ -7953,6 +7953,7 @@ public class FragmentCompose extends FragmentBase {
                 switch (event.getKeyCode()) {
                     case KeyEvent.KEYCODE_S:
                     case KeyEvent.KEYCODE_ENTER:
+                    case KeyEvent.KEYCODE_NUMPAD_ENTER:
                         onAction(R.id.action_check, "key");
                         return true;
                     case KeyEvent.KEYCODE_B:
