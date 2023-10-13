@@ -5765,19 +5765,20 @@ public class FragmentCompose extends FragmentBase {
                             if (data.draft.bcc != null)
                                 recipients.addAll(Arrays.asList(data.draft.bcc));
 
-                            if (EntityMessage.PGP_SIGNONLY.equals(ref.ui_encrypt) ||
-                                    EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
-                                if (PgpHelper.isOpenKeychainInstalled(context) &&
-                                        selected.sign_key != null &&
-                                        PgpHelper.hasPgpKey(context, recipients, true))
-                                    data.draft.ui_encrypt = ref.ui_encrypt;
-                            } else if (EntityMessage.SMIME_SIGNONLY.equals(ref.ui_encrypt) ||
-                                    EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
-                                if (ActivityBilling.isPro(context) &&
-                                        selected.sign_key_alias != null &&
-                                        SmimeHelper.hasSmimeKey(context, recipients, true))
-                                    data.draft.ui_encrypt = ref.ui_encrypt;
-                            }
+                            if (!BuildConfig.DEBUG)
+                                if (EntityMessage.PGP_SIGNONLY.equals(ref.ui_encrypt) ||
+                                        EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
+                                    if (PgpHelper.isOpenKeychainInstalled(context) &&
+                                            selected.sign_key != null &&
+                                            PgpHelper.hasPgpKey(context, recipients, true))
+                                        data.draft.ui_encrypt = ref.ui_encrypt;
+                                } else if (EntityMessage.SMIME_SIGNONLY.equals(ref.ui_encrypt) ||
+                                        EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
+                                    if (ActivityBilling.isPro(context) &&
+                                            selected.sign_key_alias != null &&
+                                            SmimeHelper.hasSmimeKey(context, recipients, true))
+                                        data.draft.ui_encrypt = ref.ui_encrypt;
+                                }
                         }
 
                         // Reply template
