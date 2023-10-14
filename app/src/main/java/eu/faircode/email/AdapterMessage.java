@@ -312,6 +312,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean authentication_indicator;
     private boolean infra;
     private boolean tld_flags;
+    private boolean pdf_preview;
 
     private boolean autoclose_unseen;
     private boolean collapse_marked;
@@ -3650,7 +3651,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             List<EntityAttachment> images = new ArrayList<>();
             if (thumbnails && bind_extras) {
                 for (EntityAttachment attachment : attachments)
-                    if (attachment.isPDF() ||
+                    if ((pdf_preview && attachment.isPDF()) ||
                             (attachment.isAttachment() && attachment.isImage())) {
                         images.add(attachment);
                         if (attachment.available && !attachment.isPDF())
@@ -7982,6 +7983,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.authentication_indicator = prefs.getBoolean("authentication_indicator", false);
         this.infra = prefs.getBoolean("infra", false);
         this.tld_flags = prefs.getBoolean("tld_flags", false);
+        this.pdf_preview = prefs.getBoolean("pdf_preview", true);
         this.language_detection = prefs.getBoolean("language_detection", false);
         this.autoclose_unseen = prefs.getBoolean("autoclose_unseen", false);
         this.collapse_marked = prefs.getBoolean("collapse_marked", true);

@@ -165,7 +165,7 @@ public class FragmentOptions extends FragmentBase {
             "biometrics",
             "default_light",
             "vt_enabled", "vt_apikey",
-            "webp"
+            "pdf_preview", "webp"
     };
 
     @Override

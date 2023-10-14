@@ -240,6 +240,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swNativeDkim;
     private SwitchCompat swNativeArc;
     private EditText etNativeArcWhitelist;
+    private SwitchCompat swPdfPreview;
     private SwitchCompat swWebp;
     private SwitchCompat swEasyCorrect;
     private SwitchCompat swInfra;
@@ -312,7 +313,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "max_backoff_power", "logarithmic_backoff",
             "exact_alarms",
             "native_dkim", "native_arc", "native_arc_whitelist",
-            "webp", "easy_correct", "infra", "tld_flags", "dup_msgids", "thread_byref", "mdn",
+            "pdf_preview", "webp", "easy_correct", "infra", "tld_flags", "dup_msgids", "thread_byref", "mdn",
             "app_chooser", "delete_confirmation", "global_keywords", "test_iab"
     };
 
@@ -502,6 +503,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swNativeDkim = view.findViewById(R.id.swNativeDkim);
         swNativeArc = view.findViewById(R.id.swNativeArc);
         etNativeArcWhitelist = view.findViewById(R.id.etNativeArcWhitelist);
+        swPdfPreview = view.findViewById(R.id.swPdfPreview);
         swWebp = view.findViewById(R.id.swWebp);
         swEasyCorrect = view.findViewById(R.id.swEasyCorrect);
         swInfra = view.findViewById(R.id.swInfra);
@@ -1886,6 +1888,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swPdfPreview.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("pdf_preview", checked).apply();
+            }
+        });
+
         swWebp.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2716,6 +2725,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swNativeArc.setChecked(prefs.getBoolean("native_arc", true));
             etNativeArcWhitelist.setEnabled(swNativeDkim.isEnabled() && swNativeDkim.isChecked());
             etNativeArcWhitelist.setText(prefs.getString("native_arc_whitelist", null));
+            swPdfPreview.setChecked(prefs.getBoolean("pdf_preview", true));
             swWebp.setChecked(prefs.getBoolean("webp", true));
             swEasyCorrect.setChecked(prefs.getBoolean("easy_correct", false));
             swInfra.setChecked(prefs.getBoolean("infra", false));

@@ -908,6 +908,7 @@
     <string name="title_advanced_exact_alarms" translatable="false">Use exact timers</string>
     <string name="title_advanced_native_dkim" translatable="false">Native DKIM verification</string>
     <string name="title_advanced_native_arc" translatable="false">Native ARC verification</string>
+    <string name="title_advanced_pdf_preview" translatable="false">PDF preview</string>
     <string name="title_advanced_webp" translatable="false">Webp</string>
     <string name="title_advanced_easy_correct" translatable="false">Easy correct</string>
     <string name="title_advanced_infra" translatable="false">Show infrastructure</string>
