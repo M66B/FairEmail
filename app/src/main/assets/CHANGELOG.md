@@ -6,6 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
+### 1.2109 - 2023-10-14
+
+* Small improvements and minor bug fixes
+
 ### 1.2108 - 2023-10-12
 
 * Added [Liberation Sans Narrow](https://github.com/liberationfonts/liberation-sans-narrow) font (advanced display options)
