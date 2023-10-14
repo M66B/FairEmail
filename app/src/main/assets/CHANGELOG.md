@@ -6,10 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2110 - 2023-10-14
 
 * Added PDF thumbnail preview (mini gallery)
 * Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2109 - 2023-10-14
 
