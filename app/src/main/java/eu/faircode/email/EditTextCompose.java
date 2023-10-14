@@ -506,19 +506,24 @@ public class EditTextCompose extends FixedEditText {
         if (selectionListener != null)
             selectionListener.onSelected(hasSelection());
 
-        if (selStart != lastStart && selEnd != lastEnd) {
-            lastStart = selStart;
-            lastEnd = selEnd;
-            Editable edit = getText();
-            if (lastStart >= 0 && edit != null && lt_description) {
-                SuggestionSpanEx[] suggestions = getText().getSpans(selStart, selEnd, SuggestionSpanEx.class);
-                if (suggestions != null && suggestions.length > 0) {
+        int start = -1;
+        int end = -1;
+        Editable edit = getText();
+        if (lt_description && selStart >= 0 && edit != null) {
+            SuggestionSpanEx[] suggestions = edit.getSpans(selStart, selEnd, SuggestionSpanEx.class);
+            if (suggestions != null && suggestions.length > 0) {
+                start = edit.getSpanStart(suggestions[0]);
+                end = edit.getSpanEnd(suggestions[0]);
+                if (start != lastStart && end != lastEnd) {
                     String description = suggestions[0].getDescription();
                     if (!TextUtils.isEmpty(description))
                         ToastEx.makeText(getContext(), description, Toast.LENGTH_LONG).show();
                 }
             }
         }
+
+        lastStart = start;
+        lastEnd = end;
     }
 
     @Override
