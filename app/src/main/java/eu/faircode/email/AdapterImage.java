@@ -115,7 +115,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         int max = args.getInt("max");
 
                         if ("application/pdf".equals(type)) {
-                            // https://medium.com/@aditya09tyagi/android-pdf-reader-using-pdfrenderer-6daa2dacec1a
+                            // https://developer.android.com/reference/android/graphics/pdf/PdfRenderer
                             try (ParcelFileDescriptor pfd = ParcelFileDescriptor.open(file, ParcelFileDescriptor.MODE_READ_ONLY)) {
                                 try (PdfRenderer pdf = new PdfRenderer(pfd)) {
                                     try (PdfRenderer.Page page = pdf.openPage(0)) {
@@ -128,6 +128,9 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                                         return new BitmapDrawable(context.getResources(), bm);
                                     }
                                 }
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                                return null;
                             }
                         } else {
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
