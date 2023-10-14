@@ -25,6 +25,13 @@ import android.os.Build;
 @TargetApi(Build.VERSION_CODES.N)
 public class ServiceTileClear extends ServiceTileBase {
     public void onClick() {
-        startActivityAndCollapse(ActivityClear.getIntent(this));
+        try {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+                startActivityAndCollapse(ActivityClear.getIntent(this));
+            else
+                startActivityAndCollapse(ActivityClear.getPendingIntent(this));
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 }

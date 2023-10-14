@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -59,5 +60,10 @@ public class ActivityClear extends ActivityBase {
         return new Intent(context, ActivityClear.class)
                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
                         Intent.FLAG_ACTIVITY_CLEAR_TASK);
+    }
+
+    static PendingIntent getPendingIntent(Context context) {
+        return PendingIntentCompat.getActivity(
+                context, 0, getIntent(context), PendingIntent.FLAG_UPDATE_CURRENT);
     }
 }
