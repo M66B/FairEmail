@@ -58,19 +58,19 @@ import java.util.List;
 
 public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> {
     private Fragment parentFragment;
-    private Context context;
-    private LayoutInflater inflater;
-    private LifecycleOwner owner;
+    private final Context context;
+    private final LayoutInflater inflater;
+    private final LifecycleOwner owner;
 
     private List<EntityAttachment> items = new ArrayList<>();
 
     private static final int PDF_WIDTH = 120;
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
-        private View view;
-        private ImageView ivImage;
-        private TextView tvCaption;
-        private TextView tvProperties;
+        private final View view;
+        private final ImageView ivImage;
+        private final TextView tvCaption;
+        private final TextView tvProperties;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -390,8 +390,8 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
     }
 
     private static class DiffCallback extends DiffUtil.Callback {
-        private List<EntityAttachment> prev = new ArrayList<>();
-        private List<EntityAttachment> next = new ArrayList<>();
+        private final List<EntityAttachment> prev = new ArrayList<>();
+        private final List<EntityAttachment> next = new ArrayList<>();
 
         DiffCallback(List<EntityAttachment> prev, List<EntityAttachment> next) {
             this.prev.addAll(prev);

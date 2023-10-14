@@ -550,6 +550,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_navbar_colorize">Android gezinme çubuğunu renklendirin</string>
     <string name="title_advanced_list_count">Eylem çubuğunda mesaj veya sohbet sayısını göster</string>
     <string name="title_advanced_bundled_fonts">Birlikte verilen yazı tiplerini kullan</string>
+    <string name="title_advanced_narrow_fonts">Dar yazı tipleri kullan</string>
     <string name="title_advanced_parse_classes">CSS\'i çözümle</string>
     <string name="title_advanced_authentication">Kimlik doğrulama uyarılarını göster</string>
     <string name="title_advanced_authentication_hint">Temel kontroller, alma ayarlarında yapılandırılabilir</string>
@@ -570,6 +571,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_double_tap">İletiyi okundu/okunmadı olarak işaretlemek için iki kez dokunun</string>
     <string name="title_advanced_swipenav">Sonraki / önceki sohbete gitmek için sola / sağa kaydırın</string>
     <string name="title_advanced_volumenav">Sonraki/önceki sohbete gitmek için ses arttırma/azaltma butonunu kullan</string>
+    <string name="title_advanced_up_down">Sonraki/önceki görüşme için yukarı/aşağı okları kullan</string>
     <string name="title_advanced_reversed">Gezinti yönünü tersine çevir</string>
     <string name="title_advanced_swipe_close">Sohbeti kapatmak için aşağı kaydır</string>
     <string name="title_advanced_swipe_move">Sohbeti taşımak için yukarı kaydır</string>
@@ -871,6 +873,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_identity_reply_to">Yanıtlama adresi</string>
     <string name="title_identity_internal">Dahili alan adları (virgülle ayrılmış)</string>
     <string name="title_identity_uri">Kişiyi bağla</string>
+    <string name="title_identity_sensitivity">Varsayılan hassasiyet</string>
     <string name="title_identity_unicode">Mesaj başlıklarında UTF-8\'e izin ver</string>
     <string name="title_identity_unicode_remark">Çoğu sunucu bunu desteklemiyor</string>
     <string name="title_identity_octetmime">8BITMIME\'e izin ver</string>
@@ -1145,6 +1148,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_print_header">Başlığı yazdır</string>
     <string name="title_print_images">Resimleri yazdır</string>
     <string name="title_print_images_remark">Resimleri indirmek biraz zaman alabilir</string>
+    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Blok tırnak satırlarını yazdır</string>
     <string name="title_show_headers">Başlıkları Göster</string>
     <string name="title_share_as_html">HTML olarak paylaş</string>
     <string name="title_raw_save">Ham iletiyi kaydet</string>
@@ -1579,6 +1583,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_answer_placeholder_firstname">Gönderenin ilk adı</string>
     <string name="title_answer_placeholder_lastname">Gönderenin soyadı</string>
     <string name="title_answer_placeholder_date">Geçerli tarih</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Haftanın günü</string>
     <string name="title_rule_noop">Eylem yok</string>
     <string name="title_rule_seen">Okundu olarak işaretle</string>
     <string name="title_rule_unseen">Okunmadı olarak işaretle</string>
@@ -1650,7 +1655,9 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_keyword_missing">Anahtar kelime eksik</string>
     <string name="title_rule_automation_hint">%1$s gönderme isteğinizi %2$s ekleyerek gönderecek</string>
     <string name="title_rule_notes_missing">Yerel notlar eksik</string>
+    <string name="title_rule_url_missing">URL eksik veya geçersiz</string>
     <string name="title_rule_delete_hint">Kalıcı silme işlemi geri alınamaz, bu nedenle kural koşullarının doğru olduğundan emin olun!</string>
+    <string name="title_rule_url_hint">Şu yer tutucuları kullanabilirsiniz: %1$s</string>
     <string name="title_rule_edit_group">Grubu düzenle &#8230;</string>
     <string name="title_rule_execute">Şimdi çalıştır</string>
     <string name="title_rule_applied">Etkilenen iletiler: %1$d</string>
@@ -1933,6 +1940,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_debug_info_contact">Bu sorun hakkında yakın zamanda haberleşmiştik</string>
     <string name="title_debug_info_send">Hemen gönder</string>
     <string name="title_debug_info_send_remark">Normalde hata ayıklama bilgisi önce taslak mesaj olarak saklanır, böylece ne gönderileceğini kontrol edebilirsiniz</string>
+    <string name="title_debug_info_question">Sadece bir sorunuz varsa lütfen bilgi düğmesini kullanın</string>
     <string name="title_unexpected_info_remark">Lütfen hatayı aldığınızda ne yaptığınızı açıklayın:</string>
     <string name="title_widget_title_count">Yeni mesaj sayısı</string>
     <string name="title_widget_title_list">Mesaj listesi</string>
