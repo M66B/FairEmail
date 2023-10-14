@@ -117,6 +117,10 @@ public class EntityAttachment {
         return ImageHelper.isImage(getMimeType());
     }
 
+    boolean isPDF() {
+        return "application/pdf".equals(getMimeType());
+    }
+
     boolean isCompressed() {
         if ("application/zip".equals(type))
             return true;
