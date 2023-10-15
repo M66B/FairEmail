@@ -1256,11 +1256,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
             boolean reverse = (outgoing && viewType != ViewType.THREAD &&
-                    (EntityFolder.isOutgoing(type) ||
-                            EntityFolder.isOutgoing(message.folderInheritedType) ||
-                            viewType == ViewType.SEARCH ||
-                            (viewType == ViewType.UNIFIED && type == null && message.folderUnified) ||
-                            (viewType == ViewType.FOLDER && EntityFolder.INBOX.equals(type) && message.folderUnified)));
+                    (EntityFolder.isOutgoing(type) || viewType == ViewType.SEARCH)) ||
+                    (viewType == ViewType.UNIFIED && type == null && message.folderUnified && outgoing) ||
+                    EntityFolder.isOutgoing(message.folderInheritedType);
             String selector = (reverse ? null : message.bimi_selector);
             Address[] addresses = (reverse ? message.to : (message.isForwarder() ? message.submitter : message.from));
             Address[] senders = ContactInfo.fillIn(
