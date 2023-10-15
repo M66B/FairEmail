@@ -23,6 +23,7 @@ import static android.app.Activity.RESULT_OK;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -34,16 +35,21 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.OnLifecycleEvent;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -80,6 +86,7 @@ public class FragmentContacts extends FragmentBase {
     private boolean junk = false;
     private String searching = null;
     private long selected_account;
+    private boolean deleting = false;
 
     private AdapterContact adapter;
 
@@ -127,6 +134,90 @@ public class FragmentContacts extends FragmentBase {
         adapter = new AdapterContact(this);
         rvContacts.setAdapter(adapter);
 
+        ItemTouchHelper.Callback touchHelper = new ItemTouchHelper.Callback() {
+            @Override
+            public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+                return makeMovementFlags(0, ItemTouchHelper.LEFT);
+            }
+
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                try {
+                    int pos = viewHolder.getAdapterPosition();
+                    long id = adapter.getItemId(pos);
+
+                    if (deleting)
+                        delete(id);
+                    else {
+                        adapter.notifyItemChanged(pos);
+
+                        Context context = getContext();
+                        if (context == null)
+                            return;
+
+                        LayoutInflater inflater = LayoutInflater.from(context);
+                        View dview = inflater.inflate(R.layout.dialog_contact_delete, null);
+                        CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
+
+                        cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                            @Override
+                            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                deleting = isChecked;
+                            }
+                        });
+
+                        new AlertDialog.Builder(context)
+                                .setView(dview)
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        delete(id);
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.cancel, null)
+                                .show();
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+            }
+
+            private void delete(long id) {
+                Bundle args = new Bundle();
+                args.putLong("id", id);
+
+                new SimpleTask<Integer>() {
+                    @Override
+                    protected Integer onExecute(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
+
+                        DB db = DB.getInstance(context);
+                        return db.contact().deleteContact(id);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Integer count) {
+                        if (count <= 0 && adapter != null)
+                            adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.e(ex);
+                        if (adapter != null)
+                            adapter.notifyDataSetChanged();
+                    }
+                }.execute(FragmentContacts.this, args, "contact:delete");
+            }
+        };
+
+        new ItemTouchHelper(touchHelper).attachToRecyclerView(rvContacts);
+
         // Initialize
         grpReady.setVisibility(View.GONE);
         pbWait.setVisibility(View.VISIBLE);
@@ -140,6 +231,7 @@ public class FragmentContacts extends FragmentBase {
         outState.putBoolean("fair:junk", junk);
         outState.putString("fair:searching", searching);
         outState.putLong("fair:selected_account", selected_account);
+        outState.putBoolean("fair:deleting", deleting);
         super.onSaveInstanceState(outState);
     }
 
@@ -152,6 +244,7 @@ public class FragmentContacts extends FragmentBase {
             junk = savedInstanceState.getBoolean("fair:junk");
             searching = savedInstanceState.getString("fair:searching");
             selected_account = savedInstanceState.getLong("fair:selected_account");
+            deleting = savedInstanceState.getBoolean("fair:deleting");
 
             if (account < 0)
                 account = null;

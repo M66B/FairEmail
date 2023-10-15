@@ -1287,6 +1287,7 @@
     <string name="title_delete_channel">Delete notification channel</string>
     <string name="title_insert_contact">Add contact</string>
     <string name="title_edit_contact">Edit contact</string>
+    <string name="title_delete_contact">Delete contact?</string>
     <string name="title_contact_email">Email</string>
     <string name="title_contact_name">Name</string>
     <string name="title_contact_group">Group</string>

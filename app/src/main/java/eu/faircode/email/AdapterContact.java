@@ -557,6 +557,8 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
 
     @Override
     public long getItemId(int position) {
+        if (position < 0 || position >= selected.size())
+            return -1L;
         return selected.get(position).id;
     }
 
