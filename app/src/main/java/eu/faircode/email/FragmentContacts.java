@@ -21,11 +21,16 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_OK;
 
+import static androidx.recyclerview.widget.RecyclerView.NO_POSITION;
+
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -34,6 +39,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -45,6 +51,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.Observer;
@@ -143,6 +150,54 @@ public class FragmentContacts extends FragmentBase {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
+            }
+
+            @Override
+            public void onChildDraw(
+                    @NonNull Canvas canvas, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
+                    float dX, float dY, int actionState, boolean isCurrentlyActive) {
+                super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+
+                Context context = getContext();
+                if (context == null)
+                    return;
+
+                AdapterContact.ViewHolder holder = ((AdapterContact.ViewHolder) viewHolder);
+                Rect rect = holder.getItemRect();
+                int margin = Helper.dp2pixels(context, 12);
+                int size = Helper.dp2pixels(context, 24);
+
+                Drawable d = ContextCompat.getDrawable(context, R.drawable.twotone_delete_forever_24).mutate();
+                d.setTint(Helper.resolveColor(context, android.R.attr.textColorSecondary));
+
+                int half = rect.width() / 2;
+                if (dX > 0) {
+                    // Right swipe
+                    if (dX < half)
+                        d.setAlpha(Math.round(255 * Math.min(dX / (2 * margin + size), 1.0f)));
+                    else
+                        d.setAlpha(Math.round(255 * (1.0f - (dX - half) / half)));
+                    int padding = (rect.height() - size);
+                    d.setBounds(
+                            rect.left + margin,
+                            rect.top + padding / 2,
+                            rect.left + margin + size,
+                            rect.top + padding / 2 + size);
+                    d.draw(canvas);
+                } else if (dX < 0) {
+                    // Left swipe
+                    if (-dX < half)
+                        d.setAlpha(Math.round(255 * Math.min(-dX / (2 * margin + size), 1.0f)));
+                    else
+                        d.setAlpha(Math.round(255 * (1.0f - (-dX - half) / half)));
+                    int padding = (rect.height() - size);
+                    d.setBounds(
+                            rect.left + rect.width() - size - margin,
+                            rect.top + padding / 2,
+                            rect.left + rect.width() - margin,
+                            rect.top + padding / 2 + size);
+                    d.draw(canvas);
+                }
             }
 
             @Override

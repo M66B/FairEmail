@@ -27,6 +27,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
@@ -110,6 +111,14 @@ public class AdapterContact extends RecyclerView.Adapter<AdapterContact.ViewHold
             tvTimes = itemView.findViewById(R.id.tvTimes);
             tvLast = itemView.findViewById(R.id.tvLast);
             ivFavorite = itemView.findViewById(R.id.ivFavorite);
+        }
+
+        Rect getItemRect() {
+            return new Rect(
+                    super.itemView.getLeft(),
+                    super.itemView.getTop(),
+                    super.itemView.getRight(),
+                    super.itemView.getBottom());
         }
 
         private void wire() {
