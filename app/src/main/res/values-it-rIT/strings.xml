@@ -1591,6 +1591,7 @@
     <string name="title_answer_placeholder_firstname">Nome del mittente</string>
     <string name="title_answer_placeholder_lastname">Cognome del mittente</string>
     <string name="title_answer_placeholder_date">Data corrente</string>
+    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Giorno della settimana</string>
     <string name="title_rule_noop">Nessun\'azione</string>
     <string name="title_rule_seen">Segna come letto</string>
     <string name="title_rule_unseen">Segna come non letto</string>
