@@ -6,6 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
+### 1.2112 - 2023-10-16
+
+* Small improvements and minor bug fixes
+
 ### 1.2111 - 2023-10-16
 
 * Added swipe to delete local contacts
