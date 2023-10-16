@@ -29,7 +29,8 @@
             android:contentDescription="2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvMessage"
-            app:srcCompat="@drawable/twotone_looks_two_24" />
+            app:srcCompat="@drawable/twotone_looks_two_24"
+            app:tint="?android:attr/textColorPrimary" />
 
         <TextView
             android:id="@+id/title2"
@@ -40,6 +41,7 @@
             android:paddingTop="3dp"
             android:text="@string/title_setup_permissions"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/two"
@@ -73,7 +75,8 @@
             android:contentDescription="3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvNotificationPermissions"
-            app:srcCompat="@drawable/twotone_looks_3_24" />
+            app:srcCompat="@drawable/twotone_looks_3_24"
+            app:tint="?android:attr/textColorPrimary" />
 
         <TextView
             android:id="@+id/title3"
@@ -84,6 +87,7 @@
             android:paddingTop="3dp"
             android:text="@string/title_setup_doze"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="?android:attr/textColorPrimary"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/three"
@@ -106,11 +110,11 @@
             android:layout_marginTop="12dp"
             android:drawableEnd="@drawable/twotone_open_in_new_12"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
             android:text="@string/title_setup_doze_device"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDoze" />
 
@@ -121,11 +125,12 @@
             android:layout_marginTop="12dp"
             android:drawableStart="@drawable/twotone_warning_24"
             android:drawablePadding="6dp"
-            app:drawableTint="?attr/colorWarning"
+            android:drawableTint="?attr/colorWarning"
             android:text="@string/title_setup_alarm_12"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
             android:textStyle="bold"
+            app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvDozeDevice" />
 
