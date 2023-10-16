@@ -68,6 +68,8 @@ public class FragmentOptions extends FragmentBase {
     private String searching = null;
     private SuggestData data = null;
 
+    private int dp24;
+
     static final long DELAY_SETOPTIONS = 20; // ms
 
     private static final int[] TAB_PAGES = {
@@ -172,6 +174,13 @@ public class FragmentOptions extends FragmentBase {
     public void onSaveInstanceState(Bundle outState) {
         outState.putString("fair:searching", searching);
         super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Context context = getContext();
+        this.dp24 = (context == null ? -48 : Helper.dp2pixels(context, 24));
     }
 
     @Override
@@ -296,7 +305,7 @@ public class FragmentOptions extends FragmentBase {
                     FragmentBase fragment = (FragmentBase) adapter.instantiateItem(pager, tab);
                     if (fragment instanceof FragmentSetup)
                         ((FragmentSetup) fragment).prepareSearch();
-                    fragment.scrollTo(resid, -48);
+                    fragment.scrollTo(resid, -dp24);
                     menuSearch.collapseActionView();
 
                     // Blink found text
