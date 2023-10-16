@@ -1259,7 +1259,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     (EntityFolder.isOutgoing(type) || viewType == ViewType.SEARCH)) ||
                     (viewType == ViewType.UNIFIED && type == null &&
                             message.folderUnified && outgoing) ||
-                    (viewType == ViewType.FOLDER && EntityFolder.INBOX.equals(type) &&
+                    (viewType == ViewType.FOLDER &&
                             message.folderUnified && outgoing) ||
                     EntityFolder.isOutgoing(message.folderInheritedType);
             String selector = (reverse ? null : message.bimi_selector);
