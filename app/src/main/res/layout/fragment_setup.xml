@@ -69,8 +69,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/intro_two"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/intro"
-                    app:srcCompat="@drawable/twotone_looks_one_24"
-                    app:tint="?android:attr/textColorPrimary" />
+                    app:srcCompat="@drawable/twotone_looks_one_24" />
 
                 <ImageView
                     android:id="@+id/intro_two"
@@ -82,8 +81,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/intro_three"
                     app:layout_constraintStart_toEndOf="@+id/intro_one"
                     app:layout_constraintTop_toBottomOf="@id/intro"
-                    app:srcCompat="@drawable/twotone_looks_two_24"
-                    app:tint="?android:attr/textColorPrimary" />
+                    app:srcCompat="@drawable/twotone_looks_two_24" />
 
                 <ImageView
                     android:id="@+id/intro_three"
@@ -95,8 +93,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/intro_two"
                     app:layout_constraintTop_toBottomOf="@id/intro"
-                    app:srcCompat="@drawable/twotone_looks_3_24"
-                    app:tint="?android:attr/textColorPrimary" />
+                    app:srcCompat="@drawable/twotone_looks_3_24" />
 
                 <TextView
                     android:id="@+id/simple"
