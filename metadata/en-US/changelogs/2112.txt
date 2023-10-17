@@ -9,6 +9,7 @@ Vallibonavenatrix
 Next version
 
 * Added option suggest local contacts for the current account only
+* Android 14: using Material You background color
 * Small improvements and minor bug fixes
 * Updated translations
 
