@@ -136,27 +136,25 @@
             android:id="@+id/tvYou200_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:background="@android:color/system_accent2_200"
             android:gravity="center"
             android:text="2/200"
             android:textColor="@android:color/system_neutral1_800"
             app:layout_constraintEnd_toStartOf="@+id/tvYou200_3"
             app:layout_constraintStart_toEndOf="@+id/tvYou200_1"
-            app:layout_constraintTop_toBottomOf="@id/tvYou" />
+            app:layout_constraintTop_toTopOf="@id/tvYou200_1" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvYou200_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:background="@android:color/system_accent3_200"
             android:gravity="center"
             android:text="3/200"
             android:textColor="@android:color/system_neutral2_800"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvYou200_2"
-            app:layout_constraintTop_toBottomOf="@id/tvYou" />
+            app:layout_constraintTop_toTopOf="@id/tvYou200_1" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvYou500_1"
@@ -180,7 +178,7 @@
             android:textColor="@android:color/system_neutral1_100"
             app:layout_constraintEnd_toStartOf="@+id/tvYou500_3"
             app:layout_constraintStart_toEndOf="@+id/tvYou500_1"
-            app:layout_constraintTop_toBottomOf="@id/tvYou200_1" />
+            app:layout_constraintTop_toTopOf="@id/tvYou500_1" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvYou500_3"
@@ -192,7 +190,7 @@
             android:textColor="@android:color/system_neutral2_100"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvYou500_2"
-            app:layout_constraintTop_toBottomOf="@id/tvYou200_1" />
+            app:layout_constraintTop_toTopOf="@id/tvYou500_1" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvYou800_1"
@@ -216,7 +214,7 @@
             android:textColor="@android:color/system_neutral1_200"
             app:layout_constraintEnd_toStartOf="@+id/tvYou800_3"
             app:layout_constraintStart_toEndOf="@+id/tvYou800_1"
-            app:layout_constraintTop_toBottomOf="@id/tvYou500_1" />
+            app:layout_constraintTop_toTopOf="@id/tvYou800_1" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvYou800_3"
@@ -228,7 +226,7 @@
             android:textColor="@android:color/system_neutral2_200"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvYou800_2"
-            app:layout_constraintTop_toBottomOf="@id/tvYou500_1" />
+            app:layout_constraintTop_toTopOf="@id/tvYou800_1" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvPrimary"
@@ -252,7 +250,7 @@
             android:textColor="?android:attr/textColorSecondary"
             app:layout_constraintEnd_toStartOf="@+id/tvTertiary"
             app:layout_constraintStart_toEndOf="@+id/tvPrimary"
-            app:layout_constraintTop_toBottomOf="@id/tvYou800_3" />
+            app:layout_constraintTop_toTopOf="@id/tvPrimary" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvTertiary"
@@ -263,7 +261,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvSecondary"
-            app:layout_constraintTop_toBottomOf="@id/tvYou800_3" />
+            app:layout_constraintTop_toTopOf="@id/tvPrimary" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvNormal"
@@ -289,7 +287,7 @@
             android:textStyle="italic"
             app:layout_constraintEnd_toStartOf="@+id/tvBold"
             app:layout_constraintStart_toEndOf="@+id/tvNormal"
-            app:layout_constraintTop_toBottomOf="@id/tvSecondary" />
+            app:layout_constraintTop_toTopOf="@id/tvNormal" />
 
         <eu.faircode.email.FixedTextView
             android:id="@+id/tvBold"
@@ -302,7 +300,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tvItalic"
-            app:layout_constraintTop_toBottomOf="@id/tvTertiary" />
+            app:layout_constraintTop_toTopOf="@id/tvNormal" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swReverse"
