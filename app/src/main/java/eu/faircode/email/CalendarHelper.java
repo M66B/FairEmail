@@ -100,15 +100,12 @@ public class CalendarHelper {
 
     static Long insert(Context context, ICalendar icalendar, VEvent event, int status,
                        String selectedAccount, String selectedName, EntityMessage message) {
+        Long existId = null;
         String uid = (event.getUid() == null ? null : event.getUid().getValue());
         if (!TextUtils.isEmpty(uid)) {
-            Long existId = exists(context, selectedAccount, selectedName, uid);
+            existId = exists(context, selectedAccount, selectedName, uid);
             if (existId != null) {
                 EntityLog.log(context, EntityLog.Type.General, message, "Event exists uid=" + uid + " id=" + existId);
-                if (BuildConfig.DEBUG)
-                    delete(context, event, message);
-                else
-                    return existId;
             }
         }
 
@@ -186,19 +183,53 @@ public class CalendarHelper {
                     values.put(CalendarContract.Events.EVENT_LOCATION, location);
                 values.put(CalendarContract.Events.STATUS, status);
 
-                Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
-                long eventId = Long.parseLong(uri.getLastPathSegment());
-                EntityLog.log(context, EntityLog.Type.General, message, "Inserted event" +
-                        " id=" + calId + ":" + eventId +
-                        " uid=" + uid +
-                        " organizer=" + organizer +
-                        " tz=" + (tz == null ? null : tz.getID()) +
-                        " start=" + new Date(start.getTime()) +
-                        " end=" + new Date(end.getTime()) +
-                        " rrule=" + rrule +
-                        " summary=" + summary +
-                        " location=" + location +
-                        " status=" + status);
+                long eventId;
+                if (existId == null) {
+                    Uri uri = resolver.insert(CalendarContract.Events.CONTENT_URI, values);
+                    eventId = Long.parseLong(uri.getLastPathSegment());
+                    EntityLog.log(context, EntityLog.Type.General, message, "Inserted event" +
+                            " id=" + calId + ":" + eventId +
+                            " uid=" + uid +
+                            " organizer=" + organizer +
+                            " tz=" + (tz == null ? null : tz.getID()) +
+                            " start=" + new Date(start.getTime()) +
+                            " end=" + new Date(end.getTime()) +
+                            " rrule=" + rrule +
+                            " summary=" + summary +
+                            " location=" + location +
+                            " status=" + status);
+                } else {
+                    Uri uri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, existId);
+                    int rows = resolver.update(uri, values, null, null);
+                    EntityLog.log(context, EntityLog.Type.General, message, "Updated event" +
+                            " id=" + calId + ":" + existId +
+                            " uid=" + uid +
+                            " organizer=" + organizer +
+                            " tz=" + (tz == null ? null : tz.getID()) +
+                            " start=" + new Date(start.getTime()) +
+                            " end=" + new Date(end.getTime()) +
+                            " rrule=" + rrule +
+                            " summary=" + summary +
+                            " location=" + location +
+                            " status=" + status +
+                            " rows=" + rows);
+
+                    rows = resolver.delete(CalendarContract.Attendees.CONTENT_URI,
+                            CalendarContract.Attendees.EVENT_ID + " = ?",
+                            new String[]{Long.toString(existId)});
+                    EntityLog.log(context, EntityLog.Type.General, message, "Deleted event attendees for update" +
+                            " id=" + calId + ":" + existId +
+                            " rows=" + rows);
+
+                    rows = resolver.delete(CalendarContract.Reminders.CONTENT_URI,
+                            CalendarContract.Reminders.EVENT_ID + " = ?",
+                            new String[]{Long.toString(existId)});
+                    EntityLog.log(context, EntityLog.Type.General, message, "Deleted event reminders for update" +
+                            " id=" + calId + ":" + existId +
+                            " rows=" + rows);
+
+                    eventId = existId;
+                }
 
                 for (Attendee a : event.getAttendees())
                     try {
@@ -240,7 +271,7 @@ public class CalendarHelper {
 
                         Uri auri = resolver.insert(CalendarContract.Attendees.CONTENT_URI, avalues);
                         long attendeeId = Long.parseLong(auri.getLastPathSegment());
-                        EntityLog.log(context, EntityLog.Type.General, message, "Inserted attendee" +
+                        EntityLog.log(context, EntityLog.Type.General, message, "Inserted event attendee" +
                                 " id=" + eventId + ":" + attendeeId +
                                 " email=" + email +
                                 " name=" + name +

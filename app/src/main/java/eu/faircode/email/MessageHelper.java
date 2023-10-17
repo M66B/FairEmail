@@ -4444,10 +4444,9 @@ public class MessageHelper {
                 VEvent event = icalendar.getEvents().get(0);
 
                 // https://www.rfc-editor.org/rfc/rfc5546#section-3.2
-                if (method == null || method.isRequest() || method.isCancel())
+                if (method != null && method.isCancel())
                     CalendarHelper.delete(context, event, message);
-
-                if (method == null || method.isRequest()) {
+                else if (method == null || method.isRequest()) {
                     String selectedAccount;
                     String selectedName;
                     try {
@@ -4463,7 +4462,8 @@ public class MessageHelper {
                     CalendarHelper.insert(context, icalendar, event,
                             CalendarContract.Events.STATUS_TENTATIVE,
                             selectedAccount, selectedName, message);
-                }
+                } else
+                    EntityLog.log(context, "Unknown event method=" + method.getValue());
             } catch (Throwable ex) {
                 Log.w(ex);
                 db.attachment().setWarning(local.id, Log.formatThrowable(ex));
