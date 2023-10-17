@@ -2594,6 +2594,31 @@ public class HtmlHelper {
     private static String _getText(Document d) {
         truncate(d, MAX_FULL_TEXT_SIZE);
 
+        for (Element e : d.select("*")) {
+            String style = e.attr("style");
+            if (TextUtils.isEmpty(style))
+                continue;
+
+            String[] params = style.split(";");
+            for (String param : params) {
+                int colon = param.indexOf(':');
+                if (colon <= 0)
+                    continue;
+                String key = param.substring(0, colon)
+                        .trim()
+                        .toLowerCase(Locale.ROOT);
+                String value = param.substring(colon + 1)
+                        .replace("!important", "")
+                        .trim()
+                        .toLowerCase(Locale.ROOT)
+                        .replaceAll("\\s+", " ");
+                if ("display".equals(key) && "none".equals(value)) {
+                    e.remove();
+                    break;
+                }
+            }
+        }
+
         for (Element bq : d.select("blockquote"))
             bq.prependChild(new TextNode("> "));
 
