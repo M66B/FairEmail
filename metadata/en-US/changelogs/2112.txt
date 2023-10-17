@@ -6,7 +6,7 @@ For support you can use the contact form.
 
 Vallibonavenatrix
 
-1.2112 - 2023-10-16
+1.2112 - 2023-10-16 *
 
 * Small improvements and minor bug fixes
 
@@ -66,7 +66,7 @@ Vallibonavenatrix
 * Updated Public Suffix List
 * Updated translations
 
-1.2103 - 2023-09-18
+1.2103 - 2023-09-18 *
 
 * Small improvements and minor bug fixes
 * Updated translations
