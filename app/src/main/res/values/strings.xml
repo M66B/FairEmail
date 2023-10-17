@@ -448,6 +448,7 @@
     <string name="title_advanced_suggest_sent">Suggest addresses found in sent messages</string>
     <string name="title_advanced_suggest_received">Suggest addresses found in received messages</string>
     <string name="title_advanced_suggest_frequently">Sort suggested addresses on frequency of use</string>
+    <string name="title_advanced_suggest_account">Limit suggestions to current account</string>
     <string name="title_advanced_alt_re_fwd">Alternative reply/forward prefix</string>
     <string name="title_advanced_send_chips">Show address bubbles</string>
     <string name="title_advanced_send_nav_color">Use the identity color for the bottom action bar</string>
@@ -967,6 +968,7 @@
 
     <string name="title_advanced_suggest_names_hint">If disabled, only email addresses will be used when selecting contacts</string>
     <string name="title_advanced_suggest_local_hint">In addition to contacts provided by Android. Contact data will be stored for newly sent or received messages only when enabled.</string>
+    <string name="title_advanced_suggest_account_hint">This only applies to local contacts because contacts in the Android address book are not linked to specific accounts</string>
     <string name="title_advanced_auto_identity_hint">This will select the last identity used when selecting a recipient for new messages</string>
     <string name="title_advanced_send_reminders_hint">Show a warning when the message text or the subject is empty or when an attachment might be missing</string>
     <string name="title_advanced_reply_move_hint">The email server could still add the messages to the sent message folder</string>

@@ -69,6 +69,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSuggestSent;
     private SwitchCompat swSuggestReceived;
     private SwitchCompat swSuggestFrequently;
+    private SwitchCompat swSuggestAccount;
     private SwitchCompat swAutoIdentity;
     private Button btnLocalContacts;
     private SwitchCompat swSendChips;
@@ -121,7 +122,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
 
     private final static String[] RESET_OPTIONS = new String[]{
             "keyboard", "keyboard_no_fullscreen",
-            "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently", "auto_identity",
+            "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently", "suggest_account", "auto_identity",
             "send_reminders", "send_chips", "send_nav_color", "send_pending",
             "auto_save_paragraph", "auto_save_dot", "discard_delete",
             "send_delayed",
@@ -156,6 +157,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swSuggestSent = view.findViewById(R.id.swSuggestSent);
         swSuggestReceived = view.findViewById(R.id.swSuggestReceived);
         swSuggestFrequently = view.findViewById(R.id.swSuggestFrequently);
+        swSuggestAccount = view.findViewById(R.id.swSuggestAccount);
         swAutoIdentity = view.findViewById(R.id.swAutoIdentity);
         btnLocalContacts = view.findViewById(R.id.btnLocalContacts);
         swSendChips = view.findViewById(R.id.swSendChips);
@@ -261,6 +263,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("suggest_sent", checked).apply();
                 swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
+                swSuggestAccount.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
                 swAutoIdentity.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
             }
         });
@@ -270,6 +273,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("suggest_received", checked).apply();
                 swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
+                swSuggestAccount.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
                 swAutoIdentity.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
             }
         });
@@ -278,6 +282,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("suggest_frequently", checked).apply();
+            }
+        });
+
+        swSuggestAccount.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("suggest_account", checked).apply();
             }
         });
 
@@ -762,6 +773,8 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             swSuggestReceived.setChecked(prefs.getBoolean("suggest_received", false));
             swSuggestFrequently.setChecked(prefs.getBoolean("suggest_frequently", false));
             swSuggestFrequently.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
+            swSuggestAccount.setChecked(prefs.getBoolean("suggest_account", false));
+            swSuggestAccount.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
             swAutoIdentity.setChecked(prefs.getBoolean("auto_identity", false));
             swAutoIdentity.setEnabled(swSuggestSent.isChecked() || swSuggestReceived.isChecked());
             swSendChips.setChecked(prefs.getBoolean("send_chips", true));

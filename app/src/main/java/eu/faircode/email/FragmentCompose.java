@@ -299,6 +299,7 @@ public class FragmentCompose extends FragmentBase {
     private boolean lt_sentence;
     private boolean lt_auto;
 
+    private Long account = null;
     private long working = -1;
     private State state = State.NONE;
     private boolean show_images = false;
@@ -445,6 +446,7 @@ public class FragmentCompose extends FragmentBase {
         final boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
         final boolean suggest_received = prefs.getBoolean("suggest_received", false);
         final boolean suggest_frequently = prefs.getBoolean("suggest_frequently", false);
+        final boolean suggest_account = prefs.getBoolean("suggest_account", false);
         final boolean cc_bcc = prefs.getBoolean("cc_bcc", false);
         final boolean circular = prefs.getBoolean("circular", true);
 
@@ -1236,9 +1238,11 @@ public class FragmentCompose extends FragmentBase {
 
                     List<EntityContact> items = new ArrayList<>();
                     if (suggest_sent)
-                        items.addAll(db.contact().searchContacts(null, EntityContact.TYPE_TO, wildcard));
+                        items.addAll(db.contact().searchContacts(
+                                suggest_account ? FragmentCompose.this.account : null, EntityContact.TYPE_TO, wildcard));
                     if (suggest_received)
-                        for (EntityContact item : db.contact().searchContacts(null, EntityContact.TYPE_FROM, wildcard))
+                        for (EntityContact item : db.contact().searchContacts(
+                                suggest_account ? FragmentCompose.this.account : null, EntityContact.TYPE_FROM, wildcard))
                             if (!MessageHelper.isNoReply(item.email))
                                 items.add(item);
                     for (EntityContact item : items) {
@@ -7868,6 +7872,7 @@ public class FragmentCompose extends FragmentBase {
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             final Context context = parent.getContext();
             TupleIdentityEx identity = (TupleIdentityEx) parent.getAdapter().getItem(position);
+            FragmentCompose.this.account = (identity == null ? null : identity.account);
 
             int at = (identity == null ? -1 : identity.email.indexOf('@'));
             etExtra.setHint(at < 0 ? null : identity.email.substring(0, at));
