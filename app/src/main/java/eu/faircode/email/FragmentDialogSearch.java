@@ -210,6 +210,8 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             public boolean onLongClick(View v) {
                 String text = ((TextView) v).getText().toString();
 
+                etQuery.setText(text);
+
                 ClipboardManager cbm = Helper.getSystemService(v.getContext(), ClipboardManager.class);
                 cbm.setPrimaryClip(ClipData.newPlainText(getString(R.string.app_name), text));
 
