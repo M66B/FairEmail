@@ -626,11 +626,12 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         boolean tabular_card_bg = prefs.getBoolean("tabular_card_bg", false);
         String theme = prefs.getString("theme", "blue_orange_system");
         boolean dark = Helper.isDarkTheme(context);
-        boolean solarized = (theme != null && theme.startsWith("solarized"));
-        boolean you = (theme != null && theme.startsWith("you_"));
+        boolean black = (!"black".equals(theme) && theme.endsWith("black"));
+        boolean solarized = theme.startsWith("solarized");
+        boolean you = theme.startsWith("you_");
 
         if (cards) {
-            if (you && Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+            if (you && !black && Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
                 view.setBackgroundColor(ContextCompat.getColor(context, dark
                         ? android.R.color.system_background_dark
                         : android.R.color.system_background_light));
