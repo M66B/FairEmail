@@ -631,7 +631,7 @@ public class FragmentDialogTheme extends FragmentDialogBase {
         boolean you = theme.startsWith("you_");
 
         if (cards) {
-            if (you && !black && Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+            if (you && (!dark || !black) && Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
                 view.setBackgroundColor(ContextCompat.getColor(context, dark
                         ? android.R.color.system_background_dark
                         : android.R.color.system_background_light));
