@@ -209,6 +209,7 @@
     <string name="title_setup_quick_smtp">SMTP server to send messages</string>
     <string name="title_setup_quick_certificates">Server certificates</string>
     <string name="title_setup_wizard">Wizard</string>
+    <string name="title_setup_wizard_intro">In most cases the wizard button can be used to add an account, otherwise the server addresses can be entered or changed manually using the manual setup option</string>
     <string name="title_setup_wizard_tutorials">Tutorials</string>
     <string name="title_setup_wizard_multiple">The wizard can be used multiple times to set up multiple accounts</string>
     <string name="title_setup_wizard_new">I need a new email address</string>
