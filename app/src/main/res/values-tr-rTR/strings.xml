@@ -1148,7 +1148,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_print_header">Başlığı yazdır</string>
     <string name="title_print_images">Resimleri yazdır</string>
     <string name="title_print_images_remark">Resimleri indirmek biraz zaman alabilir</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Blok tırnak satırlarını yazdır</string>
+    <string name="title_print_block_quotes">Blok tırnak satırlarını yazdır</string>
     <string name="title_show_headers">Başlıkları Göster</string>
     <string name="title_share_as_html">HTML olarak paylaş</string>
     <string name="title_raw_save">Ham iletiyi kaydet</string>
@@ -1583,7 +1583,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_answer_placeholder_firstname">Gönderenin ilk adı</string>
     <string name="title_answer_placeholder_lastname">Gönderenin soyadı</string>
     <string name="title_answer_placeholder_date">Geçerli tarih</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Haftanın günü</string>
+    <string name="title_answer_placeholder_weekday">Haftanın günü</string>
     <string name="title_rule_noop">Eylem yok</string>
     <string name="title_rule_seen">Okundu olarak işaretle</string>
     <string name="title_rule_unseen">Okunmadı olarak işaretle</string>

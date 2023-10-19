@@ -359,6 +359,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_suggest_sent">Sarankan alamat yang ditemukan dalam pesan terkirim</string>
     <string name="title_advanced_suggest_received">Sarankan alamat yang ditemukan dalam pesan yang diterima</string>
     <string name="title_advanced_suggest_frequently">Urutkan alamat yang disarankan pada frekuensi penggunaan</string>
+    <string name="title_advanced_suggest_account">Batasi saran untuk akun saat ini</string>
     <string name="title_advanced_alt_re_fwd">Awalan balasan/meneruskan cadangan</string>
     <string name="title_advanced_send_chips">Tampilkan bubbles alamat</string>
     <string name="title_advanced_send_nav_color">Gunakan warna penanda untuk bilah tindakan bagian bawah</string>
@@ -556,6 +557,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_double_tap">Ketuk dua kali untuk menandai pesan telah dibaca/belum dibaca</string>
     <string name="title_advanced_swipenav">Geser ke kiri/kanan untuk melihat percakapan berikutnya/sebelumnya</string>
     <string name="title_advanced_volumenav">Tombol volume naik/turun untuk melihat percakapan berikutnya/sebelumnya</string>
+    <string name="title_advanced_up_down">Gunakan tanda panah naik/turun untuk ke percakapan selanjutnya/sebelumnya</string>
     <string name="title_advanced_reversed">Arah navigasi terbalik</string>
     <string name="title_advanced_swipe_close">Geser ke bawah untuk menutup percakapan</string>
     <string name="title_advanced_swipe_move">Geser ke atas untuk memindahkan percakapan</string>
@@ -658,6 +660,9 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
 Contextrequest</string>
     <string name="title_advanced_clear_all">Hapus data aplikasi</string>
     <string name="title_advanced_clear_all_remark">Data aplikasi akan dihapus secara permanen!</string>
+    <string name="title_advanced_default_encryption">        Metode enkripsi default (PGP or S/MIME) akan disimpan per identitas setelah mengirim pesan yang ditandatangani atau dienkripsi.
+        Metode enkripsi dapat dipilih sebelum mengirim pada pengaturan kirim di kolom dialog (tekan lama tombol kirim).
+    </string>
     <string name="title_advanced_sign_default">Masuk secara bawaan</string>
     <string name="title_advanced_encrypt_default">Enkripsi secara bawaan</string>
     <string name="title_advanced_encrypt_auto">Enkripsi secara otomatis saat seluruh kunci penerima tersedia</string>
@@ -750,6 +755,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_pull_all_hint">Saat menarik folder atau daftar akun ke bawah</string>
     <string name="title_advanced_suggest_names_hint">Jika dinonaktifkan, hanya alamat email yang akan digunakan saat memilih kontak</string>
     <string name="title_advanced_suggest_local_hint">Selain kontak yang disediakan oleh Android. Data kontak akan disimpan untuk pesan yang baru dikirim atau diterima hanya ketika diaktifkan.</string>
+    <string name="title_advanced_suggest_account_hint">Ini hanya berlaku untuk daftar kontak lokal karena kontak di buku alamat Android tidak ditautkan ke akun tertentu</string>
     <string name="title_advanced_auto_identity_hint">Hal ini akan memilih identitas yang terakhir difunakan saat memilih penerima untuk pesan baru</string>
     <string name="title_advanced_send_reminders_hint">Menampilkan peringatan ketika teks pesan atau subjek kosong atau mungkin ketika lampiran pesan hilang</string>
     <string name="title_advanced_reply_move_hint">Server email bisa menambahkan pesan pada folder pesan terkirim</string>
@@ -1007,6 +1013,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_delete_channel">Hapus saluran pemberitahuan / notifikasi</string>
     <string name="title_insert_contact">Tambah kontak</string>
     <string name="title_edit_contact">Ubah kontak</string>
+    <string name="title_delete_contact">Hapus kontak?</string>
     <string name="title_contact_email">Surel</string>
     <string name="title_contact_name">Nama</string>
     <string name="title_contact_group">Kelompok</string>
@@ -1159,6 +1166,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_quick_actions_snooze">Tunda</string>
     <string name="title_quick_actions_clear">Hapus pilihan setelah aksi</string>
     <string name="title_trash">Sampah</string>
+    <string name="title_trash_selection">Pemilihan sampah</string>
     <string name="title_copy">Salin &#8230;</string>
     <string name="title_copy_to">Salin ke &#8230;</string>
     <string name="title_subscribe">Langganan</string>
@@ -1632,6 +1640,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_keyword_missing">Kata kunci hilang</string>
     <string name="title_rule_automation_hint">Ini akan mengirim inten \'%1$s\' dengan tambahan \'%2$s\'</string>
     <string name="title_rule_notes_missing">Catatan lokal hilang</string>
+    <string name="title_rule_url_missing">URL hilang atau tidak valid</string>
     <string name="title_rule_delete_hint">Penghapusan permanen tidak dapat dibatalkan, jadi pastikan kondisi aturan sudah benar!</string>
     <string name="title_rule_edit_group">Ubah grup &#8230;</string>
     <string name="title_rule_execute">Eksekusi sekarang</string>

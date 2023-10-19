@@ -389,6 +389,7 @@
     <string name="title_advanced_suggest_sent">Predloži adrese pronađene u poslanim porukama</string>
     <string name="title_advanced_suggest_received">Predloži adrese pronađene u primljenim porukama</string>
     <string name="title_advanced_suggest_frequently">Sortiraj predložene adrese prema učestalosti korištenja</string>
+    <string name="title_advanced_suggest_account">Ograniči sugestije na trenutni račun</string>
     <string name="title_advanced_alt_re_fwd">Alternativni prefiks za odgovor/prosljeđenje</string>
     <string name="title_advanced_send_chips">Prikaži balone s adresom</string>
     <string name="title_advanced_send_nav_color">Koristi boju identiteta za donju alatnu traku</string>
@@ -786,6 +787,7 @@
     <string name="title_advanced_pull_all_hint">Kada se povlači preko spiska foldera ili računa</string>
     <string name="title_advanced_suggest_names_hint">Ako je isključeno, koristit će se samo e-mail adrese pri izboru kontakata</string>
     <string name="title_advanced_suggest_local_hint">Pored kontakata koje pruža Android. Kontaktni podaci bit će čuvani za nove poslane ili primljene poruke samo kada je opcija uključena.</string>
+    <string name="title_advanced_suggest_account_hint">Ovo se primjenjuje samo na lokalne kontakte jer kontakti u Android adresaru nisu povezani sa specifičnim računima</string>
     <string name="title_advanced_auto_identity_hint">Ovim će se izabrati posljednji identitet korišten pri biranju primaoca novih poruka</string>
     <string name="title_advanced_send_reminders_hint">Prikazuje upozorenje kada su tekst poruke ili predmet prazni ili kada nedostaje prilog</string>
     <string name="title_advanced_reply_move_hint">E-mail server još može dodavati poruke u folder za poslane poruke</string>
@@ -1044,6 +1046,7 @@
     <string name="title_delete_channel">Izbriši kanal obavještenja</string>
     <string name="title_insert_contact">Dodaj kontakt</string>
     <string name="title_edit_contact">Uredi kontakt</string>
+    <string name="title_delete_contact">Izbrisati kontakt?</string>
     <string name="title_contact_email">E-pošta</string>
     <string name="title_contact_name">Naziv</string>
     <string name="title_contact_group">Grupa</string>
@@ -1166,7 +1169,7 @@
     <string name="title_print_header">Štampaj zaglavlje</string>
     <string name="title_print_images">Štampaj slike</string>
     <string name="title_print_images_remark">Preuzimanje slika može malo potrajati</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Štampanje blokova linija navodnika</string>
+    <string name="title_print_block_quotes">Štampanje blokova linija navodnika</string>
     <string name="title_show_headers">Prikaži zaglavlja</string>
     <string name="title_share_as_html">Podijeli kao HTML</string>
     <string name="title_raw_save">Sačuvaj raw poruku</string>
@@ -1198,6 +1201,7 @@
     <string name="title_quick_actions_snooze">Odgodi</string>
     <string name="title_quick_actions_clear">Deselekcija označenog nakon izvršene radnje</string>
     <string name="title_trash">Otpad</string>
+    <string name="title_trash_selection">Premjesti označeno u otpad</string>
     <string name="title_copy">Kopiraj &#8230;</string>
     <string name="title_copy_to">Kopiraj u &#8230;</string>
     <string name="title_subscribe">Pretplati se</string>
@@ -1604,7 +1608,7 @@
     <string name="title_answer_placeholder_firstname">Ime pošiljaoca</string>
     <string name="title_answer_placeholder_lastname">Prezime pošiljaoca</string>
     <string name="title_answer_placeholder_date">Trenutni datum</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Dan u sedmici</string>
+    <string name="title_answer_placeholder_weekday">Dan u sedmici</string>
     <string name="title_rule_noop">Bez radnji</string>
     <string name="title_rule_seen">Oznaci kao pročitano</string>
     <string name="title_rule_unseen">Označi kao nepročitano</string>

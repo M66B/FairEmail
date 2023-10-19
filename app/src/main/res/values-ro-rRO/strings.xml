@@ -177,6 +177,7 @@
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_quick_certificates">Certificate de server</string>
     <string name="title_setup_wizard">Asistent</string>
+    <string name="title_setup_wizard_intro">În majoritatea cazurilor, butonul de asistent poate fi folosit pentru a adăuga un cont, altfel adresele serverului pot fi introduse sau modificate manual folosind opțiunea de configurare manuală</string>
     <string name="title_setup_wizard_tutorials">Tutoriale</string>
     <string name="title_setup_wizard_multiple">Asistentul poate fi folosit de mai multe ori pentru a configura conturi multiple</string>
     <string name="title_setup_wizard_new">Am nevoie de o nouă adresă de e-mail</string>
@@ -388,6 +389,7 @@
     <string name="title_advanced_suggest_sent">Sugerează adrese găsite în mesajele trimise</string>
     <string name="title_advanced_suggest_received">Sugerează adrese găsite în mesajele primite</string>
     <string name="title_advanced_suggest_frequently">Sortați adresele sugerate în funcție de frecvența de utilizare</string>
+    <string name="title_advanced_suggest_account">Limitează sugestiile la contul curent</string>
     <string name="title_advanced_alt_re_fwd">Prefix alternativ de răspuns/întârziere</string>
     <string name="title_advanced_send_chips">Afișați bule de adrese</string>
     <string name="title_advanced_send_nav_color">Utilizați culoarea de identitate pentru bara de acțiune de jos</string>
@@ -539,6 +541,7 @@
     <string name="title_advanced_unzip">Afișați conținutul atașamentelor comprimate</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_thumbnails">Arată miniaturile imaginilor după textul mesajului</string>
+    <string name="title_advanced_pdf_preview">Arată miniaturi PDF</string>
     <string name="title_advanced_message_text_zoom2">Zoom implicit al textului mesajului: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Măriți și textul mesajului în editorul de mesaje</string>
     <string name="title_advanced_overview_mode">Măriți mesajele originale pentru a se potrivi cu ecranul</string>
@@ -785,6 +788,7 @@
     <string name="title_advanced_pull_all_hint">La tragerea în jos a dosarelor sau a listei de conturi</string>
     <string name="title_advanced_suggest_names_hint">Dacă este dezactivată, numai adresele de e-mail vor fi folosite la selectarea contactelor</string>
     <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
+    <string name="title_advanced_suggest_account_hint">Se aplică numai contactelor locale pentru că cele din agenda Android nu sunt legate de un anume cont</string>
     <string name="title_advanced_auto_identity_hint">Aceasta va selecta ultima identitate folosită la selectarea unui destinatar pentru mesaje noi</string>
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
     <string name="title_advanced_reply_move_hint">Serverul de e-mail ar putea adăuga mesajele la folderul de mesaje trimise</string>
@@ -1043,6 +1047,7 @@
     <string name="title_delete_channel">Șterge canal de notificare</string>
     <string name="title_insert_contact">Adaugă contact</string>
     <string name="title_edit_contact">Editare contact</string>
+    <string name="title_delete_contact">Ștergeți contactul?</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Nume</string>
     <string name="title_contact_group">Grup</string>
@@ -1164,7 +1169,7 @@
     <string name="title_print_header">Tipărire antet</string>
     <string name="title_print_images">Imprimare imagini</string>
     <string name="title_print_images_remark">Descărcarea imaginilor ar putea dura ceva timp</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Tipărește liniile citat</string>
+    <string name="title_print_block_quotes">Tipărește liniile citat</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_share_as_html">Distribuie ca HTML</string>
     <string name="title_raw_save">Salvează mesaj original</string>
@@ -1196,6 +1201,7 @@
     <string name="title_quick_actions_snooze">Amână</string>
     <string name="title_quick_actions_clear">Ștergeți selecția după acțiune</string>
     <string name="title_trash">Gunoi</string>
+    <string name="title_trash_selection">Selecție gunoi</string>
     <string name="title_copy">Copiere &#8230;</string>
     <string name="title_copy_to">Copiază în &#8230;</string>
     <string name="title_subscribe">Abonare</string>
@@ -1507,6 +1513,7 @@
     <string name="title_search_in_keywords">În cuvinte-cheie (dacă sunt acceptate)</string>
     <string name="title_search_in_message">În textul mesajului</string>
     <string name="title_search_in_notes">În notele locale</string>
+    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">În fișiere (doar pe dispozitiv)</string>
     <string name="title_search_with">Limitează căutarea la</string>
     <string name="title_search_with_unseen">Necitit</string>
     <string name="title_search_with_flagged">Marcat</string>
@@ -1600,7 +1607,7 @@
     <string name="title_answer_placeholder_firstname">Prenumele expeditorului</string>
     <string name="title_answer_placeholder_lastname">Numele de familie al expeditorului</string>
     <string name="title_answer_placeholder_date">Data curentă</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Ziua din săptămână</string>
+    <string name="title_answer_placeholder_weekday">Ziua din săptămână</string>
     <string name="title_rule_noop">Nicio acțiune</string>
     <string name="title_rule_seen">Marcare ca citit</string>
     <string name="title_rule_unseen">Marcare ca necitit</string>

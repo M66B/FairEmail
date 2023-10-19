@@ -375,6 +375,7 @@
     <string name="title_advanced_suggest_sent">Göndərilən mesajlarda tapılan ünvanları təklif et</string>
     <string name="title_advanced_suggest_received">Alınan mesajlarda tapılan ünvanları təklif et</string>
     <string name="title_advanced_suggest_frequently">Təklif edilən ünvanları istifadə tezliyinə görə sırala</string>
+    <string name="title_advanced_suggest_account">Təklifləri hazırkı hesabla məhdudlaşdır</string>
     <string name="title_advanced_alt_re_fwd">Alternativ cavab/yönləndirmə prefiksi</string>
     <string name="title_advanced_send_chips">Ünvan şarlarını göstər</string>
     <string name="title_advanced_send_nav_color">Alt əməliyyat sətri üçün kimlik rəngini istifadə et</string>
@@ -772,6 +773,7 @@
     <string name="title_advanced_pull_all_hint">Qovluqlar və ya hesablar siyahısını aşağı çəkəndə</string>
     <string name="title_advanced_suggest_names_hint">Əgər sıradan çıxarılsa, əlaqələr seçiləndə yalnız e-poçt ünvanları istifadə ediləcək</string>
     <string name="title_advanced_suggest_local_hint">Android tərəfindən təmin edilən əlaqələrə əlavə olaraq. Əlaqə verilənləri, yeni göndərilən və alınan mesajlar üçün yalnız fəal olanda saxlanılacaq.</string>
+    <string name="title_advanced_suggest_account_hint">Bu yalnız yerli kontaktlara aiddir, çünki Android ünvan kitabçasında kontaktlar xüsusi hesablarla əlaqələndirilməyib</string>
     <string name="title_advanced_auto_identity_hint">Bu, yeni mesajlar üçün bir alıcı seçərkən istifadə edilən son kimliyi seçəcək</string>
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
@@ -1030,6 +1032,7 @@
     <string name="title_delete_channel">Bildiriş kanalını sil</string>
     <string name="title_insert_contact">Əlaqə əlavə et</string>
     <string name="title_edit_contact">Əlaqəyə düzəliş et</string>
+    <string name="title_delete_contact">Kontakt silinsin?</string>
     <string name="title_contact_email">E-poçt</string>
     <string name="title_contact_name">Ad</string>
     <string name="title_contact_group">Qrup</string>
@@ -1152,7 +1155,7 @@
     <string name="title_print_header">Başlığı çap et</string>
     <string name="title_print_images">Təsvirləri çap et</string>
     <string name="title_print_images_remark">Təsvirlərin endirilməsi bir az vaxt apara bilər</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Blok sitat xətlərini çap et</string>
+    <string name="title_print_block_quotes">Blok sitat xətlərini çap et</string>
     <string name="title_show_headers">Başlıqları göstər</string>
     <string name="title_share_as_html">HTML kimi paylaş</string>
     <string name="title_raw_save">Xam mesajı saxla</string>
@@ -1184,6 +1187,7 @@
     <string name="title_quick_actions_snooze">Ertələ</string>
     <string name="title_quick_actions_clear">Əməliyyatdan sonra seçimi təmizlə</string>
     <string name="title_trash">Tullantı</string>
+    <string name="title_trash_selection">Tullantı seçimi</string>
     <string name="title_copy">Kopyala &#8230;</string>
     <string name="title_copy_to">Kopyala &#8230;</string>
     <string name="title_subscribe">Abunə ol</string>
@@ -1590,7 +1594,7 @@
     <string name="title_answer_placeholder_firstname">Göndərinin adı</string>
     <string name="title_answer_placeholder_lastname">Göndərənin soyadı</string>
     <string name="title_answer_placeholder_date">Hazırkı tarix</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Həftənin günü</string>
+    <string name="title_answer_placeholder_weekday">Həftənin günü</string>
     <string name="title_rule_noop">Əməliyyat yoxdur</string>
     <string name="title_rule_seen">Oxundu kimi işarələ</string>
     <string name="title_rule_unseen">Oxunmadı kimi işarələ</string>

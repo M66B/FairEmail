@@ -229,7 +229,7 @@
     <string name="title_advanced_download_plain">ଡିଫଲ୍ଟ ଭାବେ କେବଳ ସାଧା ପାଠ୍ୟ ଥିବା ଅଂଶଗୁଡ଼ିକୁ ଡାଉନଲୋଡ୍ କରିବା (ଯଦି ଉପଲବ୍ଧ ଥାଏ)</string>
     <string name="title_advanced_cert_strict">କଠୋର ସାର୍ଟିଫିକେଟ୍ ଯାଞ୍ଚ</string>
     <string name="title_advanced_caption_general">ସାଧାରଣ</string>
-    <string name="title_advanced_caption_navigation">ନେଵିଗେଶନ୍</string>
+    <string name="title_advanced_caption_navigation">ଦିଗଚଳନ</string>
     <string name="title_advanced_caption_conversation">ଵାର୍ତ୍ତାଳାପ</string>
     <string name="title_advanced_caption_message">ଵାର୍ତ୍ତା</string>
     <string name="title_advanced_caption_file">ଫାଇଲ୍</string>
@@ -238,11 +238,11 @@
     <string name="title_advanced_min_screen_size">ସ୍କ୍ରିନ୍ ବିଭାଜନ ପାଇଁ ସର୍ବନିମ୍ନ ସ୍କ୍ରିନ୍ ଆକାର</string>
     <string name="title_advanced_close_pane">ଵାର୍ତ୍ତାଳାପ ବନ୍ଦ କରିବା ସମୟରେ ଧାଡ଼ି କିମ୍ବା ସ୍ତମ୍ଭକୁ ସଙ୍କୋଚନ କରିବା</string>
     <string name="title_advanced_column_width">ଵାର୍ତ୍ତା ସ୍ତମ୍ଭର ପ୍ରସ୍ଥ / ଧାଡ଼ିର ଉଚ୍ଚତା: %1$s %%</string>
-    <string name="title_advanced_nav_options">ନେଵିଗେଶନ୍ ମେନୁ ଵିକଳ୍ପଗୁଡ଼ିକ ଦେଖାଇବା</string>
-    <string name="title_advanced_nav_categories">ନେଵିଗେଶନ୍ ମେନୁରେ ଆକାଉଣ୍ଟ୍ ଵର୍ଗଗୁଡ଼ିକ ଦେଖାଇବା</string>
-    <string name="title_advanced_nav_pin">ନେଵିଗେଶନ୍ ମେନୁ ପିନ୍ କରିବା</string>
-    <string name="title_advanced_nav_hide_title">ନେଵିଗେଶନ୍ ମେନୁ ଵିକଳ୍ପଗୁଡ଼ିକ ଲୁଚାଇବେ ତ?</string>
-    <string name="title_advanced_nav_pinned_count">ପିନ୍ ହୋଇଥିବା ନେଵିଗେଶନ୍ ମେନୁରେ ପଢ଼ିନଥିବା ଵାର୍ତ୍ତାଗୁଡ଼ିକର ସଂଖ୍ୟା ଦେଖାଇବା</string>
+    <string name="title_advanced_nav_options">ଦିଗଚଳନ ମେନୁ ବିକଳ୍ପଗୁଡ଼ିକ ଦେଖାଇବା</string>
+    <string name="title_advanced_nav_categories">ଦିଗଚଳନ ମେନୁରେ ଆକାଉଣ୍ଟ୍ ବର୍ଗଗୁଡ଼ିକ ଦେଖାଇବା</string>
+    <string name="title_advanced_nav_pin">ଦିଗଚଳନ ମେନୁ ପିନ୍ କରିବା</string>
+    <string name="title_advanced_nav_hide_title">ଦିଗଚଳନ ମେନୁ ବିକଳ୍ପଗୁଡ଼ିକ ଲୁଚାଇବେ ତ?</string>
+    <string name="title_advanced_nav_pinned_count">ପିନ୍ ହୋଇଥିବା ଦିଗଚଳନ ମେନୁରେ ପଢ଼ିନଥିବା ବାର୍ତ୍ତାଗୁଡ଼ିକର ସଂଖ୍ୟା ଦେଖାଇବା</string>
     <string name="title_advanced_startup">ଷ୍ଟାର୍ଟ ସ୍କ୍ରିନରେ ଦେଖାଇବା</string>
     <string name="title_advanced_cards">ଟାବୁଲାର୍ ଶୈଳୀ ପରିଵର୍ତ୍ତେ କାର୍ଡ଼ ଶୈଳୀ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_cards_beige">କାର୍ଡ଼ ଶୈଳୀ ଵ୍ୟଵହାର କଲାଵେଳେ ବେଜ୍ ପୃଷ୍ଠପଟ ଵ୍ୟଵହାର କରିବା (କେଵଳ ହାଲୁକା ଥିମ୍ ପାଇଁ ପ୍ରଯୁଜ୍ୟ)</string>
@@ -268,6 +268,7 @@
     <string name="title_advanced_button_extra">ଵାର୍ତ୍ତାର ତଳେ ଅତିରିକ୍ତ ବଟନ୍ ଦେଖାଇବା</string>
     <string name="title_advanced_actionbar">ବାର୍ତ୍ତାଳାପ କୃତ୍ୟ ଦଣ୍ଡିକା ଦେଖାଇବା</string>
     <string name="title_advanced_category_header">ଆକାଉଣ୍ଟ୍ ବର୍ଗ ଅନୁଯାୟୀ ଗୋଷ୍ଠୀ ପ୍ରସ୍ତୁତ କରନ୍ତୁ</string>
+    <string name="title_advanced_navbar_colorize">ଆଣ୍ଡ୍ରଏଡ୍ ଦିଗଚଳନ ଦଣ୍ଡିକାକୁ ରଞ୍ଜିବା</string>
     <string name="title_advanced_bundled_fonts">ବଣ୍ଡଲ୍ ହୋଇଥିବା ଫଣ୍ଟ ଵ୍ୟଵହାର କରିବା</string>
     <string name="title_advanced_narrow_fonts">ସଂକୀର୍ଣ୍ଣ ଫଣ୍ଟ ବ୍ୟବହାର କରିବା</string>
     <string name="title_advanced_parse_classes">CSS କୁ ବିଶ୍ଳେଷଣ କରନ୍ତୁ</string>
@@ -459,8 +460,8 @@
     <string name="title_hide_seen_folder">ସମସ୍ତ ଵାର୍ତ୍ତା ପଢ଼ିସାରିଲେ ଫୋଲ୍ଡର୍ ଲୁଚାଇଦେବା</string>
     <string name="title_hide_seen_folder_hint">କେଵଳ ଆକାଉଣ୍ଟ୍ ଏଵଂ ସନ୍ନିଵିଷ୍ଟ ଫୋଲ୍ଡର୍ ତାଲିକାରେ</string>
     <string name="title_unified_folder">ସନ୍ନିଵିଷ୍ଟ ଇନବକ୍ସରେ ଦେଖାଇବା</string>
-    <string name="title_navigation_folder">ନେଵିଗେଶନ୍ ମେନୁରେ ଦେଖାଅ</string>
-    <string name="title_navigation_folder_hide">ନେଵିଗେଶନ୍ ମେନୁରେ ଲୁଚାଅ</string>
+    <string name="title_navigation_folder">ଦିଗଚଳନ ମେନୁରେ ଦେଖାଅ</string>
+    <string name="title_navigation_folder_hide">ଦିଗଚଳନ ମେନୁରେ ଲୁଚାଅ</string>
     <string name="title_unified_inbox_add">ସନ୍ନିଵିଷ୍ଟ ଇନବକ୍ସରେ ଯୋଡ଼ିବା</string>
     <string name="title_unified_inbox_delete">ସନ୍ନିଵିଷ୍ଟ ଇନବକ୍ସରୁ ଵିଲୋପ କରିବା</string>
     <string name="title_auto_classify_target">ସ୍ୱଚାଳିତ ଭାଵେ ଵର୍ଗୀକୃତ ଵାର୍ତ୍ତାଗୁଡ଼ିକୁ ଏହି ଫୋଲ୍ଡରକୁ ଘୁଞ୍ଚାଇ ଦିଆଯାଉ</string>
@@ -657,7 +658,7 @@
     <string name="title_answer_placeholder_email">ପ୍ରେରକଙ୍କ ଇମେଲ୍ ଠିକଣା</string>
     <string name="title_answer_placeholder_firstname">ପ୍ରେରକଙ୍କ ପ୍ରଥମ ନାମ</string>
     <string name="title_answer_placeholder_lastname">ପ୍ରେରକଙ୍କ ଶେଷ ନାମ</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">ସପ୍ତାହର ଵାର</string>
+    <string name="title_answer_placeholder_weekday">ସପ୍ତାହର ଵାର</string>
     <string name="title_rule_noop">କିଛି କରନି</string>
     <string name="title_rule_hide">ଲୁଚାଅ</string>
     <string name="title_rule_ignore">ବିଜ୍ଞପ୍ତି ଦମନ</string>

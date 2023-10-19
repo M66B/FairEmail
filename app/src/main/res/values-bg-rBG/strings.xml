@@ -1297,7 +1297,7 @@
     <string name="title_answer_placeholder_firstname">Малкото име на изпращача</string>
     <string name="title_answer_placeholder_lastname">Фамилията на изпращача</string>
     <string name="title_answer_placeholder_date">Текуща дата</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Ден от седмицата</string>
+    <string name="title_answer_placeholder_weekday">Ден от седмицата</string>
     <string name="title_rule_noop">Без действие</string>
     <string name="title_rule_seen">Маркирай прочетено</string>
     <string name="title_rule_unseen">Маркирай непрочетено</string>

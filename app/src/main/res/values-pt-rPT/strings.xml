@@ -163,6 +163,7 @@
     <string name="title_setup_quick_smtp">Servidor SMTP para enviar mensagens</string>
     <string name="title_setup_quick_certificates">Certificados do servidor</string>
     <string name="title_setup_wizard">Assistente</string>
+    <string name="title_setup_wizard_intro">Na maioria dos casos, o botão do assistente pode ser usado para adicionar uma conta, caso contrário, os endereços do servidor podem ser inseridos ou alterados manualmente usando a opção de configuração manual</string>
     <string name="title_setup_wizard_tutorials">Tutoriais</string>
     <string name="title_setup_wizard_multiple">O assistente pode ser novamente utilizado para configurar mais contas</string>
     <string name="title_setup_wizard_new">Preciso de um novo endereço de e-mail</string>
@@ -376,6 +377,7 @@
     <string name="title_advanced_suggest_sent">Sugerir endereços encontrados nas mensagens enviadas</string>
     <string name="title_advanced_suggest_received">Sugerir endereços encontrados nas mensagens recebidas</string>
     <string name="title_advanced_suggest_frequently">Ordenar endereços sugeridos por frequência de uso</string>
+    <string name="title_advanced_suggest_account">Limitar sugestões à conta atual</string>
     <string name="title_advanced_alt_re_fwd">Prefixo alternativo de resposta/encaminhamento</string>
     <string name="title_advanced_send_chips">Mostrar endereços separados em balões</string>
     <string name="title_advanced_send_nav_color">Use a cor de identidade para a barra de ação inferior</string>
@@ -527,6 +529,7 @@
     <string name="title_advanced_unzip">Mostrar conteúdo de anexos comprimidos</string>
     <string name="title_advanced_attachments_alt">Mostrar anexos após o texto da mensagem</string>
     <string name="title_advanced_thumbnails">Mostrar miniaturas das imagens após o texto da mensagem</string>
+    <string name="title_advanced_pdf_preview">Mostrar pré-visualização de PDF</string>
     <string name="title_advanced_message_text_zoom2">Zoom padrão do texto da mensagem %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Ampliar o texto da mensagem também no editor de mensagens</string>
     <string name="title_advanced_overview_mode">Ampliar as mensagens originais para caber na tela</string>
@@ -773,6 +776,7 @@
     <string name="title_advanced_pull_all_hint">Ao puxar para baixo a lista de pastas ou contas</string>
     <string name="title_advanced_suggest_names_hint">Se desactivada, ao seleccionar um contacto apenas será utilizado o endereço de e-mail</string>
     <string name="title_advanced_suggest_local_hint">Em complemento aos contactos fornecidos pelo Android. Apenas só será guardada informação de contactos nas mensagens recém-enviadas ou recebidas caso esta função esteja activa.</string>
+    <string name="title_advanced_suggest_account_hint">Isso só se aplica a contactos locais porque os contactos no livro de endereços do Android não estão vinculados a contas específicas</string>
     <string name="title_advanced_auto_identity_hint">Isto selecionará a última identidade usada ao selecionar um destinatário para novas mensagens</string>
     <string name="title_advanced_send_reminders_hint">Mostrar um aviso quando o texto da mensagem ou o assunto estiver vazio ou quando um anexo estar ausente</string>
     <string name="title_advanced_reply_move_hint">O servidor de correio electrónico ainda pode adicionar as mensagens à pasta de mensagens enviadas</string>
@@ -1031,6 +1035,7 @@
     <string name="title_delete_channel">Eliminar canal de notificação</string>
     <string name="title_insert_contact">Adicionar contacto</string>
     <string name="title_edit_contact">Editar contacto</string>
+    <string name="title_delete_contact">Apagar contacto?</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Nome</string>
     <string name="title_contact_group">Grupo</string>
@@ -1153,7 +1158,7 @@
     <string name="title_print_header">Imprimir cabeçalho</string>
     <string name="title_print_images">Imprimir imagens</string>
     <string name="title_print_images_remark">A transferência de imagens pode demorar algum tempo</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Imprimir linhas de cotações em bloco</string>
+    <string name="title_print_block_quotes">Imprimir linhas de cotações em bloco</string>
     <string name="title_show_headers">Mostrar cabeçalhos</string>
     <string name="title_share_as_html">Partilhar como HTML</string>
     <string name="title_raw_save">Guardar mensagem original (raw)</string>
@@ -1185,6 +1190,7 @@
     <string name="title_quick_actions_snooze">Adiar</string>
     <string name="title_quick_actions_clear">Limpar seleção após ação</string>
     <string name="title_trash">Lixo</string>
+    <string name="title_trash_selection">Seleção de reciclagem</string>
     <string name="title_copy">Copiar &#8230;</string>
     <string name="title_copy_to">Copiar para &#8230;</string>
     <string name="title_subscribe">Subscrever</string>
@@ -1498,6 +1504,7 @@
     <string name="title_search_in_keywords">Em palavras-chave (se suportado)</string>
     <string name="title_search_in_message">Em mensagens de texto</string>
     <string name="title_search_in_notes">Em notas locais</string>
+    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">Nos nomes de arquivo (apenas no dispositivo)</string>
     <string name="title_search_with">Limitar pesquisa a</string>
     <string name="title_search_with_unseen">Não lidas</string>
     <string name="title_search_with_flagged">Com estrela</string>
@@ -1591,7 +1598,7 @@
     <string name="title_answer_placeholder_firstname">Primeiro nome do remetente</string>
     <string name="title_answer_placeholder_lastname">Apelido do remetente</string>
     <string name="title_answer_placeholder_date">Data atual</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Dia da semana</string>
+    <string name="title_answer_placeholder_weekday">Dia da semana</string>
     <string name="title_rule_noop">Nenhuma acção</string>
     <string name="title_rule_seen">Marcar como lida</string>
     <string name="title_rule_unseen">Marcar como não lida</string>

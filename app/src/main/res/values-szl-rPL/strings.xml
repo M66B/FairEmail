@@ -402,6 +402,7 @@
     <string name="title_advanced_suggest_sent">Proponuj adresy znalezione w wysłanych wiadomościach</string>
     <string name="title_advanced_suggest_received">Proponuj adresy znalezione w otrzymanych wiadomościach</string>
     <string name="title_advanced_suggest_frequently">Sortuj sugerowane adresy według częstotliwości używania</string>
+    <string name="title_advanced_suggest_account">Ogranicz sugestie do bieżącego konta</string>
     <string name="title_advanced_alt_re_fwd">Alternatywny prefiks odpowiedzi/przekazywania</string>
     <string name="title_advanced_send_chips">Pokaż dymki adresowe</string>
     <string name="title_advanced_send_nav_color">Użyj koloru identyfikatora w dolnym pasku zadań</string>
@@ -799,6 +800,7 @@
     <string name="title_advanced_pull_all_hint">Przy rozwijaniu listy folderów lub kont</string>
     <string name="title_advanced_suggest_names_hint">Jeśli wyłączone, tylko adresy e-mail będą używane podczas wybierania kontaktów</string>
     <string name="title_advanced_suggest_local_hint">Oprócz kontaktów dostarczanych przez Androida. Dane kontaktowe będą przechowywane dla nowo wysłanych lub odebranych wiadomości tylko kiedy włączone.</string>
+    <string name="title_advanced_suggest_account_hint">Dotyczy to tylko lokalnych kontaktów, ponieważ kontakty w książce adresowej Androida nie są powiązane z konkretnymi kontami</string>
     <string name="title_advanced_auto_identity_hint">Spowoduje to wybranie ostatnio użytej tożsamości podczas wybierania odbiorcy dla nowych wiadomości</string>
     <string name="title_advanced_send_reminders_hint">Pokaż ostrzeżenie, gdy tekst wiadomości lub temat jest pusty lub gdy może brakować załącznika</string>
     <string name="title_advanced_reply_move_hint">Serwer e-mail może nadal dodawać wiadomości do folderu wysłanych wiadomości</string>
@@ -1057,6 +1059,7 @@
     <string name="title_delete_channel">Usuń kanał powiadomień</string>
     <string name="title_insert_contact">Dodaj kontakt</string>
     <string name="title_edit_contact">Edytuj kontakt</string>
+    <string name="title_delete_contact">Usunąć kontakt?</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Nazwa</string>
     <string name="title_contact_group">Grupa</string>
@@ -1178,7 +1181,7 @@
     <string name="title_print_header">Wydrukuj nagłówek</string>
     <string name="title_print_images">Drukuj obrazy</string>
     <string name="title_print_images_remark">Pobieranie obrazów może zająć trochę czasu</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Drukuj wiersze z cudzysłowami blokowymi</string>
+    <string name="title_print_block_quotes">Drukuj wiersze z cudzysłowami blokowymi</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_share_as_html">Udostępnij jako HTML</string>
     <string name="title_raw_save">Zapisz nieprzetworzoną wiadomość</string>
@@ -1210,6 +1213,7 @@
     <string name="title_quick_actions_snooze">Odłóż</string>
     <string name="title_quick_actions_clear">Wyczyść zaznaczenie po akcji</string>
     <string name="title_trash">Kosz</string>
+    <string name="title_trash_selection">Wybór kosza</string>
     <string name="title_copy">Kopiuj &#8230;</string>
     <string name="title_copy_to">Kopiuj do &#8230;</string>
     <string name="title_subscribe">Subskrybuj</string>
@@ -1615,7 +1619,7 @@
     <string name="title_answer_placeholder_firstname">Imię nadawcy</string>
     <string name="title_answer_placeholder_lastname">Nazwisko nadawcy</string>
     <string name="title_answer_placeholder_date">Bieżąca data</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Dzień tygodnia</string>
+    <string name="title_answer_placeholder_weekday">Dzień tygodnia</string>
     <string name="title_rule_noop">Brak akcji</string>
     <string name="title_rule_seen">Oznacz jako przeczytane</string>
     <string name="title_rule_unseen">Oznacz jako nieprzeczytane</string>

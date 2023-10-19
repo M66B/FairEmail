@@ -403,6 +403,7 @@
     <string name="title_advanced_suggest_sent">להציע כתובות שנמצאו בהודעות שנשלחו</string>
     <string name="title_advanced_suggest_received">להציע כתובות שנמצאו בהודעות שהתקבלו</string>
     <string name="title_advanced_suggest_frequently">סידור הכתובות המוצעות לפי תדירות השימוש</string>
+    <string name="title_advanced_suggest_account">הגבלת הצעות לחשבון הנוכחי</string>
     <string name="title_advanced_alt_re_fwd">קידומת חלופית לתגובה/העברה</string>
     <string name="title_advanced_send_chips">הצגת בועיות כתובות</string>
     <string name="title_advanced_send_nav_color">להשתמש בצבע הזהות לסרגל הפעולות התחתון</string>
@@ -800,6 +801,7 @@
     <string name="title_advanced_pull_all_hint">במשיכת רשימת התיקיות או החשבונות למטה</string>
     <string name="title_advanced_suggest_names_hint">אם מושבת, אפשר יהיה להשתמש רק בכתובות דוא״ל בעת בחירת אנשי קשר</string>
     <string name="title_advanced_suggest_local_hint">בנוסף לאנשי הקשר שמסופקים על ידי Android. פרטי הקשר יאוחסנו להודעות חדשות שנשלחו או התקבלו כשהאפשרות פעילה.</string>
+    <string name="title_advanced_suggest_account_hint">חל רק על אנשי קשר מקומיים כיוון שאנשי הקשר בפנקס הכתובות של Android לא מקושרים לחשבונות מסוימים</string>
     <string name="title_advanced_auto_identity_hint">תיבחר הזהות האחרונה בה נעשה שימוש כאשר נבחר נמען להודעות חדשות</string>
     <string name="title_advanced_send_reminders_hint">להציג אזהרה כאשר טקסט ההודעה או הנושא ריקים או כאשר קובץ לא צורף לכאורה</string>
     <string name="title_advanced_reply_move_hint">שרת הדוא״ל עדיין יכול להוסיף את ההודעות לתיקיית ההודעות שנשלחו</string>
@@ -1058,6 +1060,7 @@
     <string name="title_delete_channel">מחיקת ערוץ התראות</string>
     <string name="title_insert_contact">הוספת איש קשר</string>
     <string name="title_edit_contact">עריכת איש קשר</string>
+    <string name="title_delete_contact">למחוק איש קשר?</string>
     <string name="title_contact_email">דוא״ל</string>
     <string name="title_contact_name">שם</string>
     <string name="title_contact_group">קבוצה</string>
@@ -1180,7 +1183,7 @@
     <string name="title_print_header">הדפסת כותרת</string>
     <string name="title_print_images">הדפסת הודעות</string>
     <string name="title_print_images_remark">הורדת תמונות עשויה לארוך זמן מה</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">הדפסת שורות מקטעי ציטוט</string>
+    <string name="title_print_block_quotes">הדפסת שורות מקטעי ציטוט</string>
     <string name="title_show_headers">הצגת כותרות</string>
     <string name="title_share_as_html">שיתוף כ־HTML</string>
     <string name="title_raw_save">שמירת הודעה גולמית</string>
@@ -1212,6 +1215,7 @@
     <string name="title_quick_actions_snooze">השהיה</string>
     <string name="title_quick_actions_clear">פינוי הבחירה לאחר פעולה</string>
     <string name="title_trash">אשפה</string>
+    <string name="title_trash_selection">העברת הבחירה לאשפה</string>
     <string name="title_copy">העתקה&#8230;</string>
     <string name="title_copy_to">העתקה אל&#8230;</string>
     <string name="title_subscribe">מינוי</string>
@@ -1618,7 +1622,7 @@
     <string name="title_answer_placeholder_firstname">השם הפרטי של המוען</string>
     <string name="title_answer_placeholder_lastname">שם המשפחה של המוען</string>
     <string name="title_answer_placeholder_date">תאריך נוכחי</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">יום בשבוע</string>
+    <string name="title_answer_placeholder_weekday">יום בשבוע</string>
     <string name="title_rule_noop">אין פעולה</string>
     <string name="title_rule_seen">סימון כנקרא</string>
     <string name="title_rule_unseen">סימון כלא נקרא</string>

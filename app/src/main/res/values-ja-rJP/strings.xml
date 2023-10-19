@@ -149,6 +149,7 @@
     <string name="title_setup_quick_smtp">メッセージの送信に使用する SMTP サーバー</string>
     <string name="title_setup_quick_certificates">サーバー証明書</string>
     <string name="title_setup_wizard">ウィザード</string>
+    <string name="title_setup_wizard_intro">ほとんどの場合、ウィザードボタンからアカウントを追加できます。それ以外の場合は、手動セットアップを使用してサーバーアドレスを入力または変更することができます</string>
     <string name="title_setup_wizard_tutorials">チュートリアル</string>
     <string name="title_setup_wizard_multiple">ウィザードを繰り返し使用することで、複数のアカウントを設定できます</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得する</string>
@@ -361,6 +362,7 @@
     <string name="title_advanced_suggest_sent">メッセージを送信したことのあるアドレスを提案</string>
     <string name="title_advanced_suggest_received">メッセージを受信したことのあるアドレスを提案</string>
     <string name="title_advanced_suggest_frequently">提案するアドレスを使用頻度で並べ替え</string>
+    <string name="title_advanced_suggest_account">現在のアカウントに表示される候補を制限</string>
     <string name="title_advanced_alt_re_fwd">返信/転送のプレフィックスを変更</string>
     <string name="title_advanced_send_chips">アドレスバルーンを表示</string>
     <string name="title_advanced_send_nav_color">下部のボタンアクションバーをユーザー ID の色にする</string>
@@ -512,6 +514,7 @@
     <string name="title_advanced_unzip">圧縮された添付ファイルの内容を表示</string>
     <string name="title_advanced_attachments_alt">本文の後に添付ファイルを表示</string>
     <string name="title_advanced_thumbnails">本文の後に画像サムネイルを表示</string>
+    <string name="title_advanced_pdf_preview">PDF のサムネイルを表示</string>
     <string name="title_advanced_message_text_zoom2">デフォルトの本文のテキスト拡大率: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">メッセージ編集画面でも、テキストにズーム</string>
     <string name="title_advanced_overview_mode">画面に合わせて元のメッセージを拡大</string>
@@ -758,6 +761,7 @@
     <string name="title_advanced_pull_all_hint">フォルダーやアカウントの一覧をプルダウンしたとき</string>
     <string name="title_advanced_suggest_names_hint">無効にすると、連絡先を選択する際にメールアドレスのみが使用されます</string>
     <string name="title_advanced_suggest_local_hint">Android のローカル連絡先を追加します。有効にすると、新しく送受信されたメッセージの連絡先データが保存されます。</string>
+    <string name="title_advanced_suggest_account_hint">Android のアドレス帳の連絡先は特定のアカウントにリンクされないため、ローカルの連絡先にのみ適用されます</string>
     <string name="title_advanced_auto_identity_hint">新規メッセージにメールを送信するとき、最後に使用したユーザー ID を選択します</string>
     <string name="title_advanced_send_reminders_hint">本文または件名が空の場合、またはファイルの添付に失敗した可能性がある場合に警告を表示します</string>
     <string name="title_advanced_reply_move_hint">メールサーバーはこの設定を無視してメッセージを送信済みフォルダーに追加できます</string>
@@ -1016,6 +1020,7 @@
     <string name="title_delete_channel">通知チャンネルを削除</string>
     <string name="title_insert_contact">連絡先に追加</string>
     <string name="title_edit_contact">連絡先を編集</string>
+    <string name="title_delete_contact">連絡先を削除しますか？</string>
     <string name="title_contact_email">メール</string>
     <string name="title_contact_name">名前</string>
     <string name="title_contact_group">グループ</string>
@@ -1138,7 +1143,7 @@
     <string name="title_print_header">見出しを印刷</string>
     <string name="title_print_images">画像を印刷</string>
     <string name="title_print_images_remark">画像のダウンロードには時間がかかる場合があります</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">ブロック引用の行を印刷</string>
+    <string name="title_print_block_quotes">ブロック引用の行を印刷</string>
     <string name="title_show_headers">ヘッダーを表示</string>
     <string name="title_share_as_html">HTML で共有</string>
     <string name="title_raw_save">元のメッセージを保存</string>
@@ -1170,6 +1175,7 @@
     <string name="title_quick_actions_snooze">スヌーズする</string>
     <string name="title_quick_actions_clear">操作後に選択を解除</string>
     <string name="title_trash">ごみ箱</string>
+    <string name="title_trash_selection">ごみ箱の選択</string>
     <string name="title_copy">コピー&#8230;</string>
     <string name="title_copy_to">&#8230;にコピー</string>
     <string name="title_subscribe">購読</string>
@@ -1483,6 +1489,7 @@
     <string name="title_search_in_keywords">キーワードを検索 (対応している場合のみ)</string>
     <string name="title_search_in_message">本文を検索</string>
     <string name="title_search_in_notes">ローカルメモを検索</string>
+    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">ファイル名を検索 (端末上のみ)</string>
     <string name="title_search_with">検索範囲を指定</string>
     <string name="title_search_with_unseen">未読</string>
     <string name="title_search_with_flagged">スター付き</string>
@@ -1576,7 +1583,7 @@
     <string name="title_answer_placeholder_firstname">差出人の名</string>
     <string name="title_answer_placeholder_lastname">差出人の姓</string>
     <string name="title_answer_placeholder_date">現在の日付</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">曜日</string>
+    <string name="title_answer_placeholder_weekday">曜日</string>
     <string name="title_rule_noop">何もしない</string>
     <string name="title_rule_seen">既読にする</string>
     <string name="title_rule_unseen">未読にする</string>

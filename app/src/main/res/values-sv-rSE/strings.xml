@@ -163,6 +163,7 @@
     <string name="title_setup_quick_smtp">SMTP-server för att skicka meddelanden</string>
     <string name="title_setup_quick_certificates">Servercertifikat</string>
     <string name="title_setup_wizard">Guide</string>
+    <string name="title_setup_wizard_intro">I de flesta fall kan guidade inställningar användas för att lägga till ett konto, annars kan serveradresserna matas in eller ändras manuellt med hjälp av manuella inställningsalternativ</string>
     <string name="title_setup_wizard_tutorials">Guider</string>
     <string name="title_setup_wizard_multiple">Installationsguiden kan användas flera gånger om för att lägga till fler konton</string>
     <string name="title_setup_wizard_new">Jag behöver en ny e-postadress</string>
@@ -522,6 +523,7 @@
     <string name="title_advanced_unzip">Visa innehållet i komprimerade bilagor</string>
     <string name="title_advanced_attachments_alt">Visa bilagor efter meddelandetexten</string>
     <string name="title_advanced_thumbnails">Visa miniatyrbilder efter meddelandetexten</string>
+    <string name="title_advanced_pdf_preview">Visa PDF-miniatyrer</string>
     <string name="title_advanced_message_text_zoom2">Standard meddelandetext zoom: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zooma meddelandetext även i meddelanderedigeraren</string>
     <string name="title_advanced_overview_mode">Zooma originalmeddelanden för att passa skärmen</string>
@@ -1144,7 +1146,7 @@
     <string name="title_print_header">Visa header</string>
     <string name="title_print_images">Skriv ut bilder</string>
     <string name="title_print_images_remark">Nedladdning av bilder kan ta lite tid</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Skriv ut blockciterade rader</string>
+    <string name="title_print_block_quotes">Skriv ut blockciterade rader</string>
     <string name="title_show_headers">Visa sidhuvuden</string>
     <string name="title_share_as_html">Dela som HTML</string>
     <string name="title_raw_save">Spara rent meddelande</string>
@@ -1487,6 +1489,7 @@
     <string name="title_search_in_keywords">I nyckelord (om det stöds)</string>
     <string name="title_search_in_message">I meddelandetext</string>
     <string name="title_search_in_notes">I lokala anteckningar</string>
+    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">I filnamn (endast på enheten)</string>
     <string name="title_search_with">Begränsa sökningen till</string>
     <string name="title_search_with_unseen">Olästa</string>
     <string name="title_search_with_flagged">Stjärnmärkta</string>
@@ -1580,7 +1583,7 @@
     <string name="title_answer_placeholder_firstname">Avsändarens förnamn</string>
     <string name="title_answer_placeholder_lastname">Avsändarens efternamn</string>
     <string name="title_answer_placeholder_date">Aktuellt datum</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Veckodag</string>
+    <string name="title_answer_placeholder_weekday">Veckodag</string>
     <string name="title_rule_noop">Ingen åtgärd</string>
     <string name="title_rule_seen">Markera som läst</string>
     <string name="title_rule_unseen">Markera som oläst</string>

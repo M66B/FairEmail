@@ -1183,7 +1183,7 @@
     <string name="title_print_header">Друкаваць загаловак</string>
     <string name="title_print_images">Друкаваць выявы</string>
     <string name="title_print_images_remark">Загрузка выяў можа заняць некаторы час</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Адлюстроўваць лініі ў блоках цытат</string>
+    <string name="title_print_block_quotes">Адлюстроўваць лініі ў блоках цытат</string>
     <string name="title_show_headers">Паказваць загалоўкі</string>
     <string name="title_share_as_html">Падзяліцца ў выглядзе HTML</string>
     <string name="title_raw_save">Захаваць неапрацаванае паведамленне</string>
@@ -1621,7 +1621,7 @@
     <string name="title_answer_placeholder_firstname">Імя адпраўніка</string>
     <string name="title_answer_placeholder_lastname">Прозвішча адпраўніка</string>
     <string name="title_answer_placeholder_date">Бягучая дата</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Дзень тыдня</string>
+    <string name="title_answer_placeholder_weekday">Дзень тыдня</string>
     <string name="title_rule_noop">Няма дзеяння</string>
     <string name="title_rule_seen">Пазначыць як прачытанае</string>
     <string name="title_rule_unseen">Пазначыць як непрачытанае</string>

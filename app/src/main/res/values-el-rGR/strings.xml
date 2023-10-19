@@ -1148,7 +1148,7 @@
     <string name="title_print_header">Εκτύπωσε κεφαλίδα</string>
     <string name="title_print_images">Εκτύπωση εικόνων</string>
     <string name="title_print_images_remark">Το κατέβασμα των εικόνων μπορεί να πάρει κάποιο χρόνο</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Εκτύπωση γραμμών εσοχής στα παρατιθέμενα κείμενα</string>
+    <string name="title_print_block_quotes">Εκτύπωση γραμμών εσοχής στα παρατιθέμενα κείμενα</string>
     <string name="title_show_headers">Προβολή κεφαλίδων</string>
     <string name="title_share_as_html">Κοινοποίηση ως HTML</string>
     <string name="title_raw_save">Αποθήκευση αρχικού μηνύματος</string>
@@ -1584,7 +1584,7 @@
     <string name="title_answer_placeholder_firstname">Όνομα αποστολέα</string>
     <string name="title_answer_placeholder_lastname">Επίθετο αποστολέα</string>
     <string name="title_answer_placeholder_date">Τρέχουσα ημερομηνία</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Ημέρα της εβδομάδας</string>
+    <string name="title_answer_placeholder_weekday">Ημέρα της εβδομάδας</string>
     <string name="title_rule_noop">Καμία ενέργεια</string>
     <string name="title_rule_seen">Σήμανση ως αναγνωσμένου</string>
     <string name="title_rule_unseen">Σήμανση ως μη αναγνωσμένου</string>

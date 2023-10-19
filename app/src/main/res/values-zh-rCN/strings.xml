@@ -360,6 +360,7 @@
     <string name="title_advanced_suggest_sent">建议在“已发送”邮件中找到的地址</string>
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
+    <string name="title_advanced_suggest_account">仅当前账户使用建议</string>
     <string name="title_advanced_alt_re_fwd">替代回复/转发前缀</string>
     <string name="title_advanced_send_chips">卡片化显示地址</string>
     <string name="title_advanced_send_nav_color">将身份颜色用于底部操作栏</string>
@@ -757,6 +758,7 @@
     <string name="title_advanced_pull_all_hint">下拉文件夹或账户列表时</string>
     <string name="title_advanced_suggest_names_hint">如果禁用，选择联系人时将只使用电子邮件地址</string>
     <string name="title_advanced_suggest_local_hint">这不包括 Android 提供的联系人。应用仅在此选项启用后存储新的接收或发送消息的联系人。</string>
+    <string name="title_advanced_suggest_account_hint">这仅适用于本地联系人，因为安卓地址簿中的联系人没有链接到特定账户</string>
     <string name="title_advanced_auto_identity_hint">这将选择上次使用的身份作为新邮件收件人</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
@@ -1014,6 +1016,7 @@
     <string name="title_delete_channel">删除通知通道</string>
     <string name="title_insert_contact">添加联系人</string>
     <string name="title_edit_contact">编辑联系人</string>
+    <string name="title_delete_contact">要删除联系人吗？</string>
     <string name="title_contact_email">电子邮件</string>
     <string name="title_contact_name">名称</string>
     <string name="title_contact_group">组</string>
@@ -1134,7 +1137,7 @@
     <string name="title_print_header">打印邮件头</string>
     <string name="title_print_images">打印图片</string>
     <string name="title_print_images_remark">下载图片可能需要一些时间</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">打印块引用行</string>
+    <string name="title_print_block_quotes">打印块引用行</string>
     <string name="title_show_headers">显示邮件头</string>
     <string name="title_share_as_html">以HTML格式分享</string>
     <string name="title_raw_save">保存原始消息</string>
@@ -1166,6 +1169,7 @@
     <string name="title_quick_actions_snooze">打盹</string>
     <string name="title_quick_actions_clear">操作后清除选择</string>
     <string name="title_trash">回收站</string>
+    <string name="title_trash_selection">将所选项丢到回收站</string>
     <string name="title_copy">复制 &#8230;</string>
     <string name="title_copy_to">复制到 &#8230;</string>
     <string name="title_subscribe">订阅</string>
@@ -1570,7 +1574,7 @@
     <string name="title_answer_placeholder_firstname">发件人名字</string>
     <string name="title_answer_placeholder_lastname">发件人姓氏</string>
     <string name="title_answer_placeholder_date">当前日期</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">一周中的一天</string>
+    <string name="title_answer_placeholder_weekday">一周中的一天</string>
     <string name="title_rule_noop">无操作</string>
     <string name="title_rule_seen">标为已读</string>
     <string name="title_rule_unseen">标记为未读</string>

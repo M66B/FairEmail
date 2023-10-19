@@ -191,6 +191,7 @@
     <string name="title_setup_quick_smtp">SMTP server pro odesílání zpráv</string>
     <string name="title_setup_quick_certificates">Certifikáty serveru</string>
     <string name="title_setup_wizard">Průvodce</string>
+    <string name="title_setup_wizard_intro">Ve většině případů lze použít tlačítko průvodce k přidání účtu, jinak mohou být adresy serveru zadány nebo změněny ručně pomocí manuálního nastavení</string>
     <string name="title_setup_wizard_tutorials">Průvodce</string>
     <string name="title_setup_wizard_multiple">Průvodce lze použít vícekrát, pro nastavení libovolného počtu účtů</string>
     <string name="title_setup_wizard_new">Potřebuji novou e-mailovou adresu</string>
@@ -403,6 +404,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_suggest_sent">Navrhovat adresy nalezené v odeslaných zprávách</string>
     <string name="title_advanced_suggest_received">Navrhovat adresy nalezené v přijatých zprávách</string>
     <string name="title_advanced_suggest_frequently">Řadit navrhované adresy dle četnosti použití</string>
+    <string name="title_advanced_suggest_account">Omezit návrhy na aktuální účet</string>
     <string name="title_advanced_alt_re_fwd">Alternativní adresa pro odpovědi/přeposílání</string>
     <string name="title_advanced_send_chips">Zobrazit bubliny s kontakty</string>
     <string name="title_advanced_send_nav_color">Použít barvu identity pro dolní panel akcí</string>
@@ -554,6 +556,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_unzip">Zobrazit obsah komprimovaných příloh</string>
     <string name="title_advanced_attachments_alt">Zobrazit přílohy pod textem zprávy</string>
     <string name="title_advanced_thumbnails">Zobrazit náhledy obrázků pod textem zprávy</string>
+    <string name="title_advanced_pdf_preview">Zobrazit náhledy PDF</string>
     <string name="title_advanced_message_text_zoom2">Výchozí zvětšení textu zprávy: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Změnit přiblížení textu zprávy také v editoru zpráv</string>
     <string name="title_advanced_overview_mode">Přizpůsobit zobrazení původních zpráv šířce obrazovky</string>
@@ -800,6 +803,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_pull_all_hint">Při stahování seznamu složek nebo účtů</string>
     <string name="title_advanced_suggest_names_hint">Je-li vypnuto, budou při výběru kontaktů použity pouze e-mailové adresy</string>
     <string name="title_advanced_suggest_local_hint">Jako dodatek ke kontaktům poskytnutých Androidem. Je-li povoleno, kontaktní údaje budou ukládány pro nově odeslané či přijaté zprávy.</string>
+    <string name="title_advanced_suggest_account_hint">To se týká pouze místních kontaktů, protože kontakty v adresáři systému Android nejsou spojeny s konkrétními účty</string>
     <string name="title_advanced_auto_identity_hint">Toto zvolí poslední identitu použitou při výběru příjemce pro nové zprávy</string>
     <string name="title_advanced_send_reminders_hint">Zobrazí upozornění, je-li text zprávy či předmět prázdný nebo chybí-li pravděpodobně příloha</string>
     <string name="title_advanced_reply_move_hint">E-mailový server stále může zprávy ukládat i do složky odeslané</string>
@@ -1058,6 +1062,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_delete_channel">Smazat kanál oznámení</string>
     <string name="title_insert_contact">Přidat kontakt</string>
     <string name="title_edit_contact">Upravit kontakt</string>
+    <string name="title_delete_contact">Odstranit kontakt?</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Název</string>
     <string name="title_contact_group">Skupina</string>
@@ -1179,7 +1184,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_print_header">Vytisknout hlavičku</string>
     <string name="title_print_images">Tisknout obrázky</string>
     <string name="title_print_images_remark">Stažení obrázků může chvíli trvat</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Tisk řádků s blokovými uvozovkami</string>
+    <string name="title_print_block_quotes">Tisk řádků s blokovými uvozovkami</string>
     <string name="title_show_headers">Zobrazit hlavičky</string>
     <string name="title_share_as_html">Sdílet jako HTML</string>
     <string name="title_raw_save">Uložit zdrojovou zprávu</string>
@@ -1211,6 +1216,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_quick_actions_snooze">Odložit</string>
     <string name="title_quick_actions_clear">Vymazat výběr po akci</string>
     <string name="title_trash">Koš</string>
+    <string name="title_trash_selection">Přesuň výběr do koše</string>
     <string name="title_copy">Kopírovat &#8230;</string>
     <string name="title_copy_to">Kopírovat do &#8230;</string>
     <string name="title_subscribe">Přihlásit odběr</string>
@@ -1522,6 +1528,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_search_in_keywords">V klíčových slovech (je-li podporováno)</string>
     <string name="title_search_in_message">V textu zprávy</string>
     <string name="title_search_in_notes">V místních poznámkách</string>
+    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">V názvu souboru (pouze na zařízení)</string>
     <string name="title_search_with">Omezit hledání na</string>
     <string name="title_search_with_unseen">Nepřečteno</string>
     <string name="title_search_with_flagged">S hvězdičkou</string>
@@ -1615,7 +1622,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_answer_placeholder_firstname">Křestní jméno odesílatele</string>
     <string name="title_answer_placeholder_lastname">Příjmení odesílatele</string>
     <string name="title_answer_placeholder_date">Aktuální datum</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Den v týdnu</string>
+    <string name="title_answer_placeholder_weekday">Den v týdnu</string>
     <string name="title_rule_noop">Žádná akce</string>
     <string name="title_rule_seen">Označit přečtené</string>
     <string name="title_rule_unseen">Označit nepřečtené</string>

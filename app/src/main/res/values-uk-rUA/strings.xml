@@ -192,6 +192,7 @@
     <string name="title_setup_quick_smtp">Сервер SMTP для надсилання повідомлень</string>
     <string name="title_setup_quick_certificates">Сертифікати сервера</string>
     <string name="title_setup_wizard">Майстер налаштування</string>
+    <string name="title_setup_wizard_intro">У більшості випадків для додавання облікового запису можна використовувати кнопку майстра, або ж адреси серверів можуть бути введені або змінені вручну за допомогою опції ручного налаштування</string>
     <string name="title_setup_wizard_tutorials">Навчальні матеріали</string>
     <string name="title_setup_wizard_multiple">Майстер можна використати кілька разів, щоб налаштувати кілька облікових записів</string>
     <string name="title_setup_wizard_new">Мені потрібна нова адреса електронної пошти</string>
@@ -403,6 +404,7 @@
     <string name="title_advanced_suggest_sent">Пропонувати адреси, що були знайдені у надісланих повідомленнях</string>
     <string name="title_advanced_suggest_received">Пропонувати адреси, що були знайдені в отриманих повідомленнях</string>
     <string name="title_advanced_suggest_frequently">Сортувати запропоновані адреси за частотою використання</string>
+    <string name="title_advanced_suggest_account">Обмежити пропозиції поточним обліковим записом</string>
     <string name="title_advanced_alt_re_fwd">Альтернативний префікс для відповіді/пересилання</string>
     <string name="title_advanced_send_chips">Показувати рамки навколо адрес</string>
     <string name="title_advanced_send_nav_color">Використовувати колір профілю для нижньої панелі інструментів</string>
@@ -554,6 +556,7 @@
     <string name="title_advanced_unzip">Показувати вміст стиснутих вкладень</string>
     <string name="title_advanced_attachments_alt">Показувати вкладення після тексту повідомлення</string>
     <string name="title_advanced_thumbnails">Показувати ескізи зображень після повідомлення</string>
+    <string name="title_advanced_pdf_preview">Показувати ескізи PDF-файлів</string>
     <string name="title_advanced_message_text_zoom2">Масштаб тексту повідомлень за замовчуванням: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Масштабувати текст повідомлення також і в редакторі повідомлень</string>
     <string name="title_advanced_overview_mode">Масштабувати оригінальні повідомлення відповідно до розміру екрана</string>
@@ -799,6 +802,7 @@
     <string name="title_advanced_pull_all_hint">При розгортанні списку тек або облікових записів</string>
     <string name="title_advanced_suggest_names_hint">Якщо вимкнено, при виборі контактів використовуватимуться лише адреси електронної пошти</string>
     <string name="title_advanced_suggest_local_hint">На додаток до контактів, що надаються Android. Дані про контакт будуть зберігатися для щойно надісланих або отриманих повідомлень лише тоді, коли увімкнено.</string>
+    <string name="title_advanced_suggest_account_hint">Це стосується лише локальних контактів, оскільки контакти в адресній книзі Android не пов’язані з певними обліковими записами</string>
     <string name="title_advanced_auto_identity_hint">Це обере останній профіль при виборі одержувача для нових повідомлень</string>
     <string name="title_advanced_send_reminders_hint">Показувати попередження, коли відсутній текст повідомлення, або тема пуста, або якщо вкладення може бути відсутнє</string>
     <string name="title_advanced_reply_move_hint">Сервер електронної пошти все ще може додати повідомлення до теки надісланих повідомлень</string>
@@ -1057,6 +1061,7 @@
     <string name="title_delete_channel">Видалити канал сповіщень</string>
     <string name="title_insert_contact">Додати контакт</string>
     <string name="title_edit_contact">Редагувати контакт</string>
+    <string name="title_delete_contact">Видалити контакт?</string>
     <string name="title_contact_email">Email</string>
     <string name="title_contact_name">Ім\'я</string>
     <string name="title_contact_group">Група</string>
@@ -1112,7 +1117,7 @@
     <string name="title_keep_days_remark">Старі повідомлення будуть видалені з пристрою, але залишаться на сервері</string>
     <string name="title_keep_all">Зберігати всі повідомлення</string>
     <string name="title_poll_system">Періодично перевіряти наявність нових повідомлень в системних теках</string>
-    <string name="title_poll_user">Визначити теки користувача для періодичної перевірки на наявність нових повідомлень</string>
+    <string name="title_poll_user">Періодично перевіряти наявність нових повідомлень в теках користувача</string>
     <string name="title_auto_trash">Автоматично переміщати старі повідомлення до кошику</string>
     <string name="title_auto_delete">Автоматично видаляти старі повідомлення назавжди</string>
     <string name="title_auto_delete_hint">Старі повідомлення - це повідомлення, які більше не зберігаються на пристрої</string>
@@ -1178,7 +1183,7 @@
     <string name="title_print_header">Друкувати заголовок</string>
     <string name="title_print_images">Друкувати зображення</string>
     <string name="title_print_images_remark">Завантаження зображень може зайняти деякий час</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Друкувати лінії зліва від цитованого тексту</string>
+    <string name="title_print_block_quotes">Друкувати лінії зліва від цитованого тексту</string>
     <string name="title_show_headers">Показати заголовки</string>
     <string name="title_share_as_html">Поділитися як HTML</string>
     <string name="title_raw_save">Зберегти raw-повідомлення</string>
@@ -1210,6 +1215,7 @@
     <string name="title_quick_actions_snooze">Відкласти</string>
     <string name="title_quick_actions_clear">Очистити вибір після дії</string>
     <string name="title_trash">В кошик</string>
+    <string name="title_trash_selection">Видалити вибране</string>
     <string name="title_copy">Копіювати &#8230;</string>
     <string name="title_copy_to">Копіювати до &#8230;</string>
     <string name="title_subscribe">Підписатися</string>
@@ -1521,10 +1527,11 @@
     <string name="title_search_in_keywords">У ключових словах (якщо підтримується)</string>
     <string name="title_search_in_message">У тексті повідомлення</string>
     <string name="title_search_in_notes">У локальних нотатках</string>
+    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">У назвах файлів (лише на пристрої)</string>
     <string name="title_search_with">Обмежити пошук, тільки</string>
     <string name="title_search_with_unseen">Непрочитані</string>
     <string name="title_search_with_flagged">Обрані</string>
-    <string name="title_search_with_hidden">Прихованні (лише на пристрої)</string>
+    <string name="title_search_with_hidden">Приховані (лише на пристрої)</string>
     <string name="title_search_with_encrypted">Зашифровані (лише на пристрої)</string>
     <string name="title_search_with_attachments">З вкладеннями (лише на пристрої)</string>
     <string name="title_search_with_size">Розмір повідомлення більше ніж</string>
@@ -1614,7 +1621,7 @@
     <string name="title_answer_placeholder_firstname">Ім\'я відправника</string>
     <string name="title_answer_placeholder_lastname">Прізвище відправника</string>
     <string name="title_answer_placeholder_date">Поточна дата</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">День тижня</string>
+    <string name="title_answer_placeholder_weekday">День тижня</string>
     <string name="title_rule_noop">Жодної дії</string>
     <string name="title_rule_seen">Позначити як прочитане</string>
     <string name="title_rule_unseen">Позначити як непрочитане</string>

@@ -191,6 +191,7 @@
     <string name="title_setup_quick_smtp">SMTP-сервер для отправки сообщений</string>
     <string name="title_setup_quick_certificates">Сертификаты сервера</string>
     <string name="title_setup_wizard">Мастер</string>
+    <string name="title_setup_wizard_intro">В большинстве случаев для добавления учётной записи можно воспользоваться функцией мастера, в противном случае адреса серверов могут быть введены или изменены вручную с помощью функции ручной настройки</string>
     <string name="title_setup_wizard_tutorials">Обучение</string>
     <string name="title_setup_wizard_multiple">Мастер может быть использован неоднократно для настройки разных учётных записей</string>
     <string name="title_setup_wizard_new">Мне нужен новый адрес электронной почты</string>
@@ -402,6 +403,7 @@
     <string name="title_advanced_suggest_sent">Предлагать адреса, найденные в отправленных сообщениях</string>
     <string name="title_advanced_suggest_received">Предлагать адреса, найденные в полученных сообщениях</string>
     <string name="title_advanced_suggest_frequently">Сортировать предлагаемые адреса по частоте использования</string>
+    <string name="title_advanced_suggest_account">Ограничение предложений для текущей учётной записи</string>
     <string name="title_advanced_alt_re_fwd">Альтернативный префикс ответа/пересылки</string>
     <string name="title_advanced_send_chips">Показывать пузыри адреса</string>
     <string name="title_advanced_send_nav_color">Использовать цвет идентификатора для нижней панели действий</string>
@@ -553,6 +555,7 @@
     <string name="title_advanced_unzip">Показывать содержимое сжатых вложений</string>
     <string name="title_advanced_attachments_alt">Показывать вложения после текста сообщения</string>
     <string name="title_advanced_thumbnails">Показывать миниатюры изображений после текста сообщения</string>
+    <string name="title_advanced_pdf_preview">Показывать миниатюры PDF</string>
     <string name="title_advanced_message_text_zoom2">Масштаб текста сообщения по умолчанию: %1$s%%</string>
     <string name="title_advanced_editor_text_zoom">Масштабировать текст сообщения в редакторе</string>
     <string name="title_advanced_overview_mode">Изменять масштаб исходных сообщений к размеру экрана</string>
@@ -800,6 +803,7 @@
     <string name="title_advanced_pull_all_hint">При раскрытии папок или списка учётных записей</string>
     <string name="title_advanced_suggest_names_hint">Если отключено, при выборе контактов будут использоваться только адреса электронной почты</string>
     <string name="title_advanced_suggest_local_hint">В дополнение к контактам, предоставляемым Android. Контактные данные будут сохранены только для вновь отправленных или полученных сообщений при включении этой функции.</string>
+    <string name="title_advanced_suggest_account_hint">Относится только к локальным контактам, поскольку контакты в адресной книге Android не привязаны к определённым учётным записям</string>
     <string name="title_advanced_auto_identity_hint">Будет выбран последний идентификатор, использовавшийся для получателя новых сообщений</string>
     <string name="title_advanced_send_reminders_hint">Показывать предупреждение, если отсутствует текст сообщения, тема или, возможно, отсутствует вложение</string>
     <string name="title_advanced_reply_move_hint">Сервер электронной почты всё ещё может добавлять сообщения в папку отправленных</string>
@@ -1058,6 +1062,7 @@
     <string name="title_delete_channel">Удалить канал уведомлений</string>
     <string name="title_insert_contact">Добавить контакт</string>
     <string name="title_edit_contact">Изменить контакт</string>
+    <string name="title_delete_contact">Удалить контакт?</string>
     <string name="title_contact_email">Эл. почта</string>
     <string name="title_contact_name">Имя</string>
     <string name="title_contact_group">Группа</string>
@@ -1180,7 +1185,7 @@
     <string name="title_print_header">Печать заголовка</string>
     <string name="title_print_images">Печать изображений</string>
     <string name="title_print_images_remark">Загрузка изображений может занять некоторое время</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Печатать строки в блоке цитат</string>
+    <string name="title_print_block_quotes">Печатать строки в блоке цитат</string>
     <string name="title_show_headers">Показать заголовки</string>
     <string name="title_share_as_html">Поделиться как HTML</string>
     <string name="title_raw_save">Сохранить оригинал сообщения</string>
@@ -1212,6 +1217,7 @@
     <string name="title_quick_actions_snooze">Отложить</string>
     <string name="title_quick_actions_clear">Очистить выбор после действия</string>
     <string name="title_trash">Корзина</string>
+    <string name="title_trash_selection">Удалить выбранное</string>
     <string name="title_copy">Копировать&#8230;</string>
     <string name="title_copy_to">Копировать в&#8230;</string>
     <string name="title_subscribe">Подписаться</string>
@@ -1524,6 +1530,7 @@
     <string name="title_search_in_keywords">В ключевых словах (если возможно)</string>
     <string name="title_search_in_message">В тексте сообщения</string>
     <string name="title_search_in_notes">В локальных заметках</string>
+    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">В именах файлов (только на устройстве)</string>
     <string name="title_search_with">Ограничение поиска</string>
     <string name="title_search_with_unseen">Не прочитано</string>
     <string name="title_search_with_flagged">Избранное</string>
@@ -1617,7 +1624,7 @@
     <string name="title_answer_placeholder_firstname">Имя отправителя</string>
     <string name="title_answer_placeholder_lastname">Фамилия отправителя</string>
     <string name="title_answer_placeholder_date">Текущая дата</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">День недели</string>
+    <string name="title_answer_placeholder_weekday">День недели</string>
     <string name="title_rule_noop">Нет действия</string>
     <string name="title_rule_seen">Отметить прочитанным</string>
     <string name="title_rule_unseen">Отметить непрочитанным</string>
