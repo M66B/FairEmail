@@ -831,6 +831,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 return true;
         }
 
+        if (criteria.in_filenames) {
+            DB db = DB.getInstance(context);
+            List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+            if (attachments != null)
+                for (EntityAttachment attachment : attachments)
+                    if (!TextUtils.isEmpty(attachment.name) && contains(attachment.name, criteria.query, true, false))
+                        return true; // Partial search to find "filename.extension"
+        }
+
         if (criteria.in_headers) {
             if (message.headers != null && message.headers.contains(criteria.query))
                 return true;
@@ -991,6 +1000,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         boolean in_keywords = true;
         boolean in_message = true;
         boolean in_notes = true;
+        boolean in_filenames = false;
         boolean in_headers = false;
         boolean in_html = false;
         boolean with_unseen;
@@ -1276,6 +1286,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                         this.in_keywords == other.in_keywords &&
                         this.in_message == other.in_message &&
                         this.in_notes == other.in_notes &&
+                        this.in_filenames == other.in_filenames &&
                         this.in_headers == other.in_headers &&
                         this.in_html == other.in_html &&
                         this.with_unseen == other.with_unseen &&
@@ -1304,6 +1315,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             json.put("in_keywords", in_keywords);
             json.put("in_message", in_message);
             json.put("in_notes", in_notes);
+            json.put("in_filenames", in_filenames);
             json.put("in_headers", in_headers);
             json.put("in_html", in_html);
             json.put("with_unseen", with_unseen);
@@ -1351,6 +1363,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
             criteria.in_keywords = json.optBoolean("in_keywords");
             criteria.in_message = json.optBoolean("in_message");
             criteria.in_notes = json.optBoolean("in_notes");
+            criteria.in_filenames = json.optBoolean("in_filenames");
             criteria.in_headers = json.optBoolean("in_headers");
             criteria.in_html = json.optBoolean("in_html");
             criteria.with_unseen = json.optBoolean("with_unseen");
@@ -1399,6 +1412,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     " keywords=" + in_keywords +
                     " message=" + in_message +
                     " notes=" + in_notes +
+                    " filenames=" + in_filenames +
                     " headers=" + in_headers +
                     " html=" + in_html +
                     " unseen=" + with_unseen +

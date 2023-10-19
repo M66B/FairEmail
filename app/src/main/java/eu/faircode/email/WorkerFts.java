@@ -81,6 +81,8 @@ public class WorkerFts extends Worker {
                             continue;
                         }
 
+                        List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
+
                         String text = null;
                         if (message.content) {
                             File file = message.getFile(context);
@@ -89,7 +91,7 @@ public class WorkerFts extends Worker {
 
                         try {
                             sdb.beginTransaction();
-                            Fts4DbHelper.insert(sdb, message, text);
+                            Fts4DbHelper.insert(sdb, message, attachments, text);
                             sdb.setTransactionSuccessful();
                         } catch (SQLiteException ex) {
                             Log.w(ex);

@@ -87,6 +87,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         boolean last_search_keywords = prefs.getBoolean("last_search_keywords", false);
         boolean last_search_message = prefs.getBoolean("last_search_message", true);
         boolean last_search_notes = prefs.getBoolean("last_search_notes", true);
+        boolean last_search_filenames = prefs.getBoolean("last_search_filenames", false);
         boolean last_search_trash = prefs.getBoolean("last_search_trash", true);
         boolean last_search_junk = prefs.getBoolean("last_search_junk", true);
         boolean last_search_device = prefs.getBoolean("last_search_device", true);
@@ -116,6 +117,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         CheckBox cbMessage = dview.findViewById(R.id.cbMessage);
         TextView tvSearchTextUnsupported = dview.findViewById(R.id.tvSearchTextUnsupported);
         CheckBox cbNotes = dview.findViewById(R.id.cbNotes);
+        CheckBox cbFileNames = dview.findViewById(R.id.cbFileNames);
         CheckBox cbHeaders = dview.findViewById(R.id.cbHeaders);
         CheckBox cbHtml = dview.findViewById(R.id.cbHtml);
         CheckBox cbSearchTrash = dview.findViewById(R.id.cbSearchTrash);
@@ -343,6 +345,13 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             }
         });
 
+        cbFileNames.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("last_search_filenames", isChecked).apply();
+            }
+        });
+
         cbSearchTrash.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -406,6 +415,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         tvSearchTextUnsupported.setText(getString(R.string.title_search_text_unsupported,
                 "full text search not supported"));
         cbNotes.setChecked(last_search_notes);
+        cbFileNames.setChecked(last_search_filenames);
         cbSearchTrash.setChecked(last_search_trash);
         cbSearchJunk.setChecked(last_search_junk);
         tvAfter.setText(null);
@@ -437,6 +447,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
                         criteria.in_keywords = cbKeywords.isChecked();
                         criteria.in_message = cbMessage.isChecked();
                         criteria.in_notes = cbNotes.isChecked();
+                        criteria.in_filenames = cbFileNames.isChecked();
                         criteria.in_headers = cbHeaders.isChecked();
                         criteria.in_html = cbHtml.isChecked();
                         criteria.with_unseen = cbUnseen.isChecked();

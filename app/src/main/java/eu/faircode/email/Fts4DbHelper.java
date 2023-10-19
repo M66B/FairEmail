@@ -45,7 +45,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
     @SuppressLint("StaticFieldLeak")
     private static Fts4DbHelper instance = null;
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "fts4a.db";
 
     private Fts4DbHelper(Context context) {
@@ -76,6 +76,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
                 ", `keyword`" +
                 ", `text`" +
                 ", `notes`" +
+                ", `filenames`" +
                 ", notindexed=`account`" +
                 ", notindexed=`folder`" +
                 ", notindexed=`time`)");
@@ -98,7 +99,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         DB.getInstance(context).message().resetFts();
     }
 
-    static void insert(SQLiteDatabase db, EntityMessage message, String text) {
+    static void insert(SQLiteDatabase db, EntityMessage message, List<EntityAttachment> attachments, String text) {
         Log.i("FTS insert id=" + message.id);
         List<Address> address = new ArrayList<>();
         if (message.from != null)
@@ -109,6 +110,12 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
             address.addAll(Arrays.asList(message.cc));
         if (message.bcc != null)
             address.addAll(Arrays.asList(message.bcc));
+
+        List<String> filenames = new ArrayList<>();
+        if (attachments != null)
+            for (EntityAttachment attachment : attachments)
+                if (!TextUtils.isEmpty(attachment.name))
+                    filenames.add(attachment.name);
 
         delete(db, message.id);
 
@@ -122,6 +129,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         cv.put("keyword", TextUtils.join(" ", message.keywords));
         cv.put("text", processBreakText(text));
         cv.put("notes", processBreakText(message.notes));
+        cv.put("filenames", processBreakText(TextUtils.join(" ", filenames)));
         db.insertWithOnConflict("message", null, cv, SQLiteDatabase.CONFLICT_FAIL);
     }
 

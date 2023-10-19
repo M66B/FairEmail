@@ -364,6 +364,17 @@
             app:layout_constraintTop_toBottomOf="@id/tvSearchTextUnsupported" />
 
         <CheckBox
+            android:id="@+id/cbFileNames"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/title_search_in_filenames"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cbNotes" />
+
+        <CheckBox
             android:id="@+id/cbHeaders"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -372,7 +383,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cbNotes" />
+            app:layout_constraintTop_toBottomOf="@id/cbFileNames" />
 
         <CheckBox
             android:id="@+id/cbHtml"
@@ -583,7 +594,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-            cbSearchIndex,tvSearchIndexHint,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,tvSearchTextHint,tvSearchTextUnsupported,cbNotes,
+            cbSearchIndex,tvSearchIndexHint,cbSenders,cbRecipients,cbSubject,cbKeywords,cbMessage,tvSearchTextHint,tvSearchTextUnsupported,cbNotes,cbFileNames,
             tvAnd,cbUnseen,cbFlagged,cbHidden,cbEncrypted,cbAttachments,
             tvDate,btnAfter,btnBefore,tvBefore,tvAfter,cbSearchDevice" />
     </androidx.constraintlayout.widget.ConstraintLayout>
