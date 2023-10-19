@@ -95,6 +95,7 @@ public class FragmentDialogSend extends FragmentDialogBase {
         final boolean send_reminders = prefs.getBoolean("send_reminders", true);
         final int send_delayed = prefs.getInt("send_delayed", 0);
         final boolean send_dialog = prefs.getBoolean("send_dialog", true);
+        final boolean send_more = prefs.getBoolean("send_more", false);
         final boolean send_archive = prefs.getBoolean("send_archive", false);
         final MessageHelper.AddressFormat email_format = MessageHelper.getAddressFormat(getContext());
 
@@ -125,6 +126,8 @@ public class FragmentDialogSend extends FragmentDialogBase {
         final TextView tvTo = dview.findViewById(R.id.tvTo);
         final TextView tvViaTitle = dview.findViewById(R.id.tvViaTitle);
         final TextView tvVia = dview.findViewById(R.id.tvVia);
+        final ImageButton ibMore = dview.findViewById(R.id.ibMore);
+        final TextView tvMore = dview.findViewById(R.id.tvMore);
         final CheckBox cbPlainOnly = dview.findViewById(R.id.cbPlainOnly);
         final TextView tvPlainHint = dview.findViewById(R.id.tvPlainHint);
         final CheckBox cbReceipt = dview.findViewById(R.id.cbReceipt);
@@ -141,7 +144,14 @@ public class FragmentDialogSend extends FragmentDialogBase {
         final CheckBox cbNotAgain = dview.findViewById(R.id.cbNotAgain);
         final TextView tvNotAgain = dview.findViewById(R.id.tvNotAgain);
         final Group grpSentMissing = dview.findViewById(R.id.grpSentMissing);
-        final Group grpDsn = dview.findViewById(R.id.grpDsn);
+        final Group grpMore = dview.findViewById(R.id.grpMore);
+
+        final int[] dsnids = new int[]{
+                R.id.cbPlainOnly, R.id.cbReceipt,
+                R.id.tvEncrypt, R.id.spEncrypt,
+                R.id.tvPriority, R.id.spPriority,
+                R.id.tvSensitivity, R.id.spSensitivity
+        };
 
         btnFixSent.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -182,6 +192,7 @@ public class FragmentDialogSend extends FragmentDialogBase {
 
         tvTo.setText(null);
         tvVia.setText(null);
+        ibMore.setImageLevel(send_more ? 0 : 1);
         tvPlainHint.setVisibility(View.GONE);
         tvReceiptHint.setVisibility(View.GONE);
         spEncrypt.setTag(0);
@@ -192,11 +203,14 @@ public class FragmentDialogSend extends FragmentDialogBase {
         spSensitivity.setSelection(0);
         tvSendAt.setText(null);
         cbArchive.setEnabled(false);
+        grpMore.setVisibility(send_more ? View.VISIBLE : View.GONE);
         cbNotAgain.setChecked(!send_dialog);
         cbNotAgain.setVisibility(send_dialog ? View.VISIBLE : View.GONE);
         tvNotAgain.setVisibility(cbNotAgain.isChecked() ? View.VISIBLE : View.GONE);
 
         Helper.setViewsEnabled(dview, false);
+        for (int dsnid : dsnids)
+            dview.findViewById(dsnid).setEnabled(false);
 
         boolean reminder = (remind_extra || remind_subject || remind_text ||
                 remind_attachment || remind_extension != null || remind_internet);
@@ -217,18 +231,31 @@ public class FragmentDialogSend extends FragmentDialogBase {
             }
         });
 
-        cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        View.OnClickListener onMore = new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                prefs.edit().putBoolean("send_dialog", !isChecked).apply();
-                tvNotAgain.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            public void onClick(View v) {
+                if (grpMore.getVisibility() == View.VISIBLE) {
+                    ibMore.setImageLevel(1);
+                    grpMore.setVisibility(View.GONE);
+                } else {
+                    ibMore.setImageLevel(0);
+                    grpMore.setVisibility(View.VISIBLE);
+                }
+                prefs.edit().putBoolean("send_more", grpMore.getVisibility() == View.VISIBLE).apply();
             }
-        });
+        };
+
+        ibMore.setOnClickListener(onMore);
+        tvMore.setOnClickListener(onMore);
 
         cbPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 tvPlainHint.setVisibility(checked && styled ? View.VISIBLE : View.GONE);
+                if (checked && styled && grpMore.getVisibility() != View.VISIBLE) {
+                    ibMore.setImageLevel(0);
+                    grpMore.setVisibility(View.VISIBLE);
+                }
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
@@ -499,6 +526,14 @@ public class FragmentDialogSend extends FragmentDialogBase {
             }
         });
 
+        cbNotAgain.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                prefs.edit().putBoolean("send_dialog", !isChecked).apply();
+                tvNotAgain.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            }
+        });
+
         DB db = DB.getInstance(context);
         db.message().liveMessage(id).observe(getViewLifecycleOwner(), new Observer<TupleMessageEx>() {
             @Override
@@ -570,9 +605,9 @@ public class FragmentDialogSend extends FragmentDialogBase {
                     tvSendAt.setTextColor(draft.ui_snoozed < now ? colorWarning : textColorSecondary);
                 }
 
-                grpDsn.setVisibility(dsn ? View.GONE : View.VISIBLE);
-
                 Helper.setViewsEnabled(dview, true);
+                for (int dsnid : dsnids)
+                    dview.findViewById(dsnid).setEnabled(!dsn);
             }
         });
 

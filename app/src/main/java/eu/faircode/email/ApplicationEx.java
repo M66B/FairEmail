@@ -764,7 +764,8 @@ public class ApplicationEx extends Application
         } else if (version < 2108) {
             if (!prefs.getBoolean("updown", false))
                 editor.putBoolean("updown", false);
-        }
+        } else if (version < 2113)
+            editor.remove("send_more");
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");
