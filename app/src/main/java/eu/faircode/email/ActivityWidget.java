@@ -40,6 +40,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.constraintlayout.widget.Group;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.preference.PreferenceManager;
 
@@ -56,7 +57,8 @@ public class ActivityWidget extends ActivityBase {
     private Spinner spAccount;
     private CheckBox cbDayNight;
     private CheckBox cbSemiTransparent;
-    private ViewButtonColor btnColor;
+    private ViewButtonColor btnBgColor;
+    private ViewButtonColor btnFgColor;
     private View inOld;
     private View inNew;
     private RadioButton rbOld;
@@ -87,6 +89,7 @@ public class ActivityWidget extends ActivityBase {
         boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+        int foreground = prefs.getInt("widget." + appWidgetId + ".foreground", Color.TRANSPARENT);
         int layout = prefs.getInt("widget." + appWidgetId + ".layout", 1 /* new */);
         boolean top = prefs.getBoolean("widget." + appWidgetId + ".top", false);
         int size = prefs.getInt("widget." + appWidgetId + ".text_size", -1);
@@ -100,7 +103,8 @@ public class ActivityWidget extends ActivityBase {
         spAccount = findViewById(R.id.spAccount);
         cbDayNight = findViewById(R.id.cbDayNight);
         cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
-        btnColor = findViewById(R.id.btnColor);
+        btnBgColor = findViewById(R.id.btnBgColor);
+        btnFgColor = findViewById(R.id.btnFgColor);
         inOld = findViewById(R.id.inOld);
         inNew = findViewById(R.id.inNew);
         rbOld = findViewById(R.id.rbOld);
@@ -118,7 +122,8 @@ public class ActivityWidget extends ActivityBase {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 cbSemiTransparent.setEnabled(!checked);
-                btnColor.setEnabled(!checked);
+                btnBgColor.setEnabled(!checked);
+                updatePreview();
             }
         });
 
@@ -126,15 +131,15 @@ public class ActivityWidget extends ActivityBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-                    btnColor.setColor(Color.TRANSPARENT);
+                    btnBgColor.setColor(Color.TRANSPARENT);
                 updatePreview();
             }
         });
 
-        btnColor.setOnClickListener(new View.OnClickListener() {
+        btnBgColor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                int color = btnColor.getColor();
+                int color = btnBgColor.getColor();
                 int editTextColor = Helper.resolveColor(ActivityWidget.this, android.R.attr.editTextColor);
 
                 if (color == Color.TRANSPARENT) {
@@ -158,7 +163,7 @@ public class ActivityWidget extends ActivityBase {
                             public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
                                     cbSemiTransparent.setChecked(false);
-                                btnColor.setColor(selectedColor);
+                                btnBgColor.setColor(selectedColor);
                                 updatePreview();
                             }
                         })
@@ -166,7 +171,42 @@ public class ActivityWidget extends ActivityBase {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 cbSemiTransparent.setChecked(false);
-                                btnColor.setColor(Color.TRANSPARENT);
+                                btnBgColor.setColor(Color.TRANSPARENT);
+                                updatePreview();
+                            }
+                        })
+                        .build()
+                        .show();
+            }
+        });
+
+        btnFgColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int color = btnFgColor.getColor();
+                int editTextColor = Helper.resolveColor(ActivityWidget.this, android.R.attr.editTextColor);
+
+                ColorPickerDialogBuilder
+                        .with(ActivityWidget.this)
+                        .setTitle(R.string.title_widget_icon)
+                        .showColorEdit(true)
+                        .setColorEditTextColor(editTextColor)
+                        .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                        .density(6)
+                        .initialColor(color == Color.TRANSPARENT ? Color.WHITE : color)
+                        .showLightnessSlider(true)
+                        .showAlphaSlider(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+                        .setPositiveButton(android.R.string.ok, new ColorPickerClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int selectedColor, Integer[] allColors) {
+                                btnFgColor.setColor(selectedColor);
+                                updatePreview();
+                            }
+                        })
+                        .setNegativeButton(R.string.title_reset, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                btnFgColor.setColor(Color.TRANSPARENT);
                                 updatePreview();
                             }
                         })
@@ -226,7 +266,8 @@ public class ActivityWidget extends ActivityBase {
                 editor.putLong("widget." + appWidgetId + ".account", account == null ? -1L : account.id);
                 editor.putBoolean("widget." + appWidgetId + ".daynight", cbDayNight.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
-                editor.putInt("widget." + appWidgetId + ".background", btnColor.getColor());
+                editor.putInt("widget." + appWidgetId + ".background", btnBgColor.getColor());
+                editor.putInt("widget." + appWidgetId + ".foreground", btnFgColor.getColor());
                 editor.putInt("widget." + appWidgetId + ".layout", rbNew.isChecked() ? 1 : 0);
                 editor.putBoolean("widget." + appWidgetId + ".top", cbTop.isChecked());
                 if (pos > 0)
@@ -256,8 +297,9 @@ public class ActivityWidget extends ActivityBase {
         cbDayNight.setVisibility(Build.VERSION.SDK_INT < Build.VERSION_CODES.S ? View.GONE : View.VISIBLE);
         cbSemiTransparent.setChecked(semi);
         cbSemiTransparent.setEnabled(!daynight);
-        btnColor.setColor(background);
-        btnColor.setEnabled(!daynight);
+        btnBgColor.setColor(background);
+        btnBgColor.setEnabled(!daynight);
+        btnFgColor.setColor(foreground);
         rbOld.setChecked(layout != 1);
         rbNew.setChecked(layout == 1);
         cbTop.setChecked(top);
@@ -310,8 +352,14 @@ public class ActivityWidget extends ActivityBase {
     }
 
     private void updatePreview() {
+        boolean daynight = cbDayNight.isChecked();
         boolean semi = cbSemiTransparent.isChecked();
-        int background = btnColor.getColor();
+        int background = btnBgColor.getColor();
+        int foreground = btnFgColor.getColor();
+
+        int textColorPrimary = Helper.resolveColor(ActivityWidget.this, android.R.attr.textColorPrimary);
+        int colorWidgetForeground = ContextCompat.getColor(ActivityWidget.this, R.color.colorWidgetForeground);
+
         if (background == Color.TRANSPARENT) {
             if (semi) {
                 inOld.setBackgroundResource(R.drawable.widget_background);
@@ -321,22 +369,49 @@ public class ActivityWidget extends ActivityBase {
                 inNew.setBackgroundColor(background);
             }
         } else {
-            float lum = (float) ColorUtils.calculateLuminance(background);
-            int color = (lum > 0.7 ? Color.BLACK : getResources().getColor(R.color.colorWidgetForeground));
             if (semi)
                 background = ColorUtils.setAlphaComponent(background, 127);
 
             inOld.setBackgroundColor(background);
             inNew.setBackgroundColor(background);
+        }
 
-            ((ImageView) inOld.findViewById(R.id.ivMessage)).setColorFilter(color);
-            ((TextView) inOld.findViewById(R.id.tvCount)).setTextColor(color);
-            ((TextView) inOld.findViewById(R.id.tvAccount)).setTextColor(color);
+        if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            ((ImageView) inOld.findViewById(R.id.ivMessage)).setColorFilter(
+                    foreground == Color.TRANSPARENT ? textColorPrimary : foreground);
+            ((TextView) inOld.findViewById(R.id.tvCount)).setTextColor(textColorPrimary);
+            ((TextView) inOld.findViewById(R.id.tvAccount)).setTextColor(textColorPrimary);
 
-            ((ImageView) inNew.findViewById(R.id.ivMessage)).setColorFilter(color);
-            ((TextView) inNew.findViewById(R.id.tvCount)).setTextColor(color);
-            ((TextView) inNew.findViewById(R.id.tvCountTop)).setTextColor(color);
-            ((TextView) inNew.findViewById(R.id.tvAccount)).setTextColor(color);
+            ((ImageView) inNew.findViewById(R.id.ivMessage)).setColorFilter(
+                    foreground == Color.TRANSPARENT ? textColorPrimary : foreground);
+            ((TextView) inNew.findViewById(R.id.tvCount)).setTextColor(colorWidgetForeground);
+            ((TextView) inNew.findViewById(R.id.tvCountTop)).setTextColor(colorWidgetForeground);
+            ((TextView) inNew.findViewById(R.id.tvAccount)).setTextColor(textColorPrimary);
+        } else if (background == Color.TRANSPARENT) {
+            ((ImageView) inOld.findViewById(R.id.ivMessage)).setColorFilter(
+                    foreground == Color.TRANSPARENT ? colorWidgetForeground : foreground);
+            ((TextView) inOld.findViewById(R.id.tvCount)).setTextColor(colorWidgetForeground);
+            ((TextView) inOld.findViewById(R.id.tvAccount)).setTextColor(colorWidgetForeground);
+
+            ((ImageView) inNew.findViewById(R.id.ivMessage)).setColorFilter(
+                    foreground == Color.TRANSPARENT ? colorWidgetForeground : foreground);
+            ((TextView) inNew.findViewById(R.id.tvCount)).setTextColor(colorWidgetForeground);
+            ((TextView) inNew.findViewById(R.id.tvCountTop)).setTextColor(colorWidgetForeground);
+            ((TextView) inNew.findViewById(R.id.tvAccount)).setTextColor(colorWidgetForeground);
+        } else {
+            float lum = (float) ColorUtils.calculateLuminance(background);
+            int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
+
+            ((ImageView) inOld.findViewById(R.id.ivMessage)).setColorFilter(
+                    foreground == Color.TRANSPARENT ? fg : foreground);
+            ((TextView) inOld.findViewById(R.id.tvCount)).setTextColor(fg);
+            ((TextView) inOld.findViewById(R.id.tvAccount)).setTextColor(fg);
+
+            ((ImageView) inNew.findViewById(R.id.ivMessage)).setColorFilter(
+                    foreground == Color.TRANSPARENT ? fg : foreground);
+            ((TextView) inNew.findViewById(R.id.tvCount)).setTextColor(colorWidgetForeground);
+            ((TextView) inNew.findViewById(R.id.tvCountTop)).setTextColor(colorWidgetForeground);
+            ((TextView) inNew.findViewById(R.id.tvAccount)).setTextColor(fg);
         }
 
         boolean top = cbTop.isChecked();

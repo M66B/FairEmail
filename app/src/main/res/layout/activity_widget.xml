@@ -54,7 +54,7 @@
             app:layout_constraintTop_toBottomOf="@id/cbDayNight" />
 
         <eu.faircode.email.ViewButtonColor
-            android:id="@+id/btnColor"
+            android:id="@+id/btnBgColor"
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,6 +66,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbSemiTransparent" />
 
+        <eu.faircode.email.ViewButtonColor
+            android:id="@+id/btnFgColor"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:paddingHorizontal="6dp"
+            android:tag="disable"
+            android:text="@string/title_widget_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnBgColor" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clLayout"
             android:layout_width="wrap_content"
@@ -74,7 +87,7 @@
             android:background="@android:color/darker_gray"
             android:padding="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnColor">
+            app:layout_constraintTop_toBottomOf="@id/btnFgColor">
 
             <include
                 android:id="@+id/inOld"

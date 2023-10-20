@@ -62,6 +62,7 @@ public class Widget extends AppWidgetProvider {
                     boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
                     boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
                     int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
+                    int foreground = prefs.getInt("widget." + appWidgetId + ".foreground", Color.TRANSPARENT);
                     int layout = prefs.getInt("widget." + appWidgetId + ".layout", 0);
                     boolean top = prefs.getBoolean("widget." + appWidgetId + ".top", false);
                     int size = prefs.getInt("widget." + appWidgetId + ".text_size", -1);
@@ -146,7 +147,8 @@ public class Widget extends AppWidgetProvider {
 
                     // Set color
                     if (daynight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                        views.setColorAttr(R.id.ivMessage, "setColorFilter", android.R.attr.textColorPrimary);
+                        views.setColorAttr(R.id.ivMessage, "setColorFilter",
+                                foreground == Color.TRANSPARENT ? android.R.attr.textColorPrimary : foreground);
                         if (layout == 0)
                             views.setColorStateListAttr(R.id.tvCount, "setTextColor", android.R.attr.textColorPrimary);
                         else {
@@ -155,14 +157,16 @@ public class Widget extends AppWidgetProvider {
                         }
                         views.setColorStateListAttr(R.id.tvAccount, "setTextColor", android.R.attr.textColorPrimary);
                     } else if (background == Color.TRANSPARENT) {
-                        views.setInt(R.id.ivMessage, "setColorFilter", colorWidgetForeground);
+                        views.setInt(R.id.ivMessage, "setColorFilter",
+                                foreground == Color.TRANSPARENT ? colorWidgetForeground : foreground);
                         views.setTextColor(R.id.tvCount, colorWidgetForeground);
                         views.setTextColor(R.id.tvCountTop, colorWidgetForeground);
                         views.setTextColor(R.id.tvAccount, colorWidgetForeground);
                     } else {
                         float lum = (float) ColorUtils.calculateLuminance(background);
                         int fg = (lum > 0.7f ? Color.BLACK : colorWidgetForeground);
-                        views.setInt(R.id.ivMessage, "setColorFilter", fg);
+                        views.setInt(R.id.ivMessage, "setColorFilter",
+                                foreground == Color.TRANSPARENT ? fg : foreground);
                         views.setTextColor(R.id.tvCount, layout == 0 ? fg : colorWidgetForeground);
                         views.setTextColor(R.id.tvCountTop, layout == 0 ? fg : colorWidgetForeground);
                         views.setTextColor(R.id.tvAccount, fg);

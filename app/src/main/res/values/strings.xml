@@ -2333,6 +2333,7 @@
     <string name="title_widget_refresh">Show refresh messages button</string>
     <string name="title_widget_compose">Show compose new message button</string>
     <string name="title_widget_background">Background color</string>
+    <string name="title_widget_icon">Icon color</string>
     <string name="title_widget_day_night">Follow dark system theme</string>
 
     <string name="title_compat_dark">Google removed dark mode for Android versions before version 10</string>
