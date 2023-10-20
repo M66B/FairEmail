@@ -9,8 +9,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### Next version
 
 * Added option suggest local contacts for the current account only
+* Added '*More options*' to send dialog box
 * Android 14: using Material You background color
 * Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2112 - 2023-10-16 *
