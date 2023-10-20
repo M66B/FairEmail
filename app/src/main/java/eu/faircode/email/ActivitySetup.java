@@ -120,6 +120,7 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         view = LayoutInflater.from(this).inflate(R.layout.activity_setup, null);
         setContentView(view);
 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setCustomView(R.layout.action_bar);
         getSupportActionBar().setDisplayShowCustomEnabled(true);
@@ -399,8 +400,10 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
             return true;
 
         int itemId = item.getItemId();
-        if (itemId == R.id.menu_close)
+        if (itemId == R.id.menu_close) {
             onMenuClose();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
