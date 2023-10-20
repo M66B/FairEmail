@@ -191,6 +191,7 @@
     <string name="title_setup_quick_smtp">Serwer SMTP do wysyłania wiadomości</string>
     <string name="title_setup_quick_certificates">Certyfikaty serwera</string>
     <string name="title_setup_wizard">Kreator</string>
+    <string name="title_setup_wizard_intro">W większości przypadków do dodania konta można użyć przycisku kreatora, w przeciwnym razie adresy serwerów można wprowadzić lub zmienić ręcznie za pomocą opcji ręcznej konfiguracji</string>
     <string name="title_setup_wizard_tutorials">Poradniki</string>
     <string name="title_setup_wizard_multiple">Kreator może być używany wielokrotnie, aby skonfigurować wiele kont</string>
     <string name="title_setup_wizard_new">Potrzebujesz nowego adresu e-mail?</string>
@@ -554,6 +555,7 @@
     <string name="title_advanced_unzip">Pokaż zawartość skompresowanych załączników</string>
     <string name="title_advanced_attachments_alt">Pokaż załączniki za treścią wiadomości</string>
     <string name="title_advanced_thumbnails">Pokaż miniatury obrazów po tekście wiadomości</string>
+    <string name="title_advanced_pdf_preview">Wyświetlaj miniatury plików PDF</string>
     <string name="title_advanced_message_text_zoom2">Domyślne powiększenie tekstu wiadomości: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Powiększ tekst wiadomości również w edytorze wiadomości</string>
     <string name="title_advanced_overview_mode">Powiększ oryginalne wiadomości, aby dopasować je do ekranu</string>
@@ -1525,6 +1527,7 @@
     <string name="title_search_in_keywords">W słowach kluczowych (jeśli obsługiwane)</string>
     <string name="title_search_in_message">W tekście wiadomości</string>
     <string name="title_search_in_notes">W notatkach lokalnych</string>
+    <string name="title_search_in_filenames">W nazwach plików (tylko na urządzeniu)</string>
     <string name="title_search_with">Ogranicz wyszukiwanie do</string>
     <string name="title_search_with_unseen">Nieprzeczytane</string>
     <string name="title_search_with_flagged">Oznaczone</string>

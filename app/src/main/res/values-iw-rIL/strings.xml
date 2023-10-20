@@ -191,6 +191,7 @@
     <string name="title_setup_quick_smtp">שרת SMTP לשליחת הודעות</string>
     <string name="title_setup_quick_certificates">אישורי שרת</string>
     <string name="title_setup_wizard">אשף</string>
+    <string name="title_setup_wizard_intro">ברוב המקרים כפתור האשף יכול לשמש להוספת חשבון, אחרת אפשר להכניס או לשנות את כתובות השרת ידנית בעזרת אפשרות ההגדרה הידנית</string>
     <string name="title_setup_wizard_tutorials">מדריכים</string>
     <string name="title_setup_wizard_multiple">אפשר להשתמש באשף מספר פעמים כדי להגדיר מגוון חשבונות</string>
     <string name="title_setup_wizard_new">ארצה כתובת דוא״ל חדשה</string>
@@ -555,6 +556,7 @@
     <string name="title_advanced_unzip">הצגת תוכן הקבצים המצורפים הדחוסים</string>
     <string name="title_advanced_attachments_alt">הצגת הקבצים המצורפים אחרי טקסט ההודעה</string>
     <string name="title_advanced_thumbnails">הצגת תמונות ממוזערות אחרי טקסט ההודעה</string>
+    <string name="title_advanced_pdf_preview">הצגת תמונות ממוזערות של PDF</string>
     <string name="title_advanced_message_text_zoom2">תקריב טקסט ההודעות כבררת מחדל: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">התמקדות על טקסט ההודעה גם בעורך ההודעות</string>
     <string name="title_advanced_overview_mode">התאמת התקריב של ההודעות המקוריות לגודל המסך</string>
@@ -1529,6 +1531,7 @@
     <string name="title_search_in_keywords">במילות מפתח (אם נתמך)</string>
     <string name="title_search_in_message">בטקסט ההודעה</string>
     <string name="title_search_in_notes">בהערות המקומיות</string>
+    <string name="title_search_in_filenames">בשמות קבצים (במכשיר בלבד)</string>
     <string name="title_search_with">הגבלת החיפוש לכדי</string>
     <string name="title_search_with_unseen">לא נקראו</string>
     <string name="title_search_with_flagged">עם כוכב</string>

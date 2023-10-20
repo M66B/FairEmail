@@ -1527,7 +1527,7 @@
     <string name="title_search_in_keywords">У ключових словах (якщо підтримується)</string>
     <string name="title_search_in_message">У тексті повідомлення</string>
     <string name="title_search_in_notes">У локальних нотатках</string>
-    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">У назвах файлів (лише на пристрої)</string>
+    <string name="title_search_in_filenames">У назвах файлів (лише на пристрої)</string>
     <string name="title_search_with">Обмежити пошук, тільки</string>
     <string name="title_search_with_unseen">Непрочитані</string>
     <string name="title_search_with_flagged">Обрані</string>
@@ -2006,6 +2006,7 @@
     <string name="title_widget_refresh">Показувати кнопку оновлення повідомлень</string>
     <string name="title_widget_compose">Показати кнопку створення нового повідомлення</string>
     <string name="title_widget_background">Колір тла</string>
+    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Колір іконки</string>
     <string name="title_widget_day_night">Використовувати системну темну тему</string>
     <string name="title_compat_dark">Google прибирав темний режим для версій Android до 10</string>
     <!-- Thunderbird -->

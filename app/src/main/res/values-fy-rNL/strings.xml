@@ -1495,7 +1495,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_search_in_keywords">Yn kaaiwurden (wannear stipe)</string>
     <string name="title_search_in_message">Yn berjochttekst</string>
     <string name="title_search_in_notes">Yn lokale notysjes</string>
-    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">Yn bestânsnammen (allinnich op apparaat)</string>
+    <string name="title_search_in_filenames">Yn bestânsnammen (allinnich op apparaat)</string>
     <string name="title_search_with">Sykje beheine ta</string>
     <string name="title_search_with_unseen">Net lêzen</string>
     <string name="title_search_with_flagged">Mei stjer</string>
@@ -1972,6 +1972,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_widget_refresh">Knop foar it ferfarskjen fan berjochten toane</string>
     <string name="title_widget_compose">Knop foar it opstellen fan in nij berjocht toane</string>
     <string name="title_widget_background">Eftergrûnkleur</string>
+    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Piktogramkleur</string>
     <string name="title_widget_day_night">Donker systeemtema folgje</string>
     <string name="title_compat_dark">Google hat de donkere modus fuortsmiten foar Android-ferzjes foar ferzje 10</string>
     <!-- Thunderbird -->

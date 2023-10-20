@@ -162,6 +162,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_setup_quick_smtp">İleti göndermek için SMTP sunucusu</string>
     <string name="title_setup_quick_certificates">Sunucu sertifikaları</string>
     <string name="title_setup_wizard">Yardımcı</string>
+    <string name="title_setup_wizard_intro">Çoğu durumda bir hesap eklemek için sihirbaz düğmesi kullanılabilir, aksi takdirde sunucu adresleri manuel kurulum seçeneği kullanılarak elle girilebilir veya değiştirilebilir</string>
     <string name="title_setup_wizard_tutorials">Rehberler</string>
     <string name="title_setup_wizard_multiple">Kurulum sihirbazı, birden fazla hesabı ayarlamak için birden çok kez kullanılabilir</string>
     <string name="title_setup_wizard_new">Yeni bir e-posta adresi istiyorum</string>
@@ -373,6 +374,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_suggest_sent">Daha önce gönderilmiş iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_received">Alınmış iletilerde bulunan adresleri öner</string>
     <string name="title_advanced_suggest_frequently">Önerilen adresleri kullanım sıklığına göre sıralayın</string>
+    <string name="title_advanced_suggest_account">Önerileri mevcut hesapla sınırla</string>
     <string name="title_advanced_alt_re_fwd">Alternatif yanıt/iletme öneki</string>
     <string name="title_advanced_send_chips">Adres balonlarını göster</string>
     <string name="title_advanced_send_nav_color">Alttaki eylem çubuğu için kimlik rengini kullanın</string>
@@ -524,6 +526,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_unzip">Sıkıştırılmış eklerin içeriğini göster</string>
     <string name="title_advanced_attachments_alt">İleti metninden sonra ekleri göster</string>
     <string name="title_advanced_thumbnails">İleti metninden sonra görsellerin önizlemelerini göster</string>
+    <string name="title_advanced_pdf_preview">PDF küçük resimlerini göster</string>
     <string name="title_advanced_message_text_zoom2">Varsayılan mesaj metni yakınlaştırma: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Mesaj metnini mesaj düzenleyicide de yakınlaştırın</string>
     <string name="title_advanced_overview_mode">Orijinal mesajları ekrana sığacak şekilde yakınlaştırın</string>
@@ -770,6 +773,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_pull_all_hint">Klasörler veya hesaplar listesini aşağı çekerken</string>
     <string name="title_advanced_suggest_names_hint">Devre dışı bırakılırsa, kişileri seçerken yalnızca e-posta adresleri kullanılacaktır</string>
     <string name="title_advanced_suggest_local_hint">Android tarafından sağlanan kişilere ek olarak. Kişi verileri yeni gönderilen veya alınan mesajlar için yalnızca etkin olduğunda saklanacaktır.</string>
+    <string name="title_advanced_suggest_account_hint">Bu yalnızca yerel kişiler için geçerlidir çünkü Android adres defterindeki kişiler belirli hesaplara bağlı değildir</string>
     <string name="title_advanced_auto_identity_hint">Bu, yeni mesajlar için bir alıcı seçerken kullanılan son kimliği seçecektir</string>
     <string name="title_advanced_send_reminders_hint">Mesaj metni veya konu boş olduğunda veya bir ek eksik olduğunda bir uyarı göster</string>
     <string name="title_advanced_reply_move_hint">E-posta sunucusu, iletileri gönderilen ileti klasörüne eklemeye devam edebilir</string>
@@ -1028,6 +1032,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_delete_channel">Bildirim kanalını sil</string>
     <string name="title_insert_contact">Kişi ekle</string>
     <string name="title_edit_contact">Kişiyi düzenle</string>
+    <string name="title_delete_contact">Kişi silinsin mi?</string>
     <string name="title_contact_email">e-posta</string>
     <string name="title_contact_name">Ad</string>
     <string name="title_contact_group">Grup</string>
@@ -1180,6 +1185,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_quick_actions_snooze">Ertele</string>
     <string name="title_quick_actions_clear">Eylemden sonra seçimi temizle</string>
     <string name="title_trash">Çöp Kutusu</string>
+    <string name="title_trash_selection">Çöp seçimi</string>
     <string name="title_copy">Kopyala &#8230;</string>
     <string name="title_copy_to">&#8230;\'ya kopyala</string>
     <string name="title_subscribe">Abonelik</string>
@@ -1490,6 +1496,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_search_in_keywords">Anahtar kelimelerle (eğer destekleniyorsa)</string>
     <string name="title_search_in_message">İleti metnindeki</string>
     <string name="title_search_in_notes">Yerel notlarda</string>
+    <string name="title_search_in_filenames">Dosya adlarında (yalnızca cihazda)</string>
     <string name="title_search_with">Aramayı sınırla</string>
     <string name="title_search_with_unseen">Okunmamış</string>
     <string name="title_search_with_flagged">Yıldızlanmış</string>

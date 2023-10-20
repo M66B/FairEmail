@@ -1530,7 +1530,7 @@
     <string name="title_search_in_keywords">В ключевых словах (если возможно)</string>
     <string name="title_search_in_message">В тексте сообщения</string>
     <string name="title_search_in_notes">В локальных заметках</string>
-    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">В именах файлов (только на устройстве)</string>
+    <string name="title_search_in_filenames">В именах файлов (только на устройстве)</string>
     <string name="title_search_with">Ограничение поиска</string>
     <string name="title_search_with_unseen">Не прочитано</string>
     <string name="title_search_with_flagged">Избранное</string>
@@ -2009,6 +2009,7 @@
     <string name="title_widget_refresh">Показать кнопку обновления сообщений</string>
     <string name="title_widget_compose">Показать кнопку создания нового сообщения</string>
     <string name="title_widget_background">Цвет фона</string>
+    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Цвет значка</string>
     <string name="title_widget_day_night">Использовать системную тёмную тему</string>
     <string name="title_compat_dark">Google удалил тёмный режим для версий Android младше 10 версии</string>
     <!-- Thunderbird -->

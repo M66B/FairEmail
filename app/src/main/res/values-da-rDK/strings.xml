@@ -163,6 +163,7 @@
     <string name="title_setup_quick_smtp">SMTP-server til beskedafsendelse</string>
     <string name="title_setup_quick_certificates">Servercertifikater</string>
     <string name="title_setup_wizard">Guide</string>
+    <string name="title_setup_wizard_intro">Guiden kan for det meste bruges ved tilføjelse af en konto, ellers kan serveradresserne angives eller ændres manuelt ved vha. den manuelle opsætningsmulighed</string>
     <string name="title_setup_wizard_tutorials">Selvstudier</string>
     <string name="title_setup_wizard_multiple">Guiden kan anvendes ved hver ny kontoopsætning</string>
     <string name="title_setup_wizard_new">Jeg behøver en ny e-mailadresse</string>
@@ -527,6 +528,7 @@
     <string name="title_advanced_unzip">Vis indhold af komprimerede vedhæftninger</string>
     <string name="title_advanced_attachments_alt">Vis vedhæftninger efter beskedteksten</string>
     <string name="title_advanced_thumbnails">Vis billedminiaturer efter beskedteksten</string>
+    <string name="title_advanced_pdf_preview">Vis PDF-miniaturer</string>
     <string name="title_advanced_message_text_zoom2">Standard beskedtekstzoom %1$s%%</string>
     <string name="title_advanced_editor_text_zoom">Zoom også beskedtekst i besked-editoren</string>
     <string name="title_advanced_overview_mode">Zoom originale beskeder for skærmtilpasning</string>
@@ -1502,6 +1504,7 @@
     <string name="title_search_in_keywords">I nøgleord (hvis understøttet)</string>
     <string name="title_search_in_message">I beskedtekst</string>
     <string name="title_search_in_notes">I lokale notater</string>
+    <string name="title_search_in_filenames">I filnavne (kun på enheden)</string>
     <string name="title_search_with">Begræns søgning til</string>
     <string name="title_search_with_unseen">Ulæst</string>
     <string name="title_search_with_flagged">Stjernemarkeret</string>

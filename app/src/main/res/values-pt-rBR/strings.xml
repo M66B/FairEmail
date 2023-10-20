@@ -1500,7 +1500,7 @@
     <string name="title_search_in_keywords">Por palavras-chave (se suportado)</string>
     <string name="title_search_in_message">Por texto da mensagem</string>
     <string name="title_search_in_notes">Em notas locais</string>
-    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">Em nomes de arquivo (apenas no dispositivo)</string>
+    <string name="title_search_in_filenames">Em nomes de arquivo (apenas no dispositivo)</string>
     <string name="title_search_with">Limitar busca a</string>
     <string name="title_search_with_unseen">Não lida(s)</string>
     <string name="title_search_with_flagged">Favorita(s)</string>

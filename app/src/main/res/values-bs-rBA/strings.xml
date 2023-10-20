@@ -177,6 +177,7 @@
     <string name="title_setup_quick_smtp">SMTP server za slanje poruka</string>
     <string name="title_setup_quick_certificates">Certifikati servera</string>
     <string name="title_setup_wizard">Čarobnjak</string>
+    <string name="title_setup_wizard_intro">Najčešće dugme čarobnjak služi da dodate račun, u suprotnom adrese servera se mogu ručno unositi i mijenjati koristeći ručne postavke</string>
     <string name="title_setup_wizard_tutorials">Tutorijali</string>
     <string name="title_setup_wizard_multiple">Čarobnjak se može koristiti višestruko kada postavljate više računa</string>
     <string name="title_setup_wizard_new">Potrebna je nova e-mail adresa</string>
@@ -541,6 +542,7 @@
     <string name="title_advanced_unzip">Prikaži sadržaj kompresovanih priloga</string>
     <string name="title_advanced_attachments_alt">Prikaži priloge poslije teksta poruke</string>
     <string name="title_advanced_thumbnails">Prikaži sličice fotografija poslije teksta poruke</string>
+    <string name="title_advanced_pdf_preview">Prikaži PDF sličice</string>
     <string name="title_advanced_message_text_zoom2">Zadani nivo zumiranja teksta: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zumiraj tekst poruke i u uređivaču poruka</string>
     <string name="title_advanced_overview_mode">Zumiraj originalne poruke da popune ekran</string>
@@ -1515,6 +1517,7 @@
     <string name="title_search_in_keywords">U ključnim riječima (ako je podržano)</string>
     <string name="title_search_in_message">U tekstu poruke</string>
     <string name="title_search_in_notes">U lokalnim bilješkama</string>
+    <string name="title_search_in_filenames">U nazivima fajlova (samo na uređaju)</string>
     <string name="title_search_with">Ograniči pretragu na</string>
     <string name="title_search_with_unseen">Nepročitano</string>
     <string name="title_search_with_flagged">Favorite (zvjezdice)</string>
@@ -1993,6 +1996,7 @@
     <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
     <string name="title_widget_compose">Prikaži dugme za pisanje nove poruke</string>
     <string name="title_widget_background">Boja pozadine</string>
+    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Boja ikone</string>
     <string name="title_widget_day_night">Prati tamnu sistemsku temu</string>
     <string name="title_compat_dark">Google je uklonio tamnu temu za Android verzije prije verzije 10</string>
     <!-- Thunderbird -->

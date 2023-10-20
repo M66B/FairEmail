@@ -1513,7 +1513,7 @@
     <string name="title_search_in_keywords">În cuvinte-cheie (dacă sunt acceptate)</string>
     <string name="title_search_in_message">În textul mesajului</string>
     <string name="title_search_in_notes">În notele locale</string>
-    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">În fișiere (doar pe dispozitiv)</string>
+    <string name="title_search_in_filenames">În fișiere (doar pe dispozitiv)</string>
     <string name="title_search_with">Limitează căutarea la</string>
     <string name="title_search_with_unseen">Necitit</string>
     <string name="title_search_with_flagged">Marcat</string>

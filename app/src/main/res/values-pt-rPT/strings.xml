@@ -1504,7 +1504,7 @@
     <string name="title_search_in_keywords">Em palavras-chave (se suportado)</string>
     <string name="title_search_in_message">Em mensagens de texto</string>
     <string name="title_search_in_notes">Em notas locais</string>
-    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">Nos nomes de arquivo (apenas no dispositivo)</string>
+    <string name="title_search_in_filenames">Nos nomes de arquivo (apenas no dispositivo)</string>
     <string name="title_search_with">Limitar pesquisa a</string>
     <string name="title_search_with_unseen">Não lidas</string>
     <string name="title_search_with_flagged">Com estrela</string>
@@ -1983,6 +1983,7 @@
     <string name="title_widget_refresh">Mostrar botão para atualizar mensagens</string>
     <string name="title_widget_compose">Mostrar botão para compor nova mensagem</string>
     <string name="title_widget_background">Cor do fundo</string>
+    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Cor do ícone</string>
     <string name="title_widget_day_night">Adoptar o tema escuro do sistema</string>
     <string name="title_compat_dark">A Google removeu o modo escuro para versões do Android antes da versão 10</string>
     <!-- Thunderbird -->

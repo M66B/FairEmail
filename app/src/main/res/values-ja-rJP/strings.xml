@@ -1489,7 +1489,7 @@
     <string name="title_search_in_keywords">キーワードを検索 (対応している場合のみ)</string>
     <string name="title_search_in_message">本文を検索</string>
     <string name="title_search_in_notes">ローカルメモを検索</string>
-    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">ファイル名を検索 (端末上のみ)</string>
+    <string name="title_search_in_filenames">ファイル名を検索 (端末上のみ)</string>
     <string name="title_search_with">検索範囲を指定</string>
     <string name="title_search_with_unseen">未読</string>
     <string name="title_search_with_flagged">スター付き</string>

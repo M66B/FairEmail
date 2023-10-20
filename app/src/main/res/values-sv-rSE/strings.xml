@@ -1489,7 +1489,7 @@
     <string name="title_search_in_keywords">I nyckelord (om det stöds)</string>
     <string name="title_search_in_message">I meddelandetext</string>
     <string name="title_search_in_notes">I lokala anteckningar</string>
-    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">I filnamn (endast på enheten)</string>
+    <string name="title_search_in_filenames">I filnamn (endast på enheten)</string>
     <string name="title_search_with">Begränsa sökningen till</string>
     <string name="title_search_with_unseen">Olästa</string>
     <string name="title_search_with_flagged">Stjärnmärkta</string>

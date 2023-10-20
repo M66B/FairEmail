@@ -970,7 +970,7 @@
     <string name="title_search_in_subject">در موضوع</string>
     <string name="title_search_in_keywords">در کلیدواژه‌ها (اگر پشتیبانی شود)</string>
     <string name="title_search_in_message">در متن پیام</string>
-    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">در اسم فایل‌ها (فقط روی دستگاه)</string>
+    <string name="title_search_in_filenames">در اسم فایل‌ها (فقط روی دستگاه)</string>
     <string name="title_search_with">محدود کردن جستجو به</string>
     <string name="title_search_with_unseen">خوانده نشده</string>
     <string name="title_search_with_flagged">ستاره‌دار</string>
@@ -1303,6 +1303,7 @@
     <string name="title_widget_semi_transparent">پس‌زمینه نیمه شفاف</string>
     <string name="title_widget_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_widget_background">رنگ پس‌زمینه</string>
+    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">رنگ آیکون</string>
     <string name="title_widget_day_night">بر اساس تم تاریک سیستم</string>
     <string name="title_compat_dark">گوگل قابلیت حالت تاریک را در نسخه‌های اندروید کمتر از ۱۰ حذف کرد</string>
     <!-- Thunderbird -->

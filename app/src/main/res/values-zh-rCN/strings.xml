@@ -149,6 +149,7 @@
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
     <string name="title_setup_quick_certificates">服务器证书</string>
     <string name="title_setup_wizard">向导</string>
+    <string name="title_setup_wizard_intro">在大多数情况下，可以用向导按钮来添加账户。 不然，你可以通过手动设置选项手动输入或更改服务器地址</string>
     <string name="title_setup_wizard_tutorials">教程</string>
     <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个账户</string>
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
@@ -512,6 +513,7 @@
     <string name="title_advanced_unzip">显示压缩附件的内容</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
+    <string name="title_advanced_pdf_preview">显示 PDF 缩略图</string>
     <string name="title_advanced_message_text_zoom2">默认消息文本缩放： %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">同时也在邮件编辑窗中缩放内容文本</string>
     <string name="title_advanced_overview_mode">缩放原始消息以适应屏幕</string>
@@ -1481,6 +1483,7 @@
     <string name="title_search_in_keywords">关键词 (如果支持)</string>
     <string name="title_search_in_message">消息文本</string>
     <string name="title_search_in_notes">本地备注内容</string>
+    <string name="title_search_in_filenames">在文件名中 (仅在设备上)</string>
     <string name="title_search_with">限定以下搜索</string>
     <string name="title_search_with_unseen">未读邮件</string>
     <string name="title_search_with_flagged">星标邮件</string>

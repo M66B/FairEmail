@@ -1528,7 +1528,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_search_in_keywords">V klíčových slovech (je-li podporováno)</string>
     <string name="title_search_in_message">V textu zprávy</string>
     <string name="title_search_in_notes">V místních poznámkách</string>
-    <string name="title_search_in_filenames" comment="title_search_in_filenames&#10;Title for option in search dialog box">V názvu souboru (pouze na zařízení)</string>
+    <string name="title_search_in_filenames">V názvu souboru (pouze na zařízení)</string>
     <string name="title_search_with">Omezit hledání na</string>
     <string name="title_search_with_unseen">Nepřečteno</string>
     <string name="title_search_with_flagged">S hvězdičkou</string>
