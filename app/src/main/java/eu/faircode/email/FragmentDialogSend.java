@@ -236,9 +236,13 @@ public class FragmentDialogSend extends FragmentDialogBase {
             public void onClick(View v) {
                 if (grpMore.getVisibility() == View.VISIBLE) {
                     ibMore.setImageLevel(1);
+                    tvPlainHint.setVisibility(View.GONE);
+                    tvReceiptHint.setVisibility(View.GONE);
                     grpMore.setVisibility(View.GONE);
                 } else {
                     ibMore.setImageLevel(0);
+                    tvPlainHint.setVisibility(cbPlainOnly.isChecked() && styled ? View.VISIBLE : View.GONE);
+                    tvReceiptHint.setVisibility(cbReceipt.isChecked() ? View.VISIBLE : View.GONE);
                     grpMore.setVisibility(View.VISIBLE);
                 }
                 prefs.edit().putBoolean("send_more", grpMore.getVisibility() == View.VISIBLE).apply();
@@ -285,6 +289,10 @@ public class FragmentDialogSend extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 tvReceiptHint.setVisibility(checked ? View.VISIBLE : View.GONE);
+                if (checked && grpMore.getVisibility() != View.VISIBLE) {
+                    ibMore.setImageLevel(0);
+                    grpMore.setVisibility(View.VISIBLE);
+                }
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
