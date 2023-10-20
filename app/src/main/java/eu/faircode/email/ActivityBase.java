@@ -41,7 +41,6 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -822,18 +821,6 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
              */
             return false;
         }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            // Delegate to fragment first
-            if (super.onOptionsItemSelected(item))
-                return true;
-            performBack();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     public void performBack() {

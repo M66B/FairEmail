@@ -75,15 +75,6 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
     }
 
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == android.R.id.home &&
-                getSupportFragmentManager().getBackStackEntryCount() > 0)
-            return false; // Delegate to fragment
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void onBackStackChanged() {
         if (getSupportFragmentManager().getBackStackEntryCount() == 0) {
             Intent intent = getIntent();

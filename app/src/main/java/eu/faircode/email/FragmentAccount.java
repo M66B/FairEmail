@@ -1895,7 +1895,11 @@ public class FragmentAccount extends FragmentBase {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_delete) {
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            onSave(true);
+            return true;
+        } else if (itemId == R.id.menu_delete) {
             onMenuDelete();
             return true;
         }
