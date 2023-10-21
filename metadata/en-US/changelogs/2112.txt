@@ -13,6 +13,7 @@ Next version
 * Android 14: using Material You background color
 * Small improvements and minor bug fixes
 * Updated AndroidX
+* Updated Public Suffix List
 * Updated translations
 
 1.2112 - 2023-10-16 *
