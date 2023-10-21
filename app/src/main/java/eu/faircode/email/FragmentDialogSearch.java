@@ -64,76 +64,74 @@ import java.util.Calendar;
 import java.util.List;
 
 public class FragmentDialogSearch extends FragmentDialogBase {
-    private ImageButton ibMore;
-    private TextView tvMore;
-
     private static final int MAX_SUGGESTIONS = 3;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        final long account = getArguments().getLong("account", -1);
-        final long folder = getArguments().getLong("folder", -1);
+        final Bundle args = getArguments();
+        final long account = args.getLong("account", -1);
+        final long folder = args.getLong("folder", -1);
 
         final Context context = getContext();
-        boolean pro = ActivityBilling.isPro(context);
+        final boolean pro = ActivityBilling.isPro(context);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean fts = prefs.getBoolean("fts", false);
-        boolean last_fts = prefs.getBoolean("last_fts", true);
-        boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
-        boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
-        boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
-        boolean last_search_keywords = prefs.getBoolean("last_search_keywords", false);
-        boolean last_search_message = prefs.getBoolean("last_search_message", true);
-        boolean last_search_notes = prefs.getBoolean("last_search_notes", true);
-        boolean last_search_filenames = prefs.getBoolean("last_search_filenames", false);
-        boolean last_search_trash = prefs.getBoolean("last_search_trash", true);
-        boolean last_search_junk = prefs.getBoolean("last_search_junk", true);
-        boolean last_search_device = prefs.getBoolean("last_search_device", true);
+        final boolean fts = prefs.getBoolean("fts", false);
+        final boolean last_fts = prefs.getBoolean("last_fts", true);
+        final boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
+        final boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
+        final boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
+        final boolean last_search_keywords = prefs.getBoolean("last_search_keywords", false);
+        final boolean last_search_message = prefs.getBoolean("last_search_message", true);
+        final boolean last_search_notes = prefs.getBoolean("last_search_notes", true);
+        final boolean last_search_filenames = prefs.getBoolean("last_search_filenames", false);
+        final boolean last_search_trash = prefs.getBoolean("last_search_trash", true);
+        final boolean last_search_junk = prefs.getBoolean("last_search_junk", true);
+        final boolean last_search_device = prefs.getBoolean("last_search_device", true);
 
-        View dview = LayoutInflater.from(context).inflate(R.layout.dialog_search, null);
+        final View dview = LayoutInflater.from(context).inflate(R.layout.dialog_search, null);
 
-        TextViewAutoCompleteAction etQuery = dview.findViewById(R.id.etQuery);
-        Button btnSearch1 = dview.findViewById(R.id.btnSearch1);
-        Button btnSearch2 = dview.findViewById(R.id.btnSearch2);
-        Button btnSearch3 = dview.findViewById(R.id.btnSearch3);
-        ImageButton ibResetSearches = dview.findViewById(R.id.ibResetSearches);
+        final TextViewAutoCompleteAction etQuery = dview.findViewById(R.id.etQuery);
+        final Button btnSearch1 = dview.findViewById(R.id.btnSearch1);
+        final Button btnSearch2 = dview.findViewById(R.id.btnSearch2);
+        final Button btnSearch3 = dview.findViewById(R.id.btnSearch3);
+        final ImageButton ibResetSearches = dview.findViewById(R.id.ibResetSearches);
 
-        ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
-        ImageButton ibFlagged = dview.findViewById(R.id.ibFlagged);
-        ImageButton ibUnseen = dview.findViewById(R.id.ibUnseen);
-        ImageButton ibInvite = dview.findViewById(R.id.ibInvite);
-        ImageButton ibAttachment = dview.findViewById(R.id.ibAttachment);
-        ImageButton ibNotes = dview.findViewById(R.id.ibNotes);
-        TextView tvHintFts = dview.findViewById(R.id.tvHintFts);
-        ibMore = dview.findViewById(R.id.ibMore);
-        tvMore = dview.findViewById(R.id.tvMore);
-        CheckBox cbSearchIndex = dview.findViewById(R.id.cbSearchIndex);
-        CheckBox cbSenders = dview.findViewById(R.id.cbSenders);
-        CheckBox cbRecipients = dview.findViewById(R.id.cbRecipients);
-        CheckBox cbSubject = dview.findViewById(R.id.cbSubject);
-        CheckBox cbKeywords = dview.findViewById(R.id.cbKeywords);
-        CheckBox cbMessage = dview.findViewById(R.id.cbMessage);
-        TextView tvSearchTextUnsupported = dview.findViewById(R.id.tvSearchTextUnsupported);
-        CheckBox cbNotes = dview.findViewById(R.id.cbNotes);
-        CheckBox cbFileNames = dview.findViewById(R.id.cbFileNames);
-        CheckBox cbHeaders = dview.findViewById(R.id.cbHeaders);
-        CheckBox cbHtml = dview.findViewById(R.id.cbHtml);
-        CheckBox cbSearchTrash = dview.findViewById(R.id.cbSearchTrash);
-        CheckBox cbSearchJunk = dview.findViewById(R.id.cbSearchJunk);
-        CheckBox cbUnseen = dview.findViewById(R.id.cbUnseen);
-        CheckBox cbFlagged = dview.findViewById(R.id.cbFlagged);
-        CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
-        CheckBox cbEncrypted = dview.findViewById(R.id.cbEncrypted);
-        CheckBox cbAttachments = dview.findViewById(R.id.cbAttachments);
-        Spinner spMessageSize = dview.findViewById(R.id.spMessageSize);
-        Button btnBefore = dview.findViewById(R.id.btnBefore);
-        Button btnAfter = dview.findViewById(R.id.btnAfter);
-        TextView tvBefore = dview.findViewById(R.id.tvBefore);
-        TextView tvAfter = dview.findViewById(R.id.tvAfter);
-        CheckBox cbSearchDevice = dview.findViewById(R.id.cbSearchDevice);
-        Group grpMore = dview.findViewById(R.id.grpMore);
+        final ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
+        final ImageButton ibFlagged = dview.findViewById(R.id.ibFlagged);
+        final ImageButton ibUnseen = dview.findViewById(R.id.ibUnseen);
+        final ImageButton ibInvite = dview.findViewById(R.id.ibInvite);
+        final ImageButton ibAttachment = dview.findViewById(R.id.ibAttachment);
+        final ImageButton ibNotes = dview.findViewById(R.id.ibNotes);
+        final TextView tvHintFts = dview.findViewById(R.id.tvHintFts);
+        final ImageButton ibMore = dview.findViewById(R.id.ibMore);
+        final TextView tvMore = dview.findViewById(R.id.tvMore);
+        final CheckBox cbSearchIndex = dview.findViewById(R.id.cbSearchIndex);
+        final CheckBox cbSenders = dview.findViewById(R.id.cbSenders);
+        final CheckBox cbRecipients = dview.findViewById(R.id.cbRecipients);
+        final CheckBox cbSubject = dview.findViewById(R.id.cbSubject);
+        final CheckBox cbKeywords = dview.findViewById(R.id.cbKeywords);
+        final CheckBox cbMessage = dview.findViewById(R.id.cbMessage);
+        final TextView tvSearchTextUnsupported = dview.findViewById(R.id.tvSearchTextUnsupported);
+        final CheckBox cbNotes = dview.findViewById(R.id.cbNotes);
+        final CheckBox cbFileNames = dview.findViewById(R.id.cbFileNames);
+        final CheckBox cbHeaders = dview.findViewById(R.id.cbHeaders);
+        final CheckBox cbHtml = dview.findViewById(R.id.cbHtml);
+        final CheckBox cbSearchTrash = dview.findViewById(R.id.cbSearchTrash);
+        final CheckBox cbSearchJunk = dview.findViewById(R.id.cbSearchJunk);
+        final CheckBox cbUnseen = dview.findViewById(R.id.cbUnseen);
+        final CheckBox cbFlagged = dview.findViewById(R.id.cbFlagged);
+        final CheckBox cbHidden = dview.findViewById(R.id.cbHidden);
+        final CheckBox cbEncrypted = dview.findViewById(R.id.cbEncrypted);
+        final CheckBox cbAttachments = dview.findViewById(R.id.cbAttachments);
+        final Spinner spMessageSize = dview.findViewById(R.id.spMessageSize);
+        final Button btnBefore = dview.findViewById(R.id.btnBefore);
+        final Button btnAfter = dview.findViewById(R.id.btnAfter);
+        final TextView tvBefore = dview.findViewById(R.id.tvBefore);
+        final TextView tvAfter = dview.findViewById(R.id.tvAfter);
+        final CheckBox cbSearchDevice = dview.findViewById(R.id.cbSearchDevice);
+        final Group grpMore = dview.findViewById(R.id.grpMore);
 
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -289,7 +287,23 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         ibMore.setOnClickListener(onMore);
         tvMore.setOnClickListener(onMore);
 
-        evalMore();
+        Runnable evalMore = new RunnableEx("more") {
+            @Override
+            protected void delegate() {
+                boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
+                boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
+                boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
+                boolean last_search_message = prefs.getBoolean("last_search_message", true);
+
+                boolean all = (last_search_senders && last_search_recipients && last_search_subject && last_search_message);
+                int color = Helper.resolveColor(context, all ? android.R.attr.textColorSecondary : R.attr.colorWarning);
+                ibMore.setImageTintList(ColorStateList.valueOf(color));
+                tvMore.setTextColor(color);
+                tvMore.setTypeface(all ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
+            }
+        };
+
+        evalMore.run();
 
         cbSearchIndex.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -303,7 +317,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_search_senders", isChecked).apply();
-                evalMore();
+                evalMore.run();
             }
         });
 
@@ -311,7 +325,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_search_recipients", isChecked).apply();
-                evalMore();
+                evalMore.run();
             }
         });
 
@@ -319,7 +333,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_search_subject", isChecked).apply();
-                evalMore();
+                evalMore.run();
             }
         });
 
@@ -334,7 +348,7 @@ public class FragmentDialogSearch extends FragmentDialogBase {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("last_search_message", isChecked).apply();
-                evalMore();
+                evalMore.run();
             }
         });
 
@@ -620,21 +634,6 @@ public class FragmentDialogSearch extends FragmentDialogBase {
         });
 
         return dialog;
-    }
-
-    private void evalMore() {
-        final Context context = tvMore.getContext();
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean last_search_senders = prefs.getBoolean("last_search_senders", true);
-        boolean last_search_recipients = prefs.getBoolean("last_search_recipients", true);
-        boolean last_search_subject = prefs.getBoolean("last_search_subject", true);
-        boolean last_search_message = prefs.getBoolean("last_search_message", true);
-
-        boolean all = (last_search_senders && last_search_recipients && last_search_subject && last_search_message);
-        int color = Helper.resolveColor(context, all ? android.R.attr.textColorSecondary : R.attr.colorWarning);
-        ibMore.setImageTintList(ColorStateList.valueOf(color));
-        tvMore.setTextColor(color);
-        tvMore.setTypeface(all ? Typeface.DEFAULT : Typeface.DEFAULT_BOLD);
     }
 
     @Override
