@@ -28,8 +28,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -252,14 +254,25 @@ public class FragmentDialogSend extends FragmentDialogBase {
         ibMore.setOnClickListener(onMore);
         tvMore.setOnClickListener(onMore);
 
+        Runnable evalMore = new RunnableEx("more") {
+            @Override
+            protected void delegate() {
+                boolean warning = (cbPlainOnly.isChecked() && styled);
+                int color = Helper.resolveColor(tvMore.getContext(), warning ? R.attr.colorWarning : android.R.attr.textColorSecondary);
+                ibMore.setImageTintList(ColorStateList.valueOf(color));
+                tvMore.setTextColor(color);
+                tvMore.setTypeface(warning ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+            }
+        };
+
+        evalMore.run();
+
         cbPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                tvPlainHint.setVisibility(checked && styled ? View.VISIBLE : View.GONE);
-                if (checked && styled && grpMore.getVisibility() != View.VISIBLE) {
-                    ibMore.setImageLevel(0);
-                    grpMore.setVisibility(View.VISIBLE);
-                }
+                boolean more = (grpMore.getVisibility() == View.VISIBLE);
+                tvPlainHint.setVisibility(checked && styled && more ? View.VISIBLE : View.GONE);
+                evalMore.run();
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);
@@ -288,11 +301,8 @@ public class FragmentDialogSend extends FragmentDialogBase {
         cbReceipt.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                tvReceiptHint.setVisibility(checked ? View.VISIBLE : View.GONE);
-                if (checked && grpMore.getVisibility() != View.VISIBLE) {
-                    ibMore.setImageLevel(0);
-                    grpMore.setVisibility(View.VISIBLE);
-                }
+                boolean more = (grpMore.getVisibility() == View.VISIBLE);
+                tvReceiptHint.setVisibility(checked && more ? View.VISIBLE : View.GONE);
 
                 Bundle args = new Bundle();
                 args.putLong("id", id);

@@ -530,7 +530,7 @@
             android:id="@+id/cbArchive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:tag="ignore"
             android:text="@string/title_send_auto_archive"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -541,7 +541,7 @@
             android:id="@+id/cbNotAgain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="12dp"
             android:text="@string/title_no_ask_again"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
@@ -567,8 +567,7 @@
                 tvEncrypt,spEncrypt,ibEncryption,
                 tvPriority,spPriority,
                 tvSensitivity,spSensitivity,ibSensitivity,
-                tvSendTitle,tvSendAt,ibSendAt,
-                cbArchive" />
+                tvSendTitle,tvSendAt,ibSendAt" />
 
         <androidx.constraintlayout.widget.Group
             android:id="@+id/grpSentMissing"
