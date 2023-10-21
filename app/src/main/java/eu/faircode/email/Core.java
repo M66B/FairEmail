@@ -3306,9 +3306,9 @@ class Core {
                     }
 
                     for (TupleUidl uidl : known.values())
-                        if (!uidl.ui_flagged &&
-                                (!account.leave_on_device ||
-                                        (uidl.ui_hide && (uidl.ui_busy == null || uidl.ui_busy < now)))) {
+                        if (account.leave_on_device
+                                ? uidl.ui_hide && (uidl.ui_busy == null || uidl.ui_busy < now)
+                                : !uidl.ui_flagged) {
                             EntityLog.log(context, account.name + " POP purging" +
                                     " uidl=" + uidl.uidl + " hidden=" + uidl.ui_hide);
                             db.message().deleteMessage(uidl.id);
@@ -3327,9 +3327,9 @@ class Core {
                     }
 
                     for (TupleUidl uidl : known.values())
-                        if (!uidl.ui_flagged &&
-                                (!account.leave_on_device ||
-                                        (uidl.ui_hide && (uidl.ui_busy == null || uidl.ui_busy < now)))) {
+                        if (account.leave_on_device
+                                ? uidl.ui_hide && (uidl.ui_busy == null || uidl.ui_busy < now)
+                                : !uidl.ui_flagged) {
                             EntityLog.log(context, account.name + " POP purging" +
                                     " msgid=" + uidl.msgid + " hidden=" + uidl.ui_hide);
                             db.message().deleteMessage(uidl.id);
