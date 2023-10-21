@@ -123,7 +123,7 @@
     <string name="title_welcome">ようこそ</string>
     <string name="title_eula">エンドユーザー使用許諾契約書</string>
     <string name="title_license">オープンソース ライセンス</string>
-    <string name="title_contributors">貢献者</string>
+    <string name="title_contributors">貢献者 (個別に寄付を求めることはありません)</string>
     <string name="title_agree">同意する</string>
     <string name="title_disagree">同意しない</string>
     <string name="title_version">バージョン %1$s</string>
@@ -1968,6 +1968,7 @@
     <string name="title_widget_refresh">メッセージ更新ボタンを表示</string>
     <string name="title_widget_compose">メッセージ新規作成ボタンを表示</string>
     <string name="title_widget_background">背景色</string>
+    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">アイコンの色</string>
     <string name="title_widget_day_night">システムのダークテーマに従う</string>
     <string name="title_compat_dark">Android 10 以前では Google によりダークモードが取り除かれました</string>
     <!-- Thunderbird -->

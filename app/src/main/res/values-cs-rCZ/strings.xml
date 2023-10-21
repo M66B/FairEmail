@@ -2006,6 +2006,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_refresh">Zobrazit tlačítko pro obnovení zpráv</string>
     <string name="title_widget_compose">Zobrazit tlačítko pro vytvoření nové zprávy</string>
     <string name="title_widget_background">Barva pozadí</string>
+    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Barva ikony</string>
     <string name="title_widget_day_night">Sledovat tmavý motiv systému</string>
     <string name="title_compat_dark">Google odstranil tmavý režim pro verze Androidu nižší než 10</string>
     <!-- Thunderbird -->

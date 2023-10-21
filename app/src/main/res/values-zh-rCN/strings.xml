@@ -1960,6 +1960,7 @@
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>
     <string name="title_widget_background">背景颜色</string>
+    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">图标颜色</string>
     <string name="title_widget_day_night">跟随系统主题</string>
     <string name="title_compat_dark">谷歌移除了安卓 10 之前的暗黑模式</string>
     <!-- Thunderbird -->

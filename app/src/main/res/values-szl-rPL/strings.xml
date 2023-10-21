@@ -2005,6 +2005,7 @@
     <string name="title_widget_refresh">Pokaż przycisk odświeżania wiadomości</string>
     <string name="title_widget_compose">Pokaż przycisk tworzenia nowej wiadomości</string>
     <string name="title_widget_background">Kolor tła</string>
+    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Kolor ikony</string>
     <string name="title_widget_day_night">Podążaj za ciemnym motywem systemowym</string>
     <string name="title_compat_dark">Google usunęło tryb ciemny dla Androida przed wersją 10</string>
     <!-- Thunderbird -->
