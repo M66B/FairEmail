@@ -3289,45 +3289,51 @@ class Core {
                     ifolder.fetch(imessages, ifetch);
                 }
 
-                if (!account.leave_on_device) {
-                    if (hasUidl) {
-                        Map<String, TupleUidl> known = new HashMap<>();
-                        for (TupleUidl id : ids)
-                            if (id.uidl != null)
-                                known.put(id.uidl, id);
+                long now = new Date().getTime();
 
-                        for (Message imessage : imessages) {
-                            String uidl = ifolder.getUID(imessage);
-                            if (TextUtils.isEmpty(uidl))
-                                known.clear(); // better safe than sorry
-                            else
-                                known.remove(uidl);
-                        }
+                if (hasUidl) {
+                    Map<String, TupleUidl> known = new HashMap<>();
+                    for (TupleUidl id : ids)
+                        if (id.uidl != null)
+                            known.put(id.uidl, id);
 
-                        for (TupleUidl uidl : known.values())
-                            if (!uidl.ui_flagged) {
-                                EntityLog.log(context, account.name + " POP purging uidl=" + uidl.uidl);
-                                db.message().deleteMessage(uidl.id);
-                            }
-                    } else {
-                        Map<String, TupleUidl> known = new HashMap<>();
-                        for (TupleUidl id : ids)
-                            if (id.msgid != null)
-                                known.put(id.msgid, id);
-
-                        for (int i = imessages.length - max; i < imessages.length; i++) {
-                            Message imessage = imessages[i];
-                            MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
-                            String msgid = helper.getPOP3MessageID(); // expensive!
-                            known.remove(msgid);
-                        }
-
-                        for (TupleUidl uidl : known.values())
-                            if (!uidl.ui_flagged) {
-                                EntityLog.log(context, account.name + " POP purging msgid=" + uidl.msgid);
-                                db.message().deleteMessage(uidl.id);
-                            }
+                    for (Message imessage : imessages) {
+                        String uidl = ifolder.getUID(imessage);
+                        if (TextUtils.isEmpty(uidl))
+                            known.clear(); // better safe than sorry
+                        else
+                            known.remove(uidl);
                     }
+
+                    for (TupleUidl uidl : known.values())
+                        if (!uidl.ui_flagged &&
+                                (!account.leave_on_device ||
+                                        (uidl.ui_hide && (uidl.ui_busy == null || uidl.ui_busy < now)))) {
+                            EntityLog.log(context, account.name + " POP purging" +
+                                    " uidl=" + uidl.uidl + " hidden=" + uidl.ui_hide);
+                            db.message().deleteMessage(uidl.id);
+                        }
+                } else {
+                    Map<String, TupleUidl> known = new HashMap<>();
+                    for (TupleUidl id : ids)
+                        if (id.msgid != null)
+                            known.put(id.msgid, id);
+
+                    for (int i = imessages.length - max; i < imessages.length; i++) {
+                        Message imessage = imessages[i];
+                        MessageHelper helper = new MessageHelper((MimeMessage) imessage, context);
+                        String msgid = helper.getPOP3MessageID(); // expensive!
+                        known.remove(msgid);
+                    }
+
+                    for (TupleUidl uidl : known.values())
+                        if (!uidl.ui_flagged &&
+                                (!account.leave_on_device ||
+                                        (uidl.ui_hide && (uidl.ui_busy == null || uidl.ui_busy < now)))) {
+                            EntityLog.log(context, account.name + " POP purging" +
+                                    " msgid=" + uidl.msgid + " hidden=" + uidl.ui_hide);
+                            db.message().deleteMessage(uidl.id);
+                        }
                 }
 
                 boolean _new = true;
