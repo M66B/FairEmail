@@ -69,8 +69,8 @@ public class FragmentDialogSend extends FragmentDialogBase {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        Bundle args = getArguments();
-        long id = args.getLong("id");
+        final Bundle args = getArguments();
+        final long id = args.getLong("id");
         final boolean sent_missing = args.getBoolean("sent_missing", false);
         final String address_error = args.getString("address_error");
         final String mx_error = args.getString("mx_error");
@@ -93,7 +93,7 @@ public class FragmentDialogSend extends FragmentDialogBase {
 
         final Context context = getContext();
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         final boolean send_reminders = prefs.getBoolean("send_reminders", true);
         final int send_delayed = prefs.getInt("send_delayed", 0);
         final boolean send_dialog = prefs.getBoolean("send_dialog", true);
