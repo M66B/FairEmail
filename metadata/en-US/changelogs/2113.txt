@@ -10,7 +10,7 @@ Vallibonavenatrix
 
 * Added '*More options*' to send dialog box
 * Added option to disable PDF preview (display settings)
-* Added option suggest local contacts for the current account only (send settings)
+* Added option to suggest local contacts for the current account only (send settings)
 * Android 14: using Material You background color
 * Fixed back navigation in some circumstances
 * Small improvements and minor bug fixes
