@@ -2052,6 +2052,8 @@ You can change this in the connection settings.
 You could enable to download only plain text only parts, but all messages will be without formatting (styling),
 and besides that, a plain text only part is not always sent, and worse, it is sometimes only a part of the message text, containing HTML and CCS.
 
+In case of POP3, you can reduce the maximum number of messages to download.
+
 <br />
 
 <a name="faq41"></a>
