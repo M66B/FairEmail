@@ -6,11 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2113 - 2023-10-21
 
-* Added option suggest local contacts for the current account only
 * Added '*More options*' to send dialog box
+* Added option to disable PDF preview (display settings)
+* Added option suggest local contacts for the current account only (send settings)
 * Android 14: using Material You background color
+* Fixed back navigation in some circumstances
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
