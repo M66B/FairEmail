@@ -1008,6 +1008,14 @@ public class Helper {
         intent.setDataAndTypeAndNormalize(uri, type);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
+        // https://developer.android.com/guide/topics/large-screens/multi-window-support#launch_adjacent
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean adjacent = prefs.getBoolean("adjacent", false);
+        if (adjacent &&
+                context instanceof ActivityView &&
+                !((ActivityView) context).isSplit())
+            intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK);
+
         if (!TextUtils.isEmpty(name))
             intent.putExtra(Intent.EXTRA_TITLE, Helper.sanitizeFilename(name));
         Log.i("Intent=" + intent + " type=" + type);
@@ -1118,6 +1126,13 @@ public class Helper {
             view.setDataAndType(uri, mimeType);
         if (task)
             view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        // https://developer.android.com/guide/topics/large-screens/multi-window-support#launch_adjacent
+        boolean adjacent = prefs.getBoolean("adjacent", false);
+        if (adjacent &&
+                context instanceof ActivityView &&
+                !((ActivityView) context).isSplit())
+            view.addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if ("chooser".equals(open_with_pkg) && !open_with_tabs) {
             try {
