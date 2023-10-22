@@ -330,7 +330,7 @@
 
         <TextView
             android:id="@+id/tvMore"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:drawablePadding="6dp"
             android:drawableTint="?attr/colorWarning"
@@ -339,7 +339,6 @@
             android:text="@string/title_search_more"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintBottom_toBottomOf="@+id/ibMore"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ibMore"
             app:layout_constraintTop_toTopOf="@+id/ibMore" />
 
@@ -364,6 +363,7 @@
             android:text="@string/title_plain_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
             app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPlainOnly" />
