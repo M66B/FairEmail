@@ -558,53 +558,8 @@ public class FragmentMessages extends FragmentBase
         setActionBarListener(getViewLifecycleOwner(), new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new SimpleTask<List<TupleFolderEx>>() {
-                    @Override
-                    protected List<TupleFolderEx> onExecute(Context context, Bundle args) {
-                        DB db = DB.getInstance(context);
-                        return db.folder().getUnified(null);
-                    }
-
-                    @Override
-                    protected void onExecuted(Bundle args, final List<TupleFolderEx> folders) {
-                        if (folders == null)
-                            return;
-
-                        final Context context = getContext();
-                        if (context == null)
-                            return;
-
-                        Collections.sort(folders, folders.get(0).getComparator(context));
-
-                        List<CharSequence> items = new ArrayList<>();
-                        for (TupleFolderEx folder : folders)
-                            items.add(folder.accountName + "/" + folder.getDisplayName(context));
-
-                        new AlertDialog.Builder(context)
-                                .setIcon(R.drawable.twotone_folder_open_24)
-                                .setTitle(R.string.title_folders_unified)
-                                .setItems(items.toArray(new CharSequence[0]), new DialogInterface.OnClickListener() {
-                                    @Override
-                                    public void onClick(DialogInterface dialog, int which) {
-                                        TupleFolderEx folder = folders.get(which);
-
-                                        LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                                        lbm.sendBroadcast(
-                                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                                        .putExtra("account", folder.account)
-                                                        .putExtra("folder", folder.id)
-                                                        .putExtra("type", folder.type));
-                                    }
-                                })
-                                .setPositiveButton(android.R.string.cancel, null)
-                                .show();
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.unexpectedError(getParentFragment(), ex);
-                    }
-                }.execute(FragmentMessages.this, new Bundle(), "unified");
+                FragmentDialogSelectUnifiedFolder fragment = new FragmentDialogSelectUnifiedFolder();
+                fragment.show(getParentFragmentManager(), "unified:select");
             }
         });
 
