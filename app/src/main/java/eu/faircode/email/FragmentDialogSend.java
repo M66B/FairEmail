@@ -233,6 +233,23 @@ public class FragmentDialogSend extends FragmentDialogBase {
             }
         });
 
+        Runnable evalMore = new RunnableEx("more") {
+            @Override
+            protected void delegate() {
+                boolean warning = (grpMore.getVisibility() != View.VISIBLE &&
+                        cbPlainOnly.isChecked() && styled);
+                int color = Helper.resolveColor(tvMore.getContext(), warning ? R.attr.colorWarning : android.R.attr.textColorSecondary);
+                ibMore.setImageTintList(ColorStateList.valueOf(color));
+                tvMore.setTextColor(color);
+                tvMore.setTypeface(warning ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+                tvMore.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        0, 0,
+                        warning ? R.drawable.twotone_warning_24 : 0, 0);
+            }
+        };
+
+        evalMore.run();
+
         View.OnClickListener onMore = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -247,28 +264,13 @@ public class FragmentDialogSend extends FragmentDialogBase {
                     tvReceiptHint.setVisibility(cbReceipt.isChecked() ? View.VISIBLE : View.GONE);
                     grpMore.setVisibility(View.VISIBLE);
                 }
+                evalMore.run();
                 prefs.edit().putBoolean("send_more", grpMore.getVisibility() == View.VISIBLE).apply();
             }
         };
 
         ibMore.setOnClickListener(onMore);
         tvMore.setOnClickListener(onMore);
-
-        Runnable evalMore = new RunnableEx("more") {
-            @Override
-            protected void delegate() {
-                boolean warning = (cbPlainOnly.isChecked() && styled);
-                int color = Helper.resolveColor(tvMore.getContext(), warning ? R.attr.colorWarning : android.R.attr.textColorSecondary);
-                ibMore.setImageTintList(ColorStateList.valueOf(color));
-                tvMore.setTextColor(color);
-                tvMore.setTypeface(warning ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
-                tvMore.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                        0, 0,
-                        warning ? R.drawable.twotone_warning_24 : 0, 0);
-            }
-        };
-
-        evalMore.run();
 
         cbPlainOnly.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
