@@ -262,6 +262,9 @@ public class FragmentDialogSend extends FragmentDialogBase {
                 ibMore.setImageTintList(ColorStateList.valueOf(color));
                 tvMore.setTextColor(color);
                 tvMore.setTypeface(warning ? Typeface.DEFAULT_BOLD : Typeface.DEFAULT);
+                tvMore.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        0, 0,
+                        warning ? R.drawable.twotone_warning_24 : 0, 0);
             }
         };
 

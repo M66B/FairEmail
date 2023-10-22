@@ -332,6 +332,8 @@
             android:id="@+id/tvMore"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:drawablePadding="6dp"
+            android:drawableTint="?attr/colorWarning"
             android:gravity="center_vertical"
             android:paddingStart="6dp"
             android:text="@string/title_search_more"
