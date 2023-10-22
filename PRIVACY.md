@@ -1,6 +1,6 @@
 # Privacy policy
 
-[&#x1F30E; Google Translate](https://translate.google.com/translate?hl=&sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FPRIVACY.md)
+[&#x1F30E; Google Translate](https://translate.google.com/translate?hl=&sl=en&u=https%3A%2F%2Fraw.githubusercontent.com%2FM66B%2FFairEmail%2Fmaster%2FPRIVACY.md)
 
 <br />
 
