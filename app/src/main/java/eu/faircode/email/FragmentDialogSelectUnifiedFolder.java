@@ -90,15 +90,27 @@ public class FragmentDialogSelectUnifiedFolder extends FragmentDialogBase {
                 else if (folders.size() > 0)
                     Collections.sort(folders, folders.get(0).getComparator(context));
 
+                TupleFolderEx unified = new TupleFolderEx();
+                unified.id = -1L;
+                unified.name = context.getString(R.string.title_folder_unified);
+                folders.add(0, unified);
+
                 AdapterFolder adapter = new AdapterFolder(context, folders, new AdapterFolder.IListener() {
                     @Override
                     public void onSelected(TupleFolderEx folder) {
                         LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(context);
-                        lbm.sendBroadcast(
-                                new Intent(ActivityView.ACTION_VIEW_MESSAGES)
-                                        .putExtra("account", folder.account)
-                                        .putExtra("folder", folder.id)
-                                        .putExtra("type", folder.type));
+                        if (folder.id < 0)
+                            lbm.sendBroadcast(
+                                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                            .putExtra("type", (String) null)
+                                            .putExtra("unified", true));
+                        else
+                            lbm.sendBroadcast(
+                                    new Intent(ActivityView.ACTION_VIEW_MESSAGES)
+                                            .putExtra("account", folder.account)
+                                            .putExtra("folder", folder.id)
+                                            .putExtra("type", folder.type));
+
                         sendResult(RESULT_OK);
                         dialog.dismiss();
                     }
@@ -148,7 +160,10 @@ public class FragmentDialogSelectUnifiedFolder extends FragmentDialogBase {
                 tv.setPadding(0, vpad, 0, vpad);
 
                 vwColor.setBackgroundColor(folder.color == null ? Color.TRANSPARENT : folder.color);
-                tv.setText(folder.accountName + "/" + folder.getDisplayName(context));
+                if (folder.accountName == null)
+                    tv.setText(folder.getDisplayName(context));
+                else
+                    tv.setText(folder.accountName + "/" + folder.getDisplayName(context));
             }
 
             @Override
