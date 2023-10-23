@@ -920,6 +920,8 @@
     <string name="title_advanced_mdn" translatable="false">Process MDNs</string>
     <string name="title_advanced_app_chooser" translatable="false">Use Android app chooser</string>
     <string name="title_advanced_adjacent" translatable="false">Open side-by-side</string>
+    <string name="title_advanced_adjacent_links" translatable="false">Links</string>
+    <string name="title_advanced_adjacent_documents" translatable="false">Documents</string>
     <string name="title_advanced_portrait_mode" translatable="false">Portrait mode</string>
     <string name="title_advanced_landscape_mode" translatable="false">Landscape mode</string>
     <string name="title_advanced_delete_confirmation" translatable="false">Permanent deletion confirmation</string>

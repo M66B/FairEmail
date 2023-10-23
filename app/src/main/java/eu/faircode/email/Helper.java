@@ -1008,7 +1008,7 @@ public class Helper {
         intent.setDataAndTypeAndNormalize(uri, type);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-        if (launchAdjacent(context))
+        if (launchAdjacent(context, true))
             intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if (!TextUtils.isEmpty(name))
@@ -1122,7 +1122,7 @@ public class Helper {
         if (task)
             view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        if (launchAdjacent(context))
+        if (launchAdjacent(context, false))
             view.addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if ("chooser".equals(open_with_pkg) && !open_with_tabs) {
@@ -1203,12 +1203,13 @@ public class Helper {
         }
     }
 
-    private static boolean launchAdjacent(Context context) {
+    private static boolean launchAdjacent(Context context, boolean document) {
         // https://developer.android.com/guide/topics/large-screens/multi-window-support#launch_adjacent
         Configuration config = context.getResources().getConfiguration();
         boolean portrait = (config.orientation == Configuration.ORIENTATION_PORTRAIT);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return prefs.getBoolean("adjacent_" + (portrait ? "portrait" : "landscape"), false);
+        return (prefs.getBoolean("adjacent_" + (portrait ? "portrait" : "landscape"), false) &&
+                prefs.getBoolean("adjacent_" + (document ? "documents" : "links"), document));
     }
 
     static boolean customTabsWarmup(Context context) {
