@@ -248,7 +248,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swThreadByRef;
     private SwitchCompat swMdn;
     private SwitchCompat swAppChooser;
-    private SwitchCompat swAdjacent;
+    private SwitchCompat swAdjacentPortrait;
+    private SwitchCompat swAdjacentLandscape;
     private SwitchCompat swDeleteConfirmation;
     private SwitchCompat swDmarcViewer;
     private EditText etKeywords;
@@ -314,7 +315,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "exact_alarms",
             "native_dkim", "native_arc", "native_arc_whitelist",
             "webp", "easy_correct", "infra", "tld_flags", "dup_msgids", "thread_byref", "mdn",
-            "app_chooser", "adjacent", "delete_confirmation", "global_keywords", "test_iab"
+            "app_chooser", "adjacent_portrait", "adjacent_landscape", "delete_confirmation", "global_keywords", "test_iab"
     };
 
     private final static String[] RESET_QUESTIONS = new String[]{
@@ -511,7 +512,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swThreadByRef = view.findViewById(R.id.swThreadByRef);
         swMdn = view.findViewById(R.id.swMdn);
         swAppChooser = view.findViewById(R.id.swAppChooser);
-        swAdjacent = view.findViewById(R.id.swAdjacent);
+        swAdjacentPortrait = view.findViewById(R.id.swAdjacentPortrait);
+        swAdjacentLandscape = view.findViewById(R.id.swAdjacentLandscape);
         swDeleteConfirmation = view.findViewById(R.id.swDeleteConfirmation);
         swDmarcViewer = view.findViewById(R.id.swDmarcViewer);
         etKeywords = view.findViewById(R.id.etKeywords);
@@ -1944,10 +1946,17 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
-        swAdjacent.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        swAdjacentPortrait.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("adjacent", checked).apply();
+                prefs.edit().putBoolean("adjacent_portrait", checked).apply();
+            }
+        });
+
+        swAdjacentLandscape.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("adjacent_landscape", checked).apply();
             }
         });
 
@@ -2733,7 +2742,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swThreadByRef.setChecked(prefs.getBoolean("thread_byref", true));
             swMdn.setChecked(prefs.getBoolean("mdn", swExperiments.isChecked()));
             swAppChooser.setChecked(prefs.getBoolean("app_chooser", false));
-            swAdjacent.setChecked(prefs.getBoolean("adjacent", false));
+            swAdjacentPortrait.setChecked(prefs.getBoolean("adjacent_portrait", false));
+            swAdjacentLandscape.setChecked(prefs.getBoolean("adjacent_landscape", false));
             swDeleteConfirmation.setChecked(prefs.getBoolean("delete_confirmation", true));
             swDmarcViewer.setChecked(Helper.isComponentEnabled(getContext(), ActivityDmarc.class));
             etKeywords.setText(prefs.getString("global_keywords", null));

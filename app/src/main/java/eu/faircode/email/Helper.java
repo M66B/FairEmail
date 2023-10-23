@@ -1008,12 +1008,7 @@ public class Helper {
         intent.setDataAndTypeAndNormalize(uri, type);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-        // https://developer.android.com/guide/topics/large-screens/multi-window-support#launch_adjacent
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean adjacent = prefs.getBoolean("adjacent", false);
-        if (adjacent &&
-                context instanceof ActivityView &&
-                !((ActivityView) context).isSplit())
+        if (launchAdjacent(context))
             intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if (!TextUtils.isEmpty(name))
@@ -1127,11 +1122,7 @@ public class Helper {
         if (task)
             view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
-        // https://developer.android.com/guide/topics/large-screens/multi-window-support#launch_adjacent
-        boolean adjacent = prefs.getBoolean("adjacent", false);
-        if (adjacent &&
-                context instanceof ActivityView &&
-                !((ActivityView) context).isSplit())
+        if (launchAdjacent(context))
             view.addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if ("chooser".equals(open_with_pkg) && !open_with_tabs) {
@@ -1210,6 +1201,14 @@ public class Helper {
                 reportNoViewer(context, uri, ex);
             }
         }
+    }
+
+    private static boolean launchAdjacent(Context context) {
+        // https://developer.android.com/guide/topics/large-screens/multi-window-support#launch_adjacent
+        Configuration config = context.getResources().getConfiguration();
+        boolean portrait = (config.orientation == Configuration.ORIENTATION_PORTRAIT);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean("adjacent_" + (portrait ? "portrait" : "landscape"), false);
     }
 
     static boolean customTabsWarmup(Context context) {
