@@ -81,6 +81,7 @@ import android.text.style.URLSpan;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.HapticFeedbackConstants;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -7398,6 +7399,7 @@ public class FragmentCompose extends FragmentBase {
 
             } else if (action == R.id.action_send) {
                 state = State.NONE;
+                view.performHapticFeedback(HapticFeedbackConstants.CONFIRM);
                 finish();
             }
         }
