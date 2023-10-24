@@ -5877,6 +5877,8 @@ class Core {
 
             if (notify_summary) {
                 builder.setOnlyAlertOnce(new_messages <= 0);
+                if (new_messages <= 0)
+                    builder.setSilent(true);
 
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
                     if (new_messages > 0)
