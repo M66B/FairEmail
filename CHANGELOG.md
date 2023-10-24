@@ -9,6 +9,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 ### Next version
 
 * Added tap on title/subtitle to open/switch to inbox
+* Addded option to disable showing recipient for sent messages
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

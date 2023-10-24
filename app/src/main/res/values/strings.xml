@@ -591,6 +591,7 @@
     <string name="title_advanced_only_name">Display contact names only</string>
     <string name="title_advanced_distinguish_contacts">Underline the sender when the sender is known as local \'to\' contact</string>
     <string name="title_advanced_show_recipients">Show recipients in message header</string>
+    <string name="title_advanced_reverse_addresses">Show recipient for sent messages</string>
     <string name="title_advanced_font_size_sender">Text size sender</string>
     <string name="title_advanced_sender_ellipsize">If needed, shorten the sender</string>
 

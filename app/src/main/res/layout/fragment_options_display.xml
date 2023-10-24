@@ -1341,6 +1341,18 @@
                     app:layout_constraintTop_toBottomOf="@id/swDistinguishContacts"
                     app:switchPadding="12dp" />
 
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swReverseAddresses"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_reverse_addresses"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swShowRecipients"
+                    app:switchPadding="12dp" />
+
                 <TextView
                     android:id="@+id/tvFontSizeSender"
                     android:layout_width="0dp"
@@ -1352,7 +1364,7 @@
                     android:textColor="?android:attr/textColorPrimary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swShowRecipients" />
+                    app:layout_constraintTop_toBottomOf="@id/swReverseAddresses" />
 
                 <Spinner
                     android:id="@+id/spFontSizeSender"

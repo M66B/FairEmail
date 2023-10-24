@@ -283,6 +283,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean only_contact;
     private boolean distinguish_contacts;
     private boolean show_recipients;
+    private boolean reverse_addresses;
     private Float font_size_sender;
     private Float font_size_subject;
     private boolean subject_top;
@@ -1255,13 +1256,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
-            boolean reverse = (outgoing && viewType != ViewType.THREAD &&
-                    (EntityFolder.isOutgoing(type) || viewType == ViewType.SEARCH)) ||
-                    (viewType == ViewType.UNIFIED && type == null &&
-                            message.folderUnified && outgoing) ||
-                    (viewType == ViewType.FOLDER &&
-                            message.folderUnified && outgoing) ||
-                    EntityFolder.isOutgoing(message.folderInheritedType);
+            boolean reverse = reverse_addresses &&
+                    ((outgoing && viewType != ViewType.THREAD &&
+                            (EntityFolder.isOutgoing(type) || viewType == ViewType.SEARCH)) ||
+                            (viewType == ViewType.UNIFIED && type == null &&
+                                    message.folderUnified && outgoing) ||
+                            (viewType == ViewType.FOLDER &&
+                                    message.folderUnified && outgoing) ||
+                            EntityFolder.isOutgoing(message.folderInheritedType));
             String selector = (reverse ? null : message.bimi_selector);
             Address[] addresses = (reverse ? message.to : (message.isForwarder() ? message.submitter : message.from));
             Address[] senders = ContactInfo.fillIn(
@@ -7950,6 +7952,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.only_contact = prefs.getBoolean("only_contact", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
         this.show_recipients = prefs.getBoolean("show_recipients", false);
+        this.reverse_addresses = prefs.getBoolean("reverse_addresses", true);
 
         this.subject_top = prefs.getBoolean("subject_top", false);
 
