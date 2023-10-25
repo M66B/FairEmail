@@ -4427,18 +4427,19 @@ public class MessageHelper {
                 EntityFolder folder = (message == null ? null : db.folder().getFolder(message.folder));
                 EntityAccount account = (folder == null ? null : db.account().getAccount(folder.account));
 
+                boolean sent = (folder != null && EntityFolder.SENT.equals(folder.type));
                 boolean received = (folder != null &&
                         (EntityFolder.INBOX.equals(folder.type) ||
                                 EntityFolder.SYSTEM.equals(folder.type) ||
                                 EntityFolder.USER.equals(folder.type)));
 
-                if (!permission || !received || account == null || account.calendar == null) {
+                if (!permission || !(sent || received) || account == null || account.calendar == null) {
                     EntityLog.log(context, "Event not processed" +
                             " permission=" + permission +
                             " account=" + (account != null) +
                             " calendar=" + (account == null ? null : account.calendar) +
                             " folder=" + (folder != null) + ":" + (folder == null ? null : folder.type) +
-                            " received=" + received);
+                            " sent=" + sent + " received=" + received);
                     return;
                 }
 
