@@ -406,6 +406,7 @@
     <string name="title_advanced_replace_name">نام مخاطب را بر نام فرستنده ترجیح بده</string>
     <string name="title_advanced_only_name">تنها نام مخاطبین را نشان بده</string>
     <string name="title_advanced_show_recipients">گیرندگان را در سرتیتر نمایش بده</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">نمایش گیرنده پیام‌های ارسالی</string>
     <string name="title_advanced_font_size_sender">اندازه متن فرستنده</string>
     <string name="title_advanced_subject_top">نمایش موضوع در بالای فرستنده</string>
     <string name="title_advanced_subject_italic">نمایش موضوع به‌صورت italic</string>
@@ -1303,7 +1304,7 @@
     <string name="title_widget_semi_transparent">پس‌زمینه نیمه شفاف</string>
     <string name="title_widget_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_widget_background">رنگ پس‌زمینه</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">رنگ آیکون</string>
+    <string name="title_widget_icon">رنگ آیکون</string>
     <string name="title_widget_day_night">بر اساس تم تاریک سیستم</string>
     <string name="title_compat_dark">گوگل قابلیت حالت تاریک را در نسخه‌های اندروید کمتر از ۱۰ حذف کرد</string>
     <!-- Thunderbird -->

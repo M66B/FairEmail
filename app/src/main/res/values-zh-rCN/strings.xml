@@ -491,6 +491,7 @@
     <string name="title_advanced_only_name">仅显示联系人姓名</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_show_recipients">在邮件头中显示收件人</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">显示已发送信件的收件人</string>
     <string name="title_advanced_font_size_sender">发件人文本大小</string>
     <string name="title_advanced_sender_ellipsize">如果需要，缩短发送者长度</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
@@ -1960,7 +1961,7 @@
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>
     <string name="title_widget_background">背景颜色</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">图标颜色</string>
+    <string name="title_widget_icon">图标颜色</string>
     <string name="title_widget_day_night">跟随系统主题</string>
     <string name="title_compat_dark">谷歌移除了安卓 10 之前的暗黑模式</string>
     <!-- Thunderbird -->

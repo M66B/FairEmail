@@ -507,6 +507,7 @@
     <string name="title_advanced_only_name">Nur Kontaktnamen anzeigen</string>
     <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler An-Kontakt ist</string>
     <string name="title_advanced_show_recipients">Empfänger im Nachrichtenkopf anzeigen</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Empfänger für gesendete Nachrichten anzeigen</string>
     <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
     <string name="title_advanced_sender_ellipsize">Falls erforderlich, Absendernamen kürzen</string>
     <string name="title_advanced_subject_top">Betreff oberhalb des Absenders anzeigen</string>
@@ -1887,7 +1888,7 @@
     <string name="title_clipboard_copied">In die Zwischenablage kopiert</string>
     <string name="title_ask_what">Fragen, was getan werden soll</string>
     <string name="title_no_ask_again">Nicht noch einmal fragen</string>
-    <string name="title_no_ask_for_again">Dies für %1$s nicht mehr fragen</string>
+    <string name="title_no_ask_for_again">Nicht noch einmal für %1$s fragen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
     <string name="title_no_charset">Nicht unterstützte Kodierung: %1$s</string>
     <string name="title_via">über %1$s</string>
@@ -1984,7 +1985,7 @@
     <string name="title_widget_refresh">Schaltfläche »Nachrichten aktualisieren« anzeigen</string>
     <string name="title_widget_compose">Schaltfläche »Neue Nachricht verfassen« anzeigen</string>
     <string name="title_widget_background">Hintergrundfarbe</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Symbolfarbe</string>
+    <string name="title_widget_icon">Symbolfarbe</string>
     <string name="title_widget_day_night">Dem dunklen Systemdesign folgen</string>
     <string name="title_compat_dark">Google hat den dunklen Modus für Android-Versionen vor der Version 10 entfernt</string>
     <!-- Thunderbird -->

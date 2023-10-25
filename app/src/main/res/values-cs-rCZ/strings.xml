@@ -534,6 +534,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_only_name">Zobrazit pouze jména kontaktů</string>
     <string name="title_advanced_distinguish_contacts">Podtrhnout odesílatele, je-li známý jako lokální „komu“ kontakt</string>
     <string name="title_advanced_show_recipients">Zobrazit příjemce v hlavičce zprávy</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Zobrazit příjemce pro odeslané zprávy</string>
     <string name="title_advanced_font_size_sender">Velikost textu odesílatele</string>
     <string name="title_advanced_sender_ellipsize">V případě potřeby zkrátit odesílatele</string>
     <string name="title_advanced_subject_top">Zobrazit předmět nad odesílatelem</string>
@@ -2006,7 +2007,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_widget_refresh">Zobrazit tlačítko pro obnovení zpráv</string>
     <string name="title_widget_compose">Zobrazit tlačítko pro vytvoření nové zprávy</string>
     <string name="title_widget_background">Barva pozadí</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Barva ikony</string>
+    <string name="title_widget_icon">Barva ikony</string>
     <string name="title_widget_day_night">Sledovat tmavý motiv systému</string>
     <string name="title_compat_dark">Google odstranil tmavý režim pro verze Androidu nižší než 10</string>
     <!-- Thunderbird -->

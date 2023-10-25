@@ -519,6 +519,7 @@
     <string name="title_advanced_only_name">Afişează doar numele persoanelor de contact</string>
     <string name="title_advanced_distinguish_contacts">Subliniază expeditorul atunci când este cunoscut drept un contact `către`</string>
     <string name="title_advanced_show_recipients">Arată destinatarii în antetul mesajului</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Arată destinatarul pentru mesajele trimise</string>
     <string name="title_advanced_font_size_sender">Mărime text expeditor</string>
     <string name="title_advanced_sender_ellipsize">Dacă este necesar, scurtați expeditorul</string>
     <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>
@@ -1991,6 +1992,7 @@
     <string name="title_widget_refresh">Buton de afișare a mesajelor de reîmprospătare</string>
     <string name="title_widget_compose">Afișați butonul de redactare a unui mesaj nou</string>
     <string name="title_widget_background">Culoare fundal</string>
+    <string name="title_widget_icon">Culoare pictogramă</string>
     <string name="title_widget_day_night">Urmați tema sistemului întunecat</string>
     <string name="title_compat_dark">Google a eliminat modul întunecat pentru versiunile de Android anterioare versiunii 10</string>
     <!-- Thunderbird -->

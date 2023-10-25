@@ -533,6 +533,7 @@
     <string name="title_advanced_only_name">Показывать только имена контактов</string>
     <string name="title_advanced_distinguish_contacts">Подчёркивать отправителя, если он известен как локальный контакт \"Кому\"</string>
     <string name="title_advanced_show_recipients">Показывать получателей в заголовке сообщения</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Показывать получателя в отправленных сообщениях</string>
     <string name="title_advanced_font_size_sender">Размера текста поля \"Отправитель\"</string>
     <string name="title_advanced_sender_ellipsize">При необходимости сокращать имя отправителя</string>
     <string name="title_advanced_subject_top">Показывать тему выше отправителя</string>
@@ -2009,7 +2010,7 @@
     <string name="title_widget_refresh">Показать кнопку обновления сообщений</string>
     <string name="title_widget_compose">Показать кнопку создания нового сообщения</string>
     <string name="title_widget_background">Цвет фона</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Цвет значка</string>
+    <string name="title_widget_icon">Цвет значка</string>
     <string name="title_widget_day_night">Использовать системную тёмную тему</string>
     <string name="title_compat_dark">Google удалил тёмный режим для версий Android младше 10 версии</string>
     <!-- Thunderbird -->

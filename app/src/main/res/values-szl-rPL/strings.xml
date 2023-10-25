@@ -533,6 +533,7 @@
     <string name="title_advanced_only_name">Wyświetlaj tylko nazwy kontaktów</string>
     <string name="title_advanced_distinguish_contacts">Podkreśl nadawcę, gdy znany jest jako lokalny kontakt „do”</string>
     <string name="title_advanced_show_recipients">Pokaż odbiorców w nagłówku wiadomości</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Pokaż odbiorcę wysłanych wiadomości</string>
     <string name="title_advanced_font_size_sender">Rozmiar tekstu nadawcy</string>
     <string name="title_advanced_sender_ellipsize">W razie potrzeby skróć nadawcę</string>
     <string name="title_advanced_subject_top">Pokaż temat nad nadawcą</string>
@@ -2005,7 +2006,7 @@
     <string name="title_widget_refresh">Pokaż przycisk odświeżania wiadomości</string>
     <string name="title_widget_compose">Pokaż przycisk tworzenia nowej wiadomości</string>
     <string name="title_widget_background">Kolor tła</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Kolor ikony</string>
+    <string name="title_widget_icon">Kolor ikony</string>
     <string name="title_widget_day_night">Podążaj za ciemnym motywem systemowym</string>
     <string name="title_compat_dark">Google usunęło tryb ciemny dla Androida przed wersją 10</string>
     <!-- Thunderbird -->

@@ -506,6 +506,7 @@
     <string name="title_advanced_only_name">Vis kun kontaktnavne</string>
     <string name="title_advanced_distinguish_contacts">Understreg afsender, når denne er kendt som lokal \'Til\'-kontakt</string>
     <string name="title_advanced_show_recipients">Vis modtagere i beskedhoved</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Vis modtager for sendte beskeder</string>
     <string name="title_advanced_font_size_sender">Tekststørrelse, Afsender</string>
     <string name="title_advanced_sender_ellipsize">Om nødvendigt, afkort afsender</string>
     <string name="title_advanced_subject_top">Vis emne over afsender</string>
@@ -1983,6 +1984,7 @@
     <string name="title_widget_refresh">Vis Opfrisk beskeder-knap</string>
     <string name="title_widget_compose">Vis Skriv ny besked-knap</string>
     <string name="title_widget_background">Baggrundsfarve</string>
+    <string name="title_widget_icon">Ikonfarve</string>
     <string name="title_widget_day_night">Følg mørkt systemtema</string>
     <string name="title_compat_dark">Google understøtter nu kun mørk tilstand fra og med Android 10</string>
     <!-- Thunderbird -->

@@ -163,6 +163,7 @@
     <string name="title_setup_quick_smtp">Διακομιστής SMTP για αποστολή μηνυμάτων</string>
     <string name="title_setup_quick_certificates">Πιστοποιητικά διακομιστή</string>
     <string name="title_setup_wizard">Οδηγός</string>
+    <string name="title_setup_wizard_intro">Στις περισσότερες περιπτώσεις, το κουμπί του οδηγού μπορεί να χρησιμοποιηθεί για να προστεθεί ένας λογαριασμός· διαφορετικά, οι διευθύνσεις του διακομιστή μπορούν να εισαχθούν ή να αλλάξουν χειροκίνητα, χρησιμοποιώντας την επιλογή χειροκίνητης ρύθμισης</string>
     <string name="title_setup_wizard_tutorials">Οδηγός εκμάθησης</string>
     <string name="title_setup_wizard_multiple">Ο οδηγός μπορεί να χρησιμοποιηθεί πολλές φορές για τη ρύθμιση πολλαπλών λογαριασμών</string>
     <string name="title_setup_wizard_new">Χρειάζομαι μια νέα διεύθυνση ηλ. ταχυδρομείου</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_suggest_sent">Προτείνονται διευθύνσεις που βρέθηκαν σε απεσταλμένα μηνύματα</string>
     <string name="title_advanced_suggest_received">Προτείνονται διευθύνσεις που βρέθηκαν σε μηνύματα που έχουν ληφθεί</string>
     <string name="title_advanced_suggest_frequently">Ταξινόμηση των προτεινόμενων διευθύνσεων με βάση τη συχνότητα που χρησιμοποιούνται</string>
+    <string name="title_advanced_suggest_account">Περιορισμός των προτεινόμενων στον τρέχοντα λογαριασμό</string>
     <string name="title_advanced_alt_re_fwd">Εναλλακτικό πρόθεμα απάντησης/προώθησης</string>
     <string name="title_advanced_send_chips">Προβολή διευθύνσεων μέσα σε φυσαλίδες</string>
     <string name="title_advanced_send_nav_color">Χρήση του χρώματος ταυτότητας για την κάτω γραμμή ενεργειών</string>
@@ -525,6 +527,7 @@
     <string name="title_advanced_unzip">Να προβάλλονται τα περιεχόμενα των συμπιεσμένων συνημμένων</string>
     <string name="title_advanced_attachments_alt">Να προβάλλονται τα συνημμένα μετά το κείμενο του μηνύματος</string>
     <string name="title_advanced_thumbnails">Να προβάλλονται οι μικρογραφίες μετά από το κείμενο του μηνύματος</string>
+    <string name="title_advanced_pdf_preview">Να προβάλλονται οι μικρογραφίες των αρχείων PDF</string>
     <string name="title_advanced_message_text_zoom2">Μεγέθυνση κειμένου μηνύματος από προεπιλογή: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Μεγέθυνση του κειμένου του μηνύματος και κατά την επεξεργασία του μηνύματος</string>
     <string name="title_advanced_overview_mode">Μεγέθυνση αρχικού μηνύματος για προσαρμογή στην οθόνη</string>
@@ -769,6 +772,7 @@
     <string name="title_advanced_pull_all_hint">Όταν σύρετε προς τα κάτω τους φακέλους ή τη λίστα λογαριασμών</string>
     <string name="title_advanced_suggest_names_hint">Εάν απενεργοποιηθεί, θα χρησιμοποιούνται μόνο διευθύνσεις ηλ. ταχυδρομείου κατά την επιλογή επαφών</string>
     <string name="title_advanced_suggest_local_hint">Επιπρόσθετα στις παρεχόμενες από το Android επαφές, θα αποθηκεύονται πληροφορίες επαφών για πρόσφατα απεσταλμένα ή ειλημμένα μηνύματα, μόνον εφόσον οι σχετικές δυνατότητες έχουν ενεργοποιηθεί.</string>
+    <string name="title_advanced_suggest_account_hint">Αυτό εφαρμόζεται μόνο στις τοπικές επαφές, καθώς οι επαφές στο βιβλίο διευθύνσεων του Android δεν συνδέονται με συγκεκριμένους λογαριασμούς</string>
     <string name="title_advanced_auto_identity_hint">Με αυτό θα επιλέγεται η τελευταία ταυτότητα που έχει χρησιμοποιηθεί κατά την επιλογή ενός παραλήπτη για νέα μηνύματα</string>
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
     <string name="title_advanced_reply_move_hint">Ο διακομιστής ηλ. ταχυδρομείου ενδέχεται να προσθέτει ακόμα τα μηνύματα στον φάκελο απεσταλμένων</string>
@@ -1027,6 +1031,7 @@
     <string name="title_delete_channel">Διαγραφή καναλιού ειδοποιήσεων</string>
     <string name="title_insert_contact">Προσθήκη επαφής</string>
     <string name="title_edit_contact">Επεξεργασία επαφής</string>
+    <string name="title_delete_contact">Διαγραφή επαφής;</string>
     <string name="title_contact_email">Ηλεκτρονικό ταχυδρομείο</string>
     <string name="title_contact_name">Όνομα</string>
     <string name="title_contact_group">Ομάδα</string>
@@ -1180,6 +1185,7 @@
     <string name="title_quick_actions_snooze">Αναβολή</string>
     <string name="title_quick_actions_clear">Εκκαθάριση επιλογής μετά την ενέργεια</string>
     <string name="title_trash">Απορρίμματα</string>
+    <string name="title_trash_selection">Επιλογή απορριμμάτων</string>
     <string name="title_copy">Αντιγραφή &#8230;</string>
     <string name="title_copy_to">Αντιγραφή σε &#8230;</string>
     <string name="title_subscribe">Εγγραφή συνδρομητή</string>
@@ -1491,6 +1497,7 @@
     <string name="title_search_in_keywords">Στις λέξεις-κλειδιά (εάν υποστηρίζεται)</string>
     <string name="title_search_in_message">Στο κείμενο του μηνύματος</string>
     <string name="title_search_in_notes">Στις τοπικές σημειώσεις</string>
+    <string name="title_search_in_filenames">Στα ονόματα αρχείων (μόνο στη συσκευή)</string>
     <string name="title_search_with">Περιορισμός αναζήτησης σε</string>
     <string name="title_search_with_unseen">Μη αναγνωσμένα</string>
     <string name="title_search_with_flagged">Με αστέρι</string>
@@ -1968,6 +1975,7 @@
     <string name="title_widget_refresh">Προβολή κουμπιού ανανέωσης μηνυμάτων</string>
     <string name="title_widget_compose">Να εμφανίζεται το κουμπί σύνταξης νέου μηνύματος</string>
     <string name="title_widget_background">Χρώμα φόντου</string>
+    <string name="title_widget_icon">Χρώμα εικονιδίου</string>
     <string name="title_widget_day_night">Σύμφωνα με το σκούρο θέμα συστήματος</string>
     <string name="title_compat_dark">Η Google έχει αφαιρέσει το σκούρο θέμα σε εκδόσεις Android προγενέστερες από την έκδοση 10</string>
     <!-- Thunderbird -->

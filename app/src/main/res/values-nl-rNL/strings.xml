@@ -504,6 +504,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_only_name">Alleen contactnamen weergeven</string>
     <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
     <string name="title_advanced_show_recipients">Geadresseerden in berichtkop tonen</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Toon ontvanger voor verzonden berichten</string>
     <string name="title_advanced_font_size_sender">Tekengrootte afzender</string>
     <string name="title_advanced_sender_ellipsize">Indien nodig, verkort de afzender</string>
     <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>
@@ -1968,7 +1969,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_refresh">Toon knop voor het verversen van berichten</string>
     <string name="title_widget_compose">Toon knop voor het opstellen van een nieuw bericht</string>
     <string name="title_widget_background">Achtergrondkleur</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Pictogramkleur</string>
+    <string name="title_widget_icon">Pictogramkleur</string>
     <string name="title_widget_day_night">Volg donker systeemthema</string>
     <string name="title_compat_dark">Google heeft de donkere modus verwijderd voor Android-versies vóór versie 10</string>
     <!-- Thunderbird -->

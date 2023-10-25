@@ -506,6 +506,7 @@
     <string name="title_advanced_only_name">Afficher uniquement le nom des contacts</string>
     <string name="title_advanced_distinguish_contacts">Souligner l\'expéditeur lorsqu\'il est connu comme contact local</string>
     <string name="title_advanced_show_recipients">Afficher les destinataires dans l\'en-tête du message</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Afficher le destinataire pour les messages envoyés</string>
     <string name="title_advanced_font_size_sender">Taille de police du champ « Expéditeur »</string>
     <string name="title_advanced_sender_ellipsize">Raccourcir l\'expéditeur si nécessaire</string>
     <string name="title_advanced_subject_top">Afficher l’objet au-dessus de l’expéditeur</string>
@@ -528,7 +529,7 @@
     <string name="title_advanced_unzip">Afficher le contenu des pièces jointes compressées</string>
     <string name="title_advanced_attachments_alt">Afficher les pièces jointes après le texte du message</string>
     <string name="title_advanced_thumbnails">Afficher les vignettes des images après le texte du message</string>
-    <string name="title_advanced_pdf_preview">Afficher les miniatures des fichiers PDF</string>
+    <string name="title_advanced_pdf_preview">Afficher les vignettes des fichiers PDF</string>
     <string name="title_advanced_message_text_zoom2">Zoom du texte du message par défaut : %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Zoomer le texte du message également dans l\'éditeur de message</string>
     <string name="title_advanced_overview_mode">Zoomer sur les messages originaux pour les adapter à l\'écran</string>
@@ -1983,7 +1984,7 @@
     <string name="title_widget_refresh">Afficher le bouton d\'actualisation des messages</string>
     <string name="title_widget_compose">Afficher le bouton pour rédiger un nouveau message</string>
     <string name="title_widget_background">Couleur d\'arrière-plan</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Couleur de l\'icône</string>
+    <string name="title_widget_icon">Couleur de l\'icône</string>
     <string name="title_widget_day_night">Utiliser le thème sombre du système</string>
     <string name="title_compat_dark">Google a supprimé le mode sombre dans les versions d\'Android inférieures à la version 10</string>
     <!-- Thunderbird -->

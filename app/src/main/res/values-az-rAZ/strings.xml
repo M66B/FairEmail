@@ -163,6 +163,7 @@
     <string name="title_setup_quick_smtp">Mesaj göndərmək üçün SMTP serveri</string>
     <string name="title_setup_quick_certificates">Server sertifikatları</string>
     <string name="title_setup_wizard">Sehrbaz</string>
+    <string name="title_setup_wizard_intro">Əksər hallarda bir hesab əlavə etmək üçün sehrbaz düyməsi istifadə edilə bilər, əks halda server ünvanları əllə quraşdırma seçimi istifadə edilərək əllə daxil edilə və ya dəyişdirilə bilər</string>
     <string name="title_setup_wizard_tutorials">Təlimatlar</string>
     <string name="title_setup_wizard_multiple">Sehrbaz, bir neçə hesabı qurmaq üçün bir neçə dəfə istifadə edilə bilər</string>
     <string name="title_setup_wizard_new">Yeni bir e-poçt ünvanına ehtiyacım var</string>
@@ -527,6 +528,7 @@
     <string name="title_advanced_unzip">Sıxışdırılmış qoşmaların məzmunlarını göstər</string>
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
     <string name="title_advanced_thumbnails">Mesaj mətnindən sonra təsvir eskizlərini göstər</string>
+    <string name="title_advanced_pdf_preview">PDF eskizlərini göstər</string>
     <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Mesajın mətnini redaktorda da yaxınlaşdır</string>
     <string name="title_advanced_overview_mode">Orijinal mesajı tam ekrana qədər yaxınlaşdır</string>
@@ -1501,6 +1503,7 @@
     <string name="title_search_in_keywords">Açar sözlərdə (əgər dəstəklənirsə)</string>
     <string name="title_search_in_message">Mesaj mətnində</string>
     <string name="title_search_in_notes">Yerli qeydlərdə</string>
+    <string name="title_search_in_filenames">Fayl adlarında (yalnız cihazda)</string>
     <string name="title_search_with">Axtarışı limitlə</string>
     <string name="title_search_with_unseen">Oxunmadı</string>
     <string name="title_search_with_flagged">Ulduzlu</string>
@@ -1979,6 +1982,7 @@
     <string name="title_widget_refresh">Mesajları təzələ düyməsini göstər</string>
     <string name="title_widget_compose">Yeni mesaj yarat düyməsini göstər</string>
     <string name="title_widget_background">Arxaplan rəngi</string>
+    <string name="title_widget_icon">Nişan rəngi</string>
     <string name="title_widget_day_night">Sistemin qaranlıq temasına uyğunlaşma</string>
     <string name="title_compat_dark">Google, Android 10-dan əvvəlki versiyalar üçün qaranlıq rejimi çıxartdı</string>
     <!-- Thunderbird -->

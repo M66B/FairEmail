@@ -492,6 +492,7 @@
     <string name="title_advanced_only_name">連絡先の名前のみ表示</string>
     <string name="title_advanced_distinguish_contacts">受信したメールの差出人にメールを送ったことがあるとローカル連絡先に記録されている場合、差出人に下線を表示</string>
     <string name="title_advanced_show_recipients">見出しに宛先を表示</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">送信済みメッセージの宛先を表示</string>
     <string name="title_advanced_font_size_sender">差出人のテキストサイズ</string>
     <string name="title_advanced_sender_ellipsize">差出人を短縮</string>
     <string name="title_advanced_subject_top">差出人の上に件名を表示</string>
@@ -1968,7 +1969,7 @@
     <string name="title_widget_refresh">メッセージ更新ボタンを表示</string>
     <string name="title_widget_compose">メッセージ新規作成ボタンを表示</string>
     <string name="title_widget_background">背景色</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">アイコンの色</string>
+    <string name="title_widget_icon">アイコンの色</string>
     <string name="title_widget_day_night">システムのダークテーマに従う</string>
     <string name="title_compat_dark">Android 10 以前では Google によりダークモードが取り除かれました</string>
     <!-- Thunderbird -->

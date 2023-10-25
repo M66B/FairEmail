@@ -534,6 +534,7 @@
     <string name="title_advanced_only_name">הצגת שמות אנשי הקשר בלבד</string>
     <string name="title_advanced_distinguish_contacts">למתוח קו מתחת לשם המוען כאשר שמו מוכר כאיש קשר ‚אל’ מקומי</string>
     <string name="title_advanced_show_recipients">הצגת נמענים בכותרת ההודעה</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">הצגת נמען ההודעה שנשלחה</string>
     <string name="title_advanced_font_size_sender">גודל כתב המוען</string>
     <string name="title_advanced_sender_ellipsize">אם צריך, יש לקצר את המוען</string>
     <string name="title_advanced_subject_top">הצגת הנושא מעל המוען</string>
@@ -2010,6 +2011,7 @@
     <string name="title_widget_refresh">הצגת כפתור רענון הודעות</string>
     <string name="title_widget_compose">הצגת כפתור כתיבת הודעה חדשה</string>
     <string name="title_widget_background">צבע הרקע</string>
+    <string name="title_widget_icon">צבע הסמל</string>
     <string name="title_widget_day_night">התחקות אחר ערכת העיצוב הכהה של המערכת</string>
     <string name="title_compat_dark">Google הסירה מצב כהה לגרסאות Android שקדמו ל־10</string>
     <!-- Thunderbird -->

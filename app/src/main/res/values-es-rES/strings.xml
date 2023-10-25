@@ -505,6 +505,7 @@
     <string name="title_advanced_only_name">Mostrar sólo nombres de contactos</string>
     <string name="title_advanced_distinguish_contacts">Subrayar el remitente cuando el remitente es conocido como contacto \'a:\' local</string>
     <string name="title_advanced_show_recipients">Mostrar destinatarios en el encabezado del mensaje</string>
+    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Mostrar destinatario de mensajes enviados</string>
     <string name="title_advanced_font_size_sender">Tamaño de fuente de remitente</string>
     <string name="title_advanced_sender_ellipsize">Si es necesario, acortar el remitente</string>
     <string name="title_advanced_subject_top">Mostrar asunto arriba del remitente</string>
@@ -1976,7 +1977,7 @@
     <string name="title_widget_refresh">Mostrar botón de actualizar mensajes</string>
     <string name="title_widget_compose">Mostrar botón de redactar nuevo mensaje</string>
     <string name="title_widget_background">Color de fondo</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Color del icono</string>
+    <string name="title_widget_icon">Color del icono</string>
     <string name="title_widget_day_night">Seguir tema oscuro del sistema</string>
     <string name="title_compat_dark">Google eliminó el modo oscuro para versiones de Android anteriores a la versión 10</string>
     <!-- Thunderbird -->

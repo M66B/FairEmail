@@ -1996,7 +1996,7 @@
     <string name="title_widget_refresh">Prikaži dugme za osvježavanje poruka</string>
     <string name="title_widget_compose">Prikaži dugme za pisanje nove poruke</string>
     <string name="title_widget_background">Boja pozadine</string>
-    <string name="title_widget_icon" comment="title_widget_icon&#10;Title for option to select icon color of new message count widget">Boja ikone</string>
+    <string name="title_widget_icon">Boja ikone</string>
     <string name="title_widget_day_night">Prati tamnu sistemsku temu</string>
     <string name="title_compat_dark">Google je uklonio tamnu temu za Android verzije prije verzije 10</string>
     <!-- Thunderbird -->
