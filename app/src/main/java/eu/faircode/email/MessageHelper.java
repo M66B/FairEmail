@@ -159,6 +159,7 @@ import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Method;
+import biweekly.property.Status;
 import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.io.text.VCardWriter;
@@ -4416,6 +4417,9 @@ public class MessageHelper {
         private void decodeICalendar(Context context, EntityAttachment local) {
             DB db = DB.getInstance(context);
             try {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean ical_tentative = prefs.getBoolean("ical_tentative", true);
+
                 boolean permission = Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR);
 
                 EntityMessage message = db.message().getMessage(local.message);
@@ -4447,6 +4451,21 @@ public class MessageHelper {
                 if (method != null && method.isCancel())
                     CalendarHelper.delete(context, event, message);
                 else if (method == null || method.isRequest() || method.isReply()) {
+                    int status = CalendarContract.Events.STATUS_TENTATIVE;
+                    if (method != null && method.isReply()) {
+                        Status istatus = event.getStatus();
+                        if (istatus != null)
+                            if (Status.ACCEPTED.equals(istatus.getValue()))
+                                status = CalendarContract.Events.STATUS_CONFIRMED;
+                            else if (Status.CANCELLED.equals(istatus.getValue()))
+                                status = CalendarContract.Events.STATUS_CANCELED;
+                    }
+
+                    if (status == CalendarContract.Events.STATUS_TENTATIVE && !ical_tentative) {
+                        EntityLog.log(context, "Tentative event not processed");
+                        return;
+                    }
+
                     String selectedAccount;
                     String selectedName;
                     try {
@@ -4459,9 +4478,7 @@ public class MessageHelper {
                         selectedName = null;
                     }
 
-                    CalendarHelper.insert(context, icalendar, event,
-                            CalendarContract.Events.STATUS_TENTATIVE,
-                            selectedAccount, selectedName, message);
+                    CalendarHelper.insert(context, icalendar, event, status, selectedAccount, selectedName, message);
                 } else
                     EntityLog.log(context, "Unknown event method=" + method.getValue());
             } catch (Throwable ex) {
