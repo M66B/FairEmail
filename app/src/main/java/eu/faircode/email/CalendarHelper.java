@@ -32,6 +32,7 @@ import android.text.TextUtils;
 import androidx.preference.PreferenceManager;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -39,6 +40,9 @@ import java.util.TimeZone;
 
 import biweekly.ICalVersion;
 import biweekly.ICalendar;
+import biweekly.component.ICalComponent;
+import biweekly.component.Observance;
+import biweekly.component.StandardTime;
 import biweekly.component.VAlarm;
 import biweekly.component.VEvent;
 import biweekly.io.TimezoneAssignment;
@@ -106,6 +110,44 @@ public class CalendarHelper {
             existId = exists(context, selectedAccount, selectedName, uid);
             if (existId != null) {
                 EntityLog.log(context, EntityLog.Type.General, message, "Event exists uid=" + uid + " id=" + existId);
+            }
+        }
+
+        if (false) {
+            // BEGIN:VCALENDAR
+            // METHOD:REQUEST
+            // PRODID:Microsoft Exchange Server 2010
+            // VERSION:2.0
+            // BEGIN:VTIMEZONE
+            //   TZID:W. Europe Standard Time
+            //   BEGIN:STANDARD
+            //     DTSTART:16010101T030000
+            //     TZOFFSETFROM:+0200
+            //     TZOFFSETTO:+0100
+            //     RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
+            //   END:STANDARD
+            //   BEGIN:DAYLIGHT
+            //     DTSTART:16010101T020000
+            //     TZOFFSETFROM:+0100
+            //     TZOFFSETTO:+0200
+            //     RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
+            //   END:DAYLIGHT
+            // END:VTIMEZONE
+            // BEGIN:VEVENT
+            //   UID:...
+            //   DTSTART;TZID=W. Europe Standard Time:20231030T100000
+            //   DTEND;TZID=W. Europe Standard Time:20231030T110000
+            //   ...
+            for (TimezoneAssignment assignment : icalendar.getTimezoneInfo().getTimezones()) {
+                for (List<ICalComponent> components : assignment.getComponent().getComponents().getMap().values())
+                    for (ICalComponent component : components) {
+                        RecurrenceRule recurrence = component.getProperty(RecurrenceRule.class);
+                        if (recurrence != null) {
+                            RecurrenceRuleScribe scribe = new RecurrenceRuleScribe();
+                            WriteContext wcontext = new WriteContext(ICalVersion.V2_0, icalendar.getTimezoneInfo(), null);
+                            String rrule = scribe.writeText(recurrence, wcontext);
+                        }
+                    }
             }
         }
 
