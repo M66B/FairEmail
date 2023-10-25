@@ -4454,12 +4454,19 @@ public class MessageHelper {
                 else if (method == null || method.isRequest() || method.isReply()) {
                     int status = CalendarContract.Events.STATUS_TENTATIVE;
                     if (method != null && method.isReply()) {
+                        List<Address> recipients = new ArrayList<>();
+                        if (message.to != null)
+                            recipients.addAll(Arrays.asList(message.to));
+                        if (message.cc != null)
+                            recipients.addAll(Arrays.asList(message.cc));
+                        if (message.bcc != null)
+                            recipients.addAll(Arrays.asList(message.bcc));
                         List<Attendee> attendees = event.getAttendees();
-                        if (attendees != null && message.to != null)
+                        if (attendees != null)
                             for (Attendee attendee : attendees) {
                                 String email = attendee.getEmail();
-                                for (Address to : message.to) {
-                                    String recipient = ((InternetAddress) to).getAddress();
+                                for (Address address : recipients) {
+                                    String recipient = ((InternetAddress) address).getAddress();
                                     if (!TextUtils.isEmpty(email) && email.equalsIgnoreCase(recipient)) {
                                         ParticipationStatus pstatus = attendee.getParticipationStatus();
                                         if (ParticipationStatus.ACCEPTED.equals(pstatus))
