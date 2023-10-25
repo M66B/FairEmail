@@ -92,6 +92,7 @@ import android.util.LongSparseArray;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.GestureDetector;
+import android.view.HapticFeedbackConstants;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -10451,6 +10452,11 @@ public class FragmentMessages extends FragmentBase
                 ServiceSynchronize.eval(context, "purge");
 
                 return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void data) {
+                view.performHapticFeedback(HapticFeedbackConstants.CONFIRM);
             }
 
             @Override
