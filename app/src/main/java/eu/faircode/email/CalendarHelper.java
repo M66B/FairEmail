@@ -377,7 +377,8 @@ public class CalendarHelper {
                 int rows = resolver.update(updateUri, values, null, null);
 
                 EntityLog.log(context, EntityLog.Type.General, message,
-                        "Updated event id=" + eventId + " uid=" + uid + " rows=" + rows);
+                        "Updated event id=" + eventId + " uid=" + uid + " rows=" + rows +
+                                " status=" + status + " accept=" + ParticipationStatus.ACCEPTED.equals(status));
             }
         }
     }
