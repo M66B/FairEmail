@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2114 - 2023-10-25
 
 * Added tap on title/subtitle to open/switch to inbox
 * Addded option to disable showing recipient for sent messages
