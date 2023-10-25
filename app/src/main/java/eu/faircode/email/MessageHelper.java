@@ -4470,13 +4470,17 @@ public class MessageHelper {
                                     String recipient = ((InternetAddress) address).getAddress();
                                     if (!TextUtils.isEmpty(email) && email.equalsIgnoreCase(recipient)) {
                                         ParticipationStatus pstatus = attendee.getParticipationStatus();
-                                        if (ParticipationStatus.ACCEPTED.equals(pstatus))
+                                        if (ParticipationStatus.ACCEPTED.equals(pstatus)) {
                                             status = CalendarContract.Events.STATUS_CONFIRMED;
-                                        else if (ParticipationStatus.DECLINED.equals(pstatus))
+                                            break;
+                                        } else if (ParticipationStatus.DECLINED.equals(pstatus)) {
                                             status = CalendarContract.Events.STATUS_CANCELED;
-                                        break;
+                                            break;
+                                        }
                                     }
                                 }
+                                if (status != CalendarContract.Events.STATUS_TENTATIVE)
+                                    break;
                             }
                     }
 
