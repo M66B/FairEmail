@@ -33,16 +33,18 @@ import androidx.preference.PreferenceManager;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import javax.mail.Address;
+import javax.mail.internet.InternetAddress;
+
 import biweekly.ICalVersion;
 import biweekly.ICalendar;
 import biweekly.component.ICalComponent;
-import biweekly.component.Observance;
-import biweekly.component.StandardTime;
 import biweekly.component.VAlarm;
 import biweekly.component.VEvent;
 import biweekly.io.TimezoneAssignment;
@@ -449,5 +451,33 @@ public class CalendarHelper {
                         "Deleted event id=" + eventId + " uid=" + uid + " rows=" + rows);
             }
         }
+    }
+
+    static int getReplyStatus(Context context, VEvent event, EntityMessage message) {
+        List<Address> recipients = new ArrayList<>();
+        if (message.to != null)
+            recipients.addAll(Arrays.asList(message.to));
+        if (message.cc != null)
+            recipients.addAll(Arrays.asList(message.cc));
+        if (message.bcc != null)
+            recipients.addAll(Arrays.asList(message.bcc));
+
+        List<Attendee> attendees = event.getAttendees();
+        if (attendees != null)
+            for (Attendee attendee : attendees) {
+                String email = attendee.getEmail();
+                for (Address address : recipients) {
+                    String recipient = ((InternetAddress) address).getAddress();
+                    if (!TextUtils.isEmpty(email) && email.equalsIgnoreCase(recipient)) {
+                        ParticipationStatus pstatus = attendee.getParticipationStatus();
+                        if (ParticipationStatus.ACCEPTED.equals(pstatus))
+                            return CalendarContract.Events.STATUS_CONFIRMED;
+                        else if (ParticipationStatus.DECLINED.equals(pstatus))
+                            return CalendarContract.Events.STATUS_CANCELED;
+                    }
+                }
+            }
+
+        return CalendarContract.Events.STATUS_TENTATIVE;
     }
 }

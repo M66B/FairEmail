@@ -158,8 +158,6 @@ import javax.mail.internet.ParseException;
 import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
-import biweekly.parameter.ParticipationStatus;
-import biweekly.property.Attendee;
 import biweekly.property.Method;
 import ezvcard.VCard;
 import ezvcard.VCardVersion;
@@ -4454,35 +4452,8 @@ public class MessageHelper {
                     CalendarHelper.delete(context, event, message);
                 else if (method == null || method.isRequest() || method.isReply()) {
                     int status = CalendarContract.Events.STATUS_TENTATIVE;
-                    if (method != null && method.isReply()) {
-                        List<Address> recipients = new ArrayList<>();
-                        if (message.to != null)
-                            recipients.addAll(Arrays.asList(message.to));
-                        if (message.cc != null)
-                            recipients.addAll(Arrays.asList(message.cc));
-                        if (message.bcc != null)
-                            recipients.addAll(Arrays.asList(message.bcc));
-                        List<Attendee> attendees = event.getAttendees();
-                        if (attendees != null)
-                            for (Attendee attendee : attendees) {
-                                String email = attendee.getEmail();
-                                for (Address address : recipients) {
-                                    String recipient = ((InternetAddress) address).getAddress();
-                                    if (!TextUtils.isEmpty(email) && email.equalsIgnoreCase(recipient)) {
-                                        ParticipationStatus pstatus = attendee.getParticipationStatus();
-                                        if (ParticipationStatus.ACCEPTED.equals(pstatus)) {
-                                            status = CalendarContract.Events.STATUS_CONFIRMED;
-                                            break;
-                                        } else if (ParticipationStatus.DECLINED.equals(pstatus)) {
-                                            status = CalendarContract.Events.STATUS_CANCELED;
-                                            break;
-                                        }
-                                    }
-                                }
-                                if (status != CalendarContract.Events.STATUS_TENTATIVE)
-                                    break;
-                            }
-                    }
+                    if (method != null && method.isReply())
+                        status = CalendarHelper.getReplyStatus(context, event, message);
 
                     if (status == CalendarContract.Events.STATUS_CANCELED) {
                         CalendarHelper.delete(context, event, message);
