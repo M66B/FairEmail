@@ -71,6 +71,7 @@ import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
+import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -4466,7 +4467,19 @@ public class MessageHelper {
                         return;
                     }
 
-                    CalendarHelper.insert(context, icalendar, event, status, account, message);
+                    String selectedAccount;
+                    String selectedName;
+                    try {
+                        JSONObject jselected = new JSONObject(account.calendar);
+                        selectedAccount = jselected.getString("account");
+                        selectedName = jselected.optString("name", null);
+                    } catch (Throwable ex) {
+                        Log.i(ex);
+                        selectedAccount = account.calendar;
+                        selectedName = null;
+                    }
+
+                    CalendarHelper.insert(context, icalendar, event, status, selectedAccount, selectedName, message);
                 } else
                     EntityLog.log(context, "Unknown event method=" + method.getValue());
             } catch (Throwable ex) {

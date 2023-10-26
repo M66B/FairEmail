@@ -31,8 +31,6 @@ import android.text.TextUtils;
 
 import androidx.preference.PreferenceManager;
 
-import org.json.JSONObject;
-
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -104,23 +102,6 @@ public class CalendarHelper {
             else
                 return null;
         }
-    }
-
-    static Long insert(Context context, ICalendar icalendar, VEvent event, int status,
-                       EntityAccount account, EntityMessage message) {
-        String selectedAccount;
-        String selectedName;
-        try {
-            JSONObject jselected = new JSONObject(account.calendar);
-            selectedAccount = jselected.getString("account");
-            selectedName = jselected.optString("name", null);
-        } catch (Throwable ex) {
-            Log.i(ex);
-            selectedAccount = account.calendar;
-            selectedName = null;
-        }
-
-        return insert(context, icalendar, event, status, selectedAccount, selectedName, message);
     }
 
     static Long insert(Context context, ICalendar icalendar, VEvent event, int status,
