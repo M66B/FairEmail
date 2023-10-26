@@ -2966,6 +2966,12 @@ public class Helper {
         return hasValidFingerprint;
     }
 
+    static boolean isSignedByFDroid(Context context) {
+        String signed = getFingerprint(context);
+        String fingerprint = context.getString(R.string.fingerprint_fdroid);
+        return Objects.equals(signed, fingerprint);
+    }
+
     static boolean canAuthenticate(Context context) {
         try {
             BiometricManager bm = BiometricManager.from(context);

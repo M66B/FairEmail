@@ -41,7 +41,6 @@ import androidx.core.widget.TextViewCompat;
 
 import java.text.DateFormat;
 import java.util.List;
-import java.util.Objects;
 
 public class FragmentAbout extends FragmentBase {
     @Override
@@ -65,19 +64,7 @@ public class FragmentAbout extends FragmentBase {
         tvVersion.setText(getString(R.string.title_version, version));
         tvRelease.setText(BuildConfig.RELEASE_NAME);
 
-        String fingerprint = Helper.getFingerprint(context);
-        boolean play = Objects.equals(fingerprint, getString(R.string.fingerprint));
-        boolean fdroid = Objects.equals(fingerprint, getString(R.string.fingerprint_fdroid));
-
-        String source;
-        if (play)
-            source = (BuildConfig.PLAY_STORE_RELEASE ? "Play store" : "GitHub");
-        else if (fdroid)
-            source = "F-Droid";
-        else if (BuildConfig.DEBUG)
-            source = "Debug";
-        else
-            source = "?";
+        String source = Log.getReleaseType(context) + (BuildConfig.DEBUG ? "/Debug" : "");
 
         try {
             String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);

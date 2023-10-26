@@ -443,24 +443,9 @@ public class Log {
             config.setTelemetry(Collections.emptySet());
 
             if (BuildConfig.DEBUG)
-                config.setReleaseStage("debug");
-            else {
-                String type;
-                if (Helper.hasValidFingerprint(context)) {
-                    if (BuildConfig.PLAY_STORE_RELEASE)
-                        type = "play";
-                    else if (BuildConfig.AMAZON_RELEASE)
-                        type = "amazon";
-                    else
-                        type = "full";
-                } else {
-                    if (BuildConfig.APPLICATION_ID.startsWith("eu.faircode.email"))
-                        type = "other";
-                    else
-                        type = "clone";
-                }
-                config.setReleaseStage(type + (BuildConfig.BETA_RELEASE ? "/beta" : ""));
-            }
+                config.setReleaseStage("Debug");
+            else
+                config.setReleaseStage(getReleaseType(context));
 
             config.setAutoTrackSessions(false);
 
@@ -649,6 +634,27 @@ public class Log {
                   at java.util.Date.toString(Date.java:1066)
              */
         }
+    }
+
+    static String getReleaseType(Context context) {
+        if (Helper.hasValidFingerprint(context)) {
+            if (BuildConfig.PLAY_STORE_RELEASE)
+                return "Play Store";
+            else if (BuildConfig.FDROID_RELEASE)
+                return "Reproducible";
+            else if (BuildConfig.AMAZON_RELEASE)
+                return "Amazon";
+            else
+                return "GitHub";
+        } else if (Helper.isSignedByFDroid(context))
+            return "F-Droid";
+        else {
+            if (BuildConfig.APPLICATION_ID.startsWith("eu.faircode.email"))
+                return "Other";
+            else
+                return "Clone";
+        }
+
     }
 
     static void logExtras(Intent intent) {
@@ -2018,6 +2024,7 @@ public class Log {
             sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
         }
 
+        sb.append(String.format("Release: %s\r\n", getReleaseType(context)));
         sb.append(String.format("Play Store: %s\r\n", Helper.hasPlayStore(context)));
         sb.append(String.format("Installer: %s\r\n", installer));
         sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
