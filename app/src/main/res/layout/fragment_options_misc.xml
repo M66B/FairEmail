@@ -157,18 +157,6 @@
                     app:layout_constraintTop_toBottomOf="@id/swShortcuts" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swICalTentative"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:checked="true"
-                    android:text="@string/title_advanced_ical_tentative"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvShortcutsHint"
-                    app:switchPadding="12dp" />
-
-                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swFts"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -176,7 +164,7 @@
                     android:text="@string/title_advanced_fts"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swICalTentative"
+                    app:layout_constraintTop_toBottomOf="@id/tvShortcutsHint"
                     app:switchPadding="12dp" />
 
                 <TextView
