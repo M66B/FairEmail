@@ -4416,9 +4416,6 @@ public class MessageHelper {
         private void decodeICalendar(Context context, EntityAttachment local) {
             DB db = DB.getInstance(context);
             try {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean ical_tentative = prefs.getBoolean("ical_tentative", true);
-
                 boolean permission = Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR);
 
                 EntityMessage message = db.message().getMessage(local.message);
@@ -4430,16 +4427,18 @@ public class MessageHelper {
                                 EntityFolder.SYSTEM.equals(folder.type) ||
                                 EntityFolder.USER.equals(folder.type)));
 
-                if (!permission || !received || account == null || account.calendar == null || !ical_tentative) {
+                if (!permission || !received || account == null || account.calendar == null) {
                     EntityLog.log(context, "Event not processed" +
                             " permission=" + permission +
                             " account=" + (account != null) +
                             " folder=" + (folder != null) + ":" + (folder == null ? null : folder.type) +
                             " received=" + received +
-                            " calendar=" + (account == null ? null : account.calendar) +
-                            " tentative=" + ical_tentative);
+                            " calendar=" + (account == null ? null : account.calendar));
                     return;
                 }
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean ical_tentative = prefs.getBoolean("ical_tentative", true);
 
                 File file = local.getFile(context);
                 ICalendar icalendar = Biweekly.parse(file).first();
@@ -4450,10 +4449,13 @@ public class MessageHelper {
                 // https://www.rfc-editor.org/rfc/rfc5546#section-3.2
                 if (method != null && method.isCancel())
                     CalendarHelper.delete(context, event, message);
-                else if (method == null || method.isRequest())
-                    CalendarHelper.insert(context, icalendar, event,
-                            CalendarContract.Events.STATUS_TENTATIVE, account, message);
-                else
+                else if (method == null || method.isRequest()) {
+                    if (ical_tentative)
+                        CalendarHelper.insert(context, icalendar, event,
+                                CalendarContract.Events.STATUS_TENTATIVE, account, message);
+                    else
+                        EntityLog.log(context, "Tentative event not stored");
+                } else
                     EntityLog.log(context, "Unknown event method=" + method.getValue());
             } catch (Throwable ex) {
                 Log.w(ex);
