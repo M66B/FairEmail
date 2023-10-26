@@ -114,6 +114,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swSortAnswers;
     private SwitchCompat swExternalAnswer;
     private SwitchCompat swShortcuts;
+    private SwitchCompat swICalTentative;
     private SwitchCompat swFts;
     private SwitchCompat swClassification;
     private TextView tvClassMinProbability;
@@ -291,7 +292,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private static final long MIN_FILE_SIZE = 1024 * 1024L;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "sort_answers", "shortcuts", "fts",
+            "sort_answers", "shortcuts", "ical_tentative", "fts",
             "classification", "class_min_probability", "class_min_difference",
             "show_filtered",
             "language",
@@ -381,6 +382,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swSortAnswers = view.findViewById(R.id.swSortAnswers);
         swExternalAnswer = view.findViewById(R.id.swExternalAnswer);
         swShortcuts = view.findViewById(R.id.swShortcuts);
+        swICalTentative = view.findViewById(R.id.swICalTentative);
         swFts = view.findViewById(R.id.swFts);
         swClassification = view.findViewById(R.id.swClassification);
         ibClassification = view.findViewById(R.id.ibClassification);
@@ -605,6 +607,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("shortcuts", checked).commit(); // apply won't work here
+            }
+        });
+
+        swICalTentative.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        swICalTentative.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("ical_tentative", checked).apply();
             }
         });
 
@@ -2597,6 +2607,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swExternalSearch.setChecked(Helper.isComponentEnabled(getContext(), ActivitySearch.class));
             swExternalAnswer.setChecked(Helper.isComponentEnabled(getContext(), ActivityAnswer.class));
             swShortcuts.setChecked(prefs.getBoolean("shortcuts", true));
+            swICalTentative.setChecked(prefs.getBoolean("ical_tentative", true));
             swFts.setChecked(prefs.getBoolean("fts", false));
 
             swClassification.setChecked(prefs.getBoolean("classification", false));

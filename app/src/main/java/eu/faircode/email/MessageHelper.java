@@ -4416,6 +4416,9 @@ public class MessageHelper {
         private void decodeICalendar(Context context, EntityAttachment local) {
             DB db = DB.getInstance(context);
             try {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean ical_tentative = prefs.getBoolean("ical_tentative", true);
+
                 boolean permission = Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR);
 
                 EntityMessage message = db.message().getMessage(local.message);
@@ -4427,13 +4430,14 @@ public class MessageHelper {
                                 EntityFolder.SYSTEM.equals(folder.type) ||
                                 EntityFolder.USER.equals(folder.type)));
 
-                if (!permission || !received || account == null || account.calendar == null) {
+                if (!permission || !received || account == null || account.calendar == null || !ical_tentative) {
                     EntityLog.log(context, "Event not processed" +
                             " permission=" + permission +
                             " account=" + (account != null) +
-                            " calendar=" + (account == null ? null : account.calendar) +
                             " folder=" + (folder != null) + ":" + (folder == null ? null : folder.type) +
-                            " received=" + received);
+                            " received=" + received +
+                            " calendar=" + (account == null ? null : account.calendar) +
+                            " tentative=" + ical_tentative);
                     return;
                 }
 
