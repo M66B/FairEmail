@@ -4448,20 +4448,22 @@ public class MessageHelper {
                 VEvent event = icalendar.getEvents().get(0);
 
                 // https://www.rfc-editor.org/rfc/rfc5546#section-3.2
-                if (method != null && method.isCancel())
+                if (method != null && method.isCancel()) {
+                    EntityLog.log(context, "Event cancelled, deleting");
                     CalendarHelper.delete(context, event, message);
-                else if (method == null || method.isRequest() || method.isReply()) {
+                } else if (method == null || method.isRequest() || method.isReply()) {
                     int status = CalendarContract.Events.STATUS_TENTATIVE;
                     if (method != null && method.isReply())
                         status = CalendarHelper.getReplyStatus(context, event, message);
 
                     if (status == CalendarContract.Events.STATUS_CANCELED) {
+                        EntityLog.log(context, "Event attendee cancelled, deleting");
                         CalendarHelper.delete(context, event, message);
                         return;
                     }
 
                     if (status == CalendarContract.Events.STATUS_TENTATIVE && !ical_tentative) {
-                        EntityLog.log(context, "Tentative event not processed");
+                        EntityLog.log(context, "Event tentative off, not processing");
                         return;
                     }
 
