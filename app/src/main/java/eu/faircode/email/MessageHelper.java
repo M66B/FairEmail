@@ -4446,7 +4446,9 @@ public class MessageHelper {
                 // https://www.rfc-editor.org/rfc/rfc5546#section-3.2
                 if (method != null && method.isCancel())
                     CalendarHelper.delete(context, event, message);
-                else if (method == null || method.isRequest() || method.isReply()) {
+                else if (method != null && method.isReply())
+                    CalendarHelper.update(context, event, message);
+                else if (method == null || method.isRequest()) {
                     String selectedAccount;
                     String selectedName;
                     try {
