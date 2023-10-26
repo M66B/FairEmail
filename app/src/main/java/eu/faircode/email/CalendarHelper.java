@@ -157,11 +157,19 @@ public class CalendarHelper {
         ICalDate start = (event.getDateStart() == null ? null : event.getDateStart().getValue());
         ICalDate end = (event.getDateEnd() == null ? null : event.getDateEnd().getValue());
 
+        // Assume one time zone
+        TimezoneInfo tzinfo = icalendar.getTimezoneInfo();
+        TimezoneAssignment tza = (tzinfo == null ? null : tzinfo.getTimezone(event.getDateStart()));
+        TimeZone tz = (tza == null ? null : tza.getTimeZone());
+        //if (tz != null && "W. Europe Standard Time".equals(tz.getID()))
+        //    tz.setID("GMT");
+        String tzid = (tz == null ? TimeZone.getDefault().getID() : tz.getID());
+
         String rrule = null;
         RecurrenceRule recurrence = event.getRecurrenceRule();
         if (recurrence != null) {
             RecurrenceRuleScribe scribe = new RecurrenceRuleScribe();
-            WriteContext wcontext = new WriteContext(ICalVersion.V2_0, icalendar.getTimezoneInfo(), null);
+            WriteContext wcontext = new WriteContext(ICalVersion.V2_0, tzinfo, null);
             rrule = scribe.writeText(recurrence, wcontext);
         }
 
@@ -201,13 +209,7 @@ public class CalendarHelper {
                 if (!TextUtils.isEmpty(organizer))
                     values.put(CalendarContract.Events.ORGANIZER, organizer);
 
-                // Assume one time zone
-                TimezoneInfo tzinfo = icalendar.getTimezoneInfo();
-                TimezoneAssignment tza = (tzinfo == null ? null : tzinfo.getTimezone(event.getDateStart()));
-                TimeZone tz = (tza == null ? null : tza.getTimeZone());
-                values.put(CalendarContract.Events.EVENT_TIMEZONE,
-                        tz == null ? TimeZone.getDefault().getID() : tz.getID());
-
+                values.put(CalendarContract.Events.EVENT_TIMEZONE, tzid);
                 values.put(CalendarContract.Events.DTSTART, start.getTime());
                 values.put(CalendarContract.Events.DTEND, end.getTime());
 
@@ -230,7 +232,7 @@ public class CalendarHelper {
                             " id=" + calId + ":" + eventId +
                             " uid=" + uid +
                             " organizer=" + organizer +
-                            " tz=" + (tz == null ? null : tz.getID()) +
+                            " tz=" + tzid +
                             " start=" + new Date(start.getTime()) +
                             " end=" + new Date(end.getTime()) +
                             " rrule=" + rrule +
@@ -244,7 +246,7 @@ public class CalendarHelper {
                             " id=" + calId + ":" + existId +
                             " uid=" + uid +
                             " organizer=" + organizer +
-                            " tz=" + (tz == null ? null : tz.getID()) +
+                            " tz=" + tzid +
                             " start=" + new Date(start.getTime()) +
                             " end=" + new Date(end.getTime()) +
                             " rrule=" + rrule +
