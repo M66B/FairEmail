@@ -1,0 +1,88 @@
+Dateline Standard Time~~~Pacific/Apia
+Samoa Standard Time~~~Pacific/Midway
+Hawaiian Standard Time~~~Pacific/Honolulu
+Alaskan Standard Time~~~America/Anchorage
+Pacific Standard Time~~~America/Los_Angeles
+Pacific Standard Time (Mexico)~~~America/Tijuana
+US Mountain Standard Time~~~America/Phoenix
+Mountain Standard Time (Mexico)~~~America/Mazatlan
+Mexico Standard Time 2~~~America/Chihuahua
+Mountain Standard Time~~~America/Denver
+Central America Standard Time~~~America/Costa_Rica
+Central Standard Time~~~America/Chicago
+Central Standard Time (Mexico)~~~America/Monterrey
+Mexico Standard Time~~~America/Mexico_City
+Canada Central Standard Time~~~America/Winnipeg
+SA Pacific Standard Time~~~America/Bogota
+Eastern Standard Time~~~America/New_York
+US Eastern Standard Time~~~America/Indiana/Indianapolis
+Venezuela Standard Time~~~America/Caracas
+Atlantic Standard Time~~~America/Halifax
+SA Western Standard Time~~~America/La_Paz
+Central Brazilian Standard Time~~~America/Manaus
+Pacific SA Standard Time~~~America/La_Paz
+Newfoundland Standard Time~~~America/St_Johns
+E. South America Standard Time~~~America/Bahia
+SA Eastern Standard Time~~~America/Argentina/Buenos_Aires
+Greenland Standard Time~~~America/Godthab
+Montevideo Standard Time~~~America/Montevideo
+Mid-Atlantic Standard Time~~~Atlantic/South_Georgia
+Azores Standard Time~~~Atlantic/Azores
+Cape Verde Standard Time~~~Atlantic/Cape_Verde
+Greenwich Standard Time~~~Africa/Casablanca
+GMT Standard Time~~~Europe/Dublin
+UTC~~~UTC
+W. Europe Standard Time~~~Europe/Berlin
+Central Europe Standard Time~~~Europe/Prague
+Romance Standard Time~~~Europe/Paris
+Central European Standard Time~~~Europe/Belgrade
+W. Central Africa Standard Time~~~Africa/Luanda
+Jordan Standard Time~~~Asia/Amman
+GTB Standard Time~~~Europe/Athens
+Middle East Standard Time~~~Asia/Beirut
+Egypt Standard Time~~~Africa/Cairo
+South Africa Standard Time~~~Africa/Harare
+FLE Standard Time~~~Europe/Helsinki
+Israel Standard Time~~~Asia/Jerusalem
+E. Europe Standard Time~~~Europe/Minsk
+Namibia Standard Time~~~Africa/Windhoek
+Arabic Standard Time~~~Asia/Baghdad
+Arab Standard Time~~~Asia/Qatar
+Russian Standard Time~~~Europe/Moscow
+E. Africa Standard Time~~~Africa/Nairobi
+Georgian Standard Time~~~Asia/Tbilisi
+Iran Standard Time~~~Asia/Tehran
+Arabian Standard Time~~~Asia/Muscat
+Azerbaijan Standard Time~~~Asia/Baku
+Caucasus Standard Time~~~Asia/Yerevan
+Armenian Standard Time~~~Asia/Yerevan
+Afghanistan Standard Time~~~Asia/Kabul
+Ekaterinburg Standard Time~~~Asia/Yekaterinburg
+West Asia Standard Time~~~Asia/Karachi
+India Standard Time~~~Asia/Kolkata
+Sri Lanka Standard Time~~~Asia/Colombo
+Nepal Standard Time~~~Asia/Kathmandu
+N. Central Asia Standard Time~~~Asia/Novosibirsk
+Central Asia Standard Time~~~Asia/Dhaka
+Myanmar Standard Time~~~Asia/Rangoon
+SE Asia Standard Time~~~Asia/Bangkok
+North Asia Standard Time~~~Asia/Krasnoyarsk
+China Standard Time~~~Asia/Shanghai
+North Asia East Standard Time~~~Asia/Ulaanbaatar
+Singapore Standard Time~~~Asia/Singapore
+W. Australia Standard Time~~~Australia/Perth
+Taipei Standard Time~~~Asia/Taipei
+Tokyo Standard Time~~~Asia/Tokyo
+Korea Standard Time~~~Asia/Seoul
+Yakutsk Standard Time~~~Asia/Yakutsk
+Cen. Australia Standard Time~~~Australia/Adelaide
+AUS Central Standard Time~~~Australia/Darwin
+E. Australia Standard Time~~~Australia/Brisbane
+AUS Eastern Standard Time~~~Australia/Sydney
+West Pacific Standard Time~~~Pacific/Guam
+Tasmania Standard Time~~~Australia/Hobart
+Vladivostok Standard Time~~~Asia/Vladivostok
+Central Pacific Standard Time~~~Asia/Magadan
+New Zealand Standard Time~~~Pacific/Auckland
+Fiji Standard Time~~~Pacific/Fiji
+Tonga Standard Time~~~Pacific/Tongatapu

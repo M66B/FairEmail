@@ -33,6 +33,9 @@ import androidx.preference.PreferenceManager;
 
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -129,44 +132,6 @@ public class CalendarHelper {
             }
         }
 
-        if (false) {
-            // BEGIN:VCALENDAR
-            // METHOD:REQUEST
-            // PRODID:Microsoft Exchange Server 2010
-            // VERSION:2.0
-            // BEGIN:VTIMEZONE
-            //   TZID:W. Europe Standard Time
-            //   BEGIN:STANDARD
-            //     DTSTART:16010101T030000
-            //     TZOFFSETFROM:+0200
-            //     TZOFFSETTO:+0100
-            //     RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=10
-            //   END:STANDARD
-            //   BEGIN:DAYLIGHT
-            //     DTSTART:16010101T020000
-            //     TZOFFSETFROM:+0100
-            //     TZOFFSETTO:+0200
-            //     RRULE:FREQ=YEARLY;INTERVAL=1;BYDAY=-1SU;BYMONTH=3
-            //   END:DAYLIGHT
-            // END:VTIMEZONE
-            // BEGIN:VEVENT
-            //   UID:...
-            //   DTSTART;TZID=W. Europe Standard Time:20231030T100000
-            //   DTEND;TZID=W. Europe Standard Time:20231030T110000
-            //   ...
-            for (TimezoneAssignment assignment : icalendar.getTimezoneInfo().getTimezones()) {
-                for (List<ICalComponent> components : assignment.getComponent().getComponents().getMap().values())
-                    for (ICalComponent component : components) {
-                        RecurrenceRule recurrence = component.getProperty(RecurrenceRule.class);
-                        if (recurrence != null) {
-                            RecurrenceRuleScribe scribe = new RecurrenceRuleScribe();
-                            WriteContext wcontext = new WriteContext(ICalVersion.V2_0, icalendar.getTimezoneInfo(), null);
-                            String rrule = scribe.writeText(recurrence, wcontext);
-                        }
-                    }
-            }
-        }
-
         String organizer = (event.getOrganizer() == null ? null : event.getOrganizer().getEmail());
 
         String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
@@ -180,9 +145,25 @@ public class CalendarHelper {
         TimezoneInfo tzinfo = icalendar.getTimezoneInfo();
         TimezoneAssignment tza = (tzinfo == null ? null : tzinfo.getTimezone(event.getDateStart()));
         TimeZone tz = (tza == null ? null : tza.getTimeZone());
-        //if (tz != null && "W. Europe Standard Time".equals(tz.getID()))
-        //    tz.setID("GMT");
-        String tzid = (tz == null ? TimeZone.getDefault().getID() : tz.getID());
+        String tzid = (tz == null ? null : tz.getID());
+        if (tzid == null)
+            tzid = TimeZone.getDefault().getID();
+        else {
+            // https://github.com/GNOME/evolution-mapi/blob/master/src/libexchangemapi/tz-mapi-to-ical
+            try (InputStream is = context.getAssets().open("tz-mapi-to-ical.txt")) {
+                BufferedReader br = new BufferedReader(new InputStreamReader((is)));
+                String line;
+                while ((line = br.readLine()) != null) {
+                    String[] info = line.split("~~~");
+                    if (info.length == 2 && info[0].equalsIgnoreCase(tzid)) {
+                        EntityLog.log(context, "Event map " + tzid + " to " + info[1]);
+                        tz.setID(info[1]);
+                    }
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+        }
 
         String rrule = null;
         RecurrenceRule recurrence = event.getRecurrenceRule();
