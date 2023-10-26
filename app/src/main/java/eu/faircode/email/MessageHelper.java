@@ -158,9 +158,8 @@ import javax.mail.internet.ParseException;
 import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
-import biweekly.parameter.ParticipationStatus;
-import biweekly.property.Attendee;
 import biweekly.property.Method;
+import biweekly.property.Status;
 import ezvcard.VCard;
 import ezvcard.VCardVersion;
 import ezvcard.io.text.VCardWriter;
@@ -4454,27 +4453,12 @@ public class MessageHelper {
                 else if (method == null || method.isRequest() || method.isReply()) {
                     int status = CalendarContract.Events.STATUS_TENTATIVE;
                     if (method != null && method.isReply()) {
-                        List<Attendee> attendees = event.getAttendees();
-                        if (attendees != null && message.to != null)
-                            for (Attendee attendee : attendees) {
-                                String email = attendee.getEmail();
-                                for (Address to : message.to) {
-                                    String recipient = ((InternetAddress) to).getAddress();
-                                    if (!TextUtils.isEmpty(email) && email.equalsIgnoreCase(recipient)) {
-                                        ParticipationStatus pstatus = attendee.getParticipationStatus();
-                                        if (ParticipationStatus.ACCEPTED.equals(pstatus))
-                                            status = CalendarContract.Events.STATUS_CONFIRMED;
-                                        else if (ParticipationStatus.DECLINED.equals(pstatus))
-                                            status = CalendarContract.Events.STATUS_CANCELED;
-                                        break;
-                                    }
-                                }
-                            }
-                    }
-
-                    if (status == CalendarContract.Events.STATUS_CANCELED) {
-                        CalendarHelper.delete(context, event, message);
-                        return;
+                        Status istatus = event.getStatus();
+                        if (istatus != null)
+                            if (Status.ACCEPTED.equals(istatus.getValue()))
+                                status = CalendarContract.Events.STATUS_CONFIRMED;
+                            else if (Status.CANCELLED.equals(istatus.getValue()))
+                                status = CalendarContract.Events.STATUS_CANCELED;
                     }
 
                     if (status == CalendarContract.Events.STATUS_TENTATIVE && !ical_tentative) {
