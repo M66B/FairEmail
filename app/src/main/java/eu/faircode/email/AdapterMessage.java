@@ -3876,8 +3876,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     : icalendar.getCalendarScale());
                             VEvent event = icalendar.getEvents().get(0);
 
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean ical_tentative = prefs.getBoolean("ical_tentative", true);
+
                             boolean permission = Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR);
-                            if (permission || account.calendar != null) {
+
+                            if (permission && ical_tentative && account.calendar != null) {
                                 if (action == R.id.btnCalendarAccept)
                                     CalendarHelper.insert(context, icalendar, event,
                                             CalendarContract.Events.STATUS_CONFIRMED, account, message);
