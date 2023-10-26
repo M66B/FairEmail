@@ -3881,7 +3881,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             boolean permission = Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR);
 
-                            if (permission && ical_tentative && account.calendar != null) {
+                            if (permission && !ical_tentative && account.calendar != null) {
                                 if (action == R.id.btnCalendarAccept)
                                     CalendarHelper.insert(context, icalendar, event,
                                             CalendarContract.Events.STATUS_CONFIRMED, account, message);
