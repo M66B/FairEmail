@@ -336,127 +336,130 @@ public class FragmentOptions extends FragmentBase {
             }
         };
 
-        searchView.setOnSuggestionListener(onSuggestionListener);
+        if (searchView != null)
+            searchView.setOnSuggestionListener(onSuggestionListener);
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                searching = query;
+        if (searchView != null)
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    searching = query;
 
-                CursorAdapter adapter = searchView.getSuggestionsAdapter();
-                if (adapter != null && adapter.getCount() > 0)
-                    onSuggestionListener.onSuggestionClick(0);
+                    CursorAdapter adapter = searchView.getSuggestionsAdapter();
+                    if (adapter != null && adapter.getCount() > 0)
+                        onSuggestionListener.onSuggestionClick(0);
 
-                return false;
-            }
+                    return false;
+                }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                if (newText != null)
-                    newText = newText.trim();
-                searching = newText;
-                suggest(newText);
-                return false;
-            }
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    if (newText != null)
+                        newText = newText.trim();
+                    searching = newText;
+                    suggest(newText);
+                    return false;
+                }
 
-            private void suggest(String query) {
-                Bundle args = new Bundle();
-                args.putString("query", query);
+                private void suggest(String query) {
+                    Bundle args = new Bundle();
+                    args.putString("query", query);
 
-                new SimpleTask<SuggestData>() {
-                    @Override
-                    protected SuggestData onExecute(Context context, Bundle args) {
-                        if (TextUtils.isEmpty(args.getString("query")))
-                            return data;
+                    new SimpleTask<SuggestData>() {
+                        @Override
+                        protected SuggestData onExecute(Context context, Bundle args) {
+                            if (TextUtils.isEmpty(args.getString("query")))
+                                return data;
 
-                        return (data == null ? getSuggestData(context) : data);
-                    }
+                            return (data == null ? getSuggestData(context) : data);
+                        }
 
-                    @Override
-                    protected void onExecuted(Bundle args, SuggestData result) {
-                        data = result;
-                        _suggest(args.getString("query"));
-                    }
-
-                    @Override
-                    protected void onException(Bundle args, Throwable ex) {
-                        Log.w(ex);
-                        try {
-                            // Fallback to UI thread (Android 5.1.1)
-                            data = getSuggestData(getContext());
+                        @Override
+                        protected void onExecuted(Bundle args, SuggestData result) {
+                            data = result;
                             _suggest(args.getString("query"));
-                        } catch (Throwable exex) {
-                            Log.unexpectedError(getParentFragmentManager(), exex);
-                        }
-                    }
-
-                    private SuggestData getSuggestData(Context context) {
-                        SuggestData data = new SuggestData();
-                        data.titles = new String[TAB_PAGES.length];
-                        data.views = new View[TAB_PAGES.length];
-
-                        LayoutInflater inflater = LayoutInflater.from(context);
-                        for (int tab = 0; tab < TAB_PAGES.length; tab++) {
-                            data.titles[tab] = context.getString(PAGE_TITLES[tab]);
-                            data.views[tab] = inflater.inflate(TAB_PAGES[tab], null);
                         }
 
-                        return data;
-                    }
-                }.serial().execute(FragmentOptions.this, args, "option:suggest");
-            }
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.w(ex);
+                            try {
+                                // Fallback to UI thread (Android 5.1.1)
+                                data = getSuggestData(getContext());
+                                _suggest(args.getString("query"));
+                            } catch (Throwable exex) {
+                                Log.unexpectedError(getParentFragmentManager(), exex);
+                            }
+                        }
 
-            private void _suggest(String query) {
-                MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "tab", "resid", "title"});
+                        private SuggestData getSuggestData(Context context) {
+                            SuggestData data = new SuggestData();
+                            data.titles = new String[TAB_PAGES.length];
+                            data.views = new View[TAB_PAGES.length];
 
-                if (data != null &&
-                        query != null && query.length() > 1) {
-                    int id = 0;
-                    for (int tab = 0; tab < TAB_PAGES.length; tab++)
-                        id = getSuggestions(query.toLowerCase(), id, tab, data.titles[tab], data.views[tab], cursor);
+                            LayoutInflater inflater = LayoutInflater.from(context);
+                            for (int tab = 0; tab < TAB_PAGES.length; tab++) {
+                                data.titles[tab] = context.getString(PAGE_TITLES[tab]);
+                                data.views[tab] = inflater.inflate(TAB_PAGES[tab], null);
+                            }
+
+                            return data;
+                        }
+                    }.serial().execute(FragmentOptions.this, args, "option:suggest");
                 }
 
-                searchView.setSuggestionsAdapter(new SimpleCursorAdapter(
-                        searchView.getContext(),
-                        R.layout.spinner_item1_dropdown,
-                        cursor,
-                        new String[]{"title"},
-                        new int[]{android.R.id.text1},
-                        0
-                ));
-                searchView.getSuggestionsAdapter().notifyDataSetChanged();
-            }
+                private void _suggest(String query) {
+                    MatrixCursor cursor = new MatrixCursor(new String[]{"_id", "tab", "resid", "title"});
 
-            private int getSuggestions(String query, int id, int tab, String title, View view, MatrixCursor cursor) {
-                if (view == null ||
-                        ("nosuggest".equals(view.getTag()) && !BuildConfig.DEBUG))
+                    if (data != null &&
+                            query != null && query.length() > 1) {
+                        int id = 0;
+                        for (int tab = 0; tab < TAB_PAGES.length; tab++)
+                            id = getSuggestions(query.toLowerCase(), id, tab, data.titles[tab], data.views[tab], cursor);
+                    }
+
+                    searchView.setSuggestionsAdapter(new SimpleCursorAdapter(
+                            searchView.getContext(),
+                            R.layout.spinner_item1_dropdown,
+                            cursor,
+                            new String[]{"title"},
+                            new int[]{android.R.id.text1},
+                            0
+                    ));
+                    searchView.getSuggestionsAdapter().notifyDataSetChanged();
+                }
+
+                private int getSuggestions(String query, int id, int tab, String title, View view, MatrixCursor cursor) {
+                    if (view == null ||
+                            ("nosuggest".equals(view.getTag()) && !BuildConfig.DEBUG))
+                        return id;
+                    else if (view instanceof ViewGroup) {
+                        ViewGroup group = (ViewGroup) view;
+                        for (int i = 0; i <= group.getChildCount(); i++)
+                            id = getSuggestions(query, id, tab, title, group.getChildAt(i), cursor);
+                    } else if (view instanceof TextView) {
+                        String description = ((TextView) view).getText().toString();
+                        if (description.toLowerCase().contains(query)) {
+                            description = description
+                                    .replace("%%", "%")
+                                    .replaceAll("%([0-9]\\$)?[sd]", "#");
+                            String text = view.getContext().getString(R.string.title_title_description, title, description);
+                            cursor.newRow()
+                                    .add(id++)
+                                    .add(tab)
+                                    .add(view.getId())
+                                    .add(text);
+                        }
+                    }
+
                     return id;
-                else if (view instanceof ViewGroup) {
-                    ViewGroup group = (ViewGroup) view;
-                    for (int i = 0; i <= group.getChildCount(); i++)
-                        id = getSuggestions(query, id, tab, title, group.getChildAt(i), cursor);
-                } else if (view instanceof TextView) {
-                    String description = ((TextView) view).getText().toString();
-                    if (description.toLowerCase().contains(query)) {
-                        description = description
-                                .replace("%%", "%")
-                                .replaceAll("%([0-9]\\$)?[sd]", "#");
-                        String text = view.getContext().getString(R.string.title_title_description, title, description);
-                        cursor.newRow()
-                                .add(id++)
-                                .add(tab)
-                                .add(view.getId())
-                                .add(text);
-                    }
                 }
-
-                return id;
-            }
-        });
+            });
 
         if (!TextUtils.isEmpty(saved)) {
             menuSearch.expandActionView();
-            searchView.setQuery(saved, false);
+            if (searchView != null)
+                searchView.setQuery(saved, false);
         }
 
         getViewLifecycleOwner().getLifecycle().addObserver(new LifecycleObserver() {
