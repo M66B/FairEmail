@@ -436,8 +436,22 @@ public class CalendarHelper {
                     values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_CANCELED);
                 int rows = resolver.update(updateUri, values, null, null);
 
+                int arows = 0;
+                String email = attendees.get(0).getEmail();
+                if (!TextUtils.isEmpty(email)) {
+                    ContentValues avalues = new ContentValues();
+                    avalues.put(CalendarContract.Attendees.ATTENDEE_STATUS, CalendarContract.Attendees.ATTENDEE_STATUS_ACCEPTED);
+
+                    arows = resolver.update(
+                            CalendarContract.Attendees.CONTENT_URI,
+                            avalues,
+                            CalendarContract.Attendees.EVENT_ID + " =? AND " + CalendarContract.Attendees.ATTENDEE_EMAIL + " =?",
+                            new String[]{Long.toString(eventId), email});
+                }
+
                 EntityLog.log(context, EntityLog.Type.General, message,
-                        "Updated event id=" + eventId + " uid=" + uid + " rows=" + rows);
+                        "Updated event id=" + eventId + " uid=" + uid + " email=" + email +
+                                " rows=" + rows + "/" + arows);
             }
         }
     }
