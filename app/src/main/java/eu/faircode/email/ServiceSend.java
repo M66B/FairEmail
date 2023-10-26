@@ -38,7 +38,6 @@ import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.PowerManager;
 import android.os.SystemClock;
-import android.provider.CalendarContract;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -78,8 +77,6 @@ import javax.mail.internet.MimeMessage;
 import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
-import biweekly.parameter.ParticipationStatus;
-import biweekly.property.Attendee;
 import biweekly.property.Method;
 
 public class ServiceSend extends ServiceBase implements SharedPreferences.OnSharedPreferenceChangeListener {
@@ -971,36 +968,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     if (method == null || !method.isReply())
                         return;
 
-                    EntityMessage message = db.message().getMessage(sid);
-                    if (message == null) {
-                        EntityLog.log(this, "Event REPLY message not found");
-                        return;
-                    }
-
-                    EntityAccount account = db.account().getAccount(message.account);
-                    if (account == null) {
-                        EntityLog.log(this, "Event REPLY account not found");
-                        return;
-                    }
-
                     VEvent event = icalendar.getEvents().get(0);
-
-                    List<Attendee> attendees = event.getAttendees();
-                    if (attendees == null || attendees.size() == 0) {
-                        EntityLog.log(this, "Event REPLY attendee not found");
-                        return;
-                    }
-
-                    int status;
-                    ParticipationStatus pstatus = attendees.get(0).getParticipationStatus();
-                    if (ParticipationStatus.ACCEPTED.equals(pstatus))
-                        status = CalendarContract.Events.STATUS_CONFIRMED;
-                    else if (ParticipationStatus.DECLINED.equals(pstatus))
-                        status = CalendarContract.Events.STATUS_CANCELED;
-                    else
-                        status = CalendarContract.Events.STATUS_TENTATIVE;
-
-                    CalendarHelper.insert(this, icalendar, event, status, account, message);
+                    EntityMessage message = db.message().getMessage(sid);
+                    CalendarHelper.update(this, event, message);
 
                     break;
                 } catch (Throwable ex) {
