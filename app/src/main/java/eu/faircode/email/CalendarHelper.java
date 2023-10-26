@@ -398,57 +398,6 @@ public class CalendarHelper {
         return null;
     }
 
-    static void update(Context context, VEvent event, EntityMessage message) {
-        String uid = (event.getUid() == null ? null : event.getUid().getValue());
-        if (TextUtils.isEmpty(uid)) {
-            EntityLog.log(context, EntityLog.Type.General, message,
-                    "Update event: no uid");
-            return;
-        }
-
-        List<Attendee> attendees = event.getAttendees();
-        if (attendees == null || attendees.size() == 0) {
-            EntityLog.log(context, EntityLog.Type.General, message,
-                    "Update event: no attendees");
-            return;
-        }
-
-        ParticipationStatus status = attendees.get(0).getParticipationStatus();
-        if (!ParticipationStatus.ACCEPTED.equals(status) &&
-                !ParticipationStatus.DECLINED.equals(status)) {
-            EntityLog.log(context, EntityLog.Type.General, message,
-                    "Update event: not accepted/declined");
-            return;
-        }
-
-        ContentResolver resolver = context.getContentResolver();
-        try (Cursor cursor = resolver.query(CalendarContract.Events.CONTENT_URI,
-                new String[]{CalendarContract.Events._ID},
-                CalendarContract.Events.UID_2445 + " = ?",
-                new String[]{uid},
-                null)) {
-            if (cursor.getCount() == 0)
-                EntityLog.log(context, EntityLog.Type.General, message,
-                        "Update event: uid not found");
-            while (cursor.moveToNext()) {
-                long eventId = cursor.getLong(0);
-
-                // https://developer.android.com/guide/topics/providers/calendar-provider#modify-calendar
-                Uri updateUri = ContentUris.withAppendedId(CalendarContract.Events.CONTENT_URI, eventId);
-                ContentValues values = new ContentValues();
-                if (ParticipationStatus.ACCEPTED.equals(status))
-                    values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_CONFIRMED);
-                else
-                    values.put(CalendarContract.Events.STATUS, CalendarContract.Events.STATUS_CANCELED);
-                int rows = resolver.update(updateUri, values, null, null);
-
-                EntityLog.log(context, EntityLog.Type.General, message,
-                        "Updated event id=" + eventId + " uid=" + uid + " rows=" + rows +
-                                " status=" + status + " accept=" + ParticipationStatus.ACCEPTED.equals(status));
-            }
-        }
-    }
-
     static void delete(Context context, VEvent event, EntityMessage message) {
         String uid = (event.getUid() == null ? null : event.getUid().getValue());
         if (TextUtils.isEmpty(uid))
