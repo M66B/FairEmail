@@ -3862,6 +3862,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (message == null)
                         return null;
 
+                    EntityAccount account = db.account().getAccount(message.account);
+                    if (account == null)
+                        return null;
+
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                     for (EntityAttachment attachment : attachments)
                         if (attachment.available && "text/calendar".equals(attachment.getMimeType())) {
@@ -3871,6 +3875,18 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                     ? CalendarScale.gregorian()
                                     : icalendar.getCalendarScale());
                             VEvent event = icalendar.getEvents().get(0);
+
+                            boolean permission = Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR);
+                            if (permission || account.calendar != null) {
+                                if (action == R.id.btnCalendarAccept)
+                                    CalendarHelper.insert(context, icalendar, event,
+                                            CalendarContract.Events.STATUS_CONFIRMED, account, message);
+                                else if (action == R.id.btnCalendarDecline)
+                                    CalendarHelper.delete(context, event, message);
+                                else if (action == R.id.btnCalendarMaybe)
+                                    CalendarHelper.insert(context, icalendar, event,
+                                            CalendarContract.Events.STATUS_TENTATIVE, account, message);
+                            }
 
                             if (action == R.id.ibCalendar) {
                                 String summary = (event.getSummary() == null ? null : event.getSummary().getValue());

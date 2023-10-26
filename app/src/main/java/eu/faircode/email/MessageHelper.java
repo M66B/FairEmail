@@ -4450,23 +4450,10 @@ public class MessageHelper {
                 // https://www.rfc-editor.org/rfc/rfc5546#section-3.2
                 if (method != null && method.isCancel())
                     CalendarHelper.delete(context, event, message);
-                else if (method == null || method.isRequest()) {
-                    String selectedAccount;
-                    String selectedName;
-                    try {
-                        JSONObject jselected = new JSONObject(account.calendar);
-                        selectedAccount = jselected.getString("account");
-                        selectedName = jselected.optString("name", null);
-                    } catch (Throwable ex) {
-                        Log.i(ex);
-                        selectedAccount = account.calendar;
-                        selectedName = null;
-                    }
-
+                else if (method == null || method.isRequest())
                     CalendarHelper.insert(context, icalendar, event,
-                            CalendarContract.Events.STATUS_TENTATIVE,
-                            selectedAccount, selectedName, message);
-                } else
+                            CalendarContract.Events.STATUS_TENTATIVE, account, message);
+                else
                     EntityLog.log(context, "Unknown event method=" + method.getValue());
             } catch (Throwable ex) {
                 Log.w(ex);
