@@ -85,9 +85,11 @@ public class CalendarHelper {
     static ICalendar parse(Context context, File file) throws IOException {
         try (ICalReader reader = new ICalReader(file)) {
             ICalendar icalendar = reader.readNext();
+            if (icalendar == null)
+                throw new IOException("Invalid iCal file");
 
             for (ParseWarning warning : reader.getWarnings())
-                Log.i("Event warning " + warning);
+                EntityLog.log(context, "Event warning " + warning);
 
             return icalendar;
         }
