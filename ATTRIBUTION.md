@@ -1,6 +1,6 @@
 ## Attribution
 
-FairEmail uses:
+FairEmail uses parts or all of:
 
 * [JavaMail](https://projects.eclipse.org/projects/ee4j.javamail). Copyright (c) 1997-2018 Oracle® and/or its affiliates. All rights reserved. [GPLv2+CE license](https://javaee.github.io/javamail/JavaMail-License).
 * [jsoup](https://jsoup.org/). Copyright © 2009 - 2017 Jonathan Hedley. [MIT license](https://jsoup.org/license).
