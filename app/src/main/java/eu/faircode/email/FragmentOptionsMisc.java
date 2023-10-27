@@ -117,6 +117,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swICalTentative;
     private ImageButton ibICalTentative;
     private SwitchCompat swFts;
+    private ImageButton ibFts;
+    private TextView tvFtsIndexed;
+    private TextView tvFtsPro;
     private SwitchCompat swClassification;
     private TextView tvClassMinProbability;
     private SeekBar sbClassMinProbability;
@@ -124,8 +127,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SeekBar sbClassMinDifference;
     private SwitchCompat swShowFiltered;
     private ImageButton ibClassification;
-    private TextView tvFtsIndexed;
-    private TextView tvFtsPro;
     private Spinner spLanguage;
     private SwitchCompat swUpdates;
     private TextView tvGithubPrivacy;
@@ -386,6 +387,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swICalTentative = view.findViewById(R.id.swICalTentative);
         ibICalTentative = view.findViewById(R.id.ibICalTentative);
         swFts = view.findViewById(R.id.swFts);
+        ibFts = view.findViewById(R.id.ibFts);
+        tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
+        tvFtsPro = view.findViewById(R.id.tvFtsPro);
         swClassification = view.findViewById(R.id.swClassification);
         ibClassification = view.findViewById(R.id.ibClassification);
         tvClassMinProbability = view.findViewById(R.id.tvClassMinProbability);
@@ -393,8 +397,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvClassMinDifference = view.findViewById(R.id.tvClassMinDifference);
         sbClassMinDifference = view.findViewById(R.id.sbClassMinDifference);
         swShowFiltered = view.findViewById(R.id.swShowFiltered);
-        tvFtsIndexed = view.findViewById(R.id.tvFtsIndexed);
-        tvFtsPro = view.findViewById(R.id.tvFtsPro);
         spLanguage = view.findViewById(R.id.spLanguage);
         swUpdates = view.findViewById(R.id.swUpdates);
         tvGithubPrivacy = view.findViewById(R.id.tvGithubPrivacy);
@@ -661,6 +663,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         }
                     }.execute(FragmentOptionsMisc.this, args, "fts:reset");
                 }
+            }
+        });
+
+        ibFts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 13);
             }
         });
 
