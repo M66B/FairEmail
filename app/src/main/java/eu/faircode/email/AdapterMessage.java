@@ -3693,7 +3693,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected ICalendar onExecute(Context context, Bundle args) throws IOException {
                     File file = (File) args.getSerializable("file");
-                    return Biweekly.parse(file).first();
+                    return CalendarHelper.parse(context, file);
                 }
 
                 @Override
@@ -3870,7 +3870,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     for (EntityAttachment attachment : attachments)
                         if (attachment.available && "text/calendar".equals(attachment.getMimeType())) {
                             File file = attachment.getFile(context);
-                            ICalendar icalendar = Biweekly.parse(file).first();
+                            ICalendar icalendar = CalendarHelper.parse(context, file);
                             CalendarScale scale = (icalendar.getCalendarScale() == null
                                     ? CalendarScale.gregorian()
                                     : icalendar.getCalendarScale());

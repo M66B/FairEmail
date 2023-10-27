@@ -155,7 +155,6 @@ import javax.mail.internet.MimeUtility;
 import javax.mail.internet.ParameterList;
 import javax.mail.internet.ParseException;
 
-import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Method;
@@ -1360,7 +1359,7 @@ public class MessageHelper {
             if (attachment.available &&
                     "text/calendar".equals(attachment.type)) {
                 File file = attachment.getFile(context);
-                ICalendar icalendar = Biweekly.parse(file).first();
+                ICalendar icalendar = CalendarHelper.parse(context, file);
                 Method method = (icalendar == null ? null : icalendar.getMethod());
                 if (method != null && method.isReply()) {
                     // https://www.rfc-editor.org/rfc/rfc6047#section-2.4
@@ -4441,7 +4440,7 @@ public class MessageHelper {
                 boolean ical_tentative = prefs.getBoolean("ical_tentative", true);
 
                 File file = local.getFile(context);
-                ICalendar icalendar = Biweekly.parse(file).first();
+                ICalendar icalendar = CalendarHelper.parse(context, file);
 
                 Method method = icalendar.getMethod();
                 VEvent event = icalendar.getEvents().get(0);

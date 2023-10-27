@@ -33,9 +33,8 @@ import androidx.preference.PreferenceManager;
 
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -44,13 +43,14 @@ import java.util.TimeZone;
 
 import biweekly.ICalVersion;
 import biweekly.ICalendar;
-import biweekly.component.ICalComponent;
 import biweekly.component.VAlarm;
 import biweekly.component.VEvent;
+import biweekly.io.ParseWarning;
 import biweekly.io.TimezoneAssignment;
 import biweekly.io.TimezoneInfo;
 import biweekly.io.WriteContext;
 import biweekly.io.scribe.property.RecurrenceRuleScribe;
+import biweekly.io.text.ICalReader;
 import biweekly.parameter.ParticipationStatus;
 import biweekly.property.Action;
 import biweekly.property.Attendee;
@@ -80,6 +80,17 @@ public class CalendarHelper {
         cal.set(Calendar.SECOND, 0);
         cal.set(Calendar.MILLISECOND, 0);
         return Helper.getTimeInstance(context, SimpleDateFormat.SHORT).format(cal.getTime());
+    }
+
+    static ICalendar parse(Context context, File file) throws IOException {
+        try (ICalReader reader = new ICalReader(file)) {
+            ICalendar icalendar = reader.readNext();
+
+            for (ParseWarning warning : reader.getWarnings())
+                Log.i("Event warning " + warning);
+
+            return icalendar;
+        }
     }
 
     static Long exists(Context context, String selectedAccount, String selectedName, String uid) {
@@ -148,34 +159,6 @@ public class CalendarHelper {
         String tzid = (tz == null ? null : tz.getID());
         if (tzid == null)
             tzid = TimeZone.getDefault().getID();
-        else
-            try (InputStream is = context.getAssets().open("windows_timezones.txt")) {
-                BufferedReader br = new BufferedReader(new InputStreamReader((is)));
-                String line;
-                while ((line = br.readLine()) != null) {
-                    if (line.startsWith("#"))
-                        continue;
-
-                    String[] info = line.split(";");
-                    if (info.length != 5)
-                        continue;
-
-                    if (!info[2].equalsIgnoreCase(tzid))
-                        continue;
-
-                    // Austria;AT;W. Europe Standard Time;(UTC+01:00);Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna
-                    String utc = info[3]
-                            .replace("UTC", "GMT")
-                            .replace("(", "")
-                            .replace(")", "");
-                    String _tzid = TimeZone.getTimeZone(utc).getID();
-                    EntityLog.log(context, "Event map " + tzid + " to " + _tzid + " " + info[3]);
-                    tz.setID(_tzid);
-                    break;
-                }
-            } catch (Throwable ex) {
-                Log.e(ex);
-            }
 
         String rrule = null;
         RecurrenceRule recurrence = event.getRecurrenceRule();

@@ -5985,7 +5985,7 @@ public class FragmentCompose extends FragmentBase {
                         Helper.copy(ics, file);
                         ics.delete();
 
-                        ICalendar icalendar = Biweekly.parse(file).first();
+                        ICalendar icalendar = CalendarHelper.parse(context, file);
                         VEvent event = icalendar.getEvents().get(0);
                         Organizer organizer = event.getOrganizer();
                         if (organizer != null) {

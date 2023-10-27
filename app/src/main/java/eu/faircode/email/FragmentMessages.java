@@ -235,7 +235,6 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Status;
@@ -10070,7 +10069,7 @@ public class FragmentMessages extends FragmentBase
                 if (calendar == null)
                     return null;
 
-                ICalendar icalendar = Biweekly.parse(calendar.getFile(context)).first();
+                ICalendar icalendar = CalendarHelper.parse(context, calendar.getFile(context));
                 VEvent event = icalendar.getEvents().get(0);
 
                 int status = CalendarContract.Events.STATUS_TENTATIVE;

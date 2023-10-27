@@ -74,7 +74,6 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Method;
@@ -962,7 +961,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             if ("text/calendar".equals(attachment.type))
                 try {
                     File ics = attachment.getFile(this);
-                    ICalendar icalendar = Biweekly.parse(ics).first();
+                    ICalendar icalendar = CalendarHelper.parse(ServiceSend.this, ics);
 
                     Method method = icalendar.getMethod();
                     if (method == null || !method.isReply())
