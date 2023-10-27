@@ -5278,6 +5278,9 @@ New invitations, with both a start and end date, will be stored automatically as
 If you accept or decline an invitation, the status will be updated accordingly, after the accept/decline message has been sent successfully.
 Received updates and cancellations will be processed as well.
 
+Since version 1.2115 it is possible to disable storing invitations tentatively with an option in the miscellaneous-settings tab page.
+In this case, the event will be stored after it has been accepted.
+
 Please make sure synchronizing calendars is enabled in the Android account settings
 if you want to synchronize events to other devices.
 
