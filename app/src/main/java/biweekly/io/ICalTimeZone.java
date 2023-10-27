@@ -422,14 +422,19 @@ public class ICalTimeZone extends TimeZone {
 			 * to the "last" date. But this causes all the unit tests to fail,
 			 * so I guess not.
 			 */
-			it.advanceTo(last);
+			//it.advanceTo(last);
 			//it.next();
 
 			DateValue prev = null, cur = null;
 			boolean stopped = false;
 			while (it.hasNext()) {
 				cur = it.next();
-				dateCache.add(cur);
+				int curComparison = cur.compareTo(last);
+				if (curComparison < 0) continue;
+
+				if (curComparison > 0) {
+					dateCache.add(cur);
+				}
 
 				if (givenDate.compareTo(cur) < 0) {
 					//stop if we have passed the givenTime
@@ -439,8 +444,7 @@ public class ICalTimeZone extends TimeZone {
 
 				prev = cur;
 			}
-			return after ? (stopped ? cur : null) : prev;
-		}
+			return after ? (stopped ? cur : null) : prev;		}
 
 		/*
 		 * The date is somewhere in the cached list, so find it.
