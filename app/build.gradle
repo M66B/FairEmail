@@ -492,7 +492,7 @@ dependencies {
     def openpgp_version = "12.0"
     def badge_version = "1.1.22"
     def bugsnag_version = "5.28.2"
-    def biweekly_version = "0.6.6"
+    def biweekly_version = "0.6.7"
     def vcard_version = "0.12.1"
     def relinker_version = "1.4.5"
     def markwon_version = "4.6.2"
