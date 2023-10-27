@@ -115,6 +115,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swExternalAnswer;
     private SwitchCompat swShortcuts;
     private SwitchCompat swICalTentative;
+    private ImageButton ibICalTentative;
     private SwitchCompat swFts;
     private SwitchCompat swClassification;
     private TextView tvClassMinProbability;
@@ -383,6 +384,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swExternalAnswer = view.findViewById(R.id.swExternalAnswer);
         swShortcuts = view.findViewById(R.id.swShortcuts);
         swICalTentative = view.findViewById(R.id.swICalTentative);
+        ibICalTentative = view.findViewById(R.id.ibICalTentative);
         swFts = view.findViewById(R.id.swFts);
         swClassification = view.findViewById(R.id.swClassification);
         ibClassification = view.findViewById(R.id.ibClassification);
@@ -615,6 +617,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("ical_tentative", checked).apply();
+            }
+        });
+
+        ibICalTentative.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 186);
             }
         });
 
