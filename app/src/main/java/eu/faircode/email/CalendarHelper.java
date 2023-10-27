@@ -148,22 +148,34 @@ public class CalendarHelper {
         String tzid = (tz == null ? null : tz.getID());
         if (tzid == null)
             tzid = TimeZone.getDefault().getID();
-        else {
-            // https://github.com/GNOME/evolution-mapi/blob/master/src/libexchangemapi/tz-mapi-to-ical
-            try (InputStream is = context.getAssets().open("tz-mapi-to-ical.txt")) {
+        else
+            try (InputStream is = context.getAssets().open("windows_timezones.txt")) {
                 BufferedReader br = new BufferedReader(new InputStreamReader((is)));
                 String line;
                 while ((line = br.readLine()) != null) {
-                    String[] info = line.split("~~~");
-                    if (info.length == 2 && info[0].equalsIgnoreCase(tzid)) {
-                        EntityLog.log(context, "Event map " + tzid + " to " + info[1]);
-                        tz.setID(info[1]);
-                    }
+                    if (line.startsWith("#"))
+                        continue;
+
+                    String[] info = line.split(";");
+                    if (info.length != 5)
+                        continue;
+
+                    if (!info[2].equalsIgnoreCase(tzid))
+                        continue;
+
+                    // Austria;AT;W. Europe Standard Time;(UTC+01:00);Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna
+                    String utc = info[3]
+                            .replace("UTC", "GMT")
+                            .replace("(", "")
+                            .replace(")", "");
+                    String _tzid = TimeZone.getTimeZone(utc).getID();
+                    EntityLog.log(context, "Event map " + tzid + " to " + _tzid + " " + info[3]);
+                    tz.setID(_tzid);
+                    break;
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
             }
-        }
 
         String rrule = null;
         RecurrenceRule recurrence = event.getRecurrenceRule();

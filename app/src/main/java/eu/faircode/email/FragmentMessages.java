@@ -4282,14 +4282,23 @@ public class FragmentMessages extends FragmentBase
 
                     for (long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
+                        EntityLog.log(context, "MMM message found=" + (message != null));
                         if (message == null)
                             continue;
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading ? null : id, seen ? null : message.folder);
-                        for (EntityMessage threaded : messages)
+                        EntityLog.log(context, "MMM ids=" + ids.length + " seen=" + seen + " threading=" + threading +
+                                " messages=" + messages.size());
+
+                        for (EntityMessage threaded : messages) {
+                            EntityFolder folder = db.folder().getFolder(threaded.folder);
+                            EntityLog.log(context, "MMM message folder=" + folder.type +
+                                    " seen=" + threaded.ui_seen +
+                                    " change=" + (threaded.ui_seen != seen));
                             if (threaded.ui_seen != seen)
                                 EntityOperation.queue(context, threaded, EntityOperation.SEEN, seen);
+                        }
                     }
 
                     db.setTransactionSuccessful();
