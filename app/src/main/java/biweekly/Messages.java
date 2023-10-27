@@ -39,7 +39,7 @@ public enum Messages {
 	private final transient ResourceBundle messages;
 
 	Messages() {
-		messages = ResourceBundle.getBundle("biweekly/messages");
+		messages = ResourceBundle.getBundle("biweekly.messages");
 	}
 
 	/**
