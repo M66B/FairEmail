@@ -6,6 +6,14 @@ For support you can use the contact form.
 
 Vallibonavenatrix
 
+Next version
+
+* Added mapping of non-standard Outlook timezones in invitations
+* Added option to disable storing invitations tentatively, see the FAQ
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 1.2114 - 2023-10-25
 
 * Added tap on title/subtitle to open/switch to inbox
