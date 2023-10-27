@@ -665,9 +665,11 @@ dependencies {
 
     // https://github.com/mangstadt/biweekly
     // https://mvnrepository.com/artifact/net.sf.biweekly/biweekly
-    implementation("net.sf.biweekly:biweekly:$biweekly_version") {
-        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
-    }
+    //implementation("net.sf.biweekly:biweekly:$biweekly_version") {
+    //    exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
+    //}
+    implementation "com.fasterxml.jackson.core:jackson-core:2.14.2"
+    implementation "com.fasterxml.jackson.core:jackson-databind:2.14.2"
 
     // https://github.com/mangstadt/ez-vcard
     implementation "com.googlecode.ez-vcard:ez-vcard:$vcard_version"
