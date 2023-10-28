@@ -667,12 +667,16 @@ dependencies {
     // https://mvnrepository.com/artifact/net.sf.biweekly/biweekly
     //implementation("net.sf.biweekly:biweekly:$biweekly_version") {
     //    exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
+    //    exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
     //}
-    implementation "com.fasterxml.jackson.core:jackson-core:2.14.2"
-    implementation "com.fasterxml.jackson.core:jackson-databind:2.14.2"
+    api "com.fasterxml.jackson.core:jackson-core:2.14.2"
+    api "com.fasterxml.jackson.core:jackson-databind:2.14.2"
 
     // https://github.com/mangstadt/ez-vcard
-    implementation "com.googlecode.ez-vcard:ez-vcard:$vcard_version"
+    implementation("com.googlecode.ez-vcard:ez-vcard:$vcard_version") {
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
+    }
 
     // https://github.com/KeepSafe/ReLinker
     // https://mvnrepository.com/artifact/com.getkeepsafe.relinker/relinker
