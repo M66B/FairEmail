@@ -220,9 +220,8 @@ android {
             dimension "all"
             manifestPlaceholders.largeHeap = false
             externalNativeBuild.cmake {
-                cFlags "-Wl,--build-id=none -Wl,--hash-style=gnu"
+                cFlags "-Wl,--build-id=none"
             }
-            packagingOptions.doNotStrip '**/*.so'
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
