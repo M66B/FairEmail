@@ -54,6 +54,7 @@ import biweekly.io.text.ICalReader;
 import biweekly.parameter.ParticipationStatus;
 import biweekly.property.Action;
 import biweekly.property.Attendee;
+import biweekly.property.ICalProperty;
 import biweekly.property.RecurrenceRule;
 import biweekly.property.Trigger;
 import biweekly.util.Duration;
@@ -93,6 +94,16 @@ public class CalendarHelper {
 
             return icalendar;
         }
+    }
+
+    static String getTimeZoneID(ICalendar icalendar, ICalProperty property) {
+        TimezoneInfo tzinfo = icalendar.getTimezoneInfo();
+        TimezoneAssignment tza = (tzinfo == null ? null : tzinfo.getTimezone(property));
+        TimeZone tz = (tza == null ? null : tza.getTimeZone());
+        String tzid = (tz == null ? null : tz.getID());
+        if (tzid == null)
+            tzid = TimeZone.getDefault().getID();
+        return tzid;
     }
 
     static Long exists(Context context, String selectedAccount, String selectedName, String uid) {
@@ -154,19 +165,14 @@ public class CalendarHelper {
         ICalDate start = (event.getDateStart() == null ? null : event.getDateStart().getValue());
         ICalDate end = (event.getDateEnd() == null ? null : event.getDateEnd().getValue());
 
-        // Assume one time zone
-        TimezoneInfo tzinfo = icalendar.getTimezoneInfo();
-        TimezoneAssignment tza = (tzinfo == null ? null : tzinfo.getTimezone(event.getDateStart()));
-        TimeZone tz = (tza == null ? null : tza.getTimeZone());
-        String tzid = (tz == null ? null : tz.getID());
-        if (tzid == null)
-            tzid = TimeZone.getDefault().getID();
+        String tzstart = getTimeZoneID(icalendar, event.getDateStart());
+        String tzend = getTimeZoneID(icalendar, event.getDateEnd());
 
         String rrule = null;
         RecurrenceRule recurrence = event.getRecurrenceRule();
         if (recurrence != null) {
             RecurrenceRuleScribe scribe = new RecurrenceRuleScribe();
-            WriteContext wcontext = new WriteContext(ICalVersion.V2_0, tzinfo, null);
+            WriteContext wcontext = new WriteContext(ICalVersion.V2_0, icalendar.getTimezoneInfo(), null);
             rrule = scribe.writeText(recurrence, wcontext);
         }
 
@@ -206,9 +212,10 @@ public class CalendarHelper {
                 if (!TextUtils.isEmpty(organizer))
                     values.put(CalendarContract.Events.ORGANIZER, organizer);
 
-                values.put(CalendarContract.Events.EVENT_TIMEZONE, tzid);
                 values.put(CalendarContract.Events.DTSTART, start.getTime());
                 values.put(CalendarContract.Events.DTEND, end.getTime());
+                values.put(CalendarContract.Events.EVENT_TIMEZONE, "UTC");
+                values.put(CalendarContract.Events.EVENT_END_TIMEZONE, "UTC");
 
                 if (rrule != null)
                     values.put(CalendarContract.Events.RRULE, rrule);
@@ -229,9 +236,8 @@ public class CalendarHelper {
                             " id=" + calId + ":" + eventId +
                             " uid=" + uid +
                             " organizer=" + organizer +
-                            " tz=" + tzid +
-                            " start=" + new Date(start.getTime()) +
-                            " end=" + new Date(end.getTime()) +
+                            " start=" + new Date(start.getTime()) + "/" + tzstart +
+                            " end=" + new Date(end.getTime()) + "/" + tzend +
                             " rrule=" + rrule +
                             " summary=" + summary +
                             " location=" + location +
@@ -243,9 +249,8 @@ public class CalendarHelper {
                             " id=" + calId + ":" + existId +
                             " uid=" + uid +
                             " organizer=" + organizer +
-                            " tz=" + tzid +
-                            " start=" + new Date(start.getTime()) +
-                            " end=" + new Date(end.getTime()) +
+                            " start=" + new Date(start.getTime()) + "/" + tzstart +
+                            " end=" + new Date(end.getTime()) + "/" + tzend +
                             " rrule=" + rrule +
                             " summary=" + summary +
                             " location=" + location +
