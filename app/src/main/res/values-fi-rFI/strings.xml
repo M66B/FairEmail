@@ -501,7 +501,7 @@
     <string name="title_advanced_only_name">Näytä vain yhteystietojen nimet</string>
     <string name="title_advanced_distinguish_contacts">Alleviivaa lähettäjä, kun tämä on paikallisesti tunnettu vastaanottaja</string>
     <string name="title_advanced_show_recipients">Näytä vastaanottajat viestin tunnistetiedoissa</string>
-    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Näytä lähetettyjen viestien vastaanottaja</string>
+    <string name="title_advanced_reverse_addresses">Näytä lähetettyjen viestien vastaanottaja</string>
     <string name="title_advanced_font_size_sender">Lähettäjä-tekstin koko</string>
     <string name="title_advanced_sender_ellipsize">Lyhennä lähettäjä, jos tarvitsee</string>
     <string name="title_advanced_subject_top">Näytä aihe lähettäjän yläpuolella</string>

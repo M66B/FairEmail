@@ -520,6 +520,7 @@
     <string name="title_advanced_only_name">Prikaži samo imena kontakata</string>
     <string name="title_advanced_distinguish_contacts">Podvuci pošiljaoca kada je on/a poznat/a kao lokalni \'za\' kontakt</string>
     <string name="title_advanced_show_recipients">Prikaži primaoce u zaglavlju poruke</string>
+    <string name="title_advanced_reverse_addresses">Prikaži primaoca poslanih poruka</string>
     <string name="title_advanced_font_size_sender">Veličina teksta pošiljaoca</string>
     <string name="title_advanced_sender_ellipsize">Ako je potrebno, skrati ime pošiljaoca</string>
     <string name="title_advanced_subject_top">Prikaži predmet iznad pošiljaoca</string>
@@ -724,6 +725,7 @@
     <string name="title_advanced_external_search">Dodaj \'Pretraži FairEmail\' u Androidov izbornik za selektovani tekst</string>
     <string name="title_advanced_sort_answers">Sortiraj prijedloške za odgovore prema učestalosti korištenja</string>
     <string name="title_advanced_shortcuts">Prikaži često korištene kontakte u Android meniju za dijeljenje</string>
+    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Čuvaj primljene pozivnice kao privremene</string>
     <string name="title_advanced_fts">Kreiraj indeks pretraživanja</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d poruke/a indeksirano (%3$s)</string>
     <string name="title_advanced_classification">Klasifikacija poruka</string>

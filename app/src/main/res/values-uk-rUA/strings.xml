@@ -534,7 +534,7 @@
     <string name="title_advanced_only_name">Показувати тільки імена контактів</string>
     <string name="title_advanced_distinguish_contacts">Підкреслювати відправника, коли відправник збережений в додатку як отримувач</string>
     <string name="title_advanced_show_recipients">Показувати отримувачів в заголовку повідомлення</string>
-    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Показувати одержувача для надісланих повідомлень</string>
+    <string name="title_advanced_reverse_addresses">Показувати одержувача для надісланих повідомлень</string>
     <string name="title_advanced_font_size_sender">Розмір тексту в полі «Відправник»</string>
     <string name="title_advanced_sender_ellipsize">За потребою скоротити ім\'я відправника</string>
     <string name="title_advanced_subject_top">Показувати тему листа над відправником</string>
@@ -738,6 +738,7 @@
     <string name="title_advanced_external_search">Додати «Шукати в FairEmail» до меню вибору тексту Android</string>
     <string name="title_advanced_sort_answers">Сортувати шаблони відповідей за частотою використання</string>
     <string name="title_advanced_shortcuts">Показувати контакти, які часто використовуються, в системному меню «Поділитися»</string>
+    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Зберігати отримані запрошення як попередні</string>
     <string name="title_advanced_fts">Створювати індекс для пошуку</string>
     <string name="title_advanced_fts_indexed">%1$d з %2$d повідомлень проіндексовано (%3$s)</string>
     <string name="title_advanced_classification">Класифікувати повідомлення</string>
@@ -1142,7 +1143,7 @@
     <string name="title_folder_user">Користувацька</string>
     <string name="title_folder_user_only">Тільки теки користувачів</string>
     <string name="title_folder_primary">Теки основного акаунту</string>
-    <string name="title_folders_unified">Спільні вхідні теки</string>
+    <string name="title_folders_unified">Об\'єднані вхідні теки</string>
     <string name="title_folder_local_drafts">Локальні чернетки</string>
     <string name="title_no_folders">Немає тек</string>
     <string name="title_no_messages">Немає повідомлень</string>
@@ -1301,8 +1302,8 @@
     <string name="title_ask_show_html_images">Завжди показувати зображення при показі оригінальних повідомлень</string>
     <string name="title_ask_show_image">Показ зображень може призвести до витоку конфіденційної інформації</string>
     <string name="title_ask_show_image_hint">Зображення за якими можна відслідковувати не будуть показані</string>
-    <string name="title_ask_show_amp">Показувати AMP варіант повідомлення?</string>
-    <string name="title_ask_show_amp_hint">Розроблені AMP повідомлення призначено, щоб бути динамічними та взаємодіяти з інтернетом і тому, за визначенням, використовується для відстеження вашої діяльності</string>
+    <string name="title_ask_show_amp">Показати AMP-варіант повідомлення?</string>
+    <string name="title_ask_show_amp_hint">AMP-повідомлення створені для того, щоб бути динамічними та взаємодіяти з Інтернетом, тому за визначенням можуть використовуватися для відстеження вас</string>
     <string name="title_ask_view_file">Переглянути файл %1$s ?</string>
     <string name="title_ask_delete_local">Видалити локальні повідомлення? Повідомлення залишаться на віддаленому сервері.</string>
     <string name="title_ask_help">Допомогти поліпшити FairEmail</string>
@@ -1816,7 +1817,7 @@
     <string name="title_legend_show_unsubscribe">Відписатися від розсилки</string>
     <string name="title_legend_show_images">Показати зображення</string>
     <string name="title_legend_hide_images">Приховати зображення</string>
-    <string name="title_legend_show_amp">Показати варіант AMP</string>
+    <string name="title_legend_show_amp">Показати AMP-варіант</string>
     <string name="title_legend_show_full">Показати оригінальне повідомлення</string>
     <string name="title_legend_show_reformatted">Показати переформатоване повідомлення</string>
     <string name="title_legend_edit">Редагувати</string>
@@ -1992,7 +1993,7 @@
     <string name="title_widget_account">Обліковий запис</string>
     <string name="title_widget_account_all">Усі</string>
     <string name="title_widget_folder">Тека</string>
-    <string name="title_widget_folder_unified">Спільні вхідні теки</string>
+    <string name="title_widget_folder_unified">Об\'єднані вхідні теки</string>
     <string name="title_widget_unseen">Лише непрочитані повідомлення</string>
     <string name="title_widget_flagged">Лише обрані повідомлення</string>
     <string name="title_widget_font_size">Розмір тексту</string>

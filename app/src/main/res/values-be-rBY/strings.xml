@@ -191,6 +191,7 @@
     <string name="title_setup_quick_smtp">Сервер SMTP для адпраўкі паведамленняў</string>
     <string name="title_setup_quick_certificates">Сертыфікаты сервера</string>
     <string name="title_setup_wizard">Майстар хуткага наладжвання</string>
+    <string name="title_setup_wizard_intro">У большасці выпадкаў кнопка майстра хуткага наладжвання можа быць выкарыстана для дадавання ўліковага запісу, у адваротным выпадку адрасы сервераў можна ўвесці або змяніць уручную з дапамогай ручнога наладжвання</string>
     <string name="title_setup_wizard_tutorials">Навучальныя матэрыялы</string>
     <string name="title_setup_wizard_multiple">Майстар хуткага наладжвання можна неаднаразова выкарыстоўваць для наладжвання некалькіх уліковых запісаў</string>
     <string name="title_setup_wizard_new">Мне патрэбны новы адрас электроннай пошты</string>
@@ -404,6 +405,7 @@
     <string name="title_advanced_suggest_sent">Прапаноўваць адрасы, знойдзеныя ў адпраўленых паведамленнях</string>
     <string name="title_advanced_suggest_received">Прапаноўваць адрасы, знойдзеныя ў атрыманых паведамленнях</string>
     <string name="title_advanced_suggest_frequently">Сартаваць прапанаваныя адрасы паводле частаты выкарыстання</string>
+    <string name="title_advanced_suggest_account">Абмежаванне прапаноў для бягучага ўліковага запісу</string>
     <string name="title_advanced_alt_re_fwd">Альтэрнатыўны прэфікс для адказу/перанакіравання</string>
     <string name="title_advanced_send_chips">Паказаць карткі адрасоў</string>
     <string name="title_advanced_send_nav_color">Выкарыстоўваць колер ідэнтыфікатара для ніжняй панэлі дзеянняў</string>
@@ -533,6 +535,7 @@
     <string name="title_advanced_only_name">Адлюстроўваць толькі імёны кантактаў</string>
     <string name="title_advanced_distinguish_contacts">Падкрэсліваць адпраўніка, калі ён вядомы як лакальны кантакт з поля \'каму\'</string>
     <string name="title_advanced_show_recipients">Паказваць атрымальнікаў у загалоўку паведамлення</string>
+    <string name="title_advanced_reverse_addresses">Паказваць атрымальніка для адпраўленых паведамленняў</string>
     <string name="title_advanced_font_size_sender">Памер тэксту імя адпраўніка</string>
     <string name="title_advanced_sender_ellipsize">Пры неабходнасці скарачаць імя адпраўніка</string>
     <string name="title_advanced_subject_top">Паказваць тэму над полем \'адпраўнік\'</string>
@@ -555,6 +558,7 @@
     <string name="title_advanced_unzip">Паказваць змест сціснутых укладанняў</string>
     <string name="title_advanced_attachments_alt">Паказваць укладанні пасля тэксту паведамлення</string>
     <string name="title_advanced_thumbnails">Паказваць мініяцюры выяў пасля тэксту паведамлення</string>
+    <string name="title_advanced_pdf_preview">Паказваць мініяцюры PDF-файлаў</string>
     <string name="title_advanced_message_text_zoom2">Стандартны маштаб тэксту паведамлення: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Павялічваць тэкст паведамлення таксама ў рэдактары паведамленняў</string>
     <string name="title_advanced_overview_mode">Павялічваць маштаб арыгінальных паведамленняў пад памер экрана</string>
@@ -736,6 +740,7 @@
     <string name="title_advanced_external_search">Дадаць пункт \'Шукаць у FairEmail\' у меню выбару тэксту Android</string>
     <string name="title_advanced_sort_answers">Сартаваць шаблоны адказаў паводле частаты выкарыстання</string>
     <string name="title_advanced_shortcuts">Паказваць кантакты, якія часта выкарыстоўваюцца, у меню абагульвання Android</string>
+    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Захоўваць запрашэнні як папярэднія</string>
     <string name="title_advanced_fts">Стварыць пошукавы індэкс</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d паведамленняў праіндэксавана (%3$s)</string>
     <string name="title_advanced_classification">Класіфікаваць паведамленні</string>
@@ -801,6 +806,7 @@
     <string name="title_advanced_pull_all_hint">Пры раскрыцці папак або спіса ўліковых запісаў</string>
     <string name="title_advanced_suggest_names_hint">Калі опцыя адключана, то пры выбары кантактаў будуць выкарыстоўвацца толькі адрасы электроннай пошты</string>
     <string name="title_advanced_suggest_local_hint">У дапаўненне да кантактаў, прадастаўленых Android. Кантактныя даныя будуць захоўвацца для новых адпраўленых або атрыманых паведамленняў, толькі калі гэта функцыя ўключана.</string>
+    <string name="title_advanced_suggest_account_hint">Гэта адносіцца толькі да лакальных кантактаў, таму што кантакты ў адраснай кнізе Android не звязаныя з пэўнымі ўліковымі запісамі</string>
     <string name="title_advanced_auto_identity_hint">Выбірае апошні ідэнтыфікатар, які выкарыстоўвалася ў якасці атрымальніка для новых паведамленняў</string>
     <string name="title_advanced_send_reminders_hint">Паказваць папярэджанне, калі тэкст або тэма паведамлення пустыя або калі існуе верагоднасць адсутнасці ўкладання</string>
     <string name="title_advanced_reply_move_hint">Сервер электроннай пошты ўсё яшчэ можа дадаваць паведамленні ў папку адпраўленых паведамленняў</string>
@@ -1061,6 +1067,7 @@
     <string name="title_delete_channel">Выдаліць канал апавяшчэнняў</string>
     <string name="title_insert_contact">Дадаць кантакт</string>
     <string name="title_edit_contact">Рэдагаваць кантакт</string>
+    <string name="title_delete_contact">Выдаліць кантакт?</string>
     <string name="title_contact_email">Электронная пошта</string>
     <string name="title_contact_name">Імя</string>
     <string name="title_contact_group">Група</string>
@@ -1215,6 +1222,7 @@
     <string name="title_quick_actions_snooze">Адкласці</string>
     <string name="title_quick_actions_clear">Ачысціць выбар пасля выканання дзеяння</string>
     <string name="title_trash">Выдаленыя</string>
+    <string name="title_trash_selection">Выдаліць выбранае</string>
     <string name="title_copy">Капіраваць &#8230;</string>
     <string name="title_copy_to">Капіраваць у &#8230;</string>
     <string name="title_subscribe">Падпісацца</string>
@@ -1528,6 +1536,7 @@
     <string name="title_search_in_keywords">У ключавых словах (калі падтрымліваецца)</string>
     <string name="title_search_in_message">У тэксце паведамлення</string>
     <string name="title_search_in_notes">У лакальных нататках</string>
+    <string name="title_search_in_filenames">У назвах файлаў (толькі на прыладзе)</string>
     <string name="title_search_with">Абмежаваць пошук да</string>
     <string name="title_search_with_unseen">Непрачытаныя</string>
     <string name="title_search_with_flagged">Пазначаныя</string>
@@ -2006,6 +2015,7 @@
     <string name="title_widget_refresh">Паказваць кнопку абнаўлення паведамленняў</string>
     <string name="title_widget_compose">Паказаць кнопку для стварэння новага паведамлення</string>
     <string name="title_widget_background">Колер фону</string>
+    <string name="title_widget_icon">Колер значка</string>
     <string name="title_widget_day_night">Выкарыстоўваць цёмную сістэмную тэму</string>
     <string name="title_compat_dark">Google выдаліў цёмны рэжым для версій Android да версіі 10</string>
     <!-- Thunderbird -->

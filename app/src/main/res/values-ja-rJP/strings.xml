@@ -492,7 +492,7 @@
     <string name="title_advanced_only_name">連絡先の名前のみ表示</string>
     <string name="title_advanced_distinguish_contacts">受信したメールの差出人にメールを送ったことがあるとローカル連絡先に記録されている場合、差出人に下線を表示</string>
     <string name="title_advanced_show_recipients">見出しに宛先を表示</string>
-    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">送信済みメッセージの宛先を表示</string>
+    <string name="title_advanced_reverse_addresses">送信済みメッセージの宛先を表示</string>
     <string name="title_advanced_font_size_sender">差出人のテキストサイズ</string>
     <string name="title_advanced_sender_ellipsize">差出人を短縮</string>
     <string name="title_advanced_subject_top">差出人の上に件名を表示</string>
@@ -697,6 +697,7 @@
     <string name="title_advanced_external_search">Android のテキスト選択メニューに「FairEmail を検索」を追加</string>
     <string name="title_advanced_sort_answers">返信テンプレートを使用頻度で並べ替え</string>
     <string name="title_advanced_shortcuts">頻繁に使用する連絡先を Android 共有メニューに表示</string>
+    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">受信した招待状を未定として保存</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 個のメッセージがインデックスされました (%3$s)</string>
     <string name="title_advanced_classification">メッセージを分類</string>

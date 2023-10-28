@@ -505,6 +505,7 @@
     <string name="title_advanced_only_name">Να προβάλλονται μόνο τα ονόματα των επαφών</string>
     <string name="title_advanced_distinguish_contacts">Να υπογραμμίζεται ο αποστολέας όταν ο αποστολέας είναι γνωστός ως τοπική επαφή</string>
     <string name="title_advanced_show_recipients">Να προβάλλονται οι παραλήπτες στην κεφαλίδα του μηνύματος</string>
+    <string name="title_advanced_reverse_addresses">Εμφάνιση παραλήπτη για απεσταλμένα μηνύματα</string>
     <string name="title_advanced_font_size_sender">Μέγεθος γραμματοσειράς για το πεδίο \"Αποστολέας\"</string>
     <string name="title_advanced_sender_ellipsize">Να συντομεύεται ο αποστολέας, εφόσον χρειάζεται</string>
     <string name="title_advanced_subject_top">Να προβάλλεται το θέμα πάνω από τον αποστολέα</string>

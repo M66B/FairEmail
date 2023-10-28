@@ -506,7 +506,7 @@
     <string name="title_advanced_only_name">Mostra solo i nomi del contatto</string>
     <string name="title_advanced_distinguish_contacts">Sottolinea il mittente quando è noto come il contatto locale \'a\'</string>
     <string name="title_advanced_show_recipients">Mostra i destinatari nell\'intestazione del messaggio</string>
-    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Mostra destinatario per i messaggi inviati</string>
+    <string name="title_advanced_reverse_addresses">Mostra destinatario per i messaggi inviati</string>
     <string name="title_advanced_font_size_sender">Dimensione testo del mittente</string>
     <string name="title_advanced_sender_ellipsize">Se necessario, abbrevia il mittente</string>
     <string name="title_advanced_subject_top">Mostra oggetto sul mittente</string>
@@ -711,6 +711,7 @@
     <string name="title_advanced_external_search">Aggiungi la \'Ricerca di FairEmail\' al menu di selezione del testo di Android</string>
     <string name="title_advanced_sort_answers">Ordina i modelli di risposta per frequenza d\'uso</string>
     <string name="title_advanced_shortcuts">Mostra i contatti usati frequentemente nel menu di condivisione di Android</string>
+    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Memorizzare gli inviti ricevuti come provvisori</string>
     <string name="title_advanced_fts">Crea indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
     <string name="title_advanced_classification">Classifica i messaggi</string>

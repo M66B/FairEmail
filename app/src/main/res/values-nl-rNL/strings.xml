@@ -504,7 +504,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_only_name">Alleen contactnamen weergeven</string>
     <string name="title_advanced_distinguish_contacts">Onderstreep de afzender wanneer de afzender bekend staat als lokaal \'aan\'-contact</string>
     <string name="title_advanced_show_recipients">Geadresseerden in berichtkop tonen</string>
-    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">Toon ontvanger voor verzonden berichten</string>
+    <string name="title_advanced_reverse_addresses">Ontvanger voor verzonden berichten tonen</string>
     <string name="title_advanced_font_size_sender">Tekengrootte afzender</string>
     <string name="title_advanced_sender_ellipsize">Indien nodig, verkort de afzender</string>
     <string name="title_advanced_subject_top">Toon onderwerp boven afzender</string>
@@ -707,6 +707,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_external_search">Voeg ‘FairEmail zoeken’ toe aan Android-tekstselectiemenu</string>
     <string name="title_advanced_sort_answers">Sorteer antwoordsjablonen op gebruiksfrequentie</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
+    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Bewaar ontvangen uitnodigingen als voorlopig</string>
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_classification">Berichten classificeren</string>

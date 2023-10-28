@@ -491,7 +491,7 @@
     <string name="title_advanced_only_name">仅显示联系人姓名</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_show_recipients">在邮件头中显示收件人</string>
-    <string name="title_advanced_reverse_addresses" comment="title_advanced_reverse_addresses&#10;Title for option in display setting tab page to disable the recipient icon/name/email address for sent messages">显示已发送信件的收件人</string>
+    <string name="title_advanced_reverse_addresses">显示已发送信件的收件人</string>
     <string name="title_advanced_font_size_sender">发件人文本大小</string>
     <string name="title_advanced_sender_ellipsize">如果需要，缩短发送者长度</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
@@ -695,6 +695,7 @@
     <string name="title_advanced_external_search">将 \'FairEmail 搜索 \' 添加到 Android 文本选择菜单</string>
     <string name="title_advanced_sort_answers">按使用频率对回复模板进行排序</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
+    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">将收到的邀请保存为待处理</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_classification">消息分类</string>

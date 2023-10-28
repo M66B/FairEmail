@@ -504,6 +504,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_only_name">Allinnich kontaktnammen toane</string>
     <string name="title_advanced_distinguish_contacts">Understreekje de ôfstjoerder wannear de ôfstjoerder bekend is as lokaal ‘oan’-kontakt</string>
     <string name="title_advanced_show_recipients">Untfangers yn berjochtkop toane</string>
+    <string name="title_advanced_reverse_addresses">Untfanger foar ferstjoerde berjochten toane</string>
     <string name="title_advanced_font_size_sender">Tekstgrutte ôfstjoerder</string>
     <string name="title_advanced_sender_ellipsize">Wannear nedich, de ôfstjoerder ynkoartsje</string>
     <string name="title_advanced_subject_top">Underwerp boppe ôfstjoerder toane</string>
