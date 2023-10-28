@@ -47,6 +47,10 @@ android {
             cmake {
                 cFlags "-ffile-prefix-map=${rootDir}=."
                 cppFlags "-ffile-prefix-map=${rootDir}=."
+                // https://f-droid.org/docs/Reproducible_Builds/
+                // The build ID is a 160-bit SHA1 string computed over the elf header bits and section contents in the file.
+                // It is bundled in the elf file as an entry in the notes section.
+                //   readelf -n ./app/build/intermediates/stripped_native_libs/xxxRelease/out/lib/armeabi-v7a/libfairemail.so
             }
         }
 
