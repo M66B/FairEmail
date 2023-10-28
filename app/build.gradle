@@ -43,6 +43,13 @@ android {
         // https://developer.android.com/guide/topics/graphics/vector-drawable-resources
         vectorDrawables.useSupportLibrary = true
 
+        externalNativeBuild {
+            cmake {
+                cFlags "-ffile-prefix-map=${rootDir}=."
+                cppFlags "-ffile-prefix-map=${rootDir}=."
+            }
+        }
+
         // https://developer.android.com/ndk/downloads
         ndkVersion "25.2.9519653" // r25c
         ndk {
