@@ -8,8 +8,8 @@ Vallibonavenatrix
 
 Next version
 
-* Added mapping of non-standard Outlook timezones in invitations
 * Added option to disable storing invitations tentatively, see the FAQ
+* Fixed time zone of calendar events
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
 * Updated translations
