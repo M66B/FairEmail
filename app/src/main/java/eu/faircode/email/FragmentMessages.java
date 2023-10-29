@@ -4270,35 +4270,38 @@ public class FragmentMessages extends FragmentBase
         if (clear && selectionTracker != null)
             selectionTracker.clearSelection();
 
-        new SimpleTask<Void>() {
+        new SimpleTask<Integer>() {
             @Override
-            protected Void onExecute(Context context, Bundle args) {
+            protected Integer onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
                 boolean seen = args.getBoolean("seen");
                 boolean threading = args.getBoolean("threading");
 
+                int ops = 0;
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
 
                     for (long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
-                        EntityLog.log(context, "MMM message found=" + (message != null));
                         if (message == null)
                             continue;
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading ? null : id, seen ? null : message.folder);
-                        EntityLog.log(context, "MMM ids=" + ids.length + " seen=" + seen + " threading=" + threading +
-                                " messages=" + messages.size());
-
                         for (EntityMessage threaded : messages) {
                             EntityFolder folder = db.folder().getFolder(threaded.folder);
-                            EntityLog.log(context, "MMM message folder=" + folder.type +
-                                    " seen=" + threaded.ui_seen +
-                                    " change=" + (threaded.ui_seen != seen));
-                            if (threaded.ui_seen != seen)
+                            if (ids.length == 1) {
+                                Map<String, String> crumbs = new HashMap<>();
+                                crumbs.put("folder", folder.id + ":" + folder.type);
+                                crumbs.put("seen", Boolean.toString(threaded.ui_seen));
+                                crumbs.put("update", Boolean.toString(threaded.ui_seen != seen));
+                                Log.breadcrumb("onActionSeenSelection", crumbs);
+                            }
+                            if (threaded.ui_seen != seen) {
+                                ops++;
                                 EntityOperation.queue(context, threaded, EntityOperation.SEEN, seen);
+                            }
                         }
                     }
 
@@ -4307,9 +4310,21 @@ public class FragmentMessages extends FragmentBase
                     db.endTransaction();
                 }
 
+                if (ids.length == 1 && ops == 0)
+                    Log.e("onActionSeenSelection: no operations" +
+                            " seen=" + seen + " threading=" + threading);
+                else
+                    Log.i("onActionSeenSelection ops=" + ops);
+
                 ServiceSynchronize.eval(context, "seen");
 
-                return null;
+                return ops;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Integer ops) {
+                if (ops == null || ops == 0)
+                    adapter.notifyDataSetChanged();
             }
 
             @Override
