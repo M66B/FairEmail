@@ -11,6 +11,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 * Added option to disable storing invitations tentatively, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq186)
 * Fixed time zone of calendar events
 * Small improvements and minor bug fixes
+* Updated libraries, including [JSoup](https://jsoup.org/news/) and [Material Components](https://github.com/material-components/material-components-android)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

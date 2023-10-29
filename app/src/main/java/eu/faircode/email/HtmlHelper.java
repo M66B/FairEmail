@@ -1471,10 +1471,7 @@ public class HtmlHelper {
                 if (!TextUtils.isEmpty(span.attr("color")))
                     span.tagName("font");
 
-        if (document.body() == null) {
-            Log.e("Sanitize without body");
-            document.normalise();
-        }
+        document.body(); // Normalise document
 
         return document;
     }
