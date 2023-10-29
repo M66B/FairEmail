@@ -9,7 +9,7 @@ Vallibonavenatrix
 Next version
 
 * Added option to disable storing invitations tentatively, see the FAQ
-* Fixed time zone of calendar events
+* Fixed time zone of some calendar events
 * Small improvements and minor bug fixes
 * Updated libraries, including JSoup
 * Updated Public Suffix List
