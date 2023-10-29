@@ -24,10 +24,23 @@
         android:contentDescription="@string/title_icalendar_calendar"
         android:padding="6dp"
         android:scaleType="fitCenter"
-        android:tooltipText="@string/title_icalendar_accept"
+        android:tooltipText="@string/title_icalendar_calendar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorCalendar"
         app:srcCompat="@drawable/twotone_event_24" />
+
+    <ImageButton
+        android:id="@+id/ibOnline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_icalendar_calendar"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_icalendar_accept"
+        app:layout_constraintBottom_toBottomOf="@+id/tvAttendees"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/twotone_video_camera_front_24" />
 
     <TextView
         android:id="@+id/tvCalendarSummary"

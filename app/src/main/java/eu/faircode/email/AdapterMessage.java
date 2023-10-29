@@ -350,6 +350,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private static final int MAX_RECIPIENTS_COMPACT = 3;
     private static final int MAX_RECIPIENTS_NORMAL = 7;
 
+    private static final String X_ONLINE_MEETING = "X-MICROSOFT-ONLINEMEETINGEXTERNALLINK";
+
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener,
             View.OnLongClickListener,
@@ -515,6 +517,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Flow flow;
 
         private ImageButton ibCalendar;
+        private ImageButton ibOnline;
         private TextView tvCalendarSummary;
         private TextView tvCalendarDescription;
         private TextView tvCalendarLocation;
@@ -861,6 +864,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetHeaders = vsBody.findViewById(R.id.tvNoInternetHeaders);
 
             ibCalendar = vsBody.findViewById(R.id.ibCalendar);
+            ibOnline = vsBody.findViewById(R.id.ibOnline);
             tvCalendarSummary = vsBody.findViewById(R.id.tvCalendarSummary);
             tvCalendarDescription = vsBody.findViewById(R.id.tvCalendarDescription);
             tvCalendarLocation = vsBody.findViewById(R.id.tvCalendarLocation);
@@ -1117,6 +1121,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.addOnLayoutChangeListener(this);
 
                 ibCalendar.setOnClickListener(this);
+                ibOnline.setOnClickListener(this);
                 btnCalendarAccept.setOnClickListener(this);
                 btnCalendarDecline.setOnClickListener(this);
                 btnCalendarMaybe.setOnClickListener(this);
@@ -1238,6 +1243,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnCalendarDecline.setOnClickListener(null);
                 btnCalendarMaybe.setOnClickListener(null);
                 ibCalendar.setOnClickListener(null);
+                ibOnline.setOnClickListener(null);
 
                 btnCalendarAccept.setOnLongClickListener(null);
                 btnCalendarDecline.setOnLongClickListener(null);
@@ -1891,6 +1897,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void clearCalendar() {
             ibCalendar.setVisibility(View.GONE);
+            ibOnline.setVisibility(View.GONE);
             tvCalendarSummary.setVisibility(View.GONE);
             tvCalendarDescription.setVisibility(View.GONE);
             tvCalendarLocation.setVisibility(View.GONE);
@@ -3758,7 +3765,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     Organizer organizer = event.getOrganizer();
 
+                    RawProperty prop = event.getExperimentalProperty(X_ONLINE_MEETING);
+                    String uri = (prop == null ? null : prop.getValue());
+
                     ibCalendar.setVisibility(View.VISIBLE);
+                    ibOnline.setVisibility(TextUtils.isEmpty(uri) ? View.GONE : View.VISIBLE);
 
                     tvCalendarSummary.setText(summary);
                     tvCalendarSummary.setVisibility(TextUtils.isEmpty(summary) ? View.GONE : View.VISIBLE);
@@ -3955,6 +3966,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 return intent;
                             }
 
+                            if (action == R.id.ibOnline) {
+                                RawProperty prop = event.getExperimentalProperty(X_ONLINE_MEETING);
+                                String uri = (prop == null ? null : prop.getValue());
+                                return (uri == null ? null : Uri.parse(uri));
+                            }
+
                             Created created = event.getCreated();
                             LastModified modified = event.getLastModified();
                             Transparency transparancy = event.getTransparency();
@@ -4104,7 +4121,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         } catch (Throwable ex) {
                             Helper.reportNoViewer(context, (Intent) result, ex);
                         }
-                    }
+                    } else if (result instanceof Uri)
+                        Helper.view(context, (Uri) result, true);
                 }
 
                 @Override
@@ -4462,7 +4480,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else if (id == R.id.ibImportance) {
                     int importance = (((message.ui_importance == null ? 1 : message.ui_importance) + 1) % 3);
                     onMenuSetImportance(message, importance);
-                } else if (id == R.id.btnCalendarAccept || id == R.id.btnCalendarDecline || id == R.id.btnCalendarMaybe || id == R.id.ibCalendar) {
+                } else if (id == R.id.btnCalendarAccept || id == R.id.btnCalendarDecline || id == R.id.btnCalendarMaybe ||
+                        id == R.id.ibCalendar || id == R.id.ibOnline) {
                     onActionCalendar(message, view.getId(), false);
                 } else if (id == R.id.ibStoreMedia) {
                     onStoreMedia(message);
