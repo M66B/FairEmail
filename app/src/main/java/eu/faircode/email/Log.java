@@ -654,7 +654,6 @@ public class Log {
             else
                 return "Clone";
         }
-
     }
 
     static void logExtras(Intent intent) {
