@@ -27,7 +27,8 @@
         android:tooltipText="@string/title_icalendar_calendar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vSeparatorCalendar"
-        app:srcCompat="@drawable/twotone_event_24" />
+        app:srcCompat="@drawable/twotone_event_24"
+        app:tint="?attr/colorAccent" />
 
     <ImageButton
         android:id="@+id/ibOnline"
@@ -40,7 +41,8 @@
         android:tooltipText="@string/title_icalendar_accept"
         app:layout_constraintBottom_toBottomOf="@+id/tvAttendees"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/twotone_video_camera_front_24" />
+        app:srcCompat="@drawable/twotone_video_camera_front_24"
+        app:tint="?attr/colorAccent" />
 
     <TextView
         android:id="@+id/tvCalendarSummary"
