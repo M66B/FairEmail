@@ -103,7 +103,7 @@ Java_eu_faircode_email_TextHelper_jni_1detect_1language(
             jlanguage,
             (jfloat) result.probability,
             (jint) result.is_reliable,
-            (jfloat) result.is_reliable);
+            (jfloat) result.proportion);
 }
 
 extern "C"
