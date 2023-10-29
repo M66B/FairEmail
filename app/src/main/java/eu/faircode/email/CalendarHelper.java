@@ -55,6 +55,7 @@ import biweekly.parameter.ParticipationStatus;
 import biweekly.property.Action;
 import biweekly.property.Attendee;
 import biweekly.property.ICalProperty;
+import biweekly.property.RawProperty;
 import biweekly.property.RecurrenceRule;
 import biweekly.property.Trigger;
 import biweekly.util.Duration;
@@ -104,6 +105,26 @@ public class CalendarHelper {
         if (tzid == null)
             tzid = TimeZone.getDefault().getID();
         return tzid;
+    }
+
+    static Uri getOnlineMeetingUrl(Context context, VEvent event) {
+        try {
+            RawProperty prop = event.getExperimentalProperty("X-GOOGLE-CONFERENCE");
+            if (prop == null)
+                prop = event.getExperimentalProperty("X-MICROSOFT-ONLINEMEETINGEXTERNALLINK");
+            if (prop == null)
+                prop = event.getExperimentalProperty("X-MICROSOFT-SKYPETEAMSMEETINGURL");
+            if (prop == null)
+                return null;
+            String url = prop.getValue();
+            if (TextUtils.isEmpty(url))
+                return null;
+            Uri uri = Uri.parse(url);
+            return (uri.isHierarchical() ? uri : null);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            return null;
+        }
     }
 
     static Long exists(Context context, String selectedAccount, String selectedName, String uid) {

@@ -188,7 +188,6 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import biweekly.Biweekly;
 import biweekly.ICalVersion;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
@@ -349,8 +348,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
     private static final int MAX_RECIPIENTS_COMPACT = 3;
     private static final int MAX_RECIPIENTS_NORMAL = 7;
-
-    private static final String X_ONLINE_MEETING = "X-MICROSOFT-ONLINEMEETINGEXTERNALLINK";
 
     public class ViewHolder extends RecyclerView.ViewHolder implements
             View.OnClickListener,
@@ -3765,11 +3762,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     Organizer organizer = event.getOrganizer();
 
-                    RawProperty prop = event.getExperimentalProperty(X_ONLINE_MEETING);
-                    String uri = (prop == null ? null : prop.getValue());
-
+                    Uri uri = CalendarHelper.getOnlineMeetingUrl(context, event);
                     ibCalendar.setVisibility(View.VISIBLE);
-                    ibOnline.setVisibility(TextUtils.isEmpty(uri) ? View.GONE : View.VISIBLE);
+                    ibOnline.setVisibility(uri == null ? View.GONE : View.VISIBLE);
 
                     tvCalendarSummary.setText(summary);
                     tvCalendarSummary.setVisibility(TextUtils.isEmpty(summary) ? View.GONE : View.VISIBLE);
@@ -3966,11 +3961,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                                 return intent;
                             }
 
-                            if (action == R.id.ibOnline) {
-                                RawProperty prop = event.getExperimentalProperty(X_ONLINE_MEETING);
-                                String uri = (prop == null ? null : prop.getValue());
-                                return (uri == null ? null : Uri.parse(uri));
-                            }
+                            if (action == R.id.ibOnline)
+                                return CalendarHelper.getOnlineMeetingUrl(context, event);
 
                             Created created = event.getCreated();
                             LastModified modified = event.getLastModified();
