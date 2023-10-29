@@ -416,24 +416,25 @@ public class ICalTimeZone extends TimeZone {
 			RecurrenceIterator it = createIterator(observance);
 
 			/*
-			 * The "advanceTo()" method skips all dates that are less than the
-			 * given date. I would have thought that we would have to call
-			 * "next()" once because we want it to skip the date that is equal
-			 * to the "last" date. But this causes all the unit tests to fail,
-			 * so I guess not.
+			 * Calling "it.advanceTo()" here causes problems.
+			 * 
+			 * See: https://github.com/mangstadt/biweekly/issues/126
 			 */
 			//it.advanceTo(last);
-			//it.next();
 
 			DateValue prev = null, cur = null;
 			boolean stopped = false;
 			while (it.hasNext()) {
 				cur = it.next();
-				int curComparison = cur.compareTo(last);
-				if (curComparison < 0) continue;
-
-				if (curComparison > 0) {
+				int curCompareToLast = cur.compareTo(last);
+				if (curCompareToLast < 0) {
+					continue;
+				}
+				if (curCompareToLast > 0) {
 					dateCache.add(cur);
+				}
+				if (curCompareToLast == 0) {
+					//do nothing; don't add to dateCache
 				}
 
 				if (givenDate.compareTo(cur) < 0) {
@@ -444,7 +445,8 @@ public class ICalTimeZone extends TimeZone {
 
 				prev = cur;
 			}
-			return after ? (stopped ? cur : null) : prev;		}
+			return after ? (stopped ? cur : null) : prev;
+		}
 
 		/*
 		 * The date is somewhere in the cached list, so find it.
