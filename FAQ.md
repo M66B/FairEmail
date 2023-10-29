@@ -5521,6 +5521,8 @@ There is no support for things that are not directly related to FairEmail.
 
 There is no support on building and developing things by yourself.
 
+<a name="feature_request"></a>
+
 A change will be considered only if more than a few people ask for it.
 Changes in the past resulted too often in lots of complaints of other people.
 
