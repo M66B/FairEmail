@@ -355,6 +355,7 @@ public class FragmentMessages extends FragmentBase
 
     private int colorPrimary;
     private int colorAccent;
+    private int colorControlNormal;
     private int colorSeparator;
     private int colorWarning;
 
@@ -509,6 +510,7 @@ public class FragmentMessages extends FragmentBase
 
         colorPrimary = Helper.resolveColor(getContext(), androidx.appcompat.R.attr.colorPrimary);
         colorAccent = Helper.resolveColor(getContext(), androidx.appcompat.R.attr.colorAccent);
+        colorControlNormal = Helper.resolveColor(getContext(), android.R.attr.colorControlNormal);
         colorSeparator = Helper.resolveColor(getContext(), R.attr.colorSeparator);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
 
@@ -5900,6 +5902,10 @@ public class FragmentMessages extends FragmentBase
             ibSeen.setImageResource(filter_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
             ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
             ibSnoozed.setImageResource(filter_snoozed ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
+
+            ibSeen.setImageTintList(ColorStateList.valueOf(filter_seen ? colorAccent : colorControlNormal));
+            ibUnflagged.setImageTintList(ColorStateList.valueOf(filter_unflagged ? colorAccent : colorControlNormal));
+            ibSnoozed.setImageTintList(ColorStateList.valueOf(filter_snoozed ? colorControlNormal : colorAccent));
 
             ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
             ibUnflagged.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
