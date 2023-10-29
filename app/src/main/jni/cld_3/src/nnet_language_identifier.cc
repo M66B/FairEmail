@@ -47,6 +47,9 @@ struct LangChunksStats {
 
   // Number chunks corresponding to the language.
   int num_chunks = 0;
+
+  // Specifies the byte ranges that language applies to.
+  std::vector<NNetLanguageIdentifier::SpanInfo> byte_ranges;
 };
 
 // Compares two pairs based on their values.
@@ -281,8 +284,6 @@ NNetLanguageIdentifier::FindTopNMostFreqLangs(const string &text,
   CLD2::LangSpan script_span;
   std::unordered_map<string, LangChunksStats> lang_stats;
   int total_num_bytes = 0;
-  Result result;
-  string language;
   int chunk_size = 0;  // Use the default.
   while (ss.GetOneScriptSpanLower(&script_span)) {
     const int num_original_span_bytes = script_span.text_bytes;
@@ -298,12 +299,16 @@ NNetLanguageIdentifier::FindTopNMostFreqLangs(const string &text,
     total_num_bytes += num_original_span_bytes;
 
     const string selected_text = SelectTextGivenScriptSpan(script_span);
-    result = FindLanguageOfValidUTF8(selected_text);
-    language = result.language;
+
+    Result result = FindLanguageOfValidUTF8(selected_text);
+    string language = result.language;
     lang_stats[language].byte_sum += num_original_span_bytes;
     lang_stats[language].prob_sum +=
         result.probability * num_original_span_bytes;
     lang_stats[language].num_chunks++;
+    // Add SpanInfo. Start and end indices are relative to original input.
+    lang_stats[language].byte_ranges.push_back(SpanInfo(
+        ss.MapBack(0), ss.MapBack(script_span.text_bytes), result.probability));
   }
 
   // Sort the languages based on the number of bytes associated with them.
@@ -329,6 +334,7 @@ NNetLanguageIdentifier::FindTopNMostFreqLangs(const string &text,
     result.probability = stats.prob_sum / stats.byte_sum;
     result.proportion = stats.byte_sum / byte_sum;
     result.is_reliable = ResultIsReliable(language, result.probability);
+    result.byte_ranges = stats.byte_ranges;
     results.push_back(result);
   }
 
@@ -348,7 +354,7 @@ string NNetLanguageIdentifier::SelectTextGivenBeginAndSize(
     const char *text_begin, int text_size) {
   string output_text;
 
-  // If the size of the input is greater than the maxium number of bytes needed
+  // If the size of the input is greater than the maximum number of bytes needed
   // for a prediction, then concatenate snippets that are equally spread out
   // throughout the input.
   if (text_size > max_num_bytes_) {

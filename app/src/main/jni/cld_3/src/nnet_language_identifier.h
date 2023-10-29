@@ -44,6 +44,19 @@ class LanguageIdEmbeddingFeatureExtractor
 // Class for detecting the language of a document.
 class NNetLanguageIdentifier {
  public:
+  // Holds probability that Span, specified by start/end indices, is a given
+  // language. The langauge is not stored here; it can be found in Result, which
+  // holds a vector of SpanInfo.
+  struct SpanInfo {
+    SpanInfo(int start_index_val, int end_index_val, float probability_val)
+        : start_index(start_index_val),
+          end_index(end_index_val),
+          probability(probability_val) {}
+    int start_index = -1;
+    int end_index = -1;
+    float probability = 0.0;
+  };
+
   // Information about a predicted language.
   struct Result {
     string language = kUnknown;
@@ -53,6 +66,9 @@ class NNetLanguageIdentifier {
     // Proportion of bytes associated with the language. If FindLanguage is
     // called, this variable is set to 1.
     float proportion = 0.0;
+
+    // Specifies the byte ranges that |language| applies to.
+    std::vector<SpanInfo> byte_ranges;
   };
 
   NNetLanguageIdentifier();

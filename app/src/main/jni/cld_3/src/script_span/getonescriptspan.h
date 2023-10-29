@@ -33,14 +33,14 @@ static const int kMaxScriptBytes = kMaxScriptBuffer - 32;   // Leave some room
 static const int kWithinScriptTail = 32;    // Stop at word space in last
                                             // N bytes of script buffer
 
-typedef struct {
+struct LangSpan {
   char* text = nullptr;   // Pointer to the span, somewhere
   int text_bytes = 0;     // Number of bytes of text in the span
   int offset = 0;         // Offset of start of span in original input buffer
   ULScript ulscript = UNKNOWN_ULSCRIPT; // Unicode Letters Script of this span
   bool truncated = false; // true if buffer filled up before a
                           // different script or EOF was found
-} LangSpan;
+};
 
 static inline bool IsContinuationByte(char c) {
   return static_cast<signed char>(c) < -64;
@@ -93,7 +93,7 @@ class ScriptScanner {
   // again with the first byte of the following range.
   int MapBack(int text_offset);
 
-  const char* GetBufferStart() {return start_byte_;};
+  const char* GetBufferStart() {return start_byte_;}
 
  private:
   // Skip over tags and non-letters

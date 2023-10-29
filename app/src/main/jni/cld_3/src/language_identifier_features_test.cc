@@ -16,6 +16,7 @@ limitations under the License.
 #include <cmath>
 #include <iostream>
 #include <vector>
+#include <set>
 
 #include "base.h"
 #include "feature_extractor.h"
