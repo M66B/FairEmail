@@ -6,6 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
+### 1.2116 - 2023-10-30
+
+* Fixed a crash in the JSoup library on Android 7.0 and earlier
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2115 - 2023-10-30
 
 * Added option to disable storing invitations tentatively, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq186)

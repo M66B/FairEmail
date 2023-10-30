@@ -3,7 +3,7 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 2115 }
+def getVersionCode = { -> return 2116 }
 def getRevision = { -> return "a" }
 def getReleaseName = { -> return "Vallibonavenatrix" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
@@ -86,6 +86,8 @@ android {
     }
 
     compileOptions {
+        // https://developer.android.com/studio/write/java8-support#groovy
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -529,6 +531,9 @@ dependencies {
     def ipaddress_version = "5.4.0"
     def canary_version = "2.12"
     def ws_version = "2.14"
+
+    // https://mvnrepository.com/artifact/com.android.tools/desugar_jdk_libs?repo=google
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 
     // https://developer.android.com/jetpack/androidx/releases/startup
     implementation "androidx.startup:startup-runtime:$startup_version"
