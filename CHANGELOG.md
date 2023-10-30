@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2115 - 2023-10-30
 
 * Added option to disable storing invitations tentatively, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq186)
 * Fixed time zone of some calendar events
