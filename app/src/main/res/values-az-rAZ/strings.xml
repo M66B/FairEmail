@@ -506,6 +506,7 @@
     <string name="title_advanced_only_name">Yalnız əlaqə adlarını görüntülə</string>
     <string name="title_advanced_distinguish_contacts">Göndərən yerli \"alıcı\" əlaqəsi kimi bilinirsə göndərənin altından xətt çək</string>
     <string name="title_advanced_show_recipients">Mesaj başlığında alıcıları göstər</string>
+    <string name="title_advanced_reverse_addresses">Göndərilən mesajların alıcısını göstər</string>
     <string name="title_advanced_font_size_sender">Göndərən mətn ölçüsü</string>
     <string name="title_advanced_sender_ellipsize">Lazım gəlsə, göndərən hissəsini qısaldın</string>
     <string name="title_advanced_subject_top">Göndərənin üstündə mövzunu göstər</string>
@@ -710,6 +711,7 @@
     <string name="title_advanced_external_search">Android mətn seçim menyusuna \"FairEmail axtarışı\"nı əlavə et</string>
     <string name="title_advanced_sort_answers">Cavab şablonlarını istifadə tezliyinə görə sırala</string>
     <string name="title_advanced_shortcuts">Tez-tez istifadə olunan əlaqələri Android paylaşma menyusunda göstər</string>
+    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Mağaza, dəvətləri şərti olaraq aldı</string>
     <string name="title_advanced_fts">Axtarış indeksini quraşdır</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d mesaj indeksləndi (%3$s)</string>
     <string name="title_advanced_classification">Mesajları sinifləşdir</string>
