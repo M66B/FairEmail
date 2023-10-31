@@ -38,14 +38,19 @@ jobs:
         gpg -d --passphrase "${PASSWORD}" --batch keystore.properties.asc > keystore.properties
         echo "${{ secrets.LOCAL_PROPERTIES }}" > local.properties.asc
         gpg -d --passphrase "${PASSWORD}" --batch local.properties.asc > local.properties
-    - name:
-      run: |
-        pwd
-        ls
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease uploadBugsnagGithub-releaseMapping uploadBugsnagLarge-releaseMapping uploadBugsnagPlay-releaseMapping
+    #https://github.com/actions/upload-artifact
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Mapping files
+        path: app/build/outputs/mapping/**/mapping.txt
+    - uses: actions/upload-artifact@v3
+      with:
+        name: APK files
+        path: app/build/outputs/apk/**/release/*.apk
     - name: Upload to BitBucket
       run: |
         ./gradlew upload -Ptarget=play-preview
