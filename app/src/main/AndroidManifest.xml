@@ -148,6 +148,9 @@
         <meta-data
             android:name="com.bugsnag.android.API_KEY"
             android:value="9d2d57476a0614974449a3ec33f2604a" />
+        <meta-data
+            android:name="com.bugsnag.android.BUILD_UUID"
+            android:value="${build_uuid}" />
 
         <activity
             android:name=".ActivityMain"

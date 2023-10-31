@@ -2023,6 +2023,14 @@ public class Log {
             sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
         }
 
+        try {
+            ApplicationInfo app = pm.getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            String build_uuid = app.metaData.getString("com.bugsnag.android.BUILD_UUID");
+            sb.append(String.format("Build UUID: %s\r\n", build_uuid == null ? "-" : build_uuid));
+        } catch (PackageManager.NameNotFoundException ex) {
+            Log.e(ex);
+        }
+
         sb.append(String.format("Release: %s\r\n", getReleaseType(context)));
         sb.append(String.format("Play Store: %s\r\n", Helper.hasPlayStore(context)));
         sb.append(String.format("Installer: %s\r\n", installer));

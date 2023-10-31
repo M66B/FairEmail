@@ -176,6 +176,7 @@ android {
         github {
             dimension "all"
             manifestPlaceholders.largeHeap = false
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "github").getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
@@ -202,6 +203,7 @@ android {
         large {
             dimension "all"
             manifestPlaceholders.largeHeap = true
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "large").getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
@@ -228,6 +230,7 @@ android {
         fdroid {
             dimension "all"
             manifestPlaceholders.largeHeap = false
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "fdroid").getBytes()).toString();
             externalNativeBuild {
                 cmake {
                     arguments "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--build-id=none"
@@ -264,6 +267,7 @@ android {
             dimension "all"
             //minSdkVersion 23
             manifestPlaceholders.largeHeap = false
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "play").getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
@@ -291,6 +295,7 @@ android {
             dimension "all"
             minSdkVersion 23
             manifestPlaceholders.largeHeap = false
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "amazon").getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
