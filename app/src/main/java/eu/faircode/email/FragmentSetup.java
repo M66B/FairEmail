@@ -531,7 +531,11 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         btnInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((FragmentBase) getParentFragment()).finish();
+                FragmentActivity activity = getActivity();
+                if (activity instanceof ActivitySetup)
+                    ((ActivitySetup) activity).onExit();
+                else
+                    ((FragmentBase) getParentFragment()).finish();
             }
         });
 
