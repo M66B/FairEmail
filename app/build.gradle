@@ -337,20 +337,10 @@ android {
         else
             variant.buildConfigField "String", "MXTOOLBOX_URI", "\"\""
 
-        // $JAVA_HOME/bin/java -jar ~/Android/Sdk/tools/proguard/lib/retrace.jar ~/email/app/schemas/mapping/FairEmail-v1.nnn-github-release-mapping.txt
-
         if (variant.getBuildType().isMinifyEnabled())
             variant.assembleProvider.get().doLast {
-                for (file in variant.getMappingFileProvider().get().files) {
+                for (file in variant.getMappingFileProvider().get().files)
                     if (file != null && file.exists()) {
-                        //exec {
-                        //    commandLine 'curl',
-                        //            '-o', '/dev/null',
-                        //            '-X', 'POST', "https://M66B:" + localProperties.getProperty("bb.pwd", "") + "@api.bitbucket.org/2.0/repositories/M66B/fairemail-test/downloads",
-                        //            '--form', "files=@" + file + ";" +
-                        //            "filename=FairEmail-v1." + getVersionCode() + getRevision() + "-" + variant.baseName + "-mapping.txt"
-                        //}
-
                         def dir = "${rootDir}/app/schemas/mapping"
                         def name = "$archivesBaseName-$variant.baseName-$file.name"
                         def target = new File(dir, name)
@@ -361,7 +351,6 @@ android {
                                 rename { String fileName -> name }
                             }
                     }
-                }
             }
     }
 
