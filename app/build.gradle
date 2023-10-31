@@ -161,12 +161,22 @@ android {
             minifyEnabled = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            buildConfigField "String", "TX_URI", "\"\""
+            buildConfigField "String", "GPA_URI", "\"\""
+            buildConfigField "String", "INFO_URI", "\"\""
+            buildConfigField "String", "BUGSNAG_URI", "\"\""
+            buildConfigField "String", "DEV_DOMAIN", "\"\""
         }
         debug {
             applicationIdSuffix '.debug'
             debuggable = true
             minifyEnabled = false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
+            buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
+            buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
+            buildConfigField "String", "BUGSNAG_URI", localProperties.getProperty("bugsnag.uri", "\"\"")
+            buildConfigField "String", "DEV_DOMAIN", localProperties.getProperty("dev.domain", "\"\"")
         }
     }
 
@@ -193,11 +203,6 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
-            buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
-            buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
-            buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
-            buildConfigField "String", "BUGSNAG_URI", localProperties.getProperty("bugsnag.uri", "\"\"")
-            buildConfigField "String", "DEV_DOMAIN", localProperties.getProperty("dev.domain", "\"\"")
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         large {
@@ -220,11 +225,6 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
-            buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
-            buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
-            buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
-            buildConfigField "String", "BUGSNAG_URI", localProperties.getProperty("bugnsag.uri", "\"\"")
-            buildConfigField "String", "DEV_DOMAIN", localProperties.getProperty("dev.domain", "\"\"")
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         fdroid {
@@ -256,11 +256,6 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
-            buildConfigField "String", "TX_URI", "\"\""
-            buildConfigField "String", "GPA_URI", "\"\""
-            buildConfigField "String", "INFO_URI", "\"\""
-            buildConfigField "String", "BUGSNAG_URI", "\"\""
-            buildConfigField "String", "DEV_DOMAIN", "\"\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         play {
@@ -284,11 +279,6 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
-            buildConfigField "String", "TX_URI", "\"\""
-            buildConfigField "String", "GPA_URI", "\"\""
-            buildConfigField "String", "INFO_URI", "\"\""
-            buildConfigField "String", "BUGSNAG_URI", "\"\""
-            buildConfigField "String", "DEV_DOMAIN", "\"\""
             buildConfigField "String", "FDROID", "\"\""
         }
         amazon {
@@ -312,10 +302,6 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
-            buildConfigField "String", "TX_URI", "\"\""
-            buildConfigField "String", "GPA_URI", "\"\""
-            buildConfigField "String", "INFO_URI", "\"\""
-            buildConfigField "String", "DEV_DOMAIN", "\"\""
             buildConfigField "String", "FDROID", "\"\""
         }
     }
