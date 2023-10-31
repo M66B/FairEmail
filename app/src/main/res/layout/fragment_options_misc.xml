@@ -1654,7 +1654,7 @@
                     android:id="@+id/sbSqliteCache"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:max="100"
+                    android:max="200"
                     android:min="0"
                     android:progress="10"
                     app:layout_constraintEnd_toEndOf="parent"
