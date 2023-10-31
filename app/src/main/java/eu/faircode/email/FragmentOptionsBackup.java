@@ -686,7 +686,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                 editor.putString(key, (String) value);
                         }
 
-                        editor.apply();
+                        editor.commit();
                     }
                 })
                 .show();
@@ -1158,8 +1158,10 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                     "load_emoji".equals(key) ||
                                     "shortcuts".equals(key) ||
                                     "language".equals(key) ||
-                                    "wal".equals(key))
+                                    "wal".equals(key)) {
+                                postProgress("Skipping " + key + "=" + jsetting.get("value"));
                                 continue;
+                            }
 
                             if ("theme".equals(key) || "beige".equals(key)) {
                                 defer.put(key, jsetting.get("value"));
