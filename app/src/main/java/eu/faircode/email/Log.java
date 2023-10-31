@@ -3190,6 +3190,15 @@ public class Log {
                 size += write(os, "\r\n");
 
                 try {
+                    ApplicationInfo app = pm.getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+                    for (String meta : getExtras(app.metaData))
+                        size += write(os, String.format("%s\r\n", meta));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+                size += write(os, "\r\n");
+
+                try {
                     int flags = PackageManager.GET_RESOLVED_FILTER;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                         flags |= PackageManager.MATCH_ALL;
