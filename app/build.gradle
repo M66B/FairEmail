@@ -170,7 +170,7 @@ android {
         }
     }
 
-    flavorDimensions "all"
+    flavorDimensions += "all"
 
     productFlavors {
         github {
