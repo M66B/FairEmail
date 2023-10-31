@@ -2553,7 +2553,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibPinContact.setVisibility(show_addresses && pin && contacts && froms > 0 ? View.VISIBLE : View.GONE);
             ibAddContact.setVisibility(show_addresses && contacts && froms > 0 ? View.VISIBLE : View.GONE);
 
-
             boolean known_signer = false;
             if (native_dkim &&
                     message.signedby != null &&
@@ -4991,6 +4990,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onInfo(TupleMessageEx message, boolean gpa) {
+            if (!BuildConfig.DEBUG)
+                return;
+
             Address[] from;
             if (message.reply == null || message.reply.length == 0)
                 from = (isOutgoing(message) ? message.to : message.from);
@@ -4998,9 +5000,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 from = message.reply;
             if (from == null || from.length == 0)
                 return;
+
             String email = ((InternetAddress) from[0]).getAddress();
             if (TextUtils.isEmpty(email))
                 return;
+
             Uri uri;
             if (gpa)
                 uri = Uri.parse(BuildConfig.GPA_URI).buildUpon()
