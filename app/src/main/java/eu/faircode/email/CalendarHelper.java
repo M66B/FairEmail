@@ -33,9 +33,14 @@ import androidx.preference.PreferenceManager;
 
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -85,15 +90,27 @@ public class CalendarHelper {
     }
 
     static ICalendar parse(Context context, File file) throws IOException {
-        try (ICalReader reader = new ICalReader(file)) {
-            ICalendar icalendar = reader.readNext();
-            if (icalendar == null)
-                throw new IOException("Invalid iCal file");
+        try (InputStream is = new BufferedInputStream(new FileInputStream(file))) {
+            // https://en.wikipedia.org/wiki/Byte_order_mark#UTF-8
+            byte[] utf8_bom = "\uFEFF".getBytes(StandardCharsets.UTF_8);
+            byte[] bom = new byte[utf8_bom.length];
+            is.mark(bom.length);
+            is.read(bom);
+            if (!Arrays.equals(bom, utf8_bom))
+                is.reset();
 
-            for (ParseWarning warning : reader.getWarnings())
-                EntityLog.log(context, "Event warning " + warning);
+            try (ICalReader reader = new ICalReader(is)) {
+                ICalendar icalendar = reader.readNext();
 
-            return icalendar;
+                for (ParseWarning warning : reader.getWarnings())
+                    EntityLog.log(context, "Event warning " + warning);
+
+                // https://icalendar.org/validator.html
+                if (icalendar == null)
+                    throw new IOException("Invalid iCal file");
+
+                return icalendar;
+            }
         }
     }
 
