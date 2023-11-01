@@ -42,6 +42,11 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease uploadBugsnagGithub-releaseMapping uploadBugsnagLarge-releaseMapping uploadBugsnagPlay-releaseMapping
+    - name: Upload to BitBucket
+      run: |
+        ./gradlew upload -Ptarget=play-preview
+        ./gradlew upload -Ptarget=large-update
+        ./gradlew upload -Ptarget=github-update
     #https://github.com/actions/upload-artifact
     - uses: actions/upload-artifact@v3
       with:
@@ -51,8 +56,3 @@ jobs:
       with:
         name: APK files
         path: app/build/outputs/apk/**/release/*.apk
-    - name: Upload to BitBucket
-      run: |
-        ./gradlew upload -Ptarget=play-preview
-        ./gradlew upload -Ptarget=large-update
-        ./gradlew upload -Ptarget=github-update
