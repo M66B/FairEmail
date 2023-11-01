@@ -128,12 +128,14 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
 
         public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
             private View vwColor;
-            private TextView tv;
+            private TextView text1;
+            private TextView text2;
 
             ViewHolder(View itemView) {
                 super(itemView);
                 vwColor = itemView.findViewById(R.id.vwColor);
-                tv = itemView.findViewById(android.R.id.text1);
+                text1 = itemView.findViewById(android.R.id.text1);
+                text2 = itemView.findViewById(android.R.id.text2);
             }
 
             private void wire() {
@@ -146,12 +148,15 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
 
             private void bindTo(TupleIdentityEx identity) {
                 int vpad = (getItemCount() > 10 ? dp6 : dp12);
-                tv.setPadding(0, vpad, 0, vpad);
+                text1.setPadding(0, vpad, 0, 0);
+                text2.setPadding(0, 0, 0, vpad);
 
                 Integer color = (identity.color == null ? identity.accountColor : identity.color);
                 vwColor.setBackgroundColor(color == null ? Color.TRANSPARENT : color);
+
                 String name = identity.getDisplayName();
-                tv.setText(TextUtils.isEmpty(name) ? identity.email : name);
+                text1.setText(TextUtils.isEmpty(name) ? "-" : name);
+                text2.setText(identity.email);
             }
 
             @Override
@@ -189,7 +194,7 @@ public class FragmentDialogSelectIdentity extends FragmentDialogBase {
         @Override
         @NonNull
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            return new ViewHolder(inflater.inflate(R.layout.item_account_select, parent, false));
+            return new ViewHolder(inflater.inflate(R.layout.item_identity_select, parent, false));
         }
 
         @Override
