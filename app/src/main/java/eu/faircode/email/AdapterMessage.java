@@ -3801,6 +3801,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
+                    if (properties.getValue("ical_error", message.id))
+                        return;
+                    properties.setValue("ical_error", message.id, true);
+
                     // https://github.com/mangstadt/biweekly/issues/121
                     if (!(ex instanceof AssertionError))
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
