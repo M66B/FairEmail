@@ -475,6 +475,15 @@
         </activity>
 
         <activity
+            android:name=".ActivityHTML"
+            android:description="@string/app_name"
+            android:exported="false"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true" />
+
+        <activity
             android:name=".ActivityDmarc"
             android:enabled="false"
             android:description="@string/app_name"

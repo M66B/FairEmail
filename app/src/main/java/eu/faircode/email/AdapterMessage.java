@@ -149,7 +149,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.w3c.dom.css.CSSStyleSheet;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -6108,7 +6107,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null ||
                     (message.accountProtocol == EntityAccount.TYPE_POP && message.headers != null));
 
-            popupMenu.getMenu().findItem(R.id.menu_share_as_html).setVisible(message.content &&
+            popupMenu.getMenu().findItem(R.id.menu_show_html).setVisible(message.content &&
                     (BuildConfig.DEBUG || !BuildConfig.PLAY_STORE_RELEASE));
 
             boolean canRaw = (message.uid != null ||
@@ -6227,7 +6226,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else if (itemId == R.id.menu_show_headers) {
                         onMenuShowHeaders(message);
                         return true;
-                    } else if (itemId == R.id.menu_share_as_html) {
+                    } else if (itemId == R.id.menu_show_html) {
                         onMenuShareHtml(message);
                         return true;
                     } else if (itemId == R.id.menu_raw_save) {
@@ -7408,67 +7407,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuShareHtml(TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
-
-            new SimpleTask<File>() {
-                @Override
-                protected File onExecute(Context context, Bundle args) throws IOException {
-                    Long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null || !message.content)
-                        return null;
-
-                    File file = message.getFile(context);
-                    Document d = JsoupEx.parse(file);
-
-                    if (BuildConfig.DEBUG) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        boolean overview_mode = prefs.getBoolean("overview_mode", false);
-                        HtmlHelper.setViewport(d, overview_mode);
-                    }
-
-                    d.head().prependElement("meta").attr("charset", "utf-8");
-
-                    if (message.language != null)
-                        d.body().attr("lang", message.language);
-
-                    List<CSSStyleSheet> sheets =
-                            HtmlHelper.parseStyles(d.head().select("style"));
-                    for (Element element : d.select("*")) {
-                        String computed = HtmlHelper.processStyles(context,
-                                element.tagName(),
-                                element.className(),
-                                element.attr("style"),
-                                sheets);
-                        if (!TextUtils.isEmpty(computed))
-                            element.attr("x-computed", computed);
-                    }
-
-                    if (BuildConfig.DEBUG) {
-                        d = HtmlHelper.sanitizeView(context, d, false);
-                        d.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
-                    }
-
-                    File dir = Helper.ensureExists(new File(context.getFilesDir(), "shared"));
-                    File share = new File(dir, message.id + ".txt");
-                    Helper.writeText(share, d.html());
-
-                    return share;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, File share) {
-                    Helper.share(context, share, "text/plain", share.getName());
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:headers");
+            context.startActivity(new Intent(context, ActivityHTML.class)
+                    .putExtra("id", message.id));
         }
 
         private void onMenuRawSave(TupleMessageEx message) {

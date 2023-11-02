@@ -1434,7 +1434,7 @@
     <string name="title_print_images_remark">Downloading images might take some time</string>
     <string name="title_print_block_quotes">Print block quotes lines</string>
     <string name="title_show_headers">Show headers</string>
-    <string name="title_share_as_html">Share as HTML</string>
+    <string name="title_show_html">Show HTML</string>
     <string name="title_raw_save">Save raw message</string>
     <string name="title_raw_send">Send as attachment</string>
     <string name="title_raw_send_message">Message</string>
@@ -2344,6 +2344,7 @@
     <string name="title_widget_day_night">Follow dark system theme</string>
 
     <string name="title_compat_dark">Google removed dark mode for Android versions before version 10</string>
+    <string name="title_sanitize" translatable="false">Sanitize</string>
 
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Important</string>
