@@ -31,6 +31,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
@@ -57,6 +58,13 @@ public class ActivityHTML extends ActivityBase {
             sanitize = savedInstanceState.getBoolean("fair:sanitize");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                finishAndRemoveTask();
+            }
+        });
 
         View view = LayoutInflater.from(this).inflate(R.layout.activity_text, null);
         setContentView(view);
@@ -106,7 +114,7 @@ public class ActivityHTML extends ActivityBase {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == android.R.id.home) {
-            finish();
+            finishAndRemoveTask();
             return true;
         } else if (itemId == R.id.menu_sanitize) {
             sanitize = !sanitize;
