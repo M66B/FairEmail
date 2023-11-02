@@ -516,7 +516,10 @@ public class ActivityEML extends ActivityBase {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.menu_save) {
+        if (itemId == android.R.id.home) {
+            finish();
+            return true;
+        } else if (itemId == R.id.menu_save) {
             onMenuSave();
             return true;
         } else if (itemId == R.id.menu_junk) {

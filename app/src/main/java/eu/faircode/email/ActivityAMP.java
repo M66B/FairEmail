@@ -159,7 +159,10 @@ public class ActivityAMP extends ActivityBase {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.menu_force_light) {
+        if (itemId == android.R.id.home) {
+            finish();
+            return true;
+        } else if (itemId == R.id.menu_force_light) {
             onMenuForceLight();
             return true;
         }

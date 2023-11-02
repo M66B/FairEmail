@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -60,6 +61,16 @@ public class ActivityError extends ActivityBase {
         super.onNewIntent(intent);
         setIntent(intent);
         load();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void load() {
