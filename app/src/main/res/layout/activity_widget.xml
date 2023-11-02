@@ -181,6 +181,14 @@
             android:id="@+id/grpReady"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:constraint_referenced_ids="tvAccount,spAccount,cbSemiTransparent,btnColor,clLayout,btnSave" />
+            app:constraint_referenced_ids="
+                tvAccount,spAccount,
+                cbDayNight,
+                cbSemiTransparent,
+                btnBgColor,btnFgColor,
+                clLayout,
+                cbTop,
+                tvFontSize,spFontSize,
+                btnSave" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
