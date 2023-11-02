@@ -79,10 +79,14 @@ android {
     }
 
     lint {
-        abortOnError false
+        // https://developer.android.com/studio/write/lint
+        // https://developer.android.com/reference/tools/gradle-api/8.0/com/android/build/api/dsl/LintOptions
+        abortOnError true
         checkReleaseBuilds false
+        checkDependencies false
         disable 'MissingTranslation'
-        enable 'StringFormatInvalid'
+        fatal 'StringFormatInvalid', 'StringFormatMatches', 'StringFormatCount'
+        checkOnly 'StringFormatInvalid', 'StringFormatMatches', 'StringFormatCount'
     }
 
     compileOptions {

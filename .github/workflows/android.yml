@@ -40,6 +40,8 @@ jobs:
         gpg -d --passphrase "${PASSWORD}" --batch local.properties.asc > local.properties
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Check with Lint
+      run: ./gradlew lintGithubRelease
     - name: Build with Gradle
       run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease uploadBugsnagGithub-releaseMapping uploadBugsnagLarge-releaseMapping uploadBugsnagPlay-releaseMapping
     - name: Upload to BitBucket
