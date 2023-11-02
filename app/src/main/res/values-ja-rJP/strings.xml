@@ -697,7 +697,7 @@
     <string name="title_advanced_external_search">Android のテキスト選択メニューに「FairEmail を検索」を追加</string>
     <string name="title_advanced_sort_answers">返信テンプレートを使用頻度で並べ替え</string>
     <string name="title_advanced_shortcuts">頻繁に使用する連絡先を Android 共有メニューに表示</string>
-    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">受信した招待状を未定として保存</string>
+    <string name="title_advanced_ical_tentative">受信した招待状を未定として保存</string>
     <string name="title_advanced_fts">検索インデックスを作成</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 個のメッセージがインデックスされました (%3$s)</string>
     <string name="title_advanced_classification">メッセージを分類</string>

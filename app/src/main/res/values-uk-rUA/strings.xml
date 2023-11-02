@@ -738,7 +738,7 @@
     <string name="title_advanced_external_search">Додати «Шукати в FairEmail» до меню вибору тексту Android</string>
     <string name="title_advanced_sort_answers">Сортувати шаблони відповідей за частотою використання</string>
     <string name="title_advanced_shortcuts">Показувати контакти, які часто використовуються, в системному меню «Поділитися»</string>
-    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Зберігати отримані запрошення як попередні</string>
+    <string name="title_advanced_ical_tentative">Зберігати отримані запрошення як попередні</string>
     <string name="title_advanced_fts">Створювати індекс для пошуку</string>
     <string name="title_advanced_fts_indexed">%1$d з %2$d повідомлень проіндексовано (%3$s)</string>
     <string name="title_advanced_classification">Класифікувати повідомлення</string>

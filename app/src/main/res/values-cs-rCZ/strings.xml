@@ -738,7 +738,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_external_search">Přidat \"Vyhledat ve FairEmail\" do menu výběru textu v Androidu</string>
     <string name="title_advanced_sort_answers">Seřadit šablony odpovědí podle frekvence používání</string>
     <string name="title_advanced_shortcuts">Zobrazit často používané kontakty v nabídce sdílení Androidu</string>
-    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Uložit obdržené pozvánky jako předběžné</string>
+    <string name="title_advanced_ical_tentative">Uložit obdržené pozvánky jako předběžné</string>
     <string name="title_advanced_fts">Sestavit index vyhledávání</string>
     <string name="title_advanced_fts_indexed">Indexováno %1$d / %2$d zpráv (%3$s)</string>
     <string name="title_advanced_classification">Klasifikovat zprávy</string>

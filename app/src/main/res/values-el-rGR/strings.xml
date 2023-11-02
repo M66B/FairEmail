@@ -708,6 +708,7 @@
     <string name="title_advanced_external_search">Προσθήκη \"Αναζήτηση FairEmail\" στο μενού επιλογής κειμένου του Android</string>
     <string name="title_advanced_sort_answers">Ταξινόμηση προτύπων απάντησης κατά συχνότητα χρήσης</string>
     <string name="title_advanced_shortcuts">Προβολή των πιο συχνά χρησιμοποιούμενων επαφών στο μενού \"Κοινοποίηση\" του Android</string>
+    <string name="title_advanced_ical_tentative">Αποθήκευση των ειλημμένων προσκλήσεων ως ανεπιβεβαίωτων</string>
     <string name="title_advanced_fts">Κατασκευή ευρετηρίου αναζήτησης</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d μηνύματα ευρετηριασμένα (%3$s)</string>
     <string name="title_advanced_classification">Ταξινόμηση μηνυμάτων</string>

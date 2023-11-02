@@ -712,7 +712,7 @@
     <string name="title_advanced_external_search">»FairEmail-Suche« zum Android-Textauswahlmenü hinzufügen</string>
     <string name="title_advanced_sort_answers">Antwortvorlagen nach Verwendungshäufigkeit sortieren</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
-    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Erhaltene Einladungen als „Unter Vorbehalt” speichern</string>
+    <string name="title_advanced_ical_tentative">Erhaltene Einladungen als „Unter Vorbehalt” speichern</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
     <string name="title_advanced_classification">Nachrichten klassifizieren</string>

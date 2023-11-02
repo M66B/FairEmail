@@ -707,7 +707,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_external_search">Voeg ‘FairEmail zoeken’ toe aan Android-tekstselectiemenu</string>
     <string name="title_advanced_sort_answers">Sorteer antwoordsjablonen op gebruiksfrequentie</string>
     <string name="title_advanced_shortcuts">Toon veelgebruikte contacten in het Android-deelmenu</string>
-    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Bewaar ontvangen uitnodigingen als voorlopig</string>
+    <string name="title_advanced_ical_tentative">Ontvangen uitnodigingen als voorlopig bewaren</string>
     <string name="title_advanced_fts">Zoekindex opbouwen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berichten geïndexeerd (%3$s)</string>
     <string name="title_advanced_classification">Berichten classificeren</string>

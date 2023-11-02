@@ -707,6 +707,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_external_search">Foegje ‘FairEmail sykje’ ta oan Android-tekstseleksjemenu</string>
     <string name="title_advanced_sort_answers">Antwurdsjabloanen op brûksfrekwinse sortearje</string>
     <string name="title_advanced_shortcuts">Faak brûkte kontakten yn Android-dielmenu toane</string>
+    <string name="title_advanced_ical_tentative">Untfongen útnûgingen as foarearst bewarje</string>
     <string name="title_advanced_fts">Sykyndeks opbouwe</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d berjochten yndeksearre (%3$s)</string>
     <string name="title_advanced_classification">Berjochten klassifisearje</string>
@@ -1226,7 +1227,6 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_receipt_subject">Lêsbefêstiging: %1$s</string>
     <string name="title_receipt_text">Dizze lêsbefêstiging befêstiget allinnich dat it berjocht werjûn is. Der is gjin garânsje dat de ûntfanger de ynhâld fan it berjocht lêzen hat.</string>
     <string name="title_no_answers">Gjin antwurdsjabloanen definiearre</string>
-    <string name="title_no_viewer_caption">Gjin viewer-app beskikber foar %1$s</string>
     <string name="title_no_viewer_name">Ynhâldsnamme</string>
     <string name="title_no_viewer_type">Ynhâldstype</string>
     <string name="title_no_viewer_search">App sykje</string>

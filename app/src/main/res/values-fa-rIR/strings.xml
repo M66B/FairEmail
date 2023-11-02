@@ -518,7 +518,7 @@
     </string>
     <string name="title_advanced_sort_answers">قالب‌های پاسخ‌گویی را بر اساس تناوب استفاده از آنها مرتب کن</string>
     <string name="title_advanced_shortcuts">نمایش مخاطبین مکررا استفاده شده در فهرست اشتراک‌گذاری اندروید</string>
-    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">ثبت آزمایشی دعوت‌نامه‌های دریافتی</string>
+    <string name="title_advanced_ical_tentative">ثبت آزمایشی دعوت‌نامه‌های دریافتی</string>
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d پیام ایندکس شد (%3$s)</string>
     <string name="title_advanced_show_filtered">آیکون فیلتر را زمانی که قاعده‌ای اعمال می‌شود نشان بده</string>

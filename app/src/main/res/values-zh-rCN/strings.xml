@@ -695,7 +695,7 @@
     <string name="title_advanced_external_search">将 \'FairEmail 搜索 \' 添加到 Android 文本选择菜单</string>
     <string name="title_advanced_sort_answers">按使用频率对回复模板进行排序</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
-    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">将收到的邀请保存为待处理</string>
+    <string name="title_advanced_ical_tentative">将收到的邀请保存为待处理</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_classification">消息分类</string>

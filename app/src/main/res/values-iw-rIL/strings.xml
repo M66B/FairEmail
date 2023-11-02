@@ -739,7 +739,7 @@
     <string name="title_advanced_external_search">הוספת ‚חיפוש ב־FairEmail‘ לתפריט בחירת טקסט ב־Android</string>
     <string name="title_advanced_sort_answers">סידור תבניות המענה לפי תדירות השימוש</string>
     <string name="title_advanced_shortcuts">הצגת אנשי קשר בשימוש תדיר בתפריט השיתוף של Android</string>
-    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">אחסון הזמנות שהתקבלו כטנטטיביות</string>
+    <string name="title_advanced_ical_tentative">אחסון הזמנות שהתקבלו כטנטטיביות</string>
     <string name="title_advanced_fts">בניית אינדקס חיפוש</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d תועדו באינדקס (%3$s)</string>
     <string name="title_advanced_classification">סיווג הודעות</string>

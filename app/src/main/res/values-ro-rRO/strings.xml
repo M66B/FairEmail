@@ -723,7 +723,7 @@
     <string name="title_advanced_external_search">Adaugă \'căutare FairEmail\' în meniul de selecție text Android</string>
     <string name="title_advanced_sort_answers">Sortați șabloanele de răspuns în funcție de frecvența de utilizare</string>
     <string name="title_advanced_shortcuts">Arată contactele utilizate frecvent în meniul de partajare Android</string>
-    <string name="title_advanced_ical_tentative" comment="title_advanced_ical_tentative&#10;Option to disable storing invitations tentatively&#10;Please see this FAQ for details:&#10;https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq186">Păstrează invitațiile primite ca \"poate\"</string>
+    <string name="title_advanced_ical_tentative">Păstrează invitațiile primite ca \"poate\"</string>
     <string name="title_advanced_fts">Creează index de căutare</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaje indexate (%3$s)</string>
     <string name="title_advanced_classification">Clasifică mesajele</string>
