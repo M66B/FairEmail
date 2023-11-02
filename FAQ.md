@@ -5389,6 +5389,16 @@ For example: create a new draft and enter the text "*How far is the sun?*", and 
 
 OpenAI isn't very fast, so be patient. Sometimes a timeout error occurs because the app is not receiving a response from OpenAI.
 
+<br>
+
+Depending on the ChatGPT account (free or paid) there are usage limits. If you exceed the limit, there will be an error message like this:
+
+*Error 429: Too Many Requests insufficient_quota: You exceeded your current quota, please check your plan and billing details*
+
+In this case, you'll either need to wait, or upgrade your ChatGPT plan.
+
+<br>
+
 You can select the [model](https://platform.openai.com/docs/models/overview),
 configure the [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature)
 and enable [moderation](https://platform.openai.com/docs/api-reference/moderations) in the miscellaneous-settings tab page.
