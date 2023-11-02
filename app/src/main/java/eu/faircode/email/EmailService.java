@@ -612,7 +612,7 @@ public class EmailService implements AutoCloseable {
             } catch (UnknownHostException ex) {
                 String last = prefs.getString(key, null);
                 if (TextUtils.isEmpty(last))
-                    throw new MessagingException(ex.getMessage(), ex);
+                    throw ex;
                 else {
                     EntityLog.log(context, EntityLog.Type.Network, "Using " + key + "=" + last);
                     main = InetAddress.getByName(last);
@@ -641,7 +641,11 @@ public class EmailService implements AutoCloseable {
         } catch (UnknownHostException ex) {
             crumb.put("exception", ex + "\n" + android.util.Log.getStackTraceString(ex));
             Log.breadcrumb("Connection failed", crumb);
-            throw new MessagingException(ex.getMessage(), ex);
+            if (ConnectionHelper.vpnActive(context))
+                throw new MessagingException(ex.getMessage(),
+                        new Exception(context.getString(R.string.title_service_vpn), ex));
+            else
+                throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
             crumb.put("exception", ex + "\n" + android.util.Log.getStackTraceString(ex));
             Log.breadcrumb("Connection failed", crumb);
