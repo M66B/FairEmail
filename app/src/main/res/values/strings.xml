@@ -2344,7 +2344,6 @@
     <string name="title_widget_day_night">Follow dark system theme</string>
 
     <string name="title_compat_dark">Google removed dark mode for Android versions before version 10</string>
-    <string name="title_sanitize" translatable="false">Sanitize</string>
 
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Important</string>

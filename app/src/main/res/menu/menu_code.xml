@@ -4,7 +4,7 @@
     <item
         android:id="@+id/menu_sanitize"
         android:checkable="true"
-        android:icon="@drawable/twotone_cleaning_services_24"
-        android:title="@string/title_sanitize"
+        android:icon="@drawable/twotone_fullscreen_exit_24"
+        android:title="@string/title_legend_show_reformatted"
         app:showAsAction="always" />
 </menu>

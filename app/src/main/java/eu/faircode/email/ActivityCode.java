@@ -116,7 +116,13 @@ public class ActivityCode extends ActivityBase {
 
         menu.findItem(R.id.menu_sanitize)
                 .setVisible(BuildConfig.DEBUG || debug)
-                .setChecked(sanitize);
+                .setChecked(sanitize)
+                .setIcon(sanitize
+                        ? R.drawable.twotone_fullscreen_24
+                        : R.drawable.twotone_fullscreen_exit_24)
+                .setTitle(getString(sanitize
+                        ? R.string.title_legend_show_full
+                        : R.string.title_legend_show_reformatted));
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -128,7 +134,7 @@ public class ActivityCode extends ActivityBase {
             return true;
         } else if (itemId == R.id.menu_sanitize) {
             sanitize = !sanitize;
-            item.setChecked(sanitize);
+            invalidateOptionsMenu();
             load();
             return true;
         }
