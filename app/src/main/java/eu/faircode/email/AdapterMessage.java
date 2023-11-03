@@ -467,6 +467,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibRule;
         private ImageButton ibUnsubscribe;
         private ImageButton ibRaw;
+        private ImageButton ibHtml;
         private ImageButton ibHeaders;
         private ImageButton ibPrint;
         private ImageButton ibPin;
@@ -900,6 +901,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRule = vsBody.findViewById(R.id.ibRule);
             ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
             ibRaw = vsBody.findViewById(R.id.ibRaw);
+            ibHtml = vsBody.findViewById(R.id.ibHtml);
             ibHeaders = vsBody.findViewById(R.id.ibHeaders);
             ibPrint = vsBody.findViewById(R.id.ibPrint);
             ibPin = vsBody.findViewById(R.id.ibPin);
@@ -1069,6 +1071,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibRule.setOnClickListener(this);
                 ibUnsubscribe.setOnClickListener(this);
                 ibRaw.setOnClickListener(this);
+                ibHtml.setOnClickListener(this);
                 ibHeaders.setOnClickListener(this);
                 ibHeaders.setOnLongClickListener(this);
                 ibPrint.setOnClickListener(this);
@@ -1190,6 +1193,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibRule.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
                 ibRaw.setOnClickListener(null);
+                ibHtml.setOnClickListener(null);
                 ibHeaders.setOnClickListener(null);
                 ibHeaders.setOnLongClickListener(null);
                 ibPrint.setOnClickListener(null);
@@ -1802,6 +1806,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibRaw.setVisibility(View.GONE);
+            ibHtml.setVisibility(View.GONE);
             ibHeaders.setVisibility(View.GONE);
             ibPrint.setVisibility(View.GONE);
             ibPin.setVisibility(View.GONE);
@@ -2094,6 +2099,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibRaw.setVisibility(View.GONE);
+            ibHtml.setVisibility(View.GONE);
             ibHeaders.setVisibility(View.GONE);
             ibPrint.setVisibility(View.GONE);
             ibPin.setVisibility(View.GONE);
@@ -2317,6 +2323,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_pin = prefs.getBoolean("button_pin", false);
                     boolean button_print = prefs.getBoolean("button_print", false);
                     boolean button_headers = prefs.getBoolean("button_headers", false);
+                    boolean button_html = prefs.getBoolean("button_html", false);
                     boolean button_raw = prefs.getBoolean("button_raw", false);
                     boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
                     boolean button_rule = prefs.getBoolean("button_rule", false);
@@ -2338,6 +2345,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibRule.setVisibility(tools && button_rule && !outbox && !message.folderReadOnly ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
                     ibRaw.setVisibility(tools && button_raw && raw ? View.VISIBLE : View.GONE);
+                    ibHtml.setVisibility(tools && button_html && message.content ? View.VISIBLE : View.GONE);
                     ibHeaders.setVisibility(tools && button_headers && headers ? View.VISIBLE : View.GONE);
                     ibPrint.setVisibility(tools && !outbox && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
                     ibPin.setVisibility(tools && !outbox && button_pin && pin ? View.VISIBLE : View.GONE);
@@ -4418,6 +4426,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onActionUnsubscribe(message);
                 } else if (id == R.id.ibRaw) {
                     onMenuRawSave(message);
+                } else if (id == R.id.ibHtml) {
+                    onMenuShareHtml(message);
                 } else if (id == R.id.ibHeaders) {
                     onMenuShowHeaders(message);
                 } else if (id == R.id.ibPrint) {
