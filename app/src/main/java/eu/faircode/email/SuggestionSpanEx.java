@@ -52,7 +52,7 @@ public class SuggestionSpanEx extends SuggestionSpan {
 
         this.description = description;
         highlightColor = Helper.resolveColor(context, android.R.attr.textColorHighlight);
-        underlineColor = (BuildConfig.DEBUG ? Color.MAGENTA : (misspelled ? Color.RED : highlightColor));
+        underlineColor = (misspelled ? Color.MAGENTA : highlightColor);
         underlineThickness = Helper.dp2pixels(context, misspelled ? 2 : (BuildConfig.DEBUG ? 1 : 2));
     }
 
