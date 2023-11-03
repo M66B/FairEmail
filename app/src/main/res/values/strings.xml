@@ -1434,7 +1434,7 @@
     <string name="title_print_images_remark">Downloading images might take some time</string>
     <string name="title_print_block_quotes">Print block quotes lines</string>
     <string name="title_show_headers">Show headers</string>
-    <string name="title_show_html">Show HTML</string>
+    <string name="title_show_html">Show source</string>
     <string name="title_raw_save">Save raw message</string>
     <string name="title_raw_send">Send as attachment</string>
     <string name="title_raw_send_message">Message</string>
