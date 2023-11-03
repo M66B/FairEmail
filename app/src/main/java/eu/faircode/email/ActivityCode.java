@@ -31,8 +31,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -114,8 +112,8 @@ public class ActivityCode extends ActivityBase {
                 return true;
             }
 
-            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                Log.w("View code error " + error.getErrorCode() + ":" + error.getDescription());
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                Log.w("View code error " + errorCode + ":" + description);
             }
         });
 

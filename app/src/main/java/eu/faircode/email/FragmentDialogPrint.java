@@ -34,8 +34,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -410,8 +408,8 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                         }
                     }
 
-                    public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                        Log.w("Print error " + error.getErrorCode() + ":" + error.getDescription());
+                    public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                        Log.w("Print error " + errorCode + ":" + description);
                     }
                 });
 
