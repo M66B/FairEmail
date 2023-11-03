@@ -29,9 +29,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.TaskStackBuilder;
 import androidx.core.net.MailTo;
 import androidx.fragment.app.Fragment;
