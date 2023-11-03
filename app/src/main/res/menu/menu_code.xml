@@ -2,6 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/menu_lines"
+        android:checkable="true"
+        android:icon="@drawable/twotone_123_24"
+        android:title="@string/title_legend_line_numbers"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_sanitize"
         android:checkable="true"
         android:icon="@drawable/twotone_fullscreen_exit_24"

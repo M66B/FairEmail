@@ -37,8 +37,6 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
-import androidx.webkit.WebSettingsCompat;
-import androidx.webkit.WebViewFeature;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -53,14 +51,17 @@ public class ActivityCode extends ActivityBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
+    private boolean lines = BuildConfig.DEBUG;
     private boolean sanitize = BuildConfig.DEBUG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if (savedInstanceState != null)
+        if (savedInstanceState != null) {
+            lines = savedInstanceState.getBoolean("fair:lines");
             sanitize = savedInstanceState.getBoolean("fair:sanitize");
+        }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -107,6 +108,7 @@ public class ActivityCode extends ActivityBase {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:lines", lines);
         outState.putBoolean("fair:sanitize", sanitize);
         super.onSaveInstanceState(outState);
     }
@@ -123,6 +125,9 @@ public class ActivityCode extends ActivityBase {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean debug = prefs.getBoolean("debug", false);
 
+        menu.findItem(R.id.menu_lines)
+                .setChecked(lines);
+
         menu.findItem(R.id.menu_sanitize)
                 .setVisible(BuildConfig.DEBUG || debug)
                 .setChecked(sanitize)
@@ -132,6 +137,8 @@ public class ActivityCode extends ActivityBase {
                 .setTitle(getString(sanitize
                         ? R.string.title_legend_show_full
                         : R.string.title_legend_show_reformatted));
+
+
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -140,6 +147,11 @@ public class ActivityCode extends ActivityBase {
         int itemId = item.getItemId();
         if (itemId == android.R.id.home) {
             finishAndRemoveTask();
+            return true;
+        } else if (itemId == R.id.menu_lines) {
+            lines = !lines;
+            invalidateOptionsMenu();
+            load();
             return true;
         } else if (itemId == R.id.menu_sanitize) {
             sanitize = !sanitize;
@@ -153,7 +165,7 @@ public class ActivityCode extends ActivityBase {
     private void load() {
         Intent intent = getIntent();
         long id = intent.getLongExtra("id", -1L);
-        Log.i("Text id=" + id + " sanitize=" + sanitize);
+        Log.i("Show code message=" + id + " lines=" + lines + " sanitize=" + sanitize);
 
         Bundle args = new Bundle();
         args.putLong("id", id);
@@ -209,17 +221,22 @@ public class ActivityCode extends ActivityBase {
             protected void onExecuted(Bundle args, String code) {
                 getSupportActionBar().setSubtitle(args.getString("subject"));
 
+                String clazz = "language-html";
+                if (lines)
+                    clazz += " line-numbers";
+
                 String html = "<!DOCTYPE html>" +
                         "<html>" +
                         "<head>" +
-                        "<link href=\"file:///android_asset/prism.css\" rel=\"stylesheet\" />" +
-                        "<style>" +
-                        "  code[class=\"language-html\"] { font-size: smaller !important; }" +
-                        "</style>" +
+                        "  <meta charset=\"utf-8\" />" +
+                        "  <link href=\"file:///android_asset/prism.css\" rel=\"stylesheet\" />" +
+                        "  <style>" +
+                        "    body { font-size: smaller !important; }" +
+                        "  </style>" +
                         "</head>" +
                         "<body>" +
-                        "<script src=\"file:///android_asset/prism.js\"></script>" +
-                        "<code class=\"language-html\">" + Html.escapeHtml(code) + "</code>" +
+                        "  <script src=\"file:///android_asset/prism.js\"></script>" +
+                        "  <pre><code class=\"" + clazz + "\">" + Html.escapeHtml(code) + "</code></pre>" +
                         "</body>" +
                         "</html>";
 
