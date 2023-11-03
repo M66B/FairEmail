@@ -126,7 +126,10 @@ public class ActivityCode extends ActivityBase {
         boolean debug = prefs.getBoolean("debug", false);
 
         menu.findItem(R.id.menu_lines)
-                .setChecked(lines);
+                .setChecked(lines)
+                .setIcon(lines
+                        ? R.drawable.twotone_speaker_notes_off_24
+                        : R.drawable.twotone_speaker_notes_24);
 
         menu.findItem(R.id.menu_sanitize)
                 .setVisible(BuildConfig.DEBUG || debug)
