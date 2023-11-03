@@ -37,6 +37,8 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -77,6 +79,17 @@ public class ActivityCode extends ActivityBase {
         grpReady = findViewById(R.id.grpReady);
 
         WebSettings settings = wvCode.getSettings();
+
+        settings.setBuiltInZoomControls(true);
+        settings.setDisplayZoomControls(false);
+
+        settings.setAllowFileAccess(false);
+        settings.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
+        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+
+        settings.setLoadsImagesAutomatically(false);
+        settings.setBlockNetworkLoads(true);
+        settings.setBlockNetworkImage(true);
         settings.setJavaScriptEnabled(true);
 
         // Initialize
