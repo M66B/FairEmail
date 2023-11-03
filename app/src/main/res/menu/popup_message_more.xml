@@ -139,7 +139,7 @@
 
         <item
             android:id="@+id/menu_show_html"
-            android:icon="@drawable/twotone_source_24"
+            android:icon="@drawable/twotone_html_24"
             android:title="@string/title_show_html" />
 
         <item
