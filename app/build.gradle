@@ -83,7 +83,7 @@ android {
         // https://developer.android.com/reference/tools/gradle-api/8.0/com/android/build/api/dsl/LintOptions
         abortOnError true
         checkReleaseBuilds false
-        checkDependencies false
+        //checkDependencies false
         disable 'MissingTranslation'
         fatal 'StringFormatInvalid', 'StringFormatMatches', 'StringFormatCount'
         checkOnly 'StringFormatInvalid', 'StringFormatMatches', 'StringFormatCount'

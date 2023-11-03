@@ -7407,7 +7407,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuShareHtml(TupleMessageEx message) {
-            context.startActivity(new Intent(context, ActivityHTML.class)
+            context.startActivity(new Intent(context, ActivityCode.class)
                     .putExtra("id", message.id));
         }
 

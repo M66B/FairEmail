@@ -3,26 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="eu.faircode.email.ActivityHTML">
+    tools:context="eu.faircode.email.ActivityCode">
 
-    <ScrollView
+    <WebView
+        android:id="@+id/wvCode"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/tvText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fontFamily="monospace"
-            android:textAppearance="@style/TextAppearance.AppCompat.Small"
-            android:textColor="?android:attr/textColorPrimary"
-            android:textIsSelectable="true" />
-    </ScrollView>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <eu.faircode.email.ContentLoadingProgressBar
         android:id="@+id/pbWait"

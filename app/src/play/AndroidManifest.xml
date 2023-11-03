@@ -475,7 +475,7 @@
         </activity>
 
         <activity
-            android:name=".ActivityHTML"
+            android:name=".ActivityCode"
             android:description="@string/app_name"
             android:exported="false"
             android:icon="@mipmap/ic_launcher"

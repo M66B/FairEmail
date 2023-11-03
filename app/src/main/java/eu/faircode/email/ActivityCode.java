@@ -22,14 +22,20 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.Html;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
@@ -41,10 +47,11 @@ import org.jsoup.nodes.Element;
 import org.w3c.dom.css.CSSStyleSheet;
 
 import java.io.File;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-public class ActivityHTML extends ActivityBase {
-    private TextView tvText;
+public class ActivityCode extends ActivityBase {
+    private WebView wvCode;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
@@ -66,12 +73,15 @@ public class ActivityHTML extends ActivityBase {
             }
         });
 
-        View view = LayoutInflater.from(this).inflate(R.layout.activity_text, null);
+        View view = LayoutInflater.from(this).inflate(R.layout.activity_code, null);
         setContentView(view);
 
-        tvText = findViewById(R.id.tvText);
+        wvCode = findViewById(R.id.wvCode);
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
+
+        WebSettings settings = wvCode.getSettings();
+        settings.setJavaScriptEnabled(true);
 
         // Initialize
         grpReady.setVisibility(View.GONE);
@@ -95,7 +105,7 @@ public class ActivityHTML extends ActivityBase {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_html, menu);
+        inflater.inflate(R.menu.menu_code, menu);
         return true;
     }
 
@@ -158,9 +168,9 @@ public class ActivityHTML extends ActivityBase {
                 args.putString("subject", message.subject);
 
                 File file = message.getFile(context);
-                if (sanitize) {
-                    Document d = JsoupEx.parse(file);
+                Document d = JsoupEx.parse(file);
 
+                if (sanitize) {
                     List<CSSStyleSheet> sheets =
                             HtmlHelper.parseStyles(d.head().select("style"));
                     for (Element element : d.select("*")) {
@@ -175,17 +185,30 @@ public class ActivityHTML extends ActivityBase {
 
                     d = HtmlHelper.sanitizeView(context, d, false);
                     d.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
+                }
 
-                    return d.html();
-                } else
-                    return Helper.readText(file);
+                return d.html();
             }
 
             @Override
-            protected void onExecuted(Bundle args, String text) {
+            protected void onExecuted(Bundle args, String code) {
                 getSupportActionBar().setSubtitle(args.getString("subject"));
 
-                tvText.setText(text);
+                String html = "<!DOCTYPE html>" +
+                        "<html>" +
+                        "<head>" +
+                        "<link href=\"file:///android_asset/prism.css\" rel=\"stylesheet\" />" +
+                        "<style>" +
+                        "  code[class=\"language-html\"] { font-size: smaller !important; }" +
+                        "</style>" +
+                        "</head>" +
+                        "<body>" +
+                        "<script src=\"file:///android_asset/prism.js\"></script>" +
+                        "<code class=\"language-html\">" + Html.escapeHtml(code) + "</code>" +
+                        "</body>" +
+                        "</html>";
+
+                wvCode.loadDataWithBaseURL("file:///android_asset/", html, "text/html", StandardCharsets.UTF_8.name(), null);
                 grpReady.setVisibility(View.VISIBLE);
             }
 
