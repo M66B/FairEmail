@@ -34,6 +34,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.webkit.DownloadListener;
 import android.webkit.RenderProcessGoneDetail;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -187,6 +189,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
             public void onScaleChanged(WebView view, float oldScale, float newScale) {
                 Log.i("Changed scale=" + newScale);
                 intf.onScaleChanged(newScale);
+            }
+
+            public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                Log.w("WebViewEx error " + error.getErrorCode() + ":" + error.getDescription());
             }
         });
 
