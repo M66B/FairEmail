@@ -5212,10 +5212,18 @@ public class FragmentCompose extends FragmentBase {
                         resized = rotated;
                     }
 
+                    Bitmap.CompressFormat format;
+                    if ("image/jpeg".equals(attachment.type))
+                        format = Bitmap.CompressFormat.JPEG;
+                    else if ("image/png".equals(attachment.type))
+                        format = Bitmap.CompressFormat.PNG;
+                    else if ("image/webp".equals(attachment.type))
+                        format = Bitmap.CompressFormat.WEBP;
+                    else
+                        throw new IllegalArgumentException("Invalid format type=" + attachment.type);
+
                     File tmp = new File(file.getAbsolutePath() + ".tmp");
                     try (OutputStream out = new BufferedOutputStream(new FileOutputStream(tmp))) {
-                        Bitmap.CompressFormat format = ("image/jpeg".equals(attachment.type)
-                                ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG);
                         if (!resized.compress(format, REDUCED_IMAGE_QUALITY, out))
                             throw new IOException("compress");
                     } catch (Throwable ex) {
