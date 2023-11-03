@@ -9,6 +9,13 @@
         app:showAsAction="always" />
 
     <item
+        android:id="@+id/menu_links"
+        android:checkable="true"
+        android:icon="@drawable/twotone_link_24"
+        android:title="@string/title_legend_enable_links"
+        app:showAsAction="always" />
+
+    <item
         android:id="@+id/menu_sanitize"
         android:checkable="true"
         android:icon="@drawable/twotone_fullscreen_exit_24"

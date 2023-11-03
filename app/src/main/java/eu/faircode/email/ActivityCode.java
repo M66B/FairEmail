@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.TextUtils;
@@ -32,6 +33,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
@@ -52,6 +54,7 @@ public class ActivityCode extends ActivityBase {
     private Group grpReady;
 
     private boolean lines = BuildConfig.DEBUG;
+    private boolean links = false;
     private boolean sanitize = BuildConfig.DEBUG;
 
     @Override
@@ -60,6 +63,7 @@ public class ActivityCode extends ActivityBase {
 
         if (savedInstanceState != null) {
             lines = savedInstanceState.getBoolean("fair:lines");
+            links = savedInstanceState.getBoolean("fair:links");
             sanitize = savedInstanceState.getBoolean("fair:sanitize");
         }
 
@@ -93,6 +97,22 @@ public class ActivityCode extends ActivityBase {
         settings.setBlockNetworkImage(true);
         settings.setJavaScriptEnabled(true);
 
+        wvCode.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                Bundle args = new Bundle();
+                args.putParcelable("uri", Uri.parse(url));
+                args.putString("title", null);
+                args.putBoolean("always_confirm", true);
+
+                FragmentDialogOpenLink fragment = new FragmentDialogOpenLink();
+                fragment.setArguments(args);
+                fragment.show(getSupportFragmentManager(), "open:link");
+
+                return true;
+            }
+        });
+
         // Initialize
         grpReady.setVisibility(View.GONE);
 
@@ -109,6 +129,7 @@ public class ActivityCode extends ActivityBase {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putBoolean("fair:lines", lines);
+        outState.putBoolean("fair:links", links);
         outState.putBoolean("fair:sanitize", sanitize);
         super.onSaveInstanceState(outState);
     }
@@ -130,6 +151,12 @@ public class ActivityCode extends ActivityBase {
                 .setIcon(lines
                         ? R.drawable.twotone_speaker_notes_off_24
                         : R.drawable.twotone_speaker_notes_24);
+
+        menu.findItem(R.id.menu_links)
+                .setChecked(links)
+                .setIcon(links
+                        ? R.drawable.twotone_link_off_24
+                        : R.drawable.twotone_link_24);
 
         menu.findItem(R.id.menu_sanitize)
                 .setVisible(BuildConfig.DEBUG || debug)
@@ -156,6 +183,11 @@ public class ActivityCode extends ActivityBase {
             invalidateOptionsMenu();
             load();
             return true;
+        } else if (itemId == R.id.menu_links) {
+            links = !links;
+            invalidateOptionsMenu();
+            load();
+            return true;
         } else if (itemId == R.id.menu_sanitize) {
             sanitize = !sanitize;
             invalidateOptionsMenu();
@@ -168,7 +200,7 @@ public class ActivityCode extends ActivityBase {
     private void load() {
         Intent intent = getIntent();
         long id = intent.getLongExtra("id", -1L);
-        Log.i("Show code message=" + id + " lines=" + lines + " sanitize=" + sanitize);
+        Log.i("Show code message=" + id + " lines=" + lines + " links=" + links + " sanitize=" + sanitize);
 
         Bundle args = new Bundle();
         args.putLong("id", id);
@@ -233,12 +265,14 @@ public class ActivityCode extends ActivityBase {
                         "<head>" +
                         "  <meta charset=\"utf-8\" />" +
                         "  <link href=\"file:///android_asset/prism.css\" rel=\"stylesheet\" />" +
+                        (links ? "  <link href=\"file:///android_asset/prism-autolinker.min.css\" rel=\"stylesheet\" />" : "") +
                         "  <style>" +
                         "    body { font-size: smaller !important; }" +
                         "  </style>" +
                         "</head>" +
                         "<body>" +
                         "  <script src=\"file:///android_asset/prism.js\"></script>" +
+                        (links ? "  <script src=\"file:///android_asset/prism-autolinker.min.js\"></script>" : "") +
                         "  <pre><code class=\"" + clazz + "\">" + Html.escapeHtml(code) + "</code></pre>" +
                         "</body>" +
                         "</html>";
