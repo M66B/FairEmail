@@ -136,6 +136,16 @@
             app:layout_constraintTop_toBottomOf="@+id/tvGoogle" />
 
         <TextView
+            android:id="@+id/tvDownloaded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/app_download"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNoPlay" />
+
+        <TextView
             android:id="@+id/tvHint"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -143,7 +153,7 @@
             android:text="@string/title_pro_hint"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvNoPlay" />
+            app:layout_constraintTop_toBottomOf="@id/tvDownloaded" />
 
         <TextView
             android:id="@+id/tvPriceHint"

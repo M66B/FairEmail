@@ -188,6 +188,7 @@ public class Helper {
     private static Boolean hasPlayStore = null;
     private static Boolean hasValidFingerprint = null;
     private static Boolean isSmartwatch = null;
+    private static String installerName = "?";
 
     static final float LOW_LIGHT = 0.6f;
 
@@ -199,6 +200,8 @@ public class Helper {
     static final int PIN_FAILURE_DELAY = 3; // seconds
     static final long PIN_FAILURE_DELAY_MAX = 20 * 60 * 1000L; // milliseconds
     static final float BNV_LUMINANCE_THRESHOLD = 0.7f;
+
+    static final String PLAY_PACKAGE_NAME = "com.android.vending";
 
     static final String PGP_OPENKEYCHAIN_PACKAGE = "org.sufficientlysecure.keychain";
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
@@ -1365,6 +1368,18 @@ public class Helper {
 
     static Intent getIntentRate(Context context) {
         return new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
+    }
+
+    static String getInstallerName(Context context) {
+        if ("?".equals(installerName))
+            try {
+                PackageManager pm = context.getPackageManager();
+                installerName = pm.getInstallerPackageName(BuildConfig.APPLICATION_ID);
+            } catch (Throwable ex) {
+                Log.e(ex);
+                installerName = null;
+            }
+        return installerName;
     }
 
     static long getInstallTime(Context context) {

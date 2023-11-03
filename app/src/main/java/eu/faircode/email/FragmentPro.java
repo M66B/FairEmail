@@ -24,8 +24,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -61,6 +66,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private TextView tvPrice;
     private TextView tvGoogle;
     private TextView tvNoPlay;
+    private TextView tvDownloaded;
     private TextView tvPriceHint;
     private TextView tvFamilyHint;
     private TextView tvRestoreHint;
@@ -90,6 +96,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvPrice = view.findViewById(R.id.tvPrice);
         tvGoogle = view.findViewById(R.id.tvGoogle);
         tvNoPlay = view.findViewById(R.id.tvNoPlay);
+        tvDownloaded = view.findViewById(R.id.tvDownloaded);
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
         tvFamilyHint = view.findViewById(R.id.tvFamilyHint);
         tvRestoreHint = view.findViewById(R.id.tvRestoreHint);
@@ -135,6 +142,16 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                 lbm.sendBroadcast(new Intent(ActivityBilling.ACTION_PURCHASE));
             }
         });
+
+        String type = Log.getReleaseType(getContext());
+        String installer = Helper.getInstallerName(getContext());
+        tvDownloaded.setText(getString(R.string.app_download, type));
+        if (BuildConfig.PLAY_STORE_RELEASE)
+            tvDownloaded.setVisibility(
+                    installer != null && !Helper.PLAY_PACKAGE_NAME.equals(installer)
+                            ? View.VISIBLE : View.GONE);
+        else
+            tvDownloaded.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         tvPriceHint.setPaintFlags(tvPriceHint.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvPriceHint.setOnClickListener(new View.OnClickListener() {

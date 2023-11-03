@@ -64,17 +64,8 @@ public class FragmentAbout extends FragmentBase {
         tvVersion.setText(getString(R.string.title_version, version));
         tvRelease.setText(BuildConfig.RELEASE_NAME);
 
-        String source = Log.getReleaseType(context) + (BuildConfig.DEBUG ? "/Debug" : "");
-
-        try {
-            String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
-            if (installer != null && !"com.android.vending".equals(installer))
-                source += " (" + installer + ")";
-        } catch (Throwable ex) {
-            Log.w(ex);
-        }
-
-        tvDownloaded.setText(getString(R.string.app_download, source));
+        String type = Log.getReleaseType(context) + (BuildConfig.DEBUG ? " (Debug)" : "");
+        tvDownloaded.setText(getString(R.string.app_download, type));
 
         long last = 0;
         try {

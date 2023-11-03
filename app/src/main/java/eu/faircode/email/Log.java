@@ -492,7 +492,7 @@ public class Log {
 
             String no_internet = context.getString(R.string.title_no_internet);
 
-            String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+            String installer = Helper.getInstallerName(context);
             config.addMetadata("extra", "revision", BuildConfig.REVISION);
             config.addMetadata("extra", "installer", installer == null ? "-" : installer);
             config.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)).toString());
@@ -636,11 +636,15 @@ public class Log {
         }
     }
 
-    static String getReleaseType(Context context) {
+    static @NonNull String getReleaseType(Context context) {
         if (Helper.hasValidFingerprint(context)) {
-            if (BuildConfig.PLAY_STORE_RELEASE)
-                return "Play Store";
-            else if (BuildConfig.FDROID_RELEASE)
+            if (BuildConfig.PLAY_STORE_RELEASE) {
+                String installer = Helper.getInstallerName(context);
+                String type = "Play Store";
+                if (installer != null && !Helper.PLAY_PACKAGE_NAME.equals(installer))
+                    type += " (" + installer + ")";
+                return type;
+            } else if (BuildConfig.FDROID_RELEASE)
                 return "Reproducible";
             else if (BuildConfig.AMAZON_RELEASE)
                 return "Amazon";
@@ -2002,7 +2006,6 @@ public class Log {
         long last_cleanup = prefs.getLong("last_cleanup", 0);
 
         PackageManager pm = context.getPackageManager();
-        String installer = pm.getInstallerPackageName(BuildConfig.APPLICATION_ID);
 
         // Get version info
         sb.append(String.format("%s %s\r\n", context.getString(R.string.app_name), getVersionInfo(context)));
@@ -2031,9 +2034,10 @@ public class Log {
             Log.e(ex);
         }
 
+        String installer = Helper.getInstallerName(context);
         sb.append(String.format("Release: %s\r\n", getReleaseType(context)));
         sb.append(String.format("Play Store: %s\r\n", Helper.hasPlayStore(context)));
-        sb.append(String.format("Installer: %s\r\n", installer));
+        sb.append(String.format("Installer: %s\r\n", installer == null ? "-" : installer));
         sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
         sb.append(String.format("Updated: %s\r\n", new Date(Helper.getUpdateTime(context))));
         sb.append(String.format("Last cleanup: %s\r\n", new Date(last_cleanup)));
