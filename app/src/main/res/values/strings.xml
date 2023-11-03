@@ -1674,6 +1674,7 @@
     <string name="title_add_image_privacy">Remove privacy sensitive data</string>
     <string name="title_add_image_privacy_remark">Geographic location, serial numbers, file names, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_resize_remark">Resizing is supported for: %1$s</string>
     <string name="title_add_image_select_remark">The Android photo picker no longer passes file names</string>
     <string name="title_add_image_select">Select file</string>
     <string name="title_add_attachment">Add attachment</string>
