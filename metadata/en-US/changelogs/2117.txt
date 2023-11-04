@@ -6,6 +6,15 @@ For support you can use the contact form.
 
 Vallibonavenatrix
 
+Next version
+
+* Added native *View source* (HTML) with syntax highlighting, etc.
+* Added configurable button for *View source*
+* Added resizing of WebP
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 1.2117 - 2023-11-02
 
 * Improved identity selector

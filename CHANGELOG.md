@@ -6,6 +6,15 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
+### Next version
+
+* Added native *View source* (HTML) with syntax highlighting, etc.
+* Added configurable button for *View source*
+* Added resizing of [WebP](https://en.wikipedia.org/wiki/WebP)
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2117 - 2023-11-02
 
 * Improved identity selector
