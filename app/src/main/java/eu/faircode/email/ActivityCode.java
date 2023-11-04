@@ -278,8 +278,12 @@ public class ActivityCode extends ActivityBase {
                     }
 
                     d = HtmlHelper.sanitizeView(context, d, false);
-                    d.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
                 }
+
+                d.outputSettings()
+                        .prettyPrint(true)
+                        .outline(true)
+                        .indentAmount(1);
 
                 if (selected == null)
                     return d.html();
