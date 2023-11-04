@@ -76,7 +76,7 @@ public class FragmentDialogAddImage extends FragmentDialogBase {
         rgAction.check(add_inline ? R.id.rbInline : R.id.rbAttach);
         cbResize.setChecked(resize_images);
         spResize.setEnabled(resize_images);
-        tvResizeRemark.setText(getString(R.string.title_add_image_resize_remark, "JPEG, PNG, WEBP"));
+        tvResizeRemark.setText(getString(R.string.title_add_image_resize_remark, "JPEG, PNG, WebP"));
         cbPrivacy.setChecked(privacy_images);
 
         final int[] resizeValues = getResources().getIntArray(R.array.resizeValues);
