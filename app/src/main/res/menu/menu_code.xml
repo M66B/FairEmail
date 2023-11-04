@@ -2,23 +2,26 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/menu_lines"
-        android:checkable="true"
-        android:icon="@drawable/twotone_speaker_notes_24"
-        android:title="@string/title_legend_line_numbers"
-        app:showAsAction="always" />
-
-    <item
-        android:id="@+id/menu_links"
-        android:checkable="true"
-        android:icon="@drawable/twotone_link_24"
-        android:title="@string/title_legend_enable_links"
-        app:showAsAction="always" />
-
-    <item
         android:id="@+id/menu_sanitize"
         android:checkable="true"
         android:icon="@drawable/twotone_fullscreen_exit_24"
         android:title="@string/title_legend_show_reformatted"
         app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_lines"
+        android:checkable="true"
+        android:title="@string/title_legend_line_numbers"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_links"
+        android:checkable="true"
+        android:title="@string/title_legend_enable_links"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_save"
+        android:title="@string/title_save"
+        app:showAsAction="never" />
 </menu>
