@@ -931,7 +931,6 @@
     <string name="title_print_images">Отпечатване на образите</string>
     <string name="title_print_images_remark">Тегленето на образи може да отнеме известно време</string>
     <string name="title_show_headers">Показване на заглавките</string>
-    <string name="title_share_as_html">Споделяне като HTML</string>
     <string name="title_raw_save">Запиши необработено съобщение</string>
     <string name="title_raw_send">Изпращане като прикачен файл</string>
     <string name="title_raw_send_message">Съобщение</string>

@@ -1162,7 +1162,7 @@
     <string name="title_print_images_remark">Scaricare le immagini potrebbe richiedere un po\' di tempo</string>
     <string name="title_print_block_quotes">Stampa i blocchi di citazioni</string>
     <string name="title_show_headers">Mostra le intestazioni</string>
-    <string name="title_share_as_html">Condividi come HTML</string>
+    <string name="title_show_html">Mostra messaggio sorgente (HTML)</string>
     <string name="title_raw_save">Salva il messaggio non elaborato</string>
     <string name="title_raw_send">Invia come allegato</string>
     <string name="title_raw_send_message">Messaggio</string>
@@ -1377,6 +1377,7 @@
     <string name="title_add_image_privacy">Rimuovi i dati sensibili alla privacy</string>
     <string name="title_add_image_privacy_remark">Geolocalizzazione, numeri di serie, nomi dei file, etc.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixel</string>
+    <string name="title_add_image_resize_remark">Il ridimensionamento è supportato per: %1$s</string>
     <string name="title_add_image_select_remark">Il selettore di foto di Android non passa più i nomi dei file</string>
     <string name="title_add_image_select">Seleziona file</string>
     <string name="title_add_attachment">Aggiungi allegato</string>
@@ -1797,6 +1798,8 @@
     <string name="title_legend_show_amp">Mostra la variante AMP</string>
     <string name="title_legend_show_full">Mostra il messaggio originale</string>
     <string name="title_legend_show_reformatted">Mostra il messaggio riformattato</string>
+    <string name="title_legend_line_numbers">Mostra i numeri di riga</string>
+    <string name="title_legend_enable_links" comment="title_legend_enable_links&#10;Option title for menu item in overflow menu of &quot;View source&quot; (HTML)">Abilita i link</string>
     <string name="title_legend_edit">Modifica</string>
     <string name="title_legend_default_color">Colore predefinito</string>
     <string name="title_legend_close_hint">Chiudi suggerimento</string>

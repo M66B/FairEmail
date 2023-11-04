@@ -1192,7 +1192,7 @@
     <string name="title_print_images_remark">Загрузка выяў можа заняць некаторы час</string>
     <string name="title_print_block_quotes">Адлюстроўваць лініі ў блоках цытат</string>
     <string name="title_show_headers">Паказваць загалоўкі</string>
-    <string name="title_share_as_html">Падзяліцца ў выглядзе HTML</string>
+    <string name="title_show_html">Паказваць крыніцу</string>
     <string name="title_raw_save">Захаваць неапрацаванае паведамленне</string>
     <string name="title_raw_send">Адправіць як укладанне</string>
     <string name="title_raw_send_message">Паведамленне</string>
@@ -1407,6 +1407,7 @@
     <string name="title_add_image_privacy">Выдаліць канфідэнцыяльныя даныя</string>
     <string name="title_add_image_privacy_remark">Геаграфічнае месцазнаходжанне, серыйныя нумары, назвы файлаў і г.д.</string>
     <string name="title_add_resize_pixels">&lt; %1$d пікселяў</string>
+    <string name="title_add_image_resize_remark">Змяненне памеру падтрымліваецца для: %1$s</string>
     <string name="title_add_image_select_remark">Сродак выбару фатаграфій Android больш не перадае назвы файлаў</string>
     <string name="title_add_image_select">Выберыце файл</string>
     <string name="title_add_attachment">Дадаць укладанне</string>
@@ -1827,6 +1828,7 @@
     <string name="title_legend_show_amp">Паказаць варыянт AMP</string>
     <string name="title_legend_show_full">Паказаць зыходнае паведамленне</string>
     <string name="title_legend_show_reformatted">Паказаць перафарматаванае паведамленне</string>
+    <string name="title_legend_line_numbers">Паказваць нумары радкоў</string>
     <string name="title_legend_edit">Рэдагаваць</string>
     <string name="title_legend_default_color">Колер па змаўчанні</string>
     <string name="title_legend_close_hint">Закрыць падказку</string>

@@ -1188,7 +1188,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_print_images_remark">Stažení obrázků může chvíli trvat</string>
     <string name="title_print_block_quotes">Tisk řádků s blokovými uvozovkami</string>
     <string name="title_show_headers">Zobrazit hlavičky</string>
-    <string name="title_share_as_html">Sdílet jako HTML</string>
+    <string name="title_show_html">Zobraz zdroj</string>
     <string name="title_raw_save">Uložit zdrojovou zprávu</string>
     <string name="title_raw_send">Odeslat jako přílohu</string>
     <string name="title_raw_send_message">Zpráva</string>
@@ -1401,6 +1401,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_add_image_privacy">Odebrat citlivé osobní údaje</string>
     <string name="title_add_image_privacy_remark">Zeměpisná poloha, sériová čísla, názvy souborů, apod.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixelů</string>
+    <string name="title_add_image_resize_remark">Změna velikosti je podporována pro: %1$s</string>
     <string name="title_add_image_select_remark">Výběr fotografií pro Android již neprochází názvy souborů</string>
     <string name="title_add_image_select">Vybrat soubor</string>
     <string name="title_add_attachment">Přidat přílohu</string>
@@ -1821,6 +1822,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_legend_show_amp">Zobrazit variantu AMP</string>
     <string name="title_legend_show_full">Zobrazit původní zprávu</string>
     <string name="title_legend_show_reformatted">Zobrazit přeformátovanou zprávu</string>
+    <string name="title_legend_line_numbers">Zobrazit čísla řádků</string>
     <string name="title_legend_edit">Upravit</string>
     <string name="title_legend_default_color">Výchozí barva</string>
     <string name="title_legend_close_hint">Zavřít tip</string>

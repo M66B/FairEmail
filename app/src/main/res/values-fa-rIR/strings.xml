@@ -748,6 +748,7 @@
     <string name="title_pin">افزودن میانبر</string>
     <string name="title_print">چاپ</string>
     <string name="title_show_headers">نمایش سرصفحه</string>
+    <string name="title_show_html">نمایش مبدا</string>
     <string name="title_raw_save">ذخیره پیام خام</string>
     <string name="title_raw_send">ارسال به‌عنوان پیوست</string>
     <string name="title_raw_send_message">پیام</string>
@@ -892,6 +893,7 @@
     <string name="title_add_image_resize">تغییر اندازه</string>
     <string name="title_add_image_privacy">حذف کردن داده شخصی حساس</string>
     <string name="title_add_resize_pixels">&lt;%1$d پیکسل</string>
+    <string name="title_add_image_resize_remark">پشتیبانی از تغییر اندازه برای: %1$s</string>
     <string name="title_add_image_select">انتخاب پرونده</string>
     <string name="title_add_attachment">افزودن پیوست</string>
     <string name="title_attachment_file">پیوست پرونده</string>
@@ -1182,6 +1184,7 @@
     <string name="title_legend_show_unsubscribe">لغو اشتراک از لیست</string>
     <string name="title_legend_show_images">نمایش تصاویر</string>
     <string name="title_legend_show_full">مشاهده پیام اصلی</string>
+    <string name="title_legend_line_numbers">نمایش تعداد خطوط</string>
     <string name="title_legend_edit">ویرایش</string>
     <string name="title_legend_default_color">رنگ پیش‌فرض</string>
     <string name="title_legend_close_hint">بستن اشاره</string>

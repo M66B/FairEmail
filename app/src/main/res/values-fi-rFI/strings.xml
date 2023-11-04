@@ -1153,7 +1153,6 @@
     <string name="title_print_images_remark">Kuvien lataaminen saattaa kestää jonkin aikaa</string>
     <string name="title_print_block_quotes">Tulosta kappalelainausrivit</string>
     <string name="title_show_headers">Näytä tunnistetiedot</string>
-    <string name="title_share_as_html">Jaa HTML:nä</string>
     <string name="title_raw_save">Tallenna raakaviesti</string>
     <string name="title_raw_send">Lähetä liitteenä</string>
     <string name="title_raw_send_message">Viesti</string>

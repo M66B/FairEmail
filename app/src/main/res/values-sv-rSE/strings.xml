@@ -1148,7 +1148,6 @@
     <string name="title_print_images_remark">Nedladdning av bilder kan ta lite tid</string>
     <string name="title_print_block_quotes">Skriv ut blockciterade rader</string>
     <string name="title_show_headers">Visa sidhuvuden</string>
-    <string name="title_share_as_html">Dela som HTML</string>
     <string name="title_raw_save">Spara rent meddelande</string>
     <string name="title_raw_send">Skicka som bilaga</string>
     <string name="title_raw_send_message">Meddelande</string>

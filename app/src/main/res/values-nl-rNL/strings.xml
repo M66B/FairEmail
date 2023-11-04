@@ -1156,7 +1156,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_print_images_remark">Afbeeldingen downloaden kan enige tijd duren</string>
     <string name="title_print_block_quotes">Blokcitaatlijnen afdrukken</string>
     <string name="title_show_headers">Toon koppen</string>
-    <string name="title_share_as_html">Delen als HTML</string>
+    <string name="title_show_html">Bron tonen</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>
     <string name="title_raw_send">Stuur als bijlage</string>
     <string name="title_raw_send_message">Bericht</string>
@@ -1367,6 +1367,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_add_image_privacy">Verwijder privacy gevoelige gegevens</string>
     <string name="title_add_image_privacy_remark">Geografische locatie, serienummers, bestandsnamen, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_resize_remark">Grootte aanpassen wordt ondersteund voor: %1$s</string>
     <string name="title_add_image_select_remark">De Android fotokiezer geeft bestandnamen niet langer door</string>
     <string name="title_add_image_select">Selecteer bestand</string>
     <string name="title_add_attachment">Bijlage toevoegen</string>
@@ -1784,6 +1785,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_legend_show_amp">AMP variant weergeven</string>
     <string name="title_legend_show_full">Toon het originele bericht</string>
     <string name="title_legend_show_reformatted">Toon opnieuw opgemaakte bericht</string>
+    <string name="title_legend_line_numbers">Regelnummers tonen</string>
+    <string name="title_legend_enable_links" comment="title_legend_enable_links&#10;Option title for menu item in overflow menu of &quot;View source&quot; (HTML)">Schakel links in</string>
     <string name="title_legend_edit">Bewerk</string>
     <string name="title_legend_default_color">Standaard kleur</string>
     <string name="title_legend_close_hint">Sluit hint</string>

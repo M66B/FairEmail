@@ -1147,7 +1147,7 @@
     <string name="title_print_images_remark">画像のダウンロードには時間がかかる場合があります</string>
     <string name="title_print_block_quotes">ブロック引用の行を印刷</string>
     <string name="title_show_headers">ヘッダーを表示</string>
-    <string name="title_share_as_html">HTML で共有</string>
+    <string name="title_show_html">ソースを表示</string>
     <string name="title_raw_save">元のメッセージを保存</string>
     <string name="title_raw_send">添付ファイルとして送信</string>
     <string name="title_raw_send_message">メッセージ</string>
@@ -1362,6 +1362,7 @@
     <string name="title_add_image_privacy">プライバシーデータを削除</string>
     <string name="title_add_image_privacy_remark">位置情報、シリアル番号、ファイル名など</string>
     <string name="title_add_resize_pixels">&lt; %1$d ピクセル</string>
+    <string name="title_add_image_resize_remark">サイズ変更に対応したフォーマット: %1$s</string>
     <string name="title_add_image_select_remark">Android 写真選択ツールは、ファイル名を取得できなくなりました</string>
     <string name="title_add_image_select">ファイルを選択</string>
     <string name="title_add_attachment">添付ファイルを追加</string>
@@ -1782,6 +1783,7 @@
     <string name="title_legend_show_amp">AMP を表示</string>
     <string name="title_legend_show_full">元のメッセージを表示</string>
     <string name="title_legend_show_reformatted">再フォーマットされたメッセージを表示</string>
+    <string name="title_legend_line_numbers">行番号を表示</string>
     <string name="title_legend_edit">編集</string>
     <string name="title_legend_default_color">デフォルトの色</string>
     <string name="title_legend_close_hint">ヒントを閉じる</string>

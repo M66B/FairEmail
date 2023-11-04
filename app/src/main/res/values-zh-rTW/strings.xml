@@ -1005,7 +1005,6 @@
     <string name="title_print_images">列印圖片</string>
     <string name="title_print_images_remark">下載圖片可能會花費一些時間</string>
     <string name="title_show_headers">顯示標頭</string>
-    <string name="title_share_as_html">分享為 HTML</string>
     <string name="title_raw_save">保存元訊息</string>
     <string name="title_raw_send">以附件形式傳送</string>
     <string name="title_raw_send_message">訊息</string>

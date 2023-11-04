@@ -1143,7 +1143,7 @@
     <string name="title_print_images_remark">下载图片可能需要一些时间</string>
     <string name="title_print_block_quotes">打印块引用行</string>
     <string name="title_show_headers">显示邮件头</string>
-    <string name="title_share_as_html">以HTML格式分享</string>
+    <string name="title_show_html">显示原始消息</string>
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作为附件发送</string>
     <string name="title_raw_send_message">消息</string>
@@ -1356,6 +1356,7 @@
     <string name="title_add_image_privacy">移除隐私敏感数据</string>
     <string name="title_add_image_privacy_remark">地理位置、序列号、文件名等</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
+    <string name="title_add_image_resize_remark">支持调整大小的图片类型：%1$s</string>
     <string name="title_add_image_select_remark">Android 照片选择器不再传递文件名</string>
     <string name="title_add_image_select">选择文件</string>
     <string name="title_add_attachment">添加附件</string>
@@ -1776,6 +1777,7 @@
     <string name="title_legend_show_amp">显示 AMP 变体</string>
     <string name="title_legend_show_full">显示原始消息</string>
     <string name="title_legend_show_reformatted">显示格式重制后的消息</string>
+    <string name="title_legend_line_numbers">显示行号</string>
     <string name="title_legend_edit">编辑</string>
     <string name="title_legend_default_color">默认颜色</string>
     <string name="title_legend_close_hint">关闭提示</string>

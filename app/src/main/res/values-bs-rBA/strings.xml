@@ -1175,7 +1175,7 @@
     <string name="title_print_images_remark">Preuzimanje slika može malo potrajati</string>
     <string name="title_print_block_quotes">Štampanje blokova linija navodnika</string>
     <string name="title_show_headers">Prikaži zaglavlja</string>
-    <string name="title_share_as_html">Podijeli kao HTML</string>
+    <string name="title_show_html">Prikaži izvor</string>
     <string name="title_raw_save">Sačuvaj raw poruku</string>
     <string name="title_raw_send">Pošalji kao prilog</string>
     <string name="title_raw_send_message">Poruka</string>
@@ -1390,6 +1390,7 @@
     <string name="title_add_image_privacy">Ukloni osjetljive podatke</string>
     <string name="title_add_image_privacy_remark">Geografska lokacija, serijski brojevi, nazivi datoteka, itd.</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksela</string>
+    <string name="title_add_image_resize_remark">Promjena veličine podržana za: %1$s</string>
     <string name="title_add_image_select_remark">Izbornik fotografija na Androidu više ne pruža nazive datoteka</string>
     <string name="title_add_image_select">Izaberi datoteku</string>
     <string name="title_add_attachment">Dodaj prilog</string>
@@ -1810,6 +1811,7 @@
     <string name="title_legend_show_amp">Prikaži AMP varijantu</string>
     <string name="title_legend_show_full">Prikaži izvornu poruku</string>
     <string name="title_legend_show_reformatted">Prikaži preformatiranu poruku</string>
+    <string name="title_legend_line_numbers">Prikaži brojeve linija</string>
     <string name="title_legend_edit">Uredi</string>
     <string name="title_legend_default_color">Zadana boja</string>
     <string name="title_legend_close_hint">Zatvori napomenu</string>

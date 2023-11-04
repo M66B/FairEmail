@@ -1162,7 +1162,7 @@
     <string name="title_print_images_remark">Le téléchargement des images peut prendre un certain temps</string>
     <string name="title_print_block_quotes">Imprimer les blocs de citation</string>
     <string name="title_show_headers">Afficher les en-têtes</string>
-    <string name="title_share_as_html">Partager en tant que HTML</string>
+    <string name="title_show_html">Afficher le message source (HTML)</string>
     <string name="title_raw_save">Enregistrer le message original</string>
     <string name="title_raw_send">Envoyer comme pièce-jointe</string>
     <string name="title_raw_send_message">Message</string>
@@ -1377,6 +1377,7 @@
     <string name="title_add_image_privacy">Supprimer les informations confidentielles sensibles</string>
     <string name="title_add_image_privacy_remark">Emplacement géographique, numéros de série, noms de fichiers, etc.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_resize_remark">Le redimensionnement est pris en charge pour: %1$s</string>
     <string name="title_add_image_select_remark">Le sélecteur de photos d\'Android ne transfère plus les noms de fichiers</string>
     <string name="title_add_image_select">Sélectionner un fichier</string>
     <string name="title_add_attachment">Ajouter une pièce jointe</string>
@@ -1797,6 +1798,8 @@
     <string name="title_legend_show_amp">Afficher la variante AMP</string>
     <string name="title_legend_show_full">Afficher le message original</string>
     <string name="title_legend_show_reformatted">Afficher le message reformaté</string>
+    <string name="title_legend_line_numbers">Afficher les numéros de ligne</string>
+    <string name="title_legend_enable_links" comment="title_legend_enable_links&#10;Option title for menu item in overflow menu of &quot;View source&quot; (HTML)">Activer les liens</string>
     <string name="title_legend_edit">Modifier</string>
     <string name="title_legend_default_color">Couleur par défaut</string>
     <string name="title_legend_close_hint">Fermer l\'astuce</string>

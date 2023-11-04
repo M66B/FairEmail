@@ -1189,7 +1189,7 @@
     <string name="title_print_images_remark">Загрузка изображений может занять некоторое время</string>
     <string name="title_print_block_quotes">Печатать строки в блоке цитат</string>
     <string name="title_show_headers">Показать заголовки</string>
-    <string name="title_share_as_html">Поделиться как HTML</string>
+    <string name="title_show_html">Показать исходный код</string>
     <string name="title_raw_save">Сохранить оригинал сообщения</string>
     <string name="title_raw_send">Отправить как вложение</string>
     <string name="title_raw_send_message">Сообщение</string>
@@ -1403,6 +1403,7 @@
     <string name="title_add_image_privacy">Удалить конфиденциальные данные</string>
     <string name="title_add_image_privacy_remark">Географическое положение, серийные номера, имена файлов и т.п.</string>
     <string name="title_add_resize_pixels">&lt; %1$d пикс.</string>
+    <string name="title_add_image_resize_remark">Изменение размера поддерживается для: %1$s</string>
     <string name="title_add_image_select_remark">Средство выбора изображений Android больше не передаёт имена файлов</string>
     <string name="title_add_image_select">Выбрать файл</string>
     <string name="title_add_attachment">Добавить вложение</string>
@@ -1823,6 +1824,7 @@
     <string name="title_legend_show_amp">Показать AMP-вариант</string>
     <string name="title_legend_show_full">Показать исходное сообщение</string>
     <string name="title_legend_show_reformatted">Показать переформатированное сообщение</string>
+    <string name="title_legend_line_numbers">Показывать номера строк</string>
     <string name="title_legend_edit">Редактировать</string>
     <string name="title_legend_default_color">Цвет по умолчанию</string>
     <string name="title_legend_close_hint">Закрыть подсказку</string>

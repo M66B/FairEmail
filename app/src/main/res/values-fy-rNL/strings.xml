@@ -1155,7 +1155,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_print_images_remark">Ofbyldingen downloade kin wat tiid duorje</string>
     <string name="title_print_block_quotes">Bloksitaatlinen ôfdrukke</string>
     <string name="title_show_headers">Kopteksten toane</string>
-    <string name="title_share_as_html">As HTML diele</string>
+    <string name="title_show_html">Bron toane</string>
     <string name="title_raw_save">Rûch berjocht bewarje</string>
     <string name="title_raw_send">As bylage stjoere</string>
     <string name="title_raw_send_message">Berjocht</string>
@@ -1227,6 +1227,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_receipt_subject">Lêsbefêstiging: %1$s</string>
     <string name="title_receipt_text">Dizze lêsbefêstiging befêstiget allinnich dat it berjocht werjûn is. Der is gjin garânsje dat de ûntfanger de ynhâld fan it berjocht lêzen hat.</string>
     <string name="title_no_answers">Gjin antwurdsjabloanen definiearre</string>
+    <string name="title_no_viewer_caption">Gjin viewer-app beskikber</string>
     <string name="title_no_viewer_name">Ynhâldsnamme</string>
     <string name="title_no_viewer_type">Ynhâldstype</string>
     <string name="title_no_viewer_search">App sykje</string>
@@ -1367,6 +1368,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_add_image_privacy">Privacygefoelige gegevens fuortsmite</string>
     <string name="title_add_image_privacy_remark">Geografyske lokaasje, searjenûmers, bestânsnammen, ensfh.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_resize_remark">Grutte oanpasse wurdt stipe foar: %1$s</string>
     <string name="title_add_image_select_remark">De Android-fotokiezer jout bestânsnammen net langer troch</string>
     <string name="title_add_image_select">Bestân selektearje</string>
     <string name="title_add_attachment">Bylage tafoegje</string>
@@ -1786,6 +1788,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_legend_show_amp">AMP-fariant toane</string>
     <string name="title_legend_show_full">Orizjinele berjocht toane</string>
     <string name="title_legend_show_reformatted">Opnij opmakke berjocht toane</string>
+    <string name="title_legend_line_numbers">Rigelnûmers toane</string>
     <string name="title_legend_edit">Bewurkje</string>
     <string name="title_legend_default_color">Standertkleur</string>
     <string name="title_legend_close_hint">Hint slute</string>

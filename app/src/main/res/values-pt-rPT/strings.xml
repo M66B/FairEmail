@@ -1162,7 +1162,7 @@
     <string name="title_print_images_remark">A transferência de imagens pode demorar algum tempo</string>
     <string name="title_print_block_quotes">Imprimir linhas de cotações em bloco</string>
     <string name="title_show_headers">Mostrar cabeçalhos</string>
-    <string name="title_share_as_html">Partilhar como HTML</string>
+    <string name="title_show_html">Mostrar código fonte</string>
     <string name="title_raw_save">Guardar mensagem original (raw)</string>
     <string name="title_raw_send">Enviar como anexo</string>
     <string name="title_raw_send_message">Mensagem</string>
@@ -1377,6 +1377,7 @@
     <string name="title_add_image_privacy">Remover dados confidenciais da imagem</string>
     <string name="title_add_image_privacy_remark">Localização geográfica, números de série, nomes de ficheiro, etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeis</string>
+    <string name="title_add_image_resize_remark">Redimensionamento é suportado para: %1$s</string>
     <string name="title_add_image_select_remark">O seletor de fotos Android já não passa nomes de ficheiros</string>
     <string name="title_add_image_select">Seleccionar o ficheiro</string>
     <string name="title_add_attachment">Adicionar anexo</string>
@@ -1797,6 +1798,7 @@
     <string name="title_legend_show_amp">Mostrar variante AMP</string>
     <string name="title_legend_show_full">Mostrar mensagem original</string>
     <string name="title_legend_show_reformatted">Mostrar mensagem reformatada</string>
+    <string name="title_legend_line_numbers">Mostrar números das linhas</string>
     <string name="title_legend_edit">Editar</string>
     <string name="title_legend_default_color">Cor predefinida</string>
     <string name="title_legend_close_hint">Fechar dica</string>

@@ -1155,7 +1155,6 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_print_images_remark">Resimleri indirmek biraz zaman alabilir</string>
     <string name="title_print_block_quotes">Blok tırnak satırlarını yazdır</string>
     <string name="title_show_headers">Başlıkları Göster</string>
-    <string name="title_share_as_html">HTML olarak paylaş</string>
     <string name="title_raw_save">Ham iletiyi kaydet</string>
     <string name="title_raw_send">Ek olarak gönder</string>
     <string name="title_raw_send_message">Mesaj</string>

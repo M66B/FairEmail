@@ -1162,7 +1162,7 @@
     <string name="title_print_images_remark">Download af billeder kan tage lidt tid</string>
     <string name="title_print_block_quotes">Udskriv blokcitaterlinjer</string>
     <string name="title_show_headers">Vis overskrifter</string>
-    <string name="title_share_as_html">Del som HTML</string>
+    <string name="title_show_html">Vis kilde</string>
     <string name="title_raw_save">Gem besked i råformat</string>
     <string name="title_raw_send">Send som vedhæftning</string>
     <string name="title_raw_send_message">Besked</string>
@@ -1377,6 +1377,7 @@
     <string name="title_add_image_privacy">Fjern personsensitive data</string>
     <string name="title_add_image_privacy_remark">Geografisk placering, serienumre, filnavne mv.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_resize_remark">Ændring af størrelse understøttes for: %1$s</string>
     <string name="title_add_image_select_remark">Android-fotovælger medtager ikke længere filnavne</string>
     <string name="title_add_image_select">Vælg fil</string>
     <string name="title_add_attachment">Tilføj vedhæftning</string>
@@ -1797,6 +1798,7 @@
     <string name="title_legend_show_amp">Vis AMP-variant</string>
     <string name="title_legend_show_full">Vis oprindelig besked</string>
     <string name="title_legend_show_reformatted">Vis omformateret besked</string>
+    <string name="title_legend_line_numbers">Vis linjenumre</string>
     <string name="title_legend_edit">Redigér</string>
     <string name="title_legend_default_color">Standardfarve</string>
     <string name="title_legend_close_hint">Luk tip</string>

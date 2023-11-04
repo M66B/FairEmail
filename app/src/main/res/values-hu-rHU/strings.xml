@@ -992,7 +992,6 @@
     <string name="title_print_images">Képek nyomtatása</string>
     <string name="title_print_images_remark">A képek letöltése kis időbe telhet</string>
     <string name="title_show_headers">Fejlécek megjelenítése</string>
-    <string name="title_share_as_html">Megosztás HTML-ként</string>
     <string name="title_raw_save">Nyers üzenet mentése</string>
     <string name="title_raw_send">Küldés mellékletként</string>
     <string name="title_raw_send_message">Üzenet</string>

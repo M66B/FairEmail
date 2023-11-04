@@ -1149,7 +1149,7 @@
     <string name="title_no_messages">Немає повідомлень</string>
     <string name="title_filters_active">Один або кілька фільтрів активні</string>
     <string name="title_duplicate_in">Дублікат повідомлення, що знаходиться в теці «%1$s»</string>
-    <string name="title_trashed_from">Видалені повідомлення від %1$s</string>
+    <string name="title_trashed_from">Видалене повідомлення від %1$s</string>
     <string name="title_subject_reply">Re: %1$s</string>
     <string name="title_subject_forward">Fwd: %1$s</string>
     <string name="title_subject_reply_alt">Re: %1$s</string>
@@ -1187,7 +1187,7 @@
     <string name="title_print_images_remark">Завантаження зображень може зайняти деякий час</string>
     <string name="title_print_block_quotes">Друкувати лінії зліва від цитованого тексту</string>
     <string name="title_show_headers">Показати заголовки</string>
-    <string name="title_share_as_html">Поділитися як HTML</string>
+    <string name="title_show_html">Показати джерело</string>
     <string name="title_raw_save">Зберегти raw-повідомлення</string>
     <string name="title_raw_send">Надіслати як вкладення</string>
     <string name="title_raw_send_message">Повідомлення</string>
@@ -1400,8 +1400,9 @@
     <string name="title_add_image_privacy">Вилучити конфіденційні дані</string>
     <string name="title_add_image_privacy_remark">Географічне розташування, серійні номери, назви файлів тощо</string>
     <string name="title_add_resize_pixels">&lt; %1$d пікселів</string>
-    <string name="title_add_image_select_remark">Програма вибору фото Android більше не передає імена файлів</string>
-    <string name="title_add_image_select">Оберіть файл</string>
+    <string name="title_add_image_resize_remark">Зміна розміру підтримується для: %1$s</string>
+    <string name="title_add_image_select_remark">Програма вибору фото Android більше не передає назви файлів</string>
+    <string name="title_add_image_select">Обрати файл</string>
     <string name="title_add_attachment">Додати вкладення</string>
     <string name="title_attachment_file">Прикріпити файл</string>
     <string name="title_attachment_photo">Зробити фото</string>
@@ -1820,6 +1821,8 @@
     <string name="title_legend_show_amp">Показати AMP-варіант</string>
     <string name="title_legend_show_full">Показати оригінальне повідомлення</string>
     <string name="title_legend_show_reformatted">Показати переформатоване повідомлення</string>
+    <string name="title_legend_line_numbers">Показати номери рядків</string>
+    <string name="title_legend_enable_links" comment="title_legend_enable_links&#10;Option title for menu item in overflow menu of &quot;View source&quot; (HTML)">Увімкнути посилання</string>
     <string name="title_legend_edit">Редагувати</string>
     <string name="title_legend_default_color">Колір за замовчуванням</string>
     <string name="title_legend_close_hint">Закрити підказку</string>

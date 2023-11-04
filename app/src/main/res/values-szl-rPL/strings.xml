@@ -1187,7 +1187,7 @@
     <string name="title_print_images_remark">Pobieranie obrazów może zająć trochę czasu</string>
     <string name="title_print_block_quotes">Drukuj wiersze z cudzysłowami blokowymi</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
-    <string name="title_share_as_html">Udostępnij jako HTML</string>
+    <string name="title_show_html">Pokaż źródło</string>
     <string name="title_raw_save">Zapisz nieprzetworzoną wiadomość</string>
     <string name="title_raw_send">Wyślij jako załącznik</string>
     <string name="title_raw_send_message">Wiadomość</string>
@@ -1400,6 +1400,7 @@
     <string name="title_add_image_privacy">Usuń wrażliwe prywatne dane</string>
     <string name="title_add_image_privacy_remark">Lokalizacja geograficzna, numery seryjne, nazwy plików itp</string>
     <string name="title_add_resize_pixels">&lt; %1$d pikseli</string>
+    <string name="title_add_image_resize_remark">Zmiana rozmiaru jest obsługiwana dla: %1$s</string>
     <string name="title_add_image_select_remark">Selektor zdjęć Androida nie przekazuje już nazw plików</string>
     <string name="title_add_image_select">Wybierz plik</string>
     <string name="title_add_attachment">Dodaj załącznik</string>
@@ -1821,6 +1822,7 @@
     <string name="title_legend_show_amp">Pokaż wariant AMP</string>
     <string name="title_legend_show_full">Pokaż oryginalną wiadomość</string>
     <string name="title_legend_show_reformatted">Pokaż sformatowaną wiadomość</string>
+    <string name="title_legend_line_numbers">Pokaż numery wierszy</string>
     <string name="title_legend_edit">Edycja</string>
     <string name="title_legend_default_color">Kolor domyślny</string>
     <string name="title_legend_close_hint">Zamknij podpowiedź</string>

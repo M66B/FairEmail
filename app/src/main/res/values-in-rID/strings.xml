@@ -1137,7 +1137,6 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_print_images">Mencetak gambar</string>
     <string name="title_print_images_remark">Mengunduh gambar butuh beberapa waktu</string>
     <string name="title_show_headers">Tampilkan Judul</string>
-    <string name="title_share_as_html">Bagikan sebagai HTML</string>
     <string name="title_raw_save">Simpan pesan sebagai bahan</string>
     <string name="title_raw_send">Kirim sebagai lampiran</string>
     <string name="title_raw_send_message">Pesan</string>
