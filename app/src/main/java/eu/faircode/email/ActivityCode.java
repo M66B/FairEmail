@@ -25,6 +25,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.Spanned;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -204,10 +205,13 @@ public class ActivityCode extends ActivityBase {
     private void load() {
         Intent intent = getIntent();
         long id = intent.getLongExtra("id", -1L);
-        Log.i("Show code message=" + id + " lines=" + lines + " links=" + links + " sanitize=" + sanitize);
+        CharSequence selected = intent.getCharSequenceExtra("selected");
+        Log.i("Show code message=" + id + " selected=" + (selected != null) +
+                " lines=" + lines + " links=" + links + " sanitize=" + sanitize);
 
         Bundle args = new Bundle();
         args.putLong("id", id);
+        args.putCharSequence("selected", selected);
         args.putBoolean("sanitize", sanitize);
 
         new SimpleTask<String>() {
@@ -224,6 +228,7 @@ public class ActivityCode extends ActivityBase {
             @Override
             protected String onExecute(Context context, Bundle args) throws Throwable {
                 long id = args.getLong("id");
+                CharSequence selected = args.getCharSequence("selected");
                 boolean sanitize = args.getBoolean("sanitize");
 
                 DB db = DB.getInstance(context);
@@ -233,8 +238,14 @@ public class ActivityCode extends ActivityBase {
 
                 args.putString("subject", message.subject);
 
-                File file = message.getFile(context);
-                Document d = JsoupEx.parse(file);
+                Document d;
+                if (selected == null) {
+                    File file = message.getFile(context);
+                    d = JsoupEx.parse(file);
+                } else {
+                    String html = HtmlHelper.toHtml((Spanned) selected, context);
+                    d = JsoupEx.parse(html);
+                }
 
                 if (sanitize) {
                     List<CSSStyleSheet> sheets =
@@ -253,7 +264,10 @@ public class ActivityCode extends ActivityBase {
                     d.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
                 }
 
-                return d.html();
+                if (selected == null)
+                    return d.html();
+                else
+                    return d.body().html();
             }
 
             @Override
