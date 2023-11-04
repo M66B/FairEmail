@@ -282,6 +282,7 @@ public class ActivityCode extends ActivityBase {
                         "<html>" +
                         "<head>" +
                         "  <meta charset=\"utf-8\" />" +
+                        "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=0.5\" />" +
                         "  <link href=\"file:///android_asset/prism.css\" rel=\"stylesheet\" />" +
                         (links ? "  <link href=\"file:///android_asset/prism-autolinker.min.css\" rel=\"stylesheet\" />" : "") +
                         "  <style>" +
