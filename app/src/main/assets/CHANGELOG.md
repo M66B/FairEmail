@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2118 - 2023-11-04
 
 * Added native *View source* (HTML) with syntax highlighting, etc.
 * Added configurable button for *View source*
