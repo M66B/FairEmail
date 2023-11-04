@@ -90,6 +90,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.inputmethod.EditorInfo;
 import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
@@ -7415,7 +7416,11 @@ public class FragmentCompose extends FragmentBase {
 
             } else if (action == R.id.action_send) {
                 state = State.NONE;
-                view.performHapticFeedback(HapticFeedbackConstants.CONFIRM);
+                FragmentActivity activity = getActivity();
+                Window window = (activity == null ? null : activity.getWindow());
+                View decor = (window == null ? null : window.getDecorView());
+                if (decor != null)
+                    decor.performHapticFeedback(HapticFeedbackConstants.CONFIRM);
                 finish();
             }
         }
