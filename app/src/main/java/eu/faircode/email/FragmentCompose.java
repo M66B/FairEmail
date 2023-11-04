@@ -326,6 +326,7 @@ public class FragmentCompose extends FragmentBase {
     private static final int COPY_ATTACHMENT_TIMEOUT = 60; // seconds
 
     private static final int MAX_QUOTE_LEVEL = 5;
+    private static final int MAX_REASONABLE_SIZE = 5 * 1024 * 1024;
 
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
@@ -6922,7 +6923,10 @@ public class FragmentCompose extends FragmentBase {
                         }
                     }
 
-                    Helper.writeText(draft.getFile(context), body);
+                    File f = draft.getFile(context);
+                    Helper.writeText(f, body);
+                    if (f.length() > MAX_REASONABLE_SIZE)
+                        args.putBoolean("large", true);
 
                     String full = HtmlHelper.getFullText(body);
                     draft.preview = HtmlHelper.getPreview(full);
@@ -7295,6 +7299,9 @@ public class FragmentCompose extends FragmentBase {
 
             bottom_navigation.getMenu().findItem(R.id.action_undo).setVisible(draft.revision > 1);
             bottom_navigation.getMenu().findItem(R.id.action_redo).setVisible(draft.revision < draft.revisions);
+
+            if (args.getBoolean("large"))
+                ToastEx.makeText(getContext(), R.string.title_large_body, Toast.LENGTH_LONG).show();
 
             if (args.getBundle("extras").getBoolean("silent")) {
                 etBody.setTag(null);

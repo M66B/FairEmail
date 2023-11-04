@@ -2237,6 +2237,7 @@
     <string name="title_no_ask_again">Do not ask this again</string>
     <string name="title_no_ask_for_again">Do not ask this again for %1$s</string>
     <string name="title_no_body">No message text found</string>
+    <string name="title_large_body">This message is very large and this may cause problems!</string>
     <string name="title_no_charset">Unsupported encoding: %1$s</string>
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 hour</string>
