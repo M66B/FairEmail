@@ -425,7 +425,7 @@ public class ActivitySignature extends ActivityBase {
     }
 
     private String getHtml() {
-        etText.clearComposingText();
+        HtmlHelper.clearComposingText(etText);
 
         if (etText.isRaw()) {
             saved = etText.getText().toString();

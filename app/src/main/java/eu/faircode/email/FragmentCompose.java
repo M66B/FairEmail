@@ -1546,7 +1546,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             private void convertRef(boolean plain) {
-                etBody.clearComposingText();
+                HtmlHelper.clearComposingText(etBody);
 
                 Bundle args = new Bundle();
                 args.putLong("id", working);
@@ -1630,7 +1630,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
             private void deleteRef() {
-                etBody.clearComposingText();
+                HtmlHelper.clearComposingText(etBody);
 
                 Bundle extras = new Bundle();
                 extras.putString("html", HtmlHelper.toHtml(etBody.getText(), getContext()));
@@ -2478,7 +2478,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onMenuAnswerCreate() {
-        etBody.clearComposingText();
+        HtmlHelper.clearComposingText(etBody);
 
         Bundle args = new Bundle();
         args.putString("subject", etSubject.getText().toString());
@@ -2788,7 +2788,7 @@ public class FragmentCompose extends FragmentBase {
                     if (paragraph == null)
                         return;
 
-                    etBody.clearComposingText();
+                    HtmlHelper.clearComposingText(etBody);
 
                     Editable edit = etBody.getText();
                     CharSequence text = edit.subSequence(paragraph.first, paragraph.second);
@@ -2918,7 +2918,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onLanguageTool(int start, int end, boolean silent) {
-        etBody.clearComposingText();
+        HtmlHelper.clearComposingText(etBody);
 
         Log.i("LT running enabled=" + etBody.isSuggestionsEnabled());
 
@@ -3589,7 +3589,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void onAddAttachment(List<Uri> uris, String[] types, boolean image, int resize, boolean privacy, boolean focus) {
-        etBody.clearComposingText();
+        HtmlHelper.clearComposingText(etBody);
 
         Bundle args = new Bundle();
         args.putLong("id", working);
@@ -4941,7 +4941,7 @@ public class FragmentCompose extends FragmentBase {
             }
 
         // Workaround underlines left by Android
-        etBody.clearComposingText();
+        HtmlHelper.clearComposingText(etBody);
 
         Editable e = etBody.getText();
         boolean notext = e.toString().trim().isEmpty();
@@ -7875,7 +7875,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void clearSearch() {
-        etBody.clearComposingText();
+        HtmlHelper.clearComposingText(etBody);
     }
 
     private AdapterView.OnItemSelectedListener identitySelected = new AdapterView.OnItemSelectedListener() {

@@ -207,7 +207,7 @@ public class EditTextMultiAutoComplete extends AppCompatMultiAutoCompleteTextVie
 
     @Override
     protected void replaceText(CharSequence text) {
-        clearComposingText();
+        HtmlHelper.clearComposingText(this);
 
         Editable edit = getText();
         int _end = getSelectionEnd();

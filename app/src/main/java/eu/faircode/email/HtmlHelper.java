@@ -53,12 +53,14 @@ import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
+import android.text.style.SuggestionSpan;
 import android.text.style.TypefaceSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -3933,6 +3935,21 @@ public class HtmlHelper {
                 .removeAttr("x-list-level")
                 .removeAttr("x-plain")
                 .remove("x-keep-line");
+    }
+
+    static void clearComposingText(TextView view) {
+        view.clearComposingText();
+
+        CharSequence text = view.getText();
+        if (text instanceof Spannable) {
+            Spannable edit = (Spannable) text;
+            Object[] spans = edit.getSpans(0, edit.length(), Object.class);
+            if (spans == null || spans.length == 0)
+                return;
+            for (Object span : spans)
+                if (span instanceof SuggestionSpan)
+                    edit.removeSpan(span);
+        }
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {

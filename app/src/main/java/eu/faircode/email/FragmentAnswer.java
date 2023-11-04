@@ -428,7 +428,7 @@ public class FragmentAnswer extends FragmentBase {
     }
 
     private void onActionSave() {
-        etText.clearComposingText();
+        HtmlHelper.clearComposingText(etText);
 
         // Prevent splitting placeholders
         Editable edit = etText.getText();
@@ -642,7 +642,7 @@ public class FragmentAnswer extends FragmentBase {
     }
 
     private void onLanguageTool() {
-        etText.clearComposingText();
+        HtmlHelper.clearComposingText(etText);
 
         Bundle args = new Bundle();
         args.putCharSequence("text", etText.getText());

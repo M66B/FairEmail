@@ -8140,7 +8140,7 @@ public class FragmentMessages extends FragmentBase
     private void clearSearch() {
         if (searchView == null)
             return;
-        searchView.clearComposingText();
+        HtmlHelper.clearComposingText(searchView);
 
         View itemView = rvMessage.findContainingItemView(searchView);
         if (itemView == null)
