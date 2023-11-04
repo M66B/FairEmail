@@ -634,6 +634,8 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                         (ex instanceof IllegalArgumentException ||
                                 ex instanceof FileNotFoundException ||
                                 ex instanceof SecurityException);
+                if (ex instanceof SecurityException)
+                    ex = new Throwable("No write permission has been granted by the file selector", ex);
                 Log.unexpectedError(getParentFragmentManager(), ex, !expected);
             }
         }.execute(this, args, "setup:export");
@@ -1291,6 +1293,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 if (ex instanceof NoStreamException)
                     ((NoStreamException) ex).report(getActivity());
                 else {
+                    if (ex instanceof SecurityException)
+                        ex = new Throwable("No read permission has been granted by the file selector", ex);
+
                     SpannableStringBuilder ssb = new SpannableStringBuilderEx();
                     if (ex.getCause() instanceof BadPaddingException /* GCM: AEADBadTagException */)
                         ssb.append(getString(R.string.title_setup_password_invalid));
