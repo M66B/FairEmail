@@ -227,6 +227,7 @@ public class ActivityCode extends ActivityBase {
 
         menu.findItem(R.id.menu_lines).setChecked(lines);
         menu.findItem(R.id.menu_links).setChecked(links);
+        menu.findItem(R.id.menu_check_html).setVisible(BuildConfig.DEBUG || debug);
 
         return super.onPrepareOptionsMenu(menu);
     }
