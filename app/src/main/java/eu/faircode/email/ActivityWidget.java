@@ -268,7 +268,7 @@ public class ActivityWidget extends ActivityBase {
                 int pos = spFontSize.getSelectedItemPosition();
 
                 SharedPreferences.Editor editor = prefs.edit();
-                if (folder == null) {
+                if (folder == null || folder.id < 0) {
                     if (account != null && account.id > 0)
                         editor.putString("widget." + appWidgetId + ".name", account.name);
                     else
