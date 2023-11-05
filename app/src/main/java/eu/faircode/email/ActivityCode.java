@@ -307,7 +307,8 @@ public class ActivityCode extends ActivityBase {
                         "  <link href=\"file:///android_asset/prism.css\" rel=\"stylesheet\" />" +
                         (links ? "  <link href=\"file:///android_asset/prism-autolinker.min.css\" rel=\"stylesheet\" />" : "") +
                         "  <style>" +
-                        "    body { font-size: smaller !important; }" +
+                        "    body { margin: 0 !important; font-size: smaller !important; }" +
+                        "    pre { margin-top: 0 !important; margin-bottom: 0 !important }" +
                         "  </style>" +
                         "</head>" +
                         "<body>" +
