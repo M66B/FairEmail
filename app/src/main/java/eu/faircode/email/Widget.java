@@ -79,7 +79,7 @@ public class Widget extends AppWidgetProvider {
                     PendingIntent pi;
                     if (folders.size() == 1 || folder >= 0) {
                         Intent view = new Intent(context, ActivityView.class);
-                        view.setAction("folder:" + folders.get(0).id);
+                        view.setAction("folder:" + (folder < 0 ? folders.get(0).id : folder));
                         view.putExtra("account", account);
                         view.putExtra("type", folders.get(0).type);
                         view.putExtra("refresh", true);
