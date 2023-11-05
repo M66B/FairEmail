@@ -6,6 +6,13 @@ For support you can use the contact form.
 
 Vallibonavenatrix
 
+Next version
+
+* Added selection of folder for new message count widget
+* Added dark mode, showing colors and searching to message source view
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2118 - 2023-11-04
 
 * Added native *View source* (HTML) with syntax highlighting, etc.
