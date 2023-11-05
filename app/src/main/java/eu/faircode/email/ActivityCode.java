@@ -40,6 +40,7 @@ import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebSettingsCompat;
@@ -66,6 +67,7 @@ public class ActivityCode extends ActivityBase {
     private boolean sanitize = false;
     private boolean lines = false;
     private boolean links = false;
+    private String searching = null;
 
     private static final int REQUEST_SAVE = 1;
 
@@ -78,6 +80,7 @@ public class ActivityCode extends ActivityBase {
             sanitize = savedInstanceState.getBoolean("fair:sanitize");
             lines = savedInstanceState.getBoolean("fair:lines");
             links = savedInstanceState.getBoolean("fair:links");
+            searching = savedInstanceState.getString("fair:searching");
         }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -151,6 +154,7 @@ public class ActivityCode extends ActivityBase {
         outState.putBoolean("fair:sanitize", sanitize);
         outState.putBoolean("fair:lines", lines);
         outState.putBoolean("fair:links", links);
+        outState.putString("fair:searching", searching);
         super.onSaveInstanceState(outState);
     }
 
@@ -158,6 +162,41 @@ public class ActivityCode extends ActivityBase {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_code, menu);
+
+        final String saved = searching;
+        final MenuItem menuSearch = menu.findItem(R.id.menu_search);
+        final SearchView searchView = (SearchView) menuSearch.getActionView();
+
+        if (searchView != null)
+            searchView.setQueryHint(getString(R.string.title_search));
+
+        if (searchView != null) {
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    search(query);
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    search(newText);
+                    return false;
+                }
+
+                private void search(String query) {
+                    searching = query;
+                    if (wvCode != null)
+                        wvCode.findAllAsync(query);
+                }
+            });
+
+            if (!TextUtils.isEmpty(saved)) {
+                menuSearch.expandActionView();
+                searchView.setQuery(saved, false);
+            }
+        }
+
         return true;
     }
 
@@ -174,7 +213,6 @@ public class ActivityCode extends ActivityBase {
 
         menu.findItem(R.id.menu_sanitize)
                 .setVisible(BuildConfig.DEBUG || debug)
-                .setChecked(sanitize)
                 .setIcon(sanitize
                         ? R.drawable.twotone_fullscreen_24
                         : R.drawable.twotone_fullscreen_exit_24)
@@ -193,7 +231,7 @@ public class ActivityCode extends ActivityBase {
         int itemId = item.getItemId();
         if (itemId == R.id.menu_force_light) {
             force_light = !force_light;
-            invalidateOptionsMenu();
+            item.getIcon().setLevel(force_light ? 1 : 0);
             setDarkMode();
             return true;
         } else if (itemId == R.id.menu_sanitize) {
