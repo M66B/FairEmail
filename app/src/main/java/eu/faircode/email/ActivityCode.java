@@ -72,6 +72,7 @@ public class ActivityCode extends ActivityBase {
     private boolean sanitize = false;
     private boolean lines = false;
     private boolean links = false;
+    private boolean pretty = true;
     private String searching = null;
 
     private static final int REQUEST_SAVE = 1;
@@ -85,6 +86,7 @@ public class ActivityCode extends ActivityBase {
             sanitize = savedInstanceState.getBoolean("fair:sanitize");
             lines = savedInstanceState.getBoolean("fair:lines");
             links = savedInstanceState.getBoolean("fair:links");
+            pretty = savedInstanceState.getBoolean("fair:pretty");
             searching = savedInstanceState.getString("fair:searching");
         }
 
@@ -159,6 +161,7 @@ public class ActivityCode extends ActivityBase {
         outState.putBoolean("fair:sanitize", sanitize);
         outState.putBoolean("fair:lines", lines);
         outState.putBoolean("fair:links", links);
+        outState.putBoolean("fair:pretty", pretty);
         outState.putString("fair:searching", searching);
         super.onSaveInstanceState(outState);
     }
@@ -227,7 +230,7 @@ public class ActivityCode extends ActivityBase {
 
         menu.findItem(R.id.menu_lines).setChecked(lines);
         menu.findItem(R.id.menu_links).setChecked(links);
-        menu.findItem(R.id.menu_check_html).setVisible(BuildConfig.DEBUG || debug);
+        menu.findItem(R.id.menu_pretty).setChecked(pretty);
 
         return super.onPrepareOptionsMenu(menu);
     }
@@ -256,6 +259,11 @@ public class ActivityCode extends ActivityBase {
         } else if (itemId == R.id.menu_links) {
             links = !links;
             item.setChecked(links);
+            load();
+            return true;
+        } else if (itemId == R.id.menu_pretty) {
+            pretty = !pretty;
+            item.setChecked(pretty);
             load();
             return true;
         } else if (itemId == R.id.menu_check_html) {
@@ -303,6 +311,7 @@ public class ActivityCode extends ActivityBase {
         args.putLong("id", id);
         args.putCharSequence("selected", selected);
         args.putBoolean("sanitize", sanitize);
+        args.putBoolean("pretty", pretty);
 
         new SimpleTask<String>() {
             @Override
@@ -320,6 +329,7 @@ public class ActivityCode extends ActivityBase {
                 long id = args.getLong("id");
                 CharSequence selected = args.getCharSequence("selected");
                 boolean sanitize = args.getBoolean("sanitize");
+                boolean pretty = args.getBoolean("pretty");
 
                 DB db = DB.getInstance(context);
                 EntityMessage message = db.message().getMessage(id);
@@ -354,8 +364,8 @@ public class ActivityCode extends ActivityBase {
                 }
 
                 d.outputSettings()
-                        .prettyPrint(true)
-                        .outline(true)
+                        .prettyPrint(pretty)
+                        .outline(pretty)
                         .indentAmount(1);
 
                 if (selected == null)
@@ -421,6 +431,10 @@ public class ActivityCode extends ActivityBase {
 
             @Override
             protected void onExecuted(Bundle args, ParseErrorList errors) {
+                lines = true;
+                pretty = false;
+                load();
+
                 SpannableStringBuilderEx ssb = new SpannableStringBuilderEx();
                 ssb.append("Errors: ")
                         .append(Integer.toString(errors.size()))

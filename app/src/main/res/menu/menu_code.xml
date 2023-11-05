@@ -23,13 +23,19 @@
     <item
         android:id="@+id/menu_lines"
         android:checkable="true"
-        android:title="@string/title_legend_line_numbers"
+        android:title="@string/title_code_line_numbers"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_links"
         android:checkable="true"
-        android:title="@string/title_legend_enable_links"
+        android:title="@string/title_code_enable_links"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_pretty"
+        android:checkable="true"
+        android:title="@string/title_code_pretty"
         app:showAsAction="never" />
 
     <item

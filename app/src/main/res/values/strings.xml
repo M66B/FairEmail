@@ -2031,6 +2031,10 @@
     <string name="title_rule_alarm_title">Alarm</string>
     <string name="title_rule_alarm_stop">Stop</string>
 
+    <string name="title_code_line_numbers">Show line numbers</string>
+    <string name="title_code_enable_links">Enable links</string>
+    <string name="title_code_pretty">Pretty print</string>
+
     <string name="title_legend_section_synchronize">Synchronize</string>
     <string name="title_legend_section_folders">Folders</string>
     <string name="title_legend_section_messages">Messages</string>
@@ -2138,8 +2142,6 @@
     <string name="title_legend_show_amp">Show AMP variant</string>
     <string name="title_legend_show_full">Show original message</string>
     <string name="title_legend_show_reformatted">Show reformatted message</string>
-    <string name="title_legend_line_numbers">Show line numbers</string>
-    <string name="title_legend_enable_links">Enable links</string>
     <string name="title_legend_edit">Edit</string>
     <string name="title_legend_default_color">Default color</string>
     <string name="title_legend_close_hint">Close hint</string>
