@@ -3961,6 +3961,9 @@ Some companion apps ignore [local only](https://developer.android.com/training/w
 causing the summary notification (*nnn new messages*) to be bridged.
 Unfortunately, it is not possible to workaround this problem.
 
+Some smartwatches do not display notifications with non-[ASCII](https://en.wikipedia.org/wiki/ASCII) characters,
+in which can you can enable the option *ASCII text only* in the display settings tab page.
+
 Ongoing notifications shouldn't be bridged, but some companion apps bridge all notifications.
 This results in the "monitoring" status bar notification to be bridged.
 The workaround is to disable this notification, see [this FAQ](#faq2).

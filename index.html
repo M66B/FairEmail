@@ -109,7 +109,7 @@
 <li><del>The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.</del></li>
 <li><del>A <a href="https://issuetracker.google.com/issues/64729576">bug in AndroidX</a> makes it hard to grap the fast scroller. A workaround was added.</del></li>
 <li><del>Encryption with YubiKey results into an infinite loop. This seems to be caused by a <a href="https://github.com/open-keychain/open-keychain/issues/2507">bug in OpenKeychain</a>.</del></li>
-<li>A preview of a message text doesn’t (always) appear on Samsung watches because <a href="https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)">setLocalOnly</a> seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also <a href="#faq126">this FAQ</a>.</li>
+<li>A preview of a message text doesn’t (always) appear on Samsung watches because <a href="https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)">setLocalOnly</a> seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP smartwatches. See also <a href="#faq126">this FAQ</a>.</li>
 <li>A <a href="https://issuetracker.google.com/issues/37068143">bug in Android 6.0</a> causes a crash with <em>… Invalid offset: … Valid range is …</em> when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.</li>
 <li>Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.</li>
 <li>Language detection <a href="https://issuetracker.google.com/issues/173337263">is not working anymore</a> on Pixel devices with (upgraded to?) Android 11</li>
@@ -304,7 +304,7 @@
 <li><a href="#faq123">(123) What will happen when FairEmail cannot connect to an email server?</a></li>
 <li><a href="#faq124">(124) Why do I get ‘Message too large or too complex to display’?</a></li>
 <li><a href="#faq125">(125) What are the current experimental features?</a></li>
-<li><a href="#faq126">(126) Can message previews be sent to my wearable?</a></li>
+<li><a href="#faq126">(126) Can message previews be sent to my smartwatch?</a></li>
 <li><a href="#faq127">(127) How can I fix ‘Syntactically invalid HELO argument(s)’?</a></li>
 <li><a href="#faq128">(128) How can I reset asked questions, for example to show images?</a></li>
 <li><a href="#faq129">(129) Are ProtonMail, Tutanota, etc supported?</a></li>
@@ -2014,19 +2014,20 @@ $NotDisplayed</code></pre>
 <p><em>Block toolbar (version 1.1967+)</em></p>
 <p>When enabled in the three-dots overflow menu of the message editor, a toolbar to perform operations (align text, insert list, indent text, insert blockquote) on a block of text (consecutive non-empty lines) will be shown.</p>
 <p><br /></p>
-<p><a name="faq126"></a> <strong>(126) Can message previews be sent to my wearable?</strong></p>
+<p><a name="faq126"></a> <strong>(126) Can message previews be sent to my smartwatch?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq126">Google Translate</a></p>
 <p>FairEmail fetches a message in two steps:</p>
 <ol type="1">
 <li>Fetch message headers</li>
 <li>Fetch message text and attachments</li>
 </ol>
-<p>Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates existing notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.</p>
-<p>Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.</p>
-<p>If you think this is good enough, you can enable the notification option <em>Only send notifications with a message preview to wearables</em> and if this does not work, you can try to enable the notification option <em>Show notifications with a preview text only</em>. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).</p>
-<p>If you want to have the full message text sent to your wearable, you can enable the notification option <em>Preview all text</em>. Note that some wearables are known to crash with this option enabled.</p>
-<p>If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FairEmail when the setting <em>Notifications</em>, <em>Apps installed in the future</em> is turned off in this app.</p>
+<p>Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates existing notifications with a preview of the message text, but unfortunately smartwatch notifications cannot be updated.</p>
+<p>Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a smartwatch.</p>
+<p>If you think this is good enough, you can enable the notification option <em>Only send notifications with a message preview to smartwatches</em> and if this does not work, you can try to enable the notification option <em>Show notifications with a preview text only</em>. Note that this applies to smartwatches not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).</p>
+<p>If you want to have the full message text sent to your smartwatch, you can enable the notification option <em>Preview all text</em>. Note that some smartwatches are known to crash with this option enabled.</p>
+<p>If you use a Samsung smartwatch with the Galaxy smartwatch (Samsung Gear) app, you might need to enable notifications for FairEmail when the setting <em>Notifications</em>, <em>Apps installed in the future</em> is turned off in this app.</p>
 <p>Some companion apps ignore <a href="https://developer.android.com/training/wearables/notifications/bridger#non-bridged">local only</a> notifications, causing the summary notification (<em>nnn new messages</em>) to be bridged. Unfortunately, it is not possible to workaround this problem.</p>
+<p>Some smartwatches do not display notifications with non-<a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> characters, in which can you can enable the option <em>ASCII text only</em> in the display settings tab page.</p>
 <p>Ongoing notifications shouldn’t be bridged, but some companion apps bridge all notifications. This results in the “monitoring” status bar notification to be bridged. The workaround is to disable this notification, see <a href="#faq2">this FAQ</a>.</p>
 <p><br /></p>
 <p><a name="faq127"></a> <strong>(127) How can I fix ‘Syntactically invalid HELO argument(s)’?</strong></p>
