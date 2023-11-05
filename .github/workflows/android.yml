@@ -1,12 +1,12 @@
 name: Android CI
-run-name: ${{github.workflow}} - ${{github.sha}}
+run-name: ${{github.workflow}} - ${{vars.TAG}} - ${{github.sha}}
 
 on:
   workflow_dispatch:
     inputs:
-          password:
-            description: 'Password'
-            required: true
+      password:
+        description: 'Password'
+        required: true
 
 jobs:
   build:
