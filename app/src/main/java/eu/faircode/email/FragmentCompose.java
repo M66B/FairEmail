@@ -7416,12 +7416,7 @@ public class FragmentCompose extends FragmentBase {
             } else if (action == R.id.action_send) {
                 state = State.NONE;
                 view.performHapticFeedback(HapticFeedbackConstants.CONFIRM);
-                view.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        finish();
-                    }
-                }, 20);
+                finish();
             }
         }
 
