@@ -40,14 +40,19 @@ import android.widget.Toast;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SearchView;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
 import androidx.webkit.WebSettingsCompat;
 import androidx.webkit.WebViewFeature;
 
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.parser.ParseError;
+import org.jsoup.parser.ParseErrorList;
+import org.jsoup.parser.Parser;
 import org.w3c.dom.css.CSSStyleSheet;
 
 import java.io.File;
@@ -252,6 +257,9 @@ public class ActivityCode extends ActivityBase {
             item.setChecked(links);
             load();
             return true;
+        } else if (itemId == R.id.menu_check_html) {
+            checkHtml();
+            return true;
         } else if (itemId == R.id.menu_save) {
             selectFile();
             return true;
@@ -391,6 +399,51 @@ public class ActivityCode extends ActivityBase {
                 Log.unexpectedError(getSupportFragmentManager(), ex, false);
             }
         }.execute(this, args, "code:view");
+    }
+
+    private void checkHtml() {
+        Intent intent = getIntent();
+        long id = intent.getLongExtra("id", -1L);
+        Bundle args = new Bundle();
+        args.putLong("id", id);
+
+        new SimpleTask<ParseErrorList>() {
+            @Override
+            protected ParseErrorList onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+
+                File file = EntityMessage.getFile(context, id);
+                Parser parser = Parser.htmlParser().setTrackErrors(20);
+                Jsoup.parse(file, StandardCharsets.UTF_8.name(), "", parser);
+                return parser.getErrors();
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, ParseErrorList errors) {
+                SpannableStringBuilderEx ssb = new SpannableStringBuilderEx();
+                ssb.append("Errors: ")
+                        .append(Integer.toString(errors.size()))
+                        .append("\n\n");
+                for (ParseError error : errors)
+                    ssb.append("At ")
+                            .append(error.getCursorPos())
+                            .append(' ')
+                            .append(error.getErrorMessage())
+                            .append("\n\n");
+
+                new AlertDialog.Builder(ActivityCode.this)
+                        .setIcon(R.drawable.twotone_bug_report_24)
+                        .setTitle(R.string.title_check_html)
+                        .setMessage(ssb)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .show();
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getSupportFragmentManager(), ex);
+            }
+        }.execute(this, args, "code:check");
     }
 
     private void selectFile() {

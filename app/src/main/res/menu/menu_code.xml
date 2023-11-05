@@ -33,6 +33,11 @@
         app:showAsAction="never" />
 
     <item
+        android:id="@+id/menu_check_html"
+        android:title="@string/title_check_html"
+        app:showAsAction="never" />
+
+    <item
         android:id="@+id/menu_save"
         android:title="@string/title_save"
         app:showAsAction="never" />
