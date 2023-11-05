@@ -42,6 +42,8 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
 import androidx.preference.PreferenceManager;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -60,9 +62,10 @@ public class ActivityCode extends ActivityBase {
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
 
+    private boolean force_light = false;
+    private boolean sanitize = false;
     private boolean lines = false;
     private boolean links = false;
-    private boolean sanitize = false;
 
     private static final int REQUEST_SAVE = 1;
 
@@ -71,9 +74,10 @@ public class ActivityCode extends ActivityBase {
         super.onCreate(savedInstanceState);
 
         if (savedInstanceState != null) {
+            force_light = savedInstanceState.getBoolean("fair:force_light");
+            sanitize = savedInstanceState.getBoolean("fair:sanitize");
             lines = savedInstanceState.getBoolean("fair:lines");
             links = savedInstanceState.getBoolean("fair:links");
-            sanitize = savedInstanceState.getBoolean("fair:sanitize");
         }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -105,6 +109,8 @@ public class ActivityCode extends ActivityBase {
         settings.setBlockNetworkLoads(true);
         settings.setBlockNetworkImage(true);
         settings.setJavaScriptEnabled(true);
+
+        setDarkMode();
 
         wvCode.setWebViewClient(new WebViewClient() {
             @Override
@@ -141,9 +147,10 @@ public class ActivityCode extends ActivityBase {
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
+        outState.putBoolean("fair:force_light", force_light);
+        outState.putBoolean("fair:sanitize", sanitize);
         outState.putBoolean("fair:lines", lines);
         outState.putBoolean("fair:links", links);
-        outState.putBoolean("fair:sanitize", sanitize);
         super.onSaveInstanceState(outState);
     }
 
@@ -158,6 +165,12 @@ public class ActivityCode extends ActivityBase {
     public boolean onPrepareOptionsMenu(Menu menu) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean debug = prefs.getBoolean("debug", false);
+
+        boolean dark = Helper.isDarkTheme(this);
+        boolean canDarken = WebViewEx.isFeatureSupported(this, WebViewFeature.ALGORITHMIC_DARKENING);
+        menu.findItem(R.id.menu_force_light)
+                .setVisible(dark && canDarken)
+                .getIcon().setLevel(force_light ? 1 : 0);
 
         menu.findItem(R.id.menu_sanitize)
                 .setVisible(BuildConfig.DEBUG || debug)
@@ -178,7 +191,12 @@ public class ActivityCode extends ActivityBase {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.menu_sanitize) {
+        if (itemId == R.id.menu_force_light) {
+            force_light = !force_light;
+            invalidateOptionsMenu();
+            setDarkMode();
+            return true;
+        } else if (itemId == R.id.menu_sanitize) {
             sanitize = !sanitize;
             invalidateOptionsMenu();
             load();
@@ -217,6 +235,14 @@ public class ActivityCode extends ActivityBase {
         } catch (Throwable ex) {
             Log.e(ex);
         }
+    }
+
+    private void setDarkMode() {
+        WebSettings settings = wvCode.getSettings();
+        boolean dark = (Helper.isDarkTheme(this) && !force_light);
+        boolean canDarken = WebViewEx.isFeatureSupported(this, WebViewFeature.ALGORITHMIC_DARKENING);
+        if (canDarken)
+            WebSettingsCompat.setAlgorithmicDarkeningAllowed(settings, dark);
     }
 
     private void load() {
