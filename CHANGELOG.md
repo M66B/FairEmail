@@ -8,8 +8,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Added selection of folder for new message count widget
-* Added dark mode, showing colors and searching to message source view
+* Added folder selection for new message count widget
+* Added dark mode, showing colors, check HTML and searching to message source view
+* Added option for ASCII-only notifications (for some smartwatches)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
