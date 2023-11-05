@@ -568,7 +568,7 @@ public interface DaoMessage {
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
     @Transaction
-    @Query("SELECT account.id AS account," +
+    @Query("SELECT account.id AS account, folder.id AS folder," +
             " COUNT(message.id) AS unseen," +
             " SUM(CASE WHEN account.created IS NULL OR message.received > account.created OR message.sent > account.created THEN NOT ui_ignored ELSE 0 END) AS notifying" +
             " FROM message" +
@@ -579,11 +579,11 @@ public interface DaoMessage {
             " AND folder.notify" +
             " AND message.notifying <> " + EntityMessage.NOTIFYING_IGNORE +
             " AND NOT (message.ui_seen OR message.ui_hide)" +
-            " GROUP BY account.id" +
-            " ORDER BY account.id")
+            " GROUP BY folder.id" +
+            " ORDER BY folder.id")
     LiveData<List<TupleMessageStats>> liveWidgetUnseen(Long account);
 
-    @Query("SELECT :account AS account," +
+    @Query("SELECT :account AS account, folder.id AS folder," +
             " COUNT(message.id) AS unseen," +
             " SUM(CASE WHEN account.created IS NULL OR message.received > account.created OR message.sent > account.created THEN NOT ui_ignored ELSE 0 END) AS notifying" +
             " FROM message" +
@@ -591,10 +591,11 @@ public interface DaoMessage {
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND account.`synchronize`" +
+            " AND (:folder IS NULL OR folder.id = :folder)" +
             " AND folder.notify" +
             " AND message.notifying <> " + EntityMessage.NOTIFYING_IGNORE +
             " AND NOT (message.ui_seen OR message.ui_hide)")
-    TupleMessageStats getWidgetUnseen(Long account);
+    TupleMessageStats getWidgetUnseen(Long account, Long folder);
 
     @Transaction
     @Query("SELECT folder, COUNT(*) AS total" +

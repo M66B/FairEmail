@@ -26,6 +26,7 @@ import java.util.Objects;
 
 public class TupleMessageStats {
     public Long account;
+    public Long folder;
     public Integer unseen;
     public Integer notifying;
 
@@ -34,6 +35,7 @@ public class TupleMessageStats {
         if (obj instanceof TupleMessageStats) {
             TupleMessageStats other = (TupleMessageStats) obj;
             return (Objects.equals(this.account, other.account) &&
+                    Objects.equals(this.folder, other.folder) &&
                     Objects.equals(this.unseen, other.unseen) &&
                     Objects.equals(this.notifying, other.notifying));
         } else

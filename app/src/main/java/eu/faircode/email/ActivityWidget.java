@@ -29,6 +29,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -39,6 +40,8 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.ColorUtils;
@@ -49,12 +52,14 @@ import com.flask.colorpicker.builder.ColorPickerClickListener;
 import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ActivityWidget extends ActivityBase {
     private int appWidgetId;
 
     private Spinner spAccount;
+    private Spinner spFolder;
     private CheckBox cbDayNight;
     private CheckBox cbSemiTransparent;
     private ViewButtonColor btnBgColor;
@@ -70,6 +75,7 @@ public class ActivityWidget extends ActivityBase {
     private Group grpReady;
 
     private ArrayAdapter<EntityAccount> adapterAccount;
+    private ArrayAdapter<EntityFolder> adapterFolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +92,7 @@ public class ActivityWidget extends ActivityBase {
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
+        long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
         boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
         boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
         int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
@@ -101,6 +108,7 @@ public class ActivityWidget extends ActivityBase {
         setContentView(R.layout.activity_widget);
 
         spAccount = findViewById(R.id.spAccount);
+        spFolder = findViewById(R.id.spFolder);
         cbDayNight = findViewById(R.id.cbDayNight);
         cbSemiTransparent = findViewById(R.id.cbSemiTransparent);
         btnBgColor = findViewById(R.id.btnBgColor);
@@ -256,14 +264,19 @@ public class ActivityWidget extends ActivityBase {
             @Override
             public void onClick(View view) {
                 EntityAccount account = (EntityAccount) spAccount.getSelectedItem();
+                EntityFolder folder = (EntityFolder) spFolder.getSelectedItem();
                 int pos = spFontSize.getSelectedItemPosition();
 
                 SharedPreferences.Editor editor = prefs.edit();
-                if (account != null && account.id > 0)
-                    editor.putString("widget." + appWidgetId + ".name", account.name);
-                else
-                    editor.remove("widget." + appWidgetId + ".name");
+                if (folder == null) {
+                    if (account != null && account.id > 0)
+                        editor.putString("widget." + appWidgetId + ".name", account.name);
+                    else
+                        editor.remove("widget." + appWidgetId + ".name");
+                } else
+                    editor.putString("widget." + appWidgetId + ".name", folder.getDisplayName(ActivityWidget.this));
                 editor.putLong("widget." + appWidgetId + ".account", account == null ? -1L : account.id);
+                editor.putLong("widget." + appWidgetId + ".folder", folder == null ? -1L : folder.id);
                 editor.putBoolean("widget." + appWidgetId + ".daynight", cbDayNight.isChecked());
                 editor.putBoolean("widget." + appWidgetId + ".semi", cbSemiTransparent.isChecked());
                 editor.putInt("widget." + appWidgetId + ".background", btnBgColor.getColor());
@@ -287,6 +300,89 @@ public class ActivityWidget extends ActivityBase {
         adapterAccount = new ArrayAdapter<>(this, R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityAccount>());
         adapterAccount.setDropDownViewResource(R.layout.spinner_item1_dropdown);
         spAccount.setAdapter(adapterAccount);
+
+        adapterFolder = new ArrayAdapter<EntityFolder>(this, R.layout.spinner_item1, android.R.id.text1, new ArrayList<EntityFolder>()) {
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return localize(position, super.getView(position, convertView, parent));
+            }
+
+            @Override
+            public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                return localize(position, super.getDropDownView(position, convertView, parent));
+            }
+
+            private View localize(int position, View view) {
+                EntityFolder folder = getItem(position);
+                if (folder != null) {
+                    TextView tv = view.findViewById(android.R.id.text1);
+                    tv.setText(EntityFolder.localizeName(view.getContext(), folder.name));
+                }
+                return view;
+            }
+        };
+        adapterFolder.setDropDownViewResource(R.layout.spinner_item1_dropdown);
+        spFolder.setAdapter(adapterFolder);
+
+        spAccount.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                EntityAccount account = (EntityAccount) spAccount.getAdapter().getItem(position);
+                setFolders(account.id);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                setFolders(-1);
+            }
+
+            private void setFolders(long account) {
+                Bundle args = new Bundle();
+                args.putLong("account", account);
+
+                new SimpleTask<List<EntityFolder>>() {
+                    @Override
+                    protected List<EntityFolder> onExecute(Context context, Bundle args) {
+                        long account = args.getLong("account");
+
+                        DB db = DB.getInstance(context);
+                        List<EntityFolder> folders = db.folder().getNotifyingFolders(account);
+                        if (folders != null && folders.size() > 0)
+                            Collections.sort(folders, folders.get(0).getComparator(context));
+                        return folders;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, List<EntityFolder> folders) {
+                        if (folders == null)
+                            folders = new ArrayList<>();
+
+                        EntityFolder notifying = new EntityFolder();
+                        notifying.id = -1L;
+                        notifying.name = getString(R.string.title_widget_folder_notifying);
+                        folders.add(0, notifying);
+
+                        adapterFolder.clear();
+                        adapterFolder.addAll(folders);
+
+                        int select = 0;
+                        for (int i = 0; i < folders.size(); i++)
+                            if (folders.get(i).id.equals(folder)) {
+                                select = i;
+                                break;
+                            }
+
+                        spFolder.setSelection(select);
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getSupportFragmentManager(), ex);
+                    }
+                }.execute(ActivityWidget.this, args, "widget:folders");
+            }
+        });
 
         // Initialize
         ((TextView) inOld.findViewById(R.id.tvCount)).setText("3");

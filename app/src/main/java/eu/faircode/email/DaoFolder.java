@@ -174,10 +174,11 @@ public interface DaoFolder {
             " AND folder.synchronize")
     List<EntityFolder> getSynchronizingFolders(long account);
 
-    @Query("SELECT * FROM folder" +
+    @Query("SELECT folder.* FROM folder" +
+            " JOIN account_view AS account ON account.id = folder.account" +
             " WHERE folder.account = :account" +
-            " AND folder.`synchronize`" +
-            " AND folder.notify")
+            " AND folder.notify" +
+            " AND account.`synchronize`")
     List<EntityFolder> getNotifyingFolders(long account);
 
     @Query("SELECT * FROM folder" +

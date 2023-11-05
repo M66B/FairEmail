@@ -59,6 +59,7 @@ public class Widget extends AppWidgetProvider {
                 for (int appWidgetId : appWidgetIds) {
                     String name = prefs.getString("widget." + appWidgetId + ".name", null);
                     long account = prefs.getLong("widget." + appWidgetId + ".account", -1L);
+                    long folder = prefs.getLong("widget." + appWidgetId + ".folder", -1L);
                     boolean daynight = prefs.getBoolean("widget." + appWidgetId + ".daynight", false);
                     boolean semi = prefs.getBoolean("widget." + appWidgetId + ".semi", true);
                     int background = prefs.getInt("widget." + appWidgetId + ".background", Color.TRANSPARENT);
@@ -76,7 +77,7 @@ public class Widget extends AppWidgetProvider {
                         folders = new ArrayList<>();
 
                     PendingIntent pi;
-                    if (folders.size() == 1) {
+                    if (folders.size() == 1 || folder >= 0) {
                         Intent view = new Intent(context, ActivityView.class);
                         view.setAction("folder:" + folders.get(0).id);
                         view.putExtra("account", account);
@@ -106,8 +107,11 @@ public class Widget extends AppWidgetProvider {
                         }
                     }
 
-                    TupleMessageStats stats = db.message().getWidgetUnseen(account < 0 ? null : account);
-                    EntityLog.log(context, "Widget account=" + account + " ignore=" + unseen_ignored + " " + stats);
+                    TupleMessageStats stats = db.message().getWidgetUnseen(
+                            account < 0 ? null : account,
+                            folder < 0 ? null : folder);
+                    EntityLog.log(context, "Widget account=" + account + " folder=" + folder +
+                            " ignore=" + unseen_ignored + " " + stats);
 
                     Integer unseen = (unseen_ignored ? stats.notifying : stats.unseen);
                     if (unseen == null)
