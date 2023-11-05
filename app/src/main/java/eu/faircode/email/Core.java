@@ -5525,6 +5525,8 @@ class Core {
         for (long group : data.groupNotifying.keySet())
             groupMessages.put(group, new ArrayList<>());
 
+        Map<String, Boolean> channelIdDisabled = new HashMap<>();
+
         // Current
         for (TupleMessageEx message : messages) {
             if (message.notifying == EntityMessage.NOTIFYING_IGNORE) {
@@ -5534,14 +5536,36 @@ class Core {
 
             // Check if notification channel enabled
             if (message.notifying == 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && pro) {
-                String channelId = message.getNotificationChannelId();
-                if (channelId != null) {
-                    NotificationChannel channel = nm.getNotificationChannel(channelId);
-                    if (channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE) {
-                        db.message().setMessageUiIgnored(message.id, true);
-                        Log.i("Notify disabled=" + message.id + " channel=" + channelId);
-                        continue;
-                    }
+                String mChannelId = message.getNotificationChannelId();
+                if (mChannelId != null && !channelIdDisabled.containsKey(mChannelId)) {
+                    NotificationChannel channel = nm.getNotificationChannel(mChannelId);
+                    channelIdDisabled.put(mChannelId,
+                            channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE);
+                }
+
+                String fChannelId = EntityFolder.getNotificationChannelId(message.folder);
+                if (!channelIdDisabled.containsKey(fChannelId)) {
+                    NotificationChannel channel = nm.getNotificationChannel(fChannelId);
+                    channelIdDisabled.put(fChannelId,
+                            channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE);
+                }
+
+                String aChannelId = EntityAccount.getNotificationChannelId(message.account);
+                if (!channelIdDisabled.containsKey(aChannelId)) {
+                    NotificationChannel channel = nm.getNotificationChannel(aChannelId);
+                    channelIdDisabled.put(aChannelId,
+                            channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE);
+                }
+
+                if (Boolean.TRUE.equals(channelIdDisabled.get(aChannelId)) ||
+                        Boolean.TRUE.equals(channelIdDisabled.get(fChannelId)) ||
+                        (mChannelId != null && Boolean.TRUE.equals(channelIdDisabled.get(mChannelId)))) {
+                    db.message().setMessageUiIgnored(message.id, true);
+                    Log.i("Notify disabled=" + message.id +
+                            " " + aChannelId + "=" + channelIdDisabled.get(aChannelId) +
+                            " " + mChannelId + "=" + channelIdDisabled.get(fChannelId) +
+                            " " + aChannelId + "=" + channelIdDisabled.get(mChannelId));
+                    continue;
                 }
             }
 
