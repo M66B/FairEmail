@@ -1059,6 +1059,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                 String search = query;
 
                 if (!utf8) {
+                    // Perhaps:  Transliterator.getInstance("de-ASCII");
                     search = search
                             .replace("ß", "ss") // Eszett
                             .replace("ĳ", "ij")
