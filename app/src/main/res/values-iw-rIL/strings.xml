@@ -654,6 +654,8 @@
     <string name="title_advanced_notify_preview">תצוגה מקדימה של ההודעות בהתראות</string>
     <string name="title_advanced_notify_preview_all">תצוגה מקדימה של כל הטקסט</string>
     <string name="title_advanced_notify_preview_only">הצגת התראות עם תמצית טקסט בלבד</string>
+    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">תעתיק לאותיות לטיניות</string>
+    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">טקסט ASCII בלבד</string>
     <string name="title_advanced_notify_actions">פעולות התראה</string>
     <string name="title_advanced_notify_action_trash">אשפה</string>
     <string name="title_advanced_notify_action_delete">מחיקה</string>
@@ -1724,6 +1726,9 @@
     <string name="title_rule_alarm_duration">משך ההתראה המרבי (שניות)</string>
     <string name="title_rule_alarm_title">אזעקה</string>
     <string name="title_rule_alarm_stop">עצירה</string>
+    <string name="title_code_line_numbers">הצגת מספרי שורות</string>
+    <string name="title_code_enable_links">הפעלת קישורים</string>
+    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">תבנית מסודרת</string>
     <string name="title_legend_section_synchronize">סנכרון</string>
     <string name="title_legend_section_folders">תיקיות</string>
     <string name="title_legend_section_messages">הודעות</string>
@@ -1825,7 +1830,6 @@
     <string name="title_legend_show_amp">הצגת גירסת AMP</string>
     <string name="title_legend_show_full">הצגת ההודעה המקורית</string>
     <string name="title_legend_show_reformatted">הצגת הודעה מעוצבת מחדש</string>
-    <string name="title_legend_line_numbers">הצגת מספרי שורות</string>
     <string name="title_legend_edit">עריכה</string>
     <string name="title_legend_default_color">צבע בררת מחדל</string>
     <string name="title_legend_close_hint">סגירת רמז</string>
@@ -1919,6 +1923,7 @@
     <string name="title_no_ask_again">לא לשאול אותי שוב</string>
     <string name="title_no_ask_for_again">לא לשאול אותי שוב במשך %1$s</string>
     <string name="title_no_body">לא נמצא טקסט בהודעה</string>
+    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">ההודעה הזאת גדולה מאוד ועלולה לגרום לבעיות!</string>
     <string name="title_no_charset">קידוד לא נתמך: %1$s</string>
     <string name="title_via">דרך: %1$s</string>
     <string name="title_1hour">שעה</string>
@@ -2000,6 +2005,7 @@
     <string name="title_widget_account_all">הכול</string>
     <string name="title_widget_folder">תיקייה</string>
     <string name="title_widget_folder_unified">תיקיות דואר נכנס מאוחדות</string>
+    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">תיקיות עם חיווי על הודעות חדשות</string>
     <string name="title_widget_unseen">הודעות שלא נקראו בלבד</string>
     <string name="title_widget_flagged">הודעות שמסומנות בכוכב בלבד</string>
     <string name="title_widget_font_size">גודל טקסט</string>

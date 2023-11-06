@@ -626,6 +626,8 @@
     <string name="title_advanced_notify_preview">Afficher un aperçu du message dans les notifications</string>
     <string name="title_advanced_notify_preview_all">Aperçu de tout le texte</string>
     <string name="title_advanced_notify_preview_only">Afficher les notifications avec un texte de prévisualisation uniquement</string>
+    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">Translittérer vers l\'alphabet latin</string>
+    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Texte ASCII seulement</string>
     <string name="title_advanced_notify_actions">Actions de notification</string>
     <string name="title_advanced_notify_action_trash">Supprimer</string>
     <string name="title_advanced_notify_action_delete">Supprimer</string>
@@ -1697,6 +1699,9 @@
     <string name="title_rule_alarm_duration">Durée maximale de l\'alarme (secondes)</string>
     <string name="title_rule_alarm_title">Alarme</string>
     <string name="title_rule_alarm_stop">Arrêter</string>
+    <string name="title_code_line_numbers">Afficher les numéros de ligne</string>
+    <string name="title_code_enable_links">Activer les liens</string>
+    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Impression embellie</string>
     <string name="title_legend_section_synchronize">Synchronisation</string>
     <string name="title_legend_section_folders">Dossiers</string>
     <string name="title_legend_section_messages">Messages</string>
@@ -1798,8 +1803,6 @@
     <string name="title_legend_show_amp">Afficher la variante AMP</string>
     <string name="title_legend_show_full">Afficher le message original</string>
     <string name="title_legend_show_reformatted">Afficher le message reformaté</string>
-    <string name="title_legend_line_numbers">Afficher les numéros de ligne</string>
-    <string name="title_legend_enable_links" comment="title_legend_enable_links&#10;Option title for menu item in overflow menu of &quot;View source&quot; (HTML)">Activer les liens</string>
     <string name="title_legend_edit">Modifier</string>
     <string name="title_legend_default_color">Couleur par défaut</string>
     <string name="title_legend_close_hint">Fermer l’astuce</string>
@@ -1893,6 +1896,7 @@
     <string name="title_no_ask_again">Ne plus me le demander</string>
     <string name="title_no_ask_for_again">Ne plus demander ceci pour %1$s</string>
     <string name="title_no_body">Aucun texte de message trouvé</string>
+    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Ce message est très volumineux et peut poser des problèmes !</string>
     <string name="title_no_charset">Encodage non pris en charge : %1$s</string>
     <string name="title_via">Via : %1$s</string>
     <string name="title_1hour">1 heure</string>
@@ -1974,6 +1978,7 @@
     <string name="title_widget_account_all">Tous</string>
     <string name="title_widget_folder">Dossier</string>
     <string name="title_widget_folder_unified">Dossiers de la boîte de réception unifiée</string>
+    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Dossiers avec des notifications de nouveaux messages</string>
     <string name="title_widget_unseen">Messages non lus seulement</string>
     <string name="title_widget_flagged">Messages suivis seulement</string>
     <string name="title_widget_font_size">Taille de police</string>

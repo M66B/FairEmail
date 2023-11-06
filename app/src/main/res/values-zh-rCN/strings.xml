@@ -1676,6 +1676,8 @@
     <string name="title_rule_alarm_duration">警报最长持续时间 (秒)</string>
     <string name="title_rule_alarm_title">警报</string>
     <string name="title_rule_alarm_stop">停止</string>
+    <string name="title_code_line_numbers">显示行号</string>
+    <string name="title_code_enable_links">启用链接</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>
@@ -1777,7 +1779,6 @@
     <string name="title_legend_show_amp">显示 AMP 变体</string>
     <string name="title_legend_show_full">显示原始消息</string>
     <string name="title_legend_show_reformatted">显示格式重制后的消息</string>
-    <string name="title_legend_line_numbers">显示行号</string>
     <string name="title_legend_edit">编辑</string>
     <string name="title_legend_default_color">默认颜色</string>
     <string name="title_legend_close_hint">关闭提示</string>

@@ -1727,6 +1727,7 @@
     <string name="title_rule_alarm_duration">Максімальная працягласць будзільніка (секунды)</string>
     <string name="title_rule_alarm_title">Сігнал</string>
     <string name="title_rule_alarm_stop">Спыніць</string>
+    <string name="title_code_line_numbers">Паказваць нумары радкоў</string>
     <string name="title_legend_section_synchronize">Сінхранізацыя</string>
     <string name="title_legend_section_folders">Папкі</string>
     <string name="title_legend_section_messages">Паведамленні</string>
@@ -1828,7 +1829,6 @@
     <string name="title_legend_show_amp">Паказаць варыянт AMP</string>
     <string name="title_legend_show_full">Паказаць зыходнае паведамленне</string>
     <string name="title_legend_show_reformatted">Паказаць перафарматаванае паведамленне</string>
-    <string name="title_legend_line_numbers">Паказваць нумары радкоў</string>
     <string name="title_legend_edit">Рэдагаваць</string>
     <string name="title_legend_default_color">Колер па змаўчанні</string>
     <string name="title_legend_close_hint">Закрыць падказку</string>

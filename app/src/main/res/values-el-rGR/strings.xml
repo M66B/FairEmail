@@ -1690,6 +1690,7 @@
     <string name="title_rule_alarm_duration">Μέγιστη διάρκεια ξυπνητηριού (δευτερόλεπτα)</string>
     <string name="title_rule_alarm_title">Ξυπνητήρι</string>
     <string name="title_rule_alarm_stop">Διακοπή</string>
+    <string name="title_code_line_numbers">Προβολή αριθμών γραμμών</string>
     <string name="title_legend_section_synchronize">Συγχρονισμός</string>
     <string name="title_legend_section_folders">Φάκελοι</string>
     <string name="title_legend_section_messages">Μηνύματα</string>
@@ -1791,7 +1792,6 @@
     <string name="title_legend_show_amp">Προβολή παραλλαγής AMP</string>
     <string name="title_legend_show_full">Προβολή αρχικού μηνύματος</string>
     <string name="title_legend_show_reformatted">Προβολή αναμορφοποιήμενου μηνύματος</string>
-    <string name="title_legend_line_numbers">Προβολή αριθμών γραμμών</string>
     <string name="title_legend_edit">Επεξεργασία</string>
     <string name="title_legend_default_color">Προεπιλεγμένο χρώμα</string>
     <string name="title_legend_close_hint">Κλείσιμο συμβουλής</string>

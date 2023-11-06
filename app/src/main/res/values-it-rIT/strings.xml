@@ -626,6 +626,8 @@
     <string name="title_advanced_notify_preview">Mostra l\'anteprima del messaggio nelle notifiche</string>
     <string name="title_advanced_notify_preview_all">Visualizza tutto il testo</string>
     <string name="title_advanced_notify_preview_only">Mostra solo le notifiche con un testo d\'anteprima</string>
+    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">Traslitterare all\'alfabeto latino</string>
+    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Solo testo ASCII</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
     <string name="title_advanced_notify_action_delete">Elimina</string>
@@ -1697,6 +1699,9 @@
     <string name="title_rule_alarm_duration">Durata massima della sveglia (secondi)</string>
     <string name="title_rule_alarm_title">Sveglia</string>
     <string name="title_rule_alarm_stop">Interrompi</string>
+    <string name="title_code_line_numbers">Mostra i numeri di riga</string>
+    <string name="title_code_enable_links">Abilita i link</string>
+    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Stampa abbellita</string>
     <string name="title_legend_section_synchronize">Sincronizza</string>
     <string name="title_legend_section_folders">Cartelle</string>
     <string name="title_legend_section_messages">Messaggi</string>
@@ -1798,8 +1803,6 @@
     <string name="title_legend_show_amp">Mostra la variante AMP</string>
     <string name="title_legend_show_full">Mostra il messaggio originale</string>
     <string name="title_legend_show_reformatted">Mostra il messaggio riformattato</string>
-    <string name="title_legend_line_numbers">Mostra i numeri di riga</string>
-    <string name="title_legend_enable_links" comment="title_legend_enable_links&#10;Option title for menu item in overflow menu of &quot;View source&quot; (HTML)">Abilita i link</string>
     <string name="title_legend_edit">Modifica</string>
     <string name="title_legend_default_color">Colore predefinito</string>
     <string name="title_legend_close_hint">Chiudi suggerimento</string>
@@ -1893,6 +1896,7 @@
     <string name="title_no_ask_again">Non chiederlo di nuovo</string>
     <string name="title_no_ask_for_again">Non chiederlo di nuovo per %1$s</string>
     <string name="title_no_body">Nessun testo del messaggio trovato</string>
+    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Questo messaggio è molto grande e questo può causare problemi!</string>
     <string name="title_no_charset">Crittografia non supportata: %1$s</string>
     <string name="title_via">Tramite: %1$s</string>
     <string name="title_1hour">1 ora</string>
@@ -1974,6 +1978,7 @@
     <string name="title_widget_account_all">Tutti</string>
     <string name="title_widget_folder">Cartella</string>
     <string name="title_widget_folder_unified">Cartelle in arrivo unificate</string>
+    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Cartelle con notifiche di nuovi messaggi</string>
     <string name="title_widget_unseen">Solo messaggi non letti</string>
     <string name="title_widget_flagged">Solo messaggi stellati</string>
     <string name="title_widget_font_size">Dimensione testo</string>

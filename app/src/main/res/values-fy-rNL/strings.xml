@@ -624,6 +624,9 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_notify_preview">Foarbyld fan berjocht yn notifikaasjes toane</string>
     <string name="title_advanced_notify_preview_all">Foarbyld fan alle tekst</string>
     <string name="title_advanced_notify_preview_only">Notifikaasjes allinnich mei in foarbyldtekst toane</string>
+    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Allinnich ASCII-tekst
+Titel foar in optsje om teksten yn meldingen nei ASCII te konvertearjen
+https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_notify_actions">Notifikaasje-aksjes</string>
     <string name="title_advanced_notify_action_trash">Jiskefet</string>
     <string name="title_advanced_notify_action_delete">Fuortsmite</string>
@@ -1687,6 +1690,9 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_rule_alarm_duration">Maksimale alarmdoer (sekonden)</string>
     <string name="title_rule_alarm_title">Alarm</string>
     <string name="title_rule_alarm_stop">Stop</string>
+    <string name="title_code_line_numbers">Rigelnûmers toane</string>
+    <string name="title_code_enable_links">Keppelingen ynskeakelje</string>
+    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Krease ôfdruk</string>
     <string name="title_legend_section_synchronize">Syngronisearje</string>
     <string name="title_legend_section_folders">Mappen</string>
     <string name="title_legend_section_messages">Berjochten</string>
@@ -1788,7 +1794,6 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_legend_show_amp">AMP-fariant toane</string>
     <string name="title_legend_show_full">Orizjinele berjocht toane</string>
     <string name="title_legend_show_reformatted">Opnij opmakke berjocht toane</string>
-    <string name="title_legend_line_numbers">Rigelnûmers toane</string>
     <string name="title_legend_edit">Bewurkje</string>
     <string name="title_legend_default_color">Standertkleur</string>
     <string name="title_legend_close_hint">Hint slute</string>
@@ -1882,6 +1887,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_no_ask_again">Freegje dit net wer</string>
     <string name="title_no_ask_for_again">Freegje dit net wer foar %1$s</string>
     <string name="title_no_body">Gjin berjochttekst fûn</string>
+    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Dit berjocht is hiel grut en dit kin problemen feroarsaakje!</string>
     <string name="title_no_charset">Net stipe kodearring: %1$s</string>
     <string name="title_via">Fia: %1$s</string>
     <string name="title_1hour">1 oere</string>
@@ -1962,6 +1968,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>
     <string name="title_widget_folder_unified">Kombinearre Postfek YN-mappen</string>
+    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Mappen mei nije berjochtmeldingen</string>
     <string name="title_widget_unseen">Allinnich net-lêzen berjochten</string>
     <string name="title_widget_flagged">Allinnich berjochten mei stjer</string>
     <string name="title_widget_font_size">Tekstgrutte</string>

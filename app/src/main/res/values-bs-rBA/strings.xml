@@ -1710,6 +1710,8 @@
     <string name="title_rule_alarm_duration">Maksimalno trajanje alarma (sekunde)</string>
     <string name="title_rule_alarm_title">Alarm</string>
     <string name="title_rule_alarm_stop">Zaustavi</string>
+    <string name="title_code_line_numbers">Prikaži brojeve linija</string>
+    <string name="title_code_enable_links">Omogući linkove</string>
     <string name="title_legend_section_synchronize">Sinhronizuj</string>
     <string name="title_legend_section_folders">Folderi</string>
     <string name="title_legend_section_messages">Poruke</string>
@@ -1811,7 +1813,6 @@
     <string name="title_legend_show_amp">Prikaži AMP varijantu</string>
     <string name="title_legend_show_full">Prikaži izvornu poruku</string>
     <string name="title_legend_show_reformatted">Prikaži preformatiranu poruku</string>
-    <string name="title_legend_line_numbers">Prikaži brojeve linija</string>
     <string name="title_legend_edit">Uredi</string>
     <string name="title_legend_default_color">Zadana boja</string>
     <string name="title_legend_close_hint">Zatvori napomenu</string>

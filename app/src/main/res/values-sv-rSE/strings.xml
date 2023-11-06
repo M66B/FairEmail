@@ -372,6 +372,7 @@
     <string name="title_advanced_suggest_sent">Föreslå adresser som finns i skickade meddelanden</string>
     <string name="title_advanced_suggest_received">Föreslå adresser som finns i mottagna meddelanden</string>
     <string name="title_advanced_suggest_frequently">Sortera föreslagna adresser vid användningsfrekvens</string>
+    <string name="title_advanced_suggest_account">Begränsa förslag till nuvarande konto</string>
     <string name="title_advanced_alt_re_fwd">Alternativt svar-/vidarebefordringsprefix</string>
     <string name="title_advanced_send_chips">Visa adressbubblor</string>
     <string name="title_advanced_send_nav_color">Använd identitetsfärgen för den nedre åtgärdsfältet</string>
@@ -501,6 +502,7 @@
     <string name="title_advanced_only_name">Visa endast kontaktnamn</string>
     <string name="title_advanced_distinguish_contacts">Understryk avsändaren när avsändaren är känd som lokal \"till\" kontakt</string>
     <string name="title_advanced_show_recipients">Visa mottagare i meddelandehuvudet</string>
+    <string name="title_advanced_reverse_addresses">Visa mottagare för skickade meddelanden</string>
     <string name="title_advanced_font_size_sender">Teckenstorlek på avsändare</string>
     <string name="title_advanced_sender_ellipsize">Om det behövs, förkorta avsändaren</string>
     <string name="title_advanced_subject_top">Visa ämne ovanför avsändaren</string>
@@ -620,6 +622,8 @@
     <string name="title_advanced_notify_preview">Visa meddelandeförhandsvisning i aviseringar</string>
     <string name="title_advanced_notify_preview_all">Förhandsgranska all text</string>
     <string name="title_advanced_notify_preview_only">Visa endast aviseringar med förhandsvisningar</string>
+    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">Translitterera till det latinska alfabetet</string>
+    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Endast ASCII-text</string>
     <string name="title_advanced_notify_actions">Aviseringsåtgärd</string>
     <string name="title_advanced_notify_action_trash">Papperskorg</string>
     <string name="title_advanced_notify_action_delete">Radera</string>
@@ -701,6 +705,7 @@
     <string name="title_advanced_external_search">Lägg till \'FairEmail sök\' i Android texturvalsmenyn</string>
     <string name="title_advanced_sort_answers">Sortera svarsmallar efter användningsfrekvens</string>
     <string name="title_advanced_shortcuts">Visa ofta använda kontakter i Android dela-menyn</string>
+    <string name="title_advanced_ical_tentative">Lagra mottagna inbjudningar som preliminära</string>
     <string name="title_advanced_fts">Bygg sökindex</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d meddelanden indexerade (%3$s)</string>
     <string name="title_advanced_classification">Klassificera meddelanden</string>
@@ -767,6 +772,7 @@
     <string name="title_advanced_pull_all_hint">När du drar ner listan med mappar eller konton</string>
     <string name="title_advanced_suggest_names_hint">Om inaktiverad, kommer endast e-postadresser att användas vid val av kontakter</string>
     <string name="title_advanced_suggest_local_hint">Förutom kontakter som tillhandahålls av Android. Kontaktdata lagras endast för nyligen skickade eller mottagna meddelanden när det aktiverat.</string>
+    <string name="title_advanced_suggest_account_hint">Detta gäller endast lokala kontakter eftersom kontakter i Android-adressboken inte är kopplade till specifika konton</string>
     <string name="title_advanced_auto_identity_hint">Detta kommer att välja den senaste identiteten som använts när du väljer en mottagare för nya meddelanden</string>
     <string name="title_advanced_send_reminders_hint">Visa en varning när meddelandetexten eller ämnet är tomt eller när en bilaga kanske saknas</string>
     <string name="title_advanced_reply_move_hint">E-postservern kan fortfarande lägga till meddelanden till skickade mail mappen</string>
@@ -1025,6 +1031,7 @@
     <string name="title_delete_channel">Ta bort aviseringskanal</string>
     <string name="title_insert_contact">Lägg till kontakt</string>
     <string name="title_edit_contact">Redigera kontakt</string>
+    <string name="title_delete_contact">Radera kontakt?</string>
     <string name="title_contact_email">E-post</string>
     <string name="title_contact_name">Namn</string>
     <string name="title_contact_group">Grupp</string>
@@ -1148,6 +1155,7 @@
     <string name="title_print_images_remark">Nedladdning av bilder kan ta lite tid</string>
     <string name="title_print_block_quotes">Skriv ut blockciterade rader</string>
     <string name="title_show_headers">Visa sidhuvuden</string>
+    <string name="title_show_html">Visa källa</string>
     <string name="title_raw_save">Spara rent meddelande</string>
     <string name="title_raw_send">Skicka som bilaga</string>
     <string name="title_raw_send_message">Meddelande</string>
@@ -1177,6 +1185,7 @@
     <string name="title_quick_actions_snooze">Pausa</string>
     <string name="title_quick_actions_clear">Nollställ urval efter åtgärd</string>
     <string name="title_trash">Papperskorg</string>
+    <string name="title_trash_selection">Radera valda meddelanden</string>
     <string name="title_copy">Kopiera &#8230;</string>
     <string name="title_copy_to">Kopiera till &#8230;</string>
     <string name="title_subscribe">Prenumerera</string>
@@ -1359,6 +1368,7 @@
     <string name="title_add_image_privacy">Ta bort sekretesskänslig data</string>
     <string name="title_add_image_privacy_remark">Geografisk plats, serienummer, filnamn etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixlar</string>
+    <string name="title_add_image_resize_remark">Ändring av storlek stöds för: %1$s</string>
     <string name="title_add_image_select_remark">Androids fotoväljare skickar inte längre filnamn</string>
     <string name="title_add_image_select">Välj fil</string>
     <string name="title_add_attachment">Lägg till bilaga</string>
@@ -1678,6 +1688,9 @@
     <string name="title_rule_alarm_duration">Maxtid för alarm (sekunder)</string>
     <string name="title_rule_alarm_title">Alarm</string>
     <string name="title_rule_alarm_stop">Inaktivera</string>
+    <string name="title_code_line_numbers">Visa radnummer</string>
+    <string name="title_code_enable_links">Aktivera länkar</string>
+    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Omformatera text</string>
     <string name="title_legend_section_synchronize">Synkronisera</string>
     <string name="title_legend_section_folders">Mappar</string>
     <string name="title_legend_section_messages">Meddelanden</string>
@@ -1872,6 +1885,7 @@
     <string name="title_no_ask_again">Fråga inte detta igen</string>
     <string name="title_no_ask_for_again">Fråga inte om %1$s igen</string>
     <string name="title_no_body">Ingen meddelandetext hittades</string>
+    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Detta meddelande är mycket stort och det kan orsaka problem!</string>
     <string name="title_no_charset">Kodningen stöds inte: %1$s</string>
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 timme</string>
@@ -1952,6 +1966,7 @@
     <string name="title_widget_account_all">Alla</string>
     <string name="title_widget_folder">Mapp</string>
     <string name="title_widget_folder_unified">Samlade inkorgsmappar</string>
+    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Mappar med aviseringar för nya meddelanden</string>
     <string name="title_widget_unseen">Endast olästa meddelanden</string>
     <string name="title_widget_flagged">Endast stjärnmärkta meddelanden</string>
     <string name="title_widget_font_size">Textstorlek</string>
@@ -1966,6 +1981,7 @@
     <string name="title_widget_refresh">Visa knappen för att uppdatera meddelanden</string>
     <string name="title_widget_compose">Visa knapp för nytt meddelande</string>
     <string name="title_widget_background">Bakgrundsfärg</string>
+    <string name="title_widget_icon">Ikonfärg</string>
     <string name="title_widget_day_night">Följ mörkt systemtema</string>
     <string name="title_compat_dark">Google tog bort mörkt läge för Android före version 10</string>
     <!-- Thunderbird -->

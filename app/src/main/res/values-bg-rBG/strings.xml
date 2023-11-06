@@ -2,12 +2,12 @@
 <resources>
     <string name="app_search">FairEmail търсене</string>
     <string name="app_send_self">Изпращане до себе си</string>
-    <string name="app_changelog">Преглед на измененията</string>
-    <string name="app_welcome">FairEmail е приложение за електронна поща с отворен код, фокусирано върху поверителността и сигурността. Поради тази причина някои функции могат да работят различно от това с което сте свикнали. Превод на български plimboster.</string>
+    <string name="app_changelog">Дневник с промените</string>
+    <string name="app_welcome">FairEmail е приложение за електронна поща с отворен код, фокусирано върху поверителността и сигурността. Поради тази причина някои функции могат да работят различно от това с което сте свикнали.</string>
     <string name="app_unsupported">Грешки във версията на Android на това конкретно устройство причинява сривове</string>
     <string name="app_data_loss">Всички данни може да се загубят</string>
     <string name="app_exit">Натиснете отново „назад“, за изход</string>
-    <string name="app_cake_required">Минимално изисквано място за съхранение: %1$s</string>
+    <string name="app_cake_required">Изисквано минимум място за хранилището: %1$s</string>
     <string name="app_updated">Последно обновяване: %1$s</string>
     <string name="app_download">Изтеглено от: %1$s</string>
     <string name="channel_service">Наблюдение</string>
@@ -23,6 +23,7 @@
     <string name="channel_service_description">Уеднаквяване по време и наблюдение на акаунтите</string>
     <string name="channel_send_description">Изпращане на съобщения</string>
     <string name="channel_notification_description">Известия за нови съобщения</string>
+    <string name="channel_progress_description">Напредък на известия на дълго изпълнявани действия</string>
     <plurals name="page_conversation">
         <item quantity="one">Разговор</item>
         <item quantity="other">Разговори</item>
@@ -39,12 +40,12 @@
     <string name="shortcut_compose">Съчиняване</string>
     <string name="shortcut_setup">Настройки</string>
     <plurals name="title_notification_synchronizing">
-        <item quantity="one">Мониторинг на %1$d профил</item>
-        <item quantity="other">Мониторинг на %1$d профили</item>
+        <item quantity="one">Наблюдение на %1$d акаунт</item>
+        <item quantity="other">Наблюдение на %1$d акаунта</item>
     </plurals>
     <plurals name="title_notification_operations">
-        <item quantity="one">%1$d остава от операцията</item>
-        <item quantity="other">%1$d остават от операциите</item>
+        <item quantity="one">%1$d операция се чака</item>
+        <item quantity="other">%1$d операции се чакат</item>
     </plurals>
     <plurals name="title_notification_unseen">
         <item quantity="one">%1$d ново съобщение</item>
@@ -58,19 +59,23 @@
         <item quantity="one">%1$d ново</item>
         <item quantity="other">%1$d ново</item>
     </plurals>
+    <plurals name="title_moving_messages">
+        <item quantity="one">Премествате ли %1$d съобщение?</item>
+        <item quantity="other">Премествате ли %1$d съобщения?</item>
+    </plurals>
     <plurals name="title_deleting_messages">
-        <item quantity="one">Изтъркай %1$d съобщение завинаги?</item>
-        <item quantity="other">Изтъркай %1$d съобщения завинаги?</item>
+        <item quantity="one">Изтривате ли завинаги %1$d съобщение?</item>
+        <item quantity="other">Изтривате ли завинаги %1$d съобщения?</item>
     </plurals>
     <plurals name="title_attachments">
         <item quantity="one">Едно прикачване</item>
         <item quantity="other">%1$d прикачвания</item>
     </plurals>
     <plurals name="title_ask_spam">
-        <item quantity="one">Третирай %1$d съобщение като спам?</item>
-        <item quantity="other">Третирай %1$d съобщения като спам?</item>
+        <item quantity="one">Третирате ли %1$d съобщение като спам?</item>
+        <item quantity="other">Третирате ли %1$d съобщения като спам?</item>
     </plurals>
-    <string name="title_ask_spam_who">Третирай съобщението от %1$s като спам?</string>
+    <string name="title_ask_spam_who">Третирате ли съобщението от %1$s като спам?</string>
     <string name="title_block">Блокиране %1$s</string>
     <string name="title_block_sender">Блокиране на подателя</string>
     <string name="title_block_sender_domain">Блокиране на домейна \'%1$s\'</string>
@@ -83,6 +88,8 @@
         <item quantity="one">%1$s ден</item>
         <item quantity="other">%1$s дни</item>
     </plurals>
+    <string name="title_junk_filter">Употреба на местната цедка за спам</string>
+    <string name="title_junk_filter_hint">Може да увеличи употребата на батерията и неправилно да означава съобщения като спам</string>
     <string name="title_junk_clear">Изчистване</string>
     <string name="title_junk_clear_hint">Ще се изтрият всички правила за блокиране на подател</string>
     <string name="title_notification_sending">Изпращане на съобщения</string>
@@ -105,7 +112,7 @@
     <string name="menu_issue">Сигнал за проблем</string>
     <string name="menu_attribution">Източници</string>
     <string name="menu_privacy">Поверителност</string>
-    <string name="menu_about">За програмата</string>
+    <string name="menu_about">Относно</string>
     <string name="menu_pro">Платени функции</string>
     <string name="menu_rate">Оценете приложението</string>
     <string name="title_welcome">Добре дошли</string>
@@ -115,23 +122,23 @@
     <string name="title_agree">Съгласен съм</string>
     <string name="title_disagree">Не съм съгласен</string>
     <string name="title_version">Версия %1$s</string>
-    <string name="title_privacy_policy">Декларация за поверителност</string>
+    <string name="title_privacy_policy">Политика за поверителност</string>
     <string name="title_list_accounts">Акаунти</string>
     <string name="title_list_identities">Самоличности</string>
     <string name="title_edit_account">Редактиране на акаунта</string>
-    <string name="title_edit_identity">Редактиране на идентичност</string>
+    <string name="title_edit_identity">Редактиране на самоличността</string>
     <string name="title_edit_folder">Редактиране на папка</string>
     <string name="title_disable_gmail">Изключване на приложението Gmail</string>
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Помощ</string>
     <string name="title_setup_quick">Бърза настройка</string>
-    <string name="title_setup_quick_accounts">Добавяне или променяне на акаунтите</string>
+    <string name="title_setup_quick_accounts">Добавяне или промяна на акаунтите</string>
     <string name="title_setup_quick_patience">Търпение &#8230;</string>
     <string name="title_setup_quick_imap">IMAP сървър за получаване на съобщения</string>
     <string name="title_setup_quick_smtp">SMTP сървър за изпращане на съобщения</string>
     <string name="title_setup_quick_certificates">Удостоверения на сървъра</string>
     <string name="title_setup_wizard">Вълшебник</string>
-    <string name="title_setup_wizard_tutorials">Ръководства</string>
+    <string name="title_setup_wizard_tutorials">Наръчници</string>
     <string name="title_setup_wizard_multiple">Вълшебникът може да се употребява многократно за настройка на няколко акаунта</string>
     <string name="title_setup_wizard_new">Трябва ми друг адрес на е-поща</string>
     <string name="title_setup_classic">Класическо конфигуриране</string>
@@ -142,18 +149,18 @@
     <string name="title_setup_google_sign_in">Влизане с помощта на Google</string>
     <string name="title_setup_other">Друг доставчик</string>
     <string name="title_setup_pop3">Акаунт на POP3</string>
-    <string name="title_setup_gmail_rationale">Моля, дайте разрешения за избор на профил</string>
+    <string name="title_setup_gmail_rationale">Дайте разрешения за избор на профил и прочетете името си</string>
     <string name="title_setup_gmail_permissions">Google ще поиска разрешения за четене, съставяне, изпращане и окончателно изтриване на целия ви имейл. FairEmail никога няма да изтрие вашите съобщения без вашето изрично съгласие.</string>
-    <string name="title_setup_office_auth">Грешката „УДОСТОВЕРЯВАНЕТО не е успешно“ може да бъде причинена от деактивиране на IMAP/SMTP от системния администратор</string>
+    <string name="title_setup_office_auth">Грешката „УДОСТОВЕРЯВАНЕТО неуспешно“ може да се причини от изключването на IMAP/SMTP от системния администратор</string>
     <string name="title_setup_office_auth_5_7_3">Опитайте вълшебника за бърза настройка „Друг доставчик“.</string>
-    <string name="title_setup_oauth_rationale">Разрешете достъп до вашия %1$s акаунт</string>
+    <string name="title_setup_oauth_rationale">Упълномощете достъпа до своя %1$s акаунт</string>
     <string name="title_setup_oauth_updated">Обновено упълномощаване на акаунта</string>
     <string name="title_setup_oauth_authorize">Упълномощявам</string>
     <string name="title_setup_select_account">Изберане на профил</string>
     <string name="title_setup_instructions">Указания за настройка</string>
-    <string name="title_setup_no_settings">Не са намерени настройки за домейн %1$s</string>
-    <string name="title_setup_no_auth_hint">Моля, проверете два пъти имейл адреса и паролата си и се уверете, че външният достъп (IMAP/SMTP) е активиран за вашия профил</string>
-    <string name="title_setup_app_password_hint">Този доставчик изисква парола за приложение вместо паролата за акаунта, моля, проверете инструкциите на вашия доставчик</string>
+    <string name="title_setup_no_settings">Няма намерени настройки за домейна %1$s</string>
+    <string name="title_setup_no_auth_hint">Проверете дваж своите имейл адрес и парола и се уверете, че външният достъп (IMAP/SMTP) е включен за вашия акаунт</string>
+    <string name="title_setup_app_password_hint">Доставчикът изисква парола за приложение вместо паролата за акаунта, проверете указанията на доставчика си</string>
     <string name="title_setup_no_inbox">Не е намерена входяща кутия</string>
     <string name="title_setup_quick_success">Успешно добавен акаунт</string>
     <string name="title_setup_quick_no_sent">Няма избрана папка за изпратени съобщения. Изпратените съобщения може да не се съхраняват.</string>
@@ -164,8 +171,8 @@
     <string name="title_setup_exchange_support">Поддържа ли се Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Какво е самоличност?</string>
     <string name="title_setup_free">Приложението безплатно ли е за употреба?</string>
-    <string name="title_setup_permissions">Даване на разрешение</string>
-    <string name="title_setup_permissions_remark">Достъп до информацията за контакт (незадължително)</string>
+    <string name="title_setup_permissions">Даване на позволения</string>
+    <string name="title_setup_permissions_remark">Достъп до сведенията за контакт (незадължително)</string>
     <string name="title_setup_permissions_notify">За да се показват новите известия (по избор)</string>
     <string name="title_setup_permissions_notify_explanation">Известия за позволение се изискват, за да показват нови съобщения в лентата за състояние</string>
     <string name="title_setup_permission_why">Кои позволения трябват и защо?</string>
@@ -182,7 +189,7 @@
     <string name="title_setup_alarm_12">Неправилно работи приложението</string>
     <string name="title_setup_background">Фоновите ограничения са включени</string>
     <string name="title_setup_data">Ниска консумация на данни е активирано</string>
-    <string name="title_setup_advanced_options">Показване на разширени опции</string>
+    <string name="title_setup_advanced_options">Показване на разширени възможности</string>
     <string name="title_setup_inbox">Към кутията</string>
     <string name="title_setup_go">Напред</string>
     <string name="title_setup_to_do">Да се направи</string>
@@ -246,20 +253,20 @@
     <string name="title_setup_theme_system">Използвай системните</string>
     <string name="title_setup_theme_black_background">Черен фон</string>
     <string name="title_setup_theme_system_hint">Системната тема ще превключи автоматично от светло/тъмно през деня/ноща, ако се поддържа от Андроид</string>
-    <string name="title_setup_theme_more_colors">Искам повече цветове</string>
+    <string name="title_setup_theme_more_colors">Искам още багри</string>
     <string name="title_setup_advanced">Разширени</string>
     <string name="title_setup_options">Опции</string>
     <string name="title_setup_defaults">Възстановяване по подразбиране</string>
     <string name="title_setup_reset_questions">Отказване на запитването</string>
     <string name="title_setup_reset_general">Общи въпроси</string>
     <string name="title_setup_reset_files">Преглед на файловете</string>
-    <string name="title_setup_reset_images">Показване на изображения</string>
+    <string name="title_setup_reset_images">Показване на образите</string>
     <string name="title_setup_reset_full">Показване на оригиналните съобщения</string>
     <string name="title_check_gmail_oauth">Вашите акаунти в Gmail ще продължат да работят след 30 май 2022г.</string>
     <string name="title_check_gmail_password">Някои от акаунтите ви в Gmail може да спрат да работят след 30 май 2022г.</string>
     <string name="title_check_outlook_oauth">Вашите акаунти в Outlook ще продължат да работят след 1 октомври 2022г.</string>
     <string name="title_check_outlook_password">Някои от акаунтите ви в Outlook може да спрат да работят след 1 октомври 2022г.</string>
-    <string name="title_advanced_hint_title">Разширени настройки</string>
+    <string name="title_advanced_hint_title">Още разширени възможности</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
     <string name="title_advanced_hint_setup">Може да настроите акаунта, чуквайки на бутона вълшебник на главния екран за конфигуриране.</string>
@@ -529,6 +536,7 @@
     <string name="title_advanced_secure">Скриване от екрана на последно използвани приложения и предотвратяване правенето снимка на екрана</string>
     <string name="title_advanced_pin">ПИН</string>
     <string name="title_advanced_biometrics_timeout">Време на изчакване за биометрично удостоверяване</string>
+    <string name="title_advanced_autolock_nav">Заключване, напускайки приложението</string>
     <string name="title_advanced_disconnect_auto_update">Ежеседмично автообновяване на списъците</string>
     <string name="title_advanced_disconnect_links">Употреба на списъци за предупреждение относно проследяващи връзки</string>
     <string name="title_advanced_disconnect_images">Употреба на списъци за разпознаване на проследяващи образи</string>
@@ -617,9 +625,13 @@
     <string name="title_advanced_suggest_local_hint">В допълнение към контактите, осигурени от Android. Данните за контакт ще бъдат съхранявани за нови изпратени или получени съобщения, само когато са активирани.</string>
     <string name="title_advanced_send_reminders_hint">Показва предупреждение когато текстът на съобщението или темата е празна или когато прикаченият файл липсва</string>
     <string name="title_advanced_usenet_hint">Вмъкнете \'-\' между текста и подписа</string>
+    <string name="title_advanced_remove_signature_hint">Това може да доведе до премахване на премалко или премного текст</string>
     <string name="title_advanced_metered_hint">Измерваните връзки обикновено са мобилен интернет или платени Wi-Fi точки</string>
     <string name="title_advanced_metered_warning">Деактивирането на тази опция ще деактивира получаването и изпращането на съобщения през мобилния интернет</string>
     <string name="title_advanced_rlah_hint">Ако не се допуска роуминг в рамките на ЕС</string>
+    <string name="title_advanced_usage_hint">Това ще увеличи употребата на батерията, данните и мястото в хранилището</string>
+    <string name="title_advanced_plain_hint">Включването на това ще ограничи употребата на данните, но съобщенията ще се показват без стил</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Включването на това може да причини проблеми с връзката в някои устройства и да увеличи употребата на батерията</string>
     <string name="title_advanced_timeout_hint">Времето за четене/запис ще бъде зададено двойно на времето за изчакване на връзката. По-високите стойности ще доведат до по-голяма консумация на батерията.</string>
     <string name="title_advanced_ssl_harden_hint">Активирането на това ще деактивира слаби SSL протоколи и шифри, което може да доведе до проблеми с връзката</string>
     <string name="title_advanced_roaming_hint">Заглавките на съобщенията винаги ще се получават при роуминг. Можете да използвате настройката за роуминг на устройството, за да деактивирате интернет по време на роуминг.</string>
@@ -1616,7 +1628,7 @@
     <string name="title_conversation_action_reply">Отговорете с: \'%1$s\'</string>
     <string name="title_conversation_action_copy">Копиране: \'%1$s\'</string>
     <string name="title_icalendar_accept">Приемам</string>
-    <string name="title_icalendar_decline">Не приемам</string>
+    <string name="title_icalendar_decline">Отказвам</string>
     <string name="title_icalendar_maybe">Може би</string>
     <string name="title_icalendar_calendar">Календар</string>
     <string name="title_pro_feature">Това е pro функция</string>

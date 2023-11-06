@@ -3,6 +3,7 @@ tools/config.sh
 local.properties
 keystore.properties
 crowdin.properties
+crowdin.yml
 .gradle
 .idea/caches
 .idea/dictionaries
