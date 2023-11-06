@@ -4423,6 +4423,10 @@ If needed you can find the right settings [here](https://support.apple.com/en-us
 
 When using two-factor authentication you might need to use an [app-specific password](https://support.apple.com/en-us/HT204397).
 
+Please make sure you use the main email address and not an alias address.
+It is not possible to authenticate an iCloud account with an alias address.
+If you want to create an alias address, first configure the main account, and after that see [this FAQ](#faq9).
+
 <br />
 
 <a name="faq149"></a>
