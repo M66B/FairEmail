@@ -7238,8 +7238,8 @@ public class FragmentCompose extends FragmentBase {
                             feedback = context.getString(R.string.title_queued_at, DTF.format(draft.ui_snoozed));
                         }
 
-                        getMainHandler().post(new Runnable() {
-                            public void run() {
+                        getMainHandler().post(new RunnableEx("compose:toast") {
+                            public void delegate() {
                                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
                                     view.performHapticFeedback(HapticFeedbackConstants.CONFIRM);
                                 ToastEx.makeText(context, feedback, Toast.LENGTH_LONG).show();
