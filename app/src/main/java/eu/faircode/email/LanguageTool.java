@@ -449,7 +449,7 @@ public class LanguageTool {
                     continue;
                 } else
                     Log.i("LT text='" + edit.subSequence(s, e) + "' " + suggestion);
-                edit.setSpan(span, s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
+                edit.setSpan(span, s, e, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
     }
 

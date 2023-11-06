@@ -3938,18 +3938,7 @@ public class HtmlHelper {
     }
 
     static void clearComposingText(TextView view) {
-        view.clearComposingText();
-
-        CharSequence text = view.getText();
-        if (text instanceof Spannable) {
-            Spannable edit = (Spannable) text;
-            Object[] spans = edit.getSpans(0, edit.length(), Object.class);
-            if (spans == null || spans.length == 0)
-                return;
-            for (Object span : spans)
-                if (span instanceof SuggestionSpan)
-                    edit.removeSpan(span);
-        }
+        //view.clearComposingText();
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {
