@@ -7240,6 +7240,8 @@ public class FragmentCompose extends FragmentBase {
 
                         getMainHandler().post(new Runnable() {
                             public void run() {
+                                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                    view.performHapticFeedback(HapticFeedbackConstants.CONFIRM);
                                 ToastEx.makeText(context, feedback, Toast.LENGTH_LONG).show();
                             }
                         });
@@ -7415,7 +7417,6 @@ public class FragmentCompose extends FragmentBase {
 
             } else if (action == R.id.action_send) {
                 state = State.NONE;
-                view.performHapticFeedback(HapticFeedbackConstants.CONFIRM);
                 finish();
             }
         }
