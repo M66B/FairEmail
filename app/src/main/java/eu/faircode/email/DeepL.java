@@ -168,6 +168,10 @@ public class DeepL {
                 }
             });
 
+            if (BuildConfig.DEBUG && TextHelper.canTransliterate())
+                languages.add(0, new Language(context.getString(R.string.title_advanced_notify_transliterate),
+                        "transliterate", false, null, true, 0));
+
             return languages;
         } catch (Throwable ex) {
             Log.e(ex);
@@ -193,6 +197,13 @@ public class DeepL {
     }
 
     public static Translation translate(CharSequence text, boolean html, String target, boolean formality, Context context) throws IOException, JSONException {
+        if ("transliterate".equals(target)) {
+            Locale detected = TextHelper.detectLanguage(context, text.toString());
+            String transliterated = TextHelper.transliterate(context, text.toString());
+            String language = Locale.getDefault().toLanguageTag();
+            return new Translation(detected == null ? language : detected.toLanguageTag(), language, transliterated);
+        }
+
         if (!ConnectionHelper.getNetworkState(context).isConnected())
             throw new IllegalArgumentException(context.getString(R.string.title_no_internet));
 
@@ -367,6 +378,15 @@ public class DeepL {
         public String detected_language;
         public String target_language;
         public CharSequence translated_text;
+
+        Translation() {
+        }
+
+        Translation(String detected, String target, CharSequence text) {
+            this.detected_language = detected;
+            this.target_language = target;
+            this.translated_text = text;
+        }
     }
 
     public static class FragmentDialogDeepL extends FragmentDialogBase {
