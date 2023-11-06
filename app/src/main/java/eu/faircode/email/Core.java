@@ -5536,6 +5536,10 @@ class Core {
 
             // Check if notification channel enabled
             if (message.notifying == 0 && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && pro) {
+                // Disabling a channel for a sender or folder doesn't disable notifications
+                // because the (account) summary notification isn't disabled
+                // So, suppress notifications here
+
                 String mChannelId = message.getNotificationChannelId();
                 if (mChannelId != null && !channelIdDisabled.containsKey(mChannelId)) {
                     NotificationChannel channel = nm.getNotificationChannel(mChannelId);
@@ -5550,21 +5554,12 @@ class Core {
                             channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE);
                 }
 
-                String aChannelId = EntityAccount.getNotificationChannelId(message.account);
-                if (!channelIdDisabled.containsKey(aChannelId)) {
-                    NotificationChannel channel = nm.getNotificationChannel(aChannelId);
-                    channelIdDisabled.put(aChannelId,
-                            channel != null && channel.getImportance() == NotificationManager.IMPORTANCE_NONE);
-                }
-
-                if (Boolean.TRUE.equals(channelIdDisabled.get(aChannelId)) ||
-                        Boolean.TRUE.equals(channelIdDisabled.get(fChannelId)) ||
+                if (Boolean.TRUE.equals(channelIdDisabled.get(fChannelId)) ||
                         (mChannelId != null && Boolean.TRUE.equals(channelIdDisabled.get(mChannelId)))) {
                     db.message().setMessageUiIgnored(message.id, true);
                     Log.i("Notify disabled=" + message.id +
-                            " " + aChannelId + "=" + channelIdDisabled.get(aChannelId) +
-                            " " + mChannelId + "=" + channelIdDisabled.get(fChannelId) +
-                            " " + aChannelId + "=" + channelIdDisabled.get(mChannelId));
+                            " " + mChannelId + "=" + channelIdDisabled.get(mChannelId) +
+                            " " + fChannelId + "=" + channelIdDisabled.get(fChannelId));
                     continue;
                 }
             }
