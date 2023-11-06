@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2119 - 2023-11-06
 
 * Added folder selection for new message count widget
 * Added dark mode, showing colors, check HTML and searching to message source view
