@@ -2853,6 +2853,11 @@ public class Log {
                 boolean require_validated = prefs.getBoolean("require_validated", false);
                 boolean require_validated_captive = prefs.getBoolean("require_validated_captive", true);
                 boolean vpn_only = prefs.getBoolean("vpn_only", false);
+                boolean tcp_keep_alive = prefs.getBoolean("tcp_keep_alive", false);
+                boolean ssl_harden = prefs.getBoolean("ssl_harden", false);
+                boolean ssl_harden_strict = (ssl_harden && prefs.getBoolean("ssl_harden_strict", false));
+                boolean cert_strict = prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE);
+                boolean open_safe = prefs.getBoolean("open_safe", false);
 
                 size += write(os, "timeout=" + timeout + "s" + (timeout == EmailService.DEFAULT_CONNECT_TIMEOUT ? "" : " !!!") + "\r\n");
                 size += write(os, "metered=" + metered + (metered ? "" : " !!!") + "\r\n");
@@ -2868,6 +2873,12 @@ public class Log {
 
                 size += write(os, "standalone_vpn=" + standalone_vpn + (standalone_vpn ? " !!!" : "") + "\r\n");
                 size += write(os, "vpn_only=" + vpn_only + (vpn_only ? " !!!" : "") + "\r\n");
+
+                size += write(os, "tcp_keep_alive=" + tcp_keep_alive + (tcp_keep_alive ? " !!!" : "") + "\r\n");
+                size += write(os, "ssl_harden=" + ssl_harden + (ssl_harden ? " !!!" : "") + "\r\n");
+                size += write(os, "ssl_harden_strict=" + ssl_harden_strict + (ssl_harden_strict ? " !!!" : "") + "\r\n");
+                size += write(os, "cert_strict=" + cert_strict + (cert_strict ? " !!!" : "") + "\r\n");
+                size += write(os, "open_safe=" + open_safe + "\r\n");
 
                 size += write(os, "\r\n");
                 size += write(os, getCiphers().toString());
