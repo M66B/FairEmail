@@ -2282,8 +2282,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean labels = (data.isGmail && move && !inTrash && !inJunk && !outbox);
                     boolean seen = (message.uid != null || pop);
 
-                    int froms = (message.from == null ? 0 : message.from.length);
-                    int tos = (message.to == null ? 0 : message.to.length);
+                    int froms = (message.from == null ||
+                            message.from.length == 0 ||
+                            TextUtils.isEmpty(((InternetAddress) message.from[0]).getAddress())
+                            ? 0 : message.from.length);
+                    int tos = (message.to == null ||
+                            message.to.length == 0 ||
+                            TextUtils.isEmpty(((InternetAddress) message.to[0]).getAddress())
+                            ? 0 : message.to.length);
 
                     boolean delete = (inTrash || !hasTrash || inJunk || outbox || message.uid == null || pop);
                     boolean forever = (delete && (!pop || !message.accountLeaveDeleted));
@@ -2535,8 +2541,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_addresses = properties.getValue("addresses", message.id);
             boolean full = (show_addresses || email_format == MessageHelper.AddressFormat.NAME_EMAIL);
 
-            int froms = (message.from == null ? 0 : message.from.length);
-            int tos = (message.to == null ? 0 : message.to.length);
+            int froms = (message.from == null ||
+                    message.from.length == 0 ||
+                    TextUtils.isEmpty(((InternetAddress) message.from[0]).getAddress())
+                    ? 0 : message.from.length);
+            int tos = (message.to == null ||
+                    message.to.length == 0 ||
+                    TextUtils.isEmpty(((InternetAddress) message.to[0]).getAddress())
+                    ? 0 : message.to.length);
             boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
             int maxRecipients = (compact ? MAX_RECIPIENTS_COMPACT : MAX_RECIPIENTS_NORMAL);
             Spanned submitter = formatAddresses(message.submitter, true);
