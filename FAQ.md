@@ -5530,6 +5530,8 @@ Note that the reference time is the time the message was first stored on the dev
 
 FairEmail is supported on Android smartphones and tablets and ChromeOS only.
 
+There is support only if the app was downloaded via one of the [supported download locations](https://github.com/M66B/FairEmail#downloads).
+
 Only the latest Play store version and latest GitHub release are supported.
 The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release.
 This also means that downgrading is not supported.
