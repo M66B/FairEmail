@@ -4987,6 +4987,11 @@ and the Play store app will do the same, when auto-updating isn't disabled for t
 The version in the [Play Store test program](https://play.google.com/apps/testing/eu.faircode.email) is more often updated,
 but not all GitHub releases will be released as Play Store test version.
 
+The GitHub version will automatically check for updates and notify you when there is an update available.
+Since apps can't update themselves, updates can't be automatically installed.
+However, you can easily install an update via a button in the update available notification.
+You could use the [IzzyOnDroid F-Droid Repository](https://apt.izzysoft.de/fdroid/) to manage GitHub updates.
+
 <br />
 
 <a name="faq174"></a>
