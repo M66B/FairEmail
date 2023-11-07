@@ -1552,7 +1552,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
-                onActionSeenSelection(true, null, more_clear);
+                onActionSeenSelection(true, null, false, more_clear);
             }
         });
 
@@ -1560,7 +1560,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
-                onActionSeenSelection(false, null, more_clear);
+                onActionSeenSelection(false, null, false, more_clear);
             }
         });
 
@@ -3173,7 +3173,7 @@ public class FragmentMessages extends FragmentBase
                     redraw(pos);
                     onSwipeAsk(message, viewHolder);
                 } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
-                    onActionSeenSelection(message.unseen > 0, message.id, false);
+                    onActionSeenSelection(message.unseen > 0, message.id, true, false);
                 else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                     onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
                 else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
@@ -3292,10 +3292,10 @@ public class FragmentMessages extends FragmentBase
                             public boolean onMenuItemClick(MenuItem target) {
                                 int itemId = target.getItemId();
                                 if (itemId == R.string.title_seen) {
-                                    onActionSeenSelection(true, message.id, false);
+                                    onActionSeenSelection(true, message.id, false, false);
                                     return true;
                                 } else if (itemId == R.string.title_unseen) {
-                                    onActionSeenSelection(false, message.id, false);
+                                    onActionSeenSelection(false, message.id, false, false);
                                     return true;
                                 } else if (itemId == R.string.title_flag) {
                                     onActionFlagSelection(true, Color.TRANSPARENT, message.id, false);
@@ -4173,10 +4173,10 @@ public class FragmentMessages extends FragmentBase
                     public boolean onMenuItemClick(MenuItem target) {
                         int itemId = target.getItemId();
                         if (itemId == R.string.title_seen) {
-                            onActionSeenSelection(true, null, false);
+                            onActionSeenSelection(true, null, false, false);
                             return true;
                         } else if (itemId == R.string.title_unseen) {
-                            onActionSeenSelection(false, null, false);
+                            onActionSeenSelection(false, null, false, false);
                             return true;
                         } else if (itemId == R.string.title_snooze) {
                             onActionSnoozeSelection();
@@ -4270,9 +4270,10 @@ public class FragmentMessages extends FragmentBase
         return ids;
     }
 
-    private void onActionSeenSelection(boolean seen, Long id, boolean clear) {
+    private void onActionSeenSelection(boolean seen, Long id, boolean swiped, boolean clear) {
         Bundle args = new Bundle();
         args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
+        args.putBoolean("swiped", swiped);
         args.putBoolean("seen", seen);
         args.putBoolean("threading", threading &&
                 (id == null || viewType != AdapterMessage.ViewType.THREAD));
@@ -4284,6 +4285,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
+                boolean swiped = args.getBoolean("swiped");
                 boolean seen = args.getBoolean("seen");
                 boolean threading = args.getBoolean("threading");
 
@@ -4295,6 +4297,9 @@ public class FragmentMessages extends FragmentBase
                         EntityMessage message = db.message().getMessage(id);
                         if (message == null)
                             continue;
+
+                        if (swiped)
+                            db.message().setMessageUiBusy(message.id, new Date().getTime());
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading ? null : id, seen ? null : message.folder);
@@ -4315,7 +4320,7 @@ public class FragmentMessages extends FragmentBase
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                if (id != null && adapter != null) {
+                if (swiped && adapter != null) {
                     int pos = adapter.getPositionForKey(id);
                     if (pos != RecyclerView.NO_POSITION)
                         adapter.notifyItemChanged(pos);
