@@ -1220,6 +1220,16 @@ public class FragmentMessages extends FragmentBase
                 iProperties);
         if (viewType == AdapterMessage.ViewType.THREAD)
             adapter.setStateRestorationPolicy(RecyclerView.Adapter.StateRestorationPolicy.PREVENT);
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeRemoved(int positionStart, int itemCount) {
+                if (accessibility || BuildConfig.DEBUG) {
+                    RecyclerView.ViewHolder vh = rvMessage.findViewHolderForAdapterPosition(positionStart);
+                    if (vh != null)
+                        vh.itemView.requestFocus();
+                }
+            }
+        });
         rvMessage.setAdapter(adapter);
 
         sbThread.setOnTouchListener(new View.OnTouchListener() {
