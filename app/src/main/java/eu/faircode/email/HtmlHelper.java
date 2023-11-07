@@ -2740,6 +2740,10 @@ public class HtmlHelper {
         // <div dir="ltr" class="gmail_signature" data-smartmail="gmail_signature">
         d.body().select("[data-smartmail=gmail_signature]").remove();
 
+        // Outlook: <div id="Signature" data-lt-sig-active="">
+        d.body().select("#Signature").select("[data-lt-sig-active]").remove();
+
+        // Usenet style signature
         d.body().filter(new NodeFilter() {
             private boolean remove = false;
             private boolean noremove = false;
