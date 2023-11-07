@@ -4270,14 +4270,13 @@ public class FragmentMessages extends FragmentBase
         if (clear && selectionTracker != null)
             selectionTracker.clearSelection();
 
-        new SimpleTask<Integer>() {
+        new SimpleTask<Void>() {
             @Override
-            protected Integer onExecute(Context context, Bundle args) {
+            protected Void onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
                 boolean seen = args.getBoolean("seen");
                 boolean threading = args.getBoolean("threading");
 
-                int ops = 0;
                 DB db = DB.getInstance(context);
                 try {
                     db.beginTransaction();
@@ -4289,20 +4288,9 @@ public class FragmentMessages extends FragmentBase
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading ? null : id, seen ? null : message.folder);
-                        for (EntityMessage threaded : messages) {
-                            EntityFolder folder = db.folder().getFolder(threaded.folder);
-                            if (ids.length == 1) {
-                                Map<String, String> crumbs = new HashMap<>();
-                                crumbs.put("folder", folder.id + ":" + folder.type);
-                                crumbs.put("seen", Boolean.toString(threaded.ui_seen));
-                                crumbs.put("update", Boolean.toString(threaded.ui_seen != seen));
-                                Log.breadcrumb("onActionSeenSelection", crumbs);
-                            }
-                            if (threaded.ui_seen != seen) {
-                                ops++;
+                        for (EntityMessage threaded : messages)
+                            if (threaded.ui_seen != seen)
                                 EntityOperation.queue(context, threaded, EntityOperation.SEEN, seen);
-                            }
-                        }
                     }
 
                     db.setTransactionSuccessful();
@@ -4310,21 +4298,18 @@ public class FragmentMessages extends FragmentBase
                     db.endTransaction();
                 }
 
-                if (ids.length == 1 && ops == 0)
-                    Log.e("onActionSeenSelection: no operations" +
-                            " seen=" + seen + " threading=" + threading);
-                else
-                    Log.i("onActionSeenSelection ops=" + ops);
-
                 ServiceSynchronize.eval(context, "seen");
 
-                return ops;
+                return null;
             }
 
             @Override
-            protected void onExecuted(Bundle args, Integer ops) {
-                if (ops == null || ops == 0)
-                    adapter.notifyDataSetChanged();
+            protected void onExecuted(Bundle args, Void data) {
+                if (id != null && adapter != null) {
+                    int pos = adapter.getPositionForKey(id);
+                    if (pos != RecyclerView.NO_POSITION)
+                        adapter.notifyItemChanged(pos);
+                }
             }
 
             @Override
