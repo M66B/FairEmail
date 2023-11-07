@@ -281,8 +281,35 @@ public class ApplicationEx extends Application
                 WorkerCleanup.init(this);
                 WorkerDailyRules.init(this);
                 WorkerSync.init(this);
-            } catch (IllegalStateException ex) {
+            } catch (Throwable ex) {
                 Log.e(ex);
+
+                // Exception java.lang.RuntimeException:
+                //  at android.app.ActivityThread.handleBindApplication (ActivityThread.java:6320)
+                //  at android.app.ActivityThread.access$1800 (ActivityThread.java:221)
+                //  at android.app.ActivityThread$H.handleMessage (ActivityThread.java:1860)
+                //  at android.os.Handler.dispatchMessage (Handler.java:102)
+                //  at android.os.Looper.loop (Looper.java:158)
+                //  at android.app.ActivityThread.main (ActivityThread.java:7225)
+                //  at java.lang.reflect.Method.invoke
+                //  at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run (ZygoteInit.java:1230)
+                //  at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:1120)
+                // Caused by java.lang.NullPointerException: Attempt to invoke virtual method 'int java.lang.Object.hashCode()' on a null object reference
+                //  at java.util.Collections.secondaryHash (Collections.java:3427)
+                //  at java.util.HashMap.put (HashMap.java:385)
+                //  at androidx.work.impl.WorkDatabase_Impl.getRequiredTypeConverters (WorkDatabase_Impl.java:312)
+                //  at androidx.room.RoomDatabase.init (RoomDatabase.java:272)
+                //  at androidx.room.RoomDatabase$Builder.build (RoomDatabase.java:1487)
+                //  at androidx.work.impl.WorkDatabase$Companion.create (WorkDatabase.kt:159)
+                //  at androidx.work.impl.WorkDatabase.create (WorkDatabase.kt)
+                //  at androidx.work.impl.WorkManagerImpl.<init> (WorkManagerImpl.java:259)
+                //  at androidx.work.impl.WorkManagerImpl.<init> (WorkManagerImpl.java:234)
+                //  at androidx.work.impl.WorkManagerImpl.initialize (WorkManagerImpl.java:213)
+                //  at androidx.work.impl.WorkManagerImpl.getInstance (WorkManagerImpl.java:168)
+                //  at androidx.work.WorkManager.getInstance (WorkManager.java:184)
+                //  at eu.faircode.email.ApplicationEx.onCreate (ApplicationEx.java:278)
+                //  at android.app.Instrumentation.callApplicationOnCreate (Instrumentation.java:1036)
+                //  at android.app.ActivityThread.handleBindApplication (ActivityThread.java:6317)
             }
         }
 
