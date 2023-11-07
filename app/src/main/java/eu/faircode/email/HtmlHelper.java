@@ -2736,6 +2736,10 @@ public class HtmlHelper {
     }
 
     static void removeSignatures(Document d) {
+        // <div data-smartmail="gmail_signature">
+        // <div dir="ltr" class="gmail_signature" data-smartmail="gmail_signature">
+        d.body().select("[data-smartmail=gmail_signature]").remove();
+
         d.body().filter(new NodeFilter() {
             private boolean remove = false;
             private boolean noremove = false;
