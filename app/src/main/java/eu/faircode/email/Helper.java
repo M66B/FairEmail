@@ -1690,7 +1690,7 @@ public class Helper {
         try {
             UiModeManager uimm = Helper.getSystemService(context, UiModeManager.class);
             int uiModeType = uimm.getCurrentModeType();
-            switch (uiModeType) {
+            switch (uiModeType & Configuration.UI_MODE_TYPE_MASK) {
                 case Configuration.UI_MODE_TYPE_UNDEFINED:
                     return "undefined";
                 case Configuration.UI_MODE_TYPE_NORMAL:
@@ -1702,7 +1702,7 @@ public class Helper {
                 case Configuration.UI_MODE_TYPE_TELEVISION:
                     return "television";
                 case Configuration.UI_MODE_TYPE_APPLIANCE:
-                    return "applicance";
+                    return "appliance";
                 case Configuration.UI_MODE_TYPE_WATCH:
                     return "watch";
                 case Configuration.UI_MODE_TYPE_VR_HEADSET:
