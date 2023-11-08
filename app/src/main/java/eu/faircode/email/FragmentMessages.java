@@ -1225,6 +1225,8 @@ public class FragmentMessages extends FragmentBase
             public void onItemRangeRemoved(int positionStart, int itemCount) {
                 if (accessibility || BuildConfig.DEBUG) {
                     RecyclerView.ViewHolder vh = rvMessage.findViewHolderForAdapterPosition(positionStart);
+                    if (vh == null && positionStart > 0)
+                        vh = rvMessage.findViewHolderForAdapterPosition(positionStart - 1);
                     if (vh != null)
                         vh.itemView.requestFocus();
                 }
