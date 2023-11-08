@@ -1290,17 +1290,6 @@ public class EmailService implements AutoCloseable {
                     sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
                 }
 
-                // https://issuetracker.google.com/issues/37122132
-                // https://stackoverflow.com/questions/39133437/sslhandshakeexception-handshake-failed-on-android-n-7-0
-                if (Build.VERSION.SDK_INT == Build.VERSION_CODES.N) {
-                    List<String> ciphers = new ArrayList<>();
-                    for (String cipher : sslSocket.getEnabledCipherSuites())
-                        if (cipher != null && !cipher.endsWith("SHA384"))
-                            ciphers.add(cipher);
-                    if (ciphers.size() > 0)
-                        sslSocket.setEnabledCipherSuites(ciphers.toArray(new String[0]));
-                }
-
                 Log.i("SSL protocols=" + TextUtils.join(",", sslSocket.getEnabledProtocols()));
                 Log.i("SSL ciphers=" + TextUtils.join(",", sslSocket.getEnabledCipherSuites()));
             }
