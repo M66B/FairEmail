@@ -151,7 +151,10 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
     protected void onActive() {
         super.onActive();
         mContainer.onActive(this);
-        getQueryExecutor().execute(mRefreshRunnable);
+        synchronized (lock) {
+            queued++;
+            getQueryExecutor().execute(mRefreshRunnable);
+        }
     }
 
     @Override
