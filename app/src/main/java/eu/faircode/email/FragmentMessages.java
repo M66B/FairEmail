@@ -1562,7 +1562,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
-                onActionSeenSelection(true, null, false, more_clear);
+                onActionSeenSelection(true, null, more_clear);
             }
         });
 
@@ -1570,7 +1570,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
-                onActionSeenSelection(false, null, false, more_clear);
+                onActionSeenSelection(false, null, more_clear);
             }
         });
 
@@ -3186,7 +3186,7 @@ public class FragmentMessages extends FragmentBase
                     message.unseen = (message.unseen == 0 ? message.count : 0);
                     message.ui_seen = (message.unseen == 0);
                     redraw(pos);
-                    onActionSeenSelection(message.ui_seen, message.id, true, false);
+                    onActionSeenSelection(message.ui_seen, message.id, false);
                 } else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                     onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
                 else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
@@ -3305,10 +3305,10 @@ public class FragmentMessages extends FragmentBase
                             public boolean onMenuItemClick(MenuItem target) {
                                 int itemId = target.getItemId();
                                 if (itemId == R.string.title_seen) {
-                                    onActionSeenSelection(true, message.id, false, false);
+                                    onActionSeenSelection(true, message.id, false);
                                     return true;
                                 } else if (itemId == R.string.title_unseen) {
-                                    onActionSeenSelection(false, message.id, false, false);
+                                    onActionSeenSelection(false, message.id, false);
                                     return true;
                                 } else if (itemId == R.string.title_flag) {
                                     onActionFlagSelection(true, Color.TRANSPARENT, message.id, false);
@@ -4186,10 +4186,10 @@ public class FragmentMessages extends FragmentBase
                     public boolean onMenuItemClick(MenuItem target) {
                         int itemId = target.getItemId();
                         if (itemId == R.string.title_seen) {
-                            onActionSeenSelection(true, null, false, false);
+                            onActionSeenSelection(true, null, false);
                             return true;
                         } else if (itemId == R.string.title_unseen) {
-                            onActionSeenSelection(false, null, false, false);
+                            onActionSeenSelection(false, null, false);
                             return true;
                         } else if (itemId == R.string.title_snooze) {
                             onActionSnoozeSelection();
@@ -4283,10 +4283,9 @@ public class FragmentMessages extends FragmentBase
         return ids;
     }
 
-    private void onActionSeenSelection(boolean seen, Long id, boolean swiped, boolean clear) {
+    private void onActionSeenSelection(boolean seen, Long id, boolean clear) {
         Bundle args = new Bundle();
         args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
-        args.putBoolean("swiped", swiped);
         args.putBoolean("seen", seen);
         args.putBoolean("threading", threading &&
                 (id == null || viewType != AdapterMessage.ViewType.THREAD));
@@ -4329,15 +4328,6 @@ public class FragmentMessages extends FragmentBase
                 ServiceSynchronize.eval(context, "seen");
 
                 return null;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Void data) {
-                if (swiped && adapter != null) {
-                    int pos = adapter.getPositionForKey(id);
-                    if (pos != RecyclerView.NO_POSITION)
-                        adapter.notifyItemChanged(pos);
-                }
             }
 
             @Override
