@@ -539,9 +539,20 @@
             android:importantForAutofill="no"
             android:inputType="textNoSuggestions"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ibEhlo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEhlo" />
+
+        <ImageButton
+            android:id="@+id/ibEhlo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/title_info"
+            android:tooltipText="@string/title_info"
+            app:layout_constraintBottom_toBottomOf="@+id/etEhlo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/etEhlo"
+            app:srcCompat="@drawable/twotone_info_24" />
 
         <CheckBox
             android:id="@+id/cbSynchronize"
@@ -1068,7 +1079,7 @@
                 tvUser,etUser,tvPassword,tilPassword,tvCaseSensitiveHint,tvPasswordStorage,
                 btnCertificate,tvCertificate,
                 tvRealm,etRealm,
-                cbUseIp,tvUseIpHint,tvEhlo,etEhlo,
+                cbUseIp,tvUseIpHint,tvEhlo,etEhlo,ibEhlo,
                 cbSynchronize,cbPrimary,cbSelf,tvSelfHint,
                 cbSenderExtra,cbSenderExtraName,cbReplyExtraName,tvSenderExtra,etSenderExtra,ibSenderExtra,tvSenderExtraHint,
                 tvReplyTo,etReplyTo,tvCc,etCc,tvCcHint,tvBcc,etBcc,tvBccHint,

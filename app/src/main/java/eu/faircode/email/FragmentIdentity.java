@@ -111,6 +111,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etRealm;
     private CheckBox cbUseIp;
     private EditText etEhlo;
+    private ImageButton ibEhlo;
 
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
@@ -217,6 +218,7 @@ public class FragmentIdentity extends FragmentBase {
         etRealm = view.findViewById(R.id.etRealm);
         cbUseIp = view.findViewById(R.id.cbUseIp);
         etEhlo = view.findViewById(R.id.etEhlo);
+        ibEhlo = view.findViewById(R.id.ibEhlo);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
@@ -487,6 +489,13 @@ public class FragmentIdentity extends FragmentBase {
                         tvCertificate.setText(R.string.title_optional);
                     }
                 });
+            }
+        });
+
+        ibEhlo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse("https://dummy.faircode.eu/"), true);
             }
         });
 
