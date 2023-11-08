@@ -3214,10 +3214,19 @@ public class Log {
                 size += write(os, "\r\n");
 
                 try {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    String open_with_pkg = prefs.getString("open_with_pkg", null);
+                    boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
+                    size += write(os, String.format("open_with_pkg=%s\r\n", open_with_pkg));
+                    size += write(os, String.format("open_with_tabs=%b\r\n", open_with_tabs));
+                    size += write(os, "\r\n");
+
                     int flags = PackageManager.GET_RESOLVED_FILTER;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                         flags |= PackageManager.MATCH_ALL;
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.example.com"));
+                    ResolveInfo main = pm.resolveActivity(intent, 0);
+
                     List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
                     size += write(os, "Browsers=" + (ris == null ? null : ris.size()) + "\r\n");
                     if (ris != null)
@@ -3229,6 +3238,8 @@ public class Log {
 
                             StringBuilder sb = new StringBuilder();
                             sb.append("Browser=").append(ri.activityInfo.packageName);
+                            if (Objects.equals(main.activityInfo.packageName, ri.activityInfo.packageName))
+                                sb.append("*");
                             sb.append(" tabs=").append(tabs);
                             sb.append(" view=").append(ri.filter.hasAction(Intent.ACTION_VIEW));
                             sb.append(" browsable=").append(ri.filter.hasCategory(Intent.CATEGORY_BROWSABLE));
