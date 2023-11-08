@@ -3172,9 +3172,12 @@ public class FragmentMessages extends FragmentBase
                 if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
                     redraw(pos);
                     onSwipeAsk(message, viewHolder);
-                } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
+                } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action)) {
+                    message.unseen = (message.unseen == 0 ? message.count : 0);
+                    message.ui_seen = (message.unseen == 0);
+                    redraw(pos);
                     onActionSeenSelection(message.unseen > 0, message.id, true, false);
-                else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
+                } else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                     onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
                 else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
                     if (ActivityBilling.isPro(getContext()))
