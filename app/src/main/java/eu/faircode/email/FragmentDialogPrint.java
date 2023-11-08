@@ -410,7 +410,10 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                                 // 	at android.app.Activity.startIntentSender(Activity.java:6152)
                                 // 	at android.print.PrintManager.print(PrintManager.java:538)
                                 // 	at eu.faircode.email.FragmentDialogPrint$7$2.onPageFinished(SourceFile:127)
-                                Log.unexpectedError(fm, ex, !(ex instanceof ActivityNotFoundException));
+                                boolean report = !(ex instanceof ActivityNotFoundException);
+                                if (ex instanceof ActivityNotFoundException)
+                                    ex = new Throwable("A system app or component required for printing is missing", ex);
+                                Log.unexpectedError(fm, ex, report);
                             } catch (IllegalStateException exex) {
                                 ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
                             }
