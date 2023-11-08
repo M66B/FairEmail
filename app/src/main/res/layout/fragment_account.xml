@@ -932,6 +932,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/title_folder_drafts"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/tvIdle" />
@@ -952,6 +953,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/title_folder_sent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/tvDraftsRemark" />
@@ -974,6 +976,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/title_folder_all"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/tvSentWarning" />
@@ -984,6 +987,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/title_folder_trash"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/spArchive" />
@@ -994,6 +998,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/title_folder_junk"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/spTrash" />
@@ -1013,6 +1018,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/title_account_left"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorSwipe" />
@@ -1023,6 +1029,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/title_account_right"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/spLeft" />
@@ -1042,6 +1049,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
             android:layout_marginTop="12dp"
+            android:contentDescription="@string/title_account_move"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/barrier_folders"
             app:layout_constraintTop_toBottomOf="@id/vSeparatorMove" />
