@@ -3178,7 +3178,7 @@ public class FragmentMessages extends FragmentBase
                     message.unseen = (message.unseen == 0 ? message.count : 0);
                     message.ui_seen = (message.unseen == 0);
                     redraw(pos);
-                    onActionSeenSelection(message.unseen > 0, message.id, true, false);
+                    onActionSeenSelection(message.ui_seen, message.id, true, false);
                 } else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                     onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
                 else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
