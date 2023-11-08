@@ -313,7 +313,8 @@
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:parentActivityName=".ActivityView"
-            android:resizeableActivity="true">
+            android:resizeableActivity="true"
+            android:taskAffinity="${applicationId}.COMPOSE">
             <meta-data
                 android:name="android.service.chooser.chooser_target_service"
                 android:value="androidx.sharetarget.ChooserTargetServiceCompat" />
