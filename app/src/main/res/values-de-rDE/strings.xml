@@ -1702,7 +1702,7 @@
     <string name="title_rule_alarm_stop">Anhalten</string>
     <string name="title_code_line_numbers">Zeilennummern anzeigen</string>
     <string name="title_code_enable_links">Links aktivieren</string>
-    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Qualitätsdruck</string>
+    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Schön formatieren</string>
     <string name="title_legend_section_synchronize">Synchronisieren</string>
     <string name="title_legend_section_folders">Ordner</string>
     <string name="title_legend_section_messages">Nachrichten</string>
@@ -1979,7 +1979,7 @@
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Ordner</string>
     <string name="title_widget_folder_unified">Sammeleingangsordner</string>
-    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Ordner mit ungelesenen Nachrichten</string>
+    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Ordner mit Meldungen über ungelesene Nachrichten</string>
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
     <string name="title_widget_flagged">Nur markierte Nachrichten</string>
     <string name="title_widget_font_size">Schriftgröße</string>

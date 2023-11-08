@@ -611,6 +611,8 @@
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_preview_all">预览所有文本</string>
     <string name="title_advanced_notify_preview_only">仅显示有预览文本的通知</string>
+    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">转换为拉丁字母表</string>
+    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">仅 ASCII 文本</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
     <string name="title_advanced_notify_action_delete">删除</string>
@@ -1678,6 +1680,7 @@
     <string name="title_rule_alarm_stop">停止</string>
     <string name="title_code_line_numbers">显示行号</string>
     <string name="title_code_enable_links">启用链接</string>
+    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">漂亮打印</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>
@@ -1872,6 +1875,7 @@
     <string name="title_no_ask_again">不再询问</string>
     <string name="title_no_ask_for_again">不再询问 %1$s</string>
     <string name="title_no_body">没有找到消息文本</string>
+    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">此消息非常大，这可能会引起问题！</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>
     <string name="title_via">通过: %1$s</string>
     <string name="title_1hour">1 小时</string>
@@ -1951,6 +1955,7 @@
     <string name="title_widget_account_all">全部</string>
     <string name="title_widget_folder">文件夹</string>
     <string name="title_widget_folder_unified">聚合收件箱文件夹</string>
+    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">显示新消息通知的文件夹</string>
     <string name="title_widget_unseen">仅未读信息</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
     <string name="title_widget_font_size">文本大小</string>

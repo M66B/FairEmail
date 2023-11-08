@@ -624,6 +624,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_notify_preview">Foarbyld fan berjocht yn notifikaasjes toane</string>
     <string name="title_advanced_notify_preview_all">Foarbyld fan alle tekst</string>
     <string name="title_advanced_notify_preview_only">Notifikaasjes allinnich mei in foarbyldtekst toane</string>
+    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">Transliterearje nei it Latynske alfabet</string>
     <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Allinnich ASCII-tekst
 Titel foar in optsje om teksten yn meldingen nei ASCII te konvertearjen
 https://en.wikipedia.org/wiki/ASCII</string>
