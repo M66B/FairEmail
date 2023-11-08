@@ -412,7 +412,8 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                                 // 	at eu.faircode.email.FragmentDialogPrint$7$2.onPageFinished(SourceFile:127)
                                 boolean report = !(ex instanceof ActivityNotFoundException);
                                 if (ex instanceof ActivityNotFoundException)
-                                    ex = new Throwable("A system app or component required for printing is missing", ex);
+                                    ex = new Throwable("A system app or component required for printing is missing." +
+                                            " Is the print spooler still enabled?", ex);
                                 Log.unexpectedError(fm, ex, report);
                             } catch (IllegalStateException exex) {
                                 ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
