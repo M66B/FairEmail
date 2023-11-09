@@ -18,6 +18,7 @@ import com.bugsnag.android.EventPayload
 import com.bugsnag.android.Logger
 import com.bugsnag.android.ManifestConfigLoader.Companion.BUILD_UUID
 import com.bugsnag.android.NoopLogger
+import com.bugsnag.android.Session
 import com.bugsnag.android.Telemetry
 import com.bugsnag.android.ThreadSendPolicy
 import com.bugsnag.android.errorApiHeaders
@@ -65,8 +66,8 @@ data class ImmutableConfig(
         DeliveryParams(endpoints.notify, errorApiHeaders(payload))
 
     @JvmName("getSessionApiDeliveryParams")
-    internal fun getSessionApiDeliveryParams() =
-        DeliveryParams(endpoints.sessions, sessionApiHeaders(apiKey))
+    internal fun getSessionApiDeliveryParams(session: Session) =
+        DeliveryParams(endpoints.sessions, sessionApiHeaders(session.apiKey))
 
     /**
      * Returns whether the given throwable should be discarded

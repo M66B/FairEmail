@@ -89,7 +89,10 @@ class SessionTracker extends BaseObservable {
             return null;
         }
         String id = UUID.randomUUID().toString();
-        Session session = new Session(id, date, user, autoCaptured, client.getNotifier(), logger);
+        Session session = new Session(
+                id, date, user, autoCaptured,
+                client.getNotifier(), logger, configuration.getApiKey()
+        );
         if (trackSessionIfNeeded(session)) {
             return session;
         } else {
@@ -157,7 +160,7 @@ class SessionTracker extends BaseObservable {
         Session session = null;
         if (date != null && sessionId != null) {
             session = new Session(sessionId, date, user, unhandledCount, handledCount,
-                    client.getNotifier(), logger);
+                    client.getNotifier(), logger, configuration.getApiKey());
             notifySessionStartObserver(session);
         } else {
             updateState(StateEvent.PauseSession.INSTANCE);
@@ -256,9 +259,11 @@ class SessionTracker extends BaseObservable {
 
     void flushStoredSession(File storedFile) {
         logger.d("SessionTracker#flushStoredSession() - attempting delivery");
-        Session payload = new Session(storedFile, client.getNotifier(), logger);
+        Session payload = new Session(
+                storedFile, client.getNotifier(), logger, configuration.getApiKey()
+        );
 
-        if (!payload.isV2Payload()) { // collect data here
+        if (payload.isLegacyPayload()) { // collect data here
             payload.setApp(client.getAppDataCollector().generateApp());
             payload.setDevice(client.getDeviceDataCollector().generateDevice());
         }
@@ -330,7 +335,7 @@ class SessionTracker extends BaseObservable {
     }
 
     DeliveryStatus deliverSessionPayload(Session payload) {
-        DeliveryParams params = configuration.getSessionApiDeliveryParams();
+        DeliveryParams params = configuration.getSessionApiDeliveryParams(payload);
         Delivery delivery = configuration.getDelivery();
         return delivery.deliver(payload, params);
     }
