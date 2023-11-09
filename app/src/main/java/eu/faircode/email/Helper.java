@@ -1926,6 +1926,17 @@ public class Helper {
         }
     }
 
+    static void performHapticFeedback(View view, int feedbackConstant) {
+        performHapticFeedback(view, feedbackConstant, 0);
+    }
+
+    static void performHapticFeedback(@NonNull View view, int feedbackConstant, int flags) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+        boolean haptic_feedback = prefs.getBoolean("haptic_feedback", true);
+        if (haptic_feedback)
+            view.performHapticFeedback(feedbackConstant);
+    }
+
     // Graphics
 
     static int dp2pixels(Context context, int dp) {

@@ -7241,7 +7241,7 @@ public class FragmentCompose extends FragmentBase {
                         getMainHandler().post(new RunnableEx("compose:toast") {
                             public void delegate() {
                                 if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                                    view.performHapticFeedback(HapticFeedbackConstants.CONFIRM);
+                                    Helper.performHapticFeedback(view, HapticFeedbackConstants.CONFIRM);
                                 ToastEx.makeText(context, feedback, Toast.LENGTH_LONG).show();
                             }
                         });

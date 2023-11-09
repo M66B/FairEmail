@@ -10485,7 +10485,7 @@ public class FragmentMessages extends FragmentBase
 
             @Override
             protected void onExecuted(Bundle args, Void data) {
-                view.performHapticFeedback(HapticFeedbackConstants.CONFIRM);
+                Helper.performHapticFeedback(view, HapticFeedbackConstants.CONFIRM);
             }
 
             @Override
