@@ -92,6 +92,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swSslHardenStrict;
     private SwitchCompat swCertStrict;
     private SwitchCompat swOpenSafe;
+    private SwitchCompat swBouncyCastle;
     private Button btnManage;
     private TextView tvNetworkMetered;
     private TextView tvNetworkRoaming;
@@ -110,7 +111,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "download_headers", "download_eml", "download_plain",
             "require_validated", "require_validated_captive", "vpn_only",
             "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive",
-            "ssl_harden", "ssl_harden_strict", "cert_strict", "open_safe"
+            "ssl_harden", "ssl_harden_strict", "cert_strict", "open_safe", "bouncy_castle"
     };
 
     @Override
@@ -144,6 +145,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swSslHardenStrict = view.findViewById(R.id.swSslHardenStrict);
         swCertStrict = view.findViewById(R.id.swCertStrict);
         swOpenSafe = view.findViewById(R.id.swOpenSafe);
+        swBouncyCastle = view.findViewById(R.id.swBouncyCastle);
         btnManage = view.findViewById(R.id.btnManage);
 
         tvNetworkMetered = view.findViewById(R.id.tvNetworkMetered);
@@ -345,6 +347,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("open_safe", checked).apply();
+            }
+        });
+
+        swBouncyCastle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("bouncy_castle", checked).apply();
             }
         });
 
@@ -609,6 +618,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             swSslHardenStrict.setEnabled(swSslHarden.isChecked());
             swCertStrict.setChecked(prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE));
             swOpenSafe.setChecked(prefs.getBoolean("open_safe", false));
+            swBouncyCastle.setChecked(prefs.getBoolean("bouncy_castle", false));
         } catch (Throwable ex) {
             Log.e(ex);
         }

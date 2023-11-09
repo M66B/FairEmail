@@ -46,6 +46,8 @@ import com.sun.mail.util.MailConnectException;
 import com.sun.mail.util.SocketConnectException;
 import com.sun.mail.util.TraceOutputStream;
 
+import org.bouncycastle.jsse.provider.BouncyCastleJsseProvider;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -445,7 +447,8 @@ public class EmailService implements AutoCloseable {
                     }
                 }
 
-            factory = new SSLSocketFactoryService(host, insecure, ssl_harden, strict, cert_strict, key, chain, fingerprint);
+            boolean bc = prefs.getBoolean("bouncy_castle", false);
+            factory = new SSLSocketFactoryService(host, insecure, ssl_harden, strict, cert_strict, bc, key, chain, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
@@ -1035,7 +1038,7 @@ public class EmailService implements AutoCloseable {
         private SSLSocketFactory factory;
         private X509Certificate certificate;
 
-        SSLSocketFactoryService(String host, boolean insecure, boolean ssl_harden, boolean ssl_harden_strict, boolean cert_strict, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
+        SSLSocketFactoryService(String host, boolean insecure, boolean ssl_harden, boolean ssl_harden_strict, boolean cert_strict, boolean bc, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
             this.server = host;
             this.secure = !insecure;
             this.ssl_harden = ssl_harden;
@@ -1044,7 +1047,13 @@ public class EmailService implements AutoCloseable {
             this.trustedFingerprint = fingerprint;
 
             // https://developer.android.com/about/versions/oreo/android-8.0-changes.html#security-all
-            SSLContext sslContext = SSLContext.getInstance(insecure ? "SSL" : "TLS");
+            SSLContext sslContext;
+            String protocol = (insecure ? "SSL" : "TLS");
+            if (bc)
+                sslContext = SSLContext.getInstance(protocol, new BouncyCastleJsseProvider());
+            else
+                sslContext = SSLContext.getInstance(protocol);
+            Log.i("Using protocol=" + protocol + " bc=" + bc);
 
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             tmf.init((KeyStore) null);
