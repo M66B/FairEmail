@@ -4297,7 +4297,6 @@ public class FragmentMessages extends FragmentBase
             @Override
             protected Void onExecute(Context context, Bundle args) {
                 long[] ids = args.getLongArray("ids");
-                boolean swiped = args.getBoolean("swiped");
                 boolean seen = args.getBoolean("seen");
                 boolean threading = args.getBoolean("threading");
 
@@ -4309,9 +4308,6 @@ public class FragmentMessages extends FragmentBase
                         EntityMessage message = db.message().getMessage(id);
                         if (message == null)
                             continue;
-
-                        if (swiped)
-                            db.message().setMessageUiBusy(message.id, new Date().getTime());
 
                         List<EntityMessage> messages = db.message().getMessagesByThread(
                                 message.account, message.thread, threading ? null : id, seen ? null : message.folder);
