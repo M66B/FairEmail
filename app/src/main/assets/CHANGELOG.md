@@ -8,7 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### 1.2120 - 2023-11-09
 
-* Added removing Gmail and Outlook style signatures (send setting)
+* Added removing Gmail and Outlook style signatures (send settings)
 * Reduced database traffic
 * Small improvements and minor bug fixes
 * Updated build tools and libraries
