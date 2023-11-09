@@ -36,7 +36,9 @@ import androidx.preference.PreferenceManager;
 
 import com.sun.mail.iap.ConnectionException;
 import com.sun.mail.util.FolderClosedIOException;
+import com.sun.mail.util.LineInputStream;
 
+import java.io.BufferedInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -46,6 +48,8 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.InterfaceAddress;
 import java.net.NetworkInterface;
+import java.net.Socket;
+import java.net.SocketException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.net.UnknownHostException;
@@ -802,6 +806,104 @@ public class ConnectionHelper {
         } catch (Throwable ex) {
             Log.w(ex);
             return null;
+        }
+    }
+
+    static SSLSocket starttls(Socket socket, String host, int port, Context context) throws IOException {
+        String response;
+        String command;
+        boolean has = false;
+
+        LineInputStream lis =
+                new LineInputStream(
+                        new BufferedInputStream(
+                                socket.getInputStream()));
+
+        if (port == 587) {
+            do {
+                response = lis.readLine();
+                if (response != null)
+                    EntityLog.log(context, EntityLog.Type.Protocol,
+                            socket.getRemoteSocketAddress() + " <" + response);
+            } while (response != null && !response.startsWith("220 "));
+
+            command = "EHLO " + EmailService.getDefaultEhlo() + "\n";
+            EntityLog.log(context, socket.getRemoteSocketAddress() + " >" + command);
+            socket.getOutputStream().write(command.getBytes());
+
+            do {
+                response = lis.readLine();
+                if (response != null) {
+                    EntityLog.log(context, EntityLog.Type.Protocol,
+                            socket.getRemoteSocketAddress() + " <" + response);
+                    if (response.contains("STARTTLS"))
+                        has = true;
+                }
+            } while (response != null &&
+                    response.length() >= 4 && response.charAt(3) == '-');
+
+            if (has) {
+                command = "STARTTLS\n";
+                EntityLog.log(context, EntityLog.Type.Protocol,
+                        socket.getRemoteSocketAddress() + " >" + command);
+                socket.getOutputStream().write(command.getBytes());
+            }
+        } else if (port == 143) {
+            do {
+                response = lis.readLine();
+                if (response != null) {
+                    EntityLog.log(context, EntityLog.Type.Protocol,
+                            socket.getRemoteSocketAddress() + " <" + response);
+                    if (response.contains("STARTTLS"))
+                        has = true;
+                }
+            } while (response != null &&
+                    !response.startsWith("* OK"));
+
+            if (has) {
+                command = "A001 STARTTLS\n";
+                EntityLog.log(context, EntityLog.Type.Protocol,
+                        socket.getRemoteSocketAddress() + " >" + command);
+                socket.getOutputStream().write(command.getBytes());
+            }
+        }
+
+        if (has) {
+            do {
+                response = lis.readLine();
+                if (response != null)
+                    EntityLog.log(context, EntityLog.Type.Protocol,
+                            socket.getRemoteSocketAddress() + " <" + response);
+            } while (response != null &&
+                    !(response.startsWith("A001 OK") || response.startsWith("220 ")));
+
+            SSLSocketFactory sslFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
+            return (SSLSocket) sslFactory.createSocket(socket, host, port, false);
+        } else
+            throw new SocketException("No STARTTLS");
+    }
+
+    static void signOff(Socket socket, int port, Context context) {
+        try {
+            String command = (port == 465 || port == 587 ? "QUIT" : "A002 LOGOUT");
+
+            EntityLog.log(context, EntityLog.Type.Protocol,
+                    socket.getRemoteSocketAddress() + " >" + command);
+            socket.getOutputStream().write((command + "\n").getBytes());
+
+            LineInputStream lis =
+                    new LineInputStream(
+                            new BufferedInputStream(
+                                    socket.getInputStream()));
+            String response;
+            do {
+                response = lis.readLine();
+                if (response != null)
+                    EntityLog.log(context, EntityLog.Type.Protocol,
+                            socket.getRemoteSocketAddress() + " <" + response);
+            } while (response != null);
+        } catch (IOException ex) {
+            Log.w(ex);
         }
     }
 }

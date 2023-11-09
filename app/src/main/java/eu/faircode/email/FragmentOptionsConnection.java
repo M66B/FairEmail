@@ -46,6 +46,7 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -57,6 +58,16 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.lifecycle.Lifecycle;
 import androidx.preference.PreferenceManager;
+
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.security.cert.Certificate;
+import java.security.cert.X509Certificate;
+
+import javax.net.SocketFactory;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 
 public class FragmentOptionsConnection extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private View view;
@@ -86,6 +97,10 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private TextView tvNetworkRoaming;
     private CardView cardDebug;
     private Button btnCiphers;
+    private EditText etHost;
+    private RadioGroup rgEncryption;
+    private EditText etPort;
+    private Button btnCheck;
     private TextView tvNetworkInfo;
 
     private Group grpValidated;
@@ -136,6 +151,10 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
 
         cardDebug = view.findViewById(R.id.cardDebug);
         btnCiphers = view.findViewById(R.id.btnCiphers);
+        etHost = view.findViewById(R.id.etHost);
+        rgEncryption = view.findViewById(R.id.rgEncryption);
+        etPort = view.findViewById(R.id.etPort);
+        btnCheck = view.findViewById(R.id.btnCheck);
         tvNetworkInfo = view.findViewById(R.id.tvNetworkInfo);
 
         grpValidated = view.findViewById(R.id.grpValidated);
@@ -356,6 +375,121 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                             }
                         })
                         .show();
+            }
+        });
+
+        btnCheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String host = etHost.getText().toString().trim();
+                Integer port = Helper.parseInt(etPort.getText().toString().trim());
+
+                String encryption;
+                if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_starttls)
+                    encryption = "starttls";
+                else if (rgEncryption.getCheckedRadioButtonId() == R.id.radio_ssl)
+                    encryption = "ssl";
+                else
+                    encryption = "none";
+
+                int timeout = prefs.getInt("timeout", EmailService.DEFAULT_CONNECT_TIMEOUT) * 1000;
+
+                Bundle args = new Bundle();
+                args.putString("host", host);
+                args.putInt("port", port == null ? 0 : port);
+                args.putString("encryption", encryption);
+                args.putInt("timeout", timeout);
+
+                new SimpleTask<StringBuilder>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        btnCheck.setEnabled(false);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        btnCheck.setEnabled(true);
+                    }
+
+                    @Override
+                    protected StringBuilder onExecute(Context context, Bundle args) throws Throwable {
+                        String host = args.getString("host");
+                        int port = args.getInt("port");
+                        String encryption = args.getString("encryption");
+                        int timeout = args.getInt("timeout");
+
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("Host: ").append(host).append('\n');
+                        sb.append("Port: ").append(port).append('\n');
+                        sb.append("Encryption: ").append(encryption).append('\n');
+
+                        InetSocketAddress address = new InetSocketAddress(host, port);
+                        SocketFactory factory = (!"ssl".equals(encryption)
+                                ? SocketFactory.getDefault()
+                                : SSLSocketFactory.getDefault());
+                        try (Socket socket = factory.createSocket()) {
+                            socket.connect(address, timeout);
+                            socket.setSoTimeout(timeout);
+
+                            if (!"none".equals(encryption)) {
+                                SSLSocket sslSocket = null;
+                                try {
+                                    if ("starttls".equals(encryption))
+                                        sslSocket = ConnectionHelper.starttls(socket, host, port, context);
+                                    else
+                                        sslSocket = (SSLSocket) socket;
+
+                                    sslSocket.startHandshake();
+
+                                    SSLSession session = sslSocket.getSession();
+                                    sb.append("Protocol: ").append(session.getProtocol()).append('\n');
+                                    sb.append("Cipher: ").append(session.getCipherSuite()).append('\n');
+                                    Certificate[] certificates = session.getPeerCertificates();
+                                    if (certificates != null)
+                                        for (Certificate certificate : certificates) {
+                                            if (certificate instanceof X509Certificate) {
+                                                X509Certificate x = (X509Certificate) certificate;
+                                                sb.append("Subject: ").append(x.getSubjectDN()).append('\n');
+                                                for (String dns : EntityCertificate.getDnsNames(x))
+                                                    sb.append("DNS name: ").append(dns).append('\n');
+                                            }
+                                        }
+                                } finally {
+                                    try {
+                                        if (sslSocket != null) {
+                                            ConnectionHelper.signOff(sslSocket, port, context);
+                                            sslSocket.close();
+                                        }
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }
+                            }
+                        }
+
+                        return sb;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, StringBuilder sb) {
+                        new AlertDialog.Builder(getContext())
+                                .setIcon(R.drawable.twotone_info_24)
+                                .setTitle(R.string.title_advanced_section_connection)
+                                .setMessage(sb)
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // Do nothing
+                                    }
+                                })
+                                .show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragment(), ex);
+                    }
+                }.execute(FragmentOptionsConnection.this, args, "connection:check");
             }
         });
 
