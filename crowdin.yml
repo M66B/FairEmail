@@ -1,0 +1,19 @@
+#https://crowdin.github.io/crowdin-cli/installation#debian
+#https://developer.crowdin.com/configuration-file/
+#crowdin download --branch=master
+
+"project_id_env": "CROWDIN_PROJECT_ID"
+"api_token_env": "CROWDIN_PERSONAL_TOKEN"
+"base_path": "/home/marcel/email"
+"base_url": "https://api.crowdin.com"
+
+files: [
+  {
+    "source": "/SETUP.md",
+    "translation": "/app/src/main/assets/SETUP-%android_code%.md",
+  },
+  {
+    "source": "/app/src/main/res/values/strings.xml",
+    "translation": "/app/src/main/res/values-%android_code%/%original_file_name%",
+  }
+]
