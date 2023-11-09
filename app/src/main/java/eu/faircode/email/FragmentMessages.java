@@ -7191,6 +7191,7 @@ public class FragmentMessages extends FragmentBase
             TupleMessageEx singleMessage = null;
             TupleMessageEx unseenMessage = null;
             TupleMessageEx flaggedMessage = null;
+            TupleMessageEx lastMessage = null;
             TupleMessageEx pinnedMessage = null;
             TupleMessageEx foundMessage = null;
             for (TupleMessageEx message : messages) {
@@ -7214,6 +7215,8 @@ public class FragmentMessages extends FragmentBase
                         flagged++;
                         flaggedMessage = message;
                     }
+
+                    lastMessage = message;
                 }
 
                 if (pinned &&
@@ -7248,13 +7251,11 @@ public class FragmentMessages extends FragmentBase
                     expand = unseenMessage;
                 else if (unseen == 0 && flagged == 1)
                     expand = flaggedMessage;
-                else if (messages.size() == 1)
-                    expand = messages.get(0);
-                else if (messages.size() > 0) {
-                    TupleMessageEx firstMessage = messages.get(adapter.getAscending() ? messages.size() - 1 : 0);
+                else if (count > 0) {
+                    TupleMessageEx firstMessage = (adapter.getAscending() ? lastMessage : singleMessage);
                     if (firstMessage != null &&
                             (EntityFolder.OUTBOX.equals(firstMessage.folderType) ||
-                                    (expand_first && unseen == 0 && !EntityFolder.DRAFTS.equals(firstMessage.folderType))))
+                                    (expand_first && unseen == 0)))
                         expand = firstMessage;
                 }
 
