@@ -1043,8 +1043,11 @@ public class MessageHelper {
                     document.body().prependChild(div);
                 }
 
-                document.select("div[fairemail=signature]").removeAttr("fairemail");
-                document.select("div[fairemail=reference]").removeAttr("fairemail");
+                document.select("div[fairemail=signature]")
+                        .removeAttr("fairemail")
+                        .addClass("fairemail_signature");
+                document.select("div[fairemail=reference]")
+                        .removeAttr("fairemail");
 
                 Elements reply = document.select("div[fairemail=reply]");
                 if (message.isPlainOnly())

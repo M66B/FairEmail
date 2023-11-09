@@ -2736,6 +2736,9 @@ public class HtmlHelper {
     }
 
     static void removeSignatures(Document d) {
+        // <div class="fairemail_signature">
+        d.body().select(".fairemail_signature").remove();
+
         // <div data-smartmail="gmail_signature">
         // <div dir="ltr" class="gmail_signature" data-smartmail="gmail_signature">
         d.body().select("[data-smartmail=gmail_signature]").remove();
