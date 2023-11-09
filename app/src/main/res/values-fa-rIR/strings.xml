@@ -472,8 +472,8 @@
     <string name="title_advanced_notify_summary">تنها چکیده اعلان را نمایش بده</string>
     <string name="title_advanced_notify_preview">پیش‌نمایش پیام را در اعلان‌ها نمایش بده</string>
     <string name="title_advanced_notify_preview_all">پیش‌نمایش تمام متن</string>
-    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">ترجمه به الفبای لاتین</string>
-    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">فقط نوشته‌های ASCII</string>
+    <string name="title_advanced_notify_transliterate">ترجمه به الفبای لاتین</string>
+    <string name="title_advanced_notify_ascii">فقط نوشته‌های ASCII</string>
     <string name="title_advanced_notify_actions">کنش‌های اعلان</string>
     <string name="title_advanced_notify_action_trash">زباله‌دان</string>
     <string name="title_advanced_notify_action_delete">حذف</string>
@@ -1104,7 +1104,7 @@
     <string name="title_rule_tts_content">متن</string>
     <string name="title_code_line_numbers">نمایش تعداد خطوط</string>
     <string name="title_code_enable_links">فعال کردن لینک‌ها</string>
-    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">چاپ زیبا</string>
+    <string name="title_code_pretty">چاپ زیبا</string>
     <string name="title_legend_section_synchronize">همگام سازی</string>
     <string name="title_legend_section_folders">پوشه‌ها</string>
     <string name="title_legend_section_messages">پیام‌ها</string>
@@ -1250,7 +1250,7 @@
     <string name="title_no_ask_again">دیگر نپرس</string>
     <string name="title_no_ask_for_again">دوباره برای %1$s نپرس</string>
     <string name="title_no_body">هیچ پیام متنی یافت نشد</string>
-    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">این پیام بسیار طولانیست و ممکن است باعث بروز مشکلاتی شود!</string>
+    <string name="title_large_body">این پیام بسیار طولانیست و ممکن است باعث بروز مشکلاتی شود!</string>
     <string name="title_no_charset">رمزگذاری پشتیبانی نشده: %1$s</string>
     <string name="title_via">از طریق: %1$s</string>
     <string name="title_1hour">۱ ساعت</string>

@@ -142,7 +142,7 @@
     <string name="title_notification_waiting">Очікування відповідного з\'єднання</string>
     <string name="title_notification_idle">Бездіяльність</string>
     <string name="title_notification_failed">Не вдалося з\'єднатись з «%1$s»</string>
-    <string name="title_notification_alert">Попередження сервера: \'%1$s\'</string>
+    <string name="title_notification_alert">Попередження сервера: «%1$s»</string>
     <string name="title_notification_sending_left">Залишилось спроб: %1$d</string>
     <string name="title_notification_sending_retry">Повторна спроба відправлення буде здійснена при зміні підключення до інтернету або після виконання жесту «потягнути донизу» в скриньці вихідних повідомлень</string>
     <string name="title_notification_sending_failed">Не вдалося відправити повідомлення %1$s</string>
@@ -407,7 +407,7 @@
     <string name="title_advanced_suggest_account">Обмежити пропозиції поточним обліковим записом</string>
     <string name="title_advanced_alt_re_fwd">Альтернативний префікс для відповіді/пересилання</string>
     <string name="title_advanced_send_chips">Показувати рамки навколо адрес</string>
-    <string name="title_advanced_send_nav_color">Використовувати колір профілю для нижньої панелі інструментів</string>
+    <string name="title_advanced_send_nav_color">Використовувати колір профілю як фон нижньої панелі інструментів</string>
     <string name="title_advanced_send_reminders">Показувати нагадування</string>
     <string name="title_advanced_send_delayed">Затримка надсилання повідомлень</string>
     <string name="title_advanced_attach_new">Створити чернетку нового повідомлення для адрес та файлів, якими ви поділилися з інших додатків</string>
@@ -654,8 +654,8 @@
     <string name="title_advanced_notify_preview">Показувати попередній перегляд повідомлення у сповіщеннях</string>
     <string name="title_advanced_notify_preview_all">Попередній перегляд всього тексту</string>
     <string name="title_advanced_notify_preview_only">Показувати сповіщення тільки з попереднім переглядом тексту</string>
-    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">Транслітерувати латинською абеткою</string>
-    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Тільки ASCII-текст</string>
+    <string name="title_advanced_notify_transliterate">Транслітерувати латинською абеткою</string>
+    <string name="title_advanced_notify_ascii">Тільки ASCII-текст</string>
     <string name="title_advanced_notify_actions">Дії зі сповіщеннями</string>
     <string name="title_advanced_notify_action_trash">Кошик</string>
     <string name="title_advanced_notify_action_delete">Видалити</string>
@@ -747,6 +747,7 @@
     <string name="title_advanced_class_min_chance">Мінімальна ймовірність належності до класу: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Мінімальна відмінність між класами: %1$s %%</string>
     <string name="title_advanced_show_filtered">Показувати значок фільтру коли правила застосовані</string>
+    <string name="title_advanced_haptic_feedback" comment="title_advanced_haptic_feedback&#10;Title for an option to enable/disable haptic feedback, currently for 'send' and empty trash/spam&#10;https://developer.android.com/develop/ui/views/haptics/haptic-feedback">Вібровідгук на важливі дії</string>
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Системи</string>
     <string name="title_advanced_lt">Інтеграція з LanguageTool</string>
@@ -1027,7 +1028,7 @@
     <string name="title_review">Відгук</string>
     <string name="title_hint_accounts">Тривале натискання на назву облікового запису відкриє меню додаткових параметрів, наприклад, для вимкнення або видалення облікового запису</string>
     <string name="title_hint_alias">Натисніть довго на профіль для показу параметрів, наприклад, копіювання для створення псевдонімів</string>
-    <string name="title_service_auth">Поштовий сервер сказав: \'%1$s\'</string>
+    <string name="title_service_auth">Поштовий сервер повідомив: «%1$s»</string>
     <string name="title_service_vpn">Це може бути викликано мережею VPN, що використовується</string>
     <string name="title_service_token">Менеджер облікових записів Android може бути заблокований VPN-з\'єднанням, брандмауером, блокувальником реклами тощо, які не дають йому отримати ключ доступу</string>
     <string name="title_service_port">Будь ласка, перевірте номер порту</string>
@@ -1725,7 +1726,7 @@
     <string name="title_rule_alarm_stop">Зупинити</string>
     <string name="title_code_line_numbers">Показати номери рядків</string>
     <string name="title_code_enable_links">Увімкнути посилання</string>
-    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Покращити форматування</string>
+    <string name="title_code_pretty">Покращити форматування</string>
     <string name="title_legend_section_synchronize">Синхронізація</string>
     <string name="title_legend_section_folders">Теки</string>
     <string name="title_legend_section_messages">Повідомлення</string>
@@ -1920,7 +1921,7 @@
     <string name="title_no_ask_again">Більше не запитувати</string>
     <string name="title_no_ask_for_again">Не запитувати знову для %1$s</string>
     <string name="title_no_body">Текст повідомлення не знайдено</string>
-    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Це повідомлення дуже велике і це може спричинити проблеми!</string>
+    <string name="title_large_body">Це повідомлення дуже велике і це може спричинити проблеми!</string>
     <string name="title_no_charset">Кодування не підтримується: %1$s</string>
     <string name="title_via">Через: %1$s</string>
     <string name="title_1hour">1 година</string>
@@ -2002,7 +2003,7 @@
     <string name="title_widget_account_all">Усі</string>
     <string name="title_widget_folder">Тека</string>
     <string name="title_widget_folder_unified">Об\'єднані вхідні теки</string>
-    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Теки зі сповіщеннями про нові повідомлення</string>
+    <string name="title_widget_folder_notifying">Теки зі сповіщеннями про нові повідомлення</string>
     <string name="title_widget_unseen">Лише непрочитані повідомлення</string>
     <string name="title_widget_flagged">Лише обрані повідомлення</string>
     <string name="title_widget_font_size">Розмір тексту</string>

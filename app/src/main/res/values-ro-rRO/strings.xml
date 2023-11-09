@@ -639,8 +639,8 @@
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_preview_all">Previzualizează tot textul</string>
     <string name="title_advanced_notify_preview_only">Arată notificări doar cu un text de previzualizare</string>
-    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">Transliterat în alfabetul latin</string>
-    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Doar text ASCII</string>
+    <string name="title_advanced_notify_transliterate">Transliterat în alfabetul latin</string>
+    <string name="title_advanced_notify_ascii">Doar text ASCII</string>
     <string name="title_advanced_notify_actions">Acțiuni la notificare</string>
     <string name="title_advanced_notify_action_trash">Gunoi</string>
     <string name="title_advanced_notify_action_delete">Şterge</string>
@@ -1710,7 +1710,7 @@
     <string name="title_rule_alarm_stop">Oprire</string>
     <string name="title_code_line_numbers">Arată numerele de linie</string>
     <string name="title_code_enable_links">Activează link-uri</string>
-    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Arată text curățat</string>
+    <string name="title_code_pretty">Arată text curățat</string>
     <string name="title_legend_section_synchronize">Sincronizare</string>
     <string name="title_legend_section_folders">Dosare</string>
     <string name="title_legend_section_messages">Mesaje</string>
@@ -1905,7 +1905,7 @@
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_no_ask_for_again">Nu mai întreba din nou pentru %1$s</string>
     <string name="title_no_body">Nu a fost găsit textul mesajului</string>
-    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Acest mesaj este foarte mare şi poate cauza probleme!</string>
+    <string name="title_large_body">Acest mesaj este foarte mare şi poate cauza probleme!</string>
     <string name="title_no_charset">Codare nesuportată: %1$s</string>
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">O oră</string>
@@ -1986,7 +1986,7 @@
     <string name="title_widget_account_all">Toate</string>
     <string name="title_widget_folder">Dosar</string>
     <string name="title_widget_folder_unified">Dosare unificate</string>
-    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Dosare cu notificări de mesaje noi</string>
+    <string name="title_widget_folder_notifying">Dosare cu notificări de mesaje noi</string>
     <string name="title_widget_unseen">Numai mesajele necitite</string>
     <string name="title_widget_flagged">Numai mesajele cu stea</string>
     <string name="title_widget_font_size">Mărime text</string>

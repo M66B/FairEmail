@@ -627,8 +627,8 @@
     <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview_all">Vorschau des gesamten Textes</string>
     <string name="title_advanced_notify_preview_only">Nur Benachrichtigungen mit Vorschautext anzeigen</string>
-    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">In das lateinische Alphabet umschreiben</string>
-    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Nur ASCII-Text</string>
+    <string name="title_advanced_notify_transliterate">In das lateinische Alphabet umschreiben</string>
+    <string name="title_advanced_notify_ascii">Nur ASCII-Text</string>
     <string name="title_advanced_notify_actions">Benachrichtigungsaktionen</string>
     <string name="title_advanced_notify_action_trash">Papierkorb</string>
     <string name="title_advanced_notify_action_delete">Löschen</string>
@@ -721,6 +721,7 @@
     <string name="title_advanced_class_min_chance">Minimale Wahrscheinlichkeit für einen Klassentreffer: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimaler Unterschied zur nächsten Klasse: %1$s %%</string>
     <string name="title_advanced_show_filtered">Filtersymbol anzeigen, wenn Regeln angewendet wurden</string>
+    <string name="title_advanced_haptic_feedback" comment="title_advanced_haptic_feedback&#10;Title for an option to enable/disable haptic feedback, currently for 'send' and empty trash/spam&#10;https://developer.android.com/develop/ui/views/haptics/haptic-feedback">Haptisches Feedback zu wichtigen Aktionen</string>
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">LanguageTool-Integration</string>
@@ -1702,7 +1703,7 @@
     <string name="title_rule_alarm_stop">Anhalten</string>
     <string name="title_code_line_numbers">Zeilennummern anzeigen</string>
     <string name="title_code_enable_links">Links aktivieren</string>
-    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Schön formatieren</string>
+    <string name="title_code_pretty">Schön formatieren</string>
     <string name="title_legend_section_synchronize">Synchronisieren</string>
     <string name="title_legend_section_folders">Ordner</string>
     <string name="title_legend_section_messages">Nachrichten</string>
@@ -1897,7 +1898,7 @@
     <string name="title_no_ask_again">Nicht noch einmal fragen</string>
     <string name="title_no_ask_for_again">Nicht noch einmal für %1$s fragen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
-    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Diese Nachricht ist sehr groß und kann zu Problemen führen!</string>
+    <string name="title_large_body">Diese Nachricht ist sehr groß und kann zu Problemen führen!</string>
     <string name="title_no_charset">Nicht unterstützte Kodierung: %1$s</string>
     <string name="title_via">über %1$s</string>
     <string name="title_1hour">1 Stunde</string>
@@ -1979,7 +1980,7 @@
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Ordner</string>
     <string name="title_widget_folder_unified">Sammeleingangsordner</string>
-    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Ordner mit Meldungen über ungelesene Nachrichten</string>
+    <string name="title_widget_folder_notifying">Ordner mit Meldungen über ungelesene Nachrichten</string>
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
     <string name="title_widget_flagged">Nur markierte Nachrichten</string>
     <string name="title_widget_font_size">Schriftgröße</string>

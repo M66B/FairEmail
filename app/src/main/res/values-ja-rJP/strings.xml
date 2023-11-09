@@ -612,8 +612,8 @@
     <string name="title_advanced_notify_preview">通知にメッセージプレビューを表示</string>
     <string name="title_advanced_notify_preview_all">全文をプレビュー</string>
     <string name="title_advanced_notify_preview_only">プレビューテキストが準備できた通知のみ表示</string>
-    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">ラテン文字に変換</string>
-    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">ASCII テキストのみ</string>
+    <string name="title_advanced_notify_transliterate">ラテン文字に変換</string>
+    <string name="title_advanced_notify_ascii">ASCII テキストのみ</string>
     <string name="title_advanced_notify_actions">通知アクション</string>
     <string name="title_advanced_notify_action_trash">ごみ箱</string>
     <string name="title_advanced_notify_action_delete">削除</string>
@@ -706,6 +706,7 @@
     <string name="title_advanced_class_min_chance">最小分類確率: %1$s %%</string>
     <string name="title_advanced_class_min_difference">最小分類差: %1$s %%</string>
     <string name="title_advanced_show_filtered">ルールが適用された場合、フィルターアイコンを表示</string>
+    <string name="title_advanced_haptic_feedback" comment="title_advanced_haptic_feedback&#10;Title for an option to enable/disable haptic feedback, currently for 'send' and empty trash/spam&#10;https://developer.android.com/develop/ui/views/haptics/haptic-feedback">重要なアクションでの触覚フィードバック</string>
     <string name="title_advanced_language">言語</string>
     <string name="title_advanced_language_system">システム</string>
     <string name="title_advanced_lt">LanguageTool を統合</string>
@@ -1686,7 +1687,7 @@
     <string name="title_rule_alarm_stop">停止</string>
     <string name="title_code_line_numbers">行番号を表示</string>
     <string name="title_code_enable_links">リンクを有効にする</string>
-    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Pretty print コード表示</string>
+    <string name="title_code_pretty">Pretty print コード表示</string>
     <string name="title_legend_section_synchronize">同期</string>
     <string name="title_legend_section_folders">フォルダー</string>
     <string name="title_legend_section_messages">メッセージ</string>
@@ -1881,7 +1882,7 @@
     <string name="title_no_ask_again">次回から確認しない</string>
     <string name="title_no_ask_for_again">%1$s は次回から確認しない</string>
     <string name="title_no_body">本文が見つかりません</string>
-    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">メッセージのサイズがとても大きいため、問題が発生することがあります！</string>
+    <string name="title_large_body">メッセージのサイズがとても大きいため、問題が発生することがあります！</string>
     <string name="title_no_charset">対応していないエンコーディング: %1$s</string>
     <string name="title_via">経由: %1$s</string>
     <string name="title_1hour">1 時間</string>
@@ -1963,7 +1964,7 @@
     <string name="title_widget_account_all">すべて</string>
     <string name="title_widget_folder">フォルダー</string>
     <string name="title_widget_folder_unified">統合受信トレイフォルダー</string>
-    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">新着メッセージ通知のあるフォルダー</string>
+    <string name="title_widget_folder_notifying">新着メッセージ通知のあるフォルダー</string>
     <string name="title_widget_unseen">未読メッセージのみ</string>
     <string name="title_widget_flagged">スター付きメッセージのみ</string>
     <string name="title_widget_font_size">テキストサイズ</string>

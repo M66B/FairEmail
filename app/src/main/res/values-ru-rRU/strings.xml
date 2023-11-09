@@ -653,8 +653,8 @@
     <string name="title_advanced_notify_preview">Предпросмотр сообщений в уведомлениях</string>
     <string name="title_advanced_notify_preview_all">Предпросмотр всего текста</string>
     <string name="title_advanced_notify_preview_only">Показывать уведомления только с предпросмотром текста</string>
-    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">Транслитерация на латиницу</string>
-    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Только текст ASCII</string>
+    <string name="title_advanced_notify_transliterate">Транслитерация на латиницу</string>
+    <string name="title_advanced_notify_ascii">Только текст ASCII</string>
     <string name="title_advanced_notify_actions">Действия с уведомлениями</string>
     <string name="title_advanced_notify_action_trash">Корзина</string>
     <string name="title_advanced_notify_action_delete">Удалить</string>
@@ -1727,7 +1727,7 @@
     <string name="title_rule_alarm_stop">Остановить</string>
     <string name="title_code_line_numbers">Показывать номера строк</string>
     <string name="title_code_enable_links">Подчёркивать ссылки</string>
-    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Форматированная печать</string>
+    <string name="title_code_pretty">Форматированная печать</string>
     <string name="title_legend_section_synchronize">Синхронизация</string>
     <string name="title_legend_section_folders">Папки</string>
     <string name="title_legend_section_messages">Сообщения</string>
@@ -1922,7 +1922,7 @@
     <string name="title_no_ask_again">Больше не спрашивать</string>
     <string name="title_no_ask_for_again">Больше не спрашивать для %1$s</string>
     <string name="title_no_body">В сообщении нет текста</string>
-    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Это сообщение очень большое и может вызвать проблемы!</string>
+    <string name="title_large_body">Это сообщение очень большое и может вызвать проблемы!</string>
     <string name="title_no_charset">Кодировка не поддерживается: %1$s</string>
     <string name="title_via">Через: %1$s</string>
     <string name="title_1hour">1 час</string>
@@ -2004,7 +2004,7 @@
     <string name="title_widget_account_all">Все</string>
     <string name="title_widget_folder">Папка</string>
     <string name="title_widget_folder_unified">Папки единого почтового ящика</string>
-    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Папки с уведомлениями о новых сообщениях</string>
+    <string name="title_widget_folder_notifying">Папки с уведомлениями о новых сообщениях</string>
     <string name="title_widget_unseen">Только непрочитанные сообщения</string>
     <string name="title_widget_flagged">Только избранные сообщения</string>
     <string name="title_widget_font_size">Размер текста</string>

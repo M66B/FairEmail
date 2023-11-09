@@ -653,8 +653,8 @@
     <string name="title_advanced_notify_preview">Pokaż podgląd wiadomości w powiadomieniach</string>
     <string name="title_advanced_notify_preview_all">Podgląd całego tekstu</string>
     <string name="title_advanced_notify_preview_only">Pokaż powiadomienia tylko z podglądem tekstu</string>
-    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">Transliteracja na alfabet łaciński</string>
-    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Tylko tekst ASCII</string>
+    <string name="title_advanced_notify_transliterate">Transliteracja na alfabet łaciński</string>
+    <string name="title_advanced_notify_ascii">Tylko tekst ASCII</string>
     <string name="title_advanced_notify_actions">Akcje powiadomień</string>
     <string name="title_advanced_notify_action_trash">Kosz</string>
     <string name="title_advanced_notify_action_delete">Usuń</string>
@@ -1725,7 +1725,7 @@
     <string name="title_rule_alarm_stop">Stop</string>
     <string name="title_code_line_numbers">Pokaż numery wierszy</string>
     <string name="title_code_enable_links">Włącz linki</string>
-    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Upiększ wydruk</string>
+    <string name="title_code_pretty">Upiększ wydruk</string>
     <string name="title_legend_section_synchronize">Synchronizuj</string>
     <string name="title_legend_section_folders">Foldery</string>
     <string name="title_legend_section_messages">Wiadomości</string>
@@ -1920,7 +1920,7 @@
     <string name="title_no_ask_again">Nie pytaj ponownie</string>
     <string name="title_no_ask_for_again">Nie pytaj ponownie o %1$s</string>
     <string name="title_no_body">Nie znaleziono tekstu wiadomości</string>
-    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Ta wiadomość jest bardzo duża i może to powodować problemy!</string>
+    <string name="title_large_body">Ta wiadomość jest bardzo duża i może to powodować problemy!</string>
     <string name="title_no_charset">Nieobsługiwane kodowanie: %1$s</string>
     <string name="title_via">Przez: %1$s</string>
     <string name="title_1hour">1 godzina</string>
@@ -2000,7 +2000,7 @@
     <string name="title_widget_account_all">Wszystkie</string>
     <string name="title_widget_folder">Folder</string>
     <string name="title_widget_folder_unified">Foldery wspólnej skrzynki odbiorczej</string>
-    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Foldery z powiadomieniami o nowej wiadomości</string>
+    <string name="title_widget_folder_notifying">Foldery z powiadomieniami o nowej wiadomości</string>
     <string name="title_widget_unseen">Tylko nieprzeczytane wiadomości</string>
     <string name="title_widget_flagged">Tylko oznaczone</string>
     <string name="title_widget_font_size">Rozmiar tekstu</string>

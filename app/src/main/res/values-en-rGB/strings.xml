@@ -3,6 +3,11 @@
     <string name="app_search"></string>
     <string name="channel_service_description">Synchronising and monitoring of accounts</string>
     <string name="tile_synchronize">Synchronise</string>
+    <string name="menu_faq">Support</string>
+    <string name="menu_privacy">Privacy</string>
+    <string name="title_list_accounts">Accounts</string>
+    <string name="title_list_identities">Identities</string>
+    <string name="title_setup_quick">Quick setup</string>
     <string name="title_setup_analytics">FairEmail does not display ads and does not track or analyse your behaviour. Bugsnag is used for error reporting and is disabled by default.</string>
     <string name="title_setup_account_identity_hint">You can configure the name, colour and swipe actions in the account settings, and configure a signature in the identity settings</string>
     <string name="title_setup_gmail_password">I want to authorise an account with a password instead of an on-device account</string>
@@ -19,8 +24,11 @@
     <string name="title_setup_theme_more_colors">I want more colours</string>
     <string name="title_advanced_hint_remark">        The options are categorised by tab, divided into sections, organised by appearance or use, and searchable.
     </string>
+    <string name="title_advanced_section_synchronize">Receive</string>
     <string name="title_advanced_section_behavior">Behaviour</string>
+    <string name="title_advanced_section_notifications">Notifications</string>
     <string name="title_advanced_optimize">Automatically optimise</string>
+    <string name="title_advanced_advanced">Advanced</string>
     <string name="title_advanced_sync_folders">Synchronise folder list</string>
     <string name="title_advanced_sync_folders_poll">Actively synchronise folder list</string>
     <string name="title_advanced_sync_shared_folders">Synchronise shared folder lists</string>
@@ -31,6 +39,7 @@
     <string name="title_advanced_compose_color">Default text colour</string>
     <string name="title_advanced_remove_signatures">Remove recognised signatures</string>
     <string name="title_advanced_caption_conversation">Conversation</string>
+    <string name="title_advanced_caption_message">Message</string>
     <string name="title_advanced_tabular_background">Use card colour as background colour when using tabular style</string>
     <string name="title_advanced_cards_shadow_highlight">Use highlight colour instead of accent colour</string>
     <string name="title_advanced_color_stripe">Show colour stripe</string>

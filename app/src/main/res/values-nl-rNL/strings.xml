@@ -624,8 +624,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_notify_preview">Toon berichtvoorbeeld in meldingen</string>
     <string name="title_advanced_notify_preview_all">Voorbeeld van alle tekst</string>
     <string name="title_advanced_notify_preview_only">Alleen meldingen met een voorbeeldtekst weergeven</string>
-    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">Translitereren naar het Latijnse alfabet</string>
-    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Alleen ASCII-tekst</string>
+    <string name="title_advanced_notify_transliterate">Translitereren naar het Latijnse alfabet</string>
+    <string name="title_advanced_notify_ascii">Alleen ASCII-tekst</string>
     <string name="title_advanced_notify_actions">Meldingsacties</string>
     <string name="title_advanced_notify_action_trash">Weggooien</string>
     <string name="title_advanced_notify_action_delete">Verwijderen</string>
@@ -716,6 +716,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_class_min_chance">Minimale klasse waarschijnlijkheid: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimale klasse verschil: %1$s %%</string>
     <string name="title_advanced_show_filtered">Toon een filterpictogram wanneer regels werden toegepast</string>
+    <string name="title_advanced_haptic_feedback" comment="title_advanced_haptic_feedback&#10;Title for an option to enable/disable haptic feedback, currently for 'send' and empty trash/spam&#10;https://developer.android.com/develop/ui/views/haptics/haptic-feedback">Haptische feedback bij belangrijke acties</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_lt">LanguageTool integratie</string>
@@ -1688,7 +1689,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_rule_alarm_stop">Stop</string>
     <string name="title_code_line_numbers">Regelnummers tonen</string>
     <string name="title_code_enable_links">Koppelingen inschakelen</string>
-    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Mooie afdruk</string>
+    <string name="title_code_pretty">Mooie afdruk</string>
     <string name="title_legend_section_synchronize">Synchroniseren</string>
     <string name="title_legend_section_folders">Mappen</string>
     <string name="title_legend_section_messages">Berichten</string>
@@ -1883,7 +1884,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_no_ask_again">Dit niet meer vragen</string>
     <string name="title_no_ask_for_again">Vraag dit niet opnieuw voor %1$s</string>
     <string name="title_no_body">Geen berichttekst gevonden</string>
-    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Dit bericht is erg groot en dit kan problemen veroorzaken!</string>
+    <string name="title_large_body">Dit bericht is erg groot en dit kan problemen veroorzaken!</string>
     <string name="title_no_charset">Codering niet ondersteund: %1$s</string>
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">1 uur</string>
@@ -1963,7 +1964,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Map</string>
     <string name="title_widget_folder_unified">Gecombineerde postvak in mappen</string>
-    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Mappen met meldingen voor nieuwe berichten</string>
+    <string name="title_widget_folder_notifying">Mappen met meldingen voor nieuwe berichten</string>
     <string name="title_widget_unseen">Alleen ongelezen berichten</string>
     <string name="title_widget_flagged">Alleen berichten met een ster</string>
     <string name="title_widget_font_size">Tekstgrootte</string>
