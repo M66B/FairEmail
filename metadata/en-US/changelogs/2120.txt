@@ -6,6 +6,11 @@ For support you can use the contact form.
 
 Vallibonavenatrix
 
+Next version
+
+* Added option to disable haptic feedback
+* Updated translations
+
 1.2120 - 2023-11-09
 
 * Added removing Gmail and Outlook style signatures (send settings)
