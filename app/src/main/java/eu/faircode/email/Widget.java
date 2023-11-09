@@ -38,6 +38,7 @@ import androidx.preference.PreferenceManager;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 
@@ -72,14 +73,21 @@ public class Widget extends AppWidgetProvider {
                     if (version <= 1550)
                         semi = true; // Legacy
 
-                    List<EntityFolder> folders = db.folder().getNotifyingFolders(account);
+                    List<EntityFolder> folders = null;
+                    if (folder < 0)
+                        folders = db.folder().getNotifyingFolders(account);
+                    else {
+                        EntityFolder f = db.folder().getFolder(folder);
+                        if (f != null)
+                            folders = Arrays.asList(f);
+                    }
                     if (folders == null)
                         folders = new ArrayList<>();
 
                     PendingIntent pi;
-                    if (folders.size() == 1 || folder >= 0) {
+                    if (folders.size() == 1) {
                         Intent view = new Intent(context, ActivityView.class);
-                        view.setAction("folder:" + (folder < 0 ? folders.get(0).id : folder));
+                        view.setAction("folder:" + folders.get(0).id);
                         view.putExtra("account", account);
                         view.putExtra("type", folders.get(0).type);
                         view.putExtra("refresh", true);
