@@ -1931,10 +1931,14 @@ public class Helper {
     }
 
     static void performHapticFeedback(@NonNull View view, int feedbackConstant, int flags) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
-        boolean haptic_feedback = prefs.getBoolean("haptic_feedback", true);
-        if (haptic_feedback)
-            view.performHapticFeedback(feedbackConstant);
+        try {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+            boolean haptic_feedback = prefs.getBoolean("haptic_feedback", true);
+            if (haptic_feedback)
+                view.performHapticFeedback(feedbackConstant);
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
     }
 
     // Graphics
