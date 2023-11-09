@@ -640,6 +640,8 @@
     <string name="title_advanced_notify_preview">Prikaži pregled poruke u obavještenjima</string>
     <string name="title_advanced_notify_preview_all">Prikaz cijelog teksta</string>
     <string name="title_advanced_notify_preview_only">Prikaži obavještenja samo sa pregledom poruka</string>
+    <string name="title_advanced_notify_transliterate" comment="title_advanced_notify_transliterate&#10;Title for option to transliterate notification texts to Latin&#10;https://developer.android.com/reference/android/icu/text/Transliterator">Transliteriraj na latinicu</string>
+    <string name="title_advanced_notify_ascii" comment="title_advanced_notify_ascii&#10;Title for an option to convert texts in notifications to ASCII https://en.wikipedia.org/wiki/ASCII">Samo ASCII tekst</string>
     <string name="title_advanced_notify_actions">Radnje za obavještenja</string>
     <string name="title_advanced_notify_action_trash">Otpad</string>
     <string name="title_advanced_notify_action_delete">Izbriši</string>
@@ -1712,6 +1714,7 @@
     <string name="title_rule_alarm_stop">Zaustavi</string>
     <string name="title_code_line_numbers">Prikaži brojeve linija</string>
     <string name="title_code_enable_links">Omogući linkove</string>
+    <string name="title_code_pretty" comment="title_code_pretty&#10;Title for option to reformat, beatify the source text view&#10;https://en.wikipedia.org/wiki/Prettyprint">Stilsko formatiranje izvora</string>
     <string name="title_legend_section_synchronize">Sinhronizuj</string>
     <string name="title_legend_section_folders">Folderi</string>
     <string name="title_legend_section_messages">Poruke</string>
@@ -1906,6 +1909,7 @@
     <string name="title_no_ask_again">Ne pitaj ovo ponovo</string>
     <string name="title_no_ask_for_again">Ne pitaj ovo ponovo za %1$s</string>
     <string name="title_no_body">Nije pronađen tekst poruke</string>
+    <string name="title_large_body" comment="title_large_body&#10;Warning message for when a draft message is rather big">Ova poruka je jako velika i može uzrokovati probleme!</string>
     <string name="title_no_charset">Enkodiranje nije podržano: %1$s</string>
     <string name="title_via">Preko: %1$s</string>
     <string name="title_1hour">1 sat</string>
@@ -1987,6 +1991,7 @@
     <string name="title_widget_account_all">Svi</string>
     <string name="title_widget_folder">Folder</string>
     <string name="title_widget_folder_unified">Folderi objedinjenog inbox-a</string>
+    <string name="title_widget_folder_notifying" comment="title_widget_folder_notifying&#10;Option in dropdown of folder selection for new message count widget">Folderi s obavještenjima o novim porukama</string>
     <string name="title_widget_unseen">Samo nepročitane poruke</string>
     <string name="title_widget_flagged">Samo poruke sa zvjezdicom</string>
     <string name="title_widget_font_size">Veličina teksta</string>
