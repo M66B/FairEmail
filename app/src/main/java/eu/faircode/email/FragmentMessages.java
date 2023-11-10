@@ -3255,7 +3255,7 @@ public class FragmentMessages extends FragmentBase
         }
 
         private void redraw(RecyclerView.ViewHolder vh) {
-            if (itemTouchHelper != null)
+            if (vh != null && itemTouchHelper != null)
                 itemTouchHelper.onChildViewDetachedFromWindow(vh.itemView);
 
             rvMessage.post(new RunnableEx("redraw") {
