@@ -16,6 +16,15 @@ Sie erhalten eine Antwort in Ihrer eigenen Sprache.
 [En bas](#quick-support), vous pouvez découvrir comment poser d'autres questions, demander des fonctionnalités et signaler des bogues.
 Vous recevrez une réponse dans votre propre langue.
 
+<br>
+
+**Important**
+
+There is a lot of technical information in this FAQ, mostly for specific problems or specific use cases.
+For other more common questions, please see the tutorials below or contact me via *Get support* below.
+
+<br>
+
 ## Tutorials
 
 Please [see here](https://github.com/M66B/FairEmail/tree/master/tutorials) for tutorials &#x1F4D6;.
