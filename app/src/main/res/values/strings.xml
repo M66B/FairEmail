@@ -253,7 +253,7 @@
     <string name="title_setup_advanced_protection">When enrolled in the advanced protection program it is not possible to use a third party email app. This is a restriction imposed by Google.</string>
     <string name="title_setup_quick_success">An account has successfully been added</string>
     <string name="title_setup_quick_no_sent">No sent messages folder has been selected. Sent messages might not be stored.</string>
-    <string name="title_setup_quick_configure">To edit the name, color, swipe actions, etc</string>
+    <string name="title_setup_quick_configure">To edit the name, color, swipe actions, etc.</string>
     <string name="title_setup_manage">Manage</string>
     <string name="title_setup_grant">Grant</string>
     <string name="title_setup_grant_again">Grant required permissions</string>
@@ -484,7 +484,7 @@
     <string name="title_advanced_signature_reply">Use signature when replying</string>
     <string name="title_advanced_signature_reply_once">Only for the first reply</string>
     <string name="title_advanced_signature_forward">Use signature when forwarding</string>
-    <string name="title_advanced_discard_delete">On discard draft permanently delete draft</string>
+    <string name="title_advanced_discard_delete">On discard draft, permanently delete draft</string>
     <string name="title_advanced_reply_move">On replying to a message, save the reply in the same folder</string>
     <string name="title_advanced_reply_move_inbox">Also for messages in the inbox</string>
 
@@ -812,7 +812,7 @@
     <string name="title_advanced_manage_keys">Manage private keys</string>
     <string name="title_advanced_ca">Installed CA certificates</string>
     <string name="title_advanced_manage_keys_hint">
-        This will open to the Android security settings.
+        This will open the Android security settings.
         Keys and certificates can generally be found under Advanced - Encryption and credentials.
     </string>
 
@@ -848,7 +848,7 @@
     <string name="title_advanced_openai_model">Model</string>
     <string name="title_advanced_openai_temperature">Temperature: %1$s</string>
     <string name="title_advanced_openai_moderation">Content moderation</string>
-    <string name="title_advanced_sdcard">I want to use an sdcard</string>
+    <string name="title_advanced_sdcard">I want to use an SD card</string>
     <string name="title_advanced_watchdog">Periodically check if FairEmail is still active</string>
     <string name="title_advanced_updates">Check for GitHub updates</string>
     <string name="title_advanced_check_weekly">Check weekly instead of daily</string>
@@ -1000,7 +1000,7 @@
     <string name="title_advanced_timeout_hint">The read/write timeout will be set to the double of the connection timeout. Higher values will result in more battery use.</string>
     <string name="title_advanced_cert_strict_hint">Disabling this will relax checking of server certificates</string>
     <string name="title_advanced_ssl_harden_hint">Enabling this will disable weak SSL protocols and ciphers, which can lead to connection problems</string>
-    <string name="title_advanced_open_safe_hint">Enabling this will require secure connections to download images, etc</string>
+    <string name="title_advanced_open_safe_hint">Enabling this will require secure connections to download images, etc.</string>
     <string name="title_advanced_roaming_hint">Messages headers will always be fetched when roaming. You can use the device\'s roaming setting to disable internet while roaming.</string>
 
     <string name="title_advanced_browse_hint">Fetch more messages when scrolling down</string>
@@ -1052,7 +1052,7 @@
     <string name="title_advanced_notify_car_hint">Connected means something is being projected, such as a map for navigation</string>
     <string name="title_advanced_notify_remove_hint">New message notifications will always be removed on being swiped away and on marking messages read</string>
     <string name="title_advanced_notify_manage_hint">Tap on the channel name to set the channel properties</string>
-    <string name="title_advanced_notify_manage_default_hint">To set the default sound, etc</string>
+    <string name="title_advanced_notify_manage_default_hint">To set the default sound, etc.</string>
     <string name="title_advanced_notify_manage_service_hint">To disable the \'monitoring\' notification</string>
     <string name="title_advanced_notify_separate_hint">How do I configure notifications for accounts, folders and senders?</string>
     <string name="title_advanced_notify_preview_all_hint">For wearables that can show the full text (up to 5,000 characters)</string>
@@ -1307,7 +1307,7 @@
     <string name="title_contact_group">Group</string>
     <string name="title_import_contacts">Import vCards</string>
     <string name="title_export_contacts">Export vCards</string>
-    <string name="title_create_sub_folder">Create sub folder</string>
+    <string name="title_create_sub_folder">Create subfolder</string>
 
     <string name="title_empty_trash_ask">Delete all trashed messages permanently?</string>
     <string name="title_empty_spam_ask">Delete all spam messages permanently?</string>
@@ -1367,7 +1367,7 @@
     <string name="title_auto_delete_archive_hint">Deletion from the archive folder is not always allowed by the email server</string>
     <string name="title_inbox_root_hint">
         Some providers require new folders to be created below the inbox.
-        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
+        In this case, you can long press the inbox in the folder list and select \'Create subfolder\'.
     </string>
     <string name="title_folder_name_missing">Folder name missing</string>
     <string name="title_folder_exists">Folder %1$s exists</string>
@@ -1564,7 +1564,7 @@
     <string name="title_ask_show_image">Showing images can leak privacy sensitive information</string>
     <string name="title_ask_show_image_hint">Images recognized as tracking images will not be shown</string>
     <string name="title_ask_show_amp">Show AMP variant of the message?</string>
-    <string name="title_ask_show_amp_hint">AMP messages are designed to be dynamic and to interact with the internet and can therefore by definition used to track you</string>
+    <string name="title_ask_show_amp_hint">AMP messages are designed to be dynamic and to interact with the internet and can therefore by definition be used to track you</string>
     <string name="title_ask_view_file">View file %1$s ?</string>
     <string name="title_ask_delete_local">Delete local messages? Messages will remain on the remote server.</string>
     <string name="title_ask_help">Help improve FairEmail</string>
@@ -1676,7 +1676,7 @@
     <string name="title_add_image_attach">Attach</string>
     <string name="title_add_image_resize">Resize</string>
     <string name="title_add_image_privacy">Remove privacy sensitive data</string>
-    <string name="title_add_image_privacy_remark">Geographic location, serial numbers, file names, etc</string>
+    <string name="title_add_image_privacy_remark">Geographic location, serial numbers, file names, etc.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
     <string name="title_add_image_resize_remark">Resizing is supported for: %1$s</string>
     <string name="title_add_image_select_remark">The Android photo picker no longer passes file names</string>
@@ -1812,7 +1812,7 @@
     <string name="title_search_more">More options</string>
     <string name="title_search_use_index">Use search index</string>
     <string name="title_search_in_senders">In senders (from)</string>
-    <string name="title_search_in_recipients">In recipients (to, cc)</string>
+    <string name="title_search_in_recipients">In recipients (To, CC)</string>
     <string name="title_search_in_subject">In subject</string>
     <string name="title_search_in_keywords">In keywords (if supported)</string>
     <string name="title_search_in_message">In message text</string>
@@ -2292,7 +2292,7 @@
     <string name="title_pro_hint">Buying pro features will allow you to use all current and future pro features, will keep this app maintained, and supported.</string>
     <string name="title_pro_price">Why are the pro features so expensive?</string>
     <string name="title_pro_family">Can I use the Google Play Family Library?</string>
-    <string name="title_pro_restore">How can I restore a purchase (on another device) ?</string>
+    <string name="title_pro_restore">How can I restore a purchase (on another device)?</string>
     <string name="title_pro_pending">Purchase pending</string>
     <string name="title_pro_response" translatable="false">Response</string>
     <string name="title_pro_activated">All pro features are activated</string>
@@ -2318,7 +2318,7 @@
     <string name="title_debug_info_issue_remark">Details, such as the estimated time of the problem, the exact error message, etc., are important</string>
     <string name="title_debug_info_contact">We recently had contact about this problem</string>
     <string name="title_debug_info_send">Send immediately</string>
-    <string name="title_debug_info_send_remark">Normally, the debug info will be stored as draft message first, so you can check what will be sent</string>
+    <string name="title_debug_info_send_remark">Normally, the debug info will be stored as a draft message first, so you can check what will be sent</string>
     <string name="title_debug_info_question">Please use the info button if you just have a question</string>
     <string name="title_unexpected_info_remark">Please describe what you were doing when you got the error:</string>
     <string name="title_issue_subject" translatable="false">FairEmail %1$s issue</string>
