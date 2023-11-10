@@ -130,6 +130,7 @@ import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.selection.SelectionTracker;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 
@@ -1870,6 +1871,7 @@ public class Helper {
                         SelectionTracker.SelectionPredicate.class.isAssignableFrom(type) ||
                         PagerAdapter.class.isAssignableFrom(type) ||
                         RecyclerView.Adapter.class.isAssignableFrom(type) ||
+                        ItemTouchHelper.class.isAssignableFrom(type) ||
                         TwoStateOwner.class.isAssignableFrom(type))
                     try {
                         Log.i("Clearing " + fname);
