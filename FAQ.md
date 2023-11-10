@@ -2095,6 +2095,9 @@ The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VE
 might be caused by enabling **hardening connections** or **Bouncy Castle** in the connection settings tab page,
 or by Android not supporting older protocols anymore, like SSLv3 and TLSv1.
 
+The error '*javax.net.ssl.SSLHandshakeException: Read error: ... CERT_LENGTH_MISMATCH*' means that there is something wrong with the email server setup.
+Try to switch to port 993 (IMAP) or 465 (SMTP) with SSL/TLS.
+
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore.
 There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
 
