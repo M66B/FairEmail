@@ -880,6 +880,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET plain_only = :plain_only WHERE id = :id AND NOT (plain_only IS :plain_only)")
     int setMessagePlainOnly(long id, Integer plain_only);
 
+    @Query("UPDATE message SET write_below = :write_below WHERE id = :id AND NOT (write_below IS :write_below)")
+    int setMessageWriteBelow(long id, Boolean write_below);
+
     @Query("UPDATE message SET encrypt = :encrypt WHERE id = :id AND NOT (encrypt IS :encrypt)")
     int setMessageEncrypt(long id, Integer encrypt);
 

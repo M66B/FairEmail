@@ -861,15 +861,46 @@ public class FragmentCompose extends FragmentBase {
         ibWriteAboveBelow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(v.getContext());
-                boolean write_below = !prefs.getBoolean("write_below", false);
-                prefs.edit().putBoolean("write_below", write_below).apply();
-                ibWriteAboveBelow.setImageLevel(write_below ? 1 : 0);
-                ToastEx.makeText(v.getContext(),
-                        write_below
-                                ? R.string.title_advanced_write_below
-                                : R.string.title_advanced_write_above,
-                        Toast.LENGTH_LONG).show();
+                Bundle args = new Bundle();
+                args.putLong("id", working);
+
+                new SimpleTask<Boolean>() {
+                    @Override
+                    protected Boolean onExecute(Context context, Bundle args) throws Throwable {
+                        long id = args.getLong("id");
+
+                        DB db = DB.getInstance(context);
+                        EntityMessage draft = db.message().getMessage(id);
+                        if (draft == null)
+                            return null;
+
+                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        boolean write_below = prefs.getBoolean("write_below", false);
+                        boolean wb = (draft == null || draft.write_below == null ? write_below : draft.write_below);
+
+                        wb = !wb;
+                        db.message().setMessageWriteBelow(id, wb);
+
+                        return wb;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Boolean wb) {
+                        if (wb == null)
+                            return;
+
+                        ibWriteAboveBelow.setImageLevel(wb ? 1 : 0);
+                        ToastEx.makeText(v.getContext(), wb
+                                        ? R.string.title_advanced_write_below
+                                        : R.string.title_advanced_write_above,
+                                Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentCompose.this, args, "compose:below");
             }
         });
 
@@ -3671,18 +3702,20 @@ public class FragmentCompose extends FragmentBase {
 
                 String html = HtmlHelper.toHtml(s, context);
 
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                boolean write_below = prefs.getBoolean("write_below", false);
-
                 EntityMessage draft = db.message().getMessage(id);
                 if (draft != null) {
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    boolean write_below = prefs.getBoolean("write_below", false);
+
+                    boolean wb = (draft == null || draft.write_below == null ? write_below : draft.write_below);
+
                     File file = draft.getFile(context);
                     Elements ref = JsoupEx.parse(file).select("div[fairemail=reference]");
 
                     Document doc = JsoupEx.parse(html);
 
                     for (Element e : ref)
-                        if (write_below && draft.wasforwardedfrom == null)
+                        if (wb && draft.wasforwardedfrom == null)
                             doc.body().prependChild(e);
                         else
                             doc.body().appendChild(e);
@@ -5329,6 +5362,7 @@ public class FragmentCompose extends FragmentBase {
                     throw new OperationCanceledException(context.getString(R.string.title_no_composable));
 
                 data.draft = db.message().getMessage(id);
+                boolean wb = (data.draft == null || data.draft.write_below == null ? write_below : data.draft.write_below);
                 if (data.draft == null || data.draft.ui_hide) {
                     // New draft
                     if ("edit".equals(action))
@@ -5914,7 +5948,7 @@ public class FragmentCompose extends FragmentBase {
                                 e.tagName("p");
                             reply.appendChild(e);
 
-                            if (write_below && data.draft.wasforwardedfrom == null)
+                            if (wb && data.draft.wasforwardedfrom == null)
                                 document.body().prependChild(reply);
                             else
                                 document.body().appendChild(reply);
@@ -6141,7 +6175,7 @@ public class FragmentCompose extends FragmentBase {
                         // Possibly external draft
 
                         for (Element e : ref)
-                            if (write_below && data.draft.wasforwardedfrom == null)
+                            if (wb && data.draft.wasforwardedfrom == null)
                                 doc.body().prependChild(e);
                             else
                                 doc.body().appendChild(e);
@@ -6801,7 +6835,8 @@ public class FragmentCompose extends FragmentBase {
                     if (extras.containsKey("html"))
                         dirty = true;
 
-                    if (below != write_below &&
+                    boolean wb = (draft == null || draft.write_below == null ? write_below : draft.write_below);
+                    if (below != wb &&
                             doc.body().childrenSize() > 0 &&
                             draft.wasforwardedfrom == null)
                         dirty = true;
@@ -6835,7 +6870,7 @@ public class FragmentCompose extends FragmentBase {
                             Document c = JsoupEx.parse(body);
 
                             for (Element e : ref)
-                                if (write_below && draft.wasforwardedfrom == null)
+                                if (wb && draft.wasforwardedfrom == null)
                                     c.body().prependChild(e);
                                 else
                                     c.body().appendChild(e);
@@ -6849,7 +6884,7 @@ public class FragmentCompose extends FragmentBase {
                             d = JsoupEx.parse(body); // Save
 
                             for (Element e : ref)
-                                if (write_below && draft.wasforwardedfrom == null)
+                                if (wb && draft.wasforwardedfrom == null)
                                     d.body().prependChild(e);
                                 else
                                     d.body().appendChild(e);
@@ -7498,6 +7533,8 @@ public class FragmentCompose extends FragmentBase {
         boolean write_below = prefs.getBoolean("write_below", false);
         String compose_font = prefs.getString("compose_font", "");
 
+        boolean wb = (draft == null || draft.write_below == null ? write_below : draft.write_below);
+
         Element div = document.createElement("div");
         div.attr("fairemail", "signature");
         if (!TextUtils.isEmpty(compose_font))
@@ -7520,7 +7557,7 @@ public class FragmentCompose extends FragmentBase {
         else if (ref.size() == 0 || signature_location == 2) // bottom
             document.body().appendChild(div);
         else if (signature_location == 1) // below text
-            if (write_below && draft.wasforwardedfrom == null)
+            if (wb && draft.wasforwardedfrom == null)
                 document.body().appendChild(div);
             else
                 ref.first().before(div);
@@ -7679,10 +7716,12 @@ public class FragmentCompose extends FragmentBase {
                 boolean ref_hint = prefs.getBoolean("compose_reference", true);
                 boolean write_below = prefs.getBoolean("write_below", false);
 
+                boolean wb = (draft == null || draft.write_below == null ? write_below : draft.write_below);
+
                 tvReference.setText(text[1]);
                 tvReference.setVisibility(text[1] == null ? View.GONE : View.VISIBLE);
                 grpReferenceHint.setVisibility(text[1] == null || !ref_hint ? View.GONE : View.VISIBLE);
-                ibWriteAboveBelow.setImageLevel(write_below ? 1 : 0);
+                ibWriteAboveBelow.setImageLevel(wb ? 1 : 0);
                 ibWriteAboveBelow.setVisibility(text[1] == null ||
                         draft.wasforwardedfrom != null || BuildConfig.PLAY_STORE_RELEASE
                         ? View.GONE : View.VISIBLE);
@@ -7693,7 +7732,7 @@ public class FragmentCompose extends FragmentBase {
 
                 setBodyPadding();
 
-                if (refedit && write_below)
+                if (refedit && wb)
                     etBody.setSelection(etBody.length());
 
                 if (state == State.LOADED)
