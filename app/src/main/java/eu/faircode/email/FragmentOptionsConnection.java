@@ -30,6 +30,7 @@ import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.NetworkRequest;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -94,6 +95,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swOpenSafe;
     private SwitchCompat swBouncyCastle;
     private SwitchCompat swFipsMode;
+    private ImageButton ibBouncyCastle;
     private Button btnManage;
     private TextView tvNetworkMetered;
     private TextView tvNetworkRoaming;
@@ -148,6 +150,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swOpenSafe = view.findViewById(R.id.swOpenSafe);
         swBouncyCastle = view.findViewById(R.id.swBouncyCastle);
         swFipsMode = view.findViewById(R.id.swFipsMode);
+        ibBouncyCastle = view.findViewById(R.id.ibBouncyCastle);
         btnManage = view.findViewById(R.id.btnManage);
 
         tvNetworkMetered = view.findViewById(R.id.tvNetworkMetered);
@@ -364,6 +367,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("bc_fips", checked).apply();
+            }
+        });
+
+        ibBouncyCastle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse("https://www.bouncycastle.org/"), true);
             }
         });
 
