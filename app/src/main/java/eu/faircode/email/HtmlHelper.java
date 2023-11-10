@@ -2745,6 +2745,15 @@ public class HtmlHelper {
         // Outlook: <div id="Signature" data-lt-sig-active="">
         d.body().select("#Signature").select("[data-lt-sig-active]").remove();
 
+        // Apple: <br id="lineBreakAtBeginningOfSignature"> <div dir="ltr">
+        for (Element br : d.body().select("#lineBreakAtBeginningOfSignature")) {
+            Element next = br.nextElementSibling();
+            if (next != null && "div".equals(next.tagName())) {
+                br.remove();
+                next.remove();
+            }
+        }
+
         // Usenet style signature
         d.body().filter(new NodeFilter() {
             private boolean remove = false;
