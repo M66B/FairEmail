@@ -381,6 +381,9 @@ public class HtmlEx {
                 CharacterStyle[] style = getSpans(text, i, next, CharacterStyle.class);
 
                 for (int j = 0; j < style.length; j++) {
+                    int flags = text.getSpanFlags(style[j]);
+                    if ((flags & Spanned.SPAN_COMPOSING) != 0)
+                        continue;
                     if (style[j] instanceof StyleSpan) {
                         int s = ((StyleSpan) style[j]).getStyle();
 
@@ -481,6 +484,9 @@ public class HtmlEx {
                 withinStyle(out, text, i, next);
 
                 for (int j = style.length - 1; j >= 0; j--) {
+                    int flags = text.getSpanFlags(style[j]);
+                    if ((flags & Spanned.SPAN_COMPOSING) != 0)
+                        continue;
                     if (style[j] instanceof BackgroundColorSpan && !(style[j] instanceof StyleHelper.MarkSpan)) {
                         out.append("</span>");
                     }
