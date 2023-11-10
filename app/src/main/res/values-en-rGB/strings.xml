@@ -40,6 +40,7 @@
     <string name="title_advanced_send_nav_color">Use the identity colour for the bottom action bar</string>
     <string name="title_advanced_compose_color">Default text colour</string>
     <string name="title_advanced_remove_signatures">Remove recognised signatures</string>
+    <string name="title_advanced_bouncy_castle"></string>
     <string name="title_advanced_caption_conversation">Conversation</string>
     <string name="title_advanced_caption_message">Message</string>
     <string name="title_advanced_tabular_background">Use card colour as background colour when using tabular style</string>

@@ -466,6 +466,7 @@
     <string name="title_advanced_ssl_harden_strict">Вимагати TLS 1.3</string>
     <string name="title_advanced_cert_strict">Сувора перевірка сертифікату</string>
     <string name="title_advanced_open_safe">Відкривати лише захищені з’єднання</string>
+    <string name="title_advanced_bouncy_castle">Використовувати захищеного постачальника сокету (JSSE) від Bouncy Castle</string>
     <string name="title_advanced_manage_connectivity">Керувати підключенням</string>
     <string name="title_advanced_caption_general">Загальні налаштування</string>
     <string name="title_advanced_caption_navigation">Навігація</string>
@@ -736,8 +737,8 @@
     <string name="title_advanced_manage_keys_hint">        Це дозволить відкрити налаштування безпеки Android.        Ключі та сертифікати зазвичай можна знайти в розділі Безпека та місцезнаходження - Додатково - Шифрування й облікові дані.
     </string>
     <string name="title_advanced_power_menu">Додати дії до меню живлення в Android</string>
-    <string name="title_advanced_send_self">Додати \"Надіслати собі\" в системне меню \"Поділитися\"</string>
-    <string name="title_advanced_external_search">Додати «Шукати в FairEmail» до меню вибору тексту Android</string>
+    <string name="title_advanced_send_self">Додати пункт «Надіслати собі» до системного меню «Поділитися»</string>
+    <string name="title_advanced_external_search">Додати пункт «Шукати в FairEmail» до меню вибору тексту Android</string>
     <string name="title_advanced_sort_answers">Сортувати шаблони відповідей за частотою використання</string>
     <string name="title_advanced_shortcuts">Показувати контакти, які часто використовуються, в системному меню «Поділитися»</string>
     <string name="title_advanced_ical_tentative">Зберігати отримані запрошення як попередні</string>

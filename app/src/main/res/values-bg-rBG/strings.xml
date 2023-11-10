@@ -4,9 +4,11 @@
     <string name="app_send_self">Изпращане до себе си</string>
     <string name="app_changelog">Дневник с промените</string>
     <string name="app_welcome">FairEmail е приложение за електронна поща с отворен код, фокусирано върху поверителността и сигурността. Поради тази причина някои функции могат да работят различно от това с което сте свикнали.</string>
+    <string name="app_limitations">Например, по подразбиране съобщенията са преформатират, така че да премахват небезопасните елементи и да подобряват читаемостта, а отварянето на линкове трябва да се потвърди с цел безопасност. При желание двете функции може да се изключат.</string>
     <string name="app_unsupported">Грешки във версията на Android на това конкретно устройство причинява сривове</string>
     <string name="app_data_loss">Всички данни може да се загубят</string>
     <string name="app_exit">Натиснете отново „назад“, за изход</string>
+    <string name="app_cake_remaining">Оставащо място в устройството: %1$s</string>
     <string name="app_cake_required">Изисквано минимум място за хранилището: %1$s</string>
     <string name="app_updated">Последно обновяване: %1$s</string>
     <string name="app_download">Изтеглено от: %1$s</string>
@@ -76,6 +78,10 @@
         <item quantity="other">Третирате ли %1$d съобщения като спам?</item>
     </plurals>
     <string name="title_ask_spam_who">Третирате ли съобщението от %1$s като спам?</string>
+    <string name="title_junk_hint">Вашият доставчик на имейл е отговорен за прецеждането на спама. Приложението за имейл няма всичките данни, които трябват, за да направи това надеждно.</string>
+    <string name="title_junk_pop_hint">        Съобщения от блокирани податели няма да се изтеглят.
+        Ако е включена функцията \"Оставяне съобщения на сървъра\", то тези съобщения ще се загубят безвъзвратно!
+    </string>
     <string name="title_block">Блокиране %1$s</string>
     <string name="title_block_sender">Блокиране на подателя</string>
     <string name="title_block_sender_domain">Блокиране на домейна \'%1$s\'</string>
@@ -90,6 +96,7 @@
     </plurals>
     <string name="title_junk_filter">Употреба на местната цедка за спам</string>
     <string name="title_junk_filter_hint">Може да увеличи употребата на батерията и неправилно да означава съобщения като спам</string>
+    <string name="title_junk_blocklist">Употреба на списъка с блокиран спам</string>
     <string name="title_junk_clear">Изчистване</string>
     <string name="title_junk_clear_hint">Ще се изтрият всички правила за блокиране на подател</string>
     <string name="title_notification_sending">Изпращане на съобщения</string>
@@ -151,9 +158,11 @@
     <string name="title_setup_pop3">Акаунт на POP3</string>
     <string name="title_setup_gmail_rationale">Дайте разрешения за избор на профил и прочетете името си</string>
     <string name="title_setup_gmail_permissions">Google ще поиска разрешения за четене, съставяне, изпращане и окончателно изтриване на целия ви имейл. FairEmail никога няма да изтрие вашите съобщения без вашето изрично съгласие.</string>
+    <string name="title_setup_gmail_password">Искам да упълномощя акаунт с парола вместо акаунт на устройството</string>
     <string name="title_setup_office_auth">Грешката „УДОСТОВЕРЯВАНЕТО неуспешно“ може да се причини от изключването на IMAP/SMTP от системния администратор</string>
     <string name="title_setup_office_auth_5_7_3">Опитайте вълшебника за бърза настройка „Друг доставчик“.</string>
     <string name="title_setup_oauth_rationale">Упълномощете достъпа до своя %1$s акаунт</string>
+    <string name="title_setup_oauth_update">Упълномощаване пак на съществуващ акаунт (в противен случай създаване на нов акаунт)</string>
     <string name="title_setup_oauth_updated">Обновено упълномощаване на акаунта</string>
     <string name="title_setup_oauth_authorize">Упълномощявам</string>
     <string name="title_setup_select_account">Изберане на профил</string>
@@ -189,6 +198,7 @@
     <string name="title_setup_alarm_12">Неправилно работи приложението</string>
     <string name="title_setup_background">Фоновите ограничения са включени</string>
     <string name="title_setup_data">Ниска консумация на данни е активирано</string>
+    <string name="title_setup_always">Моментални известия за нови съобщения</string>
     <string name="title_setup_advanced_options">Показване на разширени възможности</string>
     <string name="title_setup_inbox">Към кутията</string>
     <string name="title_setup_go">Напред</string>
@@ -303,7 +313,9 @@
     <string name="title_advanced_subscriptions">Управление на абонирани папки</string>
     <string name="title_advanced_check_authentication">Проверка на съобщението за удостоверяване</string>
     <string name="title_advanced_check_tls">Проверка на протокола „Сигурност на транспортния слой“ (TLS)</string>
+    <string name="title_advanced_check_reply_domain">Проверка на адреса за отговор при синхрон на съобщенията</string>
     <string name="title_advanced_check_mx">Проверка имейл адреса на изпращача при синхронизиране на съобщенията</string>
+    <string name="title_advanced_check_blocklist">Проверка дали името на домейна на подателя е в списъка с блокиран спам</string>
     <string name="title_advanced_tune_keep_alive">Автоматично настройване на онлайн интервала</string>
     <string name="title_advanced_keyboard">Показване на клавиатурата по подразбиране</string>
     <string name="title_advanced_keyboard_no_fullscreen">Избягване на клавиатура при цял екран</string>
@@ -320,10 +332,14 @@
     <string name="title_advanced_answer_default">Кратко натискане на бутона за отговор ще:</string>
     <string name="title_advanced_answer_action">Дългият натиск на бутона за отговор ще:</string>
     <string name="title_advanced_answer_warning">Не всички действия са възможни без менюто за избор!</string>
+    <string name="title_advanced_auto_save_paragraph">Автозапазване на чернова след всеки абзац</string>
+    <string name="title_advanced_auto_save_dot">Автозапазване на чернова след всяко изречение</string>
     <string name="title_advanced_compose_color">Стандартен цвят на текста</string>
     <string name="title_advanced_compose_font">Шрифт по подразбиране</string>
     <string name="title_advanced_compose_monospaced">Употреба на едноразмерен шрифт за обикновени текстови съобщения</string>
+    <string name="title_advanced_auto_identity">Автоматичен избор на самоличности за нови съобщения</string>
     <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
+    <string name="title_advanced_separate_reply">Вмъкване на хоризонтален ред преди заглавка отговор/препращане</string>
     <string name="title_advanced_extended_reply">Използвай разширено заглавие за отговор/препращане</string>
     <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
     <string name="title_advanced_limit_reply">Ограничаване на броя на вложени цитирания</string>
@@ -503,6 +519,7 @@
     <string name="title_advanced_notify_summary">Показване на обобщено известие</string>
     <string name="title_advanced_notify_preview">Визуализация на съобщението в известията</string>
     <string name="title_advanced_notify_preview_all">Визуализирай целия текст</string>
+    <string name="title_advanced_notify_transliterate">Транслитериране към латиница</string>
     <string name="title_advanced_notify_ascii">Само текст на ASCII</string>
     <string name="title_advanced_notify_actions">Действия при уведомление</string>
     <string name="title_advanced_notify_action_trash">Кошче</string>
@@ -518,6 +535,7 @@
     <string name="title_advanced_notify_action_snooze">Отложи</string>
     <string name="title_advanced_notify_remove">Премахване на известие за ново съобщение при натискане на известието</string>
     <string name="title_advanced_notify_clear">Премахване на известия за нови съобщения в списъка за преглед на съобщения</string>
+    <string name="title_advanced_notify_subtext">Показване на акаунта или името на папка като подтекст</string>
     <string name="title_advanced_wearable_preview">Изпращай само известия с визуализация на съобщението до преносими устройства</string>
     <string name="title_advanced_biometrics_notify">Показване на съдържание в известията при използване на биометрична проверка</string>
     <string name="title_advanced_notify_open_folder">Отваряне на папка, отваряйки ново съобщение</string>
@@ -677,6 +695,7 @@
     <string name="title_advanced_fts_hint">Активирането на това подобрява ефективността на търсенето, но също така увеличава използването на батерията и пространството за съхранение</string>
     <string name="title_advanced_english_hint">Това ще рестартира програмата</string>
     <string name="title_advanced_experiments_hint">Списък на експерименталните функции</string>
+    <string name="title_advanced_debug_hint">Ще се покажат данни за отстраняване на грешки на различни места по не много приятен начин</string>
     <string name="title_advanced_cleanup_attachments_hint">Това ще премахне прикачените файлове от съобщенията, които вече не се синхронизират при ръчно почистване</string>
     <string name="title_advanced_cleanup_hint">Това ще изтрие всички временни файлове</string>
     <string name="title_advanced_never_favorite">Никога в любими</string>
@@ -733,6 +752,7 @@
     <string name="title_custom">Персонализиран</string>
     <string name="title_host">Име на хост</string>
     <string name="title_encryption">Криптиране</string>
+    <string name="title_encryption_none">Няма (несигурно)</string>
     <string name="title_allow_insecure">Разрешаване на несигурни връзки</string>
     <string name="title_insecure_remark">Несигурните връзки трябва да се разрешават само в доверени мрежи и никога в обществени мрежи</string>
     <string name="title_notify_remark">Може да включите това за известия на конкретен акаунт</string>
@@ -749,9 +769,9 @@
     <string name="title_primary_account">Основен (по подразбиране профил)</string>
     <string name="title_primary_identity">Основна (по подразбиране идентичност)</string>
     <string name="title_self_identity">Премахване на имейл адреса при отговор</string>
-    <string name="title_leave_on_server">Запази съобщенията на сървъра</string>
+    <string name="title_leave_on_server">Оставяне съобщения на сървъра</string>
     <string name="title_client_delete">Дейно изтриване на съобщенията след изтегляне</string>
-    <string name="title_leave_deleted">Оставете изтритите съобщения на сървъра</string>
+    <string name="title_leave_deleted">Оставяне на изтритите съобщения на сървъра</string>
     <string name="title_leave_on_device">Запази съобщенията на устройството</string>
     <string name="title_max_messages">Максимален брой съобщения за изтегляне (празно за всички)</string>
     <string name="title_max_messages_keep">Това е най-големият възможен брой съобщения, които ще се съхраняват в устройството</string>
@@ -877,14 +897,18 @@
     <string name="title_download_folder">Автоматично изтегляне на текста на съобщението и прикачените файлове</string>
     <string name="title_notify_folder">Уведомяване при нови съобщения</string>
     <string name="title_auto_classify_source">Класифициране на новите съобщения в тази папка</string>
+    <string name="title_auto_classify_target">Автоматично преместване на класифицираните съобщения в тази папка</string>
     <string name="title_sync_days">Синхронизиране съобщения (дни)</string>
     <string name="title_sync_days_remark">Увеличаването на тази стойност ще увеличи консумацията на батерията и данните</string>
     <string name="title_keep_days">Запази съобщенията (дни)</string>
     <string name="title_keep_days_remark">Старите съобщения ще бъдат изтъркани от устройството, но ще останат на сървъра</string>
     <string name="title_keep_all">Запази съобщенията</string>
+    <string name="title_poll_system">Задаване на системните папки за периодична проверка за нови съобщения</string>
+    <string name="title_poll_user">Задаване на потребителските папки за периодична проверка за нови съобщения</string>
     <string name="title_auto_trash">Автоматично преместване на старите съобщения в коша</string>
     <string name="title_auto_delete">Автоматично изтриване на старите съобщения завинаги</string>
     <string name="title_auto_delete_hint">Старите съобщения са съобщения, които вече не се съхраняват на устройството</string>
+    <string name="title_auto_delete_archive_hint">Изтриване от папката архив не винаги се позволява от сървъра на имейла</string>
     <string name="title_inbox_root_hint">        Някои доставчици изискват създаване на нови папки под входящата поща.        В този случай можете с дълго натискане на входяща поща в списъка с папки да изберете \'Създаване на подпапка\'.
     </string>
     <string name="title_folder_name_missing">Липсва име на папка</string>
@@ -917,8 +941,10 @@
     <string name="title_subject_forward_alt">Fwd: %1$s</string>
     <string name="title_seen">Отбелязвам като прочетено</string>
     <string name="title_unseen">Отбелязвам като непрочетено</string>
+    <string name="title_toggle_seen">Прочетено/непрочетено</string>
     <string name="title_hide">Скриване</string>
     <string name="title_unhide">Показване</string>
+    <string name="title_toggle_hide">Показване/скриване</string>
     <string name="title_flag">Добавяне на звезда</string>
     <string name="title_flag_color">Цветна звезда &#8230;</string>
     <string name="title_unflag">Премахване на звезда</string>
@@ -929,6 +955,7 @@
     <string name="title_search_in_text">Търсене в текст &#8230;</string>
     <string name="title_forward">Препрати</string>
     <string name="title_resend">Изпращане пак</string>
+    <string name="title_fetching_headers">Изтегляне на заглавките на съобщението&#8230;</string>
     <string name="title_new_message">Ново съобщение</string>
     <string name="title_editasnew">Редактирай като нов</string>
     <string name="title_edit_notes">Редактиране на локалните бележки</string>
@@ -943,6 +970,7 @@
     <string name="title_print_header">Отпечатване на заглавката</string>
     <string name="title_print_images">Отпечатване на образите</string>
     <string name="title_print_images_remark">Тегленето на образи може да отнеме известно време</string>
+    <string name="title_print_block_quotes">Отпечатване на редовете в блока с цитат</string>
     <string name="title_show_headers">Показване на заглавките</string>
     <string name="title_show_html">Показване на извора</string>
     <string name="title_raw_save">Запиши необработено съобщение</string>
@@ -961,6 +989,7 @@
     <string name="title_buttons">Изберете бутони</string>
     <string name="title_button_search_similar">Търсене на подобни съобщения</string>
     <string name="title_button_search_text">Търсене в текста на съобщението</string>
+    <string name="title_configure_buttons">Настройване на копчетата &#8230;</string>
     <string name="title_quick_actions">Изберете действия</string>
     <string name="title_quick_actions_hint">До %1$d действия ще се покажат</string>
     <string name="title_quick_actions_low">Ниска важност</string>
@@ -1097,6 +1126,7 @@
     <string name="title_style_italic">Наклонен</string>
     <string name="title_style_underline">Подчертан</string>
     <string name="title_style_size">Големина</string>
+    <string name="title_style_size_xsmall">Много малко</string>
     <string name="title_style_size_small">Малък</string>
     <string name="title_style_size_medium">Среден</string>
     <string name="title_style_size_large">Голям</string>
@@ -1107,10 +1137,15 @@
     <string name="title_style_align_end">Край</string>
     <string name="title_style_list">Списък</string>
     <string name="title_style_list_numbered">Номерирано</string>
+    <string name="title_style_list_level_increase">Увеличаване на отстъпването</string>
+    <string name="title_style_list_level_decrease">Намаляване на отстъпването</string>
     <string name="title_style_font">Шрифт</string>
     <string name="title_style_font_default">По подразбиране</string>
     <string name="title_style_blockquote">Блок на цитата</string>
     <string name="title_style_indentation">Отстъп</string>
+    <string name="title_style_mark">Изтъкване</string>
+    <string name="title_style_subscript">Долен индекс</string>
+    <string name="title_style_superscript">Горен индекс</string>
     <string name="title_style_strikethrough">Зачертаване</string>
     <string name="title_style_protect">Защита с парола</string>
     <string name="title_style_protected">Защитено съдържание</string>
@@ -1121,6 +1156,7 @@
     <string name="title_style_link_address">Адрес</string>
     <string name="title_style_link_image">Вмъкване като образ</string>
     <string name="title_style_link_title">Заглавие</string>
+    <string name="title_style_link_metadata">Извличане на заглавието</string>
     <string name="title_style_link_send_dlimit">Ограничение на изтеглянето (%1$s)</string>
     <string name="title_style_link_send_tlimit">Времево ограничение (%1$s)</string>
     <string name="title_add_image">Добавяне на изображение</string>
@@ -1130,6 +1166,7 @@
     <string name="title_add_image_privacy">Премахване на поверителни деликатни данни</string>
     <string name="title_add_image_privacy_remark">Географско разположение, серийни номера, имена на файлове и т.н.</string>
     <string name="title_add_resize_pixels">&lt; %1$d пиксела</string>
+    <string name="title_add_image_resize_remark">Преоразмеряването се поддържа за: %1$s</string>
     <string name="title_add_image_select_remark">Подбирачът на снимки на Android вече не предава имена на файлове</string>
     <string name="title_add_image_select">Избиране на файл</string>
     <string name="title_add_attachment">Прикачване на файл</string>
@@ -1152,6 +1189,7 @@
     <string name="title_translate_configure">Конфигуриране &#8230;</string>
     <string name="title_translate_key">Въведете ключ</string>
     <string name="title_translating">Превод &#8230;</string>
+    <string name="title_translate_formal">Употреба на формален стил</string>
     <string name="title_translate_small">Употреба на малък шрифт за изходния текст</string>
     <string name="title_translate_replace">Замяна на изходния текст с преведен текст</string>
     <string name="title_translate_highlight">Изтъкнатият текст се превежда</string>
@@ -1249,6 +1287,7 @@
     <string name="title_search_in_keywords">В ключови думи (ако се поддържа)</string>
     <string name="title_search_in_message">В текста на съобщението</string>
     <string name="title_search_in_notes">В локалните бележки</string>
+    <string name="title_search_in_filenames">В имената на файловете (само на устройство)</string>
     <string name="title_search_with">Ограничете търсенето до</string>
     <string name="title_search_with_unseen">Непрочетени</string>
     <string name="title_search_with_flagged">Със звезда</string>
@@ -1320,6 +1359,9 @@
     <string name="title_edit_signature">Редактиране на подписа</string>
     <string name="title_edit_signature_text">Текст на подписа</string>
     <string name="title_edit_signature_image">Вмъкни изображение</string>
+    <string name="title_edit_signature_image_hint">        Изпращайки съобщение, образът се копира в него от избраното местоположение.
+        Затова не трийте файлът с образа!
+    </string>
     <string name="title_answer_define_name">Име</string>
     <string name="title_answer_define_value">Стойност</string>
     <string name="title_answer_caption">Ред. шаблон</string>
@@ -1549,10 +1591,16 @@
     <string name="title_hint_folder_actions">Натиснете дълго папка за опции, като добавяне на папка в менюто за навигация за бърз достъп</string>
     <string name="title_hint_folder_sync">За ограничаване използването на батерията и мрежата, не всички папки и съобщения ще бъдат синхронизирани по подразбиране</string>
     <string name="title_hint_airplane">Режимът самолет е включен</string>
+    <string name="title_hint_notifications">Няма позволения за известия</string>
+    <string name="title_hint_notifications_remark">Позволенията за известия се изискват също за предупреждение (акаунта). Известията за нови съобщения може да се изключат в настройките.</string>
     <string name="title_hint_battery_optimizations">Оптимизирането на батерията все още е включено</string>
     <string name="title_hint_support">Ако имате въпрос или проблем, моля изполвайте меню поддръжка за да получите помощ</string>
     <string name="title_hint_message_actions">Плъзнете наляво за преместване в кошчето; Плъзнето надясно за архивирне (ако е налично); Плъзгането можете да конфигурирате в настройките на профила</string>
     <string name="title_hint_message_selection">Натиснете и задръжте по дълго върху съобщението, за да започнете да избирате няколко съобщения; Задръжте и прекарайте пръст нагоре или надолу, за да изберете няколко съобщения</string>
+    <string name="title_hint_message_junk">        Клиентът за имейл просто показва съобщения, които са на сървъра на имейла.
+        За прецеждането на спама отговаря сървъра на имейла, а не клиента.
+        Ако получавате много спам, то се обърнете към своя доставчик на имейл и не вините приложението!
+    </string>
     <string name="title_hint_important">Важно</string>
     <string name="title_hint_sync">Изтеглянето на съобщения може да отнеме известно време, в зависимост от скоростта на доставчика, интернет връзката и устройството и броя на съобщенията. Докато изтегляте съобщения, приложението може да реагира по-бавно.</string>
     <string name="title_hint_battery">Тъй като FairEmail по подразбиране винаги получава съобщения, Android ще докладва, че FairEmail е винаги активен. Следователно може да изглежда, че FairEmail винаги консумира от батерията, но всъщност това не е така.</string>

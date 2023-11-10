@@ -424,6 +424,7 @@
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 を要求</string>
     <string name="title_advanced_cert_strict">厳格な証明書確認</string>
     <string name="title_advanced_open_safe">保護された接続のみ使用</string>
+    <string name="title_advanced_bouncy_castle">Bouncy Castle のセキュアソケットプロバイダー (JSSE) を使用</string>
     <string name="title_advanced_manage_connectivity">接続を管理</string>
     <string name="title_advanced_caption_general">概要</string>
     <string name="title_advanced_caption_navigation">ナビゲーションメニュー</string>

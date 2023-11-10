@@ -465,6 +465,7 @@
     <string name="title_advanced_ssl_harden_strict">Требовать TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строгая проверка сертификатов</string>
     <string name="title_advanced_open_safe">Только безопасные подключения</string>
+    <string name="title_advanced_bouncy_castle">Использовать провайдера защищённых сокетов Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Управление подключением</string>
     <string name="title_advanced_caption_general">По умолчанию</string>
     <string name="title_advanced_caption_navigation">Навигация</string>

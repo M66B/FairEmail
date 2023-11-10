@@ -436,6 +436,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 fereaskje</string>
     <string name="title_advanced_cert_strict">Strange sertifikaatkontrôle</string>
     <string name="title_advanced_open_safe">Allinnich befeilige ferbiningen iepenje</string>
+    <string name="title_advanced_bouncy_castle">Brûk de feilige socketprovider fan Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Konnektiviteit beheare</string>
     <string name="title_advanced_caption_general">Algemien</string>
     <string name="title_advanced_caption_navigation">Navigaasje</string>
@@ -718,6 +719,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_class_min_chance">Minimale klasse kâns: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimum klasse ferskil: %1$s %%</string>
     <string name="title_advanced_show_filtered">In filterpiktogram toane wannear’t rigels tapast waarden</string>
+    <string name="title_advanced_haptic_feedback">Haptysk kommentaar by wichtige aksjes</string>
     <string name="title_advanced_language">Taal</string>
     <string name="title_advanced_language_system">Systeem</string>
     <string name="title_advanced_lt">LanguageTool-yntegraasje</string>

@@ -438,6 +438,7 @@
     <string name="title_advanced_ssl_harden_strict">Richiede TLS 1.3</string>
     <string name="title_advanced_cert_strict">Controllo rigoroso del certificato</string>
     <string name="title_advanced_open_safe">Apri solo le connessioni sicure</string>
+    <string name="title_advanced_bouncy_castle">Usa il provider di socket sicuro (JSSE) di Bouncy Castle</string>
     <string name="title_advanced_manage_connectivity">Gestisci la connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_navigation">Navigazione</string>

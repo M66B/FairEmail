@@ -436,9 +436,10 @@
     <string name="title_advanced_timeout">Zeitüberschreitung der Verbindung (Sekunden)</string>
     <string name="title_advanced_prefer_ip4">IPv4 gegenüber IPv6 bevorzugen</string>
     <string name="title_advanced_ssl_harden">SSL-Verbindungen stärken</string>
-    <string name="title_advanced_ssl_harden_strict">TLS 1.3 erforderlich</string>
+    <string name="title_advanced_ssl_harden_strict">TLS 1.3 voraussetzen</string>
     <string name="title_advanced_cert_strict">Strenge Zertifikatsprüfung</string>
     <string name="title_advanced_open_safe">Nur sichere Verbindungen öffnen</string>
+    <string name="title_advanced_bouncy_castle">Sicheren Socket-Anbieter (JSSE) von »Bouncy Castle« verwenden</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
     <string name="title_advanced_caption_general">Allgemein</string>
     <string name="title_advanced_caption_navigation">Navigation</string>
