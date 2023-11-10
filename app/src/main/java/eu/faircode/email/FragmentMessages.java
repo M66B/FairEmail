@@ -371,6 +371,7 @@ public class FragmentMessages extends FragmentBase
     private boolean navigating = false;
 
     private AdapterMessage adapter;
+    private ItemTouchHelper itemTouchHelper;
 
     private AdapterMessage.ViewType viewType;
     private SelectionPredicateMessage selectionPredicate = null;
@@ -2040,10 +2041,13 @@ public class FragmentMessages extends FragmentBase
                     public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
                     }
                 });
-            } else
-                new ItemTouchHelper(touchHelper).attachToRecyclerView(rvMessage);
+            } else {
+                itemTouchHelper = new ItemTouchHelper(touchHelper);
+                itemTouchHelper.attachToRecyclerView(rvMessage);
+            }
         } else {
-            new ItemTouchHelper(touchHelper).attachToRecyclerView(rvMessage);
+            itemTouchHelper = new ItemTouchHelper(touchHelper);
+            itemTouchHelper.attachToRecyclerView(rvMessage);
 
             selectionPredicate = new SelectionPredicateMessage(rvMessage);
 
@@ -3122,20 +3126,20 @@ public class FragmentMessages extends FragmentBase
             try {
                 int pos = viewHolder.getAdapterPosition();
                 if (pos == NO_POSITION) {
-                    redraw(NO_POSITION);
+                    redraw(null);
                     return;
                 }
 
                 TupleMessageEx message = getMessage(pos);
                 if (message == null) {
-                    redraw(NO_POSITION);
+                    redraw(null);
                     return;
                 }
 
                 boolean expanded = iProperties.getValue("expanded", message.id);
 
                 if (expanded && swipe_reply) {
-                    redraw(pos);
+                    redraw(viewHolder);
                     onMenuReply(message, "reply", null);
                     return;
                 }
@@ -3147,7 +3151,7 @@ public class FragmentMessages extends FragmentBase
 
                 TupleAccountSwipes swipes = accountSwipes.get(message.account);
                 if (swipes == null) {
-                    redraw(NO_POSITION);
+                    redraw(null);
                     return;
                 }
 
@@ -3161,7 +3165,7 @@ public class FragmentMessages extends FragmentBase
                 Long action = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
                 String actionType = (direction == ItemTouchHelper.LEFT ? swipes.left_type : swipes.right_type);
                 if (action == null) {
-                    redraw(NO_POSITION);
+                    redraw(null);
                     return;
                 }
 
@@ -3180,12 +3184,12 @@ public class FragmentMessages extends FragmentBase
                         " folder=" + message.folderType);
 
                 if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
-                    redraw(pos);
+                    redraw(viewHolder);
                     onSwipeAsk(message, viewHolder);
                 } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action)) {
                     message.unseen = (message.unseen == 0 ? message.count : 0);
                     message.ui_seen = (message.unseen == 0);
-                    redraw(pos);
+                    redraw(viewHolder);
                     onActionSeenSelection(message.ui_seen, message.id, false);
                 } else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                     onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
@@ -3193,21 +3197,21 @@ public class FragmentMessages extends FragmentBase
                     if (ActivityBilling.isPro(getContext()))
                         onActionSnooze(message);
                     else {
-                        redraw(pos);
+                        redraw(viewHolder);
                         startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
                 else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
                     onActionHide(message);
                 else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
-                    redraw(pos);
+                    redraw(viewHolder);
                     onSwipeMove(message);
                 } else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action)) {
-                    redraw(pos);
+                    redraw(viewHolder);
                     onSwipeJunk(message);
                 } else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                         (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                         (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
-                    onSwipeDelete(message, pos);
+                    onSwipeDelete(message, viewHolder);
                 else
                     swipeFolder(message, action);
             } catch (Throwable ex) {
@@ -3247,22 +3251,28 @@ public class FragmentMessages extends FragmentBase
             return message;
         }
 
-        private void redraw(int pos) {
-            rvMessage.post(new Runnable() {
+        private void redraw(RecyclerView.ViewHolder vh) {
+            rvMessage.post(new RunnableEx("redraw") {
                 @Override
-                public void run() {
-                    try {
-                        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                            return;
-                        if (rvMessage.isComputingLayout())
-                            Log.e("isComputingLayout");
+                public void delegate() {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+
+                    if (rvMessage.isComputingLayout())
+                        Log.e("isComputingLayout");
+
+                    if (vh == null)
+                        adapter.notifyDataSetChanged();
+                    else {
+                        int pos = vh.getAbsoluteAdapterPosition();
                         if (pos == NO_POSITION)
                             adapter.notifyDataSetChanged();
                         else
                             adapter.notifyItemChanged(pos);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
                     }
+
+                    if (vh != null && itemTouchHelper != null)
+                        itemTouchHelper.startSwipe(vh);
                 }
             });
         }
@@ -3332,7 +3342,7 @@ public class FragmentMessages extends FragmentBase
                                     onSwipeJunk(message);
                                     return true;
                                 } else if (itemId == R.string.title_delete_permanently) {
-                                    onSwipeDelete(message, NO_POSITION);
+                                    onSwipeDelete(message, viewHolder);
                                     return true;
                                 }
                                 return false;
@@ -3418,7 +3428,7 @@ public class FragmentMessages extends FragmentBase
             }
         }
 
-        private void onSwipeDelete(@NonNull TupleMessageEx message, int pos) {
+        private void onSwipeDelete(@NonNull TupleMessageEx message, RecyclerView.ViewHolder vh) {
             boolean leave_deleted =
                     (message.accountProtocol == EntityAccount.TYPE_POP &&
                             message.accountLeaveDeleted);
@@ -3494,8 +3504,7 @@ public class FragmentMessages extends FragmentBase
                 return;
             }
 
-            if (pos != NO_POSITION)
-                redraw(pos);
+            redraw(vh);
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(args);
@@ -3576,7 +3585,7 @@ public class FragmentMessages extends FragmentBase
                 @Override
                 protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
                     if (result == null || result.size() == 0)
-                        redraw(NO_POSITION);
+                        redraw(null);
                     else
                         moveUndo(result);
                 }
