@@ -3256,7 +3256,11 @@ public class FragmentMessages extends FragmentBase
 
         private void redraw(RecyclerView.ViewHolder vh) {
             if (vh != null && itemTouchHelper != null)
-                itemTouchHelper.onChildViewDetachedFromWindow(vh.itemView);
+                try {
+                    itemTouchHelper.onChildViewDetachedFromWindow(vh.itemView);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
 
             rvMessage.post(new RunnableEx("redraw") {
                 @Override
