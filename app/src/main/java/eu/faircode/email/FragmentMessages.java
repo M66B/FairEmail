@@ -1224,6 +1224,9 @@ public class FragmentMessages extends FragmentBase
         adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onItemRangeRemoved(int positionStart, int itemCount) {
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
+
                 if (accessibility || BuildConfig.DEBUG) {
                     RecyclerView.ViewHolder vh = rvMessage.findViewHolderForAdapterPosition(positionStart);
                     if (vh == null && positionStart > 0)
