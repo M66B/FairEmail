@@ -720,6 +720,7 @@
     <string name="title_advanced_class_min_chance">Minimumsklassesandsynlighed: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimumsklassedifferens: %1$s %%</string>
     <string name="title_advanced_show_filtered">Vis et filterikon, når regler er anvendt</string>
+    <string name="title_advanced_haptic_feedback">Haptisk feedback for vigtige handlinger</string>
     <string name="title_advanced_language">Sprog</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">LanguageTool-integration</string>

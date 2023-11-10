@@ -503,6 +503,7 @@
     <string name="title_advanced_notify_summary">Показване на обобщено известие</string>
     <string name="title_advanced_notify_preview">Визуализация на съобщението в известията</string>
     <string name="title_advanced_notify_preview_all">Визуализирай целия текст</string>
+    <string name="title_advanced_notify_ascii">Само текст на ASCII</string>
     <string name="title_advanced_notify_actions">Действия при уведомление</string>
     <string name="title_advanced_notify_action_trash">Кошче</string>
     <string name="title_advanced_notify_action_delete">Изтриване</string>
@@ -943,6 +944,7 @@
     <string name="title_print_images">Отпечатване на образите</string>
     <string name="title_print_images_remark">Тегленето на образи може да отнеме известно време</string>
     <string name="title_show_headers">Показване на заглавките</string>
+    <string name="title_show_html">Показване на извора</string>
     <string name="title_raw_save">Запиши необработено съобщение</string>
     <string name="title_raw_send">Изпращане като прикачен файл</string>
     <string name="title_raw_send_message">Съобщение</string>
@@ -1424,6 +1426,8 @@
     <string name="title_rule_alarm_duration">Най-дълго времетраене на будилника (секунди)</string>
     <string name="title_rule_alarm_title">Будилник</string>
     <string name="title_rule_alarm_stop">Спиране</string>
+    <string name="title_code_line_numbers">Показване на номера на реда</string>
+    <string name="title_code_enable_links">Задействане на линкове</string>
     <string name="title_legend_section_synchronize">Синхронизиране</string>
     <string name="title_legend_section_folders">Папки</string>
     <string name="title_legend_section_messages">Съобщения</string>
@@ -1553,6 +1557,7 @@
     <string name="title_hint_sync">Изтеглянето на съобщения може да отнеме известно време, в зависимост от скоростта на доставчика, интернет връзката и устройството и броя на съобщенията. Докато изтегляте съобщения, приложението може да реагира по-бавно.</string>
     <string name="title_hint_battery">Тъй като FairEmail по подразбиране винаги получава съобщения, Android ще докладва, че FairEmail е винаги активен. Следователно може да изглежда, че FairEmail винаги консумира от батерията, но всъщност това не е така.</string>
     <string name="title_hint_reformat">По подразбиране FairEmail преформатира съобщенията от съображения за поверителност и сигурност. За да видите оригиналното съобщение, докоснете иконата „цял екран“ над текста на съобщението.</string>
+    <string name="title_hint_junk_learn">Премествайки съобщения от и до папка спам, сървърът се \"учи\" какво е спам</string>
     <string name="title_hint_contact_actions">Натиснете продължително за повече опции</string>
     <string name="title_hint_eml">Това е обобщение на съдържанието на необработен файл със съобщение. Запишете необработеното съобщение с иконата за запис в панела за действие, за да видите цялото съдържание.</string>
     <string name="title_open_link">Отваряне не връзката</string>
@@ -1604,6 +1609,7 @@
     <string name="title_no_ask_again">Без повторно питане</string>
     <string name="title_no_ask_for_again">Не искайте отново това за %1$s</string>
     <string name="title_no_body">Няма текстови съобщения</string>
+    <string name="title_large_body">Съобщението е преголямо и това може да доведе до проблеми!</string>
     <string name="title_no_charset">Неподдържано кодиране: %1$s</string>
     <string name="title_via">През %1$s</string>
     <string name="title_1hour">1 час</string>
@@ -1679,6 +1685,7 @@
     <string name="title_widget_account_all">Всички</string>
     <string name="title_widget_folder">Папка</string>
     <string name="title_widget_folder_unified">Обща папка входящи</string>
+    <string name="title_widget_folder_notifying">Папки с известия за ново съобщение</string>
     <string name="title_widget_unseen">Непрочетени съобщения</string>
     <string name="title_widget_flagged">Само съобщения със звезда</string>
     <string name="title_widget_font_size">Големина на текста</string>

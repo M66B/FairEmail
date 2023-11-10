@@ -748,7 +748,7 @@
     <string name="title_advanced_class_min_chance">סבירות מזערית בין מחלקות: %1$s %%</string>
     <string name="title_advanced_class_min_difference">הפרש מזערי בין מחלקות: %1$s %%</string>
     <string name="title_advanced_show_filtered">הצגת סמל מסנן כאשר כללים חלים</string>
-    <string name="title_advanced_haptic_feedback" comment="title_advanced_haptic_feedback&#10;Title for an option to enable/disable haptic feedback, currently for 'send' and empty trash/spam&#10;https://developer.android.com/develop/ui/views/haptics/haptic-feedback">משוב תחושתי על פעולות חשובות</string>
+    <string name="title_advanced_haptic_feedback">משוב תחושתי על פעולות חשובות</string>
     <string name="title_advanced_language">שפה</string>
     <string name="title_advanced_language_system">מערכת</string>
     <string name="title_advanced_lt">שילוב מול LanguageTool</string>

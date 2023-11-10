@@ -721,6 +721,7 @@
     <string name="title_advanced_class_min_chance">Probabilidade mínima da classe: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Diferença mínima de classe: %1$s %%</string>
     <string name="title_advanced_show_filtered">Mostrar um ícone de filtro quando as regras forem aplicadas</string>
+    <string name="title_advanced_haptic_feedback">Vibração tátil em ações importantes</string>
     <string name="title_advanced_language">Idioma</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integração LanguageTool</string>

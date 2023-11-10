@@ -720,7 +720,7 @@
     <string name="title_advanced_class_min_chance">Probabilità minima di classe: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Differenza minima di classe: %1$s %%</string>
     <string name="title_advanced_show_filtered">Mostr l\'icona di un filtro quando sono state applicate le regole</string>
-    <string name="title_advanced_haptic_feedback" comment="title_advanced_haptic_feedback&#10;Title for an option to enable/disable haptic feedback, currently for 'send' and empty trash/spam&#10;https://developer.android.com/develop/ui/views/haptics/haptic-feedback">Feedback tattile sulle azioni importanti</string>
+    <string name="title_advanced_haptic_feedback">Feedback tattile sulle azioni importanti</string>
     <string name="title_advanced_language">Lingua</string>
     <string name="title_advanced_language_system">Sistema</string>
     <string name="title_advanced_lt">Integrazione di LanguageTool</string>

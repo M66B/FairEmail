@@ -734,6 +734,7 @@
     <string name="title_advanced_class_min_chance">Minimum vjerovatnosti klase: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimalna razlika klasa: %1$s %%</string>
     <string name="title_advanced_show_filtered">Prikaži ikonicu za filtriranje kada su pravila primijenjena</string>
+    <string name="title_advanced_haptic_feedback">Haptičke povratne informacije za važne radnje</string>
     <string name="title_advanced_language">Jezik</string>
     <string name="title_advanced_language_system">Sistemski</string>
     <string name="title_advanced_lt">LanguageTool integracija</string>

@@ -655,6 +655,8 @@
     <string name="title_advanced_notify_preview">Адлюстроўваць папярэдні выгляд паведамленняў у апавяшчэннях</string>
     <string name="title_advanced_notify_preview_all">Папярэдні прагляд усяго тэксту</string>
     <string name="title_advanced_notify_preview_only">Паказваць апавяшчэнні толькі з папярэднім праглядам тэксту</string>
+    <string name="title_advanced_notify_transliterate">Транслітарацыя ў лацінку</string>
+    <string name="title_advanced_notify_ascii">Толькі тэкст у ASCII</string>
     <string name="title_advanced_notify_actions">Дзеянні з апавяшчэннямі</string>
     <string name="title_advanced_notify_action_trash">Выдаленыя</string>
     <string name="title_advanced_notify_action_delete">Выдаліць</string>
@@ -747,6 +749,7 @@
     <string name="title_advanced_class_min_chance">Мінімальная верагоднасць класа: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Мінімальная розніца паміж класамі: %1$s %%</string>
     <string name="title_advanced_show_filtered">Паказваць значок фільтра пры ўжыванні правіл</string>
+    <string name="title_advanced_haptic_feedback">Тактыльная зваротная сувязь пры важных дзеяннях</string>
     <string name="title_advanced_language">Мова</string>
     <string name="title_advanced_language_system">Сістэмная</string>
     <string name="title_advanced_lt">Інтэграцыя з LanguageTool</string>
@@ -1728,6 +1731,8 @@
     <string name="title_rule_alarm_title">Сігнал</string>
     <string name="title_rule_alarm_stop">Спыніць</string>
     <string name="title_code_line_numbers">Паказваць нумары радкоў</string>
+    <string name="title_code_enable_links">Уключыць спасылкі</string>
+    <string name="title_code_pretty">Палепшыць фарматаванне</string>
     <string name="title_legend_section_synchronize">Сінхранізацыя</string>
     <string name="title_legend_section_folders">Папкі</string>
     <string name="title_legend_section_messages">Паведамленні</string>
@@ -1922,6 +1927,7 @@
     <string name="title_no_ask_again">Больш не запытваць</string>
     <string name="title_no_ask_for_again">Больш не запытваць для %1$s</string>
     <string name="title_no_body">Тэкст паведамлення не знойдзены</string>
+    <string name="title_large_body">Гэта паведамленне вельмі вялікае і можа выклікаць праблемы!</string>
     <string name="title_no_charset">Кадзіроўка не падтрымліваецца: %1$s</string>
     <string name="title_via">Праз: %1$s</string>
     <string name="title_1hour">1 гадзіна</string>
@@ -2003,6 +2009,7 @@
     <string name="title_widget_account_all">Усе</string>
     <string name="title_widget_folder">Папка</string>
     <string name="title_widget_folder_unified">Агульныя папкі паштовай скрыні</string>
+    <string name="title_widget_folder_notifying">Папкі з апавяшчэннямі аб новых паведамленнях</string>
     <string name="title_widget_unseen">Толькі непрачытаныя паведамленні</string>
     <string name="title_widget_flagged">Толькі пазначаныя паведамленні</string>
     <string name="title_widget_font_size">Памер тэксту</string>

@@ -712,6 +712,7 @@
     <string name="title_advanced_class_min_chance">Minsta sannolikhet för klass: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minsta klasskillnad: %1$s %%</string>
     <string name="title_advanced_show_filtered">Visa en filterikon när regler tillämpades</string>
+    <string name="title_advanced_haptic_feedback">Haptisk återkoppling på viktiga åtgärder</string>
     <string name="title_advanced_language">Språk</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">Språkintegration för verktyg</string>
