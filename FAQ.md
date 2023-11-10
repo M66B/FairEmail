@@ -2092,8 +2092,8 @@ The error '*Handshake failed SSL handshake terminated ... SSLV3_ALERT_HANDSHAKE_
 can be caused by [this Android 7.0 bug](https://issuetracker.google.com/issues/37122132). This can unfortunately not be fixed by FairEmail.
 
 The error '*Handshake failed ... UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION or SSLV3_ALERT_HANDSHAKE_FAILURE ...*'
-might be caused by enabling **hardening connections**, or requiring TLS 1.3 in the connection settings
-or by Android not supporting older protocols anymore, like SSLv3.
+might be caused by enabling **hardening connections** or **Bouncy Castle** in the connection settings tab page,
+or by Android not supporting older protocols anymore, like SSLv3 and TLSv1.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore.
 There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
