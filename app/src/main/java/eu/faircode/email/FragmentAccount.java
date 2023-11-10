@@ -1422,6 +1422,7 @@ public class FragmentAccount extends FragmentBase {
                     for (EntityFolder folder : folders) {
                         EntityFolder existing = map.get(folder.name);
                         if (existing == null) {
+                            folder.id = null;
                             folder.account = account.id;
                             folder.setSpecials(account);
                             folder.id = db.folder().insertFolder(folder);
