@@ -347,7 +347,7 @@ public class DeepL {
     }
 
     private static String getBaseUri(String key) {
-        String domain = (key.endsWith(":fx") ? "api-free.deepl.com" : "api.deepl.com");
+        String domain = (key != null && key.endsWith(":fx") ? "api-free.deepl.com" : "api.deepl.com");
         return "https://" + domain + "/v2/";
     }
 
