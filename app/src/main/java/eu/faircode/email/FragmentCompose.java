@@ -73,7 +73,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.ArrowKeyMovementMethod;
-import android.text.style.BackgroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
@@ -2831,7 +2830,7 @@ public class FragmentCompose extends FragmentBase {
                     args.putCharSequence("text", text);
 
                     new SimpleTask<DeepL.Translation>() {
-                        private Object highlightSpan;
+                        private HighlightSpan highlightSpan;
                         private Toast toast = null;
 
                         @Override
@@ -2840,7 +2839,7 @@ public class FragmentCompose extends FragmentBase {
                             boolean deepl_highlight = prefs.getBoolean("deepl_highlight", true);
                             if (deepl_highlight) {
                                 int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
-                                highlightSpan = new BackgroundColorSpan(textColorHighlight);
+                                highlightSpan = new HighlightSpan(textColorHighlight);
                                 etBody.getText().setSpan(highlightSpan, paragraph.first, paragraph.second,
                                         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
                             }
@@ -2960,7 +2959,7 @@ public class FragmentCompose extends FragmentBase {
 
         new SimpleTask<List<LanguageTool.Suggestion>>() {
             private Toast toast = null;
-            private BackgroundColorSpan highlightSpan = null;
+            private HighlightSpan highlightSpan = null;
 
             @Override
             protected void onPreExecute(Bundle args) {
@@ -2969,7 +2968,7 @@ public class FragmentCompose extends FragmentBase {
                     boolean lt_highlight = prefs.getBoolean("lt_highlight", !BuildConfig.PLAY_STORE_RELEASE);
                     if (lt_highlight) {
                         int textColorHighlight = Helper.resolveColor(getContext(), android.R.attr.textColorHighlight);
-                        highlightSpan = new BackgroundColorSpan(textColorHighlight);
+                        highlightSpan = new HighlightSpan(textColorHighlight);
                         etBody.getText().setSpan(highlightSpan, start, end,
                                 Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
                     }
@@ -7887,7 +7886,7 @@ public class FragmentCompose extends FragmentBase {
             Context context = etBody.getContext();
             int color = Helper.resolveColor(context, R.attr.colorHighlight);
             SpannableString ss = new SpannableString(etBody.getText());
-            ss.setSpan(new BackgroundColorSpan(color),
+            ss.setSpan(new HighlightSpan(color),
                     pos, pos + query.length(), Spannable.SPAN_COMPOSING);
             ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE),
                     pos, pos + query.length(), Spannable.SPAN_COMPOSING);

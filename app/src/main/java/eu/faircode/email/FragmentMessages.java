@@ -83,7 +83,6 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.format.DateUtils;
-import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
@@ -8121,7 +8120,7 @@ public class FragmentMessages extends FragmentBase
             Context context = searchView.getContext();
             int color = Helper.resolveColor(context, R.attr.colorHighlight);
             SpannableString ss = new SpannableString(searchView.getText());
-            ss.setSpan(new BackgroundColorSpan(color),
+            ss.setSpan(new HighlightSpan(color),
                     pos, pos + query.length(), Spannable.SPAN_COMPOSING);
             ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE),
                     pos, pos + query.length(), Spannable.SPAN_COMPOSING);
