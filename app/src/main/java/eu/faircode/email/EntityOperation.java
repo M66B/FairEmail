@@ -337,6 +337,9 @@ public class EntityOperation {
                                 EntityFolder.TRASH.equals(target.type) ||
                                 EntityFolder.JUNK.equals(target.type))) {
                     message.ui_snoozed = null;
+                    message.ui_ignored = true;
+                    db.message().setMessageSnoozed(message.id, null);
+                    db.message().setMessageUiIgnored(message.id, true);
                     EntityMessage.snooze(context, message.id, null);
                 }
 
