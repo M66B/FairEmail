@@ -9,6 +9,7 @@ Vallibonavenatrix
 Next version
 
 * Added option to disable haptic feedback
+* Small improvements and minor bug fixes
 * Updated translations
 
 1.2120 - 2023-11-09
