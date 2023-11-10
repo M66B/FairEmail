@@ -2730,7 +2730,8 @@ public class FragmentCompose extends FragmentBase {
         boolean canTranslate;
         if (subjectHasFocus) {
             CharSequence text = etSubject.getText();
-            canTranslate = (text != null && !TextUtils.isEmpty(text.toString().trim()));
+            canTranslate = (DeepL.canTranslate(context) &&
+                    text != null && !TextUtils.isEmpty(text.toString().trim()));
         } else {
             int s = etBody.getSelectionStart();
             Editable edit = etBody.getText();
@@ -2741,7 +2742,8 @@ public class FragmentCompose extends FragmentBase {
                 etBody.setSelection(s - 1, s - 1);
 
             Pair<Integer, Integer> paragraph = StyleHelper.getParagraph(etBody);
-            canTranslate = (DeepL.canTranslate(context) && paragraph != null);
+            canTranslate = (DeepL.canTranslate(context) &&
+                    paragraph != null);
         }
 
         PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, getViewLifecycleOwner(), anchor);
@@ -2758,7 +2760,6 @@ public class FragmentCompose extends FragmentBase {
                 ssb.append(" (").append(NF.format(lang.frequency)).append(")");
                 ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL),
                         start, ssb.length(), 0);
-
             }
 
             MenuItem item = popupMenu.getMenu()
