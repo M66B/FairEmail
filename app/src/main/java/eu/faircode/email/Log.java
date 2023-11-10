@@ -3614,33 +3614,44 @@ public class Log {
     static SpannableStringBuilder getCiphers() {
         SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
-        for (Provider provider : new Provider[]{null, new BouncyCastleJsseProvider()})
+        for (Provider provider : new Provider[]{
+                null, // Android
+                new BouncyCastleJsseProvider(),
+                new BouncyCastleJsseProvider(true)})
             for (String protocol : new String[]{"SSL", "TLS"})
                 try {
                     int begin = ssb.length();
-                    ssb.append("Protocol: ").append(protocol)
-                            .append(" ")
-                            .append(provider == null ? "Android" : provider.getClass().getSimpleName());
-                    ssb.setSpan(new StyleSpan(Typeface.BOLD), begin, ssb.length(), 0);
-                    ssb.append("\r\n\r\n");
-
-                    TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-                    tmf.init((KeyStore) null);
-
-                    ssb.append("Provider: ").append(tmf.getProvider().getName()).append("\r\n");
-                    ssb.append("Algorithm: ").append(tmf.getAlgorithm()).append("\r\n");
-
-                    TrustManager[] tms = tmf.getTrustManagers();
-                    if (tms != null)
-                        for (TrustManager tm : tms)
-                            ssb.append("Manager: ").append(tm.getClass().getName()).append("\r\n");
 
                     SSLContext sslContext = (provider == null
                             ? SSLContext.getInstance(protocol)
                             : SSLContext.getInstance(protocol, provider));
 
+                    ssb.append("SSL protocol: ").append(sslContext.getProtocol()).append("\r\n");
+                    Provider sslProvider = sslContext.getProvider();
+                    ssb.append("SSL provider: ").append(sslProvider.getName());
+                    if (sslProvider instanceof BouncyCastleJsseProvider) {
+                        boolean fips = ((BouncyCastleJsseProvider) sslProvider).isFipsMode();
+                        if (fips)
+                            ssb.append(" FIPS");
+                    }
+                    ssb.append("\r\n");
+                    ssb.append("SSL class: ").append(sslProvider.getClass().getName()).append("\r\n");
 
-                    ssb.append("Context: ").append(sslContext.getProtocol()).append("\r\n\r\n");
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), begin, ssb.length(), 0);
+                    ssb.append("\r\n");
+
+                    TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                    tmf.init((KeyStore) null);
+
+                    ssb.append("Trust provider: ").append(tmf.getProvider().getName()).append("\r\n");
+                    ssb.append("Trust class: ").append(tmf.getProvider().getClass().getName()).append("\r\n");
+                    ssb.append("Trust algorithm: ").append(tmf.getAlgorithm()).append("\r\n");
+
+                    TrustManager[] tms = tmf.getTrustManagers();
+                    if (tms != null)
+                        for (TrustManager tm : tms)
+                            ssb.append("Trust manager: ").append(tm.getClass().getName()).append("\r\n");
+                    ssb.append("\r\n");
 
                     sslContext.init(null, tmf.getTrustManagers(), null);
                     SSLSocket socket = (SSLSocket) sslContext.getSocketFactory().createSocket();

@@ -448,7 +448,8 @@ public class EmailService implements AutoCloseable {
                 }
 
             boolean bc = prefs.getBoolean("bouncy_castle", false);
-            factory = new SSLSocketFactoryService(host, insecure, ssl_harden, strict, cert_strict, bc, key, chain, fingerprint);
+            boolean fips = prefs.getBoolean("bc_fips", false);
+            factory = new SSLSocketFactoryService(host, insecure, ssl_harden, strict, cert_strict, bc, fips, key, chain, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
@@ -1038,7 +1039,10 @@ public class EmailService implements AutoCloseable {
         private SSLSocketFactory factory;
         private X509Certificate certificate;
 
-        SSLSocketFactoryService(String host, boolean insecure, boolean ssl_harden, boolean ssl_harden_strict, boolean cert_strict, boolean bc, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
+        SSLSocketFactoryService(String host, boolean insecure,
+                                boolean ssl_harden, boolean ssl_harden_strict, boolean cert_strict,
+                                boolean bc, boolean fips,
+                                PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
             this.server = host;
             this.secure = !insecure;
             this.ssl_harden = ssl_harden;
@@ -1050,10 +1054,10 @@ public class EmailService implements AutoCloseable {
             SSLContext sslContext;
             String protocol = (insecure ? "SSL" : "TLS");
             if (bc)
-                sslContext = SSLContext.getInstance(protocol, new BouncyCastleJsseProvider());
+                sslContext = SSLContext.getInstance(protocol, new BouncyCastleJsseProvider(fips));
             else
                 sslContext = SSLContext.getInstance(protocol);
-            Log.i("Using protocol=" + protocol + " bc=" + bc);
+            Log.i("Using protocol=" + protocol + " bc=" + bc + " FIPS=" + fips);
 
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             tmf.init((KeyStore) null);

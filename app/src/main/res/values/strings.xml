@@ -518,6 +518,7 @@
     <string name="title_advanced_cert_strict">Strict certificate checking</string>
     <string name="title_advanced_open_safe">Open secure connections only</string>
     <string name="title_advanced_bouncy_castle">Use Bouncy Castle\'s secure socket provider (JSSE)</string>
+    <string name="title_advanced_fips_mode" translatable="false">FIPS mode</string>
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
 
     <string name="title_advanced_caption_general">General</string>
