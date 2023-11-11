@@ -3192,8 +3192,24 @@ public class Log {
                 size += write(os, "\r\n");
 
                 try {
+                    ApplicationInfo app = pm.getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+                    List<String> metas = getExtras(app.metaData);
+                    size += write(os, "Manifest metas=" + (metas == null ? null : metas.size()) + "\r\n");
+                    for (String meta : metas)
+                        size += write(os, String.format("%s\r\n", meta));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+                size += write(os, "\r\n");
+
+                int flags = PackageManager.GET_RESOLVED_FILTER;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                    flags |= PackageManager.MATCH_ALL;
+
+                try {
                     Intent home = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME);
                     List<ResolveInfo> homes = context.getPackageManager().queryIntentActivities(home, PackageManager.MATCH_DEFAULT_ONLY);
+                    size += write(os, "Launchers=" + (homes == null ? null : homes.size()) + "\r\n");
                     if (homes != null)
                         for (ResolveInfo ri : homes)
                             size += write(os, String.format("Launcher=%s\r\n", ri.activityInfo.packageName));
@@ -3206,41 +3222,27 @@ public class Log {
                 size += write(os, "\r\n");
 
                 try {
-                    ApplicationInfo app = pm.getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
-                    for (String meta : getExtras(app.metaData))
-                        size += write(os, String.format("%s\r\n", meta));
-                } catch (Throwable ex) {
-                    size += write(os, String.format("%s\r\n", ex));
-                }
-                size += write(os, "\r\n");
-
-                try {
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    String open_with_pkg = prefs.getString("open_with_pkg", null);
-                    boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
-                    size += write(os, String.format("open_with_pkg=%s\r\n", open_with_pkg));
-                    size += write(os, String.format("open_with_tabs=%b\r\n", open_with_tabs));
-                    size += write(os, "\r\n");
-
-                    int flags = PackageManager.GET_RESOLVED_FILTER;
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                        flags |= PackageManager.MATCH_ALL;
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.example.com"));
+                    Intent intent = new Intent(Intent.ACTION_VIEW)
+                            //.addCategory(Intent.CATEGORY_BROWSABLE)
+                            .setData(Uri.parse("http://example.com/"));
                     ResolveInfo main = pm.resolveActivity(intent, 0);
 
                     List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
                     size += write(os, "Browsers=" + (ris == null ? null : ris.size()) + "\r\n");
                     if (ris != null)
                         for (ResolveInfo ri : ris) {
+                            CharSequence label = pm.getApplicationLabel(ri.activityInfo.applicationInfo);
+
                             Intent serviceIntent = new Intent();
-                            serviceIntent.setAction("android.support.customtabs.action.CustomTabsService");
+                            serviceIntent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
                             serviceIntent.setPackage(ri.activityInfo.packageName);
                             boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
 
                             StringBuilder sb = new StringBuilder();
                             sb.append("Browser=").append(ri.activityInfo.packageName);
-                            if (Objects.equals(main.activityInfo.packageName, ri.activityInfo.packageName))
+                            if (Objects.equals(main == null ? null : main.activityInfo.packageName, ri.activityInfo.packageName))
                                 sb.append("*");
+                            sb.append(" (").append(label).append(")");
                             sb.append(" tabs=").append(tabs);
                             sb.append(" view=").append(ri.filter.hasAction(Intent.ACTION_VIEW));
                             sb.append(" browsable=").append(ri.filter.hasCategory(Intent.CATEGORY_BROWSABLE));
@@ -3281,7 +3283,35 @@ public class Log {
                                 }
 
                             sb.append("\r\n");
+                            size += write(os, sb.toString());
+                        }
 
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    String open_with_pkg = prefs.getString("open_with_pkg", null);
+                    boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
+                    size += write(os, String.format("Selected: %s tabs=%b\r\n",
+                            open_with_pkg, open_with_tabs));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+                size += write(os, "\r\n");
+
+                try {
+                    Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+                    ResolveInfo main = pm.resolveActivity(intent, 0);
+                    List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
+                    size += write(os, "Recorders=" + (ris == null ? null : ris.size()) + "\r\n");
+                    if (ris != null)
+                        for (ResolveInfo ri : ris) {
+                            CharSequence label = pm.getApplicationLabel(ri.activityInfo.applicationInfo);
+
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("Recorder=").append(ri.activityInfo.packageName);
+                            if (Objects.equals(main.activityInfo.packageName, ri.activityInfo.packageName))
+                                sb.append("*");
+                            sb.append(" (").append(label).append(")");
+
+                            sb.append("\r\n");
                             size += write(os, sb.toString());
                         }
                 } catch (Throwable ex) {
@@ -3291,6 +3321,7 @@ public class Log {
 
                 try {
                     List<UriPermission> uperms = context.getContentResolver().getPersistedUriPermissions();
+                    size += write(os, "Persisted URIs=" + (uperms == null ? null : uperms.size()) + "\r\n");
                     if (uperms != null)
                         for (UriPermission uperm : uperms) {
                             size += write(os, String.format("%s r=%b w=%b %s\r\n",
@@ -3350,39 +3381,6 @@ public class Log {
                 }
 
                 size += write(os, "\r\n");
-
-                try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW)
-                            .addCategory(Intent.CATEGORY_BROWSABLE)
-                            .setData(Uri.parse("http://example.com/"));
-                    ResolveInfo main = pm.resolveActivity(intent, 0);
-
-                    int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
-                    intent.setData(Uri.parse("http://example.com"));
-                    List<ResolveInfo> browsers = pm.queryIntentActivities(intent, flags);
-
-                    for (ResolveInfo ri : browsers) {
-                        Intent serviceIntent = new Intent();
-                        serviceIntent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
-                        serviceIntent.setPackage(ri.activityInfo.packageName);
-                        CharSequence label = pm.getApplicationLabel(ri.activityInfo.applicationInfo);
-                        boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
-                        boolean def = (main != null &&
-                                Objects.equals(ri.activityInfo.packageName, main.activityInfo.packageName));
-                        size += write(os, String.format("Browser: %s (%s) tabs=%b default=%b\r\n",
-                                ri.activityInfo.packageName, label, tabs, def));
-                    }
-
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    String open_with_pkg = prefs.getString("open_with_pkg", null);
-                    boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
-                    size += write(os, String.format("Selected: %s tabs=%b\r\n",
-                            open_with_pkg, open_with_tabs));
-
-                    size += write(os, "\r\n");
-                } catch (Throwable ex) {
-                    size += write(os, String.format("%s\r\n", ex));
-                }
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                     try {
