@@ -3506,9 +3506,20 @@ public class Log {
                     size += write(os, String.format("%s\r\n", p));
                 size += write(os, "\r\n");
 
-                size += write(os, String.format("%s=%b\r\n",
-                        PgpHelper.getPackageName(context),
-                        PgpHelper.isOpenKeychainInstalled(context)));
+                String pgpPackage = PgpHelper.getPackageName(context);
+                boolean pgpInstalled = PgpHelper.isOpenKeychainInstalled(context);
+                size += write(os, String.format("%s=%b\r\n", pgpPackage, pgpInstalled));
+
+                if (pgpInstalled)
+                    try {
+                        PackageInfo pi = pm.getPackageInfo(pgpPackage, PackageManager.GET_PERMISSIONS);
+                        for (int i = 0; i < pi.requestedPermissions.length; i++) {
+                            boolean granted = ((pi.requestedPermissionsFlags[i] & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0);
+                            size += write(os, String.format("- %s=%b\r\n", pi.requestedPermissions[i], granted));
+                        }
+                    } catch (Throwable ex) {
+                        size += write(os, String.format("%s\r\n", ex));
+                    }
 
                 try {
                     int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
