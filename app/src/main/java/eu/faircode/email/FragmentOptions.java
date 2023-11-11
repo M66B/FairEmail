@@ -82,6 +82,7 @@ public class FragmentOptions extends FragmentBase {
             R.layout.fragment_options_privacy,
             R.layout.fragment_options_encryption,
             R.layout.fragment_options_notifications,
+            R.layout.fragment_options_integrations,
             R.layout.fragment_options_misc,
             R.layout.fragment_options_backup
     };
@@ -96,6 +97,7 @@ public class FragmentOptions extends FragmentBase {
             R.string.title_advanced_section_privacy,
             R.string.title_advanced_section_encryption,
             R.string.title_advanced_section_notifications,
+            R.string.title_advanced_caption_integrations,
             R.string.title_advanced_section_misc,
             R.string.title_advanced_section_backup
     };
@@ -110,6 +112,7 @@ public class FragmentOptions extends FragmentBase {
             R.drawable.twotone_account_circle_24,
             R.drawable.twotone_lock_24,
             R.drawable.twotone_notifications_24,
+            R.drawable.twotone_extension_24,
             R.drawable.twotone_more_24,
             R.drawable.twotone_save_alt_24
     };
@@ -124,6 +127,7 @@ public class FragmentOptions extends FragmentBase {
             "privacy",
             "encryption",
             "notifications",
+            "integrations",
             "misc",
             "backup"
     ));
@@ -529,8 +533,10 @@ public class FragmentOptions extends FragmentBase {
                 case 8:
                     return new FragmentOptionsNotifications();
                 case 9:
-                    return new FragmentOptionsMisc();
+                    return new FragmentOptionsIntegrations();
                 case 10:
+                    return new FragmentOptionsMisc();
+                case 11:
                     return new FragmentOptionsBackup();
                 default:
                     throw new IllegalArgumentException();

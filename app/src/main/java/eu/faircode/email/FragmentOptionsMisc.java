@@ -82,8 +82,6 @@ import androidx.lifecycle.Observer;
 import androidx.preference.PreferenceManager;
 import androidx.work.WorkManager;
 
-import com.google.android.material.textfield.TextInputLayout;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -108,6 +106,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
     private View view;
     private ImageButton ibHelp;
+
     private SwitchCompat swPowerMenu;
     private SwitchCompat swSendSelf;
     private SwitchCompat swExternalSearch;
@@ -146,37 +145,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnCleanup;
     private TextView tvLastCleanup;
     private TextView tvSdcard;
-
-    private SwitchCompat swLanguageTool;
-    private TextView tvLanguageToolPrivacy;
-    private SwitchCompat swLanguageToolSentence;
-    private SwitchCompat swLanguageToolAuto;
-    private SwitchCompat swLanguageToolPicky;
-    private SwitchCompat swLanguageToolHighlight;
-    private SwitchCompat swLanguageToolDescription;
-    private EditText etLanguageTool;
-    private EditText etLanguageToolUser;
-    private TextInputLayout tilLanguageToolKey;
-    private ImageButton ibLanguageTool;
-    private SwitchCompat swDeepL;
-    private TextView tvDeepLPrivacy;
-    private ImageButton ibDeepL;
-    private SwitchCompat swVirusTotal;
-    private TextView tvVirusTotalPrivacy;
-    private TextInputLayout tilVirusTotal;
-    private ImageButton ibVirusTotal;
-    private SwitchCompat swSend;
-    private EditText etSend;
-    private ImageButton ibSend;
-    private SwitchCompat swOpenAi;
-    private TextView tvOpenAiPrivacy;
-    private EditText etOpenAi;
-    private TextInputLayout tilOpenAi;
-    private EditText etOpenAiModel;
-    private TextView tvOpenAiTemperature;
-    private SeekBar sbOpenAiTemperature;
-    private SwitchCompat swOpenAiModeration;
-    private ImageButton ibOpenAi;
 
     private CardView cardAdvanced;
     private SwitchCompat swWatchdog;
@@ -286,9 +254,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Group grpAnnouncements;
     private Group grpTest;
 
-    private CardView cardVirusTotal;
-    private CardView cardSend;
-    private CardView cardOpenAi;
     private CardView cardDebug;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -301,11 +266,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "classification", "class_min_probability", "class_min_difference",
             "show_filtered", "haptic_feedback",
             "language",
-            "lt_enabled", "lt_sentence", "lt_auto", "lt_picky", "lt_highlight", "lt_description", "lt_uri", "lt_user", "lt_key",
-            "deepl_enabled",
-            "vt_enabled", "vt_apikey",
-            "send_enabled", "send_host", "send_dlimit", "send_tlimit",
-            "openai_enabled", "openai_uri", "openai_apikey", "openai_model", "openai_temperature", "openai_moderation",
             "updates", "weekly", "beta", "show_changelog", "announcements",
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
@@ -420,37 +380,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         tvLastCleanup = view.findViewById(R.id.tvLastCleanup);
         tvSdcard = view.findViewById(R.id.tvSdcard);
 
-        swLanguageTool = view.findViewById(R.id.swLanguageTool);
-        tvLanguageToolPrivacy = view.findViewById(R.id.tvLanguageToolPrivacy);
-        swLanguageToolSentence = view.findViewById(R.id.swLanguageToolSentence);
-        swLanguageToolAuto = view.findViewById(R.id.swLanguageToolAuto);
-        swLanguageToolPicky = view.findViewById(R.id.swLanguageToolPicky);
-        swLanguageToolHighlight = view.findViewById(R.id.swLanguageToolHighlight);
-        swLanguageToolDescription = view.findViewById(R.id.swLanguageToolDescription);
-        etLanguageTool = view.findViewById(R.id.etLanguageTool);
-        etLanguageToolUser = view.findViewById(R.id.etLanguageToolUser);
-        tilLanguageToolKey = view.findViewById(R.id.tilLanguageToolKey);
-        ibLanguageTool = view.findViewById(R.id.ibLanguageTool);
-        swDeepL = view.findViewById(R.id.swDeepL);
-        tvDeepLPrivacy = view.findViewById(R.id.tvDeepLPrivacy);
-        ibDeepL = view.findViewById(R.id.ibDeepL);
-        swVirusTotal = view.findViewById(R.id.swVirusTotal);
-        tvVirusTotalPrivacy = view.findViewById(R.id.tvVirusTotalPrivacy);
-        tilVirusTotal = view.findViewById(R.id.tilVirusTotal);
-        ibVirusTotal = view.findViewById(R.id.ibVirusTotal);
-        swSend = view.findViewById(R.id.swSend);
-        etSend = view.findViewById(R.id.etSend);
-        ibSend = view.findViewById(R.id.ibSend);
-        swOpenAi = view.findViewById(R.id.swOpenAi);
-        tvOpenAiPrivacy = view.findViewById(R.id.tvOpenAiPrivacy);
-        etOpenAi = view.findViewById(R.id.etOpenAi);
-        tilOpenAi = view.findViewById(R.id.tilOpenAi);
-        etOpenAiModel = view.findViewById(R.id.etOpenAiModel);
-        tvOpenAiTemperature = view.findViewById(R.id.tvOpenAiTemperature);
-        sbOpenAiTemperature = view.findViewById(R.id.sbOpenAiTemperature);
-        swOpenAiModeration = view.findViewById(R.id.swOpenAiModeration);
-        ibOpenAi = view.findViewById(R.id.ibOpenAi);
-
         cardAdvanced = view.findViewById(R.id.cardAdvanced);
         swWatchdog = view.findViewById(R.id.swWatchdog);
         swExperiments = view.findViewById(R.id.swExperiments);
@@ -559,9 +488,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         grpAnnouncements = view.findViewById(R.id.grpAnnouncements);
         grpTest = view.findViewById(R.id.grpTest);
 
-        cardVirusTotal = view.findViewById(R.id.cardVirusTotal);
-        cardSend = view.findViewById(R.id.cardSend);
-        cardOpenAi = view.findViewById(R.id.cardOpenAi);
         cardDebug = view.findViewById(R.id.cardDebug);
 
         setOptions();
@@ -921,345 +847,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onClick(View v) {
                 Helper.viewFAQ(v.getContext(), 93);
-            }
-        });
-
-        swLanguageTool.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("lt_enabled", checked).apply();
-                swLanguageToolSentence.setEnabled(checked);
-                swLanguageToolAuto.setEnabled(checked);
-                swLanguageToolPicky.setEnabled(checked);
-                swLanguageToolHighlight.setEnabled(checked);
-                swLanguageToolDescription.setEnabled(checked);
-            }
-        });
-
-        tvLanguageToolPrivacy.getPaint().setUnderlineText(true);
-        tvLanguageToolPrivacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.LT_PRIVACY_URI), true);
-            }
-        });
-
-        swLanguageToolSentence.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("lt_sentence", checked).apply();
-            }
-        });
-
-        swLanguageToolAuto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("lt_auto", checked).apply();
-            }
-        });
-
-        swLanguageToolPicky.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("lt_picky", checked).apply();
-            }
-        });
-
-        swLanguageToolHighlight.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("lt_highlight", checked).apply();
-            }
-        });
-
-        swLanguageToolDescription.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("lt_description", checked).apply();
-            }
-        });
-
-        etLanguageTool.setHint(LanguageTool.LT_URI);
-        etLanguageTool.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String apikey = s.toString().trim();
-                if (TextUtils.isEmpty(apikey))
-                    prefs.edit().remove("lt_uri").apply();
-                else
-                    prefs.edit().putString("lt_uri", apikey).apply();
-            }
-        });
-
-        etLanguageToolUser.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String apikey = s.toString().trim();
-                if (TextUtils.isEmpty(apikey))
-                    prefs.edit().remove("lt_user").apply();
-                else
-                    prefs.edit().putString("lt_user", apikey).apply();
-            }
-        });
-
-        tilLanguageToolKey.getEditText().addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String apikey = s.toString().trim();
-                if (TextUtils.isEmpty(apikey))
-                    prefs.edit().remove("lt_key").apply();
-                else
-                    prefs.edit().putString("lt_key", apikey).apply();
-            }
-        });
-
-        ibLanguageTool.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 180);
-            }
-        });
-
-        tvDeepLPrivacy.getPaint().setUnderlineText(true);
-        tvDeepLPrivacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(DeepL.PRIVACY_URI), true);
-            }
-        });
-
-        swDeepL.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("deepl_enabled", checked).apply();
-            }
-        });
-
-        ibDeepL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DeepL.FragmentDialogDeepL fragment = new DeepL.FragmentDialogDeepL();
-                fragment.show(getParentFragmentManager(), "deepl:configure");
-            }
-        });
-
-        swVirusTotal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("vt_enabled", checked).apply();
-            }
-        });
-
-        tvVirusTotalPrivacy.getPaint().setUnderlineText(true);
-        tvVirusTotalPrivacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(VirusTotal.URI_PRIVACY), true);
-            }
-        });
-
-        tilVirusTotal.getEditText().addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String apikey = s.toString().trim();
-                if (TextUtils.isEmpty(apikey))
-                    prefs.edit().remove("vt_apikey").apply();
-                else
-                    prefs.edit().putString("vt_apikey", apikey).apply();
-            }
-        });
-
-        ibVirusTotal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 181);
-            }
-        });
-
-        swSend.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("send_enabled", checked).apply();
-            }
-        });
-
-        etSend.setHint(Send.DEFAULT_SERVER);
-        etSend.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String apikey = s.toString().trim();
-                if (TextUtils.isEmpty(apikey))
-                    prefs.edit().remove("send_host").apply();
-                else
-                    prefs.edit().putString("send_host", apikey).apply();
-            }
-        });
-
-        ibSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 183);
-            }
-        });
-
-        swOpenAi.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("openai_enabled", checked).apply();
-            }
-        });
-
-        tvOpenAiPrivacy.getPaint().setUnderlineText(true);
-        tvOpenAiPrivacy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(BuildConfig.OPENAI_PRIVACY), true);
-            }
-        });
-
-        etOpenAi.setHint(BuildConfig.OPENAI_ENDPOINT);
-        etOpenAi.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String apikey = s.toString().trim();
-                if (TextUtils.isEmpty(apikey))
-                    prefs.edit().remove("openai_uri").apply();
-                else
-                    prefs.edit().putString("openai_uri", apikey).apply();
-            }
-        });
-
-        tilOpenAi.getEditText().addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String apikey = s.toString().trim();
-                if (TextUtils.isEmpty(apikey))
-                    prefs.edit().remove("openai_apikey").apply();
-                else
-                    prefs.edit().putString("openai_apikey", apikey).apply();
-            }
-        });
-
-        etOpenAiModel.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                String model = s.toString().trim();
-                if (TextUtils.isEmpty(model))
-                    prefs.edit().remove("openai_model").apply();
-                else
-                    prefs.edit().putString("openai_model", model).apply();
-            }
-        });
-
-        sbOpenAiTemperature.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                float temp = progress / 10f;
-                prefs.edit().putFloat("openai_temperature", temp).apply();
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-                // Do nothing
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                // Do nothing
-            }
-        });
-
-        swOpenAiModeration.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("openai_moderation", checked).apply();
-            }
-        });
-
-        ibOpenAi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 190);
             }
         });
 
@@ -2395,9 +1982,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         grpBitbucket.setVisibility(View.GONE);
         grpAnnouncements.setVisibility(TextUtils.isEmpty(BuildConfig.ANNOUNCEMENT_URI)
                 ? View.GONE : View.VISIBLE);
-        cardVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
-        cardSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
-        cardOpenAi.setVisibility(TextUtils.isEmpty(BuildConfig.OPENAI_ENDPOINT) ? View.GONE : View.VISIBLE);
         grpTest.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
@@ -2492,15 +2076,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         if ("last_daily".equals(key))
             tvLastDaily.setText(new Date(prefs.getLong(key, 0)).toString());
 
-        if ("lt_uri".equals(key) ||
-                "lt_user".equals(key) ||
-                "lt_key".equals(key) ||
-                "vt_apikey".equals(key) ||
-                "send_host".equals(key) ||
-                "openai_uri".equals(key) ||
-                "openai_apikey".equals(key) ||
-                "openai_model".equals(key) ||
-                "viewport_height".equals(key))
+        if ("viewport_height".equals(key))
             return;
 
         if ("global_keywords".equals(key))
@@ -2689,35 +2265,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             spLanguage.setAdapter(adapter);
             if (selected >= 0)
                 spLanguage.setSelection(selected);
-
-            swLanguageTool.setChecked(prefs.getBoolean("lt_enabled", false));
-            swLanguageToolSentence.setChecked(prefs.getBoolean("lt_sentence", false));
-            swLanguageToolSentence.setEnabled(swLanguageTool.isChecked());
-            swLanguageToolAuto.setChecked(prefs.getBoolean("lt_auto", true));
-            swLanguageToolAuto.setEnabled(swLanguageTool.isChecked());
-            swLanguageToolPicky.setChecked(prefs.getBoolean("lt_picky", false));
-            swLanguageToolPicky.setEnabled(swLanguageTool.isChecked());
-            swLanguageToolHighlight.setChecked(prefs.getBoolean("lt_highlight", !BuildConfig.PLAY_STORE_RELEASE));
-            swLanguageToolHighlight.setEnabled(swLanguageTool.isChecked());
-            swLanguageToolDescription.setChecked(prefs.getBoolean("lt_description", false));
-            swLanguageToolDescription.setEnabled(swLanguageTool.isChecked());
-            etLanguageTool.setText(prefs.getString("lt_uri", null));
-            etLanguageToolUser.setText(prefs.getString("lt_user", null));
-            tilLanguageToolKey.getEditText().setText(prefs.getString("lt_key", null));
-            swDeepL.setChecked(prefs.getBoolean("deepl_enabled", false));
-            swVirusTotal.setChecked(prefs.getBoolean("vt_enabled", false));
-            tilVirusTotal.getEditText().setText(prefs.getString("vt_apikey", null));
-            swSend.setChecked(prefs.getBoolean("send_enabled", false));
-            etSend.setText(prefs.getString("send_host", null));
-            swOpenAi.setChecked(prefs.getBoolean("openai_enabled", false));
-            etOpenAi.setText(prefs.getString("openai_uri", null));
-            tilOpenAi.getEditText().setText(prefs.getString("openai_apikey", null));
-            etOpenAiModel.setText(prefs.getString("openai_model", null));
-
-            float temperature = prefs.getFloat("openai_temperature", 0.5f);
-            tvOpenAiTemperature.setText(getString(R.string.title_advanced_openai_temperature, NF.format(temperature)));
-            sbOpenAiTemperature.setProgress(Math.round(temperature * 10));
-            swOpenAiModeration.setChecked(prefs.getBoolean("openai_moderation", false));
 
             swWatchdog.setChecked(prefs.getBoolean("watchdog", true));
             swMainLog.setChecked(prefs.getBoolean("main_log", true));
