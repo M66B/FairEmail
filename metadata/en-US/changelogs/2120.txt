@@ -9,6 +9,7 @@ Vallibonavenatrix
 Next version
 
 * Added option to disable haptic feedback
+* Fixed swipe to mark read/unread
 * Small improvements and minor bug fixes
 * Updated translations
 
