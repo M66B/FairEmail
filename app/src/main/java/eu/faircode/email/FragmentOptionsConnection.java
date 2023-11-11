@@ -62,13 +62,19 @@ import androidx.preference.PreferenceManager;
 
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.security.KeyStore;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.net.SocketFactory;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 
 public class FragmentOptionsConnection extends FragmentBase implements SharedPreferences.OnSharedPreferenceChangeListener {
     private View view;
@@ -474,15 +480,31 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                                     sb.append("Protocol: ").append(session.getProtocol()).append('\n');
                                     sb.append("Cipher: ").append(session.getCipherSuite()).append('\n');
                                     Certificate[] certificates = session.getPeerCertificates();
+                                    List<X509Certificate> x509certs = new ArrayList<>();
                                     if (certificates != null)
                                         for (Certificate certificate : certificates) {
                                             if (certificate instanceof X509Certificate) {
-                                                X509Certificate x = (X509Certificate) certificate;
-                                                sb.append("Subject: ").append(x.getSubjectDN()).append('\n');
-                                                for (String dns : EntityCertificate.getDnsNames(x))
+                                                X509Certificate x509 = (X509Certificate) certificate;
+                                                x509certs.add(x509);
+                                                sb.append("Subject: ").append(x509.getSubjectDN()).append('\n');
+                                                for (String dns : EntityCertificate.getDnsNames(x509))
                                                     sb.append("DNS name: ").append(dns).append('\n');
                                             }
                                         }
+
+                                    TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                                    tmf.init((KeyStore) null);
+
+                                    TrustManager[] tms = tmf.getTrustManagers();
+                                    if (tms != null && tms.length > 0 && tms[0] instanceof X509TrustManager) {
+                                        X509TrustManager tm = (X509TrustManager) tms[0];
+                                        try {
+                                            tm.checkServerTrusted(x509certs.toArray(new X509Certificate[0]), "UNKNOWN");
+                                            sb.append("Peer certificate trusted\n");
+                                        } catch (Throwable ex) {
+                                            sb.append(ex.toString()).append('\n');
+                                        }
+                                    }
                                 } finally {
                                     try {
                                         if (sslSocket != null) {
