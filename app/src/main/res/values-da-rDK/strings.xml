@@ -438,6 +438,7 @@
     <string name="title_advanced_ssl_harden_strict">Kræv TLS 1.3</string>
     <string name="title_advanced_cert_strict">Striks certifikatkontrol</string>
     <string name="title_advanced_open_safe">Åbn kun sikre forbindelser</string>
+    <string name="title_advanced_bouncy_castle">Brug Bouncy Castles secure socket-udbyder (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Håndtér konnektivitet</string>
     <string name="title_advanced_caption_general">Generelt</string>
     <string name="title_advanced_caption_navigation">Navigering</string>

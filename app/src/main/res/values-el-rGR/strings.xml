@@ -437,6 +437,7 @@
     <string name="title_advanced_ssl_harden_strict">Απαιτείται TLS 1.3</string>
     <string name="title_advanced_cert_strict">Αυστηρός έλεγχος πιστοποιητικών</string>
     <string name="title_advanced_open_safe">Άνοιγμα ασφαλών συνδέσεων μόνο</string>
+    <string name="title_advanced_bouncy_castle">Χρήση του παρόχου ασφαλών socket Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Διαχείριση συνδεσιμότητας</string>
     <string name="title_advanced_caption_general">Γενικά</string>
     <string name="title_advanced_caption_navigation">Πλοήγηση</string>
