@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2121 - 2023-11-11
 
 * Added option to disable haptic feedback
 * Fixed swipe to mark read/unread
