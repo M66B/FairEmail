@@ -152,6 +152,7 @@ import java.security.KeyStore;
 import java.security.Provider;
 import java.security.Security;
 import java.security.cert.CertPathValidatorException;
+import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -189,6 +190,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 
 public class Log {
     private static Context ctx;
@@ -2883,6 +2885,24 @@ public class Log {
 
                 size += write(os, "\r\n");
                 size += write(os, getCiphers().toString());
+
+                try {
+                    String algo = TrustManagerFactory.getDefaultAlgorithm();
+                    TrustManagerFactory tmf = TrustManagerFactory.getInstance(algo);
+                    tmf.init((KeyStore) null);
+
+                    TrustManager[] tms = tmf.getTrustManagers();
+                    if (tms != null)
+                        for (TrustManager tm : tms) {
+                            size += write(os, String.format("Trust manager: %s (%s)\n",
+                                    tm.getClass().getName(), algo));
+                            if (tm instanceof X509TrustManager)
+                                for (X509Certificate cert : ((X509TrustManager) tm).getAcceptedIssuers())
+                                    size += write(os, String.format("- %s\n", cert.getIssuerDN()));
+                        }
+                } catch (Throwable ex) {
+                    size += write(os, ex.getMessage() + "\r\n");
+                }
             }
 
             db.attachment().setDownloaded(attachment.id, size);
