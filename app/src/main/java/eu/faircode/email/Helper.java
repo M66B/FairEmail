@@ -975,9 +975,14 @@ public class Helper {
     }
 
     static Intent getChooser(Context context, Intent intent) {
+        return getChooser(context, intent, false);
+    }
+
+    static Intent getChooser(Context context, Intent intent, boolean share) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean app_chooser = prefs.getBoolean("app_chooser", false);
-        if (!app_chooser)
+        boolean app_chooser_share = prefs.getBoolean("app_chooser_share", false);
+        if (share ? !app_chooser_share : !app_chooser)
             return intent;
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
@@ -1047,9 +1052,9 @@ public class Helper {
                 else
                     reportNoViewer(context, intent, null);
             else
-                context.startActivity(intent);
+                context.startActivity(getChooser(context, intent, true));
         } else
-            context.startActivity(intent);
+            context.startActivity(getChooser(context, intent, true));
     }
 
     static boolean isTnef(String type, String name) {
