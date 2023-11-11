@@ -281,13 +281,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnAllPermissions;
     private TextView tvPermissions;
 
-    private Group grpVirusTotal;
-    private Group grpSend;
-    private Group grpOpenAi;
     private Group grpUpdates;
     private Group grpBitbucket;
     private Group grpAnnouncements;
     private Group grpTest;
+
+    private CardView cardVirusTotal;
+    private CardView cardSend;
+    private CardView cardOpenAi;
     private CardView cardDebug;
 
     private NumberFormat NF = NumberFormat.getNumberInstance();
@@ -553,13 +554,14 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnAllPermissions = view.findViewById(R.id.btnAllPermissions);
         tvPermissions = view.findViewById(R.id.tvPermissions);
 
-        grpVirusTotal = view.findViewById(R.id.grpVirusTotal);
-        grpSend = view.findViewById(R.id.grpSend);
-        grpOpenAi = view.findViewById(R.id.grpOpenAi);
         grpUpdates = view.findViewById(R.id.grpUpdates);
         grpBitbucket = view.findViewById(R.id.grpBitbucket);
         grpAnnouncements = view.findViewById(R.id.grpAnnouncements);
         grpTest = view.findViewById(R.id.grpTest);
+
+        cardVirusTotal = view.findViewById(R.id.cardVirusTotal);
+        cardSend = view.findViewById(R.id.cardSend);
+        cardOpenAi = view.findViewById(R.id.cardOpenAi);
         cardDebug = view.findViewById(R.id.cardDebug);
 
         setOptions();
@@ -2393,9 +2395,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         grpBitbucket.setVisibility(View.GONE);
         grpAnnouncements.setVisibility(TextUtils.isEmpty(BuildConfig.ANNOUNCEMENT_URI)
                 ? View.GONE : View.VISIBLE);
-        grpVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
-        grpSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
-        grpOpenAi.setVisibility(TextUtils.isEmpty(BuildConfig.OPENAI_ENDPOINT) ? View.GONE : View.VISIBLE);
+        cardVirusTotal.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        cardSend.setVisibility(BuildConfig.PLAY_STORE_RELEASE ? View.GONE : View.VISIBLE);
+        cardOpenAi.setVisibility(TextUtils.isEmpty(BuildConfig.OPENAI_ENDPOINT) ? View.GONE : View.VISIBLE);
         grpTest.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
