@@ -29,6 +29,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -163,7 +164,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
     private int textColorPrimary;
     private int colorWarning;
-    private Drawable check;
+    private Drawable todo;
+    private Drawable done;
 
     private boolean manual = false;
 
@@ -181,7 +183,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
         textColorPrimary = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
-        check = getContext().getDrawable(R.drawable.twotone_check_24);
+        todo = getContext().getDrawable(R.drawable.twotone_priority_high_24);
+        done = getContext().getDrawable(R.drawable.twotone_check_24);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
 
@@ -1010,8 +1013,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
         tvDozeDone.setText(isIgnoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(isIgnoring ? textColorPrimary : colorWarning);
-        tvDozeDone.setTypeface(null, isIgnoring ? Typeface.NORMAL : Typeface.BOLD);
-        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(isIgnoring ? check : null, null, null, null);
+        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds((isIgnoring ? done : todo).mutate(), null, null, null);
+        tvDozeDone.setCompoundDrawableTintList(ColorStateList.valueOf(isIgnoring ? textColorPrimary : colorWarning));
 
         tvDoze12.setVisibility(!canScheduleExact && !isIgnoring ? View.VISIBLE : View.GONE);
 
@@ -1193,8 +1196,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
         tvPermissionsDone.setText(all ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvPermissionsDone.setTextColor(all ? textColorPrimary : colorWarning);
-        tvPermissionsDone.setTypeface(null, all ? Typeface.NORMAL : Typeface.BOLD);
-        tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(all ? check : null, null, null, null);
+        tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds((all ? done : todo).mutate(), null, null, null);
+        tvPermissionsDone.setCompoundDrawableTintList(ColorStateList.valueOf(all ? textColorPrimary : colorWarning));
         btnPermissions.setEnabled(!all);
     }
 
