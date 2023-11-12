@@ -370,7 +370,6 @@ public class FragmentMessages extends FragmentBase
     private boolean navigating = false;
 
     private AdapterMessage adapter;
-    private ItemTouchHelper itemTouchHelper;
 
     private AdapterMessage.ViewType viewType;
     private SelectionPredicateMessage selectionPredicate = null;
@@ -2043,13 +2042,10 @@ public class FragmentMessages extends FragmentBase
                     public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
                     }
                 });
-            } else {
-                itemTouchHelper = new ItemTouchHelper(touchHelper);
-                itemTouchHelper.attachToRecyclerView(rvMessage);
-            }
+            } else
+                new ItemTouchHelper(touchHelper).attachToRecyclerView(rvMessage);
         } else {
-            itemTouchHelper = new ItemTouchHelper(touchHelper);
-            itemTouchHelper.attachToRecyclerView(rvMessage);
+            new ItemTouchHelper(touchHelper).attachToRecyclerView(rvMessage);
 
             selectionPredicate = new SelectionPredicateMessage(rvMessage);
 
@@ -3252,9 +3248,10 @@ public class FragmentMessages extends FragmentBase
         }
 
         private void redraw(RecyclerView.ViewHolder vh) {
-            if (vh != null && itemTouchHelper != null)
+            if (vh != null)
                 try {
-                    itemTouchHelper.onChildViewDetachedFromWindow(vh.itemView);
+                    rvMessage.getLayoutManager().detachView(vh.itemView);
+                    rvMessage.getLayoutManager().removeDetachedView(vh.itemView);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
