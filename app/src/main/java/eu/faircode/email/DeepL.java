@@ -47,7 +47,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.jsoup.HttpStatusException;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -276,7 +275,7 @@ public class DeepL {
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
-                throw new HttpStatusException(error, status, url.toString());
+                throw new IOException(error);
             }
 
             String response = Helper.readStream(connection.getInputStream());
