@@ -287,7 +287,7 @@ public class ActivityDmarc extends ActivityBase {
                                                             else if (ip.startsWith("+"))
                                                                 ip = ip.substring(1);
 
-                                                            // TDO ptr
+                                                            // https://datatracker.ietf.org/doc/html/rfc7208#section-5
                                                             if (ip.startsWith("ip4:") || ip.startsWith("ip6:")) {
                                                                 String[] net = ip.substring(4).split("/");
                                                                 if (net.length > 2)
@@ -308,8 +308,6 @@ public class ActivityDmarc extends ActivityBase {
                                                                 String[] net = domain.split("/");
                                                                 Integer prefix = (net.length > 1
                                                                         ? Helper.parseInt(net[1]) : null);
-                                                                if (prefix == null)
-                                                                    prefix = 32;
                                                                 List<DnsHelper.DnsRecord> as = new ArrayList<>();
                                                                 try {
                                                                     as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "a")));
@@ -320,10 +318,18 @@ public class ActivityDmarc extends ActivityBase {
                                                                 } catch (UnknownHostException ignored) {
                                                                 }
                                                                 for (DnsHelper.DnsRecord a : as)
-                                                                    if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
-                                                                        valid = true;
-                                                                        because = ip + " in " + domain + "/" + prefix;
-                                                                        break;
+                                                                    if (prefix == null) {
+                                                                        if (text.equals(a.response)) {
+                                                                            valid = true;
+                                                                            because = ip + " in " + domain;
+                                                                            break;
+                                                                        }
+                                                                    } else {
+                                                                        if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
+                                                                            valid = true;
+                                                                            because = ip + " in " + domain + "/" + prefix;
+                                                                            break;
+                                                                        }
                                                                     }
                                                                 if (valid)
                                                                     break;
@@ -334,8 +340,6 @@ public class ActivityDmarc extends ActivityBase {
                                                                     String[] net = domain.split("/");
                                                                     Integer prefix = (net.length > 1
                                                                             ? Helper.parseInt(net[1]) : null);
-                                                                    if (prefix == null)
-                                                                        prefix = 32;
                                                                     DnsHelper.DnsRecord[] mxs =
                                                                             DnsHelper.lookup(context, net[0], "mx");
                                                                     for (DnsHelper.DnsRecord mx : mxs) {
@@ -349,10 +353,18 @@ public class ActivityDmarc extends ActivityBase {
                                                                         } catch (UnknownHostException ignored) {
                                                                         }
                                                                         for (DnsHelper.DnsRecord a : as)
-                                                                            if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
-                                                                                valid = true;
-                                                                                because = ip + " in " + domain + "/" + prefix;
-                                                                                break;
+                                                                            if (prefix == null) {
+                                                                                if (text.equals(a.response)) {
+                                                                                    valid = true;
+                                                                                    because = ip + " in " + domain;
+                                                                                    break;
+                                                                                }
+                                                                            } else {
+                                                                                if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
+                                                                                    valid = true;
+                                                                                    because = ip + " in " + domain + "/" + prefix;
+                                                                                    break;
+                                                                                }
                                                                             }
                                                                         if (valid)
                                                                             break;
