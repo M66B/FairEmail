@@ -45,7 +45,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.text.LineBreaker;
 import android.net.Uri;
@@ -3253,15 +3252,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, document, new HtmlHelper.ImageGetterEx() {
                             @Override
                             public Drawable getDrawable(Element element) {
-                                Drawable drawable = ImageHelper.decodeImage(context,
+                                return ImageHelper.decodeImage(context,
                                         message.id, element, show_images, zoom, scale, tvBody);
-
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                                    if (drawable instanceof AnimatedImageDrawable)
-                                        ((AnimatedImageDrawable) drawable).start();
-                                }
-
-                                return drawable;
                             }
                         }, null);
 

@@ -918,6 +918,7 @@
     <string name="title_advanced_native_dkim" translatable="false">Native DKIM verification</string>
     <string name="title_advanced_native_arc" translatable="false">Native ARC verification</string>
     <string name="title_advanced_webp" translatable="false">WebP</string>
+    <string name="title_advanced_animate" translatable="false">Animate images (GIF, etc.)</string>
     <string name="title_advanced_easy_correct" translatable="false">Easy correct</string>
     <string name="title_advanced_infra" translatable="false">Show infrastructure</string>
     <string name="title_advanced_tld_flags" translatable="false">Show TLD flags</string>

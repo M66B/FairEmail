@@ -1569,6 +1569,17 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAnimate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_animate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swWebp"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swEasyCorrect"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -1576,7 +1587,7 @@
                     android:text="@string/title_advanced_easy_correct"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swWebp"
+                    app:layout_constraintTop_toBottomOf="@id/swAnimate"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
