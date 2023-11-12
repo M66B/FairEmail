@@ -282,6 +282,12 @@ public class ActivityDmarc extends ActivityBase {
                                                     for (Pair<String, DnsHelper.DnsRecord> p : spf) {
                                                         for (String ip : p.second.response.split("\\s+")) {
                                                             ip = ip.toLowerCase(Locale.ROOT);
+                                                            if (ip.startsWith("-"))
+                                                                continue;
+                                                            else if (ip.startsWith("+"))
+                                                                ip = ip.substring(1);
+
+                                                            // TDO ptr
                                                             if (ip.startsWith("ip4:") || ip.startsWith("ip6:")) {
                                                                 String[] net = ip.substring(4).split("/");
                                                                 if (net.length > 2)
@@ -296,26 +302,42 @@ public class ActivityDmarc extends ActivityBase {
                                                                     because = ip + " in " + p.first;
                                                                     break;
                                                                 }
-                                                            } else if ("a".equals(ip))
+                                                            } else if ("a".equals(ip) || ip.startsWith("a:")) {
+                                                                String domain = (ip.startsWith("a:")
+                                                                        ? ip.substring(2) : p.first);
+                                                                String[] net = domain.split("/");
+                                                                Integer prefix = (net.length > 1
+                                                                        ? Helper.parseInt(net[1]) : null);
+                                                                if (prefix == null)
+                                                                    prefix = 32;
+                                                                List<DnsHelper.DnsRecord> as = new ArrayList<>();
                                                                 try {
-                                                                    // TODO: <domain>/<prefix-length>
-                                                                    DnsHelper.DnsRecord[] as =
-                                                                            DnsHelper.lookup(context, p.first, "a");
-                                                                    for (DnsHelper.DnsRecord a : as)
-                                                                        if (text.equals(a.response)) {
-                                                                            valid = true;
-                                                                            because = ip + " in " + p.first;
-                                                                            break;
-                                                                        }
-                                                                    if (valid)
-                                                                        break;
+                                                                    as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "a")));
                                                                 } catch (UnknownHostException ignored) {
                                                                 }
-                                                            else if ("mx".equals(ip))
                                                                 try {
-                                                                    // TODO: <domain>/<prefix-length>
+                                                                    as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "aaaa")));
+                                                                } catch (UnknownHostException ignored) {
+                                                                }
+                                                                for (DnsHelper.DnsRecord a : as)
+                                                                    if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
+                                                                        valid = true;
+                                                                        because = ip + " in " + domain + "/" + prefix;
+                                                                        break;
+                                                                    }
+                                                                if (valid)
+                                                                    break;
+                                                            } else if ("mx".equals(ip) || ip.startsWith("mx:"))
+                                                                try {
+                                                                    String domain = (ip.startsWith("mx:")
+                                                                            ? ip.substring(3) : p.first);
+                                                                    String[] net = domain.split("/");
+                                                                    Integer prefix = (net.length > 1
+                                                                            ? Helper.parseInt(net[1]) : null);
+                                                                    if (prefix == null)
+                                                                        prefix = 32;
                                                                     DnsHelper.DnsRecord[] mxs =
-                                                                            DnsHelper.lookup(context, p.first, "mx");
+                                                                            DnsHelper.lookup(context, net[0], "mx");
                                                                     for (DnsHelper.DnsRecord mx : mxs) {
                                                                         List<DnsHelper.DnsRecord> as = new ArrayList<>();
                                                                         try {
@@ -327,9 +349,9 @@ public class ActivityDmarc extends ActivityBase {
                                                                         } catch (UnknownHostException ignored) {
                                                                         }
                                                                         for (DnsHelper.DnsRecord a : as)
-                                                                            if (text.equals(a.response)) {
+                                                                            if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
                                                                                 valid = true;
-                                                                                because = ip + " in " + p.first;
+                                                                                because = ip + " in " + domain + "/" + prefix;
                                                                                 break;
                                                                             }
                                                                         if (valid)
