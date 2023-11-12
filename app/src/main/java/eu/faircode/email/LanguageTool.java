@@ -39,6 +39,7 @@ import androidx.preference.PreferenceManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.HttpStatusException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -472,7 +473,7 @@ public class LanguageTool {
                 Log.w(ex);
             }
             Log.w("LT " + error);
-            throw new IOException(error);
+            throw new HttpStatusException(error, status, connection.getURL().toString());
         }
     }
 
