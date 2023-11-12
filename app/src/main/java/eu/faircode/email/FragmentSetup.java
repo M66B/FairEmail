@@ -554,13 +554,20 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             @Override
             public void onClick(View v) {
                 try {
-                    btnPermissions.setEnabled(false);
-                    List<String> requesting = new ArrayList<>();
-                    for (String permission : Helper.getDesiredPermissions(getContext()))
-                        if (!hasPermission(permission))
-                            requesting.add((permission));
-                    Log.i("Requesting permissions " + TextUtils.join(",", requesting));
-                    requestPermissions(requesting.toArray(new String[0]), REQUEST_PERMISSIONS);
+                    String[] desired = Helper.getDesiredPermissions(v.getContext());
+                    if (Helper.hasPermissions(v.getContext(), desired)) {
+                        Intent intent = new Intent(
+                                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                Uri.parse("package:" + BuildConfig.APPLICATION_ID));
+                        v.getContext().startActivity(intent);
+                    } else {
+                        List<String> requesting = new ArrayList<>();
+                        for (String permission : desired)
+                            if (!hasPermission(permission))
+                                requesting.add((permission));
+                        Log.i("Requesting permissions " + TextUtils.join(",", requesting));
+                        requestPermissions(requesting.toArray(new String[0]), REQUEST_PERMISSIONS);
+                    }
                 } catch (Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                     /*
@@ -862,10 +869,13 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                         ? View.GONE : View.VISIBLE);
         tvPermissionsDone.setText(null);
         tvPermissionsDone.setCompoundDrawables(null, null, null, null);
+        btnPermissions.setText(null);
+        btnPermissions.setCompoundDrawables(null, null, null, null);
 
         tvDozeDone.setText(null);
         tvDozeDone.setCompoundDrawables(null, null, null, null);
-        btnDoze.setEnabled(false);
+        btnDoze.setText(null);
+        btnDoze.setCompoundDrawables(null, null, null, null);
         tvDoze12.setVisibility(View.GONE);
 
         btnInbox.setEnabled(false);
@@ -1005,16 +1015,18 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         else {
             Intent intent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
             PackageManager pm = getContext().getPackageManager();
-            if (intent.resolveActivity(pm) == null)
-                btnDoze.setEnabled(false);
-            else
-                btnDoze.setEnabled(!isIgnoring || BuildConfig.DEBUG);
+            btnDoze.setEnabled(intent.resolveActivity(pm) != null);
         }
 
         tvDozeDone.setText(isIgnoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(isIgnoring ? textColorPrimary : colorWarning);
-        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds((isIgnoring ? done : todo).mutate(), null, null, null);
+        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(
+                (isIgnoring ? done : todo).mutate(), null, null, null);
         tvDozeDone.setCompoundDrawableTintList(ColorStateList.valueOf(isIgnoring ? textColorPrimary : colorWarning));
+
+        btnDoze.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0, 0, isIgnoring ? R.drawable.twotone_settings_24 : R.drawable.twotone_check_24, 0);
+        btnDoze.setText(isIgnoring ? R.string.title_setup_manage : R.string.title_setup_grant);
 
         tvDoze12.setVisibility(!canScheduleExact && !isIgnoring ? View.VISIBLE : View.GONE);
 
@@ -1196,9 +1208,13 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
         tvPermissionsDone.setText(all ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvPermissionsDone.setTextColor(all ? textColorPrimary : colorWarning);
-        tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds((all ? done : todo).mutate(), null, null, null);
+        tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(
+                (all ? done : todo).mutate(), null, null, null);
         tvPermissionsDone.setCompoundDrawableTintList(ColorStateList.valueOf(all ? textColorPrimary : colorWarning));
-        btnPermissions.setEnabled(!all);
+
+        btnPermissions.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0, 0, all ? R.drawable.twotone_settings_24 : R.drawable.twotone_check_24, 0);
+        btnPermissions.setText(all ? R.string.title_setup_manage : R.string.title_setup_grant);
     }
 
     private void onSelectIdentity(Bundle args) {
