@@ -1175,6 +1175,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p>The error ‘<em>Handshake failed … UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION or SSLV3_ALERT_HANDSHAKE_FAILURE …</em>’ might be caused by enabling <strong>hardening connections</strong> or <strong>Bouncy Castle</strong> in the connection settings tab page, or by Android not supporting older protocols anymore, like SSLv3 and TLSv1.</p>
 <p>The error ‘<em>javax.net.ssl.SSLHandshakeException: Read error: … CERT_LENGTH_MISMATCH</em>’ means that there is something wrong with the email server setup. Try to switch to port 993 (IMAP) or 465 (SMTP) with SSL/TLS.</p>
 <p>Android 8 Oreo and later <a href="https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all">do not support</a> SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).</p>
+<p>The error ‘<em>javax.net.ssl.SSLHandshakeException: Read error: … TLSV1_ALERT_INTERNAL_ERROR</em>’ means that Android and the email server share no common protocol versions and/or common ciphers.</p>
 <p>Please <a href="https://developer.android.com/reference/javax/net/ssl/SSLSocket">see here</a> for an overview of supported protocols and cipher suites by Android version.</p>
 <p>You can use <a href="https://ssl-tools.net/mailservers">this website</a> or <a href="https://www.immuniweb.com/ssl/">this website</a> to check for SSL/TLS problems of email servers.</p>
 <p><br /></p>
