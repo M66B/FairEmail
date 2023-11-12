@@ -30,10 +30,10 @@ import androidx.annotation.NonNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.jsoup.HttpStatusException;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -62,8 +62,7 @@ public class VirusTotal {
     static Bundle lookup(Context context, File file, String apiKey) throws NoSuchAlgorithmException, IOException, JSONException {
         Bundle result = new Bundle();
 
-        String u = "api/v3/files/";
-        Pair<Integer, String> response = call(context, u + getHash(file), apiKey);
+        Pair<Integer, String> response = call(context, "api/v3/files/" + getHash(file), apiKey);
         if (response.first == HttpsURLConnection.HTTP_OK) {
             // https://developers.virustotal.com/reference/files
             // Example: https://gist.github.com/M66B/4ea95fdb93fb10bf4047761fcc9ec21a
@@ -89,17 +88,16 @@ public class VirusTotal {
                 result.putString("label", label);
             }
         } else if (response.first != HttpsURLConnection.HTTP_NOT_FOUND)
-            throw new HttpStatusException(response.second, response.first, u);
+            throw new FileNotFoundException(response.second);
 
         return result;
     }
 
     static String upload(Context context, File file, String apiKey) throws IOException, JSONException {
         // Get upload URL
-        String u = "api/v3/files/upload_url";
-        Pair<Integer, String> response = call(context, u, apiKey);
+        Pair<Integer, String> response = call(context, "api/v3/files/upload_url", apiKey);
         if (response.first != HttpsURLConnection.HTTP_OK)
-            throw new HttpStatusException(response.second, response.first, u);
+            throw new FileNotFoundException(response.second);
         JSONObject jurl = new JSONObject(response.second);
         String upload_url = jurl.getString("data");
 
@@ -157,7 +155,7 @@ public class VirusTotal {
                     Log.w(ex);
                 }
                 Log.w("VT " + error);
-                throw new HttpStatusException(error, status, url.toString());
+                throw new FileNotFoundException(error);
             }
 
             String r = Helper.readStream(connection.getInputStream());
@@ -174,10 +172,9 @@ public class VirusTotal {
     static void waitForAnalysis(Context context, String id, String apiKey) throws IOException, JSONException, InterruptedException, TimeoutException {
         // Get analysis result
         for (int i = 0; i < VT_ANALYSIS_CHECKS; i++) {
-            String u = "api/v3/analyses/";
-            Pair<Integer, String> analyses = call(context, u + id, apiKey);
+            Pair<Integer, String> analyses = call(context, "api/v3/analyses/" + id, apiKey);
             if (analyses.first != HttpsURLConnection.HTTP_OK)
-                throw new HttpStatusException(analyses.second, analyses.first, u);
+                throw new FileNotFoundException(analyses.second);
 
             JSONObject janalysis = new JSONObject(analyses.second);
             JSONObject jdata = janalysis.getJSONObject("data");
