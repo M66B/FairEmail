@@ -60,6 +60,7 @@ import com.google.android.material.snackbar.Snackbar;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -687,7 +688,7 @@ public class FragmentAnswer extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Throwable exex = new Throwable("LanguageTool", ex);
-                Log.unexpectedError(getParentFragmentManager(), exex, false);
+                Log.unexpectedError(getParentFragmentManager(), exex, !(ex instanceof IOException));
             }
         }.execute(this, args, "answer:lt");
     }
