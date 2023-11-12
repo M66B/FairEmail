@@ -1461,6 +1461,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         // Build notification
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "service")
+                        .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_DEFAULT)
                         .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
                         .setContentIntent(piWhy)
                         .setAutoCancel(false)

@@ -231,6 +231,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private Notification getNotificationService(boolean alert) {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "send")
+                        .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_IMMEDIATE)
                         .setSmallIcon(R.drawable.baseline_send_white_24)
                         .setContentTitle(getString(R.string.title_notification_sending))
                         .setContentIntent(getPendingIntent(this))

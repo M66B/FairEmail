@@ -144,6 +144,7 @@ public class ServiceExternal extends Service {
     private Notification getNotification() {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "service")
+                        .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_DEFERRED)
                         .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
                         .setContentTitle(getString(R.string.tile_synchronize))
                         .setAutoCancel(false)
