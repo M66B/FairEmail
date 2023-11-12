@@ -3018,7 +3018,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 if (!silent) {
                     Throwable exex = new Throwable("LanguageTool", ex);
-                    Log.unexpectedError(getParentFragmentManager(), exex, !(ex instanceof IOException));
+                    Log.unexpectedError(getParentFragmentManager(), exex, false);
                 }
             }
         }.execute(this, args, "compose:lt");
