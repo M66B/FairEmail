@@ -872,12 +872,15 @@ class ImageHelper {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
             return drawable;
 
-        if (drawable instanceof AnimatedImageDrawable) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-            boolean animate_images = prefs.getBoolean("animate_images", true);
-            if (animate_images)
-                ((AnimatedImageDrawable) drawable).start();
-        }
+        if (drawable instanceof AnimatedImageDrawable)
+            try {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean animate_images = prefs.getBoolean("animate_images", true);
+                if (animate_images)
+                    ((AnimatedImageDrawable) drawable).start();
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
 
         return drawable;
     }
