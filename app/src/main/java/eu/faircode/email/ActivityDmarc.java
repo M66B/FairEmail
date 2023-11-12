@@ -277,6 +277,7 @@ public class ActivityDmarc extends ActivityBase {
                                         if ("source_ip".equals(name)) {
                                             try {
                                                 boolean valid = false;
+                                                String because = null;
                                                 if (spf != null)
                                                     for (Pair<String, DnsHelper.DnsRecord> p : spf) {
                                                         for (String ip : p.second.response.split("\\s+")) {
@@ -292,6 +293,7 @@ public class ActivityDmarc extends ActivityBase {
                                                                     continue;
                                                                 if (ConnectionHelper.inSubnet(text, net[0], prefix)) {
                                                                     valid = true;
+                                                                    because = ip + " in " + p.first;
                                                                     break;
                                                                 }
                                                             } else if ("mx".equals(ip))
@@ -311,6 +313,7 @@ public class ActivityDmarc extends ActivityBase {
                                                                         for (DnsHelper.DnsRecord a : as)
                                                                             if (text.equals(a.response)) {
                                                                                 valid = true;
+                                                                                because = ip + " in " + p.first;
                                                                                 break;
                                                                             }
                                                                         if (valid)
@@ -324,7 +327,7 @@ public class ActivityDmarc extends ActivityBase {
                                                     }
 
                                                 int start = ssb.length();
-                                                ssb.append(valid ? "valid" : "invalid");
+                                                ssb.append(valid ? "valid (" + because + ")" : "invalid");
                                                 if (!valid) {
                                                     ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
                                                     ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
