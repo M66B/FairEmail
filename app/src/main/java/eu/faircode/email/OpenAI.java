@@ -226,6 +226,8 @@ public class OpenAI {
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
+                if (status == 429)
+                    error = "\nThis is an error message from OpenAI, not of the app";
                 throw new IOException(error);
             }
 
