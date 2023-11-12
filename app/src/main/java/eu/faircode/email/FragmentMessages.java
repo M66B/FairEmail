@@ -3250,8 +3250,11 @@ public class FragmentMessages extends FragmentBase
         private void redraw(RecyclerView.ViewHolder vh) {
             if (vh != null)
                 try {
-                    rvMessage.getLayoutManager().detachView(vh.itemView);
-                    rvMessage.getLayoutManager().removeDetachedView(vh.itemView);
+                    RecyclerView.LayoutManager lm = rvMessage.getLayoutManager();
+                    if (lm != null) {
+                        lm.detachView(vh.itemView);
+                        lm.removeDetachedView(vh.itemView);
+                    }
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
