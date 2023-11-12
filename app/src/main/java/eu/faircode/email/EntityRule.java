@@ -43,7 +43,6 @@ import androidx.room.PrimaryKey;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.jsoup.HttpStatusException;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -1460,7 +1459,7 @@ public class EntityRule {
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
-                throw new HttpStatusException(error, status, url);
+                throw new IOException(error);
             }
         } finally {
             if (connection != null)
