@@ -31,6 +31,7 @@ import androidx.preference.PreferenceManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.jsoup.HttpStatusException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -226,7 +227,7 @@ public class OpenAI {
                 } catch (Throwable ex) {
                     Log.w(ex);
                 }
-                throw new IOException(error);
+                throw new HttpStatusException(error, status, uri.toString());
             }
 
             String response = Helper.readStream(connection.getInputStream());
