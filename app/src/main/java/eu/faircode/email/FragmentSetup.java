@@ -1010,20 +1010,13 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(getContext()));
         boolean canScheduleExact = AlarmManagerCompatEx.canScheduleExactAlarms(getContext());
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            btnDoze.setEnabled(false);
-        else {
-            Intent intent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
-            PackageManager pm = getContext().getPackageManager();
-            btnDoze.setEnabled(intent.resolveActivity(pm) != null);
-        }
-
         tvDozeDone.setText(isIgnoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(isIgnoring ? textColorPrimary : colorWarning);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(
                 (isIgnoring ? done : todo).mutate(), null, null, null);
         tvDozeDone.setCompoundDrawableTintList(ColorStateList.valueOf(isIgnoring ? textColorPrimary : colorWarning));
 
+        btnDoze.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
         btnDoze.setCompoundDrawablesRelativeWithIntrinsicBounds(
                 0, 0, isIgnoring ? R.drawable.twotone_settings_24 : R.drawable.twotone_check_24, 0);
         btnDoze.setText(isIgnoring ? R.string.title_setup_manage : R.string.title_setup_grant);
