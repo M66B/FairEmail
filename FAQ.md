@@ -2100,6 +2100,8 @@ Try to switch to port 993 (IMAP) or 465 (SMTP) with SSL/TLS.
 
 Android 8 Oreo and later [do not support](https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all) SSLv3 anymore.
 There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).
+Since version 1.2121 the Bouncy Castle secure socket provider ([JSSE](https://en.wikipedia.org/wiki/Java_Secure_Socket_Extension)) is bundled.
+Enabling this socket provider in the connection-settings tab and enabling '*Allow insecure connections*' in the account/identity settings *might* solve this problem.
 
 The error '*javax.net.ssl.SSLHandshakeException: Read error: ... TLSV1_ALERT_INTERNAL_ERROR*' means that Android and the email server share no common protocol versions and/or common ciphers.
 
