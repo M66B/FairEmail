@@ -1248,7 +1248,7 @@
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
     <string name="title_no_stream">FairEmail hat keine Berechtigung, um diese Datei direkt zu lesen</string>
     <string name="title_no_stream_help">Das kann gelöst werden, indem man die Datei mit einer moderneren Dateiverwaltungs-App auswählt oder FairEmail die Berechtigung zum Lesen von Dateien erteilt.</string>
-    <string name="title_no_permissions">Der Anwendung, die zur Auswahl einer Datei verwendet wurde, fehlt die Leseberechtigung</string>
+    <string name="title_no_permissions">Die App, die zur Auswahl der Datei verwendet wurde, hat keine Leseberechtigung erteilt</string>
     <string name="title_no_internet">Keine oder keine passende Internetverbindung</string>
     <string name="title_no_connection">Zu einem oder mehreren Konten wird verbunden &#8230;</string>
     <string name="title_no_folder">Ordner nicht vorhanden</string>

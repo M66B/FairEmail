@@ -436,6 +436,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 gerektir</string>
     <string name="title_advanced_cert_strict">Katı sertifika kontrolü</string>
     <string name="title_advanced_open_safe">Yalnızca güvenli bağlantıları aç</string>
+    <string name="title_advanced_bouncy_castle">Bouncy Castle\'ın güvenli soket sağlayıcısını (JSSE) kullan</string>
     <string name="title_advanced_manage_connectivity">Bağlanabilirliği yönet</string>
     <string name="title_advanced_caption_general">Genel</string>
     <string name="title_advanced_caption_navigation">Gezinme</string>
@@ -504,6 +505,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_only_name">Yalnızca kişi adlarını görüntüle</string>
     <string name="title_advanced_distinguish_contacts">Gönderen yerel \'alıcı\' kişisi olarak biliniyorsa gönderenin altını çiz</string>
     <string name="title_advanced_show_recipients">Mesaj başlığında alıcıları göster</string>
+    <string name="title_advanced_reverse_addresses">Gönderilen mesajlar için alıcıyı göster</string>
     <string name="title_advanced_font_size_sender">Gönderen yazı boyutu</string>
     <string name="title_advanced_sender_ellipsize">Gerekirse göndereni kısalt</string>
     <string name="title_advanced_subject_top">Gönderenin üzerinde konuyu göster</string>
@@ -623,6 +625,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_notify_preview">Bildirimlerde ileti önizlemesini göster</string>
     <string name="title_advanced_notify_preview_all">Tüm metni ön izle</string>
     <string name="title_advanced_notify_preview_only">Bildirimleri sadece özet olarak göster</string>
+    <string name="title_advanced_notify_transliterate">Latin alfabesine çevir</string>
+    <string name="title_advanced_notify_ascii">Yalnızca ASCII metin</string>
     <string name="title_advanced_notify_actions">Bildirim eylemleri</string>
     <string name="title_advanced_notify_action_trash">Çöp kutusu</string>
     <string name="title_advanced_notify_action_delete">Sil</string>
@@ -707,12 +711,14 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_external_search">Android metin seçim menüsüne \'FairEmail araması\'nı ekle</string>
     <string name="title_advanced_sort_answers">Yanıt şablonlarını kullanım sıklığına göre sırala</string>
     <string name="title_advanced_shortcuts">Sık kullanılan kişileri Android\'in paylaşma menüsünde göster</string>
+    <string name="title_advanced_ical_tentative">Alınan davetiyeleri geçici olarak sakla</string>
     <string name="title_advanced_fts">Arama indeksini oluştur</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaj indekslendi (%3$s)</string>
     <string name="title_advanced_classification">İletileri sınıflandır</string>
     <string name="title_advanced_class_min_chance">En düşük sınıflandırma olasılığı: %1$s %%</string>
     <string name="title_advanced_class_min_difference">En düşük sınıflandırma farkı: %1$s %%</string>
     <string name="title_advanced_show_filtered">Kurallar uygulandığında bir filtre simgesi göster</string>
+    <string name="title_advanced_haptic_feedback">Önemli eylemler hakkında dokunsal geri bildirim</string>
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Dil Aracı entegrasyonu</string>
@@ -1155,6 +1161,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_print_images_remark">Resimleri indirmek biraz zaman alabilir</string>
     <string name="title_print_block_quotes">Blok tırnak satırlarını yazdır</string>
     <string name="title_show_headers">Başlıkları Göster</string>
+    <string name="title_show_html">Kaynak göster</string>
     <string name="title_raw_save">Ham iletiyi kaydet</string>
     <string name="title_raw_send">Ek olarak gönder</string>
     <string name="title_raw_send_message">Mesaj</string>
@@ -1367,6 +1374,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_add_image_privacy">Mahremiyetiniz için önemli verileri sil</string>
     <string name="title_add_image_privacy_remark">Coğrafi konum, seri numaraları, dosya adları vb</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
+    <string name="title_add_image_resize_remark">Yeniden boyutlandırma desteklenir: %1$s</string>
     <string name="title_add_image_select_remark">Android fotoğraf seçici artık dosya adlarını aktarmıyor</string>
     <string name="title_add_image_select">Dosya seçin</string>
     <string name="title_add_attachment">Ek ekle</string>
@@ -1685,6 +1693,9 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_rule_alarm_duration">Maksimum alarm süresi (saniye)</string>
     <string name="title_rule_alarm_title">Alarm</string>
     <string name="title_rule_alarm_stop">Dur</string>
+    <string name="title_code_line_numbers">Satır numaralarını göster</string>
+    <string name="title_code_enable_links">Bağlantıları etkinleştir</string>
+    <string name="title_code_pretty">Güzel baskı</string>
     <string name="title_legend_section_synchronize">Senkronize et</string>
     <string name="title_legend_section_folders">Klasörler</string>
     <string name="title_legend_section_messages">İletiler</string>
@@ -1879,6 +1890,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_no_ask_again">Bunu bir daha sorma</string>
     <string name="title_no_ask_for_again">%1$s için bunu bir daha sorma</string>
     <string name="title_no_body">Hiçbir ileti metni bulunamadı</string>
+    <string name="title_large_body">Bu mesaj çok büyüktür ve sorunlara neden olabilir!</string>
     <string name="title_no_charset">Desteklenmeyen kodlama: %1$s</string>
     <string name="title_via">Şu yol ile: %1$s</string>
     <string name="title_1hour">1 saat</string>
@@ -1959,6 +1971,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_widget_account_all">Tümü</string>
     <string name="title_widget_folder">Klasör</string>
     <string name="title_widget_folder_unified">Birleşik gelen kutusu klasörleri</string>
+    <string name="title_widget_folder_notifying">Yeni mesaj bildirimleri içeren klasörler</string>
     <string name="title_widget_unseen">Sadece okunmamış iletiler</string>
     <string name="title_widget_flagged">Sadece yıldızlı iletiler</string>
     <string name="title_widget_font_size">Metin boyutu</string>
@@ -1973,6 +1986,7 @@ Bu işlem başarısız olabileceği için eski mesaj çöp kutusuna taşınacak.
     <string name="title_widget_refresh">Mesajları yenile düğmesini göster</string>
     <string name="title_widget_compose">Yeni mesaj oluştur düğmesini göster</string>
     <string name="title_widget_background">Arka plan rengi</string>
+    <string name="title_widget_icon">Simge rengi</string>
     <string name="title_widget_day_night">Karanlık sistem temasına uyum sağla</string>
     <string name="title_compat_dark">Google Android 10 öncesi sürümler için karanlık modu kaldırdı</string>
     <!-- Thunderbird -->
