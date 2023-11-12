@@ -296,8 +296,24 @@ public class ActivityDmarc extends ActivityBase {
                                                                     because = ip + " in " + p.first;
                                                                     break;
                                                                 }
-                                                            } else if ("mx".equals(ip))
+                                                            } else if ("a".equals(ip))
                                                                 try {
+                                                                    // TODO: <domain>/<prefix-length>
+                                                                    DnsHelper.DnsRecord[] as =
+                                                                            DnsHelper.lookup(context, p.first, "a");
+                                                                    for (DnsHelper.DnsRecord a : as)
+                                                                        if (text.equals(a.response)) {
+                                                                            valid = true;
+                                                                            because = ip + " in " + p.first;
+                                                                            break;
+                                                                        }
+                                                                    if (valid)
+                                                                        break;
+                                                                } catch (UnknownHostException ignored) {
+                                                                }
+                                                            else if ("mx".equals(ip))
+                                                                try {
+                                                                    // TODO: <domain>/<prefix-length>
                                                                     DnsHelper.DnsRecord[] mxs =
                                                                             DnsHelper.lookup(context, p.first, "mx");
                                                                     for (DnsHelper.DnsRecord mx : mxs) {
