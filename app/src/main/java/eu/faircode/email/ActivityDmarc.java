@@ -41,13 +41,16 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.Group;
 
 import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -121,459 +124,23 @@ public class ActivityDmarc extends ActivityBase {
             @Override
             protected Spanned onExecute(Context context, Bundle args) throws Throwable {
                 Uri uri = args.getParcelable("uri");
-
                 NoStreamException.check(uri, context);
 
-                DateFormat DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);
-                int colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
-                int colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
-                float stroke = context.getResources().getDisplayMetrics().density;
-                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
-
-                String data;
+                SpannableStringBuilder ssb;
                 ContentResolver resolver = context.getContentResolver();
+
                 try (InputStream is = resolver.openInputStream(uri)) {
                     if (is == null)
                         throw new FileNotFoundException(uri.toString());
-                    data = Helper.readStream(is);
+                    ssb = new Loader().load(context, is);
                 }
 
-                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-                XmlPullParser xml = factory.newPullParser();
-                xml.setInput(new StringReader(data));
-
-                // https://tools.ietf.org/id/draft-kucherawy-dmarc-base-13.xml#xml_schema
-                boolean feedback = false;
-                boolean report_metadata = false;
-                boolean policy_published = false;
-                boolean record = false;
-                boolean row = false;
-                boolean policy_evaluated = false;
-                boolean identifiers = false;
-                boolean auth_results = false;
-                String lastDomain = null;
-                String result = null;
-                List<Pair<String, DnsHelper.DnsRecord>> spf = null;
-                int eventType = xml.getEventType();
-                while (eventType != XmlPullParser.END_DOCUMENT) {
-                    if (eventType == XmlPullParser.START_TAG) {
-                        String name = xml.getName();
-                        switch (name) {
-                            case "feedback":
-                                feedback = true;
-                                break;
-                            case "report_metadata":
-                                report_metadata = true;
-                                break;
-                            case "policy_published":
-                                policy_published = true;
-                                lastDomain = null;
-                                break;
-                            case "record":
-                                record = true;
-                                break;
-                            case "row":
-                                row = true;
-                                ssb.append("\uFFFC");
-                                ssb.setSpan(new LineSpan(colorSeparator, stroke, 0), ssb.length() - 1, ssb.length(), 0);
-                                ssb.append("\n");
-                                break;
-                            case "policy_evaluated":
-                                policy_evaluated = true;
-                                break;
-                            case "identifiers":
-                                identifiers = true;
-                                break;
-                            case "auth_results":
-                                auth_results = true;
-                                ssb.append("\n");
-                                break;
-
-                            case "org_name":
-                            case "begin":
-                            case "end":
-                                if (feedback && report_metadata) {
-                                    eventType = xml.next();
-                                    if (eventType == XmlPullParser.TEXT) {
-                                        String text = xml.getText();
-                                        if (text == null)
-                                            text = "<null>";
-                                        if ("begin".equals(name) || "end".equals(name)) {
-                                            text = text.trim();
-                                            try {
-                                                ssb.append(name).append('=')
-                                                        .append(DTF.format(Long.parseLong(text) * 1000));
-                                            } catch (Throwable ex) {
-                                                Log.w(ex);
-                                                ssb.append(name).append('=')
-                                                        .append(text);
-                                            }
-                                        } else
-                                            ssb.append(text);
-                                        ssb.append(' ');
-                                    }
-                                }
-                                break;
-                            case "domain":
-                                if (feedback && (policy_published || auth_results)) {
-                                    eventType = xml.next();
-                                    if (eventType == XmlPullParser.TEXT) {
-                                        String text = xml.getText();
-                                        lastDomain = text;
-                                        if (text == null)
-                                            text = "<null>";
-                                        ssb.append(text).append(' ');
-                                    }
-                                }
-                                break;
-                            case "adkim":
-                            case "aspf":
-                            case "p":
-                            case "sp":
-                            case "fo":
-                                if (feedback && policy_published) {
-                                    eventType = xml.next();
-                                    if (eventType == XmlPullParser.TEXT) {
-                                        String text = xml.getText();
-                                        if (text == null)
-                                            text = "<null>";
-                                        if ("adkim".equals(name) || "aspf".equals(name))
-                                            if ("r".equals(text))
-                                                text = "relaxed";
-                                            else if ("s".equals(text))
-                                                text = "strict";
-                                        ssb.append(name).append('=')
-                                                .append(text).append(' ');
-                                    }
-                                }
-                                break;
-                            case "pct":
-                                if (feedback && policy_published) {
-                                    eventType = xml.next();
-                                    if (eventType == XmlPullParser.TEXT) {
-                                        String text = xml.getText();
-                                        if (text == null)
-                                            text = "<null>";
-                                        Integer pct = Helper.parseInt(text);
-                                        if (pct == null)
-                                            ssb.append(name).append('=')
-                                                    .append(text).append(' ');
-                                        else
-                                            ssb.append(text).append("% ");
-                                    }
-                                }
-
-                                break;
-                            case "source_ip":
-                            case "count":
-                                if (feedback && record && row) {
-                                    eventType = xml.next();
-                                    if (eventType == XmlPullParser.TEXT) {
-                                        String text = xml.getText();
-                                        if (text == null)
-                                            text = "<null>";
-                                        ssb.append(name).append('=')
-                                                .append(text).append(' ');
-                                        if ("source_ip".equals(name)) {
-                                            try {
-                                                Boolean valid = null;
-                                                String because = null;
-                                                if (spf != null)
-                                                    for (Pair<String, DnsHelper.DnsRecord> p : spf) {
-                                                        for (String ip : p.second.response.split("\\s+")) {
-                                                            boolean allow = true;
-                                                            ip = ip.toLowerCase(Locale.ROOT);
-                                                            if (ip.startsWith("-"))
-                                                                allow = false;
-                                                            else if (ip.startsWith("+"))
-                                                                ip = ip.substring(1);
-
-                                                            // https://datatracker.ietf.org/doc/html/rfc7208#section-5
-                                                            if (ip.startsWith("ip4:") || ip.startsWith("ip6:")) {
-                                                                String[] net = ip.substring(4).split("/");
-                                                                Integer prefix = (net.length > 1
-                                                                        ? Helper.parseInt(net[1]) : null);
-                                                                if (prefix == null) {
-                                                                    if (text.equals(net[0])) {
-                                                                        valid = allow;
-                                                                        because = (allow ? '+' : '-') + ip + " in " + p.first;
-                                                                        break;
-                                                                    }
-                                                                } else {
-                                                                    if (ConnectionHelper.inSubnet(text, net[0], prefix)) {
-                                                                        valid = allow;
-                                                                        because = (allow ? '+' : '-') + ip + " in " + p.first + "/" + prefix;
-                                                                    }
-                                                                }
-                                                            } else if ("a".equals(ip) || ip.startsWith("a:")) {
-                                                                String domain = (ip.startsWith("a:")
-                                                                        ? ip.substring(2) : p.first);
-                                                                String[] net = domain.split("/");
-                                                                Integer prefix = (net.length > 1
-                                                                        ? Helper.parseInt(net[1]) : null);
-                                                                List<DnsHelper.DnsRecord> as = new ArrayList<>();
-                                                                try {
-                                                                    as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "a")));
-                                                                } catch (UnknownHostException ignored) {
-                                                                }
-                                                                try {
-                                                                    as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "aaaa")));
-                                                                } catch (UnknownHostException ignored) {
-                                                                }
-                                                                for (DnsHelper.DnsRecord a : as)
-                                                                    if (prefix == null) {
-                                                                        if (text.equals(a.response)) {
-                                                                            valid = allow;
-                                                                            because = (allow ? '+' : '-') + ip + " in " + domain;
-                                                                            break;
-                                                                        }
-                                                                    } else {
-                                                                        if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
-                                                                            valid = allow;
-                                                                            because = (allow ? '+' : '-') + ip + " in " + domain + "/" + prefix;
-                                                                            break;
-                                                                        }
-                                                                    }
-                                                            } else if ("mx".equals(ip) || ip.startsWith("mx:")) {
-                                                                try {
-                                                                    String domain = (ip.startsWith("mx:")
-                                                                            ? ip.substring(3) : p.first);
-                                                                    String[] net = domain.split("/");
-                                                                    Integer prefix = (net.length > 1
-                                                                            ? Helper.parseInt(net[1]) : null);
-                                                                    DnsHelper.DnsRecord[] mxs =
-                                                                            DnsHelper.lookup(context, net[0], "mx");
-                                                                    for (DnsHelper.DnsRecord mx : mxs) {
-                                                                        List<DnsHelper.DnsRecord> as = new ArrayList<>();
-                                                                        try {
-                                                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "a")));
-                                                                        } catch (UnknownHostException ignored) {
-                                                                        }
-                                                                        try {
-                                                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "aaaa")));
-                                                                        } catch (UnknownHostException ignored) {
-                                                                        }
-                                                                        for (DnsHelper.DnsRecord a : as) {
-                                                                            if (prefix == null) {
-                                                                                if (text.equals(a.response)) {
-                                                                                    valid = allow;
-                                                                                    because = (allow ? '+' : '-') + ip + " in " + domain;
-                                                                                    break;
-                                                                                }
-                                                                            } else {
-                                                                                if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
-                                                                                    valid = allow;
-                                                                                    because = (allow ? '+' : '-') + ip + " in " + domain + "/" + prefix;
-                                                                                    break;
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                        if (valid != null)
-                                                                            break;
-                                                                    }
-                                                                } catch (UnknownHostException ignored) {
-                                                                }
-                                                            } else if ("ptr".equals(ip) || ip.startsWith("ptr:")) {
-                                                                valid = false;
-                                                                because = (allow ? '+' : '-') + ip + " ptr not supported";
-                                                            }
-                                                            if (valid != null)
-                                                                break;
-                                                        }
-                                                        if (valid != null)
-                                                            break;
-                                                    }
-
-                                                int start = ssb.length();
-                                                ssb.append(Boolean.TRUE.equals(valid) ? "valid" : "invalid");
-                                                if (because != null)
-                                                    ssb.append(" (").append(because).append(')');
-                                                if (!Boolean.TRUE.equals(valid)) {
-                                                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
-                                                    ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
-                                                }
-                                                ssb.append(' ');
-                                            } catch (Throwable ex) {
-                                                Log.w(ex);
-                                                ssb.append(ex.toString()).append('\n');
-                                            }
-
-                                            try {
-                                                InetAddress addr = InetAddress.getByName(text);
-                                                IPInfo info = IPInfo.getOrganization(addr, context);
-                                                ssb.append('(').append(info.org).append(") ");
-                                            } catch (Throwable ex) {
-                                                Log.w(ex);
-                                                ssb.append(ex.toString()).append('\n');
-                                            }
-                                        }
-                                    }
-                                }
-                                break;
-                            case "disposition": // none, quarantine, reject
-                            case "dkim":
-                            case "spf":
-                            case "header_from":
-                            case "envelope_from":
-                            case "envelope_to":
-                                if (feedback && record)
-                                    if (policy_evaluated || identifiers) {
-                                        eventType = xml.next();
-                                        if (eventType == XmlPullParser.TEXT) {
-                                            ssb.append(name).append('=');
-                                            int start = ssb.length();
-                                            String text = xml.getText();
-                                            if (text == null)
-                                                text = "<null>";
-                                            ssb.append(text);
-
-                                            if (!"pass".equals(text.toLowerCase(Locale.ROOT)) &&
-                                                    ("dkim".equals(name) || "spf".equals(name))) {
-                                                ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
-                                                ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
-                                            }
-
-                                            ssb.append(' ');
-                                        }
-                                    } else if (auth_results)
-                                        result = name;
-                                break;
-                            case "result":
-                                if (feedback && auth_results) {
-                                    eventType = xml.next();
-                                    if (eventType == XmlPullParser.TEXT) {
-                                        ssb.append(result == null ? "?" : result).append('=');
-                                        int start = ssb.length();
-                                        String text = xml.getText();
-                                        if (text == null)
-                                            text = "<null>";
-                                        ssb.append(text);
-                                        if (!"pass".equals(text.toLowerCase(Locale.ROOT))) {
-                                            ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
-                                            ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
-                                        }
-                                        ssb.append(' ');
-                                    }
-                                }
-                                break;
-                            case "selector":
-                            case "scope":
-                                if (feedback && auth_results) {
-                                    eventType = xml.next();
-                                    if (eventType == XmlPullParser.TEXT) {
-                                        String text = xml.getText();
-                                        if (text == null)
-                                            text = "<null>";
-                                        ssb.append(name).append('=')
-                                                .append(text).append(' ');
-                                    }
-                                }
-                                break;
-                        }
-
-                        if ("report_metadata".equals(name) ||
-                                "policy_published".equals(name) ||
-                                "row".equals(name) ||
-                                "identifiers".equals(name) ||
-                                "auth_results".equals(name)) {
-                            int start = ssb.length();
-                            ssb.append(name);
-                            ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
-                            ssb.append("\n");
-                        }
-
-                    } else if (eventType == XmlPullParser.END_TAG) {
-                        String name = xml.getName();
-                        switch (name) {
-                            case "feedback":
-                                feedback = false;
-                                break;
-                            case "report_metadata":
-                                report_metadata = false;
-                                if (feedback)
-                                    ssb.append("\n\n");
-                                break;
-                            case "policy_published":
-                                policy_published = false;
-                                if (feedback) {
-                                    ssb.append("\n\n");
-                                    if (lastDomain == null)
-                                        spf = null;
-                                    else {
-                                        Integer start = null;
-                                        SpannableStringBuilder extra = new SpannableStringBuilderEx();
-                                        spf = lookupSpf(context, lastDomain, extra);
-                                        for (Pair<String, DnsHelper.DnsRecord> p : spf) {
-                                            ssb.append(p.first).append(' ')
-                                                    .append(p.second.response).append("\n\n");
-                                            if (start == null)
-                                                start = ssb.length();
-                                        }
-                                        ssb.append(extra);
-                                        if (start != null) {
-                                            ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
-                                            ssb.append("\n");
-                                        }
-
-                                        List<DnsHelper.DnsRecord> records = new ArrayList<>();
-                                        try {
-                                            records.addAll(Arrays.asList(
-                                                    DnsHelper.lookup(context, "_dmarc." + lastDomain, "txt")));
-                                        } catch (UnknownHostException ignored) {
-                                        }
-                                        try {
-                                            records.addAll(Arrays.asList(
-                                                    DnsHelper.lookup(context, "default._bimi." + lastDomain, "txt")));
-                                        } catch (UnknownHostException ignored) {
-                                        }
-                                        for (DnsHelper.DnsRecord r : records)
-                                            ssb.append(r.response).append("\n");
-                                        ssb.append("\n");
-                                    }
-                                }
-                                break;
-                            case "record":
-                                record = false;
-                                break;
-                            case "row":
-                                row = false;
-                                if (feedback)
-                                    ssb.append("\n\n");
-                                break;
-                            case "policy_evaluated":
-                                policy_evaluated = false;
-                                break;
-                            case "identifiers":
-                                identifiers = false;
-                                if (feedback)
-                                    ssb.append("\n");
-                                break;
-                            case "auth_results":
-                                auth_results = false;
-                                if (feedback)
-                                    ssb.append("\n");
-                                break;
-                            case "dkim":
-                            case "spf":
-                                if (feedback && auth_results) {
-                                    result = null;
-                                    ssb.append("\n");
-                                }
-                                break;
-                        }
-                    }
-
-                    eventType = xml.next();
+                try (InputStream is = resolver.openInputStream(uri)) {
+                    int start = ssb.length();
+                    ssb.append(TextHelper.formatXml(Helper.readStream(is), 2));
+                    ssb.setSpan(new TypefaceSpan("monospace"), start, ssb.length(), 0);
+                    ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
                 }
-
-                ssb.append("\uFFFC");
-                ssb.setSpan(new LineSpan(colorSeparator, stroke, 0), ssb.length() - 1, ssb.length(), 0);
-                ssb.append("\n");
-
-                int start = ssb.length();
-                ssb.append(TextHelper.formatXml(data, 2));
-                ssb.setSpan(new TypefaceSpan("monospace"), start, ssb.length(), 0);
-                ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
 
                 return ssb;
             }
@@ -592,28 +159,480 @@ public class ActivityDmarc extends ActivityBase {
                     tvDmarc.setText(ex + "\n" + android.util.Log.getStackTraceString(ex));
                 grpReady.setVisibility(View.VISIBLE);
             }
-
-            private List<Pair<String, DnsHelper.DnsRecord>> lookupSpf(Context context, String domain, SpannableStringBuilder ssb) {
-                List<Pair<String, DnsHelper.DnsRecord>> result = new ArrayList<>();
-                try {
-                    DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "txt");
-                    ssb.append(domain).append('=')
-                            .append(Integer.toString(records.length)).append('\n');
-                    for (DnsHelper.DnsRecord r : records)
-                        if (r.response.contains("spf")) {
-                            result.add(new Pair<>(domain, r));
-                            for (String part : r.response.split("\\s+"))
-                                if (part.toLowerCase(Locale.ROOT).startsWith("include:")) {
-                                    String sub = part.substring("include:".length());
-                                    result.addAll(lookupSpf(context, sub, ssb));
-                                }
-                        }
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                    ssb.append(ex.toString()).append('\n');
-                }
-                return result;
-            }
         }.execute(this, args, "dmarc:decode");
+    }
+
+    private static class Loader {
+        // https://tools.ietf.org/id/draft-kucherawy-dmarc-base-13.xml#xml_schema
+        private DateFormat DTF;
+        private int colorWarning;
+        private int colorSeparator;
+        private float stroke;
+
+        private boolean feedback = false;
+        private boolean report_metadata = false;
+        private boolean policy_published = false;
+        private boolean record = false;
+        private boolean row = false;
+        private boolean policy_evaluated = false;
+        private boolean identifiers = false;
+        private boolean auth_results = false;
+        private String lastDomain = null;
+        private String result = null;
+        private List<Pair<String, DnsHelper.DnsRecord>> spf = null;
+        private SpannableStringBuilder ssb = new SpannableStringBuilderEx();
+
+        SpannableStringBuilder load(Context context, InputStream is) throws XmlPullParserException, IOException {
+            DTF = Helper.getDateTimeInstance(context, DateFormat.SHORT, DateFormat.SHORT);
+            colorWarning = Helper.resolveColor(context, R.attr.colorWarning);
+            colorSeparator = Helper.resolveColor(context, R.attr.colorSeparator);
+            stroke = context.getResources().getDisplayMetrics().density;
+
+            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+            XmlPullParser xml = factory.newPullParser();
+            xml.setInput(is, StandardCharsets.UTF_8.name());
+
+            int eventType = xml.getEventType();
+            while (eventType != XmlPullParser.END_DOCUMENT) {
+                if (eventType == XmlPullParser.START_TAG) {
+                    String name = xml.getName();
+                    switch (name) {
+                        case "feedback":
+                            feedback = true;
+                            break;
+                        case "report_metadata":
+                            report_metadata = true;
+                            break;
+                        case "policy_published":
+                            policy_published = true;
+                            lastDomain = null;
+                            break;
+                        case "record":
+                            record = true;
+                            break;
+                        case "row":
+                            row = true;
+                            ssb.append("\uFFFC");
+                            ssb.setSpan(new LineSpan(colorSeparator, stroke, 0), ssb.length() - 1, ssb.length(), 0);
+                            ssb.append("\n");
+                            break;
+                        case "policy_evaluated":
+                            policy_evaluated = true;
+                            break;
+                        case "identifiers":
+                            identifiers = true;
+                            break;
+                        case "auth_results":
+                            auth_results = true;
+                            ssb.append("\n");
+                            break;
+
+                        case "org_name":
+                        case "begin":
+                        case "end":
+                            if (feedback && report_metadata) {
+                                eventType = xml.next();
+                                if (eventType == XmlPullParser.TEXT) {
+                                    String text = xml.getText();
+                                    if (text == null)
+                                        text = "<null>";
+                                    if ("begin".equals(name) || "end".equals(name)) {
+                                        text = text.trim();
+                                        try {
+                                            ssb.append(name).append('=').append(DTF.format(Long.parseLong(text) * 1000));
+                                        } catch (Throwable ex) {
+                                            Log.w(ex);
+                                            ssb.append(name).append('=').append(text);
+                                        }
+                                    } else
+                                        ssb.append(text);
+                                    ssb.append(' ');
+                                }
+                            }
+                            break;
+                        case "domain":
+                            if (feedback && (policy_published || auth_results)) {
+                                eventType = xml.next();
+                                if (eventType == XmlPullParser.TEXT) {
+                                    String text = xml.getText();
+                                    lastDomain = text;
+                                    if (text == null)
+                                        text = "<null>";
+                                    ssb.append(text).append(' ');
+                                }
+                            }
+                            break;
+                        case "adkim":
+                        case "aspf":
+                        case "p":
+                        case "sp":
+                        case "fo":
+                            if (feedback && policy_published) {
+                                eventType = xml.next();
+                                if (eventType == XmlPullParser.TEXT) {
+                                    String text = xml.getText();
+                                    if (text == null)
+                                        text = "<null>";
+                                    if ("adkim".equals(name) || "aspf".equals(name))
+                                        if ("r".equals(text))
+                                            text = "relaxed";
+                                        else if ("s".equals(text))
+                                            text = "strict";
+                                    ssb.append(name).append('=').append(text).append(' ');
+                                }
+                            }
+                            break;
+                        case "pct":
+                            if (feedback && policy_published) {
+                                eventType = xml.next();
+                                if (eventType == XmlPullParser.TEXT) {
+                                    String text = xml.getText();
+                                    if (text == null)
+                                        text = "<null>";
+                                    Integer pct = Helper.parseInt(text);
+                                    if (pct == null)
+                                        ssb.append(name).append('=').append(text).append(' ');
+                                    else
+                                        ssb.append(text).append("% ");
+                                }
+                            }
+
+                            break;
+                        case "source_ip":
+                        case "count":
+                            if (feedback && record && row) {
+                                eventType = xml.next();
+                                if (eventType == XmlPullParser.TEXT) {
+                                    String text = xml.getText();
+                                    if (text == null)
+                                        text = "<null>";
+                                    ssb.append(name).append('=').append(text).append(' ');
+                                    if ("source_ip".equals(name))
+                                        processSourceIp(context, text);
+                                }
+                            }
+                            break;
+                        case "disposition": // none, quarantine, reject
+                        case "dkim":
+                        case "spf":
+                        case "header_from":
+                        case "envelope_from":
+                        case "envelope_to":
+                            if (feedback && record)
+                                if (policy_evaluated || identifiers) {
+                                    eventType = xml.next();
+                                    if (eventType == XmlPullParser.TEXT) {
+                                        ssb.append(name).append('=');
+                                        int start = ssb.length();
+                                        String text = xml.getText();
+                                        if (text == null)
+                                            text = "<null>";
+                                        ssb.append(text);
+
+                                        if (!"pass".equals(text.toLowerCase(Locale.ROOT)) &&
+                                                ("dkim".equals(name) || "spf".equals(name))) {
+                                            ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                                            ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
+                                        }
+
+                                        ssb.append(' ');
+                                    }
+                                } else if (auth_results)
+                                    result = name;
+                            break;
+                        case "result":
+                            if (feedback && auth_results) {
+                                eventType = xml.next();
+                                if (eventType == XmlPullParser.TEXT) {
+                                    ssb.append(result == null ? "?" : result).append('=');
+                                    int start = ssb.length();
+                                    String text = xml.getText();
+                                    if (text == null)
+                                        text = "<null>";
+                                    ssb.append(text);
+
+                                    if (!"pass".equals(text.toLowerCase(Locale.ROOT))) {
+                                        ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                                        ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
+                                    }
+
+                                    ssb.append(' ');
+                                }
+                            }
+                            break;
+                        case "selector":
+                        case "scope":
+                            if (feedback && auth_results) {
+                                eventType = xml.next();
+                                if (eventType == XmlPullParser.TEXT) {
+                                    String text = xml.getText();
+                                    if (text == null)
+                                        text = "<null>";
+                                    ssb.append(name).append('=').append(text).append(' ');
+                                }
+                            }
+                            break;
+                    }
+
+                    if ("report_metadata".equals(name) ||
+                            "policy_published".equals(name) ||
+                            "row".equals(name) ||
+                            "identifiers".equals(name) ||
+                            "auth_results".equals(name)) {
+                        int start = ssb.length();
+                        ssb.append(name);
+                        ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                        ssb.append("\n");
+                    }
+
+                } else if (eventType == XmlPullParser.END_TAG) {
+                    String name = xml.getName();
+                    switch (name) {
+                        case "feedback":
+                            feedback = false;
+                            break;
+                        case "report_metadata":
+                            report_metadata = false;
+                            if (feedback)
+                                ssb.append("\n\n");
+                            break;
+                        case "policy_published":
+                            policy_published = false;
+                            if (feedback)
+                                ssb.append("\n\n");
+                            if (lastDomain == null)
+                                spf = null;
+                            else
+                                processPolicyPublished(context);
+                            break;
+                        case "record":
+                            record = false;
+                            break;
+                        case "row":
+                            row = false;
+                            if (feedback)
+                                ssb.append("\n\n");
+                            break;
+                        case "policy_evaluated":
+                            policy_evaluated = false;
+                            break;
+                        case "identifiers":
+                            identifiers = false;
+                            if (feedback)
+                                ssb.append("\n");
+                            break;
+                        case "auth_results":
+                            auth_results = false;
+                            if (feedback)
+                                ssb.append("\n");
+                            break;
+                        case "dkim":
+                        case "spf":
+                            if (feedback && auth_results) {
+                                result = null;
+                                ssb.append("\n");
+                            }
+                            break;
+                    }
+                }
+
+                eventType = xml.next();
+            }
+
+            ssb.append("\uFFFC");
+            ssb.setSpan(new LineSpan(colorSeparator, stroke, 0), ssb.length() - 1, ssb.length(), 0);
+            ssb.append("\n");
+
+            return ssb;
+        }
+
+        private void processPolicyPublished(Context context) {
+            Integer start = null;
+            SpannableStringBuilder extra = new SpannableStringBuilderEx();
+
+            spf = lookupSpf(context, lastDomain, extra);
+            for (Pair<String, DnsHelper.DnsRecord> p : spf) {
+                ssb.append(p.first).append(' ')
+                        .append(p.second.response).append("\n\n");
+                if (start == null)
+                    start = ssb.length();
+            }
+            ssb.append(extra);
+
+            if (start != null) {
+                ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
+                ssb.append("\n");
+            }
+
+            List<DnsHelper.DnsRecord> records = new ArrayList<>();
+            try {
+                records.addAll(Arrays.asList(
+                        DnsHelper.lookup(context, "_dmarc." + lastDomain, "txt")));
+            } catch (UnknownHostException ignored) {
+            }
+            try {
+                records.addAll(Arrays.asList(
+                        DnsHelper.lookup(context, "default._bimi." + lastDomain, "txt")));
+            } catch (UnknownHostException ignored) {
+            }
+
+            for (DnsHelper.DnsRecord r : records)
+                ssb.append(r.response).append("\n");
+
+            ssb.append("\n");
+        }
+
+        private void processSourceIp(Context context, String text) {
+            try {
+                Boolean valid = null;
+                String because = null;
+                if (spf != null)
+                    for (Pair<String, DnsHelper.DnsRecord> p : spf) {
+                        for (String ip : p.second.response.split("\\s+")) {
+                            boolean allow = true;
+                            ip = ip.toLowerCase(Locale.ROOT);
+                            if (ip.startsWith("-"))
+                                allow = false;
+                            else if (ip.startsWith("+"))
+                                ip = ip.substring(1);
+
+                            // https://datatracker.ietf.org/doc/html/rfc7208#section-5
+                            if (ip.startsWith("ip4:") || ip.startsWith("ip6:")) {
+                                String[] net = ip.substring(4).split("/");
+                                Integer prefix = (net.length > 1 ? Helper.parseInt(net[1]) : null);
+                                if (prefix == null) {
+                                    if (text.equals(net[0])) {
+                                        valid = allow;
+                                        because = (allow ? '+' : '-') + ip + " in " + p.first;
+                                        break;
+                                    }
+                                } else {
+                                    if (ConnectionHelper.inSubnet(text, net[0], prefix)) {
+                                        valid = allow;
+                                        because = (allow ? '+' : '-') + ip + " in " + p.first + "/" + prefix;
+                                    }
+                                }
+                            } else if ("a".equals(ip) || ip.startsWith("a:")) {
+                                String domain = (ip.startsWith("a:") ? ip.substring(2) : p.first);
+                                String[] net = domain.split("/");
+                                Integer prefix = (net.length > 1 ? Helper.parseInt(net[1]) : null);
+                                List<DnsHelper.DnsRecord> as = new ArrayList<>();
+                                try {
+                                    as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "a")));
+                                } catch (UnknownHostException ignored) {
+                                }
+                                try {
+                                    as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "aaaa")));
+                                } catch (UnknownHostException ignored) {
+                                }
+                                for (DnsHelper.DnsRecord a : as)
+                                    if (prefix == null) {
+                                        if (text.equals(a.response)) {
+                                            valid = allow;
+                                            because = (allow ? '+' : '-') + ip + " in " + domain;
+                                            break;
+                                        }
+                                    } else {
+                                        if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
+                                            valid = allow;
+                                            because = (allow ? '+' : '-') + ip + " in " + domain + "/" + prefix;
+                                            break;
+                                        }
+                                    }
+                            } else if ("mx".equals(ip) || ip.startsWith("mx:")) {
+                                try {
+                                    String domain = (ip.startsWith("mx:") ? ip.substring(3) : p.first);
+                                    String[] net = domain.split("/");
+                                    Integer prefix = (net.length > 1 ? Helper.parseInt(net[1]) : null);
+                                    DnsHelper.DnsRecord[] mxs = DnsHelper.lookup(context, net[0], "mx");
+                                    for (DnsHelper.DnsRecord mx : mxs) {
+                                        List<DnsHelper.DnsRecord> as = new ArrayList<>();
+                                        try {
+                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "a")));
+                                        } catch (UnknownHostException ignored) {
+                                        }
+                                        try {
+                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "aaaa")));
+                                        } catch (UnknownHostException ignored) {
+                                        }
+                                        for (DnsHelper.DnsRecord a : as) {
+                                            if (prefix == null) {
+                                                if (text.equals(a.response)) {
+                                                    valid = allow;
+                                                    because = (allow ? '+' : '-') + ip + " in " + domain;
+                                                    break;
+                                                }
+                                            } else {
+                                                if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
+                                                    valid = allow;
+                                                    because = (allow ? '+' : '-') + ip + " in " + domain + "/" + prefix;
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                        if (valid != null)
+                                            break;
+                                    }
+                                } catch (UnknownHostException ignored) {
+                                }
+                            } else if ("ptr".equals(ip) || ip.startsWith("ptr:")) {
+                                valid = false;
+                                because = (allow ? '+' : '-') + ip + " ptr not supported";
+                            }
+                            if (valid != null)
+                                break;
+                        }
+                        if (valid != null)
+                            break;
+                    }
+
+                int start = ssb.length();
+                ssb.append(Boolean.TRUE.equals(valid) ? "valid" : "invalid");
+                if (because != null)
+                    ssb.append(" (").append(because).append(')');
+
+                if (!Boolean.TRUE.equals(valid)) {
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
+                    ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
+                }
+
+                ssb.append(' ');
+            } catch (Throwable ex) {
+                Log.w(ex);
+                ssb.append(ex.toString()).append('\n');
+            }
+
+            try {
+                InetAddress addr = InetAddress.getByName(text);
+                IPInfo info = IPInfo.getOrganization(addr, context);
+                ssb.append('(').append(info.org).append(") ");
+            } catch (Throwable ex) {
+                Log.w(ex);
+                ssb.append(ex.toString()).append('\n');
+            }
+        }
+
+        private static List<Pair<String, DnsHelper.DnsRecord>> lookupSpf(Context context, String domain, SpannableStringBuilder ssb) {
+            List<Pair<String, DnsHelper.DnsRecord>> result = new ArrayList<>();
+
+            try {
+                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "txt");
+                ssb.append(domain).append('=').append(Integer.toString(records.length)).append('\n');
+                for (DnsHelper.DnsRecord r : records)
+                    if (r.response.contains("spf")) {
+                        result.add(new Pair<>(domain, r));
+                        for (String part : r.response.split("\\s+"))
+                            if (part.toLowerCase(Locale.ROOT).startsWith("include:")) {
+                                String sub = part.substring("include:".length());
+                                result.addAll(lookupSpf(context, sub, ssb));
+                            }
+                    }
+            } catch (Throwable ex) {
+                Log.w(ex);
+                ssb.append(ex.toString()).append('\n');
+            }
+
+            return result;
+        }
     }
 }
