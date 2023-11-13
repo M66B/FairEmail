@@ -276,7 +276,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etName" />
 
-        <eu.faircode.email.EditTextPlain
+        <eu.faircode.email.EditTextAutoComplete
             android:id="@+id/etCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

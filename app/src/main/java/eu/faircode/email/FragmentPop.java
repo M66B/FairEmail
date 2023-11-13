@@ -41,6 +41,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -81,7 +82,8 @@ public class FragmentPop extends FragmentBase {
     private TextView tvPasswordStorage;
 
     private EditText etName;
-    private EditText etCategory;
+    private ArrayAdapter<String> adapterCategory;
+    private AutoCompleteTextView etCategory;
     private ViewButtonColor btnColor;
     private TextView tvColorPro;
 
@@ -246,6 +248,10 @@ public class FragmentPop extends FragmentBase {
                 Helper.viewFAQ(v.getContext(), 37);
             }
         });
+
+        adapterCategory = new ArrayAdapter<>(getContext(), R.layout.spinner_item1_dropdown, android.R.id.text1);
+        etCategory.setThreshold(1);
+        etCategory.setAdapter(adapterCategory);
 
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -787,11 +793,20 @@ public class FragmentPop extends FragmentBase {
                 long id = args.getLong("id");
 
                 DB db = DB.getInstance(context);
+
+                List<String> categories = db.account().getAccountCategories();
+                if (categories == null)
+                    categories = new ArrayList<>();
+                args.putStringArrayList("categories", new ArrayList<>(categories));
+
                 return db.account().getAccount(id);
             }
 
             @Override
             protected void onExecuted(Bundle args, final EntityAccount account) {
+                adapterCategory.clear();
+                adapterCategory.addAll(args.getStringArrayList("categories"));
+
                 if (savedInstanceState == null) {
                     JSONObject jcondition = new JSONObject();
                     try {

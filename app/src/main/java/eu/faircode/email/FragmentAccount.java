@@ -46,6 +46,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -110,7 +111,8 @@ public class FragmentAccount extends FragmentBase {
     private EditText etRealm;
 
     private EditText etName;
-    private EditText etCategory;
+    private ArrayAdapter<String> adapterCategory;
+    private AutoCompleteTextView etCategory;
     private ViewButtonColor btnColor;
     private TextView tvColorPro;
 
@@ -433,6 +435,10 @@ public class FragmentAccount extends FragmentBase {
                 });
             }
         });
+
+        adapterCategory = new ArrayAdapter<>(getContext(), R.layout.spinner_item1_dropdown, android.R.id.text1);
+        etCategory.setThreshold(1);
+        etCategory.setAdapter(adapterCategory);
 
         btnColor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -1597,6 +1603,11 @@ public class FragmentAccount extends FragmentBase {
 
                 DB db = DB.getInstance(context);
 
+                List<String> categories = db.account().getAccountCategories();
+                if (categories == null)
+                    categories = new ArrayList<>();
+                args.putStringArrayList("categories", new ArrayList<>(categories));
+
                 List<EntityIdentity> identities = db.identity().getIdentities(id);
                 if (identities != null && identities.size() == 1)
                     args.putString("personal", identities.get(0).name);
@@ -1616,6 +1627,9 @@ public class FragmentAccount extends FragmentBase {
                         new ArrayAdapter<>(context, R.layout.spinner_item1, android.R.id.text1, providers);
                 aaProvider.setDropDownViewResource(R.layout.spinner_item1_dropdown);
                 spProvider.setAdapter(aaProvider);
+
+                adapterCategory.clear();
+                adapterCategory.addAll(args.getStringArrayList("categories"));
 
                 if (savedInstanceState == null) {
                     JSONObject jcondition = new JSONObject();
