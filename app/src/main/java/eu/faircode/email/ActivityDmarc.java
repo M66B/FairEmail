@@ -500,17 +500,12 @@ public class ActivityDmarc extends ActivityBase {
                             if (ip.startsWith("ip4:") || ip.startsWith("ip6:")) {
                                 String[] net = ip.substring(4).split("/");
                                 Integer prefix = (net.length > 1 ? Helper.parseInt(net[1]) : null);
-                                if (prefix == null) {
-                                    if (text.equals(net[0])) {
-                                        valid = allow;
-                                        because = (allow ? '+' : '-') + ip + " in " + p.first;
-                                        break;
-                                    }
-                                } else {
-                                    if (ConnectionHelper.inSubnet(text, net[0], prefix)) {
-                                        valid = allow;
-                                        because = (allow ? '+' : '-') + ip + " in " + p.first + "/" + prefix;
-                                    }
+                                if (prefix == null
+                                        ? text.equals(net[0])
+                                        : ConnectionHelper.inSubnet(text, net[0], prefix)) {
+                                    valid = allow;
+                                    because = (allow ? '+' : '-') + ip + " in " + p.first;
+                                    break;
                                 }
                             } else if ("a".equals(ip) || ip.startsWith("a:")) {
                                 String domain = (ip.startsWith("a:") ? ip.substring(2) : p.first);
@@ -526,18 +521,13 @@ public class ActivityDmarc extends ActivityBase {
                                 } catch (UnknownHostException ignored) {
                                 }
                                 for (DnsHelper.DnsRecord a : as)
-                                    if (prefix == null) {
-                                        if (text.equals(a.response)) {
-                                            valid = allow;
-                                            because = (allow ? '+' : '-') + ip + " in " + domain;
-                                            break;
-                                        }
-                                    } else {
-                                        if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
-                                            valid = allow;
-                                            because = (allow ? '+' : '-') + ip + " in " + domain + "/" + prefix;
-                                            break;
-                                        }
+                                    if (prefix == null
+                                            ? text.equals(a.response)
+                                            : ConnectionHelper.inSubnet(text, a.response, prefix)) {
+                                        valid = allow;
+                                        because = (allow ? '+' : '-') + ip +
+                                                " in " + domain + (prefix == null ? "" : "/" + prefix);
+                                        break;
                                     }
                             } else if ("mx".equals(ip) || ip.startsWith("mx:")) {
                                 try {
@@ -556,18 +546,13 @@ public class ActivityDmarc extends ActivityBase {
                                         } catch (UnknownHostException ignored) {
                                         }
                                         for (DnsHelper.DnsRecord a : as) {
-                                            if (prefix == null) {
-                                                if (text.equals(a.response)) {
-                                                    valid = allow;
-                                                    because = (allow ? '+' : '-') + ip + " in " + domain;
-                                                    break;
-                                                }
-                                            } else {
-                                                if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
-                                                    valid = allow;
-                                                    because = (allow ? '+' : '-') + ip + " in " + domain + "/" + prefix;
-                                                    break;
-                                                }
+                                            if (prefix == null
+                                                    ? text.equals(a.response)
+                                                    : ConnectionHelper.inSubnet(text, a.response, prefix)) {
+                                                valid = allow;
+                                                because = (allow ? '+' : '-') + ip +
+                                                        " in " + domain + (prefix == null ? "" : "/" + prefix);
+                                                break;
                                             }
                                         }
                                         if (valid != null)
