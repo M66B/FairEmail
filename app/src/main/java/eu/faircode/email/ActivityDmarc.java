@@ -64,7 +64,7 @@ public class ActivityDmarc extends ActivityBase {
         super.onCreate(savedInstanceState);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setSubtitle("DMARC");
+        getSupportActionBar().setSubtitle(R.string.title_advanced_dmarc_viewer);
 
         View view = LayoutInflater.from(this).inflate(R.layout.activity_dmarc, null);
         setContentView(view);
@@ -276,14 +276,15 @@ public class ActivityDmarc extends ActivityBase {
                                                 .append(text).append(' ');
                                         if ("source_ip".equals(name)) {
                                             try {
-                                                boolean valid = false;
+                                                Boolean valid = null;
                                                 String because = null;
                                                 if (spf != null)
                                                     for (Pair<String, DnsHelper.DnsRecord> p : spf) {
                                                         for (String ip : p.second.response.split("\\s+")) {
+                                                            boolean allow = true;
                                                             ip = ip.toLowerCase(Locale.ROOT);
                                                             if (ip.startsWith("-"))
-                                                                continue;
+                                                                allow = false;
                                                             else if (ip.startsWith("+"))
                                                                 ip = ip.substring(1);
 
@@ -298,9 +299,8 @@ public class ActivityDmarc extends ActivityBase {
                                                                 if (prefix == null)
                                                                     continue;
                                                                 if (ConnectionHelper.inSubnet(text, net[0], prefix)) {
-                                                                    valid = true;
+                                                                    valid = allow;
                                                                     because = ip + " in " + p.first;
-                                                                    break;
                                                                 }
                                                             } else if ("a".equals(ip) || ip.startsWith("a:")) {
                                                                 String domain = (ip.startsWith("a:")
@@ -320,20 +320,18 @@ public class ActivityDmarc extends ActivityBase {
                                                                 for (DnsHelper.DnsRecord a : as)
                                                                     if (prefix == null) {
                                                                         if (text.equals(a.response)) {
-                                                                            valid = true;
+                                                                            valid = allow;
                                                                             because = ip + " in " + domain;
                                                                             break;
                                                                         }
                                                                     } else {
                                                                         if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
-                                                                            valid = true;
+                                                                            valid = allow;
                                                                             because = ip + " in " + domain + "/" + prefix;
                                                                             break;
                                                                         }
                                                                     }
-                                                                if (valid)
-                                                                    break;
-                                                            } else if ("mx".equals(ip) || ip.startsWith("mx:"))
+                                                            } else if ("mx".equals(ip) || ip.startsWith("mx:")) {
                                                                 try {
                                                                     String domain = (ip.startsWith("mx:")
                                                                             ? ip.substring(3) : p.first);
@@ -352,33 +350,42 @@ public class ActivityDmarc extends ActivityBase {
                                                                             as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "aaaa")));
                                                                         } catch (UnknownHostException ignored) {
                                                                         }
-                                                                        for (DnsHelper.DnsRecord a : as)
+                                                                        for (DnsHelper.DnsRecord a : as) {
                                                                             if (prefix == null) {
                                                                                 if (text.equals(a.response)) {
-                                                                                    valid = true;
+                                                                                    valid = allow;
                                                                                     because = ip + " in " + domain;
                                                                                     break;
                                                                                 }
                                                                             } else {
                                                                                 if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
-                                                                                    valid = true;
+                                                                                    valid = allow;
                                                                                     because = ip + " in " + domain + "/" + prefix;
                                                                                     break;
                                                                                 }
                                                                             }
-                                                                        if (valid)
+                                                                        }
+                                                                        if (valid != null)
                                                                             break;
                                                                     }
                                                                 } catch (UnknownHostException ignored) {
                                                                 }
+                                                            } else if ("ptr".equals(ip) || ip.startsWith("ptr:")) {
+                                                                valid = false;
+                                                                because = ip + " ptr not supported";
+                                                            }
+                                                            if (valid != null)
+                                                                break;
                                                         }
-                                                        if (valid)
+                                                        if (valid != null)
                                                             break;
                                                     }
 
                                                 int start = ssb.length();
-                                                ssb.append(valid ? "valid (" + because + ")" : "invalid");
-                                                if (!valid) {
+                                                ssb.append(Boolean.TRUE.equals(valid) ? "valid" : "invalid");
+                                                if (because != null)
+                                                    ssb.append(" (").append(because).append(')');
+                                                if (!Boolean.TRUE.equals(valid)) {
                                                     ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
                                                     ssb.setSpan(new ForegroundColorSpan(colorWarning), start, ssb.length(), 0);
                                                 }
