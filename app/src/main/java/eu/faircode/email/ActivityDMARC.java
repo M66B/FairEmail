@@ -47,7 +47,6 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.StringReader;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
@@ -57,7 +56,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
-public class ActivityDmarc extends ActivityBase {
+public class ActivityDMARC extends ActivityBase {
     private TextView tvDmarc;
     private ContentLoadingProgressBar pbWait;
     private Group grpReady;
@@ -154,7 +153,7 @@ public class ActivityDmarc extends ActivityBase {
             @Override
             protected void onException(Bundle args, @NonNull Throwable ex) {
                 if (ex instanceof NoStreamException)
-                    ((NoStreamException) ex).report(ActivityDmarc.this);
+                    ((NoStreamException) ex).report(ActivityDMARC.this);
                 else
                     tvDmarc.setText(ex + "\n" + android.util.Log.getStackTraceString(ex));
                 grpReady.setVisibility(View.VISIBLE);

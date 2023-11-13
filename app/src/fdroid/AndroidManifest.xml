@@ -491,7 +491,7 @@
             android:resizeableActivity="true" />
 
         <activity
-            android:name=".ActivityDmarc"
+            android:name=".ActivityDMARC"
             android:enabled="true"
             android:description="@string/title_advanced_dmarc_viewer"
             android:exported="true"

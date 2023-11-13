@@ -1634,7 +1634,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swDmarcViewer.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                Helper.enableComponent(compoundButton.getContext(), ActivityDmarc.class, checked);
+                Helper.enableComponent(compoundButton.getContext(), ActivityDMARC.class, checked);
             }
         });
 
@@ -2375,7 +2375,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swAdjacentPortrait.setChecked(prefs.getBoolean("adjacent_portrait", false));
             swAdjacentLandscape.setChecked(prefs.getBoolean("adjacent_landscape", false));
             swDeleteConfirmation.setChecked(prefs.getBoolean("delete_confirmation", true));
-            swDmarcViewer.setChecked(Helper.isComponentEnabled(getContext(), ActivityDmarc.class));
+            swDmarcViewer.setChecked(Helper.isComponentEnabled(getContext(), ActivityDMARC.class));
             etKeywords.setText(prefs.getString("global_keywords", null));
             swTestIab.setChecked(prefs.getBoolean("test_iab", false));
 
