@@ -1403,7 +1403,7 @@ class Core {
 
                     // Delete source
                     if (!copy)
-                        EntityOperation.queue(context, message, EntityOperation.DELETE);
+                        EntityOperation.queue(context, message, EntityOperation.DELETE, true /* POP3: permanent */);
                 }
 
                 db.setTransactionSuccessful();
@@ -1916,11 +1916,15 @@ class Core {
         }
     }
 
-    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, List<EntityMessage> messages, POP3Folder ifolder, POP3Store istore, State state) throws MessagingException, IOException {
+    private static void onDelete(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, List<EntityMessage> messages, POP3Folder ifolder, POP3Store istore, State state) throws JSONException, MessagingException, IOException {
+        boolean permanent = (jargs.length() > 0 && jargs.getBoolean(0));
+
         // Delete from server
-        if (!EntityFolder.INBOX.equals(folder.type) || account.leave_deleted)
+        if (!EntityFolder.INBOX.equals(folder.type) || (account.leave_deleted && !permanent))
             throw new IllegalArgumentException("POP3: invalid DELETE" +
-                    " folder=" + folder.type + " leave=" + account.leave_deleted);
+                    " folder=" + folder.type +
+                    " leave=" + account.leave_deleted +
+                    " permanent=" + permanent);
 
         Map<EntityMessage, Message> map = findMessages(context, folder, messages, istore, ifolder);
         for (EntityMessage message : messages) {
@@ -2009,6 +2013,8 @@ class Core {
 
     private static void onRaw(Context context, JSONArray jargs, EntityFolder folder, EntityMessage message, POP3Store istore, POP3Folder ifolder) throws MessagingException, IOException, JSONException {
         // Download raw message
+        DB db = DB.getInstance(context);
+
         if (!EntityFolder.INBOX.equals(folder.type))
             throw new IllegalArgumentException("Unexpected folder=" + folder.type);
 
@@ -2022,8 +2028,26 @@ class Core {
                 map.get(message).writeTo(os);
             }
 
-            DB db = DB.getInstance(context);
             db.message().setMessageRaw(message.id, true);
+        }
+
+        if (jargs.length() > 0) {
+            // Cross account move/copy
+            long tid = jargs.getLong(0);
+            EntityFolder target = db.folder().getFolder(tid);
+            if (target == null)
+                throw new FolderNotFoundException();
+
+            Log.i(folder.name + " queuing ADD id=" + message.id + ":" + target.id);
+
+            EntityOperation operation = new EntityOperation();
+            operation.account = target.account;
+            operation.folder = target.id;
+            operation.message = message.id;
+            operation.name = EntityOperation.ADD;
+            operation.args = jargs.toString();
+            operation.created = new Date().getTime();
+            operation.id = db.operation().insertOperation(operation);
         }
     }
 

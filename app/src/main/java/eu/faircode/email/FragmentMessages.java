@@ -10867,7 +10867,8 @@ public class FragmentMessages extends FragmentBase
                 result.account = accounts.values().iterator().next();
 
             result.accounts = new LinkedHashMap<>();
-            if (!result.hasPop) {
+            if (!result.hasPop ||
+                    (accounts.size() == 1 && result.isInbox && !result.isSent)) {
                 List<EntityAccount> syncing = db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
                 if (syncing != null)
                     for (EntityAccount a : syncing)
