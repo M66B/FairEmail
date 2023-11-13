@@ -17,6 +17,7 @@
     <string name="app_cake_required">Minimum required storage space: %1$s</string>
     <string name="app_updated">Last update: %1$s</string>
     <string name="app_download">Downloaded from: %1$s</string>
+    <string name="app_dmarc" translatable="false">DMARC</string>
 
     <string name="channel_service">Monitor</string>
     <string name="channel_send">Send</string>

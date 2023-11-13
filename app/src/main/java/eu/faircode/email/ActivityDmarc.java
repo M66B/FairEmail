@@ -300,7 +300,7 @@ public class ActivityDmarc extends ActivityBase {
                                                                     continue;
                                                                 if (ConnectionHelper.inSubnet(text, net[0], prefix)) {
                                                                     valid = allow;
-                                                                    because = ip + " in " + p.first;
+                                                                    because = (allow ? '+' : '-') + ip + " in " + p.first;
                                                                 }
                                                             } else if ("a".equals(ip) || ip.startsWith("a:")) {
                                                                 String domain = (ip.startsWith("a:")
@@ -321,13 +321,13 @@ public class ActivityDmarc extends ActivityBase {
                                                                     if (prefix == null) {
                                                                         if (text.equals(a.response)) {
                                                                             valid = allow;
-                                                                            because = ip + " in " + domain;
+                                                                            because = (allow ? '+' : '-') + ip + " in " + domain;
                                                                             break;
                                                                         }
                                                                     } else {
                                                                         if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
                                                                             valid = allow;
-                                                                            because = ip + " in " + domain + "/" + prefix;
+                                                                            because = (allow ? '+' : '-') + ip + " in " + domain + "/" + prefix;
                                                                             break;
                                                                         }
                                                                     }
@@ -354,13 +354,13 @@ public class ActivityDmarc extends ActivityBase {
                                                                             if (prefix == null) {
                                                                                 if (text.equals(a.response)) {
                                                                                     valid = allow;
-                                                                                    because = ip + " in " + domain;
+                                                                                    because = (allow ? '+' : '-') + ip + " in " + domain;
                                                                                     break;
                                                                                 }
                                                                             } else {
                                                                                 if (ConnectionHelper.inSubnet(text, a.response, prefix)) {
                                                                                     valid = allow;
-                                                                                    because = ip + " in " + domain + "/" + prefix;
+                                                                                    because = (allow ? '+' : '-') + ip + " in " + domain + "/" + prefix;
                                                                                     break;
                                                                                 }
                                                                             }
@@ -372,7 +372,7 @@ public class ActivityDmarc extends ActivityBase {
                                                                 }
                                                             } else if ("ptr".equals(ip) || ip.startsWith("ptr:")) {
                                                                 valid = false;
-                                                                because = ip + " ptr not supported";
+                                                                because = (allow ? '+' : '-') + ip + " ptr not supported";
                                                             }
                                                             if (valid != null)
                                                                 break;
@@ -502,13 +502,11 @@ public class ActivityDmarc extends ActivityBase {
                                         spf = lookupSpf(context, lastDomain, extra);
                                         for (Pair<String, DnsHelper.DnsRecord> p : spf) {
                                             ssb.append(p.first).append(' ')
-                                                    .append(p.second.response).append("\n");
-                                            if (start == null) {
+                                                    .append(p.second.response).append("\n\n");
+                                            if (start == null)
                                                 start = ssb.length();
-                                                ssb.append("\n");
-                                            }
                                         }
-                                        ssb.append('\n').append(extra);
+                                        ssb.append(extra);
                                         if (start != null) {
                                             ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
                                             ssb.append("\n");

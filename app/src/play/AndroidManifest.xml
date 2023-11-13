@@ -490,7 +490,7 @@
             android:description="@string/title_advanced_dmarc_viewer"
             android:exported="true"
             android:icon="@mipmap/ic_launcher"
-            android:label="DMARC"
+            android:label="@string/app_dmarc"
             android:launchMode="singleInstance"
             android:resizeableActivity="true">
 
