@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2123 - 2023-11-13
 
 * Added integrations-settings tab page
 * Small improvements and minor bug fixes
