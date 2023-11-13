@@ -647,10 +647,9 @@ public class FragmentRule extends FragmentBase {
         if (protocol == EntityAccount.TYPE_IMAP)
             actions.add(new Action(EntityRule.TYPE_KEYWORD, getString(R.string.title_rule_keyword)));
         actions.add(new Action(EntityRule.TYPE_NOTES, getString(R.string.title_rule_notes)));
-        if (protocol == EntityAccount.TYPE_IMAP) {
-            actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
+        actions.add(new Action(EntityRule.TYPE_MOVE, getString(R.string.title_rule_move)));
+        if (protocol == EntityAccount.TYPE_IMAP)
             actions.add(new Action(EntityRule.TYPE_COPY, getString(R.string.title_rule_copy)));
-        }
         actions.add(new Action(EntityRule.TYPE_DELETE, getString(R.string.title_rule_delete)));
         actions.add(new Action(EntityRule.TYPE_ANSWER, getString(R.string.title_rule_answer)));
         actions.add(new Action(EntityRule.TYPE_TTS, getString(R.string.title_rule_tts)));
