@@ -2172,4 +2172,17 @@
             port="465"
             starttls="false" />
     </provider>
+    <provider
+        name="Braxmail"
+        documentation="The username of a Braxmail account is account-specific, and therefore an account/identity needs to be configured via '&lt;em&gt;Manual setup and account options&lt;/em&gt;' in the main settings screen. See the video you receive for the correct configuration data."
+        domain="braxmail\\.net">
+        <imap
+            host="imap.braxmail.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtp.braxmail.net"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
