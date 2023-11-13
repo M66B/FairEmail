@@ -5235,6 +5235,8 @@ public class FragmentMessages extends FragmentBase
         adapter.setCompact(compact);
         adapter.setZoom(zoom);
 
+        updateListState("Resume", SimpleTask.getCount(), adapter.getItemCount());
+
         if (true || !checkRedmiNote())
             if (true || !checkDoze())
                 if (!checkReporting())
