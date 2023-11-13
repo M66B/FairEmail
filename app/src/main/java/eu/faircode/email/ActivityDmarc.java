@@ -291,16 +291,19 @@ public class ActivityDmarc extends ActivityBase {
                                                             // https://datatracker.ietf.org/doc/html/rfc7208#section-5
                                                             if (ip.startsWith("ip4:") || ip.startsWith("ip6:")) {
                                                                 String[] net = ip.substring(4).split("/");
-                                                                if (net.length > 2)
-                                                                    continue;
-                                                                Integer prefix = ip.startsWith("ip4:") ? 32 : 128;
-                                                                if (net.length == 2)
-                                                                    prefix = Helper.parseInt(net[1]);
-                                                                if (prefix == null)
-                                                                    continue;
-                                                                if (ConnectionHelper.inSubnet(text, net[0], prefix)) {
-                                                                    valid = allow;
-                                                                    because = (allow ? '+' : '-') + ip + " in " + p.first;
+                                                                Integer prefix = (net.length > 1
+                                                                        ? Helper.parseInt(net[1]) : null);
+                                                                if (prefix == null) {
+                                                                    if (text.equals(net[0])) {
+                                                                        valid = allow;
+                                                                        because = (allow ? '+' : '-') + ip + " in " + p.first;
+                                                                        break;
+                                                                    }
+                                                                } else {
+                                                                    if (ConnectionHelper.inSubnet(text, net[0], prefix)) {
+                                                                        valid = allow;
+                                                                        because = (allow ? '+' : '-') + ip + " in " + p.first + "/" + prefix;
+                                                                    }
                                                                 }
                                                             } else if ("a".equals(ip) || ip.startsWith("a:")) {
                                                                 String domain = (ip.startsWith("a:")
