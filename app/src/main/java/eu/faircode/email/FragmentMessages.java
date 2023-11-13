@@ -218,7 +218,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -1695,13 +1694,13 @@ public class FragmentMessages extends FragmentBase
                 if (result == null)
                     return;
 
-                if (result.account != null)
-                    onActionMoveSelectionAccount(result.account.id, false, result.folders);
+                if (result.imapAccounts.size() > 0)
+                    onActionMoveSelectionAccount(result.imapAccounts.get(0).id, false, result.folders);
                 else {
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(v.getContext(), getViewLifecycleOwner(), ibMove);
 
                     int order = 0;
-                    for (EntityAccount account : result.accounts.keySet()) {
+                    for (EntityAccount account : result.imapAccounts) {
                         order++;
                         popupMenu.getMenu().add(Menu.NONE, order, order, account.name)
                                 .setIntent(new Intent().putExtra("account", account.id));
@@ -4165,7 +4164,7 @@ public class FragmentMessages extends FragmentBase
                             .setIcon(R.drawable.twotone_delete_forever_24);
 
                 if (!result.read_only) {
-                    for (EntityAccount account : result.accounts.keySet()) {
+                    for (EntityAccount account : result.imapAccounts) {
                         String title = getString(R.string.title_move_to_account, account.name);
                         SpannableString ssb = new SpannableString(title);
                         if (account.name != null && account.color != null) {
@@ -10676,8 +10675,7 @@ public class FragmentMessages extends FragmentBase
         Boolean leave_deleted;
         boolean read_only;
         List<Long> folders;
-        EntityAccount account;
-        Map<EntityAccount, Boolean> accounts;
+        List<EntityAccount> imapAccounts;
         EntityAccount copyto;
 
         boolean canInbox() {
@@ -10716,7 +10714,7 @@ public class FragmentMessages extends FragmentBase
         boolean canMove() {
             if (read_only)
                 return false;
-            return (accounts.size() > 0);
+            return (imapAccounts.size() > 0);
         }
 
         static MoreResult get(Context context, long[] ids, boolean threading, boolean all) {
@@ -10863,23 +10861,18 @@ public class FragmentMessages extends FragmentBase
             if (result.hasTrash == null) result.hasTrash = false;
             if (result.hasJunk == null) result.hasJunk = false;
 
-            if (!result.hasPop && accounts.size() == 1)
-                result.account = accounts.values().iterator().next();
-
-            result.accounts = new LinkedHashMap<>();
+            result.imapAccounts = new ArrayList<>();
             if (!result.hasPop ||
                     (accounts.size() == 1 && result.isInbox && !result.isSent)) {
                 List<EntityAccount> syncing = db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
                 if (syncing != null)
-                    for (EntityAccount a : syncing)
-                        result.accounts.put(a, accounts.containsKey(a.id));
+                    result.imapAccounts.addAll(syncing);
             }
 
             if (result.folders.size() > 1)
                 result.folders = new ArrayList<>();
 
             return result;
-
         }
     }
 
