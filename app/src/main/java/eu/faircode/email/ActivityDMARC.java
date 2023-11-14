@@ -600,17 +600,16 @@ public class ActivityDMARC extends ActivityBase {
             List<Pair<String, DnsHelper.DnsRecord>> result = new ArrayList<>();
 
             try {
-                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "txt");
+                DnsHelper.DnsRecord[] records = DnsHelper.lookup(context, domain, "txt:v=spf1 ");
                 ssb.append(domain).append('=').append(Integer.toString(records.length)).append('\n');
-                for (DnsHelper.DnsRecord r : records)
-                    if (r.response.contains("spf")) {
-                        result.add(new Pair<>(domain, r));
-                        for (String part : r.response.split("\\s+"))
-                            if (part.toLowerCase(Locale.ROOT).startsWith("include:")) {
-                                String sub = part.substring("include:".length());
-                                result.addAll(lookupSpf(context, sub, ssb));
-                            }
-                    }
+                for (DnsHelper.DnsRecord r : records) {
+                    result.add(new Pair<>(domain, r));
+                    for (String part : r.response.split("\\s+"))
+                        if (part.toLowerCase(Locale.ROOT).startsWith("include:")) {
+                            String sub = part.substring("include:".length());
+                            result.addAll(lookupSpf(context, sub, ssb));
+                        }
+                }
             } catch (Throwable ex) {
                 Log.w(ex);
                 ssb.append(ex.toString()).append('\n');
