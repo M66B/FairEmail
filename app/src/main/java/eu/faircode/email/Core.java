@@ -5621,7 +5621,7 @@ class Core {
                 // Handle clear notifying on boot/update
                 EntityMessage msg = db.message().getMessage(message.id);
                 if (msg != null && msg.notifying == 0) {
-                    EntityLog.log(context, "Notify boot=" + msg.id);
+                    Log.i("Notify boot=" + msg.id);
                     data.groupNotifying.get(group).remove(msg.id);
                     data.groupNotifying.get(group).remove(-msg.id);
                 }
