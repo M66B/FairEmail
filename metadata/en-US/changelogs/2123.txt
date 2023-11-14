@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Vallibonavenatrix
 
+Next version
+
+* Added moving POP3 messages to IMAP accounts
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2123 - 2023-11-13
 
 * Added integrations-settings tab page
