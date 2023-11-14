@@ -476,7 +476,7 @@
     <string name="title_advanced_caption_message_header">Заголовок сообщения</string>
     <string name="title_advanced_caption_message_body">Текст сообщения</string>
     <string name="title_advanced_caption_file">Файл</string>
-    <string name="title_advanced_caption_integrations">Интеграции</string>
+    <string name="title_advanced_caption_integrations">Интеграция</string>
     <string name="title_advanced_portrait">Портретный режим</string>
     <string name="title_advanced_landscape">Альбомный режим</string>
     <string name="title_advanced_two_row">Использовать две строки</string>

@@ -451,6 +451,7 @@
     <string name="title_advanced_ssl_harden_strict">Necesită TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificarea strictă a certificatelor</string>
     <string name="title_advanced_open_safe">Deschideți numai conexiuni sigure</string>
+    <string name="title_advanced_bouncy_castle">Folosește furnizorul de socket securizat Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_navigation">Navigaţie</string>
