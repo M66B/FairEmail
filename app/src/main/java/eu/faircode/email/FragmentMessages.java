@@ -3181,7 +3181,7 @@ public class FragmentMessages extends FragmentBase
                         " folder=" + message.folderType);
 
                 if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
-                    redraw(viewHolder);
+                    redraw(null);
                     onSwipeAsk(message, viewHolder);
                 } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action)) {
                     redraw(viewHolder);
