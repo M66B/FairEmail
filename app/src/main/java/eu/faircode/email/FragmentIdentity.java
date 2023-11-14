@@ -1220,7 +1220,7 @@ public class FragmentIdentity extends FragmentBase {
         outState.putInt("fair:auth", auth);
         outState.putString("fair:authprovider", provider);
         outState.putString("fair:html", signature);
-        outState.putString("fair:uri", (String) btnUri.getTag());
+        outState.putString("fair:uri", btnUri == null ? null : (String) btnUri.getTag());
         super.onSaveInstanceState(outState);
     }
 
