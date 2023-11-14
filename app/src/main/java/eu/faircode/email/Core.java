@@ -5619,8 +5619,12 @@ class Core {
 
             if (message.notifying == 0) {
                 // Handle clear notifying on boot/update
-                data.groupNotifying.get(group).remove(message.id);
-                data.groupNotifying.get(group).remove(-message.id);
+                EntityMessage msg = db.message().getMessage(message.id);
+                if (msg != null && msg.notifying == 0) {
+                    EntityLog.log(context, "Notify boot=" + msg.id);
+                    data.groupNotifying.get(group).remove(msg.id);
+                    data.groupNotifying.get(group).remove(-msg.id);
+                }
             } else {
                 long id = message.id * message.notifying;
                 if (!data.groupNotifying.get(group).contains(id) &&
