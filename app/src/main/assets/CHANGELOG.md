@@ -6,6 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
+### 1.2126 - 2023-11-15
+
+* Fixed compatibility with Android 5 Lollipop
+* Small improvements and minor bug fixes
+
 ### 1.2125 - 2023-11-15
 
 * Small improvements and minor bug fixes
