@@ -6,7 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### 1.2124 - 2023-11-13
+### 1.2125 - 2023-11-15
+
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2124 - 2023-11-14
 
 * Fixed swipe / ask what to do
 * Added moving POP3 messages to IMAP accounts
