@@ -328,7 +328,7 @@
     <string name="title_advanced_hint_remark">        Die Optionen sind nach Registerkarten kategorisiert, in Abschnitte unterteilt, nach Erscheinungsbild oder Verwendung geordnet und durchsuchbar.
     </string>
     <string name="title_advanced_hint_setup">Sie können ein Konto konfigurieren, indem Sie auf dem Hauptkonfigurationsbildschirm auf die Schaltfläche des Assistenten tippen.</string>
-    <string name="title_advanced_section_main">Haupteinstellungen</string>
+    <string name="title_advanced_section_main">Grundeinstellungen</string>
     <string name="title_advanced_section_synchronize">Empfangen</string>
     <string name="title_advanced_section_send">Senden</string>
     <string name="title_advanced_section_connection">Verbindung</string>
@@ -1415,7 +1415,7 @@
     <string name="title_translate_tap">Tippen Sie auf den zu übersetzenden Text</string>
     <string name="title_suggestions_check">Wird überprüft &#8230;</string>
     <string name="title_suggestions_none">Keine Vorschläge</string>
-    <string name="title_edit_plain_text">Als unformatierten Text bearbeiten</string>
+    <string name="title_edit_plain_text">Als einfachen Text bearbeiten</string>
     <string name="title_edit_formatted_text">Als umformatierten Text bearbeiten</string>
     <string name="title_select_certificate">Öffentlichen Schlüssel auswählen</string>
     <string name="title_certificate_missing">Kein öffentlicher Schlüssel für %1$s</string>
