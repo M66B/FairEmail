@@ -44,6 +44,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.Group;
+import androidx.core.widget.TextViewCompat;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
@@ -384,7 +385,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
             cbBlockDomain.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.twotone_warning_24, 0);
             cbBlockDomain.setCompoundDrawablePadding(dp6);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                cbBlockDomain.setCompoundDrawableTintList(ColorStateList.valueOf(colorWarning));
+                TextViewCompat.setCompoundDrawableTintList(cbBlockDomain, ColorStateList.valueOf(colorWarning));
         }
 
         ibMore.setImageLevel(1);

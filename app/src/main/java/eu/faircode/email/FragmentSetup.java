@@ -65,6 +65,7 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.MenuCompat;
+import androidx.core.widget.TextViewCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
@@ -1014,7 +1015,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         tvDozeDone.setTextColor(isIgnoring ? textColorPrimary : colorWarning);
         tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(
                 (isIgnoring ? done : todo).mutate(), null, null, null);
-        tvDozeDone.setCompoundDrawableTintList(ColorStateList.valueOf(isIgnoring ? textColorPrimary : colorWarning));
+        TextViewCompat.setCompoundDrawableTintList(tvDozeDone,
+                ColorStateList.valueOf(isIgnoring ? textColorPrimary : colorWarning));
 
         btnDoze.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
         btnDoze.setCompoundDrawablesRelativeWithIntrinsicBounds(
@@ -1203,7 +1205,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         tvPermissionsDone.setTextColor(all ? textColorPrimary : colorWarning);
         tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(
                 (all ? done : todo).mutate(), null, null, null);
-        tvPermissionsDone.setCompoundDrawableTintList(ColorStateList.valueOf(all ? textColorPrimary : colorWarning));
+        TextViewCompat.setCompoundDrawableTintList(tvPermissionsDone,
+                ColorStateList.valueOf(all ? textColorPrimary : colorWarning));
 
         btnPermissions.setCompoundDrawablesRelativeWithIntrinsicBounds(
                 0, 0, all ? R.drawable.twotone_settings_24 : R.drawable.twotone_check_24, 0);

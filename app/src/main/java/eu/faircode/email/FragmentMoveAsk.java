@@ -38,6 +38,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+import androidx.core.widget.TextViewCompat;
 import androidx.preference.PreferenceManager;
 
 import java.text.Collator;
@@ -120,9 +121,9 @@ public class FragmentMoveAsk extends FragmentDialogBase {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (sourceColor != null)
-                tvSourceFolders.setCompoundDrawableTintList(ColorStateList.valueOf(sourceColor));
+                TextViewCompat.setCompoundDrawableTintList(tvSourceFolders, ColorStateList.valueOf(sourceColor));
             if (targetColor != null)
-                tvTargetFolders.setCompoundDrawableTintList(ColorStateList.valueOf(targetColor));
+                TextViewCompat.setCompoundDrawableTintList(tvTargetFolders, ColorStateList.valueOf(targetColor));
         }
 
         if (notagain != null)
