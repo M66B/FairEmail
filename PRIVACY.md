@@ -9,6 +9,9 @@ What follows is a complete overview of all the data that **can be** sent to the 
 which in the end is always your choice and therefore optional (except of course connecting to the email server).
 
 Except for error reports (disabled by default), the app does not send any data to the developer.
+Error reports will automatically be deleted after one month, or earlier upon request.
+
+Data will **never** be sold or shared in any way.
 
 ## Overview
 
@@ -19,14 +22,21 @@ FairEmail **does not** allow other apps access to message data without your appr
 FairEmail **does not** require unnecessary permissions.
 For more information on permissions, see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1).
 
+FairEmail **does** use modern and secure transport protocols by default.
+
+Android [encrypts all user data by default](https://source.android.com/docs/security/features/encryption), so all data, including account credentials, is stored encrypted by default.
+
 FairEmail **does** follow the recommendations of [this EFF article](https://www.eff.org/deeplinks/2019/01/stop-tracking-my-emails).
 
 FairEmail is 100 % **open source**, see [the license](https://github.com/M66B/FairEmail/blob/master/LICENSE).
 
 Error reporting via Bugsnag **is opt-in**, see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) for more information.
 
-FairEmail **adheres** to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes),
-including the Limited Use requirements. Google API Services are used only to authenticate Gmail accounts through OAuth.
+FairEmail **adheres** to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy),
+including the [Limited Use requirements](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes).
+Google API Services are used only to authenticate Gmail accounts through OAuth.
+
+The use of information received from Gmail APIs will adhere to the Google User Data Policy, including the Limited Use requirements."
 
 FairEmail **can use** these services if they are explicitly enabled (off by default) or are explicitly used by you:
 
@@ -78,7 +88,7 @@ This table provides a complete overview of all shared data and the conditions un
 | GitHub             | None, but see the remarks below                                    | Upon downloading Disconnect's Tracker Protection lists                      |
 |                    |                                                                    | Upon checking for updates (*)                                               |
 | BIMI               | Domain name of email addresses                                     | If BIMI is enabled, upon receiving a message (*)                            |
-| Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message                           |
+| Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message (*)                       |
 | Link title         | Link address                                                       | Upon pressing a download button in the insert link dialog                   |
 | Bugsnag            | Information about warnings and errors                              | If error reporting is enabled, upon detecting an abnormal situation         |
 
