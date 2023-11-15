@@ -91,6 +91,7 @@ import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.Set;
 
 import javax.mail.AuthenticationFailedException;
@@ -138,6 +139,7 @@ public class FragmentOAuth extends FragmentBase {
     private Group grpTenant;
     private Group grpError;
 
+    private static final String FAIREMAIL_RANDOM = "fairemail.random";
     private static final int MAILRU_TIMEOUT = 20 * 1000; // milliseconds
 
     @Override
@@ -380,7 +382,6 @@ public class FragmentOAuth extends FragmentBase {
             Log.breadcrumb("onAuthorize", "id", id);
 
             final Context context = getContext();
-            PackageManager pm = context.getPackageManager();
             EmailProvider provider = EmailProvider.getProvider(context, id);
             EmailProvider.OAuth oauth = (graph ? provider.graph : provider.oauth);
 
@@ -423,10 +424,13 @@ public class FragmentOAuth extends FragmentBase {
                     Uri.parse(authorizationEndpoint),
                     Uri.parse(tokenEndpoint));
 
+            int random = Math.abs(new Random().nextInt());
             AuthState authState = new AuthState(serviceConfig);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String key = "oauth." + provider.id + (graph ? ":graph" : "");
-            prefs.edit().putString(key, authState.jsonSerializeString()).apply();
+            JSONObject jauthstate = authState.jsonSerialize();
+            jauthstate.put(FAIREMAIL_RANDOM, random);
+            prefs.edit().putString(key, jauthstate.toString()).apply();
 
             Map<String, String> params = (oauth.parameters == null
                     ? new LinkedHashMap<>()
@@ -447,7 +451,7 @@ public class FragmentOAuth extends FragmentBase {
                             ResponseTypeValues.CODE,
                             redirectUri)
                             .setScopes(oauth.scopes)
-                            .setState(provider.id + (graph ? ":graph" : ""))
+                            .setState(provider.id + ":" + random + ":" + (graph ? ":graph" : ""))
                             .setAdditionalParameters(params);
 
             if (askAccount) {
@@ -530,19 +534,28 @@ public class FragmentOAuth extends FragmentBase {
             }
 
             String id = auth.state.split(":")[0];
+            int returnedRandom = Integer.parseInt(auth.state.split(":")[1]);
+            boolean graph = auth.state.endsWith(":graph");
             final EmailProvider provider = EmailProvider.getProvider(getContext(), id);
-            EmailProvider.OAuth oauth = (auth.state.endsWith(":graph") ? provider.graph : provider.oauth);
+            EmailProvider.OAuth oauth = (graph ? provider.graph : provider.oauth);
 
             if (provider.graph != null &&
                     provider.graph.enabled &&
-                    !auth.state.endsWith(":graph"))
+                    !graph)
                 setEnabled(false);
 
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            String json = prefs.getString("oauth." + auth.state, null);
+            String key = "oauth." + provider.id + (graph ? ":graph" : "");
+            String json = prefs.getString(key, null);
+            JSONObject jauthstate = new JSONObject(json);
+            int random = jauthstate.optInt(FAIREMAIL_RANDOM, -1);
+            jauthstate.remove(FAIREMAIL_RANDOM);
             prefs.edit().remove("oauth." + auth.state).apply();
 
-            final AuthState authState = AuthState.jsonDeserialize(json);
+            if (random != returnedRandom)
+                throw new SecurityException("random " + random + " <> " + returnedRandom);
+
+            final AuthState authState = AuthState.jsonDeserialize(jauthstate);
 
             Log.i("OAuth get token provider=" + provider.id + " state=" + auth.state);
             authState.update(auth, null);
@@ -597,7 +610,7 @@ public class FragmentOAuth extends FragmentBase {
                                             new String[]{access.idToken},
                                             new AuthState[]{authState});
                                 else {
-                                    if (auth.state.endsWith(":graph")) {
+                                    if (graph) {
                                         String key0 = "oauth." + provider.id;
                                         String json0 = prefs.getString(key0, null);
                                         prefs.edit().remove(key0).apply();
