@@ -69,6 +69,7 @@ public class FragmentQuickSetup extends FragmentBase {
     private ScrollView scroll;
 
     private TextView tvPrivacy;
+    private TextView tvPrivacyApp;
     private EditText etName;
     private EditText etEmail;
     private TextInputLayout tilPassword;
@@ -140,6 +141,7 @@ public class FragmentQuickSetup extends FragmentBase {
 
         // Get controls
         tvPrivacy = view.findViewById(R.id.tvPrivacy);
+        tvPrivacyApp = view.findViewById(R.id.tvPrivacyApp);
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
         tilPassword = view.findViewById(R.id.tilPassword);
@@ -182,6 +184,14 @@ public class FragmentQuickSetup extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Uri.parse(PRIVACY_URI), false);
+            }
+        });
+
+        tvPrivacyApp.setPaintFlags(tvPrivacyApp.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvPrivacyApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.PRIVACY_URI), false);
             }
         });
 

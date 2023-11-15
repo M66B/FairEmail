@@ -37,6 +37,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
+        <TextView
+            android:id="@+id/tvPrivacyApp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="6dp"
+            android:drawableEnd="@drawable/twotone_open_in_new_12"
+            android:drawablePadding="6dp"
+            android:text="@string/app_name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:attr/textColorLink"
+            app:drawableTint="?android:attr/textColorLink"
+            app:layout_constraintStart_toEndOf="@id/tvPrivacy"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
         <eu.faircode.email.EditTextPlain
             android:id="@+id/etName"
             android:layout_width="0dp"

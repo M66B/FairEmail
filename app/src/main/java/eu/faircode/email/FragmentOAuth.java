@@ -114,6 +114,7 @@ public class FragmentOAuth extends FragmentBase {
 
     private TextView tvTitle;
     private TextView tvPrivacy;
+    private TextView tvPrivacyApp;
     private EditText etName;
     private EditText etEmail;
     private EditText etTenant;
@@ -171,6 +172,7 @@ public class FragmentOAuth extends FragmentBase {
         // Get controls
         tvTitle = view.findViewById(R.id.tvTitle);
         tvPrivacy = view.findViewById(R.id.tvPrivacy);
+        tvPrivacyApp = view.findViewById(R.id.tvPrivacyApp);
         etName = view.findViewById(R.id.etName);
         etEmail = view.findViewById(R.id.etEmail);
         etTenant = view.findViewById(R.id.etTenant);
@@ -196,12 +198,23 @@ public class FragmentOAuth extends FragmentBase {
 
         // Wire controls
 
-        tvPrivacy.setVisibility(TextUtils.isEmpty(privacy) ? View.GONE : View.VISIBLE);
         tvPrivacy.setPaintFlags(tvPrivacy.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvPrivacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(privacy), false);
+                if (TextUtils.isEmpty(privacy))
+                    Helper.view(v.getContext(), Uri.parse(Helper.PRIVACY_URI), false);
+                else
+                    Helper.view(v.getContext(), Uri.parse(privacy), false);
+            }
+        });
+
+        tvPrivacy.setVisibility(TextUtils.isEmpty(privacy) ? View.GONE : View.VISIBLE);
+        tvPrivacyApp.setPaintFlags(tvPrivacyApp.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvPrivacyApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.PRIVACY_URI), false);
             }
         });
 

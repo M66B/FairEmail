@@ -76,6 +76,7 @@ public class FragmentGmail extends FragmentBase {
 
     private TextView tvTitle;
     private TextView tvPrivacy;
+    private TextView tvPrivacyApp;
     private Button btnGrant;
     private TextView tvGranted;
     private EditText etName;
@@ -122,6 +123,7 @@ public class FragmentGmail extends FragmentBase {
         // Get controls
         tvTitle = view.findViewById(R.id.tvTitle);
         tvPrivacy = view.findViewById(R.id.tvPrivacy);
+        tvPrivacyApp = view.findViewById(R.id.tvPrivacyApp);
         btnGrant = view.findViewById(R.id.btnGrant);
         tvGranted = view.findViewById(R.id.tvGranted);
         etName = view.findViewById(R.id.etName);
@@ -146,6 +148,14 @@ public class FragmentGmail extends FragmentBase {
             @Override
             public void onClick(View v) {
                 Helper.view(v.getContext(), Uri.parse(PRIVACY_URI), false);
+            }
+        });
+
+        tvPrivacyApp.setPaintFlags(tvPrivacyApp.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
+        tvPrivacyApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse(Helper.PRIVACY_URI), false);
             }
         });
 
