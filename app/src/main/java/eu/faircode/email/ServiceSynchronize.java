@@ -811,7 +811,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         // New message notifications batching
 
-        Core.NotificationData notificationData = new Core.NotificationData(this);
+        NotificationHelper.NotificationData notificationData = new NotificationHelper.NotificationData(this);
 
         MutableLiveData<List<TupleMessageEx>> mutableUnseenNotify = new MutableLiveData<>();
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
@@ -884,7 +884,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     public void delegate() {
                         try {
                             boolean fg = Boolean.TRUE.equals(foreground.getValue());
-                            Core.notifyMessages(ServiceSynchronize.this, messages, notificationData, fg);
+                            NotificationHelper.notifyMessages(ServiceSynchronize.this, messages, notificationData, fg);
                         } catch (SecurityException ex) {
                             Log.w(ex);
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
