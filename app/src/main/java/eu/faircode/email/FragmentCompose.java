@@ -5924,11 +5924,11 @@ public class FragmentCompose extends FragmentBase {
                             Element e = d.body();
 
                             // Apply styles
-                            List<CSSStyleSheet> sheets = HtmlSanitize.parseStyles(d.head().select("style"));
+                            List<CSSStyleSheet> sheets = HtmlHelper.parseStyles(d.head().select("style"));
                             for (Element element : e.select("*")) {
                                 String tag = element.tagName();
                                 String clazz = element.attr("class");
-                                String style = HtmlSanitize.processStyles(context, tag, clazz, null, sheets);
+                                String style = HtmlHelper.processStyles(context, tag, clazz, null, sheets);
                                 style = HtmlHelper.mergeStyles(style, element.attr("style"));
                                 if (!TextUtils.isEmpty(style))
                                     element.attr("style", style);

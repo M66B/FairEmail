@@ -351,9 +351,9 @@ public class ActivityCode extends ActivityBase {
 
                 if (sanitize) {
                     List<CSSStyleSheet> sheets =
-                            HtmlSanitize.parseStyles(d.head().select("style"));
+                            HtmlHelper.parseStyles(d.head().select("style"));
                     for (Element element : d.select("*")) {
-                        String computed = HtmlSanitize.processStyles(context,
+                        String computed = HtmlHelper.processStyles(context,
                                 element.tagName(),
                                 element.className(),
                                 element.attr("style"),
