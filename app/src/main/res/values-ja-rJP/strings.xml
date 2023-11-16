@@ -1848,8 +1848,8 @@
     <string name="title_default_apps">デフォルトのアプリ</string>
     <string name="title_reset_open">デフォルトのアプリを設定またはクリア</string>
     <string name="title_select_app">アプリを選択</string>
-    <string name="title_updated">バージョン %1$s への更新が利用可能です</string>
-    <string name="title_no_update">利用可能な更新はありません</string>
+    <string name="title_updated">バージョン %1$s へ更新できます</string>
+    <string name="title_no_update">利用できる更新はありません</string>
     <string name="title_issue">質問や問題がありますか？</string>
     <string name="title_yes">はい</string>
     <string name="title_no">いいえ</string>
