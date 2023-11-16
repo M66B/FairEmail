@@ -370,6 +370,7 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                 settings.setUserAgentString(WebViewEx.getUserAgent(context, printWebView));
                 settings.setLoadsImagesAutomatically(print_html_images);
                 settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+                settings.setJavaScriptEnabled(false);
                 settings.setAllowFileAccess(true);
 
                 printWebView.setWebViewClient(new WebViewClient() {
