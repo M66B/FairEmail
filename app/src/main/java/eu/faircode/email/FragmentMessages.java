@@ -1694,7 +1694,7 @@ public class FragmentMessages extends FragmentBase
                 if (result == null)
                     return;
 
-                if (result.imapAccounts.size() > 0)
+                if (result.imapAccounts.size() == 1)
                     onActionMoveSelectionAccount(result.imapAccounts.get(0).id, false, result.folders);
                 else {
                     PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(v.getContext(), getViewLifecycleOwner(), ibMove);
