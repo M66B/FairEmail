@@ -216,7 +216,7 @@ class ImageHelper {
 
     static byte[] getHash(String email) {
         try {
-            return MessageDigest.getInstance("MD5").digest(email.getBytes());
+            return MessageDigest.getInstance("SHA256").digest(email.getBytes());
         } catch (NoSuchAlgorithmException ignored) {
             return email.getBytes();
         }
