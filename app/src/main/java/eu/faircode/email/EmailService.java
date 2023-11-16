@@ -1050,6 +1050,8 @@ public class EmailService implements AutoCloseable {
             this.cert_strict = cert_strict;
             this.trustedFingerprint = fingerprint;
 
+            // https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#SSLContext
+            // https://stackoverflow.com/questions/69571364/sslcontext-getinstancetls-vulnerability
             // https://developer.android.com/about/versions/oreo/android-8.0-changes.html#security-all
             SSLContext sslContext;
             String protocol = (insecure ? "SSL" : "TLS");
