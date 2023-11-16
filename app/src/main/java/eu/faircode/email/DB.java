@@ -167,7 +167,7 @@ public abstract class DB extends RoomDatabase {
                 }
             } catch (SQLiteDatabaseCorruptException ex) {
                 Log.e(ex);
-                dbfile.delete();
+                Helper.secureDelete(dbfile);
             } catch (Throwable ex) {
                 Log.e(ex);
                 /*
@@ -325,7 +325,7 @@ public abstract class DB extends RoomDatabase {
                 Log.e(ex);
             }
         } else
-            emergency.delete();
+            Helper.secureDelete(emergency);
     }
 
     private static void checkEmergencyBackup(Context context) {
@@ -1625,7 +1625,7 @@ public abstract class DB extends RoomDatabase {
                         File[] raws = new File(context.getFilesDir(), "raw").listFiles();
                         if (raws != null)
                             for (File file : raws)
-                                file.delete();
+                                Helper.secureDelete(file);
                     }
                 })
                 .addMigrations(new Migration(122, 123) {

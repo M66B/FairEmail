@@ -260,7 +260,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         for (File file : db.getParentFile().listFiles())
             if (file.getName().startsWith(DATABASE_NAME)) {
                 Log.i("FTS delete=" + file);
-                file.delete();
+                Helper.secureDelete(file);
             }
     }
 }

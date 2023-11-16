@@ -1662,8 +1662,10 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                         File dir = Helper.ensureExists(new File(context.getFilesDir(), "syncdata"));
                         File[] files = dir.listFiles();
                         if (files != null)
-                            for (File file : files)
-                                Log.i("Cloud delete " + file + "=" + file.delete());
+                            for (File file : files) {
+                                Log.i("Cloud delete " + file);
+                                Helper.secureDelete(file);
+                            }
                     }
                 }
 

@@ -1121,7 +1121,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 File dest = new File(target, attachment.getName());
                                 Log.i("Move " + attachment + " to " + dest);
                                 Helper.copy(attachment, dest);
-                                attachment.delete();
+                                Helper.secureDelete(attachment);
                             }
 
                         if (BuildConfig.DEBUG) {
@@ -1141,9 +1141,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                             File dest = new File(t, message.getName());
                                             Log.i("Move " + message + " to " + dest);
                                             Helper.copy(message, dest);
-                                            message.delete();
+                                            Helper.secureDelete(message);
                                         }
-                                    dir.delete();
+                                    Helper.secureDelete(dir);
                                 }
                         }
 

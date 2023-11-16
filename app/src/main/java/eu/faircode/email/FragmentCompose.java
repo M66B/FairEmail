@@ -4143,7 +4143,7 @@ public class FragmentCompose extends FragmentBase {
                                 return null;
                             } else if (OpenPgpApi.ACTION_ENCRYPT.equals(data.getAction()) ||
                                     OpenPgpApi.ACTION_SIGN_AND_ENCRYPT.equals(data.getAction())) {
-                                input.delete();
+                                Helper.secureDelete(input);
 
                                 // send message
                                 args.putInt("action", largs.getInt("action"));
@@ -4157,7 +4157,7 @@ public class FragmentCompose extends FragmentBase {
                             return result.getParcelableExtra(OpenPgpApi.RESULT_INTENT);
 
                         case OpenPgpApi.RESULT_CODE_ERROR:
-                            input.delete();
+                            Helper.secureDelete(input);
                             db.identity().setIdentitySignKey(identity.id, null);
                             OpenPgpError error = result.getParcelableExtra(OpenPgpApi.RESULT_ERROR);
                             if (error != null &&
@@ -4172,7 +4172,7 @@ public class FragmentCompose extends FragmentBase {
                             throw new IllegalStateException("OpenPgp unknown result code=" + resultCode);
                     }
                 } finally {
-                    output.delete();
+                    Helper.secureDelete(output);
                 }
             }
 
@@ -4403,7 +4403,7 @@ public class FragmentCompose extends FragmentBase {
                 CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData);
                 byte[] signedMessage = cmsSignedData.getEncoded();
 
-                sinput.delete();
+                Helper.secureDelete(sinput);
 
                 // Build signature
                 if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
@@ -4555,7 +4555,7 @@ public class FragmentCompose extends FragmentBase {
                     cmsEnvelopedData.toASN1Structure().encodeTo(os);
                 }
 
-                einput.delete();
+                Helper.secureDelete(einput);
 
                 db.attachment().setDownloaded(attachment.id, encrypted.length());
 
@@ -5132,8 +5132,7 @@ public class FragmentCompose extends FragmentBase {
                 // content://eu.faircode.email/photo/nnn.jpg
                 File tmp = new File(context.getFilesDir(), uri.getPath());
                 Log.i("Deleting " + tmp);
-                if (!tmp.delete())
-                    Log.w("Error deleting " + tmp);
+                Helper.secureDelete(tmp);
             } else
                 Log.i("Authority=" + uri.getAuthority());
 
@@ -5262,13 +5261,13 @@ public class FragmentCompose extends FragmentBase {
                             throw new IOException("compress");
                     } catch (Throwable ex) {
                         Log.w(ex);
-                        tmp.delete();
+                        Helper.secureDelete(tmp);
                     } finally {
                         resized.recycle();
                     }
 
                     if (tmp.exists() && tmp.length() > 0) {
-                        file.delete();
+                        Helper.secureDelete(file);
                         tmp.renameTo(file);
                     }
 
@@ -6027,7 +6026,7 @@ public class FragmentCompose extends FragmentBase {
 
                         File file = attachment.getFile(context);
                         Helper.copy(ics, file);
-                        ics.delete();
+                        Helper.secureDelete(ics);
 
                         ICalendar icalendar = CalendarHelper.parse(context, file);
                         VEvent event = icalendar.getEvents().get(0);
@@ -6169,7 +6168,7 @@ public class FragmentCompose extends FragmentBase {
                         File refFile = data.draft.getRefFile(context);
                         if (refFile.exists()) {
                             ref.html(Helper.readText(refFile));
-                            refFile.delete();
+                            Helper.secureDelete(refFile);
                         }
 
                         // Possibly external draft

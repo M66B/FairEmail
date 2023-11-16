@@ -9061,7 +9061,7 @@ public class FragmentMessages extends FragmentBase
                             throw new IllegalStateException("OpenPgp unknown result code=" + resultCode);
                     }
                 } finally {
-                    plain.delete();
+                    Helper.secureDelete(plain);
                 }
 
                 return null;

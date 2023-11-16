@@ -403,7 +403,7 @@ public class EntityAttachment {
 
         DB db = DB.getInstance(context);
         db.attachment().setName(id, name + ".zip", "application/zip", zip.length());
-        file.delete();
+        Helper.secureDelete(file);
     }
 
     public static boolean equals(List<EntityAttachment> a1, List<EntityAttachment> a2) {

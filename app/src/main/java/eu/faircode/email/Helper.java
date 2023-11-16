@@ -151,6 +151,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -2832,6 +2834,16 @@ public class Helper {
                         files.add(file);
         }
         return files;
+    }
+
+    static void secureDelete(File file) {
+        if (file.exists()) {
+            try {
+                Files.delete(Paths.get(file.getAbsolutePath()));
+            } catch (IOException ex) {
+                Log.e(ex);
+            }
+        }
     }
 
     static long getAvailableStorageSpace() {

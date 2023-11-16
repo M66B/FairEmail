@@ -1514,7 +1514,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                         return Log.getDebugInfo(context, "crash", R.string.title_crash_info_remark, null, sb.toString(), null).id;
                     } finally {
-                        file.delete();
+                        Helper.secureDelete(file);
                     }
                 }
 

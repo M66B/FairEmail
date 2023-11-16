@@ -212,7 +212,7 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                             if (out.exists() && out.length() > 0)
                                 continue;
                         } else {
-                            out.delete();
+                            Helper.secureDelete(out);
                             continue;
                         }
 
