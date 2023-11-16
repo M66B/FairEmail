@@ -78,6 +78,8 @@ public class ActivityAMP extends ActivityBase {
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
 
+        wvAmp.clearCache(true);
+
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         boolean overview_mode = prefs.getBoolean("overview_mode", false);
         boolean safe_browsing = prefs.getBoolean("safe_browsing", false);

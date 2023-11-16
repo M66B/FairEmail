@@ -106,6 +106,8 @@ public class ActivityCode extends ActivityBase {
         pbWait = findViewById(R.id.pbWait);
         grpReady = findViewById(R.id.grpReady);
 
+        wvCode.clearCache(true);
+
         WebSettings settings = wvCode.getSettings();
 
         settings.setBuiltInZoomControls(true);
