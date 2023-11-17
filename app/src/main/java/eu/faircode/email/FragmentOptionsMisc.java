@@ -29,7 +29,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.UriPermission;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PermissionGroupInfo;
 import android.content.pm.PermissionInfo;
@@ -247,7 +246,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private Button btnFiles;
     private Button btnUris;
     private Button btnAllPermissions;
-    private TextView tvPermissions;
 
     private Group grpUpdates;
     private Group grpBitbucket;
@@ -482,7 +480,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         btnFiles = view.findViewById(R.id.btnFiles);
         btnUris = view.findViewById(R.id.btnUris);
         btnAllPermissions = view.findViewById(R.id.btnAllPermissions);
-        tvPermissions = view.findViewById(R.id.tvPermissions);
 
         grpUpdates = view.findViewById(R.id.grpUpdates);
         grpBitbucket = view.findViewById(R.id.grpBitbucket);
@@ -1944,7 +1941,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         super.onViewCreated(view, savedInstanceState);
         setContactInfo();
         setSuffixes();
-        setPermissionInfo();
     }
 
     @Override
@@ -2438,98 +2434,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 tvSuffixes.setText(ex.toString());
             }
         }.execute(this, new Bundle(), "suffixes");
-    }
-
-    private void setPermissionInfo() {
-        new SimpleTask<Spanned>() {
-            @Override
-            protected void onPreExecute(Bundle args) {
-                tvPermissions.setText(null);
-            }
-
-            @Override
-            protected Spanned onExecute(Context context, Bundle args) throws Throwable {
-                int start = 0;
-                int dp24 = Helper.dp2pixels(getContext(), 24);
-                SpannableStringBuilder ssb = new SpannableStringBuilderEx();
-                PackageManager pm = getContext().getPackageManager();
-                PackageInfo pi = pm.getPackageInfo(BuildConfig.APPLICATION_ID, PackageManager.GET_PERMISSIONS);
-                for (int i = 0; i < pi.requestedPermissions.length; i++) {
-                    boolean granted = ((pi.requestedPermissionsFlags[i] & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0);
-
-                    PermissionInfo info;
-                    try {
-                        info = pm.getPermissionInfo(pi.requestedPermissions[i], PackageManager.GET_META_DATA);
-                    } catch (Throwable ex) {
-                        info = new PermissionInfo();
-                        info.name = pi.requestedPermissions[i];
-                        if (!(ex instanceof PackageManager.NameNotFoundException))
-                            info.group = ex.toString();
-                    }
-
-                    ssb.append(info.name).append('\n');
-                    if (granted)
-                        ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
-                    start = ssb.length();
-
-                    if (info.group != null) {
-                        ssb.append(info.group).append('\n');
-                        ssb.setSpan(new IndentSpan(dp24), start, ssb.length(), 0);
-                        start = ssb.length();
-                    }
-
-                    CharSequence description = info.loadDescription(pm);
-                    if (description != null) {
-                        ssb.append(description).append('\n');
-                        ssb.setSpan(new IndentSpan(dp24), start, ssb.length(), 0);
-                        ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), start, ssb.length(), 0);
-                        start = ssb.length();
-                    }
-
-                    if (info.protectionLevel != 0) {
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)
-                            switch (info.getProtection()) {
-                                case PermissionInfo.PROTECTION_DANGEROUS:
-                                    ssb.append("dangerous ");
-                                    break;
-                                case PermissionInfo.PROTECTION_NORMAL:
-                                    ssb.append("normal ");
-                                    break;
-                                case PermissionInfo.PROTECTION_SIGNATURE:
-                                    ssb.append("signature ");
-                                    break;
-                                case PermissionInfo.PROTECTION_SIGNATURE_OR_SYSTEM:
-                                    ssb.append("signatureOrSystem ");
-                                    break;
-                            }
-
-                        ssb.append(Integer.toHexString(info.protectionLevel));
-
-                        if (info.flags != 0)
-                            ssb.append(' ').append(Integer.toHexString(info.flags));
-
-                        ssb.append('\n');
-                        ssb.setSpan(new IndentSpan(dp24), start, ssb.length(), 0);
-                        start = ssb.length();
-                    }
-
-                    ssb.append('\n');
-                }
-
-                return ssb;
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, Spanned permissions) {
-                tvPermissions.setText(permissions);
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                Log.w(ex);
-                tvPermissions.setText(ex.toString());
-            }
-        }.execute(this, new Bundle(), "permissions");
     }
 
     private void onExportClassifier(Context context) {
