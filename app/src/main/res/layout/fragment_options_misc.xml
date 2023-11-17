@@ -928,6 +928,18 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
+                    android:id="@+id/btnRepair"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_bug_report_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_advanced_repair"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCaptionDebug" />
+
+                <Button
                     android:id="@+id/btnDaily"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
@@ -937,7 +949,7 @@
                     android:drawablePadding="6dp"
                     android:text="@string/title_advanced_daily"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvCaptionDebug" />
+                    app:layout_constraintTop_toBottomOf="@id/btnRepair" />
 
                 <TextView
                     android:id="@+id/tvLastDaily"
