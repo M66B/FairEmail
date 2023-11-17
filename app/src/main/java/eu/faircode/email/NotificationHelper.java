@@ -474,8 +474,11 @@ class NotificationHelper {
                 // This assumes the messages are properly ordered
                 if (groupMessages.get(group).size() < MAX_NOTIFICATION_COUNT)
                     groupMessages.get(group).add(message);
-                else
+                else {
+                    EntityLog.log(context, "Notify max group=" + group +
+                            " count=" + groupMessages.get(group).size() + "/" + MAX_NOTIFICATION_COUNT);
                     db.message().setMessageUiIgnored(message.id, true);
+                }
             }
         }
 
