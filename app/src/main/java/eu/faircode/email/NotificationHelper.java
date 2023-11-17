@@ -85,7 +85,7 @@ class NotificationHelper {
     // the system might drop updates.
     private static final int DEFAULT_MAX_NOTIFICATION_ENQUEUE_RATE = 5; // NotificationManagerService.java
     private static final int MAX_PREVIEW = 5000; // characters
-    private static final long NOTIFY_DELAY = 1000L / DEFAULT_MAX_NOTIFICATION_ENQUEUE_RATE; // milliseconds
+    private static final long NOTIFY_DELAY = 1250L / DEFAULT_MAX_NOTIFICATION_ENQUEUE_RATE; // milliseconds
 
     private static final List<String> PERSISTENT_IDS = Collections.unmodifiableList(Arrays.asList(
             "service",
