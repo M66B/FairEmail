@@ -874,7 +874,6 @@
     <string name="title_advanced_test3" translatable="false">Test #3</string>
     <string name="title_advanced_test4" translatable="false">Test #4</string>
     <string name="title_advanced_test5" translatable="false">Test #5</string>
-    <string name="title_advanced_repair" translatable="false">Repair</string>
     <string name="title_advanced_daily" translatable="false">Daily</string>
     <string name="title_advanced_autostart" translatable="false">Autostart app</string>
     <string name="title_advanced_emergency" translatable="false">Write emergency file</string>

@@ -162,7 +162,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swTest4;
     private SwitchCompat swTest5;
 
-    private Button btnRepair;
     private Button btnDaily;
     private TextView tvLastDaily;
     private SwitchCompat swAutostart;
@@ -398,7 +397,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swTest4 = view.findViewById(R.id.swTest4);
         swTest5 = view.findViewById(R.id.swTest5);
 
-        btnRepair = view.findViewById(R.id.btnRepair);
         btnDaily = view.findViewById(R.id.btnDaily);
         tvLastDaily = view.findViewById(R.id.tvLastDaily);
         swAutostart = view.findViewById(R.id.swAutostart);
@@ -971,79 +969,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("test5", checked).apply();
-            }
-        });
-
-        btnRepair.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (BuildConfig.DEBUG)
-                    new AlertDialog.Builder(view.getContext())
-                            .setIcon(R.drawable.twotone_bug_report_24)
-                            .setTitle(R.string.title_advanced_repair)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    new SimpleTask<Void>() {
-                                        @Override
-                                        protected void onPostExecute(Bundle args) {
-                                            prefs.edit().remove("debug").apply();
-                                        }
-
-                                        @Override
-                                        protected Void onExecute(Context context, Bundle args) throws Throwable {
-                                            DB db = DB.getInstance(context);
-
-                                            List<EntityAccount> accounts = db.account().getAccounts();
-                                            if (accounts == null)
-                                                return null;
-
-                                            for (EntityAccount account : accounts) {
-                                                if (account.protocol != EntityAccount.TYPE_IMAP)
-                                                    continue;
-
-                                                List<EntityFolder> folders = db.folder().getFolders(account.id, false, false);
-                                                if (folders == null)
-                                                    continue;
-
-                                                EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
-                                                for (EntityFolder folder : folders) {
-                                                    if (inbox == null && "inbox".equalsIgnoreCase(folder.name))
-                                                        folder.type = EntityFolder.INBOX;
-
-                                                    if (!EntityFolder.USER.equals(folder.type) &&
-                                                            !EntityFolder.SYSTEM.equals(folder.type)) {
-                                                        EntityLog.log(context, "Repairing " + account.name + ":" + folder.type);
-                                                        folder.setProperties();
-                                                        folder.setSpecials(account);
-                                                        db.folder().updateFolder(folder);
-                                                    }
-                                                }
-                                            }
-
-                                            return null;
-                                        }
-
-                                        @Override
-                                        protected void onExecuted(Bundle args, Void data) {
-                                            ToastEx.makeText(v.getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
-                                            ServiceSynchronize.reload(v.getContext(), null, true, "repair");
-                                        }
-
-                                        @Override
-                                        protected void onException(Bundle args, Throwable ex) {
-                                            Log.unexpectedError(getParentFragmentManager(), ex);
-                                        }
-                                    }.execute(FragmentOptionsMisc.this, new Bundle(), "repair");
-                                }
-                            })
-                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // Do nothing
-                                }
-                            })
-                            .show();
             }
         });
 
