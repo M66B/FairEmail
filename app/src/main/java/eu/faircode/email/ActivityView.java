@@ -181,10 +181,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
     static final String ACTION_EDIT_RULE = BuildConfig.APPLICATION_ID + ".EDIT_RULE";
     static final String ACTION_NEW_MESSAGE = BuildConfig.APPLICATION_ID + ".NEW_MESSAGE";
 
-    private static final int UPDATE_TIMEOUT = 15 * 1000; // milliseconds
     private static final long EXIT_DELAY = 2500L; // milliseconds
-    static final long UPDATE_DAILY = (BuildConfig.BETA_RELEASE ? 4 : 12) * 3600 * 1000L; // milliseconds
-    static final long UPDATE_WEEKLY = 7 * 24 * 3600 * 1000L; // milliseconds
 
     private static final int ANNOUNCEMENT_TIMEOUT = 15 * 1000; // milliseconds
     private static final long ANNOUNCEMENT_INTERVAL = 4 * 3600 * 1000L; // milliseconds
@@ -971,7 +968,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 if (!play) {
                     if (!drawerLayout.isLocked(drawerContainer))
                         drawerLayout.closeDrawer(drawerContainer);
-                    checkUpdate(true);
+                    Update.check(ActivityView.this, true);
                     checkAnnouncements(true);
                 }
                 return !play;
@@ -1123,7 +1120,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         if (open)
             owner.start();
 
-        checkUpdate(false);
+        Update.check(this, false);
         checkAnnouncements(false);
         checkIntent();
     }
@@ -1536,242 +1533,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                         Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
             }
         }.execute(this, new Bundle(), "crash:log");
-    }
-
-    private void checkUpdate(boolean always) {
-        if (Helper.isPlayStoreInstall())
-            return;
-        if (!Helper.hasValidFingerprint(this) && !(always && BuildConfig.DEBUG))
-            return;
-
-        long now = new Date().getTime();
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean updates = prefs.getBoolean("updates", true);
-        boolean beta = prefs.getBoolean("beta", false) && false;
-        boolean weekly = prefs.getBoolean("weekly", Helper.hasPlayStore(this));
-        long last_update_check = prefs.getLong("last_update_check", 0);
-
-        if (!always && !updates)
-            return;
-        if (!always && last_update_check + (weekly ? UPDATE_WEEKLY : UPDATE_DAILY) > now)
-            return;
-
-        prefs.edit().putLong("last_update_check", now).apply();
-
-        Bundle args = new Bundle();
-        args.putBoolean("always", always);
-        args.putBoolean("beta", beta);
-
-        new SimpleTask<UpdateInfo>() {
-            @Override
-            protected UpdateInfo onExecute(Context context, Bundle args) throws Throwable {
-                boolean beta = args.getBoolean("beta");
-
-                StringBuilder response = new StringBuilder();
-                HttpsURLConnection urlConnection = null;
-                try {
-                    URL latest = new URL(beta ? BuildConfig.BITBUCKET_DOWNLOADS_API : BuildConfig.GITHUB_LATEST_API);
-                    urlConnection = (HttpsURLConnection) latest.openConnection();
-                    urlConnection.setRequestMethod("GET");
-                    urlConnection.setReadTimeout(UPDATE_TIMEOUT);
-                    urlConnection.setConnectTimeout(UPDATE_TIMEOUT);
-                    urlConnection.setDoOutput(false);
-                    ConnectionHelper.setUserAgent(context, urlConnection);
-                    urlConnection.connect();
-
-                    int status = urlConnection.getResponseCode();
-                    InputStream inputStream = (status == HttpsURLConnection.HTTP_OK
-                            ? urlConnection.getInputStream() : urlConnection.getErrorStream());
-
-                    if (inputStream != null) {
-                        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream));
-
-                        String line;
-                        while ((line = br.readLine()) != null)
-                            response.append(line);
-                    }
-
-                    if (status == HttpsURLConnection.HTTP_FORBIDDEN) {
-                        // {"message":"API rate limit exceeded for ...","documentation_url":"https://developer.github.com/v3/#rate-limiting"}
-                        JSONObject jmessage = new JSONObject(response.toString());
-                        if (jmessage.has("message"))
-                            throw new IllegalArgumentException(jmessage.getString("message"));
-                        throw new IOException("HTTP " + status + ": " + response);
-                    }
-                    if (status != HttpsURLConnection.HTTP_OK)
-                        throw new IOException("HTTP " + status + ": " + response);
-
-                    JSONObject jroot = new JSONObject(response.toString());
-
-                    if (beta) {
-                        if (!jroot.has("values"))
-                            throw new IOException("values field missing");
-
-                        JSONArray jvalues = jroot.getJSONArray("values");
-                        for (int i = 0; i < jvalues.length(); i++) {
-                            JSONObject jitem = jvalues.getJSONObject(i);
-                            if (!jitem.has("links"))
-                                continue;
-
-                            JSONObject jlinks = jitem.getJSONObject("links");
-                            if (!jlinks.has("self"))
-                                continue;
-
-                            JSONObject jself = jlinks.getJSONObject("self");
-                            if (!jself.has("href"))
-                                continue;
-
-                            // .../FairEmail-v1.1995a-play-preview-release.apk
-                            String link = jself.getString("href");
-                            if (!link.endsWith(".apk"))
-                                continue;
-
-                            int slash = link.lastIndexOf('/');
-                            if (slash < 0)
-                                continue;
-
-                            String[] c = link.substring(slash + 1).split("-");
-                            if (c.length < 4 ||
-                                    !"FairEmail".equals(c[0]) ||
-                                    c[1].length() < 8 ||
-                                    !"github".equals(c[2]) ||
-                                    !"update".equals(c[3]))
-                                continue;
-
-                            // v1.1995a
-                            Integer version = Helper.parseInt(c[1].substring(3, c[1].length() - 1));
-                            if (version == null)
-                                continue;
-                            char revision = c[1].charAt(c[1].length() - 1);
-
-                            int v = BuildConfig.VERSION_CODE;
-                            char r = BuildConfig.REVISION.charAt(0);
-                            if (BuildConfig.DEBUG || version > v || (version == v && revision > r)) {
-                                UpdateInfo info = new UpdateInfo();
-                                info.tag_name = c[1];
-                                info.html_url = BuildConfig.BITBUCKET_DOWNLOADS_URI;
-                                info.download_url = link;
-                                return info;
-                            }
-                        }
-                    } else {
-                        if (!jroot.has("tag_name") || jroot.isNull("tag_name"))
-                            throw new IOException("tag_name field missing");
-                        if (!jroot.has("assets") || jroot.isNull("assets"))
-                            throw new IOException("assets section missing");
-
-                        // Get update info
-                        UpdateInfo info = new UpdateInfo();
-                        info.tag_name = jroot.getString("tag_name");
-                        info.html_url = BuildConfig.GITHUB_LATEST_URI;
-
-                        // Check if new release
-                        JSONArray jassets = jroot.getJSONArray("assets");
-                        for (int i = 0; i < jassets.length(); i++) {
-                            JSONObject jasset = jassets.getJSONObject(i);
-                            if (jasset.has("name") && !jasset.isNull("name")) {
-                                String name = jasset.getString("name");
-                                if (name.endsWith(".apk") && name.contains("github")) {
-                                    info.download_url = jasset.optString("browser_download_url");
-                                    Log.i("Latest version=" + info.tag_name);
-                                    if (BuildConfig.DEBUG)
-                                        return info;
-                                    try {
-                                        if (Double.parseDouble(info.tag_name) <=
-                                                Double.parseDouble(BuildConfig.VERSION_NAME))
-                                            return null;
-                                        else
-                                            return info;
-                                    } catch (Throwable ex) {
-                                        Log.e(ex);
-                                        if (BuildConfig.VERSION_NAME.equals(info.tag_name))
-                                            return null;
-                                        else
-                                            return info;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    return null;
-                } finally {
-                    if (urlConnection != null)
-                        urlConnection.disconnect();
-                }
-            }
-
-            @Override
-            protected void onExecuted(Bundle args, UpdateInfo info) {
-                boolean always = args.getBoolean("always");
-                if (info == null) {
-                    if (always)
-                        ToastEx.makeText(ActivityView.this, R.string.title_no_update, Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                NotificationCompat.Builder builder =
-                        new NotificationCompat.Builder(ActivityView.this, "update")
-                                .setSmallIcon(R.drawable.baseline_get_app_white_24)
-                                .setContentTitle(getString(R.string.title_updated, info.tag_name))
-                                .setContentText(info.html_url)
-                                .setAutoCancel(true)
-                                .setShowWhen(false)
-                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-                                .setCategory(NotificationCompat.CATEGORY_REMINDER)
-                                .setVisibility(NotificationCompat.VISIBILITY_SECRET);
-
-                Intent update = new Intent(Intent.ACTION_VIEW, Uri.parse(info.html_url))
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                PendingIntent piUpdate = PendingIntentCompat.getActivity(
-                        ActivityView.this, PI_UPDATE, update, PendingIntent.FLAG_UPDATE_CURRENT);
-                builder.setContentIntent(piUpdate);
-
-                Intent manage = new Intent(ActivityView.this, ActivitySetup.class)
-                        .setAction("misc")
-                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                        .putExtra("tab", "misc");
-                PendingIntent piManage = PendingIntentCompat.getActivity(
-                        ActivityView.this, ActivitySetup.PI_MISC, manage, PendingIntent.FLAG_UPDATE_CURRENT);
-                NotificationCompat.Action.Builder actionManage = new NotificationCompat.Action.Builder(
-                        R.drawable.twotone_settings_24,
-                        getString(R.string.title_setup_manage),
-                        piManage);
-                builder.addAction(actionManage.build());
-
-                if (!TextUtils.isEmpty(info.download_url)) {
-                    Intent download = new Intent(Intent.ACTION_VIEW, Uri.parse(info.download_url))
-                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    PendingIntent piDownload = PendingIntentCompat.getActivity(
-                            ActivityView.this, 0, download, 0);
-                    NotificationCompat.Action.Builder actionDownload = new NotificationCompat.Action.Builder(
-                            R.drawable.twotone_cloud_download_24,
-                            getString(R.string.title_download),
-                            piDownload);
-                    builder.addAction(actionDownload.build());
-                }
-
-                try {
-                    NotificationManager nm =
-                            Helper.getSystemService(ActivityView.this, NotificationManager.class);
-                    if (NotificationHelper.areNotificationsEnabled(nm))
-                        nm.notify(NotificationHelper.NOTIFICATION_UPDATE,
-                                builder.build());
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                }
-            }
-
-            @Override
-            protected void onException(Bundle args, Throwable ex) {
-                if (args.getBoolean("always"))
-                    if (ex instanceof IllegalArgumentException || ex instanceof IOException)
-                        ToastEx.makeText(ActivityView.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-                    else
-                        Log.unexpectedError(getSupportFragmentManager(), ex);
-            }
-        }.execute(this, args, "update:check");
     }
 
     private void checkAnnouncements(boolean always) {
@@ -2563,12 +2324,6 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.content_frame, fragment).addToBackStack("rule");
         fragmentTransaction.commit();
-    }
-
-    private class UpdateInfo {
-        String tag_name; // version
-        String html_url;
-        String download_url;
     }
 
     private class Announcement {
