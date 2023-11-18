@@ -79,7 +79,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
 
-public class TaskComposeSMime extends SimpleTask<Void> {
+public class LoaderComposeSMime extends SimpleTask<Void> {
     @Override
     protected Void onExecute(Context context, Bundle args) throws Throwable {
         long id = args.getLong("id");

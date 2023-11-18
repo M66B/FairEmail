@@ -3733,7 +3733,7 @@ public class FragmentCompose extends FragmentBase {
         pgpLoader.serial().execute(this, args, "compose:pgp");
     }
 
-    private final SimpleTask<Object> pgpLoader = new TaskComposePgp() {
+    private final SimpleTask<Object> pgpLoader = new LoaderComposePgp() {
         @Override
         protected void onPreExecute(Bundle args) {
             setBusy(true);
@@ -3804,7 +3804,7 @@ public class FragmentCompose extends FragmentBase {
         sMimeLoader.serial().execute(this, args, "compose:s/mime");
     }
 
-    private final SimpleTask<Void> sMimeLoader = new TaskComposeSMime() {
+    private final SimpleTask<Void> sMimeLoader = new LoaderComposeSMime() {
         @Override
         protected void onPreExecute(Bundle args) {
             setBusy(true);
@@ -4259,10 +4259,10 @@ public class FragmentCompose extends FragmentBase {
         args.putBundle("extras", extras);
 
         Log.i("Run execute id=" + working + " reason=" + reason);
-        actionLoader.execute(this, args, "compose:action:" + TaskComposeAction.getActionName(action));
+        actionLoader.execute(this, args, "compose:action:" + LoaderComposeAction.getActionName(action));
     }
 
-    private final SimpleTask<ComposeHelper.DraftData> draftLoader = new TaskComposeDraft() {
+    private final SimpleTask<ComposeHelper.DraftData> draftLoader = new LoaderComposeDraft() {
         @Override
         protected void onExecuted(Bundle args, final ComposeHelper.DraftData data) {
             final String action = getArguments().getString("action");
@@ -4614,7 +4614,7 @@ public class FragmentCompose extends FragmentBase {
         }
     }.serial();
 
-    private final SimpleTask<EntityMessage> actionLoader = new TaskComposeAction() {
+    private final SimpleTask<EntityMessage> actionLoader = new LoaderComposeAction() {
         @Override
         protected void onPreExecute(Bundle args) {
             if (args.getBundle("extras").getBoolean("silent"))
@@ -4653,7 +4653,7 @@ public class FragmentCompose extends FragmentBase {
             boolean needsEncryption = args.getBoolean("needsEncryption");
             int action = args.getInt("action");
             Log.i("Loaded action id=" + draft.id +
-                    " action=" + TaskComposeAction.getActionName(action) + " encryption=" + needsEncryption);
+                    " action=" + LoaderComposeAction.getActionName(action) + " encryption=" + needsEncryption);
 
             int toPos = etTo.getSelectionStart();
             int ccPos = etCc.getSelectionStart();
