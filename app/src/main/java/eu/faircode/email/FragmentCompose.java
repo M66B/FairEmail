@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_FIRST_USER;
 import static android.app.Activity.RESULT_OK;
+import static android.system.OsConstants.ENOSPC;
 import static android.view.inputmethod.EditorInfo.IME_FLAG_NO_FULLSCREEN;
 
 import android.Manifest;
@@ -57,6 +58,7 @@ import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.security.KeyChain;
+import android.system.ErrnoException;
 import android.text.Editable;
 import android.text.Html;
 import android.text.Layout;
@@ -129,21 +131,52 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomnavigation.LabelVisibilityMode;
 import com.google.android.material.snackbar.Snackbar;
 
+import org.bouncycastle.asn1.ASN1ObjectIdentifier;
+import org.bouncycastle.cert.jcajce.JcaCertStore;
+import org.bouncycastle.cms.CMSAlgorithm;
+import org.bouncycastle.cms.CMSEnvelopedData;
+import org.bouncycastle.cms.CMSEnvelopedDataGenerator;
+import org.bouncycastle.cms.CMSProcessableFile;
+import org.bouncycastle.cms.CMSSignedData;
+import org.bouncycastle.cms.CMSSignedDataGenerator;
+import org.bouncycastle.cms.CMSTypedData;
+import org.bouncycastle.cms.RecipientInfoGenerator;
+import org.bouncycastle.cms.SignerInfoGenerator;
+import org.bouncycastle.cms.jcajce.JcaSignerInfoGeneratorBuilder;
+import org.bouncycastle.cms.jcajce.JceCMSContentEncryptorBuilder;
+import org.bouncycastle.cms.jcajce.JceKeyAgreeRecipientInfoGenerator;
+import org.bouncycastle.cms.jcajce.JceKeyTransRecipientInfoGenerator;
+import org.bouncycastle.operator.ContentSigner;
+import org.bouncycastle.operator.DigestCalculatorProvider;
 import org.bouncycastle.operator.OperatorCreationException;
+import org.bouncycastle.operator.OutputEncryptor;
 import org.bouncycastle.operator.RuntimeOperatorException;
+import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
+import org.bouncycastle.operator.jcajce.JcaDigestCalculatorProviderBuilder;
+import org.bouncycastle.util.Store;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.security.InvalidKeyException;
 import java.security.PrivateKey;
 import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.text.Collator;
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -156,12 +189,25 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Properties;
 import java.util.UUID;
 
+import javax.activation.DataHandler;
 import javax.mail.Address;
+import javax.mail.BodyPart;
 import javax.mail.MessageRemovedException;
+import javax.mail.MessagingException;
+import javax.mail.Multipart;
+import javax.mail.Part;
+import javax.mail.Session;
 import javax.mail.internet.AddressException;
+import javax.mail.internet.ContentType;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
+import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
+import javax.mail.internet.MimeUtility;
+import javax.mail.util.ByteArrayDataSource;
 
 public class FragmentCompose extends FragmentBase {
     private enum State {NONE, LOADING, LOADED}
@@ -3798,120 +3844,432 @@ public class FragmentCompose extends FragmentBase {
     };
 
     private void onSmime(Bundle args, final int action, final Bundle extras) {
-        args.putInt("action", action);
-        args.putBundle("extras", extras);
+        new SimpleTask<Void>() {
+            @Override
+            protected void onPreExecute(Bundle args) {
+                setBusy(true);
+            }
 
-        sMimeLoader.serial().execute(this, args, "compose:s/mime");
-    }
+            @Override
+            protected void onPostExecute(Bundle args) {
+                setBusy(false);
+            }
 
-    private final SimpleTask<Void> sMimeLoader = new LoaderComposeSMime() {
-        @Override
-        protected void onPreExecute(Bundle args) {
-            setBusy(true);
-        }
+            @Override
+            protected Void onExecute(Context context, Bundle args) throws Throwable {
+                long id = args.getLong("id");
+                int type = args.getInt("type");
+                String alias = args.getString("alias");
 
-        @Override
-        protected void onPostExecute(Bundle args) {
-            setBusy(false);
-        }
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean check_certificate = prefs.getBoolean("check_certificate", true);
 
-        @Override
-        protected void onExecuted(Bundle args, Void result) {
-            int action = args.getInt("action");
-            Bundle extras = args.getBundle("extras");
-            extras.putBoolean("encrypted", true);
-            onAction(action, extras, "smime");
-        }
+                File tmp = Helper.ensureExists(new File(context.getFilesDir(), "encryption"));
 
-        @Override
-        protected void onException(Bundle args, Throwable ex) {
-            if (ex instanceof IllegalArgumentException) {
-                Log.i(ex);
-                Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE)
-                        .setGestureInsetBottomIgnored(true);
-                Helper.setSnackbarLines(snackbar, 7);
-                snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                DB db = DB.getInstance(context);
+
+                // Get data
+                EntityMessage draft = db.message().getMessage(id);
+                if (draft == null)
+                    throw new MessageRemovedException("S/MIME");
+                EntityIdentity identity = db.identity().getIdentity(draft.identity);
+                if (identity == null)
+                    throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
+
+                // Get/clean attachments
+                List<EntityAttachment> attachments = db.attachment().getAttachments(id);
+                for (EntityAttachment attachment : new ArrayList<>(attachments))
+                    if (attachment.encryption != null) {
+                        db.attachment().deleteAttachment(attachment.id);
+                        attachments.remove(attachment);
+                    }
+
+                // Build message to sign
+                //   openssl smime -verify <xxx.eml
+                Properties props = MessageHelper.getSessionProperties(true);
+                Session isession = Session.getInstance(props, null);
+                MimeMessage imessage = new MimeMessage(isession);
+                MessageHelper.build(context, draft, attachments, identity, true, imessage);
+                imessage.saveChanges();
+                BodyPart bpContent = new MimeBodyPart() {
                     @Override
-                    public void onClick(View v) {
-                        if (ex.getCause() instanceof CertificateException)
-                            v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
-                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                                    .putExtra("tab", "encryption"));
-                        else {
-                            EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+                    public void setContent(Object content, String type) throws MessagingException {
+                        super.setContent(content, type);
 
-                            PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_send_dialog, 1, R.string.title_send_dialog);
-                            if (identity != null)
-                                popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, 2, R.string.title_reset_sign_key);
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_manage_certificates, 3, R.string.title_advanced_manage_certificates);
+                        // https://javaee.github.io/javamail/FAQ#howencode
+                        updateHeaders();
+                        if (content instanceof Multipart) {
+                            try {
+                                MessageHelper.overrideContentTransferEncoding((Multipart) content);
+                            } catch (IOException ex) {
+                                Log.e(ex);
+                            }
+                        } else
+                            setHeader("Content-Transfer-Encoding", "base64");
+                    }
+                };
+                bpContent.setContent(imessage.getContent(), imessage.getContentType());
 
-                            popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                                @Override
-                                public boolean onMenuItemClick(MenuItem item) {
-                                    int itemId = item.getItemId();
-                                    if (itemId == R.string.title_send_dialog) {
-                                        Helper.hideKeyboard(view);
+                if (alias == null)
+                    throw new IllegalArgumentException("Key alias missing");
 
-                                        FragmentDialogSend fragment = new FragmentDialogSend();
-                                        fragment.setArguments(args);
-                                        fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
-                                        fragment.show(getParentFragmentManager(), "compose:send");
-                                        return true;
-                                    } else if (itemId == R.string.title_reset_sign_key) {
-                                        Bundle args = new Bundle();
-                                        args.putLong("id", identity.id);
+                // Get private key
+                PrivateKey privkey = KeyChain.getPrivateKey(context, alias);
+                if (privkey == null)
+                    throw new IllegalArgumentException("Private key missing");
 
-                                        new SimpleTask<Void>() {
-                                            @Override
-                                            protected void onPostExecute(Bundle args) {
-                                                ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
-                                            }
+                // Get public key
+                X509Certificate[] chain = KeyChain.getCertificateChain(context, alias);
+                if (chain == null || chain.length == 0)
+                    throw new IllegalArgumentException("Certificate missing");
 
-                                            @Override
-                                            protected Void onExecute(Context context, Bundle args) throws Throwable {
-                                                long id = args.getLong("id");
+                if (check_certificate) {
+                    // Check public key validity
+                    try {
+                        chain[0].checkValidity();
+                        // TODO: check digitalSignature/nonRepudiation key usage
+                        // https://datatracker.ietf.org/doc/html/rfc3850#section-4.4.2
+                    } catch (CertificateException ex) {
+                        String msg = ex.getMessage();
+                        throw new IllegalArgumentException(
+                                TextUtils.isEmpty(msg) ? Log.formatThrowable(ex) : msg);
+                    }
 
-                                                DB db = DB.getInstance(context);
-                                                try {
-                                                    db.beginTransaction();
+                    // Check public key email
+                    boolean known = false;
+                    List<String> emails = EntityCertificate.getEmailAddresses(chain[0]);
+                    for (String email : emails)
+                        if (email.equalsIgnoreCase(identity.email)) {
+                            known = true;
+                            break;
+                        }
 
-                                                    db.identity().setIdentitySignKey(id, null);
-                                                    db.identity().setIdentitySignKeyAlias(id, null);
-                                                    db.identity().setIdentityEncrypt(id, 0);
+                    if (!known && emails.size() > 0) {
+                        String message = identity.email + " (" + TextUtils.join(", ", emails) + ")";
+                        throw new IllegalArgumentException(
+                                context.getString(R.string.title_certificate_missing, message),
+                                new CertificateException());
+                    }
+                }
 
-                                                    db.setTransactionSuccessful();
-                                                } finally {
-                                                    db.endTransaction();
+                // Store selected alias
+                db.identity().setIdentitySignKeyAlias(identity.id, alias);
+
+                // Build content
+                File sinput = new File(tmp, draft.id + ".smime_sign");
+                if (EntityMessage.SMIME_SIGNONLY.equals(type))
+                    try (OutputStream os = new MessageHelper.CanonicalizingStream(
+                            new BufferedOutputStream(new FileOutputStream(sinput)), EntityAttachment.SMIME_CONTENT, null)) {
+                        bpContent.writeTo(os);
+                    }
+                else
+                    try (FileOutputStream fos = new FileOutputStream(sinput)) {
+                        bpContent.writeTo(fos);
+                    }
+
+                if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
+                    EntityAttachment cattachment = new EntityAttachment();
+                    cattachment.message = draft.id;
+                    cattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
+                    cattachment.name = "content.asc";
+                    cattachment.type = "text/plain";
+                    cattachment.disposition = Part.INLINE;
+                    cattachment.encryption = EntityAttachment.SMIME_CONTENT;
+                    cattachment.id = db.attachment().insertAttachment(cattachment);
+
+                    File content = cattachment.getFile(context);
+                    Helper.copy(sinput, content);
+
+                    db.attachment().setDownloaded(cattachment.id, content.length());
+                }
+
+                // Sign
+                Store store = new JcaCertStore(Arrays.asList(chain));
+                CMSSignedDataGenerator cmsGenerator = new CMSSignedDataGenerator();
+                cmsGenerator.addCertificates(store);
+
+                String signAlgorithm = prefs.getString("sign_algo_smime", "SHA-256");
+
+                String algorithm = privkey.getAlgorithm();
+                if (TextUtils.isEmpty(algorithm) || "RSA".equals(algorithm))
+                    Log.i("Private key algorithm=" + algorithm);
+                else
+                    Log.e("Private key algorithm=" + algorithm);
+
+                if (TextUtils.isEmpty(algorithm))
+                    algorithm = "RSA";
+                else if ("EC".equals(algorithm))
+                    algorithm = "ECDSA";
+
+                algorithm = signAlgorithm.replace("-", "") + "with" + algorithm;
+                Log.i("Sign algorithm=" + algorithm);
+
+                ContentSigner contentSigner = new JcaContentSignerBuilder(algorithm)
+                        .build(privkey);
+                DigestCalculatorProvider digestCalculator = new JcaDigestCalculatorProviderBuilder()
+                        .build();
+                SignerInfoGenerator signerInfoGenerator = new JcaSignerInfoGeneratorBuilder(digestCalculator)
+                        .build(contentSigner, chain[0]);
+                cmsGenerator.addSignerInfoGenerator(signerInfoGenerator);
+
+                CMSTypedData cmsData = new CMSProcessableFile(sinput);
+                CMSSignedData cmsSignedData = cmsGenerator.generate(cmsData);
+                byte[] signedMessage = cmsSignedData.getEncoded();
+
+                Helper.secureDelete(sinput);
+
+                // Build signature
+                if (EntityMessage.SMIME_SIGNONLY.equals(type)) {
+                    ContentType ct = new ContentType("application/pkcs7-signature");
+                    ct.setParameter("micalg", signAlgorithm.toLowerCase(Locale.ROOT));
+
+                    EntityAttachment sattachment = new EntityAttachment();
+                    sattachment.message = draft.id;
+                    sattachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
+                    sattachment.name = "smime.p7s";
+                    sattachment.type = ct.toString();
+                    sattachment.disposition = Part.INLINE;
+                    sattachment.encryption = EntityAttachment.SMIME_SIGNATURE;
+                    sattachment.id = db.attachment().insertAttachment(sattachment);
+
+                    File file = sattachment.getFile(context);
+                    try (OutputStream os = new FileOutputStream(file)) {
+                        os.write(signedMessage);
+                    }
+
+                    db.attachment().setDownloaded(sattachment.id, file.length());
+
+                    return null;
+                }
+
+                List<Address> addresses = new ArrayList<>();
+                if (draft.to != null)
+                    addresses.addAll(Arrays.asList(draft.to));
+                if (draft.cc != null)
+                    addresses.addAll(Arrays.asList(draft.cc));
+                if (draft.bcc != null)
+                    addresses.addAll(Arrays.asList(draft.bcc));
+
+                List<X509Certificate> certs = new ArrayList<>();
+
+                boolean own = true;
+                for (Address address : addresses) {
+                    boolean found = false;
+                    Throwable cex = null;
+                    String email = ((InternetAddress) address).getAddress();
+                    List<EntityCertificate> acertificates = db.certificate().getCertificateByEmail(email);
+                    if (acertificates != null)
+                        for (EntityCertificate acertificate : acertificates) {
+                            X509Certificate cert = acertificate.getCertificate();
+                            try {
+                                cert.checkValidity();
+                                certs.add(cert);
+                                found = true;
+                                if (cert.equals(chain[0]))
+                                    own = false;
+                            } catch (CertificateException ex) {
+                                Log.w(ex);
+                                cex = ex;
+                            }
+                        }
+
+                    if (!found)
+                        if (cex == null)
+                            throw new IllegalArgumentException(
+                                    context.getString(R.string.title_certificate_missing, email));
+                        else
+                            throw new IllegalArgumentException(
+                                    context.getString(R.string.title_certificate_invalid, email), cex);
+                }
+
+                // Allow sender to decrypt own message
+                if (own)
+                    certs.add(chain[0]);
+
+                // Build signature
+                BodyPart bpSignature = new MimeBodyPart();
+                bpSignature.setFileName("smime.p7s");
+                bpSignature.setDataHandler(new DataHandler(new ByteArrayDataSource(signedMessage, "application/pkcs7-signature")));
+                bpSignature.setDisposition(Part.INLINE);
+
+                // Build message
+                ContentType ct = new ContentType("multipart/signed");
+                ct.setParameter("micalg", signAlgorithm.toLowerCase(Locale.ROOT));
+                ct.setParameter("protocol", "application/pkcs7-signature");
+                ct.setParameter("smime-type", "signed-data");
+                String ctx = ct.toString();
+                int slash = ctx.indexOf("/");
+                Multipart multipart = new MimeMultipart(ctx.substring(slash + 1));
+                multipart.addBodyPart(bpContent);
+                multipart.addBodyPart(bpSignature);
+                imessage.setContent(multipart);
+                imessage.saveChanges();
+
+                // Encrypt
+                CMSEnvelopedDataGenerator cmsEnvelopedDataGenerator = new CMSEnvelopedDataGenerator();
+                if ("EC".equals(privkey.getAlgorithm())) {
+                    // https://datatracker.ietf.org/doc/html/draft-ietf-smime-3278bis
+                    JceKeyAgreeRecipientInfoGenerator gen = new JceKeyAgreeRecipientInfoGenerator(
+                            CMSAlgorithm.ECCDH_SHA256KDF,
+                            privkey,
+                            chain[0].getPublicKey(),
+                            CMSAlgorithm.AES128_WRAP);
+                    for (X509Certificate cert : certs)
+                        gen.addRecipient(cert);
+                    cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
+                    // https://security.stackexchange.com/a/53960
+                    // throw new IllegalArgumentException("ECDSA cannot be used for encryption");
+                } else {
+                    for (X509Certificate cert : certs) {
+                        RecipientInfoGenerator gen = new JceKeyTransRecipientInfoGenerator(cert);
+                        cmsEnvelopedDataGenerator.addRecipientInfoGenerator(gen);
+                    }
+                }
+
+                File einput = new File(tmp, draft.id + ".smime_encrypt");
+                try (FileOutputStream fos = new FileOutputStream(einput)) {
+                    imessage.writeTo(fos);
+                }
+                CMSTypedData msg = new CMSProcessableFile(einput);
+
+                ASN1ObjectIdentifier encryptionOID;
+                String encryptAlgorithm = prefs.getString("encrypt_algo_smime", "AES-128");
+                switch (encryptAlgorithm) {
+                    case "AES-128":
+                        encryptionOID = CMSAlgorithm.AES128_CBC;
+                        break;
+                    case "AES-192":
+                        encryptionOID = CMSAlgorithm.AES192_CBC;
+                        break;
+                    case "AES-256":
+                        encryptionOID = CMSAlgorithm.AES256_CBC;
+                        break;
+                    default:
+                        encryptionOID = CMSAlgorithm.AES128_CBC;
+                }
+                Log.i("Encryption algorithm=" + encryptAlgorithm + " OID=" + encryptionOID);
+
+                OutputEncryptor encryptor = new JceCMSContentEncryptorBuilder(encryptionOID)
+                        .build();
+                CMSEnvelopedData cmsEnvelopedData = cmsEnvelopedDataGenerator
+                        .generate(msg, encryptor);
+
+                EntityAttachment attachment = new EntityAttachment();
+                attachment.message = draft.id;
+                attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
+                attachment.name = "smime.p7m";
+                attachment.type = "application/pkcs7-mime";
+                attachment.disposition = Part.INLINE;
+                attachment.encryption = EntityAttachment.SMIME_MESSAGE;
+                attachment.id = db.attachment().insertAttachment(attachment);
+
+                File encrypted = attachment.getFile(context);
+                try (OutputStream os = new FileOutputStream(encrypted)) {
+                    cmsEnvelopedData.toASN1Structure().encodeTo(os);
+                }
+
+                Helper.secureDelete(einput);
+
+                db.attachment().setDownloaded(attachment.id, encrypted.length());
+
+                return null;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, Void result) {
+                extras.putBoolean("encrypted", true);
+                onAction(action, extras, "smime");
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                if (ex instanceof IllegalArgumentException) {
+                    Log.i(ex);
+                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE)
+                            .setGestureInsetBottomIgnored(true);
+                    Helper.setSnackbarLines(snackbar, 7);
+                    snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            if (ex.getCause() instanceof CertificateException)
+                                v.getContext().startActivity(new Intent(v.getContext(), ActivitySetup.class)
+                                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                        .putExtra("tab", "encryption"));
+                            else {
+                                EntityIdentity identity = (EntityIdentity) spIdentity.getSelectedItem();
+
+                                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), vwAnchor);
+                                popupMenu.getMenu().add(Menu.NONE, R.string.title_send_dialog, 1, R.string.title_send_dialog);
+                                if (identity != null)
+                                    popupMenu.getMenu().add(Menu.NONE, R.string.title_reset_sign_key, 2, R.string.title_reset_sign_key);
+                                popupMenu.getMenu().add(Menu.NONE, R.string.title_advanced_manage_certificates, 3, R.string.title_advanced_manage_certificates);
+
+                                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                                    @Override
+                                    public boolean onMenuItemClick(MenuItem item) {
+                                        int itemId = item.getItemId();
+                                        if (itemId == R.string.title_send_dialog) {
+                                            Helper.hideKeyboard(view);
+
+                                            FragmentDialogSend fragment = new FragmentDialogSend();
+                                            fragment.setArguments(args);
+                                            fragment.setTargetFragment(FragmentCompose.this, REQUEST_SEND);
+                                            fragment.show(getParentFragmentManager(), "compose:send");
+                                            return true;
+                                        } else if (itemId == R.string.title_reset_sign_key) {
+                                            Bundle args = new Bundle();
+                                            args.putLong("id", identity.id);
+
+                                            new SimpleTask<Void>() {
+                                                @Override
+                                                protected void onPostExecute(Bundle args) {
+                                                    ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
                                                 }
 
-                                                return null;
-                                            }
+                                                @Override
+                                                protected Void onExecute(Context context, Bundle args) throws Throwable {
+                                                    long id = args.getLong("id");
 
-                                            @Override
-                                            protected void onException(Bundle args, Throwable ex) {
-                                                Log.unexpectedError(getParentFragmentManager(), ex);
-                                            }
-                                        }.execute(FragmentCompose.this, args, "identity:reset");
-                                    } else if (itemId == R.string.title_advanced_manage_certificates) {
-                                        startActivity(new Intent(getContext(), ActivitySetup.class)
-                                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                                                .putExtra("tab", "encryption"));
-                                        return true;
+                                                    DB db = DB.getInstance(context);
+                                                    try {
+                                                        db.beginTransaction();
+
+                                                        db.identity().setIdentitySignKey(id, null);
+                                                        db.identity().setIdentitySignKeyAlias(id, null);
+                                                        db.identity().setIdentityEncrypt(id, 0);
+
+                                                        db.setTransactionSuccessful();
+                                                    } finally {
+                                                        db.endTransaction();
+                                                    }
+
+                                                    return null;
+                                                }
+
+                                                @Override
+                                                protected void onException(Bundle args, Throwable ex) {
+                                                    Log.unexpectedError(getParentFragmentManager(), ex);
+                                                }
+                                            }.execute(FragmentCompose.this, args, "identity:reset");
+                                        } else if (itemId == R.string.title_advanced_manage_certificates) {
+                                            startActivity(new Intent(getContext(), ActivitySetup.class)
+                                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                                    .putExtra("tab", "encryption"));
+                                            return true;
+                                        }
+                                        return false;
                                     }
-                                    return false;
-                                }
-                            });
+                                });
 
-                            popupMenu.show();
+                                popupMenu.show();
+                            }
                         }
-                    }
-                });
-                snackbar.show();
-            } else {
-                if (ex instanceof RuntimeOperatorException &&
-                        ex.getMessage() != null &&
-                        ex.getMessage().contains("Memory allocation failed")) {
+                    });
+                    snackbar.show();
+                } else {
+                    if (ex instanceof RuntimeOperatorException &&
+                            ex.getMessage() != null &&
+                            ex.getMessage().contains("Memory allocation failed")) {
                         /*
                             org.bouncycastle.operator.RuntimeOperatorException: exception obtaining signature: android.security.KeyStoreException: Memory allocation failed
                                 at org.bouncycastle.operator.jcajce.JcaContentSignerBuilder$1.getSignature(Unknown Source:31)
@@ -3938,17 +4296,18 @@ public class FragmentCompose extends FragmentBase {
                                 at android.security.keystore.KeyStoreCryptoOperationChunkedStreamer.doFinal(KeyStoreCryptoOperationChunkedStreamer.java:224)
                                 at android.security.keystore.AndroidKeyStoreSignatureSpiBase.engineSign(AndroidKeyStoreSignatureSpiBase.java:328)
                          */
-                    // https://issuetracker.google.com/issues/199605614
-                    Log.unexpectedError(getParentFragmentManager(), new IllegalArgumentException("Key too large for Android", ex));
-                } else {
-                    boolean expected =
-                            (ex instanceof OperatorCreationException &&
-                                    ex.getCause() instanceof InvalidKeyException);
-                    Log.unexpectedError(getParentFragmentManager(), ex, !expected);
+                        // https://issuetracker.google.com/issues/199605614
+                        Log.unexpectedError(getParentFragmentManager(), new IllegalArgumentException("Key too large for Android", ex));
+                    } else {
+                        boolean expected =
+                                (ex instanceof OperatorCreationException &&
+                                        ex.getCause() instanceof InvalidKeyException);
+                        Log.unexpectedError(getParentFragmentManager(), ex, !expected);
+                    }
                 }
             }
-        }
-    };
+        }.serial().execute(this, args, "compose:s/mime");
+    }
 
     private void onContactGroupSelected(Bundle args) {
         final int target = args.getInt("target");
