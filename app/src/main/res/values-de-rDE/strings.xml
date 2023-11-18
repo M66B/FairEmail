@@ -846,7 +846,7 @@
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
     <string name="title_advanced_notify_car_hint">Verbunden bedeutet, dass etwas projiziert wird, zum Beispiel eine Karte für die Navigation</string>
-    <string name="title_advanced_notify_remove_hint">Benachrichtigungen über neue Nachrichten werden immer entfernt, wenn sie weggewischt oder als gelesen gekennzeichnet werden</string>
+    <string name="title_advanced_notify_remove_hint">Eingangsbenachrichtigungen werden immer entfernt, wenn sie weggewischt oder als gelesen gekennzeichnet werden</string>
     <string name="title_advanced_notify_manage_hint">Auf den Kanalnamen tippen, um die Kanaleigenschaften festzulegen</string>
     <string name="title_advanced_notify_manage_default_hint">Zum Einstellen des Standardtons usw.</string>
     <string name="title_advanced_notify_manage_service_hint">Zum Deaktivieren der Benachrichtigung für die App-Überwachung</string>
@@ -1747,8 +1747,8 @@
     <string name="title_legend_bookmark">Zuletzt geöffnete Unterhaltung</string>
     <string name="title_legend_zoom">Textgröße ändern</string>
     <string name="title_legend_draft">Entwurf vorhanden</string>
-    <string name="title_legend_priority">Hat hohe Priorität</string>
-    <string name="title_legend_priority_low">Hat niedrige Priorität</string>
+    <string name="title_legend_priority">Hohe Priorität</string>
+    <string name="title_legend_priority_low">Niedrige Priorität</string>
     <string name="title_legend_sensitivity_personal">Persönlich</string>
     <string name="title_legend_sensitivity_private">Privat</string>
     <string name="title_legend_sensitivity_confidential">Vertraulich</string>

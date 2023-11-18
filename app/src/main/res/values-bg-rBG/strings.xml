@@ -139,6 +139,8 @@
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Помощ</string>
     <string name="title_setup_quick">Бърза настройка</string>
+    <string name="title_setup_issue">FairEmail е развито, за да ви помогне да защитите поверителността си и представлява буквално хиляди часове работа. Ако имате проблеми, то се свържете първо с мен за поддръжка преди да оставите лош отзив. Радвам се да помогна!</string>
+    <string name="title_setup_analytics">FairEmail не показва реклами и не проследява или анализира поведението ви. Bugsnag се употребява за докладване на грешки и по подразбиране е изключено.</string>
     <string name="title_setup_quick_accounts">Добавяне или промяна на акаунтите</string>
     <string name="title_setup_quick_patience">Търпение &#8230;</string>
     <string name="title_setup_quick_imap">IMAP сървър за получаване на съобщения</string>
@@ -262,6 +264,9 @@
     <string name="title_setup_theme_dark">Тъмна</string>
     <string name="title_setup_theme_system">Използвай системните</string>
     <string name="title_setup_theme_black_background">Черен фон</string>
+    <string name="title_setup_theme_html_light">Светъл фон за преглед на първообразното съобщение</string>
+    <string name="title_setup_theme_composer_light">Светъл фон за редактора на съобщения</string>
+    <string name="title_setup_theme_you_hint">Цветовете на Material може да се настроят в Тапети на Android &amp; настройка на стил</string>
     <string name="title_setup_theme_system_hint">Системната тема ще превключи автоматично от светло/тъмно през деня/ноща, ако се поддържа от Андроид</string>
     <string name="title_setup_theme_more_colors">Искам още багри</string>
     <string name="title_setup_advanced">Разширени</string>
@@ -291,6 +296,7 @@
     <string name="title_advanced_section_notifications">Известия</string>
     <string name="title_advanced_section_misc">Разни</string>
     <string name="title_advanced_section_backup">Архивиране</string>
+    <string name="title_advanced_default">Всички възможности имат общи употребявани стандартни стойности, които не се нуждаят от промяна за употреба на приложението</string>
     <string name="title_advanced_receive">Получаване на съобщения от всички акаунти</string>
     <string name="title_advanced_when">Кога</string>
     <string name="title_advanced_optimize">Автоматично оптимизиране</string>
@@ -306,6 +312,7 @@
     <string name="title_advanced_delete_unseen">Изтриване на старите непрочетени съобщения</string>
     <string name="title_advanced_kept_removed">Проверете дали старите съобщения са премахнати от сървъра</string>
     <string name="title_advanced_gmail_thread">Стил на Gmail за групиране на съобщенията за акаунти в Gmail</string>
+    <string name="title_advanced_subject_threading">Групови съобщения от подателя и тема</string>
     <string name="title_advanced_sync_folders">Синхронизиране на списъка с папки</string>
     <string name="title_advanced_sync_folders_poll">Активно синхро. на списъка с папки</string>
     <string name="title_advanced_sync_shared_folders">Синхронизиране на споделени списъци с папки</string>
@@ -324,6 +331,7 @@
     <string name="title_advanced_suggest_sent">Предложи адреси, намерени в изпратените съобщения</string>
     <string name="title_advanced_suggest_received">Предложи адреси, намерени в получени съобщения</string>
     <string name="title_advanced_suggest_frequently">Сортиране на предложените адреси по използваемост</string>
+    <string name="title_advanced_suggest_account">Ограничаване на предложенията за текущия акаунт</string>
     <string name="title_advanced_alt_re_fwd">Алтернативен префикс за отговор/препращане</string>
     <string name="title_advanced_send_chips">Показване на адресни мехурчета</string>
     <string name="title_advanced_send_reminders">Показване на напомняния</string>

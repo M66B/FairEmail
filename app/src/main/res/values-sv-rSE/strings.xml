@@ -434,6 +434,7 @@
     <string name="title_advanced_ssl_harden_strict">Kräv TLS 1.3</string>
     <string name="title_advanced_cert_strict">Strikt certifikatkontroll</string>
     <string name="title_advanced_open_safe">Skapa endast säkra anslutningar</string>
+    <string name="title_advanced_bouncy_castle">Använd Bouncy Castles säkra sockets (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Hantera anslutning</string>
     <string name="title_advanced_caption_general">Allmänt</string>
     <string name="title_advanced_caption_navigation">Navigering</string>
