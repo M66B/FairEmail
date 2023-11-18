@@ -9,6 +9,8 @@
 
 <img align="right" src="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/res/mipmap-hdpi/ic_launcher.png">
 
+<sup>Provided by [FairCode B.V.](https://www.faircode.eu/)</sup>
+
 # FairEmail
 
 [![GitHub](https://img.shields.io/github/license/M66B/FairEmail.svg)](https://github.com/M66B/FairEmail/blob/master/LICENSE)
