@@ -49,6 +49,7 @@ jobs:
       run: |
         ./gradlew upload -Ptarget=play-preview
         ./gradlew upload -Ptarget=github-update
+        ./gradlew upload -Ptarget=large-update
     #https://github.com/actions/upload-artifact
     - uses: actions/upload-artifact@v3
       with:
