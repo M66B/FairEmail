@@ -2347,7 +2347,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swIdleDone.setChecked(prefs.getBoolean("idle_done", true));
             swFastFetch.setChecked(prefs.getBoolean("fast_fetch", false));
 
-            int max_backoff_power = prefs.getInt("max_backoff_power", ServiceMonitor.DEFAULT_BACKOFF_POWER - 3);
+            int max_backoff_power = prefs.getInt("max_backoff_power", ServiceSynchronize.DEFAULT_BACKOFF_POWER - 3);
             int max_backoff = (int) Math.pow(2, max_backoff_power + 3);
             tvMaxBackoff.setText(getString(R.string.title_advanced_max_backoff, max_backoff));
             sbMaxBackOff.setProgress(max_backoff_power);
