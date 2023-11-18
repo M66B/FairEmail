@@ -1,6 +1,18 @@
+.table-wrapper {
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table colgroup col {
+	width: auto !important;
+}
+
 table, th, td {
 	border: 1px solid black;
-	border-collapse: collapse;
 }
 
 td {

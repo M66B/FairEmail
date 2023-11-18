@@ -77,6 +77,8 @@ FairEmail **is** [GDPR compliant](https://gdpr.eu/).
 
 This table provides a complete overview of all shared data and the conditions under which data will be shared:
 
+<div class="table-wrapper">
+
 | Service/function   | Data sent                                                          | When the data will be sent                                                  |
 | ------------------ | ------------------------------------------------------------------ | --------------------------------------------------------------------------- |
 | Mozilla autoconfig | Domain name of email address of email accounts                     | Upon configuring an email account with the quick setup wizard               |
@@ -98,6 +100,8 @@ This table provides a complete overview of all shared data and the conditions un
 | Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message (*)                       |
 | Link title         | Link address                                                       | Upon pressing a download button in the insert link dialog                   |
 | Bugsnag            | Information about warnings and errors                              | If error reporting is enabled, upon detecting an abnormal situation         |
+
+</div>
 
 (*) Only available in the GitHub version of the app
 
