@@ -392,6 +392,11 @@ task updateFAQ(type: Exec) {
     commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FAQ FairEmail"  FAQ.md -o index.html'
 }
 
+task updatePrivacy(type: Exec) {
+    workingDir "${rootDir}"
+    commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FairEmail" --css=privacy.css PRIVACY.md -o privacy.html'
+}
+
 task downloadPSL(type: Download) {
     // https://github.com/michel-kraemer/gradle-download-task
     src "https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat"
