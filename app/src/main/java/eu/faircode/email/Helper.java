@@ -210,7 +210,7 @@ public class Helper {
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
 
     static final String PACKAGE_WEBVIEW = "https://play.google.com/store/apps/details?id=com.google.android.webview";
-    static final String PRIVACY_URI = "https://github.com/M66B/FairEmail/blob/master/PRIVACY.md";
+    static final String PRIVACY_URI = "https://email.faircode.eu/privacy/";
     static final String TUTORIALS_URI = "https://github.com/M66B/FairEmail/tree/master/tutorials#main";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
     static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport";
