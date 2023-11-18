@@ -56,7 +56,7 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeUtility;
 
-public class LoaderComposePgp extends SimpleTask<Object> {
+public class TaskComposePgp extends SimpleTask<Object> {
     private String[] pgpUserIds;
     private long[] pgpKeyIds;
     private long pgpSignKeyId;
@@ -380,6 +380,6 @@ public class LoaderComposePgp extends SimpleTask<Object> {
 
     @Override
     protected void onException(Bundle args, Throwable ex) {
-        throw new NotImplementedException("LoaderDraft");
+        throw new NotImplementedException(this.getClass().getName());
     }
 }

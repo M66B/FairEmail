@@ -62,7 +62,7 @@ import javax.mail.Session;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
-public abstract class LoaderComposeAction extends SimpleTask<EntityMessage> {
+public abstract class TaskComposeAction extends SimpleTask<EntityMessage> {
     private static final int MAX_REASONABLE_SIZE = 5 * 1024 * 1024;
 
     @Override
@@ -754,15 +754,15 @@ public abstract class LoaderComposeAction extends SimpleTask<EntityMessage> {
     }
 
     protected Pair<Integer, List<EntityAttachment>> get() {
-        throw new NotImplementedException("LoaderAction");
+        throw new NotImplementedException(this.getClass().getName());
     }
 
     protected void set(Integer plain_only, List<EntityAttachment> attachments) {
-        throw new NotImplementedException("LoaderAction");
+        throw new NotImplementedException(this.getClass().getName());
     }
 
     protected void toast(String feedback) {
-        throw new NotImplementedException("LoaderAction");
+        throw new NotImplementedException(this.getClass().getName());
     }
 
     private void checkAddress(InternetAddress[] addresses, Context context) throws AddressException {

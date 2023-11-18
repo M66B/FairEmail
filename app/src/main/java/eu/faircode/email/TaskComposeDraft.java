@@ -55,7 +55,7 @@ import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Organizer;
 
-public abstract class LoaderComposeDraft extends SimpleTask<ComposeHelper.DraftData> {
+public abstract class TaskComposeDraft extends SimpleTask<ComposeHelper.DraftData> {
     private static final int MAX_QUOTE_LEVEL = 5;
 
     @Override
@@ -974,10 +974,10 @@ public abstract class LoaderComposeDraft extends SimpleTask<ComposeHelper.DraftD
 
     @Override
     protected void onException(Bundle args, Throwable ex) {
-        throw new NotImplementedException("LoaderDraft");
+        throw new NotImplementedException(this.getClass().getName());
     }
 
     protected void set(Integer plain_only, List<EntityAttachment> attachments) {
-        throw new NotImplementedException("LoaderDraft");
+        throw new NotImplementedException(this.getClass().getName());
     }
 }
