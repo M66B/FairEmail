@@ -54,7 +54,7 @@ public class FragmentDialogAddImage extends FragmentDialogBase {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean add_inline = prefs.getBoolean("add_inline", true);
         boolean resize_images = prefs.getBoolean("resize_images", true);
-        int resize = prefs.getInt("resize", ComposeHelper.REDUCED_IMAGE_SIZE);
+        int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
         boolean privacy_images = prefs.getBoolean("privacy_images", false);
         boolean image_dialog = prefs.getBoolean("image_dialog", true);
 

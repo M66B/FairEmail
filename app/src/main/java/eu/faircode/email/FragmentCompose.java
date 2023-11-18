@@ -39,8 +39,11 @@ import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.MatrixCursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.ImageDecoder;
+import android.graphics.Matrix;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
@@ -48,6 +51,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
+import android.net.NetworkInfo;
 import android.net.NetworkRequest;
 import android.net.Uri;
 import android.os.Build;
@@ -86,6 +90,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
+import android.webkit.MimeTypeMap;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -117,6 +122,8 @@ import androidx.core.graphics.ColorUtils;
 import androidx.core.view.MenuCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
+import androidx.documentfile.provider.DocumentFile;
+import androidx.exifinterface.media.ExifInterface;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -159,6 +166,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.openintents.openpgp.OpenPgpError;
 import org.openintents.openpgp.util.OpenPgpApi;
+import org.w3c.dom.css.CSSStyleSheet;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -171,6 +179,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.security.InvalidKeyException;
@@ -178,6 +187,7 @@ import java.security.PrivateKey;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.text.Collator;
+import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -191,10 +201,15 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Properties;
 import java.util.UUID;
+import java.util.concurrent.Callable;
+import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 import javax.activation.DataHandler;
 import javax.mail.Address;
 import javax.mail.BodyPart;
+import javax.mail.Message;
 import javax.mail.MessageRemovedException;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
@@ -207,7 +222,12 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.internet.MimeUtility;
+import javax.mail.internet.ParseException;
 import javax.mail.util.ByteArrayDataSource;
+
+import biweekly.ICalendar;
+import biweekly.component.VEvent;
+import biweekly.property.Organizer;
 
 public class FragmentCompose extends FragmentBase {
     private enum State {NONE, LOADING, LOADED}
@@ -298,6 +318,14 @@ public class FragmentCompose extends FragmentBase {
     private long pgpSignKeyId;
 
     private int searchIndex = 0;
+
+    static final int REDUCED_IMAGE_SIZE = 1440; // pixels
+    private static final int REDUCED_IMAGE_QUALITY = 90; // percent
+    // http://regex.info/blog/lightroom-goodies/jpeg-quality
+    private static final int COPY_ATTACHMENT_TIMEOUT = 60; // seconds
+
+    private static final int MAX_QUOTE_LEVEL = 5;
+    private static final int MAX_REASONABLE_SIZE = 5 * 1024 * 1024;
 
     private static final int REQUEST_CONTACT_TO = 1;
     private static final int REQUEST_CONTACT_CC = 2;
@@ -609,7 +637,7 @@ public class FragmentCompose extends FragmentBase {
             public void onInputContent(Uri uri, String type) {
                 Log.i("Received input uri=" + uri);
                 boolean resize_paste = prefs.getBoolean("resize_paste", true);
-                int resize = prefs.getInt("resize", ComposeHelper.REDUCED_IMAGE_SIZE);
+                int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
                 onAddAttachment(
                         Arrays.asList(uri),
                         type == null ? null : new String[]{type},
@@ -3045,9 +3073,21 @@ public class FragmentCompose extends FragmentBase {
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
         PackageManager pm = getContext().getPackageManager();
         if (intent.resolveActivity(pm) == null) // system whitelisted
-            ComposeHelper.noStorageAccessFramework(view);
+            noStorageAccessFramework();
         else
             startActivityForResult(Helper.getChooser(getContext(), intent), REQUEST_ATTACHMENT);
+    }
+
+    private void noStorageAccessFramework() {
+        Snackbar snackbar = Snackbar.make(view, R.string.title_no_saf, Snackbar.LENGTH_LONG)
+                .setGestureInsetBottomIgnored(true);
+        snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 25);
+            }
+        });
+        snackbar.show();
     }
 
     private void onActionLink() {
@@ -3228,7 +3268,7 @@ public class FragmentCompose extends FragmentBase {
                     break;
                 case REQUEST_IMAGE_FILE:
                     if (resultCode == RESULT_OK && data != null)
-                        onAddImageFile(ComposeHelper.getUris(data), false);
+                        onAddImageFile(getUris(data), false);
                     break;
                 case REQUEST_TAKE_PHOTO:
                     if (resultCode == RESULT_OK) {
@@ -3239,7 +3279,7 @@ public class FragmentCompose extends FragmentBase {
                 case REQUEST_ATTACHMENT:
                 case REQUEST_RECORD_AUDIO:
                     if (resultCode == RESULT_OK && data != null)
-                        onAddAttachment(ComposeHelper.getUris(data), null, false, 0, false, false);
+                        onAddAttachment(getUris(data), null, false, 0, false, false);
                     break;
                 case REQUEST_OPENPGP:
                     if (resultCode == RESULT_OK && data != null)
@@ -3565,7 +3605,7 @@ public class FragmentCompose extends FragmentBase {
             intent.setType("*/*");
             intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             if (intent.resolveActivity(pm) == null) // GET_CONTENT whitelisted
-                ComposeHelper.noStorageAccessFramework(view);
+                noStorageAccessFramework();
             else
                 startActivityForResult(Helper.getChooser(context, intent), REQUEST_IMAGE_FILE);
         }
@@ -3576,7 +3616,7 @@ public class FragmentCompose extends FragmentBase {
         boolean add_inline = prefs.getBoolean("add_inline", true);
         boolean resize_images = prefs.getBoolean("resize_images", true);
         boolean privacy_images = prefs.getBoolean("privacy_images", false);
-        int resize = prefs.getInt("resize", ComposeHelper.REDUCED_IMAGE_SIZE);
+        int resize = prefs.getInt("resize", FragmentCompose.REDUCED_IMAGE_SIZE);
         onAddAttachment(uri, null, add_inline, resize_images ? resize : 0, privacy_images, focus);
     }
 
@@ -3618,7 +3658,7 @@ public class FragmentCompose extends FragmentBase {
                     Uri uri = uris.get(i);
                     String type = (types != null && i < types.length ? types[i] : null);
 
-                    EntityAttachment attachment = ComposeHelper.addAttachment(context, id, uri, type, image, resize, privacy);
+                    EntityAttachment attachment = addAttachment(context, id, uri, type, image, resize, privacy);
                     if (attachment == null)
                         continue;
                     if (!image || !attachment.isImage())
@@ -3681,7 +3721,7 @@ public class FragmentCompose extends FragmentBase {
                             doc.body().appendChild(e);
 
                     EntityIdentity identity = db.identity().getIdentity(draft.identity);
-                    ComposeHelper.addSignature(context, doc, draft, identity);
+                    addSignature(context, doc, draft, identity);
 
                     Helper.writeText(file, doc.html());
                 }
@@ -3715,7 +3755,7 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                ComposeHelper.handleException(FragmentCompose.this, view, ex);
+                handleException(ex);
             }
         }.serial().execute(this, args, "compose:attachment:add");
     }
@@ -3734,11 +3774,11 @@ public class FragmentCompose extends FragmentBase {
                 ArrayList<Uri> images = new ArrayList<>();
                 for (Uri uri : uris)
                     try {
-                        ComposeHelper.UriInfo info = ComposeHelper.getUriInfo(uri, context);
+                        UriInfo info = getInfo(uri, context);
                         if (info.isImage())
                             images.add(uri);
                         else
-                            ComposeHelper.addAttachment(context, id, uri, null, false, 0, false);
+                            addAttachment(context, id, uri, null, false, 0, false);
                     } catch (IOException ex) {
                         Log.e(ex);
                     }
@@ -3771,9 +3811,40 @@ public class FragmentCompose extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                ComposeHelper.handleException(FragmentCompose.this, view, ex);
+                handleException(ex);
             }
         }.serial().execute(this, args, "compose:shared");
+    }
+
+    private List<Uri> getUris(Intent data) {
+        List<Uri> result = new ArrayList<>();
+
+        ClipData clipData = data.getClipData();
+        if (clipData == null) {
+            Uri uri = data.getData();
+            if (uri != null)
+                result.add(uri);
+        } else {
+            for (int i = 0; i < clipData.getItemCount(); i++) {
+                ClipData.Item item = clipData.getItemAt(i);
+                Uri uri = item.getUri();
+                if (uri != null)
+                    result.add(uri);
+            }
+        }
+
+        // media-uri-list=[content://media/external_primary/images/media/nnn] (ArrayList)
+        // media-file-list=[/storage/emulated/0/Pictures/...]
+        // (ArrayList) media-id-list=[nnn] (ArrayList)
+        if (result.size() == 0 && data.hasExtra("media-uri-list"))
+            try {
+                List<Uri> uris = data.getParcelableArrayListExtra("media-uri-list");
+                result.addAll(uris);
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
+        return result;
     }
 
     private void onPgp(Intent data) {
@@ -4934,12 +5005,1223 @@ public class FragmentCompose extends FragmentBase {
         args.putBundle("extras", extras);
 
         Log.i("Run execute id=" + working + " reason=" + reason);
-        actionLoader.execute(this, args, "compose:action:" + LoaderComposeAction.getActionName(action));
+        actionLoader.execute(this, args, "compose:action:" + getActionName(action));
     }
 
-    private final SimpleTask<ComposeHelper.DraftData> draftLoader = new LoaderComposeDraft() {
+    private static EntityAttachment addAttachment(
+            Context context, long id, Uri uri, String type, boolean image, int resize, boolean privacy) throws IOException {
+        Log.w("Add attachment uri=" + uri + " image=" + image + " resize=" + resize + " privacy=" + privacy);
+
+        NoStreamException.check(uri, context);
+
+        EntityAttachment attachment = new EntityAttachment();
+        UriInfo info = getInfo(uri, context);
+
+        EntityLog.log(context, "Add attachment" +
+                " uri=" + uri + " type=" + type + " image=" + image + " resize=" + resize + " privacy=" + privacy +
+                " name=" + info.name + " type=" + info.type + " size=" + info.size);
+
+        if (type == null)
+            type = info.type;
+
+        String ext = Helper.getExtension(info.name);
+        if (info.name != null && ext == null && type != null) {
+            String guessed = MimeTypeMap.getSingleton()
+                    .getExtensionFromMimeType(type.toLowerCase(Locale.ROOT));
+            if (!TextUtils.isEmpty(guessed)) {
+                ext = guessed;
+                info.name += '.' + ext;
+            }
+        }
+
+        DB db = DB.getInstance(context);
+        try {
+            db.beginTransaction();
+
+            EntityMessage draft = db.message().getMessage(id);
+            if (draft == null)
+                return null;
+
+            Log.i("Attaching to id=" + id);
+
+            attachment.message = draft.id;
+            attachment.sequence = db.attachment().getAttachmentSequence(draft.id) + 1;
+            if (privacy)
+                attachment.name = "img" + attachment.sequence + (ext == null ? "" : "." + ext);
+            else
+                attachment.name = info.name;
+            attachment.type = type;
+            attachment.disposition = (image ? Part.INLINE : Part.ATTACHMENT);
+            attachment.size = info.size;
+            attachment.progress = 0;
+
+            attachment.id = db.attachment().insertAttachment(attachment);
+            Log.i("Created attachment=" + attachment.name + ":" + attachment.sequence + " type=" + attachment.type);
+
+            db.setTransactionSuccessful();
+        } finally {
+            db.endTransaction();
+        }
+
+        long size = 0;
+        int lastProgress = 0;
+        try {
+            File file = attachment.getFile(context);
+
+            InputStream is = null;
+            OutputStream os = null;
+            try {
+                is = context.getContentResolver().openInputStream(uri);
+                os = new FileOutputStream(file);
+
+                if (is == null)
+                    throw new FileNotFoundException(uri.toString());
+
+                final InputStream reader = is;
+                byte[] buffer = new byte[Helper.BUFFER_SIZE];
+                Callable<Integer> readTask = new Callable<Integer>() {
+                    @Override
+                    public Integer call() throws Exception {
+                        return reader.read(buffer);
+                    }
+                };
+
+                while (true) {
+                    Future<Integer> future = Helper.getDownloadTaskExecutor().submit(readTask);
+                    int len = future.get(COPY_ATTACHMENT_TIMEOUT, TimeUnit.SECONDS);
+                    if (len == -1)
+                        break;
+                    if (len == 0) {
+                        Thread.sleep(500L);
+                        continue;
+                    }
+
+                    size += len;
+                    os.write(buffer, 0, len);
+
+                    // Update progress
+                    if (attachment.size != null && attachment.size > 0) {
+                        int progress = (int) (size * 100 / attachment.size / 20 * 20);
+                        if (progress != lastProgress) {
+                            lastProgress = progress;
+                            db.attachment().setProgress(attachment.id, progress);
+                        }
+                    }
+                }
+
+                if (image) {
+                    attachment.cid = "<" + BuildConfig.APPLICATION_ID + "." + attachment.id + ">";
+                    attachment.related = true;
+                    db.attachment().setCid(attachment.id, attachment.cid, attachment.related);
+                }
+            } finally {
+                try {
+                    if (is != null)
+                        is.close();
+                } finally {
+                    if (os != null)
+                        os.close();
+                }
+            }
+
+            db.attachment().setDownloaded(attachment.id, size);
+
+            if (BuildConfig.APPLICATION_ID.equals(uri.getAuthority()) &&
+                    uri.getPathSegments().size() > 0 &&
+                    "photo".equals(uri.getPathSegments().get(0))) {
+                // content://eu.faircode.email/photo/nnn.jpg
+                File tmp = new File(context.getFilesDir(), uri.getPath());
+                Log.i("Deleting " + tmp);
+                Helper.secureDelete(tmp);
+            } else
+                Log.i("Authority=" + uri.getAuthority());
+
+            if (resize > 0)
+                resizeAttachment(context, attachment, resize);
+
+            if (privacy && resize == 0)
+                try {
+                    ExifInterface exif = new ExifInterface(file);
+
+                    exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_LATITUDE, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_LONGITUDE, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_ALTITUDE, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_SPEED_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_SPEED, null);
+
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_LATITUDE, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_LONGITUDE, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_BEARING_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_BEARING, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_DISTANCE_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_DEST_DISTANCE, null);
+
+                    exif.setAttribute(ExifInterface.TAG_GPS_IMG_DIRECTION_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_IMG_DIRECTION, null);
+
+                    exif.setAttribute(ExifInterface.TAG_GPS_TRACK_REF, null);
+                    exif.setAttribute(ExifInterface.TAG_GPS_TRACK, null);
+
+                    exif.setAttribute(ExifInterface.TAG_GPS_AREA_INFORMATION, null);
+
+                    exif.setAttribute(ExifInterface.TAG_DATETIME, null);
+                    exif.setAttribute(ExifInterface.TAG_DATETIME_ORIGINAL, null);
+                    exif.setAttribute(ExifInterface.TAG_DATETIME_DIGITIZED, null);
+
+                    exif.setAttribute(ExifInterface.TAG_XMP, null);
+                    exif.setAttribute(ExifInterface.TAG_IMAGE_DESCRIPTION, null);
+                    //exif.setAttribute(ExifInterface.TAG_MAKE, null);
+                    //exif.setAttribute(ExifInterface.TAG_MODEL, null);
+                    //exif.setAttribute(ExifInterface.TAG_SOFTWARE, null);
+                    exif.setAttribute(ExifInterface.TAG_ARTIST, null);
+                    exif.setAttribute(ExifInterface.TAG_COPYRIGHT, null);
+                    exif.setAttribute(ExifInterface.TAG_USER_COMMENT, null);
+                    exif.setAttribute(ExifInterface.TAG_IMAGE_UNIQUE_ID, null);
+                    exif.setAttribute(ExifInterface.TAG_CAMERA_OWNER_NAME, null);
+                    exif.setAttribute(ExifInterface.TAG_BODY_SERIAL_NUMBER, null);
+                    exif.setAttribute(ExifInterface.TAG_LENS_SERIAL_NUMBER, null);
+
+                    exif.saveAttributes();
+                } catch (IOException ex) {
+                    Log.i(ex);
+                }
+
+            // https://www.rfc-editor.org/rfc/rfc2231
+            if (attachment.name != null && attachment.name.length() > 60)
+                db.attachment().setWarning(attachment.id, context.getString(R.string.title_attachment_filename));
+
+        } catch (Throwable ex) {
+            // Reset progress on failure
+            Log.e(ex);
+            db.attachment().setError(attachment.id, Log.formatThrowable(ex, false));
+            return null;
+        }
+
+        return attachment;
+    }
+
+    private static void resizeAttachment(Context context, EntityAttachment attachment, int resize) throws IOException {
+        File file = attachment.getFile(context);
+        if (file.exists() /* upload cancelled */ &&
+                ("image/jpeg".equals(attachment.type) ||
+                        "image/png".equals(attachment.type) ||
+                        "image/webp".equals(attachment.type))) {
+            ExifInterface exifSaved;
+            try {
+                exifSaved = new ExifInterface(file);
+            } catch (Throwable ex) {
+                Log.w(ex);
+                exifSaved = null;
+            }
+
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+
+            int factor = 1;
+            while (options.outWidth / factor > resize ||
+                    options.outHeight / factor > resize)
+                factor *= 2;
+
+            Matrix rotation = ("image/jpeg".equals(attachment.type) ? ImageHelper.getImageRotation(file) : null);
+            Log.i("Image type=" + attachment.type + " rotation=" + rotation);
+            if (factor > 1 || rotation != null) {
+                options.inJustDecodeBounds = false;
+                options.inSampleSize = factor;
+
+                Log.i("Image target size=" + resize + " factor=" + factor + " source=" + options.outWidth + "x" + options.outHeight);
+                Bitmap resized = BitmapFactory.decodeFile(file.getAbsolutePath(), options);
+                if (resized != null) {
+                    Log.i("Image result size=" + resized.getWidth() + "x" + resized.getHeight() + " rotation=" + rotation);
+
+                    if (rotation != null) {
+                        Bitmap rotated = Bitmap.createBitmap(resized, 0, 0, resized.getWidth(), resized.getHeight(), rotation, true);
+                        resized.recycle();
+                        resized = rotated;
+                    }
+
+                    Bitmap.CompressFormat format;
+                    if ("image/jpeg".equals(attachment.type))
+                        format = Bitmap.CompressFormat.JPEG;
+                    else if ("image/png".equals(attachment.type))
+                        format = Bitmap.CompressFormat.PNG;
+                    else if ("image/webp".equals(attachment.type))
+                        format = Bitmap.CompressFormat.WEBP;
+                    else
+                        throw new IllegalArgumentException("Invalid format type=" + attachment.type);
+
+                    File tmp = new File(file.getAbsolutePath() + ".tmp");
+                    try (OutputStream out = new BufferedOutputStream(new FileOutputStream(tmp))) {
+                        if (!resized.compress(format, REDUCED_IMAGE_QUALITY, out))
+                            throw new IOException("compress");
+                    } catch (Throwable ex) {
+                        Log.w(ex);
+                        Helper.secureDelete(tmp);
+                    } finally {
+                        resized.recycle();
+                    }
+
+                    if (tmp.exists() && tmp.length() > 0) {
+                        Helper.secureDelete(file);
+                        tmp.renameTo(file);
+                    }
+
+                    DB db = DB.getInstance(context);
+                    db.attachment().setDownloaded(attachment.id, file.length());
+
+                    if (exifSaved != null)
+                        try {
+                            ExifInterface exif = new ExifInterface(file);
+
+                            // Preserve time
+                            if (exifSaved.hasAttribute(ExifInterface.TAG_DATETIME_ORIGINAL))
+                                exif.setAttribute(ExifInterface.TAG_DATETIME_ORIGINAL,
+                                        exifSaved.getAttribute(ExifInterface.TAG_DATETIME_ORIGINAL));
+                            if (exifSaved.hasAttribute(ExifInterface.TAG_GPS_DATESTAMP))
+                                exif.setAttribute(ExifInterface.TAG_GPS_DATESTAMP,
+                                        exifSaved.getAttribute(ExifInterface.TAG_GPS_DATESTAMP));
+
+                            // Preserve location
+                            double[] latlong = exifSaved.getLatLong();
+                            if (latlong != null)
+                                exif.setLatLong(latlong[0], latlong[1]);
+
+                            // Preserve altitude
+                            if (exifSaved.hasAttribute(ExifInterface.TAG_GPS_ALTITUDE) &&
+                                    exifSaved.hasAttribute(ExifInterface.TAG_GPS_ALTITUDE_REF))
+                                exif.setAltitude(exifSaved.getAltitude(0));
+
+                            exif.saveAttributes();
+                        } catch (Throwable ex) {
+                            Log.w(ex);
+                        }
+                }
+            }
+        }
+    }
+
+    private SimpleTask<DraftData> draftLoader = new SimpleTask<DraftData>() {
         @Override
-        protected void onExecuted(Bundle args, final ComposeHelper.DraftData data) {
+        protected DraftData onExecute(Context context, Bundle args) throws Throwable {
+            String action = args.getString("action");
+            long id = args.getLong("id", -1);
+            long aid = args.getLong("account", -1);
+            long iid = args.getLong("identity", -1);
+            long reference = args.getLong("reference", -1);
+            int dsn = args.getInt("dsn", EntityMessage.DSN_RECEIPT);
+            File ics = (File) args.getSerializable("ics");
+            String status = args.getString("status");
+            // raw
+            long answer = args.getLong("answer", -1);
+            String to = args.getString("to");
+            String cc = args.getString("cc");
+            String bcc = args.getString("bcc");
+            // inreplyto
+            String external_subject = args.getString("subject", "");
+            String external_body = args.getString("body", "");
+            String external_text = args.getString("text");
+            CharSequence selected_text = args.getCharSequence("selected");
+            ArrayList<Uri> uris = args.getParcelableArrayList("attachments");
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean plain_only = prefs.getBoolean("plain_only", false);
+            boolean plain_only_reply = prefs.getBoolean("plain_only_reply", false);
+            boolean resize_reply = prefs.getBoolean("resize_reply", true);
+            boolean sign_default = prefs.getBoolean("sign_default", false);
+            boolean encrypt_default = prefs.getBoolean("encrypt_default", false);
+            boolean receipt_default = prefs.getBoolean("receipt_default", false);
+            boolean write_below = prefs.getBoolean("write_below", false);
+            boolean save_drafts = prefs.getBoolean("save_drafts", true);
+            boolean auto_identity = prefs.getBoolean("auto_identity", false);
+            boolean suggest_sent = prefs.getBoolean("suggest_sent", true);
+            boolean suggest_received = prefs.getBoolean("suggest_received", false);
+            boolean forward_new = prefs.getBoolean("forward_new", true);
+
+            Log.i("Load draft action=" + action + " id=" + id + " reference=" + reference);
+
+            Map<String, String> crumb = new HashMap<>();
+            crumb.put("draft", Long.toString(id));
+            crumb.put("reference", Long.toString(reference));
+            crumb.put("action", action);
+            Log.breadcrumb("compose", crumb);
+
+            DraftData data = new DraftData();
+
+            DB db = DB.getInstance(context);
+            try {
+                db.beginTransaction();
+
+                data.identities = db.identity().getComposableIdentities(null);
+                if (data.identities == null || data.identities.size() == 0)
+                    throw new OperationCanceledException(context.getString(R.string.title_no_composable));
+
+                data.draft = db.message().getMessage(id);
+                boolean wb = (data.draft == null || data.draft.write_below == null ? write_below : data.draft.write_below);
+                if (data.draft == null || data.draft.ui_hide) {
+                    // New draft
+                    if ("edit".equals(action))
+                        throw new MessageRemovedException("Draft for edit was deleted hide=" + (data.draft != null));
+
+                    EntityMessage ref = db.message().getMessage(reference);
+
+                    data.draft = new EntityMessage();
+                    data.draft.msgid = EntityMessage.generateMessageId();
+
+                    // Select identity matching from address
+                    EntityIdentity selected = null;
+
+                    if (aid < 0)
+                        if (ref == null) {
+                            EntityAccount primary = db.account().getPrimaryAccount();
+                            if (primary != null)
+                                aid = primary.id;
+                        } else
+                            aid = ref.account;
+                    if (iid < 0 && ref != null && ref.identity != null)
+                        iid = ref.identity;
+
+                    if (iid >= 0)
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.id.equals(iid)) {
+                                selected = identity;
+                                EntityLog.log(context, "Selected requested identity=" + iid);
+                                break;
+                            }
+
+                    if (ref != null) {
+                        Address[] refto;
+                        boolean self = ref.replySelf(data.identities, ref.account);
+                        if (ref.to == null || ref.to.length == 0 || self)
+                            refto = ref.from;
+                        else
+                            refto = ref.to;
+                        Log.i("Ref self=" + self +
+                                " to=" + MessageHelper.formatAddresses(refto));
+                        if (refto != null && refto.length > 0) {
+                            if (selected == null)
+                                for (Address sender : refto)
+                                    for (EntityIdentity identity : data.identities)
+                                        if (identity.account.equals(aid) &&
+                                                identity.sameAddress(sender)) {
+                                            selected = identity;
+                                            EntityLog.log(context, "Selected same account/identity");
+                                            break;
+                                        }
+
+                            if (selected == null)
+                                for (Address sender : refto)
+                                    for (EntityIdentity identity : data.identities)
+                                        if (identity.account.equals(aid) &&
+                                                identity.similarAddress(sender)) {
+                                            selected = identity;
+                                            EntityLog.log(context, "Selected similar account/identity");
+                                            break;
+                                        }
+
+                            if (selected == null)
+                                for (Address sender : refto)
+                                    for (EntityIdentity identity : data.identities)
+                                        if (identity.sameAddress(sender)) {
+                                            selected = identity;
+                                            EntityLog.log(context, "Selected same */identity");
+                                            break;
+                                        }
+
+                            if (selected == null)
+                                for (Address sender : refto)
+                                    for (EntityIdentity identity : data.identities)
+                                        if (identity.similarAddress(sender)) {
+                                            selected = identity;
+                                            EntityLog.log(context, "Selected similer */identity");
+                                            break;
+                                        }
+                        }
+                    }
+
+                    if (selected == null && auto_identity)
+                        try {
+                            Address[] tos = MessageHelper.parseAddresses(context, to);
+                            if (tos != null && tos.length > 0) {
+                                String email = ((InternetAddress) tos[0]).getAddress();
+                                List<Long> identities = null;
+                                if (suggest_sent)
+                                    identities = db.contact().getIdentities(email, EntityContact.TYPE_TO);
+                                if (suggest_received && (identities == null || identities.size() == 0))
+                                    identities = db.contact().getIdentities(email, EntityContact.TYPE_FROM);
+                                if (identities != null && identities.size() == 1) {
+                                    EntityIdentity identity = db.identity().getIdentity(identities.get(0));
+                                    if (identity != null)
+                                        selected = identity;
+                                }
+                            }
+                        } catch (AddressException ex) {
+                            Log.i(ex);
+                        }
+
+                    if (selected == null)
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.account.equals(aid) && identity.primary) {
+                                selected = identity;
+                                EntityLog.log(context, "Selected primary account/identity");
+                                break;
+                            }
+
+                    if (selected == null)
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.account.equals(aid)) {
+                                selected = identity;
+                                EntityLog.log(context, "Selected account/identity");
+                                break;
+                            }
+
+                    if (selected == null)
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.primary) {
+                                selected = identity;
+                                EntityLog.log(context, "Selected primary */identity");
+                                break;
+                            }
+
+                    if (selected == null)
+                        for (EntityIdentity identity : data.identities) {
+                            selected = identity;
+                            EntityLog.log(context, "Selected */identity");
+                            break;
+                        }
+
+                    if (selected == null)
+                        throw new OperationCanceledException(context.getString(R.string.title_no_composable));
+
+                    EntityLog.log(context, "Selected=" + selected.email);
+
+                    if (!"dsn".equals(action)) {
+                        if (plain_only &&
+                                !"resend".equals(action) &&
+                                !"editasnew".equals(action))
+                            data.draft.plain_only = 1;
+
+                        if (encrypt_default || selected.encrypt_default)
+                            if (selected.encrypt == 0)
+                                data.draft.ui_encrypt = EntityMessage.PGP_SIGNENCRYPT;
+                            else
+                                data.draft.ui_encrypt = EntityMessage.SMIME_SIGNENCRYPT;
+                        else if (sign_default || selected.sign_default)
+                            if (selected.encrypt == 0)
+                                data.draft.ui_encrypt = EntityMessage.PGP_SIGNONLY;
+                            else
+                                data.draft.ui_encrypt = EntityMessage.SMIME_SIGNONLY;
+                    }
+
+                    if (receipt_default)
+                        data.draft.receipt_request = true;
+
+                    data.draft.sensitivity = (selected.sensitivity < 1 ? null : selected.sensitivity);
+
+                    Document document = Document.createShell("");
+
+                    if (ref == null) {
+                        data.draft.thread = data.draft.msgid;
+
+                        try {
+                            data.draft.to = MessageHelper.parseAddresses(context, to);
+                        } catch (AddressException ex) {
+                            Log.w(ex);
+                        }
+
+                        try {
+                            data.draft.cc = MessageHelper.parseAddresses(context, cc);
+                        } catch (AddressException ex) {
+                            Log.w(ex);
+                        }
+
+                        try {
+                            data.draft.bcc = MessageHelper.parseAddresses(context, bcc);
+                        } catch (AddressException ex) {
+                            Log.w(ex);
+                        }
+
+                        data.draft.inreplyto = args.getString("inreplyto", null);
+
+                        data.draft.subject = external_subject;
+
+                        if (!TextUtils.isEmpty(external_body)) {
+                            Document d = JsoupEx.parse(external_body); // Passed html
+                            Element e = document
+                                    .createElement("div")
+                                    .html(d.body().html());
+                            document.body().appendChild(e);
+                        }
+
+                        EntityAnswer a = (answer < 0
+                                ? db.answer().getStandardAnswer()
+                                : db.answer().getAnswer(answer));
+                        if (a != null) {
+                            db.answer().applyAnswer(a.id, new Date().getTime());
+                            if (answer > 0)
+                                data.draft.subject = a.name;
+                            if (TextUtils.isEmpty(external_body)) {
+                                Document d = JsoupEx.parse(a.getHtml(context, null));
+                                document.body().append(d.body().html());
+                            }
+                        }
+
+                        data.draft.signature = prefs.getBoolean("signature_new", true);
+                        addSignature(context, document, data.draft, selected);
+                    } else {
+                        // Actions:
+                        // - reply
+                        // - reply_all
+                        // - forward
+                        // - resend
+                        // - editasnew
+                        // - list
+                        // - dsn
+                        // - receipt
+                        // - participation
+
+                        // References
+                        if ("reply".equals(action) || "reply_all".equals(action) ||
+                                "list".equals(action) ||
+                                "dsn".equals(action) ||
+                                "participation".equals(action)) {
+                            // https://tools.ietf.org/html/rfc5322#section-3.6.4
+                            // The "References:" field will contain the contents of the parent's "References:" field (if any)
+                            // followed by the contents of the parent's "Message-ID:" field (if any).
+                            String refs = (ref.references == null ? "" : ref.references);
+                            if (!TextUtils.isEmpty(ref.msgid))
+                                refs = (TextUtils.isEmpty(refs) ? ref.msgid : refs + " " + ref.msgid);
+                            data.draft.references = refs;
+                            data.draft.inreplyto = ref.msgid;
+                            data.draft.thread = ref.thread;
+
+                            if ("list".equals(action) && ref.list_post != null)
+                                data.draft.to = ref.list_post;
+                            else if ("dsn".equals(action)) {
+                                if (EntityMessage.DSN_RECEIPT.equals(dsn)) {
+                                    if (ref.receipt_to != null)
+                                        data.draft.to = ref.receipt_to;
+                                } else if (EntityMessage.DSN_HARD_BOUNCE.equals(dsn)) {
+                                    if (ref.return_path != null)
+                                        data.draft.to = ref.return_path;
+                                }
+                            } else {
+                                // Prevent replying to self
+                                if (ref.replySelf(data.identities, ref.account)) {
+                                    EntityLog.log(context, "Reply self ref" +
+                                            " from=" + MessageHelper.formatAddresses(ref.from) +
+                                            " to=" + MessageHelper.formatAddresses(ref.to));
+                                    data.draft.from = ref.from;
+                                    data.draft.to = ref.to;
+                                } else {
+                                    data.draft.from = ref.to;
+                                    data.draft.to = (ref.reply == null || ref.reply.length == 0 ? ref.from : ref.reply);
+                                }
+
+                                if (ref.identity != null) {
+                                    EntityIdentity recognized = db.identity().getIdentity(ref.identity);
+                                    EntityLog.log(context, "Recognized=" + (recognized == null ? null : recognized.email));
+
+                                    Address preferred = null;
+                                    if (recognized != null) {
+                                        Address same = null;
+                                        Address similar = null;
+
+                                        List<Address> addresses = new ArrayList<>();
+                                        if (data.draft.from != null)
+                                            addresses.addAll(Arrays.asList(data.draft.from));
+                                        if (data.draft.to != null)
+                                            addresses.addAll(Arrays.asList(data.draft.to));
+                                        if (ref.cc != null)
+                                            addresses.addAll(Arrays.asList(ref.cc));
+                                        if (ref.bcc != null)
+                                            addresses.addAll(Arrays.asList(ref.bcc));
+
+                                        for (Address from : addresses) {
+                                            if (same == null && recognized.sameAddress(from))
+                                                same = from;
+                                            if (similar == null && recognized.similarAddress(from))
+                                                similar = from;
+                                        }
+
+                                        //if (ref.deliveredto != null)
+                                        //    try {
+                                        //        Address deliveredto = new InternetAddress(ref.deliveredto);
+                                        //        if (same == null && recognized.sameAddress(deliveredto))
+                                        //            same = deliveredto;
+                                        //        if (similar == null && recognized.similarAddress(deliveredto))
+                                        //            similar = deliveredto;
+                                        //    } catch (AddressException ex) {
+                                        //        Log.w(ex);
+                                        //    }
+
+                                        EntityLog.log(context, "From=" + MessageHelper.formatAddresses(data.draft.from) +
+                                                " delivered-to=" + ref.deliveredto +
+                                                " same=" + (same == null ? null : ((InternetAddress) same).getAddress()) +
+                                                " similar=" + (similar == null ? null : ((InternetAddress) similar).getAddress()));
+
+                                        preferred = (same == null ? similar : same);
+                                    }
+
+                                    if (preferred != null) {
+                                        String from = ((InternetAddress) preferred).getAddress();
+                                        String name = ((InternetAddress) preferred).getPersonal();
+                                        EntityLog.log(context, "Preferred=" + name + " <" + from + ">");
+                                        if (TextUtils.isEmpty(from) || from.equalsIgnoreCase(recognized.email))
+                                            from = null;
+                                        if (!recognized.reply_extra_name ||
+                                                TextUtils.isEmpty(name) || name.equals(recognized.name))
+                                            name = null;
+                                        String username = UriHelper.getEmailUser(from);
+                                        String extra = (name == null ? "" : name + ", ") +
+                                                (username == null ? "" : username);
+                                        data.draft.extra = (TextUtils.isEmpty(extra) ? null : extra);
+                                    } else
+                                        EntityLog.log(context, "Preferred=null");
+                                } else
+                                    EntityLog.log(context, "Recognized=null");
+                            }
+
+                            if ("reply_all".equals(action)) {
+                                List<Address> all = new ArrayList<>();
+                                for (Address recipient : ref.getAllRecipients(data.identities, ref.account)) {
+                                    boolean found = false;
+                                    if (data.draft.to != null)
+                                        for (Address t : data.draft.to)
+                                            if (MessageHelper.equalEmail(recipient, t)) {
+                                                found = true;
+                                                break;
+                                            }
+                                    if (!found)
+                                        all.add(recipient);
+                                }
+                                data.draft.cc = all.toArray(new Address[0]);
+                            } else if ("dsn".equals(action)) {
+                                data.draft.dsn = dsn;
+                                data.draft.receipt_request = false;
+                            }
+
+                        } else if ("forward".equals(action)) {
+                            if (forward_new)
+                                data.draft.thread = data.draft.msgid; // new thread
+                            else {
+                                data.draft.thread = ref.thread;
+                                data.draft.inreplyto = ref.msgid;
+                                data.draft.references = (ref.references == null ? "" : ref.references + " ") + ref.msgid;
+                            }
+                            data.draft.wasforwardedfrom = ref.msgid;
+                        } else if ("resend".equals(action)) {
+                            data.draft.resend = true;
+                            data.draft.thread = data.draft.msgid;
+                            data.draft.headers = ref.headers;
+                        } else if ("editasnew".equals(action))
+                            data.draft.thread = data.draft.msgid;
+
+                        // Subject
+                        String subject = (ref.subject == null ? "" : ref.subject);
+                        if ("reply".equals(action) || "reply_all".equals(action)) {
+                            data.draft.subject =
+                                    EntityMessage.getSubject(context, ref.language, subject, false);
+
+                            if (external_text != null) {
+                                Element div = document.createElement("div");
+                                for (String line : external_text.split("\\r?\\n")) {
+                                    Element span = document.createElement("span");
+                                    span.text(line);
+                                    div.appendChild(span);
+                                    div.appendElement("br");
+                                }
+                                document.body().appendChild(div);
+                            }
+                        } else if ("forward".equals(action)) {
+                            data.draft.subject =
+                                    EntityMessage.getSubject(context, ref.language, subject, true);
+                        } else if ("resend".equals(action)) {
+                            data.draft.subject = ref.subject;
+                        } else if ("editasnew".equals(action)) {
+                            if (ref.from != null && ref.from.length == 1) {
+                                String from = ((InternetAddress) ref.from[0]).getAddress();
+                                for (EntityIdentity identity : data.identities)
+                                    if (identity.email.equals(from)) {
+                                        selected = identity;
+                                        break;
+                                    }
+                            }
+
+                            data.draft.to = ref.to;
+                            data.draft.cc = ref.cc;
+                            data.draft.bcc = ref.bcc;
+                            data.draft.subject = ref.subject;
+
+                            if (ref.content)
+                                document = JsoupEx.parse(ref.getFile(context));
+                        } else if ("list".equals(action)) {
+                            data.draft.subject = ref.subject;
+                        } else if ("dsn".equals(action)) {
+                            if (EntityMessage.DSN_HARD_BOUNCE.equals(dsn))
+                                data.draft.subject = context.getString(R.string.title_hard_bounce_subject);
+                            else
+                                data.draft.subject = context.getString(R.string.title_receipt_subject, subject);
+
+                            String[] texts;
+                            if (EntityMessage.DSN_HARD_BOUNCE.equals(dsn))
+                                texts = new String[]{context.getString(R.string.title_hard_bounce_text)};
+                            else {
+                                EntityAnswer receipt = db.answer().getReceiptAnswer();
+                                if (receipt == null)
+                                    texts = Helper.getStrings(context, ref.language, R.string.title_receipt_text);
+                                else {
+                                    db.answer().applyAnswer(receipt.id, new Date().getTime());
+                                    texts = new String[0];
+                                    Document d = JsoupEx.parse(receipt.getHtml(context, null));
+                                    document.body().append(d.body().html());
+                                }
+                            }
+
+                            for (int i = 0; i < texts.length; i++) {
+                                if (i > 0)
+                                    document.body()
+                                            .appendElement("br");
+
+                                Element div = document.createElement("div");
+                                div.text(texts[i]);
+                                document.body()
+                                        .appendChild(div)
+                                        .appendElement("br");
+                            }
+                        } else if ("participation".equals(action))
+                            data.draft.subject = status + ": " + ref.subject;
+
+                        if (!"dsn".equals(action)) {
+                            // Sensitivity
+                            data.draft.sensitivity = ref.sensitivity;
+
+                            // Plain-only
+                            if (plain_only_reply && ref.isPlainOnly())
+                                data.draft.plain_only = 1;
+
+                            // Encryption
+                            List<Address> recipients = new ArrayList<>();
+                            if (data.draft.to != null)
+                                recipients.addAll(Arrays.asList(data.draft.to));
+                            if (data.draft.cc != null)
+                                recipients.addAll(Arrays.asList(data.draft.cc));
+                            if (data.draft.bcc != null)
+                                recipients.addAll(Arrays.asList(data.draft.bcc));
+
+                            if (!BuildConfig.DEBUG)
+                                if (EntityMessage.PGP_SIGNONLY.equals(ref.ui_encrypt) ||
+                                        EntityMessage.PGP_SIGNENCRYPT.equals(ref.ui_encrypt)) {
+                                    if (PgpHelper.isOpenKeychainInstalled(context) &&
+                                            selected.sign_key != null &&
+                                            PgpHelper.hasPgpKey(context, recipients, true))
+                                        data.draft.ui_encrypt = ref.ui_encrypt;
+                                } else if (EntityMessage.SMIME_SIGNONLY.equals(ref.ui_encrypt) ||
+                                        EntityMessage.SMIME_SIGNENCRYPT.equals(ref.ui_encrypt)) {
+                                    if (ActivityBilling.isPro(context) &&
+                                            selected.sign_key_alias != null &&
+                                            SmimeHelper.hasSmimeKey(context, recipients, true))
+                                        data.draft.ui_encrypt = ref.ui_encrypt;
+                                }
+                        }
+
+                        // Reply template
+                        EntityAnswer a = null;
+                        if (answer < 0) {
+                            if ("reply".equals(action) || "reply_all".equals(action) ||
+                                    "forward".equals(action) || "list".equals(action))
+                                a = db.answer().getStandardAnswer();
+                        } else
+                            a = db.answer().getAnswer(answer);
+
+                        if (a != null) {
+                            db.answer().applyAnswer(a.id, new Date().getTime());
+                            if (a.label != null && ref != null)
+                                EntityOperation.queue(context, ref, EntityOperation.LABEL, a.label, true);
+                            Document d = JsoupEx.parse(a.getHtml(context, data.draft.to));
+                            document.body().append(d.body().html());
+                        }
+
+                        // Signature
+                        if ("reply".equals(action) || "reply_all".equals(action))
+                            data.draft.signature = prefs.getBoolean("signature_reply", true);
+                        else if ("forward".equals(action))
+                            data.draft.signature = prefs.getBoolean("signature_forward", true);
+                        else
+                            data.draft.signature = false;
+
+                        if (ref.content && "resend".equals(action)) {
+                            document = JsoupEx.parse(ref.getFile(context));
+                            HtmlHelper.clearAnnotations(document);
+                            // Save original body
+                            Element div = document.body()
+                                    .tagName("div")
+                                    .attr("fairemail", "reference");
+                            Element body = document.createElement("body")
+                                    .appendChild(div);
+                            document.body().replaceWith(body);
+                        }
+
+                        // Reply header
+                        if (ref.content &&
+                                !"resend".equals(action) &&
+                                !"editasnew".equals(action) &&
+                                !("list".equals(action) && TextUtils.isEmpty(selected_text)) &&
+                                !"dsn".equals(action)) {
+                            // Reply/forward
+                            Element reply = document.createElement("div");
+                            reply.attr("fairemail", "reference");
+
+                            // Build reply header
+                            boolean separate_reply = prefs.getBoolean("separate_reply", false);
+                            boolean extended_reply = prefs.getBoolean("extended_reply", false);
+                            Element p = ref.getReplyHeader(context, document, separate_reply, extended_reply);
+                            reply.appendChild(p);
+
+                            Document d;
+                            if (TextUtils.isEmpty(selected_text)) {
+                                // Get referenced message body
+                                d = JsoupEx.parse(ref.getFile(context));
+                                HtmlHelper.normalizeNamespaces(d, false);
+                                HtmlHelper.clearAnnotations(d); // Legacy left-overs
+
+                                if (BuildConfig.DEBUG)
+                                    d.select(".faircode_remove").remove();
+
+                                if ("reply".equals(action) || "reply_all".equals(action)) {
+                                    // Remove signature separators
+                                    boolean remove_signatures = prefs.getBoolean("remove_signatures", false);
+                                    if (remove_signatures)
+                                        HtmlHelper.removeSignatures(d);
+
+                                    // Limit number of nested block quotes
+                                    boolean quote_limit = prefs.getBoolean("quote_limit", true);
+                                    if (quote_limit)
+                                        HtmlHelper.quoteLimit(d, MAX_QUOTE_LEVEL);
+                                }
+                            } else {
+                                // Selected text
+                                d = Document.createShell("");
+
+                                Element div = d.createElement("div");
+                                if (selected_text instanceof Spanned)
+                                    div.html(HtmlHelper.toHtml((Spanned) selected_text, context));
+                                else
+                                    for (String line : selected_text.toString().split("\\r?\\n")) {
+                                        Element span = document.createElement("span");
+                                        span.text(line);
+                                        div.appendChild(span);
+                                        div.appendElement("br");
+                                    }
+
+                                d.body().appendChild(div);
+                            }
+
+                            Element e = d.body();
+
+                            // Apply styles
+                            List<CSSStyleSheet> sheets = HtmlHelper.parseStyles(d.head().select("style"));
+                            for (Element element : e.select("*")) {
+                                String tag = element.tagName();
+                                String clazz = element.attr("class");
+                                String style = HtmlHelper.processStyles(context, tag, clazz, null, sheets);
+                                style = HtmlHelper.mergeStyles(style, element.attr("style"));
+                                if (!TextUtils.isEmpty(style))
+                                    element.attr("style", style);
+                            }
+
+                            // Quote referenced message body
+                            boolean quote_reply = prefs.getBoolean("quote_reply", true);
+                            boolean quote = (quote_reply &&
+                                    ("reply".equals(action) || "reply_all".equals(action) || "list".equals(action)));
+
+                            if (quote) {
+                                String style = e.attr("style");
+                                style = HtmlHelper.mergeStyles(style, HtmlHelper.getQuoteStyle(e));
+                                e.tagName("blockquote").attr("style", style);
+                            } else
+                                e.tagName("p");
+                            reply.appendChild(e);
+
+                            if (wb && data.draft.wasforwardedfrom == null)
+                                document.body().prependChild(reply);
+                            else
+                                document.body().appendChild(reply);
+
+                            addSignature(context, document, data.draft, selected);
+                        }
+                    }
+
+                    EntityFolder drafts = db.folder().getFolderByType(selected.account, EntityFolder.DRAFTS);
+                    if (drafts == null)
+                        throw new IllegalArgumentException(context.getString(R.string.title_no_drafts));
+
+                    boolean signature_once = prefs.getBoolean("signature_reply_once", false);
+                    if (signature_once && data.draft.signature &&
+                            ref != null && ref.thread != null &&
+                            ("reply".equals(action) || "reply_all".equals(action))) {
+                        List<EntityMessage> outbound = new ArrayList<>();
+
+                        EntityFolder sent = db.folder().getFolderByType(drafts.account, EntityFolder.SENT);
+                        if (sent != null)
+                            outbound.addAll(db.message().getMessagesByThread(drafts.account, ref.thread, null, sent.id));
+
+                        EntityFolder outbox = db.folder().getOutbox();
+                        if (outbox != null)
+                            outbound.addAll(db.message().getMessagesByThread(drafts.account, ref.thread, null, outbox.id));
+
+                        if (outbound.size() > 0) {
+                            Log.i("Signature suppressed");
+                            data.draft.signature = false;
+                        }
+                    }
+
+                    data.draft.account = drafts.account;
+                    data.draft.folder = drafts.id;
+                    data.draft.identity = selected.id;
+                    data.draft.from = new InternetAddress[]{new InternetAddress(selected.email, selected.name, StandardCharsets.UTF_8.name())};
+
+                    data.draft.sender = MessageHelper.getSortKey(data.draft.from);
+                    Uri lookupUri = ContactInfo.getLookupUri(data.draft.from);
+                    data.draft.avatar = (lookupUri == null ? null : lookupUri.toString());
+
+                    data.draft.received = new Date().getTime();
+                    data.draft.seen = true;
+                    data.draft.ui_seen = true;
+
+                    data.draft.revision = 1;
+                    data.draft.revisions = 1;
+
+                    data.draft.id = db.message().insertMessage(data.draft);
+
+                    String html = document.html();
+                    Helper.writeText(data.draft.getFile(context), html);
+                    Helper.writeText(data.draft.getFile(context, data.draft.revision), html);
+
+                    String text = HtmlHelper.getFullText(html);
+                    data.draft.preview = HtmlHelper.getPreview(text);
+                    data.draft.language = HtmlHelper.getLanguage(context, data.draft.subject, text);
+                    db.message().setMessageContent(data.draft.id,
+                            true,
+                            data.draft.language,
+                            data.draft.plain_only,
+                            data.draft.preview,
+                            null);
+
+                    if ("participation".equals(action)) {
+                        EntityAttachment attachment = new EntityAttachment();
+                        attachment.message = data.draft.id;
+                        attachment.sequence = 1;
+                        attachment.name = "meeting.ics";
+                        attachment.type = "text/calendar";
+                        attachment.disposition = Part.ATTACHMENT;
+                        attachment.size = ics.length();
+                        attachment.progress = null;
+                        attachment.available = true;
+                        attachment.id = db.attachment().insertAttachment(attachment);
+
+                        File file = attachment.getFile(context);
+                        Helper.copy(ics, file);
+                        Helper.secureDelete(ics);
+
+                        ICalendar icalendar = CalendarHelper.parse(context, file);
+                        VEvent event = icalendar.getEvents().get(0);
+                        Organizer organizer = event.getOrganizer();
+                        if (organizer != null) {
+                            String email = organizer.getEmail();
+                            String name = organizer.getCommonName();
+                            if (!TextUtils.isEmpty(email)) {
+                                InternetAddress o = new InternetAddress(email, name, StandardCharsets.UTF_8.name());
+                                Log.i("Setting organizer=" + o);
+                                data.draft.to = new Address[]{o};
+                            }
+                        }
+                    }
+
+                    if ("new".equals(action) && uris != null) {
+                        ArrayList<Uri> images = new ArrayList<>();
+                        for (Uri uri : uris)
+                            try {
+                                UriInfo info = getInfo(uri, context);
+                                if (info.isImage())
+                                    images.add(uri);
+                                else
+                                    addAttachment(context, data.draft.id, uri, null, false, 0, false);
+                            } catch (IOException ex) {
+                                Log.e(ex);
+                            }
+
+                        if (images.size() > 0)
+                            args.putParcelableArrayList("images", images);
+                    }
+
+                    if (ref != null &&
+                            ("reply".equals(action) || "reply_all".equals(action) ||
+                                    "forward".equals(action) ||
+                                    "resend".equals(action) ||
+                                    "editasnew".equals(action))) {
+                        List<String> cid = new ArrayList<>();
+                        for (Element img : document.select("img")) {
+                            String src = img.attr("src");
+                            if (src.startsWith("cid:"))
+                                cid.add("<" + src.substring(4) + ">");
+                        }
+
+                        int sequence = 0;
+                        List<EntityAttachment> attachments = db.attachment().getAttachments(ref.id);
+                        for (EntityAttachment attachment : attachments)
+                            if (attachment.subsequence == null &&
+                                    !attachment.isEncryption() &&
+                                    (cid.contains(attachment.cid) ||
+                                            !("reply".equals(action) || "reply_all".equals(action)))) {
+                                if (attachment.available) {
+                                    File source = attachment.getFile(context);
+
+                                    if (cid.contains(attachment.cid))
+                                        attachment.disposition = Part.INLINE;
+                                    else {
+                                        attachment.cid = null;
+                                        attachment.related = false;
+                                        attachment.disposition = Part.ATTACHMENT;
+                                    }
+
+                                    attachment.id = null;
+                                    attachment.message = data.draft.id;
+                                    attachment.sequence = ++sequence;
+                                    attachment.id = db.attachment().insertAttachment(attachment);
+
+                                    File target = attachment.getFile(context);
+                                    Helper.copy(source, target);
+
+                                    if (resize_reply &&
+                                            ("reply".equals(action) || "reply_all".equals(action)))
+                                        resizeAttachment(context, attachment, REDUCED_IMAGE_SIZE);
+                                } else
+                                    args.putBoolean("incomplete", true);
+                            }
+                    }
+
+                    if (save_drafts &&
+                            (data.draft.ui_encrypt == null ||
+                                    EntityMessage.ENCRYPT_NONE.equals(data.draft.ui_encrypt)) &&
+                            (!"new".equals(action) ||
+                                    answer > 0 ||
+                                    !TextUtils.isEmpty(to) ||
+                                    !TextUtils.isEmpty(cc) ||
+                                    !TextUtils.isEmpty(bcc) ||
+                                    !TextUtils.isEmpty(external_subject) ||
+                                    !TextUtils.isEmpty(external_body) ||
+                                    !TextUtils.isEmpty(external_text) ||
+                                    !TextUtils.isEmpty(selected_text) ||
+                                    (uris != null && uris.size() > 0))) {
+                        Map<String, String> c = new HashMap<>();
+                        c.put("id", data.draft.id == null ? null : Long.toString(data.draft.id));
+                        c.put("encrypt", data.draft.encrypt + "/" + data.draft.ui_encrypt);
+                        c.put("action", action);
+                        Log.breadcrumb("Load draft", c);
+
+                        EntityOperation.queue(context, data.draft, EntityOperation.ADD);
+                    }
+                } else {
+                    args.putBoolean("saved", true);
+
+                    if (!data.draft.ui_seen)
+                        EntityOperation.queue(context, data.draft, EntityOperation.SEEN, true);
+
+                    // External draft
+                    if (data.draft.identity == null) {
+                        for (EntityIdentity identity : data.identities)
+                            if (identity.account.equals(data.draft.account))
+                                if (identity.primary) {
+                                    data.draft.identity = identity.id;
+                                    break;
+                                } else if (data.draft.identity == null)
+                                    data.draft.identity = identity.id;
+
+                        if (data.draft.identity != null)
+                            db.message().setMessageIdentity(data.draft.id, data.draft.identity);
+                        Log.i("Selected external identity=" + data.draft.identity);
+                    }
+
+                    if (data.draft.revision == null || data.draft.revisions == null) {
+                        data.draft.revision = 1;
+                        data.draft.revisions = 1;
+                        db.message().setMessageRevision(data.draft.id, data.draft.revision);
+                        db.message().setMessageRevisions(data.draft.id, data.draft.revisions);
+                    }
+
+                    if (data.draft.content || data.draft.uid == null) {
+                        if (data.draft.uid == null && !data.draft.content)
+                            Log.e("Draft without uid");
+
+                        File file = data.draft.getFile(context);
+
+                        Document doc = (data.draft.content ? JsoupEx.parse(file) : Document.createShell(""));
+                        doc.select("div[fairemail=signature]").remove();
+                        Elements ref = doc.select("div[fairemail=reference]");
+                        ref.remove();
+
+                        File refFile = data.draft.getRefFile(context);
+                        if (refFile.exists()) {
+                            ref.html(Helper.readText(refFile));
+                            Helper.secureDelete(refFile);
+                        }
+
+                        // Possibly external draft
+
+                        for (Element e : ref)
+                            if (wb && data.draft.wasforwardedfrom == null)
+                                doc.body().prependChild(e);
+                            else
+                                doc.body().appendChild(e);
+
+                        EntityIdentity identity = null;
+                        if (data.draft.identity != null)
+                            identity = db.identity().getIdentity(data.draft.identity);
+
+                        addSignature(context, doc, data.draft, identity);
+
+                        String html = doc.html();
+                        Helper.writeText(file, html);
+                        Helper.writeText(data.draft.getFile(context, data.draft.revision), html);
+
+                        String text = HtmlHelper.getFullText(html);
+                        data.draft.preview = HtmlHelper.getPreview(text);
+                        data.draft.language = HtmlHelper.getLanguage(context, data.draft.subject, text);
+                        db.message().setMessageContent(data.draft.id,
+                                true,
+                                data.draft.language,
+                                data.draft.plain_only,
+                                data.draft.preview,
+                                null);
+                    } else
+                        EntityOperation.queue(context, data.draft, EntityOperation.BODY);
+                }
+
+                last_plain_only = data.draft.plain_only;
+                last_attachments = db.attachment().getAttachments(data.draft.id);
+
+                if (last_attachments != null)
+                    for (EntityAttachment attachment : last_attachments)
+                        if (!attachment.available && attachment.progress == null && attachment.error == null)
+                            EntityOperation.queue(context, data.draft, EntityOperation.ATTACHMENT, attachment.id);
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+
+            ServiceSynchronize.eval(context, "compose/draft");
+
+            return data;
+        }
+
+        @Override
+        protected void onExecuted(Bundle args, final DraftData data) {
             final String action = getArguments().getString("action");
             Log.i("Loaded draft id=" + data.draft.id + " action=" + action);
 
@@ -5279,17 +6561,60 @@ public class FragmentCompose extends FragmentBase {
                 });
                 snackbar.show();
             } else
-                ComposeHelper.handleException(FragmentCompose.this, view, ex);
-        }
-
-        @Override
-        protected void set(Integer plain_only, List<EntityAttachment> attachments) {
-            last_plain_only = plain_only;
-            last_attachments = attachments;
+                handleException(ex);
         }
     }.serial();
 
-    private final SimpleTask<EntityMessage> actionLoader = new LoaderComposeAction() {
+    private void handleException(Throwable ex) {
+        // External app sending absolute file
+        if (ex instanceof NoStreamException)
+            ((NoStreamException) ex).report(getActivity());
+        else if (ex instanceof FileNotFoundException ||
+                ex instanceof IllegalArgumentException ||
+                ex instanceof IllegalStateException) {
+                    /*
+                        java.lang.IllegalStateException: Failed to mount
+                          at android.os.Parcel.createException(Parcel.java:2079)
+                          at android.os.Parcel.readException(Parcel.java:2039)
+                          at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:188)
+                          at android.database.DatabaseUtils.readExceptionWithFileNotFoundExceptionFromParcel(DatabaseUtils.java:151)
+                          at android.content.ContentProviderProxy.openTypedAssetFile(ContentProviderNative.java:705)
+                          at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:1687)
+                          at android.content.ContentResolver.openAssetFileDescriptor(ContentResolver.java:1503)
+                          at android.content.ContentResolver.openInputStream(ContentResolver.java:1187)
+                          at eu.faircode.email.FragmentCompose.addAttachment(SourceFile:27)
+                     */
+            Snackbar.make(view, ex.toString(), Snackbar.LENGTH_LONG)
+                    .setGestureInsetBottomIgnored(true).show();
+        } else {
+            if (ex instanceof IOException &&
+                    ex.getCause() instanceof ErrnoException &&
+                    ((ErrnoException) ex.getCause()).errno == ENOSPC)
+                ex = new IOException(getContext().getString(R.string.app_cake), ex);
+
+            // External app didn't grant URI permissions
+            if (ex instanceof SecurityException)
+                ex = new Throwable(getString(R.string.title_no_permissions), ex);
+
+            Log.unexpectedError(FragmentCompose.this, ex,
+                    !(ex instanceof IOException || ex.getCause() instanceof IOException));
+                    /*
+                        java.lang.IllegalStateException: java.io.IOException: Failed to redact /storage/emulated/0/Download/97203830-piston-vecteur-icône-simple-symbole-plat-sur-fond-blanc.jpg
+                          at android.os.Parcel.createExceptionOrNull(Parcel.java:2381)
+                          at android.os.Parcel.createException(Parcel.java:2357)
+                          at android.os.Parcel.readException(Parcel.java:2340)
+                          at android.database.DatabaseUtils.readExceptionFromParcel(DatabaseUtils.java:190)
+                          at android.database.DatabaseUtils.readExceptionWithFileNotFoundExceptionFromParcel(DatabaseUtils.java:153)
+                          at android.content.ContentProviderProxy.openTypedAssetFile(ContentProviderNative.java:804)
+                          at android.content.ContentResolver.openTypedAssetFileDescriptor(ContentResolver.java:2002)
+                          at android.content.ContentResolver.openAssetFileDescriptor(ContentResolver.java:1817)
+                          at android.content.ContentResolver.openInputStream(ContentResolver.java:1494)
+                          at eu.faircode.email.FragmentCompose.addAttachment(SourceFile:27)
+                     */
+        }
+    }
+
+    private SimpleTask<EntityMessage> actionLoader = new SimpleTask<EntityMessage>() {
         @Override
         protected void onPreExecute(Bundle args) {
             if (args.getBundle("extras").getBoolean("silent"))
@@ -5307,6 +6632,700 @@ public class FragmentCompose extends FragmentBase {
             boolean needsEncryption = args.getBoolean("needsEncryption");
             if (action != R.id.action_check || needsEncryption)
                 setBusy(false);
+        }
+
+        @Override
+        protected EntityMessage onExecute(final Context context, Bundle args) throws Throwable {
+            // Get data
+            long id = args.getLong("id");
+            int action = args.getInt("action");
+            long aid = args.getLong("account");
+            long iid = args.getLong("identity");
+            String extra = args.getString("extra");
+            String to = args.getString("to");
+            String cc = args.getString("cc");
+            String bcc = args.getString("bcc");
+            String subject = args.getString("subject");
+            Spanned loaded = (Spanned) args.getCharSequence("loaded");
+            Spanned spanned = (Spanned) args.getCharSequence("spanned");
+            boolean signature = args.getBoolean("signature");
+            boolean empty = args.getBoolean("empty");
+            boolean notext = args.getBoolean("notext");
+            Bundle extras = args.getBundle("extras");
+
+            boolean silent = extras.getBoolean("silent");
+
+            boolean dirty = false;
+            String body = HtmlHelper.toHtml(spanned, context);
+            EntityMessage draft;
+
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean discard_delete = prefs.getBoolean("discard_delete", true);
+            boolean write_below = prefs.getBoolean("write_below", false);
+            boolean save_drafts = prefs.getBoolean("save_drafts", true);
+            int send_delayed = prefs.getInt("send_delayed", 0);
+
+            DB db = DB.getInstance(context);
+            try {
+                db.beginTransaction();
+
+                // Get draft & selected identity
+                draft = db.message().getMessage(id);
+                EntityIdentity identity = db.identity().getIdentity(iid);
+
+                // Draft deleted by server
+                if (draft == null || draft.ui_hide)
+                    throw new MessageRemovedException("Draft for action was deleted hide=" + (draft != null));
+
+                Log.i("Load action id=" + draft.id + " action=" + getActionName(action));
+
+                if (action == R.id.action_delete) {
+                    dirty = true;
+                    EntityFolder trash = db.folder().getFolderByType(draft.account, EntityFolder.TRASH);
+                    EntityFolder drafts = db.folder().getFolderByType(draft.account, EntityFolder.DRAFTS);
+                    if (empty || trash == null || discard_delete || !save_drafts || (drafts != null && drafts.local))
+                        EntityOperation.queue(context, draft, EntityOperation.DELETE);
+                    else {
+                        Map<String, String> c = new HashMap<>();
+                        c.put("id", draft.id == null ? null : Long.toString(draft.id));
+                        c.put("encrypt", draft.encrypt + "/" + draft.ui_encrypt);
+                        Log.breadcrumb("Discard draft", c);
+
+                        EntityOperation.queue(context, draft, EntityOperation.ADD);
+                        EntityOperation.queue(context, draft, EntityOperation.MOVE, trash.id);
+                    }
+
+                    getMainHandler().post(new Runnable() {
+                        public void run() {
+                            ToastEx.makeText(context, R.string.title_draft_deleted, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                } else {
+                    // Move draft to new account
+                    if (draft.account != aid && aid >= 0) {
+                        Log.i("Account changed");
+
+                        Long uid = draft.uid;
+                        String msgid = draft.msgid;
+                        boolean content = draft.content;
+                        Boolean ui_hide = draft.ui_hide;
+
+                        // To prevent violating constraints
+                        draft.uid = null;
+                        draft.msgid = null;
+                        db.message().updateMessage(draft);
+
+                        // Create copy to delete
+                        draft.id = null;
+                        draft.uid = uid;
+                        draft.msgid = msgid;
+                        draft.content = false;
+                        draft.ui_hide = true;
+                        draft.id = db.message().insertMessage(draft);
+                        EntityOperation.queue(context, draft, EntityOperation.DELETE);
+
+                        // Restore original with new account, no uid and new msgid
+                        draft.id = id;
+                        draft.account = aid;
+                        draft.folder = db.folder().getFolderByType(aid, EntityFolder.DRAFTS).id;
+                        draft.uid = null;
+                        draft.msgid = EntityMessage.generateMessageId();
+                        draft.content = content;
+                        draft.ui_hide = ui_hide;
+                        db.message().updateMessage(draft);
+
+                        if (draft.content)
+                            dirty = true;
+                    }
+
+                    Map<String, String> crumb = new HashMap<>();
+                    crumb.put("draft", draft.folder + ":" + draft.id);
+                    crumb.put("content", Boolean.toString(draft.content));
+                    crumb.put("revision", Integer.toString(draft.revision == null ? -1 : draft.revision));
+                    crumb.put("revisions", Integer.toString(draft.revisions == null ? -1 : draft.revisions));
+                    crumb.put("file", Boolean.toString(draft.getFile(context).exists()));
+                    crumb.put("action", getActionName(action));
+                    Log.breadcrumb("compose", crumb);
+
+                    List<EntityAttachment> attachments = db.attachment().getAttachments(draft.id);
+
+                    // Get data
+                    InternetAddress[] afrom = (identity == null ? null : new InternetAddress[]{new InternetAddress(identity.email, identity.name, StandardCharsets.UTF_8.name())});
+                    InternetAddress[] ato = MessageHelper.dedup(MessageHelper.parseAddresses(context, to));
+                    InternetAddress[] acc = MessageHelper.dedup(MessageHelper.parseAddresses(context, cc));
+                    InternetAddress[] abcc = MessageHelper.dedup(MessageHelper.parseAddresses(context, bcc));
+
+                    // Safe guard
+                    if (action == R.id.action_send) {
+                        checkAddress(ato, context);
+                        checkAddress(acc, context);
+                        checkAddress(abcc, context);
+                    }
+
+                    if (TextUtils.isEmpty(extra))
+                        extra = null;
+
+                    List<Integer> eparts = new ArrayList<>();
+                    for (EntityAttachment attachment : attachments)
+                        if (attachment.available)
+                            if (attachment.isEncryption())
+                                eparts.add(attachment.encryption);
+
+                    if (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt)) {
+                        if (!eparts.contains(EntityAttachment.PGP_KEY) ||
+                                !eparts.contains(EntityAttachment.PGP_SIGNATURE) ||
+                                !eparts.contains(EntityAttachment.PGP_CONTENT))
+                            dirty = true;
+                    } else if (EntityMessage.PGP_ENCRYPTONLY.equals(draft.ui_encrypt)) {
+                        if (!eparts.contains(EntityAttachment.PGP_MESSAGE))
+                            dirty = true;
+                    } else if (EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt)) {
+                        if (!eparts.contains(EntityAttachment.PGP_KEY) ||
+                                !eparts.contains(EntityAttachment.PGP_MESSAGE))
+                            dirty = true;
+                    } else if (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt)) {
+                        if (!eparts.contains(EntityAttachment.SMIME_SIGNATURE) ||
+                                !eparts.contains(EntityAttachment.SMIME_CONTENT))
+                            dirty = true;
+                    } else if (EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt)) {
+                        if (!eparts.contains(EntityAttachment.SMIME_MESSAGE))
+                            dirty = true;
+                    }
+
+                    Long ident = (identity == null ? null : identity.id);
+                    if (!Objects.equals(draft.identity, ident) ||
+                            !Objects.equals(draft.extra, extra) ||
+                            !MessageHelper.equal(draft.from, afrom) ||
+                            !MessageHelper.equal(draft.to, ato) ||
+                            !MessageHelper.equal(draft.cc, acc) ||
+                            !MessageHelper.equal(draft.bcc, abcc) ||
+                            !Objects.equals(draft.subject, subject) ||
+                            !draft.signature.equals(signature) ||
+                            !Objects.equals(last_plain_only, draft.plain_only) ||
+                            !EntityAttachment.equals(last_attachments, attachments))
+                        dirty = true;
+
+                    last_plain_only = draft.plain_only;
+                    last_attachments = attachments;
+
+                    if (dirty) {
+                        // Update draft
+                        draft.identity = ident;
+                        draft.extra = extra;
+                        draft.from = afrom;
+                        draft.to = ato;
+                        draft.cc = acc;
+                        draft.bcc = abcc;
+                        draft.subject = subject;
+                        draft.signature = signature;
+                        draft.sender = MessageHelper.getSortKey(draft.from);
+                        Uri lookupUri = ContactInfo.getLookupUri(draft.from);
+                        draft.avatar = (lookupUri == null ? null : lookupUri.toString());
+                        db.message().updateMessage(draft);
+                    }
+
+                    Document doc = JsoupEx.parse(draft.getFile(context));
+                    Element first = (doc.body().childrenSize() == 0 ? null : doc.body().child(0));
+                    boolean below = (first != null && first.attr("fairemail").equals("reference"));
+                    doc.select("div[fairemail=signature]").remove();
+                    Elements ref = doc.select("div[fairemail=reference]");
+                    ref.remove();
+
+                    if (extras.containsKey("html"))
+                        dirty = true;
+
+                    boolean wb = (draft == null || draft.write_below == null ? write_below : draft.write_below);
+                    if (below != wb &&
+                            doc.body().childrenSize() > 0 &&
+                            draft.wasforwardedfrom == null)
+                        dirty = true;
+
+                    if (!dirty)
+                        if (loaded == null) {
+                            Document b = JsoupEx.parse(body); // Is-dirty
+                            if (!Objects.equals(b.body().html(), doc.body().html()))
+                                dirty = true;
+                        } else {
+                            // Was not dirty before
+                            String hloaded = HtmlHelper.toHtml(loaded, context);
+                            String hspanned = HtmlHelper.toHtml(spanned, context);
+                            if (!Objects.equals(hloaded, hspanned))
+                                dirty = true;
+                        }
+
+                    if (draft.revision == null) {
+                        draft.revision = 1;
+                        draft.revisions = 1;
+                    }
+
+                    int revision = draft.revision; // Save for undo/redo
+                    if (dirty) {
+                        dirty = true;
+
+                        // Get saved body
+                        Document d;
+                        if (extras.containsKey("html")) {
+                            // Save current revision
+                            Document c = JsoupEx.parse(body);
+
+                            for (Element e : ref)
+                                if (wb && draft.wasforwardedfrom == null)
+                                    c.body().prependChild(e);
+                                else
+                                    c.body().appendChild(e);
+
+                            addSignature(context, c, draft, identity);
+
+                            Helper.writeText(draft.getFile(context, draft.revision), c.html());
+
+                            d = JsoupEx.parse(extras.getString("html"));
+                        } else {
+                            d = JsoupEx.parse(body); // Save
+
+                            for (Element e : ref)
+                                if (wb && draft.wasforwardedfrom == null)
+                                    d.body().prependChild(e);
+                                else
+                                    d.body().appendChild(e);
+
+                            addSignature(context, d, draft, identity);
+                        }
+
+                        body = d.html();
+
+                        // Create new revision
+                        draft.revisions++;
+                        draft.revision = draft.revisions;
+
+                        Helper.writeText(draft.getFile(context, draft.revision), body);
+                    } else
+                        body = Helper.readText(draft.getFile(context));
+
+                    if (action == R.id.action_undo || action == R.id.action_redo) {
+                        if (action == R.id.action_undo) {
+                            if (revision > 1)
+                                draft.revision = revision - 1;
+                            else
+                                draft.revision = revision;
+                        } else {
+                            if (revision < draft.revisions)
+                                draft.revision = revision + 1;
+                            else
+                                draft.revision = revision;
+                        }
+
+                        // Restore revision
+                        Log.i("Restoring revision=" + draft.revision);
+                        File file = draft.getFile(context, draft.revision);
+                        if (file.exists())
+                            body = Helper.readText(file);
+                        else
+                            Log.e("Missing" +
+                                    " revision=" + draft.revision + "/" + draft.revisions +
+                                    " action=" + getActionName(action));
+
+                        dirty = true;
+                    } else if (action == R.id.action_send) {
+                        if (!draft.isPlainOnly()) {
+                            // Remove unused inline images
+                            List<String> cids = new ArrayList<>();
+                            Document d = JsoupEx.parse(body);
+                            for (Element element : d.select("img")) {
+                                String src = element.attr("src");
+                                if (src.startsWith("cid:"))
+                                    cids.add("<" + src.substring(4) + ">");
+                            }
+
+                            for (EntityAttachment attachment : new ArrayList<>(attachments))
+                                if (attachment.isInline() && attachment.isImage() &&
+                                        attachment.cid != null && !cids.contains(attachment.cid)) {
+                                    Log.i("Removing unused inline attachment cid=" + attachment.cid);
+                                    attachments.remove(attachment);
+                                    db.attachment().deleteAttachment(attachment.id);
+                                    dirty = true;
+                                }
+                        } else {
+                            // Convert inline images to attachments
+                            for (EntityAttachment attachment : new ArrayList<>(attachments))
+                                if (attachment.isInline() && attachment.isImage()) {
+                                    Log.i("Converting to attachment cid=" + attachment.cid);
+                                    attachment.disposition = Part.ATTACHMENT;
+                                    attachment.cid = null;
+                                    db.attachment().setDisposition(attachment.id, attachment.disposition, attachment.cid);
+                                    dirty = true;
+                                }
+                        }
+                    }
+
+                    File f = draft.getFile(context);
+                    Helper.writeText(f, body);
+                    if (f.length() > MAX_REASONABLE_SIZE)
+                        args.putBoolean("large", true);
+
+                    String full = HtmlHelper.getFullText(body);
+                    draft.preview = HtmlHelper.getPreview(full);
+                    draft.language = HtmlHelper.getLanguage(context, draft.subject, full);
+                    db.message().setMessageContent(draft.id,
+                            true,
+                            draft.language,
+                            draft.plain_only, // unchanged
+                            draft.preview,
+                            null);
+
+                    db.message().setMessageRevision(draft.id, draft.revision);
+                    db.message().setMessageRevisions(draft.id, draft.revisions);
+
+                    if (dirty) {
+                        draft.received = new Date().getTime();
+                        draft.sent = draft.received;
+                        db.message().setMessageReceived(draft.id, draft.received);
+                        db.message().setMessageSent(draft.id, draft.sent);
+                    }
+
+                    if (silent) {
+                        // Skip storing on the server, etc
+                        db.setTransactionSuccessful();
+                        return draft;
+                    }
+
+                    // Execute action
+                    boolean encrypted = extras.getBoolean("encrypted");
+                    boolean shouldEncrypt = EntityMessage.PGP_ENCRYPTONLY.equals(draft.ui_encrypt) ||
+                            EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt) ||
+                            (EntityMessage.PGP_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send) ||
+                            EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt) ||
+                            (EntityMessage.SMIME_SIGNONLY.equals(draft.ui_encrypt) && action == R.id.action_send);
+                    boolean needsEncryption = (dirty && !encrypted && shouldEncrypt);
+                    boolean autosave = extras.getBoolean("autosave");
+                    if (needsEncryption && !autosave) {
+                        args.putBoolean("needsEncryption", true);
+                        db.setTransactionSuccessful();
+                        return draft;
+                    }
+
+                    if (!shouldEncrypt && !autosave)
+                        for (EntityAttachment attachment : attachments)
+                            if (attachment.isEncryption())
+                                db.attachment().deleteAttachment(attachment.id);
+
+                    if (action == R.id.action_save ||
+                            action == R.id.action_undo ||
+                            action == R.id.action_redo ||
+                            action == R.id.action_check) {
+                        boolean unencrypted =
+                                (!EntityMessage.PGP_ENCRYPTONLY.equals(draft.ui_encrypt) &&
+                                        !EntityMessage.PGP_SIGNENCRYPT.equals(draft.ui_encrypt) &&
+                                        !EntityMessage.SMIME_SIGNENCRYPT.equals(draft.ui_encrypt));
+                        if ((dirty && unencrypted) || encrypted) {
+                            if (save_drafts) {
+                                Map<String, String> c = new HashMap<>();
+                                c.put("id", draft.id == null ? null : Long.toString(draft.id));
+                                c.put("dirty", Boolean.toString(dirty));
+                                c.put("encrypt", draft.encrypt + "/" + draft.ui_encrypt);
+                                c.put("encrypted", Boolean.toString(encrypted));
+                                c.put("needsEncryption", Boolean.toString(needsEncryption));
+                                c.put("autosave", Boolean.toString(autosave));
+                                Log.breadcrumb("Save draft", c);
+
+                                EntityOperation.queue(context, draft, EntityOperation.ADD);
+                            }
+                        }
+
+                        if (action == R.id.action_check) {
+                            // Check data
+                            if (draft.identity == null)
+                                throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
+
+                            if (false) {
+                                EntityAccount account = db.account().getAccount(draft.account);
+                                EntityFolder sent = db.folder().getFolderByType(draft.account, EntityFolder.SENT);
+                                if (account != null && account.protocol == EntityAccount.TYPE_IMAP && sent == null)
+                                    args.putBoolean("sent_missing", true);
+                            }
+
+                            try {
+                                checkAddress(ato, context);
+                                checkAddress(acc, context);
+                                checkAddress(abcc, context);
+
+                                List<InternetAddress> check = new ArrayList<>();
+                                List<String> checked = new ArrayList<>();
+                                List<String> dup = new ArrayList<>();
+                                if (ato != null)
+                                    check.addAll(Arrays.asList(ato));
+                                if (acc != null)
+                                    check.addAll(Arrays.asList(acc));
+                                if (abcc != null)
+                                    check.addAll(Arrays.asList(abcc));
+
+                                for (InternetAddress a : check) {
+                                    String email = a.getAddress();
+                                    if (TextUtils.isEmpty(email))
+                                        continue;
+                                    if (checked.contains(a.getAddress()))
+                                        dup.add(email);
+                                    else
+                                        checked.add(email);
+                                }
+
+                                if (dup.size() > 0)
+                                    throw new AddressException(context.getString(
+                                            R.string.title_address_duplicate,
+                                            TextUtils.join(", ", dup)));
+                            } catch (AddressException ex) {
+                                args.putString("address_error", ex.getMessage());
+                            }
+
+                            if (draft.to == null && draft.cc == null && draft.bcc == null &&
+                                    (identity == null || (identity.cc == null && identity.bcc == null)))
+                                args.putBoolean("remind_to", true);
+
+                            //if (TextUtils.isEmpty(draft.extra) &&
+                            //        identity != null && identity.sender_extra)
+                            //    args.putBoolean("remind_extra", true);
+
+                            List<Address> recipients = new ArrayList<>();
+                            if (draft.to != null)
+                                recipients.addAll(Arrays.asList(draft.to));
+                            if (draft.cc != null)
+                                recipients.addAll(Arrays.asList(draft.cc));
+                            if (draft.bcc != null)
+                                recipients.addAll(Arrays.asList(draft.bcc));
+
+                            boolean noreply = false;
+                            for (Address recipient : recipients)
+                                if (MessageHelper.isNoReply(recipient)) {
+                                    noreply = true;
+                                    break;
+                                }
+                            args.putBoolean("remind_noreply", noreply);
+
+                            if (identity != null && !TextUtils.isEmpty(identity.internal)) {
+                                boolean external = false;
+                                String[] internals = identity.internal.split(",");
+                                for (Address recipient : recipients) {
+                                    String email = ((InternetAddress) recipient).getAddress();
+                                    String domain = UriHelper.getEmailDomain(email);
+                                    if (domain == null)
+                                        continue;
+
+                                    boolean found = false;
+                                    for (String internal : internals)
+                                        if (internal.equalsIgnoreCase(domain)) {
+                                            found = true;
+                                            break;
+                                        }
+                                    if (!found) {
+                                        external = true;
+                                        break;
+                                    }
+                                }
+                                args.putBoolean("remind_external", external);
+                            }
+
+                            if ((draft.dsn == null ||
+                                    EntityMessage.DSN_NONE.equals(draft.dsn)) &&
+                                    (draft.ui_encrypt == null ||
+                                            EntityMessage.ENCRYPT_NONE.equals(draft.ui_encrypt))) {
+                                args.putBoolean("remind_pgp", PgpHelper.hasPgpKey(context, recipients, false));
+                                args.putBoolean("remind_smime", SmimeHelper.hasSmimeKey(context, recipients, false));
+                            }
+
+                            if (TextUtils.isEmpty(draft.subject))
+                                args.putBoolean("remind_subject", true);
+
+                            Document d = JsoupEx.parse(body);
+
+                            if (notext &&
+                                    d.select("div[fairemail=reference]").isEmpty())
+                                args.putBoolean("remind_text", true);
+
+                            boolean styled = HtmlHelper.isStyled(d);
+                            args.putBoolean("styled", styled);
+
+                            int attached = 0;
+                            List<String> dangerous = new ArrayList<>();
+                            for (EntityAttachment attachment : attachments) {
+                                if (!attachment.available)
+                                    throw new IllegalArgumentException(context.getString(R.string.title_attachments_missing));
+                                else if (attachment.isAttachment())
+                                    attached++;
+                                String ext = Helper.getExtension(attachment.name);
+                                if (Helper.DANGEROUS_EXTENSIONS.contains(ext))
+                                    dangerous.add(attachment.name);
+                            }
+                            if (dangerous.size() > 0)
+                                args.putString("remind_extension", String.join(", ", dangerous));
+
+                            // Check for missing attachments
+                            if (attached == 0) {
+                                List<String> keywords = new ArrayList<>();
+                                for (String text : Helper.getStrings(context, R.string.title_attachment_keywords))
+                                    keywords.addAll(Arrays.asList(text.split(",")));
+
+                                d.select("div[fairemail=signature]").remove();
+                                d.select("div[fairemail=reference]").remove();
+
+                                String text = d.text();
+                                for (String keyword : keywords)
+                                    if (text.matches("(?si).*\\b" + Pattern.quote(keyword.trim()) + "\\b.*")) {
+                                        args.putBoolean("remind_attachment", true);
+                                        break;
+                                    }
+                            }
+
+                            if (EntityMessage.DSN_HARD_BOUNCE.equals(draft.dsn))
+                                args.putBoolean("remind_dsn", true);
+
+                            // Check size
+                            if (identity != null && identity.max_size != null)
+                                try {
+                                    Properties props = MessageHelper.getSessionProperties(true);
+                                    if (identity.unicode)
+                                        props.put("mail.mime.allowutf8", "true");
+                                    Session isession = Session.getInstance(props, null);
+                                    Message imessage = MessageHelper.from(context, draft, identity, isession, false);
+
+                                    File file = draft.getRawFile(context);
+                                    try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                                        imessage.writeTo(os);
+                                    }
+
+                                    long size = file.length();
+                                    if (size > identity.max_size) {
+                                        args.putBoolean("remind_size", true);
+                                        args.putLong("size", size);
+                                        args.putLong("max_size", identity.max_size);
+                                    }
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
+                                }
+
+                            args.putBoolean("remind_internet", !ConnectionHelper.getNetworkState(context).isConnected());
+                        } else {
+                            int mid;
+                            if (action == R.id.action_undo)
+                                mid = R.string.title_undo;
+                            else if (action == R.id.action_redo)
+                                mid = R.string.title_redo;
+                            else
+                                mid = R.string.title_draft_saved;
+                            final String msg = context.getString(mid) +
+                                    (BuildConfig.DEBUG
+                                            ? " " + draft.revision + (dirty ? "*" : "")
+                                            : "");
+
+                            getMainHandler().post(new Runnable() {
+                                public void run() {
+                                    ToastEx.makeText(context, msg, Toast.LENGTH_LONG).show();
+                                }
+                            });
+                        }
+
+                    } else if (action == R.id.action_send) {
+                        EntityFolder outbox = EntityFolder.getOutbox(context);
+
+                        // Delay sending message
+                        if (draft.ui_snoozed == null && send_delayed != 0) {
+                            if (extras.getBoolean("now"))
+                                draft.ui_snoozed = null;
+                            else
+                                draft.ui_snoozed = new Date().getTime() + send_delayed * 1000L;
+                        }
+
+                        if (draft.ui_snoozed != null)
+                            draft.received = draft.ui_snoozed;
+
+                        // Copy message to outbox
+                        long did = draft.id;
+
+                        draft.id = null;
+                        draft.folder = outbox.id;
+                        draft.uid = null;
+                        draft.fts = false;
+                        draft.ui_hide = false;
+                        draft.id = db.message().insertMessage(draft);
+                        Helper.writeText(draft.getFile(context), body);
+
+                        // Move attachments
+                        for (EntityAttachment attachment : attachments)
+                            db.attachment().setMessage(attachment.id, draft.id);
+
+                        // Send message
+                        if (draft.ui_snoozed == null)
+                            EntityOperation.queue(context, draft, EntityOperation.SEND);
+
+                        // Delete draft (cannot move to outbox)
+                        EntityMessage tbd = db.message().getMessage(did);
+                        if (tbd != null)
+                            EntityOperation.queue(context, tbd, EntityOperation.DELETE);
+
+                        final String feedback;
+                        if (draft.ui_snoozed == null) {
+                            boolean suitable = ConnectionHelper.getNetworkState(context).isSuitable();
+                            if (suitable)
+                                feedback = context.getString(R.string.title_queued);
+                            else
+                                feedback = context.getString(R.string.title_notification_waiting);
+                        } else {
+                            DateFormat DTF = Helper.getDateTimeInstance(context);
+                            feedback = context.getString(R.string.title_queued_at, DTF.format(draft.ui_snoozed));
+                        }
+
+                        getMainHandler().post(new RunnableEx("compose:toast") {
+                            public void delegate() {
+                                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                                    Helper.performHapticFeedback(view, HapticFeedbackConstants.CONFIRM);
+                                ToastEx.makeText(context, feedback, Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                        if (extras.getBoolean("archive")) {
+                            EntityFolder archive = db.folder().getFolderByType(draft.account, EntityFolder.ARCHIVE);
+                            if (archive != null) {
+                                List<EntityMessage> messages = db.message().getMessagesByMsgId(draft.account, draft.inreplyto);
+                                if (messages != null)
+                                    for (EntityMessage message : messages)
+                                        EntityOperation.queue(context, message, EntityOperation.MOVE, archive.id);
+                            }
+                        }
+                    }
+                }
+
+                db.setTransactionSuccessful();
+            } finally {
+                db.endTransaction();
+            }
+
+            if (action == R.id.action_check)
+                try {
+                    InternetAddress[] ato = MessageHelper.dedup(MessageHelper.parseAddresses(context, to));
+                    InternetAddress[] acc = MessageHelper.dedup(MessageHelper.parseAddresses(context, cc));
+                    InternetAddress[] abcc = MessageHelper.dedup(MessageHelper.parseAddresses(context, bcc));
+
+                    try {
+                        checkMx(ato, context);
+                        checkMx(acc, context);
+                        checkMx(abcc, context);
+                    } catch (UnknownHostException ex) {
+                        args.putString("mx_error", ex.getMessage());
+                    }
+                } catch (Throwable ignored) {
+                }
+
+            args.putBoolean("dirty", dirty);
+            if (dirty)
+                ServiceSynchronize.eval(context, "compose/action");
+
+            if (action == R.id.action_send)
+                if (draft.ui_snoozed == null)
+                    ServiceSend.start(context);
+                else {
+                    Log.i("Delayed send id=" + draft.id + " at " + new Date(draft.ui_snoozed));
+                    EntityMessage.snooze(context, draft.id, draft.ui_snoozed);
+                }
+
+            return draft;
         }
 
         @Override
@@ -5328,7 +7347,7 @@ public class FragmentCompose extends FragmentBase {
             boolean needsEncryption = args.getBoolean("needsEncryption");
             int action = args.getInt("action");
             Log.i("Loaded action id=" + draft.id +
-                    " action=" + LoaderComposeAction.getActionName(action) + " encryption=" + needsEncryption);
+                    " action=" + getActionName(action) + " encryption=" + needsEncryption);
 
             int toPos = etTo.getSelectionStart();
             int ccPos = etCc.getSelectionStart();
@@ -5450,33 +7469,97 @@ public class FragmentCompose extends FragmentBase {
             }
         }
 
-        @Override
-        protected void set(Integer plain_only, List<EntityAttachment> attachments) {
-            last_plain_only = plain_only;
-            last_attachments = attachments;
-        }
+        private void checkAddress(InternetAddress[] addresses, Context context) throws AddressException {
+            if (addresses == null)
+                return;
 
-        @Override
-        protected Pair<Integer, List<EntityAttachment>> get() {
-            return new Pair<>(last_plain_only, last_attachments);
-        }
-
-        @Override
-        protected void toast(String feedback) {
-            getMainHandler().post(new RunnableEx("compose:toast") {
-                public void delegate() {
-                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                        Helper.performHapticFeedback(view, HapticFeedbackConstants.CONFIRM);
-                    ToastEx.makeText(getContext(), feedback, Toast.LENGTH_LONG).show();
+            for (InternetAddress address : addresses)
+                try {
+                    address.validate();
+                } catch (AddressException ex) {
+                    throw new AddressException(context.getString(R.string.title_address_parse_error,
+                            MessageHelper.formatAddressesCompose(new Address[]{address}), ex.getMessage()));
                 }
-            });
+        }
+
+        private void checkMx(InternetAddress[] addresses, Context context) throws UnknownHostException {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean lookup_mx = prefs.getBoolean("lookup_mx", false);
+            if (!lookup_mx)
+                return;
+
+            if (addresses == null)
+                return;
+
+            ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
+            NetworkInfo ani = (cm == null ? null : cm.getActiveNetworkInfo());
+            if (ani != null && ani.isConnected())
+                DnsHelper.checkMx(context, addresses);
         }
     }.serial();
+
+    private String getActionName(int id) {
+        if (id == R.id.action_delete) {
+            return "delete";
+        } else if (id == R.id.action_undo) {
+            return "undo";
+        } else if (id == R.id.action_redo) {
+            return "redo";
+        } else if (id == R.id.action_save) {
+            return "save";
+        } else if (id == R.id.action_check) {
+            return "check";
+        } else if (id == R.id.action_send) {
+            return "send";
+        }
+        return Integer.toString(id);
+    }
 
     private void setBusy(boolean busy) {
         state = (busy ? State.LOADING : State.LOADED);
         Helper.setViewsEnabled(view, !busy);
         invalidateOptionsMenu();
+    }
+
+    private static void addSignature(Context context, Document document, EntityMessage draft, EntityIdentity identity) {
+        if (!draft.signature ||
+                identity == null || TextUtils.isEmpty(identity.signature))
+            return;
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int signature_location = prefs.getInt("signature_location", 1);
+        boolean usenet = prefs.getBoolean("usenet_signature", false);
+        boolean write_below = prefs.getBoolean("write_below", false);
+        String compose_font = prefs.getString("compose_font", "");
+
+        boolean wb = (draft == null || draft.write_below == null ? write_below : draft.write_below);
+
+        Element div = document.createElement("div");
+        div.attr("fairemail", "signature");
+        if (!TextUtils.isEmpty(compose_font))
+            div.attr("style", "font-family: " + StyleHelper.getFamily(compose_font));
+
+        if (usenet) {
+            // https://datatracker.ietf.org/doc/html/rfc3676#section-4.3
+            Element span = document.createElement("span");
+            span.text("-- ");
+            span.prependElement("br");
+            span.appendElement("br");
+            div.appendChild(span);
+        }
+
+        div.append(identity.signature);
+
+        Elements ref = document.select("div[fairemail=reference]");
+        if (signature_location == 0) // top
+            document.body().prependChild(div);
+        else if (ref.size() == 0 || signature_location == 2) // bottom
+            document.body().appendChild(div);
+        else if (signature_location == 1) // below text
+            if (wb && draft.wasforwardedfrom == null)
+                document.body().appendChild(div);
+            else
+                ref.first().before(div);
     }
 
     private void showDraft(final EntityMessage draft, boolean refedit, Runnable postShow, int selection) {
@@ -5966,4 +8049,70 @@ public class FragmentCompose extends FragmentBase {
                 onExit();
         }
     };
+
+    @NonNull
+    private static UriInfo getInfo(Uri uri, Context context) {
+        UriInfo result = new UriInfo();
+
+        // https://stackoverflow.com/questions/76094229/android-13-photo-video-picker-file-name-from-the-uri-is-garbage
+        DocumentFile dfile = null;
+        try {
+            dfile = DocumentFile.fromSingleUri(context, uri);
+            if (dfile != null) {
+                result.name = dfile.getName();
+                result.type = dfile.getType();
+                result.size = dfile.length();
+                EntityLog.log(context, "UriInfo dfile " + result + " uri=" + uri);
+            }
+        } catch (Throwable ex) {
+            Log.e(ex);
+        }
+
+        // Check name
+        if (TextUtils.isEmpty(result.name))
+            result.name = uri.getLastPathSegment();
+
+        // Check type
+        if (!TextUtils.isEmpty(result.type))
+            try {
+                new ContentType(result.type);
+            } catch (ParseException ex) {
+                Log.w(new Throwable(result.type, ex));
+                result.type = null;
+            }
+
+        if (TextUtils.isEmpty(result.type) ||
+                "*/*".equals(result.type) ||
+                "application/*".equals(result.type) ||
+                "application/octet-stream".equals(result.type))
+            result.type = Helper.guessMimeType(result.name);
+
+        if (result.size != null && result.size <= 0)
+            result.size = null;
+
+        EntityLog.log(context, "UriInfo result " + result + " uri=" + uri);
+
+        return result;
+    }
+
+    private static class UriInfo {
+        String name;
+        String type;
+        Long size;
+
+        boolean isImage() {
+            return ImageHelper.isImage(type);
+        }
+
+        @NonNull
+        @Override
+        public String toString() {
+            return "name=" + name + " type=" + type + " size=" + size;
+        }
+    }
+
+    private static class DraftData {
+        private EntityMessage draft;
+        private List<TupleIdentityEx> identities;
+    }
 }
