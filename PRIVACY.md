@@ -1,5 +1,5 @@
 
-<img src="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/res/mipmap-hdpi/ic_launcher.png">
+<img width="72" height="72" src="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/res/mipmap-hdpi/ic_launcher.png">
 
 <sup>Provided by [FairCode B.V.](https://www.faircode.eu/)</sup>
 
