@@ -6,6 +6,11 @@ For support you can use the contact form.
 
 Vallibonavenatrix
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2127 - 2023-11-16
 
 * Fixed move / quick action bar
