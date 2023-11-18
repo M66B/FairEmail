@@ -9,7 +9,8 @@ def getReleaseName = { -> return "Vallibonavenatrix" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
 def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
+if (rootProject.file("keystore.properties").exists())
+    keystoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
 
 Properties localProperties = new Properties()
 if (rootProject.file("local.properties").exists())
@@ -135,15 +136,17 @@ android {
         }
     }
 
-    // https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.SigningConfig.html
+    // https://developer.android.com/reference/tools/gradle-api/4.2/com/android/build/api/dsl/SigningConfig
     signingConfigs {
         release {
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            v1SigningEnabled true
-            v2SigningEnabled true
+            if (rootProject.file("keystore.properties").exists()) {
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                v1SigningEnabled true
+                v2SigningEnabled true
+            }
         }
     }
 
