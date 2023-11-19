@@ -1742,6 +1742,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 p2 = p2.parent_ref;
             }
 
+            if (p1 != null || p2 != null)
+                return false;
+
             return true;
         }
     }
