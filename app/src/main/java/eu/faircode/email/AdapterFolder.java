@@ -66,6 +66,7 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Ignore;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -1490,6 +1491,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             Map<Long, List<TupleFolderEx>> parentChilds = new HashMap<>();
 
             for (TupleFolderEx folder : folders) {
+                folder.indentation = 0;
+                folder.expander = true;
+                folder.parent_ref = null;
+                folder.child_refs = null;
+                folder.childs_unseen = 0;
+
                 idFolder.put(folder.id, folder);
                 if (folder.parent == null)
                     parents.add(folder);
