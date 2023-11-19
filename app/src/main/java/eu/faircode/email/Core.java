@@ -20,13 +20,9 @@ package eu.faircode.email;
 */
 
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
-import static androidx.core.app.NotificationCompat.DEFAULT_LIGHTS;
-import static androidx.core.app.NotificationCompat.DEFAULT_SOUND;
 import static javax.mail.Folder.READ_WRITE;
 
 import android.app.AlarmManager;
-import android.app.Notification;
-import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -34,22 +30,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteConstraintException;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Bundle;
 import android.os.OperationCanceledException;
-import android.os.PowerManager;
 import android.os.SystemClock;
-import android.service.notification.StatusBarNotification;
-import android.text.Html;
 import android.text.TextUtils;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
-import androidx.core.app.Person;
-import androidx.core.app.RemoteInput;
-import androidx.core.graphics.drawable.IconCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
@@ -86,12 +74,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-import java.nio.charset.StandardCharsets;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -138,8 +122,6 @@ import javax.mail.search.OrTerm;
 import javax.mail.search.ReceivedDateTerm;
 import javax.mail.search.SearchTerm;
 import javax.mail.search.SentDateTerm;
-
-import me.leolin.shortcutbadger.ShortcutBadgerAlt;
 
 class Core {
     static final int DEFAULT_CHUNK_SIZE = 50;

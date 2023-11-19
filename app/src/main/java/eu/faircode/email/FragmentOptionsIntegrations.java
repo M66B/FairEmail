@@ -19,7 +19,6 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
-import android.app.ActivityManager;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;

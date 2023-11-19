@@ -66,7 +66,6 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListUpdateCallback;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Ignore;
 
 import com.google.android.material.snackbar.Snackbar;
 
