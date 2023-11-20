@@ -28,6 +28,7 @@ import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.HapticFeedbackConstants;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
@@ -142,6 +143,7 @@ public class FragmentMoveAsk extends FragmentDialogBase {
                 .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        Helper.performHapticFeedback(dview, HapticFeedbackConstants.CONFIRM);
                         sendResult(Activity.RESULT_OK);
                     }
                 })
