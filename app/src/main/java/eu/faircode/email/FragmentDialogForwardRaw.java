@@ -293,7 +293,7 @@ public class FragmentDialogForwardRaw extends FragmentDialogBase {
             for (long id : ids) {
                 EntityLog.log(context, "Sending raw id=" + id);
                 File file = EntityMessage.getRawFile(context, id);
-                Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                Uri uri = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file);
                 uris.add(uri);
             }
 

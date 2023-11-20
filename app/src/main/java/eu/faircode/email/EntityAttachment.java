@@ -165,10 +165,7 @@ public class EntityAttachment {
 
     Uri getUri(Context context) {
         File file = getFile(context);
-        if (TextUtils.isEmpty(name))
-            return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
-        else
-            return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file, name);
+        return FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file, name);
     }
 
     File getFile(Context context) {

@@ -3574,7 +3574,7 @@ public class FragmentCompose extends FragmentBase {
                 File dir = Helper.ensureExists(new File(context.getFilesDir(), "photo"));
                 File file = new File(dir, working + "_" + new Date().getTime() + ".jpg");
                 try {
-                    photoURI = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                    photoURI = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file);
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                     startActivityForResult(intent, REQUEST_TAKE_PHOTO);
                 } catch (Throwable ex) {

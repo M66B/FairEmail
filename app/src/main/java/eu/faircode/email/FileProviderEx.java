@@ -22,10 +22,13 @@ package eu.faircode.email;
 import android.content.Context;
 import android.content.pm.ProviderInfo;
 import android.net.Uri;
+import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
+
+import java.io.File;
 
 public class FileProviderEx extends FileProvider {
     // https://android-review.googlesource.com/c/platform/frameworks/support/+/1978527
@@ -67,6 +70,19 @@ public class FileProviderEx extends FileProvider {
                   at androidx.core.content.FileProvider$SimplePathStrategy.addRoot (FileProvider.java:796)
              */
         }
+    }
+
+    public static Uri getUri(@NonNull Context context, @NonNull String authority, @NonNull File file) {
+        return getUri(context, authority, file, null);
+    }
+
+    public static Uri getUri(@NonNull Context context, @NonNull String authority, @NonNull File file, @NonNull String name) {
+        Uri uri;
+        if (TextUtils.isEmpty(name))
+            uri = getUriForFile(context, authority, file);
+        else
+            uri = getUriForFile(context, authority, file, name);
+        return uri;
     }
 
     @Override

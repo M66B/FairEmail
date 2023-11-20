@@ -2407,7 +2407,7 @@ public class HtmlHelper {
                 if (attachment != null && attachment.available) {
                     File file = attachment.getFile(context);
                     if (local) {
-                        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                        Uri uri = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file, attachment.name);
                         img.attr("src", uri.toString());
                         Log.i("Inline image uri=" + uri);
                     } else {

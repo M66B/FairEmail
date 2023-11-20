@@ -997,7 +997,7 @@ public class Helper {
 
     static void share(Context context, File file, String type, String name) {
         // https://developer.android.com/reference/androidx/core/content/FileProvider
-        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+        Uri uri = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file, name);
         share(context, uri, type, name);
     }
 

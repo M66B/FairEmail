@@ -577,7 +577,7 @@ abstract class ActivityBase extends AppCompatActivity implements SharedPreferenc
 
             Helper.copy(is, new FileOutputStream(file));
 
-            return FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID, file);
+            return FileProviderEx.getUri(this, BuildConfig.APPLICATION_ID, file);
         } catch (Throwable ex) {
             Log.w(ex);
             return uri;

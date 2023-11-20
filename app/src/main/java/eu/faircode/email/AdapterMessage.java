@@ -6359,7 +6359,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             Helper.copy(source, target);
 
-                            return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, target);
+                            return FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, target);
                         }
 
                         @Override
@@ -7246,7 +7246,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (attachments != null)
                             for (EntityAttachment attachment : attachments) {
                                 File file = attachment.getFile(context);
-                                Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                                Uri uri = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file, attachment.name);
                                 uris.add(uri);
                             }
 
