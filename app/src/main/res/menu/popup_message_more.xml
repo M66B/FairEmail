@@ -138,9 +138,9 @@
             android:title="@string/title_show_headers" />
 
         <item
-            android:id="@+id/menu_share_as_html"
-            android:icon="@drawable/twotone_source_24"
-            android:title="@string/title_share_as_html" />
+            android:id="@+id/menu_show_html"
+            android:icon="@drawable/twotone_html_24"
+            android:title="@string/title_show_html" />
 
         <item
             android:id="@+id/menu_raw_save"

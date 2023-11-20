@@ -3,13 +3,14 @@ apply plugin: 'com.bugsnag.android.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'de.undercouch.download'
 
-def getVersionCode = { -> return 2112 }
-def getRevision = { -> return "a" }
+def getVersionCode = { -> return 2128 }
+def getRevision = { -> return "b" }
 def getReleaseName = { -> return "Vallibonavenatrix" }
 // https://en.wikipedia.org/wiki/List_of_dinosaur_genera
 
 def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
+if (rootProject.file("keystore.properties").exists())
+    keystoreProperties.load(new FileInputStream(rootProject.file("keystore.properties")))
 
 Properties localProperties = new Properties()
 if (rootProject.file("local.properties").exists())
@@ -43,6 +44,13 @@ android {
         // https://developer.android.com/guide/topics/graphics/vector-drawable-resources
         vectorDrawables.useSupportLibrary = true
 
+        externalNativeBuild {
+            cmake {
+                cFlags "-ffile-prefix-map=${rootDir}=."
+                cppFlags "-ffile-prefix-map=${rootDir}=."
+            }
+        }
+
         // https://developer.android.com/ndk/downloads
         ndkVersion "25.2.9519653" // r25c
         ndk {
@@ -72,13 +80,19 @@ android {
     }
 
     lint {
-        abortOnError false
+        // https://developer.android.com/studio/write/lint
+        // https://developer.android.com/reference/tools/gradle-api/8.0/com/android/build/api/dsl/LintOptions
+        abortOnError true
         checkReleaseBuilds false
+        //checkDependencies false
         disable 'MissingTranslation'
-        enable 'StringFormatInvalid'
+        fatal 'StringFormatInvalid', 'StringFormatMatches', 'StringFormatCount'
+        checkOnly 'StringFormatInvalid', 'StringFormatMatches', 'StringFormatCount'
     }
 
     compileOptions {
+        // https://developer.android.com/studio/write/java8-support#groovy
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
@@ -122,15 +136,17 @@ android {
         }
     }
 
-    // https://google.github.io/android-gradle-dsl/current/com.android.build.gradle.internal.dsl.SigningConfig.html
+    // https://developer.android.com/reference/tools/gradle-api/4.2/com/android/build/api/dsl/SigningConfig
     signingConfigs {
         release {
-            storeFile file(keystoreProperties['storeFile'])
-            storePassword keystoreProperties['storePassword']
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            v1SigningEnabled true
-            v2SigningEnabled true
+            if (rootProject.file("keystore.properties").exists()) {
+                storeFile file(keystoreProperties['storeFile'])
+                storePassword keystoreProperties['storePassword']
+                keyAlias keystoreProperties['keyAlias']
+                keyPassword keystoreProperties['keyPassword']
+                v1SigningEnabled true
+                v2SigningEnabled true
+            }
         }
     }
 
@@ -152,47 +168,32 @@ android {
             minifyEnabled = true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
+            buildConfigField "String", "TX_URI", "\"\""
+            buildConfigField "String", "GPA_URI", "\"\""
+            buildConfigField "String", "INFO_URI", "\"\""
+            buildConfigField "String", "BUGSNAG_URI", "\"\""
+            buildConfigField "String", "DEV_DOMAIN", "\"\""
         }
         debug {
             applicationIdSuffix '.debug'
             debuggable = true
             minifyEnabled = false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    flavorDimensions "all"
-
-    productFlavors {
-        github {
-            dimension "all"
-            manifestPlaceholders.largeHeap = false
-            buildConfigField "boolean", "TEST_RELEASE", "false"
-            buildConfigField "boolean", "BETA_RELEASE", "true"
-            buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
-            buildConfigField "boolean", "FDROID_RELEASE", "false"
-            buildConfigField "boolean", "AMAZON_RELEASE", "false"
-            buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/donate/\""
-            buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FairEmail/releases/\""
-            buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
-            buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
-            buildConfigField "String", "BITBUCKET_DOWNLOADS_API", "\"https://api.bitbucket.org/2.0/repositories/M66B/fairemail-test/downloads\""
-            buildConfigField "String", "BITBUCKET_DOWNLOADS_URI", "\"https://bitbucket.org/M66B/fairemail-test/downloads/\""
-            buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
-            buildConfigField "String", "CLOUD_URI", "\"https://api.fairemail.net/sync\""
-            buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
-            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
-            buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
             buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
             buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
             buildConfigField "String", "BUGSNAG_URI", localProperties.getProperty("bugsnag.uri", "\"\"")
             buildConfigField "String", "DEV_DOMAIN", localProperties.getProperty("dev.domain", "\"\"")
-            buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
-        large {
+    }
+
+    flavorDimensions += "all"
+
+    productFlavors {
+        github {
             dimension "all"
-            manifestPlaceholders.largeHeap = true
+            manifestPlaceholders.largeHeap = false
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "github").getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
@@ -209,16 +210,43 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
-            buildConfigField "String", "TX_URI", localProperties.getProperty("paypal.uri", "\"\"")
-            buildConfigField "String", "GPA_URI", localProperties.getProperty("gpa.uri", "\"\"")
-            buildConfigField "String", "INFO_URI", localProperties.getProperty("info.uri", "\"\"")
-            buildConfigField "String", "BUGSNAG_URI", localProperties.getProperty("bugnsag.uri", "\"\"")
-            buildConfigField "String", "DEV_DOMAIN", localProperties.getProperty("dev.domain", "\"\"")
+            buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
+        }
+        large {
+            dimension "all"
+            manifestPlaceholders.largeHeap = true
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "large").getBytes()).toString();
+            buildConfigField "boolean", "TEST_RELEASE", "false"
+            buildConfigField "boolean", "BETA_RELEASE", "true"
+            buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
+            buildConfigField "boolean", "FDROID_RELEASE", "false"
+            buildConfigField "boolean", "AMAZON_RELEASE", "false"
+            buildConfigField "String", "PRO_FEATURES_URI", "\"https://email.faircode.eu/donate/\""
+            buildConfigField "String", "CHANGELOG", "\"https://github.com/M66B/FairEmail/releases/\""
+            buildConfigField "String", "GITHUB_LATEST_API", "\"https://api.github.com/repos/M66B/FairEmail/releases/latest\""
+            buildConfigField "String", "GITHUB_LATEST_URI", "\"https://github.com/M66B/FairEmail/releases\""
+            buildConfigField "String", "BITBUCKET_DOWNLOADS_API", "\"https://api.bitbucket.org/2.0/repositories/M66B/fairemail-test/downloads\""
+            buildConfigField "String", "BITBUCKET_DOWNLOADS_URI", "\"https://bitbucket.org/M66B/fairemail-test/downloads/\""
+            buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
+            buildConfigField "String", "CLOUD_URI", "\"https://api.fairemail.net/sync\""
+            buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
+            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
+            buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         fdroid {
             dimension "all"
             manifestPlaceholders.largeHeap = false
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "fdroid").getBytes()).toString();
+            externalNativeBuild {
+                cmake {
+                    arguments "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--build-id=none"
+                    // https://f-droid.org/docs/Reproducible_Builds/
+                    // The build ID is a 160-bit SHA1 string computed over the elf header bits and section contents in the file.
+                    // It is bundled in the elf file as an entry in the notes section.
+                    //   readelf -n ./app/build/intermediates/stripped_native_libs/xxxRelease/out/lib/armeabi-v7a/libfairemail.so
+                }
+            }
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
@@ -235,17 +263,13 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
-            buildConfigField "String", "TX_URI", "\"\""
-            buildConfigField "String", "GPA_URI", "\"\""
-            buildConfigField "String", "INFO_URI", "\"\""
-            buildConfigField "String", "BUGSNAG_URI", "\"\""
-            buildConfigField "String", "DEV_DOMAIN", "\"\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
         play {
             dimension "all"
             //minSdkVersion 23
             manifestPlaceholders.largeHeap = false
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "play").getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
@@ -262,17 +286,13 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
-            buildConfigField "String", "TX_URI", "\"\""
-            buildConfigField "String", "GPA_URI", "\"\""
-            buildConfigField "String", "INFO_URI", "\"\""
-            buildConfigField "String", "BUGSNAG_URI", "\"\""
-            buildConfigField "String", "DEV_DOMAIN", "\"\""
             buildConfigField "String", "FDROID", "\"\""
         }
         amazon {
             dimension "all"
             minSdkVersion 23
             manifestPlaceholders.largeHeap = false
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "amazon").getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
@@ -289,10 +309,6 @@ android {
             buildConfigField "String", "CLOUD_EMAIL", "\"\""
             buildConfigField "String", "OPENAI_ENDPOINT", "\"\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
-            buildConfigField "String", "TX_URI", "\"\""
-            buildConfigField "String", "GPA_URI", "\"\""
-            buildConfigField "String", "INFO_URI", "\"\""
-            buildConfigField "String", "DEV_DOMAIN", "\"\""
             buildConfigField "String", "FDROID", "\"\""
         }
     }
@@ -314,7 +330,6 @@ android {
         else
             variant.buildConfigField "String", "MXTOOLBOX_URI", "\"\""
 
-        // $JAVA_HOME/bin/java -jar ~/Android/Sdk/tools/proguard/lib/retrace.jar ~/email/app/schemas/mapping/FairEmail-v1.nnn-github-release-mapping.txt
         if (variant.getBuildType().isMinifyEnabled())
             variant.assembleProvider.get().doLast {
                 for (file in variant.getMappingFileProvider().get().files)
@@ -380,11 +395,23 @@ task updateFAQ(type: Exec) {
     commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FAQ FairEmail"  FAQ.md -o index.html'
 }
 
+task updatePrivacy(type: Exec) {
+    workingDir "${rootDir}"
+    commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FairEmail" --css=privacy.css PRIVACY.md -o privacy.html'
+}
+
 task downloadPSL(type: Download) {
     // https://github.com/michel-kraemer/gradle-download-task
     src "https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat"
     dest "src/main/assets"
     overwrite true
+}
+
+task extractSignature(type: Exec) {
+    workingDir "${rootDir}"
+    // sudo apt install apksigcopier
+    commandLine 'sh', '-c', 'mkdir -p metadata/eu.faircode.email/signatures/' + getVersionCode() + ' &&' +
+            'apksigcopier extract --v1-only=auto app/build/outputs/apk/fdroid/release/FairEmail-v1.' + getVersionCode() + getRevision() + '-fdroid-release.apk metadata/eu.faircode.email/signatures/' + getVersionCode()
 }
 
 task upload() {
@@ -453,42 +480,42 @@ dependencies {
 
     def startup_version = "1.1.1" // 1.2.0-alpha02
     def annotation_version_experimental = "1.3.1"
-    def core_version = "1.12.0"
+    def core_version = "1.12.0" // 1.13.0-alpha01
     def appcompat_version = "1.6.1" // 1.7.0-alpha03
     def emoji_version = "1.4.0"
     def flatbuffers_version = "2.0.0"
-    def activity_version = "1.8.0"
-    def fragment_version = "1.6.1" // 1.7.0-alpha06
-    def windows_version = "1.2.0-beta03"
-    def webkit_version = "1.8.0"
-    def recyclerview_version = "1.3.1"
+    def activity_version = "1.8.1"
+    def fragment_version = "1.6.2" // 1.7.0-alpha06
+    def windows_version = "1.2.0" // 1.3.0-alpha01
+    def webkit_version = "1.8.0" // 1.9.0-rc01
+    def recyclerview_version = "1.3.2" // 1.4.0-alpha01
     def coordinatorlayout_version = "1.2.0" // 1.3.0-alpha02
     def constraintlayout_version = "2.1.4" // 2.2.0-alpha13
-    def material_version = "1.9.0" // 1.11.0-alpha01
-    def browser_version = "1.6.0" // 1.7.0-alpha01
+    def material_version = "1.10.0" // 1.11.0-alpha01
+    def browser_version = "1.7.0" // 1.8.0-alpha01
     def lbm_version = "1.1.0"
     def swiperefresh_version = "1.2.0-alpha01"
     def documentfile_version = "1.1.0-alpha01"
-    def lifecycle_version = "2.6.2"
+    def lifecycle_version = "2.6.2" // 2.7.0-rc01
     def lifecycle_extensions_version = "2.2.0"
-    def room_version = "2.4.3" // 2.5.2/2.6.0-rc01
-    def sqlite_version = "2.3.1" // 2.4.0-rc01
+    def room_version = "2.4.3" // 2.5.2/2.6.0
+    def sqlite_version = "2.4.0"
     def requery_version = "3.39.2"
     def paging_version = "2.1.2" //  3.2.0
     def preference_version = "1.2.1"
-    def work_version = "2.8.1" // 2.9.0-beta01
+    def work_version = "2.8.1" // 2.9.0-rc01
     def exif_version = "1.3.6"
     def biometric_version = "1.2.0-alpha05"
     def billingclient_version = "6.0.1"
     def javamail_version = "1.6.7"
-    def jsoup_version = "1.15.3"
-    def css_version = "0.9.29"
+    def jsoup_version = "1.16.2"
+    def css_version = "0.9.30"
     def jax_version = "2.3.0-jaxb-1.0.6"
     def dnsjava_version = "2.1.9"
     def openpgp_version = "12.0"
     def badge_version = "1.1.22"
-    def bugsnag_version = "5.28.2"
-    def biweekly_version = "0.6.6"
+    def bugsnag_version = "5.31.3"
+    def biweekly_version = "0.6.7"
     def vcard_version = "0.12.1"
     def relinker_version = "1.4.5"
     def markwon_version = "4.6.2"
@@ -502,10 +529,13 @@ dependencies {
     def reactivestreams_version = "1.0.3"
     def rxjava2_version = "2.2.21"
     def svg_version = "1.4"
-    def compress_version = "1.22"
+    def compress_version = "1.24.0"
     def ipaddress_version = "5.4.0"
     def canary_version = "2.12"
     def ws_version = "2.14"
+
+    // https://mvnrepository.com/artifact/com.android.tools/desugar_jdk_libs?repo=google
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
 
     // https://developer.android.com/jetpack/androidx/releases/startup
     implementation "androidx.startup:startup-runtime:$startup_version"
@@ -661,12 +691,18 @@ dependencies {
 
     // https://github.com/mangstadt/biweekly
     // https://mvnrepository.com/artifact/net.sf.biweekly/biweekly
-    implementation("net.sf.biweekly:biweekly:$biweekly_version") {
-        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
-    }
+    //implementation("net.sf.biweekly:biweekly:$biweekly_version") {
+    //    exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
+    //    exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
+    //}
+    api "com.fasterxml.jackson.core:jackson-core:2.14.2"
+    api "com.fasterxml.jackson.core:jackson-databind:2.14.2"
 
     // https://github.com/mangstadt/ez-vcard
-    implementation "com.googlecode.ez-vcard:ez-vcard:$vcard_version"
+    implementation("com.googlecode.ez-vcard:ez-vcard:$vcard_version") {
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-core'
+        exclude group: 'com.fasterxml.jackson.core', module: 'jackson-databind'
+    }
 
     // https://github.com/KeepSafe/ReLinker
     // https://mvnrepository.com/artifact/com.getkeepsafe.relinker/relinker
@@ -688,6 +724,7 @@ dependencies {
     // https://www.bouncycastle.org/latest_releases.html
     // https://mvnrepository.com/artifact/org.bouncycastle/bcpkix-jdk15on
     implementation "org.bouncycastle:bcpkix-jdk15to18:$bouncycastle_version"
+    implementation "org.bouncycastle:bctls-jdk15to18:$bouncycastle_version"
 
     // https://github.com/openid/AppAuth-Android
     // https://mvnrepository.com/artifact/net.openid/appauth

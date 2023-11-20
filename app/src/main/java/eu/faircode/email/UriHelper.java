@@ -141,7 +141,7 @@ public class UriHelper {
     }
 
     static boolean hasTld(Context context, String host) {
-        return (getTld(context, host) != null);
+        return (host != null && getTld(context, host) != null);
     }
 
     static String getTld(Context context, @NonNull String host) {

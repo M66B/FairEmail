@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@drawable/twotone_search_24"
+        android:title="@string/title_search"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        app:showAsAction="collapseActionView|always" />
+
+    <item
+        android:id="@+id/menu_force_light"
+        android:icon="@drawable/lightdark"
+        android:title="@string/title_force_light"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_sanitize"
+        android:icon="@drawable/twotone_fullscreen_exit_24"
+        android:title="@string/title_legend_show_reformatted"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/menu_lines"
+        android:checkable="true"
+        android:title="@string/title_code_line_numbers"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_links"
+        android:checkable="true"
+        android:title="@string/title_code_enable_links"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_pretty"
+        android:checkable="true"
+        android:title="@string/title_code_pretty"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_check_html"
+        android:title="@string/title_check_html"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/menu_save"
+        android:title="@string/title_save"
+        app:showAsAction="never" />
+</menu>

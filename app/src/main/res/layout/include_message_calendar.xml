@@ -20,21 +20,38 @@
         android:id="@+id/ibCalendar"
         android:layout_width="36dp"
         android:layout_height="36dp"
+        android:layout_marginTop="6dp"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/title_icalendar_calendar"
+        android:padding="6dp"
+        android:scaleType="fitCenter"
+        android:tooltipText="@string/title_icalendar_calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vSeparatorCalendar"
+        app:srcCompat="@drawable/twotone_event_24"
+        app:tint="?attr/colorAccent" />
+
+    <ImageButton
+        android:id="@+id/ibOnline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/title_icalendar_calendar"
         android:padding="6dp"
         android:scaleType="fitCenter"
         android:tooltipText="@string/title_icalendar_accept"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/vSeparatorCalendar"
-        app:srcCompat="@drawable/twotone_event_24" />
+        app:layout_constraintTop_toBottomOf="@+id/ibCalendar"
+        app:srcCompat="@drawable/twotone_video_camera_front_24"
+        app:tint="?attr/colorAccent" />
 
     <TextView
         android:id="@+id/tvCalendarSummary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="6dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="6dp"
         android:text="Summary"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
@@ -117,6 +134,7 @@
         android:layout_marginTop="12dp"
         android:drawableEnd="@drawable/twotone_check_24"
         android:drawablePadding="6dp"
+        android:drawableTint="?attr/colorAccept"
         android:text="@string/title_icalendar_accept"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvAttendees" />
@@ -130,6 +148,7 @@
         android:layout_marginTop="12dp"
         android:drawableEnd="@drawable/twotone_close_24"
         android:drawablePadding="6dp"
+        android:drawableTint="?attr/colorDecline"
         android:text="@string/title_icalendar_decline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnCalendarAccept" />

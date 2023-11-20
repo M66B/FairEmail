@@ -158,6 +158,20 @@ static const int kHtmlPlaintextFlag = 0x80;    // Bit in add byte to distinguish
  *
 **/
 
+// All intentional fallthroughs in breakpad are in this file, so define
+// this macro locally.
+// If you ever move this to a .h file, make sure it's defined in a
+// private header file: clang suggests the first macro expanding to
+// [[clang::fallthrough]] in its diagnostics, so if BP_FALLTHROUGH
+// is visible in code depending on breakpad, clang would suggest
+// BP_FALLTHROUGH for code depending on breakpad, instead of the
+// client code's own fallthrough macro.
+#if defined(__clang__)
+#define CLD_FALLTHROUGH [[clang::fallthrough]]
+#else
+#define CLD_FALLTHROUGH
+#endif
+
 // Return true if current Tbl pointer is within state0 range
 // Note that unsigned compare checks both ends of range simultaneously
 static inline bool InStateZero(const UTF8ScanObj* st, const uint8* Tbl) {
@@ -715,10 +729,10 @@ static int UTF8GenericReplaceInternal(const UTF8ReplaceObj* st,
       goto Do_state_table;
     case kExitReplace3:    // update 3 bytes to change
       dst[-3] = (unsigned char)Tbl[c + (nEntries * 3)];
-      // Fall into next case
+      CLD_FALLTHROUGH;
     case kExitReplace2:    // update 2 bytes to change
       dst[-2] = (unsigned char)Tbl[c + (nEntries * 2)];
-      // Fall into next case
+      CLD_FALLTHROUGH;
     case kExitReplace1:    // update 1 byte to change
       dst[-1] = (unsigned char)Tbl[c + (nEntries * 1)];
       total_changed++;
@@ -736,7 +750,7 @@ static int UTF8GenericReplaceInternal(const UTF8ReplaceObj* st,
       } else {
         offset += ((unsigned char)Tbl[c + (nEntries * 2)] << 8);
       }
-      // Fall into next case
+      CLD_FALLTHROUGH;
     case kExitSpecial:      // Apply special fixups [read: hacks]
     case kExitReplaceOffset1:
       if ((nEntries != 256) && InStateZero(st, Tbl)) {
@@ -986,10 +1000,10 @@ static int UTF8GenericReplaceInternalTwoByte(const UTF8ReplaceObj_2* st,
       goto Do_state_table_2;
     case kExitReplace3_2:    // update 3 bytes to change
       dst[-3] = (unsigned char)(Tbl[c + (nEntries * 2)] & 0xff);
-      // Fall into next case
+      CLD_FALLTHROUGH;
     case kExitReplace2_2:    // update 2 bytes to change
       dst[-2] = (unsigned char)(Tbl[c + (nEntries * 1)] >> 8 & 0xff);
-      // Fall into next case
+      CLD_FALLTHROUGH;
     case kExitReplace1_2:    // update 1 byte to change
       dst[-1] = (unsigned char)(Tbl[c + (nEntries * 1)] & 0xff);
       total_changed++;
@@ -1007,7 +1021,7 @@ static int UTF8GenericReplaceInternalTwoByte(const UTF8ReplaceObj_2* st,
       } else {
         offset += ((unsigned char)(Tbl[c + (nEntries * 1)] >> 8 & 0xff) << 8);
       }
-      // Fall into next case
+      CLD_FALLTHROUGH;
     case kExitReplaceOffset1_2:
       if ((nEntries != 256) && InStateZero_2(st, Tbl)) {
         // For space-optimized table, we need multiples of 256 bytes

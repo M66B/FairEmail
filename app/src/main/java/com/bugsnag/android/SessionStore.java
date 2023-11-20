@@ -17,6 +17,7 @@ import java.util.UUID;
  */
 class SessionStore extends FileStore {
 
+    private final ImmutableConfig config;
     static final Comparator<File> SESSION_COMPARATOR = new Comparator<File>() {
         @Override
         public int compare(File lhs, File rhs) {
@@ -43,12 +44,15 @@ class SessionStore extends FileStore {
                 SESSION_COMPARATOR,
                 logger,
                 delegate);
+        this.config = config;
     }
 
     @NonNull
     @Override
     String getFilename(Object object) {
-        return SessionFilenameInfo.defaultFilename();
+        SessionFilenameInfo sessionInfo
+                = SessionFilenameInfo.defaultFilename(object, config);
+        return sessionInfo.encode();
     }
 
     public boolean isTooOld(File file) {

@@ -161,6 +161,12 @@ public interface DaoAccount {
             " AND tbd IS NULL")
     List<EntityAccount> getAccounts(String user, int protocol);
 
+    @Query("SELECT DISTINCT category" +
+            " FROM account" +
+            " WHERE NOT (category IS NULL OR category = '')" +
+            " ORDER BY category COLLATE NOCASE")
+    List<String> getAccountCategories();
+
     @Query("SELECT * FROM account WHERE `primary`")
     EntityAccount getPrimaryAccount();
 

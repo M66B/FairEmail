@@ -33,6 +33,7 @@ internal class AppDataCollector(
     private val processName = findProcessName()
     private val releaseStage = config.releaseStage
     private val versionName = config.appVersion ?: config.packageInfo?.versionName
+    private val installerPackage = getInstallerPackageName()
 
     fun generateApp(): App =
         App(config, binaryArch, packageName, releaseStage, versionName, codeBundleId)
@@ -74,6 +75,7 @@ internal class AppDataCollector(
         map["totalMemory"] = totalMemory
         map["freeMemory"] = freeMemory
         map["memoryLimit"] = runtime.maxMemory()
+        map["installerPackage"] = installerPackage
     }
 
     /**
@@ -127,6 +129,20 @@ internal class AppDataCollector(
                 packageManager.getApplicationLabel(copy).toString()
             }
             else -> null
+        }
+    }
+
+    /**
+     * The name of installer / vendor package of the app
+     */
+    fun getInstallerPackageName(): String? {
+        try {
+            if (VERSION.SDK_INT >= VERSION_CODES.R)
+                return packageManager?.getInstallSourceInfo(packageName)?.installingPackageName
+            @Suppress("DEPRECATION")
+            return packageManager?.getInstallerPackageName(packageName)
+        } catch (e: Exception) {
+            return null
         }
     }
 

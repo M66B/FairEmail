@@ -30,13 +30,10 @@ import android.util.Xml;
 
 import androidx.annotation.NonNull;
 
-import com.sun.mail.util.LineInputStream;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -50,7 +47,6 @@ import java.net.HttpURLConnection;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.net.SocketException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.security.cert.Certificate;
@@ -1360,7 +1356,7 @@ public class EmailProvider implements Parcelable {
                                 SSLSocket sslSocket = null;
                                 try {
                                     if (starttls)
-                                        sslSocket = starttls(socket, context);
+                                        sslSocket = ConnectionHelper.starttls(socket, host, port, context);
                                     else
                                         sslSocket = (SSLSocket) socket;
 
@@ -1405,7 +1401,7 @@ public class EmailProvider implements Parcelable {
                                 } finally {
                                     try {
                                         if (sslSocket != null) {
-                                            signOff(sslSocket, context);
+                                            ConnectionHelper.signOff(sslSocket, port, context);
                                             sslSocket.close();
                                         }
                                     } catch (Throwable ex) {
@@ -1438,104 +1434,6 @@ public class EmailProvider implements Parcelable {
                     }
                 }
             });
-        }
-
-        private SSLSocket starttls(Socket socket, Context context) throws IOException {
-            String response;
-            String command;
-            boolean has = false;
-
-            LineInputStream lis =
-                    new LineInputStream(
-                            new BufferedInputStream(
-                                    socket.getInputStream()));
-
-            if (port == 587) {
-                do {
-                    response = lis.readLine();
-                    if (response != null)
-                        EntityLog.log(context, EntityLog.Type.Protocol,
-                                socket.getRemoteSocketAddress() + " <" + response);
-                } while (response != null && !response.startsWith("220 "));
-
-                command = "EHLO " + EmailService.getDefaultEhlo() + "\n";
-                EntityLog.log(context, socket.getRemoteSocketAddress() + " >" + command);
-                socket.getOutputStream().write(command.getBytes());
-
-                do {
-                    response = lis.readLine();
-                    if (response != null) {
-                        EntityLog.log(context, EntityLog.Type.Protocol,
-                                socket.getRemoteSocketAddress() + " <" + response);
-                        if (response.contains("STARTTLS"))
-                            has = true;
-                    }
-                } while (response != null &&
-                        response.length() >= 4 && response.charAt(3) == '-');
-
-                if (has) {
-                    command = "STARTTLS\n";
-                    EntityLog.log(context, EntityLog.Type.Protocol,
-                            socket.getRemoteSocketAddress() + " >" + command);
-                    socket.getOutputStream().write(command.getBytes());
-                }
-            } else if (port == 143) {
-                do {
-                    response = lis.readLine();
-                    if (response != null) {
-                        EntityLog.log(context, EntityLog.Type.Protocol,
-                                socket.getRemoteSocketAddress() + " <" + response);
-                        if (response.contains("STARTTLS"))
-                            has = true;
-                    }
-                } while (response != null &&
-                        !response.startsWith("* OK"));
-
-                if (has) {
-                    command = "A001 STARTTLS\n";
-                    EntityLog.log(context, EntityLog.Type.Protocol,
-                            socket.getRemoteSocketAddress() + " >" + command);
-                    socket.getOutputStream().write(command.getBytes());
-                }
-            }
-
-            if (has) {
-                do {
-                    response = lis.readLine();
-                    if (response != null)
-                        EntityLog.log(context, EntityLog.Type.Protocol,
-                                socket.getRemoteSocketAddress() + " <" + response);
-                } while (response != null &&
-                        !(response.startsWith("A001 OK") || response.startsWith("220 ")));
-
-                SSLSocketFactory sslFactory = (SSLSocketFactory) SSLSocketFactory.getDefault();
-                return (SSLSocket) sslFactory.createSocket(socket, host, port, false);
-            } else
-                throw new SocketException("No STARTTLS");
-        }
-
-        private void signOff(Socket socket, Context context) {
-            try {
-                String command = (port == 465 || port == 587 ? "QUIT" : "A002 LOGOUT");
-
-                EntityLog.log(context, EntityLog.Type.Protocol,
-                        socket.getRemoteSocketAddress() + " >" + command);
-                socket.getOutputStream().write((command + "\n").getBytes());
-
-                LineInputStream lis =
-                        new LineInputStream(
-                                new BufferedInputStream(
-                                        socket.getInputStream()));
-                String response;
-                do {
-                    response = lis.readLine();
-                    if (response != null)
-                        EntityLog.log(context, EntityLog.Type.Protocol,
-                                socket.getRemoteSocketAddress() + " <" + response);
-                } while (response != null);
-            } catch (IOException ex) {
-                Log.w(ex);
-            }
         }
 
         @Override

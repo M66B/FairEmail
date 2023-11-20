@@ -167,6 +167,7 @@ EmbeddingNetwork::EmbeddingNetwork(const EmbeddingNetworkParams *model)
   for (int i = 0; i < model_->embedding_dim_size(); ++i) {
     CLD3_DCHECK(offset_sum == model_->concat_offset(i));
     offset_sum += model_->embedding_dim(i) * model_->embedding_num_features(i);
+    (void)offset_sum;  // Avoid compiler warning for "unused" variable.
     embedding_matrices_.emplace_back(model_->GetEmbeddingMatrix(i));
   }
 

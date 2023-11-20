@@ -71,7 +71,6 @@ import org.bouncycastle.asn1.x509.AlgorithmIdentifier;
 import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
-import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -155,7 +154,6 @@ import javax.mail.internet.MimeUtility;
 import javax.mail.internet.ParameterList;
 import javax.mail.internet.ParseException;
 
-import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Method;
@@ -1045,8 +1043,11 @@ public class MessageHelper {
                     document.body().prependChild(div);
                 }
 
-                document.select("div[fairemail=signature]").removeAttr("fairemail");
-                document.select("div[fairemail=reference]").removeAttr("fairemail");
+                document.select("div[fairemail=signature]")
+                        .removeAttr("fairemail")
+                        .addClass("fairemail_signature");
+                document.select("div[fairemail=reference]")
+                        .removeAttr("fairemail");
 
                 Elements reply = document.select("div[fairemail=reply]");
                 if (message.isPlainOnly())
@@ -1360,7 +1361,7 @@ public class MessageHelper {
             if (attachment.available &&
                     "text/calendar".equals(attachment.type)) {
                 File file = attachment.getFile(context);
-                ICalendar icalendar = Biweekly.parse(file).first();
+                ICalendar icalendar = CalendarHelper.parse(context, file);
                 Method method = (icalendar == null ? null : icalendar.getMethod());
                 if (method != null && method.isReply()) {
                     // https://www.rfc-editor.org/rfc/rfc6047#section-2.4
@@ -4431,14 +4432,17 @@ public class MessageHelper {
                     EntityLog.log(context, "Event not processed" +
                             " permission=" + permission +
                             " account=" + (account != null) +
-                            " calendar=" + (account == null ? null : account.calendar) +
                             " folder=" + (folder != null) + ":" + (folder == null ? null : folder.type) +
-                            " received=" + received);
+                            " received=" + received +
+                            " calendar=" + (account == null ? null : account.calendar));
                     return;
                 }
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean ical_tentative = prefs.getBoolean("ical_tentative", true);
+
                 File file = local.getFile(context);
-                ICalendar icalendar = Biweekly.parse(file).first();
+                ICalendar icalendar = CalendarHelper.parse(context, file);
 
                 Method method = icalendar.getMethod();
                 VEvent event = icalendar.getEvents().get(0);
@@ -4447,21 +4451,11 @@ public class MessageHelper {
                 if (method != null && method.isCancel())
                     CalendarHelper.delete(context, event, message);
                 else if (method == null || method.isRequest()) {
-                    String selectedAccount;
-                    String selectedName;
-                    try {
-                        JSONObject jselected = new JSONObject(account.calendar);
-                        selectedAccount = jselected.getString("account");
-                        selectedName = jselected.optString("name", null);
-                    } catch (Throwable ex) {
-                        Log.i(ex);
-                        selectedAccount = account.calendar;
-                        selectedName = null;
-                    }
-
-                    CalendarHelper.insert(context, icalendar, event,
-                            CalendarContract.Events.STATUS_TENTATIVE,
-                            selectedAccount, selectedName, message);
+                    if (ical_tentative)
+                        CalendarHelper.insert(context, icalendar, event,
+                                CalendarContract.Events.STATUS_TENTATIVE, account, message);
+                    else
+                        EntityLog.log(context, "Tentative event not stored");
                 } else
                     EntityLog.log(context, "Unknown event method=" + method.getValue());
             } catch (Throwable ex) {

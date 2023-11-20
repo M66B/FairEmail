@@ -149,6 +149,7 @@
     <string name="title_setup_quick_smtp">发送邮件的SMTP服务器</string>
     <string name="title_setup_quick_certificates">服务器证书</string>
     <string name="title_setup_wizard">向导</string>
+    <string name="title_setup_wizard_intro">在大多数情况下，可以用向导按钮来添加账户。 不然，你可以通过手动设置选项手动输入或更改服务器地址</string>
     <string name="title_setup_wizard_tutorials">教程</string>
     <string name="title_setup_wizard_multiple">该向导可多次使用以设置多个账户</string>
     <string name="title_setup_wizard_new">我需要一个新的邮件地址</string>
@@ -360,6 +361,7 @@
     <string name="title_advanced_suggest_sent">建议在“已发送”邮件中找到的地址</string>
     <string name="title_advanced_suggest_received">建议在已收到消息中找到的地址</string>
     <string name="title_advanced_suggest_frequently">按使用频率来排序建议地址</string>
+    <string name="title_advanced_suggest_account">仅当前账户使用建议</string>
     <string name="title_advanced_alt_re_fwd">替代回复/转发前缀</string>
     <string name="title_advanced_send_chips">卡片化显示地址</string>
     <string name="title_advanced_send_nav_color">将身份颜色用于底部操作栏</string>
@@ -421,6 +423,7 @@
     <string name="title_advanced_ssl_harden_strict">需要 TLS 1.3</string>
     <string name="title_advanced_cert_strict">严格的证书检查</string>
     <string name="title_advanced_open_safe">仅打开安全连接</string>
+    <string name="title_advanced_bouncy_castle">使用 Bouncy Castle 的安全套接字提供商 (JSSE)</string>
     <string name="title_advanced_manage_connectivity">管理连接</string>
     <string name="title_advanced_caption_general">常规​​​​​</string>
     <string name="title_advanced_caption_navigation">导航栏</string>
@@ -489,6 +492,7 @@
     <string name="title_advanced_only_name">仅显示联系人姓名</string>
     <string name="title_advanced_distinguish_contacts">下划线发件人(当其为本地发送给的联系人时)</string>
     <string name="title_advanced_show_recipients">在邮件头中显示收件人</string>
+    <string name="title_advanced_reverse_addresses">显示已发送信件的收件人</string>
     <string name="title_advanced_font_size_sender">发件人文本大小</string>
     <string name="title_advanced_sender_ellipsize">如果需要，缩短发送者长度</string>
     <string name="title_advanced_subject_top">在发件人上方显示主题</string>
@@ -511,6 +515,7 @@
     <string name="title_advanced_unzip">显示压缩附件的内容</string>
     <string name="title_advanced_attachments_alt">在消息文本后显示附件</string>
     <string name="title_advanced_thumbnails">在消息文本后显示图像缩略图</string>
+    <string name="title_advanced_pdf_preview">显示 PDF 缩略图</string>
     <string name="title_advanced_message_text_zoom2">默认消息文本缩放： %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">同时也在邮件编辑窗中缩放内容文本</string>
     <string name="title_advanced_overview_mode">缩放原始消息以适应屏幕</string>
@@ -607,6 +612,8 @@
     <string name="title_advanced_notify_preview">通知中显示消息预览</string>
     <string name="title_advanced_notify_preview_all">预览所有文本</string>
     <string name="title_advanced_notify_preview_only">仅显示有预览文本的通知</string>
+    <string name="title_advanced_notify_transliterate">转换为拉丁字母表</string>
+    <string name="title_advanced_notify_ascii">仅 ASCII 文本</string>
     <string name="title_advanced_notify_actions">通知操作</string>
     <string name="title_advanced_notify_action_trash">垃圾箱</string>
     <string name="title_advanced_notify_action_delete">删除</string>
@@ -691,12 +698,14 @@
     <string name="title_advanced_external_search">将 \'FairEmail 搜索 \' 添加到 Android 文本选择菜单</string>
     <string name="title_advanced_sort_answers">按使用频率对回复模板进行排序</string>
     <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
+    <string name="title_advanced_ical_tentative">将收到的邀请保存为待处理</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
     <string name="title_advanced_classification">消息分类</string>
     <string name="title_advanced_class_min_chance">是否分类的最低概率：%1$s %%</string>
     <string name="title_advanced_class_min_difference">不同分类的最小差异：%1$s %%</string>
     <string name="title_advanced_show_filtered">应用规则时显示过滤器图标</string>
+    <string name="title_advanced_haptic_feedback">对重要操作提供触觉反馈</string>
     <string name="title_advanced_language">界面语言</string>
     <string name="title_advanced_language_system">系统</string>
     <string name="title_advanced_lt">LanguageTool 集成</string>
@@ -757,6 +766,7 @@
     <string name="title_advanced_pull_all_hint">下拉文件夹或账户列表时</string>
     <string name="title_advanced_suggest_names_hint">如果禁用，选择联系人时将只使用电子邮件地址</string>
     <string name="title_advanced_suggest_local_hint">这不包括 Android 提供的联系人。应用仅在此选项启用后存储新的接收或发送消息的联系人。</string>
+    <string name="title_advanced_suggest_account_hint">这仅适用于本地联系人，因为安卓地址簿中的联系人没有链接到特定账户</string>
     <string name="title_advanced_auto_identity_hint">这将选择上次使用的身份作为新邮件收件人</string>
     <string name="title_advanced_send_reminders_hint">当消息文本或主题为空或缺失某个附件时显示警告</string>
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
@@ -1014,6 +1024,7 @@
     <string name="title_delete_channel">删除通知通道</string>
     <string name="title_insert_contact">添加联系人</string>
     <string name="title_edit_contact">编辑联系人</string>
+    <string name="title_delete_contact">要删除联系人吗？</string>
     <string name="title_contact_email">电子邮件</string>
     <string name="title_contact_name">名称</string>
     <string name="title_contact_group">组</string>
@@ -1134,9 +1145,9 @@
     <string name="title_print_header">打印邮件头</string>
     <string name="title_print_images">打印图片</string>
     <string name="title_print_images_remark">下载图片可能需要一些时间</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">打印块引用行</string>
+    <string name="title_print_block_quotes">打印块引用行</string>
     <string name="title_show_headers">显示邮件头</string>
-    <string name="title_share_as_html">以HTML格式分享</string>
+    <string name="title_show_html">显示原始消息</string>
     <string name="title_raw_save">保存原始消息</string>
     <string name="title_raw_send">作为附件发送</string>
     <string name="title_raw_send_message">消息</string>
@@ -1166,6 +1177,7 @@
     <string name="title_quick_actions_snooze">打盹</string>
     <string name="title_quick_actions_clear">操作后清除选择</string>
     <string name="title_trash">回收站</string>
+    <string name="title_trash_selection">将所选项丢到回收站</string>
     <string name="title_copy">复制 &#8230;</string>
     <string name="title_copy_to">复制到 &#8230;</string>
     <string name="title_subscribe">订阅</string>
@@ -1348,6 +1360,7 @@
     <string name="title_add_image_privacy">移除隐私敏感数据</string>
     <string name="title_add_image_privacy_remark">地理位置、序列号、文件名等</string>
     <string name="title_add_resize_pixels">&lt; %1$d 像素</string>
+    <string name="title_add_image_resize_remark">支持调整大小的图片类型：%1$s</string>
     <string name="title_add_image_select_remark">Android 照片选择器不再传递文件名</string>
     <string name="title_add_image_select">选择文件</string>
     <string name="title_add_attachment">添加附件</string>
@@ -1477,6 +1490,7 @@
     <string name="title_search_in_keywords">关键词 (如果支持)</string>
     <string name="title_search_in_message">消息文本</string>
     <string name="title_search_in_notes">本地备注内容</string>
+    <string name="title_search_in_filenames">在文件名中 (仅在设备上)</string>
     <string name="title_search_with">限定以下搜索</string>
     <string name="title_search_with_unseen">未读邮件</string>
     <string name="title_search_with_flagged">星标邮件</string>
@@ -1570,7 +1584,7 @@
     <string name="title_answer_placeholder_firstname">发件人名字</string>
     <string name="title_answer_placeholder_lastname">发件人姓氏</string>
     <string name="title_answer_placeholder_date">当前日期</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">一周中的一天</string>
+    <string name="title_answer_placeholder_weekday">一周中的一天</string>
     <string name="title_rule_noop">无操作</string>
     <string name="title_rule_seen">标为已读</string>
     <string name="title_rule_unseen">标记为未读</string>
@@ -1666,6 +1680,9 @@
     <string name="title_rule_alarm_duration">警报最长持续时间 (秒)</string>
     <string name="title_rule_alarm_title">警报</string>
     <string name="title_rule_alarm_stop">停止</string>
+    <string name="title_code_line_numbers">显示行号</string>
+    <string name="title_code_enable_links">启用链接</string>
+    <string name="title_code_pretty">漂亮打印</string>
     <string name="title_legend_section_synchronize">同步</string>
     <string name="title_legend_section_folders">文件夹</string>
     <string name="title_legend_section_messages">消息</string>
@@ -1860,6 +1877,7 @@
     <string name="title_no_ask_again">不再询问</string>
     <string name="title_no_ask_for_again">不再询问 %1$s</string>
     <string name="title_no_body">没有找到消息文本</string>
+    <string name="title_large_body">此消息非常大，这可能会引起问题！</string>
     <string name="title_no_charset">不支持的编码: %1$s</string>
     <string name="title_via">通过: %1$s</string>
     <string name="title_1hour">1 小时</string>
@@ -1939,6 +1957,7 @@
     <string name="title_widget_account_all">全部</string>
     <string name="title_widget_folder">文件夹</string>
     <string name="title_widget_folder_unified">聚合收件箱文件夹</string>
+    <string name="title_widget_folder_notifying">显示新消息通知的文件夹</string>
     <string name="title_widget_unseen">仅未读信息</string>
     <string name="title_widget_flagged">仅带有星标的邮件</string>
     <string name="title_widget_font_size">文本大小</string>
@@ -1953,6 +1972,7 @@
     <string name="title_widget_refresh">显示刷新消息按钮</string>
     <string name="title_widget_compose">显示新建邮件按钮</string>
     <string name="title_widget_background">背景颜色</string>
+    <string name="title_widget_icon">图标颜色</string>
     <string name="title_widget_day_night">跟随系统主题</string>
     <string name="title_compat_dark">谷歌移除了安卓 10 之前的暗黑模式</string>
     <!-- Thunderbird -->

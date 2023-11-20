@@ -23,6 +23,10 @@
 <p>🇬🇧 If you have a question, please check the following frequently asked questions first. <a href="#quick-support">At the bottom</a>, you can find out how to ask other questions, request features, and report bugs. You will receive an answer in your own language.</p>
 <p>🇩🇪 Wenn Sie eine Frage haben, überprüfen Sie bitte zuerst die folgenden häufig gestellten Fragen. <a href="#quick-support">Unten</a> erfahren Sie, wie Sie andere Fragen stellen, Funktionen anfordern und Fehler melden können. Sie erhalten eine Antwort in Ihrer eigenen Sprache.</p>
 <p>🇫🇷 Si vous avez une question, veuillez d’abord vérifier les questions fréquemment posées suivantes. <a href="#quick-support">En bas</a>, vous pouvez découvrir comment poser d’autres questions, demander des fonctionnalités et signaler des bogues. Vous recevrez une réponse dans votre propre langue.</p>
+<p><br></p>
+<p><strong>Important</strong></p>
+<p>There is a lot of technical information in this FAQ, mostly for specific problems or specific use cases. For other more common questions, please see the tutorials below or contact me via <em>Get support</em> below.</p>
+<p><br></p>
 <h2 id="tutorials">Tutorials</h2>
 <p>Please <a href="https://github.com/M66B/FairEmail/tree/master/tutorials">see here</a> for tutorials 📖.</p>
 <h2 id="index">Index</h2>
@@ -109,7 +113,7 @@
 <li><del>The folder selector sometimes shows no folders for yet unknown reasons. This seems to be fixed.</del></li>
 <li><del>A <a href="https://issuetracker.google.com/issues/64729576">bug in AndroidX</a> makes it hard to grap the fast scroller. A workaround was added.</del></li>
 <li><del>Encryption with YubiKey results into an infinite loop. This seems to be caused by a <a href="https://github.com/open-keychain/open-keychain/issues/2507">bug in OpenKeychain</a>.</del></li>
-<li>A preview of a message text doesn’t (always) appear on Samsung watches because <a href="https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)">setLocalOnly</a> seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP wearables. See also <a href="#faq126">this FAQ</a>.</li>
+<li>A preview of a message text doesn’t (always) appear on Samsung watches because <a href="https://developer.android.com/reference/androidx/core/app/NotificationCompat.Builder.html#setLocalOnly(boolean)">setLocalOnly</a> seem to be ignored. Message preview texts are known to be displayed correctly on Pebble 2, Fitbit Charge 3, Mi band 3, and Xiaomi Amazfit BIP smartwatches. See also <a href="#faq126">this FAQ</a>.</li>
 <li>A <a href="https://issuetracker.google.com/issues/37068143">bug in Android 6.0</a> causes a crash with <em>… Invalid offset: … Valid range is …</em> when text is selected and tapping outside of the selected text. This bug has been fixed in Android 6.0.1.</li>
 <li>Internal (anchor) links will not work because original messages are shown in an embedded WebView in a scrolling view (the conversation list). This is an Android limitation which cannot be fixed or worked around.</li>
 <li>Language detection <a href="https://issuetracker.google.com/issues/173337263">is not working anymore</a> on Pixel devices with (upgraded to?) Android 11</li>
@@ -304,7 +308,7 @@
 <li><a href="#faq123">(123) What will happen when FairEmail cannot connect to an email server?</a></li>
 <li><a href="#faq124">(124) Why do I get ‘Message too large or too complex to display’?</a></li>
 <li><a href="#faq125">(125) What are the current experimental features?</a></li>
-<li><a href="#faq126">(126) Can message previews be sent to my wearable?</a></li>
+<li><a href="#faq126">(126) Can message previews be sent to my smartwatch?</a></li>
 <li><a href="#faq127">(127) How can I fix ‘Syntactically invalid HELO argument(s)’?</a></li>
 <li><a href="#faq128">(128) How can I reset asked questions, for example to show images?</a></li>
 <li><a href="#faq129">(129) Are ProtonMail, Tutanota, etc supported?</a></li>
@@ -1157,6 +1161,7 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 </ul>
 <p>By default FairEmail does not download message texts and attachments larger than 256 KiB when there is a metered (mobile or paid Wi-Fi) internet connection. You can change this in the connection settings.</p>
 <p>You could enable to download only plain text only parts, but all messages will be without formatting (styling), and besides that, a plain text only part is not always sent, and worse, it is sometimes only a part of the message text, containing HTML and CCS.</p>
+<p>In case of POP3, you can reduce the maximum number of messages to download.</p>
 <p><br /></p>
 <p><a name="faq41"></a> <strong>(41) How can I fix the error ‘Handshake failed’?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq41">Google Translate</a></p>
@@ -1168,8 +1173,10 @@ X-Google-Original-From: Somebody &lt;somebody+extra@example.org&gt;</code></pre>
 <p>The error ‘<em>Handshake failed … SSLV3_ALERT_ILLEGAL_PARAMETER …</em>’ is either caused by a bug in the SSL protocol implementation or by a too short DH key on the email server and can unfortunately not be fixed by FairEmail.</p>
 <p>The error ‘<em>Handshake failed … HANDSHAKE_FAILURE_ON_CLIENT_HELLO …</em>’ might be caused by the provider still using RC4, which isn’t supported since <a href="https://developer.android.com/about/versions/nougat/android-7.0-changes.html#tls-ssl">Android 7</a> anymore.</p>
 <p>The error ‘<em>Handshake failed SSL handshake terminated … SSLV3_ALERT_HANDSHAKE_FAILURE … HANDSHAKE_FAILURE_ON_CLIENT_HELLO</em>’ can be caused by <a href="https://issuetracker.google.com/issues/37122132">this Android 7.0 bug</a>. This can unfortunately not be fixed by FairEmail.</p>
-<p>The error ‘<em>Handshake failed … UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION or SSLV3_ALERT_HANDSHAKE_FAILURE …</em>’ might be caused by enabling <strong>hardening connections</strong>, or requiring TLS 1.3 in the connection settings or by Android not supporting older protocols anymore, like SSLv3.</p>
-<p>Android 8 Oreo and later <a href="https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all">do not support</a> SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something).</p>
+<p>The error ‘<em>Handshake failed … UNSUPPORTED_PROTOCOL or TLSV1_ALERT_PROTOCOL_VERSION or SSLV3_ALERT_HANDSHAKE_FAILURE …</em>’ might be caused by enabling <strong>hardening connections</strong> or <strong>Bouncy Castle</strong> in the connection settings tab page, or by Android not supporting older protocols anymore, like SSLv3 and TLSv1.</p>
+<p>The error ‘<em>javax.net.ssl.SSLHandshakeException: Read error: … CERT_LENGTH_MISMATCH</em>’ means that there is something wrong with the email server setup. Try to switch to port 993 (IMAP) or 465 (SMTP) with SSL/TLS.</p>
+<p>Android 8 Oreo and later <a href="https://developer.android.com/about/versions/oreo/android-8.0-changes#security-all">do not support</a> SSLv3 anymore. There is no way to workaround lacking RC4 and SSLv3 support because it has completely been removed from Android (which should say something). Since version 1.2121 the Bouncy Castle secure socket provider (<a href="https://en.wikipedia.org/wiki/Java_Secure_Socket_Extension">JSSE</a>) is bundled. Enabling this socket provider in the connection-settings tab and enabling ‘<em>Allow insecure connections</em>’ in the account/identity settings <em>might</em> solve this problem.</p>
+<p>The error ‘<em>javax.net.ssl.SSLHandshakeException: Read error: … TLSV1_ALERT_INTERNAL_ERROR</em>’ means that Android and the email server share no common protocol versions and/or common ciphers.</p>
 <p>Please <a href="https://developer.android.com/reference/javax/net/ssl/SSLSocket">see here</a> for an overview of supported protocols and cipher suites by Android version.</p>
 <p>You can use <a href="https://ssl-tools.net/mailservers">this website</a> or <a href="https://www.immuniweb.com/ssl/">this website</a> to check for SSL/TLS problems of email servers.</p>
 <p><br /></p>
@@ -2014,19 +2021,20 @@ $NotDisplayed</code></pre>
 <p><em>Block toolbar (version 1.1967+)</em></p>
 <p>When enabled in the three-dots overflow menu of the message editor, a toolbar to perform operations (align text, insert list, indent text, insert blockquote) on a block of text (consecutive non-empty lines) will be shown.</p>
 <p><br /></p>
-<p><a name="faq126"></a> <strong>(126) Can message previews be sent to my wearable?</strong></p>
+<p><a name="faq126"></a> <strong>(126) Can message previews be sent to my smartwatch?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq126">Google Translate</a></p>
 <p>FairEmail fetches a message in two steps:</p>
 <ol type="1">
 <li>Fetch message headers</li>
 <li>Fetch message text and attachments</li>
 </ol>
-<p>Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates existing notifications with a preview of the message text, but unfortunately wearable notifications cannot be updated.</p>
-<p>Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a wearable.</p>
-<p>If you think this is good enough, you can enable the notification option <em>Only send notifications with a message preview to wearables</em> and if this does not work, you can try to enable the notification option <em>Show notifications with a preview text only</em>. Note that this applies to wearables not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).</p>
-<p>If you want to have the full message text sent to your wearable, you can enable the notification option <em>Preview all text</em>. Note that some wearables are known to crash with this option enabled.</p>
-<p>If you use a Samsung wearable with the Galaxy Wearable (Samsung Gear) app, you might need to enable notifications for FairEmail when the setting <em>Notifications</em>, <em>Apps installed in the future</em> is turned off in this app.</p>
+<p>Directly after the first step new messages will be notified. However, only until after the second step the message text will be available. FairEmail updates existing notifications with a preview of the message text, but unfortunately smartwatch notifications cannot be updated.</p>
+<p>Since there is no guarantee that a message text will always be fetched directly after a message header, it is not possible to guarantee that a new message notification with a preview text will always be sent to a smartwatch.</p>
+<p>If you think this is good enough, you can enable the notification option <em>Only send notifications with a message preview to smartwatches</em> and if this does not work, you can try to enable the notification option <em>Show notifications with a preview text only</em>. Note that this applies to smartwatches not showing a preview text too, even when the Android Wear app says the notification has been sent (bridged).</p>
+<p>If you want to have the full message text sent to your smartwatch, you can enable the notification option <em>Preview all text</em>. Note that some smartwatches are known to crash with this option enabled.</p>
+<p>If you use a Samsung smartwatch with the Galaxy smartwatch (Samsung Gear) app, you might need to enable notifications for FairEmail when the setting <em>Notifications</em>, <em>Apps installed in the future</em> is turned off in this app.</p>
 <p>Some companion apps ignore <a href="https://developer.android.com/training/wearables/notifications/bridger#non-bridged">local only</a> notifications, causing the summary notification (<em>nnn new messages</em>) to be bridged. Unfortunately, it is not possible to workaround this problem.</p>
+<p>Some smartwatches do not display notifications with non-<a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> characters, in which can you can enable the option <em>ASCII text only</em> in the display settings tab page.</p>
 <p>Ongoing notifications shouldn’t be bridged, but some companion apps bridge all notifications. This results in the “monitoring” status bar notification to be bridged. The workaround is to disable this notification, see <a href="#faq2">this FAQ</a>.</p>
 <p><br /></p>
 <p><a name="faq127"></a> <strong>(127) How can I fix ‘Syntactically invalid HELO argument(s)’?</strong></p>
@@ -2226,6 +2234,7 @@ $NotDisplayed</code></pre>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq148">Google Translate</a></p>
 <p>There is a built-in profile for Apple iCloud, so you should be able to use the quick setup wizard (other provider). If needed you can find the right settings <a href="https://support.apple.com/en-us/HT202304">here</a> to manually set up an account.</p>
 <p>When using two-factor authentication you might need to use an <a href="https://support.apple.com/en-us/HT204397">app-specific password</a>.</p>
+<p>Please make sure you use the main email address and not an alias address. It is not possible to authenticate an iCloud account with an alias address. If you want to create an alias address, first configure the main account, and after that see <a href="#faq9">this FAQ</a>.</p>
 <p><br /></p>
 <p><a name="faq149"></a> <strong>(149) How does the unread message count widget work?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq149">Google Translate</a></p>
@@ -2491,6 +2500,7 @@ DNS lookup 108.27.250.142.zen.spamhaus.org -&gt;
 </ul>
 <p>The Play store and GitHub version are signed with the <a href="https://github.com/M66B/FairEmail#downloads">same digital signature</a> (security certificate). The F-Droid build is signed by the F-Droid organization with a different digital key. This means you can’t update the F-Droid build with the Play store or GitHub version or the other way around without reinstalling. However, it is possible to install the GitHub version over the Play store version, and the Play store app will do the same, when auto-updating isn’t disabled for the app in the app description.</p>
 <p>The version in the <a href="https://play.google.com/apps/testing/eu.faircode.email">Play Store test program</a> is more often updated, but not all GitHub releases will be released as Play Store test version.</p>
+<p>The GitHub version will automatically check for updates and notify you when there is an update available. Since apps can’t update themselves, updates can’t be automatically installed. However, you can easily install an update via a button in the update available notification. You could use the <a href="https://apt.izzysoft.de/fdroid/">IzzyOnDroid F-Droid Repository</a> to manage GitHub updates.</p>
 <p><br /></p>
 <p><a name="faq174"></a> <strong>(174) Is auto discovery supported?</strong></p>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq174">Google Translate</a></p>
@@ -2629,6 +2639,7 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <li>Select a calendar in the accounts settings under <em>Manual setup and account options</em> (you can use the <em>Reset</em> button to disable storing invitations)</li>
 </ul>
 <p>New invitations, with both a start and end date, will be stored automatically as <em>tentative</em>, with no alarms and reminders set. If you accept or decline an invitation, the status will be updated accordingly, after the accept/decline message has been sent successfully. Received updates and cancellations will be processed as well.</p>
+<p>Since version 1.2115 it is possible to disable storing invitations tentatively with an option in the miscellaneous-settings tab page. In this case, the event will be stored after it has been accepted.</p>
 <p>Please make sure synchronizing calendars is enabled in the Android account settings if you want to synchronize events to other devices.</p>
 <p>This feature is available since version 1.1996.</p>
 <p>This feature is not available in the Play store version of the app due to the permissions required.</p>
@@ -2674,6 +2685,11 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <p>For example: create a new draft and enter the text “<em>How far is the sun?</em>”, and tap on the robot button in the top action bar.</p>
 <p><br></p>
 <p>OpenAI isn’t very fast, so be patient. Sometimes a timeout error occurs because the app is not receiving a response from OpenAI.</p>
+<p><br></p>
+<p>Depending on the ChatGPT account (free or paid) there are usage limits. If you exceed the limit, there will be an error message like this:</p>
+<p><em>Error 429: Too Many Requests insufficient_quota: You exceeded your current quota, please check your plan and billing details</em></p>
+<p>In this case, you’ll either need to wait, or upgrade your ChatGPT plan.</p>
+<p><br></p>
 <p>You can select the <a href="https://platform.openai.com/docs/models/overview">model</a>, configure the <a href="https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature">temperature</a> and enable <a href="https://platform.openai.com/docs/api-reference/moderations">moderation</a> in the miscellaneous-settings tab page.</p>
 <p>If you have access to GPT-4, you can change the model name to <a href="https://platform.openai.com/docs/models/gpt-4">gpt-4</a> in the miscellaneous-settings tab page. There is currently a <a href="https://openai.com/waitlist/gpt-4-api">waitlist</a> for API GPT-4 access.</p>
 <p>Please read the <a href="https://openai.com/policies/privacy-policy">privacy policy</a> of OpenAI, and perhaps <a href="https://katedowninglaw.com/2023/03/10/openais-massive-data-grab/">this article</a> and <a href="https://www.ncsc.gov.uk/blog-post/chatgpt-and-large-language-models-whats-the-risk">this article</a> too.</p>
@@ -2731,9 +2747,11 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 </h2>
 <p>🌎 <a href="https://translate.google.com/translate?sl=en&amp;u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23get-support">Google Translate</a></p>
 <p>FairEmail is supported on Android smartphones and tablets and ChromeOS only.</p>
+<p>There is support only if the app was downloaded via one of the <a href="https://github.com/M66B/FairEmail#downloads">supported download locations</a>.</p>
 <p>Only the latest Play store version and latest GitHub release are supported. The F-Droid build is supported only if the version number is the same as the version number of the latest GitHub release. This also means that downgrading is not supported.</p>
 <p>There is no support for things that are not directly related to FairEmail.</p>
 <p>There is no support on building and developing things by yourself.</p>
+<p><a name="feature_request"></a></p>
 <p>A change will be considered only if more than a few people ask for it. Changes in the past resulted too often in lots of complaints of other people.</p>
 <p>Requested features should:</p>
 <ul>

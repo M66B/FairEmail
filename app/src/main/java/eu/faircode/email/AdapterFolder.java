@@ -1490,6 +1490,12 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
             Map<Long, List<TupleFolderEx>> parentChilds = new HashMap<>();
 
             for (TupleFolderEx folder : folders) {
+                folder.indentation = 0;
+                folder.expander = true;
+                folder.parent_ref = null;
+                folder.child_refs = null;
+                folder.childs_unseen = 0;
+
                 idFolder.put(folder.id, folder);
                 if (folder.parent == null)
                     parents.add(folder);
@@ -1741,6 +1747,9 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                 p1 = p1.parent_ref;
                 p2 = p2.parent_ref;
             }
+
+            if (p1 != null || p2 != null)
+                return false;
 
             return true;
         }

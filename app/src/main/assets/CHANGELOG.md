@@ -1,16 +1,124 @@
 ## Changelog
 
-&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https://github.com/M66B/FairEmail/blob/master/CHANGELOG.md)
+&#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fraw.githubusercontent.com%2FM66B%2FFairEmail%2Fmaster%2FCHANGELOG.md)
 
 For support you can use [the contact form](https://contact.faircode.eu/?product=fairemailsupport).
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2128 - 2023-11-19
 
-* Added option suggest local contacts for the current account only
-* Android 14: using Material You background color
+* Restored old behavior of move-to quick action
 * Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2127 - 2023-11-16
+
+* Fixed move / quick action bar
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2126 - 2023-11-15
+
+* Fixed compatibility with Android 5 Lollipop
+* Small improvements and minor bug fixes
+
+### 1.2125 - 2023-11-15
+
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2124 - 2023-11-14
+
+* Fixed swipe / ask what to do
+* Added moving POP3 messages to IMAP accounts
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2123 - 2023-11-13
+
+* Added integrations-settings tab page
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2122 - 2023-11-11
+
+* Fixed swipe to mark read/unread
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2121 - 2023-11-11
+
+* Added option to disable haptic feedback
+* Fixed swipe to mark read/unread
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2120 - 2023-11-09
+
+* Added removing Gmail and Outlook style signatures (send settings)
+* Reduced database traffic
+* Small improvements and minor bug fixes
+* Updated build tools and libraries
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2119 - 2023-11-06
+
+* Added folder selection for new message count widget
+* Added dark mode, showing colors, check HTML and searching to message source view
+* Added option for ASCII-only notifications (for some smartwatches)
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2118 - 2023-11-04
+
+* Added native *View source* (HTML) with syntax highlighting, etc.
+* Added configurable button for *View source*
+* Added resizing of [WebP](https://en.wikipedia.org/wiki/WebP)
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2117 - 2023-11-02
+
+* Improved identity selector
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2116 - 2023-10-30
+
+* Fixed a crash in the JSoup library on Android 7.0 and earlier
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2115 - 2023-10-30
+
+* Added option to disable storing invitations tentatively, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq186)
+* Fixed time zone of some calendar events
+* Small improvements and minor bug fixes
+* Updated libraries, including [JSoup](https://jsoup.org/news/) and [Material Components](https://github.com/material-components/material-components-android)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2114 - 2023-10-25
+
+* Added tap on title/subtitle to open/switch to inbox
+* Addded option to disable showing recipient for sent messages
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2113 - 2023-10-21
+
+* Added '*More options*' to send dialog box
+* Added option to disable PDF preview (display settings)
+* Added option to suggest local contacts for the current account only (send settings)
+* Android 14: using Material You background color
+* Fixed back navigation in some circumstances
+* Small improvements and minor bug fixes
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2112 - 2023-10-16 *

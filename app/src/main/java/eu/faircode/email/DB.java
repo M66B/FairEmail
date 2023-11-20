@@ -68,7 +68,7 @@ import javax.mail.internet.InternetAddress;
 // https://developer.android.com/topic/libraries/architecture/room.html
 
 @Database(
-        version = 284,
+        version = 285,
         entities = {
                 EntityIdentity.class,
                 EntityAccount.class,
@@ -167,7 +167,7 @@ public abstract class DB extends RoomDatabase {
                 }
             } catch (SQLiteDatabaseCorruptException ex) {
                 Log.e(ex);
-                dbfile.delete();
+                Helper.secureDelete(dbfile);
             } catch (Throwable ex) {
                 Log.e(ex);
                 /*
@@ -325,7 +325,7 @@ public abstract class DB extends RoomDatabase {
                 Log.e(ex);
             }
         } else
-            emergency.delete();
+            Helper.secureDelete(emergency);
     }
 
     private static void checkEmergencyBackup(Context context) {
@@ -1625,7 +1625,7 @@ public abstract class DB extends RoomDatabase {
                         File[] raws = new File(context.getFilesDir(), "raw").listFiles();
                         if (raws != null)
                             for (File file : raws)
-                                file.delete();
+                                Helper.secureDelete(file);
                     }
                 })
                 .addMigrations(new Migration(122, 123) {
@@ -2867,6 +2867,12 @@ public abstract class DB extends RoomDatabase {
                             db.execSQL("UPDATE `account` SET insecure = 1 WHERE auth_type = " + AUTH_TYPE_PASSWORD);
                             db.execSQL("UPDATE `identity` SET insecure = 1 WHERE auth_type = " + AUTH_TYPE_PASSWORD);
                         }
+                    }
+                }).addMigrations(new Migration(284, 285) {
+                    @Override
+                    public void migrate(@NonNull SupportSQLiteDatabase db) {
+                        logMigration(startVersion, endVersion);
+                        db.execSQL("ALTER TABLE `message` ADD COLUMN `write_below` INTEGER");
                     }
                 }).addMigrations(new Migration(998, 999) {
                     @Override

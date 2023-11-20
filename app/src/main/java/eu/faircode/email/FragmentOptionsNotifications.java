@@ -111,6 +111,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swNotifyPreviewAll;
     private SwitchCompat swNotifyPreviewOnly;
     private SwitchCompat swNotifyTransliterate;
+    private SwitchCompat swNotifyAscii;
     private ImageButton ibLight;
     private SwitchCompat swWearablePreview;
     private ImageButton ibWearable;
@@ -140,7 +141,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "badge", "unseen_ignored",
             "notify_grouping", "notify_private", "notify_background_only", "notify_known", "notify_suppress_in_call", "notify_suppress_in_car",
             "notify_remove", "notify_clear",
-            "notify_subtext", "notify_preview", "notify_preview_all", "notify_preview_only", "notify_transliterate",
+            "notify_subtext", "notify_preview", "notify_preview_all", "notify_preview_only", "notify_transliterate", "notify_ascii",
             "wearable_preview",
             "notify_messaging",
             "biometrics_notify", "notify_open_folder", "background_service", "alert_once"
@@ -201,6 +202,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swNotifyPreviewAll = view.findViewById(R.id.swNotifyPreviewAll);
         swNotifyPreviewOnly = view.findViewById(R.id.swNotifyPreviewOnly);
         swNotifyTransliterate = view.findViewById(R.id.swNotifyTransliterate);
+        swNotifyAscii = view.findViewById(R.id.swNotifyAscii);
         ibLight = view.findViewById(R.id.ibLight);
         swWearablePreview = view.findViewById(R.id.swWearablePreview);
         ibWearable = view.findViewById(R.id.ibWearable);
@@ -654,6 +656,13 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             }
         });
 
+        swNotifyAscii.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("notify_ascii", checked).apply();
+            }
+        });
+
         ibLight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -858,6 +867,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             swNotifyPreviewAll.setChecked(prefs.getBoolean("notify_preview_all", false));
             swNotifyPreviewOnly.setChecked(prefs.getBoolean("notify_preview_only", false));
             swNotifyTransliterate.setChecked(prefs.getBoolean("notify_transliterate", false));
+            swNotifyAscii.setChecked(prefs.getBoolean("notify_ascii", false));
             swWearablePreview.setChecked(prefs.getBoolean("wearable_preview", false));
             swMessagingStyle.setChecked(prefs.getBoolean("notify_messaging", false));
             swBiometricsNotify.setChecked(prefs.getBoolean("biometrics_notify", true));

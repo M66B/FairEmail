@@ -170,7 +170,8 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
             "sync_folders",
             "sync_shared_folders",
             "download_headers", "download_eml",
-            "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive", "ssl_harden", "ssl_harden_strict", "cert_strict", // force reconnect
+            "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive", // force reconnect
+            "ssl_harden", "ssl_harden_strict", "cert_strict", "bouncy_castle", "bc_fips", // force reconnect
             "experiments", "debug", "protocol", // force reconnect
             "auth_plain", "auth_login", "auth_ntlm", "auth_sasl", "auth_apop", // force reconnect
             "keep_alive_poll", "empty_pool", "idle_done", // force reconnect
@@ -810,7 +811,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
 
         // New message notifications batching
 
-        Core.NotificationData notificationData = new Core.NotificationData(this);
+        NotificationHelper.NotificationData notificationData = new NotificationHelper.NotificationData(this);
 
         MutableLiveData<List<TupleMessageEx>> mutableUnseenNotify = new MutableLiveData<>();
         db.message().liveUnseenNotify().observe(cowner, new Observer<List<TupleMessageEx>>() {
@@ -883,7 +884,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     public void delegate() {
                         try {
                             boolean fg = Boolean.TRUE.equals(foreground.getValue());
-                            Core.notifyMessages(ServiceSynchronize.this, messages, notificationData, fg);
+                            NotificationHelper.notifyMessages(ServiceSynchronize.this, messages, notificationData, fg);
                         } catch (SecurityException ex) {
                             Log.w(ex);
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ServiceSynchronize.this);
@@ -1460,6 +1461,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
         // Build notification
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "service")
+                        .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_DEFAULT)
                         .setSmallIcon(R.drawable.baseline_compare_arrows_white_24)
                         .setContentIntent(piWhy)
                         .setAutoCancel(false)

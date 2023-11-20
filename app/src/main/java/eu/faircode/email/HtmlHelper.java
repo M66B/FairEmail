@@ -59,6 +59,7 @@ import android.text.style.UnderlineSpan;
 import android.util.Base64;
 import android.util.Patterns;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -1471,10 +1472,7 @@ public class HtmlHelper {
                 if (!TextUtils.isEmpty(span.attr("color")))
                     span.tagName("font");
 
-        if (document.body() == null) {
-            Log.e("Sanitize without body");
-            document.normalise();
-        }
+        document.body(); // Normalise document
 
         return document;
     }
@@ -2409,7 +2407,7 @@ public class HtmlHelper {
                 if (attachment != null && attachment.available) {
                     File file = attachment.getFile(context);
                     if (local) {
-                        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                        Uri uri = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file, attachment.name);
                         img.attr("src", uri.toString());
                         Log.i("Inline image uri=" + uri);
                     } else {
@@ -2737,6 +2735,26 @@ public class HtmlHelper {
     }
 
     static void removeSignatures(Document d) {
+        // <div class="fairemail_signature">
+        d.body().select(".fairemail_signature").remove();
+
+        // <div data-smartmail="gmail_signature">
+        // <div dir="ltr" class="gmail_signature" data-smartmail="gmail_signature">
+        d.body().select("[data-smartmail=gmail_signature]").remove();
+
+        // Outlook: <div id="Signature" data-lt-sig-active="">
+        d.body().select("#Signature").select("[data-lt-sig-active]").remove();
+
+        // Apple: <br id="lineBreakAtBeginningOfSignature"> <div dir="ltr">
+        for (Element br : d.body().select("#lineBreakAtBeginningOfSignature")) {
+            Element next = br.nextElementSibling();
+            if (next != null && "div".equals(next.tagName())) {
+                br.remove();
+                next.remove();
+            }
+        }
+
+        // Usenet style signature
         d.body().filter(new NodeFilter() {
             private boolean remove = false;
             private boolean noremove = false;
@@ -3936,6 +3954,10 @@ public class HtmlHelper {
                 .removeAttr("x-list-level")
                 .removeAttr("x-plain")
                 .remove("x-keep-line");
+    }
+
+    static void clearComposingText(TextView view) {
+        //view.clearComposingText();
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {

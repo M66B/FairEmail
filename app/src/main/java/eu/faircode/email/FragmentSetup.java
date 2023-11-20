@@ -29,6 +29,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -64,6 +65,7 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.MenuCompat;
+import androidx.core.widget.TextViewCompat;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.Observer;
@@ -163,7 +165,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
     private int textColorPrimary;
     private int colorWarning;
-    private Drawable check;
+    private Drawable todo;
+    private Drawable done;
 
     private boolean manual = false;
 
@@ -181,7 +184,8 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
         textColorPrimary = Helper.resolveColor(getContext(), android.R.attr.textColorPrimary);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
-        check = getContext().getDrawable(R.drawable.twotone_check_24);
+        todo = getContext().getDrawable(R.drawable.twotone_priority_high_24);
+        done = getContext().getDrawable(R.drawable.twotone_check_24);
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_setup, container, false);
 
@@ -531,7 +535,11 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         btnInbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((FragmentBase) getParentFragment()).finish();
+                FragmentActivity activity = getActivity();
+                if (activity instanceof ActivitySetup)
+                    ((ActivitySetup) activity).onExit();
+                else
+                    ((FragmentBase) getParentFragment()).finish();
             }
         });
 
@@ -547,13 +555,20 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
             @Override
             public void onClick(View v) {
                 try {
-                    btnPermissions.setEnabled(false);
-                    List<String> requesting = new ArrayList<>();
-                    for (String permission : Helper.getDesiredPermissions(getContext()))
-                        if (!hasPermission(permission))
-                            requesting.add((permission));
-                    Log.i("Requesting permissions " + TextUtils.join(",", requesting));
-                    requestPermissions(requesting.toArray(new String[0]), REQUEST_PERMISSIONS);
+                    String[] desired = Helper.getDesiredPermissions(v.getContext());
+                    if (Helper.hasPermissions(v.getContext(), desired)) {
+                        Intent intent = new Intent(
+                                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                                Uri.parse("package:" + BuildConfig.APPLICATION_ID));
+                        v.getContext().startActivity(intent);
+                    } else {
+                        List<String> requesting = new ArrayList<>();
+                        for (String permission : desired)
+                            if (!hasPermission(permission))
+                                requesting.add((permission));
+                        Log.i("Requesting permissions " + TextUtils.join(",", requesting));
+                        requestPermissions(requesting.toArray(new String[0]), REQUEST_PERMISSIONS);
+                    }
                 } catch (Throwable ex) {
                     Log.unexpectedError(getParentFragmentManager(), ex);
                     /*
@@ -666,7 +681,10 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         cbAlways.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton v, boolean isChecked) {
-                int value = (isChecked ? 0 : EntityAccount.DEFAULT_POLL_INTERVAL);
+                int poll_interval = prefs.getInt("poll_interval", EntityAccount.DEFAULT_POLL_INTERVAL);
+                if (poll_interval == 0)
+                    poll_interval = EntityAccount.DEFAULT_POLL_INTERVAL;
+                int value = (isChecked ? 0 : poll_interval);
                 prefs.edit().putInt("poll_interval", value).apply();
                 if (value == 0)
                     prefs.edit().remove("auto_optimize").apply();
@@ -852,10 +870,13 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                         ? View.GONE : View.VISIBLE);
         tvPermissionsDone.setText(null);
         tvPermissionsDone.setCompoundDrawables(null, null, null, null);
+        btnPermissions.setText(null);
+        btnPermissions.setCompoundDrawables(null, null, null, null);
 
         tvDozeDone.setText(null);
         tvDozeDone.setCompoundDrawables(null, null, null, null);
-        btnDoze.setEnabled(false);
+        btnDoze.setText(null);
+        btnDoze.setCompoundDrawables(null, null, null, null);
         tvDoze12.setVisibility(View.GONE);
 
         btnInbox.setEnabled(false);
@@ -990,21 +1011,17 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
         boolean isIgnoring = !Boolean.FALSE.equals(Helper.isIgnoringOptimizations(getContext()));
         boolean canScheduleExact = AlarmManagerCompatEx.canScheduleExactAlarms(getContext());
 
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
-            btnDoze.setEnabled(false);
-        else {
-            Intent intent = new Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
-            PackageManager pm = getContext().getPackageManager();
-            if (intent.resolveActivity(pm) == null)
-                btnDoze.setEnabled(false);
-            else
-                btnDoze.setEnabled(!isIgnoring || BuildConfig.DEBUG);
-        }
-
         tvDozeDone.setText(isIgnoring ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvDozeDone.setTextColor(isIgnoring ? textColorPrimary : colorWarning);
-        tvDozeDone.setTypeface(null, isIgnoring ? Typeface.NORMAL : Typeface.BOLD);
-        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(isIgnoring ? check : null, null, null, null);
+        tvDozeDone.setCompoundDrawablesWithIntrinsicBounds(
+                (isIgnoring ? done : todo).mutate(), null, null, null);
+        TextViewCompat.setCompoundDrawableTintList(tvDozeDone,
+                ColorStateList.valueOf(isIgnoring ? textColorPrimary : colorWarning));
+
+        btnDoze.setEnabled(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M);
+        btnDoze.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0, 0, isIgnoring ? R.drawable.twotone_settings_24 : R.drawable.twotone_check_24, 0);
+        btnDoze.setText(isIgnoring ? R.string.title_setup_manage : R.string.title_setup_grant);
 
         tvDoze12.setVisibility(!canScheduleExact && !isIgnoring ? View.VISIBLE : View.GONE);
 
@@ -1186,9 +1203,14 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
 
         tvPermissionsDone.setText(all ? R.string.title_setup_done : R.string.title_setup_to_do);
         tvPermissionsDone.setTextColor(all ? textColorPrimary : colorWarning);
-        tvPermissionsDone.setTypeface(null, all ? Typeface.NORMAL : Typeface.BOLD);
-        tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(all ? check : null, null, null, null);
-        btnPermissions.setEnabled(!all);
+        tvPermissionsDone.setCompoundDrawablesWithIntrinsicBounds(
+                (all ? done : todo).mutate(), null, null, null);
+        TextViewCompat.setCompoundDrawableTintList(tvPermissionsDone,
+                ColorStateList.valueOf(all ? textColorPrimary : colorWarning));
+
+        btnPermissions.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                0, 0, all ? R.drawable.twotone_settings_24 : R.drawable.twotone_check_24, 0);
+        btnPermissions.setText(all ? R.string.title_setup_manage : R.string.title_setup_grant);
     }
 
     private void onSelectIdentity(Bundle args) {

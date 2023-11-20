@@ -242,21 +242,26 @@ internal class DeviceDataCollector(
     /**
      * Get the amount of memory remaining on the device
      */
-    private fun calculateFreeMemory(): Long? {
+    fun calculateFreeMemory(): Long? {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            val freeMemory = appContext.getActivityManager()
-                ?.let { am -> ActivityManager.MemoryInfo().also { am.getMemoryInfo(it) } }
-                ?.availMem
-
-            if (freeMemory != null) {
-                return freeMemory
+            try {
+                val freeMemory = appContext.getActivityManager()
+                    ?.let { am -> ActivityManager.MemoryInfo().also { am.getMemoryInfo(it) } }
+                    ?.availMem
+                if (freeMemory != null) {
+                    return freeMemory
+                }
+            } catch (e: Throwable) {
+                return null
             }
         }
 
-        return runCatching {
+        return try {
             @Suppress("PrivateApi")
             AndroidProcess::class.java.getDeclaredMethod("getFreeMemory").invoke(null) as Long?
-        }.getOrNull()
+        } catch (e: Throwable) {
+            null
+        }
     }
 
     /**

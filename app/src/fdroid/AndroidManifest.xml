@@ -319,7 +319,8 @@
             android:label="@string/app_name"
             android:launchMode="singleTask"
             android:parentActivityName=".ActivityView"
-            android:resizeableActivity="true">
+            android:resizeableActivity="true"
+            android:taskAffinity="${applicationId}.COMPOSE">
             <meta-data
                 android:name="android.service.chooser.chooser_target_service"
                 android:value="androidx.sharetarget.ChooserTargetServiceCompat" />
@@ -481,12 +482,21 @@
         </activity>
 
         <activity
-            android:name=".ActivityDmarc"
-            android:enabled="true"
+            android:name=".ActivityCode"
             android:description="@string/app_name"
-            android:exported="true"
+            android:exported="false"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
+            android:launchMode="singleInstance"
+            android:resizeableActivity="true" />
+
+        <activity
+            android:name=".ActivityDMARC"
+            android:enabled="true"
+            android:description="@string/title_advanced_dmarc_viewer"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_dmarc"
             android:launchMode="singleInstance"
             android:resizeableActivity="true">
 

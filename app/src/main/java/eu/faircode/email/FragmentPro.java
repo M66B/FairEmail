@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.ColorStateList;
 import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
@@ -43,6 +44,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.graphics.ColorUtils;
+import androidx.core.widget.TextViewCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
@@ -61,6 +64,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
     private TextView tvPrice;
     private TextView tvGoogle;
     private TextView tvNoPlay;
+    private TextView tvDownloaded;
     private TextView tvPriceHint;
     private TextView tvFamilyHint;
     private TextView tvRestoreHint;
@@ -90,6 +94,7 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
         tvPrice = view.findViewById(R.id.tvPrice);
         tvGoogle = view.findViewById(R.id.tvGoogle);
         tvNoPlay = view.findViewById(R.id.tvNoPlay);
+        tvDownloaded = view.findViewById(R.id.tvDownloaded);
         tvPriceHint = view.findViewById(R.id.tvPriceHint);
         tvFamilyHint = view.findViewById(R.id.tvFamilyHint);
         tvRestoreHint = view.findViewById(R.id.tvRestoreHint);
@@ -135,6 +140,16 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                 lbm.sendBroadcast(new Intent(ActivityBilling.ACTION_PURCHASE));
             }
         });
+
+        String type = Log.getReleaseType(getContext());
+        String installer = Helper.getInstallerName(getContext());
+        tvDownloaded.setText(getString(R.string.app_download, type));
+        if (BuildConfig.PLAY_STORE_RELEASE)
+            tvDownloaded.setVisibility(
+                    installer != null && !Helper.PLAY_PACKAGE_NAME.equals(installer)
+                            ? View.VISIBLE : View.GONE);
+        else
+            tvDownloaded.setVisibility(BuildConfig.DEBUG ? View.VISIBLE : View.GONE);
 
         tvPriceHint.setPaintFlags(tvPriceHint.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
         tvPriceHint.setOnClickListener(new View.OnClickListener() {
@@ -268,7 +283,12 @@ public class FragmentPro extends FragmentBase implements SharedPreferences.OnSha
                 post(new Runnable() {
                     @Override
                     public void run() {
+                        int color = Helper.resolveColor(btnPurchase.getContext(), R.attr.colorInfoForeground);
+                        if (purchased)
+                            color = ColorUtils.setAlphaComponent(color, (int) Math.round(0.6 * 255));
                         btnPurchase.setEnabled(!purchased);
+                        btnPurchase.setTextColor(color);
+                        TextViewCompat.setCompoundDrawableTintList(btnPurchase, ColorStateList.valueOf(color));
                         tvPending.setVisibility(View.GONE);
                         btnConsume.setEnabled(purchased);
                     }

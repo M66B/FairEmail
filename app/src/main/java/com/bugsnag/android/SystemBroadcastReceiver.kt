@@ -66,6 +66,7 @@ internal class SystemBroadcastReceiver(
     ) {
         val extras = intent.extras
         extras?.keySet()?.forEach { key ->
+            @Suppress("DEPRECATION")
             val valObj = extras[key] ?: return@forEach
             val strVal = valObj.toString()
             if (isAndroidKey(key)) { // shorten the Intent action

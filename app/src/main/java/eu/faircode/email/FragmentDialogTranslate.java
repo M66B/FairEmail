@@ -120,7 +120,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
                         ssb.setSpan(new ForegroundColorSpan(textColorPrimary), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                         Locale source = Locale.forLanguageTag(translation.detected_language);
-                        Locale target = Locale.forLanguageTag(args.getString("target"));
+                        Locale target = Locale.forLanguageTag(translation.target_language);
 
                         String lang = "[" + source.getDisplayLanguage(target) + "]\n\n";
                         ssb.insert(0, lang);
@@ -292,7 +292,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
                                 ssb.setSpan(new ForegroundColorSpan(textColorPrimary), start, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                                 Locale source = Locale.forLanguageTag(translation.detected_language);
-                                Locale target = Locale.forLanguageTag(args.getString("target"));
+                                Locale target = Locale.forLanguageTag(translation.target_language);
 
                                 String lang = "[" + source.getDisplayLanguage(target) + "] ";
                                 ssb.insert(start, lang);

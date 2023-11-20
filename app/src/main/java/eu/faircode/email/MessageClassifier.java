@@ -454,7 +454,7 @@ public class MessageClassifier {
 
         File file = getFile(context, false);
         File backup = getFile(context, true);
-        backup.delete();
+        Helper.secureDelete(backup);
         if (file.exists())
             file.renameTo(backup);
 
@@ -532,7 +532,7 @@ public class MessageClassifier {
             writer.endObject();
         }
 
-        backup.delete();
+        Helper.secureDelete(backup);
 
         dirty = false;
 
@@ -553,7 +553,7 @@ public class MessageClassifier {
             _load(file);
         } catch (Throwable ex) {
             Log.e(ex);
-            file.delete();
+            Helper.secureDelete(file);
             clear(context);
         }
     }

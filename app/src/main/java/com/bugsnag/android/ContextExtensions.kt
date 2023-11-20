@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.location.LocationManager
 import android.net.ConnectivityManager
+import android.os.Build
 import android.os.RemoteException
 import android.os.storage.StorageManager
 import java.lang.RuntimeException
@@ -21,7 +22,11 @@ internal fun Context.registerReceiverSafe(
     logger: Logger? = null
 ): Intent? {
     try {
-        return registerReceiver(receiver, filter)
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+            registerReceiver(receiver, filter, Context.RECEIVER_EXPORTED)
+        } else {
+            registerReceiver(receiver, filter)
+        }
     } catch (exc: SecurityException) {
         logger?.w("Failed to register receiver", exc)
     } catch (exc: RemoteException) {

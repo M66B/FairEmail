@@ -48,7 +48,6 @@ import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.text.Collator;
-import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

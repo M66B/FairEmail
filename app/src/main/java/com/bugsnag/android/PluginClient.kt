@@ -34,7 +34,7 @@ internal class PluginClient(
     private fun instantiatePlugin(clz: String, isWarningEnabled: Boolean): Plugin? {
         return try {
             val pluginClz = Class.forName(clz)
-            pluginClz.newInstance() as Plugin
+            pluginClz.getDeclaredConstructor().newInstance() as Plugin
         } catch (exc: ClassNotFoundException) {
             if (isWarningEnabled) {
                 logger.d("Plugin '$clz' is not on the classpath - functionality will not be enabled.")

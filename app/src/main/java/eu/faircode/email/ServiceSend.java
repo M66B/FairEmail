@@ -74,7 +74,6 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Method;
@@ -232,6 +231,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
     private Notification getNotificationService(boolean alert) {
         NotificationCompat.Builder builder =
                 new NotificationCompat.Builder(this, "send")
+                        .setForegroundServiceBehavior(Notification.FOREGROUND_SERVICE_IMMEDIATE)
                         .setSmallIcon(R.drawable.baseline_send_white_24)
                         .setContentTitle(getString(R.string.title_notification_sending))
                         .setContentIntent(getPendingIntent(this))
@@ -962,7 +962,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             if ("text/calendar".equals(attachment.type))
                 try {
                     File ics = attachment.getFile(this);
-                    ICalendar icalendar = Biweekly.parse(ics).first();
+                    ICalendar icalendar = CalendarHelper.parse(ServiceSend.this, ics);
 
                     Method method = icalendar.getMethod();
                     if (method == null || !method.isReply())

@@ -719,15 +719,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         int count = fm.getBackStackEntryCount();
         if (count > 1 && "thread".equals(fm.getBackStackEntryAt(count - 1).getName())) {
             Fragment fragment = fm.findFragmentByTag("thread");
-            if (fragment != null &&
-                    fragment.getId() == (content_pane == null ? R.id.content_pane : R.id.content_frame)) {
-                Log.i("Moving pane=" + (content_pane != null) + " fragment=" + fragment);
-                fm.popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
-                Fragment newFragment = Helper.recreateFragment(fragment, fm);
-                FragmentTransaction ft = fm.beginTransaction();
-                ft.replace(content_pane == null ? R.id.content_frame : R.id.content_pane, newFragment, "thread")
-                        .addToBackStack("thread");
-                ft.commit();
+            if (fragment != null) {
+                if (fragment.getId() == (content_pane == null ? R.id.content_pane : R.id.content_frame)) {
+                    Log.i("Moving pane=" + (content_pane != null) + " fragment=" + fragment);
+                    fm.popBackStack("thread", FragmentManager.POP_BACK_STACK_INCLUSIVE);
+                    Fragment newFragment = Helper.recreateFragment(fragment, fm);
+                    FragmentTransaction ft = fm.beginTransaction();
+                    ft.replace(content_pane == null ? R.id.content_frame : R.id.content_pane, newFragment, "thread")
+                            .addToBackStack("thread");
+                    ft.commit();
+                }
+
                 if (content_pane != null) {
                     content_separator.setVisibility(View.VISIBLE);
                     content_pane.setVisibility(View.VISIBLE);
@@ -1512,7 +1514,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
                         return Log.getDebugInfo(context, "crash", R.string.title_crash_info_remark, null, sb.toString(), null).id;
                     } finally {
-                        file.delete();
+                        Helper.secureDelete(file);
                     }
                 }
 

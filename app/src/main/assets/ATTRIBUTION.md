@@ -1,6 +1,6 @@
 ## Attribution
 
-FairEmail uses:
+FairEmail uses parts or all of:
 
 * [JavaMail](https://projects.eclipse.org/projects/ee4j.javamail). Copyright (c) 1997-2018 Oracle® and/or its affiliates. All rights reserved. [GPLv2+CE license](https://javaee.github.io/javamail/JavaMail-License).
 * [jsoup](https://jsoup.org/). Copyright © 2009 - 2017 Jonathan Hedley. [MIT license](https://jsoup.org/license).
@@ -48,3 +48,4 @@ FairEmail uses:
 * [Send](https://github.com/timvisee/send). [Mozilla Public License 2.0](https://github.com/timvisee/send/blob/master/LICENSE).
 * [DetectHtml](https://github.com/dbennett455/DetectHtml). [The MIT License](https://github.com/dbennett455/DetectHtml/blob/master/LICENSE).
 * [Liberation Sans Narrow font](https://github.com/liberationfonts/liberation-sans-narrow). Copyright (C) 1989, 1991 Free Software Foundation, Inc. [GNU General Public License version 2 with exceptions](https://fedoraproject.org/wiki/Licensing/LiberationFontLicense).
+* [Prism](https://github.com/PrismJS/prism). Copyright (c) 2012 Lea Verou. [MIT LICENSE](https://github.com/PrismJS/prism/blob/master/LICENSE).

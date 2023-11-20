@@ -111,6 +111,7 @@ public class FragmentIdentity extends FragmentBase {
     private EditText etRealm;
     private CheckBox cbUseIp;
     private EditText etEhlo;
+    private ImageButton ibEhlo;
 
     private CheckBox cbSynchronize;
     private CheckBox cbPrimary;
@@ -217,6 +218,7 @@ public class FragmentIdentity extends FragmentBase {
         etRealm = view.findViewById(R.id.etRealm);
         cbUseIp = view.findViewById(R.id.cbUseIp);
         etEhlo = view.findViewById(R.id.etEhlo);
+        ibEhlo = view.findViewById(R.id.ibEhlo);
 
         cbSynchronize = view.findViewById(R.id.cbSynchronize);
         cbPrimary = view.findViewById(R.id.cbPrimary);
@@ -487,6 +489,13 @@ public class FragmentIdentity extends FragmentBase {
                         tvCertificate.setText(R.string.title_optional);
                     }
                 });
+            }
+        });
+
+        ibEhlo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.view(v.getContext(), Uri.parse("https://dummy.faircode.eu/"), true);
             }
         });
 
@@ -1211,7 +1220,7 @@ public class FragmentIdentity extends FragmentBase {
         outState.putInt("fair:auth", auth);
         outState.putString("fair:authprovider", provider);
         outState.putString("fair:html", signature);
-        outState.putString("fair:uri", (String) btnUri.getTag());
+        outState.putString("fair:uri", btnUri == null ? null : (String) btnUri.getTag());
         super.onSaveInstanceState(outState);
     }
 
@@ -1449,7 +1458,11 @@ public class FragmentIdentity extends FragmentBase {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_delete) {
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            onSave(true);
+            return true;
+        } else if (itemId == R.id.menu_delete) {
             onMenuDelete();
             return true;
         }

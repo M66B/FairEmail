@@ -878,7 +878,6 @@ bool ScriptScanner::GetOneScriptSpan(LangSpan* span) {
   // copying letters to buffer with single spaces for each run of non-letters
   while (take < byte_length_) {
     // Copy run of letters in same script (&LS | LS)*
-    int letter_count = 0;              // Keep track of word length
     bool need_break = false;
 
     while (take < byte_length_) {
@@ -963,7 +962,6 @@ bool ScriptScanner::GetOneScriptSpan(LangSpan* span) {
         map2original_.Delete(tlen - plen);
       }
 
-      ++letter_count;
       if (put >= kMaxScriptBytes) {
         // Buffer is full
         span->truncated = true;

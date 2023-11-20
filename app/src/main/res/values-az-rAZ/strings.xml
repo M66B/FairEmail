@@ -163,6 +163,7 @@
     <string name="title_setup_quick_smtp">Mesaj göndərmək üçün SMTP serveri</string>
     <string name="title_setup_quick_certificates">Server sertifikatları</string>
     <string name="title_setup_wizard">Sehrbaz</string>
+    <string name="title_setup_wizard_intro">Əksər hallarda bir hesab əlavə etmək üçün sehrbaz düyməsi istifadə edilə bilər, əks halda server ünvanları əllə quraşdırma seçimi istifadə edilərək əllə daxil edilə və ya dəyişdirilə bilər</string>
     <string name="title_setup_wizard_tutorials">Təlimatlar</string>
     <string name="title_setup_wizard_multiple">Sehrbaz, bir neçə hesabı qurmaq üçün bir neçə dəfə istifadə edilə bilər</string>
     <string name="title_setup_wizard_new">Yeni bir e-poçt ünvanına ehtiyacım var</string>
@@ -375,6 +376,7 @@
     <string name="title_advanced_suggest_sent">Göndərilən mesajlarda tapılan ünvanları təklif et</string>
     <string name="title_advanced_suggest_received">Alınan mesajlarda tapılan ünvanları təklif et</string>
     <string name="title_advanced_suggest_frequently">Təklif edilən ünvanları istifadə tezliyinə görə sırala</string>
+    <string name="title_advanced_suggest_account">Təklifləri hazırkı hesabla məhdudlaşdır</string>
     <string name="title_advanced_alt_re_fwd">Alternativ cavab/yönləndirmə prefiksi</string>
     <string name="title_advanced_send_chips">Ünvan şarlarını göstər</string>
     <string name="title_advanced_send_nav_color">Alt əməliyyat sətri üçün kimlik rəngini istifadə et</string>
@@ -436,6 +438,7 @@
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 tələb et</string>
     <string name="title_advanced_cert_strict">Ciddi sertifikat yoxlanışı</string>
     <string name="title_advanced_open_safe">Yalnız güvənli bağlantıları aç</string>
+    <string name="title_advanced_bouncy_castle">\"Bouncy Castle\"ın güvənlik socket provayderini istifadə et (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Bağlantını idarə et</string>
     <string name="title_advanced_caption_general">Ümumi</string>
     <string name="title_advanced_caption_navigation">Hərəkət</string>
@@ -504,6 +507,7 @@
     <string name="title_advanced_only_name">Yalnız əlaqə adlarını görüntülə</string>
     <string name="title_advanced_distinguish_contacts">Göndərən yerli \"alıcı\" əlaqəsi kimi bilinirsə göndərənin altından xətt çək</string>
     <string name="title_advanced_show_recipients">Mesaj başlığında alıcıları göstər</string>
+    <string name="title_advanced_reverse_addresses">Göndərilən mesajların alıcısını göstər</string>
     <string name="title_advanced_font_size_sender">Göndərən mətn ölçüsü</string>
     <string name="title_advanced_sender_ellipsize">Lazım gəlsə, göndərən hissəsini qısaldın</string>
     <string name="title_advanced_subject_top">Göndərənin üstündə mövzunu göstər</string>
@@ -526,6 +530,7 @@
     <string name="title_advanced_unzip">Sıxışdırılmış qoşmaların məzmunlarını göstər</string>
     <string name="title_advanced_attachments_alt">Mesaj mətnindən sonra qoşmaları göstər</string>
     <string name="title_advanced_thumbnails">Mesaj mətnindən sonra təsvir eskizlərini göstər</string>
+    <string name="title_advanced_pdf_preview">PDF eskizlərini göstər</string>
     <string name="title_advanced_message_text_zoom2">İlkin mesajın mətn yaxınlaşdırması: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Mesajın mətnini redaktorda da yaxınlaşdır</string>
     <string name="title_advanced_overview_mode">Orijinal mesajı tam ekrana qədər yaxınlaşdır</string>
@@ -622,6 +627,8 @@
     <string name="title_advanced_notify_preview">Bildirişlərdə mesaja önbaxışı göstər</string>
     <string name="title_advanced_notify_preview_all">Mətnin hamısına önbaxış</string>
     <string name="title_advanced_notify_preview_only">Bildirişləri yalnız önbaxış mətni ilə göstər</string>
+    <string name="title_advanced_notify_transliterate">Latın əlifbasına çevir</string>
+    <string name="title_advanced_notify_ascii">Yalnız ASCII mətni</string>
     <string name="title_advanced_notify_actions">Bildiriş əməliyyatları</string>
     <string name="title_advanced_notify_action_trash">Tullantı</string>
     <string name="title_advanced_notify_action_delete">Sil</string>
@@ -707,12 +714,14 @@
     <string name="title_advanced_external_search">Android mətn seçim menyusuna \"FairEmail axtarışı\"nı əlavə et</string>
     <string name="title_advanced_sort_answers">Cavab şablonlarını istifadə tezliyinə görə sırala</string>
     <string name="title_advanced_shortcuts">Tez-tez istifadə olunan əlaqələri Android paylaşma menyusunda göstər</string>
+    <string name="title_advanced_ical_tentative">Mağaza, dəvətləri şərti olaraq aldı</string>
     <string name="title_advanced_fts">Axtarış indeksini quraşdır</string>
     <string name="title_advanced_fts_indexed">%1$d/%2$d mesaj indeksləndi (%3$s)</string>
     <string name="title_advanced_classification">Mesajları sinifləşdir</string>
     <string name="title_advanced_class_min_chance">Minimum sinif ehtimalı: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimum sinif fərqi: %1$s %%</string>
     <string name="title_advanced_show_filtered">Qaydalar tətbiq olunduqda bir filtr nişanı göstər</string>
+    <string name="title_advanced_haptic_feedback">Vacib əməliyyatlarda toxunuş əks-əlaqəsi</string>
     <string name="title_advanced_language">Dil</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">LanguageTool inteqrasiyası</string>
@@ -772,6 +781,7 @@
     <string name="title_advanced_pull_all_hint">Qovluqlar və ya hesablar siyahısını aşağı çəkəndə</string>
     <string name="title_advanced_suggest_names_hint">Əgər sıradan çıxarılsa, əlaqələr seçiləndə yalnız e-poçt ünvanları istifadə ediləcək</string>
     <string name="title_advanced_suggest_local_hint">Android tərəfindən təmin edilən əlaqələrə əlavə olaraq. Əlaqə verilənləri, yeni göndərilən və alınan mesajlar üçün yalnız fəal olanda saxlanılacaq.</string>
+    <string name="title_advanced_suggest_account_hint">Bu yalnız yerli kontaktlara aiddir, çünki Android ünvan kitabçasında kontaktlar xüsusi hesablarla əlaqələndirilməyib</string>
     <string name="title_advanced_auto_identity_hint">Bu, yeni mesajlar üçün bir alıcı seçərkən istifadə edilən son kimliyi seçəcək</string>
     <string name="title_advanced_send_reminders_hint">Mesaj mətni və ya mövzu boş olanda və ya bir qoşma əskik olanda bir xəbərdarlıq göstər</string>
     <string name="title_advanced_reply_move_hint">E-poçt serveri, mesajları yenə də göndərilən mesaj qovluğuna əlavə edə bilər</string>
@@ -1030,6 +1040,7 @@
     <string name="title_delete_channel">Bildiriş kanalını sil</string>
     <string name="title_insert_contact">Əlaqə əlavə et</string>
     <string name="title_edit_contact">Əlaqəyə düzəliş et</string>
+    <string name="title_delete_contact">Kontakt silinsin?</string>
     <string name="title_contact_email">E-poçt</string>
     <string name="title_contact_name">Ad</string>
     <string name="title_contact_group">Qrup</string>
@@ -1152,9 +1163,9 @@
     <string name="title_print_header">Başlığı çap et</string>
     <string name="title_print_images">Təsvirləri çap et</string>
     <string name="title_print_images_remark">Təsvirlərin endirilməsi bir az vaxt apara bilər</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Blok sitat xətlərini çap et</string>
+    <string name="title_print_block_quotes">Blok sitat xətlərini çap et</string>
     <string name="title_show_headers">Başlıqları göstər</string>
-    <string name="title_share_as_html">HTML kimi paylaş</string>
+    <string name="title_show_html">Mənbəni göstər</string>
     <string name="title_raw_save">Xam mesajı saxla</string>
     <string name="title_raw_send">Qoşma kimi saxla</string>
     <string name="title_raw_send_message">Mesaj</string>
@@ -1184,6 +1195,7 @@
     <string name="title_quick_actions_snooze">Ertələ</string>
     <string name="title_quick_actions_clear">Əməliyyatdan sonra seçimi təmizlə</string>
     <string name="title_trash">Tullantı</string>
+    <string name="title_trash_selection">Tullantı seçimi</string>
     <string name="title_copy">Kopyala &#8230;</string>
     <string name="title_copy_to">Kopyala &#8230;</string>
     <string name="title_subscribe">Abunə ol</string>
@@ -1368,6 +1380,7 @@
     <string name="title_add_image_privacy">Gizliliyiniz üçün həssas verilənləri silin</string>
     <string name="title_add_image_privacy_remark">Coğrafi yerləşmə, seriya nömrələri, fayl adları və s.</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
+    <string name="title_add_image_resize_remark">%1$s üçün yenidən ölçüləndirmə dəstəklənir</string>
     <string name="title_add_image_select_remark">Android foto seçici artıq fayl adlarını ötürmür</string>
     <string name="title_add_image_select">Fayl seç</string>
     <string name="title_add_attachment">Qoşma əlavə et</string>
@@ -1497,6 +1510,7 @@
     <string name="title_search_in_keywords">Açar sözlərdə (əgər dəstəklənirsə)</string>
     <string name="title_search_in_message">Mesaj mətnində</string>
     <string name="title_search_in_notes">Yerli qeydlərdə</string>
+    <string name="title_search_in_filenames">Fayl adlarında (yalnız cihazda)</string>
     <string name="title_search_with">Axtarışı limitlə</string>
     <string name="title_search_with_unseen">Oxunmadı</string>
     <string name="title_search_with_flagged">Ulduzlu</string>
@@ -1590,7 +1604,7 @@
     <string name="title_answer_placeholder_firstname">Göndərinin adı</string>
     <string name="title_answer_placeholder_lastname">Göndərənin soyadı</string>
     <string name="title_answer_placeholder_date">Hazırkı tarix</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Həftənin günü</string>
+    <string name="title_answer_placeholder_weekday">Həftənin günü</string>
     <string name="title_rule_noop">Əməliyyat yoxdur</string>
     <string name="title_rule_seen">Oxundu kimi işarələ</string>
     <string name="title_rule_unseen">Oxunmadı kimi işarələ</string>
@@ -1686,6 +1700,9 @@
     <string name="title_rule_alarm_duration">Maksimum alarm müddəti (saniyə)</string>
     <string name="title_rule_alarm_title">Zəngli saat</string>
     <string name="title_rule_alarm_stop">Dayandır</string>
+    <string name="title_code_line_numbers">Sətir nömrələrini göstər</string>
+    <string name="title_code_enable_links">Keçidləri fəallaşdır</string>
+    <string name="title_code_pretty">Gözəl çap</string>
     <string name="title_legend_section_synchronize">Sinxronlaşdırma</string>
     <string name="title_legend_section_folders">Qovluqlar</string>
     <string name="title_legend_section_messages">Mesaj</string>
@@ -1880,6 +1897,7 @@
     <string name="title_no_ask_again">Bunu bir də soruşma</string>
     <string name="title_no_ask_for_again">%1$s üçün bunu bir də soruşma</string>
     <string name="title_no_body">Heç bir mesaj mətni tapılmadı</string>
+    <string name="title_large_body">Bu mesaj çox böyükdür və problemlər yarada bilər!</string>
     <string name="title_no_charset">Dəstəklənməyən kodlaşdırma: %1$s</string>
     <string name="title_via">%1$s ilə</string>
     <string name="title_1hour">1 saat</string>
@@ -1961,6 +1979,7 @@
     <string name="title_widget_account_all">Hamısı</string>
     <string name="title_widget_folder">Qovluq</string>
     <string name="title_widget_folder_unified">Birləşmiş gələn qutusu qovluqları</string>
+    <string name="title_widget_folder_notifying">Yeni mesaj bildirişləri olan qovluqlar</string>
     <string name="title_widget_unseen">Yalnız oxunmamış mesajlar</string>
     <string name="title_widget_flagged">Yalnız ulduzlu mesajlar</string>
     <string name="title_widget_font_size">Mətn ölçüsü</string>
@@ -1975,6 +1994,7 @@
     <string name="title_widget_refresh">Mesajları təzələ düyməsini göstər</string>
     <string name="title_widget_compose">Yeni mesaj yarat düyməsini göstər</string>
     <string name="title_widget_background">Arxaplan rəngi</string>
+    <string name="title_widget_icon">Nişan rəngi</string>
     <string name="title_widget_day_night">Sistemin qaranlıq temasına uyğunlaşma</string>
     <string name="title_compat_dark">Google, Android 10-dan əvvəlki versiyalar üçün qaranlıq rejimi çıxartdı</string>
     <!-- Thunderbird -->

@@ -60,6 +60,7 @@ import com.google.android.material.snackbar.Snackbar;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -428,7 +429,7 @@ public class FragmentAnswer extends FragmentBase {
     }
 
     private void onActionSave() {
-        etText.clearComposingText();
+        HtmlHelper.clearComposingText(etText);
 
         // Prevent splitting placeholders
         Editable edit = etText.getText();
@@ -642,7 +643,7 @@ public class FragmentAnswer extends FragmentBase {
     }
 
     private void onLanguageTool() {
-        etText.clearComposingText();
+        HtmlHelper.clearComposingText(etText);
 
         Bundle args = new Bundle();
         args.putCharSequence("text", etText.getText());
@@ -687,7 +688,7 @@ public class FragmentAnswer extends FragmentBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Throwable exex = new Throwable("LanguageTool", ex);
-                Log.unexpectedError(getParentFragmentManager(), exex, false);
+                Log.unexpectedError(getParentFragmentManager(), exex, !(ex instanceof IOException));
             }
         }.execute(this, args, "answer:lt");
     }

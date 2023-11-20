@@ -29,9 +29,7 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.TextUtils;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.TaskStackBuilder;
 import androidx.core.net.MailTo;
 import androidx.fragment.app.Fragment;
@@ -72,15 +70,6 @@ public class ActivityCompose extends ActivityBase implements FragmentManager.OnB
         super.onNewIntent(intent);
         setIntent(intent);
         handle(intent, false);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == android.R.id.home &&
-                getSupportFragmentManager().getBackStackEntryCount() > 0)
-            return false; // Delegate to fragment
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

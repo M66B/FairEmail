@@ -209,6 +209,34 @@ bool TestMultipleLanguagesInInput() {
                 << result.proportion << std::endl;
       return false;
     }
+
+    // Skip over undefined language.
+    if (result.language == "und")
+      continue;
+    if (result.byte_ranges.size() != 1) {
+      std::cout << " Should only detect one span containing " << result.language
+                << std::endl;
+      return false;
+    }
+    // Check that specified byte ranges for language are correct.
+    int start_index = result.byte_ranges[0].start_index;
+    int end_index = result.byte_ranges[0].end_index;
+    std::string byte_ranges_text = text.substr(start_index, end_index - start_index);
+    if (result.language == "bg") {
+      if (byte_ranges_text.compare("Този текст е на Български.") != 0) {
+        std::cout << " Incorrect byte ranges returned for Bulgarian " << std::endl;
+        return false;
+      }
+    } else if (result.language == "en") {
+      if (byte_ranges_text.compare("This piece of text is in English. ") != 0) {
+        std::cout << " Incorrect byte ranges returned for English " << std::endl;
+        return false;
+      }
+    } else {
+      std::cout << " Got language other than English or Bulgarian "
+                << std::endl;
+      return false;
+    }
   }
   std::cout << "  Success!" << std::endl;
   return true;

@@ -25,7 +25,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.pdf.PdfRenderer;
@@ -185,9 +184,7 @@ public class AdapterImage extends RecyclerView.Adapter<AdapterImage.ViewHolder> 
                         else
                             ivImage.setImageDrawable(image);
 
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P &&
-                                image instanceof AnimatedImageDrawable)
-                            ((AnimatedImageDrawable) image).start();
+                        ImageHelper.animate(context, image);
 
                         StringBuilder sb = new StringBuilder();
 

@@ -124,6 +124,7 @@ import com.sun.mail.util.MailConnectException;
 import net.openid.appauth.AuthState;
 import net.openid.appauth.TokenResponse;
 
+import org.bouncycastle.jsse.provider.BouncyCastleJsseProvider;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -151,6 +152,7 @@ import java.security.KeyStore;
 import java.security.Provider;
 import java.security.Security;
 import java.security.cert.CertPathValidatorException;
+import java.security.cert.X509Certificate;
 import java.text.DateFormat;
 import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
@@ -188,6 +190,7 @@ import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 
 public class Log {
     private static Context ctx;
@@ -443,24 +446,9 @@ public class Log {
             config.setTelemetry(Collections.emptySet());
 
             if (BuildConfig.DEBUG)
-                config.setReleaseStage("debug");
-            else {
-                String type;
-                if (Helper.hasValidFingerprint(context)) {
-                    if (BuildConfig.PLAY_STORE_RELEASE)
-                        type = "play";
-                    else if (BuildConfig.AMAZON_RELEASE)
-                        type = "amazon";
-                    else
-                        type = "full";
-                } else {
-                    if (BuildConfig.APPLICATION_ID.startsWith("eu.faircode.email"))
-                        type = "other";
-                    else
-                        type = "clone";
-                }
-                config.setReleaseStage(type + (BuildConfig.BETA_RELEASE ? "/beta" : ""));
-            }
+                config.setReleaseStage("Debug");
+            else
+                config.setReleaseStage(getReleaseType(context));
 
             config.setAutoTrackSessions(false);
 
@@ -507,7 +495,7 @@ public class Log {
 
             String no_internet = context.getString(R.string.title_no_internet);
 
-            String installer = context.getPackageManager().getInstallerPackageName(BuildConfig.APPLICATION_ID);
+            String installer = Helper.getInstallerName(context);
             config.addMetadata("extra", "revision", BuildConfig.REVISION);
             config.addMetadata("extra", "installer", installer == null ? "-" : installer);
             config.addMetadata("extra", "installed", new Date(Helper.getInstallTime(context)).toString());
@@ -648,6 +636,30 @@ public class Log {
                   at java.util.TimeZone.getDisplayName(TimeZone.java:405)
                   at java.util.Date.toString(Date.java:1066)
              */
+        }
+    }
+
+    static @NonNull String getReleaseType(Context context) {
+        if (Helper.hasValidFingerprint(context)) {
+            if (BuildConfig.PLAY_STORE_RELEASE) {
+                String installer = Helper.getInstallerName(context);
+                String type = "Play Store";
+                if (installer != null && !Helper.PLAY_PACKAGE_NAME.equals(installer))
+                    type += " (" + installer + ")";
+                return type;
+            } else if (BuildConfig.FDROID_RELEASE)
+                return "Reproducible";
+            else if (BuildConfig.AMAZON_RELEASE)
+                return "Amazon";
+            else
+                return "GitHub";
+        } else if (Helper.isSignedByFDroid(context))
+            return "F-Droid";
+        else {
+            if (BuildConfig.APPLICATION_ID.startsWith("eu.faircode.email"))
+                return "Other";
+            else
+                return "Clone";
         }
     }
 
@@ -1997,7 +2009,6 @@ public class Log {
         long last_cleanup = prefs.getLong("last_cleanup", 0);
 
         PackageManager pm = context.getPackageManager();
-        String installer = pm.getInstallerPackageName(BuildConfig.APPLICATION_ID);
 
         // Get version info
         sb.append(String.format("%s %s\r\n", context.getString(R.string.app_name), getVersionInfo(context)));
@@ -2018,8 +2029,18 @@ public class Log {
             sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
         }
 
+        try {
+            ApplicationInfo app = pm.getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+            String build_uuid = app.metaData.getString("com.bugsnag.android.BUILD_UUID");
+            sb.append(String.format("Build UUID: %s\r\n", build_uuid == null ? "-" : build_uuid));
+        } catch (PackageManager.NameNotFoundException ex) {
+            Log.e(ex);
+        }
+
+        String installer = Helper.getInstallerName(context);
+        sb.append(String.format("Release: %s\r\n", getReleaseType(context)));
         sb.append(String.format("Play Store: %s\r\n", Helper.hasPlayStore(context)));
-        sb.append(String.format("Installer: %s\r\n", installer));
+        sb.append(String.format("Installer: %s\r\n", installer == null ? "-" : installer));
         sb.append(String.format("Installed: %s\r\n", new Date(Helper.getInstallTime(context))));
         sb.append(String.format("Updated: %s\r\n", new Date(Helper.getUpdateTime(context))));
         sb.append(String.format("Last cleanup: %s\r\n", new Date(last_cleanup)));
@@ -2835,6 +2856,11 @@ public class Log {
                 boolean require_validated = prefs.getBoolean("require_validated", false);
                 boolean require_validated_captive = prefs.getBoolean("require_validated_captive", true);
                 boolean vpn_only = prefs.getBoolean("vpn_only", false);
+                boolean tcp_keep_alive = prefs.getBoolean("tcp_keep_alive", false);
+                boolean ssl_harden = prefs.getBoolean("ssl_harden", false);
+                boolean ssl_harden_strict = (ssl_harden && prefs.getBoolean("ssl_harden_strict", false));
+                boolean cert_strict = prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE);
+                boolean open_safe = prefs.getBoolean("open_safe", false);
 
                 size += write(os, "timeout=" + timeout + "s" + (timeout == EmailService.DEFAULT_CONNECT_TIMEOUT ? "" : " !!!") + "\r\n");
                 size += write(os, "metered=" + metered + (metered ? "" : " !!!") + "\r\n");
@@ -2851,8 +2877,32 @@ public class Log {
                 size += write(os, "standalone_vpn=" + standalone_vpn + (standalone_vpn ? " !!!" : "") + "\r\n");
                 size += write(os, "vpn_only=" + vpn_only + (vpn_only ? " !!!" : "") + "\r\n");
 
+                size += write(os, "tcp_keep_alive=" + tcp_keep_alive + (tcp_keep_alive ? " !!!" : "") + "\r\n");
+                size += write(os, "ssl_harden=" + ssl_harden + (ssl_harden ? " !!!" : "") + "\r\n");
+                size += write(os, "ssl_harden_strict=" + ssl_harden_strict + (ssl_harden_strict ? " !!!" : "") + "\r\n");
+                size += write(os, "cert_strict=" + cert_strict + (cert_strict ? " !!!" : "") + "\r\n");
+                size += write(os, "open_safe=" + open_safe + "\r\n");
+
                 size += write(os, "\r\n");
                 size += write(os, getCiphers().toString());
+
+                try {
+                    String algo = TrustManagerFactory.getDefaultAlgorithm();
+                    TrustManagerFactory tmf = TrustManagerFactory.getInstance(algo);
+                    tmf.init((KeyStore) null);
+
+                    TrustManager[] tms = tmf.getTrustManagers();
+                    if (tms != null)
+                        for (TrustManager tm : tms) {
+                            size += write(os, String.format("Trust manager: %s (%s)\n",
+                                    tm.getClass().getName(), algo));
+                            if (tm instanceof X509TrustManager)
+                                for (X509Certificate cert : ((X509TrustManager) tm).getAcceptedIssuers())
+                                    size += write(os, String.format("- %s\n", cert.getIssuerDN()));
+                        }
+                } catch (Throwable ex) {
+                    size += write(os, ex.getMessage() + "\r\n");
+                }
             }
 
             db.attachment().setDownloaded(attachment.id, size);
@@ -3162,8 +3212,24 @@ public class Log {
                 size += write(os, "\r\n");
 
                 try {
+                    ApplicationInfo app = pm.getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
+                    List<String> metas = getExtras(app.metaData);
+                    size += write(os, "Manifest metas=" + (metas == null ? null : metas.size()) + "\r\n");
+                    for (String meta : metas)
+                        size += write(os, String.format("%s\r\n", meta));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+                size += write(os, "\r\n");
+
+                int flags = PackageManager.GET_RESOLVED_FILTER;
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                    flags |= PackageManager.MATCH_ALL;
+
+                try {
                     Intent home = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_HOME);
                     List<ResolveInfo> homes = context.getPackageManager().queryIntentActivities(home, PackageManager.MATCH_DEFAULT_ONLY);
+                    size += write(os, "Launchers=" + (homes == null ? null : homes.size()) + "\r\n");
                     if (homes != null)
                         for (ResolveInfo ri : homes)
                             size += write(os, String.format("Launcher=%s\r\n", ri.activityInfo.packageName));
@@ -3176,21 +3242,27 @@ public class Log {
                 size += write(os, "\r\n");
 
                 try {
-                    int flags = PackageManager.GET_RESOLVED_FILTER;
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
-                        flags |= PackageManager.MATCH_ALL;
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.example.com"));
+                    Intent intent = new Intent(Intent.ACTION_VIEW)
+                            //.addCategory(Intent.CATEGORY_BROWSABLE)
+                            .setData(Uri.parse("http://example.com/"));
+                    ResolveInfo main = pm.resolveActivity(intent, 0);
+
                     List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
                     size += write(os, "Browsers=" + (ris == null ? null : ris.size()) + "\r\n");
                     if (ris != null)
                         for (ResolveInfo ri : ris) {
+                            CharSequence label = pm.getApplicationLabel(ri.activityInfo.applicationInfo);
+
                             Intent serviceIntent = new Intent();
-                            serviceIntent.setAction("android.support.customtabs.action.CustomTabsService");
+                            serviceIntent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
                             serviceIntent.setPackage(ri.activityInfo.packageName);
                             boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
 
                             StringBuilder sb = new StringBuilder();
                             sb.append("Browser=").append(ri.activityInfo.packageName);
+                            if (Objects.equals(main == null ? null : main.activityInfo.packageName, ri.activityInfo.packageName))
+                                sb.append("*");
+                            sb.append(" (").append(label).append(")");
                             sb.append(" tabs=").append(tabs);
                             sb.append(" view=").append(ri.filter.hasAction(Intent.ACTION_VIEW));
                             sb.append(" browsable=").append(ri.filter.hasCategory(Intent.CATEGORY_BROWSABLE));
@@ -3231,7 +3303,35 @@ public class Log {
                                 }
 
                             sb.append("\r\n");
+                            size += write(os, sb.toString());
+                        }
 
+                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                    String open_with_pkg = prefs.getString("open_with_pkg", null);
+                    boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
+                    size += write(os, String.format("Selected: %s tabs=%b\r\n",
+                            open_with_pkg, open_with_tabs));
+                } catch (Throwable ex) {
+                    size += write(os, String.format("%s\r\n", ex));
+                }
+                size += write(os, "\r\n");
+
+                try {
+                    Intent intent = new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
+                    ResolveInfo main = pm.resolveActivity(intent, 0);
+                    List<ResolveInfo> ris = pm.queryIntentActivities(intent, flags);
+                    size += write(os, "Recorders=" + (ris == null ? null : ris.size()) + "\r\n");
+                    if (ris != null)
+                        for (ResolveInfo ri : ris) {
+                            CharSequence label = pm.getApplicationLabel(ri.activityInfo.applicationInfo);
+
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("Recorder=").append(ri.activityInfo.packageName);
+                            if (Objects.equals(main.activityInfo.packageName, ri.activityInfo.packageName))
+                                sb.append("*");
+                            sb.append(" (").append(label).append(")");
+
+                            sb.append("\r\n");
                             size += write(os, sb.toString());
                         }
                 } catch (Throwable ex) {
@@ -3241,6 +3341,7 @@ public class Log {
 
                 try {
                     List<UriPermission> uperms = context.getContentResolver().getPersistedUriPermissions();
+                    size += write(os, "Persisted URIs=" + (uperms == null ? null : uperms.size()) + "\r\n");
                     if (uperms != null)
                         for (UriPermission uperm : uperms) {
                             size += write(os, String.format("%s r=%b w=%b %s\r\n",
@@ -3300,39 +3401,6 @@ public class Log {
                 }
 
                 size += write(os, "\r\n");
-
-                try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW)
-                            .addCategory(Intent.CATEGORY_BROWSABLE)
-                            .setData(Uri.parse("http://example.com/"));
-                    ResolveInfo main = pm.resolveActivity(intent, 0);
-
-                    int flags = (Build.VERSION.SDK_INT < Build.VERSION_CODES.M ? 0 : PackageManager.MATCH_ALL);
-                    intent.setData(Uri.parse("http://example.com"));
-                    List<ResolveInfo> browsers = pm.queryIntentActivities(intent, flags);
-
-                    for (ResolveInfo ri : browsers) {
-                        Intent serviceIntent = new Intent();
-                        serviceIntent.setAction(ACTION_CUSTOM_TABS_CONNECTION);
-                        serviceIntent.setPackage(ri.activityInfo.packageName);
-                        CharSequence label = pm.getApplicationLabel(ri.activityInfo.applicationInfo);
-                        boolean tabs = (pm.resolveService(serviceIntent, 0) != null);
-                        boolean def = (main != null &&
-                                Objects.equals(ri.activityInfo.packageName, main.activityInfo.packageName));
-                        size += write(os, String.format("Browser: %s (%s) tabs=%b default=%b\r\n",
-                                ri.activityInfo.packageName, label, tabs, def));
-                    }
-
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                    String open_with_pkg = prefs.getString("open_with_pkg", null);
-                    boolean open_with_tabs = prefs.getBoolean("open_with_tabs", true);
-                    size += write(os, String.format("Selected: %s tabs=%b\r\n",
-                            open_with_pkg, open_with_tabs));
-
-                    size += write(os, "\r\n");
-                } catch (Throwable ex) {
-                    size += write(os, String.format("%s\r\n", ex));
-                }
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
                     try {
@@ -3438,9 +3506,20 @@ public class Log {
                     size += write(os, String.format("%s\r\n", p));
                 size += write(os, "\r\n");
 
-                size += write(os, String.format("%s=%b\r\n",
-                        PgpHelper.getPackageName(context),
-                        PgpHelper.isOpenKeychainInstalled(context)));
+                String pgpPackage = PgpHelper.getPackageName(context);
+                boolean pgpInstalled = PgpHelper.isOpenKeychainInstalled(context);
+                size += write(os, String.format("%s=%b\r\n", pgpPackage, pgpInstalled));
+
+                if (pgpInstalled)
+                    try {
+                        PackageInfo pi = pm.getPackageInfo(pgpPackage, PackageManager.GET_PERMISSIONS);
+                        for (int i = 0; i < pi.requestedPermissions.length; i++) {
+                            boolean granted = ((pi.requestedPermissionsFlags[i] & PackageInfo.REQUESTED_PERMISSION_GRANTED) != 0);
+                            size += write(os, String.format("- %s=%b\r\n", pi.requestedPermissions[i], granted));
+                        }
+                    } catch (Throwable ex) {
+                        size += write(os, String.format("%s\r\n", ex));
+                    }
 
                 try {
                     int maxKeySize = javax.crypto.Cipher.getMaxAllowedKeyLength("AES");
@@ -3564,67 +3643,84 @@ public class Log {
     static SpannableStringBuilder getCiphers() {
         SpannableStringBuilder ssb = new SpannableStringBuilderEx();
 
-        for (String protocol : new String[]{"SSL", "TLS"})
-            try {
-                int begin = ssb.length();
-                ssb.append("Protocol: ").append(protocol);
-                ssb.setSpan(new StyleSpan(Typeface.BOLD), begin, ssb.length(), 0);
-                ssb.append("\r\n\r\n");
+        for (Provider provider : new Provider[]{
+                null, // Android
+                new BouncyCastleJsseProvider(),
+                new BouncyCastleJsseProvider(true)})
+            for (String protocol : new String[]{"SSL", "TLS"})
+                try {
+                    int begin = ssb.length();
 
-                TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-                tmf.init((KeyStore) null);
+                    SSLContext sslContext = (provider == null
+                            ? SSLContext.getInstance(protocol)
+                            : SSLContext.getInstance(protocol, provider));
 
-                ssb.append("Provider: ").append(tmf.getProvider().getName()).append("\r\n");
-                ssb.append("Algorithm: ").append(tmf.getAlgorithm()).append("\r\n");
-
-                TrustManager[] tms = tmf.getTrustManagers();
-                if (tms != null)
-                    for (TrustManager tm : tms)
-                        ssb.append("Manager: ").append(tm.getClass().getName()).append("\r\n");
-
-                SSLContext sslContext = SSLContext.getInstance(protocol);
-
-                ssb.append("Context: ").append(sslContext.getProtocol()).append("\r\n\r\n");
-
-                sslContext.init(null, tmf.getTrustManagers(), null);
-                SSLSocket socket = (SSLSocket) sslContext.getSocketFactory().createSocket();
-
-                List<String> protocols = new ArrayList<>();
-                protocols.addAll(Arrays.asList(socket.getEnabledProtocols()));
-
-                for (String p : socket.getSupportedProtocols()) {
-                    boolean enabled = protocols.contains(p);
-                    if (!enabled)
-                        ssb.append('(');
-                    int start = ssb.length();
-                    ssb.append(p);
-                    if (!enabled) {
-                        ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
-                        ssb.append(')');
+                    ssb.append("SSL protocol: ").append(sslContext.getProtocol()).append("\r\n");
+                    Provider sslProvider = sslContext.getProvider();
+                    ssb.append("SSL provider: ").append(sslProvider.getName());
+                    if (sslProvider instanceof BouncyCastleJsseProvider) {
+                        boolean fips = ((BouncyCastleJsseProvider) sslProvider).isFipsMode();
+                        if (fips)
+                            ssb.append(" FIPS");
                     }
                     ssb.append("\r\n");
-                }
-                ssb.append("\r\n");
+                    ssb.append("SSL class: ").append(sslProvider.getClass().getName()).append("\r\n");
 
-                List<String> ciphers = new ArrayList<>();
-                ciphers.addAll(Arrays.asList(socket.getEnabledCipherSuites()));
+                    ssb.setSpan(new StyleSpan(Typeface.BOLD), begin, ssb.length(), 0);
+                    ssb.append("\r\n");
 
-                for (String c : socket.getSupportedCipherSuites()) {
-                    boolean enabled = ciphers.contains(c);
-                    if (!enabled)
-                        ssb.append('(');
-                    int start = ssb.length();
-                    ssb.append(c);
-                    if (!enabled) {
-                        ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
-                        ssb.append(')');
+                    TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+                    tmf.init((KeyStore) null);
+
+                    ssb.append("Trust provider: ").append(tmf.getProvider().getName()).append("\r\n");
+                    ssb.append("Trust class: ").append(tmf.getProvider().getClass().getName()).append("\r\n");
+                    ssb.append("Trust algorithm: ").append(tmf.getAlgorithm()).append("\r\n");
+
+                    TrustManager[] tms = tmf.getTrustManagers();
+                    if (tms != null)
+                        for (TrustManager tm : tms)
+                            ssb.append("Trust manager: ").append(tm.getClass().getName()).append("\r\n");
+                    ssb.append("\r\n");
+
+                    sslContext.init(null, tmf.getTrustManagers(), null);
+                    SSLSocket socket = (SSLSocket) sslContext.getSocketFactory().createSocket();
+
+                    List<String> protocols = new ArrayList<>();
+                    protocols.addAll(Arrays.asList(socket.getEnabledProtocols()));
+
+                    for (String p : socket.getSupportedProtocols()) {
+                        boolean enabled = protocols.contains(p);
+                        if (!enabled)
+                            ssb.append('(');
+                        int start = ssb.length();
+                        ssb.append(p);
+                        if (!enabled) {
+                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
+                            ssb.append(')');
+                        }
+                        ssb.append("\r\n");
                     }
                     ssb.append("\r\n");
+
+                    List<String> ciphers = new ArrayList<>();
+                    ciphers.addAll(Arrays.asList(socket.getEnabledCipherSuites()));
+
+                    for (String c : socket.getSupportedCipherSuites()) {
+                        boolean enabled = ciphers.contains(c);
+                        if (!enabled)
+                            ssb.append('(');
+                        int start = ssb.length();
+                        ssb.append(c);
+                        if (!enabled) {
+                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
+                            ssb.append(')');
+                        }
+                        ssb.append("\r\n");
+                    }
+                    ssb.append("\r\n");
+                } catch (Throwable ex) {
+                    ssb.append(ex.toString());
                 }
-                ssb.append("\r\n");
-            } catch (Throwable ex) {
-                ssb.append(ex.toString());
-            }
 
         ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
 

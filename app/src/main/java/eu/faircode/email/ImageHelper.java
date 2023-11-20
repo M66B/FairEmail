@@ -216,7 +216,7 @@ class ImageHelper {
 
     static byte[] getHash(String email) {
         try {
-            return MessageDigest.getInstance("MD5").digest(email.getBytes());
+            return MessageDigest.getInstance("SHA256").digest(email.getBytes());
         } catch (NoSuchAlgorithmException ignored) {
             return email.getBytes();
         }
@@ -302,7 +302,8 @@ class ImageHelper {
     }
 
     static Drawable decodeImage(final Context context, final long id, String source, boolean show, int zoom, final float scale, final TextView view) {
-        return decodeImage(context, id, source, 0, 0, false, show, zoom, scale, view);
+        Drawable d = decodeImage(context, id, source, 0, 0, false, show, zoom, scale, view);
+        return animate(context, d);
     }
 
     static Drawable decodeImage(final Context context, final long id, Element img, boolean show, int zoom, final float scale, final TextView view) {
@@ -310,7 +311,8 @@ class ImageHelper {
         Integer w = Helper.parseInt(img.attr("width"));
         Integer h = Helper.parseInt(img.attr("height"));
         boolean tracking = !TextUtils.isEmpty(img.attr("x-tracking"));
-        return decodeImage(context, id, source, w == null ? 0 : w, h == null ? 0 : h, tracking, show, zoom, scale, view);
+        Drawable d = decodeImage(context, id, source, w == null ? 0 : w, h == null ? 0 : h, tracking, show, zoom, scale, view);
+        return animate(context, d);
     }
 
     private static Drawable decodeImage(final Context context, final long id,
@@ -528,10 +530,7 @@ class ImageHelper {
                             lld.setBounds(0, 0, bounds.width(), bounds.height());
                             lld.setLevel(0);
 
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                                if (d instanceof AnimatedImageDrawable)
-                                    ((AnimatedImageDrawable) d).start();
-                            }
+                            animate(context, d);
 
                             view.setText(view.getText());
 
@@ -867,6 +866,23 @@ class ImageHelper {
         }
 
         return bm;
+    }
+
+    static Drawable animate(Context context, Drawable drawable) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P)
+            return drawable;
+
+        if (drawable instanceof AnimatedImageDrawable)
+            try {
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean animate_images = prefs.getBoolean("animate_images", true);
+                if (animate_images)
+                    ((AnimatedImageDrawable) drawable).start();
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
+        return drawable;
     }
 
     static Matrix getImageRotation(File file) {

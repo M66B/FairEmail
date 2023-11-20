@@ -164,6 +164,7 @@
     <string name="title_setup_quick_smtp">SMTP-Server zum Senden von Nachrichten</string>
     <string name="title_setup_quick_certificates">Server-Zertifikate</string>
     <string name="title_setup_wizard">Assistent</string>
+    <string name="title_setup_wizard_intro">In den meisten Fällen kann die Schaltfläche »Assistent« zum Hinzufügen eines Kontos verwendet werden. Ansonsten können die Serveradressen über die manuelle Einrichtung eingegeben oder geändert werden</string>
     <string name="title_setup_wizard_tutorials">Anleitungen</string>
     <string name="title_setup_wizard_multiple">Der Assistent kann mehrfach verwendet werden, um mehrere Konten einzurichten</string>
     <string name="title_setup_wizard_new">Ich benötige eine neue E-Mail-Adresse</string>
@@ -230,7 +231,7 @@
     <string name="title_setup_doze_instructions">Im nächsten Android-Dialog bitte »Nicht optimiert« in »Alle Apps« ändern und bei FairEmail »Nicht optimieren« auswählen</string>
     <string name="title_setup_doze_battery">Hoher Akkuverbrauch?</string>
     <string name="title_setup_doze_stopped">Synchronisation angehalten?</string>
-    <string name="title_setup_doze_device">Dies ist möglicherweise für dieses Gerät erforderlich</string>
+    <string name="title_setup_doze_device">Dies ist wahrscheinlich für dieses Gerät erforderlich</string>
     <string name="title_setup_alarm_12">Die App wird nicht ordnungsgemäß funktionieren</string>
     <string name="title_setup_inexact">Benachrichtigungen und Erinnerungen sind deaktiviert</string>
     <string name="title_setup_background">Hintergrundbeschränkungen sind aktiviert</string>
@@ -327,7 +328,7 @@
     <string name="title_advanced_hint_remark">        Die Optionen sind nach Registerkarten kategorisiert, in Abschnitte unterteilt, nach Erscheinungsbild oder Verwendung geordnet und durchsuchbar.
     </string>
     <string name="title_advanced_hint_setup">Sie können ein Konto konfigurieren, indem Sie auf dem Hauptkonfigurationsbildschirm auf die Schaltfläche des Assistenten tippen.</string>
-    <string name="title_advanced_section_main">Haupteinstellungen</string>
+    <string name="title_advanced_section_main">Grundeinstellungen</string>
     <string name="title_advanced_section_synchronize">Empfangen</string>
     <string name="title_advanced_section_send">Senden</string>
     <string name="title_advanced_section_connection">Verbindung</string>
@@ -361,7 +362,7 @@
     <string name="title_advanced_sync_added">Synchronisation für neue Benutzerordner aktivieren</string>
     <string name="title_advanced_subscriptions">Abonnierte Ordner verwalten</string>
     <string name="title_advanced_check_authentication">Nachrichtenauthentifizierung prüfen</string>
-    <string name="title_advanced_check_tls">Transport-Layer-Security (TLS) überprüfen</string>
+    <string name="title_advanced_check_tls">Transport Layer Security (TLS) überprüfen</string>
     <string name="title_advanced_check_reply_domain">Antwort-An-E-Mail-Adressen bei der Synchronisation von Nachrichten prüfen</string>
     <string name="title_advanced_check_mx">Absender-E-Mail-Adressen bei der Synchronisation von Nachrichten prüfen</string>
     <string name="title_advanced_check_blocklist">Prüfen, ob die Domain des Absenders auf einer Spam-Sperrliste enthalten ist</string>
@@ -376,6 +377,7 @@
     <string name="title_advanced_suggest_sent">Adressen aus gesendeten Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_received">Adressen aus empfangenen Nachrichten vorschlagen</string>
     <string name="title_advanced_suggest_frequently">Vorgeschlagene Adressen nach Verwendungshäufigkeit sortieren</string>
+    <string name="title_advanced_suggest_account">Vorschläge auf aktuelles Konto begrenzen</string>
     <string name="title_advanced_alt_re_fwd">Alternative Präfixe für »Antworten« bzw. »Weiterleiten«</string>
     <string name="title_advanced_send_chips">Adressblasen anzeigen</string>
     <string name="title_advanced_send_nav_color">Identitätsfarbe für die untere Aktionsleiste verwenden</string>
@@ -394,7 +396,7 @@
     <string name="title_advanced_compose_font">Standardschriftart</string>
     <string name="title_advanced_compose_monospaced">Festbreitenschriftart für unformatierte Textnachrichten verwenden</string>
     <string name="title_advanced_auto_identity">Identitäten für neue Nachrichten automatisch auswählen</string>
-    <string name="title_advanced_prefix_once">Re: und Fwd: nur einmal beim Antworten oder Weiterleiten voranstellen</string>
+    <string name="title_advanced_prefix_once">»Re:« und »Fwd:« nur einmal beim Antworten oder Weiterleiten voranstellen</string>
     <string name="title_advanced_prefix_count">Zähler zum Antwortpräfix hinzufügen</string>
     <string name="title_advanced_separate_reply">Eine horizontale Linie vor einer Antwort/Weiterleitung einfügen</string>
     <string name="title_advanced_extended_reply">Erweiterte Antwort-/Weiterleitungs-Kopfzeile verwenden</string>
@@ -434,9 +436,10 @@
     <string name="title_advanced_timeout">Zeitüberschreitung der Verbindung (Sekunden)</string>
     <string name="title_advanced_prefer_ip4">IPv4 gegenüber IPv6 bevorzugen</string>
     <string name="title_advanced_ssl_harden">SSL-Verbindungen stärken</string>
-    <string name="title_advanced_ssl_harden_strict">TLS 1.3 erforderlich</string>
+    <string name="title_advanced_ssl_harden_strict">TLS 1.3 voraussetzen</string>
     <string name="title_advanced_cert_strict">Strenge Zertifikatsprüfung</string>
     <string name="title_advanced_open_safe">Nur sichere Verbindungen öffnen</string>
+    <string name="title_advanced_bouncy_castle">Sicheren Socket-Anbieter (JSSE) von »Bouncy Castle« verwenden</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
     <string name="title_advanced_caption_general">Allgemein</string>
     <string name="title_advanced_caption_navigation">Navigation</string>
@@ -468,7 +471,7 @@
     <string name="title_advanced_nav_pinned_count">Anzahl ungelesener Nachrichten im angehefteten Navigationsmenü anzeigen</string>
     <string name="title_advanced_startup">Auf Startbildschirm anzeigen:</string>
     <string name="title_advanced_cards">Kartenstil statt Tabellenstil verwenden</string>
-    <string name="title_advanced_category">Die Kontokategorie kann in den erweiterten Kontooptionen über die Haupteinstellungen konfiguriert werden</string>
+    <string name="title_advanced_category">Die Kontokategorie kann in den erweiterten Kontooptionen über die Grundeinstellungen konfiguriert werden</string>
     <string name="title_advanced_cards_beige">Beim Kartenstil einen beigefarbenen Hintergrund verwenden (nur bei hellen Farbschemen)</string>
     <string name="title_advanced_tabular_background">Beim Tabellenstil die Kartenfarbe als Hintergrundfarbe verwenden</string>
     <string name="title_advanced_cards_shadow">Beim Kartenstil einen Schatten für ungelesene Nachrichten verwenden</string>
@@ -505,6 +508,7 @@
     <string name="title_advanced_only_name">Nur Kontaktnamen anzeigen</string>
     <string name="title_advanced_distinguish_contacts">Den Sender unterstrichen darstellen, wenn er ein bekannter lokaler An-Kontakt ist</string>
     <string name="title_advanced_show_recipients">Empfänger im Nachrichtenkopf anzeigen</string>
+    <string name="title_advanced_reverse_addresses">Empfänger für gesendete Nachrichten anzeigen</string>
     <string name="title_advanced_font_size_sender">Schriftgröße für den Absender</string>
     <string name="title_advanced_sender_ellipsize">Falls erforderlich, Absendernamen kürzen</string>
     <string name="title_advanced_subject_top">Betreff oberhalb des Absenders anzeigen</string>
@@ -527,6 +531,7 @@
     <string name="title_advanced_unzip">Inhalt von komprimierten Anhängen anzeigen</string>
     <string name="title_advanced_attachments_alt">Anhänge nach (statt vor) dem Nachrichtentext anzeigen</string>
     <string name="title_advanced_thumbnails">Vorschaubilder nach dem Nachrichtentext anzeigen</string>
+    <string name="title_advanced_pdf_preview">PDF-Vorschaubilder anzeigen</string>
     <string name="title_advanced_message_text_zoom2">Standardgröße des Nachrichtentextes: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Größe des Nachrichtentextes auch im Verfassenfenster anpassen</string>
     <string name="title_advanced_overview_mode">Originalnachrichten an Bildschirmgröße anpassen</string>
@@ -549,7 +554,7 @@
     <string name="title_advanced_actionbar">Aktionsleiste in Unterhaltung anzeigen</string>
     <string name="title_advanced_actionbar_swap">Schaltflächen »Papierkorb« und »Archiv« tauschen</string>
     <string name="title_advanced_actionbar_color">Farbe des Kontos als Hintergrundfarbe der Aktionsleiste verwenden</string>
-    <string name="title_advanced_category_header">Nach Kontenkategorie gruppieren</string>
+    <string name="title_advanced_category_header">Nach Kontokategorie gruppieren</string>
     <string name="title_advanced_navbar_colorize">Android-Navigationsleiste farbig darstellen</string>
     <string name="title_advanced_list_count">Anzahl der Nachrichten oder Unterhaltungen in der oberen Aktionsleiste anzeigen</string>
     <string name="title_advanced_bundled_fonts">Vorinstallierte Schriftarten verwenden</string>
@@ -623,6 +628,8 @@
     <string name="title_advanced_notify_preview">Nachrichtenvorschau in den Benachrichtigungen anzeigen</string>
     <string name="title_advanced_notify_preview_all">Vorschau des gesamten Textes</string>
     <string name="title_advanced_notify_preview_only">Nur Benachrichtigungen mit Vorschautext anzeigen</string>
+    <string name="title_advanced_notify_transliterate">In das lateinische Alphabet umschreiben</string>
+    <string name="title_advanced_notify_ascii">Nur ASCII-Text</string>
     <string name="title_advanced_notify_actions">Benachrichtigungsaktionen</string>
     <string name="title_advanced_notify_action_trash">Papierkorb</string>
     <string name="title_advanced_notify_action_delete">Löschen</string>
@@ -637,7 +644,7 @@
     <string name="title_advanced_notify_action_snooze">Zurückstellen</string>
     <string name="title_advanced_notify_remove">Benachrichtigung über neue Nachrichten durch Tippen auf die Benachrichtigung entfernen</string>
     <string name="title_advanced_notify_clear">Benachrichtigung über neue Nachrichten beim Anzeigen der Nachrichtenliste entfernen</string>
-    <string name="title_advanced_notify_subtext">Konto- oder Ordnername als Untertitel anzeigen</string>
+    <string name="title_advanced_notify_subtext">Konto- oder Ordnernamen als Untertitel anzeigen</string>
     <string name="title_advanced_wearable_preview">Nur Benachrichtigungen mit einer Nachrichtenvorschau an Wearables senden</string>
     <string name="title_advanced_notify_messaging">Androids Benachrichtigungsformat »messaging style« verwenden</string>
     <string name="title_advanced_biometrics_notify">Benachrichtigungsinhalt beim Verwenden der biometrischen Authentifizierung anzeigen</string>
@@ -708,12 +715,14 @@
     <string name="title_advanced_external_search">»FairEmail-Suche« zum Android-Textauswahlmenü hinzufügen</string>
     <string name="title_advanced_sort_answers">Antwortvorlagen nach Verwendungshäufigkeit sortieren</string>
     <string name="title_advanced_shortcuts">Häufig verwendete Kontakte im Android-Teilen-Menü anzeigen</string>
+    <string name="title_advanced_ical_tentative">Erhaltene Einladungen als „Unter Vorbehalt” speichern</string>
     <string name="title_advanced_fts">Suchindex erstellen</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d Nachrichten indiziert (%3$s)</string>
     <string name="title_advanced_classification">Nachrichten klassifizieren</string>
     <string name="title_advanced_class_min_chance">Minimale Wahrscheinlichkeit für einen Klassentreffer: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimaler Unterschied zur nächsten Klasse: %1$s %%</string>
     <string name="title_advanced_show_filtered">Filtersymbol anzeigen, wenn Regeln angewendet wurden</string>
+    <string name="title_advanced_haptic_feedback">Haptisches Feedback bei wichtigen Aktionen</string>
     <string name="title_advanced_language">Sprache</string>
     <string name="title_advanced_language_system">System</string>
     <string name="title_advanced_lt">LanguageTool-Integration</string>
@@ -774,6 +783,7 @@
     <string name="title_advanced_pull_all_hint">Beim Herunterziehen der Ordner- oder Kontenliste</string>
     <string name="title_advanced_suggest_names_hint">Wenn deaktiviert, werden nur E-Mail-Adressen bei der Auswahl von Kontakten verwendet</string>
     <string name="title_advanced_suggest_local_hint">Zusätzlich zu den von Android bereitgestellten Kontakten werden weitere Kontaktdaten für neue gesendete oder erhaltene Nachrichten nur dann gespeichert, wenn dies aktiviert ist.</string>
+    <string name="title_advanced_suggest_account_hint">Das betrifft nur lokale Kontakte, weil Kontakte im Android-Adressbuch nicht mit bestimmten Konten verknüpft sind</string>
     <string name="title_advanced_auto_identity_hint">Dadurch wird die zuletzt verwendete Identität, die für den letzten ausgewählten Empfänger einer neuen Nachricht benutzt wurde, verwendet</string>
     <string name="title_advanced_send_reminders_hint">Eine Warnung anzeigen, wenn der Nachrichtentext oder der Betreff leer ist oder wenn ein Anhang zu fehlen scheint</string>
     <string name="title_advanced_reply_move_hint">Der E-Mail-Server könnte die Nachrichten trotzdem noch in den Ordner für gesendete Nachrichten hinzufügen</string>
@@ -785,13 +795,13 @@
     <string name="title_advanced_metered_hint">Getaktete Verbindungen sind in der Regel mobile Verbindungen oder bezahlte WLAN-Zugangspunkte</string>
     <string name="title_advanced_metered_warning">Das Deaktivieren dieser Option deaktiviert das Empfangen und Senden von Nachrichten über mobile Internetverbindungen</string>
     <string name="title_advanced_rlah_hint">Unter der Annahme, dass kein Roaming innerhalb der EU stattfindet</string>
-    <string name="title_advanced_usage_hint">Das erhöht die Akku-, Daten- und Speicherplatzauslastung</string>
-    <string name="title_advanced_plain_hint">Wenn Sie diese Option aktivieren, wird der Datenverbrauch reduziert, aber Nachrichten werden ohne Formatierung angezeigt.</string>
+    <string name="title_advanced_usage_hint">Das erhöht den Akku-, Daten- und Speicherplatzverbrauch</string>
+    <string name="title_advanced_plain_hint">Das Aktivieren dieser Funktion reduziert den Datenverbrauch, aber Nachrichten werden ohne Formatierung angezeigt</string>
     <string name="title_advanced_tcp_keep_alive_hint">Das Aktivieren dieser Funktion kann bei einigen Geräten zu Verbindungsproblemen führen und den Akkuverbrauch erhöhen</string>
     <string name="title_advanced_validate_hint">Dies kann dazu führen, dass Nachrichten nicht synchronisiert werden, zum Beispiel bei der Verwendung eines VPN, aber auch in anderen Situationen</string>
     <string name="title_advanced_timeout_hint">Die Zeitüberschreitung beim Lesen oder Schreiben wird auf das Doppelte der Verbindungszeitüberschreitung festgelegt. Höhere Werte führen zu einem höheren Akkuverbrauch.</string>
     <string name="title_advanced_cert_strict_hint">Durch das Deaktivieren dieser Option wird die Überprüfung der Serverzertifikate gelockert</string>
-    <string name="title_advanced_ssl_harden_hint">Wenn dies eingeschaltet ist, werden schwache SSL-Protokolle und Chiffren deaktiviert, was zu Verbindungsproblemen führen kann</string>
+    <string name="title_advanced_ssl_harden_hint">Das Aktivieren dieser Funktion deaktiviert schwache SSL-Protokolle und Chiffren, was zu Verbindungsproblemen führen kann</string>
     <string name="title_advanced_open_safe_hint">Das Aktivieren dieser Funktion erfordert eine sichere Verbindung zum Herunterladen von Bildern usw.</string>
     <string name="title_advanced_roaming_hint">Die Kopfzeilen der Nachrichten werden beim Roaming immer abgerufen. Sie können die Roaming-Einstellung des Geräts verwenden, um das Internet während des Roamings zu deaktivieren.</string>
     <string name="title_advanced_browse_hint">Durch Herunterziehen weitere Nachrichten abholen</string>
@@ -836,7 +846,7 @@
     <string name="title_advanced_badge_hint">Nur verfügbar auf unterstützten Launchern</string>
     <string name="title_advanced_notify_action_hint">Es werden maximal drei Aktionen angezeigt</string>
     <string name="title_advanced_notify_car_hint">Verbunden bedeutet, dass etwas projiziert wird, zum Beispiel eine Karte für die Navigation</string>
-    <string name="title_advanced_notify_remove_hint">Benachrichtigungen über neue Nachrichten werden immer entfernt, wenn sie weggewischt oder als gelesen gekennzeichnet werden</string>
+    <string name="title_advanced_notify_remove_hint">Eingangsbenachrichtigungen werden immer entfernt, wenn sie weggewischt oder als gelesen gekennzeichnet werden</string>
     <string name="title_advanced_notify_manage_hint">Auf den Kanalnamen tippen, um die Kanaleigenschaften festzulegen</string>
     <string name="title_advanced_notify_manage_default_hint">Zum Einstellen des Standardtons usw.</string>
     <string name="title_advanced_notify_manage_service_hint">Zum Deaktivieren der Benachrichtigung für die App-Überwachung</string>
@@ -848,7 +858,7 @@
     <string name="title_advanced_move_hint">Der Zielordner kann in den Kontoeinstellungen konfiguriert werden</string>
     <string name="title_advanced_notify_no_grouping">Diese Android-Version unterstützt keine Benachrichtigungsgruppierung</string>
     <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
-    <string name="title_advanced_fts_hint">Dies zu aktivieren, verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherverbrauch</string>
+    <string name="title_advanced_fts_hint">Das Aktivieren dieser Funktion verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherplatzverbrauch</string>
     <string name="title_advanced_english_hint">Dadurch wird die App neu gestartet</string>
     <string name="title_advanced_experiments_hint">Liste der aktuellen experimentellen Funktionen</string>
     <string name="title_advanced_protocol_hint">Dadurch wird der Akku- und Speicherplatzverbrauch erheblich erhöht!</string>
@@ -871,7 +881,7 @@
     <string name="title_identity_tenant_hint">Dieses Feld sollte in den meisten Fällen leer bleiben</string>
     <string name="title_identity_color_hint">Identitätsfarben haben Vorrang vor Ordner- und Kontofarben</string>
     <string name="title_advanced_sender">Bearbeitung der Absenderadresse erlauben</string>
-    <string name="title_advanced_sender_name">Name verwenden, wenn die Absenderadresse bearbeitet wurde</string>
+    <string name="title_advanced_sender_name">Namen verwenden, wenn die Absenderadresse bearbeitet wurde</string>
     <string name="title_advanced_reply_name">Namen aus der empfangenen Nachricht kopieren</string>
     <string name="title_advanced_sender_regex">Regex zum Abgleichen des Benutzernamens von eingehenden E-Mail-Adressen</string>
     <string name="title_identity_reply_to">Antwortadresse</string>
@@ -1032,6 +1042,7 @@
     <string name="title_delete_channel">Benachrichtigungskanal löschen</string>
     <string name="title_insert_contact">Kontakt hinzufügen</string>
     <string name="title_edit_contact">Kontakt bearbeiten</string>
+    <string name="title_delete_contact">Kontakt löschen?</string>
     <string name="title_contact_email">Neue E-Mail</string>
     <string name="title_contact_name">Name</string>
     <string name="title_contact_group">Gruppe</string>
@@ -1154,9 +1165,9 @@
     <string name="title_print_header">Kopfzeilen mit drucken</string>
     <string name="title_print_images">Bilder drucken</string>
     <string name="title_print_images_remark">Das Herunterladen von Bildern kann einige Zeit dauern</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Zeilen mit Anführungszeichen drucken</string>
+    <string name="title_print_block_quotes">Zeilen mit Blockzitaten drucken</string>
     <string name="title_show_headers">Kopfzeilen anzeigen</string>
-    <string name="title_share_as_html">Als HTML weiterleiten</string>
+    <string name="title_show_html">Quelltext anzeigen</string>
     <string name="title_raw_save">Rohdaten speichern</string>
     <string name="title_raw_send">Als Anhang senden</string>
     <string name="title_raw_send_message">Nachricht</string>
@@ -1181,13 +1192,14 @@
     <string name="title_quick_actions">Aktionen auswählen</string>
     <string name="title_quick_actions_hint">Es werden bis zu %1$d Aktionen angezeigt</string>
     <string name="title_quick_actions_low">Geringe Wichtigkeit</string>
-    <string name="title_quick_actions_normal">Normale Bedeutung</string>
+    <string name="title_quick_actions_normal">Normale Wichtigkeit</string>
     <string name="title_quick_actions_high">Hohe Wichtigkeit</string>
     <string name="title_quick_actions_snooze">Zurückstellen</string>
     <string name="title_quick_actions_clear">Auswahl nach Aktion löschen</string>
     <string name="title_trash">Löschen</string>
+    <string name="title_trash_selection">Auswahl löschen</string>
     <string name="title_copy">Kopieren &#8230;</string>
-    <string name="title_copy_to">Kopieren nach &#8230;</string>
+    <string name="title_copy_to">Kopieren nach &#8230;</string>
     <string name="title_subscribe">Abonnieren</string>
     <string name="title_delete">Löschen</string>
     <string name="title_delete_all">Alle löschen</string>
@@ -1236,7 +1248,7 @@
     <string name="title_no_saf">Storage Access Framework nicht verfügbar</string>
     <string name="title_no_stream">FairEmail hat keine Berechtigung, um diese Datei direkt zu lesen</string>
     <string name="title_no_stream_help">Das kann gelöst werden, indem man die Datei mit einer moderneren Dateiverwaltungs-App auswählt oder FairEmail die Berechtigung zum Lesen von Dateien erteilt.</string>
-    <string name="title_no_permissions">Der Anwendung, die zur Auswahl einer Datei verwendet wurde, fehlt die Leseberechtigung</string>
+    <string name="title_no_permissions">Die App, die zur Auswahl der Datei verwendet wurde, hat keine Leseberechtigung erteilt</string>
     <string name="title_no_internet">Keine oder keine passende Internetverbindung</string>
     <string name="title_no_connection">Zu einem oder mehreren Konten wird verbunden &#8230;</string>
     <string name="title_no_folder">Ordner nicht vorhanden</string>
@@ -1370,6 +1382,7 @@
     <string name="title_add_image_privacy">Vertrauliche Daten entfernen</string>
     <string name="title_add_image_privacy_remark">Geografischer Aufnahmeort, Lizenzschlüssel, Dateinamen usw.</string>
     <string name="title_add_resize_pixels">&lt; %1$d Pixel</string>
+    <string name="title_add_image_resize_remark">Größenänderung wird unterstützt für: %1$s</string>
     <string name="title_add_image_select_remark">Die Android-Fotoauswahl übergibt Dateinamen nicht mehr</string>
     <string name="title_add_image_select">Datei auswählen</string>
     <string name="title_add_attachment">Anhang hinzufügen</string>
@@ -1402,7 +1415,7 @@
     <string name="title_translate_tap">Tippen Sie auf den zu übersetzenden Text</string>
     <string name="title_suggestions_check">Wird überprüft &#8230;</string>
     <string name="title_suggestions_none">Keine Vorschläge</string>
-    <string name="title_edit_plain_text">Als unformatierten Text bearbeiten</string>
+    <string name="title_edit_plain_text">Als einfachen Text bearbeiten</string>
     <string name="title_edit_formatted_text">Als umformatierten Text bearbeiten</string>
     <string name="title_select_certificate">Öffentlichen Schlüssel auswählen</string>
     <string name="title_certificate_missing">Kein öffentlicher Schlüssel für %1$s</string>
@@ -1499,6 +1512,7 @@
     <string name="title_search_in_keywords">In Schlagwörtern (wenn unterstützt)</string>
     <string name="title_search_in_message">Im Nachrichtentext</string>
     <string name="title_search_in_notes">In lokalen Notizen</string>
+    <string name="title_search_in_filenames">In Dateinamen (nur auf dem Gerät)</string>
     <string name="title_search_with">Suche beschränken auf</string>
     <string name="title_search_with_unseen">Ungelesen</string>
     <string name="title_search_with_flagged">Markiert</string>
@@ -1592,7 +1606,7 @@
     <string name="title_answer_placeholder_firstname">Vorname des Absenders</string>
     <string name="title_answer_placeholder_lastname">Nachname des Absenders</string>
     <string name="title_answer_placeholder_date">Aktuelles Datum</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Wochentag</string>
+    <string name="title_answer_placeholder_weekday">Wochentag</string>
     <string name="title_rule_noop">Keine Aktion</string>
     <string name="title_rule_seen">Als gelesen kennzeichnen</string>
     <string name="title_rule_unseen">Als ungelesen kennzeichnen</string>
@@ -1688,6 +1702,9 @@
     <string name="title_rule_alarm_duration">Maximale Alarmdauer (Sekunden)</string>
     <string name="title_rule_alarm_title">Wecker</string>
     <string name="title_rule_alarm_stop">Anhalten</string>
+    <string name="title_code_line_numbers">Zeilennummern anzeigen</string>
+    <string name="title_code_enable_links">Links aktivieren</string>
+    <string name="title_code_pretty">Schön formatieren</string>
     <string name="title_legend_section_synchronize">Synchronisieren</string>
     <string name="title_legend_section_folders">Ordner</string>
     <string name="title_legend_section_messages">Nachrichten</string>
@@ -1695,19 +1712,19 @@
     <string name="title_legend_section_keyboard">Tastatur</string>
     <string name="title_legend_oauth">OAuth-Autorisierung</string>
     <string name="title_legend_folder_connected">Ordner verbunden</string>
-    <string name="title_legend_folder_disconnected">Ordner getrennt</string>
+    <string name="title_legend_folder_disconnected">Ordner nicht verbunden</string>
     <string name="title_legend_download_on">Nachrichteninhalt automatisch herunterladen</string>
     <string name="title_legend_download_off">Nachrichteninhalt bei Bedarf herunterladen</string>
-    <string name="title_legend_synchronize_on">Synchronisierung an</string>
-    <string name="title_legend_synchronize_off">Synchronisierung aus</string>
+    <string name="title_legend_synchronize_on">Synchronisation aktiviert</string>
+    <string name="title_legend_synchronize_off">Synchronisation deaktiviert</string>
     <string name="title_legend_synchronize_poll">Periodisch synchronisieren</string>
-    <string name="title_legend_disconnected">nicht verbunden</string>
+    <string name="title_legend_disconnected">Nicht verbunden</string>
     <string name="title_legend_connecting">Verbindungsvorgang</string>
     <string name="title_legend_connected">Verbunden</string>
     <string name="title_legend_backoff">Warten nach einem Fehler</string>
     <string name="title_legend_quota">Postfach fast voll</string>
     <string name="title_legend_executing">Vorgänge werden ausgeführt</string>
-    <string name="title_legend_synchronizing">wird synchronisiert</string>
+    <string name="title_legend_synchronizing">Wird synchronisiert</string>
     <string name="title_legend_downloading">wird heruntergeladen</string>
     <string name="title_legend_closing">wird geschlossen</string>
     <string name="title_legend_unified">Sammeleingang / Hauptkonto</string>
@@ -1730,11 +1747,11 @@
     <string name="title_legend_bookmark">Zuletzt geöffnete Unterhaltung</string>
     <string name="title_legend_zoom">Textgröße ändern</string>
     <string name="title_legend_draft">Entwurf vorhanden</string>
-    <string name="title_legend_priority">Hat hohe Priorität</string>
-    <string name="title_legend_priority_low">Hat niedrige Priorität</string>
-    <string name="title_legend_sensitivity_personal">Ist persönlich</string>
-    <string name="title_legend_sensitivity_private">Ist privat</string>
-    <string name="title_legend_sensitivity_confidential">Ist vertraulich</string>
+    <string name="title_legend_priority">Hohe Priorität</string>
+    <string name="title_legend_priority_low">Niedrige Priorität</string>
+    <string name="title_legend_sensitivity_personal">Persönlich</string>
+    <string name="title_legend_sensitivity_private">Privat</string>
+    <string name="title_legend_sensitivity_confidential">Vertraulich</string>
     <string name="title_legend_importance">Wichtig</string>
     <string name="title_legend_importance_low">Nicht wichtig</string>
     <string name="title_legend_signed">Signiert</string>
@@ -1746,7 +1763,7 @@
     <string name="title_legend_browsed">Gesehen oder gesucht</string>
     <string name="title_legend_answered">Wurde beantwortet</string>
     <string name="title_legend_forwarded">Wurde weitergeleitet</string>
-    <string name="title_legend_plain_only">Ist nur unformatierter Text</string>
+    <string name="title_legend_plain_only">Nur einfacher Text</string>
     <string name="title_legend_receipt">Bestätigung wurde angefordert</string>
     <string name="title_legend_auto_submitted">Wurde automatisch gesendet</string>
     <string name="title_legend_attachment">Anhang vorhanden</string>
@@ -1880,8 +1897,9 @@
     <string name="title_clipboard_copied">In die Zwischenablage kopiert</string>
     <string name="title_ask_what">Fragen, was getan werden soll</string>
     <string name="title_no_ask_again">Nicht noch einmal fragen</string>
-    <string name="title_no_ask_for_again">Dies für %1$s nicht mehr fragen</string>
+    <string name="title_no_ask_for_again">Nicht noch einmal für %1$s fragen</string>
     <string name="title_no_body">Kein Nachrichtentext gefunden</string>
+    <string name="title_large_body">Diese Nachricht ist sehr groß und kann zu Problemen führen!</string>
     <string name="title_no_charset">Nicht unterstützte Kodierung: %1$s</string>
     <string name="title_via">über %1$s</string>
     <string name="title_1hour">1 Stunde</string>
@@ -1937,7 +1955,7 @@
     <string name="title_unexpected_error">Unerwarteter Fehler</string>
     <string name="title_log">Protokoll</string>
     <string name="title_log_clear">Protokoll leeren</string>
-    <string name="title_rules_search_hint">Nach Name oder Bedingung suchen</string>
+    <string name="title_rules_search_hint">Nach Namen oder Bedingung suchen</string>
     <string name="title_rules_export">Regeln exportieren</string>
     <string name="title_rules_import">Regeln importieren</string>
     <string name="title_rules_delete_all">Alle Regeln löschen</string>
@@ -1963,6 +1981,7 @@
     <string name="title_widget_account_all">Alle</string>
     <string name="title_widget_folder">Ordner</string>
     <string name="title_widget_folder_unified">Sammeleingangsordner</string>
+    <string name="title_widget_folder_notifying">Ordner mit Meldungen über ungelesene Nachrichten</string>
     <string name="title_widget_unseen">Nur ungelesene Nachrichten</string>
     <string name="title_widget_flagged">Nur markierte Nachrichten</string>
     <string name="title_widget_font_size">Schriftgröße</string>
@@ -1977,6 +1996,7 @@
     <string name="title_widget_refresh">Schaltfläche »Nachrichten aktualisieren« anzeigen</string>
     <string name="title_widget_compose">Schaltfläche »Neue Nachricht verfassen« anzeigen</string>
     <string name="title_widget_background">Hintergrundfarbe</string>
+    <string name="title_widget_icon">Symbolfarbe</string>
     <string name="title_widget_day_night">Dem dunklen Systemdesign folgen</string>
     <string name="title_compat_dark">Google hat den dunklen Modus für Android-Versionen vor der Version 10 entfernt</string>
     <!-- Thunderbird -->
@@ -2149,11 +2169,11 @@
     </string-array>
     <string-array name="undoNames">
         <item>Aus</item>
-        <item>2,5 s</item>
-        <item>5 s</item>
-        <item>7,5 s</item>
-        <item>10 s</item>
-        <item>15 s</item>
+        <item>2,5 Sekunden</item>
+        <item>5 Sekunden</item>
+        <item>7,5 Sekunden</item>
+        <item>10 Sekunden</item>
+        <item>15 Sekunden</item>
     </string-array>
     <string-array name="fontNameNames">
         <item>Kursiv</item>

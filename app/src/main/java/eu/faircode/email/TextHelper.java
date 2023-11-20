@@ -36,6 +36,7 @@ import androidx.preference.PreferenceManager;
 
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.text.Normalizer;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -127,13 +128,20 @@ public class TextHelper {
         }
     }
 
-    static String transliterateNotification(Context context, String text) {
+    static String normalizeNotification(Context context, String text) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean notify_transliterate = prefs.getBoolean("notify_transliterate", false);
-        if (!notify_transliterate)
-            return text;
+        boolean notify_ascii = prefs.getBoolean("notify_ascii", false);
 
-        return transliterate(context, text);
+        if (notify_transliterate)
+            text = transliterate(context, text);
+
+        if (notify_ascii) {
+            text = Normalizer.normalize(text, Normalizer.Form.NFKD)
+                    .replaceAll("[^\\p{ASCII}]", "");
+        }
+
+        return text;
     }
 
     static String transliterate(Context context, String text) {

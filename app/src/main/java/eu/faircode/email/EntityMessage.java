@@ -191,6 +191,7 @@ public class EntityMessage implements Serializable {
     public Boolean content = false;
     public String language = null; // classified
     public Integer plain_only = null; // 1=true; 0x80=alt
+    public Boolean write_below;
     public Boolean resend = null;
     public Integer encrypt = null;
     public Integer ui_encrypt = null;
@@ -289,8 +290,8 @@ public class EntityMessage implements Serializable {
         List<Address> senders = new ArrayList<>();
         if (from != null)
             senders.addAll(Arrays.asList(from));
-        if (reply != null)
-            senders.addAll(Arrays.asList(reply));
+        //if (reply != null)
+        //    senders.addAll(Arrays.asList(reply));
 
         if (identities != null)
             for (TupleIdentityEx identity : identities)

@@ -46,6 +46,8 @@ import com.sun.mail.util.MailConnectException;
 import com.sun.mail.util.SocketConnectException;
 import com.sun.mail.util.TraceOutputStream;
 
+import org.bouncycastle.jsse.provider.BouncyCastleJsseProvider;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -445,7 +447,9 @@ public class EmailService implements AutoCloseable {
                     }
                 }
 
-            factory = new SSLSocketFactoryService(host, insecure, ssl_harden, strict, cert_strict, key, chain, fingerprint);
+            boolean bc = prefs.getBoolean("bouncy_castle", false);
+            boolean fips = prefs.getBoolean("bc_fips", false);
+            factory = new SSLSocketFactoryService(host, insecure, ssl_harden, strict, cert_strict, bc, fips, key, chain, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
@@ -612,7 +616,7 @@ public class EmailService implements AutoCloseable {
             } catch (UnknownHostException ex) {
                 String last = prefs.getString(key, null);
                 if (TextUtils.isEmpty(last))
-                    throw new MessagingException(ex.getMessage(), ex);
+                    throw ex;
                 else {
                     EntityLog.log(context, EntityLog.Type.Network, "Using " + key + "=" + last);
                     main = InetAddress.getByName(last);
@@ -641,7 +645,11 @@ public class EmailService implements AutoCloseable {
         } catch (UnknownHostException ex) {
             crumb.put("exception", ex + "\n" + android.util.Log.getStackTraceString(ex));
             Log.breadcrumb("Connection failed", crumb);
-            throw new MessagingException(ex.getMessage(), ex);
+            if (ConnectionHelper.vpnActive(context))
+                throw new MessagingException(ex.getMessage(),
+                        new Exception(context.getString(R.string.title_service_vpn), ex));
+            else
+                throw new MessagingException(ex.getMessage(), ex);
         } catch (MessagingException ex) {
             crumb.put("exception", ex + "\n" + android.util.Log.getStackTraceString(ex));
             Log.breadcrumb("Connection failed", crumb);
@@ -1031,7 +1039,10 @@ public class EmailService implements AutoCloseable {
         private SSLSocketFactory factory;
         private X509Certificate certificate;
 
-        SSLSocketFactoryService(String host, boolean insecure, boolean ssl_harden, boolean ssl_harden_strict, boolean cert_strict, PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
+        SSLSocketFactoryService(String host, boolean insecure,
+                                boolean ssl_harden, boolean ssl_harden_strict, boolean cert_strict,
+                                boolean bc, boolean fips,
+                                PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
             this.server = host;
             this.secure = !insecure;
             this.ssl_harden = ssl_harden;
@@ -1039,8 +1050,16 @@ public class EmailService implements AutoCloseable {
             this.cert_strict = cert_strict;
             this.trustedFingerprint = fingerprint;
 
+            // https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#SSLContext
+            // https://stackoverflow.com/questions/69571364/sslcontext-getinstancetls-vulnerability
             // https://developer.android.com/about/versions/oreo/android-8.0-changes.html#security-all
-            SSLContext sslContext = SSLContext.getInstance(insecure ? "SSL" : "TLS");
+            SSLContext sslContext;
+            String protocol = (insecure ? "SSL" : "TLS");
+            if (bc)
+                sslContext = SSLContext.getInstance(protocol, new BouncyCastleJsseProvider(fips));
+            else
+                sslContext = SSLContext.getInstance(protocol);
+            Log.i("Using protocol=" + protocol + " bc=" + bc + " FIPS=" + fips);
 
             TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             tmf.init((KeyStore) null);

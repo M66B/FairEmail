@@ -568,7 +568,7 @@ public interface DaoMessage {
     LiveData<List<TupleMessageEx>> liveUnseenNotify();
 
     @Transaction
-    @Query("SELECT account.id AS account," +
+    @Query("SELECT account.id AS account, folder.id AS folder," +
             " COUNT(message.id) AS unseen," +
             " SUM(CASE WHEN account.created IS NULL OR message.received > account.created OR message.sent > account.created THEN NOT ui_ignored ELSE 0 END) AS notifying" +
             " FROM message" +
@@ -579,11 +579,11 @@ public interface DaoMessage {
             " AND folder.notify" +
             " AND message.notifying <> " + EntityMessage.NOTIFYING_IGNORE +
             " AND NOT (message.ui_seen OR message.ui_hide)" +
-            " GROUP BY account.id" +
-            " ORDER BY account.id")
+            " GROUP BY folder.id" +
+            " ORDER BY folder.id")
     LiveData<List<TupleMessageStats>> liveWidgetUnseen(Long account);
 
-    @Query("SELECT :account AS account," +
+    @Query("SELECT :account AS account, folder.id AS folder," +
             " COUNT(message.id) AS unseen," +
             " SUM(CASE WHEN account.created IS NULL OR message.received > account.created OR message.sent > account.created THEN NOT ui_ignored ELSE 0 END) AS notifying" +
             " FROM message" +
@@ -591,10 +591,11 @@ public interface DaoMessage {
             " JOIN folder_view AS folder ON folder.id = message.folder" +
             " WHERE (:account IS NULL OR account.id = :account)" +
             " AND account.`synchronize`" +
+            " AND (:folder IS NULL OR folder.id = :folder)" +
             " AND folder.notify" +
             " AND message.notifying <> " + EntityMessage.NOTIFYING_IGNORE +
             " AND NOT (message.ui_seen OR message.ui_hide)")
-    TupleMessageStats getWidgetUnseen(Long account);
+    TupleMessageStats getWidgetUnseen(Long account, Long folder);
 
     @Transaction
     @Query("SELECT folder, COUNT(*) AS total" +
@@ -879,6 +880,9 @@ public interface DaoMessage {
     @Query("UPDATE message SET plain_only = :plain_only WHERE id = :id AND NOT (plain_only IS :plain_only)")
     int setMessagePlainOnly(long id, Integer plain_only);
 
+    @Query("UPDATE message SET write_below = :write_below WHERE id = :id AND NOT (write_below IS :write_below)")
+    int setMessageWriteBelow(long id, Boolean write_below);
+
     @Query("UPDATE message SET encrypt = :encrypt WHERE id = :id AND NOT (encrypt IS :encrypt)")
     int setMessageEncrypt(long id, Integer encrypt);
 
@@ -1015,11 +1019,11 @@ public interface DaoMessage {
             " WHERE folder = :folder" +
             " AND received < :keep_time" +
             " AND NOT uid IS NULL" +
-            " AND (ui_seen OR :unseen)" +
+            " AND (ui_seen OR received < :keep_time_unseen OR :unseen)" +
             " AND NOT ui_flagged" +
             " AND stored < :sync_time" + // moved, browsed
             " AND (ui_snoozed IS NULL OR ui_snoozed = " + Long.MAX_VALUE + ")")
-    int deleteMessagesBefore(long folder, long sync_time, long keep_time, boolean unseen);
+    int deleteMessagesBefore(long folder, long sync_time, long keep_time, long keep_time_unseen, boolean unseen);
 
     @Transaction
     @Query("DELETE FROM message" +

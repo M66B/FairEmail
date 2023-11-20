@@ -1272,12 +1272,12 @@ public class StyleHelper {
         args.putCharSequence("text", etBody.getText().subSequence(start, end));
 
         new SimpleTask<List<LanguageTool.Suggestion>>() {
-            private BackgroundColorSpan highlightSpan = null;
+            private HighlightSpan highlightSpan = null;
 
             @Override
             protected void onPreExecute(Bundle args) {
                 int textColorHighlight = Helper.resolveColor(context, android.R.attr.textColorHighlight);
-                highlightSpan = new BackgroundColorSpan(textColorHighlight);
+                highlightSpan = new HighlightSpan(textColorHighlight);
                 etBody.getText().setSpan(highlightSpan, start, end,
                         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE | Spanned.SPAN_COMPOSING);
             }

@@ -327,6 +327,7 @@
     <string name="title_advanced_suggest_sent">پیشنهاد نشانی‌های یافت شده در پیام‌های ارسال شده</string>
     <string name="title_advanced_suggest_received">پیشنهاد نشانی‌های یافت شده در پیام‌های دریافت شده</string>
     <string name="title_advanced_suggest_frequently">مرتب‌سازی نشانی‌های پیشنهادی در دفعات استفاده</string>
+    <string name="title_advanced_suggest_account">محدود کردن پیشنهادات به حساب فعلی</string>
     <string name="title_advanced_send_chips">نمایش حباب‌ آدرس‌ها</string>
     <string name="title_advanced_send_reminders">نمایش یادآورها</string>
     <string name="title_advanced_send_delayed">وقفه ارسال پیام‌ها</string>
@@ -405,6 +406,7 @@
     <string name="title_advanced_replace_name">نام مخاطب را بر نام فرستنده ترجیح بده</string>
     <string name="title_advanced_only_name">تنها نام مخاطبین را نشان بده</string>
     <string name="title_advanced_show_recipients">گیرندگان را در سرتیتر نمایش بده</string>
+    <string name="title_advanced_reverse_addresses">نمایش گیرنده پیام‌های ارسالی</string>
     <string name="title_advanced_font_size_sender">اندازه متن فرستنده</string>
     <string name="title_advanced_subject_top">نمایش موضوع در بالای فرستنده</string>
     <string name="title_advanced_subject_italic">نمایش موضوع به‌صورت italic</string>
@@ -470,6 +472,8 @@
     <string name="title_advanced_notify_summary">تنها چکیده اعلان را نمایش بده</string>
     <string name="title_advanced_notify_preview">پیش‌نمایش پیام را در اعلان‌ها نمایش بده</string>
     <string name="title_advanced_notify_preview_all">پیش‌نمایش تمام متن</string>
+    <string name="title_advanced_notify_transliterate">ترجمه به الفبای لاتین</string>
+    <string name="title_advanced_notify_ascii">فقط نوشته‌های ASCII</string>
     <string name="title_advanced_notify_actions">کنش‌های اعلان</string>
     <string name="title_advanced_notify_action_trash">زباله‌دان</string>
     <string name="title_advanced_notify_action_delete">حذف</string>
@@ -516,6 +520,7 @@
     </string>
     <string name="title_advanced_sort_answers">قالب‌های پاسخ‌گویی را بر اساس تناوب استفاده از آنها مرتب کن</string>
     <string name="title_advanced_shortcuts">نمایش مخاطبین مکررا استفاده شده در فهرست اشتراک‌گذاری اندروید</string>
+    <string name="title_advanced_ical_tentative">ثبت آزمایشی دعوت‌نامه‌های دریافتی</string>
     <string name="title_advanced_fts">ساخت شاخص جستجو</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d پیام ایندکس شد (%3$s)</string>
     <string name="title_advanced_show_filtered">آیکون فیلتر را زمانی که قاعده‌ای اعمال می‌شود نشان بده</string>
@@ -659,6 +664,7 @@
     <string name="title_delete_channel">حذف کانال اعلان</string>
     <string name="title_insert_contact">افزودن مخاطب</string>
     <string name="title_edit_contact">ویرایش مخاطب</string>
+    <string name="title_delete_contact">مخاطب حذف شود؟</string>
     <string name="title_contact_email">ایمیل</string>
     <string name="title_contact_name">نام</string>
     <string name="title_contact_group">گروه</string>
@@ -744,6 +750,7 @@
     <string name="title_pin">افزودن میانبر</string>
     <string name="title_print">چاپ</string>
     <string name="title_show_headers">نمایش سرصفحه</string>
+    <string name="title_show_html">نمایش مبدا</string>
     <string name="title_raw_save">ذخیره پیام خام</string>
     <string name="title_raw_send">ارسال به‌عنوان پیوست</string>
     <string name="title_raw_send_message">پیام</string>
@@ -764,6 +771,7 @@
     <string name="title_quick_actions_high">با اهمیت</string>
     <string name="title_quick_actions_snooze">تعویق</string>
     <string name="title_trash">سطل آشغال</string>
+    <string name="title_trash_selection">انتخاب سطل آشغال</string>
     <string name="title_copy">کپی &#8230;</string>
     <string name="title_copy_to">کپی به &#8230;</string>
     <string name="title_subscribe">اشتراک</string>
@@ -887,6 +895,7 @@
     <string name="title_add_image_resize">تغییر اندازه</string>
     <string name="title_add_image_privacy">حذف کردن داده شخصی حساس</string>
     <string name="title_add_resize_pixels">&lt;%1$d پیکسل</string>
+    <string name="title_add_image_resize_remark">پشتیبانی از تغییر اندازه برای: %1$s</string>
     <string name="title_add_image_select">انتخاب پرونده</string>
     <string name="title_add_attachment">افزودن پیوست</string>
     <string name="title_attachment_file">پیوست پرونده</string>
@@ -967,6 +976,7 @@
     <string name="title_search_in_subject">در موضوع</string>
     <string name="title_search_in_keywords">در کلیدواژه‌ها (اگر پشتیبانی شود)</string>
     <string name="title_search_in_message">در متن پیام</string>
+    <string name="title_search_in_filenames">در اسم فایل‌ها (فقط روی دستگاه)</string>
     <string name="title_search_with">محدود کردن جستجو به</string>
     <string name="title_search_with_unseen">خوانده نشده</string>
     <string name="title_search_with_flagged">ستاره‌دار</string>
@@ -1038,7 +1048,7 @@
     <string name="title_answer_hide">پنهان کردن از فهرست‌ها</string>
     <string name="title_answer_text">متن الگو</string>
     <string name="title_answer_placeholder_date">تاریخ فعلی</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">روز هفته</string>
+    <string name="title_answer_placeholder_weekday">روز هفته</string>
     <string name="title_rule_noop">بدون کنش</string>
     <string name="title_rule_seen">علامت‌گذاری به‌عنوان خوانده شده</string>
     <string name="title_rule_unseen">علامت‌گذاری به‌عنوان خوانده نشده</string>
@@ -1092,6 +1102,9 @@
     <string name="title_rule_tts_from">از</string>
     <string name="title_rule_tts_subject">موضوع</string>
     <string name="title_rule_tts_content">متن</string>
+    <string name="title_code_line_numbers">نمایش تعداد خطوط</string>
+    <string name="title_code_enable_links">فعال کردن لینک‌ها</string>
+    <string name="title_code_pretty">چاپ زیبا</string>
     <string name="title_legend_section_synchronize">همگام سازی</string>
     <string name="title_legend_section_folders">پوشه‌ها</string>
     <string name="title_legend_section_messages">پیام‌ها</string>
@@ -1237,6 +1250,7 @@
     <string name="title_no_ask_again">دیگر نپرس</string>
     <string name="title_no_ask_for_again">دوباره برای %1$s نپرس</string>
     <string name="title_no_body">هیچ پیام متنی یافت نشد</string>
+    <string name="title_large_body">این پیام بسیار طولانیست و ممکن است باعث بروز مشکلاتی شود!</string>
     <string name="title_no_charset">رمزگذاری پشتیبانی نشده: %1$s</string>
     <string name="title_via">از طریق: %1$s</string>
     <string name="title_1hour">۱ ساعت</string>
@@ -1299,6 +1313,7 @@
     <string name="title_widget_semi_transparent">پس‌زمینه نیمه شفاف</string>
     <string name="title_widget_avatars">نمایش تصویر مخاطبین</string>
     <string name="title_widget_background">رنگ پس‌زمینه</string>
+    <string name="title_widget_icon">رنگ آیکون</string>
     <string name="title_widget_day_night">بر اساس تم تاریک سیستم</string>
     <string name="title_compat_dark">گوگل قابلیت حالت تاریک را در نسخه‌های اندروید کمتر از ۱۰ حذف کرد</string>
     <!-- Thunderbird -->

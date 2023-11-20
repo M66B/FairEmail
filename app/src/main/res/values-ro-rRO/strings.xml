@@ -177,6 +177,7 @@
     <string name="title_setup_quick_smtp">Server SMTP pentru trimitere mesaje</string>
     <string name="title_setup_quick_certificates">Certificate de server</string>
     <string name="title_setup_wizard">Asistent</string>
+    <string name="title_setup_wizard_intro">În majoritatea cazurilor, butonul de asistent poate fi folosit pentru a adăuga un cont, altfel adresele serverului pot fi introduse sau modificate manual folosind opțiunea de configurare manuală</string>
     <string name="title_setup_wizard_tutorials">Tutoriale</string>
     <string name="title_setup_wizard_multiple">Asistentul poate fi folosit de mai multe ori pentru a configura conturi multiple</string>
     <string name="title_setup_wizard_new">Am nevoie de o nouă adresă de e-mail</string>
@@ -388,6 +389,7 @@
     <string name="title_advanced_suggest_sent">Sugerează adrese găsite în mesajele trimise</string>
     <string name="title_advanced_suggest_received">Sugerează adrese găsite în mesajele primite</string>
     <string name="title_advanced_suggest_frequently">Sortați adresele sugerate în funcție de frecvența de utilizare</string>
+    <string name="title_advanced_suggest_account">Limitează sugestiile la contul curent</string>
     <string name="title_advanced_alt_re_fwd">Prefix alternativ de răspuns/întârziere</string>
     <string name="title_advanced_send_chips">Afișați bule de adrese</string>
     <string name="title_advanced_send_nav_color">Utilizați culoarea de identitate pentru bara de acțiune de jos</string>
@@ -449,6 +451,7 @@
     <string name="title_advanced_ssl_harden_strict">Necesită TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificarea strictă a certificatelor</string>
     <string name="title_advanced_open_safe">Deschideți numai conexiuni sigure</string>
+    <string name="title_advanced_bouncy_castle">Folosește furnizorul de socket securizat Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_navigation">Navigaţie</string>
@@ -517,6 +520,7 @@
     <string name="title_advanced_only_name">Afişează doar numele persoanelor de contact</string>
     <string name="title_advanced_distinguish_contacts">Subliniază expeditorul atunci când este cunoscut drept un contact `către`</string>
     <string name="title_advanced_show_recipients">Arată destinatarii în antetul mesajului</string>
+    <string name="title_advanced_reverse_addresses">Arată destinatarul pentru mesajele trimise</string>
     <string name="title_advanced_font_size_sender">Mărime text expeditor</string>
     <string name="title_advanced_sender_ellipsize">Dacă este necesar, scurtați expeditorul</string>
     <string name="title_advanced_subject_top">Arată subiectul desupra expeditorului</string>
@@ -539,6 +543,7 @@
     <string name="title_advanced_unzip">Afișați conținutul atașamentelor comprimate</string>
     <string name="title_advanced_attachments_alt">Arată atașamentele după textul mesajului</string>
     <string name="title_advanced_thumbnails">Arată miniaturile imaginilor după textul mesajului</string>
+    <string name="title_advanced_pdf_preview">Arată miniaturi PDF</string>
     <string name="title_advanced_message_text_zoom2">Zoom implicit al textului mesajului: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Măriți și textul mesajului în editorul de mesaje</string>
     <string name="title_advanced_overview_mode">Măriți mesajele originale pentru a se potrivi cu ecranul</string>
@@ -635,6 +640,8 @@
     <string name="title_advanced_notify_preview">Arată previzualizare mesaj în notificare</string>
     <string name="title_advanced_notify_preview_all">Previzualizează tot textul</string>
     <string name="title_advanced_notify_preview_only">Arată notificări doar cu un text de previzualizare</string>
+    <string name="title_advanced_notify_transliterate">Transliterat în alfabetul latin</string>
+    <string name="title_advanced_notify_ascii">Doar text ASCII</string>
     <string name="title_advanced_notify_actions">Acțiuni la notificare</string>
     <string name="title_advanced_notify_action_trash">Gunoi</string>
     <string name="title_advanced_notify_action_delete">Şterge</string>
@@ -719,12 +726,14 @@
     <string name="title_advanced_external_search">Adaugă \'căutare FairEmail\' în meniul de selecție text Android</string>
     <string name="title_advanced_sort_answers">Sortați șabloanele de răspuns în funcție de frecvența de utilizare</string>
     <string name="title_advanced_shortcuts">Arată contactele utilizate frecvent în meniul de partajare Android</string>
+    <string name="title_advanced_ical_tentative">Păstrează invitațiile primite ca \"poate\"</string>
     <string name="title_advanced_fts">Creează index de căutare</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d mesaje indexate (%3$s)</string>
     <string name="title_advanced_classification">Clasifică mesajele</string>
     <string name="title_advanced_class_min_chance">Probabilitate de clasă minimă: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Diferenţa minimă a clasei: %1$s %%</string>
     <string name="title_advanced_show_filtered">Arată o pictogramă filtru atunci când regulile au fost aplicate</string>
+    <string name="title_advanced_haptic_feedback">Feedback tactil cu privire la acțiuni importante</string>
     <string name="title_advanced_language">Limba</string>
     <string name="title_advanced_language_system">Sistem</string>
     <string name="title_advanced_lt">Integrare cu LanguageTool</string>
@@ -785,6 +794,7 @@
     <string name="title_advanced_pull_all_hint">La tragerea în jos a dosarelor sau a listei de conturi</string>
     <string name="title_advanced_suggest_names_hint">Dacă este dezactivată, numai adresele de e-mail vor fi folosite la selectarea contactelor</string>
     <string name="title_advanced_suggest_local_hint">Pe lângă contactele furnizate de Android. Datele contactelor vor fi memorate pentru mesajele nou trimise sau primite doar când este activată.</string>
+    <string name="title_advanced_suggest_account_hint">Se aplică numai contactelor locale pentru că cele din agenda Android nu sunt legate de un anume cont</string>
     <string name="title_advanced_auto_identity_hint">Aceasta va selecta ultima identitate folosită la selectarea unui destinatar pentru mesaje noi</string>
     <string name="title_advanced_send_reminders_hint">Arată o avertizare atunci când textul mesajului sau subiectul e gol sau când atașamentul s-ar putea să lipsească</string>
     <string name="title_advanced_reply_move_hint">Serverul de e-mail ar putea adăuga mesajele la folderul de mesaje trimise</string>
@@ -1043,6 +1053,7 @@
     <string name="title_delete_channel">Șterge canal de notificare</string>
     <string name="title_insert_contact">Adaugă contact</string>
     <string name="title_edit_contact">Editare contact</string>
+    <string name="title_delete_contact">Ștergeți contactul?</string>
     <string name="title_contact_email">E-mail</string>
     <string name="title_contact_name">Nume</string>
     <string name="title_contact_group">Grup</string>
@@ -1164,9 +1175,9 @@
     <string name="title_print_header">Tipărire antet</string>
     <string name="title_print_images">Imprimare imagini</string>
     <string name="title_print_images_remark">Descărcarea imaginilor ar putea dura ceva timp</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Tipărește liniile citat</string>
+    <string name="title_print_block_quotes">Tipărește liniile citat</string>
     <string name="title_show_headers">Arată antetul</string>
-    <string name="title_share_as_html">Distribuie ca HTML</string>
+    <string name="title_show_html">Arată sursa</string>
     <string name="title_raw_save">Salvează mesaj original</string>
     <string name="title_raw_send">Trimite ca atașament</string>
     <string name="title_raw_send_message">Mesaj</string>
@@ -1196,6 +1207,7 @@
     <string name="title_quick_actions_snooze">Amână</string>
     <string name="title_quick_actions_clear">Ștergeți selecția după acțiune</string>
     <string name="title_trash">Gunoi</string>
+    <string name="title_trash_selection">Selecție gunoi</string>
     <string name="title_copy">Copiere &#8230;</string>
     <string name="title_copy_to">Copiază în &#8230;</string>
     <string name="title_subscribe">Abonare</string>
@@ -1378,6 +1390,7 @@
     <string name="title_add_image_privacy">Elimină datele confidențiale</string>
     <string name="title_add_image_privacy_remark">Locație geografică, numere de serie, nume de fișiere etc</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixeli</string>
+    <string name="title_add_image_resize_remark">Redimensionarea este suportată pentru: %1$s</string>
     <string name="title_add_image_select_remark">Selectorul de fotografii Android nu mai expune numele fișierelor</string>
     <string name="title_add_image_select">Selectare fișier</string>
     <string name="title_add_attachment">Adaugă ataşament</string>
@@ -1507,6 +1520,7 @@
     <string name="title_search_in_keywords">În cuvinte-cheie (dacă sunt acceptate)</string>
     <string name="title_search_in_message">În textul mesajului</string>
     <string name="title_search_in_notes">În notele locale</string>
+    <string name="title_search_in_filenames">În fișiere (doar pe dispozitiv)</string>
     <string name="title_search_with">Limitează căutarea la</string>
     <string name="title_search_with_unseen">Necitit</string>
     <string name="title_search_with_flagged">Marcat</string>
@@ -1600,7 +1614,7 @@
     <string name="title_answer_placeholder_firstname">Prenumele expeditorului</string>
     <string name="title_answer_placeholder_lastname">Numele de familie al expeditorului</string>
     <string name="title_answer_placeholder_date">Data curentă</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Ziua din săptămână</string>
+    <string name="title_answer_placeholder_weekday">Ziua din săptămână</string>
     <string name="title_rule_noop">Nicio acțiune</string>
     <string name="title_rule_seen">Marcare ca citit</string>
     <string name="title_rule_unseen">Marcare ca necitit</string>
@@ -1696,6 +1710,9 @@
     <string name="title_rule_alarm_duration">Durata maximă a alarmei (secunde)</string>
     <string name="title_rule_alarm_title">Alarmă</string>
     <string name="title_rule_alarm_stop">Oprire</string>
+    <string name="title_code_line_numbers">Arată numerele de linie</string>
+    <string name="title_code_enable_links">Activează link-uri</string>
+    <string name="title_code_pretty">Arată text curățat</string>
     <string name="title_legend_section_synchronize">Sincronizare</string>
     <string name="title_legend_section_folders">Dosare</string>
     <string name="title_legend_section_messages">Mesaje</string>
@@ -1890,6 +1907,7 @@
     <string name="title_no_ask_again">Nu mai întreba din nou</string>
     <string name="title_no_ask_for_again">Nu mai întreba din nou pentru %1$s</string>
     <string name="title_no_body">Nu a fost găsit textul mesajului</string>
+    <string name="title_large_body">Acest mesaj este foarte mare şi poate cauza probleme!</string>
     <string name="title_no_charset">Codare nesuportată: %1$s</string>
     <string name="title_via">Via: %1$s</string>
     <string name="title_1hour">O oră</string>
@@ -1970,6 +1988,7 @@
     <string name="title_widget_account_all">Toate</string>
     <string name="title_widget_folder">Dosar</string>
     <string name="title_widget_folder_unified">Dosare unificate</string>
+    <string name="title_widget_folder_notifying">Dosare cu notificări de mesaje noi</string>
     <string name="title_widget_unseen">Numai mesajele necitite</string>
     <string name="title_widget_flagged">Numai mesajele cu stea</string>
     <string name="title_widget_font_size">Mărime text</string>
@@ -1984,6 +2003,7 @@
     <string name="title_widget_refresh">Buton de afișare a mesajelor de reîmprospătare</string>
     <string name="title_widget_compose">Afișați butonul de redactare a unui mesaj nou</string>
     <string name="title_widget_background">Culoare fundal</string>
+    <string name="title_widget_icon">Culoare pictogramă</string>
     <string name="title_widget_day_night">Urmați tema sistemului întunecat</string>
     <string name="title_compat_dark">Google a eliminat modul întunecat pentru versiunile de Android anterioare versiunii 10</string>
     <!-- Thunderbird -->

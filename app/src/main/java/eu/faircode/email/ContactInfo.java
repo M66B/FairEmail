@@ -183,8 +183,7 @@ public class ContactInfo {
                 for (File file : favicons)
                     if (file.lastModified() + CACHE_FAVICON_DURATION < now) {
                         Log.i("Deleting " + file);
-                        if (!file.delete())
-                            Log.w("Error deleting " + file);
+                        Helper.secureDelete(file);
                     }
         }
     }
@@ -210,7 +209,7 @@ public class ContactInfo {
                         File[] favicons = dir.listFiles();
                         if (favicons != null)
                             for (File favicon : favicons)
-                                favicon.delete();
+                                Helper.secureDelete(favicon);
                     } catch (Throwable ex) {
                         Log.w(ex);
                     }

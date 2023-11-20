@@ -199,7 +199,7 @@ public class WorkerCleanup extends Worker {
                         for (File file : files)
                             if (file.getName().endsWith(".pma")) {
                                 Log.i("Deleting " + file);
-                                file.delete();
+                                Helper.secureDelete(file);
                             }
                 }
             }
@@ -240,12 +240,11 @@ public class WorkerCleanup extends Worker {
                         EntityMessage message = db.message().getMessage(id);
                         if (message == null || !message.content) {
                             Log.i("Deleting " + file);
-                            if (!file.delete())
-                                Log.w("Error deleting " + file);
+                            Helper.secureDelete(file);
                         }
                     } catch (NumberFormatException ex) {
                         Log.e(file.getAbsolutePath(), ex);
-                        file.delete();
+                        Helper.secureDelete(file);
                     }
 
             // Cleanup raw message files
@@ -267,12 +266,11 @@ public class WorkerCleanup extends Worker {
                                 }
                                 if (message == null || message.raw == null || !message.raw) {
                                     Log.i("Deleting " + file);
-                                    if (!file.delete())
-                                        Log.w("Error deleting " + file);
+                                    Helper.secureDelete(file);
                                 }
                             } catch (NumberFormatException ex) {
                                 Log.e(file.getAbsolutePath(), ex);
-                                file.delete();
+                                Helper.secureDelete(file);
                             }
             }
 
@@ -287,12 +285,11 @@ public class WorkerCleanup extends Worker {
                             EntityAttachment attachment = db.attachment().getAttachment(id);
                             if (attachment == null || !attachment.available) {
                                 Log.i("Deleting " + file);
-                                if (!file.delete())
-                                    Log.w("Error deleting " + file);
+                                Helper.secureDelete(file);
                             }
                         } catch (NumberFormatException ex) {
                             Log.e(file.getAbsolutePath(), ex);
-                            file.delete();
+                            Helper.secureDelete(file);
                         }
 
             // Cleanup cached images
@@ -307,12 +304,11 @@ public class WorkerCleanup extends Worker {
                             if (manual || message == null ||
                                     file.lastModified() + KEEP_IMAGES_DURATION < now) {
                                 Log.i("Deleting " + file);
-                                if (!file.delete())
-                                    Log.w("Error deleting " + file);
+                                Helper.secureDelete(file);
                             }
                         } catch (NumberFormatException ex) {
                             Log.e(file.getAbsolutePath(), ex);
-                            file.delete();
+                            Helper.secureDelete(file);
                         }
 
             // Cleanup shared files
@@ -321,8 +317,7 @@ public class WorkerCleanup extends Worker {
                 for (File file : shared)
                     if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
                         Log.i("Deleting " + file);
-                        if (!file.delete())
-                            Log.w("Error deleting " + file);
+                        Helper.secureDelete(file);
                     }
 
             // Cleanup contact info

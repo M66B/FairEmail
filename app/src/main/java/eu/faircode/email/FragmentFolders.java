@@ -669,25 +669,26 @@ public class FragmentFolders extends FragmentBase {
             }
         });
 
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                    searching = newText;
-                    adapter.search(newText);
+        if (searchView != null)
+            searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                        searching = newText;
+                        adapter.search(newText);
+                    }
+                    return true;
                 }
-                return true;
-            }
 
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
-                    searching = query;
-                    adapter.search(query);
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    if (getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED)) {
+                        searching = query;
+                        adapter.search(query);
+                    }
+                    return true;
                 }
-                return true;
-            }
-        });
+            });
 
         LayoutInflater infl = LayoutInflater.from(getContext());
         ImageButton ibSearch = (ImageButton) infl.inflate(R.layout.action_button, null);

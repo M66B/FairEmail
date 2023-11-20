@@ -62,6 +62,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentResultListener;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.preference.PreferenceManager;
 
@@ -135,6 +136,33 @@ public class FragmentBase extends Fragment {
     protected void setSubtitle(CharSequence subtitle) {
         this.subtitle = subtitle;
         updateSubtitle();
+    }
+
+    protected void setActionBarListener(final LifecycleOwner owner, final View.OnClickListener listener) {
+        final AppCompatActivity activity = (AppCompatActivity) getActivity();
+        if (activity == null)
+            return;
+
+        final ActionBar actionbar = activity.getSupportActionBar();
+        if (actionbar == null)
+            return;
+
+        if ((actionbar.getDisplayOptions() & DISPLAY_SHOW_CUSTOM) == 0)
+            return;
+
+        final View custom = actionbar.getCustomView();
+        if (custom == null)
+            return;
+
+        owner.getLifecycle().addObserver(new LifecycleObserver() {
+            @OnLifecycleEvent(Lifecycle.Event.ON_ANY)
+            public void onAny() {
+                Lifecycle.State state = owner.getLifecycle().getCurrentState();
+                custom.setOnClickListener(state.isAtLeast(Lifecycle.State.STARTED) ? listener : null);
+                if (Lifecycle.State.DESTROYED.equals(state))
+                    owner.getLifecycle().removeObserver(this);
+            }
+        });
     }
 
     @Override

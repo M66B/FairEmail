@@ -83,7 +83,6 @@ import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.format.DateUtils;
-import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
@@ -92,6 +91,7 @@ import android.util.LongSparseArray;
 import android.util.Pair;
 import android.util.TypedValue;
 import android.view.GestureDetector;
+import android.view.HapticFeedbackConstants;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -218,7 +218,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -234,7 +233,6 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import biweekly.Biweekly;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
 import biweekly.property.Status;
@@ -355,6 +353,7 @@ public class FragmentMessages extends FragmentBase
 
     private int colorPrimary;
     private int colorAccent;
+    private int colorControlNormal;
     private int colorSeparator;
     private int colorWarning;
 
@@ -509,6 +508,7 @@ public class FragmentMessages extends FragmentBase
 
         colorPrimary = Helper.resolveColor(getContext(), androidx.appcompat.R.attr.colorPrimary);
         colorAccent = Helper.resolveColor(getContext(), androidx.appcompat.R.attr.colorAccent);
+        colorControlNormal = Helper.resolveColor(getContext(), android.R.attr.colorControlNormal);
         colorSeparator = Helper.resolveColor(getContext(), R.attr.colorSeparator);
         colorWarning = Helper.resolveColor(getContext(), R.attr.colorWarning);
 
@@ -554,6 +554,14 @@ public class FragmentMessages extends FragmentBase
     @Nullable
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         setHasOptionsMenu(true);
+
+        setActionBarListener(getViewLifecycleOwner(), new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentDialogSelectUnifiedFolder fragment = new FragmentDialogSelectUnifiedFolder();
+                fragment.show(getParentFragmentManager(), "unified:select");
+            }
+        });
 
         view = (ViewGroup) inflater.inflate(R.layout.fragment_messages, container, false);
 
@@ -1210,6 +1218,29 @@ public class FragmentMessages extends FragmentBase
                 iProperties);
         if (viewType == AdapterMessage.ViewType.THREAD)
             adapter.setStateRestorationPolicy(RecyclerView.Adapter.StateRestorationPolicy.PREVENT);
+        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeRemoved(int positionStart, int itemCount) {
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
+
+                if (accessibility || BuildConfig.DEBUG) {
+                    RecyclerView.ViewHolder vh = rvMessage.findViewHolderForAdapterPosition(positionStart);
+                    if (vh == null && positionStart > 0)
+                        vh = rvMessage.findViewHolderForAdapterPosition(positionStart - 1);
+                    if (vh == null)
+                        return;
+
+                    View v = vh.itemView;
+                    rvMessage.post(new RunnableEx("focus") {
+                        @Override
+                        protected void delegate() {
+                            v.requestFocus();
+                        }
+                    });
+                }
+            }
+        });
         rvMessage.setAdapter(adapter);
 
         sbThread.setOnTouchListener(new View.OnTouchListener() {
@@ -1656,6 +1687,40 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
+        Runnable runMoveTo = new RunnableEx("moveto") {
+            @Override
+            protected void delegate() {
+                MoreResult result = (MoreResult) cardMore.getTag();
+                if (result == null)
+                    return;
+
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), ibMove);
+
+                int order = 0;
+                for (EntityAccount account : result.imapAccounts) {
+                    order++;
+                    popupMenu.getMenu().add(Menu.NONE, order, order, account.name)
+                            .setIntent(new Intent().putExtra("account", account.id));
+                }
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem target) {
+                        Intent intent = target.getIntent();
+                        if (intent == null)
+                            return false;
+
+                        long account = intent.getLongExtra("account", -1);
+                        onActionMoveSelectionAccount(account, false, result.folders);
+
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        };
+
         ibMove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1663,34 +1728,18 @@ public class FragmentMessages extends FragmentBase
                 if (result == null)
                     return;
 
-                if (result.account != null)
-                    onActionMoveSelectionAccount(result.account.id, false, result.folders);
-                else {
-                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(v.getContext(), getViewLifecycleOwner(), ibMove);
+                if (result.copyto == null)
+                    runMoveTo.run();
+                else
+                    onActionMoveSelectionAccount(result.copyto.id, false, result.folders);
+            }
+        });
 
-                    int order = 0;
-                    for (EntityAccount account : result.accounts.keySet()) {
-                        order++;
-                        popupMenu.getMenu().add(Menu.NONE, order, order, account.name)
-                                .setIntent(new Intent().putExtra("account", account.id));
-                    }
-
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem target) {
-                            Intent intent = target.getIntent();
-                            if (intent == null)
-                                return false;
-
-                            long account = intent.getLongExtra("account", -1);
-                            onActionMoveSelectionAccount(account, false, result.folders);
-
-                            return true;
-                        }
-                    });
-
-                    popupMenu.show();
-                }
+        ibMove.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                runMoveTo.run();
+                return true;
             }
         });
 
@@ -3092,20 +3141,20 @@ public class FragmentMessages extends FragmentBase
             try {
                 int pos = viewHolder.getAdapterPosition();
                 if (pos == NO_POSITION) {
-                    redraw(NO_POSITION);
+                    redraw(null);
                     return;
                 }
 
                 TupleMessageEx message = getMessage(pos);
                 if (message == null) {
-                    redraw(NO_POSITION);
+                    redraw(null);
                     return;
                 }
 
                 boolean expanded = iProperties.getValue("expanded", message.id);
 
                 if (expanded && swipe_reply) {
-                    redraw(pos);
+                    redraw(viewHolder);
                     onMenuReply(message, "reply", null);
                     return;
                 }
@@ -3117,7 +3166,7 @@ public class FragmentMessages extends FragmentBase
 
                 TupleAccountSwipes swipes = accountSwipes.get(message.account);
                 if (swipes == null) {
-                    redraw(NO_POSITION);
+                    redraw(null);
                     return;
                 }
 
@@ -3131,7 +3180,7 @@ public class FragmentMessages extends FragmentBase
                 Long action = (direction == ItemTouchHelper.LEFT ? swipes.swipe_left : swipes.swipe_right);
                 String actionType = (direction == ItemTouchHelper.LEFT ? swipes.left_type : swipes.right_type);
                 if (action == null) {
-                    redraw(NO_POSITION);
+                    redraw(null);
                     return;
                 }
 
@@ -3150,31 +3199,32 @@ public class FragmentMessages extends FragmentBase
                         " folder=" + message.folderType);
 
                 if (EntityMessage.SWIPE_ACTION_ASK.equals(action)) {
-                    redraw(pos);
+                    redraw(null);
                     onSwipeAsk(message, viewHolder);
-                } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action))
-                    onActionSeenSelection(message.unseen > 0, message.id, false);
-                else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
+                } else if (EntityMessage.SWIPE_ACTION_SEEN.equals(action)) {
+                    redraw(viewHolder);
+                    onActionSeenSelection(!message.ui_seen, message.id, false);
+                } else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                     onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
                 else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
                     if (ActivityBilling.isPro(getContext()))
                         onActionSnooze(message);
                     else {
-                        redraw(pos);
+                        redraw(viewHolder);
                         startActivity(new Intent(getContext(), ActivityBilling.class));
                     }
                 else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
                     onActionHide(message);
                 else if (EntityMessage.SWIPE_ACTION_MOVE.equals(action)) {
-                    redraw(pos);
+                    redraw(viewHolder);
                     onSwipeMove(message);
                 } else if (EntityMessage.SWIPE_ACTION_JUNK.equals(action)) {
-                    redraw(pos);
+                    redraw(viewHolder);
                     onSwipeJunk(message);
                 } else if (EntityMessage.SWIPE_ACTION_DELETE.equals(action) ||
                         (action.equals(message.folder) && EntityFolder.TRASH.equals(message.folderType)) ||
                         (EntityFolder.TRASH.equals(actionType) && EntityFolder.JUNK.equals(message.folderType)))
-                    onSwipeDelete(message, pos);
+                    onSwipeDelete(message, viewHolder);
                 else
                     swipeFolder(message, action);
             } catch (Throwable ex) {
@@ -3214,21 +3264,35 @@ public class FragmentMessages extends FragmentBase
             return message;
         }
 
-        private void redraw(int pos) {
-            rvMessage.post(new Runnable() {
+        private void redraw(RecyclerView.ViewHolder vh) {
+            if (vh != null)
+                try {
+                    RecyclerView.LayoutManager lm = rvMessage.getLayoutManager();
+                    if (lm != null) {
+                        lm.detachView(vh.itemView);
+                        lm.removeDetachedView(vh.itemView);
+                    }
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+
+            rvMessage.post(new RunnableEx("redraw") {
                 @Override
-                public void run() {
-                    try {
-                        if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                            return;
-                        if (rvMessage.isComputingLayout())
-                            Log.e("isComputingLayout");
+                public void delegate() {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+
+                    if (rvMessage.isComputingLayout())
+                        Log.e("isComputingLayout");
+
+                    if (vh == null)
+                        adapter.notifyDataSetChanged();
+                    else {
+                        int pos = vh.getAbsoluteAdapterPosition();
                         if (pos == NO_POSITION)
                             adapter.notifyDataSetChanged();
                         else
                             adapter.notifyItemChanged(pos);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
                     }
                 }
             });
@@ -3299,7 +3363,7 @@ public class FragmentMessages extends FragmentBase
                                     onSwipeJunk(message);
                                     return true;
                                 } else if (itemId == R.string.title_delete_permanently) {
-                                    onSwipeDelete(message, NO_POSITION);
+                                    onSwipeDelete(message, viewHolder);
                                     return true;
                                 }
                                 return false;
@@ -3385,7 +3449,7 @@ public class FragmentMessages extends FragmentBase
             }
         }
 
-        private void onSwipeDelete(@NonNull TupleMessageEx message, int pos) {
+        private void onSwipeDelete(@NonNull TupleMessageEx message, RecyclerView.ViewHolder vh) {
             boolean leave_deleted =
                     (message.accountProtocol == EntityAccount.TYPE_POP &&
                             message.accountLeaveDeleted);
@@ -3461,8 +3525,7 @@ public class FragmentMessages extends FragmentBase
                 return;
             }
 
-            if (pos != NO_POSITION)
-                redraw(pos);
+            redraw(vh);
 
             FragmentDialogAsk ask = new FragmentDialogAsk();
             ask.setArguments(args);
@@ -3543,7 +3606,7 @@ public class FragmentMessages extends FragmentBase
                 @Override
                 protected void onExecuted(Bundle args, ArrayList<MessageTarget> result) {
                     if (result == null || result.size() == 0)
-                        redraw(NO_POSITION);
+                        redraw(null);
                     else
                         moveUndo(result);
                 }
@@ -4119,7 +4182,7 @@ public class FragmentMessages extends FragmentBase
                             .setIcon(R.drawable.twotone_delete_forever_24);
 
                 if (!result.read_only) {
-                    for (EntityAccount account : result.accounts.keySet()) {
+                    for (EntityAccount account : result.imapAccounts) {
                         String title = getString(R.string.title_move_to_account, account.name);
                         SpannableString ssb = new SpannableString(title);
                         if (account.name != null && account.color != null) {
@@ -5190,6 +5253,8 @@ public class FragmentMessages extends FragmentBase
         adapter.setCompact(compact);
         adapter.setZoom(zoom);
 
+        updateListState("Resume", SimpleTask.getCount(), adapter.getItemCount());
+
         if (true || !checkRedmiNote())
             if (true || !checkDoze())
                 if (!checkReporting())
@@ -5883,6 +5948,10 @@ public class FragmentMessages extends FragmentBase
             ibSeen.setImageResource(filter_seen ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
             ibUnflagged.setImageResource(filter_unflagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
             ibSnoozed.setImageResource(filter_snoozed ? R.drawable.twotone_visibility_off_24 : R.drawable.twotone_visibility_24);
+
+            ibSeen.setImageTintList(ColorStateList.valueOf(filter_seen ? colorAccent : colorControlNormal));
+            ibUnflagged.setImageTintList(ColorStateList.valueOf(filter_unflagged ? colorAccent : colorControlNormal));
+            ibSnoozed.setImageTintList(ColorStateList.valueOf(filter_snoozed ? colorControlNormal : colorAccent));
 
             ibSeen.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
             ibUnflagged.setVisibility(quick_filter && folder ? View.VISIBLE : View.GONE);
@@ -7150,6 +7219,7 @@ public class FragmentMessages extends FragmentBase
             TupleMessageEx singleMessage = null;
             TupleMessageEx unseenMessage = null;
             TupleMessageEx flaggedMessage = null;
+            TupleMessageEx lastMessage = null;
             TupleMessageEx pinnedMessage = null;
             TupleMessageEx foundMessage = null;
             for (TupleMessageEx message : messages) {
@@ -7173,6 +7243,8 @@ public class FragmentMessages extends FragmentBase
                         flagged++;
                         flaggedMessage = message;
                     }
+
+                    lastMessage = message;
                 }
 
                 if (pinned &&
@@ -7207,13 +7279,11 @@ public class FragmentMessages extends FragmentBase
                     expand = unseenMessage;
                 else if (unseen == 0 && flagged == 1)
                     expand = flaggedMessage;
-                else if (messages.size() == 1)
-                    expand = messages.get(0);
-                else if (messages.size() > 0) {
-                    TupleMessageEx firstMessage = messages.get(adapter.getAscending() ? messages.size() - 1 : 0);
+                else if (count > 0) {
+                    TupleMessageEx firstMessage = (adapter.getAscending() ? lastMessage : singleMessage);
                     if (firstMessage != null &&
                             (EntityFolder.OUTBOX.equals(firstMessage.folderType) ||
-                                    (expand_first && unseen == 0 && !EntityFolder.DRAFTS.equals(firstMessage.folderType))))
+                                    (expand_first && unseen == 0)))
                         expand = firstMessage;
                 }
 
@@ -8067,7 +8137,7 @@ public class FragmentMessages extends FragmentBase
             Context context = searchView.getContext();
             int color = Helper.resolveColor(context, R.attr.colorHighlight);
             SpannableString ss = new SpannableString(searchView.getText());
-            ss.setSpan(new BackgroundColorSpan(color),
+            ss.setSpan(new HighlightSpan(color),
                     pos, pos + query.length(), Spannable.SPAN_COMPOSING);
             ss.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_LARGE),
                     pos, pos + query.length(), Spannable.SPAN_COMPOSING);
@@ -8102,7 +8172,7 @@ public class FragmentMessages extends FragmentBase
     private void clearSearch() {
         if (searchView == null)
             return;
-        searchView.clearComposingText();
+        HtmlHelper.clearComposingText(searchView);
 
         View itemView = rvMessage.findContainingItemView(searchView);
         if (itemView == null)
@@ -9009,7 +9079,7 @@ public class FragmentMessages extends FragmentBase
                             throw new IllegalStateException("OpenPgp unknown result code=" + resultCode);
                     }
                 } finally {
-                    plain.delete();
+                    Helper.secureDelete(plain);
                 }
 
                 return null;
@@ -10052,7 +10122,7 @@ public class FragmentMessages extends FragmentBase
                 if (calendar == null)
                     return null;
 
-                ICalendar icalendar = Biweekly.parse(calendar.getFile(context)).first();
+                ICalendar icalendar = CalendarHelper.parse(context, calendar.getFile(context));
                 VEvent event = icalendar.getEvents().get(0);
 
                 int status = CalendarContract.Events.STATUS_TENTATIVE;
@@ -10446,6 +10516,11 @@ public class FragmentMessages extends FragmentBase
             }
 
             @Override
+            protected void onExecuted(Bundle args, Void data) {
+                Helper.performHapticFeedback(view, HapticFeedbackConstants.CONFIRM);
+            }
+
+            @Override
             protected void onException(Bundle args, Throwable ex) {
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
@@ -10620,8 +10695,7 @@ public class FragmentMessages extends FragmentBase
         Boolean leave_deleted;
         boolean read_only;
         List<Long> folders;
-        EntityAccount account;
-        Map<EntityAccount, Boolean> accounts;
+        List<EntityAccount> imapAccounts;
         EntityAccount copyto;
 
         boolean canInbox() {
@@ -10660,7 +10734,7 @@ public class FragmentMessages extends FragmentBase
         boolean canMove() {
             if (read_only)
                 return false;
-            return (accounts.size() > 0);
+            return (imapAccounts.size() > 0);
         }
 
         static MoreResult get(Context context, long[] ids, boolean threading, boolean all) {
@@ -10807,22 +10881,18 @@ public class FragmentMessages extends FragmentBase
             if (result.hasTrash == null) result.hasTrash = false;
             if (result.hasJunk == null) result.hasJunk = false;
 
-            if (!result.hasPop && accounts.size() == 1)
-                result.account = accounts.values().iterator().next();
-
-            result.accounts = new LinkedHashMap<>();
-            if (!result.hasPop) {
+            result.imapAccounts = new ArrayList<>();
+            if (!result.hasPop ||
+                    (accounts.size() == 1 && result.isInbox && !result.isSent)) {
                 List<EntityAccount> syncing = db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
                 if (syncing != null)
-                    for (EntityAccount a : syncing)
-                        result.accounts.put(a, accounts.containsKey(a.id));
+                    result.imapAccounts.addAll(syncing);
             }
 
             if (result.folders.size() > 1)
                 result.folders = new ArrayList<>();
 
             return result;
-
         }
     }
 

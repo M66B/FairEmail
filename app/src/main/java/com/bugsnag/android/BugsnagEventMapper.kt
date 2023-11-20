@@ -66,7 +66,7 @@ internal class BugsnagEventMapper(
         // populate session
         val sessionMap = map["session"] as? Map<String, Any?>
         sessionMap?.let {
-            event.session = Session(it, logger)
+            event.session = Session(it, logger, apiKey)
         }
 
         // populate threads

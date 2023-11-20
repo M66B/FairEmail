@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail bilaketa</string>
+    <string name="app_send_self">Bidal ezazu bere baitara</string>
     <string name="app_changelog">Aldaketen erregistroa</string>
     <string name="app_welcome">FairEmail kode irekiko email aplikazio bat da, pribatutasuna eta segurtasuna aintzat dituena. Horregatik ezaugarri batzuk ohi ez bezala funtzionatu dezakete.</string>
     <string name="app_limitations">Adibidez, mezuak lehenespenez formateatu egiten dira seguruak ez diren elementuak kentzeko eta irakurgarritasuna hobetzeko, eta estekak irekitzea berretsi behar da segurtasunagatik. Nahi izanez gero, biak desgaitu daitezke.</string>
     <string name="app_unsupported">Gailu jakin honen Android bertsioko akatsak akatsek eragindakoak dira</string>
+    <string name="app_data_loss">Datu guztiak galdu daitezke</string>
     <string name="app_continue">Jarraitu hala ere</string>
     <string name="app_exit">Jo \'atzera\' berriro irteteko</string>
     <string name="app_cake">Ez dago biltegiratze toki nahiko</string>
+    <string name="app_cake_remaining">Erabilgarri dagoen lekua: %1$s</string>
     <string name="app_updated">Azken eguneratzea: %1$s</string>
     <string name="app_download">Hemendik deskargatua: %1$s</string>
     <string name="channel_service">Monitorizazioa</string>
@@ -835,7 +838,6 @@
     <string name="title_print_header">Inprimatu goiburua</string>
     <string name="title_print_images_remark">Irudiak deskargatzea denbora hartu lezake</string>
     <string name="title_show_headers">Erakutsi goiburuak</string>
-    <string name="title_share_as_html">Partekatu HTML gisa</string>
     <string name="title_raw_save">Gorde mezu gordina</string>
     <string name="title_raw_send">Bidali eranskin gisa</string>
     <string name="title_raw_send_message">Mezua</string>

@@ -1,6 +1,11 @@
-# Privacy policy
 
-[&#x1F30E; Google Translate](https://translate.google.com/translate?hl=&sl=en&u=https%3A%2F%2Fgithub.com%2FM66B%2FFairEmail%2Fblob%2Fmaster%2FPRIVACY.md)
+<img width="72" height="72" src="https://raw.githubusercontent.com/M66B/FairEmail/master/app/src/main/res/mipmap-hdpi/ic_launcher.png">
+
+<sup>Provided by [FairCode B.V.](https://www.faircode.eu/)</sup>
+
+## Privacy policy
+
+[&#x1F30E; Google Translate](https://translate.google.com/translate?hl=&sl=en&u=https%3A%2F%2Fraw.githubusercontent.com%2FM66B%2FFairEmail%2Fmaster%2FPRIVACY.md)
 
 <br />
 
@@ -9,8 +14,13 @@ What follows is a complete overview of all the data that **can be** sent to the 
 which in the end is always your choice and therefore optional (except of course connecting to the email server).
 
 Except for error reports (disabled by default), the app does not send any data to the developer.
+Error reports will automatically be deleted after one month, or earlier upon request.
 
-## Overview
+Data will **never** be sold or shared in any way.
+
+<br />
+
+### Overview
 
 FairEmail **does not** send account information and message data elsewhere than to your email provider.
 
@@ -19,14 +29,21 @@ FairEmail **does not** allow other apps access to message data without your appr
 FairEmail **does not** require unnecessary permissions.
 For more information on permissions, see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1).
 
+FairEmail **does** use modern and secure transport protocols by default.
+
+Android [encrypts all user data by default](https://source.android.com/docs/security/features/encryption), so all data, including account credentials, is stored encrypted by default.
+
 FairEmail **does** follow the recommendations of [this EFF article](https://www.eff.org/deeplinks/2019/01/stop-tracking-my-emails).
 
 FairEmail is 100 % **open source**, see [the license](https://github.com/M66B/FairEmail/blob/master/LICENSE).
 
 Error reporting via Bugsnag **is opt-in**, see [here](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) for more information.
 
-FairEmail **adheres** to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes),
-including the Limited Use requirements. Google API Services are used only to authenticate Gmail accounts through OAuth.
+FairEmail **adheres** to the [Google API Services User Data Policy](https://developers.google.com/terms/api-services-user-data-policy),
+including the [Limited Use requirements](https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes).
+Google API Services are used only to authenticate Gmail accounts through OAuth.
+
+The use of information received from Gmail APIs will adhere to the Google User Data Policy, including the Limited Use requirements."
 
 FairEmail **can use** these services if they are explicitly enabled (off by default) or are explicitly used by you:
 
@@ -56,9 +73,11 @@ FairEmail **is** [GDPR compliant](https://gdpr.eu/).
 
 <br />
 
-## Summary of shared data
+### Summary of shared data
 
 This table provides a complete overview of all shared data and the conditions under which data will be shared:
+
+<div class="table-wrapper">
 
 | Service/function   | Data sent                                                          | When the data will be sent                                                  |
 | ------------------ | ------------------------------------------------------------------ | --------------------------------------------------------------------------- |
@@ -78,9 +97,11 @@ This table provides a complete overview of all shared data and the conditions un
 | GitHub             | None, but see the remarks below                                    | Upon downloading Disconnect's Tracker Protection lists                      |
 |                    |                                                                    | Upon checking for updates (*)                                               |
 | BIMI               | Domain name of email addresses                                     | If BIMI is enabled, upon receiving a message (*)                            |
-| Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message                           |
+| Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message (*)                       |
 | Link title         | Link address                                                       | Upon pressing a download button in the insert link dialog                   |
 | Bugsnag            | Information about warnings and errors                              | If error reporting is enabled, upon detecting an abnormal situation         |
+
+</div>
 
 (*) Only available in the GitHub version of the app
 
@@ -93,7 +114,7 @@ There is a privacy option to minimize the information being sent, but please be 
 
 <br />
 
-## Definitions of terms
+### Definitions of terms
 
 This section defines some terms and words.
 Knowing those terms will help you understand the following sections.
@@ -107,7 +128,7 @@ Knowing those terms will help you understand the following sections.
 
 <br>
 
-## Contact details
+### Contact details
 
 Please feel free to contact me if you have any concerns:
 
@@ -126,26 +147,26 @@ For any legal issues, the place of jurisdiction is Dordrecht, the Netherlands.
 
 <br>
 
-## A. General information on data processing
+### A. General information on data processing
 
-### I. Scope of personal data processing
+#### I. Scope of personal data processing
 
 This privacy policy / data protection declaration applies to the Android app FairEmail.
 
 The data processor only processes personal data insofar as absolutely required for providing a functioning email client as well as the explicitly requested services.
 Users' personal data is usually only processed if required for fulfilling contractual or legal obligations or with the user's consent.
 
-### II Purpose of data processing
+#### II Purpose of data processing
 
 The purpose of any data processed is to provide you with the service requested.
 The app by default exclusively processes data that is necessary for the proper functioning of the app and its intended purpose of being an email client.
 
-### III. Data storage and data deletion
+#### III. Data storage and data deletion
 
 By default, all data (both personal and non-personal) remains on the data subject's Android device for as long as not explicitly sent or shared by the data subject.
 The data stored on the data subject's device can be deleted by the data subject at any time.
 
-### IV. Sub-processors
+#### IV. Sub-processors
 
 The services of all sub-processors are disabled by default.
 The data subject's data is sent to and processed by sub-processors if and only if explicitly enabled or requested by the data subject.
@@ -154,43 +175,43 @@ The sub-processors are:
 
 * [Bugsnag](https://www.bugsnag.com/) &#8211; [Privacy policy](https://docs.bugsnag.com/legal/privacy-policy/)
 
-### V. Permissions
+#### V. Permissions
 
 The app only requests permissions that are necessary for the expected behavior of an email app.
 For more information on permissions, see [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq1).
 
-### VI. Logging
+#### VI. Logging
 
 The app does not send any log entries to the data processor by default.
 The error reporting system utilizes Bugsnag and is disabled by default.
 See [this FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq104) for more information.
 
-### VII. Legal basis
+#### VII. Legal basis
 
 FairEmail is fully [GDPR compliant](https://gdpr.eu/). The legal basis for any data processing is Art. 6 (1) a - c GDPR.
 
 <br>
 
-## B. Support requests
+### B. Support requests
 
-### I. Description and scope of data processing
+#### I. Description and scope of data processing
 
 The data subject may contact the data processor to request support through channels offered by the data processor.
 When the data subject contacts the data processor, any provided personal data is stored by the data controller.
 
-### II. Purpose of data processing
+#### II. Purpose of data processing
 
 The personal data is exclusively processed for finding a specific solution to support queries whilst recording and/or processing them.
 It is essential in this respect for the data controller to be able to contact the person requesting support.
 
-### III. Sub-processors
+#### III. Sub-processors
 
 The data processor utilizes the services of the following sub-processors in order to process support requests:
 
 * Google LLC, if support request sent via email &#8211; [Privacy policy](https://policies.google.com/privacy?hl=en)
 * Amazon Web Services EMEA SARL, if support request sent via the contact form &#8211; [Privacy policy](https://aws.amazon.com/privacy/)
 
-### IV. Legal basis
+#### IV. Legal basis
 
 Any support requests are sent voluntarily by the data subject, including any personal data that might be attached.
 As such, the explicit consent as outlined in Art. 6 (1) a GDPR forms the legal basis for processing.

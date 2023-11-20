@@ -29,9 +29,6 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-
-import eu.faircode.email.EntityLog;
 
 /**
  * A LiveData implementation that closely works with {@link InvalidationTracker} to implement
@@ -62,8 +59,8 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
     @SuppressWarnings("WeakerAccess")
     final InvalidationTracker.Observer mObserver;
 
-    final AtomicInteger queued = new AtomicInteger(0);
-    final AtomicInteger running = new AtomicInteger(0);
+    private int queued = 0;
+    private final Object lock = new Object();
 
     @SuppressWarnings("WeakerAccess")
     final AtomicBoolean mRegisteredObserver = new AtomicBoolean(false);
@@ -73,39 +70,41 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
         @WorkerThread
         @Override
         public void run() {
+            synchronized (lock) {
+                queued--;
+                if (queued < 0) {
+                    eu.faircode.email.Log.e(mComputeFunction + " queued=" + queued);
+                    queued = 0;
+                }
+            }
+
             if (mRegisteredObserver.compareAndSet(false, true)) {
                 mDatabase.getInvalidationTracker().addWeakObserver(mObserver);
             }
-            try {
-                running.incrementAndGet();
 
-                T value = null;
-                boolean computed = false;
-                synchronized (mComputeFunction) {
-                    int retry = 0;
-                    while (!computed) {
+            T value = null;
+            boolean computed = false;
+            synchronized (mComputeFunction) {
+                int retry = 0;
+                while (!computed) {
+                    try {
+                        value = mComputeFunction.call();
+                        computed = true;
+                    } catch (Throwable e) {
+                        if (++retry > 5) {
+                            eu.faircode.email.Log.e(e);
+                            break;
+                        }
+                        eu.faircode.email.Log.w(e);
                         try {
-                            value = mComputeFunction.call();
-                            computed = true;
-                        } catch (Throwable e) {
-                            if (++retry > 5) {
-                                eu.faircode.email.Log.e(e);
-                                break;
-                            }
-                            eu.faircode.email.Log.w(e);
-                            try {
-                                Thread.sleep(2000L);
-                            } catch (InterruptedException ignored) {
-                            }
+                            Thread.sleep(2000L);
+                        } catch (InterruptedException ignored) {
                         }
                     }
                 }
-                if (computed) {
-                    postValue(value);
-                }
-            } finally {
-                queued.decrementAndGet();
-                running.decrementAndGet();
+            }
+            if (computed) {
+                postValue(value);
             }
         }
     };
@@ -115,16 +114,17 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
         @MainThread
         @Override
         public void run() {
-            if (running.get() == 0 && queued.get() > 0) {
-                eu.faircode.email.Log.persist(EntityLog.Type.Debug,
-                        mComputeFunction + " running=" + running + " queued=" + queued);
-                return;
-            }
             boolean isActive = hasActiveObservers();
-            if (isActive) {
-                queued.incrementAndGet();
-                getQueryExecutor().execute(mRefreshRunnable);
-            }
+            if (isActive)
+                synchronized (lock) {
+                    if (queued > 0)
+                        eu.faircode.email.Log.persist(eu.faircode.email.EntityLog.Type.Debug,
+                                mComputeFunction + " queued=" + queued);
+                    else {
+                        queued++;
+                        getQueryExecutor().execute(mRefreshRunnable);
+                    }
+                }
         }
     };
 
@@ -151,7 +151,10 @@ class RoomTrackingLiveData<T> extends LiveData<T> {
     protected void onActive() {
         super.onActive();
         mContainer.onActive(this);
-        getQueryExecutor().execute(mRefreshRunnable);
+        synchronized (lock) {
+            queued++;
+            getQueryExecutor().execute(mRefreshRunnable);
+        }
     }
 
     @Override

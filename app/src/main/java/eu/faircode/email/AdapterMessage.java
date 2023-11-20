@@ -45,7 +45,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.graphics.drawable.AnimatedImageDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.text.LineBreaker;
 import android.net.Uri;
@@ -149,7 +148,6 @@ import com.google.android.material.snackbar.Snackbar;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.w3c.dom.css.CSSStyleSheet;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
@@ -188,7 +186,6 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import biweekly.Biweekly;
 import biweekly.ICalVersion;
 import biweekly.ICalendar;
 import biweekly.component.VEvent;
@@ -283,6 +280,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean only_contact;
     private boolean distinguish_contacts;
     private boolean show_recipients;
+    private boolean reverse_addresses;
     private Float font_size_sender;
     private Float font_size_subject;
     private boolean subject_top;
@@ -468,6 +466,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private ImageButton ibRule;
         private ImageButton ibUnsubscribe;
         private ImageButton ibRaw;
+        private ImageButton ibHtml;
         private ImageButton ibHeaders;
         private ImageButton ibPrint;
         private ImageButton ibPin;
@@ -514,6 +513,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         private Flow flow;
 
         private ImageButton ibCalendar;
+        private ImageButton ibOnline;
         private TextView tvCalendarSummary;
         private TextView tvCalendarDescription;
         private TextView tvCalendarLocation;
@@ -860,6 +860,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             tvNoInternetHeaders = vsBody.findViewById(R.id.tvNoInternetHeaders);
 
             ibCalendar = vsBody.findViewById(R.id.ibCalendar);
+            ibOnline = vsBody.findViewById(R.id.ibOnline);
             tvCalendarSummary = vsBody.findViewById(R.id.tvCalendarSummary);
             tvCalendarDescription = vsBody.findViewById(R.id.tvCalendarDescription);
             tvCalendarLocation = vsBody.findViewById(R.id.tvCalendarLocation);
@@ -899,6 +900,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRule = vsBody.findViewById(R.id.ibRule);
             ibUnsubscribe = vsBody.findViewById(R.id.ibUnsubscribe);
             ibRaw = vsBody.findViewById(R.id.ibRaw);
+            ibHtml = vsBody.findViewById(R.id.ibHtml);
             ibHeaders = vsBody.findViewById(R.id.ibHeaders);
             ibPrint = vsBody.findViewById(R.id.ibPrint);
             ibPin = vsBody.findViewById(R.id.ibPin);
@@ -1068,6 +1070,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibRule.setOnClickListener(this);
                 ibUnsubscribe.setOnClickListener(this);
                 ibRaw.setOnClickListener(this);
+                ibHtml.setOnClickListener(this);
                 ibHeaders.setOnClickListener(this);
                 ibHeaders.setOnLongClickListener(this);
                 ibPrint.setOnClickListener(this);
@@ -1116,6 +1119,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 tvBody.addOnLayoutChangeListener(this);
 
                 ibCalendar.setOnClickListener(this);
+                ibOnline.setOnClickListener(this);
                 btnCalendarAccept.setOnClickListener(this);
                 btnCalendarDecline.setOnClickListener(this);
                 btnCalendarMaybe.setOnClickListener(this);
@@ -1188,6 +1192,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibRule.setOnClickListener(null);
                 ibUnsubscribe.setOnClickListener(null);
                 ibRaw.setOnClickListener(null);
+                ibHtml.setOnClickListener(null);
                 ibHeaders.setOnClickListener(null);
                 ibHeaders.setOnLongClickListener(null);
                 ibPrint.setOnClickListener(null);
@@ -1237,6 +1242,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 btnCalendarDecline.setOnClickListener(null);
                 btnCalendarMaybe.setOnClickListener(null);
                 ibCalendar.setOnClickListener(null);
+                ibOnline.setOnClickListener(null);
 
                 btnCalendarAccept.setOnLongClickListener(null);
                 btnCalendarDecline.setOnLongClickListener(null);
@@ -1255,13 +1261,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean inbox = EntityFolder.INBOX.equals(message.folderType);
             boolean outbox = EntityFolder.OUTBOX.equals(message.folderType);
             boolean outgoing = isOutgoing(message);
-            boolean reverse = (outgoing && viewType != ViewType.THREAD &&
-                    (EntityFolder.isOutgoing(type) || viewType == ViewType.SEARCH)) ||
-                    (viewType == ViewType.UNIFIED && type == null &&
-                            message.folderUnified && outgoing) ||
-                    (viewType == ViewType.FOLDER &&
-                            message.folderUnified && outgoing) ||
-                    EntityFolder.isOutgoing(message.folderInheritedType);
+            boolean reverse = reverse_addresses &&
+                    ((outgoing && viewType != ViewType.THREAD &&
+                            (EntityFolder.isOutgoing(type) || viewType == ViewType.SEARCH)) ||
+                            (viewType == ViewType.UNIFIED && type == null &&
+                                    message.folderUnified && outgoing) ||
+                            (viewType == ViewType.FOLDER &&
+                                    message.folderUnified && outgoing) ||
+                            EntityFolder.isOutgoing(message.folderInheritedType));
             String selector = (reverse ? null : message.bimi_selector);
             Address[] addresses = (reverse ? message.to : (message.isForwarder() ? message.submitter : message.from));
             Address[] senders = ContactInfo.fillIn(
@@ -1399,9 +1406,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (EntityMessage.PRIORITIY_HIGH.equals(message.ui_importance)) {
                 ivImportance.setImageLevel(message.ui_importance);
+                ivImportance.setImageTintList(ColorStateList.valueOf(colorWarning));
                 ivImportance.setVisibility(View.VISIBLE);
             } else if (EntityMessage.PRIORITIY_LOW.equals(message.ui_importance)) {
                 ivImportance.setImageLevel(message.ui_importance);
+                ivImportance.setImageTintList(null);
                 ivImportance.setVisibility(View.VISIBLE);
             } else
                 ivImportance.setVisibility(View.GONE);
@@ -1798,6 +1807,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibRaw.setVisibility(View.GONE);
+            ibHtml.setVisibility(View.GONE);
             ibHeaders.setVisibility(View.GONE);
             ibPrint.setVisibility(View.GONE);
             ibPin.setVisibility(View.GONE);
@@ -1889,6 +1899,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
         private void clearCalendar() {
             ibCalendar.setVisibility(View.GONE);
+            ibOnline.setVisibility(View.GONE);
             tvCalendarSummary.setVisibility(View.GONE);
             tvCalendarDescription.setVisibility(View.GONE);
             tvCalendarLocation.setVisibility(View.GONE);
@@ -2089,6 +2100,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibRule.setVisibility(View.GONE);
             ibUnsubscribe.setVisibility(View.GONE);
             ibRaw.setVisibility(View.GONE);
+            ibHtml.setVisibility(View.GONE);
             ibHeaders.setVisibility(View.GONE);
             ibPrint.setVisibility(View.GONE);
             ibPin.setVisibility(View.GONE);
@@ -2271,8 +2283,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean labels = (data.isGmail && move && !inTrash && !inJunk && !outbox);
                     boolean seen = (message.uid != null || pop);
 
-                    int froms = (message.from == null ? 0 : message.from.length);
-                    int tos = (message.to == null ? 0 : message.to.length);
+                    int froms = (message.from == null ||
+                            message.from.length == 0 ||
+                            TextUtils.isEmpty(((InternetAddress) message.from[0]).getAddress())
+                            ? 0 : message.from.length);
+                    int tos = (message.to == null ||
+                            message.to.length == 0 ||
+                            TextUtils.isEmpty(((InternetAddress) message.to[0]).getAddress())
+                            ? 0 : message.to.length);
 
                     boolean delete = (inTrash || !hasTrash || inJunk || outbox || message.uid == null || pop);
                     boolean forever = (delete && (!pop || !message.accountLeaveDeleted));
@@ -2312,6 +2330,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean button_pin = prefs.getBoolean("button_pin", false);
                     boolean button_print = prefs.getBoolean("button_print", false);
                     boolean button_headers = prefs.getBoolean("button_headers", false);
+                    boolean button_html = prefs.getBoolean("button_html", false);
                     boolean button_raw = prefs.getBoolean("button_raw", false);
                     boolean button_unsubscribe = prefs.getBoolean("button_unsubscribe", true);
                     boolean button_rule = prefs.getBoolean("button_rule", false);
@@ -2333,6 +2352,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     ibRule.setVisibility(tools && button_rule && !outbox && !message.folderReadOnly ? View.VISIBLE : View.GONE);
                     ibUnsubscribe.setVisibility(tools && button_unsubscribe && message.unsubscribe != null ? View.VISIBLE : View.GONE);
                     ibRaw.setVisibility(tools && button_raw && raw ? View.VISIBLE : View.GONE);
+                    ibHtml.setVisibility(tools && hasWebView && button_html && message.content ? View.VISIBLE : View.GONE);
                     ibHeaders.setVisibility(tools && button_headers && headers ? View.VISIBLE : View.GONE);
                     ibPrint.setVisibility(tools && !outbox && button_print && hasWebView && message.content && Helper.canPrint(context) ? View.VISIBLE : View.GONE);
                     ibPin.setVisibility(tools && !outbox && button_pin && pin ? View.VISIBLE : View.GONE);
@@ -2522,8 +2542,14 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean show_addresses = properties.getValue("addresses", message.id);
             boolean full = (show_addresses || email_format == MessageHelper.AddressFormat.NAME_EMAIL);
 
-            int froms = (message.from == null ? 0 : message.from.length);
-            int tos = (message.to == null ? 0 : message.to.length);
+            int froms = (message.from == null ||
+                    message.from.length == 0 ||
+                    TextUtils.isEmpty(((InternetAddress) message.from[0]).getAddress())
+                    ? 0 : message.from.length);
+            int tos = (message.to == null ||
+                    message.to.length == 0 ||
+                    TextUtils.isEmpty(((InternetAddress) message.to[0]).getAddress())
+                    ? 0 : message.to.length);
             boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
             int maxRecipients = (compact ? MAX_RECIPIENTS_COMPACT : MAX_RECIPIENTS_NORMAL);
             Spanned submitter = formatAddresses(message.submitter, true);
@@ -2546,7 +2572,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             ibNotifyContact.setVisibility(show_addresses && hasChannel && froms > 0 ? View.VISIBLE : View.GONE);
             ibPinContact.setVisibility(show_addresses && pin && contacts && froms > 0 ? View.VISIBLE : View.GONE);
             ibAddContact.setVisibility(show_addresses && contacts && froms > 0 ? View.VISIBLE : View.GONE);
-
 
             boolean known_signer = false;
             if (native_dkim &&
@@ -3227,15 +3252,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, document, new HtmlHelper.ImageGetterEx() {
                             @Override
                             public Drawable getDrawable(Element element) {
-                                Drawable drawable = ImageHelper.decodeImage(context,
+                                return ImageHelper.decodeImage(context,
                                         message.id, element, show_images, zoom, scale, tvBody);
-
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-                                    if (drawable instanceof AnimatedImageDrawable)
-                                        ((AnimatedImageDrawable) drawable).start();
-                                }
-
-                                return drawable;
                             }
                         }, null);
 
@@ -3691,7 +3709,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected ICalendar onExecute(Context context, Bundle args) throws IOException {
                     File file = (File) args.getSerializable("file");
-                    return Biweekly.parse(file).first();
+                    return CalendarHelper.parse(context, file);
                 }
 
                 @Override
@@ -3756,7 +3774,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                     Organizer organizer = event.getOrganizer();
 
+                    Uri uri = CalendarHelper.getOnlineMeetingUrl(context, event);
                     ibCalendar.setVisibility(View.VISIBLE);
+                    ibOnline.setVisibility(uri == null ? View.GONE : View.VISIBLE);
 
                     tvCalendarSummary.setText(summary);
                     tvCalendarSummary.setVisibility(TextUtils.isEmpty(summary) ? View.GONE : View.VISIBLE);
@@ -3794,6 +3814,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
+                    if (properties.getValue("ical_error", message.id))
+                        return;
+                    properties.setValue("ical_error", message.id, true);
+
                     // https://github.com/mangstadt/biweekly/issues/121
                     if (!(ex instanceof AssertionError))
                         Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
@@ -3860,15 +3884,35 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (message == null)
                         return null;
 
+                    EntityAccount account = db.account().getAccount(message.account);
+                    if (account == null)
+                        return null;
+
                     List<EntityAttachment> attachments = db.attachment().getAttachments(id);
                     for (EntityAttachment attachment : attachments)
                         if (attachment.available && "text/calendar".equals(attachment.getMimeType())) {
                             File file = attachment.getFile(context);
-                            ICalendar icalendar = Biweekly.parse(file).first();
+                            ICalendar icalendar = CalendarHelper.parse(context, file);
                             CalendarScale scale = (icalendar.getCalendarScale() == null
                                     ? CalendarScale.gregorian()
                                     : icalendar.getCalendarScale());
                             VEvent event = icalendar.getEvents().get(0);
+
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                            boolean ical_tentative = prefs.getBoolean("ical_tentative", true);
+
+                            boolean permission = Helper.hasPermission(context, Manifest.permission.WRITE_CALENDAR);
+
+                            if (permission && !ical_tentative && account.calendar != null) {
+                                if (action == R.id.btnCalendarAccept)
+                                    CalendarHelper.insert(context, icalendar, event,
+                                            CalendarContract.Events.STATUS_CONFIRMED, account, message);
+                                else if (action == R.id.btnCalendarDecline)
+                                    CalendarHelper.delete(context, event, message);
+                                else if (action == R.id.btnCalendarMaybe)
+                                    CalendarHelper.insert(context, icalendar, event,
+                                            CalendarContract.Events.STATUS_TENTATIVE, account, message);
+                            }
 
                             if (action == R.id.ibCalendar) {
                                 String summary = (event.getSummary() == null ? null : event.getSummary().getValue());
@@ -3932,6 +3976,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                                 return intent;
                             }
+
+                            if (action == R.id.ibOnline)
+                                return CalendarHelper.getOnlineMeetingUrl(context, event);
 
                             Created created = event.getCreated();
                             LastModified modified = event.getLastModified();
@@ -4082,7 +4129,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         } catch (Throwable ex) {
                             Helper.reportNoViewer(context, (Intent) result, ex);
                         }
-                    }
+                    } else if (result instanceof Uri)
+                        Helper.view(context, (Uri) result, true);
                 }
 
                 @Override
@@ -4384,6 +4432,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     onActionUnsubscribe(message);
                 } else if (id == R.id.ibRaw) {
                     onMenuRawSave(message);
+                } else if (id == R.id.ibHtml) {
+                    onMenuShareHtml(message);
                 } else if (id == R.id.ibHeaders) {
                     onMenuShowHeaders(message);
                 } else if (id == R.id.ibPrint) {
@@ -4440,7 +4490,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 } else if (id == R.id.ibImportance) {
                     int importance = (((message.ui_importance == null ? 1 : message.ui_importance) + 1) % 3);
                     onMenuSetImportance(message, importance);
-                } else if (id == R.id.btnCalendarAccept || id == R.id.btnCalendarDecline || id == R.id.btnCalendarMaybe || id == R.id.ibCalendar) {
+                } else if (id == R.id.btnCalendarAccept || id == R.id.btnCalendarDecline || id == R.id.btnCalendarMaybe ||
+                        id == R.id.ibCalendar || id == R.id.ibOnline) {
                     onActionCalendar(message, view.getId(), false);
                 } else if (id == R.id.ibStoreMedia) {
                     onStoreMedia(message);
@@ -4958,6 +5009,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onInfo(TupleMessageEx message, boolean gpa) {
+            if (!BuildConfig.DEBUG)
+                return;
+
             Address[] from;
             if (message.reply == null || message.reply.length == 0)
                 from = (isOutgoing(message) ? message.to : message.from);
@@ -4965,9 +5019,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 from = message.reply;
             if (from == null || from.length == 0)
                 return;
+
             String email = ((InternetAddress) from[0]).getAddress();
             if (TextUtils.isEmpty(email))
                 return;
+
             Uri uri;
             if (gpa)
                 uri = Uri.parse(BuildConfig.GPA_URI).buildUpon()
@@ -6067,8 +6123,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_show_headers).setEnabled(message.uid != null ||
                     (message.accountProtocol == EntityAccount.TYPE_POP && message.headers != null));
 
-            popupMenu.getMenu().findItem(R.id.menu_share_as_html).setVisible(message.content &&
-                    (BuildConfig.DEBUG || !BuildConfig.PLAY_STORE_RELEASE));
+            popupMenu.getMenu().findItem(R.id.menu_show_html).setVisible(hasWebView && message.content);
 
             boolean canRaw = (message.uid != null ||
                     (EntityFolder.INBOX.equals(message.folderType) &&
@@ -6186,7 +6241,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     } else if (itemId == R.id.menu_show_headers) {
                         onMenuShowHeaders(message);
                         return true;
-                    } else if (itemId == R.id.menu_share_as_html) {
+                    } else if (itemId == R.id.menu_show_html) {
                         onMenuShareHtml(message);
                         return true;
                     } else if (itemId == R.id.menu_raw_save) {
@@ -6304,7 +6359,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             Helper.copy(source, target);
 
-                            return FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, target);
+                            return FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, target);
                         }
 
                         @Override
@@ -7191,7 +7246,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         if (attachments != null)
                             for (EntityAttachment attachment : attachments) {
                                 File file = attachment.getFile(context);
-                                Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+                                Uri uri = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file, attachment.name);
                                 uris.add(uri);
                             }
 
@@ -7367,67 +7422,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onMenuShareHtml(TupleMessageEx message) {
-            Bundle args = new Bundle();
-            args.putLong("id", message.id);
-
-            new SimpleTask<File>() {
-                @Override
-                protected File onExecute(Context context, Bundle args) throws IOException {
-                    Long id = args.getLong("id");
-
-                    DB db = DB.getInstance(context);
-                    EntityMessage message = db.message().getMessage(id);
-                    if (message == null || !message.content)
-                        return null;
-
-                    File file = message.getFile(context);
-                    Document d = JsoupEx.parse(file);
-
-                    if (BuildConfig.DEBUG) {
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        boolean overview_mode = prefs.getBoolean("overview_mode", false);
-                        HtmlHelper.setViewport(d, overview_mode);
-                    }
-
-                    d.head().prependElement("meta").attr("charset", "utf-8");
-
-                    if (message.language != null)
-                        d.body().attr("lang", message.language);
-
-                    List<CSSStyleSheet> sheets =
-                            HtmlHelper.parseStyles(d.head().select("style"));
-                    for (Element element : d.select("*")) {
-                        String computed = HtmlHelper.processStyles(context,
-                                element.tagName(),
-                                element.className(),
-                                element.attr("style"),
-                                sheets);
-                        if (!TextUtils.isEmpty(computed))
-                            element.attr("x-computed", computed);
-                    }
-
-                    if (BuildConfig.DEBUG) {
-                        d = HtmlHelper.sanitizeView(context, d, false);
-                        d.outputSettings().prettyPrint(true).outline(true).indentAmount(1);
-                    }
-
-                    File dir = Helper.ensureExists(new File(context.getFilesDir(), "shared"));
-                    File share = new File(dir, message.id + ".txt");
-                    Helper.writeText(share, d.html());
-
-                    return share;
-                }
-
-                @Override
-                protected void onExecuted(Bundle args, File share) {
-                    Helper.share(context, share, "text/plain", share.getName());
-                }
-
-                @Override
-                protected void onException(Bundle args, Throwable ex) {
-                    Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
-                }
-            }.execute(context, owner, args, "message:headers");
+            context.startActivity(new Intent(context, ActivityCode.class)
+                    .putExtra("id", message.id)
+                    .putExtra("selected", getSelectedText()));
         }
 
         private void onMenuRawSave(TupleMessageEx message) {
@@ -7950,6 +7947,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.only_contact = prefs.getBoolean("only_contact", false);
         this.distinguish_contacts = prefs.getBoolean("distinguish_contacts", false);
         this.show_recipients = prefs.getBoolean("show_recipients", false);
+        this.reverse_addresses = prefs.getBoolean("reverse_addresses", true);
 
         this.subject_top = prefs.getBoolean("subject_top", false);
 

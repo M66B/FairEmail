@@ -191,7 +191,11 @@
     <string name="title_setup_permissions">Engedélyek megadása</string>
     <string name="title_setup_permissions_remark">A névjegyzék adataihoz váló hozzáféréshez (opcionális)</string>
     <string name="title_setup_permissions_explanation">A kapcsolatokhoz való hozzáférés szükséges ahhoz, hogy levélírásnál felajánlja a konkrét címet</string>
+    <string name="title_setup_permissions_notify">Új üzenet értesítések megjelenése (opcionális)</string>
+    <string name="title_setup_permission_why">Milyen engedélyekre van szükség, és miért?</string>
     <string name="title_setup_permission_import_contacts">Hogyan importálhatok névjegyeket?</string>
+    <string name="title_setup_import_graph_contact">Outlook kontaktok</string>
+    <string name="title_setup_import_graph_new">Új kontaktok: %1$s</string>
     <string name="title_setup_doze">Akkumulátor-optimalizálás kikapcsolása</string>
     <string name="title_setup_doze_explanation">A akkumulátor optimalizálást ki kell kapcsolni annak érdekében, hogy az app a háttérben biztonsággal tudjon küldeni és fogadni üzeneteket</string>
     <string name="title_setup_doze_hint">Habár ellentmondásosnak tűnhet, de az akkaumulátor optimalizálás kikapcsolásával kevesebb erőforrást fog használni az app</string>
@@ -199,9 +203,11 @@
     <string name="title_setup_doze_battery">Magas akkumulátorhasználat?</string>
     <string name="title_setup_doze_stopped">Már nem szinkronizál?</string>
     <string name="title_setup_doze_device">Ez valószínűleg szükséges ezen az eszközön</string>
+    <string name="title_setup_alarm_12">Az alkalmazás nem működik megfelelően</string>
     <string name="title_setup_inexact">Ébresztők &amp; emlékeztetők le vannak tiltva</string>
     <string name="title_setup_background">A háttérkorlátozások engedélyezve vannak</string>
     <string name="title_setup_data">Adatkapcsolat csökkentő bekapcsolva</string>
+    <string name="title_setup_always">Azonnali új üzenet értesítések</string>
     <string name="title_setup_advanced_options">Haladó beállítások megjelenítése</string>
     <string name="title_setup_inbox">Ugrás a beérkezett üzenetekhez</string>
     <string name="title_setup_go">Tovább</string>
@@ -986,7 +992,6 @@
     <string name="title_print_images">Képek nyomtatása</string>
     <string name="title_print_images_remark">A képek letöltése kis időbe telhet</string>
     <string name="title_show_headers">Fejlécek megjelenítése</string>
-    <string name="title_share_as_html">Megosztás HTML-ként</string>
     <string name="title_raw_save">Nyers üzenet mentése</string>
     <string name="title_raw_send">Küldés mellékletként</string>
     <string name="title_raw_send_message">Üzenet</string>
@@ -1111,8 +1116,8 @@
     <string name="title_from">Feladó:</string>
     <string name="title_to">Címzett:</string>
     <string name="title_reply_to">Válasz neki:</string>
-    <string name="title_cc">Másolatot kap:</string>
-    <string name="title_bcc">Titkos másolatot kap:</string>
+    <string name="title_cc">Másolat:</string>
+    <string name="title_bcc">Rejtett másolat:</string>
     <string name="title_recipients">%1$d résztvevő</string>
     <string name="title_via_identity">Rajta keresztül:</string>
     <string name="title_sent">Elküldve:</string>

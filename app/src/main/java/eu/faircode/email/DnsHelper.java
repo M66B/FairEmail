@@ -41,7 +41,6 @@ import org.xbill.DNS.SOARecord;
 import org.xbill.DNS.SRVRecord;
 import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.TXTRecord;
-import org.xbill.DNS.TextParseException;
 import org.xbill.DNS.Type;
 
 import java.io.IOException;
@@ -49,6 +48,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -82,6 +82,13 @@ public class DnsHelper {
 
     @NonNull
     static DnsRecord[] lookup(Context context, String name, String type, int timeout) throws UnknownHostException {
+        String filter = null;
+        int colon = type.indexOf(':');
+        if (colon > 0) {
+            filter = type.substring(colon + 1);
+            type = type.substring(0, colon);
+        }
+
         int rtype;
         switch (type) {
             case "ns":
@@ -215,6 +222,9 @@ public class DnsHelper {
                         TXTRecord txt = (TXTRecord) record;
                         for (Object content : txt.getStrings()) {
                             String text = content.toString();
+                            if (filter != null &&
+                                    (TextUtils.isEmpty(text) || !text.toLowerCase(Locale.ROOT).startsWith(filter)))
+                                continue;
                             int i = 0;
                             int slash = text.indexOf('\\', i);
                             while (slash >= 0 && slash + 4 < text.length()) {

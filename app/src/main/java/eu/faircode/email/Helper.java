@@ -151,6 +151,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.DateFormat;
@@ -188,6 +190,7 @@ public class Helper {
     private static Boolean hasPlayStore = null;
     private static Boolean hasValidFingerprint = null;
     private static Boolean isSmartwatch = null;
+    private static String installerName = "?";
 
     static final float LOW_LIGHT = 0.6f;
 
@@ -200,12 +203,14 @@ public class Helper {
     static final long PIN_FAILURE_DELAY_MAX = 20 * 60 * 1000L; // milliseconds
     static final float BNV_LUMINANCE_THRESHOLD = 0.7f;
 
+    static final String PLAY_PACKAGE_NAME = "com.android.vending";
+
     static final String PGP_OPENKEYCHAIN_PACKAGE = "org.sufficientlysecure.keychain";
     static final String PGP_BEGIN_MESSAGE = "-----BEGIN PGP MESSAGE-----";
     static final String PGP_END_MESSAGE = "-----END PGP MESSAGE-----";
 
     static final String PACKAGE_WEBVIEW = "https://play.google.com/store/apps/details?id=com.google.android.webview";
-    static final String PRIVACY_URI = "https://github.com/M66B/FairEmail/blob/master/PRIVACY.md";
+    static final String PRIVACY_URI = "https://email.faircode.eu/privacy/";
     static final String TUTORIALS_URI = "https://github.com/M66B/FairEmail/tree/master/tutorials#main";
     static final String XDA_URI = "https://forum.xda-developers.com/showthread.php?t=3824168";
     static final String SUPPORT_URI = "https://contact.faircode.eu/?product=fairemailsupport";
@@ -971,9 +976,14 @@ public class Helper {
     }
 
     static Intent getChooser(Context context, Intent intent) {
+        return getChooser(context, intent, false);
+    }
+
+    static Intent getChooser(Context context, Intent intent, boolean share) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean app_chooser = prefs.getBoolean("app_chooser", false);
-        if (!app_chooser)
+        boolean app_chooser_share = prefs.getBoolean("app_chooser_share", false);
+        if (share ? !app_chooser_share : !app_chooser)
             return intent;
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
@@ -987,7 +997,7 @@ public class Helper {
 
     static void share(Context context, File file, String type, String name) {
         // https://developer.android.com/reference/androidx/core/content/FileProvider
-        Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID, file);
+        Uri uri = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file, name);
         share(context, uri, type, name);
     }
 
@@ -1007,6 +1017,9 @@ public class Helper {
         Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.setDataAndTypeAndNormalize(uri, type);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+
+        if (launchAdjacent(context, true))
+            intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if (!TextUtils.isEmpty(name))
             intent.putExtra(Intent.EXTRA_TITLE, Helper.sanitizeFilename(name));
@@ -1040,9 +1053,9 @@ public class Helper {
                 else
                     reportNoViewer(context, intent, null);
             else
-                context.startActivity(intent);
+                context.startActivity(getChooser(context, intent, true));
         } else
-            context.startActivity(intent);
+            context.startActivity(getChooser(context, intent, true));
     }
 
     static boolean isTnef(String type, String name) {
@@ -1118,6 +1131,9 @@ public class Helper {
             view.setDataAndType(uri, mimeType);
         if (task)
             view.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        if (launchAdjacent(context, false))
+            view.addFlags(Intent.FLAG_ACTIVITY_LAUNCH_ADJACENT | Intent.FLAG_ACTIVITY_NEW_TASK);
 
         if ("chooser".equals(open_with_pkg) && !open_with_tabs) {
             try {
@@ -1195,6 +1211,15 @@ public class Helper {
                 reportNoViewer(context, uri, ex);
             }
         }
+    }
+
+    private static boolean launchAdjacent(Context context, boolean document) {
+        // https://developer.android.com/guide/topics/large-screens/multi-window-support#launch_adjacent
+        Configuration config = context.getResources().getConfiguration();
+        boolean portrait = (config.orientation == Configuration.ORIENTATION_PORTRAIT);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return (prefs.getBoolean("adjacent_" + (portrait ? "portrait" : "landscape"), false) &&
+                prefs.getBoolean("adjacent_" + (document ? "documents" : "links"), document));
     }
 
     static boolean customTabsWarmup(Context context) {
@@ -1350,6 +1375,18 @@ public class Helper {
 
     static Intent getIntentRate(Context context) {
         return new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + BuildConfig.APPLICATION_ID));
+    }
+
+    static String getInstallerName(Context context) {
+        if ("?".equals(installerName))
+            try {
+                PackageManager pm = context.getPackageManager();
+                installerName = pm.getInstallerPackageName(BuildConfig.APPLICATION_ID);
+            } catch (Throwable ex) {
+                Log.e(ex);
+                installerName = null;
+            }
+        return installerName;
     }
 
     static long getInstallTime(Context context) {
@@ -1660,7 +1697,7 @@ public class Helper {
         try {
             UiModeManager uimm = Helper.getSystemService(context, UiModeManager.class);
             int uiModeType = uimm.getCurrentModeType();
-            switch (uiModeType) {
+            switch (uiModeType & Configuration.UI_MODE_TYPE_MASK) {
                 case Configuration.UI_MODE_TYPE_UNDEFINED:
                     return "undefined";
                 case Configuration.UI_MODE_TYPE_NORMAL:
@@ -1672,7 +1709,7 @@ public class Helper {
                 case Configuration.UI_MODE_TYPE_TELEVISION:
                     return "television";
                 case Configuration.UI_MODE_TYPE_APPLIANCE:
-                    return "applicance";
+                    return "appliance";
                 case Configuration.UI_MODE_TYPE_WATCH:
                     return "watch";
                 case Configuration.UI_MODE_TYPE_VR_HEADSET:
@@ -1893,6 +1930,21 @@ public class Helper {
             return newFragment;
         } catch (Throwable e) {
             throw new RuntimeException("Cannot recreate fragment=" + fragment, e);
+        }
+    }
+
+    static void performHapticFeedback(View view, int feedbackConstant) {
+        performHapticFeedback(view, feedbackConstant, 0);
+    }
+
+    static void performHapticFeedback(@NonNull View view, int feedbackConstant, int flags) {
+        try {
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
+            boolean haptic_feedback = prefs.getBoolean("haptic_feedback", true);
+            if (haptic_feedback)
+                view.performHapticFeedback(feedbackConstant);
+        } catch (Throwable ex) {
+            Log.e(ex);
         }
     }
 
@@ -2581,7 +2633,7 @@ public class Helper {
 
     private static final Map<File, Boolean> exists = new HashMap<>();
 
-    static File ensureExists(File dir) {
+    public static File ensureExists(File dir) {
         synchronized (exists) {
             if (exists.containsKey(dir))
                 return dir;
@@ -2784,6 +2836,16 @@ public class Helper {
         return files;
     }
 
+    static void secureDelete(File file) {
+        if (file.exists()) {
+            try {
+                Files.delete(Paths.get(file.getAbsolutePath()));
+            } catch (IOException ex) {
+                Log.e(ex);
+            }
+        }
+    }
+
     static long getAvailableStorageSpace() {
         StatFs stats = new StatFs(Environment.getDataDirectory().getAbsolutePath());
         return stats.getAvailableBlocksLong() * stats.getBlockSizeLong();
@@ -2949,6 +3011,12 @@ public class Helper {
                 }
         }
         return hasValidFingerprint;
+    }
+
+    static boolean isSignedByFDroid(Context context) {
+        String signed = getFingerprint(context);
+        String fingerprint = context.getString(R.string.fingerprint_fdroid);
+        return Objects.equals(signed, fingerprint);
     }
 
     static boolean canAuthenticate(Context context) {

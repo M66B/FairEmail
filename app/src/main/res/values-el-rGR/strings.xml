@@ -163,6 +163,7 @@
     <string name="title_setup_quick_smtp">Διακομιστής SMTP για αποστολή μηνυμάτων</string>
     <string name="title_setup_quick_certificates">Πιστοποιητικά διακομιστή</string>
     <string name="title_setup_wizard">Οδηγός</string>
+    <string name="title_setup_wizard_intro">Στις περισσότερες περιπτώσεις, το κουμπί του οδηγού μπορεί να χρησιμοποιηθεί για να προστεθεί ένας λογαριασμός· διαφορετικά, οι διευθύνσεις του διακομιστή μπορούν να εισαχθούν ή να αλλάξουν χειροκίνητα, χρησιμοποιώντας την επιλογή χειροκίνητης ρύθμισης</string>
     <string name="title_setup_wizard_tutorials">Οδηγός εκμάθησης</string>
     <string name="title_setup_wizard_multiple">Ο οδηγός μπορεί να χρησιμοποιηθεί πολλές φορές για τη ρύθμιση πολλαπλών λογαριασμών</string>
     <string name="title_setup_wizard_new">Χρειάζομαι μια νέα διεύθυνση ηλ. ταχυδρομείου</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_suggest_sent">Προτείνονται διευθύνσεις που βρέθηκαν σε απεσταλμένα μηνύματα</string>
     <string name="title_advanced_suggest_received">Προτείνονται διευθύνσεις που βρέθηκαν σε μηνύματα που έχουν ληφθεί</string>
     <string name="title_advanced_suggest_frequently">Ταξινόμηση των προτεινόμενων διευθύνσεων με βάση τη συχνότητα που χρησιμοποιούνται</string>
+    <string name="title_advanced_suggest_account">Περιορισμός των προτεινόμενων στον τρέχοντα λογαριασμό</string>
     <string name="title_advanced_alt_re_fwd">Εναλλακτικό πρόθεμα απάντησης/προώθησης</string>
     <string name="title_advanced_send_chips">Προβολή διευθύνσεων μέσα σε φυσαλίδες</string>
     <string name="title_advanced_send_nav_color">Χρήση του χρώματος ταυτότητας για την κάτω γραμμή ενεργειών</string>
@@ -435,6 +437,7 @@
     <string name="title_advanced_ssl_harden_strict">Απαιτείται TLS 1.3</string>
     <string name="title_advanced_cert_strict">Αυστηρός έλεγχος πιστοποιητικών</string>
     <string name="title_advanced_open_safe">Άνοιγμα ασφαλών συνδέσεων μόνο</string>
+    <string name="title_advanced_bouncy_castle">Χρήση του παρόχου ασφαλών socket Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Διαχείριση συνδεσιμότητας</string>
     <string name="title_advanced_caption_general">Γενικά</string>
     <string name="title_advanced_caption_navigation">Πλοήγηση</string>
@@ -503,6 +506,7 @@
     <string name="title_advanced_only_name">Να προβάλλονται μόνο τα ονόματα των επαφών</string>
     <string name="title_advanced_distinguish_contacts">Να υπογραμμίζεται ο αποστολέας όταν ο αποστολέας είναι γνωστός ως τοπική επαφή</string>
     <string name="title_advanced_show_recipients">Να προβάλλονται οι παραλήπτες στην κεφαλίδα του μηνύματος</string>
+    <string name="title_advanced_reverse_addresses">Εμφάνιση παραλήπτη για απεσταλμένα μηνύματα</string>
     <string name="title_advanced_font_size_sender">Μέγεθος γραμματοσειράς για το πεδίο \"Αποστολέας\"</string>
     <string name="title_advanced_sender_ellipsize">Να συντομεύεται ο αποστολέας, εφόσον χρειάζεται</string>
     <string name="title_advanced_subject_top">Να προβάλλεται το θέμα πάνω από τον αποστολέα</string>
@@ -525,6 +529,7 @@
     <string name="title_advanced_unzip">Να προβάλλονται τα περιεχόμενα των συμπιεσμένων συνημμένων</string>
     <string name="title_advanced_attachments_alt">Να προβάλλονται τα συνημμένα μετά το κείμενο του μηνύματος</string>
     <string name="title_advanced_thumbnails">Να προβάλλονται οι μικρογραφίες μετά από το κείμενο του μηνύματος</string>
+    <string name="title_advanced_pdf_preview">Να προβάλλονται οι μικρογραφίες των αρχείων PDF</string>
     <string name="title_advanced_message_text_zoom2">Μεγέθυνση κειμένου μηνύματος από προεπιλογή: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Μεγέθυνση του κειμένου του μηνύματος και κατά την επεξεργασία του μηνύματος</string>
     <string name="title_advanced_overview_mode">Μεγέθυνση αρχικού μηνύματος για προσαρμογή στην οθόνη</string>
@@ -621,6 +626,8 @@
     <string name="title_advanced_notify_preview">Προβολή μιας προεπισκόπησης του μηνύματος στις ειδοποιήσεις</string>
     <string name="title_advanced_notify_preview_all">Προεπισκόπηση ολόκληρου του κειμένου</string>
     <string name="title_advanced_notify_preview_only">Προβολή ειδοποιήσεων μόνο με ένα κείμενο προεπισκόπησης</string>
+    <string name="title_advanced_notify_transliterate">Μεταγραφή στο λατινικό αλφάβητο</string>
+    <string name="title_advanced_notify_ascii">Μόνο κείμενο ASCII</string>
     <string name="title_advanced_notify_actions">Ενέργειες ειδοποιήσεων</string>
     <string name="title_advanced_notify_action_trash">Απορρίμματα</string>
     <string name="title_advanced_notify_action_delete">Διαγραφή</string>
@@ -704,12 +711,14 @@
     <string name="title_advanced_external_search">Προσθήκη \"Αναζήτηση FairEmail\" στο μενού επιλογής κειμένου του Android</string>
     <string name="title_advanced_sort_answers">Ταξινόμηση προτύπων απάντησης κατά συχνότητα χρήσης</string>
     <string name="title_advanced_shortcuts">Προβολή των πιο συχνά χρησιμοποιούμενων επαφών στο μενού \"Κοινοποίηση\" του Android</string>
+    <string name="title_advanced_ical_tentative">Αποθήκευση των ειλημμένων προσκλήσεων ως ανεπιβεβαίωτων</string>
     <string name="title_advanced_fts">Κατασκευή ευρετηρίου αναζήτησης</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d μηνύματα ευρετηριασμένα (%3$s)</string>
     <string name="title_advanced_classification">Ταξινόμηση μηνυμάτων</string>
     <string name="title_advanced_class_min_chance">Ελάχιστη πιθανότητα για ορισμένη ταξινόμηση: %1$s%%</string>
     <string name="title_advanced_class_min_difference">Ελάχιστη διαφορά για την επόμενη τάξη: %1$s%%</string>
     <string name="title_advanced_show_filtered">Προβολή ενός εικονιδίου φίλτρου εφόσον έχουν εφαρμοστεί κανόνες</string>
+    <string name="title_advanced_haptic_feedback">Απτική ανάδραση για σημαντικές ενέργειες</string>
     <string name="title_advanced_language">Γλώσσα</string>
     <string name="title_advanced_language_system">Σύστημα</string>
     <string name="title_advanced_lt">Ενσωμάτωση του LanguageTool</string>
@@ -769,6 +778,7 @@
     <string name="title_advanced_pull_all_hint">Όταν σύρετε προς τα κάτω τους φακέλους ή τη λίστα λογαριασμών</string>
     <string name="title_advanced_suggest_names_hint">Εάν απενεργοποιηθεί, θα χρησιμοποιούνται μόνο διευθύνσεις ηλ. ταχυδρομείου κατά την επιλογή επαφών</string>
     <string name="title_advanced_suggest_local_hint">Επιπρόσθετα στις παρεχόμενες από το Android επαφές, θα αποθηκεύονται πληροφορίες επαφών για πρόσφατα απεσταλμένα ή ειλημμένα μηνύματα, μόνον εφόσον οι σχετικές δυνατότητες έχουν ενεργοποιηθεί.</string>
+    <string name="title_advanced_suggest_account_hint">Αυτό εφαρμόζεται μόνο στις τοπικές επαφές, καθώς οι επαφές στο βιβλίο διευθύνσεων του Android δεν συνδέονται με συγκεκριμένους λογαριασμούς</string>
     <string name="title_advanced_auto_identity_hint">Με αυτό θα επιλέγεται η τελευταία ταυτότητα που έχει χρησιμοποιηθεί κατά την επιλογή ενός παραλήπτη για νέα μηνύματα</string>
     <string name="title_advanced_send_reminders_hint">Να προβάλλεται μια προειδοποίηση όταν το κείμενο του μηνύματος ή το θέμα είναι κενό ή όταν φαίνεται πως ένα συνημμένο λείπει</string>
     <string name="title_advanced_reply_move_hint">Ο διακομιστής ηλ. ταχυδρομείου ενδέχεται να προσθέτει ακόμα τα μηνύματα στον φάκελο απεσταλμένων</string>
@@ -1027,6 +1037,7 @@
     <string name="title_delete_channel">Διαγραφή καναλιού ειδοποιήσεων</string>
     <string name="title_insert_contact">Προσθήκη επαφής</string>
     <string name="title_edit_contact">Επεξεργασία επαφής</string>
+    <string name="title_delete_contact">Διαγραφή επαφής;</string>
     <string name="title_contact_email">Ηλεκτρονικό ταχυδρομείο</string>
     <string name="title_contact_name">Όνομα</string>
     <string name="title_contact_group">Ομάδα</string>
@@ -1148,9 +1159,9 @@
     <string name="title_print_header">Εκτύπωσε κεφαλίδα</string>
     <string name="title_print_images">Εκτύπωση εικόνων</string>
     <string name="title_print_images_remark">Το κατέβασμα των εικόνων μπορεί να πάρει κάποιο χρόνο</string>
-    <string name="title_print_block_quotes" comment="title_print_block_quotes&#10;Title for print option to disable printing of (block) quote lines">Εκτύπωση γραμμών εσοχής στα παρατιθέμενα κείμενα</string>
+    <string name="title_print_block_quotes">Εκτύπωση γραμμών εσοχής στα παρατιθέμενα κείμενα</string>
     <string name="title_show_headers">Προβολή κεφαλίδων</string>
-    <string name="title_share_as_html">Κοινοποίηση ως HTML</string>
+    <string name="title_show_html">Εμφάνιση πηγής</string>
     <string name="title_raw_save">Αποθήκευση αρχικού μηνύματος</string>
     <string name="title_raw_send">Αποστολή ως συνημμένο</string>
     <string name="title_raw_send_message">Μήνυμα</string>
@@ -1180,6 +1191,7 @@
     <string name="title_quick_actions_snooze">Αναβολή</string>
     <string name="title_quick_actions_clear">Εκκαθάριση επιλογής μετά την ενέργεια</string>
     <string name="title_trash">Απορρίμματα</string>
+    <string name="title_trash_selection">Επιλογή απορριμμάτων</string>
     <string name="title_copy">Αντιγραφή &#8230;</string>
     <string name="title_copy_to">Αντιγραφή σε &#8230;</string>
     <string name="title_subscribe">Εγγραφή συνδρομητή</string>
@@ -1362,6 +1374,7 @@
     <string name="title_add_image_privacy">Αφαίρεση ευαίσθητων προσωπικών δεδομένων</string>
     <string name="title_add_image_privacy_remark">Γεωγραφική θέση, σειριακοί αριθμοί, ονόματα αρχείων, κλπ</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixels</string>
+    <string name="title_add_image_resize_remark">Η αλλαγή μεγέθους υποστηρίζεται για: %1$s</string>
     <string name="title_add_image_select_remark">Ο επιλογέας φωτογραφιών του Android δεν μεταφέρει πλέον τα ονόματα των αρχείων</string>
     <string name="title_add_image_select">Επιλογή αρχείου</string>
     <string name="title_add_attachment">Προσθήκη συνημμένου</string>
@@ -1491,6 +1504,7 @@
     <string name="title_search_in_keywords">Στις λέξεις-κλειδιά (εάν υποστηρίζεται)</string>
     <string name="title_search_in_message">Στο κείμενο του μηνύματος</string>
     <string name="title_search_in_notes">Στις τοπικές σημειώσεις</string>
+    <string name="title_search_in_filenames">Στα ονόματα αρχείων (μόνο στη συσκευή)</string>
     <string name="title_search_with">Περιορισμός αναζήτησης σε</string>
     <string name="title_search_with_unseen">Μη αναγνωσμένα</string>
     <string name="title_search_with_flagged">Με αστέρι</string>
@@ -1584,7 +1598,7 @@
     <string name="title_answer_placeholder_firstname">Όνομα αποστολέα</string>
     <string name="title_answer_placeholder_lastname">Επίθετο αποστολέα</string>
     <string name="title_answer_placeholder_date">Τρέχουσα ημερομηνία</string>
-    <string name="title_answer_placeholder_weekday" comment="title_answer_placeholder_weekday&#10;Title for menu item to insert a placeholder representing the day of the week">Ημέρα της εβδομάδας</string>
+    <string name="title_answer_placeholder_weekday">Ημέρα της εβδομάδας</string>
     <string name="title_rule_noop">Καμία ενέργεια</string>
     <string name="title_rule_seen">Σήμανση ως αναγνωσμένου</string>
     <string name="title_rule_unseen">Σήμανση ως μη αναγνωσμένου</string>
@@ -1680,6 +1694,9 @@
     <string name="title_rule_alarm_duration">Μέγιστη διάρκεια ξυπνητηριού (δευτερόλεπτα)</string>
     <string name="title_rule_alarm_title">Ξυπνητήρι</string>
     <string name="title_rule_alarm_stop">Διακοπή</string>
+    <string name="title_code_line_numbers">Προβολή αριθμών γραμμών</string>
+    <string name="title_code_enable_links">Ενεργοποίηση συνδέσμων</string>
+    <string name="title_code_pretty">Όμορφη εκτύπωση</string>
     <string name="title_legend_section_synchronize">Συγχρονισμός</string>
     <string name="title_legend_section_folders">Φάκελοι</string>
     <string name="title_legend_section_messages">Μηνύματα</string>
@@ -1874,6 +1891,7 @@
     <string name="title_no_ask_again">Να μην ερωτηθώ ξανά</string>
     <string name="title_no_ask_for_again">Να μην ερωτηθώ ξανά για %1$s</string>
     <string name="title_no_body">Δεν βρέθηκε κανένα κείμενο μηνύματος</string>
+    <string name="title_large_body">Το μήνυμα αυτό είναι πολύ μεγάλο και μπορεί να προκύψουν προβλήματα!</string>
     <string name="title_no_charset">Μη υποστηριζόμενη κωδικοποίηση: %1$s</string>
     <string name="title_via">Μέσω: %1$s</string>
     <string name="title_1hour">1 ώρα</string>
@@ -1954,6 +1972,7 @@
     <string name="title_widget_account_all">Όλοι</string>
     <string name="title_widget_folder">Φάκελος</string>
     <string name="title_widget_folder_unified">Φάκελοι ενοποιημένων εισερχομένων</string>
+    <string name="title_widget_folder_notifying">Φάκελοι με ειδοποιήσεις νέων μηνυμάτων</string>
     <string name="title_widget_unseen">Μη αναγνωσμένα μηνύματα μόνο</string>
     <string name="title_widget_flagged">Μηνύματα με αστέρι μόνο</string>
     <string name="title_widget_font_size">Μέγεθος κειμένου</string>
@@ -1968,6 +1987,7 @@
     <string name="title_widget_refresh">Προβολή κουμπιού ανανέωσης μηνυμάτων</string>
     <string name="title_widget_compose">Να εμφανίζεται το κουμπί σύνταξης νέου μηνύματος</string>
     <string name="title_widget_background">Χρώμα φόντου</string>
+    <string name="title_widget_icon">Χρώμα εικονιδίου</string>
     <string name="title_widget_day_night">Σύμφωνα με το σκούρο θέμα συστήματος</string>
     <string name="title_compat_dark">Η Google έχει αφαιρέσει το σκούρο θέμα σε εκδόσεις Android προγενέστερες από την έκδοση 10</string>
     <!-- Thunderbird -->

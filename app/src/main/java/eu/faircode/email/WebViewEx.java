@@ -188,6 +188,10 @@ public class WebViewEx extends WebView implements DownloadListener, View.OnLongC
                 Log.i("Changed scale=" + newScale);
                 intf.onScaleChanged(newScale);
             }
+
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                Log.w("WebViewEx error " + errorCode + ":" + description);
+            }
         });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)

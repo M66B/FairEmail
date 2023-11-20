@@ -1,0 +1,61 @@
+name: Android CI
+run-name: ${{github.workflow}} - ${{vars.TAG}} - ${{github.sha}}
+
+on:
+  workflow_dispatch:
+    inputs:
+      password:
+        description: 'Password'
+        required: true
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: gradle
+
+    #https://github.com/actions/runner/issues/643
+    - name: Mask password
+      run: |
+        INP_PASSWORD=$(jq -r '.inputs.password' $GITHUB_EVENT_PATH)
+        echo ::add-mask::$INP_PASSWORD
+        echo PASSWORD="$INP_PASSWORD" >> $GITHUB_ENV
+
+    #https://stefma.medium.com/how-to-store-a-android-keystore-safely-on-github-actions-f0cef9413784
+    #gpg -c --armor --s2k-mode 3 --s2k-digest-algo SHA256 --s2k-count 10000000 --cipher-algo AES-256 <file>
+    - name: Decrypt secrets
+      run: |
+        echo "${{ secrets.KEYSTORE }}" > keystore.asc
+        gpg -d --passphrase "${PASSWORD}" --batch keystore.asc > Android.keystore
+        echo "${{ secrets.KEYSTORE_PROPERTIES }}" > keystore.properties.asc
+        gpg -d --passphrase "${PASSWORD}" --batch keystore.properties.asc > keystore.properties
+        echo "${{ secrets.LOCAL_PROPERTIES }}" > local.properties.asc
+        gpg -d --passphrase "${PASSWORD}" --batch local.properties.asc > local.properties
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Check with Lint
+      run: ./gradlew lintGithubRelease
+    - name: Build with Gradle
+      run: ./gradlew assembleGithubRelease assembleLargeRelease assemblePlayRelease uploadBugsnagGithub-releaseMapping uploadBugsnagLarge-releaseMapping uploadBugsnagPlay-releaseMapping
+    - name: Upload to BitBucket
+      run: |
+        ./gradlew upload -Ptarget=play-preview
+        ./gradlew upload -Ptarget=github-update
+        ./gradlew upload -Ptarget=large-update
+    #https://github.com/actions/upload-artifact
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Mapping files
+        path: app/build/outputs/mapping/**/mapping.txt
+    - uses: actions/upload-artifact@v3
+      with:
+        name: APK files
+        path: app/build/outputs/apk/**/release/*.apk

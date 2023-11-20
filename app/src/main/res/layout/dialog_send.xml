@@ -317,15 +317,41 @@
             app:layout_constraintStart_toEndOf="@+id/tvViaTitle"
             app:layout_constraintTop_toTopOf="@+id/tvViaTitle" />
 
+        <ImageButton
+            android:id="@+id/ibMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:padding="3dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvVia"
+            app:srcCompat="@drawable/expander" />
+
+        <TextView
+            android:id="@+id/tvMore"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:drawablePadding="6dp"
+            android:drawableTint="?attr/colorWarning"
+            android:gravity="center_vertical"
+            android:paddingStart="6dp"
+            android:text="@string/title_search_more"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/ibMore"
+            app:layout_constraintStart_toEndOf="@+id/ibMore"
+            app:layout_constraintTop_toTopOf="@+id/ibMore" />
+
         <CheckBox
             android:id="@+id/cbPlainOnly"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
+            android:tag="ignore"
             android:text="@string/title_send_plain_text"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvVia" />
+            app:layout_constraintTop_toBottomOf="@id/ibMore" />
 
         <TextView
             android:id="@+id/tvPlainHint"
@@ -337,6 +363,7 @@
             android:text="@string/title_plain_reminder"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="?attr/colorWarning"
+            android:textStyle="bold"
             app:drawableTint="?attr/colorWarning"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cbPlainOnly" />
@@ -346,6 +373,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:tag="ignore"
             android:text="@string/title_send_receipt"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             app:layout_constraintStart_toStartOf="parent"
@@ -377,8 +405,10 @@
             android:id="@+id/spEncrypt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="12dp"
             android:entries="@array/encryptNames"
+            android:tag="ignore"
             app:layout_constraintEnd_toStartOf="@id/ibEncryption"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEncrypt" />
@@ -391,6 +421,7 @@
             android:contentDescription="@string/title_info"
             android:padding="6dp"
             android:scaleType="fitCenter"
+            android:tag="ignore"
             android:tooltipText="@string/title_info"
             app:layout_constraintBottom_toBottomOf="@+id/spEncrypt"
             app:layout_constraintEnd_toEndOf="parent"
@@ -413,8 +444,10 @@
             android:id="@+id/spPriority"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="12dp"
             android:entries="@array/priorityNames"
+            android:tag="ignore"
             app:layout_constraintEnd_toStartOf="@id/ibSensitivity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPriority" />
@@ -435,8 +468,10 @@
             android:id="@+id/spSensitivity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="12dp"
             android:entries="@array/sensitivityNames"
+            android:tag="ignore"
             app:layout_constraintEnd_toStartOf="@id/ibSensitivity"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvSensitivity" />
@@ -472,6 +507,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="6dp"
+            android:layout_marginTop="6dp"
             android:layout_marginEnd="12dp"
             android:gravity="center_vertical"
             android:text="now"
@@ -496,7 +532,7 @@
             android:id="@+id/cbArchive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="24dp"
             android:tag="ignore"
             android:text="@string/title_send_auto_archive"
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
@@ -525,20 +561,21 @@
             app:layout_constraintTop_toBottomOf="@id/cbNotAgain" />
 
         <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpMore"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:constraint_referenced_ids="
+                cbPlainOnly,cbReceipt,
+                tvEncrypt,spEncrypt,ibEncryption,
+                tvPriority,spPriority,
+                tvSensitivity,spSensitivity,ibSensitivity,
+                tvSendTitle,tvSendAt,ibSendAt" />
+
+        <androidx.constraintlayout.widget.Group
             android:id="@+id/grpSentMissing"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:constraint_referenced_ids="
-            tvSentMissing,btnFixSent" />
-
-        <androidx.constraintlayout.widget.Group
-            android:id="@+id/grpDsn"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:constraint_referenced_ids="
-            cbPlainOnly,cbReceipt,
-            tvEncrypt,spEncrypt,ibEncryption,
-            tvPriority,spPriority,
-            tvSensitivity,spSensitivity,ibSensitivity" />
+                tvSentMissing,btnFixSent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>
