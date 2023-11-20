@@ -31,7 +31,7 @@ class TempFile {
      * The file will be deleted when the JVM exits.
      */
     public TempFile(File dir) throws IOException {
-	file = File.createTempFile("pop3.", ".mbox", dir);
+	file = new File(dir, "pop3.mbox");  // File.createTempFile("pop3.", ".mbox", dir);
 	// XXX - need JDK 6 to set permissions on the file to owner-only
 	file.deleteOnExit();
 	sf = new WritableSharedFile(file);
