@@ -397,6 +397,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(194) How can I set up automatic deletion of old messages?](#faq194)
 * [(195) Why are all messages in the archive folder of Gmail?](#faq195)
 * [(196) Can you add empty trash on leaving the app?](#faq196)
+* [(197) How can I print a message?](#faq197)
 
 [I have another question.](#get-support)
 
@@ -5499,6 +5500,22 @@ Near the end of the properties screen, there is a checkbox to enable auto-deleti
 You might want to change the number of days to keep messages on your device.
 
 Note that the reference time is the time the message was first stored on the device, not the date/time of the message itself.
+
+<br>
+
+
+<a name="faq197"></a>
+**(197) How can I print a message?**
+
+You can print a message, both to a PDF or a printer, by tapping on the horizontal three-dots button just above the message text near the left side.
+You might need to tap on the '>' button to show the message actions again.
+
+Note that you can configure a button for printing via the same pop-up menu.
+
+Printing is managed by Android for all apps. You should be able to select the paper size, etc.
+You might need to update or install a driver app for your printer via the Play Store.
+
+A message is printed as-is, which means that the sender of the message determine the margins, etc.
 
 <br>
 
