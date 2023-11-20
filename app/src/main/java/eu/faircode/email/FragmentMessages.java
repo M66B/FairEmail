@@ -1687,6 +1687,40 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
+        Runnable runMoveTo = new RunnableEx("moveto") {
+            @Override
+            protected void delegate() {
+                MoreResult result = (MoreResult) cardMore.getTag();
+                if (result == null)
+                    return;
+
+                PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), ibMove);
+
+                int order = 0;
+                for (EntityAccount account : result.imapAccounts) {
+                    order++;
+                    popupMenu.getMenu().add(Menu.NONE, order, order, account.name)
+                            .setIntent(new Intent().putExtra("account", account.id));
+                }
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem target) {
+                        Intent intent = target.getIntent();
+                        if (intent == null)
+                            return false;
+
+                        long account = intent.getLongExtra("account", -1);
+                        onActionMoveSelectionAccount(account, false, result.folders);
+
+                        return true;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        };
+
         ibMove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -1694,34 +1728,18 @@ public class FragmentMessages extends FragmentBase
                 if (result == null)
                     return;
 
-                if (result.copyto != null)
+                if (result.copyto == null)
+                    runMoveTo.run();
+                else
                     onActionMoveSelectionAccount(result.copyto.id, false, result.folders);
-                else {
-                    PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(v.getContext(), getViewLifecycleOwner(), ibMove);
+            }
+        });
 
-                    int order = 0;
-                    for (EntityAccount account : result.imapAccounts) {
-                        order++;
-                        popupMenu.getMenu().add(Menu.NONE, order, order, account.name)
-                                .setIntent(new Intent().putExtra("account", account.id));
-                    }
-
-                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                        @Override
-                        public boolean onMenuItemClick(MenuItem target) {
-                            Intent intent = target.getIntent();
-                            if (intent == null)
-                                return false;
-
-                            long account = intent.getLongExtra("account", -1);
-                            onActionMoveSelectionAccount(account, false, result.folders);
-
-                            return true;
-                        }
-                    });
-
-                    popupMenu.show();
-                }
+        ibMove.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                runMoveTo.run();
+                return true;
             }
         });
 
