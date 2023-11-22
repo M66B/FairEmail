@@ -650,11 +650,16 @@ public class AdapterRule extends RecyclerView.Adapter<AdapterRule.ViewHolder> {
                     order = Integer.compare(r1.order, r2.order);
 
                 if (order == 0)
-                    return collator.compare(
+                    order = collator.compare(
+                            r1.group == null ? "" : r1.group,
+                            r2.group == null ? "" : r2.group);
+
+                if (order == 0)
+                    order = collator.compare(
                             r1.name == null ? "" : r1.name,
                             r2.name == null ? "" : r2.name);
-                else
-                    return order;
+
+                return order;
             }
         });
 
