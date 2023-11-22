@@ -407,6 +407,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(195) Why are all messages in the archive folder of Gmail?](#faq195)
 * [(196) Can you add empty trash on leaving the app?](#faq196)
 * [(197) How can I print a message?](#faq197)
+* [(198) Can you add spell checking?](#faq198)
 
 [I have another question.](#get-support)
 
@@ -5559,6 +5560,16 @@ Printing is managed by Android for all apps. You should be able to select the pa
 You might need to update or install a driver app for your printer via the Play Store.
 
 A message is printed as-is, which means that the sender of the message determine the margins, etc.
+
+<br>
+
+<a name="faq198"></a>
+**(198) Can you add spell checking?**
+
+Spell checking should be provided by the keyboard app for all other apps.
+Sometimes, particularly on ChromeOS, spell checking needs to be enabled in the settings.
+
+That said, LanguageTool, which can be enabled in the miscellaneous-settings tab page, is an excellent style and spell checker.
 
 <br>
 
