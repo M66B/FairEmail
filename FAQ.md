@@ -5559,7 +5559,7 @@ Note that you can configure a button for printing via the same pop-up menu.
 Printing is managed by Android for all apps. You should be able to select the paper size, etc.
 You might need to update or install a driver app for your printer via the Play Store.
 
-A message is printed as-is, which means that the sender of the message determine the margins, etc.
+A message is printed as-is, which means that the sender of the message determines the margins, etc.
 
 <br>
 
