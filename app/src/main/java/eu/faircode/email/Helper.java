@@ -2837,12 +2837,16 @@ public class Helper {
     }
 
     static void secureDelete(File file) {
-        if (file.exists()) {
-            try {
-                Files.delete(Paths.get(file.getAbsolutePath()));
-            } catch (IOException ex) {
-                Log.e(ex);
+        try {
+            if (file.exists()) {
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+                    if (!file.delete())
+                        throw new FileNotFoundException(file.getAbsolutePath());
+                } else
+                    Files.delete(Paths.get(file.getAbsolutePath()));
             }
+        } catch (IOException ex) {
+            Log.e(ex);
         }
     }
 
