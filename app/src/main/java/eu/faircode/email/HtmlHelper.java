@@ -3957,7 +3957,7 @@ public class HtmlHelper {
     }
 
     static void clearComposingText(TextView view) {
-        //view.clearComposingText();
+        view.clearComposingText();
     }
 
     static Spanned fromHtml(@NonNull String html, Context context) {
