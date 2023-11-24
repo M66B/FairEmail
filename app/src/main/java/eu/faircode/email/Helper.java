@@ -2633,7 +2633,7 @@ public class Helper {
 
     private static final Map<File, Boolean> exists = new HashMap<>();
 
-    public static File ensureExists(File dir) {
+    static File ensureExists(File dir) {
         synchronized (exists) {
             if (exists.containsKey(dir))
                 return dir;

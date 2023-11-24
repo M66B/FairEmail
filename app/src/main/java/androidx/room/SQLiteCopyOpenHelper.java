@@ -206,8 +206,8 @@ class SQLiteCopyOpenHelper implements SupportSQLiteOpenHelper, DelegatingOpenHel
 
         // An intermediate file is used so that we never end up with a half-copied database file
         // in the internal directory.
-        File dir = eu.faircode.email.Helper.ensureExists(new File(mContext.getFilesDir(), "shared"));
-        File intermediateFile = new File(dir,"room-copy-helper.tmp");
+        File intermediateFile = File.createTempFile(
+                "room-copy-helper", ".tmp", mContext.getCacheDir());
         intermediateFile.deleteOnExit();
         FileChannel output = new FileOutputStream(intermediateFile).getChannel();
         FileUtil.copy(input, output);
