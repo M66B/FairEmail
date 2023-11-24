@@ -57,6 +57,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -531,6 +532,11 @@ public class FragmentDialogSend extends FragmentDialogBase {
                 Bundle args = new Bundle();
                 args.putString("title", getString(R.string.title_send_at));
                 args.putLong("id", id);
+
+                Calendar cal = Calendar.getInstance();
+                cal.setTimeInMillis(new Date().getTime());
+                cal.set(Calendar.MINUTE, cal.get(Calendar.MINUTE) + 30);
+                args.putLong("time", cal.getTimeInMillis());
 
                 FragmentDialogDuration fragment = new FragmentDialogDuration();
                 fragment.setArguments(args);
