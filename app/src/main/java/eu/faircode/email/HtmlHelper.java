@@ -2735,21 +2735,23 @@ public class HtmlHelper {
     }
 
     static void removeSignatures(Document d) {
+        // https://jsoup.org/apidocs/org/jsoup/select/Selector.html
+
         // <div class="fairemail_signature">
         d.body().select(".fairemail_signature").remove();
 
         // <div data-smartmail="gmail_signature">
         // <div dir="ltr" class="gmail_signature" data-smartmail="gmail_signature">
-        d.body().select("[data-smartmail=gmail_signature]").remove();
+        d.body().select("div[data-smartmail=gmail_signature]").remove();
 
         // Outlook: <div id="Signature" data-lt-sig-active="">
-        d.body().select("#Signature").select("[data-lt-sig-active]").remove();
+        d.body().select("div#Signature").select("[data-lt-sig-active]").remove();
 
         // Yahoo/Android: <div id="ymail_android_signature">
         d.body().select("div#ymail_android_signature").remove();
 
         // Apple: <br id="lineBreakAtBeginningOfSignature"> <div dir="ltr">
-        for (Element br : d.body().select("#lineBreakAtBeginningOfSignature")) {
+        for (Element br : d.body().select("br#lineBreakAtBeginningOfSignature")) {
             Element next = br.nextElementSibling();
             if (next != null && "div".equals(next.tagName())) {
                 br.remove();
