@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### Next version
+### 1.2129 - 2023-11-25
 
 * Added optional print margin
 * Small improvements and minor bug fixes
