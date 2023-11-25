@@ -4327,11 +4327,24 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private TupleMessageEx getMessage() {
-            int pos = getAdapterPosition();
-            if (pos == RecyclerView.NO_POSITION)
-                return null;
+            try {
+                int pos = getAdapterPosition();
+                if (pos == RecyclerView.NO_POSITION)
+                    return null;
 
-            return differ.getItem(pos);
+                return differ.getItem(pos);
+            } catch (Throwable ex) {
+                /*
+                    Exception java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+                      at androidx.paging.PagedList.loadAround (PagedList.java:424)
+                      at androidx.paging.AsyncPagedListDiffer.getItem (AsyncPagedListDiffer.java:216)
+                      at eu.faircode.email.AdapterMessage$ViewHolder.getMessage (AdapterMessage.java:4334)
+                      at eu.faircode.email.AdapterMessage$ViewHolder.onKeyPressed (AdapterMessage.java:4746)
+                      at eu.faircode.email.FragmentMessages$131.onKeyPressed (FragmentMessages.java:8253)
+                 */
+                Log.e(ex);
+                return null;
+            }
         }
 
         @Override
