@@ -154,7 +154,7 @@
     <string name="title_setup_wizard_multiple">ウィザードを繰り返し使用することで、複数のアカウントを設定できます</string>
     <string name="title_setup_wizard_new">新しいメールアドレスを取得する</string>
     <string name="title_setup_manual">手動セットアップとアカウントの設定</string>
-    <string name="title_setup_classic">マニュアル設定</string>
+    <string name="title_setup_classic">クラシカルな設定方法</string>
     <string name="title_setup_documentation">メールサーバー設定については、メールプロバイダーのドキュメントを参照してください</string>
     <string name="title_setup_account_remark">メールを受信</string>
     <string name="title_setup_identity_remark">メールを送信</string>
@@ -183,7 +183,7 @@
     <string name="title_setup_select_account">アカウントを選択</string>
     <string name="title_setup_instructions">設定方法</string>
     <string name="title_setup_no_settings">ドメイン「%1$s」の設定が見つかりません</string>
-    <string name="title_setup_no_settings_hint">メールプロバイダーが提供する設定を使用して、手動でアカウントを設定してみてください</string>
+    <string name="title_setup_no_settings_hint">メールプロバイダーが提供する設定を使用して、手動でアカウントをセットアップしてみてください</string>
     <string name="title_setup_no_auth_hint">メールアドレスとパスワードをもう一度確認しアカウントで外部アクセス (IMAP/SMTP) が有効になっていることを確認してください</string>
     <string name="title_setup_app_password_hint">このプロバイダーではアカウントのパスワードの代わりにアプリパスワードが必要です。プロバイダーの指示を確認してください</string>
     <string name="title_setup_no_inbox">受信トレイが見つかりません</string>
@@ -230,7 +230,7 @@
     <string name="title_setup_done">完了</string>
     <string name="title_setup_still">実行中です</string>
     <string name="title_setup_error">エラー</string>
-    <string name="title_setup_manual_setup">手動設定</string>
+    <string name="title_setup_manual_setup">手動セットアップ</string>
     <string name="title_setup_pop">POP3 を使用 (非推奨)</string>
     <string name="title_setup_recent">複数のメールクライアントを使用するために最新モード (recent) を使用</string>
     <string name="title_setup_configuring">アカウントを設定しています&#8230;</string>
@@ -417,7 +417,7 @@
     <string name="title_advanced_download_plain">デフォルトでプレーンテキストのみの部分をダウンロード (可能な場合)</string>
     <string name="title_advanced_validated">ネットワークの種類が確定するまで使用しない</string>
     <string name="title_advanced_validated_captive">キャプティブポータルを認証するまで接続しない</string>
-    <string name="title_advanced_vpn_only">VPN 経由でのみ接続</string>
+    <string name="title_advanced_vpn_only">VPN 経由でのみ接続する</string>
     <string name="title_advanced_timeout">接続タイムアウト (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv6 より IPv4 を優先</string>
     <string name="title_advanced_ssl_harden">より強固な SSL 接続</string>
@@ -609,7 +609,7 @@
     <string name="title_advanced_notify_known">連絡先のみ通知を表示</string>
     <string name="title_advanced_notify_suppress_in_call">通話終了まで通知を遅らせる</string>
     <string name="title_advanced_notify_suppress_in_car">Android Auto の接続が解除されるまで通知を遅らせる</string>
-    <string name="title_advanced_notify_summary">まとめ通知のみ表示</string>
+    <string name="title_advanced_notify_summary">まとめ通知のみ表示する</string>
     <string name="title_advanced_notify_preview">通知にメッセージプレビューを表示</string>
     <string name="title_advanced_notify_preview_all">全文をプレビュー</string>
     <string name="title_advanced_notify_preview_only">プレビューテキストが準備できた通知のみ表示</string>
@@ -671,8 +671,8 @@
     <string name="title_advanced_default_encryption">        デフォルトの暗号化方法 (PGP または S/MIME) はデジタル署名や暗号化されたメッセージの送信後にユーザー ID ごとに保存されます。
         暗号化方法は、(送信ボタンを長押しすると表示される) 送信ダイアログボックスで送信前に選択できます。
     </string>
-    <string name="title_advanced_sign_default">デフォルトでデジタル署名</string>
-    <string name="title_advanced_encrypt_default">デフォルトで暗号化</string>
+    <string name="title_advanced_sign_default">デフォルトでデジタル署名する</string>
+    <string name="title_advanced_encrypt_default">デフォルトで暗号化する</string>
     <string name="title_advanced_encrypt_auto">すべての宛先の鍵が有効なときは自動で暗号化</string>
     <string name="title_advanced_auto_verify">デジタル署名されたメッセージを自動検証</string>
     <string name="title_advanced_auto_decrypt">暗号化されたメッセージを自動復号</string>
@@ -860,21 +860,21 @@
     <string name="title_advanced_swipe_actions_hint">すべての IMAP アカウントの左右のスワイプ操作を設定します</string>
     <string name="title_advanced_swipe_sensitivity">左/右スワイプ感度</string>
     <string name="title_select">選択&#8230;</string>
-    <string name="title_identity_name">名前</string>
+    <string name="title_identity_name">あなたのお名前</string>
     <string name="title_identity_email">メールアドレス</string>
     <string name="title_identity_tenant_hint">ほとんどの場合、このフィールドは空です</string>
     <string name="title_identity_color_hint">ユーザー ID の色はフォルダーとアカウントの色よりも優先されます</string>
-    <string name="title_advanced_sender">差出人アドレスの編集を許可</string>
-    <string name="title_advanced_sender_name">差出人アドレスが編集されたときに名前を使用</string>
-    <string name="title_advanced_reply_name">受信したメッセージから名前をコピーして返信</string>
+    <string name="title_advanced_sender">差出人アドレスの編集を許可する</string>
+    <string name="title_advanced_sender_name">差出人アドレスが編集されたときに名前を使用する</string>
+    <string name="title_advanced_reply_name">受信したメッセージから名前をコピーして返信する</string>
     <string name="title_advanced_sender_regex">受信メールアドレスのユーザー名を参照する正規表現</string>
     <string name="title_identity_reply_to">返信先 (Reply to)</string>
     <string name="title_identity_internal">内部ドメイン名 (カンマ区切り)</string>
     <string name="title_identity_uri">連絡先をリンク</string>
     <string name="title_identity_sensitivity">デフォルトの機密度</string>
-    <string name="title_identity_unicode">メッセージヘッダーで UTF-8 を許可</string>
+    <string name="title_identity_unicode">メッセージヘッダーで UTF-8 を許可する</string>
     <string name="title_identity_unicode_remark">ほとんどのサーバーが対応していません</string>
-    <string name="title_identity_octetmime">8BITMIME を許可</string>
+    <string name="title_identity_octetmime">8BITMIME を許可する</string>
     <string name="title_identity_max_size">最大メッセージサイズ (MB)</string>
     <string name="title_identity_receipt">デフォルトで配信確認・開封確認メッセージを要求</string>
     <string name="title_identity_receipt_legacy">古い形式の確認メッセージ要求ヘッダーを使用</string>
@@ -882,7 +882,7 @@
     <string name="title_identity_self_hint">自分自身に返信しないようにします</string>
     <string name="title_optional">オプション</string>
     <string name="title_recommended">おすすめ</string>
-    <string name="title_account_linked">リンクされたアカウント</string>
+    <string name="title_account_linked">リンクするアカウント</string>
     <string name="title_account_name">アカウント名</string>
     <string name="title_account_category">カテゴリー</string>
     <string name="title_account_name_hint">フォルダーを区別するために使用</string>
@@ -894,8 +894,8 @@
     <string name="title_calendar">カレンダー</string>
     <string name="title_background">背景</string>
     <string name="title_transparent">透過</string>
-    <string name="title_account_ondemand">手動で同期</string>
-    <string name="title_account_notify">個別に通知</string>
+    <string name="title_account_ondemand">手動で同期する</string>
+    <string name="title_account_notify">個別に通知する</string>
     <string name="title_account_left">左にスワイプ</string>
     <string name="title_account_right">右にスワイプ</string>
     <string name="title_account_move">デフォルトの移動先</string>
@@ -908,7 +908,7 @@
     <string name="title_host">ホスト名</string>
     <string name="title_encryption">暗号化</string>
     <string name="title_encryption_none">なし (安全でない)</string>
-    <string name="title_allow_insecure">保護されていない接続を許可</string>
+    <string name="title_allow_insecure">保護されていない接続を許可する</string>
     <string name="title_insecure_remark">保護されていない接続は信頼されたネットワークでのみ許可し、パブリックネットワークでは許可しないでください</string>
     <string name="title_notify_remark">アカウント別の通知を有効にできます</string>
     <string name="title_port">ポート番号</string>
@@ -918,12 +918,12 @@
     <string name="title_case_sensitive">通常、ユーザー名とパスワードでは大文字と小文字が区別されます</string>
     <string name="title_client_certificate">クライアント証明書</string>
     <string name="title_realm">Realm</string>
-    <string name="title_use_ip">ホスト名の代わりにローカル IP アドレスを使用</string>
+    <string name="title_use_ip">ホスト名の代わりにローカル IP アドレスを使用する</string>
     <string name="title_ehlo">カスタム HELO/EHLO 識別</string>
     <string name="title_primary">プライマリー</string>
     <string name="title_primary_account">プライマリー (デフォルトアカウント)</string>
     <string name="title_primary_identity">プライマリー (デフォルトのユーザー ID)</string>
-    <string name="title_self_identity">返信するときにメールアドレスを削除</string>
+    <string name="title_self_identity">返信するときにメールアドレスを削除する</string>
     <string name="title_leave_on_server">サーバーにメッセージを残す</string>
     <string name="title_client_delete">ダウンロードしたメッセージをアクティブに削除</string>
     <string name="title_leave_deleted">削除したメッセージをサーバーに残す</string>
@@ -935,14 +935,14 @@
     </string>
     <string name="title_keep_poll_interval">ポーリング間隔 (分)</string>
     <string name="title_keep_alive_interval">キープアライブ間隔 (分)</string>
-    <string name="title_keep_alive_noop">IMAP IDLE を定期的に更新</string>
-    <string name="title_server_time">サーバーの受信時刻を使用</string>
-    <string name="title_received_header">「Received」ヘッダーを使用</string>
-    <string name="title_date_header">「Date」ヘッダーを使用 (送信時刻)</string>
+    <string name="title_keep_alive_noop">IMAP IDLE を定期的に更新する</string>
+    <string name="title_server_time">サーバーの受信時刻を使用する</string>
+    <string name="title_received_header">「Received」ヘッダーを使用する</string>
+    <string name="title_date_header">「Date」ヘッダー (送信時刻) を使用する</string>
     <string name="title_date_remark">変更は新着メッセージにのみ適用されます</string>
     <string name="title_unmetered_only">従量制課金接続を使用しない</string>
     <string name="title_ignore_schedule">スケジュール外でも同期する</string>
-    <string name="title_related_identity">関連するユーザー ID (SMTPサーバー) を追加</string>
+    <string name="title_related_identity">関連するユーザー ID (SMTPサーバー) を追加する</string>
     <string name="title_check">確認</string>
     <string name="title_trust">フィンガープリント %1$s でサーバー証明書を信頼する</string>
     <string name="title_no_name">名前を入力してください</string>
@@ -994,7 +994,7 @@
     <string name="title_service_port">ポート番号をもう一度確認してください</string>
     <string name="title_service_protocol">プロトコル (SSL/TLS または STARTLS) をもう一度確認してください</string>
     <string name="title_service_error10">このアカウントをクイック設定ウィザードからもう一度認証してください</string>
-    <string name="title_advanced_browse">サーバー上のメッセージを閲覧</string>
+    <string name="title_advanced_browse">サーバー上のメッセージを閲覧する</string>
     <string name="title_advanced_expand_read">展開したメッセージを既読にする</string>
     <string name="title_synchronize_now">今すぐ同期</string>
     <string name="title_synchronize_subfolders">サブフォルダー</string>
@@ -1150,6 +1150,7 @@
     <string name="title_print_images">画像を印刷</string>
     <string name="title_print_images_remark">画像のダウンロードには時間がかかる場合があります</string>
     <string name="title_print_block_quotes">ブロック引用の行を印刷</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">余白を追加</string>
     <string name="title_show_headers">ヘッダーを表示</string>
     <string name="title_show_html">ソースを表示</string>
     <string name="title_raw_save">元のメッセージを保存</string>
@@ -1839,7 +1840,7 @@
     <string name="title_tracking_link">このウェブサイトはあなたをトラッキングするかもしれません</string>
     <string name="title_suspicious_link">不審なリンクです</string>
     <string name="title_link_http">トラフィックが暗号化されません</string>
-    <string name="title_link_https">トラフィック暗号化</string>
+    <string name="title_link_https">トラフィックが暗号化されます</string>
     <string name="title_sanitize_link">トラッキングパラメーターを削除</string>
     <string name="title_insecure_link">このリンクは安全ではありません</string>
     <string name="title_check_owner">所有者を確認する</string>
@@ -1903,7 +1904,7 @@
     <string name="title_loading">読み込んでいます&#8230;</string>
     <string name="title_fetching_again">サーバーからメッセージを再取得しています</string>
     <string name="title_go_back">戻る</string>
-    <string name="title_global_default">グローバルデフォルトを使用</string>
+    <string name="title_global_default">グローバルデフォルトを使用する</string>
     <string name="title_not_existing">このメッセージはメールサーバーに存在しません</string>
     <string name="title_conversation_actions">アクション</string>
     <string name="title_conversation_action_reply">返信: \'%1$s\'</string>

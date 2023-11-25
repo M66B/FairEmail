@@ -1191,6 +1191,7 @@
     <string name="title_print_images">Друкувати зображення</string>
     <string name="title_print_images_remark">Завантаження зображень може зайняти деякий час</string>
     <string name="title_print_block_quotes">Друкувати лінії зліва від цитованого тексту</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Додати відступ</string>
     <string name="title_show_headers">Показати заголовки</string>
     <string name="title_show_html">Показати джерело</string>
     <string name="title_raw_save">Зберегти raw-повідомлення</string>

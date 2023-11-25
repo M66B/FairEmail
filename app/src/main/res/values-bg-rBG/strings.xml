@@ -177,7 +177,7 @@
     <string name="title_setup_quick_no_sent">Няма избрана папка за изпратени съобщения. Изпратените съобщения може да не се съхраняват.</string>
     <string name="title_setup_quick_configure">За да редактирате името, цвета, действия по прелистване и т.н.</string>
     <string name="title_setup_manage">Управление</string>
-    <string name="title_setup_grant">Разреши</string>
+    <string name="title_setup_grant">Разрешаване</string>
     <string name="title_setup_grant_again">Даване не необходимите разрешения</string>
     <string name="title_setup_exchange_support">Поддържа ли се Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Какво е самоличност?</string>
@@ -372,6 +372,7 @@
     <string name="title_advanced_roaming">Изтегляне на съобщения и прикачени файлове в роуминг</string>
     <string name="title_advanced_rlah">Роуминг като у дома</string>
     <string name="title_advanced_download_headers">Изтегляне на всички заглавки на съобщението</string>
+    <string name="title_advanced_validated">Изискване на валидирана (проверена) връзка</string>
     <string name="title_advanced_vpn_only">Свързване само чрез VPN</string>
     <string name="title_advanced_timeout">Време на изчакване на връзката (секунди)</string>
     <string name="title_advanced_prefer_ip4">Предпочитане на IPv4 пред IPv6</string>
@@ -783,6 +784,9 @@
     <string name="title_leave_on_device">Запази съобщенията на устройството</string>
     <string name="title_max_messages">Максимален брой съобщения за изтегляне (празно за всички)</string>
     <string name="title_max_messages_keep">Това е най-големият възможен брой съобщения, които ще се съхраняват в устройството</string>
+    <string name="title_max_messages_remark">        Въведете положително число за изтегляне на съобщенията в края (най-често)
+        или отрицателно число за изтегляне на съобщенията в началото (най-малко често)
+    </string>
     <string name="title_keep_poll_interval">Промеждутък за анкетиране (минути)</string>
     <string name="title_keep_alive_noop">Периодично рестартиране на IDLE IMAP</string>
     <string name="title_server_time">Употреба на получено време (сървър)</string>
@@ -828,7 +832,10 @@
     <string name="title_last_connected">Последна проверка: %1$s</string>
     <string name="title_backoff_until">Почакайте след провал до: %1$s</string>
     <string name="title_storage_quota">Използвано място на сървъра: %1$s/%2$s</string>
+    <string name="title_pop_support">Протоколът POP3 може само да тегли и изтрива съобщения от входящата кутия. Не е възможно да означава съобщения като прочетени, докладване на спам, преместване на съобщения и т.н. Обмислете употребата на протокола IMAP, когато е възможно.</string>
     <string name="title_pop_sent">Ако устройството ви е загубено или открадното, то изпратените съобщения могат да се загубят.</string>
+    <string name="title_pop_warning">Ако сървърът POP3 не поддържа команда UIDL, употребата на предаваните данни може да е висока. Настройте честотата на анкетиране по-долу съответно.</string>
+    <string name="title_pop_folders">Протоколът POP3 не поддържа сътворение на папки</string>
     <string name="title_oauth_support">OAuth не се поддържа</string>
     <string name="title_review">Преглед</string>
     <string name="title_hint_alias">Дълго натискане за опции, като копиране, за да се създаде псевдоним за идентичност</string>
@@ -842,12 +849,14 @@
     <string name="title_synchronize_now">Синхронизиране сега</string>
     <string name="title_synchronize_subfolders">Подпапки</string>
     <string name="title_synchronize_more">Извличане на още съобщения</string>
+    <string name="title_synchronize_more_hint3">Имайте предвид, че съхраняването на много съобщения (десет хиляди и нагоре) на устройството ви може да причини забавяне, защото вътрешното място за съхранение не е безкрайно бързо.</string>
     <string name="title_synchronize_enabled">Синхронизиране</string>
     <string name="title_synchronize_batch_enable">Включване на синхронизирането</string>
     <string name="title_synchronize_batch_disable">Изключване на синхронизирането</string>
     <string name="title_notify_batch_enable">Включване на известията за ново съобщение</string>
     <string name="title_notify_batch_disable">Изключване на известията за ново съобщение</string>
     <string name="title_download_batch_enable">Изтегляне на текстовете и прикачванията</string>
+    <string name="title_download_batch_disable">Изтегляне само на заглавките</string>
     <string name="title_delete_local">Изтриване на локалните съобщения</string>
     <string name="title_delete_browsed">Изтриване на търсените съобщения</string>
     <string name="title_expunge_remark">Необратимо изтриване на всички съобщения, означени за триене</string>
@@ -1039,6 +1048,7 @@
     <string name="title_reply_menu">Показването на менюто за избор</string>
     <string name="title_move_undo">Премести в %1$s (%2$d)</string>
     <string name="title_authentication_failed">%1$s неуспешна идентификация</string>
+    <string name="title_on_blocklist">В списъка с блокиран спам</string>
     <string name="title_receipt_subject">Разписка за прочетено: %1$s</string>
     <string name="title_receipt_text">Тази разписка за прочетено само потвърждава, че съобщението е било показано. Няма гаранция, че получателят е прочел съдържанието на съобщението.</string>
     <string name="title_no_answers">Няма определен шаблон за отговор</string>
@@ -1050,6 +1060,8 @@
     <string name="title_no_camera">Няма налично подходящо приложение за камера</string>
     <string name="title_no_saf">Достъпът до софтуерната рамка не е наличен</string>
     <string name="title_no_stream">FairEmail няма позволението да чете този файл направо</string>
+    <string name="title_no_stream_help">Това може да се разреши, избирайки файл с по-съвременно приложение управител на файлове или предоставяйки разрешение за четене на файлове</string>
+    <string name="title_no_permissions">Приложението употребявано за избор на файл не дава позволение за четенето му</string>
     <string name="title_no_internet">Няма или не е намерена подходяща интернет връзка</string>
     <string name="title_no_connection">Свързване с един или повече профили &#8230;</string>
     <string name="title_no_folder">Папката не съществува</string>
@@ -1093,6 +1105,7 @@
     <string name="title_ask_review_rationale">        You have been using FairEmail for a while.        It would be appreciated if you could rate FairEmail in the Play Store.
     </string>
     <string name="title_need_help">Нуждая се от помощ</string>
+    <string name="title_ask_once">Това съобщение ще се появи само веднъж, освен ако не изберете \'По-късно\'</string>
     <string name="title_third_party">Използвате версия на трета страна</string>
     <string name="title_expand_warning">Рзширеното съобщение ще се изтегли %1$s</string>
     <string name="title_download_message">Изтегляне &#8230;</string>
@@ -1258,6 +1271,7 @@
     <string name="title_no_openpgp">OpenKeychain не е намерена</string>
     <string name="title_no_openpgp_remark">Първо трябва да се настрои криптирането от край до край PGP</string>
     <string name="title_user_interaction">Прехвърляне към OpenKeychain</string>
+    <string name="title_padlock">Употреба на катинара за дешифриране на съобщението</string>
     <string name="title_signed_data">Потвърдете подписа, за да се покаже текста на съобщението</string>
     <string name="title_not_encrypted">Съобщението не е подписано или криптирано</string>
     <string name="title_no_sign_key">Няма избран ключ за подписване</string>
@@ -1286,6 +1300,7 @@
     <string name="title_search_hint_fts">Употреба на индекса за търсене: само цели думи</string>
     <string name="title_search_index_hint">Търсене чрез индекса за търсене е бързо, но намира само цели думи.</string>
     <string name="title_search_text_hint">Търсене на текст в съобщения, когато има голям брой съобщения, може да не работи на някои сървъри</string>
+    <string name="title_search_text_unsupported">\"%s\" означава, че пощенския сървър не поддържа търсене в текстови съобщения</string>
     <string name="title_search_size_hint">Търсене на съобщения по размер, когато има голям брой съобщения, може да не работи на някои сървъри</string>
     <string name="title_search_more">Още опции</string>
     <string name="title_search_use_index">Използвай индекс за търсене</string>
@@ -1440,6 +1455,7 @@
     <string name="title_rule_thread">Всички съобщения в един и същи разговор и папка</string>
     <string name="title_rule_identity">Идентичност</string>
     <string name="title_rule_template">Отговор с шаблон</string>
+    <string name="title_rule_answer_subject">Употреба на името на шаблона като тема</string>
     <string name="title_rule_original_text">Включване на първообразния текст на съобщението</string>
     <string name="title_rule_forward_to">Препращане до</string>
     <string name="title_rule_resend">Изпращане пак</string>
@@ -1613,6 +1629,8 @@
     <string name="title_hint_sync">Изтеглянето на съобщения може да отнеме известно време, в зависимост от скоростта на доставчика, интернет връзката и устройството и броя на съобщенията. Докато изтегляте съобщения, приложението може да реагира по-бавно.</string>
     <string name="title_hint_battery">Тъй като FairEmail по подразбиране винаги получава съобщения, Android ще докладва, че FairEmail е винаги активен. Следователно може да изглежда, че FairEmail винаги консумира от батерията, но всъщност това не е така.</string>
     <string name="title_hint_reformat">По подразбиране FairEmail преформатира съобщенията от съображения за поверителност и сигурност. За да видите оригиналното съобщение, докоснете иконата „цял екран“ над текста на съобщението.</string>
+    <string name="title_hint_design">Оформлението преднамерено не разсейва, но пази висока функционалност. Има много възможности за настройване на външния вид, но, моля, разберете че е невъзможно да ощастливи всички едновременно.</string>
+    <string name="title_hint_junk">Прецеждането на спама би трябвало да се върши от сървъра на имейла и не може да се извърши надеждно на захранвано от батерии устройство с ограничени възможности.</string>
     <string name="title_hint_junk_learn">Премествайки съобщения от и до папка спам, сървърът се \"учи\" какво е спам</string>
     <string name="title_hint_contact_actions">Натиснете продължително за повече опции</string>
     <string name="title_hint_eml">Това е обобщение на съдържанието на необработен файл със съобщение. Запишете необработеното съобщение с иконата за запис в панела за действие, за да видите цялото съдържание.</string>
@@ -1659,6 +1677,7 @@
     <string name="title_keep_current">Задържане на текущото</string>
     <string name="title_executing">Изпълнява</string>
     <string name="title_completed">Завършен</string>
+    <string name="title_default_changed">Променено е подразбирането</string>
     <string name="title_clipboard_copy">Копиране в клипборда</string>
     <string name="title_clipboard_copied">Копирано е в клипборда</string>
     <string name="title_ask_what">Запитване за</string>
@@ -1702,6 +1721,8 @@
         За да поддържате и поддържате FairEmail в дългосрочен план, някои удобства и разширени функции не са свободни за използване.
         FairEmail показва малко съобщение, което да ви напомня за това, което ще бъде премахнато, ако закупите професионалните функции.
     </string>
+    <string name="title_pro_whichever">Независимо от това, дали функциите са избрани като професионални, винаги има някой, който да се оплаква, че функцията би трябвало да е безплатна. Не бъдете такъв човек.</string>
+    <string name="title_pro_google">FairEmail инициира покупка в Play Store, но в крайна сметка Google управлява целия процес по покупка. Затова, моля, не винете приложението в случай на проблем!</string>
     <string name="title_pro_hide">Скриване на малко съобщение за %1$d седмици</string>
     <string name="title_pro_hint">Купуването на професионалните функции ще ви позволи да използвате всички настоящи и бъдещи професионални функции, ще поддържа това приложение поддържано.</string>
     <string name="title_pro_price">Защо професионалните функции са толкова скъпи?</string>
@@ -1726,8 +1747,10 @@
     <string name="title_debug_info_remark">Моля, опишете проблема и отбележете часа на възникването му:</string>
     <string name="title_crash_info_remark">Моля, опишете какво правихте, когато приложението се срина:</string>
     <string name="title_debug_info_issue">Опис на проблема (изисква се)</string>
+    <string name="title_debug_info_issue_remark">Важни са такива подробности, като очаквано време за възникнал проблем, точно съобщение за грешка и т.н.</string>
     <string name="title_debug_info_contact">Наскоро разговаряхме по този проблем</string>
     <string name="title_debug_info_send">Изпращане веднага</string>
+    <string name="title_debug_info_send_remark">Обикновено сведенията за отстраняване на грешки ще се съхранят първо като черново съобщение, така че да проверите що ще се праща</string>
     <string name="title_debug_info_question">Употребете бутона „инфо“, ако имате питане</string>
     <string name="title_unexpected_info_remark">Опишете какво правехте, получавайки грешката:</string>
     <string name="title_widget_title_count">Брой нови съобщения</string>
@@ -1847,7 +1870,7 @@
     </string-array>
     <string-array name="resizeNames">
         <item>Tiny</item>
-        <item>Extra small</item>
+        <item>Много малко</item>
         <item>Малък</item>
         <item>Среден</item>
         <item>Голяма</item>

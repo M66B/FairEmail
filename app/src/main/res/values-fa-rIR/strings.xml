@@ -749,6 +749,7 @@
     <string name="title_event">افزودن به تقویم</string>
     <string name="title_pin">افزودن میانبر</string>
     <string name="title_print">چاپ</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">افزودن حاشیه</string>
     <string name="title_show_headers">نمایش سرصفحه</string>
     <string name="title_show_html">نمایش مبدا</string>
     <string name="title_raw_save">ذخیره پیام خام</string>

@@ -1146,6 +1146,7 @@
     <string name="title_print_images">打印图片</string>
     <string name="title_print_images_remark">下载图片可能需要一些时间</string>
     <string name="title_print_block_quotes">打印块引用行</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">添加边距</string>
     <string name="title_show_headers">显示邮件头</string>
     <string name="title_show_html">显示原始消息</string>
     <string name="title_raw_save">保存原始消息</string>

@@ -1166,6 +1166,7 @@
     <string name="title_print_images">Bilder drucken</string>
     <string name="title_print_images_remark">Das Herunterladen von Bildern kann einige Zeit dauern</string>
     <string name="title_print_block_quotes">Zeilen mit Blockzitaten drucken</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Einen Rand hinzufügen</string>
     <string name="title_show_headers">Kopfzeilen anzeigen</string>
     <string name="title_show_html">Quelltext anzeigen</string>
     <string name="title_raw_save">Rohdaten speichern</string>
@@ -1725,9 +1726,9 @@
     <string name="title_legend_quota">Postfach fast voll</string>
     <string name="title_legend_executing">Vorgänge werden ausgeführt</string>
     <string name="title_legend_synchronizing">Wird synchronisiert</string>
-    <string name="title_legend_downloading">wird heruntergeladen</string>
-    <string name="title_legend_closing">wird geschlossen</string>
-    <string name="title_legend_unified">Sammeleingang / Hauptkonto</string>
+    <string name="title_legend_downloading">Wird heruntergeladen</string>
+    <string name="title_legend_closing">Wird geschlossen</string>
+    <string name="title_legend_unified">Sammeleingang/Hauptkonto</string>
     <string name="title_legend_inbox">Posteingang</string>
     <string name="title_legend_outbox">Postausgang</string>
     <string name="title_legend_drafts">Entwürfe</string>
@@ -1757,12 +1758,12 @@
     <string name="title_legend_signed">Signiert</string>
     <string name="title_legend_encrypted">Verschlüsselt</string>
     <string name="title_legend_auth">Authentifizierung fehlgeschlagen</string>
-    <string name="title_legend_found">Wurde gefunden</string>
+    <string name="title_legend_found">Gefunden</string>
     <string name="title_legend_classified">Wurde automatisch klassifiziert</string>
-    <string name="title_legend_snoozed">Wurde zurückgestellt</string>
+    <string name="title_legend_snoozed">Zurückgestellt</string>
     <string name="title_legend_browsed">Gesehen oder gesucht</string>
-    <string name="title_legend_answered">Wurde beantwortet</string>
-    <string name="title_legend_forwarded">Wurde weitergeleitet</string>
+    <string name="title_legend_answered">Beantwortet</string>
+    <string name="title_legend_forwarded">Weitergeleitet</string>
     <string name="title_legend_plain_only">Nur einfacher Text</string>
     <string name="title_legend_receipt">Bestätigung wurde angefordert</string>
     <string name="title_legend_auto_submitted">Wurde automatisch gesendet</string>
@@ -1782,9 +1783,9 @@
     <string name="title_legend_open_external">Außerhalb der App öffnen</string>
     <string name="title_legend_pick">Kontakt auswählen</string>
     <string name="title_legend_cc">Kopie/Blindkopie anzeigen</string>
-    <string name="title_legend_link">Link hinzufügen</string>
+    <string name="title_legend_link">Link einfügen</string>
     <string name="title_legend_file">Anhang hinzufügen</string>
-    <string name="title_legend_picture">Bild hinzufügen</string>
+    <string name="title_legend_picture">Bild einfügen</string>
     <string name="title_legend_photo">Foto aufnehmen</string>
     <string name="title_legend_audio">Audio aufnehmen</string>
     <string name="title_legend_bold">Fett schreiben</string>

@@ -1191,6 +1191,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_print_images">Tisknout obrázky</string>
     <string name="title_print_images_remark">Stažení obrázků může chvíli trvat</string>
     <string name="title_print_block_quotes">Tisk řádků s blokovými uvozovkami</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Přidat okraje</string>
     <string name="title_show_headers">Zobrazit hlavičky</string>
     <string name="title_show_html">Zobraz zdroj</string>
     <string name="title_raw_save">Uložit zdrojovou zprávu</string>

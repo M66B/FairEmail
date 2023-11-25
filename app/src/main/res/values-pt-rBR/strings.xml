@@ -1162,6 +1162,7 @@
     <string name="title_print_images">Imprimir imagens</string>
     <string name="title_print_images_remark">Baixar imagens pode demorar certo tempo</string>
     <string name="title_print_block_quotes">Imprimir linhas de aspas por bloco</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Adicionar uma margem</string>
     <string name="title_show_headers">Mostrar cabeçalhos</string>
     <string name="title_show_html">Mostrar fonte</string>
     <string name="title_raw_save">Salvar imagem raw</string>

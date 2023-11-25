@@ -1192,6 +1192,7 @@
     <string name="title_print_images">Печать изображений</string>
     <string name="title_print_images_remark">Загрузка изображений может занять некоторое время</string>
     <string name="title_print_block_quotes">Печатать строки в блоке цитат</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Добавить отступ</string>
     <string name="title_show_headers">Показать заголовки</string>
     <string name="title_show_html">Показать исходный код</string>
     <string name="title_raw_save">Сохранить оригинал сообщения</string>

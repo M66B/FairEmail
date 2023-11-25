@@ -1,6 +1,6 @@
 # Помощ при инсталиране
 
-Настройването на FairEmail е сравнително лесно. Трябва да добавите поне един профил за получаване на поща и поне една идентичност за изпращане на поща. The quick setup will add an account and an identity in one go for most major providers.
+Настройването на FairEmail е сравнително лесно. Трябва да добавите поне един профил за получаване на поща и поне една идентичност за изпращане на поща. Бързите настройки ще добавят акаунт и самоличност наведнъж за повечето големи доставчици.
 
 ## Изисквания
 
@@ -12,7 +12,7 @@ Just select the appropriate provider or *Other provider* and enter your name, em
 
 Това ще работи за основните доставчици на имейл услуги.
 
-If the quick setup doesn't work, you'll need to set up an account and an identity manually, see below for instructions.
+Ако бързата настройка не работи, то ще трябва да настроите акаунта и самоличността ръчно, вижте по-долу за указания.
 
 ## Настройка на акаунт - за получаване на имейл
 
@@ -26,15 +26,15 @@ Similarly, to add an identity, tap *Manual setup and more options*, tap *Identit
 
 Ако акаунтът е бил конфигуриран ръчно, вероятно ще трябва да конфигурирате и самоличността ръчно. Въведете име на домейн, например *gmail.com* и натиснете *Получи настройки*. If your provider supports [auto-discovery](https://tools.ietf.org/html/rfc6186), FairEmail will fill in the host name and port number, else check the setup instructions of your provider for the right SMTP host name, port number and encryption protocol (SSL/TLS or STARTTLS).
 
-Виж [ЧЗВ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) относно използването на псевдоним.
+Вижте [ЧЗВ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#FAQ9) относно употребата на псевдоним.
 
 ## Предоставяне на разрешения - за достъп до контакти
 
-If you want to lookup email addresses, have contact photos shown, etc, you'll need to grant permission to read contact information to FairEmail. Just tap *Grant* and select *Allow*.
+Ако искате да търсите имейл адреси, да показвате снимки на контакти и т.н., ще трябва да дадете позволение за четене на сведенията за контакт на FairEmail. Натиснете *Разрешаване* и изберете *Позволение*.
 
 ## Настройте оптимизацията на батерията - за непрекъснато получаване на имейли
 
-В последните версии Android поставя приложенията в спящ режим когато екранът е изключен за известно време за да намали разхода на батерията. Ако искате да получавате нови имейли без закъснения, трябва да деактивирате оптимизациите на батерията за FairEmail. Tap *Manage* and follow the instructions.
+В последните версии Android поставя приложенията в спящ режим когато екранът е изключен за известно време за да намали разхода на батерията. Ако искате да получавате нови имейли без закъснения, трябва да деактивирате оптимизациите на батерията за FairEmail. Чукнете *Управление* и последвайте указанията.
 
 ## Въпроси и проблеми
 

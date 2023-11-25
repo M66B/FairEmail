@@ -1165,6 +1165,7 @@
     <string name="title_print_images">Stampa le immagini</string>
     <string name="title_print_images_remark">Scaricare le immagini potrebbe richiedere un po\' di tempo</string>
     <string name="title_print_block_quotes">Stampa i blocchi di citazioni</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Aggiungi un margine</string>
     <string name="title_show_headers">Mostra le intestazioni</string>
     <string name="title_show_html">Mostra messaggio sorgente (HTML)</string>
     <string name="title_raw_save">Salva il messaggio non elaborato</string>

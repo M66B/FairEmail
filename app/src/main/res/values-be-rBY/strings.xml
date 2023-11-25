@@ -467,6 +467,7 @@
     <string name="title_advanced_ssl_harden_strict">Патрабаваць пратакол TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строгая праверка сертыфіката</string>
     <string name="title_advanced_open_safe">Адкрываць толькі бяспечныя злучэнні</string>
+    <string name="title_advanced_bouncy_castle">Выкарыстанне правайдэра бяспечных сокетаў Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Кіраванне злучэннем</string>
     <string name="title_advanced_caption_general">Асноўнае</string>
     <string name="title_advanced_caption_navigation">Навігацыя</string>
