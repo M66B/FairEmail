@@ -3876,25 +3876,18 @@ public class HtmlHelper {
             int s = start.get(spans[i]);
             int e = end.get(spans[i]);
             int f = flags.get(spans[i]);
-            boolean changed = false;
             if (spans[i] instanceof AlignmentSpan ||
                     spans[i] instanceof BulletSpan ||
                     spans[i] instanceof NumberSpan) {
                 if (spans[i] instanceof AlignmentSpan &&
                         !(e > 0 && ssb.charAt(e - 1) == '\n') &&
-                        e < ssb.length() && ssb.charAt(e) == '\n') {
+                        e < ssb.length() && ssb.charAt(e) == '\n')
                     e++;
-                    changed = true;
-                }
-                if ((f & Spanned.SPAN_PARAGRAPH) == 0 &&
-                        s > 0 && ssb.charAt(s - 1) == '\n' &&
-                        e > 0 && ssb.charAt(e - 1) == '\n') {
+                if (s > 0 && ssb.charAt(s - 1) == '\n' &&
+                        e > 0 && ssb.charAt(e - 1) == '\n')
                     f |= Spanned.SPAN_PARAGRAPH;
-                    changed = true;
-                }
             }
-            if (changed)
-                ssb.setSpan(spans[i], s, e, f);
+            ssb.setSpan(spans[i], s, e, f);
         }
 
         for (Object bold : spans) {
