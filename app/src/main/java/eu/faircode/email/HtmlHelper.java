@@ -2745,6 +2745,9 @@ public class HtmlHelper {
         // Outlook: <div id="Signature" data-lt-sig-active="">
         d.body().select("#Signature").select("[data-lt-sig-active]").remove();
 
+        // Yahoo/Android: <div id="ymail_android_signature">
+        d.body().select("div#ymail_android_signature").remove();
+
         // Apple: <br id="lineBreakAtBeginningOfSignature"> <div dir="ltr">
         for (Element br : d.body().select("#lineBreakAtBeginningOfSignature")) {
             Element next = br.nextElementSibling();
