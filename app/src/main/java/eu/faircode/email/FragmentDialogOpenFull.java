@@ -76,6 +76,7 @@ public class FragmentDialogOpenFull extends FragmentDialogBase {
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING);
 
         settings.setAllowFileAccess(false);
+        settings.setJavaScriptEnabled(false);
         settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
