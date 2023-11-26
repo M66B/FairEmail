@@ -2741,6 +2741,7 @@ public class HtmlHelper {
         d.body().select(".fairemail_signature").remove();
 
         // <div data-smartmail="gmail_signature">
+        // <div data-smartmail="gmail_signature" dir="auto">
         // <div dir="ltr" class="gmail_signature" data-smartmail="gmail_signature">
         d.body().select("div[data-smartmail=gmail_signature]").remove();
 
