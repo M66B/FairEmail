@@ -554,18 +554,18 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
                     boolean der = false;
                     String extension = Helper.getExtension(uri.getLastPathSegment());
-                    Log.i("Extension=" + extension);
-                    if (!"pem".equalsIgnoreCase(extension))
+                    DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
+                    String type = (dfile == null ? null : dfile.getType());
+                    // https://pki-tutorial.readthedocs.io/en/latest/mime.html
+                    if (!"pem".equalsIgnoreCase(extension) &&
+                            !"application/x-pem-file".equals(type))
                         try {
-                            DocumentFile dfile = DocumentFile.fromSingleUri(context, uri);
-                            String type = dfile.getType();
-                            Log.i("Type=" + type);
-                            if ("application/octet-stream".equals(type))
+                            if (type != null && type.startsWith("application/"))
                                 der = true;
                         } catch (Throwable ex) {
                             Log.w(ex);
                         }
-                    Log.i("DER=" + der);
+                    Log.i("Extension=" + extension + "type=" + type + " DER=" + der);
 
                     X509Certificate cert;
                     CertificateFactory fact = CertificateFactory.getInstance("X.509");
@@ -601,6 +601,11 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
                     }
 
                     return null;
+                }
+
+                @Override
+                protected void onExecuted(Bundle args, Void data) {
+                    ToastEx.makeText(ActivitySetup.this, R.string.title_completed, Toast.LENGTH_LONG).show();
                 }
 
                 @Override
