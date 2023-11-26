@@ -2757,6 +2757,9 @@ public class HtmlHelper {
         // Spark: <div name="messageSignatureSection">
         d.body().select("div[name=messageSignatureSection]").remove();
 
+        // BlackBerry: <div id="blackberry_signature_BBPPID" name="BB10" dir="auto">
+        d.body().select("div#blackberry_signature_BBPPID").remove();
+
         // Apple: <br id="lineBreakAtBeginningOfSignature"> <div dir="ltr">
         for (Element br : d.body().select("br#lineBreakAtBeginningOfSignature")) {
             Element next = br.nextElementSibling();
