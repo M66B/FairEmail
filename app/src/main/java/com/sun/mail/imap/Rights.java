@@ -64,50 +64,50 @@ public class Rights implements Cloneable {
 	/**
 	 * Lookup - mailbox is visible to LIST/LSUB commands.
 	 */
-	public static final Right LOOKUP = getInstance('l');
+	public static final Right LOOKUP = getRight('l');
 
 	/**
 	 * Read - SELECT the mailbox, perform CHECK, FETCH, PARTIAL,
 	 * SEARCH, COPY from mailbox
 	 */
-	public static final Right READ = getInstance('r');
+	public static final Right READ = getRight('r');
 
 	/**
 	 * Keep seen/unseen information across sessions - STORE \SEEN flag.
 	 */
-	public static final Right KEEP_SEEN = getInstance('s');
+	public static final Right KEEP_SEEN = getRight('s');
 
 	/**
 	 * Write - STORE flags other than \SEEN and \DELETED.
 	 */
-	public static final Right WRITE = getInstance('w');
+	public static final Right WRITE = getRight('w');
 
 	/**
 	 * Insert - perform APPEND, COPY into mailbox.
 	 */
-	public static final Right INSERT = getInstance('i');
+	public static final Right INSERT = getRight('i');
 
 	/**
 	 * Post - send mail to submission address for mailbox,
 	 * not enforced by IMAP4 itself.
 	 */
-	public static final Right POST = getInstance('p');
+	public static final Right POST = getRight('p');
 
 	/**
 	 * Create - CREATE new sub-mailboxes in any implementation-defined
 	 * hierarchy, RENAME or DELETE mailbox.
 	 */
-	public static final Right CREATE = getInstance('c');
+	public static final Right CREATE = getRight('c');
 
 	/**
 	 * Delete - STORE \DELETED flag, perform EXPUNGE.
 	 */
-	public static final Right DELETE = getInstance('d');
+	public static final Right DELETE = getRight('d');
 
 	/**
 	 * Administer - perform SETACL.
 	 */
-	public static final Right ADMINISTER = getInstance('a');
+	public static final Right ADMINISTER = getRight('a');
 
 	char right;	// the right represented by this Right object
 
@@ -127,7 +127,7 @@ public class Rights implements Cloneable {
 	 * @param	right	the character representing the right
 	 * @return		the Right object
 	 */
-	public static synchronized Right getInstance(char right) {
+	public static synchronized Right getRight(char right) {
 	    if ((int)right >= 128)
 		throw new IllegalArgumentException("Right must be ASCII");
 	    if (cache[(int)right] == null)
@@ -163,7 +163,7 @@ public class Rights implements Cloneable {
      */
     public Rights(String rights) {
 	for (int i = 0; i < rights.length(); i++)
-	    add(Right.getInstance(rights.charAt(i)));
+	    add(Right.getRight(rights.charAt(i)));
     }
 
     /**
@@ -287,7 +287,7 @@ public class Rights implements Cloneable {
 	List<Right> v = new ArrayList<>();
 	for (int i = 0; i < this.rights.length; i++)
 	    if (this.rights[i])
-		v.add(Right.getInstance((char)i));
+		v.add(Right.getRight((char)i));
 	return v.toArray(new Right[v.size()]);
     }
 
