@@ -20,6 +20,8 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,9 +45,11 @@ public class StructuredEmail {
         getHtml(jroot, 0, sb);
 
         Document d = Document.createShell("");
-        d.appendElement("pre")
+        d.appendElement("hr")
+                .appendElement("pre")
                 .attr("style", "font-size: smaller !important;")
-                .text(sb.toString());
+                .text(sb.toString())
+                .appendElement("hr");
         return d.html();
     }
 
@@ -63,12 +67,25 @@ public class StructuredEmail {
                             .append(':')
                             .append('\n');
                     getHtml(v, indent + 1, sb);
-                } else
+                } else {
+                    if (v instanceof String) {
+                        String s = (String) v;
+                        if (s.startsWith("https://"))
+                            try {
+                                Uri uri = Uri.parse(s);
+                                String p = uri.getPath();
+                                if (!TextUtils.isEmpty(p))
+                                    v = split(p.substring(1));
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
+                    }
                     sb.append(indent(indent))
                             .append(split(key))
                             .append(": ")
                             .append(v)
                             .append('\n');
+                }
             }
         } else if (obj instanceof JSONArray) {
             JSONArray jarray = (JSONArray) obj;
