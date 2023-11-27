@@ -45,11 +45,15 @@ public class StructuredEmail {
         getHtml(jroot, 0, sb);
 
         Document d = Document.createShell("");
-        d.appendElement("hr")
-                .appendElement("pre")
+        d.appendElement("hr");
+        d.appendElement("div")
+                .attr("style", "font-size: larger !important;")
+                .text("Linked Data");
+        d.appendElement("br");
+        d.appendElement("div")
                 .attr("style", "font-size: smaller !important;")
-                .text(sb.toString())
-                .appendElement("hr");
+                .html(HtmlHelper.formatPlainText(sb.toString()));
+        d.appendElement("hr");
         return d.html();
     }
 
