@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,9 +38,10 @@ public class StructuredEmail {
         jroot = new JSONObject(json);
     }
 
-    public String getHtml() throws JSONException {
+    public String getHtml(Context context) throws JSONException {
         StringBuilder sb = new StringBuilder();
         getHtml(jroot, 0, sb);
+
         Document d = Document.createShell("");
         d.appendElement("pre")
                 .attr("style", "font-size: smaller !important;")

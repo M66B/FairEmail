@@ -3169,7 +3169,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (BuildConfig.DEBUG)
                         for (Element struct : document.select("script[type=application/ld+json]"))
                             try {
-                                document.body().append(new StructuredEmail(struct.html()).getHtml());
+                                document.body().append(new StructuredEmail(struct.html()).getHtml(context));
                             } catch (Throwable ex) {
                                 Log.w(ex);
                             }
