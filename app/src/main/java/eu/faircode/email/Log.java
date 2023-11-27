@@ -2179,10 +2179,11 @@ public class Log {
         ActivityManager am = Helper.getSystemService(context, ActivityManager.class);
         ActivityManager.MemoryInfo mi = new ActivityManager.MemoryInfo();
         am.getMemoryInfo(mi);
-        sb.append(String.format("Memory class: %d/%d Large: %s MB Total: %s\r\n",
+        sb.append(String.format("Memory class: %d/%d Large: %s MB Total: %s Low: %b\r\n",
                 am.getMemoryClass(), am.getLargeMemoryClass(),
                 largeHeap == null ? "?" : Boolean.toString(largeHeap),
-                Helper.humanReadableByteCount(mi.totalMem)));
+                Helper.humanReadableByteCount(mi.totalMem),
+                am.isLowRamDevice()));
 
         long storage_available = Helper.getAvailableStorageSpace();
         long storage_total = Helper.getTotalStorageSpace();
