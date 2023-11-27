@@ -2760,6 +2760,11 @@ public class HtmlHelper {
         // BlackBerry: <div id="blackberry_signature_BBPPID" name="BB10" dir="auto">
         d.body().select("div#blackberry_signature_BBPPID").remove();
 
+        // <div class="moz-signature">
+        // <pre class="moz-signature" cols="72">
+        d.body().select("div.moz-signature").remove();
+        d.body().select("pre.moz-signature").remove();
+
         // Apple: <br id="lineBreakAtBeginningOfSignature"> <div dir="ltr">
         for (Element br : d.body().select("br#lineBreakAtBeginningOfSignature")) {
             Element next = br.nextElementSibling();
