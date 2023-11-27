@@ -63,7 +63,7 @@ public class StructuredEmail {
             Iterator<String> keys = jobject.keys();
             while (keys.hasNext()) {
                 String key = keys.next();
-                if (key == null || key.startsWith("@"))
+                if (key == null)
                     continue;
                 Object v = (jobject.isNull(key) ? "" : jobject.get(key));
                 if (v instanceof JSONObject || v instanceof JSONArray) {
@@ -72,18 +72,6 @@ public class StructuredEmail {
                             .append('\n');
                     getHtml(v, indent + 1, sb);
                 } else {
-                    if (v instanceof String) {
-                        String s = (String) v;
-                        if (s.startsWith("https://"))
-                            try {
-                                Uri uri = Uri.parse(s);
-                                String p = uri.getPath();
-                                if (!TextUtils.isEmpty(p))
-                                    v = split(p.substring(1));
-                            } catch (Throwable ex) {
-                                Log.w(ex);
-                            }
-                    }
                     sb.append(indent(indent))
                             .append(split(key))
                             .append(": ")
@@ -95,6 +83,10 @@ public class StructuredEmail {
             JSONArray jarray = (JSONArray) obj;
             for (int i = 0; i < jarray.length(); i++)
                 getHtml(jarray.get(i), indent + 1, sb);
+        } else {
+            sb.append(indent(indent))
+                    .append(obj == null ? "" : obj.toString())
+                    .append('\n');
         }
     }
 
