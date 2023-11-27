@@ -146,6 +146,7 @@ import androidx.webkit.WebViewFeature;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -3163,6 +3164,20 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             break;
                         }
                     args.putBoolean("has_amp", has_amp);
+
+                    // Check for structured email
+                    // https://structured.email/content/introduction/getting_started.html
+                    if (BuildConfig.DEBUG)
+                        for (Element struct : document.select("script[type=application/ld+json]"))
+                            try {
+                                JSONObject jstruct = new JSONObject(struct.html());
+                                document.body()
+                                        .appendElement("pre")
+                                        .attr("style", "font-size: smaller !important;")
+                                        .text(jstruct.toString(2));
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
 
                     // Format message
                     if (show_full) {
