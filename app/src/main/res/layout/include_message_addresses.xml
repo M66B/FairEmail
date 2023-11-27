@@ -55,7 +55,7 @@
         android:contentDescription="@string/title_legend_auto_submitted"
         app:layout_constraintStart_toEndOf="@id/ibReceipt"
         app:layout_constraintTop_toBottomOf="@id/ibExpanderAddress"
-        app:srcCompat="@drawable/twotone_remove_circle_outline_24" />
+        app:srcCompat="@drawable/twotone_person_off_24" />
 
     <eu.faircode.email.ViewImageHint
         android:id="@+id/ivBrowsed"

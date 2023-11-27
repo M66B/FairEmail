@@ -489,7 +489,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/tvAutoSubmitted"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@id/tvAutoSubmitted"
-            app:srcCompat="@drawable/twotone_remove_circle_outline_24" />
+            app:srcCompat="@drawable/twotone_person_off_24" />
 
         <TextView
             android:id="@+id/tvAutoSubmitted"
