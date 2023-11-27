@@ -1305,6 +1305,18 @@ public class EntityRule {
         if (TextUtils.isEmpty(keyword))
             throw new IllegalArgumentException("Keyword missing rule=" + name);
 
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(message.received);
+        String year = String.format(Locale.ROOT, "%04d", calendar.get(Calendar.YEAR));
+        String month = String.format(Locale.ROOT, "%02d", calendar.get(Calendar.MONTH) + 1);
+        String week = String.format(Locale.ROOT, "%02d", calendar.get(Calendar.WEEK_OF_YEAR));
+        String day = String.format(Locale.ROOT, "%02d", calendar.get(Calendar.DAY_OF_MONTH));
+
+        keyword = keyword.replace("$year$", year);
+        keyword = keyword.replace("$month$", month);
+        keyword = keyword.replace("$week$", week);
+        keyword = keyword.replace("$day$", day);
+
         EntityOperation.queue(context, message, EntityOperation.KEYWORD, keyword, set);
 
         return true;
