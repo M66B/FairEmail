@@ -3166,15 +3166,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     args.putBoolean("has_amp", has_amp);
 
                     // Check for structured email
-                    // https://structured.email/content/introduction/getting_started.html
                     if (BuildConfig.DEBUG)
                         for (Element struct : document.select("script[type=application/ld+json]"))
                             try {
-                                JSONObject jstruct = new JSONObject(struct.html());
-                                document.body()
-                                        .appendElement("pre")
-                                        .attr("style", "font-size: smaller !important;")
-                                        .text(jstruct.toString(2));
+                                document.body().append(new StructuredEmail(struct.html()).getHtml());
                             } catch (Throwable ex) {
                                 Log.w(ex);
                             }
