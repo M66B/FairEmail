@@ -517,6 +517,11 @@ public abstract class DB extends RoomDatabase {
 
                         createTriggers(db);
                     }
+
+                    @Override
+                    public void onDestructiveMigration(@NonNull SupportSQLiteDatabase db) {
+                        Log.e("WTF destructive migration");
+                    }
                 });
 
         if (BuildConfig.DEBUG && false)
