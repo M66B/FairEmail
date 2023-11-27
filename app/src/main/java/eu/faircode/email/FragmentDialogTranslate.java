@@ -32,6 +32,7 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.method.ArrowKeyMovementMethod;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
@@ -61,6 +62,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
+import javax.mail.Address;
 
 public class FragmentDialogTranslate extends FragmentDialogBase {
     @NonNull
@@ -360,9 +363,18 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
 
         SpannableStringBuilder ssb = HtmlHelper.fromDocument(context, d, null, null);
 
-        if (message != null && message.subject != null) {
-            ssb.insert(0, "\n\n");
-            ssb.insert(0, message.subject);
+        if (message != null) {
+            if (!TextUtils.isEmpty(message.subject)) {
+                ssb.insert(0, "\n\n");
+                ssb.insert(0, message.subject);
+            }
+
+            List<TupleIdentityEx> identities = db.identity().getComposableIdentities(message.account);
+            Address[] from = (message.fromSelf(identities) ? message.to : message.from);
+            if (from != null && from.length > 0) {
+                ssb.insert(0, "\n\n");
+                ssb.insert(0, MessageHelper.formatAddresses(from));
+            }
         }
 
         return ssb.toString()
