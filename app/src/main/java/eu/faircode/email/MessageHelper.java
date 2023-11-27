@@ -1591,6 +1591,9 @@ public class MessageHelper {
         header = MimeUtility.unfold(header);
         if (TextUtils.isEmpty(header))
             return result;
+        header = header
+                .replaceAll("<\\s*<", "<")
+                .replaceAll(">\\s*>", ">");
         for (String ref : header.split("[,\\s]+"))
             if (!result.contains(ref))
                 result.add(ref);
