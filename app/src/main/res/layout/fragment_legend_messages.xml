@@ -484,7 +484,7 @@
             android:id="@+id/ivAutoSubmitted"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/title_legend_receipt"
+            android:contentDescription="@string/title_legend_auto_submitted"
             android:padding="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/tvAutoSubmitted"
             app:layout_constraintStart_toStartOf="parent"
