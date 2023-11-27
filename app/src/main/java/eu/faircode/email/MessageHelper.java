@@ -206,7 +206,7 @@ public class MessageHelper {
     private static final String ARC_MESSAGE_SIGNATURE = "ARC-Message-Signature";
 
     static final List<String> ARC_WHITELIST_DEFAULT = Collections.unmodifiableList(Arrays.asList(
-            "google.com", "microsoft.com"
+            "google.com", "microsoft.com", "amazonses.com"
     ));
 
     private static final String DOCTYPE = "<!DOCTYPE";
