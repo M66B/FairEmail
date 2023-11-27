@@ -471,6 +471,7 @@ public abstract class DB extends RoomDatabase {
                             cursor.moveToNext(); // required
                         }
 
+                        // https://www.sqlite.org/pragma.html#pragma_journal_size_limit
                         Log.i("Set PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT);
                         try (Cursor cursor = db.query("PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT + ";")) {
                             cursor.moveToNext(); // required
