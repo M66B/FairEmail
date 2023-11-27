@@ -217,6 +217,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swEasyCorrect;
     private SwitchCompat swInfra;
     private SwitchCompat swTldFlags;
+    private SwitchCompat swJsonLd;
     private SwitchCompat swDupMsgId;
     private SwitchCompat swThreadByRef;
     private SwitchCompat swMdn;
@@ -284,7 +285,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "exact_alarms",
             "native_dkim", "native_arc", "native_arc_whitelist",
             "webp", "animate_images",
-            "easy_correct", "infra", "tld_flags", "dup_msgids", "thread_byref", "mdn",
+            "easy_correct", "infra", "tld_flags", "json_ld", "dup_msgids", "thread_byref", "mdn",
             "app_chooser", "app_chooser_share", "adjacent_links", "adjacent_documents", "adjacent_portrait", "adjacent_landscape",
             "delete_confirmation", "global_keywords", "test_iab"
     };
@@ -453,6 +454,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swEasyCorrect = view.findViewById(R.id.swEasyCorrect);
         swInfra = view.findViewById(R.id.swInfra);
         swTldFlags = view.findViewById(R.id.swTldFlags);
+        swJsonLd = view.findViewById(R.id.swJsonLd);
         swDupMsgId = view.findViewById(R.id.swDupMsgId);
         swThreadByRef = view.findViewById(R.id.swThreadByRef);
         swMdn = view.findViewById(R.id.swMdn);
@@ -1561,6 +1563,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             }
         });
 
+        swJsonLd.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("json_ld", checked).apply();
+            }
+        });
+
         swDupMsgId.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
@@ -2365,6 +2374,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swEasyCorrect.setChecked(prefs.getBoolean("easy_correct", false));
             swInfra.setChecked(prefs.getBoolean("infra", false));
             swTldFlags.setChecked(prefs.getBoolean("tld_flags", false));
+            swJsonLd.setChecked(prefs.getBoolean("json_ld", false));
             swDupMsgId.setChecked(prefs.getBoolean("dup_msgids", false));
             swThreadByRef.setChecked(prefs.getBoolean("thread_byref", true));
             swMdn.setChecked(prefs.getBoolean("mdn", swExperiments.isChecked()));

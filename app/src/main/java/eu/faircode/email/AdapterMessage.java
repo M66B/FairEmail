@@ -3033,6 +3033,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     final int zoom = args.getInt("zoom");
                     final float scale = args.getFloat("scale");
                     final boolean download_plain = prefs.getBoolean("download_plain", false);
+                    final boolean json_ld = prefs.getBoolean("json_ld", false);
 
                     if (message == null || !message.content)
                         return null;
@@ -3166,7 +3167,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     args.putBoolean("has_amp", has_amp);
 
                     // Check for structured email
-                    if (BuildConfig.DEBUG)
+                    if (json_ld)
                         for (Element struct : document.select("script[type=application/ld+json]"))
                             try {
                                 document.body().append(new StructuredEmail(struct.html()).getHtml(context));

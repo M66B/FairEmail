@@ -923,6 +923,7 @@
     <string name="title_advanced_easy_correct" translatable="false">Easy correct</string>
     <string name="title_advanced_infra" translatable="false">Show infrastructure</string>
     <string name="title_advanced_tld_flags" translatable="false">Show TLD flags</string>
+    <string name="title_advanced_json_ld" translatable="false">JSON-LD</string>
     <string name="title_advanced_dup_msgid" translatable="false">Duplicates by message ID</string>
     <string name="title_advanced_thread_by_ref" translatable="false">Thread by common reference</string>
     <string name="title_advanced_mdn" translatable="false">Process MDNs</string>
