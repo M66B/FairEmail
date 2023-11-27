@@ -1160,6 +1160,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_print_images">Resimleri yazdır</string>
     <string name="title_print_images_remark">Resimleri indirmek biraz zaman alabilir</string>
     <string name="title_print_block_quotes">Blok tırnak satırlarını yazdır</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Kenar boşluğu ekle</string>
     <string name="title_show_headers">Başlıkları Göster</string>
     <string name="title_show_html">Kaynak göster</string>
     <string name="title_raw_save">Ham iletiyi kaydet</string>

@@ -1165,6 +1165,7 @@
     <string name="title_print_images">Udskriv billeder</string>
     <string name="title_print_images_remark">Download af billeder kan tage lidt tid</string>
     <string name="title_print_block_quotes">Udskriv blokcitaterlinjer</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Tilføj en margin</string>
     <string name="title_show_headers">Vis overskrifter</string>
     <string name="title_show_html">Vis kilde</string>
     <string name="title_raw_save">Gem besked i råformat</string>

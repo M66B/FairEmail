@@ -1178,6 +1178,7 @@
     <string name="title_print_images">Štampaj slike</string>
     <string name="title_print_images_remark">Preuzimanje slika može malo potrajati</string>
     <string name="title_print_block_quotes">Štampanje blokova linija navodnika</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Dodaj marginu</string>
     <string name="title_show_headers">Prikaži zaglavlja</string>
     <string name="title_show_html">Prikaži izvor</string>
     <string name="title_raw_save">Sačuvaj raw poruku</string>

@@ -1159,7 +1159,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_print_images">Afbeeldingen afdrukken</string>
     <string name="title_print_images_remark">Afbeeldingen downloaden kan enige tijd duren</string>
     <string name="title_print_block_quotes">Blokcitaatlijnen afdrukken</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Voeg een marge toe</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Een marge toevoegen</string>
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_show_html">Bron tonen</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>

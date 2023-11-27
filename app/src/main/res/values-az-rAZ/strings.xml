@@ -312,7 +312,7 @@
     <string name="title_setup_defaults">İlkin vəziyyətinə qaytar</string>
     <string name="title_setup_reset_questions">Sualları sıfırla</string>
     <string name="title_setup_reset_general">Ümumi suallar</string>
-    <string name="title_setup_reset_links">Bağlantıları təsdiqlə</string>
+    <string name="title_setup_reset_links">Keçidləri təsdiqlə</string>
     <string name="title_setup_reset_files">Fayllara bax</string>
     <string name="title_setup_reset_images">Təsvirləri göstər</string>
     <string name="title_setup_reset_full">Orijinal mesajları göstər</string>
@@ -429,8 +429,8 @@
     <string name="title_advanced_download_headers">Bütün mesaj başlıqlarını endir</string>
     <string name="title_advanced_download_eml">Xam mesaj fayllarını endir</string>
     <string name="title_advanced_download_plain">Ilkin olaraq yalnız düz mətn hissələrini endir (əgər varsa)</string>
-    <string name="title_advanced_validated">Təsdiqlənmiş (yoxlanılmış) bir bağlantı tələb et</string>
-    <string name="title_advanced_validated_captive">Təsdiqlənmiş bir sabit portal bağlantısı tələb et</string>
+    <string name="title_advanced_validated">Doğrulanmış (yoxlanılmış) bir bağlantı tələb et</string>
+    <string name="title_advanced_validated_captive">Doğrulanmış bir sabit portal bağlantısı tələb et</string>
     <string name="title_advanced_vpn_only">Yalnız VPN vasitəsilə bağlantı qurun</string>
     <string name="title_advanced_timeout">Bağlantı bitmə vaxtı (saniyə)</string>
     <string name="title_advanced_prefer_ip4">IPv6 əvəzinə IPv4 tərcih et</string>
@@ -489,8 +489,8 @@
     <string name="title_advanced_color_stripe">Rəng zolağını göstər</string>
     <string name="title_advanced_color_stripe_wide">Geniş rəng zolağı istifadə et</string>
     <string name="title_advanced_avatars">Əlaqə fotolarını göstər</string>
-    <string name="title_advanced_bimi_unverified">Təsdiqlənməmiş göndərən</string>
-    <string name="title_advanced_bimi_verified">Təsdiqlənmiş göndərən</string>
+    <string name="title_advanced_bimi_unverified">Doğrulanmamış göndərən</string>
+    <string name="title_advanced_bimi_verified">Doğrulanmış göndərən</string>
     <string name="title_advanced_gravatars">\"Gravatar\"ları göstər</string>
     <string name="title_advanced_libravatars">\"Libravatar\"ları göstər</string>
     <string name="title_advanced_favicons">\"Favicon\"ları göstər</string>
@@ -653,7 +653,7 @@
     <string name="title_advanced_notify_screen_on">Yeni mesaj bildirişləri üçün ekranı qısa aç</string>
     <string name="title_advanced_notifications_background">Mesajları sinxronlaşdırmaq üçün arxaplan xidməti istifadə et</string>
     <string name="title_advanced_notifications_background_hint">Bir arxaplan xidməti istənilən vaxt Android tərəfindən dayandırıla bilər, ancaq vəziyyət sətri bildirişini tələb etmir</string>
-    <string name="title_advanced_confirm_links">Bağlantıların açılmasını təsdiqlə</string>
+    <string name="title_advanced_confirm_links">Keçidlərin açılmasını təsdiqlə</string>
     <string name="title_advanced_confirm_files">Fayllara baxışı təsdiqlə</string>
     <string name="title_advanced_sanitize_links">İzləmə parametrlərini ilkin olaraq çıxart</string>
     <string name="title_advanced_sanitize_links_hint">Yalnız keçidləri təsdiqləyərkən</string>
@@ -688,7 +688,7 @@
     <string name="title_advanced_sign_default">İlkin olaraq imzala</string>
     <string name="title_advanced_encrypt_default">İlkin olaraq şifrələ</string>
     <string name="title_advanced_encrypt_auto">Bütün alıcıların açarları əlçatan olduqda avtomatik şifrələ</string>
-    <string name="title_advanced_auto_verify">İmzalı mesajları avtomatik təsdiqlə</string>
+    <string name="title_advanced_auto_verify">İmzalı mesajları avtomatik doğrula</string>
     <string name="title_advanced_auto_decrypt">Mesajların şifrələrini avtomatik aç</string>
     <string name="title_advanced_auto_undo_decrypt">Danışığı bağlayanda şifrə açmanı geri al</string>
     <string name="title_advanced_openpgp">OpenPGP provayderi</string>
@@ -770,7 +770,7 @@
     <string name="title_advanced_sync_kept_hint">Bu, xüsusilə cihazda həddindən çox mesaj saxlanılanda ekstra data transfer edir və daha çox batareya enerjisi istifadə edir</string>
     <string name="title_advanced_gmail_thread_hint">Bu, yalnız yeni gələn mesajlara tətbiq olunur və mövcud qrupları zədələyə bilər</string>
     <string name="title_advanced_subject_threading_hint">Yalnız son %1$d saat ərzində alınan mesajlar</string>
-    <string name="title_advanced_sync_folders_hint">Bunu sıradan çıxartmaq, verilənlər və batareya istifadəsini bir az azaldacaq, ancaq qovluq siyahısının yenilənməsini də sıradan çıxardacaq</string>
+    <string name="title_advanced_sync_folders_hint">Bunu sıradan çıxartmaq, internet və batareya istifadəsini bir az azaldacaq, ancaq qovluq siyahısının güncəllənməsini də sıradan çıxardacaq</string>
     <string name="title_advanced_poll_folders_hint">Bir hesaba bağlandıqdan sonra əlavə olaraq qovluq siyahısını mütəmadi olaraq sinxronlaşdır</string>
     <string name="title_advanced_check_authentication_hint">Bu, e-poçt serveri tərəfindən icra edilən DKIM, SPF və DMARC kimlik doğrulamanın nəticələrini yoxlayacaq</string>
     <string name="title_advanced_check_tls_hint">Bu, yalnız bir mesaj bütün serverlər tərəfindən güvənli şəkildə daşınılıbsa yaşıl bir qalxan göstərəcək</string>
@@ -866,7 +866,7 @@
     <string name="title_advanced_never_favorite">Heç vaxt sevimlilər deyil</string>
     <string name="title_advanced_edit_name">Ada düzəliş et</string>
     <string name="title_advanced_create_alias">Ləqəb yarat</string>
-    <string name="title_advanced_create_alias_remark">Bəzi hallarda, ləqəb ünvanı, poçt provayderinin vebsaytı vasitəsilə təsdiqlənməlidir</string>
+    <string name="title_advanced_create_alias_remark">Bəzi hallarda, ləqəb ünvanı, poçt provayderinin veb saytı vasitəsilə doğrulanmalıdır</string>
     <string name="title_create_folder">Qovluq yarat</string>
     <string name="title_create_folder_name">Qovluq adı</string>
     <string name="title_create_folder_parent">Ana qovluq</string>
@@ -1007,7 +1007,7 @@
     <string name="title_service_token">Android hesab meneceri, bir VPN, güvənlik divarı, reklam əngəlləyici və s. tərəfindən əngəllənə bilər və müraciət tokeni almasını əngəlləyə bilər</string>
     <string name="title_service_port">Zəhmət olmasa port nömrəsini iki dəfə yoxlayın</string>
     <string name="title_service_protocol">Zəhmət olmasa protokolu iki dəfə yoxlayın (SSL/TLS və ya STARTTLS)</string>
-    <string name="title_service_error10">Bu hesabın kimliyi yenidən təsdiqlənməlidir, cəld quraşdırma sehrbazı vasitəsilə həyata keçirilə bilər</string>
+    <string name="title_service_error10">Bu hesabın kimliyi yenidən doğrulanmalıdır, cəld quraşdırma sehrbazı vasitəsilə həyata keçirilə bilər</string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_expand_read">Genişləndirəndə mesajları oxundu kimi işarələ</string>
     <string name="title_synchronize_now">İndi sinxronlaşdır</string>
@@ -1164,6 +1164,7 @@
     <string name="title_print_images">Təsvirləri çap et</string>
     <string name="title_print_images_remark">Təsvirlərin endirilməsi bir az vaxt apara bilər</string>
     <string name="title_print_block_quotes">Blok sitat xətlərini çap et</string>
+    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Haşiyə əlavə et</string>
     <string name="title_show_headers">Başlıqları göstər</string>
     <string name="title_show_html">Mənbəni göstər</string>
     <string name="title_raw_save">Xam mesajı saxla</string>
@@ -1456,7 +1457,7 @@
     <string name="title_queued">Mesaj göndərilir</string>
     <string name="title_queued_at">Mesaj təxminən %1$s göndəriləcək</string>
     <string name="title_sign">İmza</string>
-    <string name="title_verify">Təsdiq</string>
+    <string name="title_verify">Doğrula</string>
     <string name="title_encrypt">Şifrələ</string>
     <string name="title_decrypt">Şifrəni aç</string>
     <string name="title_reset_message_questions">Keçid suallarını sıfırla</string>
@@ -1469,7 +1470,7 @@
     <string name="title_no_openpgp_remark">Əvvəlcə \"PGB bir ucdan digərinə qədər şifrələmə\" konfiqurasiya edilməlidir</string>
     <string name="title_user_interaction">\"OpenKeychain\"ə köçürülür</string>
     <string name="title_padlock">Mesajın şifrəsini açmaq üçün asma kilid istifadə et</string>
-    <string name="title_signed_data">Mesaj mətnini göstərmək üçün imzanı təsdiqlə</string>
+    <string name="title_signed_data">Mesaj mətnini göstərmək üçün imzanı doğrula</string>
     <string name="title_not_encrypted">Mesaj imzalı və ya şifrələnmiş deyil</string>
     <string name="title_no_sign_key">Heç bir imza açarı seçilmədi</string>
     <string name="title_reset_sign_key">İmza açarını sıfırla</string>
@@ -1482,7 +1483,7 @@
     <string name="title_signature_unconfirmed_from">Mesaj imzası yararlıdır, ancaq təsdiqlənməyib: %1$s</string>
     <string name="title_signature_invalid">Mesaj imzası yararsızdır</string>
     <string name="title_signature_invalid_reason">Mesaj imzası yararsızdır: %1$s</string>
-    <string name="title_signature_key_missing">İmza təsdiqi üçün açar əskikdir</string>
+    <string name="title_signature_key_missing">İmza doğrulaması üçün açar əskikdir</string>
     <string name="title_signature_certificate_invalid">Sertifikat zənciri yararsızdır</string>
     <string name="title_signature_sender">Göndərənin ünvanı</string>
     <string name="title_signature_email">İmzanın ünvanı</string>
