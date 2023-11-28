@@ -19,6 +19,7 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -28,6 +29,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.core.text.method.LinkMovementMethodCompat;
+
+import java.util.List;
 
 public class ActivityError extends ActivityBase {
     static final int PI_ERROR = 1;
@@ -83,8 +86,6 @@ public class ActivityError extends ActivityBase {
         long identity = intent.getLongExtra("identity", -1L);
         int protocol = intent.getIntExtra("protocol", -1);
         int auth_type = intent.getIntExtra("auth_type", -1);
-        String personal = intent.getStringExtra("personal");
-        String address = intent.getStringExtra("address");
         int faq = intent.getIntExtra("faq", -1);
 
         tvTitle.setText(title);
@@ -106,8 +107,8 @@ public class ActivityError extends ActivityBase {
                     startActivity(new Intent(ActivityError.this, ActivitySetup.class)
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                             .putExtra("target", "gmail")
-                            .putExtra("personal", personal)
-                            .putExtra("address", address));
+                            .putExtra("personal", intent.getStringExtra("personal"))
+                            .putExtra("address", intent.getStringExtra("address")));
                 else if (auth_type == ServiceAuthenticator.AUTH_TYPE_OAUTH) {
                     try {
                         EmailProvider eprovider = EmailProvider.getProvider(ActivityError.this, provider);
@@ -119,8 +120,8 @@ public class ActivityError extends ActivityBase {
                                 .putExtra("privacy", eprovider.oauth.privacy)
                                 .putExtra("askAccount", eprovider.oauth.askAccount)
                                 .putExtra("askTenant", eprovider.oauth.askTenant())
-                                .putExtra("personal", personal)
-                                .putExtra("address", address));
+                                .putExtra("personal", intent.getStringExtra("personal"))
+                                .putExtra("address", intent.getStringExtra("address")));
                     } catch (Throwable ex) {
                         Log.e(ex);
                         startActivity(new Intent(ActivityError.this, ActivitySetup.class)
@@ -134,8 +135,8 @@ public class ActivityError extends ActivityBase {
                             .putExtra("name", "Outlook")
                             .putExtra("askAccount", true)
                             .putExtra("askTenant", true)
-                            .putExtra("personal", personal)
-                            .putExtra("address", address));
+                            .putExtra("personal", intent.getStringExtra("personal"))
+                            .putExtra("address", intent.getStringExtra("address")));
                 else
                     startActivity(new Intent(ActivityError.this, ActivitySetup.class)
                             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
@@ -165,5 +166,32 @@ public class ActivityError extends ActivityBase {
                 Helper.viewFAQ(view.getContext(), faq);
             }
         });
+
+        Bundle args = new Bundle();
+        args.putLong("account", account);
+
+        new SimpleTask<EntityIdentity>() {
+            @Override
+            protected EntityIdentity onExecute(Context context, Bundle args) throws Throwable {
+                long account = args.getLong("account");
+
+                DB db = DB.getInstance(context);
+                List<EntityIdentity> identities = db.identity().getSynchronizingIdentities(account);
+                return (identities == null || identities.size() != 1 ? null : identities.get(0));
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityIdentity identity) {
+                if (identity == null)
+                    return;
+                intent.putExtra("personal", identity.name);
+                intent.putExtra("address", identity.email);
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                // Ignored
+            }
+        }.execute(this, args, "error:details");
     }
 }

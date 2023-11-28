@@ -5515,6 +5515,7 @@ class Core {
         intent.putExtra("account", account.id);
         intent.putExtra("protocol", account.protocol);
         intent.putExtra("auth_type", account.auth_type);
+        intent.putExtra("address", account.user);
         intent.putExtra("faq", 22);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pi = PendingIntentCompat.getActivity(
