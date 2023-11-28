@@ -25,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.util.Iterator;
 
@@ -40,18 +41,19 @@ public class StructuredEmail {
 
     public String getHtml(Context context) throws JSONException {
         try {
-            StringBuilder sb = new StringBuilder();
-            getHtml(jroot, 0, sb);
-
             Document d = Document.createShell("");
             d.body().appendElement("hr");
             d.body().appendElement("div")
-                    .attr("style", "font-size: larger !important;")
-                    .text("Linked Data");
+                    .attr("style",
+                            "font-family: monospace; font-size: larger !important;")
+                    .appendElement("a")
+                    .attr("href", "https://json-ld.org/")
+                    .text("Linked data");
             d.body().appendElement("br");
-            d.body().appendElement("div")
-                    .attr("style", "font-size: smaller !important;")
-                    .html(HtmlHelper.formatPlainText(sb.toString()));
+            Element holder = d.body().appendElement("div")
+                    .attr("style",
+                            "font-family: monospace; font-size: smaller !important;");
+            getHtml(jroot, 0, holder);
             d.body().appendElement("hr");
             return d.body().html();
         } catch (Throwable ex) {
@@ -62,7 +64,7 @@ public class StructuredEmail {
         }
     }
 
-    private void getHtml(Object obj, int indent, StringBuilder sb) throws JSONException {
+    private void getHtml(Object obj, int indent, Element holder) throws JSONException {
         if (obj instanceof JSONObject) {
             JSONObject jobject = (JSONObject) obj;
             Iterator<String> keys = jobject.keys();
@@ -70,28 +72,28 @@ public class StructuredEmail {
                 String key = keys.next();
                 if (key == null)
                     continue;
+
+                indent(indent, holder);
                 Object v = (jobject.isNull(key) ? "" : jobject.get(key));
+                holder.appendElement("strong")
+                        .text(unCamelCase(key) + ": ");
+
                 if (v instanceof JSONObject || v instanceof JSONArray) {
-                    sb.append(unCamelCase(key))
-                            .append(':')
-                            .append('\n');
-                    getHtml(v, indent + 1, sb);
+                    holder.appendElement("br");
+                    getHtml(v, indent + 1, holder);
                 } else {
-                    sb.append(indent(indent))
-                            .append(unCamelCase(key))
-                            .append(": ")
-                            .append(v)
-                            .append('\n');
+                    holder.appendElement("span").text(v.toString());
+                    holder.appendElement("br");
                 }
             }
         } else if (obj instanceof JSONArray) {
             JSONArray jarray = (JSONArray) obj;
             for (int i = 0; i < jarray.length(); i++)
-                getHtml(jarray.get(i), indent + 1, sb);
+                getHtml(jarray.get(i), indent, holder);
         } else {
-            sb.append(indent(indent))
-                    .append(obj == null ? "" : obj.toString())
-                    .append('\n');
+            indent(indent, holder);
+            holder.appendElement("span").text(obj == null ? "" : obj.toString());
+            holder.appendElement("br");
         }
     }
 
@@ -115,10 +117,11 @@ public class StructuredEmail {
         return sb.toString();
     }
 
-    private static String indent(int count) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < count; i++)
-            sb.append("  ");
-        return sb.toString();
+    private static void indent(int count, Element holder) {
+        if (count > 0) {
+            Element span = holder.appendElement("span");
+            for (int i = 0; i < count; i++)
+                span.append("&nbsp;&nbsp;");
+        }
     }
 }
