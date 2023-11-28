@@ -41,20 +41,27 @@ public class StructuredEmail {
     }
 
     public String getHtml(Context context) throws JSONException {
-        StringBuilder sb = new StringBuilder();
-        getHtml(jroot, 0, sb);
+        try {
+            StringBuilder sb = new StringBuilder();
+            getHtml(jroot, 0, sb);
 
-        Document d = Document.createShell("");
-        d.appendElement("hr");
-        d.appendElement("div")
-                .attr("style", "font-size: larger !important;")
-                .text("Linked Data");
-        d.appendElement("br");
-        d.appendElement("div")
-                .attr("style", "font-size: smaller !important;")
-                .html(HtmlHelper.formatPlainText(sb.toString()));
-        d.appendElement("hr");
-        return d.html();
+            Document d = Document.createShell("");
+            d.body().appendElement("hr");
+            d.body().appendElement("div")
+                    .attr("style", "font-size: larger !important;")
+                    .text("Linked Data");
+            d.body().appendElement("br");
+            d.body().appendElement("div")
+                    .attr("style", "font-size: smaller !important;")
+                    .html(HtmlHelper.formatPlainText(sb.toString()));
+            d.body().appendElement("hr");
+            return d.body().html();
+        } catch (Throwable ex) {
+            Log.e(ex);
+            Document d = Document.createShell("");
+            d.body().append("pre").text(Log.formatThrowable(ex, false));
+            return d.body().html();
+        }
     }
 
     private void getHtml(Object obj, int indent, StringBuilder sb) throws JSONException {
