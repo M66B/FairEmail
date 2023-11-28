@@ -4928,6 +4928,10 @@ Please note that FairEmail doesn't store a copy of your messages in the cloud fo
 If you want to store messages in folders, please use IMAP,
 so that there is always a copy of the messages on the email server.
 
+You could register, for example, a Gmail account, and configure Gmail to import messages from a POP3 account,
+automatically label them (=put them in a folder), and configure the Gmail account in FairEmail.
+Please [see here](https://support.google.com/mail/answer/21289?hl=en&co=GENIE.Platform%3DDesktop) for instructions.
+
 <br />
 
 <a name="faq171"></a>
