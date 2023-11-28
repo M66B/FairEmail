@@ -1483,6 +1483,12 @@ $domain$
 $group$ (since version 1.2030)</code></pre>
 <p><span class="math inline"><em>g</em><em>r</em><em>o</em><em>u</em><em>p</em></span> will be replaced with the contact group name of the sender, provided that the related contact is assigned to one contact group only. Note that the Android contact provider isn’t very fast, so using this placeholder can slow down fetching messages.</p>
 <p><br /></p>
+<p>Since version 1.2132 it is possible to use the following placeholders in keywords:</p>
+<pre><code>$day$
+$week$
+$month$
+$year$</code></pre>
+<p><br /></p>
 <p>Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space it is by default not possible to preview which messages would match a header rule condition. You can enable downloading message headers in the connection settings and check headers conditions anyway (since version 1.1599).</p>
 <p>Some common header conditions (regex):</p>
 <ul>

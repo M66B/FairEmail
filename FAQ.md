@@ -2748,6 +2748,17 @@ Note that the Android contact provider isn't very fast, so using this placeholde
 
 <br />
 
+Since version 1.2132 it is possible to use the following placeholders in keywords:
+
+```
+$day$
+$week$
+$month$
+$year$
+```
+
+<br />
+
 Since message headers are not downloaded and stored by default to save on battery and data usage and to save storage space
 it is by default not possible to preview which messages would match a header rule condition.
 You can enable downloading message headers in the connection settings and check headers conditions anyway (since version 1.1599).
