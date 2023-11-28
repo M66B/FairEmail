@@ -391,9 +391,12 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
             ss.setSpan(new RelativeSizeSpan(0.9f), 0, ss.length(), 0);
             popupMenu.getMenu().add(Menu.NONE, 0, order++, ss).setEnabled(false);
 
-            if (settings)
+            if (settings) {
                 popupMenu.getMenu().add(Menu.NONE, R.string.title_enabled, order++, R.string.title_enabled)
                         .setCheckable(true).setChecked(account.synchronize);
+                popupMenu.getMenu().add(Menu.NONE, R.string.title_account_ondemand, order++, R.string.title_account_ondemand)
+                        .setCheckable(true).setChecked(account.ondemand);
+            }
             popupMenu.getMenu().add(Menu.NONE, R.string.title_primary, order++, R.string.title_primary)
                     .setCheckable(true).setChecked(account.primary);
 
@@ -431,6 +434,9 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                     int itemId = item.getItemId();
                     if (itemId == R.string.title_enabled) {
                         onActionSync(!item.isChecked());
+                        return true;
+                    } else if (itemId == R.string.title_account_ondemand) {
+                        onActionOnDemand(!item.isChecked());
                         return true;
                     } else if (itemId == R.string.title_primary) {
                         onActionPrimary(!item.isChecked());
@@ -507,6 +513,38 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                             Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
                         }
                     }.execute(context, owner, args, "account:enable");
+                }
+
+                private void onActionOnDemand(boolean enable) {
+                    Bundle args = new Bundle();
+                    args.putLong("id", account.id);
+                    args.putBoolean("enable", enable);
+
+                    new SimpleTask<Boolean>() {
+                        @Override
+                        protected Boolean onExecute(Context context, Bundle args) {
+                            long id = args.getLong("id");
+                            boolean enable = args.getBoolean("enable");
+
+                            DB db = DB.getInstance(context);
+                            try {
+                                db.beginTransaction();
+
+                                db.account().setAccountOnDemand(id, enable);
+
+                                db.setTransactionSuccessful();
+                            } finally {
+                                db.endTransaction();
+                            }
+
+                            return enable;
+                        }
+
+                        @Override
+                        protected void onException(Bundle args, Throwable ex) {
+                            Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                        }
+                    }.execute(context, owner, args, "account:ondemand");
                 }
 
                 private void onActionPrimary(boolean primary) {
