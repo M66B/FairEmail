@@ -20,8 +20,6 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -74,13 +72,13 @@ public class StructuredEmail {
                     continue;
                 Object v = (jobject.isNull(key) ? "" : jobject.get(key));
                 if (v instanceof JSONObject || v instanceof JSONArray) {
-                    sb.append(split(key))
+                    sb.append(unCamelCase(key))
                             .append(':')
                             .append('\n');
                     getHtml(v, indent + 1, sb);
                 } else {
                     sb.append(indent(indent))
-                            .append(split(key))
+                            .append(unCamelCase(key))
                             .append(": ")
                             .append(v)
                             .append('\n');
@@ -97,19 +95,27 @@ public class StructuredEmail {
         }
     }
 
-    private String split(String key) {
+    private static String unCamelCase(String key) {
+        boolean split = false;
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < key.length(); i++) {
             char kar = key.charAt(i);
-            if (Character.isUpperCase(kar))
-                sb.append(' ').append(Character.toLowerCase(kar));
-            else
+            if (Character.isUpperCase(kar)) {
+                if (split)
+                    sb.append(kar);
+                else {
+                    split = true;
+                    sb.append(' ').append(Character.toLowerCase(kar));
+                }
+            } else {
+                split = false;
                 sb.append(kar);
+            }
         }
         return sb.toString();
     }
 
-    private String indent(int count) {
+    private static String indent(int count) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < count; i++)
             sb.append("  ");
