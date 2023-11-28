@@ -8344,49 +8344,66 @@ public class FragmentMessages extends FragmentBase
     private OnBackPressedCallback backPressedCallback = new OnBackPressedCallback(true) {
         @Override
         public void handleOnBackPressed() {
-            if (Helper.isKeyboardVisible(view)) {
-                Helper.hideKeyboard(view);
-                return;
+            try {
+                if (Helper.isKeyboardVisible(view)) {
+                    Helper.hideKeyboard(view);
+                    return;
+                }
+
+                if (isSearching()) {
+                    endSearch();
+                    return;
+                }
+
+                if (selectionTracker != null && selectionTracker.hasSelection()) {
+                    selectionTracker.clearSelection();
+                    return;
+                }
+
+                if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                    return;
+
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                boolean collapse_multiple = prefs.getBoolean("collapse_multiple", true);
+
+                int count = 0;
+                for (int i = 0; i < adapter.getItemCount(); i++) {
+                    TupleMessageEx message = adapter.getItemAtPosition(i);
+                    if (message != null && !message.duplicate)
+                        count++;
+                }
+
+                int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
+                if (collapse_multiple && expanded > 0 && count > 1) {
+                    values.get("expanded").clear();
+                    updateExpanded();
+                    iProperties.refresh();
+                    return;
+                }
+
+                handleExit();
+
+                FragmentActivity activity = getActivity();
+                if (activity instanceof ActivityBase)
+                    ((ActivityBase) activity).onBackPressedFragment();
+                else
+                    finish();
+            } catch (Throwable ex) {
+                Log.w(ex);
+                /*
+                    java.lang.IllegalStateException: Cannot call this method while RecyclerView is computing a layout or scrolling eu.faircode.email.FixedRecyclerView{9095e62 VFED..... ........ 0,0-1440,2704 #7f0a0600 app:id/rvMessage}, adapter:eu.faircode.email.AdapterMessage@c71b6dc, layout:eu.faircode.email.FragmentMessages$11@58b3bf3, context:eu.faircode.email.ActivityView@9b77aad
+                            at androidx.recyclerview.widget.RecyclerView.assertNotInLayoutOrScroll(RecyclerView:3482)
+                            at androidx.recyclerview.widget.RecyclerView$RecyclerViewDataObserver.onItemRangeChanged(RecyclerView:6071)
+                            at androidx.recyclerview.widget.RecyclerView$AdapterDataObservable.notifyItemRangeChanged(RecyclerView:13219)
+                            at androidx.recyclerview.widget.RecyclerView$Adapter.notifyItemChanged(RecyclerView:8136)
+                            at androidx.recyclerview.selection.EventBridge$TrackerToAdapterBridge.onItemStateChanged(EventBridge:99)
+                            at androidx.recyclerview.selection.DefaultSelectionTracker.notifyItemStateChanged(DefaultSelectionTracker:439)
+                            at androidx.recyclerview.selection.DefaultSelectionTracker.notifySelectionCleared(DefaultSelectionTracker:451)
+                            at androidx.recyclerview.selection.DefaultSelectionTracker.clearPrimarySelection(DefaultSelectionTracker:182)
+                            at androidx.recyclerview.selection.DefaultSelectionTracker.clearSelection(DefaultSelectionTracker:170)
+                            at eu.faircode.email.FragmentMessages$130.handleOnBackPressed(FragmentMessages:8288)
+                 */
             }
-
-            if (isSearching()) {
-                endSearch();
-                return;
-            }
-
-            if (selectionTracker != null && selectionTracker.hasSelection()) {
-                selectionTracker.clearSelection();
-                return;
-            }
-
-            if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                return;
-
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
-            boolean collapse_multiple = prefs.getBoolean("collapse_multiple", true);
-
-            int count = 0;
-            for (int i = 0; i < adapter.getItemCount(); i++) {
-                TupleMessageEx message = adapter.getItemAtPosition(i);
-                if (message != null && !message.duplicate)
-                    count++;
-            }
-
-            int expanded = (values.containsKey("expanded") ? values.get("expanded").size() : 0);
-            if (collapse_multiple && expanded > 0 && count > 1) {
-                values.get("expanded").clear();
-                updateExpanded();
-                iProperties.refresh();
-                return;
-            }
-
-            handleExit();
-
-            FragmentActivity activity = getActivity();
-            if (activity instanceof ActivityBase)
-                ((ActivityBase) activity).onBackPressedFragment();
-            else
-                finish();
         }
     };
 
