@@ -29,13 +29,15 @@ import org.jsoup.nodes.Element;
 
 import java.util.Iterator;
 
-// https://structured.email/content/introduction/getting_started.html
+// https://json-ld.org/
+// https://schema.org/
 // https://schema.org/FlightReservation
+// https://structured.email/content/introduction/getting_started.html
 
-public class StructuredEmail {
+public class JsonLd {
     private final JSONObject jroot;
 
-    public StructuredEmail(String json) throws JSONException {
+    public JsonLd(String json) throws JSONException {
         jroot = new JSONObject(json);
     }
 

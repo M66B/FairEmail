@@ -116,7 +116,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.constraintlayout.widget.Group;
 import androidx.core.app.ShareCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.FileProvider;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.graphics.ColorUtils;
 import androidx.core.text.method.LinkMovementMethodCompat;
@@ -146,7 +145,6 @@ import androidx.webkit.WebViewFeature;
 
 import com.google.android.material.snackbar.Snackbar;
 
-import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
@@ -3170,7 +3168,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     if (json_ld)
                         for (Element struct : document.select("script[type=application/ld+json]"))
                             try {
-                                document.body().append(new StructuredEmail(struct.html()).getHtml(context));
+                                document.body().append(new JsonLd(struct.html()).getHtml(context));
                             } catch (Throwable ex) {
                                 Log.w(ex);
                             }

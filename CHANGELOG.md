@@ -8,7 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Basic support for [Structured Email](https://structured.email/)
+* Basic support for [Linked Data](https://json-ld.org/)
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

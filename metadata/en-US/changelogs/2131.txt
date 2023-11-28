@@ -8,7 +8,7 @@ Vallibonavenatrix
 
 Next version
 
-* Basic support for Structured Email
+* Basic support for Linked Data
 * Small improvements and minor bug fixes
 * Updated translations
 
