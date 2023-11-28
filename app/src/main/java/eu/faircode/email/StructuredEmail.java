@@ -41,14 +41,135 @@ public class StructuredEmail {
     }
 
     public String getHtml(Context context) throws JSONException {
+        String title;
         StringBuilder sb = new StringBuilder();
-        getHtml(jroot, 0, sb);
+
+        if ("https://schema.org".equals(jroot.optString("@context")) &&
+                "FlightReservation".equals(jroot.optString("@type"))) {
+            // https://www.schema.org/FlightReservation
+            title = "Flight reservation";
+
+            sb.append("Reservation #");
+            if (jroot.has("reservationId"))
+                sb.append(jroot.getString("reservationId"));
+            sb.append('\n');
+
+            sb.append("Passenger: ");
+            if (jroot.has("underName")) {
+                JSONObject jundername = jroot.getJSONObject("underName");
+                if ("Person".equals(jundername.optString("@type")) &&
+                        jundername.has("name"))
+                    sb.append(jundername.getString("name"));
+            }
+            sb.append('\n');
+
+            sb.append("Flight: ");
+            if (jroot.has("reservationFor")) {
+                JSONObject jreservation = jroot.getJSONObject("reservationFor");
+                if ("Flight".equals(jreservation.optString("@type"))) {
+                    if (jreservation.has("flightNumber"))
+                        sb.append(jreservation.getString("flightNumber"));
+                }
+            }
+            sb.append('\n');
+
+            sb.append("Operated by: ");
+            if (jroot.has("reservationFor")) {
+                JSONObject jreservation = jroot.getJSONObject("reservationFor");
+                if ("Flight".equals(jreservation.optString("@type"))) {
+                    if (jreservation.has("provider")) {
+                        JSONObject jprovider = jreservation.getJSONObject("provider");
+                        if (jprovider.has("name"))
+                            sb.append(jprovider.getString("name"));
+                    }
+                }
+            }
+            sb.append('\n');
+
+            sb.append("Departing: ");
+            if (jroot.has("reservationFor")) {
+                JSONObject jreservation = jroot.getJSONObject("reservationFor");
+                if (jreservation.has("departureAirport")) {
+                    JSONObject jdeparture = jreservation.getJSONObject("departureAirport");
+                    if ("Airport".equals(jdeparture.getString("@type"))) {
+                        if (jdeparture.has("name"))
+                            sb.append(jdeparture.getString("name")).append(' ');
+                        if (jdeparture.has("iataCode"))
+                            sb.append('(').append(jdeparture.getString("iataCode")).append(") ");
+                    }
+                }
+                if (jreservation.has("departureTime"))
+                    sb.append(jreservation.getString("departureTime"));
+            }
+            sb.append('\n');
+
+            sb.append("Arriving: ");
+            if (jroot.has("reservationFor")) {
+                JSONObject jreservation = jroot.getJSONObject("reservationFor");
+                if (jreservation.has("arrivalAirport")) {
+                    JSONObject jarrival = jreservation.getJSONObject("arrivalAirport");
+                    if ("Airport".equals(jarrival.getString("@type"))) {
+                        if (jarrival.has("name"))
+                            sb.append(jarrival.getString("name")).append(' ');
+                        if (jarrival.has("iataCode"))
+                            sb.append('(').append(jarrival.getString("iataCode")).append(") ");
+                    }
+                }
+                if (jreservation.has("arrivalTime"))
+                    sb.append(jreservation.getString("arrivalTime"));
+            }
+            sb.append('\n');
+
+            sb.append("Passenger sequence number: ");
+            if (jroot.has("passengerSequenceNumber"))
+                sb.append(jroot.getString("passengerSequenceNumber"));
+            sb.append('\n');
+
+            sb.append("Boarding priority: ");
+            if (jroot.has("passengerPriorityStatus"))
+                sb.append(jroot.getString("passengerPriorityStatus"));
+            sb.append('\n');
+
+            sb.append("Boarding policy: ");
+            if (jroot.has("reservationFor")) {
+                JSONObject jreservation = jroot.getJSONObject("reservationFor");
+                if ("Flight".equals(jreservation.optString("@type"))) {
+                    if (jreservation.has("provider")) {
+                        JSONObject jprovider = jreservation.getJSONObject("provider");
+                        if (jprovider.has("boardingPolicy")) {
+                            String policy = jprovider.getString("boardingPolicy");
+                            try {
+                                Uri p = Uri.parse(policy);
+                                String path = p.getPath();
+                                if (!TextUtils.isEmpty(path)) {
+                                    path = path.substring(1);
+                                    if (!TextUtils.isEmpty(path))
+                                        policy = split(path);
+                                }
+                            } catch (Throwable ex) {
+                                Log.w(ex);
+                            }
+                            sb.append(policy);
+                        }
+                    }
+                }
+            }
+            sb.append('\n');
+
+            sb.append("Security screening: ");
+            if (jroot.has("securityScreening"))
+                sb.append(jroot.getString("securityScreening"));
+            sb.append('\n');
+        } else {
+            title = "Linked data";
+            getHtml(jroot, 0, sb);
+        }
 
         Document d = Document.createShell("");
         d.appendElement("hr");
         d.appendElement("div")
                 .attr("style", "font-size: larger !important;")
-                .text("Linked Data");
+                .text(title);
         d.appendElement("br");
         d.appendElement("div")
                 .attr("style", "font-size: smaller !important;")
