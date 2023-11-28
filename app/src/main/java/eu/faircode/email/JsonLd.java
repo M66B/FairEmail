@@ -38,6 +38,8 @@ public class JsonLd {
     private JSONObject jroot;
     private Throwable error = null;
 
+    private static final String URI_SCHEMA_ORG = "https://schema.org/";
+
     public JsonLd(String json) {
         try {
             jroot = new JSONObject(json);
@@ -93,7 +95,10 @@ public class JsonLd {
                     holder.appendElement("br");
                     getHtml(v, indent + 1, holder);
                 } else {
-                    holder.appendElement("span").text(v.toString());
+                    String _v = v.toString();
+                    if (_v.startsWith(URI_SCHEMA_ORG))
+                        _v = unCamelCase(_v.substring(URI_SCHEMA_ORG.length()));
+                    holder.appendElement("span").text(_v);
                     holder.appendElement("br");
                 }
             }
@@ -103,7 +108,8 @@ public class JsonLd {
                 getHtml(jarray.get(i), indent, holder);
         } else {
             indent(indent, holder);
-            holder.appendElement("span").text(obj == null ? "" : obj.toString());
+            String v = (obj == null ? "" : obj.toString());
+            holder.appendElement("span").text(v);
             holder.appendElement("br");
         }
     }
