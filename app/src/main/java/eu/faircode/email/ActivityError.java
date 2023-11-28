@@ -176,8 +176,15 @@ public class ActivityError extends ActivityBase {
                 long account = args.getLong("account");
 
                 DB db = DB.getInstance(context);
-                List<EntityIdentity> identities = db.identity().getSynchronizingIdentities(account);
-                return (identities == null || identities.size() != 1 ? null : identities.get(0));
+                List<EntityIdentity> identities = db.identity().getIdentities(account);
+                if (identities == null)
+                    return null;
+                if (identities.size() == 1)
+                    return identities.get(0);
+                for (EntityIdentity identity : identities)
+                    if (identity.primary)
+                        return identity;
+                return null;
             }
 
             @Override
