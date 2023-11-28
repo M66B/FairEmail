@@ -2662,14 +2662,6 @@ public class FragmentCompose extends FragmentBase {
                 OpenAI.Message[] completions =
                         OpenAI.completeChat(context, model, result.toArray(new OpenAI.Message[0]), temperature, 1);
 
-                try {
-                    Pair<Double, Double> usage = OpenAI.getGrants(context);
-                    args.putDouble("used", usage.first);
-                    args.putDouble("granted", usage.second);
-                } catch (Throwable ex) {
-                    Log.w(ex);
-                }
-
                 return completions;
             }
 

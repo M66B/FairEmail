@@ -208,7 +208,7 @@ android {
             buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"https://api.fairemail.net/sync\""
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
-            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
+            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/v1/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
@@ -230,7 +230,7 @@ android {
             buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"https://api.fairemail.net/sync\""
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
-            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
+            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/v1/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }
@@ -261,7 +261,7 @@ android {
             buildConfigField "String", "ANNOUNCEMENT_URI", "\"\""
             buildConfigField "String", "CLOUD_URI", "\"https://api.fairemail.net/sync\""
             buildConfigField "String", "CLOUD_EMAIL", "\"cloud@in.faircode.eu\""
-            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/\""
+            buildConfigField "String", "OPENAI_ENDPOINT", "\"https://api.openai.com/v1/\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"https://openai.com/policies/privacy-policy\""
             buildConfigField "String", "FDROID", "\"https://f-droid.org/packages/%s/\""
         }

@@ -58,39 +58,11 @@ public class OpenAI {
                 (!TextUtils.isEmpty(apikey) || !Objects.equals(getUri(context), BuildConfig.OPENAI_ENDPOINT)));
     }
 
-    static Pair<Double, Double> getGrants(Context context) throws JSONException, IOException {
-        // dashboard/billing/credit_grants
-        // {
-        //  "object": "credit_summary",
-        //  "total_granted": <float>,
-        //  "total_used": <float>,
-        //  "total_available": <float>,
-        //  "grants": {
-        //    "object": "list",
-        //    "data": [
-        //      {
-        //        "object": "credit_grant",
-        //        "id": "<guid>>",
-        //        "grant_amount": <float>,
-        //        "used_amount": <float>>,
-        //        "effective_at": <unixtime>,
-        //        "expires_at": <unixtime>
-        //      }
-        //    ]
-        //  }
-        //}
-
-        JSONObject grants = call(context, "GET", "dashboard/billing/credit_grants", null);
-        return new Pair<>(
-                grants.getDouble("total_used"),
-                grants.getDouble("total_granted"));
-    }
-
     static void checkModeration(Context context, String text) throws JSONException, IOException {
         // https://platform.openai.com/docs/api-reference/moderations/create
         JSONObject jrequest = new JSONObject();
         jrequest.put("input", text);
-        JSONObject jresponse = call(context, "POST", "v1/moderations", jrequest);
+        JSONObject jresponse = call(context, "POST", "moderations", jrequest);
         JSONArray jresults = jresponse.getJSONArray("results");
         for (int i = 0; i < jresults.length(); i++) {
             JSONObject jresult = jresults.getJSONObject(i);
@@ -117,7 +89,7 @@ public class OpenAI {
         JSONObject jrequest = new JSONObject();
         jrequest.put("input", text);
         jrequest.put("model", model == null ? "text-embedding-ada-002" : model);
-        JSONObject jresponse = call(context, "POST", "v1/embeddings", jrequest);
+        JSONObject jresponse = call(context, "POST", "embeddings", jrequest);
         JSONObject jdata = jresponse.getJSONArray("data").getJSONObject(0);
         JSONArray jembedding = jdata.getJSONArray("embedding");
         double[] result = new double[jembedding.length()];
@@ -143,7 +115,7 @@ public class OpenAI {
         if (temperature != null)
             jquestion.put("temperature", temperature);
         jquestion.put("n", n);
-        JSONObject jresponse = call(context, "POST", "v1/chat/completions", jquestion);
+        JSONObject jresponse = call(context, "POST", "chat/completions", jquestion);
 
         JSONArray jchoices = jresponse.getJSONArray("choices");
         Message[] choices = new Message[jchoices.length()];
@@ -227,7 +199,7 @@ public class OpenAI {
                     Log.w(ex);
                 }
                 if (status == 429)
-                    error = "\nThis is an error message from OpenAI, not of the app";
+                    error += "\nThis is an error message from OpenAI, not of the app";
                 throw new IOException(error);
             }
 
