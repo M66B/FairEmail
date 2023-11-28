@@ -3033,7 +3033,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     final int zoom = args.getInt("zoom");
                     final float scale = args.getFloat("scale");
                     final boolean download_plain = prefs.getBoolean("download_plain", false);
-                    final boolean json_ld = prefs.getBoolean("json_ld", false);
+                    final boolean json_ld = prefs.getBoolean("json_ld", true);
 
                     if (message == null || !message.content)
                         return null;
