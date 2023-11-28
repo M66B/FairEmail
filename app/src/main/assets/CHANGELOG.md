@@ -6,7 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Vallibonavenatrix](https://en.wikipedia.org/wiki/Vallibonavenatrix)
 
-### 1.2131 - 2023-11-27
+### Next version
+
+* Basic support for [Structured Email](https://structured.email/)
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
+### 1.2131 - 2023-11-27 *
 
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
