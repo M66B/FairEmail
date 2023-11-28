@@ -3167,11 +3167,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     // Check for structured email
                     if (json_ld)
                         for (Element struct : document.select("script[type=application/ld+json]"))
-                            try {
-                                document.body().append(new JsonLd(struct.html()).getHtml(context));
-                            } catch (Throwable ex) {
-                                Log.w(ex);
-                            }
+                            document.body().append(new JsonLd(struct.html()).getHtml(context));
 
                     // Format message
                     if (show_full) {

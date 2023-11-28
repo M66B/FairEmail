@@ -35,14 +35,23 @@ import java.util.Iterator;
 // https://structured.email/content/introduction/getting_started.html
 
 public class JsonLd {
-    private final JSONObject jroot;
+    private JSONObject jroot;
+    private Throwable error = null;
 
-    public JsonLd(String json) throws JSONException {
-        jroot = new JSONObject(json);
+    public JsonLd(String json) {
+        try {
+            jroot = new JSONObject(json);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            error = ex;
+        }
     }
 
-    public String getHtml(Context context) throws JSONException {
+    public String getHtml(Context context) {
         try {
+            if (error != null)
+                throw error;
+
             Document d = Document.createShell("");
             d.body().appendElement("hr");
             d.body().appendElement("div")
