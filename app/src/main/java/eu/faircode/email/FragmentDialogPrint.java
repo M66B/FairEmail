@@ -46,6 +46,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.FragmentManager;
 import androidx.preference.PreferenceManager;
+import androidx.webkit.WebSettingsCompat;
+import androidx.webkit.WebViewFeature;
 
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -389,6 +391,10 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                 settings.setUserAgentString(WebViewEx.getUserAgent(context, printWebView));
                 settings.setLoadsImagesAutomatically(print_html_images);
                 settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+
+                if (WebViewEx.isFeatureSupported(context, WebViewFeature.ATTRIBUTION_REGISTRATION_BEHAVIOR))
+                    WebSettingsCompat.setAttributionRegistrationBehavior(settings, WebSettingsCompat.ATTRIBUTION_BEHAVIOR_DISABLED);
+
                 settings.setJavaScriptEnabled(false);
                 settings.setAllowFileAccess(true);
 

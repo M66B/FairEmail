@@ -116,6 +116,9 @@ public class ActivityCode extends ActivityBase {
         settings.setCacheMode(WebSettings.LOAD_CACHE_ONLY);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
 
+        if (WebViewEx.isFeatureSupported(this, WebViewFeature.ATTRIBUTION_REGISTRATION_BEHAVIOR))
+            WebSettingsCompat.setAttributionRegistrationBehavior(settings, WebSettingsCompat.ATTRIBUTION_BEHAVIOR_DISABLED);
+
         settings.setLoadsImagesAutomatically(false);
         settings.setBlockNetworkLoads(true);
         settings.setBlockNetworkImage(true);

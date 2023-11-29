@@ -99,6 +99,8 @@ public class ActivityAMP extends ActivityBase {
 
         if (WebViewEx.isFeatureSupported(this, WebViewFeature.SAFE_BROWSING_ENABLE))
             WebSettingsCompat.setSafeBrowsingEnabled(settings, safe_browsing);
+        if (WebViewEx.isFeatureSupported(this, WebViewFeature.ATTRIBUTION_REGISTRATION_BEHAVIOR))
+            WebSettingsCompat.setAttributionRegistrationBehavior(settings, WebSettingsCompat.ATTRIBUTION_BEHAVIOR_DISABLED);
 
         setDarkMode();
 
