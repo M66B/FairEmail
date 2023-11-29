@@ -2616,6 +2616,8 @@ public class MessageHelper {
             InternetAddress iaddress = (InternetAddress) address;
             String email = iaddress.getAddress();
             String personal = iaddress.getPersonal();
+            if (!TextUtils.isEmpty(personal))
+                personal = personal.replace("\u00ad", ""); // soft hyphen
 
             if (TextUtils.isEmpty(email) && TextUtils.isEmpty(personal))
                 continue;
@@ -2851,7 +2853,8 @@ public class MessageHelper {
         return subject
                 .trim()
                 .replace("\n", "")
-                .replace("\r", "");
+                .replace("\r", "")
+                .replace("\u00ad", "");  // soft hyphen
     }
 
     Long getSize() throws MessagingException {
