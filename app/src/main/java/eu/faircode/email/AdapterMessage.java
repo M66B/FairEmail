@@ -3010,6 +3010,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             args.putBoolean("fake_dark", !canDarken && fake_dark && dark && !force_light);
 
+            Log.breadcrumb("message:body", args);
+
             new SimpleTask<Object>() {
                 @Override
                 protected void onPreExecute(Bundle args) {

@@ -168,6 +168,9 @@ public abstract class SimpleTask<T> implements LifecycleObserver {
         this.name = name;
         this.started = new Date().getTime();
 
+        if (BuildConfig.TEST_RELEASE)
+            Log.breadcrumb("SimpleTask", args);
+
         for (String key : args.keySet()) {
             Object value = args.get(key);
             if (value instanceof Spanned)

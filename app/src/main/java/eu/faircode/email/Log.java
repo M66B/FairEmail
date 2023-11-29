@@ -405,6 +405,33 @@ public class Log {
         }
     }
 
+    public static void breadcrumb(String name, Bundle args) {
+        Map<String, String> crumb = new HashMap<>();
+        for (String key : args.keySet()) {
+            Object value = args.get(key);
+            if (value instanceof Boolean)
+                crumb.put(key, Boolean.toString((Boolean) value));
+            else if (value instanceof Integer)
+                crumb.put(key, Integer.toString((Integer) value));
+            else if (value instanceof Long)
+                crumb.put(key, Long.toString((Long) value));
+            else if (value instanceof Float)
+                crumb.put(key, Float.toString((Float) value));
+            else if (value instanceof Double)
+                crumb.put(key, Double.toString((Double) value));
+            else if (value instanceof String || value instanceof Spanned) {
+                String v = value.toString();
+                if (v.length() > 50)
+                    v = v.substring(0, 50) + "...";
+                crumb.put(key, v);
+            } else if (value == null)
+                crumb.put(key, "<null>");
+            else
+                crumb.put(key, "<" + value.getClass().getName() + ">");
+        }
+        breadcrumb(name, crumb);
+    }
+
     public static void breadcrumb(String name, String key, String value) {
         Map<String, String> crumb = new HashMap<>();
         crumb.put(key, value);
