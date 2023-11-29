@@ -421,6 +421,9 @@ public class EntityAnswer implements Serializable {
                 if (p.appPassword)
                     ssb.append("App password\n\n");
 
+                if (p.domain != null && p.domain.size() > 0)
+                    ssb.append("Domains: ").append(TextUtils.join(", ", p.domain)).append("\n\n");
+
                 if (p.documentation != null)
                     ssb.append(HtmlHelper.fromHtml(p.documentation.toString(), context)).append("\n\n");
 
