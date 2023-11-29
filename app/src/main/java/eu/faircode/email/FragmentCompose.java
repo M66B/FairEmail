@@ -6655,6 +6655,7 @@ public class FragmentCompose extends FragmentBase {
             boolean discard_delete = prefs.getBoolean("discard_delete", true);
             boolean write_below = prefs.getBoolean("write_below", false);
             boolean save_drafts = prefs.getBoolean("save_drafts", true);
+            boolean save_revisions = prefs.getBoolean("save_revisions", true);
             int send_delayed = prefs.getInt("send_delayed", 0);
 
             DB db = DB.getInstance(context);
@@ -6886,8 +6887,10 @@ public class FragmentCompose extends FragmentBase {
                         body = d.html();
 
                         // Create new revision
-                        draft.revisions++;
-                        draft.revision = draft.revisions;
+                        if (save_revisions) {
+                            draft.revisions++;
+                            draft.revision = draft.revisions;
+                        }
 
                         Helper.writeText(draft.getFile(context, draft.revision), body);
                     } else

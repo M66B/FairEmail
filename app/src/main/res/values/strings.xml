@@ -463,9 +463,10 @@
     <string name="title_advanced_answer_hint">The answer button actions can also be configured in the send settings tab page</string>
     <string name="title_advanced_answer_warning">Not all actions are possible without a selection menu!</string>
     <string name="title_advanced_send_pending">Show non-obtrusive send delayed icon</string>
-
+    <string name="title_advanced_save_revisions">Save draft revisions for undo and redo</string>
     <string name="title_advanced_auto_save_paragraph">Automatically save a draft after every paragraph</string>
     <string name="title_advanced_auto_save_dot">Automatically save a draft after every sentence</string>
+
     <string name="title_advanced_compose_color">Default text color</string>
     <string name="title_advanced_compose_font">Default font</string>
     <string name="title_advanced_compose_monospaced">Use monospaced font for plain text messages</string>

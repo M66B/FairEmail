@@ -305,6 +305,18 @@
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swSaveRevisions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_save_revisions"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swSendPending"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swAutoSaveParagraph"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -313,7 +325,7 @@
                     android:text="@string/title_advanced_auto_save_paragraph"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swSendPending"
+                    app:layout_constraintTop_toBottomOf="@id/swSaveRevisions"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

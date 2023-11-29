@@ -76,6 +76,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
     private SwitchCompat swNavColor;
     private SwitchCompat swSendReminders;
     private SwitchCompat swSendPending;
+    private SwitchCompat swSaveRevisions;
     private SwitchCompat swAutoSaveParagraph;
     private SwitchCompat swAutoSaveDot;
     private SwitchCompat swDiscardDelete;
@@ -124,7 +125,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             "keyboard", "keyboard_no_fullscreen",
             "suggest_names", "suggest_sent", "suggested_received", "suggest_frequently", "suggest_account", "auto_identity",
             "send_reminders", "send_chips", "send_nav_color", "send_pending",
-            "auto_save_paragraph", "auto_save_dot", "discard_delete",
+            "save_revisions", "auto_save_paragraph", "auto_save_dot", "discard_delete",
             "send_delayed",
             "answer_single", "answer_action",
             "sound_sent",
@@ -164,6 +165,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
         swNavColor = view.findViewById(R.id.swNavColor);
         swSendReminders = view.findViewById(R.id.swSendReminders);
         swSendPending = view.findViewById(R.id.swSendPending);
+        swSaveRevisions = view.findViewById(R.id.swSaveRevisions);
         swAutoSaveParagraph = view.findViewById(R.id.swAutoSaveParagraph);
         swAutoSaveDot = view.findViewById(R.id.swAutoSaveDot);
         swDiscardDelete = view.findViewById(R.id.swDiscardDelete);
@@ -333,6 +335,13 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("send_pending", checked).apply();
+            }
+        });
+
+        swSaveRevisions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("save_revisions", checked).apply();
             }
         });
 
@@ -781,6 +790,7 @@ public class FragmentOptionsSend extends FragmentBase implements SharedPreferenc
             swNavColor.setChecked(prefs.getBoolean("send_nav_color", false));
             swSendReminders.setChecked(prefs.getBoolean("send_reminders", true));
             swSendPending.setChecked(prefs.getBoolean("send_pending", true));
+            swSaveRevisions.setChecked(prefs.getBoolean("save_revisions", true));
             swAutoSaveParagraph.setChecked(prefs.getBoolean("auto_save_paragraph", true));
             swAutoSaveDot.setChecked(prefs.getBoolean("auto_save_dot", false));
             swDiscardDelete.setChecked(prefs.getBoolean("discard_delete", true));

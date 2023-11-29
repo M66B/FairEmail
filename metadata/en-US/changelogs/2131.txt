@@ -9,6 +9,7 @@ Vallibonavenatrix
 Next version
 
 * Basic support for Linked Data
+* Added option to disable saving revisions for undo/redo
 * Small improvements and minor bug fixes
 * Updated translations
 
