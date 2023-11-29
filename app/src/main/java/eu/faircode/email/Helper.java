@@ -1879,7 +1879,8 @@ public class Helper {
                         RecyclerView.Adapter.class.isAssignableFrom(type) ||
                         TwoStateOwner.class.isAssignableFrom(type))
                     try {
-                        Log.i("Clearing " + fname);
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("Clearing ").append(fname);
 
                         field.setAccessible(true);
 
@@ -1887,6 +1888,7 @@ public class Helper {
                             if (Animator.class.isAssignableFrom(type)) {
                                 Animator animator = (Animator) field.get(instance);
                                 if (animator != null) {
+                                    sb.append(" animator");
                                     if (animator.isStarted())
                                         animator.cancel();
                                     animator.setTarget(null);
@@ -1895,12 +1897,41 @@ public class Helper {
 
                             if (Snackbar.class.isAssignableFrom(type)) {
                                 Snackbar snackbar = (Snackbar) field.get(instance);
-                                if (snackbar != null)
+                                if (snackbar != null) {
+                                    sb.append(" action");
                                     snackbar.setAction(null, null);
+                                }
+                            }
+
+                            if (View.class.isAssignableFrom(type)) {
+                                View v = (View) field.get(instance);
+                                if (v != null) {
+                                    sb.append(" tag");
+                                    v.setTag(null);
+                                }
+                            }
+                            if (TextView.class.isAssignableFrom(type)) {
+                                TextView tv = (TextView) field.get(instance);
+                                if (tv != null) {
+                                    sb.append(" text");
+                                    tv.setText(null);
+                                    sb.append(" drawables");
+                                    tv.setCompoundDrawables(null, null, null, null);
+                                }
+                            }
+
+                            if (ImageView.class.isAssignableFrom(type)) {
+                                ImageView iv = (ImageView) field.get(instance);
+                                if (iv != null) {
+                                    sb.append(" drawable");
+                                    iv.setImageDrawable(null);
+                                }
                             }
                         }
 
                         field.set(instance, null);
+
+                        Log.i(sb.toString());
                     } catch (Throwable ex) {
                         Log.e(new Throwable(fname, ex));
                     }
