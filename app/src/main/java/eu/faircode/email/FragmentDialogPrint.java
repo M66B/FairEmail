@@ -384,6 +384,9 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                 final Context context = activity.getOriginalContext();
                 boolean print_html_images = args.getBoolean("print_html_images");
 
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean safe_browsing = prefs.getBoolean("safe_browsing", false);
+
                 // https://developer.android.com/training/printing/html-docs.html
                 printWebView = new WebView(context);
 
@@ -392,6 +395,8 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                 settings.setLoadsImagesAutomatically(print_html_images);
                 settings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
+                if (WebViewEx.isFeatureSupported(context, WebViewFeature.SAFE_BROWSING_ENABLE))
+                    WebSettingsCompat.setSafeBrowsingEnabled(settings, safe_browsing);
                 if (WebViewEx.isFeatureSupported(context, WebViewFeature.ATTRIBUTION_REGISTRATION_BEHAVIOR))
                     WebSettingsCompat.setAttributionRegistrationBehavior(settings, WebSettingsCompat.ATTRIBUTION_BEHAVIOR_DISABLED);
 
