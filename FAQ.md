@@ -4856,7 +4856,7 @@ DeepL offers free translation of 500,000 characters (~100,000 words; ~250 pages)
 
 1. Make sure you have the latest version of the app installed
 1. Check if [DeepL](https://www.deepl.com/) supports your language
-1. Enable DeepL support in the miscellaneous settings
+1. Enable DeepL support in the integration settings
 1. [Subscribe to](https://www.deepl.com/pro#developer) the DeepL API Free or Pro plan (credit card required; won't be charged)
 1. [Copy](https://www.deepl.com/pro-account/plan) the authentication key
 1. In the message composer tap on the translate button (文A) in the top action bar, select *Configure* and paste the key
@@ -5165,7 +5165,7 @@ Since version 1.2068 it is possible to send a template message with an intent:
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq180)
 
-LanguageTool integration needs to be enabled in the miscellaneous settings.
+LanguageTool integration needs to be enabled in the integration settings.
 
 After writing some text, you can long press on the save draft button to perform a grammar, style, and spell check via [LanguageTool](https://languagetool.org/).
 Texts with suggestions will be marked and if you tap on a marked suggestion,
@@ -5188,7 +5188,7 @@ You can long press text to select a word, and add it to or remove it from the pe
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq181)
 
-VirusTotal integration needs to be enabled in the miscellaneous settings and an API key needs to be entered.
+VirusTotal integration needs to be enabled in the integration settings and an API key needs to be entered.
 To get an API key, you'll need to sign up via the [VirusTotal website](https://www.virustotal.com/).
 
 When integration is enabled and an API key is available, a *scan* icon button will be shown for each attachment.
@@ -5238,7 +5238,7 @@ Please see [this FAQ](#faq35) on why you should be careful when opening links.
 Only people with a link to a file can download and decrypt a file.
 See for some more information [Wikipedia](https://en.wikipedia.org/wiki/Firefox_Send).
 
-Send integration needs to be enabled in the miscellaneous settings.
+Send integration needs to be enabled in the integration settings.
 
 Optionally, you can change the host address of the Send server.
 Please [see here](https://github.com/timvisee/send-instances) for a list of public instances.
@@ -5415,7 +5415,7 @@ OpenAI can only be used if configured and enabled, and the app does not use thir
 
 * Create an account [here](https://platform.openai.com/signup)
 * Create an API key [here](https://platform.openai.com/account/api-keys)
-* Copy the API key and paste it in the corresponding field of the miscellaneous-settings tab page
+* Copy the API key and paste it in the corresponding field of the integration settings
 * Enable the OpenAI switch
 
 <br>
@@ -5446,14 +5446,23 @@ In this case, you'll either need to wait, or upgrade your ChatGPT plan.
 
 You can select the [model](https://platform.openai.com/docs/models/overview),
 configure the [temperature](https://platform.openai.com/docs/api-reference/chat/create#chat/create-temperature)
-and enable [moderation](https://platform.openai.com/docs/api-reference/moderations) in the miscellaneous-settings tab page.
+and enable [moderation](https://platform.openai.com/docs/api-reference/moderations) in the integration settings.
 
-If you have access to GPT-4, you can change the model name to [gpt-4](https://platform.openai.com/docs/models/gpt-4) in the miscellaneous-settings tab page.
+If you have access to GPT-4, you can change the model name to [gpt-4](https://platform.openai.com/docs/models/gpt-4) in the integration settings.
 There is currently a [waitlist](https://openai.com/waitlist/gpt-4-api) for API GPT-4 access.
 
 Please read the [privacy policy](https://openai.com/policies/privacy-policy) of OpenAI,
 and perhaps [this article](https://katedowninglaw.com/2023/03/10/openais-massive-data-grab/)
 and [this article](https://www.ncsc.gov.uk/blog-post/chatgpt-and-large-language-models-whats-the-risk) too.
+
+<br>
+
+It is possible to use **DeepInfra** too (since version 1.2132).
+
+* Create an account on the [DeepInfra website](https://deepinfra.com/) and deploy a model, for example, *meta-llama/Llama-2-13b-chat-hf*
+* In the integration settings enter the URI https://api.deepinfra.com/v1/openai, an API key and the model name
+
+<br>
 
 This feature is experimental and available in the GitHub version only and requires version 1.2053 or later.
 
@@ -5584,7 +5593,7 @@ A message is printed as-is, which means that the sender of the message determine
 Spell checking should be provided by the keyboard app for all other apps.
 Sometimes, particularly on ChromeOS, spell checking needs to be enabled in the settings.
 
-That said, LanguageTool, which can be enabled in the miscellaneous-settings tab page, is an excellent style and spell checker.
+That said, LanguageTool, which can be enabled in the integration settings, is an excellent style and spell checker.
 
 <br>
 
