@@ -4,7 +4,7 @@ Changelog
 
 For support you can use the contact form.
 
-Vallibonavenatrix
+Wintonotitan
 
 Next version
 
@@ -14,6 +14,8 @@ Next version
 * Small improvements and minor bug fixes
 * Updated AndroidX
 * Updated translations
+
+Vallibonavenatrix
 
 1.2131 - 2023-11-27 *
 
