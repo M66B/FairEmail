@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import static android.app.Activity.RESULT_OK;
 import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_GMAIL;
+import static eu.faircode.email.ServiceAuthenticator.AUTH_TYPE_PASSWORD;
 
 import android.app.NotificationChannel;
 import android.app.NotificationChannelGroup;
@@ -60,6 +61,7 @@ import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.Group;
 import androidx.documentfile.provider.DocumentFile;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.preference.PreferenceManager;
 
 import com.google.android.material.textfield.TextInputLayout;
@@ -654,6 +656,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                     String ext = Helper.getExtension(name);
                     if ("k9s".equals(ext)) {
                         handleK9Import(uri);
+                        return;
+                    } else if ("mobileconfig".equals(ext)) {
+                        handleAppleImport(uri);
                         return;
                     }
                 }
@@ -1512,6 +1517,183 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                 Log.unexpectedError(getParentFragmentManager(), ex);
             }
         }.execute(this, args, "setup:k9");
+    }
+
+    private void handleAppleImport(Uri uri) {
+        Bundle args = new Bundle();
+        args.putParcelable("uri", uri);
+
+        ViewModelExport vme = new ViewModelProvider(getActivity()).get(ViewModelExport.class);
+        args.putString("password", vme.getPassword());
+
+        new SimpleTask<EntityAccount>() {
+            @Override
+            protected EntityAccount onExecute(Context context, Bundle args) throws Throwable {
+                Uri uri = args.getParcelable("uri");
+                String password = args.getString("password");
+
+                EntityAccount account = new EntityAccount();
+                EntityIdentity identity = new EntityIdentity();
+
+                ContentResolver resolver = context.getContentResolver();
+                InputStream is = resolver.openInputStream(uri);
+                if (is == null)
+                    throw new FileNotFoundException(uri.toString());
+                try (InputStream bis = new BufferedInputStream(is)) {
+                    XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                    XmlPullParser xml = factory.newPullParser();
+                    xml.setInput(new InputStreamReader(bis));
+
+                    account.auth_type = AUTH_TYPE_PASSWORD;
+                    account.password = password;
+                    account.encryption = EmailService.ENCRYPTION_STARTTLS;
+                    account.synchronize = false;
+                    account.primary = false;
+
+                    identity.auth_type = AUTH_TYPE_PASSWORD;
+                    identity.password = password;
+                    identity.encryption = EmailService.ENCRYPTION_STARTTLS;
+                    identity.synchronize = false;
+                    identity.primary = true;
+
+                    // https://developer.apple.com/documentation/devicemanagement/mail
+                    String key = null;
+                    int eventType = xml.getEventType();
+                    while (eventType != XmlPullParser.END_DOCUMENT) {
+                        if (eventType == XmlPullParser.START_TAG) {
+                            String name = xml.getName();
+                            if ("key".equals(name)) {
+                                eventType = xml.next();
+                                key = (eventType == XmlPullParser.TEXT ? xml.getText() : null);
+                            } else if (key != null &&
+                                    ("string".equals(name) || "integer".equals(name))) {
+                                eventType = xml.next();
+                                if (eventType == XmlPullParser.TEXT) {
+                                    String value = xml.getText();
+                                    eventType = xml.next();
+                                    if (eventType == XmlPullParser.END_TAG) {
+                                        Log.i("mobileconfig " + key + "=" + value);
+                                        switch (key) {
+                                            case "allowMailDrop":
+                                                break;
+                                            case "disableMailRecentsSyncing":
+                                                break;
+
+                                            case "EmailAccountDescription":
+                                                account.name = value;
+                                                break;
+                                            case "EmailAccountName":
+                                                identity.name = value;
+                                                break;
+                                            case "EmailAccountType": // required
+                                                if ("EmailTypeIMAP".equals(value))
+                                                    account.protocol = EntityAccount.TYPE_IMAP;
+                                                else if ("EmailTypePOP".equals(value))
+                                                    account.protocol = EntityAccount.TYPE_POP;
+                                                break;
+                                            case "EmailAddress":
+                                                String[] email = value.split(",");
+                                                if (email.length > 0)
+                                                    identity.email = email[0];
+                                                break;
+
+                                            case "IncomingMailServerAuthentication": // required
+                                                // EmailAuthNone, EmailAuthPassword, EmailAuthCRAMMD5, EmailAuthNTLM, EmailAuthHTTPMD5
+                                                break;
+                                            case "IncomingMailServerHostName": // required
+                                                account.host = value;
+                                                break;
+                                            case "IncomingMailServerIMAPPathPrefix":
+                                                break;
+                                            case "IncomingMailServerPortNumber":
+                                                account.port = Integer.parseInt(value);
+                                                break;
+                                            case "IncomingMailServerUsername":
+                                                account.user = value;
+                                                break;
+                                            case "IncomingMailServerUseSSL":
+                                                account.encryption = EmailService.ENCRYPTION_SSL;
+                                                break;
+                                            case "IncomingPassword":
+                                                account.password = value;
+                                                break;
+
+                                            case "OutgoingMailServerAuthentication": // required
+                                                // EmailAuthNone, EmailAuthPassword, EmailAuthCRAMMD5, EmailAuthNTLM, EmailAuthHTTPMD5
+                                                break;
+                                            case "OutgoingMailServerHostName": // required
+                                                identity.host = value;
+                                                break;
+                                            case "OutgoingMailServerPortNumber":
+                                                identity.port = Integer.parseInt(value);
+                                                break;
+                                            case "OutgoingMailServerUsername":
+                                                identity.user = value;
+                                                break;
+                                            case "OutgoingMailServerUseSSL":
+                                                identity.encryption = EmailService.ENCRYPTION_SSL;
+                                                break;
+                                            case "OutgoingPassword":
+                                                identity.password = value;
+                                                break;
+                                            case "OutgoingPasswordSameAsIncomingPassword":
+                                                identity.password = account.password;
+                                                break;
+                                        }
+                                    }
+                                } else
+                                    key = null;
+                            } else if (key != null && "true".equals(name)) {
+                                Log.i("mobileconfig " + key + "=" + name);
+                            } else
+                                key = null;
+                        }
+                        eventType = xml.next();
+                    }
+
+                    if (account.port == null)
+                        account.port = 993;
+                    if (account.password == null)
+                        account.password = "";
+                    if (identity.port == null)
+                        identity.port = 587;
+                    if (identity.password == null)
+                        identity.password = "";
+                }
+
+                DB db = DB.getInstance(context);
+                try {
+                    db.beginTransaction();
+
+                    account.id = db.account().insertAccount(account);
+                    identity.account = account.id;
+                    identity.id = db.identity().insertIdentity(identity);
+
+                    db.setTransactionSuccessful();
+                } finally {
+                    db.endTransaction();
+                }
+
+                return account;
+            }
+
+            @Override
+            protected void onExecuted(Bundle args, EntityAccount account) {
+                if (account == null)
+                    return;
+
+                LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
+                lbm.sendBroadcast(
+                        new Intent(ActivitySetup.ACTION_EDIT_ACCOUNT)
+                                .putExtra("id", account.id)
+                                .putExtra("protocol", account.protocol));
+            }
+
+            @Override
+            protected void onException(Bundle args, Throwable ex) {
+                Log.unexpectedError(getParentFragmentManager(), ex);
+            }
+        }.execute(this, args, "setup:apple");
     }
 
     private void askPassword(final boolean export) {
