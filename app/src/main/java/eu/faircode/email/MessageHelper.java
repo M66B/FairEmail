@@ -2617,7 +2617,7 @@ public class MessageHelper {
             String email = iaddress.getAddress();
             String personal = iaddress.getPersonal();
             if (!TextUtils.isEmpty(personal))
-                personal = personal.replace("\u00ad", ""); // soft hyphen
+                personal = personal.replace("\u00ad", BuildConfig.DEBUG ? "-" : ""); // soft hyphen
 
             if (TextUtils.isEmpty(email) && TextUtils.isEmpty(personal))
                 continue;
@@ -2854,7 +2854,7 @@ public class MessageHelper {
                 .trim()
                 .replace("\n", "")
                 .replace("\r", "")
-                .replace("\u00ad", "");  // soft hyphen
+                .replace("\u00ad", BuildConfig.DEBUG ? "-" : "");  // soft hyphen
     }
 
     Long getSize() throws MessagingException {
