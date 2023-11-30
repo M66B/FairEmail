@@ -2836,6 +2836,13 @@ public class HtmlHelper {
 
         SpannableStringBuilder ssb = fromDocument(context, d, null, null);
 
+        for (UnderlineSpan span : ssb.getSpans(0, ssb.length(), UnderlineSpan.class)) {
+            int start = ssb.getSpanStart(span);
+            int end = ssb.getSpanEnd(span);
+            ssb.insert(end, "_");
+            ssb.insert(start, "_");
+        }
+
         for (StyleSpan span : ssb.getSpans(0, ssb.length(), StyleSpan.class)) {
             int start = ssb.getSpanStart(span);
             int end = ssb.getSpanEnd(span);
@@ -2846,13 +2853,6 @@ public class HtmlHelper {
                 ssb.insert(end, "*");
                 ssb.insert(start, "*");
             }
-        }
-
-        for (UnderlineSpan span : ssb.getSpans(0, ssb.length(), UnderlineSpan.class)) {
-            int start = ssb.getSpanStart(span);
-            int end = ssb.getSpanEnd(span);
-            ssb.insert(end, "_");
-            ssb.insert(start, "_");
         }
 
         for (URLSpan span : ssb.getSpans(0, ssb.length(), URLSpan.class)) {
