@@ -3977,6 +3977,8 @@ public class HtmlHelper {
     }
 
     static void clearComposingText(TextView view) {
+        if (view == null)
+            return;
         view.clearComposingText();
     }
 
