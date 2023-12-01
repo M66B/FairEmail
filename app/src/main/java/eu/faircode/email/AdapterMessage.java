@@ -2518,7 +2518,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         }
                     } else {
                         ssb.append(personal);
-                        if (!Helper.isSingleScript(personal)) {
+                        if (!TextHelper.isSingleScript(personal)) {
                             int start = ssb.length() - personal.length();
                             ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
                             ssb.setSpan(new ForegroundColorSpan(colorError), start, ssb.length(), 0);

@@ -538,7 +538,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         } else {
             etLink.setText(format(uri, context));
             tvLink.setText(null);
-            tvSuspicious.setVisibility(Helper.isSingleScript(host) ? View.GONE : View.VISIBLE);
+            tvSuspicious.setVisibility(TextHelper.isSingleScript(host) ? View.GONE : View.VISIBLE);
         }
 
         if (check_links_dbl &&

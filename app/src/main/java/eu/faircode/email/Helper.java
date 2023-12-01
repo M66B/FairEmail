@@ -2448,32 +2448,6 @@ public class Helper {
         return false;
     }
 
-    static boolean isSingleScript(String s) {
-        // https://en.wikipedia.org/wiki/IDN_homograph_attack
-
-        if (TextUtils.isEmpty(s))
-            return true;
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
-            return true;
-
-        int codepoint;
-        Character.UnicodeScript us;
-        Character.UnicodeScript script = null;
-        for (int i = 0; i < s.length(); ) {
-            codepoint = s.codePointAt(i);
-            i += Character.charCount(codepoint);
-            us = Character.UnicodeScript.of(codepoint);
-            if (us.equals(Character.UnicodeScript.COMMON))
-                continue;
-            if (script == null)
-                script = us;
-            else if (!us.equals(script))
-                return false;
-        }
-        return true;
-    }
-
     static Integer parseInt(String text) {
         if (TextUtils.isEmpty(text))
             return null;
