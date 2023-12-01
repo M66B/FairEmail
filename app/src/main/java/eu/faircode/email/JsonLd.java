@@ -60,8 +60,7 @@ public class JsonLd {
             Document d = Document.createShell("");
             d.body().appendElement("hr");
             d.body().appendElement("div")
-                    .attr("style",
-                            "font-family: monospace; font-size: larger !important;")
+                    .attr("style", "font-family: monospace;")
                     .appendElement("a")
                     .attr("href", "https://json-ld.org/")
                     .text("Linked data");
