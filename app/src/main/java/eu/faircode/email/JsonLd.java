@@ -43,14 +43,17 @@ import java.util.Locale;
 
 // https://json-ld.org/
 // https://schema.org/
+// https://schema.org/EmailMessage
 // https://schema.org/FlightReservation
+// https://developers.google.com/gmail/markup/reference/flight-reservation
 // https://structured.email/content/introduction/getting_started.html
 
 public class JsonLd {
     private Object jroot;
     private Throwable error = null;
 
-    private static final String URI_SCHEMA_ORG = "https://schema.org";
+    private static final String HTTP_SCHEMA_ORG = "http://schema.org";
+    private static final String HTTPS_SCHEMA_ORG = "https://schema.org";
     private static final String PLACEHOLDER_START = "<!--";
     private static final String PLACEHOLDER_END = "-->";
 
@@ -79,8 +82,8 @@ public class JsonLd {
             String jtype = jobject.getString("@type");
             Log.i("JSON-LD template " + jcontext + "=" + jtype);
 
-            if (!URI_SCHEMA_ORG.equals(jcontext) &&
-                    !"http://schema.org".equals(jcontext)) {
+            if (!HTTP_SCHEMA_ORG.equals(jcontext) &&
+                    !HTTPS_SCHEMA_ORG.equals(jcontext)) {
                 Log.e("JSON-LD " + jcontext + "?=" + jtype);
                 return null;
             }
@@ -113,8 +116,10 @@ public class JsonLd {
                     value = JsonPath.read(document, placeholder);
                     if (value == null)
                         value = "";
-                    if (value.startsWith(URI_SCHEMA_ORG + "/"))
-                        value = unCamelCase(value.substring(URI_SCHEMA_ORG.length() + 1));
+                    if (value.startsWith(HTTP_SCHEMA_ORG + "/"))
+                        value = unCamelCase(value.substring(HTTP_SCHEMA_ORG.length() + 1));
+                    else if (value.startsWith(HTTPS_SCHEMA_ORG + "/"))
+                        value = unCamelCase(value.substring(HTTPS_SCHEMA_ORG.length() + 1));
                 } catch (PathNotFoundException ex) {
                     Log.i(ex);
                     value = "";
@@ -204,8 +209,10 @@ public class JsonLd {
                     getHtml(context, v, indent + 1, holder);
                 } else {
                     String _v = v.toString();
-                    if (_v.startsWith(URI_SCHEMA_ORG + "/"))
-                        _v = unCamelCase(_v.substring(URI_SCHEMA_ORG.length() + 1));
+                    if (_v.startsWith(HTTP_SCHEMA_ORG + "/"))
+                        _v = unCamelCase(_v.substring(HTTP_SCHEMA_ORG.length() + 1));
+                    else if (_v.startsWith(HTTPS_SCHEMA_ORG + "/"))
+                        _v = unCamelCase(_v.substring(HTTPS_SCHEMA_ORG.length() + 1));
                     holder.appendElement("span").text(_v);
                     holder.appendElement("br");
                 }
