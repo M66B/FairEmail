@@ -1,0 +1,20 @@
+<div>
+    <span><strong>Reservation </strong><!--$.reservationId--></span><br>
+    <span><strong>Passenger: </strong><!--$.underName.name--></span><br>
+    <span><strong>Flight: </strong><!--$.reservationFor.flightNumber--></span><br>
+    <span><strong>Operated by: </strong><!--$.reservationFor.provider.name--></span><br>
+    <span><strong>Departing: </strong>
+        <!--$.reservationFor.departureAirport.name-->
+        (<!--$.reservationFor.departureAirport.iataCode-->)
+        <!--$.reservationFor.departureTime-->
+    </span><br>
+    <span><strong>Arriving: </strong>
+        <!--$.reservationFor.arrivalAirport.name-->
+        (<!--$.reservationFor.arrivalAirport.iataCode-->)
+        <!--$.reservationFor.arrivalTime-->
+    </span><br>
+    <span><strong>Passenger sequence number: </strong><!--$.passengerSequenceNumber--></span><br>
+    <span><strong>Boarding priority: </strong><!--$.passengerPriorityStatus--></span><br>
+    <span><strong>Boarding policy: </strong><!--$.reservationFor.provider.boardingPolicy--></span><br>
+    <span><strong>Security screening: </strong><!--$.securityScreening--></span><br>
+</div>

@@ -20,6 +20,13 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.text.TextUtils;
+
+import androidx.annotation.NonNull;
+
+import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.JsonPath;
+import com.jayway.jsonpath.PathNotFoundException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -27,7 +34,12 @@ import org.json.JSONObject;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
 
 // https://json-ld.org/
 // https://schema.org/
@@ -38,11 +50,15 @@ public class JsonLd {
     private Object jroot;
     private Throwable error = null;
 
-    private static final String URI_SCHEMA_ORG = "https://schema.org/";
+    private static final String URI_SCHEMA_ORG = "https://schema.org";
+    private static final String PLACEHOLDER_START = "<!--";
+    private static final String PLACEHOLDER_END = "-->";
 
     public JsonLd(String json) {
         try {
-            if (json != null && json.trim().startsWith("["))
+            if (TextUtils.isEmpty(json))
+                jroot = null;
+            else if (json.trim().startsWith("["))
                 jroot = new JSONArray(json);
             else
                 jroot = new JSONObject(json);
@@ -52,23 +68,112 @@ public class JsonLd {
         }
     }
 
+    private String getTemplate(Context context, JSONObject jobject) {
+        try {
+            if (!jobject.has("@context") || jobject.isNull("@context"))
+                return null;
+            if (!jobject.has("@type") || jobject.isNull("@type"))
+                return null;
+
+            String jcontext = jobject.getString("@context");
+            String jtype = jobject.getString("@type");
+            Log.i("JSON-LD template " + jcontext + "=" + jtype);
+
+            if (!URI_SCHEMA_ORG.equals(jcontext) &&
+                    !"http://schema.org".equals(jcontext)) {
+                Log.e("JSON-LD " + jcontext + "?=" + jtype);
+                return null;
+            }
+
+            // https://github.com/json-path/JsonPath
+
+            Configuration conf = Configuration.defaultConfiguration();
+            Object document = conf.jsonProvider().parse(jobject.toString());
+
+            String name = "schema.org/" + jtype.toLowerCase(Locale.ROOT) + ".html";
+            Log.i("JSON-LD using=" + name);
+            String template;
+            try (InputStream is = context.getAssets().open(name)) {
+                template = Helper.readStream(is);
+            } catch (FileNotFoundException ex) {
+                Log.e("JSON-LD " + jcontext + "=" + jtype + "?");
+                throw ex;
+            }
+
+            int start = template.indexOf(PLACEHOLDER_START);
+            while (start >= 0) {
+                int end = template.indexOf(PLACEHOLDER_END, start + PLACEHOLDER_START.length());
+                if (end < 0)
+                    throw new IllegalArgumentException("Missing placeholder end @" + start);
+
+                String placeholder = template.substring(start + PLACEHOLDER_START.length(), end).trim();
+
+                String value;
+                try {
+                    value = JsonPath.read(document, placeholder);
+                    if (value == null)
+                        value = "";
+                    if (value.startsWith(URI_SCHEMA_ORG + "/"))
+                        value = unCamelCase(value.substring(URI_SCHEMA_ORG.length() + 1));
+                } catch (PathNotFoundException ex) {
+                    Log.i(ex);
+                    value = "";
+                }
+
+                Log.i("JSON-LD " + placeholder + "=" + value);
+                template = template.substring(0, start) + value + template.substring(end + PLACEHOLDER_END.length());
+
+                start = template.indexOf(PLACEHOLDER_START);
+            }
+
+            return template;
+        } catch (Throwable ex) {
+            Log.w("JSON-LD", ex);
+            return null;
+        }
+    }
+
     public String getHtml(Context context) {
         try {
             if (error != null)
                 throw error;
+            if (jroot == null)
+                throw new IllegalArgumentException("JSON-LD empty");
 
             Document d = Document.createShell("");
             d.body().appendElement("hr");
             d.body().appendElement("div")
-                    .attr("style", "font-family: monospace;")
                     .appendElement("a")
+                    .attr("style", "font-size: larger !important;")
                     .attr("href", "https://json-ld.org/")
                     .text("Linked data");
             d.body().appendElement("br");
+
+            List<JSONObject> jschemas = new ArrayList<>();
+            if (jroot instanceof JSONObject)
+                jschemas.add((JSONObject) jroot);
+            else if (jroot instanceof JSONArray) {
+                JSONArray jarray = (JSONArray) jroot;
+                for (int i = 0; i < jarray.length(); i++)
+                    jschemas.add((JSONObject) jarray.get(i));
+            }
+
+            for (JSONObject jschema : jschemas) {
+                String template = getTemplate(context, jschema);
+                if (template != null) {
+                    d.body().appendElement("div").append(template);
+                    d.body().append("<br>");
+                }
+            }
+
             Element holder = d.body().appendElement("div")
                     .attr("style",
                             "font-family: monospace; font-size: smaller !important;");
-            getHtml(jroot, 0, holder);
+            for (int i = 0; i < jschemas.size(); i++) {
+                if (i > 0)
+                    holder.appendElement("br");
+                getHtml(context, jschemas.get(i), 0, holder);
+            }
             d.body().appendElement("hr");
             return d.body().html();
         } catch (Throwable ex) {
@@ -79,17 +184,9 @@ public class JsonLd {
         }
     }
 
-    private void getHtml(Object obj, int indent, Element holder) throws JSONException {
+    private void getHtml(Context context, Object obj, int indent, Element holder) throws JSONException {
         if (obj instanceof JSONObject) {
             JSONObject jobject = (JSONObject) obj;
-
-            if (indent == 0 &&
-                    jobject.has("@context") &&
-                    jobject.has("@type")) {
-                String context = (jobject.isNull("@context") ? null : jobject.optString("@context"));
-                String type = (jobject.isNull("@type") ? null : jobject.optString("@type"));
-                Log.e("JSON-LD " + context + "=" + type);
-            }
 
             Iterator<String> keys = jobject.keys();
             while (keys.hasNext()) {
@@ -104,22 +201,19 @@ public class JsonLd {
 
                 if (v instanceof JSONObject || v instanceof JSONArray) {
                     holder.appendElement("br");
-                    getHtml(v, indent + 1, holder);
+                    getHtml(context, v, indent + 1, holder);
                 } else {
                     String _v = v.toString();
-                    if (_v.startsWith(URI_SCHEMA_ORG))
-                        _v = unCamelCase(_v.substring(URI_SCHEMA_ORG.length()));
+                    if (_v.startsWith(URI_SCHEMA_ORG + "/"))
+                        _v = unCamelCase(_v.substring(URI_SCHEMA_ORG.length() + 1));
                     holder.appendElement("span").text(_v);
                     holder.appendElement("br");
                 }
             }
         } else if (obj instanceof JSONArray) {
             JSONArray jarray = (JSONArray) obj;
-            for (int i = 0; i < jarray.length(); i++) {
-                if (indent == 0 && i > 0)
-                    holder.appendElement("br");
-                getHtml(jarray.get(i), indent, holder);
-            }
+            for (int i = 0; i < jarray.length(); i++)
+                getHtml(context, jarray.get(i), indent, holder);
         } else {
             indent(indent, holder);
             String v = (obj == null ? "" : obj.toString());
@@ -138,7 +232,9 @@ public class JsonLd {
                     sb.append(kar);
                 else {
                     split = true;
-                    sb.append(' ').append(Character.toLowerCase(kar));
+                    if (i > 0)
+                        kar = Character.toLowerCase(kar);
+                    sb.append(' ').append(kar);
                 }
             } else {
                 split = false;
