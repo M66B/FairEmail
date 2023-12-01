@@ -22,8 +22,6 @@ package eu.faircode.email;
 import android.content.Context;
 import android.text.TextUtils;
 
-import androidx.annotation.NonNull;
-
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.PathNotFoundException;
