@@ -45,6 +45,10 @@ Google API Services are used only to authenticate Gmail accounts through OAuth.
 
 The use of information received from Gmail APIs will adhere to the Google User Data Policy, including the Limited Use requirements."
 
+All stored information (account details, messages, etc.) is **protected by encryption**.
+All information is sent and received through **secure connections**.
+Of course, you should also protect your device by using a PIN code, pattern and/or biometric authentication.
+
 FairEmail **can use** these services if they are explicitly enabled (off by default) or are explicitly used by you:
 
 * [ipinfo.io](https://ipinfo.io/) &#8211; [Privacy policy](https://ipinfo.io/privacy-policy)
