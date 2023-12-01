@@ -7859,6 +7859,9 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void performSearch(boolean next) {
+        if (etSearch == null)
+            return;
+
         clearSearch();
 
         searchIndex = (next ? searchIndex + 1 : 1);
