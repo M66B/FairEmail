@@ -400,6 +400,13 @@ task updatePrivacy(type: Exec) {
     commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FairEmail" --css=privacy.css PRIVACY.md -o privacy.html'
 }
 
+task updateCrowdin(type: Exec) {
+    // https://crowdin.github.io/crowdin-cli/
+    // https://developer.crowdin.com/configuration-file/
+    workingDir "${rootDir}"
+    commandLine 'sh', '-c', 'crowdin download --branch=master'
+}
+
 task downloadPSL(type: Download) {
     // https://github.com/michel-kraemer/gradle-download-task
     src "https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat"
