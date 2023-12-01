@@ -6,12 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
-### Next version
+### 1.2132 - 2023-12-01
 
-* Basic support for [Linked Data](https://json-ld.org/) (GitHub version only)
-* Added date/time placeholders for keyword rules
+* Added basic support for [Linked Data](https://json-ld.org/) (GitHub version only)
+* Added date/time placeholders for keyword rules (see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#user-content-faq71))
 * Added option to disable saving revisions for undo/redo
 * Small improvements and minor bug fixes
+* Updated build tools
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
