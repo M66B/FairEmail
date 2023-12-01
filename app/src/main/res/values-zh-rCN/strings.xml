@@ -374,6 +374,7 @@
     <string name="title_advanced_answer_hint">回复按钮操作也可以在“发送”设置标签页中配置</string>
     <string name="title_advanced_answer_warning">如果没有选择菜单，则无法执行菜单中的其他操作！</string>
     <string name="title_advanced_send_pending">显示不显眼的“延迟发送”图标（页面左下角）</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">保存修订草稿以便撤销和重做</string>
     <string name="title_advanced_auto_save_paragraph">在每一段后自动保存草稿</string>
     <string name="title_advanced_auto_save_dot">每句后自动保存草稿</string>
     <string name="title_advanced_compose_color">默认文本颜色</string>
