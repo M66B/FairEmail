@@ -7859,7 +7859,7 @@ public class FragmentCompose extends FragmentBase {
     }
 
     private void performSearch(boolean next) {
-        if (etSearch == null)
+        if (etSearch == null || etBody == null)
             return;
 
         clearSearch();
