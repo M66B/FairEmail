@@ -3701,7 +3701,12 @@ public class MessageHelper {
                     String preamble = h.contentType.getParameter("preamble");
                     if (Boolean.parseBoolean(preamble)) {
                         String text = ((MimeMultipart) h.part.getContent()).getPreamble();
-                        String html = "<h1>Preamble</h1><div x-plain=\"true\">" + HtmlHelper.formatPlainText(text) + "</div>";
+                        String html = "<div class=\"faircode_remove\">" +
+                                "<h1>Preamble</h1>" +
+                                "<div x-plain=\"true\">" +
+                                HtmlHelper.formatPlainText(text) +
+                                "</div>" +
+                                "</div>";
                         sb.append(html);
                         continue;
                     }
