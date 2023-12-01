@@ -83,6 +83,15 @@ public class JsonLd {
     private void getHtml(Object obj, int indent, Element holder) throws JSONException {
         if (obj instanceof JSONObject) {
             JSONObject jobject = (JSONObject) obj;
+
+            if (indent == 0 &&
+                    jobject.has("@context") &&
+                    jobject.has("@type")) {
+                String context = (jobject.isNull("@context") ? null : jobject.optString("@context"));
+                String type = (jobject.isNull("@type") ? null : jobject.optString("@type"));
+                Log.e("JSON-LD " + context + "=" + type);
+            }
+
             Iterator<String> keys = jobject.keys();
             while (keys.hasNext()) {
                 String key = keys.next();
