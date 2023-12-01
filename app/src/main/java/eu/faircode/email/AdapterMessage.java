@@ -72,6 +72,7 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
+import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
@@ -2516,16 +2517,21 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
                         }
                     } else {
+                        ssb.append(personal);
+                        if (!Helper.isSingleScript(personal)) {
+                            int start = ssb.length() - personal.length();
+                            ssb.setSpan(new StrikethroughSpan(), start, ssb.length(), 0);
+                            ssb.setSpan(new ForegroundColorSpan(colorError), start, ssb.length(), 0);
+                        }
                         if (full) {
-                            ssb.append(personal).append(" <");
+                            ssb.append(" <");
                             if (!TextUtils.isEmpty(email)) {
                                 int start = ssb.length();
                                 ssb.append(email);
                                 ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
                             }
                             ssb.append(">");
-                        } else
-                            ssb.append(personal);
+                        }
                     }
                 } else
                     ssb.append(addresses[i].toString());
