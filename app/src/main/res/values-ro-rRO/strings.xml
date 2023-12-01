@@ -1176,6 +1176,7 @@
     <string name="title_print_images">Imprimare imagini</string>
     <string name="title_print_images_remark">Descărcarea imaginilor ar putea dura ceva timp</string>
     <string name="title_print_block_quotes">Tipărește liniile citat</string>
+    <string name="title_print_margins">Adaugă o margine</string>
     <string name="title_show_headers">Arată antetul</string>
     <string name="title_show_html">Arată sursa</string>
     <string name="title_raw_save">Salvează mesaj original</string>

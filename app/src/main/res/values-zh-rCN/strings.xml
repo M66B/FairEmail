@@ -415,7 +415,7 @@
     <string name="title_advanced_download_eml">下载原始消息文件</string>
     <string name="title_advanced_download_plain">默认只下载纯文本部分（如果可用）</string>
     <string name="title_advanced_validated">仅限已通过可用性检查的连接</string>
-    <string name="title_advanced_validated_captive">需要经确认的无线网络强制认证门户连接</string>
+    <string name="title_advanced_validated_captive">仅限已通过验证的强制门户连接</string>
     <string name="title_advanced_vpn_only">仅通过 VPN 连接</string>
     <string name="title_advanced_timeout">连接超时 (秒)</string>
     <string name="title_advanced_prefer_ip4">IPv4 优先于 IPv6</string>
@@ -717,7 +717,7 @@
     <string name="title_advanced_lt_key">API 密钥 (选填)</string>
     <string name="title_advanced_deepl">DeepL 集成</string>
     <string name="title_advanced_virus_total">VirusTotal 集成</string>
-    <string name="title_advanced_send">“Send” 集成</string>
+    <string name="title_advanced_send">Send 集成</string>
     <string name="title_advanced_openai">OpenAI (ChatGPT) 集成</string>
     <string name="title_advanced_openai_model">模型</string>
     <string name="title_advanced_openai_temperature">温度：%1$s</string>
@@ -1146,7 +1146,7 @@
     <string name="title_print_images">打印图片</string>
     <string name="title_print_images_remark">下载图片可能需要一些时间</string>
     <string name="title_print_block_quotes">打印块引用行</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">添加边距</string>
+    <string name="title_print_margins">添加边距</string>
     <string name="title_show_headers">显示邮件头</string>
     <string name="title_show_html">显示原始消息</string>
     <string name="title_raw_save">保存原始消息</string>

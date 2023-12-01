@@ -387,6 +387,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_answer_hint">Cevap düğmesi eylemleri, gönderme ayarları sekme sayfasında da yapılandırılabilir</string>
     <string name="title_advanced_answer_warning">Bir seçim menüsü olmadan tüm eylemler mümkün değildir!</string>
     <string name="title_advanced_send_pending">Rahatsız edici olmayan gecikmeli gönderme simgesini göster</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Geri alma ve yineleme için taslak revizyonlarını kaydedin</string>
     <string name="title_advanced_auto_save_paragraph">Her paragraftan sonra bir taslağı otomatik olarak kaydet</string>
     <string name="title_advanced_auto_save_dot">Her cümleden sonra bir taslağı otomatik olarak kaydet</string>
     <string name="title_advanced_compose_color">Varsayılan metin rengi</string>
@@ -1160,7 +1161,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_print_images">Resimleri yazdır</string>
     <string name="title_print_images_remark">Resimleri indirmek biraz zaman alabilir</string>
     <string name="title_print_block_quotes">Blok tırnak satırlarını yazdır</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Kenar boşluğu ekle</string>
+    <string name="title_print_margins">Kenar boşluğu ekle</string>
     <string name="title_show_headers">Başlıkları Göster</string>
     <string name="title_show_html">Kaynak göster</string>
     <string name="title_raw_save">Ham iletiyi kaydet</string>

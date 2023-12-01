@@ -417,6 +417,7 @@
     <string name="title_advanced_answer_hint">Дії кнопки відповіді можна також налаштувати на вкладці \"Відправити\"</string>
     <string name="title_advanced_answer_warning">Не всі дії можливі без меню вибору!</string>
     <string name="title_advanced_send_pending">Показувати ненав\'язливий значок при затримці відправлення</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Зберігати історію редагування чернеток для операцій скасування та повторення</string>
     <string name="title_advanced_auto_save_paragraph">Автоматично зберігати чернетку після кожного абзацу</string>
     <string name="title_advanced_auto_save_dot">Автоматично зберігати чернетку після кожного речення</string>
     <string name="title_advanced_compose_color">Колір тексту за замовчуванням</string>
@@ -1191,7 +1192,7 @@
     <string name="title_print_images">Друкувати зображення</string>
     <string name="title_print_images_remark">Завантаження зображень може зайняти деякий час</string>
     <string name="title_print_block_quotes">Друкувати лінії зліва від цитованого тексту</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Додати відступ</string>
+    <string name="title_print_margins">Додати відступ</string>
     <string name="title_show_headers">Показати заголовки</string>
     <string name="title_show_html">Показати джерело</string>
     <string name="title_raw_save">Зберегти raw-повідомлення</string>

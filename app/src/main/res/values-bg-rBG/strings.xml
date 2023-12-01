@@ -379,6 +379,7 @@
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_ssl_harden_strict">Изисква се TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строга проверка на удостоверението</string>
+    <string name="title_advanced_open_safe">Отваряне само на сигурни връзки</string>
     <string name="title_advanced_manage_connectivity">Управление на свързаността</string>
     <string name="title_advanced_caption_general">Общи</string>
     <string name="title_advanced_caption_navigation">Навигация</string>
@@ -554,6 +555,8 @@
     <string name="title_advanced_notifications_background_hint">Услугата за фон може да бъде спряна от Android по всяко време, но не изисква известие за лентата на състоянието</string>
     <string name="title_advanced_confirm_links">Потвърдете отварянето на връзката</string>
     <string name="title_advanced_confirm_files">Потвърждаване преглеждане на файловете</string>
+    <string name="title_advanced_sanitize_links">Премахване на параметрите за проследяване по подразбиране</string>
+    <string name="title_advanced_sanitize_links_hint">Само при потвърдени линкове</string>
     <string name="title_advanced_confirm_images">Без образи на показ по подразбиране</string>
     <string name="title_advanced_ask_images">Потвърдете показването на изображения</string>
     <string name="title_advanced_confirm_html">Показване на преформатирани съобщения по подразбиране</string>
@@ -561,6 +564,7 @@
     <string name="title_advanced_hide_timezone">Изпращане на съобщения без данни за часовата зона</string>
     <string name="title_advanced_client_id">Изпращане на име и версия на приложението до сървъра на имейла</string>
     <string name="title_advanced_display_hidden">Показване на скрит текст в съобщение</string>
+    <string name="title_advanced_incognito_keyboard">Употреба на клавиатура в режим инкогнито (Android 8+)</string>
     <string name="title_advanced_secure">Скриване от екрана на последно използвани приложения и предотвратяване правенето снимка на екрана</string>
     <string name="title_advanced_pin">ПИН</string>
     <string name="title_advanced_biometrics_timeout">Време на изчакване за биометрично удостоверяване</string>
@@ -1004,6 +1008,7 @@
     <string name="title_save_file">Запазване на файла</string>
     <string name="title_auto_confirm">Автоматично потвърждаване след няколко секунди</string>
     <string name="title_buttons">Изберете бутони</string>
+    <string name="title_buttons_hint">Действителните налични действия зависят от вида и конфигурирането на акаунта</string>
     <string name="title_button_search_similar">Търсене на подобни съобщения</string>
     <string name="title_button_search_text">Търсене в текста на съобщението</string>
     <string name="title_configure_buttons">Настройване на копчетата &#8230;</string>
@@ -1015,6 +1020,7 @@
     <string name="title_quick_actions_snooze">Отложи</string>
     <string name="title_quick_actions_clear">Изчистване на избраното след действие</string>
     <string name="title_trash">Кошче</string>
+    <string name="title_trash_selection">Избор за кошче</string>
     <string name="title_copy">Копие &#8230;</string>
     <string name="title_copy_to">Копие в &#8230;</string>
     <string name="title_subscribe">Абониране</string>
@@ -1044,6 +1050,7 @@
     <string name="title_reply_to_all">Отговори на всички</string>
     <string name="title_reply_list">Отговори на списък</string>
     <string name="title_reply_receipt">Изпрати разписка за прочетено</string>
+    <string name="title_reply_hard_bounce">Известяване за „твърдо отхвърляне“</string>
     <string name="title_reply_template">Отговор с шаблон</string>
     <string name="title_reply_menu">Показването на менюто за избор</string>
     <string name="title_move_undo">Премести в %1$s (%2$d)</string>
@@ -1157,6 +1164,7 @@
     <string name="title_style_align_center">Среда</string>
     <string name="title_style_align_end">Край</string>
     <string name="title_style_list">Списък</string>
+    <string name="title_style_list_bullets">Списък с водещи символи</string>
     <string name="title_style_list_numbered">Номерирано</string>
     <string name="title_style_list_level_increase">Увеличаване на отстъпването</string>
     <string name="title_style_list_level_decrease">Намаляване на отстъпването</string>
@@ -1178,6 +1186,7 @@
     <string name="title_style_link_image">Вмъкване като образ</string>
     <string name="title_style_link_title">Заглавие</string>
     <string name="title_style_link_metadata">Извличане на заглавието</string>
+    <string name="title_style_link_metadata_remark">Това ще извлече заглавието при въведения адрес</string>
     <string name="title_style_link_send_dlimit">Ограничение на изтеглянето (%1$s)</string>
     <string name="title_style_link_send_tlimit">Времево ограничение (%1$s)</string>
     <string name="title_add_image">Добавяне на изображение</string>
@@ -1230,6 +1239,7 @@
     <string name="title_key_missing">Няма ключ за %1$s</string>
     <string name="title_send_reminder_remark">Напомнянията могат да бъдат активирани отново в настройките за изпращане</string>
     <string name="title_send_plain_text">Само обикновен текст</string>
+    <string name="title_send_dsn">Доклад за състоянието</string>
     <string name="title_send_receipt">Заявка за разписка</string>
     <string name="title_send_receipt_remark">Повечето доставчици и имейл клиенти игнорират заявките за получаване</string>
     <string name="title_vt_unknown">Този файл още не е известен за VirusTotal</string>
@@ -1251,6 +1261,7 @@
     <string name="title_attachment_warning">Възможна опасност: %1$s</string>
     <string name="title_attachment_filename">Някои други клиенти за е-поща не могат да обработват имена на файлове, по-дълги от 60 знака</string>
     <string name="title_plain_reminder">Всяко форматиране ще бъде загубено</string>
+    <string name="title_dsn_reminder">Съобщенията за твърдо отхвърляне вредят на репутацията на електронната поща на първообразния подател!</string>
     <string name="title_size_reminder">Съобщение (%1$s) по-голямо от лимита на сървъра (%2$s)</string>
     <string name="title_attachments_missing">Не всички файлове са свалени</string>
     <string name="title_dialog_hint">Този диалог може да бъде активиран отново чрез менюто с три точки в горния панел за действие</string>
@@ -1297,6 +1308,9 @@
     <string name="title_signature_store">Хранилище</string>
     <string name="title_search">Търсене</string>
     <string name="title_search_for_hint">Въведете текст</string>
+    <string name="title_search_hint">        Първоначално търсенето се извършва на устройството.
+        За да търсите и в сървъра, то чукнете на копчето „търсене отново“.
+    </string>
     <string name="title_search_hint_fts">Употреба на индекса за търсене: само цели думи</string>
     <string name="title_search_index_hint">Търсене чрез индекса за търсене е бързо, но намира само цели думи.</string>
     <string name="title_search_text_hint">Търсене на текст в съобщения, когато има голям брой съобщения, може да не работи на някои сървъри</string>
@@ -1471,6 +1485,7 @@
     <string name="title_rule_automation_hint">Това ще изпрати намерението %1$s с екстрите %2$s</string>
     <string name="title_rule_notes_missing">Липсват местни бележки</string>
     <string name="title_rule_url_missing">Липсващ или неправилен URL адрес</string>
+    <string name="title_rule_delete_hint">Постоянното изтриване е невъзвратно, затова се уверете, че условията на правилото са правилни!</string>
     <string name="title_rule_url_hint">Може да употребявате следните съдове: %1$s</string>
     <string name="title_rule_edit_group">Редактиране на групата &#8230;</string>
     <string name="title_rule_execute">Изпълни сега</string>
@@ -1704,6 +1719,7 @@
     <string name="title_loading">Зареждане &#8230;</string>
     <string name="title_fetching_again">Извличане на съобщението от сървъра отново</string>
     <string name="title_go_back">Обратно</string>
+    <string name="title_global_default">Употреба на глобалните стандартни настройки</string>
     <string name="title_not_existing">Това съобщение вече не съществува в сървъра на пощата</string>
     <string name="title_conversation_actions">Действия</string>
     <string name="title_conversation_action_reply">Отговорете с: \'%1$s\'</string>

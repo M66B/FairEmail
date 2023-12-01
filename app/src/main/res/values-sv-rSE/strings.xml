@@ -1156,6 +1156,7 @@
     <string name="title_print_images">Skriv ut bilder</string>
     <string name="title_print_images_remark">Nedladdning av bilder kan ta lite tid</string>
     <string name="title_print_block_quotes">Skriv ut blockciterade rader</string>
+    <string name="title_print_margins">Lägg till marginal</string>
     <string name="title_show_headers">Visa sidhuvuden</string>
     <string name="title_show_html">Visa källa</string>
     <string name="title_raw_save">Spara rent meddelande</string>

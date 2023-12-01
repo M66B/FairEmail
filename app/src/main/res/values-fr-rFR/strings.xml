@@ -389,6 +389,7 @@
     <string name="title_advanced_answer_hint">Les actions du bouton de réponse peuvent également être configurées dans l\'onglet « Envoi » des paramètres</string>
     <string name="title_advanced_answer_warning">Toutes les actions ne sont pas possibles sans un menu de sélection !</string>
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Enregistrer les modifications de brouillons pour pouvoir annuler et rétablir</string>
     <string name="title_advanced_auto_save_paragraph">Enregistrer automatiquement un brouillon après chaque paragraphe</string>
     <string name="title_advanced_auto_save_dot">Enregistrer automatiquement un brouillon après chaque phrase</string>
     <string name="title_advanced_compose_color">Couleur du texte par défaut</string>
@@ -1165,7 +1166,7 @@
     <string name="title_print_images">Imprimer les images</string>
     <string name="title_print_images_remark">Le téléchargement des images peut prendre un certain temps</string>
     <string name="title_print_block_quotes">Imprimer les blocs de citation</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Ajouter une marge</string>
+    <string name="title_print_margins">Ajouter une marge</string>
     <string name="title_show_headers">Afficher l’en-tête</string>
     <string name="title_show_html">Afficher le message source (HTML)</string>
     <string name="title_raw_save">Enregistrer le message original</string>

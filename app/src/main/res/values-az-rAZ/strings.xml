@@ -389,6 +389,7 @@
     <string name="title_advanced_answer_hint">Cavab düyməsi əməliyyatları, göndərmə ayarları vərəq səhifəsində də konfiqurasiya edilə bilər</string>
     <string name="title_advanced_answer_warning">Bir seçim menyusu olmadan bütün əməliyyatlar mümkün deyil!</string>
     <string name="title_advanced_send_pending">Narahat edici olmayan gecikməli göndərmə nişanını göstər</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Geri al və təkrar et üçün qaralama təftişlərini saxla</string>
     <string name="title_advanced_auto_save_paragraph">Qaralamanı hər paraqrafdan sonra avtomatik saxla</string>
     <string name="title_advanced_auto_save_dot">Cümləni hər paraqrafdan sonra avtomatik saxla</string>
     <string name="title_advanced_compose_color">İlkin mətn rəngi</string>
@@ -1164,7 +1165,7 @@
     <string name="title_print_images">Təsvirləri çap et</string>
     <string name="title_print_images_remark">Təsvirlərin endirilməsi bir az vaxt apara bilər</string>
     <string name="title_print_block_quotes">Blok sitat xətlərini çap et</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Haşiyə əlavə et</string>
+    <string name="title_print_margins">Haşiyə əlavə et</string>
     <string name="title_show_headers">Başlıqları göstər</string>
     <string name="title_show_html">Mənbəni göstər</string>
     <string name="title_raw_save">Xam mesajı saxla</string>

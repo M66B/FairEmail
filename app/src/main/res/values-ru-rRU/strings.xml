@@ -416,6 +416,7 @@
     <string name="title_advanced_answer_hint">Действия кнопок ответа также могут быть настроены на вкладке настроек \"Отправка\"</string>
     <string name="title_advanced_answer_warning">Не все действия возможны без меню выбора!</string>
     <string name="title_advanced_send_pending">Показывать ненавязчивый значок задержки отправки</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Сохранять черновые версии для отмены и повтора</string>
     <string name="title_advanced_auto_save_paragraph">Автоматически сохранять черновик после каждого абзаца</string>
     <string name="title_advanced_auto_save_dot">Автоматически сохранять черновик после каждого предложения</string>
     <string name="title_advanced_compose_color">Цвет текста по умолчанию</string>
@@ -1192,7 +1193,7 @@
     <string name="title_print_images">Печать изображений</string>
     <string name="title_print_images_remark">Загрузка изображений может занять некоторое время</string>
     <string name="title_print_block_quotes">Печатать строки в блоке цитат</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Добавить отступ</string>
+    <string name="title_print_margins">Добавить отступ</string>
     <string name="title_show_headers">Показать заголовки</string>
     <string name="title_show_html">Показать исходный код</string>
     <string name="title_raw_save">Сохранить оригинал сообщения</string>

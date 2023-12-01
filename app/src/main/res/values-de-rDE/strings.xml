@@ -390,6 +390,7 @@
     <string name="title_advanced_answer_hint">Aktionen der Schaltfläche »Antworten« können ebenfalls in den Einstellungen »Senden« konfiguriert werden</string>
     <string name="title_advanced_answer_warning">Nicht alle Aktionen sind ohne Auswahlmenü möglich!</string>
     <string name="title_advanced_send_pending">Nicht aufdringliches Symbol für verzögertes Senden anzeigen</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Verlauf von Entwürfen speichern, um das Rückgängigmachen und Wiederherstellen zu ermöglichen</string>
     <string name="title_advanced_auto_save_paragraph">Entwurf nach jedem Absatz automatisch speichern</string>
     <string name="title_advanced_auto_save_dot">Entwurf nach jedem Satz automatisch speichern</string>
     <string name="title_advanced_compose_color">Standard-Textfarbe</string>
@@ -1166,7 +1167,7 @@
     <string name="title_print_images">Bilder drucken</string>
     <string name="title_print_images_remark">Das Herunterladen von Bildern kann einige Zeit dauern</string>
     <string name="title_print_block_quotes">Zeilen mit Blockzitaten drucken</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Einen Rand hinzufügen</string>
+    <string name="title_print_margins">Einen Rand hinzufügen</string>
     <string name="title_show_headers">Kopfzeilen anzeigen</string>
     <string name="title_show_html">Quelltext anzeigen</string>
     <string name="title_raw_save">Rohdaten speichern</string>

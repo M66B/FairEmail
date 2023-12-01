@@ -1160,7 +1160,7 @@
     <string name="title_print_images">Εκτύπωση εικόνων</string>
     <string name="title_print_images_remark">Το κατέβασμα των εικόνων μπορεί να πάρει κάποιο χρόνο</string>
     <string name="title_print_block_quotes">Εκτύπωση γραμμών εσοχής στα παρατιθέμενα κείμενα</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Προσθήκη περιθωρίου</string>
+    <string name="title_print_margins">Προσθήκη περιθωρίου</string>
     <string name="title_show_headers">Προβολή κεφαλίδων</string>
     <string name="title_show_html">Εμφάνιση πηγής</string>
     <string name="title_raw_save">Αποθήκευση αρχικού μηνύματος</string>

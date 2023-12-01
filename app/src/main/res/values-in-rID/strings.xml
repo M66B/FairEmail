@@ -607,6 +607,7 @@ Kata sandi diperlukan untuk mengimpor kembali pengaturan, harap jangan sampai lu
     <string name="title_advanced_notify_preview">Tampilkan pratinjau pesan dalam pemberitahuan</string>
     <string name="title_advanced_notify_preview_all">Pratinjau semua teks</string>
     <string name="title_advanced_notify_preview_only">Tampilkan pemberitahuan dengan teks pratinjau saja</string>
+    <string name="title_advanced_notify_transliterate">Transliterasi ke abjad Latin</string>
     <string name="title_advanced_notify_actions">Tindakan pemberitahuan</string>
     <string name="title_advanced_notify_action_trash">Sampah</string>
     <string name="title_advanced_notify_action_delete">Hapus</string>
@@ -1137,6 +1138,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_print_images">Mencetak gambar</string>
     <string name="title_print_images_remark">Mengunduh gambar butuh beberapa waktu</string>
     <string name="title_show_headers">Tampilkan Judul</string>
+    <string name="title_show_html">Tampilkan sumber</string>
     <string name="title_raw_save">Simpan pesan sebagai bahan</string>
     <string name="title_raw_send">Kirim sebagai lampiran</string>
     <string name="title_raw_send_message">Pesan</string>
@@ -1349,6 +1351,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_add_image_privacy">Hapus privasi data sensitif</string>
     <string name="title_add_image_privacy_remark">Lokasi geografis, nomor seri, nama file, dll</string>
     <string name="title_add_resize_pixels">&lt; %1$d piksel</string>
+    <string name="title_add_image_resize_remark">Perubahan ukuran didukung untuk: %1$s</string>
     <string name="title_add_image_select_remark">Pemilih foto Android tidak lagi melewati nama file</string>
     <string name="title_add_image_select">Pilih file</string>
     <string name="title_add_attachment">Tambahkan lampiran</string>
@@ -1663,6 +1666,8 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_rule_alarm_duration">Durasi alarm maksimum (seconds)</string>
     <string name="title_rule_alarm_title">Alarm</string>
     <string name="title_rule_alarm_stop">Berhenti</string>
+    <string name="title_code_line_numbers">Tampilkan nomor baris</string>
+    <string name="title_code_enable_links">Aktifkan tautan</string>
     <string name="title_legend_section_synchronize">Sinkronisasi</string>
     <string name="title_legend_section_folders">Folder</string>
     <string name="title_legend_section_messages">Pesan</string>
@@ -1856,6 +1861,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_no_ask_again">Jangan tanya ini lagi</string>
     <string name="title_no_ask_for_again">Jangan tanya ini lagi untuk %1$s</string>
     <string name="title_no_body">Teks pesan tidak ditemukan</string>
+    <string name="title_large_body">Pesan ini terlalu besar dan bisa menyebabkan masalah!</string>
     <string name="title_no_charset">Encoding tidak didukung: %1$s</string>
     <string name="title_via">Melalui: %1$s</string>
     <string name="title_1hour">1 jam</string>
@@ -1936,6 +1942,7 @@ Memformat ulang pesan perlu waktu, tergantung dari ukuran pesan dan keceoatan pe
     <string name="title_widget_account_all">Semua</string>
     <string name="title_widget_folder">Folder</string>
     <string name="title_widget_folder_unified">Folder kotak masuk terpadu</string>
+    <string name="title_widget_folder_notifying">Folder dengan pemberitahuan pesan baru</string>
     <string name="title_widget_unseen">Hanya pesan yang belum dibaca</string>
     <string name="title_widget_flagged">Hanya pesan-pesan yang dibintangi</string>
     <string name="title_widget_font_size">Ukuran teks</string>

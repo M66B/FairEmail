@@ -388,6 +388,7 @@
     <string name="title_advanced_answer_hint">Las acciones del botón de respuesta también se pueden configurar en la pestaña de configuración de envío</string>
     <string name="title_advanced_answer_warning">¡No todas las acciones son posibles sin un menú de selección!</string>
     <string name="title_advanced_send_pending">Mostrar icono de envío diferido no obtrusivo</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Guardar revisiones de borradores para deshacer y rehacer</string>
     <string name="title_advanced_auto_save_paragraph">Guardar automáticamente un borrador después de cada párrafo</string>
     <string name="title_advanced_auto_save_dot">Guardar automáticamente un borrador después de cada oración</string>
     <string name="title_advanced_compose_color">Color de texto por defecto</string>
@@ -1162,7 +1163,7 @@
     <string name="title_print_images">Imprimir imágenes</string>
     <string name="title_print_images_remark">La descarga de imágenes puede tardar algún tiempo</string>
     <string name="title_print_block_quotes">Imprimir líneas de citas en bloque</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Añadir un margen</string>
+    <string name="title_print_margins">Añadir un margen</string>
     <string name="title_show_headers">Mostrar encabezados</string>
     <string name="title_show_html">Mostrar código fuente</string>
     <string name="title_raw_save">Guardar mensaje sin procesar</string>

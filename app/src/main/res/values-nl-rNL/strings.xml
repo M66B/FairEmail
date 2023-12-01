@@ -387,6 +387,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_answer_hint">De acties van de antwoordknop kunnen ook worden geconfigureerd op het tabblad verzendinstellingen</string>
     <string name="title_advanced_answer_warning">Niet alle acties zijn mogelijk zonder een selectiemenu!</string>
     <string name="title_advanced_send_pending">Toon niet-opdringerig pictogram voor vertraagd verzenden</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Conceptrevisies opslaan voor ongedaan maken (undo) en opnieuw uitvoeren (redo)</string>
     <string name="title_advanced_auto_save_paragraph">Automatisch een concept opslaan na elke alinea</string>
     <string name="title_advanced_auto_save_dot">Automatisch een concept opslaan na elke zin</string>
     <string name="title_advanced_compose_color">Standaard tekstkleur</string>
@@ -1159,7 +1160,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_print_images">Afbeeldingen afdrukken</string>
     <string name="title_print_images_remark">Afbeeldingen downloaden kan enige tijd duren</string>
     <string name="title_print_block_quotes">Blokcitaatlijnen afdrukken</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Een marge toevoegen</string>
+    <string name="title_print_margins">Een marge toevoegen</string>
     <string name="title_show_headers">Toon koppen</string>
     <string name="title_show_html">Bron tonen</string>
     <string name="title_raw_save">Ruw bericht opslaan</string>

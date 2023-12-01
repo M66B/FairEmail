@@ -1188,7 +1188,7 @@
     <string name="title_print_images">Drukuj obrazy</string>
     <string name="title_print_images_remark">Pobieranie obrazów może zająć trochę czasu</string>
     <string name="title_print_block_quotes">Drukuj wiersze z cudzysłowami blokowymi</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Dodaj margines</string>
+    <string name="title_print_margins">Dodaj margines</string>
     <string name="title_show_headers">Pokaż nagłówki</string>
     <string name="title_show_html">Pokaż źródło</string>
     <string name="title_raw_save">Zapisz nieprzetworzoną wiadomość</string>

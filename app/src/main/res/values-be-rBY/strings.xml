@@ -418,6 +418,7 @@
     <string name="title_advanced_answer_hint">Дзеянні для кнопкі адказу таксама можна наладзіць на ўкладцы налад адпраўкі</string>
     <string name="title_advanced_answer_warning">Некаторыя дзеянні будуць працаваць толькі з меню выбару!</string>
     <string name="title_advanced_send_pending">Паказваць непрыкметны значок затрымкі адпраўкі</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Захоўваць чарнавікі для аперацый адмены і паўтору</string>
     <string name="title_advanced_auto_save_paragraph">Аўтаматычна захоўваць чарнавік пасля заканчэння кожнага абзаца</string>
     <string name="title_advanced_auto_save_dot">Аўтаматычна захоўваць чарнавік пасля заканчэння кожнага сказа</string>
     <string name="title_advanced_compose_color">Колер тэксту па змаўчанні</string>
@@ -1195,6 +1196,7 @@
     <string name="title_print_images">Друкаваць выявы</string>
     <string name="title_print_images_remark">Загрузка выяў можа заняць некаторы час</string>
     <string name="title_print_block_quotes">Адлюстроўваць лініі ў блоках цытат</string>
+    <string name="title_print_margins">Дадаць водступ</string>
     <string name="title_show_headers">Паказваць загалоўкі</string>
     <string name="title_show_html">Паказваць крыніцу</string>
     <string name="title_raw_save">Захаваць неапрацаванае паведамленне</string>

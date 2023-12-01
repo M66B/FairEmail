@@ -388,6 +388,7 @@
     <string name="title_advanced_answer_hint">As ações do botão de resposta também podem ser configuradas na página da aba de configurações de envio</string>
     <string name="title_advanced_answer_warning">Nem todas as ações são possíveis sem um menu de seleção!</string>
     <string name="title_advanced_send_pending">Mostrar ícones de filtro rápido não obtrusivos</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Salvar rascunhos das revisões para desfazer e refazer</string>
     <string name="title_advanced_auto_save_paragraph">Salvar automaticamente um rascunho após cada parágrafo</string>
     <string name="title_advanced_auto_save_dot">Salvar automaticamente um rascunho após cada frase</string>
     <string name="title_advanced_compose_color">Cor de texto padrão</string>
@@ -1162,7 +1163,7 @@
     <string name="title_print_images">Imprimir imagens</string>
     <string name="title_print_images_remark">Baixar imagens pode demorar certo tempo</string>
     <string name="title_print_block_quotes">Imprimir linhas de aspas por bloco</string>
-    <string name="title_print_margins" comment="title_print_margins&#10;Title for print option">Adicionar uma margem</string>
+    <string name="title_print_margins">Adicionar uma margem</string>
     <string name="title_show_headers">Mostrar cabeçalhos</string>
     <string name="title_show_html">Mostrar fonte</string>
     <string name="title_raw_save">Salvar imagem raw</string>
