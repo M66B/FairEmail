@@ -35,14 +35,17 @@ import java.util.Iterator;
 // https://structured.email/content/introduction/getting_started.html
 
 public class JsonLd {
-    private JSONObject jroot;
+    private Object jroot;
     private Throwable error = null;
 
     private static final String URI_SCHEMA_ORG = "https://schema.org/";
 
     public JsonLd(String json) {
         try {
-            jroot = new JSONObject(json);
+            if (json != null && json.trim().startsWith("["))
+                jroot = new JSONArray(json);
+            else
+                jroot = new JSONObject(json);
         } catch (Throwable ex) {
             Log.e(ex);
             error = ex;
@@ -104,8 +107,11 @@ public class JsonLd {
             }
         } else if (obj instanceof JSONArray) {
             JSONArray jarray = (JSONArray) obj;
-            for (int i = 0; i < jarray.length(); i++)
+            for (int i = 0; i < jarray.length(); i++) {
+                if (indent == 0 && i > 0)
+                    holder.appendElement("br");
                 getHtml(jarray.get(i), indent, holder);
+            }
         } else {
             indent(indent, holder);
             String v = (obj == null ? "" : obj.toString());
