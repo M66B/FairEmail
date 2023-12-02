@@ -144,8 +144,15 @@ public class TextHelper {
             codepoint = s.codePointAt(i);
             i += Character.charCount(codepoint);
             us = Character.UnicodeScript.of(codepoint);
+
+            if (Character.isSpaceChar(codepoint)) {
+                script = null;
+                continue;
+            }
+
             if (us.equals(Character.UnicodeScript.COMMON))
                 continue;
+
             if (script == null)
                 script = us;
             else if (!us.equals(script))
