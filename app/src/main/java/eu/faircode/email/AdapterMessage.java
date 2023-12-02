@@ -72,7 +72,6 @@ import android.text.style.ForegroundColorSpan;
 import android.text.style.ImageSpan;
 import android.text.style.QuoteSpan;
 import android.text.style.RelativeSizeSpan;
-import android.text.style.StrikethroughSpan;
 import android.text.style.StyleSpan;
 import android.text.style.URLSpan;
 import android.text.style.UnderlineSpan;
@@ -274,6 +273,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
     private boolean check_reply_domain;
     private boolean check_mx;
     private boolean check_blocklist;
+    private boolean show_addresses_default;
+    private boolean hide_attachments_default;
 
     private MessageHelper.AddressFormat email_format;
     private boolean prefer_contact;
@@ -2544,7 +2545,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void bindAddresses(TupleMessageEx message) {
-            boolean show_addresses = properties.getValue("addresses", message.id);
+            boolean show_addresses = properties.getValue("addresses", message.id, getShowAddressesDefault(message));
             boolean full = (show_addresses || email_format == MessageHelper.AddressFormat.NAME_EMAIL);
 
             int froms = (message.from == null ||
@@ -3608,7 +3609,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 attachments = new ArrayList<>();
             properties.setAttachments(message.id, attachments);
 
-            boolean hide_attachments = properties.getValue("hide_attachments", message.id);
+            boolean hide_attachments = properties.getValue("hide_attachments", message.id, hide_attachments_default);
             boolean show_inline = properties.getValue("inline", message.id);
             Log.i("Hide attachments=" + hide_attachments + " Show inline=" + show_inline);
 
@@ -5364,9 +5365,27 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onToggleAddresses(TupleMessageEx message) {
-            boolean addresses = !properties.getValue("addresses", message.id);
+            boolean addresses = !properties.getValue("addresses", message.id, getShowAddressesDefault(message));
             properties.setValue("addresses", message.id, addresses);
             bindAddresses(message);
+        }
+
+        private boolean getShowAddressesDefault(TupleMessageEx message) {
+            if (show_addresses_default)
+                return true;
+
+            if (message.from != null)
+                for (Address from : message.from) {
+                    if (!(from instanceof InternetAddress))
+                        continue;
+                    if (!TextHelper.isSingleScript(((InternetAddress) from).getPersonal()))
+                        return true;
+                }
+
+            if (!TextHelper.isSingleScript(message.subject))
+                return true;
+
+            return false;
         }
 
         private void onDownloadAttachments(final TupleMessageEx message) {
@@ -5415,7 +5434,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         }
 
         private void onExpandAttachments(TupleMessageEx message) {
-            boolean hide_attachments = properties.getValue("hide_attachments", message.id);
+            boolean hide_attachments = properties.getValue("hide_attachments", message.id, hide_attachments_default);
             properties.setValue("hide_attachments", message.id, !hide_attachments);
             cowner.restart();
             bindAttachments(message, properties.getAttachments(message.id), false);
@@ -7967,6 +7986,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         this.check_reply_domain = prefs.getBoolean("check_reply_domain", true);
         this.check_mx = prefs.getBoolean("check_mx", false);
         this.check_blocklist = prefs.getBoolean("check_blocklist", false);
+        this.show_addresses_default = prefs.getBoolean("addresses", false);
+        this.hide_attachments_default = prefs.getBoolean("hide_attachments", false);
 
         this.email_format = MessageHelper.getAddressFormat(context);
         this.prefer_contact = prefs.getBoolean("prefer_contact", false);
@@ -8940,6 +8961,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
         String getValue(String key);
 
         boolean getValue(String name, long id);
+
+        boolean getValue(String name, long id, boolean def);
 
         void setExpanded(TupleMessageEx message, boolean expanded, boolean scroll);
 

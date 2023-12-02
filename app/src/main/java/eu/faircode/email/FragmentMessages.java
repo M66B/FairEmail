@@ -345,8 +345,6 @@ public class FragmentMessages extends FragmentBase
     private boolean autoclose;
     private String onclose;
     private boolean quick_scroll;
-    private boolean addresses;
-    private boolean hide_attachments;
     private boolean auto_hide_answer;
     private boolean swipe_reply;
     private boolean quick_actions;
@@ -500,8 +498,6 @@ public class FragmentMessages extends FragmentBase
         autoclose = prefs.getBoolean("autoclose", true);
         onclose = (autoclose ? null : prefs.getString("onclose", null));
         quick_scroll = prefs.getBoolean("quick_scroll", true);
-        addresses = prefs.getBoolean("addresses", false);
-        hide_attachments = prefs.getBoolean("hide_attachments", false);
         auto_hide_answer = prefs.getBoolean("auto_hide_answer", false);
         swipe_reply = prefs.getBoolean("swipe_reply", false);
         quick_actions = prefs.getBoolean("quick_actions", true);
@@ -2524,15 +2520,12 @@ public class FragmentMessages extends FragmentBase
 
         @Override
         public boolean getValue(String name, long id) {
-            if (values.containsKey(name))
-                return values.get(name).contains(id);
-            else {
-                if ("addresses".equals(name))
-                    return addresses;
-                else if ("hide_attachments".equals(name))
-                    return hide_attachments;
-            }
-            return false;
+            return getValue(name, id, false);
+        }
+
+        @Override
+        public boolean getValue(String name, long id, boolean def) {
+            return ((values.containsKey(name)) ? values.get(name).contains(id) : def);
         }
 
         @Override
