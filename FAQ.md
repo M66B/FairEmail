@@ -408,6 +408,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(196) Can you add empty trash on leaving the app?](#faq196)
 * [(197) How can I print a message?](#faq197)
 * [(198) Can you add spell checking?](#faq198)
+* [(199) Can you add proxy support?](#faq199)
 
 [I have another question.](#get-support)
 
@@ -5594,6 +5595,17 @@ Spell checking should be provided by the keyboard app for all other apps.
 Sometimes, particularly on ChromeOS, spell checking needs to be enabled in the settings.
 
 That said, LanguageTool, which can be enabled in the integration settings, is an excellent style and spell checker.
+
+<br>
+
+<a name="faq199"></a>
+**(199) Can you add proxy support?**
+
+In fact, (HTTP, HTTPS, SOCKS) proxy support was removed because it is not possible to let an app proxy DNS requests,
+or in other words, an in-app proxy will always leak host names and therefore give a false sense of security.
+
+If you want to proxy traffic, for example to use Tor,
+you should use an Android VPN-service based app, which is the only way to reliably proxy traffic.
 
 <br>
 
