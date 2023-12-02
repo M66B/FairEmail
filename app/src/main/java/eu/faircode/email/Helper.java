@@ -1896,8 +1896,6 @@ public class Helper {
                                 if (TextView.class.isAssignableFrom(type)) {
                                     TextView tv = (TextView) field.get(instance);
                                     if (tv != null) {
-                                        sb.append(" text");
-                                        tv.setText(null);
                                         sb.append(" drawables");
                                         tv.setCompoundDrawables(null, null, null, null);
                                     }
