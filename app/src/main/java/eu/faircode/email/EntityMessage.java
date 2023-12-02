@@ -126,6 +126,7 @@ public class EntityMessage implements Serializable {
     static final Long SWIPE_ACTION_DELETE = -7L;
     static final Long SWIPE_ACTION_JUNK = -8L;
     static final Long SWIPE_ACTION_REPLY = -9L;
+    static final Long SWIPE_ACTION_IMPORTANCE = -10L;
 
     private static final int MAX_SNOOZED = 300;
 
@@ -728,6 +729,8 @@ public class EntityMessage implements Serializable {
             return "move";
         if (SWIPE_ACTION_FLAG.equals(type))
             return "flag";
+        if (SWIPE_ACTION_IMPORTANCE.equals(type))
+            return "importance";
         if (SWIPE_ACTION_DELETE.equals(type))
             return "delete";
         if (SWIPE_ACTION_JUNK.equals(type))

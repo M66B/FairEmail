@@ -1064,6 +1064,11 @@ public class FragmentPop extends FragmentBase {
         flag.name = getString(R.string.title_flag);
         folders.add(flag);
 
+        EntityFolder importance = new EntityFolder();
+        importance.id = EntityMessage.SWIPE_ACTION_IMPORTANCE;
+        importance.name = getString(R.string.title_set_importance);
+        folders.add(importance);
+
         EntityFolder snooze = new EntityFolder();
         snooze.id = EntityMessage.SWIPE_ACTION_SNOOZE;
         snooze.name = getString(R.string.title_snooze_now);

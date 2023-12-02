@@ -1605,7 +1605,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
-                onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, more_clear);
+                onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, null, more_clear);
             }
         });
 
@@ -1613,7 +1613,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
-                onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL, more_clear);
+                onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL, null, more_clear);
             }
         });
 
@@ -1621,7 +1621,7 @@ public class FragmentMessages extends FragmentBase
             @Override
             public void onClick(View v) {
                 boolean more_clear = prefs.getBoolean("more_clear", true);
-                onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH, more_clear);
+                onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH, null, more_clear);
             }
         });
 
@@ -3057,7 +3057,16 @@ public class FragmentMessages extends FragmentBase
                 icon = (message.unseen > 0 ? R.drawable.twotone_drafts_24 : R.drawable.twotone_mail_24);
             else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                 icon = (message.ui_flagged ? R.drawable.twotone_star_border_24 : R.drawable.baseline_star_24);
-            else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
+            else if (EntityMessage.SWIPE_ACTION_IMPORTANCE.equals(action)) {
+                int importance = (message.importance == null ? EntityMessage.PRIORITIY_NORMAL : message.importance);
+                importance = (importance + 1) % 3;
+                if (EntityMessage.PRIORITIY_HIGH.equals(importance))
+                    icon = R.drawable.twotone_north_24;
+                else if (EntityMessage.PRIORITIY_LOW.equals(importance))
+                    icon = R.drawable.twotone_south_24;
+                else
+                    icon = R.drawable.twotone_horizontal_rule_24;
+            } else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
                 icon = (message.ui_snoozed == null ? R.drawable.twotone_timelapse_24 : R.drawable.twotone_timer_off_24);
             else if (EntityMessage.SWIPE_ACTION_HIDE.equals(action))
                 icon = (message.ui_snoozed == null ? R.drawable.twotone_visibility_off_24 :
@@ -3199,7 +3208,10 @@ public class FragmentMessages extends FragmentBase
                     onActionSeenSelection(!message.ui_seen, message.id, false);
                 } else if (EntityMessage.SWIPE_ACTION_FLAG.equals(action))
                     onActionFlagSelection(!message.ui_flagged, Color.TRANSPARENT, message.id, false);
-                else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
+                else if (EntityMessage.SWIPE_ACTION_IMPORTANCE.equals(action)) {
+                    int importance = (message.importance == null ? EntityMessage.PRIORITIY_NORMAL : message.importance);
+                    onActionSetImportanceSelection((importance + 1) % 3, message.id, false);
+                } else if (EntityMessage.SWIPE_ACTION_SNOOZE.equals(action))
                     if (ActivityBilling.isPro(getContext()))
                         onActionSnooze(message);
                     else {
@@ -4233,13 +4245,13 @@ public class FragmentMessages extends FragmentBase
                             onActionFlagColorSelection(false);
                             return true;
                         } else if (itemId == R.string.title_importance_low) {
-                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, false);
+                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, null, false);
                             return true;
                         } else if (itemId == R.string.title_importance_normal) {
-                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL, false);
+                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL, null, false);
                             return true;
                         } else if (itemId == R.string.title_importance_high) {
-                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH, false);
+                            onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH, null, false);
                             return true;
                         } else if (itemId == R.string.title_raw_send) {
                             onActionRaw(null);
@@ -4513,9 +4525,9 @@ public class FragmentMessages extends FragmentBase
         fragment.show(getParentFragmentManager(), "messages:color");
     }
 
-    private void onActionSetImportanceSelection(int importance, boolean clear) {
+    private void onActionSetImportanceSelection(int importance, Long id, boolean clear) {
         Bundle args = new Bundle();
-        args.putLongArray("selected", getSelection());
+        args.putLongArray("ids", id == null ? getSelection() : new long[]{id});
         args.putInt("importance", importance);
 
         if (clear && selectionTracker != null)
@@ -4524,7 +4536,7 @@ public class FragmentMessages extends FragmentBase
         new SimpleTask<Void>() {
             @Override
             protected Void onExecute(Context context, Bundle args) {
-                long[] selected = args.getLongArray("selected");
+                long[] ids = args.getLongArray("ids");
                 Integer importance = args.getInt("importance");
                 if (EntityMessage.PRIORITIY_NORMAL.equals(importance))
                     importance = null;
@@ -4533,7 +4545,7 @@ public class FragmentMessages extends FragmentBase
                 try {
                     db.beginTransaction();
 
-                    for (long id : selected) {
+                    for (long id : ids) {
                         EntityMessage message = db.message().getMessage(id);
                         if (message == null)
                             continue;
