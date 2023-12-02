@@ -367,7 +367,7 @@
     <string name="title_advanced_send_nav_color">将身份颜色用于底部操作栏</string>
     <string name="title_advanced_send_reminders">显示提醒</string>
     <string name="title_advanced_send_delayed">延迟发送消息</string>
-    <string name="title_advanced_attach_new">为共享地址和文件创建新的消息草稿</string>
+    <string name="title_advanced_attach_new">为分享的地址或文件新建消息草稿</string>
     <string name="title_advanced_answer_caption">回复按钮设置</string>
     <string name="title_advanced_answer_default">短按回复按钮操作：</string>
     <string name="title_advanced_answer_action">长按回复按钮操作：</string>
@@ -695,10 +695,10 @@
     <string name="title_advanced_manage_keys_hint">        这将打开Android安全设置页面        密钥和证书一般可以在 “高级—加密和凭证” 选项中找到
     </string>
     <string name="title_advanced_power_menu">添加操作到 Android 电源菜单</string>
-    <string name="title_advanced_send_self">将 \'发送给自己\' 添加到 Android 的共享菜单</string>
+    <string name="title_advanced_send_self">将 \'发送给自己\' 添加到 Android 的分享菜单</string>
     <string name="title_advanced_external_search">将 \'FairEmail 搜索 \' 添加到 Android 文本选择菜单</string>
     <string name="title_advanced_sort_answers">按使用频率对回复模板进行排序</string>
-    <string name="title_advanced_shortcuts">在安卓共享菜单中显示常用联系人</string>
+    <string name="title_advanced_shortcuts">在安卓的分享菜单中显示常用联系人</string>
     <string name="title_advanced_ical_tentative">将收到的邀请保存为待处理</string>
     <string name="title_advanced_fts">创建搜索索引</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d 的消息已索引(%3$s)</string>
@@ -773,7 +773,7 @@
     <string name="title_advanced_reply_move_hint">邮件服务器仍可能将邮件添加到“已发送”文件夹</string>
     <string name="title_advanced_compose_color_hint">非常浅或非常深的颜色会导致收件人处的信息难以辨认</string>
     <string name="title_advanced_write_below_hint">收件人可能会错过您的回复，例如当邮件较长被截断时</string>
-    <string name="title_advanced_attach_new_hint">否则，将共享地址或文件添加到当前草稿消息</string>
+    <string name="title_advanced_attach_new_hint">不然，会将分享的地址或文件添加到当前草稿消息</string>
     <string name="title_advanced_usenet_hint">在文本和签名之间插入 \'-- \'</string>
     <string name="title_advanced_remove_signature_hint">这可能会导致删除太少或太多文本</string>
     <string name="title_advanced_metered_hint">计量连接通常是指移动连接或付费WiFi热点</string>

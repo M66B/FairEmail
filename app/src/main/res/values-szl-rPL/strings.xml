@@ -416,6 +416,7 @@
     <string name="title_advanced_answer_hint">Akcje przycisku odpowiedzi można również skonfigurować w zakładce ustawień Wysyłanie</string>
     <string name="title_advanced_answer_warning">Nie wszystkie działania są możliwe bez menu wyboru!</string>
     <string name="title_advanced_send_pending">Pokaż nieprzeszkadzającą ikonę wysłania z opóźnieniem</string>
+    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Zapisuj wersje robocze dla cofania i ponawiania</string>
     <string name="title_advanced_auto_save_paragraph">Automatycznie zapisuj wersję roboczą po każdym akapicie</string>
     <string name="title_advanced_auto_save_dot">Automatycznie zapisuj wersję roboczą po każdym zdaniu</string>
     <string name="title_advanced_compose_color">Domyślny kolor tekstu</string>
@@ -465,6 +466,7 @@
     <string name="title_advanced_ssl_harden_strict">Wymagaj TLS 1.3</string>
     <string name="title_advanced_cert_strict">Ścisła kontrola certyfikatu</string>
     <string name="title_advanced_open_safe">Otwieraj tylko bezpieczne połączenia</string>
+    <string name="title_advanced_bouncy_castle">Używaj dostawcy bezpiecznych gniazd Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_caption_general">Ogólne</string>
     <string name="title_advanced_caption_navigation">Nawigacja</string>
@@ -746,6 +748,7 @@
     <string name="title_advanced_class_min_chance">Minimalne prawdopodobieństwo klasy: %1$s %%</string>
     <string name="title_advanced_class_min_difference">Minimalna różnica klasy: %1$s %%</string>
     <string name="title_advanced_show_filtered">Pokaż ikonę filtrowania podczas stosowania reguł</string>
+    <string name="title_advanced_haptic_feedback">Wibracyjne informacje zwrotne dotyczące ważnych działań</string>
     <string name="title_advanced_language">Język</string>
     <string name="title_advanced_language_system">Systemowy</string>
     <string name="title_advanced_lt">Integracja LanguageTool</string>

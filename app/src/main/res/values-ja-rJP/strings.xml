@@ -5,12 +5,12 @@
     <string name="app_changelog">更新履歴</string>
     <string name="app_welcome">FairEmail はプライバシーとセキュリティを重視するオープンソースのメールアプリです。そのため、今までのメールアプリとは異なる動作をする場合があります。</string>
     <string name="app_limitations">例えば、メッセージから安全でない要素を削除し、読みやすくするために再フォーマットしたり、安全のためにリンクを開く前に確認画面を表示したりします。どちらも不要であれば無効にできます。</string>
-    <string name="app_unsupported">このデバイスの Android バージョンのバグによりクラッシュすることがあります</string>
+    <string name="app_unsupported">この端末の Android バージョンのバグによりクラッシュすることがあります</string>
     <string name="app_data_loss">すべてのデータが失われる可能性があります</string>
     <string name="app_continue">それでも続行する</string>
     <string name="app_exit">もう一度「戻る」で終了します</string>
     <string name="app_cake">ストレージの空き容量が不足しています</string>
-    <string name="app_cake_remaining">デバイスの空き容量: %1$s</string>
+    <string name="app_cake_remaining">端末の空き容量: %1$s</string>
     <string name="app_cake_required">最低限必要な空き容量: %1$s</string>
     <string name="app_updated">最終更新: %1$s</string>
     <string name="app_download">ダウンロード元: %1$s</string>
@@ -171,8 +171,8 @@
     <string name="title_setup_gmail_permissions">Google はすべてのメールの読み取り、作成、送信、完全削除の許可を求めます。FairEmail が明示的な同意なしにメッセージを削除することはありません。</string>
     <string name="title_setup_gmail_login">Chrome でアカウントにログインしている場合、新しいアカウントは Android の設定から追加する必要があります。Chrome の同期設定からログアウトすると回避できます。</string>
     <string name="title_setup_gmail_max">「最大ログイン アカウント数に達しています」というエラーメッセージが表示される場合、ブラウザーのすべての Google アカウントからログアウトする必要があります。</string>
-    <string name="title_setup_gmail_on_device">なぜデバイス上のアカウントから選択するのですか？</string>
-    <string name="title_setup_gmail_password">デバイス上のアカウントの代わりにパスワードで別のアカウントを認証したい</string>
+    <string name="title_setup_gmail_on_device">なぜ端末上のアカウントから選択するのですか？</string>
+    <string name="title_setup_gmail_password">端末上のアカウントの代わりにパスワードで別のアカウントを認証したい</string>
     <string name="title_setup_office_auth">「AUTHENTICATE failed」というエラーは、システム管理者によって IMAP/SMTP が無効にされていることが原因である可能性があります</string>
     <string name="title_setup_office_auth_5_7_3">クイック セットアップ ウィザードの「その他のプロバイダー」をお試しください。</string>
     <string name="title_setup_oauth_rationale">%1$s アカウントへのアクセスを許可する</string>
@@ -211,12 +211,12 @@
     <string name="title_setup_doze_remark">バックグラウンドで確実にメールを送受信するには</string>
     <string name="title_setup_doze_explanation">バックグラウンドでのメッセージの送受信を確実に行うには、アプリのバッテリー最適化を無効にする必要があります</string>
     <string name="title_setup_doze_hint">矛盾していると思われるかもしれませんが、このアプリのバッテリー最適化をオフにするとバッテリー使用量が少なくなります</string>
-    <string name="title_setup_doze_aggressively">このデバイスでは同期サービスが正しく動作しない可能性があります</string>
+    <string name="title_setup_doze_aggressively">この端末では同期サービスが正しく動作しない可能性があります</string>
     <string name="title_setup_doze_why">なぜバッテリー最適化を無効にする必要があるのですか？</string>
     <string name="title_setup_doze_instructions">次に表示される Android のダイアログで「すべてのアプリ」から、このアプリを選択して「最適化しない」を選択します</string>
     <string name="title_setup_doze_battery">バッテリー使用量が多いですか？</string>
     <string name="title_setup_doze_stopped">同期が停止しましたか？</string>
-    <string name="title_setup_doze_device">このデバイスでは必要と思われます</string>
+    <string name="title_setup_doze_device">この端末では必要と思われます</string>
     <string name="title_setup_alarm_12">このアプリは正常に動作しません</string>
     <string name="title_setup_inexact">アラームとリマインダーが無効です</string>
     <string name="title_setup_background">バックグラウンドでの制限が有効です</string>
@@ -605,7 +605,7 @@
     <string name="title_advanced_badge">新着メッセージの数をランチャーアイコンに表示する</string>
     <string name="title_advanced_unseen_ignored">新着メッセージの数を通知の数と一致させる</string>
     <string name="title_advanced_notify_grouping">通知をグループ化する</string>
-    <string name="title_advanced_notify_private">デバイスがロックされているときは通知をプライベートに保つ</string>
+    <string name="title_advanced_notify_private">端末がロックされているときは通知をプライベートに保つ</string>
     <string name="title_advanced_notify_background">バックグラウンドのときのみ通知を表示する</string>
     <string name="title_advanced_notify_known">連絡先のみ通知を表示する</string>
     <string name="title_advanced_notify_suppress_in_call">通話終了まで通知を遅らせる</string>
@@ -664,7 +664,7 @@
     <string name="title_advanced_disconnect_auto_update">リストを自動で毎週更新する</string>
     <string name="title_advanced_disconnect_links">リストを使用してトラッキングリンクについて警告する</string>
     <string name="title_advanced_disconnect_images">リストを使用してトラッキング画像を識別</string>
-    <string name="title_advanced_clear_all_hint">これにより、設定されたメールアカウント、メッセージ、設定、収集されたデータを含む、すべてのアプリデータがデバイスから削除されます。</string>
+    <string name="title_advanced_clear_all_hint">これにより、設定されたメールアカウント、メッセージ、設定、収集されたデータを含む、すべてのアプリデータが端末から削除されます。</string>
     <string name="title_advanced_mnemonic">リモートでデータを削除する</string>
     <string name="title_advanced_mnemonic_hint">件名に以下の単語を含むメールを受信すると、自動でアプリのデータを削除します</string>
     <string name="title_advanced_clear_all">アプリのデータを削除</string>
@@ -753,8 +753,8 @@
     <string name="title_advanced_no_date_hint">一部のプロバイダーは存在しない日付や無効な日付、将来の日付のメッセージを日付のないメッセージとして取り扱います</string>
     <string name="title_advanced_unseen_hint">一部のプロバイダーは正しく対応していないため、メッセージがまったく同期されないかすべて同期されてしまう場合があります</string>
     <string name="title_advanced_data_usage">データ使用量が大幅に増加する可能性があります！</string>
-    <string name="title_advanced_deleted_unseen">無効にすると、未読メッセージがデバイスで永久に保持されます</string>
-    <string name="title_advanced_sync_kept_hint">特に大量のメッセージがデバイスに保存されている場合、バッテリー使用量とデータ使用量が大幅に増加することがあります</string>
+    <string name="title_advanced_deleted_unseen">無効にすると、未読メッセージが端末で永久に保持されます</string>
+    <string name="title_advanced_sync_kept_hint">特に大量のメッセージが端末に保存されている場合、バッテリー使用量とデータ使用量が大幅に増加することがあります</string>
     <string name="title_advanced_gmail_thread_hint">新しく受信したメッセージにのみ適用されます。また、既存のグループを壊す可能性があります</string>
     <string name="title_advanced_subject_threading_hint">過去 %1$d 時間以内に受信したメッセージのみに適用されます</string>
     <string name="title_advanced_sync_folders_hint">無効にするとデータ使用量とバッテリー使用量がわずかに減少しますが、フォルダーリストの更新も無効になります</string>
@@ -782,20 +782,20 @@
     <string name="title_advanced_rlah_hint">EU 加盟国の SIM カードで加盟国のネットワークを使用する場合、ローミングではないとみなします</string>
     <string name="title_advanced_usage_hint">これによりバッテリー使用量、データ使用量、ストレージ使用量が増加します</string>
     <string name="title_advanced_plain_hint">有効にするとデータ使用量が制限されますが、スタイルを設定せずにメッセージが表示されます</string>
-    <string name="title_advanced_tcp_keep_alive_hint">有効にすると、一部のデバイスで接続の問題が発生したりバッテリー使用量が増加したりする可能性があります</string>
+    <string name="title_advanced_tcp_keep_alive_hint">有効にすると、一部の端末で接続の問題が発生したりバッテリー使用量が増加したりする可能性があります</string>
     <string name="title_advanced_validate_hint">これにより、VPN を使用している場合や、その他の状況でメッセージが同期されない可能性があります</string>
     <string name="title_advanced_timeout_hint">読み取り/書き込みタイムアウトは接続タイムアウトの 2 倍に設定されます。値を大きくするとバッテリーの使用量が増加します</string>
     <string name="title_advanced_cert_strict_hint">無効にすると、サーバー証明書の確認基準が緩和されます</string>
     <string name="title_advanced_ssl_harden_hint">有効にすると、弱い SSL プロトコルと暗号化が無効になるため、接続の問題が発生する可能性があります</string>
     <string name="title_advanced_open_safe_hint">有効にすると、画像などのダウンロードに保護された接続が必要になります</string>
-    <string name="title_advanced_roaming_hint">ローミング中もメッセージヘッダーが常に取得されます。デバイスの設定で、ローミング時はインターネットを無効にできます</string>
+    <string name="title_advanced_roaming_hint">ローミング中もメッセージヘッダーが常に取得されます。端末の設定で、ローミング時はインターネットを無効にできます</string>
     <string name="title_advanced_browse_hint">下にスクロールして、さらにメッセージを取得します</string>
     <string name="title_advanced_layout_hint">レイアウトの簡易表示への切り替えとテキストサイズの変更は、メッセージ上部のアクションバーメニューから行えます</string>
     <string name="title_advanced_startup_hint">フォルダーリストの任意のフォルダーを長押して統合フォルダーに追加または削除します</string>
     <string name="title_advanced_date_hint">時間で並び替えている場合のみ、メッセージを日付でグループ化できます</string>
     <string name="title_advanced_navbar_colorize_hint">機能するかは Android のバージョンとバリアントに依存します</string>
     <string name="title_advanced_split_hint">画面をパーツごとに分割します</string>
-    <string name="title_advanced_split_min_hint">これは折りたたみデバイス向けの条件です</string>
+    <string name="title_advanced_split_min_hint">これは折りたたみ端末向けの条件です</string>
     <string name="title_advanced_threading_hint">互いに関連するメッセージをグループ化します</string>
     <string name="title_advanced_highlight_hint">テーマのアクセントカラーをハイライトカラーに使用します</string>
     <string name="title_advanced_privacy_risk">プライバシーリスクがあるかもしれません</string>
@@ -928,9 +928,9 @@
     <string name="title_leave_on_server">サーバーにメッセージを残す</string>
     <string name="title_client_delete">ダウンロードしたメッセージをアクティブに削除</string>
     <string name="title_leave_deleted">削除したメッセージをサーバーに残す</string>
-    <string name="title_leave_on_device">デバイスにメッセージを残す</string>
+    <string name="title_leave_on_device">端末にメッセージを残す</string>
     <string name="title_max_messages">ダウンロードするメッセージの最大数 (空白にするとすべてダウンロードします)</string>
-    <string name="title_max_messages_keep">これは、デバイスに保存されるメッセージの最大数です</string>
+    <string name="title_max_messages_keep">これは、端末に保存されるメッセージの最大数です</string>
     <string name="title_max_messages_remark">        正の数を入力すると、最後からメッセージをダウンロードします (推奨)
         負の数を入力すると、最初からメッセージをダウンロードします (一般的でない)
     </string>
@@ -982,7 +982,7 @@
     <string name="title_backoff_until">失敗後、次まで待機中: %1$s</string>
     <string name="title_storage_quota">サーバーのストレージ使用量: %1$s/%2$s</string>
     <string name="title_pop_support">POP3 プロトコルではメッセージのダウンロードと受信トレイからの削除のみ可能です。メッセージを既読としてマークしたり、迷惑メールとして報告したり、メッセージを移動したりできません。可能であれば IMAP プロトコルの使用を検討してください</string>
-    <string name="title_pop_sent">デバイスを紛失したり盗難されたりした場合、送信されたメッセージが失われる可能性があります。</string>
+    <string name="title_pop_sent">端末を紛失したり盗難されたりした場合、送信されたメッセージが失われる可能性があります。</string>
     <string name="title_pop_warning">POP3 サーバーが UIDL コマンドに対応していない場合、データ使用量が増加する可能性があります。それを考慮して、適切な Poll 頻度に調整してください。</string>
     <string name="title_pop_folders">POP3 プロトコルはフォルダーの作成に対応していません</string>
     <string name="title_oauth_support">OAuth には対応していません</string>
@@ -1001,10 +1001,10 @@
     <string name="title_synchronize_subfolders">サブフォルダー</string>
     <string name="title_synchronize_more">さらにメッセージを取得</string>
     <string name="title_synchronize_more_hint">これにより、古いメッセージが 1 度だけダウンロードされます。日常的に使用されるバッテリー使用量が増加することはありません</string>
-    <string name="title_synchronize_more_hint2">        メッセージはメールサーバーの配信と同時にフェッチされ、デバイスに可及的速やかに保存・インデックスされます。
-        デバイスの内部ストレージの速度はしばしば制約となります。
+    <string name="title_synchronize_more_hint2">        メッセージはメールサーバーの配信と同時にフェッチされ、端末に可及的速やかに保存・インデックスされます。
+        端末の内部ストレージの速度はしばしば制約となります。
     </string>
-    <string name="title_synchronize_more_hint3">多くのメッセージ（1 万通以上）をデバイスに保存すると、内部ストレージ容量の制約により遅延を引き起こす可能性がありますのでご注意ください。</string>
+    <string name="title_synchronize_more_hint3">多くのメッセージ (1 万通以上) を端末に保存すると、内部ストレージ容量の制約により遅延を引き起こす可能性がありますのでご注意ください。</string>
     <string name="title_synchronize_enabled">同期する</string>
     <string name="title_synchronize_batch_enable">同期を有効にする</string>
     <string name="title_synchronize_batch_disable">同期を無効にする</string>
@@ -1038,7 +1038,7 @@
     <string name="title_empty_spam_ask">すべての迷惑メールを完全に削除しますか？</string>
     <string name="title_empty_trash_all_ask">すべてのアカウントのごみ箱のメッセージを完全に削除しますか？</string>
     <string name="title_empty_spam_all_ask">すべてのアカウントの迷惑メールを完全に削除しますか？</string>
-    <string name="title_empty_all">デバイスとサーバーの両方からのすべてのメッセージを削除します</string>
+    <string name="title_empty_all">端末とサーバーの両方からのすべてのメッセージを削除します</string>
     <string name="title_delete_operation_title">削除操作</string>
     <string name="title_delete_operation_error">エラーメッセージあり</string>
     <string name="title_delete_operation_fetch">取得操作</string>
@@ -1080,13 +1080,13 @@
     <string name="title_sync_days">メッセージの同期 (日)</string>
     <string name="title_sync_days_remark">この値を増やすとバッテリーとデータの使用量が増加します</string>
     <string name="title_keep_days">メッセージの保持 (日)</string>
-    <string name="title_keep_days_remark">古いメッセージはデバイスから削除されますが、サーバーには残ります</string>
+    <string name="title_keep_days_remark">古いメッセージは端末から削除されますが、サーバーには残ります</string>
     <string name="title_keep_all">すべてのメッセージを保持する</string>
     <string name="title_poll_system">システムフォルダーの新着メッセージを定期的に確認するよう設定</string>
     <string name="title_poll_user">ユーザーフォルダーの新着メッセージを定期的に確認するよう設定</string>
     <string name="title_auto_trash">古いメッセージを自動でごみ箱へ移動する</string>
     <string name="title_auto_delete">古いメッセージを自動で完全削除</string>
-    <string name="title_auto_delete_hint">古いメッセージとはデバイスに保持されなくなったメッセージのことです</string>
+    <string name="title_auto_delete_hint">古いメッセージとは端末に保持されなくなったメッセージのことです</string>
     <string name="title_auto_delete_archive_hint">アーカイブフォルダーからの削除は、メールサーバーによって許可されていない場合があります</string>
     <string name="title_inbox_root_hint">        一部のプロバイダーでは受信トレイの中に新しいフォルダーを作る必要があります。
         その場合は、フォルダーリストで受信トレイを長押しして「サブフォルダーを作成」を選択してください。
@@ -1286,7 +1286,7 @@
     <string name="title_download_message">ダウンロードしています&#8230;</string>
     <string name="title_reformatted">        これは、再フォーマットされたメッセージ表示です。
         元のメッセージを表示するには &#x26F6; アイコンをタップし、このメッセージを非表示にできます。
-        メッセージの再フォーマットには、メッセージのサイズやデバイスの速度に応じて時間がかかります。
+        メッセージの再フォーマットには、メッセージのサイズや端末の速度に応じて時間がかかります。
     </string>
     <string name="title_compose">作成</string>
     <string name="title_submitter">送信元:</string>
@@ -1482,7 +1482,7 @@
     <string name="title_signature_store">保存</string>
     <string name="title_search">検索</string>
     <string name="title_search_for_hint">テキストを入力</string>
-    <string name="title_search_hint">       はじめに、お使いのデバイスに保存されているメッセージを検索します。
+    <string name="title_search_hint">       はじめに、お使いの端末に保存されているメッセージを検索します。
         サーバーも検索するには「もう一度検索」ボタンをタップします
     </string>
     <string name="title_search_hint_fts">検索インデックスを使用: 単語全体のみ検索</string>
@@ -1491,27 +1491,27 @@
     <string name="title_search_text_unsupported">「%s」はメールサーバーが本文の検索に対応していないことを意味します</string>
     <string name="title_search_size_hint">サイズ別にメッセージを検索しています。多数のメッセージがある場合、一部のサーバーで動作しない可能性があります</string>
     <string name="title_search_more">その他のオプション</string>
-    <string name="title_search_use_index">検索インデックスを使用</string>
-    <string name="title_search_in_senders">差出人 (From) を検索</string>
-    <string name="title_search_in_recipients">宛先 (To, CC) を検索</string>
-    <string name="title_search_in_subject">件名を検索</string>
-    <string name="title_search_in_keywords">キーワードを検索 (対応している場合のみ)</string>
-    <string name="title_search_in_message">本文を検索</string>
-    <string name="title_search_in_notes">ローカルメモを検索</string>
-    <string name="title_search_in_filenames">ファイル名を検索 (端末上のみ)</string>
+    <string name="title_search_use_index">検索インデックスを使用する</string>
+    <string name="title_search_in_senders">差出人 (From) を検索する</string>
+    <string name="title_search_in_recipients">宛先 (To, CC) を検索する</string>
+    <string name="title_search_in_subject">件名を検索する</string>
+    <string name="title_search_in_keywords">キーワードを検索する (対応している場合のみ)</string>
+    <string name="title_search_in_message">本文を検索する</string>
+    <string name="title_search_in_notes">ローカルメモを検索する</string>
+    <string name="title_search_in_filenames">ファイル名を検索する (端末上のみ)</string>
     <string name="title_search_with">検索範囲を指定</string>
     <string name="title_search_with_unseen">未読</string>
     <string name="title_search_with_flagged">スター付き</string>
-    <string name="title_search_with_hidden">非表示のメッセージ (デバイス上のみ検索)</string>
-    <string name="title_search_with_encrypted">暗号化されたメッセージ (デバイス上のみ検索)</string>
-    <string name="title_search_with_attachments">添付ファイルのあるメッセージ (デバイス上のみ検索)</string>
+    <string name="title_search_with_hidden">非表示のメッセージ (端末上のみ検索)</string>
+    <string name="title_search_with_encrypted">暗号化されたメッセージ (端末上のみ検索)</string>
+    <string name="title_search_with_attachments">添付ファイルのあるメッセージ (端末上のみ検索)</string>
     <string name="title_search_with_size">メッセージのサイズが次より大きい</string>
-    <string name="title_search_in_trash">ごみ箱を検索</string>
-    <string name="title_search_in_junk">迷惑メールを検索</string>
+    <string name="title_search_in_trash">ごみ箱を検索する</string>
+    <string name="title_search_in_junk">迷惑メールを検索する</string>
     <string name="title_search_with_range">日付の範囲</string>
     <string name="title_search_with_before">以前</string>
     <string name="title_search_with_after">以降</string>
-    <string name="title_search_device_first">最初にデバイス上を検索</string>
+    <string name="title_search_device_first">最初に端末を検索する</string>
     <string name="title_search_flag_unseen">未読</string>
     <string name="title_search_flag_flagged">スター付き</string>
     <string name="title_search_flag_hidden">非表示のメッセージ</string>
@@ -1520,7 +1520,7 @@
     <string name="title_search_flag_notes">メモ</string>
     <string name="title_search_flag_invite">招待</string>
     <string name="title_search_flag_size">サイズ &gt; %1$s</string>
-    <string name="title_search_device">デバイス上を検索</string>
+    <string name="title_search_device">端末上を検索</string>
     <string name="title_search_server">サーバーを検索</string>
     <string name="title_search_server_wait">サーバーからの応答を待っています</string>
     <string name="title_search_in">検索場所</string>
@@ -1545,7 +1545,7 @@
     <string name="title_sort_on_order">順番</string>
     <string name="title_sort_on_applied">適用回数</string>
     <string name="title_sort_on_last_applied">最終適用</string>
-    <string name="title_filter">除外する</string>
+    <string name="title_filter">除外</string>
     <string name="title_filter_seen">既読</string>
     <string name="title_filter_unflagged">スターなし</string>
     <string name="title_filter_unknown">連絡先にいない差出人</string>
@@ -1826,12 +1826,12 @@
         もし迷惑メールの量が多い場合はアプリを非難するのではなく、あなたのメールプロバイダーに連絡してください。
     </string>
     <string name="title_hint_important">重要</string>
-    <string name="title_hint_sync">プロバイダーの速度、インターネットの接続状況、デバイスの性能およびメッセージの数によりメッセージのダウンロードに時間がかかる場合があります。メッセージのダウンロード中はアプリの応答が遅くなることがあります</string>
+    <string name="title_hint_sync">プロバイダーの速度、インターネットの接続状況、端末の性能およびメッセージの数によりメッセージのダウンロードに時間がかかる場合があります。メッセージのダウンロード中はアプリの応答が遅くなることがあります</string>
     <string name="title_hint_sync_note">デフォルトでは、ストレージ容量とバッテリーとデータ使用量を制限するためにすべてのメッセージがダウンロードされるわけではありません。フォルダーリスト内のフォルダーを長押しし、「さらにメッセージを取得」を選択することで変更できます。</string>
     <string name="title_hint_battery">FairEmail はデフォルトでは常にメッセージの受信を待機しているため Android は FairEmail が常にアクティブであると報告します。そのため FairEmail は常にバッテリーを使用しているように見えますが実際にはそうではありません</string>
     <string name="title_hint_reformat">デフォルトでは FairEmail はプライバシーとセキュリティ上の理由からメッセージを再フォーマットします。 元のメッセージを表示するにはメッセージテキストの上にある［全画面］アイコンをタップします</string>
     <string name="title_hint_design">デザインを意図的に紛らわしくしているのではなく、豊富に機能があるため紛らわしくなってしまっています。外観はある程度カスタマイズできますが、同時に誰もが満足できるデザインは存在しないことを理解してください。</string>
-    <string name="title_hint_junk">迷惑メールフィルタリングはメールサーバーで実行すべきもので、機能に制限があるバッテリー駆動のモバイルデバイスでは十分に実行できません。</string>
+    <string name="title_hint_junk">迷惑メールフィルタリングはメールサーバーで実行すべきもので、機能に制限があるバッテリー駆動のモバイル端末では十分に実行できません。</string>
     <string name="title_hint_junk_learn">迷惑メールフォルダーにメッセージを移動することで、メールサーバーは何が迷惑メールかを学習します</string>
     <string name="title_hint_contact_actions">長押ししてオプションへ</string>
     <string name="title_hint_eml">これは元のメッセージファイルの内容の要約です。すべてのコンテンツを表示するにはアクションバーから元のメッセージを保存します</string>
@@ -1930,7 +1930,7 @@
     <string name="title_pro_hint">プロ版を購入すると、現在および将来すべてのプロ版の機能を使用できるようになり、アプリの開発とサポートを継続する支援になります</string>
     <string name="title_pro_price">なぜプロ版はそんなに高価なのですか？</string>
     <string name="title_pro_family">Google Play ファミリーライブラリを使用できますか？</string>
-    <string name="title_pro_restore">(別のデバイスで) 購入を復元するにはどうすればよいですか？</string>
+    <string name="title_pro_restore">(別の端末で) 購入を復元するにはどうすればよいですか？</string>
     <string name="title_pro_pending">購入保留中</string>
     <string name="title_pro_activated">すべてのプロ版の機能が解放されました</string>
     <string name="title_pro_valid">すべてのプロ版の機能が解放されました</string>

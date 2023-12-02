@@ -139,9 +139,12 @@
     <string name="title_setup">Настройки</string>
     <string name="title_setup_help">Помощ</string>
     <string name="title_setup_quick">Бърза настройка</string>
+    <string name="title_setup_simple">Няма нужда да променяте никакви други възможности</string>
     <string name="title_setup_issue">FairEmail е развито, за да ви помогне да защитите поверителността си и представлява буквално хиляди часове работа. Ако имате проблеми, то се свържете първо с мен за поддръжка преди да оставите лош отзив. Радвам се да помогна!</string>
     <string name="title_setup_analytics">FairEmail не показва реклами и не проследява или анализира поведението ви. Bugsnag се употребява за докладване на грешки и по подразбиране е изключено.</string>
     <string name="title_setup_quick_accounts">Добавяне или промяна на акаунтите</string>
+    <string name="title_setup_quick_support">Някои доставчици затрудняват добавянето на акаунт. Не винете FairEmail за това, а вместо това искайте поддръжка.</string>
+    <string name="title_setup_quick_hint">Въведеният имейл адрес се употребява към опашката на сървъра за имейл и autoconfig.thunderbird.net за конфигуриране на сведенията</string>
     <string name="title_setup_quick_patience">Търпение &#8230;</string>
     <string name="title_setup_quick_imap">IMAP сървър за получаване на съобщения</string>
     <string name="title_setup_quick_smtp">SMTP сървър за изпращане на съобщения</string>
@@ -455,6 +458,7 @@
     <string name="title_advanced_pdf_preview">Показване на миниобраз на PDF</string>
     <string name="title_advanced_message_text_zoom2">Подразбиращ се мащаб на текста на съобщение: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Мащабиране на текста на съобщението в редактора</string>
+    <string name="title_advanced_overview_mode">Мащабиране на първообразните съобщения към размера на екрана</string>
     <string name="title_advanced_hyphenation">Употреба на автоматично сричкопренасяне</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
     <string name="title_advanced_monospaced">Употреба на едноразмерен шрифт за текст на съобщението по подразбиране</string>
@@ -601,6 +605,7 @@
     <string name="title_advanced_power_menu">Добавяне на действия към менюто за захранване на Android</string>
     <string name="title_advanced_send_self">Добавяне на \'изпращане на себе си\' към менюто за споделяне на Android</string>
     <string name="title_advanced_external_search">Добавяне на \'Търсене във FairEmail\' към менюто за избран текст на Android</string>
+    <string name="title_advanced_sort_answers">Подредба на шаблоните за отговор по честота на употреба</string>
     <string name="title_advanced_shortcuts">Показвайте често използвани контакти в менюто за споделяне на Android</string>
     <string name="title_advanced_fts">Изграждане индекс за търсене</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d индексирани съобщения (%3$s)</string>
@@ -608,6 +613,7 @@
     <string name="title_advanced_show_filtered">Иконата на филтъра на показ при приложени правила</string>
     <string name="title_advanced_language">Език</string>
     <string name="title_advanced_language_system">Система</string>
+    <string name="title_advanced_lt">Интегриране с LanguageTool</string>
     <string name="title_advanced_lt_sentence">Проверка на всяко изречение</string>
     <string name="title_advanced_lt_auto">Проверка на абзаца след новия ред</string>
     <string name="title_advanced_lt_highlight">Изтъкнатият текст се проверява</string>
@@ -1103,6 +1109,7 @@
     <string name="title_ask_show_image">При показването на изображението може да изтече поверителна информация</string>
     <string name="title_ask_show_image_hint">Изображенията които са разпознати като проследяващи няма да се показват</string>
     <string name="title_ask_show_amp">Да се показва ли вариант AMP на съобщението?</string>
+    <string name="title_ask_show_amp_hint">Съобщенията AMP са замислени да са динамични и да взаимодействат с интернет и следователно по определние може да се употребяват за проследяването ви</string>
     <string name="title_ask_view_file">Да се преглежда ли файлът %1$s?</string>
     <string name="title_ask_delete_local">Да се изтрият ли локалните съобщения? Съобщенията ще останат на отдалечения сървър.</string>
     <string name="title_ask_help">Помогнете за подобряване на FairEmail</string>
