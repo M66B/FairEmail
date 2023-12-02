@@ -2256,18 +2256,18 @@ public class Helper {
     }
 
     static CharSequence getRelativeDateSpanString(Context context, long millis) {
-        return getRelativeTimeSpanString(context, millis, false, true);
+        return getRelativeTimeSpanString(context, millis, false, true, false);
     }
 
     static CharSequence getRelativeTimeSpanString(Context context, long millis) {
-        return getRelativeTimeSpanString(context, millis, true, false);
+        return getRelativeTimeSpanString(context, millis, true, false, false);
     }
 
-    static CharSequence getRelativeDateTimeSpanString(Context context, long millis) {
-        return getRelativeTimeSpanString(context, millis, true, true);
+    static CharSequence getRelativeDateTimeSpanString(Context context, long millis, boolean condensed) {
+        return getRelativeTimeSpanString(context, millis, true, true, condensed);
     }
 
-    private static CharSequence getRelativeTimeSpanString(Context context, long millis, boolean withTime, boolean withDate) {
+    private static CharSequence getRelativeTimeSpanString(Context context, long millis, boolean withTime, boolean withDate, boolean condensed) {
         Calendar cal0 = Calendar.getInstance();
         Calendar cal1 = Calendar.getInstance();
         cal0.setTimeInMillis(millis);
@@ -2277,7 +2277,9 @@ public class Helper {
         boolean thisDay = (cal0.get(Calendar.DAY_OF_MONTH) == cal1.get(Calendar.DAY_OF_MONTH));
         if (withDate) {
             try {
-                String skeleton = (thisMonth && thisYear ? "MMM-d" : "yyyy-M-d");
+                if (condensed && thisYear && thisMonth && thisDay)
+                    return getTimeInstance(context, SimpleDateFormat.SHORT).format(millis);
+                String skeleton = (thisYear ? "MMM-d" : "yyyy-M-d");
                 if (withTime) {
                     boolean is24Hour = android.text.format.DateFormat.is24HourFormat(context);
                     skeleton += (is24Hour ? " Hm" : " hm");

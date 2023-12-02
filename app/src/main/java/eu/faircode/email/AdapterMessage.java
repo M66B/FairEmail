@@ -1462,8 +1462,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     message.totalSize != null && ("size".equals(sort) || "attachments".equals(sort))
                             ? View.VISIBLE : View.GONE);
             SpannableStringBuilder time;
-            if (date_time)
-                time = new SpannableStringBuilderEx(Helper.getRelativeDateTimeSpanString(context, message.received));
+            if (EntityMessage.PRIORITIY_HIGH.equals(message.importance) ||
+                    EntityMessage.PRIORITIY_LOW.equals(message.importance))
+                time = new SpannableStringBuilderEx(Helper.getRelativeDateTimeSpanString(context, message.received, true));
+            else if (date_time)
+                time = new SpannableStringBuilderEx(Helper.getRelativeDateTimeSpanString(context, message.received, false));
             else if (date_week)
                 time = new SpannableStringBuilderEx(Helper.getRelativeDateSpanString(context, message.received));
             else
