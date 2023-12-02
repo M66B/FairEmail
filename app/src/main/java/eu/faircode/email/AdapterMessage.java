@@ -2684,11 +2684,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             tvSubjectEx.setVisibility(show_addresses ? View.VISIBLE : View.GONE);
             tvSubjectEx.setText(message.subject);
-            if (subject_italic)
-                tvSubjectEx.setTypeface(Typeface.DEFAULT, Typeface.ITALIC);
-            else
-                tvSubjectEx.setTypeface(Typeface.DEFAULT);
-
+            boolean homoSubject = TextHelper.isSingleScript(message.subject);
+            tvSubjectEx.setTextColor(homoSubject ? textColorTertiary : colorError);
+            tvSubjectEx.setTypeface(Typeface.DEFAULT,
+                    (subject_italic ? Typeface.ITALIC : Typeface.NORMAL) |
+                            (homoSubject ? Typeface.NORMAL : Typeface.BOLD));
             // Flags
             tvFlags.setVisibility(show_addresses && debug ? View.VISIBLE : View.GONE);
             tvFlags.setText(message.flags);
