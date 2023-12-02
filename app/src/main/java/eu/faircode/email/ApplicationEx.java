@@ -125,6 +125,8 @@ public class ApplicationEx extends Application
                 " process=" + android.os.Process.myPid());
         Log.logMemory(this, "App");
 
+        ConnectionHelper.setupProxy(this);
+
         if (BuildConfig.DEBUG)
             UriHelper.test(this);
 

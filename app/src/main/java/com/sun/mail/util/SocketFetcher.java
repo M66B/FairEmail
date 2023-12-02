@@ -312,7 +312,7 @@ public class SocketFetcher {
 	    } else {
 				SocketFactory f = (SocketFactory) props.get("fairemail.factory");
 				eu.faircode.email.Log.i("Using socket factory=" + f);
-				socket = (f == null ? new Socket() : f.createSocket());
+				socket = (f == null ? eu.faircode.email.ConnectionHelper.getSocket(host, port) : f.createSocket());
 	    }
 	}
 	if (to >= 0) {

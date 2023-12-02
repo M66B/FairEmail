@@ -42,7 +42,7 @@ public class Whois {
     }
 
     static String get(String domain, String host, int port) throws IOException {
-        Socket socket = new Socket();
+        Socket socket = ConnectionHelper.getSocket(host, port);
         socket.connect(new InetSocketAddress(host, port), WHOIS_TIMEOUT);
         try {
             byte[] request = (domain + "\r\n").getBytes(StandardCharsets.UTF_8);
