@@ -28,7 +28,6 @@ android {
         targetSdkVersion 34
         versionCode getVersionCode()
         versionName "1." + getVersionCode()
-        archivesBaseName = "FairEmail-v$versionName" + getRevision()
 
         manifestPlaceholders = [namespace: applicationId.replace('.debug', '')]
 
@@ -58,6 +57,10 @@ android {
             // https://developer.android.com/ndk/guides/abis
             abiFilters "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
         }
+    }
+
+    base {
+        archivesName = "FairEmail-v1." + getVersionCode() + getRevision()
     }
 
     sourceSets {
@@ -193,7 +196,7 @@ android {
         github {
             dimension "all"
             manifestPlaceholders.largeHeap = false
-            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "github").getBytes()).toString();
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes(("github" + getVersionCode() + getRevision()).getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
@@ -215,7 +218,7 @@ android {
         large {
             dimension "all"
             manifestPlaceholders.largeHeap = true
-            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "large").getBytes()).toString();
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes(("large" + getVersionCode() + getRevision()).getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
@@ -237,7 +240,7 @@ android {
         fdroid {
             dimension "all"
             manifestPlaceholders.largeHeap = false
-            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "fdroid").getBytes()).toString();
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes(("fdroid" + getVersionCode() + getRevision()).getBytes()).toString();
             externalNativeBuild {
                 cmake {
                     arguments "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,--build-id=none"
@@ -269,7 +272,7 @@ android {
             dimension "all"
             //minSdkVersion 23
             manifestPlaceholders.largeHeap = false
-            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "play").getBytes()).toString();
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes(("play" + getVersionCode() + getRevision()).getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "true"
@@ -292,7 +295,7 @@ android {
             dimension "all"
             minSdkVersion 23
             manifestPlaceholders.largeHeap = false
-            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes((archivesBaseName + "amazon").getBytes()).toString();
+            manifestPlaceholders.build_uuid = UUID.nameUUIDFromBytes(("amazon" + getVersionCode() + getRevision()).getBytes()).toString();
             buildConfigField "boolean", "TEST_RELEASE", "false"
             buildConfigField "boolean", "BETA_RELEASE", "true"
             buildConfigField "boolean", "PLAY_STORE_RELEASE", "false"
@@ -354,10 +357,6 @@ android {
         reportBuilds = false // disables upload of build metadata
         overwrite = true
         builderName = "M66B"
-        sourceControl {
-            provider = "github-enterprise"
-            repository = "https://github.com/M66B/FairEmail"
-        }
     }
 }
 
