@@ -5607,6 +5607,8 @@ or in other words, an in-app proxy will always leak host names and therefore giv
 If you want to proxy traffic, for example to use Tor,
 you should use an Android VPN-service based app, which is the only way to reliably proxy traffic.
 
+Please note that if you want to use a .onion address, you will need to disable private DNS in the Android network settings.
+
 <br>
 
 <h2><a name="get-support"></a>Get support</h2>
