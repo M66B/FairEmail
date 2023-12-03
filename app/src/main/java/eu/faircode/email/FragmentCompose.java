@@ -5199,7 +5199,8 @@ public class FragmentCompose extends FragmentBase {
     private static void resizeAttachment(Context context, EntityAttachment attachment, int resize) throws IOException {
         File file = attachment.getFile(context);
         if (file.exists() /* upload cancelled */ &&
-                ("image/jpeg".equals(attachment.type) ||
+                ("image/jpg".equals(attachment.type) ||
+                        "image/jpeg".equals(attachment.type) ||
                         "image/png".equals(attachment.type) ||
                         "image/webp".equals(attachment.type))) {
             ExifInterface exifSaved;
@@ -5237,7 +5238,8 @@ public class FragmentCompose extends FragmentBase {
                     }
 
                     Bitmap.CompressFormat format;
-                    if ("image/jpeg".equals(attachment.type))
+                    if ("image/jpg".equals(attachment.type) ||
+                            "image/jpeg".equals(attachment.type))
                         format = Bitmap.CompressFormat.JPEG;
                     else if ("image/png".equals(attachment.type))
                         format = Bitmap.CompressFormat.PNG;
