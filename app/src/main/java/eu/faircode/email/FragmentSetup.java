@@ -451,7 +451,7 @@ public class FragmentSetup extends FragmentBase implements SharedPreferences.OnS
                                         .putExtra("name", provider.description)
                                         .putExtra("privacy", provider.oauth.privacy)
                                         .putExtra("askAccount", provider.oauth.askAccount)
-                                        .putExtra("askTenant", provider.oauth.askTenant())
+                                        .putExtra("askTenant", (provider.graph == null && provider.oauth.askTenant()))
                                         .putExtra("pop", provider.pop != null));
                         // https://developers.google.com/identity/branding-guidelines
                         int resid = res.getIdentifier("provider_" + provider.id, "drawable", pkg);
