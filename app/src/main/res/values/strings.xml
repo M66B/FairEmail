@@ -1419,8 +1419,8 @@
     <string name="title_importance_low">Low</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">High</string>
-    <string name="title_is_important">Important</string>
-    <string name="title_is_not_important">Not important</string>
+    <string name="title_important">Important</string>
+    <string name="title_unimportant">Unimportant</string>
     <string name="title_search_in_text">Search in text &#8230;</string>
     <string name="title_forward">Forward</string>
     <string name="title_resend">Resend</string>

@@ -1031,9 +1031,9 @@ public class FragmentMessages extends FragmentBase
                     }
 
                     if (EntityMessage.PRIORITIY_HIGH.equals(message.importance))
-                        tvDate.setText(R.string.title_is_important);
+                        tvDate.setText(R.string.title_important);
                     else if (EntityMessage.PRIORITIY_LOW.equals(message.importance))
-                        tvDate.setText(R.string.title_is_not_important);
+                        tvDate.setText(R.string.title_unimportant);
                     else
                         tvDate.setText(date_week
                                 ? getWeek(message.received, parent.getContext())
