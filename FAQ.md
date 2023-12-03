@@ -807,6 +807,7 @@ The Microsoft Exchange Web Services &trade; (EWS) protocol [is being phased out]
 Microsoft stopped updating the EWS libraries [in 2016](https://github.com/OfficeDev/ews-java-api).
 So, it makes little sense to add this protocol anymore.
 Moreover, Microsoft announced that [EWS will be retired on October 1, 2026](https://techcommunity.microsoft.com/t5/exchange-team-blog/retirement-of-exchange-web-services-in-exchange-online/ba-p/3924440).
+Please don't leave a bad review for this. This cannot be added because Microsoft no longer provides the tools for this!
 
 You can use a Microsoft Exchange account if it is accessible via IMAP, which is almost always the case because all Exchange servers support the standard IMAP protocol.
 See [here](https://support.office.com/en-us/article/what-is-a-microsoft-exchange-account-47f000aa-c2bf-48ac-9bc2-83e5c6036793) for more information.
