@@ -981,7 +981,7 @@ public class FragmentMessages extends FragmentBase
                     if (pos > 0)
                         return null;
                 } else if (EntityMessage.PRIORITIY_LOW.equals(message.importance)) {
-                    if (EntityMessage.PRIORITIY_LOW.equals(prev.importance))
+                    if (prev != null && EntityMessage.PRIORITIY_LOW.equals(prev.importance))
                         return null;
                 } else if (pos > 0) {
                     Calendar cal0 = Calendar.getInstance();
