@@ -54,6 +54,7 @@ iso-2022-cn     ISO2022CN
 iso-2022-kr     ISO2022KR
 utf-8           UTF8
 utf8		UTF8
+en_US.iso885915 ISO-8859-15
 ja_jp.iso2022-7 ISO2022JP
 ja_jp.eucjp     EUCJIS
 
