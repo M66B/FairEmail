@@ -150,7 +150,7 @@ public class TextHelper {
                 continue;
             }
 
-            if (us.equals(Character.UnicodeScript.COMMON))
+            if (Character.UnicodeScript.COMMON.equals(us))
                 continue;
 
             if (script == null)
@@ -159,6 +159,23 @@ public class TextHelper {
                 return false;
         }
         return true;
+    }
+
+    static String getNonLatinCodepoints(String text) {
+        int codepoint;
+        Character.UnicodeScript us;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < text.length(); ) {
+            codepoint = text.codePointAt(i);
+            i += Character.charCount(codepoint);
+            us = Character.UnicodeScript.of(codepoint);
+            if (!Character.isSpaceChar(codepoint) &&
+                    !Character.UnicodeScript.COMMON.equals(us) &&
+                    !Character.UnicodeScript.LATIN.equals(us))
+                sb.append('<').append(Integer.toHexString(codepoint)).append('>');
+            sb.append(Character.toChars(codepoint));
+        }
+        return sb.toString();
     }
 
     static String normalizeNotification(Context context, String text) {

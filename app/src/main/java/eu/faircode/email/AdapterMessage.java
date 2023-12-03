@@ -2521,8 +2521,11 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             ssb.setSpan(new ForegroundColorSpan(textColorLink), start, ssb.length(), 0);
                         }
                     } else {
+                        boolean homoPersonal = TextHelper.isSingleScript(personal);
+                        if (BuildConfig.DEBUG && !homoPersonal)
+                            personal = TextHelper.getNonLatinCodepoints(personal);
                         ssb.append(personal);
-                        if (!TextHelper.isSingleScript(personal)) {
+                        if (!homoPersonal) {
                             int start = ssb.length() - personal.length();
                             ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
                             ssb.setSpan(new ForegroundColorSpan(colorError), start, ssb.length(), 0);
