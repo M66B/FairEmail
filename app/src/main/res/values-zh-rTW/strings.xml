@@ -968,6 +968,7 @@
     <string name="title_importance_low">低</string>
     <string name="title_importance_normal">一般</string>
     <string name="title_importance_high">高</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">重要</string>
     <string name="title_search_in_text">在本文中搜尋 &#8230;</string>
     <string name="title_forward">轉寄</string>
     <string name="title_resend">重新寄出</string>

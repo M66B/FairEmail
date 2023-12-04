@@ -829,6 +829,7 @@ Ambdues opcions es poden desactivar si es desitja.</string>
     <string name="title_importance_low">Baixa</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Alta</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Important</string>
     <string name="title_search_in_text">Cerca al text &#8230;</string>
     <string name="title_forward">Següent</string>
     <string name="title_new_message">Missatge nou</string>

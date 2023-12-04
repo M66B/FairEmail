@@ -387,7 +387,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_answer_hint">De aksjes fan de antwurdknop kinne ek konfigurearre wurde op it ljepblêd ferstjoerynstellingen</string>
     <string name="title_advanced_answer_warning">Net alle aksjes binne mooglik sûnder in seleksjemenu!</string>
     <string name="title_advanced_send_pending">Net-opfallend piktogram foar útsteld ferstjoere toane</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Konseptrevyzjes foar ûngedien meitsje en opnij útfiere bewarje</string>
+    <string name="title_advanced_save_revisions">Konseptrevyzjes foar ûngedien meitsje en opnij útfiere bewarje</string>
     <string name="title_advanced_auto_save_paragraph">Automatysk in konsept bewarje nei elke alinea</string>
     <string name="title_advanced_auto_save_dot">Automatysk in konsept bewarje nei elke sin</string>
     <string name="title_advanced_compose_color">Standert tekstkleur</string>
@@ -1142,6 +1142,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_importance_low">Leech</string>
     <string name="title_importance_normal">Normaal</string>
     <string name="title_importance_high">Heech</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Wichtich</string>
     <string name="title_search_in_text">Sykje yn tekst&#8230;</string>
     <string name="title_forward">Trochstjoere</string>
     <string name="title_resend">Opnij ferstjoere</string>

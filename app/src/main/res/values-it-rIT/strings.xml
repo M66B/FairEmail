@@ -389,7 +389,7 @@
     <string name="title_advanced_answer_hint">Le azioni del pulsante di risposta sono configurabili anche nella scheda delle impostazioni di invio</string>
     <string name="title_advanced_answer_warning">Non tutte le azioni sono possibili senza un menu di selezione!</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Salva le modifiche delle bozze per annullare e ripetere</string>
+    <string name="title_advanced_save_revisions">Salva le modifiche delle bozze per annullare e ripetere</string>
     <string name="title_advanced_auto_save_paragraph">Salva automaticamente una bozza dopo ogni paragrafo</string>
     <string name="title_advanced_auto_save_dot">Salva automaticamente una bozza dopo ogni frase</string>
     <string name="title_advanced_compose_color">Colore predefinito del testo</string>
@@ -1147,6 +1147,8 @@
     <string name="title_importance_low">Bassa</string>
     <string name="title_importance_normal">Normale</string>
     <string name="title_importance_high">Alta</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Importante</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Non importante</string>
     <string name="title_search_in_text">Cerca nel testo&#8230;</string>
     <string name="title_forward">Inoltra</string>
     <string name="title_resend">Reinvia</string>

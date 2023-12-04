@@ -389,7 +389,7 @@
     <string name="title_advanced_answer_hint">Les actions du bouton de réponse peuvent également être configurées dans l\'onglet Envoi des paramètres</string>
     <string name="title_advanced_answer_warning">Toutes les actions ne sont pas possibles sans un menu de sélection!</string>
     <string name="title_advanced_send_pending">Afficher l\'icône discrète d\'envoi différé</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Enregistrer les modifications de brouillons pour pouvoir annuler et rétablir</string>
+    <string name="title_advanced_save_revisions">Enregistrer les modifications de brouillons pour pouvoir annuler et rétablir</string>
     <string name="title_advanced_auto_save_paragraph">Enregistrer automatiquement un brouillon après chaque paragraphe</string>
     <string name="title_advanced_auto_save_dot">Enregistrer automatiquement un brouillon après chaque phrase</string>
     <string name="title_advanced_compose_color">Couleur du texte par défaut</string>
@@ -1147,6 +1147,8 @@
     <string name="title_importance_low">Basse</string>
     <string name="title_importance_normal">Normale</string>
     <string name="title_importance_high">Haute</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Important</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Non important</string>
     <string name="title_search_in_text">Rechercher dans le texte&#8230;</string>
     <string name="title_forward">Transférer</string>
     <string name="title_resend">Envoyer à nouveau</string>

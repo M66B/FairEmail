@@ -979,6 +979,7 @@
     <string name="title_importance_low">Ниско</string>
     <string name="title_importance_normal">Нормално</string>
     <string name="title_importance_high">Високо</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Важно</string>
     <string name="title_search_in_text">Търсене в текст &#8230;</string>
     <string name="title_forward">Препрати</string>
     <string name="title_resend">Изпращане пак</string>

@@ -488,6 +488,7 @@
     <string name="title_importance_low">ନିମ୍ନ</string>
     <string name="title_importance_normal">ସାଧାରଣ</string>
     <string name="title_importance_high">ଉଚ୍ଚ</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ</string>
     <string name="title_search_in_text">ପାଠ୍ୟରେ ଖୋଜନ୍ତୁ &#8230;</string>
     <string name="title_resend">ପୁନଃପ୍ରେରଣ</string>
     <string name="title_fetching_headers">ବାର୍ତ୍ତାର ଶୀର୍ଷଲେଖଗୁଡ଼ିକ ଡାଉନଲୋଡ୍ ହେଉଛି &#8230;</string>

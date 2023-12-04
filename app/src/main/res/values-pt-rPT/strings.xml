@@ -390,7 +390,7 @@
     <string name="title_advanced_answer_hint">As ações do botão resposta também podem ser configuradas na página de configurações de envio</string>
     <string name="title_advanced_answer_warning">Nem todas as ações são possíveis sem um menu de seleção!</string>
     <string name="title_advanced_send_pending">Mostrar ícone não-intrusivo de envio atrasado</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Salvar revisões de rascunhos para desfazer e refazer</string>
+    <string name="title_advanced_save_revisions">Salvar revisões de rascunhos para desfazer e refazer</string>
     <string name="title_advanced_auto_save_paragraph">Guardar automaticamente o rascunho a cada novo parágrafo</string>
     <string name="title_advanced_auto_save_dot">Guardar automaticamente o rascunho a cada nova frase</string>
     <string name="title_advanced_compose_color">Cor de texto predefinida</string>
@@ -1147,6 +1147,8 @@
     <string name="title_importance_low">Baixa</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Alta</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Importante</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Não importante</string>
     <string name="title_search_in_text">Pesquisar no texto &#8230;</string>
     <string name="title_forward">Encaminhar</string>
     <string name="title_resend">Reenviar</string>

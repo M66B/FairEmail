@@ -463,6 +463,7 @@
     <string name="title_importance_low">Ниско</string>
     <string name="title_importance_normal">Нормално</string>
     <string name="title_importance_high">Високо</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Важно</string>
     <string name="title_forward">Проследи</string>
     <string name="title_new_message">Нова порука</string>
     <string name="title_editasnew">Измени као нову</string>

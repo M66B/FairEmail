@@ -385,7 +385,7 @@
     <string name="title_advanced_answer_hint">Åtgärder för svarsknappen kan också konfigureras i fliken skicka inställningar</string>
     <string name="title_advanced_answer_warning">Alla åtgärder är inte möjliga utan en urvalsmeny!</string>
     <string name="title_advanced_send_pending">Visa icke-påträngande försenad leveransikon</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Spara revisioner av utkast för att kunna ångra och göra om</string>
+    <string name="title_advanced_save_revisions">Spara revisioner av utkast för att kunna ångra och göra om</string>
     <string name="title_advanced_auto_save_paragraph">Spara utkast automatiskt efter varje stycke</string>
     <string name="title_advanced_auto_save_dot">Spara utkast automatiskt efter varje mening</string>
     <string name="title_advanced_compose_color">Standardfärg för text</string>
@@ -1138,6 +1138,7 @@
     <string name="title_importance_low">Låg</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Hög</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Viktigt</string>
     <string name="title_search_in_text">Sök i text &#8230;</string>
     <string name="title_forward">Vidarebefordra</string>
     <string name="title_resend">Skicka igen</string>

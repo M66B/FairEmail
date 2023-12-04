@@ -416,7 +416,7 @@
     <string name="title_advanced_answer_hint">Действия кнопок ответа также могут быть настроены на вкладке настроек \"Отправка\"</string>
     <string name="title_advanced_answer_warning">Не все действия возможны без меню выбора!</string>
     <string name="title_advanced_send_pending">Показывать ненавязчивый значок задержки отправки</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Сохранять черновые версии для отмены и повтора</string>
+    <string name="title_advanced_save_revisions">Сохранять черновые версии для отмены и повтора</string>
     <string name="title_advanced_auto_save_paragraph">Автоматически сохранять черновик после каждого абзаца</string>
     <string name="title_advanced_auto_save_dot">Автоматически сохранять черновик после каждого предложения</string>
     <string name="title_advanced_compose_color">Цвет текста по умолчанию</string>
@@ -1174,6 +1174,8 @@
     <string name="title_importance_low">Низкая</string>
     <string name="title_importance_normal">Обычная</string>
     <string name="title_importance_high">Высокая</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Важное</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Неважное</string>
     <string name="title_search_in_text">Поиск в тексте&#8230;</string>
     <string name="title_forward">Переслать</string>
     <string name="title_resend">Перенаправить</string>

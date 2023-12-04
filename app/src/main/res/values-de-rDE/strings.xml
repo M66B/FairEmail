@@ -390,7 +390,7 @@
     <string name="title_advanced_answer_hint">Aktionen der Schaltfläche »Antworten« können ebenfalls in den Einstellungen »Senden« konfiguriert werden</string>
     <string name="title_advanced_answer_warning">Nicht alle Aktionen sind ohne Auswahlmenü möglich!</string>
     <string name="title_advanced_send_pending">Nicht aufdringliches Symbol für verzögertes Senden anzeigen</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Verlauf von Entwürfen speichern, um das Rückgängigmachen und Wiederherstellen zu ermöglichen</string>
+    <string name="title_advanced_save_revisions">Verlauf von Entwürfen speichern, um das Rückgängigmachen und Wiederherstellen zu ermöglichen</string>
     <string name="title_advanced_auto_save_paragraph">Entwurf nach jedem Absatz automatisch speichern</string>
     <string name="title_advanced_auto_save_dot">Entwurf nach jedem Satz automatisch speichern</string>
     <string name="title_advanced_compose_color">Standard-Textfarbe</string>
@@ -1148,6 +1148,8 @@
     <string name="title_importance_low">Niedrig</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Hoch</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Wichtig</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Unwichtig</string>
     <string name="title_search_in_text">Im Text suchen &#8230;</string>
     <string name="title_forward">Weiterleiten</string>
     <string name="title_resend">Umleiten</string>

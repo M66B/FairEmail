@@ -389,7 +389,7 @@
     <string name="title_advanced_answer_hint">Handinger for svar-knappen kan også opsættes i fanen send-indstillinger</string>
     <string name="title_advanced_answer_warning">Ikke alle handlinger er mulige uden en valgmenu!</string>
     <string name="title_advanced_send_pending">Vis ikke-påtrængende afsendelsesforsinkelsesikon</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Gem udkastrevisioner til fortryd og gendan</string>
+    <string name="title_advanced_save_revisions">Gem udkastrevisioner til fortryd og gendan</string>
     <string name="title_advanced_auto_save_paragraph">Gem automatisk udkast efter hvert afsnit</string>
     <string name="title_advanced_auto_save_dot">Gem automatisk udkast efter hver sætning</string>
     <string name="title_advanced_compose_color">Standardtekstfarve</string>
@@ -1147,6 +1147,7 @@
     <string name="title_importance_low">Lav</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Høj</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Vigtigt</string>
     <string name="title_search_in_text">Søg i tekst&#8230;</string>
     <string name="title_forward">Videresend</string>
     <string name="title_resend">Send igen</string>

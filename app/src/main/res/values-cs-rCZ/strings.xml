@@ -417,7 +417,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_answer_hint">Akce tlačítka odpovědi lze také nakonfigurovat na kartě nastavení odesílání</string>
     <string name="title_advanced_answer_warning">Ne všechny akce jsou možné bez výběrového menu!</string>
     <string name="title_advanced_send_pending">Zobrazit neobtěžující ikonu zpožděného odeslání</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Uložit revize konceptu pro vrácení a opětovné provedení</string>
+    <string name="title_advanced_save_revisions">Uložit revize konceptu pro vrácení a opětovné provedení</string>
     <string name="title_advanced_auto_save_paragraph">Automaticky uložit koncept po každém odstavci</string>
     <string name="title_advanced_auto_save_dot">Automaticky uložit koncept po každé větě</string>
     <string name="title_advanced_compose_color">Výchozí barva textu</string>
@@ -1173,6 +1173,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_importance_low">Nízká</string>
     <string name="title_importance_normal">Normální</string>
     <string name="title_importance_high">Vysoká</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Důležité</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Nedůležité</string>
     <string name="title_search_in_text">Hledat v textu &#8230;</string>
     <string name="title_forward">Přeposlat</string>
     <string name="title_resend">Odeslat znovu</string>

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_search">FairEmail keresés</string>
+    <string name="app_send_self">Küldés magamnak</string>
     <string name="app_changelog">Újdonságok</string>
     <string name="app_welcome">A FairEmail egy nyílt forráskódú e-mail alkalmazás, melynek elsődleges szempontja az adatvédelem és biztonság. Emiatt némely funkció másképp működhet a megszokottnál.</string>
     <string name="app_limitations">Például az üzenetek átformáltak alapból, hogy eltávolítsa a nem biztonságos elemeket és javítsa az olvashatóságot, és linkek megnyitásánál szükséges, hogy legyen megerősítve biztonságért. Mind a kettőt le lehet tiltani, ha kívánt.</string>
     <string name="app_unsupported">Ezen eszköz Android verziójának hibái összeomlásokat okoznak</string>
+    <string name="app_data_loss">Az összes adat elveszhet</string>
     <string name="app_continue">Folytatás mégis</string>
     <string name="app_exit">A kilépéshez használja újra a \'vissza\' opciót</string>
     <string name="app_cake">Nincs elég tárhely</string>
@@ -75,9 +77,12 @@
     </plurals>
     <string name="title_ask_spam_who">Megjelöli az üzenetet %1$s-től spam-ként?</string>
     <string name="title_junk_hint">A levélszemét szűréséért az email szolgáltatója a felelős. Egy email kliens nem rendelkezik a szükséges adatokkal, hogy ezt megfelelően el tudja végezni.</string>
+    <string name="title_junk_pop_hint">        A letiltott feladók üzeneteit nem töltjük le.
+        Ezek az üzenetek végleg elvesznek, ha az \"Üzenetek megőrzése a kiszolgálón\" nincs engedélyezve!    </string>
     <string name="title_block">%1$s tiltása</string>
     <string name="title_block_sender">Feladó tiltása</string>
     <string name="title_block_sender_domain">\'%1$s\' domain letiltása</string>
+    <string name="title_block_sender_remark">A tiltással egyben levélszemétbe is helyezi.</string>
     <string name="title_block_sender_hint">        Egy küldő letiltása ingyenes funkció.
         Egy küldő domain letiltása szűrőszabályokat használ, ami pro funkció.
     </string>
@@ -143,11 +148,13 @@
     <string name="title_setup_analytics">FairEmail nem jeneít meg reklámokat, és nem követi vagy analizálja az Ön viselkedését. A Bugsnag kizárólag hibajelentésre szolgál, és alapból ki is van kapcsolva.</string>
     <string name="title_setup_quick_accounts">Fiókok hozzáadása vagy módosítása</string>
     <string name="title_setup_quick_support">Egyes szolgáltatók megbonyolították a fiókok elérését. Ha emiatt nehézségekkel találkozol, inkább kérj segítséget reklamáció helyett.</string>
+    <string name="title_setup_quick_hint">A megadott email-címmel lekérjük az email-kiszolgáló és az autoconfig.thunderbird.net beállításait</string>
     <string name="title_setup_quick_patience">Kérlek, legyél türelemmel &#8230;</string>
     <string name="title_setup_quick_imap">Az üzenetek fogadásához használt IMAP szerver</string>
     <string name="title_setup_quick_smtp">Az üzenetek küldéséhez használt SMTP szerver</string>
     <string name="title_setup_quick_certificates">Szerver tanúsítványok</string>
     <string name="title_setup_wizard">Varázsló</string>
+    <string name="title_setup_wizard_intro">Fiók hozzáadására a legtöbb esetben a varázsló gomb használható, egyéb esetben a kiszolgáló címe kézzel is megadható, vagy módosítható a kézi beállítás opcióval</string>
     <string name="title_setup_wizard_tutorials">Oktatóanyagok</string>
     <string name="title_setup_wizard_multiple">A varázsló többször is használható több fiók hozzáadásához</string>
     <string name="title_setup_wizard_new">Új e-mail cím megadása</string>
@@ -167,9 +174,16 @@
     <string name="title_setup_gmail_support">Google fiókok engedélyezése csak a Play Store és GitHub verzióknál engedélyezett, mert az Android rendszer ellenőrzi az app digitális aláírását</string>
     <string name="title_setup_gmail_rationale">Kérem adja meg a szükséges engedélyeket hogy a kijelölhessen egy fiókot, illetve az alkalmazás hozzáférjen</string>
     <string name="title_setup_gmail_permissions">A Google engedélyeket fog kérni hogy olvashasson, írhasson, küldhessen és véglegesen törölhessen üzeneteket. A FairEmail sosem törli az üzeneteit az Ön beleegyezése nélkül.</string>
+    <string name="title_setup_gmail_login">Ha be van jelentkezve a Chrome-ban, akkor új fiókot csak az Androidban adhat hozzá. Mindez elkerülhető, ha a Chrome szinkronizálási beállításainál kijelentkezik.</string>
+    <string name="title_setup_gmail_max">A \"Bejelentkezések száma elérte a maximumot\" hibaüzenet esetén a böngészőben jelentkezzen ki az összes Google fiókból.</string>
+    <string name="title_setup_gmail_on_device">Miért kell egy fiókot kiválasztanom az eszközön?</string>
+    <string name="title_setup_gmail_password">Jelszóval védett fiókot hozok létre az eszköz fiókjával történő összekapcsolás helyett</string>
     <string name="title_setup_office_auth">Az \'AUTHENTICATE failed\' hibának oka lehet hogy a rendszeradminisztrátor kikapcsolta az IMAP/SMTP-t</string>
+    <string name="title_setup_office_auth_5_7_3">Kérem próbálja meg az \"Egyéb szolgáltató\" gyorsbeállítás varázslót.</string>
     <string name="title_setup_oauth_rationale">Engedélyezze a hozzáférést a %1$s fiókjához</string>
+    <string name="title_setup_oauth_update">Ismételt bejelentkezés egy már meglevő fiókba (vagy új fiók létrehozása)</string>
     <string name="title_setup_oauth_updated">A fiókhitelesítés frissült</string>
+    <string name="title_setup_oauth_brave">Ha Brave böngészőt használ, engedélyeznie kell a Brave beállításaiban az alkalmazás-hivatkozások megnyitását külső alkalmazásban</string>
     <string name="title_setup_oauth_authorize">Engedélyezés</string>
     <string name="title_setup_select_account">Válasszon fiókot</string>
     <string name="title_setup_instructions">Telepítési útmutató</string>
@@ -190,15 +204,20 @@
     <string name="title_setup_free">Ingyenes e alkalmazás használata?</string>
     <string name="title_setup_permissions">Engedélyek megadása</string>
     <string name="title_setup_permissions_remark">A névjegyzék adataihoz váló hozzáféréshez (opcionális)</string>
+    <string name="title_setup_permissions_calendar">Meghívások tárolásához (nem kötelező)</string>
     <string name="title_setup_permissions_explanation">A kapcsolatokhoz való hozzáférés szükséges ahhoz, hogy levélírásnál felajánlja a konkrét címet</string>
     <string name="title_setup_permissions_notify">Új üzenet értesítések megjelenése (opcionális)</string>
+    <string name="title_setup_permissions_notify_explanation">Az értesítések engedély lehetővé teszi az értesítés megjelenését új üzenet érkezésekor</string>
     <string name="title_setup_permission_why">Milyen engedélyekre van szükség, és miért?</string>
     <string name="title_setup_permission_import_contacts">Hogyan importálhatok névjegyeket?</string>
     <string name="title_setup_import_graph_contact">Outlook kontaktok</string>
     <string name="title_setup_import_graph_new">Új kontaktok: %1$s</string>
     <string name="title_setup_doze">Akkumulátor-optimalizálás kikapcsolása</string>
+    <string name="title_setup_doze_remark">A háttérben történő megbízható email küldéshez, fogadáshoz</string>
     <string name="title_setup_doze_explanation">A akkumulátor optimalizálást ki kell kapcsolni annak érdekében, hogy az app a háttérben biztonsággal tudjon küldeni és fogadni üzeneteket</string>
     <string name="title_setup_doze_hint">Habár ellentmondásosnak tűnhet, de az akkaumulátor optimalizálás kikapcsolásával kevesebb erőforrást fog használni az app</string>
+    <string name="title_setup_doze_aggressively">Előfordulhat, hogy eszköze leállítja a szinkronizálási szolgáltatást</string>
+    <string name="title_setup_doze_why">Miért javasolt az akku-optimalizálás kikapcsolása?</string>
     <string name="title_setup_doze_instructions">A következő Android párbeszédpanelen változtassa meg a „Nincs optimalizálva” értéket „Minden alkalmazás” értékre, válassza ki ezt az alkalmazást, és válassza a „Ne optimalizálja” lehetőséget</string>
     <string name="title_setup_doze_battery">Magas akkumulátorhasználat?</string>
     <string name="title_setup_doze_stopped">Már nem szinkronizál?</string>
@@ -208,6 +227,7 @@
     <string name="title_setup_background">A háttérkorlátozások engedélyezve vannak</string>
     <string name="title_setup_data">Adatkapcsolat csökkentő bekapcsolva</string>
     <string name="title_setup_always">Azonnali új üzenet értesítések</string>
+    <string name="title_setup_always_remark">Ha engedélyezett, gyenge kapcsolat, régi hálózatieszközök, stb. magasabb akku-használathoz vezethetnek</string>
     <string name="title_setup_advanced_options">Haladó beállítások megjelenítése</string>
     <string name="title_setup_inbox">Ugrás a beérkezett üzenetekhez</string>
     <string name="title_setup_go">Tovább</string>
@@ -217,6 +237,7 @@
     <string name="title_setup_error">Hiba</string>
     <string name="title_setup_manual_setup">Kézi beállítás</string>
     <string name="title_setup_pop">POP3 használata (nem ajánlott)</string>
+    <string name="title_setup_recent">Használja a \"recent\" pontot több email klienshez</string>
     <string name="title_setup_configuring">Felhasználói fiók beállítása &#8230;</string>
     <string name="title_setup_app_password">Szüksége lehet egy applikáció jelszóra</string>
     <string name="title_setup_extra">Extra</string>
@@ -228,6 +249,8 @@
         Jelszó szükséges az újbóli importáláshoz, ezért ne felejtse el!
     </string>
     <string name="title_setup_export_do">Az exportált fájl tartalmazni fog minden beállítást és adatot, de nem tartalmazza az aláírásban tett utalásokat üzenetekre és képekre</string>
+    <string name="title_setup_scroll">A beviteli mezők görgethetők lehetnek!</string>
+    <string name="title_setup_backup">Hogyan mentsünk?</string>
     <string name="title_setup_password">Jelszó</string>
     <string name="title_setup_password_chars">A jelszó vezérlő vagy szóköz karaktert tartalmaz</string>
     <string name="title_setup_password_repeat">Ismételje meg a jelszót</string>
@@ -239,6 +262,7 @@
     <string name="title_setup_import_rules">Szűrőszabályok importálása</string>
     <string name="title_setup_import_contacts">Helyi névjegyek importálása</string>
     <string name="title_setup_import_answers">Válaszsablonok importálása</string>
+    <string name="title_setup_import_searches">Mentett keresések importálása</string>
     <string name="title_setup_import_settings">Importálási opciók</string>
     <string name="title_setup_exported">Beállítások exportálva</string>
     <string name="title_setup_imported">Beállítások importálva</string>
@@ -280,8 +304,13 @@
     <string name="title_setup_reset_questions">Kérdések visszaállítása</string>
     <string name="title_setup_reset_general">Általános kérdések</string>
     <string name="title_setup_reset_links">Linkek jóváhagyása</string>
+    <string name="title_setup_reset_files">Fájlok megtekintése</string>
     <string name="title_setup_reset_images">Képek megjelenítése</string>
     <string name="title_setup_reset_full">Eredeti szöveg megjelenítése</string>
+    <string name="title_check_gmail_oauth">Gmail fiókjai 2022. május 30-a után is működni fognak</string>
+    <string name="title_check_gmail_password">Előfordulhat, hogy némely Gmail fiókja nem fog működni 2022. május 30-a után</string>
+    <string name="title_check_outlook_oauth">Outlook fiókjai 2022. október elseje után is működni fognak</string>
+    <string name="title_check_outlook_password">Előfordulhat, hogy némely Outlook fiókja nem fog működni 2022. október elseje után</string>
     <string name="title_advanced_hint_title">További haladó opciók</string>
     <string name="title_advanced_hint_message">        A haladó beállításokhoz navigálsz.        Minden opciónak van gyakran használt alapértéke, amit nem kell változtatnod, kivéve, ha más opciókat preferálsz.
     </string>
@@ -337,8 +366,10 @@
     <string name="title_advanced_suggest_sent">Elküldött üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_received">Fogadott üzenetekben szereplő címek felajánlása</string>
     <string name="title_advanced_suggest_frequently">A felajánlott címek rendezése gyakoriság alapján</string>
+    <string name="title_advanced_suggest_account">Csak az aktuális fiókhoz javasoljon</string>
     <string name="title_advanced_alt_re_fwd">Alternatív válasz/továbbítás előtag</string>
     <string name="title_advanced_send_chips">Cím buborékok megjelenítése</string>
+    <string name="title_advanced_send_nav_color">Az identitás színét alkalmazza az alsó műveleti sávra</string>
     <string name="title_advanced_send_reminders">Emlékeztetők megjelenítése</string>
     <string name="title_advanced_send_delayed">Üzenetek küldésének késleltetése</string>
     <string name="title_advanced_send_pending">Nem zavaró küldés késleltetett ikon megjelenítése</string>
@@ -974,6 +1005,7 @@
     <string name="title_importance_low">Alacsony</string>
     <string name="title_importance_normal">Normál</string>
     <string name="title_importance_high">Magas</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Fontos</string>
     <string name="title_search_in_text">Keresés a szövegben &#8230;</string>
     <string name="title_forward">Továbbítás</string>
     <string name="title_resend">Újraküldés</string>

@@ -375,7 +375,7 @@
     <string name="title_advanced_answer_hint">返信ボタンのアクションは、設定の送信タブからも変更できます</string>
     <string name="title_advanced_answer_warning">選択メニューを表示しないと、選択できないメニューが発生します！</string>
     <string name="title_advanced_send_pending">目立たない送信遅延アイコンを表示する</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">下書きで元に戻す/やり直すができるように編集内容を保存する</string>
+    <string name="title_advanced_save_revisions">下書きで元に戻す/やり直すができるように編集内容を保存する</string>
     <string name="title_advanced_auto_save_paragraph">段落ごとに下書きを自動で保存する</string>
     <string name="title_advanced_auto_save_dot">文ごとに下書きを自動で保存する</string>
     <string name="title_advanced_compose_color">デフォルトの文字色</string>
@@ -1132,6 +1132,7 @@
     <string name="title_importance_low">低</string>
     <string name="title_importance_normal">標準</string>
     <string name="title_importance_high">高</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">重要</string>
     <string name="title_search_in_text">本文を検索&#8230;</string>
     <string name="title_forward">転送</string>
     <string name="title_resend">再送</string>

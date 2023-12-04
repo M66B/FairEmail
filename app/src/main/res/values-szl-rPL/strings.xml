@@ -416,7 +416,7 @@
     <string name="title_advanced_answer_hint">Akcje przycisku odpowiedzi można również skonfigurować w zakładce ustawień Wysyłanie</string>
     <string name="title_advanced_answer_warning">Nie wszystkie działania są możliwe bez menu wyboru!</string>
     <string name="title_advanced_send_pending">Pokaż nieprzeszkadzającą ikonę wysłania z opóźnieniem</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Zapisuj wersje robocze dla cofania i ponawiania</string>
+    <string name="title_advanced_save_revisions">Zapisuj wersje robocze dla cofania i ponawiania</string>
     <string name="title_advanced_auto_save_paragraph">Automatycznie zapisuj wersję roboczą po każdym akapicie</string>
     <string name="title_advanced_auto_save_dot">Automatycznie zapisuj wersję roboczą po każdym zdaniu</string>
     <string name="title_advanced_compose_color">Domyślny kolor tekstu</string>
@@ -1172,6 +1172,8 @@
     <string name="title_importance_low">Niska</string>
     <string name="title_importance_normal">Normalna</string>
     <string name="title_importance_high">Wysoka</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Ważne</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Nieważne</string>
     <string name="title_search_in_text">Szukaj w tekście &#8230;</string>
     <string name="title_forward">Prześlij dalej</string>
     <string name="title_resend">Wyślij ponownie</string>

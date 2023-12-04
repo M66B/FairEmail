@@ -417,7 +417,7 @@
     <string name="title_advanced_answer_hint">ניתן להגדיר את פעולות כפתור המענה בעמוד לשונית הגדרות השליחה</string>
     <string name="title_advanced_answer_warning">לא כל הפעולות אפשריות ללא תפריט בחירה!</string>
     <string name="title_advanced_send_pending">הצגת סמלי שליחה מושהית שאינם בולטים</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">שמירת מהדורות טיוטה כדי לשחזר ולבצע מחדש</string>
+    <string name="title_advanced_save_revisions">שמירת מהדורות טיוטה כדי לשחזר ולבצע מחדש</string>
     <string name="title_advanced_auto_save_paragraph">לשמור טיוטה אוטומטית אחרי כל פרק</string>
     <string name="title_advanced_auto_save_dot">לשמור טיוטה אוטומטית אחרי כל משפט</string>
     <string name="title_advanced_compose_color">צבע טקסט כברירת מחדל</string>
@@ -1174,6 +1174,8 @@
     <string name="title_importance_low">נמוכה</string>
     <string name="title_importance_normal">רגילה</string>
     <string name="title_importance_high">גבוהה</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">חשוב</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">לא חשוב</string>
     <string name="title_search_in_text">חיפוש בטקסט &#8230;</string>
     <string name="title_forward">העברה</string>
     <string name="title_resend">שליחה מחדש</string>

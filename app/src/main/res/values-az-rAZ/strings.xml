@@ -389,7 +389,7 @@
     <string name="title_advanced_answer_hint">Cavab düyməsi əməliyyatları, göndərmə ayarları vərəq səhifəsində də konfiqurasiya edilə bilər</string>
     <string name="title_advanced_answer_warning">Bir seçim menyusu olmadan bütün əməliyyatlar mümkün deyil!</string>
     <string name="title_advanced_send_pending">Narahat edici olmayan gecikməli göndərmə nişanını göstər</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Geri al və təkrar et üçün qaralama təftişlərini saxla</string>
+    <string name="title_advanced_save_revisions">Geri al və təkrar et üçün qaralama təftişlərini saxla</string>
     <string name="title_advanced_auto_save_paragraph">Qaralamanı hər paraqrafdan sonra avtomatik saxla</string>
     <string name="title_advanced_auto_save_dot">Cümləni hər paraqrafdan sonra avtomatik saxla</string>
     <string name="title_advanced_compose_color">İlkin mətn rəngi</string>
@@ -1146,6 +1146,7 @@
     <string name="title_importance_low">Aşağı</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Yüksək</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Vacib</string>
     <string name="title_search_in_text">Mətndə axtar &#8230;</string>
     <string name="title_forward">Yönləndir</string>
     <string name="title_resend">Təkrar göndər</string>

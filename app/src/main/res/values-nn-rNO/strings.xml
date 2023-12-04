@@ -740,6 +740,7 @@
     <string name="title_importance_low">Lav</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Høy</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Viktig</string>
     <string name="title_search_in_text">Søk i tekst &#8230;</string>
     <string name="title_forward">Videresend</string>
     <string name="title_new_message">Ny melding</string>

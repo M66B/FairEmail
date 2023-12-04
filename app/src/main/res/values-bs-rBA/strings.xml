@@ -403,7 +403,7 @@
     <string name="title_advanced_answer_hint">Radnje dugmeta za odgovor mogu se podesiti i na kartici postavki za slanje</string>
     <string name="title_advanced_answer_warning">Bez izbornog menija nisu moguće sve radnje!</string>
     <string name="title_advanced_send_pending">Prikaži nenametljivu ikonicu za odgođeno slanje</string>
-    <string name="title_advanced_save_revisions" comment="title_advanced_save_revisions&#10;Title for option to disable saving draft revisions, and therefore undo/redo too">Čuvaj revizije nacrta za vraćanje i ponavljanje radnje</string>
+    <string name="title_advanced_save_revisions">Čuvaj revizije nacrta za vraćanje i ponavljanje radnje</string>
     <string name="title_advanced_auto_save_paragraph">Automatski sačuvaj nacrt nakon svakog paragrafa</string>
     <string name="title_advanced_auto_save_dot">Automatski sačuvaj nacrt nakon svake rečenice</string>
     <string name="title_advanced_compose_color">Zadana boja teksta</string>
@@ -1160,6 +1160,7 @@
     <string name="title_importance_low">Niska</string>
     <string name="title_importance_normal">Normalna</string>
     <string name="title_importance_high">Visoka</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Važno</string>
     <string name="title_search_in_text">Pretraži u tekstu &#8230;</string>
     <string name="title_forward">Proslijedi</string>
     <string name="title_resend">Ponovljeno slanje</string>
