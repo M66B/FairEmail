@@ -513,6 +513,7 @@ dependencies {
     def exif_version = "1.3.6"
     def biometric_version = "1.2.0-alpha05"
     def billingclient_version = "6.0.1"
+    def playservicesbase_version = "18.2.0";
     def javamail_version = "1.6.7"
     def jsoup_version = "1.16.2"
     def jsonpath_version = "2.8.0"
@@ -653,6 +654,12 @@ dependencies {
     githubImplementation "com.android.billingclient:billing:$billingclient_version"
     largeImplementation "com.android.billingclient:billing:$billingclient_version"
     playImplementation "com.android.billingclient:billing:$billingclient_version"
+
+    // https://mvnrepository.com/artifact/com.google.android.gms/play-services-base
+    //githubImplementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
+    //largeImplementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
+    //playImplementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
+    implementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
 
     // https://developer.amazon.com/docs/in-app-purchasing/iap-get-started.html
     amazonImplementation files('lib/in-app-purchasing-2.0.76.jar')

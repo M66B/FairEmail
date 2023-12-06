@@ -118,7 +118,7 @@
     </queries>
 
     <application
-        android:name=".ApplicationEx"
+        android:name=".ApplicationSecure"
         android:allowBackup="false"
         android:appCategory="productivity"
         android:dataExtractionRules="@xml/data_extraction_rules"
