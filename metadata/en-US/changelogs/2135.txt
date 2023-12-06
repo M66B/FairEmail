@@ -6,6 +6,11 @@ For support you can use the contact form.
 
 Wintonotitan
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2135 - 2023-12-04
 
 * Added swipe action to change importance
