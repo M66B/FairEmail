@@ -315,10 +315,46 @@ public class ApplicationEx extends Application
             }
         }
 
-        ContextCompat.registerReceiver(this,
-                onScreenOff,
-                new IntentFilter(Intent.ACTION_SCREEN_OFF),
-                ContextCompat.RECEIVER_NOT_EXPORTED);
+        try {
+            ContextCompat.registerReceiver(this,
+                    onScreenOff,
+                    new IntentFilter(Intent.ACTION_SCREEN_OFF),
+                    ContextCompat.RECEIVER_NOT_EXPORTED);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            /*
+                Exception java.lang.RuntimeException:
+                  at android.app.ActivityThread.handleBindApplication (ActivityThread.java:7690)
+                  at android.app.ActivityThread.-$$Nest$mhandleBindApplication
+                  at android.app.ActivityThread$H.handleMessage (ActivityThread.java:2478)
+                  at android.os.Handler.dispatchMessage (Handler.java:106)
+                  at android.os.Looper.loopOnce (Looper.java:230)
+                  at android.os.Looper.loop (Looper.java:319)
+                  at android.app.ActivityThread.main (ActivityThread.java:8893)
+                  at java.lang.reflect.Method.invoke
+                  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run (RuntimeInit.java:608)
+                  at com.android.internal.os.ChildZygoteInit.runZygoteServer (ChildZygoteInit.java:136)
+                  at com.android.internal.os.WebViewZygoteInit.main (WebViewZygoteInit.java:147)
+                  at java.lang.reflect.Method.invoke
+                  at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run (RuntimeInit.java:608)
+                  at com.android.internal.os.ZygoteInit.main (ZygoteInit.java:1103)
+                Caused by java.lang.SecurityException: Isolated process not allowed to call registerReceiver
+                  at android.os.Parcel.createExceptionOrNull (Parcel.java:3069)
+                  at android.os.Parcel.createException (Parcel.java:3053)
+                  at android.os.Parcel.readException (Parcel.java:3036)
+                  at android.os.Parcel.readException (Parcel.java:2978)
+                  at android.app.IActivityManager$Stub$Proxy.registerReceiverWithFeature (IActivityManager.java:6137)
+                  at android.app.ContextImpl.registerReceiverInternal (ContextImpl.java:1913)
+                  at android.app.ContextImpl.registerReceiver (ContextImpl.java:1860)
+                  at android.content.ContextWrapper.registerReceiver (ContextWrapper.java:791)
+                  at androidx.core.content.ContextCompat$Api33Impl.registerReceiver (ContextCompat.java:1239)
+                  at androidx.core.content.ContextCompat.registerReceiver (ContextCompat.java:870)
+                  at androidx.core.content.ContextCompat.registerReceiver (ContextCompat.java:821)
+                  at eu.faircode.email.ApplicationEx.onCreate (ApplicationEx.java:316)
+                  at android.app.Instrumentation.callApplicationOnCreate (Instrumentation.java:1316)
+                  at android.app.ActivityThread.handleBindApplication (ActivityThread.java:7685)
+             */
+        }
 
         long end = new Date().getTime();
         Log.i("App created " + (end - start) + " ms");
