@@ -394,7 +394,8 @@ public class ActivityEML extends ActivityBase {
                                     create.putExtra(Intent.EXTRA_TITLE, apart.attachment.name);
                                 Helper.openAdvanced(ActivityEML.this, create);
                                 if (create.resolveActivity(getPackageManager()) == null) // system whitelisted
-                                    ToastEx.makeText(ActivityEML.this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+                                    Log.unexpectedError(getSupportFragmentManager(),
+                                            new IllegalArgumentException(getString(R.string.title_no_saf)), 25);
                                 else
                                     startActivityForResult(Helper.getChooser(ActivityEML.this, create), REQUEST_ATTACHMENT);
                             }

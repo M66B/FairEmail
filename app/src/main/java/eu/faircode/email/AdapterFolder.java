@@ -1263,7 +1263,8 @@ public class AdapterFolder extends RecyclerView.Adapter<AdapterFolder.ViewHolder
                     Helper.openAdvanced(context, intent);
 
                     if (intent.resolveActivity(context.getPackageManager()) == null) { //  // system/GET_CONTENT whitelisted
-                        ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+                        Log.unexpectedError(parentFragment.getParentFragmentManager(),
+                                new IllegalArgumentException(context.getString(R.string.title_no_saf)), 25);
                         return;
                     }
 

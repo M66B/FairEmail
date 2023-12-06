@@ -17,10 +17,10 @@
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/twotone_bug_report_24"
             android:drawablePadding="6dp"
-            app:drawableTint="@color/red"
             android:labelFor="@+id/etName"
             android:text="@string/title_unexpected_error"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:drawableTint="@color/red"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,10 +29,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:fontFamily="monospace"
             android:text="Error"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textIsSelectable="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCaption" />
+
+        <Button
+            android:id="@+id/btnHelp"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:drawableEnd="@drawable/twotone_help_24"
+            android:drawablePadding="6dp"
+            android:text="@string/title_setup_help"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvError" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </eu.faircode.email.ScrollViewEx>

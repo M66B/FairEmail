@@ -755,7 +755,8 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         open.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         open.setType("*/*");
         if (open.resolveActivity(getPackageManager()) == null)  // system whitelisted
-            ToastEx.makeText(this, R.string.title_no_saf, Toast.LENGTH_LONG).show();
+            Log.unexpectedError(getSupportFragmentManager(),
+                    new IllegalArgumentException(getString(R.string.title_no_saf)), 25);
         else
             startActivityForResult(Helper.getChooser(this, open), REQUEST_IMPORT_CERTIFICATE);
     }

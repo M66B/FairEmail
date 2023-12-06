@@ -87,6 +87,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -1932,6 +1933,14 @@ public class Log {
     }
 
     static void unexpectedError(FragmentManager manager, Throwable ex, boolean report) {
+        unexpectedError(manager, ex, report, null);
+    }
+
+    static void unexpectedError(FragmentManager manager, Throwable ex, int faq) {
+        unexpectedError(manager, ex, false, faq);
+    }
+
+    static void unexpectedError(FragmentManager manager, Throwable ex, boolean report, Integer faq) {
         Log.e(ex);
 
         if (ex instanceof OutOfMemoryError)
@@ -1940,6 +1949,7 @@ public class Log {
         Bundle args = new Bundle();
         args.putSerializable("ex", ex);
         args.putBoolean("report", report);
+        args.putInt("faq", faq == null ? 0 : faq);
 
         FragmentDialogUnexpected fragment = new FragmentDialogUnexpected();
         fragment.setArguments(args);
@@ -1950,16 +1960,27 @@ public class Log {
         @NonNull
         @Override
         public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-            final Throwable ex = (Throwable) getArguments().getSerializable("ex");
-            boolean report = getArguments().getBoolean("report", true);
+            Bundle args = getArguments();
+            final Throwable ex = (Throwable) args.getSerializable("ex");
+            final boolean report = args.getBoolean("report", true);
+            final int faq = args.getInt("faq");
 
             final Context context = getContext();
             LayoutInflater inflater = LayoutInflater.from(context);
             View dview = inflater.inflate(R.layout.dialog_unexpected, null);
             TextView tvError = dview.findViewById(R.id.tvError);
+            Button btnHelp = dview.findViewById(R.id.btnHelp);
 
             String message = Log.formatThrowable(ex, false);
             tvError.setText(message);
+
+            btnHelp.setVisibility(faq > 0 ? View.VISIBLE : View.GONE);
+            btnHelp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Helper.viewFAQ(v.getContext(), faq);
+                }
+            });
 
             AlertDialog.Builder builder = new AlertDialog.Builder(context)
                     .setView(dview)

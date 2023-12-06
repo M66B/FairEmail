@@ -1677,9 +1677,10 @@ This might be because your custom ROM does not include it or because it was acti
 
 FairEmail does not request storage permissions, so this framework is required to select files and folders.
 No app, except maybe file managers, targeting Android 4.4 KitKat or later should ask for storage permissions because it would allow access to *all* files.
+Moreover, recent Android versions disallow access to all files for apps, except, under specific conditions, for file managers.
 
 The storage access framework is provided by the package *com.android.documentsui*,
-which is visible as *Files* app on some Android versions (notable OxygenOS).
+which is visible as *Files* app on some Android versions (notably OxygenOS).
 
 You can enable the storage access framework (again) with this adb command:
 

@@ -540,10 +540,10 @@ public class FragmentBase extends Fragment {
         create.putExtra(Intent.EXTRA_TITLE, attachment.name);
         Helper.openAdvanced(context, create);
         PackageManager pm = context.getPackageManager();
-        if (create.resolveActivity(pm) == null) { // system whitelisted
-            Log.w("SAF missing");
-            ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
-        } else
+        if (create.resolveActivity(pm) == null) // system whitelisted
+            Log.unexpectedError(getParentFragmentManager(),
+                    new IllegalArgumentException(context.getString(R.string.title_no_saf)), 25);
+        else
             startActivityForResult(Helper.getChooser(context, create), REQUEST_ATTACHMENT);
     }
 
@@ -556,10 +556,10 @@ public class FragmentBase extends Fragment {
         Intent tree = new Intent(Intent.ACTION_OPEN_DOCUMENT_TREE);
         Helper.openAdvanced(context, tree);
         PackageManager pm = context.getPackageManager();
-        if (tree.resolveActivity(pm) == null) { // system whitelisted
-            Log.w("SAF missing");
-            ToastEx.makeText(context, R.string.title_no_saf, Toast.LENGTH_LONG).show();
-        } else
+        if (tree.resolveActivity(pm) == null) // system whitelisted
+            Log.unexpectedError(getParentFragmentManager(),
+                    new IllegalArgumentException(context.getString(R.string.title_no_saf)), 25);
+        else
             startActivityForResult(Helper.getChooser(context, tree), REQUEST_ATTACHMENTS);
     }
 
