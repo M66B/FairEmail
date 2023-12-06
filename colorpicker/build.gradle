@@ -1,13 +1,12 @@
 apply plugin: 'com.android.library'
 
 android {
-	compileSdkVersion 29
-	buildToolsVersion "29.0.0"
 	namespace 'com.flask.colorpicker'
 
 	defaultConfig {
-		minSdkVersion 14
-		targetSdkVersion 29
+		compileSdk 34
+		minSdkVersion 21
+		targetSdkVersion 34
 		versionCode 17
 		versionName "0.0.15"
 	}
