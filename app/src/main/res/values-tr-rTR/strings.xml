@@ -1143,6 +1143,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Yüksek</string>
     <string name="title_important" comment="title_important&#10;Title for header above important messages.">Önemli</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Önemsiz</string>
     <string name="title_search_in_text">Metin içinde ara &#8230;</string>
     <string name="title_forward">İlet</string>
     <string name="title_resend">Tekrar gönder</string>

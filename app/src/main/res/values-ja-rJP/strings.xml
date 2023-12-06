@@ -1133,6 +1133,7 @@
     <string name="title_importance_normal">標準</string>
     <string name="title_importance_high">高</string>
     <string name="title_important" comment="title_important&#10;Title for header above important messages.">重要</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">重要でない</string>
     <string name="title_search_in_text">本文を検索&#8230;</string>
     <string name="title_forward">転送</string>
     <string name="title_resend">再送</string>
@@ -1692,7 +1693,7 @@
     <string name="title_code_line_numbers">行番号を表示する</string>
     <string name="title_code_enable_links">リンクを有効にする</string>
     <string name="title_code_pretty">Pretty print</string>
-    <string name="title_legend_section_synchronize">同期</string>
+    <string name="title_legend_section_synchronize">同期する</string>
     <string name="title_legend_section_folders">フォルダー</string>
     <string name="title_legend_section_messages">メッセージ</string>
     <string name="title_legend_section_compose">作成</string>

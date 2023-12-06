@@ -402,6 +402,7 @@
     <string name="title_advanced_answer_hint">Acțiunile butonului de răspuns pot fi, de asemenea, configurate în pagina filei Setări de trimitere</string>
     <string name="title_advanced_answer_warning">Nu toate acțiunile sunt posibile fără un meniu de selecție!</string>
     <string name="title_advanced_send_pending">Arată pictograma neobstructivă de trimitere întârziată</string>
+    <string name="title_advanced_save_revisions">Salvează copii de ciorne pentru anulare și repetare</string>
     <string name="title_advanced_auto_save_paragraph">Salvați automat un draft după fiecare paragraf</string>
     <string name="title_advanced_auto_save_dot">Salvați automat un proiect după fiecare propoziție</string>
     <string name="title_advanced_compose_color">Culoare implicită text</string>
@@ -1158,6 +1159,7 @@
     <string name="title_importance_normal">Normală</string>
     <string name="title_importance_high">Ridicată</string>
     <string name="title_important" comment="title_important&#10;Title for header above important messages.">Important</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Neimportant</string>
     <string name="title_search_in_text">Caută în text &#8230;</string>
     <string name="title_forward">Redirecționează</string>
     <string name="title_resend">Retrimite</string>

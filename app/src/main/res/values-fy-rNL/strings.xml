@@ -1143,6 +1143,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_importance_normal">Normaal</string>
     <string name="title_importance_high">Heech</string>
     <string name="title_important" comment="title_important&#10;Title for header above important messages.">Wichtich</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Net wichtich</string>
     <string name="title_search_in_text">Sykje yn tekst&#8230;</string>
     <string name="title_forward">Trochstjoere</string>
     <string name="title_resend">Opnij ferstjoere</string>

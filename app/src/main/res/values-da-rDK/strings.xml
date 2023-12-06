@@ -1147,7 +1147,8 @@
     <string name="title_importance_low">Lav</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Høj</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Vigtigt</string>
+    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Vigtige</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Uvigtige</string>
     <string name="title_search_in_text">Søg i tekst&#8230;</string>
     <string name="title_forward">Videresend</string>
     <string name="title_resend">Send igen</string>
