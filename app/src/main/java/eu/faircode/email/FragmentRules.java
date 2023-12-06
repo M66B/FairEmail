@@ -543,11 +543,8 @@ public class FragmentRules extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException ||
-                        ex instanceof FileNotFoundException)
-                    ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
-                else
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                boolean report = !(ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException);
+                Log.unexpectedError(getParentFragmentManager(), ex, report);
             }
         }.execute(this, args, "rules:export");
     }
@@ -675,11 +672,10 @@ public class FragmentRules extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof NoStreamException)
                     ((NoStreamException) ex).report(getActivity());
-                else if (ex instanceof FileNotFoundException ||
-                        ex instanceof JSONException)
-                    ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
-                else
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                else {
+                    boolean report = !(ex instanceof FileNotFoundException || ex instanceof JSONException);
+                    Log.unexpectedError(getParentFragmentManager(), ex, report);
+                }
             }
         }.execute(this, args, "rules:import");
     }

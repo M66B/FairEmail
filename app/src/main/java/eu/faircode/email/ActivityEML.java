@@ -488,10 +488,8 @@ public class ActivityEML extends ActivityBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException)
-                    ToastEx.makeText(ActivityEML.this, ex.getMessage(), Toast.LENGTH_LONG).show();
-                else
-                    Log.unexpectedError(getSupportFragmentManager(), ex);
+                boolean report = !(ex instanceof IllegalArgumentException || ex instanceof FileNotFoundException);
+                Log.unexpectedError(getSupportFragmentManager(), ex, report);
             }
         }.execute(this, args, "eml:attachment");
     }

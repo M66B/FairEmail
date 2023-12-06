@@ -820,10 +820,8 @@ public class FragmentContacts extends FragmentBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                if (ex instanceof IllegalArgumentException)
-                    ToastEx.makeText(getContext(), ex.getMessage(), Toast.LENGTH_LONG).show();
-                else
-                    Log.unexpectedError(getParentFragmentManager(), ex);
+                boolean report = !(ex instanceof IllegalArgumentException);
+                Log.unexpectedError(getParentFragmentManager(), ex, report);
             }
         }.execute(this, args, "contacts:name");
     }

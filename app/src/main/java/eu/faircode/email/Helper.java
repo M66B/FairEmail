@@ -1787,7 +1787,6 @@ public class Helper {
                         context.startActivity(intent);
                     } catch (Throwable ex) {
                         Log.e(ex);
-                        ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -2649,8 +2648,9 @@ public class Helper {
             exists.put(dir, true);
         }
 
+        // CASA: External storage as well
         if (!dir.exists() && !dir.mkdirs())
-            throw new IllegalArgumentException("Failed to create=" + dir);
+            throw new IllegalArgumentException("Failed to create directory");
 
         return dir;
     }
@@ -2850,7 +2850,7 @@ public class Helper {
             if (file.exists()) {
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
                     if (!file.delete())
-                        throw new FileNotFoundException(file.getAbsolutePath());
+                        Log.w("File not found: " + file);
                 } else
                     Files.delete(Paths.get(file.getAbsolutePath()));
             }
@@ -3528,8 +3528,8 @@ public class Helper {
             Runtime.getRuntime().gc();
             try {
                 Thread.sleep(50);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException ex) {
+                Log.e(ex);
             }
         }
     }

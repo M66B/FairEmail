@@ -89,7 +89,6 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -300,7 +299,7 @@ public class Log {
                     }
                 });
             } catch (Throwable ex) {
-                ex.printStackTrace();
+                Log.i(ex);
             }
         return android.util.Log.e(TAG, msg);
     }
@@ -323,7 +322,7 @@ public class Log {
                     }
                 });
             } catch (Throwable ex1) {
-                ex1.printStackTrace();
+                Log.i(ex1);
             }
         return android.util.Log.w(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
@@ -342,7 +341,7 @@ public class Log {
                     }
                 });
             } catch (Throwable ex1) {
-                ex1.printStackTrace();
+                Log.i(ex1);
             }
         return android.util.Log.e(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
@@ -362,7 +361,7 @@ public class Log {
                     }
                 });
             } catch (Throwable ex1) {
-                ex1.printStackTrace();
+                Log.i(ex1);
             }
         return android.util.Log.w(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
@@ -378,7 +377,7 @@ public class Log {
                     }
                 });
             } catch (Throwable ex1) {
-                ex1.printStackTrace();
+                Log.i(ex1);
             }
         return android.util.Log.e(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
     }
@@ -402,7 +401,7 @@ public class Log {
             if (enabled)
                 Bugsnag.startSession();
         } catch (Throwable ex) {
-            ex.printStackTrace();
+            Log.i(ex);
         }
     }
 
@@ -454,7 +453,7 @@ public class Log {
             Log.i(sb.toString());
             Bugsnag.leaveBreadcrumb(name, ocrumb, BreadcrumbType.LOG);
         } catch (Throwable ex) {
-            ex.printStackTrace();
+            Log.e(ex);
         }
     }
 
@@ -2020,10 +2019,7 @@ public class Log {
 
                             @Override
                             protected void onException(Bundle args, Throwable ex) {
-                                if (ex instanceof IllegalArgumentException)
-                                    ToastEx.makeText(context, ex.getMessage(), Toast.LENGTH_LONG).show();
-                                else
-                                    ToastEx.makeText(context, ex.toString(), Toast.LENGTH_LONG).show();
+                                // Ignored
                             }
                         }.execute(getContext(), getActivity(), new Bundle(), "error:unexpected");
                     }

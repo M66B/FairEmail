@@ -200,30 +200,50 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         String search = escape(processBreakText(query));
 
         String select = "";
-        if (account != null)
-            select += "account = " + account + " AND ";
-        if (folder != null)
-            select += "folder = " + folder + " AND ";
+        List<String> args = new ArrayList<>();
+
+        if (account != null) {
+            select += "account = ? AND ";
+            args.add(Long.toString(account));
+        }
+
+        if (folder != null) {
+            select += "folder = ? AND ";
+            args.add(Long.toString(folder));
+        }
+
         if (exclude.length > 0) {
             select += "NOT folder IN (";
             for (int i = 0; i < exclude.length; i++) {
                 if (i > 0)
                     select += ", ";
-                select += exclude[i];
+                select += "?";
+                args.add(Long.toString(exclude[i]));
             }
             select += ") AND ";
         }
-        if (criteria.after != null)
-            select += "time > " + criteria.after + " AND ";
-        if (criteria.before != null)
-            select += "time < " + criteria.before + " AND ";
 
-        Log.i("FTS select=" + select + " search=" + search + " query=" + query);
+        if (criteria.after != null) {
+            select += "time > ? AND ";
+            args.add(Long.toString(criteria.after));
+        }
+
+        if (criteria.before != null) {
+            select += "time < ? AND ";
+            args.add(Long.toString(criteria.before));
+        }
+
+        select += "message MATCH ?";
+        args.add(search);
+
+        Log.i("FTS select=" + select +
+                " args=" + TextUtils.join(", ", args) +
+                " query=" + query);
         List<Long> result = new ArrayList<>();
         try (Cursor cursor = db.query(
                 "message", new String[]{"rowid"},
-                select + "message MATCH ?",
-                new String[]{search},
+                select,
+                args.toArray(new String[0]),
                 null, null, "time DESC", null)) {
             while (cursor != null && cursor.moveToNext())
                 result.add(cursor.getLong(0));

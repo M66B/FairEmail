@@ -643,7 +643,7 @@ public class EntityMessage implements Serializable {
                     long id = Long.parseLong(file.getName());
                     File target = getFile(context, id);
                     if (!file.renameTo(target))
-                        throw new IllegalArgumentException("Failed moving " + file);
+                        Log.e("Move failed: " + file);
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }

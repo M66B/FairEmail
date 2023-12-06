@@ -85,13 +85,13 @@ import org.json.JSONObject;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 
 import javax.mail.AuthenticationFailedException;
@@ -424,7 +424,7 @@ public class FragmentOAuth extends FragmentBase {
                     Uri.parse(authorizationEndpoint),
                     Uri.parse(tokenEndpoint));
 
-            int random = Math.abs(new Random().nextInt());
+            int random = Math.abs(new SecureRandom().nextInt());
             AuthState authState = new AuthState(serviceConfig);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String key = "oauth." + provider.id + (graph ? ":graph" : "");

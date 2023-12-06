@@ -446,8 +446,8 @@ public class FragmentDialogPrint extends FragmentDialogBase {
                                     ex = new Throwable("A system app or component required for printing is missing." +
                                             " Is the print spooler still enabled?", ex);
                                 Log.unexpectedError(fm, ex, report);
-                            } catch (IllegalStateException exex) {
-                                ToastEx.makeText(context, Log.formatThrowable(ex), Toast.LENGTH_LONG).show();
+                            } catch (Throwable exex) {
+                                Log.e(exex);
                             }
                         } finally {
                             printWebView = null;

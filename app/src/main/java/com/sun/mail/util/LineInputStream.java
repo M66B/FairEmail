@@ -166,7 +166,7 @@ public class LineInputStream extends FilterInputStream {
 		    // fall through and treat it as an 8-bit charset
 		}
 	    }
-	    return new String(buf, 0, 0, offset);
+	    return new String(buf, 0, offset, StandardCharsets.ISO_8859_1);
 	}
     }
 }
