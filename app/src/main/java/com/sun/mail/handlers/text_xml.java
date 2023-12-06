@@ -79,8 +79,9 @@ public class text_xml extends text_plain {
 	}
 
 	try {
-	    Transformer transformer =
-		TransformerFactory.newInstance().newTransformer();
+		TransformerFactory factory = TransformerFactory.newInstance();
+		factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+		Transformer transformer = factory.newTransformer();
 	    StreamResult result = new StreamResult(os);
 	    if (obj instanceof DataSource) {
 		// Streaming transform applies only to

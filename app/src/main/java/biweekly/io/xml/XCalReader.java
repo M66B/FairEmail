@@ -206,6 +206,7 @@ public class XCalReader extends StreamReader {
 			//create the transformer
 			try {
 				TransformerFactory factory = TransformerFactory.newInstance();
+				factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 				XmlUtils.applyXXEProtection(factory);
 
 				transformer = factory.newTransformer();
