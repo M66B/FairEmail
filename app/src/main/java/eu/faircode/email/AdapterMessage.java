@@ -5375,9 +5375,6 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         return true;
                 }
 
-            if (!TextHelper.isSingleScript(message.subject))
-                return true;
-
             return false;
         }
 
