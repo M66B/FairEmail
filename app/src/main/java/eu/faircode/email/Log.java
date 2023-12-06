@@ -966,6 +966,25 @@ public class Log {
             */
             return false;
 
+        if (ex instanceof IllegalStateException &&
+                ex.getMessage() != null &&
+                ex.getMessage().startsWith("Layout state should be one of"))
+            /*
+                Practically, this means OOM
+
+                java.lang.IllegalStateException: Layout state should be one of 100 but it is 10
+                    at androidx.recyclerview.widget.RecyclerView$State.assertLayoutStep(SourceFile:44)
+                    at androidx.recyclerview.widget.RecyclerView.dispatchLayoutStep3(SourceFile:4)
+                    at androidx.recyclerview.widget.RecyclerView.dispatchLayout(SourceFile:125)
+                    at androidx.recyclerview.widget.RecyclerView.consumePendingUpdateOperations(SourceFile:107)
+                    at androidx.recyclerview.widget.RecyclerView$ViewFlinger.run(SourceFile:19)
+                    at android.view.Choreographer$CallbackRecord.run(Choreographer.java:1105)
+                    at android.view.Choreographer.doCallbacks(Choreographer.java:896)
+                    at android.view.Choreographer.doFrame(Choreographer.java:810)
+                    at android.view.Choreographer$FrameDisplayEventReceiver.run(Choreographer.java:1090)
+             */
+            return false;
+
         if (ex instanceof IllegalArgumentException &&
                 "page introduces incorrect tiling".equals(ex.getMessage()))
             /*
