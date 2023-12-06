@@ -23,9 +23,10 @@ import android.content.Context;
 import android.graphics.Bitmap;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.concurrent.Callable;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class Avatar {
     static final String GRAVATAR_PRIVACY_URI = "https://automattic.com/privacy/";
@@ -47,7 +48,7 @@ public class Avatar {
                 URL url = new URL(GRAVATAR_URI + hash + "?d=404");
                 Log.i("Gravatar key=" + email + " url=" + url);
 
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setReadTimeout(GRAVATAR_READ_TIMEOUT);
                 urlConnection.setConnectTimeout(GRAVATAR_CONNECT_TIMEOUT);
@@ -56,11 +57,11 @@ public class Avatar {
 
                 try {
                     int status = urlConnection.getResponseCode();
-                    if (status == HttpURLConnection.HTTP_OK) {
+                    if (status == HttpsURLConnection.HTTP_OK) {
                         // Positive reply
                         Bitmap bitmap = ImageHelper.getScaledBitmap(urlConnection.getInputStream(), url.toString(), null, scaleToPixels);
                         return (bitmap == null ? null : new ContactInfo.Favicon(bitmap, "gravatar", false));
-                    } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
+                    } else if (status == HttpsURLConnection.HTTP_NOT_FOUND) {
                         // Negative reply
                         return null;
                     } else
@@ -93,7 +94,7 @@ public class Avatar {
                 URL url = new URL(baseUrl + hash + "?d=404");
                 Log.i("Libravatar key=" + email + " url=" + url);
 
-                HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+                HttpsURLConnection urlConnection = (HttpsURLConnection) url.openConnection();
                 urlConnection.setRequestMethod("GET");
                 urlConnection.setReadTimeout(LIBRAVATAR_READ_TIMEOUT);
                 urlConnection.setConnectTimeout(LIBRAVATAR_CONNECT_TIMEOUT);
@@ -102,11 +103,11 @@ public class Avatar {
 
                 try {
                     int status = urlConnection.getResponseCode();
-                    if (status == HttpURLConnection.HTTP_OK) {
+                    if (status == HttpsURLConnection.HTTP_OK) {
                         // Positive reply
                         Bitmap bitmap = ImageHelper.getScaledBitmap(urlConnection.getInputStream(), url.toString(), null, scaleToPixels);
                         return (bitmap == null ? null : new ContactInfo.Favicon(bitmap, "libravatar", false));
-                    } else if (status == HttpURLConnection.HTTP_NOT_FOUND) {
+                    } else if (status == HttpsURLConnection.HTTP_NOT_FOUND) {
                         // Negative reply
                         return null;
                     } else

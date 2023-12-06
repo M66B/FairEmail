@@ -50,7 +50,6 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
@@ -75,6 +74,7 @@ import javax.mail.Part;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.InternetHeaders;
+import javax.net.ssl.HttpsURLConnection;
 
 @Entity(
         tableName = EntityRule.TABLE_NAME,
@@ -1447,9 +1447,9 @@ public class EntityRule {
 
         Log.i("GET " + url);
 
-        HttpURLConnection connection = null;
+        HttpsURLConnection connection = null;
         try {
-            connection = (HttpURLConnection) new URL(url).openConnection();
+            connection = (HttpsURLConnection) new URL(url).openConnection();
             connection.setRequestMethod(method);
             connection.setDoOutput(body != null);
             connection.setReadTimeout(URL_TIMEOUT);

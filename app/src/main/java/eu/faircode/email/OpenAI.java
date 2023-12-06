@@ -33,13 +33,14 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+
+import javax.net.ssl.HttpsURLConnection;
 
 public class OpenAI {
     private static final int MAX_OPENAI_LEN = 1000; // characters
@@ -146,7 +147,8 @@ public class OpenAI {
         long start = new Date().getTime();
 
         URL url = new URL(uri.toString());
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+
         connection.setRequestMethod(method);
         connection.setDoOutput(args != null);
         connection.setDoInput(true);
@@ -166,7 +168,7 @@ public class OpenAI {
             }
 
             int status = connection.getResponseCode();
-            if (status != HttpURLConnection.HTTP_OK) {
+            if (status != HttpsURLConnection.HTTP_OK) {
                 // https://platform.openai.com/docs/guides/error-codes/api-errors
                 String error = "Error " + status + ": " + connection.getResponseMessage();
                 try {

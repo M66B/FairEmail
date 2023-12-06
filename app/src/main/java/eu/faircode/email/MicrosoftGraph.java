@@ -37,13 +37,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
 import java.util.Objects;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
+import javax.net.ssl.HttpsURLConnection;
 
 public class MicrosoftGraph {
     static final int GRAPH_TIMEOUT = 20; // seconds
@@ -68,7 +68,7 @@ public class MicrosoftGraph {
 
             // https://learn.microsoft.com/en-us/graph/api/user-sendmail?view=graph-rest-1.0
             URL url = new URL(MicrosoftGraph.GRAPH_ENDPOINT + "sendMail");
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
             connection.setReadTimeout(MicrosoftGraph.GRAPH_TIMEOUT * 1000);
@@ -90,7 +90,7 @@ public class MicrosoftGraph {
                 long end = new Date().getTime();
 
                 int status = connection.getResponseCode();
-                if (status == HttpURLConnection.HTTP_ACCEPTED) {
+                if (status == HttpsURLConnection.HTTP_ACCEPTED) {
                     EntityLog.log(context, "Sent via Graph " + ident.user + " elapse=" + (end - start) + " ms");
                     boolean log = prefs.getBoolean("protocol", false);
                     if (log || BuildConfig.DEBUG)
@@ -136,7 +136,7 @@ public class MicrosoftGraph {
 
         // https://learn.microsoft.com/en-us/graph/api/user-list-contacts?view=graph-rest-1.0&tabs=http
         URL url = new URL(MicrosoftGraph.GRAPH_ENDPOINT + "contacts");
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setReadTimeout(GRAPH_TIMEOUT * 1000);
         connection.setConnectTimeout(GRAPH_TIMEOUT * 1000);
@@ -146,7 +146,7 @@ public class MicrosoftGraph {
 
         try {
             int status = connection.getResponseCode();
-            if (status == HttpURLConnection.HTTP_OK) {
+            if (status == HttpsURLConnection.HTTP_OK) {
                 String response = Helper.readStream(connection.getInputStream());
                 JSONObject jroot = new JSONObject(response);
                 JSONArray jvalue = jroot.getJSONArray("value");
