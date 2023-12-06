@@ -138,27 +138,38 @@ public class TextHelper {
             return true;
 
         int codepoint;
-        Character.UnicodeScript us;
-        Character.UnicodeScript script = null;
+        Character.UnicodeScript script;
+        List<Character.UnicodeScript> scripts = new ArrayList<>();
         for (int i = 0; i < s.length(); ) {
             codepoint = s.codePointAt(i);
             i += Character.charCount(codepoint);
-            us = Character.UnicodeScript.of(codepoint);
 
-            if (Character.isSpaceChar(codepoint)) {
-                script = null;
-                continue;
-            }
-
-            if (Character.UnicodeScript.COMMON.equals(us))
+            if (Character.isSpaceChar(codepoint))
                 continue;
 
-            if (script == null)
-                script = us;
-            else if (!us.equals(script))
-                return false;
+            script = Character.UnicodeScript.of(codepoint);
+
+            if (Character.UnicodeScript.COMMON.equals(script))
+                continue;
+
+            if (!scripts.contains(script))
+                scripts.add(script);
         }
-        return true;
+
+        if (scripts.size() <= 1)
+            return true;
+
+        scripts.remove(Character.UnicodeScript.HAN); // Chinese/Japanese
+        scripts.remove(Character.UnicodeScript.HIRAGANA); // Japanese
+        scripts.remove(Character.UnicodeScript.KATAKANA); // Japanese
+
+        if (scripts.size() == 0)
+            return true; // All Chinese/Japanese
+        if (scripts.size() > 1)
+            return false;
+
+        // Chinese/Japanese + Latin
+        return Character.UnicodeScript.LATIN.equals(scripts.get(0));
     }
 
     static String getNonLatinCodepoints(String text) {
