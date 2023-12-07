@@ -2028,10 +2028,10 @@
     <string name="title_compat_dark">Google прибирав темний режим для версій Android до 10</string>
     <!-- Thunderbird -->
     <string name="title_keyword_label1">Важливо</string>
-    <string name="title_keyword_label2">Службовий</string>
-    <string name="title_keyword_label3">Особистий</string>
-    <string name="title_keyword_label4">Завдання</string>
-    <string name="title_keyword_label5">Пізніше</string>
+    <string name="title_keyword_label2">Робоче</string>
+    <string name="title_keyword_label3">Особисте</string>
+    <string name="title_keyword_label4">До виконання</string>
+    <string name="title_keyword_label5">Відкладено</string>
     <plurals name="title_accessibility_messages">
         <item quantity="one">%1$d повідомлення</item>
         <item quantity="few">%1$d повідомлення</item>

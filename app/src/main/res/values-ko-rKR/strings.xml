@@ -311,6 +311,7 @@
     <string name="title_advanced_sync_added">새 사용자 폴더에 대해 동기화 사용</string>
     <string name="title_advanced_subscriptions">폴더 구독 관리</string>
     <string name="title_advanced_check_authentication">메시지 인증 확인하기</string>
+    <string name="title_advanced_check_reply_domain">메시지 동기화 시 답장할 주소를 확인하세요</string>
     <string name="title_advanced_use_blocklist_pop3">차단 목록의 도메인에서 온 메시지 건너뛰기 (POP3 전용)</string>
     <string name="title_advanced_keyboard">키보드를 기본으로 표시</string>
     <string name="title_advanced_keyboard_no_fullscreen">전체화면 키보드 비활성화</string>
@@ -322,6 +323,7 @@
     <string name="title_advanced_send_reminders">리마인더 표시</string>
     <string name="title_advanced_send_delayed">메일 전송 지연</string>
     <string name="title_advanced_compose_font">기본 글꼴</string>
+    <string name="title_advanced_separate_reply">답장/전달 헤더 앞에 구분선 삽입</string>
     <string name="title_advanced_signature_location">서명 위치</string>
     <string name="title_advanced_signature_new">새 메시지에 서명 사용</string>
     <string name="title_advanced_signature_reply">답장 시 서명 사용</string>
@@ -401,6 +403,8 @@
     <string name="title_advanced_unzip">압축한 첨부 파일의 내용 표시</string>
     <string name="title_advanced_attachments_alt">메시지 택스트 이후에 첨부파일 표시</string>
     <string name="title_advanced_thumbnails">메시지 텍스트 이후에 이미지 썸네일 표시</string>
+    <string name="title_advanced_message_text_zoom2">기본 메시지 글자 배율: %1$s %%</string>
+    <string name="title_advanced_editor_text_zoom">메시지 글자 배율을 메시지 편집기에도 적용</string>
     <string name="title_advanced_hyphenation">하이픈 자동 삽입</string>
     <string name="title_advanced_contrast">메시지 텍스트에 고대비 적용</string>
     <string name="title_advanced_monospaced">기본적으로 메시지 텍스트에 고정폭 글꼴 사용</string>
@@ -602,10 +606,12 @@
     <string name="title_importance_normal">보통</string>
     <string name="title_importance_high">높음</string>
     <string name="title_important" comment="title_important&#10;Title for header above important messages.">중요</string>
+    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">중요하지 않음</string>
     <string name="title_forward">앞으로</string>
     <string name="title_resend">재전송</string>
     <string name="title_new_message">새 메시지</string>
     <string name="title_editasnew">다른 이름으로 수정</string>
+    <string name="title_edit_notes">로컬 노트 수정하기</string>
     <string name="title_share">공유</string>
     <string name="title_event">달력에 추가</string>
     <string name="title_pin">바로가기 추가</string>
@@ -648,8 +654,10 @@
     <string name="title_archive">보관처리</string>
     <string name="title_reply">답장</string>
     <string name="title_reply_to_sender">발신인에게 답장</string>
+    <string name="title_reply_to_recipient">수신자에게 답장</string>
     <string name="title_reply_to_all">전체 회신</string>
     <string name="title_reply_list">답장 목록</string>
+    <string name="title_reply_template">템플릿을 사용하여 답장</string>
     <string name="title_no_recorder">적합한 음성 녹음 앱을 찾지 못함</string>
     <string name="title_monospaced_pre">고정폭 &lt;pre&gt;</string>
     <string name="title_ask_save">변경 사항을 저장합니까?</string>
@@ -685,6 +693,7 @@
     <string name="title_send_at">&#8230;에서 보내기</string>
     <string name="title_send_encryption">암호화</string>
     <string name="title_send_priority">우선순위</string>
+    <string name="title_send_sensitivity">민감도</string>
     <string name="title_style">서식</string>
     <string name="title_style_bold">굵게</string>
     <string name="title_style_italic">기울임꼴</string>
@@ -728,6 +737,7 @@
     <string name="title_attachment_audio">음성 녹음</string>
     <string name="title_show_addresses">참조/숨은 참조 표시</string>
     <string name="title_media_toolbar">미디어 도구모음</string>
+    <string name="title_manage_android_contacts">안드로이드 연락처 관리</string>
     <string name="title_insert_template">템플릿 삽입</string>
     <string name="title_translate">번역</string>
     <string name="title_translate_configure">&#8230; 구성</string>
@@ -757,6 +767,7 @@
     <string name="title_search_for_hint">입력</string>
     <string name="title_search_more">설정 더보기</string>
     <string name="title_search_in_subject">제목으로 검색</string>
+    <string name="title_search_in_notes">로컬 노트에서</string>
     <string name="title_search_with_unseen">읽지 않음</string>
     <string name="title_search_with_flagged">즐겨찾기</string>
     <string name="title_search_with_before">이전</string>
@@ -829,6 +840,7 @@
     <string name="title_rule_importance">중요도 설정</string>
     <string name="title_rule_keyword_add">추가</string>
     <string name="title_rule_keyword_delete">삭제</string>
+    <string name="title_rule_notes">로컬 노트</string>
     <string name="title_rule_move">이동</string>
     <string name="title_rule_copy">복사 (라벨)</string>
     <string name="title_rule_answer">답장/전달</string>
@@ -856,6 +868,7 @@
     <string name="title_rule_resend">재전송</string>
     <string name="title_rule_folder_missing">폴더 없음</string>
     <string name="title_rule_keyword_missing">키워드 누락</string>
+    <string name="title_rule_notes_missing">로컬 노트 없음</string>
     <string name="title_rule_delete_hint">영구 삭제는 되돌릴 수 없으므로, 규칙 조건이 올바른지 확인하십시오!</string>
     <string name="title_rule_execute">지금 실행</string>
     <string name="title_rule_check">확인</string>
@@ -897,6 +910,9 @@
     <string name="title_legend_draft">임시 메일 있음</string>
     <string name="title_legend_priority">우선순위 높음</string>
     <string name="title_legend_priority_low">우선순위 낮음</string>
+    <string name="title_legend_sensitivity_personal">개인적입니다</string>
+    <string name="title_legend_sensitivity_private">비공개입니다</string>
+    <string name="title_legend_sensitivity_confidential">비공개입니다</string>
     <string name="title_legend_importance">중요</string>
     <string name="title_legend_signed">서명됨</string>
     <string name="title_legend_encrypted">암호화됨</string>
@@ -1148,9 +1164,9 @@
     </string-array>
     <string-array name="sensitivityNames">
         <item>보통</item>
-        <item>개인</item>
+        <item>개인적</item>
         <item>비공개</item>
-        <item>Confidential</item>
+        <item>비공개</item>
     </string-array>
     <string-array name="fontSizeNames">
         <item>기본</item>
