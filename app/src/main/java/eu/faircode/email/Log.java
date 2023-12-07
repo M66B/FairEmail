@@ -74,6 +74,7 @@ import android.os.TransactionTooLargeException;
 import android.os.ext.SdkExtensions;
 import android.provider.MediaStore;
 import android.provider.Settings;
+import android.security.NetworkSecurityPolicy;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextUtils;
@@ -2905,6 +2906,9 @@ public class Log {
                 size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n");
                 size += write(os, "Data saving=" + ConnectionHelper.isDataSaving(context) + "\r\n");
                 size += write(os, "Airplane=" + ConnectionHelper.airplaneMode(context) + "\r\n");
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+                    size += write(os, "Cleartext permitted= " +
+                            NetworkSecurityPolicy.getInstance().isCleartextTrafficPermitted() + "\r\n");
                 size += write(os, "\r\n");
 
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
