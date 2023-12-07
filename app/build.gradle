@@ -656,10 +656,9 @@ dependencies {
     playImplementation "com.android.billingclient:billing:$billingclient_version"
 
     // https://mvnrepository.com/artifact/com.google.android.gms/play-services-base
-    //githubImplementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
-    //largeImplementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
-    //playImplementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
-    implementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
+    githubImplementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
+    largeImplementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
+    playImplementation "com.google.android.gms:play-services-basement:$playservicesbase_version"
 
     // https://developer.amazon.com/docs/in-app-purchasing/iap-get-started.html
     amazonImplementation files('lib/in-app-purchasing-2.0.76.jar')
