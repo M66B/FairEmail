@@ -64,6 +64,7 @@ import java.security.KeyStore;
 import java.security.Principal;
 import java.security.PrivateKey;
 import java.security.cert.CertPathValidatorException;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.ArrayList;
@@ -91,6 +92,7 @@ import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLHandshakeException;
+import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocket;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
@@ -1114,41 +1116,6 @@ public class EmailService implements AutoCloseable {
                                 } else
                                     throw new CertificateException(principal.getName(), ex);
                             }
-
-                            // Check host name
-                            List<String> names = EntityCertificate.getDnsNames(certificate);
-                            if (EntityCertificate.matches(server, names))
-                                return;
-
-                            // Fallback: check server/certificate IP address
-                            if (!cert_strict)
-                                try {
-                                    InetAddress ip = InetAddress.getByName(server);
-                                    Log.i("Checking server ip=" + ip);
-                                    for (String name : names) {
-                                        if (name.startsWith("*."))
-                                            name = name.substring(2);
-                                        Log.i("Checking cert name=" + name);
-
-                                        try {
-                                            for (InetAddress addr : InetAddress.getAllByName(name))
-                                                if (Arrays.equals(ip.getAddress(), addr.getAddress())) {
-                                                    Log.i("Accepted " + name + " for " + server);
-                                                    return;
-                                                }
-                                        } catch (UnknownHostException ex) {
-                                            Log.w(ex);
-                                        }
-                                    }
-                                } catch (UnknownHostException ex) {
-                                    Log.w(ex);
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
-                                }
-
-                            String error = server + " not in certificate: " + TextUtils.join(",", names);
-                            Log.i(error);
-                            throw new CertificateException(error);
                         }
                     }
 
@@ -1220,7 +1187,62 @@ public class EmailService implements AutoCloseable {
         public Socket createSocket(Socket s, String host, int port, boolean autoClose) throws IOException {
             configureSocketOptions(s);
             ApplicationSecure.waitProviderInstalled();
-            return configure(factory.createSocket(s, server, port, autoClose));
+            Socket socket = configure(factory.createSocket(s, server, port, autoClose));
+
+            if (!secure || !(socket instanceof SSLSocket))
+                return socket;
+
+            List<String> names = new ArrayList<>();
+            SSLSession session = ((SSLSocket) socket).getSession();
+            Certificate[] certs = (session == null ? null : session.getPeerCertificates());
+            if (certs != null && certs.length > 0 && certs[0] instanceof X509Certificate)
+                try {
+                    names = EntityCertificate.getDnsNames((X509Certificate) certs[0]);
+                } catch (Throwable ex) {
+                    Log.w(ex);
+                }
+
+            Log.i("SSL session" +
+                    " server=" + server +
+                    " host=" + host + ":" + port +
+                    " host=" + session.getPeerHost() +
+                    " protocol=" + session.getProtocol() +
+                    " cipher=" + session.getCipherSuite() +
+                    " names=" + TextUtils.join(", ", names));
+
+            // Check host name
+            if (EntityCertificate.matches(server, names))
+                return socket;
+
+            // Fallback: check server/certificate IP address
+            if (!cert_strict)
+                try {
+                    InetAddress ip = InetAddress.getByName(server);
+                    Log.i("Checking server ip=" + ip);
+                    for (String name : names) {
+                        if (name.startsWith("*."))
+                            name = name.substring(2);
+                        Log.i("Checking cert name=" + name);
+
+                        try {
+                            for (InetAddress addr : InetAddress.getAllByName(name))
+                                if (Arrays.equals(ip.getAddress(), addr.getAddress())) {
+                                    Log.i("Accepted " + name + " for " + server);
+                                    return socket;
+                                }
+                        } catch (UnknownHostException ex) {
+                            Log.w(ex);
+                        }
+                    }
+                } catch (UnknownHostException ex) {
+                    Log.w(ex);
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+
+            String error = server + " not in certificate: " + TextUtils.join(",", names);
+            Log.i(error);
+            throw new ConnectException(error);
         }
 
         @Override
