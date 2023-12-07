@@ -88,8 +88,7 @@ public final class Duration {
 		if (first == '-' || first == '+') {
 			index++;
 		}
-
-		if (value.charAt(index) != 'P') {
+		if (index >= value.length() || value.charAt(index) != 'P') {
 			throw parseError(value);
 		}
 
