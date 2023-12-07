@@ -3822,13 +3822,6 @@ class Core {
             cal_keep.set(Calendar.SECOND, 0);
             cal_keep.set(Calendar.MILLISECOND, 0);
 
-            Calendar cal_keep_unseen = Calendar.getInstance();
-            cal_keep_unseen.add(Calendar.DAY_OF_MONTH, -keep_days * 2);
-            cal_keep_unseen.set(Calendar.HOUR_OF_DAY, 0);
-            cal_keep_unseen.set(Calendar.MINUTE, 0);
-            cal_keep_unseen.set(Calendar.SECOND, 0);
-            cal_keep_unseen.set(Calendar.MILLISECOND, 0);
-
             long sync_time = cal_sync.getTimeInMillis();
             if (sync_time < 0)
                 sync_time = 0;
@@ -3836,10 +3829,6 @@ class Core {
             long keep_time = cal_keep.getTimeInMillis();
             if (keep_time < 0)
                 keep_time = 0;
-
-            long keep_time_unseen = cal_keep_unseen.getTimeInMillis();
-            if (keep_time_unseen < 0)
-                keep_time_unseen = 0;
 
             Log.i(folder.name + " sync=" + new Date(sync_time) + " keep=" + new Date(keep_time));
 
@@ -3859,7 +3848,7 @@ class Core {
                             EntityOperation.queue(context, message, EntityOperation.MOVE, trash.id);
                 }
             } else {
-                int old = db.message().deleteMessagesBefore(folder.id, delete_time, keep_time, keep_time_unseen, delete_unseen);
+                int old = db.message().deleteMessagesBefore(folder.id, delete_time, keep_time, delete_unseen);
                 Log.i(folder.name + " local old=" + old);
             }
 

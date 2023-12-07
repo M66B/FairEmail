@@ -1019,11 +1019,11 @@ public interface DaoMessage {
             " WHERE folder = :folder" +
             " AND received < :keep_time" +
             " AND NOT uid IS NULL" +
-            " AND (ui_seen OR received < :keep_time_unseen OR :unseen)" +
+            " AND (ui_seen OR :unseen)" +
             " AND NOT ui_flagged" +
             " AND stored < :sync_time" + // moved, browsed
             " AND (ui_snoozed IS NULL OR ui_snoozed = " + Long.MAX_VALUE + ")")
-    int deleteMessagesBefore(long folder, long sync_time, long keep_time, long keep_time_unseen, boolean unseen);
+    int deleteMessagesBefore(long folder, long sync_time, long keep_time, boolean unseen);
 
     @Transaction
     @Query("DELETE FROM message" +
