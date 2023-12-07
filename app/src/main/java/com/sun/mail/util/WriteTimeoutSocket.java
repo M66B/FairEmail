@@ -18,11 +18,13 @@ package com.sun.mail.util;
 
 import java.io.*;
 import java.net.*;
+import java.util.Properties;
 import java.util.concurrent.*;
 import java.util.Collections;
 import java.util.Set;
 import java.nio.channels.SocketChannel;
 import java.lang.reflect.*;
+import java.util.logging.Level;
 
 /**
  * A special Socket that uses a ScheduledExecutorService to
@@ -336,6 +338,28 @@ public class WriteTimeoutSocket extends Socket {
             }
         }
         return null;
+    }
+
+    static Socket wrap(Socket socket, Properties props, String prefix, MailLogger logger) throws IOException {
+        if (socket instanceof WriteTimeoutSocket)
+            return socket;
+
+        int writeTimeout = PropUtil.getIntProperty(props,
+                prefix + ".writetimeout", -1);
+
+        if (writeTimeout == -1)
+            return socket;
+
+        if (logger.isLoggable(Level.FINEST))
+            logger.finest("set socket write timeout " + writeTimeout);
+
+        return new WriteTimeoutSocket(socket, writeTimeout);
+    }
+
+    static Socket unwrap(Socket socket) {
+        if (socket instanceof WriteTimeoutSocket)
+            socket = ((WriteTimeoutSocket) socket).socket;
+        return socket;
     }
 }
 
