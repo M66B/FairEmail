@@ -7319,7 +7319,8 @@ public class FragmentMessages extends FragmentBase
                     if (message != null &&
                             message.ui_seen &&
                             !message.duplicate &&
-                            !EntityFolder.DRAFTS.equals(message.folderType))
+                            !EntityFolder.DRAFTS.equals(message.folderType) &&
+                            !EntityFolder.TRASH.equals(message.folderType))
                         iProperties.setExpanded(message, true, false);
         } else {
             if (autoCloseCount > 0 && (autoclose || onclose != null)) {
