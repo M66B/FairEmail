@@ -1212,12 +1212,14 @@ public class EmailService implements AutoCloseable {
 
         @Override
         public Socket createSocket(String host, int port) throws IOException {
+            ApplicationSecure.waitProviderInstalled();
             return configure(factory.createSocket(server, port));
         }
 
         @Override
         public Socket createSocket(Socket s, String host, int port, boolean autoClose) throws IOException {
             configureSocketOptions(s);
+            ApplicationSecure.waitProviderInstalled();
             return configure(factory.createSocket(s, server, port, autoClose));
         }
 
@@ -1229,6 +1231,7 @@ public class EmailService implements AutoCloseable {
 
         @Override
         public Socket createSocket(String host, int port, InetAddress clientAddress, int clientPort) throws IOException {
+            ApplicationSecure.waitProviderInstalled();
             return configure(factory.createSocket(server, port, clientAddress, clientPort));
         }
 
