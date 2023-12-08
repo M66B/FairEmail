@@ -1,16 +1,23 @@
 package eu.faircode.email;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.security.Principal;
 import java.security.cert.CertPathValidatorException;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.net.ssl.X509TrustManager;
 
 public class SSLHelper {
     static X509TrustManager getTrustManager(X509TrustManager rtm,
+                                            String server,
                                             boolean secure, boolean cert_strict,
                                             String trustedFingerprint,
                                             ITrust intf) {
@@ -53,6 +60,41 @@ public class SSLHelper {
                         } else
                             throw new CertificateException(principal.getName(), ex);
                     }
+
+                    // Check host name
+                    List<String> names = EntityCertificate.getDnsNames(chain[0]);
+                    if (EntityCertificate.matches(server, names))
+                        return;
+
+                    // Fallback: check server/certificate IP address
+                    if (!cert_strict)
+                        try {
+                            InetAddress ip = InetAddress.getByName(server);
+                            Log.i("Checking server ip=" + ip);
+                            for (String name : names) {
+                                if (name.startsWith("*."))
+                                    name = name.substring(2);
+                                Log.i("Checking cert name=" + name);
+
+                                try {
+                                    for (InetAddress addr : InetAddress.getAllByName(name))
+                                        if (Arrays.equals(ip.getAddress(), addr.getAddress())) {
+                                            Log.i("Accepted " + name + " for " + server);
+                                            return;
+                                        }
+                                } catch (UnknownHostException ex) {
+                                    Log.w(ex);
+                                }
+                            }
+                        } catch (UnknownHostException ex) {
+                            Log.w(ex);
+                        } catch (Throwable ex) {
+                            Log.e(ex);
+                        }
+
+                    String error = server + " not in certificate: " + TextUtils.join(",", names);
+                    Log.i(error);
+                    throw new CertificateException(error);
                 }
             }
 
