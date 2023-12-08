@@ -189,7 +189,7 @@ public class EmailService implements AutoCloseable {
         this.log = prefs.getBoolean("protocol", false);
         this.ssl_harden = prefs.getBoolean("ssl_harden", false);
         this.ssl_harden_strict = prefs.getBoolean("ssl_harden_strict", false);
-        this.cert_strict = prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE);
+        this.cert_strict = prefs.getBoolean("cert_strict", true);
 
         boolean auth_plain = prefs.getBoolean("auth_plain", true);
         boolean auth_login = prefs.getBoolean("auth_login", true);

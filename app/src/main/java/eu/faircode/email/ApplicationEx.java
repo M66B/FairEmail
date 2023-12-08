@@ -831,6 +831,11 @@ public class ApplicationEx extends Application
                 editor.putBoolean("updown", false);
         } else if (version < 2113)
             editor.remove("send_more");
+        else if (version < 2137) {
+            // https://support.google.com/faqs/answer/6346016
+            if (!prefs.contains("cert_strict"))
+                editor.putBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE);
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !BuildConfig.DEBUG)
             editor.remove("background_service");

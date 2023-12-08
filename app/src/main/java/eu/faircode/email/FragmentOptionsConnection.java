@@ -658,7 +658,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
             swSslHardenStrict.setChecked(prefs.getBoolean("ssl_harden_strict", false));
             swSslHardenStrict.setEnabled(swSslHarden.isChecked());
-            swCertStrict.setChecked(prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE));
+            swCertStrict.setChecked(prefs.getBoolean("cert_strict", true));
             swOpenSafe.setChecked(prefs.getBoolean("open_safe", false));
             swBouncyCastle.setChecked(prefs.getBoolean("bouncy_castle", false));
             swFipsMode.setChecked(prefs.getBoolean("bc_fips", false));

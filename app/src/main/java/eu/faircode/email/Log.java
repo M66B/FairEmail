@@ -2923,7 +2923,7 @@ public class Log {
                 boolean tcp_keep_alive = prefs.getBoolean("tcp_keep_alive", false);
                 boolean ssl_harden = prefs.getBoolean("ssl_harden", false);
                 boolean ssl_harden_strict = (ssl_harden && prefs.getBoolean("ssl_harden_strict", false));
-                boolean cert_strict = prefs.getBoolean("cert_strict", !BuildConfig.PLAY_STORE_RELEASE);
+                boolean cert_strict = prefs.getBoolean("cert_strict", true);
                 boolean open_safe = prefs.getBoolean("open_safe", false);
 
                 size += write(os, "timeout=" + timeout + "s" + (timeout == EmailService.DEFAULT_CONNECT_TIMEOUT ? "" : " !!!") + "\r\n");
