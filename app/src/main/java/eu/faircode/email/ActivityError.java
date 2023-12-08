@@ -86,6 +86,12 @@ public class ActivityError extends ActivityBase {
         long identity = intent.getLongExtra("identity", -1L);
         int protocol = intent.getIntExtra("protocol", -1);
         int auth_type = intent.getIntExtra("auth_type", -1);
+
+        if (message != null &&
+                (message.contains("CertPathValidatorException") ||
+                        message.contains("CertificateExpiredException")))
+            intent.putExtra("faq", 4);
+
         int faq = intent.getIntExtra("faq", -1);
 
         tvTitle.setText(title);
