@@ -337,21 +337,21 @@ android {
         else
             variant.buildConfigField "String", "MXTOOLBOX_URI", "\"\""
 
-        if (variant.getBuildType().isMinifyEnabled())
-            variant.assembleProvider.get().doLast {
-                for (file in variant.getMappingFileProvider().get().files)
-                    if (file != null && file.exists()) {
-                        def dir = "${rootDir}/app/schemas/mapping"
-                        def name = "$archivesBaseName-$variant.baseName-$file.name"
-                        def target = new File(dir, name)
-                        if (!target.exists())
-                            copy {
-                                from file
-                                into dir
-                                rename { String fileName -> name }
-                            }
-                    }
-            }
+        //if (variant.getBuildType().isMinifyEnabled())
+        //    variant.assembleProvider.get().doLast {
+        //        for (file in variant.getMappingFileProvider().get().files)
+        //            if (file != null && file.exists()) {
+        //                def dir = "${rootDir}/app/schemas/mapping"
+        //                def name = "$archivesBaseName-$variant.baseName-$file.name"
+        //                def target = new File(dir, name)
+        //                if (!target.exists())
+        //                    copy {
+        //                        from file
+        //                        into dir
+        //                        rename { String fileName -> name }
+        //                    }
+        //            }
+        //    }
     }
 
     bugsnag {
