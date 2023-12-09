@@ -109,8 +109,8 @@ public class WorkerCleanup extends Worker {
             if (manual) {
                 // Check message files
                 Log.i("Checking message files");
-                List<Long> mids = db.message().getMessageWithContent();
-                for (Long mid : mids) {
+                try (Cursor cursor = db.message().getMessageWithContent()) {
+                    long mid = cursor.getLong(0);
                     EntityMessage message = db.message().getMessage(mid);
                     if (message != null) {
                         File file = message.getFile(context);
@@ -123,8 +123,8 @@ public class WorkerCleanup extends Worker {
 
                 // Check attachments files
                 Log.i("Checking attachments files");
-                List<Long> aids = db.attachment().getAttachmentAvailable();
-                for (Long aid : aids) {
+                try (Cursor cursor = db.attachment().getAttachmentAvailable()) {
+                    long aid = cursor.getLong(0);
                     EntityAttachment attachment = db.attachment().getAttachment(aid);
                     if (attachment != null) {
                         File file = attachment.getFile(context);
@@ -206,46 +206,14 @@ public class WorkerCleanup extends Worker {
 
             long now = new Date().getTime();
 
-            List<File> files = new ArrayList<>();
-            File[] messages = Helper.listFiles(new File(context.getFilesDir(), "messages")).toArray(new File[0]);
-            File[] revision = new File(context.getFilesDir(), "revision").listFiles();
-            File[] references = new File(context.getFilesDir(), "references").listFiles();
-            File[] encryption = new File(context.getFilesDir(), "encryption").listFiles();
-            File[] photos = new File(context.getFilesDir(), "photo").listFiles();
-            File[] calendars = new File(context.getFilesDir(), "calendar").listFiles();
-
-            if (messages != null)
-                files.addAll(Arrays.asList(messages));
-            if (revision != null)
-                files.addAll(Arrays.asList(revision));
-            if (references != null)
-                files.addAll(Arrays.asList(references));
-            if (encryption != null)
-                files.addAll(Arrays.asList(encryption));
-            if (photos != null)
-                files.addAll(Arrays.asList(photos));
-            if (calendars != null)
-                files.addAll(Arrays.asList(calendars));
-
             // Cleanup message files
             Log.i("Cleanup message files");
-            for (File file : files)
-                if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
-                    try {
-                        String name = file.getName().split("\\.")[0];
-                        int us = name.indexOf('_');
-                        if (us > 0)
-                            name = name.substring(0, us);
-                        long id = Long.parseLong(name);
-                        EntityMessage message = db.message().getMessage(id);
-                        if (message == null || !message.content) {
-                            Log.i("Deleting " + file);
-                            Helper.secureDelete(file);
-                        }
-                    } catch (NumberFormatException ex) {
-                        Log.e(file.getAbsolutePath(), ex);
-                        Helper.secureDelete(file);
-                    }
+            cleanupMessageFiles(db, manual, Helper.listFiles(new File(context.getFilesDir(), "messages")).toArray(new File[0]));
+            cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "revision").listFiles());
+            cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "references").listFiles());
+            cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "encryption").listFiles());
+            cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "photo").listFiles());
+            cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "calendar").listFiles());
 
             // Cleanup raw message files
             if (!download_eml) {
@@ -276,49 +244,55 @@ public class WorkerCleanup extends Worker {
 
             // Cleanup attachment files
             Log.i("Cleanup attachment files");
-            File[] attachments = new File(EntityAttachment.getRoot(context), "attachments").listFiles();
-            if (attachments != null)
-                for (File file : attachments)
-                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
-                        try {
-                            long id = Long.parseLong(file.getName().split("\\.")[0]);
-                            EntityAttachment attachment = db.attachment().getAttachment(id);
-                            if (attachment == null || !attachment.available) {
-                                Log.i("Deleting " + file);
+            {
+                File[] attachments = new File(EntityAttachment.getRoot(context), "attachments").listFiles();
+                if (attachments != null)
+                    for (File file : attachments)
+                        if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
+                            try {
+                                long id = Long.parseLong(file.getName().split("\\.")[0]);
+                                EntityAttachment attachment = db.attachment().getAttachment(id);
+                                if (attachment == null || !attachment.available) {
+                                    Log.i("Deleting " + file);
+                                    Helper.secureDelete(file);
+                                }
+                            } catch (NumberFormatException ex) {
+                                Log.e(file.getAbsolutePath(), ex);
                                 Helper.secureDelete(file);
                             }
-                        } catch (NumberFormatException ex) {
-                            Log.e(file.getAbsolutePath(), ex);
-                            Helper.secureDelete(file);
-                        }
+            }
 
             // Cleanup cached images
             Log.i("Cleanup cached image files");
-            File[] images = new File(context.getFilesDir(), "images").listFiles();
-            if (images != null)
-                for (File file : images)
-                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
-                        try {
-                            long id = Long.parseLong(file.getName().split("[_\\.]")[0]);
-                            EntityMessage message = db.message().getMessage(id);
-                            if (manual || message == null ||
-                                    file.lastModified() + KEEP_IMAGES_DURATION < now) {
-                                Log.i("Deleting " + file);
+            {
+                File[] images = new File(context.getFilesDir(), "images").listFiles();
+                if (images != null)
+                    for (File file : images)
+                        if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
+                            try {
+                                long id = Long.parseLong(file.getName().split("[_\\.]")[0]);
+                                EntityMessage message = db.message().getMessage(id);
+                                if (manual || message == null ||
+                                        file.lastModified() + KEEP_IMAGES_DURATION < now) {
+                                    Log.i("Deleting " + file);
+                                    Helper.secureDelete(file);
+                                }
+                            } catch (NumberFormatException ex) {
+                                Log.e(file.getAbsolutePath(), ex);
                                 Helper.secureDelete(file);
                             }
-                        } catch (NumberFormatException ex) {
-                            Log.e(file.getAbsolutePath(), ex);
-                            Helper.secureDelete(file);
-                        }
+            }
 
             // Cleanup shared files
-            File[] shared = new File(context.getFilesDir(), "shared").listFiles();
-            if (shared != null)
-                for (File file : shared)
-                    if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
-                        Log.i("Deleting " + file);
-                        Helper.secureDelete(file);
-                    }
+            {
+                File[] shared = new File(context.getFilesDir(), "shared").listFiles();
+                if (shared != null)
+                    for (File file : shared)
+                        if (manual || file.lastModified() + KEEP_FILES_DURATION < now) {
+                            Log.i("Deleting " + file);
+                            Helper.secureDelete(file);
+                        }
+            }
 
             // Cleanup contact info
             if (manual)
@@ -398,6 +372,29 @@ public class WorkerCleanup extends Worker {
                     .putLong("last_cleanup", now)
                     .apply();
         }
+    }
+
+    static void cleanupMessageFiles(DB db, boolean manual, File[] files) {
+        if (files == null)
+            return;
+        long now = new Date().getTime();
+        for (File file : files)
+            if (manual || file.lastModified() + KEEP_FILES_DURATION < now)
+                try {
+                    String name = file.getName().split("\\.")[0];
+                    int us = name.indexOf('_');
+                    if (us > 0)
+                        name = name.substring(0, us);
+                    long id = Long.parseLong(name);
+                    EntityMessage message = db.message().getMessage(id);
+                    if (message == null || !message.content) {
+                        Log.i("Deleting " + file);
+                        Helper.secureDelete(file);
+                    }
+                } catch (NumberFormatException ex) {
+                    Log.e(file.getAbsolutePath(), ex);
+                    Helper.secureDelete(file);
+                }
     }
 
     static void init(Context context) {

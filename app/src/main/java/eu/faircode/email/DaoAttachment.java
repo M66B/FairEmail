@@ -19,6 +19,8 @@ package eu.faircode.email;
     Copyright 2018-2023 by Marcel Bokhorst (M66B)
 */
 
+import android.database.Cursor;
+
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
@@ -64,7 +66,7 @@ public interface DaoAttachment {
 
     @Query("SELECT id FROM attachment" +
             " WHERE available")
-    List<Long> getAttachmentAvailable();
+    Cursor getAttachmentAvailable();
 
     @Query("UPDATE attachment" +
             " SET message = :message" +

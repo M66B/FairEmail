@@ -384,7 +384,7 @@ public interface DaoMessage {
             " FROM message" +
             " WHERE content" +
             " ORDER BY message.received DESC")
-    List<Long> getMessageWithContent();
+    Cursor getMessageWithContent();
 
     @Query("SELECT message.id" +
             " FROM message" +
