@@ -1742,7 +1742,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                     for (String key : sSystemFontMap.keySet())
                         ssb.append(key).append("\n");
                 } catch (Throwable ex) {
-                    ssb.append(ex.toString());
+                    Log.e(ex);
                 }
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {

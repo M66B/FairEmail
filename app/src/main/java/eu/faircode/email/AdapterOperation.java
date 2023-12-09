@@ -104,7 +104,7 @@ public class AdapterOperation extends RecyclerView.Adapter<AdapterOperation.View
                 if (jarray.length() > 0)
                     sb.append(' ').append(operation.args);
             } catch (JSONException ex) {
-                sb.append(' ').append(ex.toString());
+                Log.e(ex);
             }
 
             String folderName =
