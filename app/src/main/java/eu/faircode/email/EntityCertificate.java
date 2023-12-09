@@ -215,6 +215,7 @@ public class EntityCertificate {
     }
 
     static List<String> getDnsNames(X509Certificate certificate) throws CertificateParsingException {
+        // org.apache.http.conn.ssl.StrictHostnameVerifier
         List<String> result = new ArrayList<>();
 
         Collection<List<?>> altNames = certificate.getSubjectAlternativeNames();
