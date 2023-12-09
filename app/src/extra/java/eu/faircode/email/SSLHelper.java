@@ -6,22 +6,45 @@ import androidx.annotation.NonNull;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.security.KeyStore;
 import java.security.Principal;
 import java.security.cert.CertPathValidatorException;
 import java.security.cert.CertificateException;
+import java.security.cert.CertificateExpiredException;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
 
 public class SSLHelper {
-    static X509TrustManager getTrustManager(X509TrustManager rtm,
-                                            String server,
-                                            boolean secure, boolean cert_strict,
-                                            String trustedFingerprint,
-                                            ITrust intf) {
-        return new X509TrustManager() {
+    static TrustManager[] getTrustManagers(String server, boolean secure, boolean cert_strict, String trustedFingerprint, ITrust intf) {
+        TrustManagerFactory tmf;
+        try {
+            tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
+            tmf.init((KeyStore) null);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            tmf = null;
+        }
+
+        TrustManager[] tms = (tmf == null ? null : tmf.getTrustManagers());
+        Log.i("Trust managers=" + (tms == null ? null : tms.length));
+
+        if (tms == null || tms.length == 0 || !(tms[0] instanceof X509TrustManager)) {
+            Log.e("Missing root trust manager");
+            return tms;
+        }
+
+        if (tms.length > 1)
+            for (TrustManager tm : tms)
+                Log.e("Trust manager " + tm.getClass());
+
+        final X509TrustManager rtm = (X509TrustManager) tms[0];
+
+        return new TrustManager[]{new X509TrustManager() {
             // openssl s_client -connect <host>
 
             @Override
@@ -105,9 +128,7 @@ public class SSLHelper {
 
             private boolean noAnchor(Throwable ex) {
                 while (ex != null) {
-                    if (ex instanceof CertPathValidatorException &&
-                            "Trust anchor for certification path not found."
-                                    .equals(ex.getMessage()))
+                    if (ex instanceof CertPathValidatorException)
                         return true;
                     ex = ex.getCause();
                 }
@@ -116,16 +137,13 @@ public class SSLHelper {
 
             private boolean isExpired(Throwable ex) {
                 while (ex != null) {
-                    if (ex instanceof CertPathValidatorException &&
-                            "timestamp check failed"
-                                    .equals(ex.getMessage()))
+                    if (ex instanceof CertificateExpiredException)
                         return true;
-
                     ex = ex.getCause();
                 }
                 return false;
             }
-        };
+        }};
     }
 
     static boolean customTrustManager() {

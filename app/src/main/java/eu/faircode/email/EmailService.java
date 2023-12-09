@@ -1047,6 +1047,32 @@ public class EmailService implements AutoCloseable {
             this.cert_strict = cert_strict;
             this.trustedFingerprint = fingerprint;
 
+            TrustManager[] tms = SSLHelper.getTrustManagers(server, secure, cert_strict, trustedFingerprint,
+                    new SSLHelper.ITrust() {
+                        @Override
+                        public void checkServerTrusted(X509Certificate[] chain) {
+                            certificate = chain[0];
+                        }
+                    });
+
+            KeyManager[] km = null;
+            if (key != null && chain != null)
+                try {
+                    Log.i("Client certificate init");
+
+                    KeyStore ks = KeyStore.getInstance("PKCS12");
+                    ks.load(null, new char[0]);
+                    ks.setKeyEntry(server, key, new char[0], chain);
+
+                    KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+                    kmf.init(ks, new char[0]);
+                    km = kmf.getKeyManagers();
+
+                    Log.i("Client certificate initialized");
+                } catch (Throwable ex) {
+                    Log.e(ex);
+                }
+
             // https://docs.oracle.com/javase/8/docs/technotes/guides/security/StandardNames.html#SSLContext
             // https://stackoverflow.com/questions/69571364/sslcontext-getinstancetls-vulnerability
             // https://developer.android.com/about/versions/oreo/android-8.0-changes.html#security-all
@@ -1057,50 +1083,7 @@ public class EmailService implements AutoCloseable {
             else
                 sslContext = SSLContext.getInstance(protocol);
             Log.i("Using protocol=" + protocol + " bc=" + bc + " FIPS=" + fips);
-
-            TrustManagerFactory tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-            tmf.init((KeyStore) null);
-
-            TrustManager[] tms = tmf.getTrustManagers();
-            Log.i("Trust managers=" + (tms == null ? null : tms.length));
-
-            if (tms == null || tms.length == 0 || !(tms[0] instanceof X509TrustManager)) {
-                Log.e("Missing root trust manager");
-                sslContext.init(null, tms, null);
-            } else {
-                final X509TrustManager rtm = (X509TrustManager) tms[0];
-
-                if (tms.length > 1)
-                    for (TrustManager tm : tms)
-                        Log.e("Trust manager " + tm.getClass());
-
-                X509TrustManager tm = SSLHelper.getTrustManager(rtm, server, secure, cert_strict, trustedFingerprint,
-                        new SSLHelper.ITrust() {
-                            @Override
-                            public void checkServerTrusted(X509Certificate[] chain) {
-                                certificate = chain[0];
-                            }
-                        });
-
-                KeyManager[] km = null;
-                if (key != null && chain != null)
-                    try {
-                        Log.i("Client certificate init");
-
-                        KeyStore ks = KeyStore.getInstance("PKCS12");
-                        ks.load(null, new char[0]);
-                        ks.setKeyEntry(server, key, new char[0], chain);
-
-                        KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
-                        kmf.init(ks, new char[0]);
-                        km = kmf.getKeyManagers();
-
-                        Log.i("Client certificate initialized");
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-                sslContext.init(km, new TrustManager[]{tm == null ? rtm : tm}, null);
-            }
+            sslContext.init(km, tms, null);
 
             factory = sslContext.getSocketFactory();
         }
