@@ -1,17 +1,6 @@
 package eu.faircode.email;
 
-import android.text.TextUtils;
-
-import androidx.annotation.NonNull;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.security.Principal;
-import java.security.cert.CertPathValidatorException;
-import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.net.ssl.X509TrustManager;
 
