@@ -5504,12 +5504,13 @@ Instead of downloading many messages to your device, consider [searching for mes
 
 &#x1F30E; [Google Translate](https://translate.google.com/translate?sl=en&u=https%3A%2F%2Fm66b.github.io%2FFairEmail%2F%23faq192)
 
-This error message means that the app didn't receive a response from the email server.
+This error message means that the app didn't receive a response from the email server of your email provider.
 The email server might not be responding, for example because it is offline for maintenance, or the response might not arrive, for example due to internet connectivity issues.
 
 So, please check if your email provider didn't announce server maintenance, and if your internet connection is working correctly. Also, try to switch to mobile data or Wi-Fi.
 
-If you are using a VPN, firewall, ad blocker, or similar, please try to disable it, or make an exception for FairEmail. Email servers often block connections via a VPN.
+If you are using a VPN, firewall, ad blocker, or similar, please try to disable it, or make an exception for FairEmail.
+Email servers often block connections via a VPN, and in general from foreign countries.
 
 <br>
 
