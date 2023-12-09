@@ -10,6 +10,7 @@ public class SSLHelper {
                                             boolean secure, boolean cert_strict,
                                             String trustedFingerprint,
                                             ITrust intf) {
+        // https://support.google.com/faqs/answer/6346016
         return null;
     }
 

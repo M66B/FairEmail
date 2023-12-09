@@ -720,6 +720,7 @@ public class ConnectionHelper {
     }
 
     static HttpURLConnection openConnectionUnsafe(Context context, URL url, int ctimeout, int rtimeout) throws IOException {
+        // https://support.google.com/faqs/answer/7188426
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean open_safe = prefs.getBoolean("open_safe", false);
 
