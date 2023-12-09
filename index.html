@@ -929,6 +929,7 @@ Visit https://aka.ms/smtp_auth_disabled for more information.</code></pre>
 </ul>
 <p>Many public Wi-Fi networks block outgoing email to prevent spam. Sometimes you can workaround this by using another SMTP port. See the documentation of the provider for the usable port numbers.</p>
 <p>If you are using a <a href="https://en.wikipedia.org/wiki/Virtual_private_network">VPN</a>, the VPN provider might block the connection because it is too aggressively trying to prevent spam. Similarly, the email server might block connections via a VPN because it was misused for sending spam. Some VPN providers have “cleaner” IP addresses than others, so switching to another VPN provider might be useful. Note that <a href="https://fi.google.com/">Google Fi</a> is using a VPN too.</p>
+<p>The error ‘<em>You must use stronger authentication such as AUTH or APOP to connect to this server</em>’ can be fixed by enabling debug mode (last option in the miscellaneous settings tab page), and in the debug panel that appears enabling the APOP option.</p>
 <p><strong>Send errors</strong></p>
 <p>SMTP servers can reject messages for <a href="https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes">a variety of reasons</a>. Too large messages and triggering the spam filter of an email server are the most common reasons.</p>
 <ul>

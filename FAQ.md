@@ -1555,6 +1555,10 @@ Similarly, the email server might block connections via a VPN because it was mis
 Some VPN providers have "cleaner" IP addresses than others, so switching to another VPN provider might be useful.
 Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 
+The error '*You must use stronger authentication such as AUTH or APOP to connect to this server*'
+can be fixed by enabling debug mode (last option in the miscellaneous settings tab page),
+and in the debug panel that appears enabling the APOP option.
+
 **Send errors**
 
 SMTP servers can reject messages for [a variety of reasons](https://en.wikipedia.org/wiki/List_of_SMTP_server_return_codes).
