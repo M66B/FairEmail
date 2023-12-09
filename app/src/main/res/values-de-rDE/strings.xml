@@ -1011,6 +1011,9 @@
     <string name="title_service_port">Bitte überprüfen Sie die Portnummer</string>
     <string name="title_service_protocol">Bitte überprüfen Sie das Protokoll (SSL/TLS oder STARTTLS)</string>
     <string name="title_service_error10">Dieses Konto muss erneut authentifiziert werden, was über den Schnelleinrichtungsassistenten erfolgen kann</string>
+    <string name="title_certificate_error">Basierend auf den Nutzungsbedingungen des Google Playstores werden unsichere Verbindungen zu Email-Servern mit Zertifikatsproblemen bei der Verwendung der FairEmail-Version aus dem Play Store nicht mehr unterstützt.
+
+Daher können diese Probleme nur noch durch Ihren Email-Provider gelöst werden. Die oben angezeigte Fehlerinformation könnte dabei zur Lösung des Problems helfen.    </string>
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_expand_read">Nachrichten beim Ausklappen als gelesen kennzeichnen</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>
@@ -1148,8 +1151,8 @@
     <string name="title_importance_low">Niedrig</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Hoch</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Wichtig</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Unwichtig</string>
+    <string name="title_important">Wichtig</string>
+    <string name="title_unimportant">Unwichtig</string>
     <string name="title_search_in_text">Im Text suchen &#8230;</string>
     <string name="title_forward">Weiterleiten</string>
     <string name="title_resend">Umleiten</string>

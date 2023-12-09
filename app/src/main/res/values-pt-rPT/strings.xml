@@ -1010,6 +1010,9 @@
     <string name="title_service_port">Por favor, verifique o número da porta</string>
     <string name="title_service_protocol">Por favor, verifique o protocolo (SSL/TLS ou STARTTLS)</string>
     <string name="title_service_error10">Esta conta precisa de ser autenticada novamente, o que pode ser feito através do assistente de configuração rápida</string>
+    <string name="title_certificate_error">Devido às políticas da Play Store, não é mais possível suportar ligações inseguras a servidores de e-mail com problemas nos certificados para a versão do FairEmail distribuída na Play Store.
+Portanto, este problema só pode ser resolvido pelo seu provedor de e-mail - a informação de erro, acima, pode ajudá-los a resolver o problema.
+    </string>
     <string name="title_advanced_browse">Procurar mensagens no servidor</string>
     <string name="title_advanced_expand_read">Marcar mensagens como lidas ao expandir</string>
     <string name="title_synchronize_now">Sincronizar agora</string>
@@ -1147,8 +1150,8 @@
     <string name="title_importance_low">Baixa</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Alta</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Importante</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Não importante</string>
+    <string name="title_important">Importante</string>
+    <string name="title_unimportant">Não importante</string>
     <string name="title_search_in_text">Pesquisar no texto &#8230;</string>
     <string name="title_forward">Encaminhar</string>
     <string name="title_resend">Reenviar</string>

@@ -1037,6 +1037,9 @@
     <string name="title_service_port">Пожалуйста, дважды проверьте номер порта</string>
     <string name="title_service_protocol">Пожалуйста, дважды проверьте протокол (SSL/TLS или STARTTLS)</string>
     <string name="title_service_error10">Эта учётная запись должна быть повторно аутентифицирована, что можно сделать с помощью мастер быстрой настройки</string>
+    <string name="title_certificate_error">        В соответствии с правилами Google Play Store, поддержка небезопасных подключений к почтовым серверам с проблемами сертификатов для версии FairEmail, распространяемой через Play Store, более невозможна.
+        Данную проблему может решить только провайдер электронной почты — приведённая выше информация об ошибке может помочь ему с разрешением возникшей ситуации.
+    </string>
     <string name="title_advanced_browse">Просмотр сообщений на сервере</string>
     <string name="title_advanced_expand_read">Отмечать сообщения прочитанными при развёртывании</string>
     <string name="title_synchronize_now">Синхронизировать сейчас</string>
@@ -1174,8 +1177,8 @@
     <string name="title_importance_low">Низкая</string>
     <string name="title_importance_normal">Обычная</string>
     <string name="title_importance_high">Высокая</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Важное</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Неважное</string>
+    <string name="title_important">Важное</string>
+    <string name="title_unimportant">Неважное</string>
     <string name="title_search_in_text">Поиск в тексте&#8230;</string>
     <string name="title_forward">Переслать</string>
     <string name="title_resend">Перенаправить</string>

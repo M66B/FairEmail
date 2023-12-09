@@ -1140,7 +1140,7 @@ Nastavenie vždy toto kompenzuje neustálym sledovaním zmien.</string>
     <string name="title_importance_low">Nízka</string>
     <string name="title_importance_normal">Normálny</string>
     <string name="title_importance_high">Vysoká</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Dôležité</string>
+    <string name="title_important">Dôležité</string>
     <string name="title_search_in_text">Hľadať v texte &#8230;</string>
     <string name="title_forward">Preposlať</string>
     <string name="title_resend">Znovu odoslať</string>

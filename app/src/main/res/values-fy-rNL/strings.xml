@@ -1007,6 +1007,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_service_port">Kontrolearje it poartenûmer</string>
     <string name="title_service_protocol">Kontrolearje it protokol (SSL/TLS of STARTTLS)</string>
     <string name="title_service_error10">Dizze account moat opnij ferifiearre wurde, wat dien wurde kin fia de flugge ynstallaasjewizard</string>
+    <string name="title_certificate_error">As gefolch fan it Play Store-belied fan Google, is it net langer mooglik om net-feilige ferbiningen mei e-mailservers mei sertifikaatproblemen te stypjen foar de ferzje fan FairEmail dyt yn de Play Store \'utjûn wurdt.
+        Dêrom kin dit probleem allinnich oplost wurde troch jo e-mailprovider - de boppe steande flaterynformaasje kin harren helpe dit probleem op te lossen.    </string>
     <string name="title_advanced_browse">Blêdzje troch berjochten op de server</string>
     <string name="title_advanced_expand_read">Markearje berjochten by útklappen as lêzen</string>
     <string name="title_synchronize_now">No syngronisearje</string>
@@ -1142,8 +1144,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_importance_low">Leech</string>
     <string name="title_importance_normal">Normaal</string>
     <string name="title_importance_high">Heech</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Wichtich</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Net wichtich</string>
+    <string name="title_important">Wichtich</string>
+    <string name="title_unimportant">Net wichtich</string>
     <string name="title_search_in_text">Sykje yn tekst&#8230;</string>
     <string name="title_forward">Trochstjoere</string>
     <string name="title_resend">Opnij ferstjoere</string>

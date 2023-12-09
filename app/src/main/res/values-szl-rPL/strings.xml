@@ -1036,6 +1036,9 @@
     <string name="title_service_port">Zweryfikuj dokładnie numer portu</string>
     <string name="title_service_protocol">Upewnij się w kwestii protokołu (SSL/TLS lub STARTTLS)</string>
     <string name="title_service_error10">To konto musi zostać ponownie uwierzytelnione, można to wykonać za pomocą kreatora szybkich ustawień</string>
+    <string name="title_certificate_error">        Ze względu na zasady Sklepu Google Play, nie jest już możliwe wspieranie niezabezpieczonych połączeń z serwerami e-mail z problemami z certyfikatami dla wersji FairEmail dystrybuowanej w Sklepie Play.
+        W związku z tym problem ten może zostać rozwiązany wyłącznie przez dostawcę poczty e-mail - powyższe informacje o błędzie mogą pomóc w jego rozwiązaniu.
+    </string>
     <string name="title_advanced_browse">Przeglądaj wiadomości na serwerze</string>
     <string name="title_advanced_expand_read">Oznacz wiadomości jako przeczytane przy rozwijaniu</string>
     <string name="title_synchronize_now">Synchronizuj teraz</string>
@@ -1172,8 +1175,8 @@
     <string name="title_importance_low">Niska</string>
     <string name="title_importance_normal">Normalna</string>
     <string name="title_importance_high">Wysoka</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Ważne</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Nieważne</string>
+    <string name="title_important">Ważne</string>
+    <string name="title_unimportant">Nieważne</string>
     <string name="title_search_in_text">Szukaj w tekście &#8230;</string>
     <string name="title_forward">Prześlij dalej</string>
     <string name="title_resend">Wyślij ponownie</string>

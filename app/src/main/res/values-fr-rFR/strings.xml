@@ -1010,6 +1010,9 @@
     <string name="title_service_port">Veuillez vérifier le numéro de port</string>
     <string name="title_service_protocol">Veuillez vérifier le protocole (SSL/TLS ou STARTTLS)</string>
     <string name="title_service_error10">Ce compte doit être de nouveau authentifié, ce qui peut être fait via l\'assistant de configuration rapide</string>
+    <string name="title_certificate_error">        En raison des politiques du Play Store de Google, il n\'est plus possible de prendre en charge les connexions non sécurisées vers des serveurs de messagerie ayant des problèmes de certificat et ce, pour la version de FairEmail distribuée dans le Play Store.
+        Par conséquent, ce problème ne peut être résolu que par votre fournisseur de messagerie - le message d\'erreur ci-dessus peut les aider à le résoudre.
+    </string>
     <string name="title_advanced_browse">Parcourir les messages sur le serveur</string>
     <string name="title_advanced_expand_read">Marquer les messages comme lus lors de leur ouverture</string>
     <string name="title_synchronize_now">Synchroniser maintenant</string>
@@ -1147,8 +1150,8 @@
     <string name="title_importance_low">Basse</string>
     <string name="title_importance_normal">Normale</string>
     <string name="title_importance_high">Haute</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Important</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Non important</string>
+    <string name="title_important">Important</string>
+    <string name="title_unimportant">Non important</string>
     <string name="title_search_in_text">Rechercher dans le texte&#8230;</string>
     <string name="title_forward">Transférer</string>
     <string name="title_resend">Envoyer à nouveau</string>

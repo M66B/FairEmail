@@ -879,6 +879,8 @@
     <string name="title_service_token">Az Android fiók menedzsert lehet blokkolja egy VPN, tűzfal, vagy reklám blokkoló, stb., meggátolva hogy hozzájusson a hozzáférési tokenhez</string>
     <string name="title_service_port">Kérlek duplán ellenőrizd a portszámot</string>
     <string name="title_service_protocol">Kérlek ellenőrizd mégegyszer a protokolt (SSL/TLS vagy STARTTLS)</string>
+    <string name="title_certificate_error">        A Google Play Áruház irányelvei alapján, a Play Áruházban közzétett Fairemail verzió nem támogathatja a tanúsítvány-problémák miatt nem-biztonságos kapcsolatot az email kiszolgálókkal.
+        Így ezt a problémát csak az ön email szolgáltatója tudja orvosolni - a fenti információ segíthet nekik a megoldásban.    </string>
     <string name="title_advanced_browse">Üzenetek böngészése a szerveren</string>
     <string name="title_advanced_expand_read">Üzenetek megjelölése olvasottként kibontáskor</string>
     <string name="title_synchronize_now">Szinkronizálás most</string>
@@ -1005,7 +1007,7 @@
     <string name="title_importance_low">Alacsony</string>
     <string name="title_importance_normal">Normál</string>
     <string name="title_importance_high">Magas</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Fontos</string>
+    <string name="title_important">Fontos</string>
     <string name="title_search_in_text">Keresés a szövegben &#8230;</string>
     <string name="title_forward">Továbbítás</string>
     <string name="title_resend">Újraküldés</string>

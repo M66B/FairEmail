@@ -1037,6 +1037,9 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_service_port">Překontrolujte prosím číslo portu</string>
     <string name="title_service_protocol">Překontrolujte prosím protokol (SSL/TLS nebo STARTTLS)</string>
     <string name="title_service_error10">Tento účet musí být znovu ověřen, což lze provést pomocí průvodce rychlým nastavením</string>
+    <string name="title_certificate_error">        Kvůli pravidlům Obchodu Google Play již není možné podporovat nezabezpečená připojení k e-mailovým serverům s problémy s certifikátem pro verzi FairEmail distribuovanou v Obchodu Play.
+        Proto tento problém může být vyřešen pouze vaším poskytovatelem e-mailu - výše uvedené informace o chybách mu mohou pomoci tento problém vyřešit.
+    </string>
     <string name="title_advanced_browse">Procházet zprávy na serveru</string>
     <string name="title_advanced_expand_read">Označit zprávy jako přečtené při rozbalení</string>
     <string name="title_synchronize_now">Synchronizovat nyní</string>
@@ -1173,8 +1176,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_importance_low">Nízká</string>
     <string name="title_importance_normal">Normální</string>
     <string name="title_importance_high">Vysoká</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Důležité</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Nedůležité</string>
+    <string name="title_important">Důležité</string>
+    <string name="title_unimportant">Nedůležité</string>
     <string name="title_search_in_text">Hledat v textu &#8230;</string>
     <string name="title_forward">Přeposlat</string>
     <string name="title_resend">Odeslat znovu</string>

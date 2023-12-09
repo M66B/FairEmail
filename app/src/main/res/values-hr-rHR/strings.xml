@@ -978,7 +978,7 @@
     <string name="title_importance_low">Nizak</string>
     <string name="title_importance_normal">Normalno</string>
     <string name="title_importance_high">Visoko</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Važno</string>
+    <string name="title_important">Važno</string>
     <string name="title_search_in_text">Traži u tekstu &#8230;</string>
     <string name="title_forward">Naprijed</string>
     <string name="title_resend">Ponovno pošalji</string>

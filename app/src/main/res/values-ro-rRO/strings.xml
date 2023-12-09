@@ -1158,8 +1158,8 @@
     <string name="title_importance_low">Redusă</string>
     <string name="title_importance_normal">Normală</string>
     <string name="title_importance_high">Ridicată</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Important</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Neimportant</string>
+    <string name="title_important">Important</string>
+    <string name="title_unimportant">Neimportant</string>
     <string name="title_search_in_text">Caută în text &#8230;</string>
     <string name="title_forward">Redirecționează</string>
     <string name="title_resend">Retrimite</string>

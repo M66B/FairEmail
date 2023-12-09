@@ -1006,6 +1006,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_service_port">Controleer het poortnummer a.u.b.</string>
     <string name="title_service_protocol">Controleer a.u.b. het protocol (SSL/TLS of STARTTLS)</string>
     <string name="title_service_error10">Dit account moet opnieuw geverifieerd worden, wat gedaan kan worden via de snelle installatiewizard</string>
+    <string name="title_certificate_error">Als gevolg van het Play Store-beleid van Google, is het niet langer mogelijk om onveilige verbindingen met e-mailservers met certificaatproblemen te ondersteunen voor de versie van FairEmail die via de Play Store wordt gedistribueerd.
+        Daarom kan dit probleem alleen worden opgelost door uw e-mailprovider - de bovenstaande foutinformatie kan hen helpen dit probleem op te lossen.    </string>
     <string name="title_advanced_browse">Blader door berichten op de server</string>
     <string name="title_advanced_expand_read">Markeer berichten gelezen bij uitvouwen</string>
     <string name="title_synchronize_now">Nu synchroniseren</string>
@@ -1141,8 +1143,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_importance_low">Laag</string>
     <string name="title_importance_normal">Normaal</string>
     <string name="title_importance_high">Hoog</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Belangrijk</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Onbelangrijk</string>
+    <string name="title_important">Belangrijk</string>
+    <string name="title_unimportant">Onbelangrijk</string>
     <string name="title_search_in_text">Zoek in tekst &#8230;</string>
     <string name="title_forward">Doorsturen</string>
     <string name="title_resend">Verstuur opnieuw</string>

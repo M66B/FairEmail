@@ -1174,8 +1174,8 @@
     <string name="title_importance_low">נמוכה</string>
     <string name="title_importance_normal">רגילה</string>
     <string name="title_importance_high">גבוהה</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">חשוב</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">לא חשוב</string>
+    <string name="title_important">חשוב</string>
+    <string name="title_unimportant">לא חשוב</string>
     <string name="title_search_in_text">חיפוש בטקסט &#8230;</string>
     <string name="title_forward">העברה</string>
     <string name="title_resend">שליחה מחדש</string>

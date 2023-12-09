@@ -1144,8 +1144,8 @@
     <string name="title_importance_low">Baixa</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Alta</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Importante</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Não importante</string>
+    <string name="title_important">Importante</string>
+    <string name="title_unimportant">Não importante</string>
     <string name="title_search_in_text">Pesquisar no texto &#8230;</string>
     <string name="title_forward">Encaminhar</string>
     <string name="title_resend">Reenviar</string>

@@ -1119,7 +1119,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_importance_low">Rendah</string>
     <string name="title_importance_normal">Normal</string>
     <string name="title_importance_high">Tinggi</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Penting</string>
+    <string name="title_important">Penting</string>
     <string name="title_search_in_text">Telusuri dalam teks &#8230;</string>
     <string name="title_forward">Teruskan</string>
     <string name="title_resend">Kirim ulang</string>

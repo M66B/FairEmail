@@ -991,7 +991,7 @@
     <string name="title_importance_low">Thấp</string>
     <string name="title_importance_normal">Bình thường</string>
     <string name="title_importance_high">Cao</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Quan trọng</string>
+    <string name="title_important">Quan trọng</string>
     <string name="title_search_in_text">Tìm kiếm trong văn bản &#8230;</string>
     <string name="title_forward">Chuyển tiếp</string>
     <string name="title_resend">Gửi lại</string>

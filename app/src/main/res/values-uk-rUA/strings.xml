@@ -1036,6 +1036,9 @@
     <string name="title_service_port">Будь ласка, перевірте номер порту</string>
     <string name="title_service_protocol">Будь ласка, перевірте протокол (SSL/TLS або STARTTLS)</string>
     <string name="title_service_error10">Цей обліковий запис знову має бути автентифікований, що можна зробити за допомогою майстра швидкого налаштування</string>
+    <string name="title_certificate_error">        Через політику Play Store Google більше неможливо підтримувати у версії FairEmail, що розповсюджується серез Play Store, незахищені з’єднання з серверами електронної пошти, що мають проблеми з сертифікатими.
+         Тому цю проблему може вирішити лише ваш постачальник послуг електронної пошти — наведена вище інформація про помилку може допомогти йому вирішити цю проблему.
+    </string>
     <string name="title_advanced_browse">Переглядати повідомлення на сервері</string>
     <string name="title_advanced_expand_read">Позначати повідомлення як прочитані при розкритті</string>
     <string name="title_synchronize_now">Синхронізувати зараз</string>
@@ -1173,8 +1176,8 @@
     <string name="title_importance_low">Низький</string>
     <string name="title_importance_normal">Звичайний</string>
     <string name="title_importance_high">Високий</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Важливі</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Неважливі</string>
+    <string name="title_important">Важливі</string>
+    <string name="title_unimportant">Неважливі</string>
     <string name="title_search_in_text">Шукати в тексті &#8230;</string>
     <string name="title_forward">Переслати</string>
     <string name="title_resend">Надіслати повторно</string>

@@ -1010,6 +1010,9 @@
     <string name="title_service_port">Sei pregato di ricontrollare il numero della porta</string>
     <string name="title_service_protocol">Sei pregato di ricontrollare il protocollo (SSL/TLS o STARTTLS)</string>
     <string name="title_service_error10">Questo profilo necessita di essere nuovamente autenticato, tramite la procedura guidata di configurazione rapida</string>
+    <string name="title_certificate_error">        A causa delle politiche del Play Store di Google, non è più possibile supportare connessioni non sicure ai server di posta elettronica con problemi di certificato per la versione di FairEmail distribuita nel Play Store.
+        Pertanto, questo problema può essere risolto solo dal tuo provider e-mail - le informazioni di errore di cui sopra possono aiutarli a risolvere questo problema.
+    </string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_expand_read">Contrassegna i messaggi come letti all\'espansione</string>
     <string name="title_synchronize_now">Sincronizza ora</string>
@@ -1147,8 +1150,8 @@
     <string name="title_importance_low">Bassa</string>
     <string name="title_importance_normal">Normale</string>
     <string name="title_importance_high">Alta</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Importante</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Non importante</string>
+    <string name="title_important">Importante</string>
+    <string name="title_unimportant">Non importante</string>
     <string name="title_search_in_text">Cerca nel testo&#8230;</string>
     <string name="title_forward">Inoltra</string>
     <string name="title_resend">Reinvia</string>

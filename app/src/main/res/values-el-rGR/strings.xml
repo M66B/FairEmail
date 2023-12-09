@@ -1142,8 +1142,8 @@
     <string name="title_importance_low">Χαμηλή</string>
     <string name="title_importance_normal">Κανονική</string>
     <string name="title_importance_high">Υψηλή</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">Σημαντικό</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">Μη σημαντικό</string>
+    <string name="title_important">Σημαντικό</string>
+    <string name="title_unimportant">Μη σημαντικό</string>
     <string name="title_search_in_text">Αναζήτηση στο κείμενο &#8230;</string>
     <string name="title_forward">Προώθηση</string>
     <string name="title_resend">Επαναποστολή</string>

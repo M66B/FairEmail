@@ -605,8 +605,8 @@
     <string name="title_importance_low">낮음</string>
     <string name="title_importance_normal">보통</string>
     <string name="title_importance_high">높음</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">중요</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">중요하지 않음</string>
+    <string name="title_important">중요</string>
+    <string name="title_unimportant">중요하지 않음</string>
     <string name="title_forward">앞으로</string>
     <string name="title_resend">재전송</string>
     <string name="title_new_message">새 메시지</string>

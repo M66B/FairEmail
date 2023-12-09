@@ -649,6 +649,9 @@
     <string name="title_review">بازبینی</string>
     <string name="title_service_vpn">شاید علت آن VPN مورد استفاده باشد</string>
     <string name="title_service_port">لطفا شماره درگاه را دوباره بررسی کنید</string>
+    <string name="title_certificate_error">        به دلیل سیاست‌های استور گوگل، امکان پشتیبانی از اتصالات ناامن به سرورهای ایمیل با سرتیفیکیت‌های مشکل‌دار برای نسخه‌ای از فیرایمیل که روی پلی‌استور قرار گرفته دیگر وجود ندارد.
+        برای همین، این مشکل تنها توسط ارائه‌دهنده ایمیل شما می‌تواند برطرف شود - اطلاعات مندرج در بالا ممکن است به رفع این مشکل کمک کند.
+    </string>
     <string name="title_advanced_browse">مرور پیام‌های روی سرور</string>
     <string name="title_synchronize_now">هم اکنون همگام سازی شود</string>
     <string name="title_synchronize_more_hint3">لطفا به یاد داشته باشید که نگهداری تعداد بسیار زیادی (بیش از هزاران) پیام روی دستگاهتان می‌تواند موجب کندی شود زیرا فضای ذخیره‌سازی داخلی به طرز نامحدودی سریع نیست.</string>
@@ -739,8 +742,8 @@
     <string name="title_importance_low">پایین</string>
     <string name="title_importance_normal">متوسط</string>
     <string name="title_importance_high">بالا</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">مهم</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">بی‌اهمیت</string>
+    <string name="title_important">مهم</string>
+    <string name="title_unimportant">بی‌اهمیت</string>
     <string name="title_search_in_text">جستجو در متن &#8230;</string>
     <string name="title_forward">هدایت</string>
     <string name="title_resend">ارسال مجدد</string>

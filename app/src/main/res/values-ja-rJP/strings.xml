@@ -995,6 +995,9 @@
     <string name="title_service_port">ポート番号をもう一度確認してください</string>
     <string name="title_service_protocol">プロトコル (SSL/TLS または STARTLS) をもう一度確認してください</string>
     <string name="title_service_error10">このアカウントをクイック設定ウィザードからもう一度認証してください</string>
+    <string name="title_certificate_error">        Google の Play ストアポリシーにより、Play ストア版の FairEmail では、証明書に問題があるメールサーバーとの安全でない接続ができなくなりました。
+        この問題を解決できるのは、あなたがお使いのメールプロバイダーのみです。上のエラー情報は、プロバイダーの問題解決に役立つかもしれません。
+    </string>
     <string name="title_advanced_browse">サーバー上のメッセージを閲覧する</string>
     <string name="title_advanced_expand_read">展開したメッセージを既読にする</string>
     <string name="title_synchronize_now">今すぐ同期</string>
@@ -1132,8 +1135,8 @@
     <string name="title_importance_low">低</string>
     <string name="title_importance_normal">標準</string>
     <string name="title_importance_high">高</string>
-    <string name="title_important" comment="title_important&#10;Title for header above important messages.">重要</string>
-    <string name="title_unimportant" comment="title_unimportant&#10;Title for header above unimportant messages.">重要でない</string>
+    <string name="title_important">重要</string>
+    <string name="title_unimportant">重要でない</string>
     <string name="title_search_in_text">本文を検索&#8230;</string>
     <string name="title_forward">転送</string>
     <string name="title_resend">再送</string>
