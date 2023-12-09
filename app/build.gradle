@@ -290,6 +290,7 @@ android {
             buildConfigField "String", "OPENAI_ENDPOINT", "\"\""
             buildConfigField "String", "OPENAI_PRIVACY", "\"\""
             buildConfigField "String", "FDROID", "\"\""
+            getIsDefault().set(true)
         }
         amazon {
             dimension "all"
@@ -321,7 +322,10 @@ android {
         // Builds: release, debug
         // Flavors: github, large, fdroid, play
         if (variant.buildType.name == "debug" &&
-                (flavors.contains("fdroid") || flavors.contains("play") || flavors.contains("_amazon"))) {
+                (flavors.contains("amazon") ||
+                        flavors.contains("fdroid") ||
+                        flavors.contains("large") ||
+                        flavors.contains("play"))) {
             setIgnore(true)
         }
     }
