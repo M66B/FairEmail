@@ -1126,29 +1126,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 Helper.secureDelete(attachment);
                             }
 
-                        if (BuildConfig.DEBUG) {
-                            source = Helper.ensureExists(new File(sourceRoot, "messages"));
-                            target = Helper.ensureExists(new File(targetRoot, "messages"));
-                            File[] dirs = source.listFiles();
-                            if (dirs != null)
-                                for (File dir : dirs) {
-                                    File[] messages = dir.listFiles();
-                                    if (messages != null)
-                                        for (File message : messages) {
-                                            String path = dir.getPath();
-                                            path = path.substring(path.lastIndexOf(File.separator));
-                                            File t = new File(target, path);
-                                            if (!t.exists() && !t.mkdir())
-                                                throw new IOException("Could not create dir=" + t);
-                                            File dest = new File(t, message.getName());
-                                            Log.i("Move " + message + " to " + dest);
-                                            Helper.copy(message, dest);
-                                            Helper.secureDelete(message);
-                                        }
-                                    Helper.secureDelete(dir);
-                                }
-                        }
-
                         return (attachments == null ? -1 : attachments.length);
                     }
 
