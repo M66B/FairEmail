@@ -566,7 +566,11 @@ public class FragmentIdentity extends FragmentBase {
         Helper.setViewsEnabled(view, false);
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
-        cbInsecure.setVisibility(View.GONE);
+
+        if (!SSLHelper.customTrustManager()) {
+            Helper.hide(cbInsecure);
+            Helper.hide(tvInsecureRemark);
+        }
 
         btnAdvanced.setVisibility(View.GONE);
 

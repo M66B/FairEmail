@@ -128,6 +128,10 @@ public class SSLHelper {
         };
     }
 
+    static boolean customTrustManager() {
+        return true;
+    }
+
     private static boolean matches(X509Certificate certificate, @NonNull String trustedFingerprint) {
         // Get certificate fingerprint
         try {

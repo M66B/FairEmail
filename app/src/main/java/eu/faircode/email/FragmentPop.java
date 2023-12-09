@@ -353,6 +353,11 @@ public class FragmentPop extends FragmentBase {
         // Initialize
         Helper.setViewsEnabled(view, false);
 
+        if (!SSLHelper.customTrustManager()) {
+            Helper.hide(cbInsecure);
+            Helper.hide(tvInsecureRemark);
+        }
+
         if (id < 0)
             tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
         else

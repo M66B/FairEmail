@@ -24,6 +24,10 @@ public class SSLHelper {
         return rtm;
     }
 
+    static boolean customTrustManager() {
+        return false;
+    }
+
     interface ITrust {
         void checkServerTrusted(X509Certificate[] chain);
     }

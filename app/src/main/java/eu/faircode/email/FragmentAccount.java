@@ -628,6 +628,11 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
 
+        if (!SSLHelper.customTrustManager()) {
+            Helper.hide(cbInsecure);
+            Helper.hide(tvInsecureRemark);
+        }
+
         if (id < 0)
             tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
         else
