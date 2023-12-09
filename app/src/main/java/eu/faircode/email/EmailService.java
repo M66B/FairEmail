@@ -1099,7 +1099,7 @@ public class EmailService implements AutoCloseable {
                     } catch (Throwable ex) {
                         Log.e(ex);
                     }
-                sslContext.init(km, new TrustManager[]{tm}, null);
+                sslContext.init(km, new TrustManager[]{tm == null ? rtm : tm}, null);
             }
 
             factory = sslContext.getSocketFactory();

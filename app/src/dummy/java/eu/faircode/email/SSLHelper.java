@@ -21,7 +21,7 @@ public class SSLHelper {
                                             boolean secure, boolean cert_strict,
                                             String trustedFingerprint,
                                             ITrust intf) {
-        return rtm;
+        return null;
     }
 
     static boolean customTrustManager() {
