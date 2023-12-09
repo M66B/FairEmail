@@ -6,6 +6,13 @@ For support you can use the contact form.
 
 Wintonotitan
 
+Next version
+
+* Small improvements and minor bug fixes
+* Updated SSL provider
+* Updated Public Suffix List
+* Updated translations
+
 1.2136 - 2023-12-07
 
 * Preventing XML external entity injection
