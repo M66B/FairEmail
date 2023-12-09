@@ -1271,6 +1271,10 @@
     <string name="title_service_port">Please double check the port number</string>
     <string name="title_service_protocol">Please double check the protocol (SSL/TLS or STARTTLS)</string>
     <string name="title_service_error10">This account needs to be authenticated again, which can be done via the quick setup wizard</string>
+    <string name="title_certificate_error">
+        Due to Google\'s Play Store policies, it is no longer possible for the version of FairEmail distributed in the Play Store to support insecure connections to email servers with certificate issues.
+        Therefore, this issue can only be resolved by your email provider - the above error information may help them resolve this issue.
+    </string>
 
     <string name="title_advanced_browse">Browse messages on the server</string>
     <string name="title_advanced_expand_read">Mark messages read on expanding</string>

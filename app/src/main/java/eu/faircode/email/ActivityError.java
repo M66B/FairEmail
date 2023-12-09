@@ -38,6 +38,7 @@ public class ActivityError extends ActivityBase {
 
     private TextView tvTitle;
     private TextView tvMessage;
+    private TextView tvCertificate;
     private Button btnPassword;
     private ImageButton ibSetting;
     private ImageButton ibInfo;
@@ -52,6 +53,7 @@ public class ActivityError extends ActivityBase {
 
         tvTitle = findViewById(R.id.tvTitle);
         tvMessage = findViewById(R.id.tvMessage);
+        tvCertificate = findViewById(R.id.tvCertificate);
         btnPassword = findViewById(R.id.btnPassword);
         ibSetting = findViewById(R.id.ibSetting);
         ibInfo = findViewById(R.id.ibInfo);
@@ -86,17 +88,15 @@ public class ActivityError extends ActivityBase {
         long identity = intent.getLongExtra("identity", -1L);
         int protocol = intent.getIntExtra("protocol", -1);
         int auth_type = intent.getIntExtra("auth_type", -1);
-
-        if (message != null &&
-                (message.contains("CertPathValidatorException") ||
-                        message.contains("CertificateExpiredException")))
-            intent.putExtra("faq", 4);
-
         int faq = intent.getIntExtra("faq", -1);
+
+        boolean isCertificateException = (message != null && message.contains("CertificateException"));
 
         tvTitle.setText(title);
         tvMessage.setMovementMethod(LinkMovementMethodCompat.getInstance());
         tvMessage.setText(message);
+
+        tvCertificate.setVisibility(isCertificateException ? View.VISIBLE : View.GONE);
 
         boolean password = (auth_type == ServiceAuthenticator.AUTH_TYPE_PASSWORD);
 
@@ -169,7 +169,7 @@ public class ActivityError extends ActivityBase {
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Helper.viewFAQ(view.getContext(), faq);
+                Helper.viewFAQ(view.getContext(), isCertificateException ? 4 : faq);
             }
         });
 
