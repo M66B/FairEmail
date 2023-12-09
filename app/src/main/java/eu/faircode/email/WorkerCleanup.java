@@ -104,9 +104,12 @@ public class WorkerCleanup extends Worker {
         DB db = DB.getInstance(context);
         try {
             semaphore.acquire();
+            Log.breadcrumb("worker", "cleanup", "start");
             EntityLog.log(context, "Start cleanup manual=" + manual);
 
             if (manual) {
+                Log.breadcrumb("worker", "cleanup", "manual");
+
                 // Check message files
                 Log.i("Checking message files");
                 try (Cursor cursor = db.message().getMessageWithContent()) {
@@ -207,7 +210,7 @@ public class WorkerCleanup extends Worker {
             long now = new Date().getTime();
 
             // Cleanup message files
-            Log.i("Cleanup message files");
+            Log.breadcrumb("worker", "cleanup", "message files");
             cleanupMessageFiles(db, manual, Helper.listFiles(new File(context.getFilesDir(), "messages")).toArray(new File[0]));
             cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "revision").listFiles());
             cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "references").listFiles());
@@ -217,7 +220,7 @@ public class WorkerCleanup extends Worker {
 
             // Cleanup raw message files
             if (!download_eml) {
-                Log.i("Cleanup raw message files");
+                Log.breadcrumb("worker", "cleanup", "raw message files");
                 File[] raws = new File(context.getFilesDir(), "raw").listFiles();
                 if (raws != null)
                     for (File file : raws)
@@ -243,8 +246,8 @@ public class WorkerCleanup extends Worker {
             }
 
             // Cleanup attachment files
-            Log.i("Cleanup attachment files");
             {
+                Log.breadcrumb("worker", "cleanup", "attachment files");
                 File[] attachments = new File(EntityAttachment.getRoot(context), "attachments").listFiles();
                 if (attachments != null)
                     for (File file : attachments)
@@ -263,8 +266,8 @@ public class WorkerCleanup extends Worker {
             }
 
             // Cleanup cached images
-            Log.i("Cleanup cached image files");
             {
+                Log.breadcrumb("worker", "cleanup", "image files");
                 File[] images = new File(context.getFilesDir(), "images").listFiles();
                 if (images != null)
                     for (File file : images)
@@ -285,6 +288,7 @@ public class WorkerCleanup extends Worker {
 
             // Cleanup shared files
             {
+                Log.breadcrumb("worker", "cleanup", "shared files");
                 File[] shared = new File(context.getFilesDir(), "shared").listFiles();
                 if (shared != null)
                     for (File file : shared)
@@ -295,6 +299,7 @@ public class WorkerCleanup extends Worker {
             }
 
             // Cleanup contact info
+            Log.breadcrumb("worker", "cleanup", "contact info");
             if (manual)
                 ContactInfo.clearCache(context);
             else
@@ -302,6 +307,7 @@ public class WorkerCleanup extends Worker {
 
             Log.i("Cleanup FTS=" + fts);
             if (fts) {
+                Log.breadcrumb("worker", "cleanup", "FTS");
                 int deleted = 0;
                 SQLiteDatabase sdb = Fts4DbHelper.getInstance(context);
                 try (Cursor cursor = Fts4DbHelper.getIds(sdb)) {
@@ -320,7 +326,7 @@ public class WorkerCleanup extends Worker {
                     Fts4DbHelper.optimize(sdb);
             }
 
-            Log.i("Cleanup contacts");
+            Log.breadcrumb("worker", "cleanup", "contacts");
             try {
                 db.beginTransaction();
                 int contacts = db.contact().countContacts();
@@ -334,7 +340,7 @@ public class WorkerCleanup extends Worker {
 
             if (sqlite_analyze) {
                 // https://sqlite.org/lang_analyze.html
-                Log.i("Running analyze");
+                Log.breadcrumb("worker", "cleanup", "analyze");
                 long analyze = new Date().getTime();
                 try (Cursor cursor = db.getOpenHelper().getWritableDatabase().query("PRAGMA analysis_limit=1000; PRAGMA optimize;")) {
                     cursor.moveToNext();
@@ -342,11 +348,15 @@ public class WorkerCleanup extends Worker {
                 EntityLog.log(context, "Analyze=" + (new Date().getTime() - analyze) + " ms");
             }
 
+            Log.breadcrumb("worker", "cleanup", "emergency");
             DB.createEmergencyBackup(context);
 
+            Log.breadcrumb("worker", "cleanup", "shortcuts");
             Shortcuts.cleanup(context);
 
             if (manual) {
+                Log.breadcrumb("worker", "cleanup", "vacuum");
+
                 // https://www.sqlite.org/lang_vacuum.html
                 long size = context.getDatabasePath(db.getOpenHelper().getDatabaseName()).length();
                 long available = Helper.getAvailableStorageSpace();
@@ -364,6 +374,7 @@ public class WorkerCleanup extends Worker {
             Log.e(ex);
         } finally {
             semaphore.release();
+            Log.breadcrumb("worker", "cleanup", "end");
             EntityLog.log(context, "End cleanup=" + (new Date().getTime() - start) + " ms");
 
             long now = new Date().getTime();
