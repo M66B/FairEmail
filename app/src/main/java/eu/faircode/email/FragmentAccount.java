@@ -628,9 +628,6 @@ public class FragmentAccount extends FragmentBase {
         btnAutoConfig.setEnabled(false);
         pbAutoConfig.setVisibility(View.GONE);
 
-        rgEncryption.setVisibility(View.GONE);
-        cbInsecure.setVisibility(View.GONE);
-
         if (id < 0)
             tilPassword.setEndIconMode(END_ICON_PASSWORD_TOGGLE);
         else
