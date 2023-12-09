@@ -1558,6 +1558,7 @@ Note that [Google Fi](https://fi.google.com/) is using a VPN too.
 The error '*You must use stronger authentication such as AUTH or APOP to connect to this server*'
 can be fixed by enabling debug mode (last option in the miscellaneous settings tab page),
 and in the debug panel that appears enabling the APOP option.
+After that, debug mode can be disabled again.
 
 **Send errors**
 
