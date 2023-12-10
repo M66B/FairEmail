@@ -140,6 +140,7 @@ public class FragmentOAuth extends FragmentBase {
     private Group grpError;
 
     private static final String FAIREMAIL_RANDOM = "fairemail.random";
+    private static final String FAIREMAIL_EXPIRE = "fairemail.expire";
     private static final int MAILRU_TIMEOUT = 20 * 1000; // milliseconds
 
     @Override
@@ -425,11 +426,13 @@ public class FragmentOAuth extends FragmentBase {
                     Uri.parse(tokenEndpoint));
 
             int random = Math.abs(new SecureRandom().nextInt());
+            long expire = new Date().getTime() + 10 * 60 * 1000L;
             AuthState authState = new AuthState(serviceConfig);
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             String key = "oauth." + provider.id + (graph ? ":graph" : "");
             JSONObject jauthstate = authState.jsonSerialize();
             jauthstate.put(FAIREMAIL_RANDOM, random);
+            jauthstate.put(FAIREMAIL_EXPIRE, expire);
             prefs.edit().putString(key, jauthstate.toString()).apply();
 
             Map<String, String> params = (oauth.parameters == null
@@ -549,11 +552,14 @@ public class FragmentOAuth extends FragmentBase {
             String json = prefs.getString(key, null);
             JSONObject jauthstate = new JSONObject(json);
             int random = jauthstate.optInt(FAIREMAIL_RANDOM, -1);
+            long expire = jauthstate.optLong(FAIREMAIL_EXPIRE, -1);
             jauthstate.remove(FAIREMAIL_RANDOM);
             prefs.edit().remove("oauth." + auth.state).apply();
 
             if (random != returnedRandom)
                 throw new SecurityException("random " + random + " <> " + returnedRandom);
+            if (expire < new Date().getTime())
+                throw new SecurityException("Session expired");
 
             final AuthState authState = AuthState.jsonDeserialize(jauthstate);
 
