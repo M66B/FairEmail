@@ -723,6 +723,7 @@ public class ConnectionHelper {
         // https://support.google.com/faqs/answer/7188426
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean open_safe = prefs.getBoolean("open_safe", false);
+        boolean http_redirect = prefs.getBoolean("http_redirect", true);
 
         int redirects = 0;
         while (true) {
@@ -752,7 +753,7 @@ public class ConnectionHelper {
             try {
                 int status = urlConnection.getResponseCode();
 
-                if (!open_safe &&
+                if (http_redirect &&
                         (status == HttpURLConnection.HTTP_MOVED_PERM ||
                                 status == HttpURLConnection.HTTP_MOVED_TEMP ||
                                 status == HttpURLConnection.HTTP_SEE_OTHER ||
