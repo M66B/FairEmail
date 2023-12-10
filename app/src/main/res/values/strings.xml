@@ -519,7 +519,7 @@
     <string name="title_advanced_ssl_harden_strict">Require TLS 1.3</string>
     <string name="title_advanced_cert_strict">Strict certificate checking</string>
     <string name="title_advanced_open_safe">Open secure connections only</string>
-    <string name="title_advanced_http_redirect">Allow redirecting HTTP connections</string>
+    <string name="title_advanced_http_redirect">Allow connection redirection</string>
     <string name="title_advanced_bouncy_castle">Use Bouncy Castle\'s secure socket provider (JSSE)</string>
     <string name="title_advanced_fips_mode" translatable="false">FIPS mode</string>
     <string name="title_advanced_manage_connectivity">Manage connectivity</string>
