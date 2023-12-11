@@ -53,6 +53,7 @@ public interface DaoMessage {
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", '[' || group_concat(message.`from`, ',') || ']' AS senders" +
             ", '[' || group_concat(message.`to`, ',') || ']' AS recipients" +
+            ", group_concat(message.received, ',') AS group_received" +
             ", COUNT(message.id) AS count" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
@@ -77,7 +78,6 @@ public interface DaoMessage {
             "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
 
-            // group_concat
             " JOIN message AS mm ON mm.thread = message.thread" +
             "   AND (NOT :found OR mm.ui_found) AND (NOT mm.ui_hide OR :debug)" +
             " JOIN folder AS ff ON ff.id = mm.folder" +
@@ -114,8 +114,7 @@ public interface DaoMessage {
             "   WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
             "   ELSE 0" +
             "  END" +
-            ", CASE WHEN :ascending THEN message.received ELSE -message.received END" +
-            ", mm.received")
+            ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
     DataSource.Factory<Integer, TupleMessageEx> pagedUnified(
             String type,
             boolean threading, boolean group_category,
@@ -133,6 +132,7 @@ public interface DaoMessage {
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", '[' || group_concat(message.`from`, ',') || ']' AS senders" +
             ", '[' || group_concat(message.`to`, ',') || ']' AS recipients" +
+            ", group_concat(message.received, ',') AS group_received" +
             ", COUNT(message.id) AS count" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
@@ -156,7 +156,6 @@ public interface DaoMessage {
             "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
 
-            // group_concat
             " JOIN message AS mm ON mm.thread = message.thread" +
             "   AND (NOT :found OR mm.ui_found) AND (NOT mm.ui_hide OR :debug)" +
             "   AND message.folder = :folder" +
@@ -189,8 +188,7 @@ public interface DaoMessage {
             "   WHEN 'snoozed' = :sort THEN SUM(CASE WHEN message.ui_snoozed IS NULL THEN 0 ELSE 1 END) = 0" +
             "   ELSE 0" +
             "  END" +
-            ", CASE WHEN :ascending THEN message.received ELSE -message.received END" +
-            ", mm.received")
+            ", CASE WHEN :ascending THEN message.received ELSE -message.received END")
     DataSource.Factory<Integer, TupleMessageEx> pagedFolder(
             long folder, boolean threading,
             String sort, boolean ascending,
@@ -206,6 +204,7 @@ public interface DaoMessage {
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", message.`from` AS senders" +
             ", message.`to` AS recipients" +
+            ", message.received AS group_received" +
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
@@ -512,6 +511,7 @@ public interface DaoMessage {
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", message.`from` AS senders" +
             ", message.`to` AS recipients" +
+            ", message.received AS group_received" +
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
@@ -543,6 +543,7 @@ public interface DaoMessage {
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", message.`from` AS senders" +
             ", message.`to` AS recipients" +
+            ", message.received AS group_received" +
             ", 1 AS count" +
             ", 1 AS unseen" +
             ", 0 AS unflagged" +

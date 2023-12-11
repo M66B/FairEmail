@@ -8585,6 +8585,40 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             gotoPos = pos;
     }
 
+    private static void quickSort(TupleMessageEx message, int low, int high) {
+        if (low < high) {
+            int pi = quickPartition(message, low, high);
+            quickSort(message, low, pi - 1);
+            quickSort(message, pi + 1, high);
+        }
+    }
+
+    private static int quickPartition(TupleMessageEx message, int low, int high) {
+        long pivot = message.group_received[high];
+        int i = (low - 1);
+        for (int j = low; j <= high; j++)
+            if (message.group_received[j] < pivot) {
+                i++;
+                quickSwap(message, i, j);
+            }
+        quickSwap(message, i + 1, high);
+        return (i + 1);
+    }
+
+    private static void quickSwap(TupleMessageEx message, int i, int j) {
+        long received = message.group_received[i];
+        message.group_received[i] = message.group_received[j];
+        message.group_received[j] = received;
+
+        Address sender = message.senders[i];
+        message.senders[i] = message.senders[j];
+        message.senders[j] = sender;
+
+        Address recipient = message.recipients[i];
+        message.recipients[i] = message.recipients[j];
+        message.recipients[j] = recipient;
+    }
+
     void submitList(PagedList<TupleMessageEx> list) {
         for (int i = 0; i < list.size(); i++) {
             TupleMessageEx message = list.get(i);
@@ -8595,6 +8629,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 addExtra(message.senders, message.extra);
                 message.resolveLabelColors(context);
                 message.resolveKeywordColors(context);
+                if (message.group_received != null && message.group_received.length > 1 &&
+                        message.senders != null && message.senders.length == message.group_received.length &&
+                        message.recipients != null && message.recipients.length == message.group_received.length)
+                    quickSort(message, 0, message.group_received.length - 1);
             }
         }
 

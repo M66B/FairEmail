@@ -3031,6 +3031,23 @@ public abstract class DB extends RoomDatabase {
 
     public static class Converters {
         @TypeConverter
+        public static long[] toLongArray(String value) {
+            if (TextUtils.isEmpty(value))
+                return new long[0];
+            else {
+                String[] received = TextUtils.split(value, ",");
+                long[] result = new long[received.length];
+                for (int i = 0; i < result.length; i++)
+                    try {
+                        result[i] = Long.parseLong(received[i]);
+                    } catch (NumberFormatException ex) {
+                        Log.e(ex);
+                    }
+                return result;
+            }
+        }
+
+        @TypeConverter
         public static String[] toStringArray(String value) {
             if (value == null)
                 return new String[0];

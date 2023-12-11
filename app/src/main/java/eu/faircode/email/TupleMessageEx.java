@@ -55,6 +55,7 @@ public class TupleMessageEx extends EntityMessage {
     public Boolean identitySynchronize;
     public Address[] senders;
     public Address[] recipients;
+    public long[] group_received;
     public int count;
     public int unseen;
     public int unflagged;
