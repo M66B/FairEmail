@@ -8,8 +8,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Optimized database for storing many messages
+* Automatically update [SSL provider](https://developer.android.com/privacy-and-security/security-gms-provider)
 * Small improvements and minor bug fixes
-* Updated [SSL provider](https://developer.android.com/privacy-and-security/security-gms-provider)
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 

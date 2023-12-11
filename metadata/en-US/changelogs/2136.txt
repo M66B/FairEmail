@@ -8,8 +8,9 @@ Wintonotitan
 
 Next version
 
+* Optimized database for storing many messages
+* Automatically update SSL provider
 * Small improvements and minor bug fixes
-* Updated SSL provider
 * Updated Public Suffix List
 * Updated translations
 
