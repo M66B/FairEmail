@@ -555,11 +555,12 @@ public class FragmentOAuth extends FragmentBase {
             long expire = jauthstate.optLong(FAIREMAIL_EXPIRE, -1);
             jauthstate.remove(FAIREMAIL_RANDOM);
             prefs.edit().remove("oauth." + auth.state).apply();
+            long now = new Date().getTime();
 
             if (random != returnedRandom)
                 throw new SecurityException("random " + random + " <> " + returnedRandom);
-            if (expire < new Date().getTime())
-                throw new SecurityException("Session expired");
+            if (expire < now)
+                throw new SecurityException("Session expired " + new Date(expire) + " < " + new Date(now));
 
             final AuthState authState = AuthState.jsonDeserialize(jauthstate);
 
