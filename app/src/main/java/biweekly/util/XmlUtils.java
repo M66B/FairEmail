@@ -151,25 +151,7 @@ public final class XmlUtils {
 	}
 
 	private static Document toDocument(InputSource in) throws SAXException, IOException {
-		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		factory.setNamespaceAware(true);
-		factory.setIgnoringComments(true);
-		applyXXEProtection(factory);
-		try {
-			factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-		} catch (ParserConfigurationException ex) {
-			throw new SAXException(ex);
-		}
-
-		DocumentBuilder builder;
-		try {
-			builder = factory.newDocumentBuilder();
-		} catch (ParserConfigurationException e) {
-			//should never be thrown because we're not doing anything fancy with the configuration
-			throw new RuntimeException(e);
-		}
-
-		return builder.parse(in);
+		throw new RuntimeException("Removed");
 	}
 
 	/**
@@ -290,27 +272,7 @@ public final class XmlUtils {
 	 * @throws TransformerException if there's a problem writing to the writer
 	 */
 	public static void toWriter(Node node, Writer writer, Map<String, String> outputProperties) throws TransformerException {
-		try {
-			TransformerFactory factory = TransformerFactory.newInstance();
-			factory.setAttribute(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-			factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-			Transformer transformer = factory.newTransformer();
-			for (Map.Entry<String, String> property : outputProperties.entrySet()) {
-				try {
-					transformer.setOutputProperty(property.getKey(), property.getValue());
-				} catch (IllegalArgumentException e) {
-					//ignore invalid output properties
-				}
-			}
-
-			DOMSource source = new DOMSource(node);
-			StreamResult result = new StreamResult(writer);
-			transformer.transform(source, result);
-		} catch (TransformerConfigurationException e) {
-			//no complex configurations
-		} catch (TransformerFactoryConfigurationError e) {
-			//no complex configurations
-		}
+		throw new RuntimeException("Removed");
 	}
 
 	/**

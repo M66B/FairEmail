@@ -202,25 +202,7 @@ public class XCalReader extends StreamReader {
 		private volatile boolean finished = false, started = false, closed = false;
 
 		public ReadThread() {
-			setName(getClass().getSimpleName());
-
-			//create the transformer
-			try {
-				TransformerFactory factory = TransformerFactory.newInstance();
-				factory.setAttribute(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-				factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-				XmlUtils.applyXXEProtection(factory);
-
-				transformer = factory.newTransformer();
-			} catch (TransformerConfigurationException e) {
-				//shouldn't be thrown because it's a simple configuration
-				throw new RuntimeException(e);
-			}
-
-			//prevent error messages from being printed to stderr
-			transformer.setErrorListener(new NoOpErrorListener());
-
-			result = new SAXResult(new ContentHandlerImpl());
+			throw new RuntimeException("Removed");
 		}
 
 		@Override

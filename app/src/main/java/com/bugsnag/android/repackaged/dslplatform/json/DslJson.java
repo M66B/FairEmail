@@ -813,8 +813,6 @@ public class DslJson<TContext> implements UnknownSerializer, TypeLookup {
 	}
 
 	static void registerJavaSpecifics(final DslJson json) {
-		json.registerReader(Element.class, XmlConverter.Reader);
-		json.registerWriter(Element.class, XmlConverter.Writer);
 	}
 
 	private final Map<Type, Object> defaults = new ConcurrentHashMap<Type, Object>();

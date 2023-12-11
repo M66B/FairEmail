@@ -470,33 +470,7 @@ public class XCalDocument {
 	 * @throws TransformerException if there's a problem writing to the writer
 	 */
 	public void write(Writer writer, Map<String, String> outputProperties) throws TransformerException {
-		Transformer transformer;
-		try {
-			TransformerFactory factory = TransformerFactory.newInstance();
-			factory.setAttribute(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-			factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-			transformer = factory.newTransformer();
-		} catch (TransformerConfigurationException e) {
-			//should never be thrown because we're not doing anything fancy with the configuration
-			throw new RuntimeException(e);
-		} catch (TransformerFactoryConfigurationError e) {
-			//should never be thrown because we're not doing anything fancy with the configuration
-			throw new RuntimeException(e);
-		}
-
-		/*
-		 * Using Transformer#setOutputProperties(Properties) doesn't work for
-		 * some reason for setting the number of indentation spaces.
-		 */
-		for (Map.Entry<String, String> entry : outputProperties.entrySet()) {
-			String key = entry.getKey();
-			String value = entry.getValue();
-			transformer.setOutputProperty(key, value);
-		}
-
-		DOMSource source = new DOMSource(document);
-		StreamResult result = new StreamResult(writer);
-		transformer.transform(source, result);
+		throw new RuntimeException("Removed");
 	}
 
 	@Override

@@ -6,7 +6,6 @@
 #
 text/plain;;		x-java-content-handler=com.sun.mail.handlers.text_plain
 text/html;;		x-java-content-handler=com.sun.mail.handlers.text_html
-text/xml;;		x-java-content-handler=com.sun.mail.handlers.text_xml
 multipart/*;;		x-java-content-handler=com.sun.mail.handlers.multipart_mixed; x-java-fallback-entry=true
 message/rfc822;;	x-java-content-handler=com.sun.mail.handlers.message_rfc822
 #
