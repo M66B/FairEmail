@@ -197,7 +197,7 @@ public class FragmentDialogRuleCheck extends FragmentDialogBase {
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException) {
-                    tvNoMessages.setText(ex.getMessage());
+                    tvNoMessages.setText(new ThrowableWrapper(ex).getSafeMessage());
                     tvNoMessages.setVisibility(View.VISIBLE);
                 } else
                     Log.unexpectedError(getParentFragmentManager(), ex);

@@ -5567,12 +5567,12 @@ public class MessageHelper {
                         getStructure(multipart.getBodyPart(i), ssb, level + 1, textColorLink);
                     } catch (Throwable ex) {
                         Log.w(ex);
-                        ssb.append(ex.toString()).append('\n');
+                        ssb.append(new ThrowableWrapper(ex).toSafeString()).append('\n');
                     }
             }
         } catch (Throwable ex) {
             Log.w(ex);
-            ssb.append(ex.toString()).append('\n');
+            ssb.append(new ThrowableWrapper(ex).toSafeString()).append('\n');
         }
     }
 

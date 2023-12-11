@@ -246,7 +246,7 @@ public class Log {
             int def = (BuildConfig.DEBUG ? android.util.Log.INFO : android.util.Log.WARN);
             level = prefs.getInt("log_level", def);
         }
-        android.util.Log.d(TAG, "Log level=" + level);
+        Log.i("Log level=" + level);
     }
 
     public static boolean isDebugLogLevel() {
@@ -288,7 +288,7 @@ public class Log {
     public static int e(String msg) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Throwable ex = new Throwable(msg);
+                Throwable ex = new ThrowableWrapper(msg);
                 List<StackTraceElement> ss = new ArrayList<>(Arrays.asList(ex.getStackTrace()));
                 ss.remove(0);
                 ex.setStackTrace(ss.toArray(new StackTraceElement[0]));
@@ -1816,16 +1816,16 @@ public class Log {
 
         StringBuilder sb = new StringBuilder();
         if (BuildConfig.DEBUG)
-            sb.append(ex.toString());
+            sb.append(new ThrowableWrapper(ex).toSafeString());
         else
-            sb.append(ex.getMessage() == null ? ex.getClass().getName() : ex.getMessage());
+            sb.append(new ThrowableWrapper(ex).getSafeMessageOrName());
 
         Throwable cause = ex.getCause();
         while (cause != null) {
             if (BuildConfig.DEBUG)
-                sb.append(separator).append(cause.toString());
+                sb.append(separator).append(new ThrowableWrapper(cause).toSafeString());
             else
-                sb.append(separator).append(cause.getMessage() == null ? cause.getClass().getName() : cause.getMessage());
+                sb.append(separator).append(new ThrowableWrapper(cause).getSafeMessageOrName());
             cause = cause.getCause();
         }
 
@@ -1838,7 +1838,7 @@ public class Log {
 
         try (FileWriter out = new FileWriter(file, true)) {
             out.write(BuildConfig.VERSION_NAME + BuildConfig.REVISION + " " + new Date() + "\r\n");
-            out.write(ex + "\r\n" + android.util.Log.getStackTraceString(ex) + "\r\n");
+            out.write(ex + "\r\n" + new ThrowableWrapper(ex).getStackTraceString() + "\r\n");
         } catch (IOException e) {
             Log.e(e);
         }
@@ -3783,7 +3783,7 @@ public class Log {
                     }
                     ssb.append("\r\n");
                 } catch (Throwable ex) {
-                    ssb.append(ex.toString());
+                    ssb.append(new ThrowableWrapper(ex).toSafeString());
                 }
 
         ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);

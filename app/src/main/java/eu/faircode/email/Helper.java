@@ -1760,7 +1760,7 @@ public class Helper {
 
         tvType.setText(type);
 
-        tvException.setText(ex == null ? null : ex.toString());
+        tvException.setText(ex == null ? null : new ThrowableWrapper(ex).toSafeString());
         tvException.setVisibility(ex == null ? View.GONE : View.VISIBLE);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context)

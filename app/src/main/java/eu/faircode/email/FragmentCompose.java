@@ -7074,7 +7074,7 @@ public class FragmentCompose extends FragmentBase {
                                             R.string.title_address_duplicate,
                                             TextUtils.join(", ", dup)));
                             } catch (AddressException ex) {
-                                args.putString("address_error", ex.getMessage());
+                                args.putString("address_error", new ThrowableWrapper(ex).getSafeMessage());
                             }
 
                             if (draft.to == null && draft.cc == null && draft.bcc == null &&
@@ -7479,7 +7479,7 @@ public class FragmentCompose extends FragmentBase {
                     address.validate();
                 } catch (AddressException ex) {
                     throw new AddressException(context.getString(R.string.title_address_parse_error,
-                            MessageHelper.formatAddressesCompose(new Address[]{address}), ex.getMessage()));
+                            MessageHelper.formatAddressesCompose(new Address[]{address}), new ThrowableWrapper(ex).getSafeMessage()));
                 }
         }
 

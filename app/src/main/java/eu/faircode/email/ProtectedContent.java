@@ -292,7 +292,7 @@ public class ProtectedContent {
 
                         @Override
                         protected void onException(Bundle args, Throwable ex) {
-                            tvError.setText(ex.getMessage());
+                            tvError.setText(new ThrowableWrapper(ex).getSafeMessage());
                             tvErrorDetail.setText(ex.toString());
                             tvError.setVisibility(View.VISIBLE);
                             tvErrorDetail.setVisibility(View.VISIBLE);
