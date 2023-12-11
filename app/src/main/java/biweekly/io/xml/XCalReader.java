@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
+import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
 import javax.xml.transform.ErrorListener;
 import javax.xml.transform.Source;
@@ -206,6 +207,7 @@ public class XCalReader extends StreamReader {
 			//create the transformer
 			try {
 				TransformerFactory factory = TransformerFactory.newInstance();
+				factory.setAttribute(XMLConstants.FEATURE_SECURE_PROCESSING, true);
 				factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 				XmlUtils.applyXXEProtection(factory);
 

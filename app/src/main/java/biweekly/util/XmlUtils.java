@@ -14,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -291,6 +292,7 @@ public final class XmlUtils {
 	public static void toWriter(Node node, Writer writer, Map<String, String> outputProperties) throws TransformerException {
 		try {
 			TransformerFactory factory = TransformerFactory.newInstance();
+			factory.setAttribute(XMLConstants.FEATURE_SECURE_PROCESSING, true);
 			factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 			Transformer transformer = factory.newTransformer();
 			for (Map.Entry<String, String> property : outputProperties.entrySet()) {

@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.XMLConstants;
 import javax.xml.namespace.QName;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -472,6 +473,7 @@ public class XCalDocument {
 		Transformer transformer;
 		try {
 			TransformerFactory factory = TransformerFactory.newInstance();
+			factory.setAttribute(XMLConstants.FEATURE_SECURE_PROCESSING, true);
 			factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 			transformer = factory.newTransformer();
 		} catch (TransformerConfigurationException e) {

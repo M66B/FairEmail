@@ -23,6 +23,7 @@ import javax.activation.ActivationDataFlavor;
 import javax.activation.DataSource;
 import javax.mail.internet.ContentType;
 import javax.mail.internet.ParseException;
+import javax.xml.XMLConstants;
 import javax.xml.transform.Source;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
@@ -80,6 +81,7 @@ public class text_xml extends text_plain {
 
 	try {
 		TransformerFactory factory = TransformerFactory.newInstance();
+		factory.setAttribute(XMLConstants.FEATURE_SECURE_PROCESSING, true);
 		factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 		Transformer transformer = factory.newTransformer();
 	    StreamResult result = new StreamResult(os);
