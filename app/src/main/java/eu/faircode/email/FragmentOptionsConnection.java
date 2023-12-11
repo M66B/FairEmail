@@ -95,6 +95,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swStandaloneVpn;
     private SwitchCompat swTcpKeepAlive;
     private TextView tvTcpKeepAliveHint;
+    private SwitchCompat swSslUpdate;
     private SwitchCompat swSslHarden;
     private SwitchCompat swSslHardenStrict;
     private SwitchCompat swCertStrict;
@@ -121,7 +122,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "download_headers", "download_eml", "download_plain",
             "require_validated", "require_validated_captive", "vpn_only",
             "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive",
-            "ssl_harden", "ssl_harden_strict", "cert_strict", "open_safe", "http_redirect",
+            "ssl_update", "ssl_harden", "ssl_harden_strict", "cert_strict", "open_safe", "http_redirect",
             "bouncy_castle", "bc_fips"
     };
 
@@ -152,6 +153,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swStandaloneVpn = view.findViewById(R.id.swStandaloneVpn);
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
         tvTcpKeepAliveHint = view.findViewById(R.id.tvTcpKeepAliveHint);
+        swSslUpdate = view.findViewById(R.id.swSslUpdate);
         swSslHarden = view.findViewById(R.id.swSslHarden);
         swSslHardenStrict = view.findViewById(R.id.swSslHardenStrict);
         swCertStrict = view.findViewById(R.id.swCertStrict);
@@ -329,6 +331,14 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
+            }
+        });
+
+        swSslUpdate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton v, boolean checked) {
+                prefs.edit().putBoolean("ssl_update", checked).commit();
+                ApplicationEx.restart(v.getContext(), "ssl_update");
             }
         });
 
@@ -665,6 +675,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             swBindSocket.setChecked(prefs.getBoolean("bind_socket", false));
             swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
             swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
+            swSslUpdate.setChecked(prefs.getBoolean("ssl_update", true));
             swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
             swSslHardenStrict.setChecked(prefs.getBoolean("ssl_harden_strict", false));
             swSslHardenStrict.setEnabled(swSslHarden.isChecked());

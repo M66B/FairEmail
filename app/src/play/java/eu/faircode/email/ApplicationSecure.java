@@ -20,6 +20,9 @@ package eu.faircode.email;
 */
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+
+import androidx.preference.PreferenceManager;
 
 import com.google.android.gms.security.ProviderInstaller;
 
@@ -32,8 +35,13 @@ public class ApplicationSecure extends ApplicationEx implements ProviderInstalle
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.i("Security provider check");
-        ProviderInstaller.installIfNeededAsync(this, this);
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean ssl_update = prefs.getBoolean("ssl_update", true);
+        if (ssl_update) {
+            Log.i("Security provider check");
+            ProviderInstaller.installIfNeededAsync(this, this);
+        } else
+            lock.countDown();
     }
 
     @Override
