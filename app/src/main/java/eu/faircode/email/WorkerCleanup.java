@@ -113,13 +113,15 @@ public class WorkerCleanup extends Worker {
                 // Check message files
                 Log.i("Checking message files");
                 try (Cursor cursor = db.message().getMessageWithContent()) {
-                    long mid = cursor.getLong(0);
-                    EntityMessage message = db.message().getMessage(mid);
-                    if (message != null) {
-                        File file = message.getFile(context);
-                        if (!file.exists()) {
-                            Log.w("Message file missing id=" + mid);
-                            db.message().resetMessageContent(mid);
+                    while (cursor.moveToNext()) {
+                        long mid = cursor.getLong(0);
+                        EntityMessage message = db.message().getMessage(mid);
+                        if (message != null) {
+                            File file = message.getFile(context);
+                            if (!file.exists()) {
+                                Log.w("Message file missing id=" + mid);
+                                db.message().resetMessageContent(mid);
+                            }
                         }
                     }
                 }
@@ -127,13 +129,15 @@ public class WorkerCleanup extends Worker {
                 // Check attachments files
                 Log.i("Checking attachments files");
                 try (Cursor cursor = db.attachment().getAttachmentAvailable()) {
-                    long aid = cursor.getLong(0);
-                    EntityAttachment attachment = db.attachment().getAttachment(aid);
-                    if (attachment != null) {
-                        File file = attachment.getFile(context);
-                        if (!file.exists()) {
-                            Log.w("Attachment file missing id=" + aid);
-                            db.attachment().setAvailable(aid, false);
+                    while (cursor.moveToNext()) {
+                        long aid = cursor.getLong(0);
+                        EntityAttachment attachment = db.attachment().getAttachment(aid);
+                        if (attachment != null) {
+                            File file = attachment.getFile(context);
+                            if (!file.exists()) {
+                                Log.w("Attachment file missing id=" + aid);
+                                db.attachment().setAvailable(aid, false);
+                            }
                         }
                     }
                 }
@@ -211,6 +215,15 @@ public class WorkerCleanup extends Worker {
 
             // Cleanup message files
             Log.breadcrumb("worker", "cleanup", "message files");
+            {
+                File[] files = new File(context.getFilesDir(), "messages").listFiles();
+                for (File file : files) {
+                    if (file.isDirectory())
+                        cleanupMessageFiles(db, manual, file.listFiles());
+                    else
+                        cleanupMessageFiles(db, manual, new File[]{file});
+                }
+            }
             cleanupMessageFiles(db, manual, Helper.listFiles(new File(context.getFilesDir(), "messages")).toArray(new File[0]));
             cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "revision").listFiles());
             cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "references").listFiles());
