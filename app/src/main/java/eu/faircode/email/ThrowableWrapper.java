@@ -21,6 +21,7 @@ package eu.faircode.email;
 
 import android.text.TextUtils;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class ThrowableWrapper extends Throwable {
@@ -34,12 +35,6 @@ public class ThrowableWrapper extends Throwable {
 
     ThrowableWrapper(Throwable ex) {
         this.ex = ex;
-    }
-
-    @Nullable
-    @Override
-    public String getLocalizedMessage() {
-        return getSafeMessage();
     }
 
     public String getSafeMessage() {
@@ -57,5 +52,35 @@ public class ThrowableWrapper extends Throwable {
 
     public String toSafeString() {
         return super.toString();
+    }
+
+    @Nullable
+    @Override
+    public String getMessage() {
+        return ex.getMessage();
+    }
+
+    @Nullable
+    @Override
+    public String getLocalizedMessage() {
+        return ex.getLocalizedMessage();
+    }
+
+    @NonNull
+    @Override
+    public StackTraceElement[] getStackTrace() {
+        return ex.getStackTrace();
+    }
+
+    @Nullable
+    @Override
+    public synchronized Throwable getCause() {
+        return ex.getCause();
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return ex.toString();
     }
 }
