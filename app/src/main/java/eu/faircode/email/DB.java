@@ -23,6 +23,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import androidx.room.migration.Migration;
+import androidx.sqlite.db.SimpleSQLiteQuery;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.json.JSONArray;
@@ -501,8 +502,8 @@ public abstract class DB extends RoomDatabase {
 
                         // https://www.sqlite.org/pragma.html
                         for (String pragma : DB_PRAGMAS)
-                            if (!"compile_options".equals(pragma) || BuildConfig.DEBUG)
-                                try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
+                            if (!"compile_options".equals(pragma) || BuildConfig.DEBUG) {
+                                try (Cursor cursor = db.query(new SimpleSQLiteQuery("PRAGMA " + pragma + ";"))) {
                                     boolean has = false;
                                     while (cursor.moveToNext()) {
                                         has = true;
@@ -510,7 +511,10 @@ public abstract class DB extends RoomDatabase {
                                     }
                                     if (!has)
                                         Log.i("Get PRAGMA " + pragma + "=<?>");
+                                } catch (Throwable ex) {
+                                    Log.e(ex);
                                 }
+                            }
 
                         if (BuildConfig.DEBUG && false)
                             dropTriggers(db);
