@@ -467,6 +467,7 @@
     <string name="title_advanced_ssl_harden_strict">Вимагати TLS 1.3</string>
     <string name="title_advanced_cert_strict">Сувора перевірка сертифікату</string>
     <string name="title_advanced_open_safe">Відкривати лише захищені з’єднання</string>
+    <string name="title_advanced_http_redirect" comment="title_advanced_http_redirect&#10;Title for option in connection settings tab page to disable redirecting connections">Дозволяти перенаправлення підключення</string>
     <string name="title_advanced_bouncy_castle">Використовувати захищеного постачальника сокету (JSSE) від Bouncy Castle</string>
     <string name="title_advanced_manage_connectivity">Керувати підключенням</string>
     <string name="title_advanced_caption_general">Загальні налаштування</string>
@@ -1036,7 +1037,7 @@
     <string name="title_service_port">Будь ласка, перевірте номер порту</string>
     <string name="title_service_protocol">Будь ласка, перевірте протокол (SSL/TLS або STARTTLS)</string>
     <string name="title_service_error10">Цей обліковий запис знову має бути автентифікований, що можна зробити за допомогою майстра швидкого налаштування</string>
-    <string name="title_certificate_error">        Через політику Play Store Google більше неможливо підтримувати у версії FairEmail, що розповсюджується серез Play Store, незахищені з’єднання з серверами електронної пошти, що мають проблеми з сертифікатими.
+    <string name="title_certificate_error">        Через політику Google Play Store у версії FairEmail, що розповсюджується серез Play Store, більше неможливо підтримувати незахищені з’єднання з серверами електронної пошти, що мають проблеми з сертифікатими.
          Тому цю проблему може вирішити лише ваш постачальник послуг електронної пошти — наведена вище інформація про помилку може допомогти йому вирішити цю проблему.
     </string>
     <string name="title_advanced_browse">Переглядати повідомлення на сервері</string>

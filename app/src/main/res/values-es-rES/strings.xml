@@ -438,6 +438,7 @@
     <string name="title_advanced_ssl_harden_strict">Requerir TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificación estricta de certificados</string>
     <string name="title_advanced_open_safe">Abrir solo conexiones seguras</string>
+    <string name="title_advanced_http_redirect" comment="title_advanced_http_redirect&#10;Title for option in connection settings tab page to disable redirecting connections">Permitir redirección de conexión</string>
     <string name="title_advanced_bouncy_castle">Usar Bouncy Castle\'s secure socket provider (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_caption_general">General</string>
@@ -1008,6 +1009,9 @@
     <string name="title_service_port">Por favor, compruebe el número de puerto</string>
     <string name="title_service_protocol">Por favor, compruebe el protocolo (SSL/TLS o STARTTLS)</string>
     <string name="title_service_error10">Esta cuenta necesita ser autenticada de nuevo, lo que puede hacerse a través del asistente de configuración rápida</string>
+    <string name="title_certificate_error">        Debido a la política de Google Play Store, ya no es posible brindar soporte para conexiones inseguras a servidores de correo con problemas de certificado en la versión de FairEmail distribuida en la Play Store.
+        Por eso, este problema sólo puede ser resuelto por su proveedor de correo - la información de arriba sobre el error puede ayudarle a resolverlo.
+    </string>
     <string name="title_advanced_browse">Explorar mensajes en el servidor</string>
     <string name="title_advanced_expand_read">Marcar mensajes leídos al expandir</string>
     <string name="title_synchronize_now">Sincronizar ahora</string>

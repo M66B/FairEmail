@@ -440,6 +440,7 @@
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 voraussetzen</string>
     <string name="title_advanced_cert_strict">Strenge Zertifikatsprüfung</string>
     <string name="title_advanced_open_safe">Nur sichere Verbindungen öffnen</string>
+    <string name="title_advanced_http_redirect" comment="title_advanced_http_redirect&#10;Title for option in connection settings tab page to disable redirecting connections">Verbindungsumleitung zulassen</string>
     <string name="title_advanced_bouncy_castle">Sicheren Socket-Anbieter (JSSE) von »Bouncy Castle« verwenden</string>
     <string name="title_advanced_manage_connectivity">Konnektivität verwalten</string>
     <string name="title_advanced_caption_general">Allgemein</string>
@@ -1011,9 +1012,9 @@
     <string name="title_service_port">Bitte überprüfen Sie die Portnummer</string>
     <string name="title_service_protocol">Bitte überprüfen Sie das Protokoll (SSL/TLS oder STARTTLS)</string>
     <string name="title_service_error10">Dieses Konto muss erneut authentifiziert werden, was über den Schnelleinrichtungsassistenten erfolgen kann</string>
-    <string name="title_certificate_error">Basierend auf den Nutzungsbedingungen des Google Playstores werden unsichere Verbindungen zu Email-Servern mit Zertifikatsproblemen bei der Verwendung der FairEmail-Version aus dem Play Store nicht mehr unterstützt.
-
-Daher können diese Probleme nur noch durch Ihren Email-Provider gelöst werden. Die oben angezeigte Fehlerinformation könnte dabei zur Lösung des Problems helfen.    </string>
+    <string name="title_certificate_error">        Unsichere Verbindungen zu E-Mail-Servern mit Zertifikatsproblemen werden beim Verwenden der FairEmail-Version aus dem Play Store nicht mehr unterstützt. Der Grund dafür sind Google Play Store-Richtlinien.
+        Das Problem kann daher nur durch Ihren E-Mail-Anbieter gelöst werden. Die obige Fehlerinformation könnte bei der Lösung dieses Problems hilfreich sein.
+    </string>
     <string name="title_advanced_browse">Nachrichten auf dem Server durchsuchen</string>
     <string name="title_advanced_expand_read">Nachrichten beim Ausklappen als gelesen kennzeichnen</string>
     <string name="title_synchronize_now">Jetzt synchronisieren</string>

@@ -364,6 +364,7 @@
     <string name="title_advanced_prefer_ip4">ترجیح IPv4 به IPv6</string>
     <string name="title_advanced_ssl_harden">اتصالات SSL را محکم کن</string>
     <string name="title_advanced_open_safe">فقط ارتباطات اوپن‌سورس</string>
+    <string name="title_advanced_http_redirect" comment="title_advanced_http_redirect&#10;Title for option in connection settings tab page to disable redirecting connections">مجاز دانستن تغییر مسیر ارتباط</string>
     <string name="title_advanced_manage_connectivity">مدیریت اتصال</string>
     <string name="title_advanced_caption_general">عمومی</string>
     <string name="title_advanced_caption_navigation">ناوبری</string>

@@ -1006,6 +1006,9 @@
     <string name="title_service_port">Παρακαλώ, ελέγξτε εκ νέου τον αριθμό θύρας</string>
     <string name="title_service_protocol">Παρακαλώ, ελέγξτε εκ νέου το πρωτόκολλο (SSL/TLS ή STARTTLS)</string>
     <string name="title_service_error10">Ο λογαριασμός αυτός πρέπει να ταυτοποιηθεί εκ νέου, το οποίο μπορεί να γίνει μέσω του οδηγού γρήγορης ρύθμισης</string>
+    <string name="title_certificate_error">        Εξαιτίας πολιτικών του Google Play store, η έκδοση του FairEmail που διανέμεται από το Play Store, δεν μπορεί πλέον να υποστηρίζει μη ασφαλείς συνδέσεις με διακομιστές που έχουν προβλήματα πιστοποιήσης.
+        Συνεπώς, μόνον ο πάροχος του ηλεκτρονικού ταχυδρομείου σας μπορεί να επιλύσει το εν λόγω πρόβλημα - το παραπάνω μήνυμα σφάλματος ίσως τους βοηθήσει στην εξεύρεση λύσης.
+    </string>
     <string name="title_advanced_browse">Περιήγηση μηνυμάτων στο διακομιστή</string>
     <string name="title_advanced_expand_read">Σήμανση των μηνυμάτων ως αναγνωσμένων κατά την ανάπτυξή τους</string>
     <string name="title_synchronize_now">Συγχρονισμός τώρα</string>

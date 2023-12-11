@@ -439,6 +439,7 @@
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 tələb et</string>
     <string name="title_advanced_cert_strict">Ciddi sertifikat yoxlanışı</string>
     <string name="title_advanced_open_safe">Yalnız güvənli bağlantıları aç</string>
+    <string name="title_advanced_http_redirect" comment="title_advanced_http_redirect&#10;Title for option in connection settings tab page to disable redirecting connections">Bağlantının təkrar yönləndirilməsinə icazə ver</string>
     <string name="title_advanced_bouncy_castle">\"Bouncy Castle\"ın güvənlik socket provayderini istifadə et (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Bağlantını idarə et</string>
     <string name="title_advanced_caption_general">Ümumi</string>
@@ -1009,6 +1010,9 @@
     <string name="title_service_port">Zəhmət olmasa port nömrəsini iki dəfə yoxlayın</string>
     <string name="title_service_protocol">Zəhmət olmasa protokolu iki dəfə yoxlayın (SSL/TLS və ya STARTTLS)</string>
     <string name="title_service_error10">Bu hesabın kimliyi yenidən doğrulanmalıdır, cəld quraşdırma sehrbazı vasitəsilə həyata keçirilə bilər</string>
+    <string name="title_certificate_error">        Google-un Play Store siyasətlərinə görə, Play Store-da paylaşdırılmış FairEmail versiyası üçün sertifikat proflemləri olan e-poçt serverlərinə göndərilən güvənli olmayan bağlantıların dəstəklənməsi artıq mümkün deyil.
+        Buna görə də, bu problem yalnız e-poçt provayderiniz tərəfindən həll edilə bilər - yuxarıdakı xəta məlumatları bu problemi həll etməyə kömək edə bilər.
+    </string>
     <string name="title_advanced_browse">Serverdəki mesajlara nəzər yetir</string>
     <string name="title_advanced_expand_read">Genişləndirəndə mesajları oxundu kimi işarələ</string>
     <string name="title_synchronize_now">İndi sinxronlaşdır</string>
