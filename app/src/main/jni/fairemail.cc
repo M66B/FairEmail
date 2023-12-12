@@ -75,6 +75,43 @@ Java_eu_faircode_email_Log_jni_1safe_1runtime_1exec(JNIEnv *env, jclass clazz,
 }
 
 extern "C"
+JNIEXPORT jlongArray JNICALL
+Java_eu_faircode_email_Log_jni_1safe_1runtime_1stats(JNIEnv *env, jclass clazz) {
+    jclass clsRuntime = env->FindClass("java/lang/Runtime");
+    jmethodID mid = env->GetStaticMethodID(clsRuntime, "getRuntime", "()Ljava/lang/Runtime;");
+    jobject jruntime = env->CallStaticObjectMethod(clsRuntime, mid);
+
+    jmethodID midTotalMemory = env->GetMethodID(clsRuntime, "totalMemory", "()J");
+    jlong totalMemory = env->CallLongMethod(jruntime, midTotalMemory);
+
+    jmethodID midFreeMemory = env->GetMethodID(clsRuntime, "freeMemory", "()J");
+    jlong freeMemory = env->CallLongMethod(jruntime, midFreeMemory);
+
+    jmethodID midMaxMemory = env->GetMethodID(clsRuntime, "maxMemory", "()J");
+    jlong maxMemory = env->CallLongMethod(jruntime, midMaxMemory);
+
+    jmethodID midAvailableProcessors = env->GetMethodID(clsRuntime, "availableProcessors", "()I");
+    jlong availableProcessors = env->CallIntMethod(jruntime, midAvailableProcessors);
+
+    jclass clsDebug = env->FindClass("android/os/Debug");
+    jmethodID midGetNativeHeapAllocatedSize = env->GetStaticMethodID(clsDebug, "getNativeHeapAllocatedSize", "()J");
+    jlong getNativeHeapAllocatedSize = env->CallStaticLongMethod(clsDebug, midGetNativeHeapAllocatedSize);
+
+    jlongArray result = env->NewLongArray(5);
+    if (result == NULL)
+        return NULL; /* out of memory error thrown */
+
+    env->SetLongArrayRegion(result, 0, 1, &totalMemory);
+    env->SetLongArrayRegion(result, 1, 1, &freeMemory);
+    env->SetLongArrayRegion(result, 2, 1, &maxMemory);
+    env->SetLongArrayRegion(result, 3, 1, &availableProcessors);
+    env->SetLongArrayRegion(result, 4, 1, &getNativeHeapAllocatedSize);
+
+    return result;
+}
+
+
+extern "C"
 JNIEXPORT jobject JNICALL
 Java_eu_faircode_email_CharsetHelper_jni_1detect_1charset(
         JNIEnv *env, jclass type,

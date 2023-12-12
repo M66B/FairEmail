@@ -245,6 +245,8 @@ public class Log {
 
     public static native Process jni_safe_runtime_exec(Runtime runtime, String[] cmd);
 
+    public static native long[] jni_safe_runtime_stats();
+
     public static void setLevel(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);

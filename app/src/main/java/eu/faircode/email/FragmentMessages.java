@@ -65,7 +65,6 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CancellationSignal;
-import android.os.Debug;
 import android.os.OperationCanceledException;
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -7118,10 +7117,16 @@ public class FragmentMessages extends FragmentBase
         if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
             return;
 
-        Runtime rt = Runtime.getRuntime();
-        long hused = rt.totalMemory() - rt.freeMemory();
-        long hmax = rt.maxMemory();
-        long nheap = Debug.getNativeHeapAllocatedSize();
+        long[] stats = Log.jni_safe_runtime_stats();
+        if (stats == null) {
+            tvDebug.setText("OOM");
+            return;
+        }
+
+        long hused = stats[0] - stats[1];
+        long hmax = stats[2];
+        int processors = (int) stats[3];
+        long nheap = stats[4];
         int perc = Math.round(hused * 100f / hmax);
 
         int utilization = 0;
@@ -7131,13 +7136,12 @@ public class FragmentMessages extends FragmentBase
             int cpuDelta = (int) (cpu - lastCpu);
             int timeDelta = (int) (time - lastTime);
             if (timeDelta != 0)
-                utilization = 100 * cpuDelta / timeDelta / rt.availableProcessors();
+                utilization = 100 * cpuDelta / timeDelta / processors;
         }
         lastCpu = cpu;
         lastTime = time;
 
-
-        tvDebug.setText(utilization + "%\n" + perc + "% " + (nheap / (1024 * 1024)) + "M"); // TODO CASA
+        tvDebug.setText(utilization + "%\n" + perc + "% " + (nheap / (1024 * 1024)) + "M");
     }
 
     private boolean handleThreadActions(
