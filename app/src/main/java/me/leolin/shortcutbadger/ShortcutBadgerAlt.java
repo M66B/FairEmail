@@ -164,8 +164,8 @@ public final class ShortcutBadgerAlt {
                     }
 
                     if (sIsBadgeCounterSupported == null) {
-                        Log.w(LOG_TAG, "Badge counter seems not supported for this platform: "
-                                + lastErrorMessage);
+                        //Log.w(LOG_TAG, "Badge counter seems not supported for this platform: "
+                        //        + lastErrorMessage);
                         sIsBadgeCounterSupported = false;
                     }
                 }
