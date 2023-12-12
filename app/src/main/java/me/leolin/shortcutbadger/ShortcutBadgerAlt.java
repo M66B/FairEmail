@@ -86,9 +86,6 @@ public final class ShortcutBadgerAlt {
                 Throwable ex = new Throwable("Badger=" + sShortcutBadger.getClass(), e);
                 eu.faircode.email.EntityLog.log(context, ex + "\n" + Log.getStackTraceString(ex));
             }
-            if (Log.isLoggable(LOG_TAG, Log.DEBUG)) {
-                Log.d(LOG_TAG, "Unable to execute badge", e);
-            }
             return false;
         }
     }
