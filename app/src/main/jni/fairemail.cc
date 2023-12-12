@@ -110,6 +110,26 @@ Java_eu_faircode_email_Log_jni_1safe_1runtime_1stats(JNIEnv *env, jclass clazz) 
     return result;
 }
 
+extern "C"
+JNIEXPORT jobject JNICALL
+Java_eu_faircode_email_DB_jni_1safe_1support_1query(JNIEnv *env, jclass clazz,
+                                                    jobject db,
+                                                    jstring sql, jobjectArray args) {
+    jclass cls = env->FindClass("androidx/sqlite/db/SupportSQLiteDatabase");
+    jmethodID mid = env->GetMethodID(cls, "query", "(Ljava/lang/String;[Ljava/lang/Object;)Landroid/database/Cursor;");
+    return env->CallObjectMethod(db, mid, sql, args);
+}
+
+extern "C"
+JNIEXPORT jobject JNICALL
+Java_eu_faircode_email_DB_jni_1safe_1sqlite_1query(JNIEnv *env, jclass clazz, jobject db, jstring table, jobjectArray columns,
+                                                   jstring selection, jobjectArray selection_args, jstring group_by,
+                                                   jstring having, jstring order_by, jstring limit) {
+    jclass cls = env->FindClass("android/database/sqlite/SQLiteDatabase");
+    jmethodID mid = env->GetMethodID(cls, "query",
+                                     "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;");
+    return env->CallObjectMethod(db, mid, table, columns, selection, selection_args, group_by, having, order_by, limit);
+}
 
 extern "C"
 JNIEXPORT jobject JNICALL

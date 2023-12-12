@@ -9,7 +9,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
 import android.net.Uri;
-import android.os.Build;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
@@ -23,7 +22,6 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import androidx.room.migration.Migration;
-import androidx.sqlite.db.SimpleSQLiteQuery;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import org.json.JSONArray;
@@ -143,6 +141,19 @@ public abstract class DB extends RoomDatabase {
             "recursive_triggers",
             "compile_options"
     ));
+
+    static {
+        System.loadLibrary("fairemail");
+    }
+
+    public static native Cursor jni_safe_support_query(
+            SupportSQLiteDatabase db, String sql, Object[] args);
+
+    public static native Cursor jni_safe_sqlite_query(
+            SQLiteDatabase db, String table, String[] columns,
+            String selection, String[] selectionArgs,
+            String groupBy, String having,
+            String orderBy, String limit);
 
     @Override
     public void init(@NonNull DatabaseConfiguration configuration) {
@@ -483,8 +494,7 @@ public abstract class DB extends RoomDatabase {
                         if (cache_size != null) {
                             cache_size = -cache_size; // kibibytes
                             Log.i("Set PRAGMA cache_size=" + cache_size);
-                            // TODO CASA
-                            try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";")) {
+                            try (Cursor cursor = jni_safe_support_query(db, "PRAGMA cache_size=" + cache_size + ";", new Object[0])) {
                                 cursor.moveToNext(); // required
                             }
                         }
@@ -504,8 +514,7 @@ public abstract class DB extends RoomDatabase {
                         // https://www.sqlite.org/pragma.html
                         for (String pragma : DB_PRAGMAS)
                             if (!"compile_options".equals(pragma) || BuildConfig.DEBUG) {
-                                // TODO CASA
-                                try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
+                                try (Cursor cursor = jni_safe_support_query(db, "PRAGMA " + pragma + ";", new Object[0])) {
                                     boolean has = false;
                                     while (cursor.moveToNext()) {
                                         has = true;

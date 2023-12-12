@@ -240,7 +240,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
                 " args=" + TextUtils.join(", ", args) +
                 " query=" + query);
         List<Long> result = new ArrayList<>();
-        try (Cursor cursor = db.query( // TODO CASA
+        try (Cursor cursor = DB.jni_safe_sqlite_query(db,
                 "message", new String[]{"rowid"},
                 select,
                 args.toArray(new String[0]),
