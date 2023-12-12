@@ -3129,11 +3129,13 @@ public class Log {
             attachment.id = db.attachment().insertAttachment(attachment);
 
             // https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html#java
-            ProcessBuilder pb = new ProcessBuilder("logcat",
+            ProcessBuilder pb = new ProcessBuilder("/system/bin/logcat",
                     "-d",
                     "-v", "threadtime",
                     //"-t", "1000",
                     Log.TAG + ":I");
+            Map<String, String> env = pb.environment();
+            env.clear();
             pb.directory(context.getFilesDir());
 
             Process proc = null;
