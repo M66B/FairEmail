@@ -71,7 +71,7 @@ public class OpenPgpApi {
      */
     public static final String ACTION_CHECK_PERMISSION = "org.openintents.openpgp.action.CHECK_PERMISSION";
 
-    @Deprecated
+    //@Deprecated
     public static final String ACTION_SIGN = "org.openintents.openpgp.action.SIGN";
 
     /**
