@@ -66,6 +66,24 @@ Java_eu_faircode_email_ThrowableWrapper_jni_1get_1safe_1stack_1trace_1string(
 }
 
 extern "C"
+JNIEXPORT jboolean JNICALL
+Java_eu_faircode_email_Log_jni_1safe_1mkdirs(JNIEnv *env, jclass clazz,
+                                             jobject file) {
+    jclass cls = env->FindClass("java/io/File");
+    jmethodID mid = env->GetMethodID(cls, "mkdirs", "()Z");
+    return (jboolean) env->CallBooleanMethod(file, mid);
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_eu_faircode_email_Log_jni_1safe_1write(JNIEnv *env, jclass clazz,
+                                            jobject os, jbyteArray data) {
+    jclass cls = env->FindClass("java/io/OutputStream");
+    jmethodID mid = env->GetMethodID(cls, "write", "([B)V");
+    env->CallVoidMethod(os, mid, data);
+}
+
+extern "C"
 JNIEXPORT jobject JNICALL
 Java_eu_faircode_email_Log_jni_1safe_1runtime_1exec(JNIEnv *env, jclass clazz,
                                                     jobject runtime, jobjectArray cmd) {
@@ -122,7 +140,8 @@ Java_eu_faircode_email_DB_jni_1safe_1support_1query(JNIEnv *env, jclass clazz,
 
 extern "C"
 JNIEXPORT jobject JNICALL
-Java_eu_faircode_email_DB_jni_1safe_1sqlite_1query(JNIEnv *env, jclass clazz, jobject db, jstring table, jobjectArray columns,
+Java_eu_faircode_email_DB_jni_1safe_1sqlite_1query(JNIEnv *env, jclass clazz, jobject db,
+                                                   jstring table, jobjectArray columns,
                                                    jstring selection, jobjectArray selection_args, jstring group_by,
                                                    jstring having, jstring order_by, jstring limit) {
     jclass cls = env->FindClass("android/database/sqlite/SQLiteDatabase");

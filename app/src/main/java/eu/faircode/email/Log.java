@@ -243,6 +243,10 @@ public class Log {
 
     public static native int jni_safe_log(int prio, String tag, String msg);
 
+    public static native boolean jni_safe_mkdirs(File file);
+
+    public static native void jni_safe_write(OutputStream os, byte[] data);
+
     public static native Process jni_safe_runtime_exec(Runtime runtime, String[] cmd);
 
     public static native long[] jni_safe_runtime_stats();
@@ -3813,9 +3817,9 @@ public class Log {
         return ssb;
     }
 
-    private static int write(OutputStream os, String text) throws IOException {
-        byte[] bytes = text.getBytes();
-        os.write(bytes); // TODO CASA
+    static int write(OutputStream os, String text) throws IOException {
+        byte[] bytes = (text == null ? new byte[0] : text.getBytes());
+        jni_safe_write(os, bytes);
         return bytes.length;
     }
 
