@@ -912,7 +912,7 @@
     <string name="title_encryption">暗号化</string>
     <string name="title_encryption_none">なし (安全でない)</string>
     <string name="title_allow_insecure">保護されていない接続を許可する</string>
-    <string name="title_insecure_remark">保護されていない接続は信頼されたネットワークでのみ許可し、パブリックネットワークでは許可しないでください</string>
+    <string name="title_insecure_remark">保護されていない接続は信頼できるネットワークでのみ許可し、パブリックネットワークでは許可しないでください</string>
     <string name="title_notify_remark">アカウント別の通知を有効にできます</string>
     <string name="title_port">ポート番号</string>
     <string name="title_user">ユーザー名</string>
@@ -947,7 +947,7 @@
     <string name="title_ignore_schedule">スケジュール外でも同期する</string>
     <string name="title_related_identity">関連するユーザー ID (SMTPサーバー) を追加する</string>
     <string name="title_check">確認</string>
-    <string name="title_trust">フィンガープリント %1$s でサーバー証明書を信頼する</string>
+    <string name="title_trust">フィンガープリント %1$s のサーバー証明書を信頼する</string>
     <string name="title_no_name">名前を入力してください</string>
     <string name="title_no_email">メールアドレスを入力してください</string>
     <string name="title_email_invalid">メールアドレスが無効です: \'%1$s\'</string>

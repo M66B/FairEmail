@@ -385,6 +385,7 @@
     <string name="title_advanced_answer_default">A válaszgomb rövid érintésére:</string>
     <string name="title_advanced_answer_action">A válaszgomb hosszú lenyomására:</string>
     <string name="title_advanced_answer_hint">A válaszgomb műveletei a Küldésbeállítások lapon is szerkeszthetők</string>
+    <string name="title_advanced_answer_warning">Nem minden művelet lehetséges a kiválasztó menü nélkül!</string>
     <string name="title_advanced_send_pending">Nem zavaró küldés késleltetett ikon megjelenítése</string>
     <string name="title_advanced_save_revisions">Mentsen vázlatelőzményeket a visszavonáshoz, ismétléshez</string>
     <string name="title_advanced_auto_save_paragraph">Automatikus vázlatmentés minden bekezdés után</string>
@@ -596,6 +597,7 @@
     <string name="title_advanced_quick_filter">Nem zavaró gyorsszűrő ikonok használata</string>
     <string name="title_advanced_quick_scroll">Nem zavaró gyors fel-/legörgetés ikonok használata</string>
     <string name="title_advanced_quick_actions">Gyorsműveletek mutatása üzenetek kiválasztásakor</string>
+    <string name="title_advanced_folder_nav">Mindig térjen vissza a mappa listához az üzenet listáról</string>
     <string name="title_advanced_autoread">Üzenetek automatikus megjelölése olvasottként áthelyezéskor</string>
     <string name="title_advanced_autounstar">Csillagok automatikus eltávolítása az üzenetek áthelyezésekor</string>
     <string name="title_advanced_reset_importance">Fontosság törlése áthelyezéskor</string>
