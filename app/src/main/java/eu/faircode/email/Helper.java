@@ -2645,7 +2645,7 @@ public class Helper {
         parent.mkdir();
 
         File dir = new File(parent, subdir);
-        dir.mkdir();
+        Log.jni_safe_mkdirs(dir);
 
         synchronized (exists) {
             if (exists.containsKey(dir))

@@ -245,6 +245,8 @@ public class Log {
 
     public static native void jni_safe_write(OutputStream os, byte[] data);
 
+    public static native boolean jni_safe_mkdirs(File file);
+
     public static native long[] jni_safe_runtime_stats();
 
     public static void setLevel(Context context) {
@@ -402,7 +404,6 @@ public class Log {
         ThrowableWrapper t = new ThrowableWrapper(ex);
         return t.toSafeString() + "\n" + t.getSafeStackTraceString();
     }
-
 
     public static void persist(EntityLog.Type type, String message) {
         if (ctx == null)
@@ -1931,6 +1932,8 @@ public class Log {
         } finally {
             db.endTransaction();
         }
+
+        Log.jni_safe_mkdirs(new File(context.getFilesDir(), "testing"));
 
         ServiceSynchronize.eval(context, "debuginfo");
 

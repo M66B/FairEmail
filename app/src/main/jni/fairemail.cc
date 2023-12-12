@@ -75,6 +75,14 @@ Java_eu_faircode_email_Log_jni_1safe_1write(JNIEnv *env, jclass clazz,
 }
 
 extern "C"
+JNIEXPORT jboolean JNICALL
+Java_eu_faircode_email_Log_jni_1safe_1mkdirs(JNIEnv *env, jclass clazz, jobject file) {
+    jclass cls = env->FindClass("java/io/File");
+    jmethodID mid = env->GetMethodID(cls, "mkdirs", "()Z");
+    return (jboolean) env->CallBooleanMethod(file, mid);
+}
+
+extern "C"
 JNIEXPORT jlongArray JNICALL
 Java_eu_faircode_email_Log_jni_1safe_1runtime_1stats(JNIEnv *env, jclass clazz) {
     jclass clsRuntime = env->FindClass("java/lang/Runtime");
