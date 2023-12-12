@@ -650,7 +650,7 @@ public abstract class SelectionTracker<K> {
          * @deprecated GestureSelection is best bound to {@link MotionEvent#TOOL_TYPE_FINGER},
          * and only that tool type. This method will be removed in a future release.
          */
-        @Deprecated
+        //@Deprecated
         public @NonNull Builder<K> withGestureTooltypes(@NonNull int... toolTypes) {
             Log.w(TAG, "Setting gestureTooltypes is likely to result in unexpected behavior.");
             mGestureToolTypes = toolTypes;
