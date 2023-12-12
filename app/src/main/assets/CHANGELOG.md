@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
+### 1.2138 - 2023-12-12
+
+* Fixed *No protocols enabled* error
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2137 - 2023-12-12
 
 * Optimized database for storing many messages
