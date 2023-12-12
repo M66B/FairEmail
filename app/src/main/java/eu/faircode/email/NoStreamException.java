@@ -64,7 +64,8 @@ public class NoStreamException extends SecurityException {
         TextView tvUri = dview.findViewById(R.id.tvUri);
         ImageButton ibInfo = dview.findViewById(R.id.ibInfo);
 
-        tvUri.setText(uri == null ? null : uri.getLastPathSegment());
+        //tvUri.setText(uri == null ? null : uri.toString());
+        tvUri.setVisibility(View.GONE); // CASA
 
         ibInfo.setOnClickListener(new View.OnClickListener() {
             @Override
