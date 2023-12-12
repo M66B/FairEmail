@@ -564,24 +564,13 @@ public abstract class DB extends RoomDatabase {
     }
 
     private static void createTriggers(@NonNull SupportSQLiteDatabase db) {
-        List<String> image = new ArrayList<>();
-        for (String img : ImageHelper.IMAGE_TYPES)
-            image.add("'" + img + "'");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-            for (String img : ImageHelper.IMAGE_TYPES8)
-                image.add("'" + img + "'");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-            for (String img : ImageHelper.IMAGE_TYPES12)
-                image.add("'" + img + "'");
-        String images = TextUtils.join(",", image);
-
         db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_insert" +
                 " AFTER INSERT ON attachment" +
                 " BEGIN" +
                 "  UPDATE message SET attachments = attachments + 1" +
                 "  WHERE message.id = NEW.message" +
                 "  AND NEW.encryption IS NULL" +
-                "  AND NOT ((NEW.disposition = 'inline' OR (NEW.related IS NOT 0 AND NEW.cid IS NOT NULL)) AND NEW.type IN (" + images + "));" +
+                "  AND NOT ((NEW.disposition = 'inline' OR (NEW.related IS NOT 0 AND NEW.cid IS NOT NULL)) AND NEW.type LIKE 'image/%');" +
                 " END");
         db.execSQL("CREATE TRIGGER IF NOT EXISTS attachment_delete" +
                 " AFTER DELETE ON attachment" +
@@ -589,7 +578,7 @@ public abstract class DB extends RoomDatabase {
                 "  UPDATE message SET attachments = attachments - 1" +
                 "  WHERE message.id = OLD.message" +
                 "  AND OLD.encryption IS NULL" +
-                "  AND NOT ((OLD.disposition = 'inline' OR (OLD.related IS NOT 0 AND OLD.cid IS NOT NULL)) AND OLD.type IN (" + images + "));" +
+                "  AND NOT ((OLD.disposition = 'inline' OR (OLD.related IS NOT 0 AND OLD.cid IS NOT NULL)) AND OLD.type LIKE 'image/%');" +
                 " END");
 
         db.execSQL("CREATE TRIGGER IF NOT EXISTS account_update" +
