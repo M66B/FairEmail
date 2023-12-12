@@ -3455,9 +3455,12 @@ public class Log {
                 if (ai != null)
                     size += write(os, String.format("Source: %s\r\n public: %s\r\n",
                             ai.sourceDir, ai.publicSourceDir));
-                size += write(os, String.format("Files: %s\r\n  external: %s\r\n  storage: %s\r\n",
-                        context.getFilesDir(), Helper.getExternalFilesDir(context),
+                File external = Helper.getExternalFilesDir(context);
+                boolean emulated = (external != null && Environment.isExternalStorageEmulated(external));
+                size += write(os, String.format("Files: %s\r\n  external: %s\r\n  emulated: %b\r\n  storage: %s\r\n",
+                        context.getFilesDir(), external, emulated,
                         Environment.getExternalStorageDirectory()));
+
                 size += write(os, String.format("Cache: %s\r\n  external: %s\n",
                         context.getCacheDir(), context.getExternalCacheDir()));
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)

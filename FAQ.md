@@ -3346,13 +3346,15 @@ Messages, attachments, etc stored on external storage media, like an sdcard, can
 See [here](https://developer.android.com/training/data-storage) for the details.
 Instead, consider to use [adoptable storage](https://source.android.com/devices/storage/adoptable).
 
-Since version 1.1829 is it possible to store attachments to external storage space private to the app (except for file managers) via an option in the debug panel.
-You can enable the debug panel by enabling debug mode in the miscellaneous settings (last option).
-To prevent ongoing operations from storing attachments at the old location
-you should disable receiving messages in the receive settings and wait until all operations have been completed before changing this option.
-Please be aware that removing the storage space will inevitably result in problems, which is one of the reasons why this option is hidden.
+~~Since version 1.1829 is it possible to store attachments to external storage space private to the app (except for file managers) via an option in the debug panel.~~
+~~You can enable the debug panel by enabling debug mode in the miscellaneous settings (last option).~~
+~~To prevent ongoing operations from storing attachments at the old location~~
+~~you should disable receiving messages in the receive settings and wait until all operations have been completed before changing this option.~~
+~~Please be aware that removing the storage space will inevitably result in problems, which is one of the reasons why this option is hidden.~~
 
-Moving messages to an sdcard is not an option because this would significantly reduce the response times of the app.
+~~Moving messages to an sdcard is not an option because this would significantly reduce the response times of the app.~~
+
+The option to move attachments to external storage space was removed in version 1.2137 because Play Store policies considers it unsafe.
 
 When needed you can save (raw) messages via the three-dots menu just above the message text
 and save attachments by tapping on the floppy icon.
