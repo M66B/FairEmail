@@ -2655,18 +2655,6 @@ public class Helper {
         return dir;
     }
 
-    static File getExternalFilesDir(Context context) {
-        return getExternalFilesDir(context, null);
-    }
-
-    static File getExternalFilesDir(Context context, String type) {
-        File[] dirs = ContextCompat.getExternalFilesDirs(context, type);
-        if (dirs == null || dirs.length == 0)
-            return context.getExternalFilesDir(type);
-        else
-            return dirs[0];
-    }
-
     static String sanitizeFilename(String name) {
         if (name == null)
             return null;

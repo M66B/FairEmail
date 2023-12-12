@@ -1730,7 +1730,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                         files.addAll(Helper.listFiles(context.getCacheDir(), MIN_FILE_SIZE));
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                             files.addAll(Helper.listFiles(context.getDataDir(), MIN_FILE_SIZE));
-                        files.addAll(Helper.listFiles(Helper.getExternalFilesDir(context), MIN_FILE_SIZE));
 
                         Collections.sort(files, new Comparator<File>() {
                             @Override
