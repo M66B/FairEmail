@@ -2641,16 +2641,17 @@ public class Helper {
 
     private static final Map<File, Boolean> exists = new HashMap<>();
 
-    static File ensureExists(File dir) {
+    static File ensureExists(File parent, String subdir) {
+        parent.mkdir();
+
+        File dir = new File(parent, subdir);
+        dir.mkdir();
+
         synchronized (exists) {
             if (exists.containsKey(dir))
                 return dir;
             exists.put(dir, true);
         }
-
-        // CASA: External storage as well
-        if (!dir.exists() && Log.jni_safe_mkdirs(dir))
-            throw new IllegalArgumentException("Failed to create directory");
 
         return dir;
     }

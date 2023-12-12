@@ -357,7 +357,7 @@ public class ContactInfo {
 
                 final String domain = d.toLowerCase(Locale.ROOT);
 
-                File dir = Helper.ensureExists(new File(context.getFilesDir(), "favicons"));
+                File dir = Helper.ensureExists(context.getFilesDir(), "favicons");
 
                 try {
                     // check cache
@@ -548,7 +548,7 @@ public class ContactInfo {
         String tag = (TextUtils.isEmpty(info.email) ? name : info.email);
         String etag = (TextUtils.isEmpty(info.email) ? Helper.sanitizeFilename(name + "@name") : ekey);
         if (info.bitmap == null && generated && !TextUtils.isEmpty(tag)) {
-            File dir = Helper.ensureExists(new File(context.getFilesDir(), "generated"));
+            File dir = Helper.ensureExists(context.getFilesDir(), "generated");
             File[] files = dir.listFiles(new FilenameFilter() {
                 @Override
                 public boolean accept(File file, String name) {

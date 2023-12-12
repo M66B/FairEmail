@@ -3562,7 +3562,7 @@ public class FragmentCompose extends FragmentBase {
                 });
                 snackbar.show();
             } else {
-                File dir = Helper.ensureExists(new File(context.getFilesDir(), "photo"));
+                File dir = Helper.ensureExists(context.getFilesDir(), "photo");
                 File file = new File(dir, working + "_" + new Date().getTime() + ".jpg");
                 try {
                     photoURI = FileProviderEx.getUri(context, BuildConfig.APPLICATION_ID, file);
@@ -3874,7 +3874,7 @@ public class FragmentCompose extends FragmentBase {
                     throw new IllegalArgumentException(context.getString(R.string.title_from_missing));
 
                 // Create files
-                File tmp = Helper.ensureExists(new File(context.getFilesDir(), "encryption"));
+                File tmp = Helper.ensureExists(context.getFilesDir(), "encryption");
                 File input = new File(tmp, draft.id + "_" + session + ".pgp_input");
                 File output = new File(tmp, draft.id + "_" + session + ".pgp_output");
 
@@ -4242,7 +4242,7 @@ public class FragmentCompose extends FragmentBase {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 boolean check_certificate = prefs.getBoolean("check_certificate", true);
 
-                File tmp = Helper.ensureExists(new File(context.getFilesDir(), "encryption"));
+                File tmp = Helper.ensureExists(context.getFilesDir(), "encryption");
 
                 DB db = DB.getInstance(context);
 
