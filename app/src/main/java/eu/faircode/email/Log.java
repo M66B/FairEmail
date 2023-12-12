@@ -3783,7 +3783,7 @@ public class Log {
                     }
                     ssb.append("\r\n");
                 } catch (Throwable ex) {
-                    ssb.append(new ThrowableWrapper(ex).toSafeString());
+                    Log.e(ex);
                 }
 
         ssb.setSpan(new RelativeSizeSpan(HtmlHelper.FONT_SMALL), 0, ssb.length(), 0);
