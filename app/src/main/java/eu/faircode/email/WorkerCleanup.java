@@ -224,7 +224,6 @@ public class WorkerCleanup extends Worker {
                         cleanupMessageFiles(db, manual, new File[]{file});
                 }
             }
-            cleanupMessageFiles(db, manual, Helper.listFiles(new File(context.getFilesDir(), "messages")).toArray(new File[0]));
             cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "revision").listFiles());
             cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "references").listFiles());
             cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "encryption").listFiles());
