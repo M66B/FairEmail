@@ -24,6 +24,20 @@ void log_android(int prio, const char *fmt, ...) {
 }
 
 extern "C"
+JNIEXPORT jint JNICALL
+Java_eu_faircode_email_Log_jni_1safe_1log(JNIEnv *env, jclass clazz, jint prio, jstring _tag, jstring _msg) {
+    const char *tag = env->GetStringUTFChars(_tag, 0);
+    const char *msg = env->GetStringUTFChars(_msg, 0);
+
+    __android_log_print(prio, tag, "%s", msg);
+
+    env->ReleaseStringUTFChars(_tag, tag);
+    env->ReleaseStringUTFChars(_msg, msg);
+
+    return 1;
+}
+
+extern "C"
 JNIEXPORT jstring JNICALL
 Java_eu_faircode_email_ThrowableWrapper_jni_1get_1safe_1message(
         JNIEnv *env, jclass clazz, jthrowable ex) {

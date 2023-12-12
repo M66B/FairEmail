@@ -237,6 +237,12 @@ public class Log {
     static final String TOKEN_REFRESH_REQUIRED =
             "Token refresh required. Is there a VPN based app running?";
 
+    static {
+        System.loadLibrary("fairemail");
+    }
+
+    public static native int jni_safe_log(int prio, String tag, String msg);
+
     public static void setLevel(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
@@ -246,7 +252,7 @@ public class Log {
             int def = (BuildConfig.DEBUG ? android.util.Log.INFO : android.util.Log.WARN);
             level = prefs.getInt("log_level", def);
         }
-        Log.i("Log level=" + level);
+        jni_safe_log(android.util.Log.DEBUG, TAG, "Log level=" + level);
     }
 
     public static boolean isDebugLogLevel() {
@@ -255,14 +261,14 @@ public class Log {
 
     public static int d(String msg) {
         if (level <= android.util.Log.DEBUG)
-            return android.util.Log.d(TAG, msg);
+            return jni_safe_log(android.util.Log.DEBUG, TAG, msg);
         else
             return 0;
     }
 
     public static int d(String tag, String msg) {
         if (level <= android.util.Log.DEBUG)
-            return android.util.Log.d(tag, msg);
+            return jni_safe_log(android.util.Log.DEBUG, tag, msg);
         else
             return 0;
     }
@@ -276,13 +282,13 @@ public class Log {
 
     public static int i(String tag, String msg) {
         if (level <= android.util.Log.INFO || BuildConfig.DEBUG || BuildConfig.TEST_RELEASE)
-            return android.util.Log.i(tag, msg);
+            return jni_safe_log(android.util.Log.INFO, TAG, msg);
         else
             return 0;
     }
 
     public static int w(String msg) {
-        return android.util.Log.w(TAG, msg);
+        return jni_safe_log(android.util.Log.WARN, TAG, msg);
     }
 
     public static int e(String msg) {
@@ -302,11 +308,11 @@ public class Log {
             } catch (Throwable ex) {
                 Log.i(ex);
             }
-        return android.util.Log.e(TAG, msg);
+        return jni_safe_log(android.util.Log.ERROR, TAG, msg);
     }
 
     public static int i(Throwable ex) {
-        return android.util.Log.i(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
+        return jni_safe_log(android.util.Log.INFO, TAG, getDescription(ex));
     }
 
     public static int w(Throwable ex) {
@@ -325,7 +331,7 @@ public class Log {
             } catch (Throwable ex1) {
                 Log.i(ex1);
             }
-        return android.util.Log.w(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
+        return jni_safe_log(android.util.Log.WARN, TAG, getDescription(ex));
     }
 
     public static int e(Throwable ex) {
@@ -344,11 +350,11 @@ public class Log {
             } catch (Throwable ex1) {
                 Log.i(ex1);
             }
-        return android.util.Log.e(TAG, ex + "\n" + android.util.Log.getStackTraceString(ex));
+        return jni_safe_log(android.util.Log.ERROR, TAG, getDescription(ex));
     }
 
     public static int i(String prefix, Throwable ex) {
-        return android.util.Log.i(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
+        return jni_safe_log(android.util.Log.INFO, TAG, prefix + " " + getDescription(ex));
     }
 
     public static int w(String prefix, Throwable ex) {
@@ -364,7 +370,7 @@ public class Log {
             } catch (Throwable ex1) {
                 Log.i(ex1);
             }
-        return android.util.Log.w(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
+        return jni_safe_log(android.util.Log.WARN, TAG, prefix + " " + getDescription(ex));
     }
 
     public static int e(String prefix, Throwable ex) {
@@ -380,7 +386,7 @@ public class Log {
             } catch (Throwable ex1) {
                 Log.i(ex1);
             }
-        return android.util.Log.e(TAG, prefix + " " + ex + "\n" + android.util.Log.getStackTraceString(ex));
+        return jni_safe_log(android.util.Log.ERROR, TAG, prefix + " " + getDescription(ex));
     }
 
     public static void persist(String message) {
@@ -389,6 +395,12 @@ public class Log {
         else
             EntityLog.log(ctx, message);
     }
+
+    private static String getDescription(Throwable ex) {
+        ThrowableWrapper t = new ThrowableWrapper(ex);
+        return t.toSafeString() + "\n" + t.getSafeStackTraceString();
+    }
+
 
     public static void persist(EntityLog.Type type, String message) {
         if (ctx == null)
@@ -1856,8 +1868,10 @@ public class Log {
         }
         sb.append("\n\n");
         sb.append(getAppInfo(context));
-        if (ex != null)
-            sb.append(ex.toString()).append("\n").append(android.util.Log.getStackTraceString(ex));
+        if (ex != null) {
+            ThrowableWrapper w = new ThrowableWrapper(ex);
+            sb.append(w.toSafeString()).append("\n").append(w.getSafeStackTraceString());
+        }
         if (log != null)
             sb.append(log);
         String body = "<pre class=\"fairemail_debug_info\">" + TextUtils.htmlEncode(sb.toString()) + "</pre>";
