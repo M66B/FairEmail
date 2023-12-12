@@ -243,8 +243,6 @@ public class Log {
 
     public static native int jni_safe_log(int prio, String tag, String msg);
 
-    public static native boolean jni_safe_mkdirs(File file);
-
     public static native void jni_safe_write(OutputStream os, byte[] data);
 
     public static native long[] jni_safe_runtime_stats();
