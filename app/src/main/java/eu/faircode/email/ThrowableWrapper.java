@@ -25,8 +25,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class ThrowableWrapper extends Throwable {
-    private Throwable ex;
-    private String msg;
+    private final Throwable ex;
+    private final String msg;
 
     ThrowableWrapper(String msg) {
         this.ex = new Throwable();
@@ -35,6 +35,7 @@ public class ThrowableWrapper extends Throwable {
 
     ThrowableWrapper(Throwable ex) {
         this.ex = ex;
+        this.msg = null;
     }
 
     public String getSafeMessage() {
@@ -51,7 +52,7 @@ public class ThrowableWrapper extends Throwable {
     }
 
     public String toSafeString() {
-        return super.toString();
+        return ex.toString();
     }
 
     @Nullable
@@ -63,7 +64,7 @@ public class ThrowableWrapper extends Throwable {
     @Nullable
     @Override
     public String getLocalizedMessage() {
-        return ex.getLocalizedMessage();
+        return getMessage();
     }
 
     @NonNull
