@@ -70,13 +70,13 @@ public class ThrowableWrapper extends Throwable {
     @Nullable
     @Override
     public String getMessage() {
-        return ex.getMessage();
+        return getSafeMessage();
     }
 
     @Nullable
     @Override
     public String getLocalizedMessage() {
-        return ex.getLocalizedMessage();
+        return getSafeMessage();
     }
 
     @NonNull
@@ -94,6 +94,6 @@ public class ThrowableWrapper extends Throwable {
     @NonNull
     @Override
     public String toString() {
-        return ex.toString();
+        return toSafeString();
     }
 }

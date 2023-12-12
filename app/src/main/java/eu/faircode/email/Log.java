@@ -304,9 +304,6 @@ public class Log {
             try {
                 ThrowableWrapper ex = new ThrowableWrapper();
                 ex.setMessage(msg);
-                List<StackTraceElement> ss = new ArrayList<>(Arrays.asList(ex.getStackTrace()));
-                ss.remove(0);
-                ex.setStackTrace(ss.toArray(new StackTraceElement[0]));
                 Bugsnag.notify(ex, new OnErrorCallback() {
                     @Override
                     public boolean onError(@NonNull Event event) {
