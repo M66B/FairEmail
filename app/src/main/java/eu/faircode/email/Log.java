@@ -298,7 +298,8 @@ public class Log {
     public static int e(String msg) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Throwable ex = new ThrowableWrapper(msg); // TODO CASA
+                ThrowableWrapper ex = new ThrowableWrapper();
+                ex.setMessage(msg);
                 List<StackTraceElement> ss = new ArrayList<>(Arrays.asList(ex.getStackTrace()));
                 ss.remove(0);
                 ex.setStackTrace(ss.toArray(new StackTraceElement[0]));

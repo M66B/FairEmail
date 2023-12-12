@@ -25,8 +25,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class ThrowableWrapper extends Throwable {
+    private String msg;
     private final Throwable ex;
-    private final String msg;
 
     public static native String jni_get_safe_message(Throwable ex);
 
@@ -38,14 +38,16 @@ public class ThrowableWrapper extends Throwable {
         System.loadLibrary("fairemail");
     }
 
-    ThrowableWrapper(String msg) {
+    ThrowableWrapper() {
         this.ex = new Throwable();
-        this.msg = msg;
     }
 
     ThrowableWrapper(Throwable ex) {
         this.ex = ex;
-        this.msg = null;
+    }
+
+    void setMessage(String msg) {
+        this.msg = msg;
     }
 
     public String getSafeMessage() {
