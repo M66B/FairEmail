@@ -28,6 +28,16 @@ public class ThrowableWrapper extends Throwable {
     private final Throwable ex;
     private final String msg;
 
+    public static native String jni_get_safe_message(Throwable ex);
+
+    public static native String jni_to_safe_string(Throwable ex);
+
+    public static native String jni_get_safe_stack_trace_string(Throwable ex);
+
+    static {
+        System.loadLibrary("fairemail");
+    }
+
     ThrowableWrapper(String msg) {
         this.ex = new Throwable();
         this.msg = msg;
@@ -39,7 +49,7 @@ public class ThrowableWrapper extends Throwable {
     }
 
     public String getSafeMessage() {
-        return (TextUtils.isEmpty(msg) ? super.getMessage() : msg);
+        return (TextUtils.isEmpty(msg) ? jni_get_safe_message(ex) : msg);
     }
 
     public String getSafeMessageOrName() {
@@ -47,12 +57,12 @@ public class ThrowableWrapper extends Throwable {
         return (msg == null ? ex.getClass().getName() : msg);
     }
 
-    public String getStackTraceString() {
-        return android.util.Log.getStackTraceString(ex);
+    public String getSafeStackTraceString() {
+        return jni_get_safe_stack_trace_string(ex);
     }
 
     public String toSafeString() {
-        return ex.toString();
+        return jni_to_safe_string(ex);
     }
 
     @Nullable
@@ -64,7 +74,7 @@ public class ThrowableWrapper extends Throwable {
     @Nullable
     @Override
     public String getLocalizedMessage() {
-        return getMessage();
+        return ex.getLocalizedMessage();
     }
 
     @NonNull

@@ -1838,7 +1838,7 @@ public class Log {
 
         try (FileWriter out = new FileWriter(file, true)) {
             out.write(BuildConfig.VERSION_NAME + BuildConfig.REVISION + " " + new Date() + "\r\n");
-            out.write(ex + "\r\n" + new ThrowableWrapper(ex).getStackTraceString() + "\r\n");
+            out.write(ex + "\r\n" + new ThrowableWrapper(ex).getSafeStackTraceString() + "\r\n");
         } catch (IOException e) {
             Log.e(e);
         }
