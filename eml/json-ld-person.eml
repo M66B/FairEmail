@@ -1,0 +1,54 @@
+MIME-Version: 1.0
+Date: Mon, 27 Nov 2023 22:06:32 +0100
+Message-ID: <jsonldperson@mail.gmail.com>
+Subject: JSON-LD person
+From: Marcel Bokhorst <test@faircode.eu>
+To: Marcel Bokhorst <test@faircode.eu>
+Content-Type: multipart/alternative; boundary="00000000000033b419060b28adcf"
+
+--00000000000033b419060b28adcf
+Content-Type: text/plain; charset="UTF-8"
+
+Test
+
+--00000000000033b419060b28adcf
+Content-Type: text/html; charset="UTF-8"
+
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Colorado Springs",
+        "addressRegion": "CO",
+        "postalCode": "80840",
+        "streetAddress": "100 Main Street"
+      },
+      "colleague": [
+        "http://www.example.com/JohnColleague.html",
+        "http://www.example.com/JameColleague.html"
+      ],
+      "email": "info@example.com",
+      "image": "janedoe.jpg",
+      "jobTitle": "Research Assistant",
+      "name": "Jane Doe",
+      "alumniOf": "Dartmouth",
+      "birthPlace": "Philadelphia, PA",
+      "birthDate": "1979-10-12",
+      "height": "72 inches",
+      "gender": "female",
+      "memberOf": "Republican Party",
+      "nationality": "Albanian",
+      "telephone": "(123) 456-6789",
+      "url": "http://www.example.com",
+	    "sameAs" : [ "https://www.facebook.com/",
+      "https://www.linkedin.com/",
+      "http://twitter.com/",
+      "http://instagram.com/",
+      "https://plus.google.com/"]
+    }
+</script>
+<div dir="ltr">Test<div><br></div></div>
+
+--00000000000033b419060b28adcf--

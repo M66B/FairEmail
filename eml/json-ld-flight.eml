@@ -1,0 +1,62 @@
+MIME-Version: 1.0
+Date: Mon, 27 Nov 2023 15:46:37 +0100
+Message-ID: <jsonldflight@mail.gmail.com>
+Subject: Test
+From: Marcel Bokhorst <test@faircode.eu>
+To: Marcel Bokhorst <test@faircode.eu>
+Content-Type: multipart/alternative; boundary="000000000000840347060b235efc"
+
+--000000000000840347060b235efc
+Content-Type: text/plain; charset="UTF-8"
+
+Test
+
+--000000000000840347060b235efc
+Content-Type: text/html; charset="UTF-8"
+
+<script type="application/ld+json">
+{
+      "@context": "https://schema.org",
+      "@type": "FlightReservation",
+      "reservationId": "RXJ34P",
+      "reservationStatus": "https://schema.org/ReservationConfirmed",
+      "passengerPriorityStatus": "Fast Track",
+      "passengerSequenceNumber": "ABC123",
+      "securityScreening": "TSA PreCheck",
+      "underName": {
+        "@type": "Person",
+        "name": "Eva Green"
+      },
+      "reservationFor": {
+        "@type": "Flight",
+        "flightNumber": "UA110",
+        "provider": {
+          "@type": "Airline",
+          "name": "Continental",
+          "iataCode": "CO",
+          "boardingPolicy": "https://schema.org/ZoneBoardingPolicy"
+        },
+        "seller": {
+          "@type": "Airline",
+          "name": "United",
+          "iataCode": "UA"
+        },
+        "departureAirport": {
+          "@type": "Airport",
+          "name": "San Francisco Airport",
+          "iataCode": "SFO"
+        },
+        "departureTime": "2017-03-04T20:15:00-08:00",
+        "arrivalAirport": {
+          "@type": "Airport",
+          "name": "John F. Kennedy International Airport",
+          "iataCode": "JFK"
+        },
+        "arrivalTime": "2017-03-05T06:30:00-05:00"
+      }
+    }
+</script>
+
+<div dir="ltr">Test<div><br></div></div>
+
+--000000000000840347060b235efc--

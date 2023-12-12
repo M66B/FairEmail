@@ -1,0 +1,25 @@
+MIME-Version: 1.0
+Date: Mon, 01 Dec 2023 12:00:00 +0100
+Message-ID: <jsonldemail@mail.gmail.com>
+Subject: JSON-LD EmailMessage
+From: Marcel Bokhorst <test@faircode.eu>
+To: Marcel Bokhorst <test@faircode.eu>
+Content-Type: multipart/alternative; boundary="00000000000033b419060b28adcf"
+
+--00000000000033b419060b28adcf
+Content-Type: text/plain; charset="UTF-8"
+
+Test
+
+--00000000000033b419060b28adcf
+Content-Type: text/html; charset="UTF-8"
+
+<script type="application/ld+json">
+[
+{"@context":"http:\/\/schema.org","@type":"EmailMessage","potentialAction":{"@type":"ViewAction","target":"https:\/\/github.com\/mltframework\/shotcut\/releases\/tag\/v23.11.29","url":"https:\/\/github.com\/mltframework\/shotcut\/releases\/tag\/v23.11.29","name":"View Release"},"description":"View this Release on GitHub","publisher":{"@type":"Organization","name":"GitHub","url":"https:\/\/github.com"}},
+{"@context":"http:\/\/schema.org","@type":"EmailMessage","potentialAction":{"@type":"ViewAction","target":"https:\/\/github.com\/mltframework\/shotcut\/releases\/tag\/v23.11.29","url":"https:\/\/github.com\/mltframework\/shotcut\/releases\/tag\/v23.11.29","name":"View Release"},"description":"View this Release on GitHub","publisher":{"@type":"Organization","name":"GitHub","url":"https:\/\/github.com"}}
+]
+</script>
+<div dir="ltr">Test<div><br></div></div>
+
+--00000000000033b419060b28adcf--
