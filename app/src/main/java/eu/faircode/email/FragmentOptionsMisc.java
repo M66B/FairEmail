@@ -1751,7 +1751,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                 ? null : context.getDataDir());
                         File filesDir = context.getFilesDir();
                         File cacheDir = context.getCacheDir();
-                        File externalDir = Helper.getExternalFilesDir(context);
 
                         if (dataDir != null)
                             ssb.append("Data: ").append(dataDir.getAbsolutePath()).append("\r\n");
@@ -1759,8 +1758,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             ssb.append("Files: ").append(filesDir.getAbsolutePath()).append("\r\n");
                         if (cacheDir != null)
                             ssb.append("Cache: ").append(cacheDir.getAbsolutePath()).append("\r\n");
-                        if (externalDir != null)
-                            ssb.append("External: ").append(externalDir.getAbsolutePath()).append("\r\n");
                         ssb.append("\r\n");
 
                         for (File file : files) {
@@ -2463,13 +2460,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             info.group = ex.toString();
                     }
 
-                    ssb.append(info.name).append('\n');
+                    ssb.append(info.name).append('\n'); // TODO CASA
                     if (granted)
                         ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
                     start = ssb.length();
 
                     if (info.group != null) {
-                        ssb.append(info.group).append('\n');
+                        ssb.append(info.group).append('\n'); // TODO CASA
                         ssb.setSpan(new IndentSpan(dp24), start, ssb.length(), 0);
                         start = ssb.length();
                     }
@@ -2499,7 +2496,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                     break;
                             }
 
-                        ssb.append(Integer.toHexString(info.protectionLevel));
+                        ssb.append(Integer.toHexString(info.protectionLevel)); // TODO CASA
 
                         if (info.flags != 0)
                             ssb.append(' ').append(Integer.toHexString(info.flags));

@@ -2649,7 +2649,7 @@ public class Helper {
         }
 
         // CASA: External storage as well
-        if (!dir.exists() && !dir.mkdirs())
+        if (!dir.exists() && !dir.mkdirs()) // TODO CASA
             throw new IllegalArgumentException("Failed to create directory");
 
         return dir;
@@ -2746,7 +2746,7 @@ public class Helper {
     static void writeText(File file, String content) throws IOException {
         try (FileOutputStream out = new FileOutputStream(file)) {
             if (content != null)
-                out.write(content.getBytes());
+                out.write(content.getBytes()); // TODO CASA
         }
     }
 

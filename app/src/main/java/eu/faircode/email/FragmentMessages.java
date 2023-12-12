@@ -2079,7 +2079,7 @@ public class FragmentMessages extends FragmentBase
                     StorageStrategy.createLongStorage())
                     .withSelectionPredicate(selectionPredicate)
                     // https://issuetracker.google.com/issues/154178289
-                    .withGestureTooltypes(MotionEvent.TOOL_TYPE_FINGER, MotionEvent.TOOL_TYPE_STYLUS)
+                    .withGestureTooltypes(MotionEvent.TOOL_TYPE_FINGER, MotionEvent.TOOL_TYPE_STYLUS) // TODO CASA
                     .build();
             adapter.setSelectionTracker(selectionTracker);
 
@@ -7137,7 +7137,7 @@ public class FragmentMessages extends FragmentBase
         lastTime = time;
 
 
-        tvDebug.setText(utilization + "%\n" + perc + "% " + (nheap / (1024 * 1024)) + "M");
+        tvDebug.setText(utilization + "%\n" + perc + "% " + (nheap / (1024 * 1024)) + "M"); // TODO CASA
     }
 
     private boolean handleThreadActions(

@@ -115,7 +115,7 @@ public abstract class PagedListAdapter<T, VH extends RecyclerView.ViewHolder>
         @Override
         public void onCurrentListChanged(
                 @Nullable PagedList<T> previousList, @Nullable PagedList<T> currentList) {
-            PagedListAdapter.this.onCurrentListChanged(currentList);
+            //PagedListAdapter.this.onCurrentListChanged(currentList);
             PagedListAdapter.this.onCurrentListChanged(previousList, currentList);
         }
     };

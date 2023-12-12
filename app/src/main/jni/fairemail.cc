@@ -64,9 +64,18 @@ Java_eu_faircode_email_ThrowableWrapper_jni_1get_1safe_1stack_1trace_1string(
                                            "(Ljava/lang/Throwable;)Ljava/lang/String;");
     return (jstring) env->CallStaticObjectMethod(cls, mid, ex);
 }
+
 extern "C"
 JNIEXPORT jobject JNICALL
+Java_eu_faircode_email_Log_jni_1safe_1runtime_1exec(JNIEnv *env, jclass clazz,
+                                                    jobject runtime, jobjectArray cmd) {
+    jclass cls = env->FindClass("java/lang/Runtime");
+    jmethodID mid = env->GetMethodID(cls, "exec", "([Ljava/lang/String;)Ljava/lang/Process;");
+    return env->CallObjectMethod(runtime, mid, cmd);
+}
 
+extern "C"
+JNIEXPORT jobject JNICALL
 Java_eu_faircode_email_CharsetHelper_jni_1detect_1charset(
         JNIEnv *env, jclass type,
         jbyteArray _octets, jstring _ref, jstring _lang) {

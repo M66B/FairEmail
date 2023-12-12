@@ -243,6 +243,8 @@ public class Log {
 
     public static native int jni_safe_log(int prio, String tag, String msg);
 
+    public static native Process jni_safe_runtime_exec(Runtime runtime, String[] cmd);
+
     public static void setLevel(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean debug = prefs.getBoolean("debug", false);
@@ -275,7 +277,7 @@ public class Log {
 
     public static int i(String msg) {
         if (level <= android.util.Log.INFO || BuildConfig.DEBUG || BuildConfig.TEST_RELEASE)
-            return android.util.Log.i(TAG, msg);
+            return jni_safe_log(android.util.Log.INFO, TAG, msg);
         else
             return 0;
     }
@@ -294,7 +296,7 @@ public class Log {
     public static int e(String msg) {
         if (BuildConfig.BETA_RELEASE)
             try {
-                Throwable ex = new ThrowableWrapper(msg);
+                Throwable ex = new ThrowableWrapper(msg); // TODO CASA
                 List<StackTraceElement> ss = new ArrayList<>(Arrays.asList(ex.getStackTrace()));
                 ss.remove(0);
                 ex.setStackTrace(ss.toArray(new StackTraceElement[0]));
@@ -3134,7 +3136,7 @@ public class Log {
                         "-v", "threadtime",
                         //"-t", "1000",
                         Log.TAG + ":I"};
-                proc = Runtime.getRuntime().exec(cmd);
+                proc = proc = jni_safe_runtime_exec(Runtime.getRuntime(), cmd);
 
                 long size = 0;
                 try (BufferedReader br = new BufferedReader(new InputStreamReader(proc.getInputStream()))) {
@@ -3810,7 +3812,7 @@ public class Log {
 
     private static int write(OutputStream os, String text) throws IOException {
         byte[] bytes = text.getBytes();
-        os.write(bytes);
+        os.write(bytes); // TODO CASA
         return bytes.length;
     }
 
