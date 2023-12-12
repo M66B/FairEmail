@@ -6,10 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
-### Next version
+### 1.2137 - 2023-12-12
 
 * Optimized database for storing many messages
 * Automatically update [SSL provider](https://developer.android.com/privacy-and-security/security-gms-provider)
+* Removed custom trust manager to comply with Play Store policies (Play Store version only)
+* Removed external storage option of attachments to comply with Play Store policies (all versions)
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)
 * Updated [translations](https://crowdin.com/project/open-source-email)
