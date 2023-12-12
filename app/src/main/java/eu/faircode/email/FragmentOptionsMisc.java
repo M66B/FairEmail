@@ -1094,8 +1094,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putBoolean("external_storage", isChecked);
-                if (BuildConfig.DEBUG)
-                    editor.putBoolean("external_storage_message", isChecked);
                 editor.apply();
 
                 Bundle args = new Bundle();

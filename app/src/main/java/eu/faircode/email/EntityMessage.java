@@ -619,19 +619,9 @@ public class EntityMessage implements Serializable {
     }
 
     static File getFile(Context context, Long id) {
-        File root = Helper.ensureExists(new File(getRoot(context), "messages"));
+        File root = Helper.ensureExists(new File(context.getFilesDir(), "messages"));
         File dir = Helper.ensureExists(new File(root, "D" + (id / 1000)));
         return new File(dir, id.toString());
-    }
-
-    static File getRoot(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean external_storage = prefs.getBoolean("external_storage_message", false);
-
-        File root = (external_storage
-                ? Helper.getExternalFilesDir(context)
-                : context.getFilesDir());
-        return root;
     }
 
     static void convert(Context context) {
