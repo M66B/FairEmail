@@ -1143,7 +1143,7 @@ public class EmailService implements AutoCloseable {
                         Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                     // Protocols
                     List<String> protocols = new ArrayList<>();
-                    for (String protocol : sslSocket.getEnabledProtocols())
+                    for (String protocol : sslSocket.getSupportedProtocols())
                         if (SSL_PROTOCOL_BLACKLIST_STRICT.contains(protocol))
                             Log.i("SSL disabling protocol=" + protocol);
                         else
@@ -1162,7 +1162,7 @@ public class EmailService implements AutoCloseable {
                 } else if (ssl_harden) {
                     // Protocols
                     List<String> protocols = new ArrayList<>();
-                    for (String protocol : sslSocket.getEnabledProtocols())
+                    for (String protocol : sslSocket.getSupportedProtocols())
                         if (SSL_PROTOCOL_BLACKLIST.contains(protocol))
                             Log.i("SSL disabling protocol=" + protocol);
                         else
