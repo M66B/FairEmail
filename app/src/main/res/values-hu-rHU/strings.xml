@@ -311,7 +311,7 @@
     <string name="title_setup_defaults">Alapértékek visszaállítása</string>
     <string name="title_setup_reset_questions">Kérdések visszaállítása</string>
     <string name="title_setup_reset_general">Általános kérdések</string>
-    <string name="title_setup_reset_links">Hivatkozások jóváhagyása</string>
+    <string name="title_setup_reset_links">Linkek jóváhagyása</string>
     <string name="title_setup_reset_files">Fájlok megtekintése</string>
     <string name="title_setup_reset_images">Képek megjelenítése</string>
     <string name="title_setup_reset_full">Eredeti szöveg megjelenítése</string>
@@ -432,10 +432,12 @@
     <string name="title_advanced_vpn_only">Csatlakozás csak VPN-en keresztül</string>
     <string name="title_advanced_timeout">Kapcsolat időtúllépés (másodpercben)</string>
     <string name="title_advanced_prefer_ip4">IPv4 preferálása IPv6 fölött</string>
+    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Frissített SSL szolgáltató használata</string>
     <string name="title_advanced_ssl_harden">SSL kapcsolatok megerősítése</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 megkövetelése</string>
     <string name="title_advanced_cert_strict">Szigorú tanusítvány ellenőrzés</string>
     <string name="title_advanced_open_safe">Csak biztonságos kapcsolatok megnyitása</string>
+    <string name="title_advanced_http_redirect">Engedélyezi a kapcsolat-átirányítást</string>
     <string name="title_advanced_bouncy_castle">A Bouncy Castle biztonságos kapcsolat szolgáltatást (JSSE) használja</string>
     <string name="title_advanced_manage_connectivity">Adatkapcsolat kezelése</string>
     <string name="title_advanced_caption_general">Általános</string>
@@ -1362,6 +1364,8 @@
     <string name="title_add_image_privacy">Magán jellegű adatok törlése</string>
     <string name="title_add_image_privacy_remark">Földrajzi helyzet, sorozatszámok, azonosítók, stb.</string>
     <string name="title_add_resize_pixels">&lt; %1$d pixel</string>
+    <string name="title_add_image_resize_remark">Átméretezhető formátumok: %1$s</string>
+    <string name="title_add_image_select_remark">Az Android képválasztó már nem továbbítja a fájlnevet</string>
     <string name="title_add_image_select">Fájl kiválasztása</string>
     <string name="title_add_attachment">Melléklet hozzáadása</string>
     <string name="title_attachment_file">Fájl csatolása</string>
@@ -1371,17 +1375,22 @@
     <string name="title_save_drafts">Piszkozatok mentése a szerveren</string>
     <string name="title_send_dialog">Küldési opciók megjelenítése</string>
     <string name="title_image_dialog">Képi opciók megjelenítése</string>
+    <string name="title_style_toolbar">Stílus eszköztár</string>
     <string name="title_media_toolbar">Média eszköztár</string>
+    <string name="title_manage_android_contacts">Android névjegyek kezelése</string>
     <string name="title_manage_local_contacts">Helyi névjegyek kezelése</string>
     <string name="title_insert_contact_group">Névjegy csoport beillesztése</string>
     <string name="title_insert_template">Sablon beillesztése</string>
     <string name="title_create_template">Sablon létrehozása</string>
+    <string name="title_select_default_identity">Válasszon alapértelmezett címet</string>
     <string name="title_translate">Fordítás</string>
     <string name="title_translate_configure">&#8230; konfigurálása</string>
     <string name="title_translate_key">Kulcs megadása</string>
     <string name="title_translating">Fordítás &#8230;</string>
     <string name="title_translate_formal">Használjon hivatalos formát</string>
     <string name="title_translate_small">Kis betű használata a forrás szöveghez</string>
+    <string name="title_translate_replace">A forrásszöveg felülírása a fordítással</string>
+    <string name="title_translate_highlight">Éppen ellenőrzött szöveg megjelölése</string>
     <string name="title_translate_html">Formázás megőrzése</string>
     <string name="title_translate_html_hint">Ez több karaktert fog foglalni</string>
     <string name="title_translate_usage">Használat: %1$s / %2$s (%3$d %%)</string>
@@ -1402,8 +1411,11 @@
     <string name="title_send_dsn">Állapotjelentés</string>
     <string name="title_send_receipt">Visszaigazolás kérése</string>
     <string name="title_send_receipt_remark">A legtöbb email szolgáltató és kliens figyelmen kívül hagyja a visszajelzés kéréseket</string>
+    <string name="title_vt_unknown">Ezt a fájlt a VirusTotal még nem ismeri</string>
+    <string name="title_vt_summary">%1$s vírusirtó szerint rosszindulató ez a fájl</string>
     <string name="title_vt_report">Teljes jelentés</string>
     <string name="title_vt_upload">Feltöltés</string>
+    <string name="title_vt_analyzing">A VirusTotal elemzi a fájlt, ez eltarthat egy darabig &#8230;</string>
     <string name="title_from_missing">A feladó hiányzik</string>
     <string name="title_pgp_reminder">PGP kulcsok elérhetők</string>
     <string name="title_smime_reminder">S/MIME kulcsok elérhetők</string>
@@ -1431,15 +1443,22 @@
     <string name="title_verify">Hitelesítés</string>
     <string name="title_encrypt">Titkosítás</string>
     <string name="title_decrypt">Visszafejtés</string>
+    <string name="title_reset_message_questions">Hivatkozás kérdések visszaállítása</string>
     <string name="title_resync">Újraszinkronizálás</string>
     <string name="title_charset">Kódolás</string>
     <string name="title_charset_auto">Automatikus</string>
+    <string name="title_alternative_text">Egyszerű szöveg betöltése</string>
+    <string name="title_alternative_html">HTML betöltése</string>
     <string name="title_no_openpgp">OpenKeychain nem található</string>
+    <string name="title_no_openpgp_remark">A PGP végpontok közti titkosítást először be kell állítani</string>
     <string name="title_user_interaction">Átvitel az OpenKeychain-re</string>
+    <string name="title_padlock">A lakat érintésével titkosítja az üzenetet</string>
     <string name="title_signed_data">Hitelesítse az aláírást az üzenetszöveg megjelenítéséhez</string>
     <string name="title_not_encrypted">Az üzenet nincs aláírva vagy titkosítva</string>
     <string name="title_no_sign_key">Nincs sign key kiválasztva</string>
     <string name="title_reset_sign_key">Sign key visszaállítása</string>
+    <string name="title_reset_selected_keys">Kijelölt kulcsok eltávolítása</string>
+    <string name="title_reset_selected_keys_hint">Új tanusítványok, stb. esetén hasznos.</string>
     <string name="title_signature_none">Üzenet nincs aláírva</string>
     <string name="title_signature_valid">Üzenet aláírás hiteles</string>
     <string name="title_signature_valid_from">Üzenet aláírás hiteles: %1$s</string>
@@ -1462,6 +1481,7 @@
     <string name="title_search_hint">        Kezdetben még a keresés a készüléken fog történni.
         Ha a szerveren is akar keresni, nyomjon a \'keresés újra\' gombra.
     </string>
+    <string name="title_search_hint_fts">A keresési index használatánál: csak egész szavak</string>
     <string name="title_search_index_hint">Keresési index szerinti keresés habár gyors, csak egész szavakat keres.</string>
     <string name="title_search_text_hint">Magas üzenetszám esetén lehetséges, hogy néhány szerveren az üzenetekben való szövegkeresés nem működik megfelelően</string>
     <string name="title_search_text_unsupported">\'%s\' azt jelenti, hogy a levelezés szerver nem támogatja az üzenet szövegében való keresést</string>
@@ -1484,6 +1504,7 @@
     <string name="title_search_with_size">Üzenetméret nagyobb, mint</string>
     <string name="title_search_in_trash">Töröltben is</string>
     <string name="title_search_in_junk">Levélszemétben is</string>
+    <string name="title_search_with_range">Dátum intervallum</string>
     <string name="title_search_with_before">Előtt</string>
     <string name="title_search_with_after">Után</string>
     <string name="title_search_device_first">Először keressen az eszközön</string>
@@ -1497,6 +1518,7 @@
     <string name="title_search_flag_size">méret &gt; %1$s</string>
     <string name="title_search_device">Keresés az eszközön</string>
     <string name="title_search_server">Keresés a szerveren</string>
+    <string name="title_search_server_wait">Várakozás a kiszolgálóra</string>
     <string name="title_search_in">Keresés a következőben</string>
     <string name="title_search_sender">Keresés feladó alapján</string>
     <string name="title_search_delete">Mentett keresés törlése?</string>
@@ -1517,6 +1539,8 @@
     <string name="title_sort_ascending">Régebbiek előre</string>
     <string name="title_sort_on_name">Név</string>
     <string name="title_sort_on_order">Rendezés</string>
+    <string name="title_sort_on_applied">Alkalmazva</string>
+    <string name="title_sort_on_last_applied">Uóljára alkalmazva</string>
     <string name="title_filter">Kiszűrés</string>
     <string name="title_filter_seen">Olvasott</string>
     <string name="title_filter_unflagged">Csillagozatlan</string>
@@ -1543,6 +1567,9 @@
     <string name="title_edit_signature_remark">Habár az Android nem tudja a HTML-t megjeleníteni, elküldésre kerül ahogy van</string>
     <string name="title_edit_signature_text">Aláírás szövege</string>
     <string name="title_edit_signature_image">Kép beillesztése</string>
+    <string name="title_edit_signature_image_hint">        Üzenet küldésekor a képet beemeljük az üzenetbe a kijelölt helyről.
+        Úgyhogy, ne törölje le a kép fájlt!
+    </string>
     <string name="title_answer_define_name">Név</string>
     <string name="title_answer_define_value">Érték</string>
     <string name="title_answer_caption">Sablon szerkesztése</string>
@@ -1561,6 +1588,7 @@
     <string name="title_answer_placeholder_firstname">Küldő keresztneve</string>
     <string name="title_answer_placeholder_lastname">Küldő vezetékneve</string>
     <string name="title_answer_placeholder_date">Jelenlegi dátum</string>
+    <string name="title_answer_placeholder_weekday">A hét napja</string>
     <string name="title_rule_noop">Nincs művelet</string>
     <string name="title_rule_seen">Megjelölés olvasottként</string>
     <string name="title_rule_unseen">Megjelölés olvasatlanként</string>
@@ -1569,8 +1597,10 @@
     <string name="title_rule_snooze">Szundi</string>
     <string name="title_rule_flag">Csillagozás</string>
     <string name="title_rule_importance">Fontosság beállítása</string>
+    <string name="title_rule_keyword">Kulcsszó</string>
     <string name="title_rule_keyword_add">Hozzáadás</string>
     <string name="title_rule_keyword_delete">Tőrlés</string>
+    <string name="title_rule_notes">Helyi jegyzet</string>
     <string name="title_rule_move">Áthelyezés</string>
     <string name="title_rule_copy">Másolás (cím)</string>
     <string name="title_rule_answer">Válasz/Továbbítás</string>
@@ -1584,6 +1614,8 @@
     <string name="title_rule_group">Csoport</string>
     <string name="title_rule_order">Rendezés</string>
     <string name="title_rule_enabled">Engedélyezve</string>
+    <string name="title_rule_daily">Csak naponta fusson</string>
+    <string name="title_rule_age">Üzenet régebbi, mint (napokban)</string>
     <string name="title_rule_stop">Szabályok feldolgozásának leállítása e szabály végrehajtása után</string>
     <string name="title_rule_sender">Küldő tartalmazza</string>
     <string name="title_rule_sender_known">A feladó szerepel a névjegyzékben</string>
@@ -1597,6 +1629,7 @@
     <string name="title_rule_time_after">Után érkezett</string>
     <string name="title_rule_time_before">Előtt érkezett</string>
     <string name="title_rule_time_every_day">Naponta</string>
+    <string name="title_rule_younger">Üzenet későbbi, mint (órákban)</string>
     <string name="title_rule_regex">Regex</string>
     <string name="title_rule_and">ÉS</string>
     <string name="title_rule_action">Művelet</string>
@@ -1608,8 +1641,11 @@
     <string name="title_rule_thread">Az összes beszélgetéshez és mappához tartozó üzenet</string>
     <string name="title_rule_identity">Identitás</string>
     <string name="title_rule_template">Válaszsablon</string>
+    <string name="title_rule_answer_subject">A sablon neve legyen a tárgy</string>
+    <string name="title_rule_original_text">Tartalmazza az eredeti üzenetszöveget</string>
     <string name="title_rule_forward_to">Továbbítás neki...</string>
     <string name="title_rule_resend">Újraküldés</string>
+    <string name="title_rule_attached">Nyers üzenetfájl csatolása</string>
     <string name="title_rule_cc">Válasz a másolatok címzetteinek</string>
     <string name="title_rule_with_attachments">Mellékletekkel</string>
     <string name="title_rule_answer_remark">A válaszhurkok elkerülése érdekében minden beszélgetéshez csak egy válasz lesz elküldve</string>
@@ -1620,7 +1656,10 @@
     <string name="title_rule_answer_missing">Hiányzó sablon</string>
     <string name="title_rule_keyword_missing">Hiányzó kulcsszó</string>
     <string name="title_rule_automation_hint">Ez el fogja küldeni a(z) \'%1$s\' intentet a(z) \'%2$s\' extrákkal</string>
+    <string name="title_rule_notes_missing">A helyi jegyzetek hiányoznak</string>
+    <string name="title_rule_url_missing">Hiányzó vagy érvénytelen URL</string>
     <string name="title_rule_delete_hint">A végleges törlés visszafordíthatatlan, ezért ellenőrizze, hogy a feltételek helyesek-e!</string>
+    <string name="title_rule_url_hint">A következő helykitöltőket haszálhatja: %1$s</string>
     <string name="title_rule_edit_group">Csoport szerkesztése &#8230;</string>
     <string name="title_rule_execute">Végrehajtás most</string>
     <string name="title_rule_applied">Érintett üzenetek: %1$d</string>

@@ -366,6 +366,7 @@
     <string name="title_advanced_answer_default">Кратко натискане на бутона за отговор ще:</string>
     <string name="title_advanced_answer_action">Дългият натиск на бутона за отговор ще:</string>
     <string name="title_advanced_answer_warning">Не всички действия са възможни без менюто за избор!</string>
+    <string name="title_advanced_save_revisions">Съхранение на история на редактирането на чернови за операциите отмяна и повторение</string>
     <string name="title_advanced_auto_save_paragraph">Автозапазване на чернова след всеки абзац</string>
     <string name="title_advanced_auto_save_dot">Автозапазване на чернова след всяко изречение</string>
     <string name="title_advanced_compose_color">Стандартен цвят на текста</string>
@@ -561,6 +562,7 @@
     <string name="title_advanced_onclose">При затваряне на разговор</string>
     <string name="title_advanced_autoclose_unread">Затваряне на разговорите, правейки съобщенията като непрочетени</string>
     <string name="title_advanced_collapse_marked">Свиване на съобщенията, които са ръчно означени като прочете или непрочетени</string>
+    <string name="title_advanced_undo">Време за чакане за отмяна на действие</string>
     <string name="title_advanced_quick_filter">Показване на ненатрапчиви икони за бърз филтър</string>
     <string name="title_advanced_quick_scroll">Показване на ненатрапчиви икони за бързо превъртане нагоре/надолу</string>
     <string name="title_advanced_quick_actions">Показване на бързи действия, когато съобщенията са избрани</string>
@@ -722,6 +724,7 @@
     <string name="title_advanced_poll_hint">Периодичното проверяване за нови съобщения ще сравнява всеки път локални и отдалечени съобщения, което е скъпа операция, която може да доведе до допълнително използване на батерията, особено ако има много съобщения. Получаването винаги ще предотврати това.</string>
     <string name="title_advanced_optimize_hint">Това може да промени честотата на синхрото за икономия употребата на батерията в зависимост от възможностите и поведението на имейл сървърите</string>
     <string name="title_advanced_schedule_hint">Докосни за настройка</string>
+    <string name="title_advanced_schedule_ignore">Разписанието може да се изключи от разширените настройки на акаунта</string>
     <string name="title_advanced_quick_sync_hint">Това намалява употребата на данните, но новите съобщения може да липсват, ако сървърът на имейла не следва стандартите</string>
     <string name="title_advanced_no_date_hint">Някои доставчици съхраняват съобщения с неизвестна, невалидна или бъдеща дата като съобщения без дата</string>
     <string name="title_advanced_unseen_hint">Някои доставчици не поддържат това правилно, което може да доведе до синхронизиране всички или нито едно съобщение</string>

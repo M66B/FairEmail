@@ -71,18 +71,18 @@
     <string name="title_ask_spam_who">%1$s의 메일을 스팸 처리하시겠습니까?</string>
     <string name="title_junk_hint">이메일 공급자는 스팸 필터링을 담당합니다. 이메일 앱에는 이를 안정적으로 수행하는데 필요한 모든 데이터가 없습니다. </string>
     <string name="title_junk_pop_hint">        차단한 발신자의 메시지는 다운로드되지 않습니다.
-        \"서버에 메시지를 보관\"이 활성화되어 있지 않은 경우, 이러한 메시지는 영구적으로 손실됩니다!
+        \"서버에 메시지 보관\"이 활성화되어 있지 않은 경우, 이러한 메시지는 영구적으로 손실됩니다!
     </string>
     <string name="title_block">%1$s 차단</string>
-    <string name="title_block_sender">발신자 차단</string>
+    <string name="title_block_sender">보낸사람 차단</string>
     <string name="title_block_sender_domain">도메인 \'%1$s\' 차단</string>
     <string name="title_block_sender_remark">차단은 자동으로 스팸함으로 이동함을 의미합니다.</string>
     <string name="title_block_sender_hint">        발신자를 차단하는 것은 무료 기능입니다.
         발신자 도메인을 차단하는 것은 유료 기능인 필터 규칙을 사용합니다.
     </string>
-    <string name="title_blocked_senders">차단한 발신자</string>
+    <string name="title_blocked_senders">차단된 발신자</string>
     <plurals name="title_ask_block_sender">
-        <item quantity="other">%1$s 메시지를 보낸 발신자를 차단하겠습니까?</item>
+        <item quantity="other">%1$s 메시지를 보낸 사람을 차단하시겠습니까?</item>
     </plurals>
     <plurals name="title_hours">
         <item quantity="other">%1$s시간</item>
@@ -306,7 +306,7 @@
     <string name="title_advanced_flagged">모든 즐겨찾기 메시지</string>
     <string name="title_advanced_delete_unseen">오래된 읽지 않은 메시지 삭제</string>
     <string name="title_advanced_kept_removed">오래된 메시지가 서버에서 제거되었는지 확인</string>
-    <string name="title_advanced_subject_threading">발신자 및 주제로 메시지 묶기</string>
+    <string name="title_advanced_subject_threading">보낸사람 및 주제로 메시지 묶기</string>
     <string name="title_advanced_sync_folders">동기화 폴더 목록</string>
     <string name="title_advanced_sync_folders_poll">폴더 목록을 동적으로 동기화</string>
     <string name="title_advanced_sync_shared_folders">동기화 공유 폴더 목록</string>
@@ -314,6 +314,8 @@
     <string name="title_advanced_subscriptions">폴더 구독 관리</string>
     <string name="title_advanced_check_authentication">메시지 인증 확인하기</string>
     <string name="title_advanced_check_reply_domain">메시지 동기화 시 답장할 주소를 확인하세요</string>
+    <string name="title_advanced_check_mx">메시지 동기화 시 보낸사람 이메일 주소를 확인하세요</string>
+    <string name="title_advanced_check_blocklist">보낸사람의 도메인 이름이 스팸 차단 목록에 있는지 확인</string>
     <string name="title_advanced_use_blocklist_pop3">차단 목록의 도메인에서 온 메시지 건너뛰기 (POP3 전용)</string>
     <string name="title_advanced_keyboard">키보드를 기본으로 표시</string>
     <string name="title_advanced_keyboard_no_fullscreen">전체화면 키보드 비활성화</string>
@@ -325,6 +327,7 @@
     <string name="title_advanced_send_reminders">리마인더 표시</string>
     <string name="title_advanced_send_delayed">메일 전송 지연</string>
     <string name="title_advanced_answer_caption">답변 버튼 설정</string>
+    <string name="title_advanced_compose_color">기본 글씨 색</string>
     <string name="title_advanced_compose_font">기본 글꼴</string>
     <string name="title_advanced_separate_reply">답장/전달 헤더 앞에 구분선 삽입</string>
     <string name="title_advanced_signature_location">서명 위치</string>
@@ -394,6 +397,7 @@
     <string name="title_advanced_color_value">밝기: %1$s %%</string>
     <string name="title_advanced_name_email">이름 및 이메일 주소 표시</string>
     <string name="title_advanced_show_recipients">메시지 헤더에 수신인 표시</string>
+    <string name="title_advanced_sender_ellipsize">필요한 경우 보낸사람을 단축하세요</string>
     <string name="title_advanced_subject_italic">제목을 이탤릭체로 표시</string>
     <string name="title_advanced_highlight_subject">제목 강조</string>
     <string name="title_advanced_highlight_color">강조 색</string>
@@ -448,6 +452,7 @@
     <string name="title_advanced_expand_all">모든 메시지를 자동으로 펼치기</string>
     <string name="title_advanced_undo">되돌리기 제한 시간</string>
     <string name="title_advanced_folder_nav">항상 메시지 목록에서 폴더 목록으로 돌아가기</string>
+    <string name="title_advanced_auto_block_sender">스팸 신고 시 보낸사람 자동 차단</string>
     <string name="title_advanced_notifications">알림 관리</string>
     <string name="title_advanced_notifications_default">기본 채널</string>
     <string name="title_advanced_notifications_newest_first">새 알림을 먼저 표시</string>
@@ -505,6 +510,7 @@
     <string name="title_advanced_highlight_hint">테마의 주요 색상은 강조 표시에 사용됩니다</string>
     <string name="title_advanced_preview_issue">2줄 이상인 경우 일부 Android 버전의 버그로 인해 스크롤이 느려질 수 있습니다</string>
     <string name="compressed">파일 %2$s개 또는 %3$s 이상이 포함된 압축 파일(%1$s)의 내용은 표시되지 않습니다</string>
+    <string name="title_advanced_sender_hint">대부분의 제공자가 수정된 보낸사람 주소를 허용하지 않습니다</string>
     <string name="title_advanced_notify_action_hint">최대 3개의 동작이 표시됩니다</string>
     <string name="title_advanced_notify_car_hint">\'연결\'이란 지도나 내비게이션을 표시하는 상태임을 의미합니다</string>
     <string name="title_advanced_never_favorite">즐겨찾기 등록 차단</string>
@@ -513,6 +519,8 @@
     <string name="title_select">&#8230; 선택</string>
     <string name="title_identity_name">이름</string>
     <string name="title_identity_tenant_hint">이 입력란은 대부분의 경우에 비어 있어야 합니다</string>
+    <string name="title_advanced_sender">보낸사람 주소 수정을 허용합니다</string>
+    <string name="title_advanced_sender_name">보낸사람 주소가 변경되었을 때 이름 사용</string>
     <string name="title_optional">선택</string>
     <string name="title_recommended">추천</string>
     <string name="title_account_linked">연결된 계정</string>
@@ -546,6 +554,7 @@
     <string name="title_no_account">계정 누락</string>
     <string name="title_no_password">비밀번호 누락</string>
     <string name="title_no_inbox">받은 편지함을 찾을 수 없음</string>
+    <string name="title_reply_domain">보낸사람(%1$s)과 답장 도메인(%2$s)이 다릅니다</string>
     <string name="title_delete_account">계정 삭제</string>
     <string name="title_account_delete">이 계정을 영구적으로 삭제할까요?</string>
     <string name="title_edit_html">HTML 편집</string>
@@ -565,6 +574,7 @@
     <string name="title_edit_properties">속성 수정</string>
     <string name="title_edit_rules">규칙 수정</string>
     <string name="title_execute_rules">규칙 실행</string>
+    <string name="title_edit_channel">공지 채널 편집</string>
     <string name="title_insert_contact">주소록에 추가</string>
     <string name="title_edit_contact">연락처 수정</string>
     <string name="title_contact_email">이메일</string>
@@ -576,6 +586,7 @@
     <string name="title_show_folders">숨겨진 폴더 표시</string>
     <string name="title_apply_to_all">모든 대상에 적용</string>
     <string name="title_edit_account_name">계정 이름 변경</string>
+    <string name="title_edit_account_color">계정 색상 변경</string>
     <string name="title_hide_folder">폴더 숨기기</string>
     <string name="title_inbox_root_hint">        Some providers require new folders to be created below the inbox.        In this case, you can long press the inbox in the folder list and select \'Create sub folder\'.
     </string>
@@ -612,6 +623,7 @@
     <string name="title_importance_high">높음</string>
     <string name="title_important">중요</string>
     <string name="title_unimportant">중요하지 않음</string>
+    <string name="title_search_in_text">&#8230; 문서에서 검색</string>
     <string name="title_forward">앞으로</string>
     <string name="title_resend">재전송</string>
     <string name="title_new_message">새 메시지</string>
@@ -633,6 +645,7 @@
     <string name="title_save_all">모두 저장</string>
     <string name="title_auto_confirm">몇 초 후 자동으로 확인 처리됩니다</string>
     <string name="title_buttons">선택 버튼</string>
+    <string name="title_button_search_text">메시지 내용에서 검색</string>
     <string name="title_quick_actions">동작 선택</string>
     <string name="title_quick_actions_hint">최대 %1$d개의 동작이 표시됩니다</string>
     <string name="title_quick_actions_low">중요도 낮음</string>
@@ -653,6 +666,7 @@
     <string name="title_unsubscribe">구독 해제</string>
     <string name="title_message_rule">규칙 생성</string>
     <string name="title_no_junk">스팸 아님</string>
+    <string name="title_edit_subject">주제 &#8230; 편집</string>
     <string name="title_move_to">&#8230;으로 이동</string>
     <string name="title_move_to_folder">&#8230;으로 이동</string>
     <string name="title_report_spam">스팸으로 처리</string>
@@ -754,9 +768,11 @@
     <string name="title_translating">번역중&#8230;</string>
     <string name="title_translate_small">원문을 작은 글씨로 표시</string>
     <string name="title_translate_usage">사용량: %1$s / %2$s (%3$d %%)</string>
+    <string name="title_edit_plain_text">일반 텍스트로 수정</string>
+    <string name="title_edit_formatted_text">재초기화된 텍스트로 수정</string>
     <string name="title_send_plain_text">평문만</string>
     <string name="title_send_dsn">상태 보고서</string>
-    <string name="title_from_missing">발신인 누락</string>
+    <string name="title_from_missing">보낸사람 없음</string>
     <string name="title_draft_deleted">초안 제거됨</string>
     <string name="title_draft_saved">초안 저장됨</string>
     <string name="title_queued">메일 전송 중</string>
@@ -768,7 +784,7 @@
     <string name="title_charset">인코딩</string>
     <string name="title_charset_auto">자동</string>
     <string name="title_reset_sign_key">서명 키 초기화</string>
-    <string name="title_signature_sender">보낸 사람 주소</string>
+    <string name="title_signature_sender">보낸사람 주소</string>
     <string name="title_signature_subject">제목</string>
     <string name="title_signature_validity">유효성</string>
     <string name="title_signature_store">저장</string>
@@ -791,6 +807,7 @@
     <string name="title_search_flag_size">크기 &gt; %1$s</string>
     <string name="title_search_server_wait">서버를 기다리는 중</string>
     <string name="title_search_in">검색 위치</string>
+    <string name="title_search_sender">보낸사람 검색</string>
     <string name="title_save_search_name">이름</string>
     <string name="title_save_search_order">정렬</string>
     <string name="title_save_search_color">색상</string>
@@ -799,7 +816,7 @@
     <string name="title_sort_on_unread">읽지 않음</string>
     <string name="title_sort_on_starred">즐겨찾기</string>
     <string name="title_sort_on_priority">우선순위</string>
-    <string name="title_sort_on_sender">발신인</string>
+    <string name="title_sort_on_sender">보낸사람</string>
     <string name="title_sort_on_subject">제목</string>
     <string name="title_sort_on_size">크기</string>
     <string name="title_sort_on_attachments">첨부파일</string>
@@ -863,7 +880,7 @@
     <string name="title_rule_name">이름</string>
     <string name="title_rule_order">정렬</string>
     <string name="title_rule_enabled">켜짐</string>
-    <string name="title_rule_sender">발신인 포함</string>
+    <string name="title_rule_sender">보낸사람 포함</string>
     <string name="title_rule_attachments">첨부파일</string>
     <string name="title_rule_header">제목 포함</string>
     <string name="title_rule_skip_quotes">인용한 텍스트 건너뛰기</string>
@@ -881,6 +898,7 @@
     <string name="title_rule_keyword_missing">키워드 누락</string>
     <string name="title_rule_notes_missing">로컬 노트 없음</string>
     <string name="title_rule_delete_hint">영구 삭제는 되돌릴 수 없으므로, 규칙 조건이 올바른지 확인하십시오!</string>
+    <string name="title_rule_edit_group">그룹 &#8230; 편집</string>
     <string name="title_rule_execute">지금 실행</string>
     <string name="title_rule_check">확인</string>
     <string name="title_rule_tts_ok">설정 완료</string>
@@ -1013,6 +1031,7 @@
     <string name="title_clipboard_copy">클립보드에 복사</string>
     <string name="title_clipboard_copied">클립보드에 복사됨</string>
     <string name="title_ask_what">할 일 물어보기</string>
+    <string name="title_no_ask_for_again">%1$s 에 대해 다시 묻지 않음</string>
     <string name="title_1hour">1시간</string>
     <string name="title_1day">1일</string>
     <string name="title_now">지금</string>
@@ -1093,7 +1112,7 @@
     <string name="title_accessibility_show_addresses">주소 표시</string>
     <string name="title_accessibility_hide_addresses">주소 숨김</string>
     <string name="title_accessibility_attachment">첨부파일</string>
-    <string name="title_accessibility_from">발신자</string>
+    <string name="title_accessibility_from">보낸사람</string>
     <string name="title_accessibility_to">수신</string>
     <string-array name="pollIntervalNames">
         <item>항상</item>
@@ -1242,7 +1261,7 @@
     </string-array>
     <string-array name="contactTypes">
         <item>수신</item>
-        <item>발신인</item>
+        <item>보낸사람</item>
         <item>차단됨</item>
         <item>차단되지 않음</item>
     </string-array>

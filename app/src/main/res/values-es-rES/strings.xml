@@ -434,11 +434,12 @@
     <string name="title_advanced_vpn_only">Conectar sólo a través de una VPN</string>
     <string name="title_advanced_timeout">Tiempo de espera de conexión (segundos)</string>
     <string name="title_advanced_prefer_ip4">Preferir IPv4 sobre IPv6</string>
+    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Usar proveedor SSL actualizado</string>
     <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
     <string name="title_advanced_ssl_harden_strict">Requerir TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificación estricta de certificados</string>
     <string name="title_advanced_open_safe">Abrir solo conexiones seguras</string>
-    <string name="title_advanced_http_redirect" comment="title_advanced_http_redirect&#10;Title for option in connection settings tab page to disable redirecting connections">Permitir redirección de conexión</string>
+    <string name="title_advanced_http_redirect">Permitir redirección de conexión</string>
     <string name="title_advanced_bouncy_castle">Usar Bouncy Castle\'s secure socket provider (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Administrar conectividad</string>
     <string name="title_advanced_caption_general">General</string>

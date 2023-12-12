@@ -453,6 +453,7 @@
     <string name="title_advanced_ssl_harden_strict">Zahtjevaj TLS 1.3</string>
     <string name="title_advanced_cert_strict">Striktna provjera certifikata</string>
     <string name="title_advanced_open_safe">Otvaraj samo sigurne konekcije</string>
+    <string name="title_advanced_http_redirect">Omogući preusmjeravanje konekcije</string>
     <string name="title_advanced_bouncy_castle">Koristi pružaoca sigurnog priključka od Bouncy Castle-a (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Upravljanje konekcijama</string>
     <string name="title_advanced_caption_general">Općenito</string>
@@ -1023,6 +1024,9 @@
     <string name="title_service_port">Molimo, ponovo provjerite broj porta</string>
     <string name="title_service_protocol">Molimo, ponovo provjerite protokol (SSL/TLS ili STARTTLS)</string>
     <string name="title_service_error10">Ovaj račun treba ponovnu provjeru autentičnosti, što se može učiniti pomoću čarobnjaka brzih postavki</string>
+    <string name="title_certificate_error">        Zbog politika trgovine Google Play, više se ne mogu podržavati nesigurne konekcije na e-mail servere s problematičnim certifikatima, a to važi za verziju FairEmail-a koja se isporučuje na Play trgovini.
+        Stoga, ovaj problem može riješiti jedino vaš e-mail provajder - informacije o navedenoj grešci mogu pomoći vašem provajderu u rješavanju problema.
+    </string>
     <string name="title_advanced_browse">Pretražuj poruke na serveru</string>
     <string name="title_advanced_expand_read">Pri proširivanju, označi poruke kao pročitane</string>
     <string name="title_synchronize_now">Sinhronizuj sada</string>

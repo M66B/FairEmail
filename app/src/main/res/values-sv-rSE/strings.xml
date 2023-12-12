@@ -431,6 +431,7 @@
     <string name="title_advanced_vpn_only">Anslut endast via VPN</string>
     <string name="title_advanced_timeout">Timeout för anslutning (sekunder)</string>
     <string name="title_advanced_prefer_ip4">Föredra IPv4 över IPv6</string>
+    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Använd uppdaterad SSL-leverantör</string>
     <string name="title_advanced_ssl_harden">Strikta SSL-anslutningar</string>
     <string name="title_advanced_ssl_harden_strict">Kräv TLS 1.3</string>
     <string name="title_advanced_cert_strict">Strikt certifikatkontroll</string>
@@ -1002,6 +1003,9 @@
     <string name="title_service_port">Vänligen dubbelkolla portnumret</string>
     <string name="title_service_protocol">Vänligen dubbelkolla protokollet (SSL/TLS eller STARTTLS)</string>
     <string name="title_service_error10">Detta konto måste autentiseras igen, vilket kan göras via guiden för snabbkonfigurering</string>
+    <string name="title_certificate_error">        På grund av Google Plays policies så är det inte längre möjligt att ha stöd för osäkra anslutningar till e-postservrar med certifikatproblem, för versionen av FairEmail som finns på Google Play.
+        Därför kan det här problemet enbart lösas av din e-postleverantör. Ovanstående information kan vara till hjälp för att lösa problemet.
+    </string>
     <string name="title_advanced_browse">Bläddra bland meddelanden på servern</string>
     <string name="title_advanced_expand_read">Markera meddelanden som lästa vid expanderande</string>
     <string name="title_synchronize_now">Synkronisera nu</string>

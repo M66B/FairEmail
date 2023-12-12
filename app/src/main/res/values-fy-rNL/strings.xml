@@ -433,10 +433,12 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_vpn_only">Allinnich fia in VPN ferbine</string>
     <string name="title_advanced_timeout">Timeout foar ferbining (sekonden)</string>
     <string name="title_advanced_prefer_ip4">Foarkar IPv4 boppe IPv6</string>
+    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Bywurke SSL-provider brûke</string>
     <string name="title_advanced_ssl_harden">SSL-ferbiningen ferhurdzje</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 fereaskje</string>
     <string name="title_advanced_cert_strict">Strange sertifikaatkontrôle</string>
     <string name="title_advanced_open_safe">Allinnich befeilige ferbiningen iepenje</string>
+    <string name="title_advanced_http_redirect">Ferbiningsomlieding tastean</string>
     <string name="title_advanced_bouncy_castle">Brûk de feilige socketprovider fan Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Konnektiviteit beheare</string>
     <string name="title_advanced_caption_general">Algemien</string>

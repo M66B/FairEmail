@@ -462,10 +462,12 @@
     <string name="title_advanced_vpn_only">Połącz tylko przez VPN</string>
     <string name="title_advanced_timeout">Limit czasu połączenia (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Preferuj IPv4 nad IPv6</string>
+    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Użyj zaktualizowanego dostawcy SSL</string>
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
     <string name="title_advanced_ssl_harden_strict">Wymagaj TLS 1.3</string>
     <string name="title_advanced_cert_strict">Ścisła kontrola certyfikatu</string>
     <string name="title_advanced_open_safe">Otwieraj tylko bezpieczne połączenia</string>
+    <string name="title_advanced_http_redirect">Zezwalaj na przekierowanie połączenia</string>
     <string name="title_advanced_bouncy_castle">Używaj dostawcy bezpiecznych gniazd Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Zarządzaj połączeniami</string>
     <string name="title_advanced_caption_general">Ogólne</string>

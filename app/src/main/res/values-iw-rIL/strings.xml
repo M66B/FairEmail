@@ -467,7 +467,7 @@
     <string name="title_advanced_ssl_harden_strict">לדרוש TLS‎ 1.3</string>
     <string name="title_advanced_cert_strict">בדיקת אישורים קפדנית</string>
     <string name="title_advanced_open_safe">פתיחת חיבורים מאובטחים בלבד</string>
-    <string name="title_advanced_http_redirect" comment="title_advanced_http_redirect&#10;Title for option in connection settings tab page to disable redirecting connections">לאפשר הפניית חיבורים</string>
+    <string name="title_advanced_http_redirect">לאפשר הפניית חיבורים</string>
     <string name="title_advanced_bouncy_castle">להשתמש בספק השקע המאובטח של Bouncy Castle‏ (JSSE)</string>
     <string name="title_advanced_manage_connectivity">ניהול קישוריות</string>
     <string name="title_advanced_caption_general">כללי</string>

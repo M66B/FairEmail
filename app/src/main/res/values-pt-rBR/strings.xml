@@ -438,7 +438,7 @@
     <string name="title_advanced_ssl_harden_strict">Requer TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificação rigorosa de certificado</string>
     <string name="title_advanced_open_safe">Abrir apenas conexões seguras</string>
-    <string name="title_advanced_http_redirect" comment="title_advanced_http_redirect&#10;Title for option in connection settings tab page to disable redirecting connections">Permitir redirecionamento de conexão</string>
+    <string name="title_advanced_http_redirect">Permitir redirecionamento de conexão</string>
     <string name="title_advanced_bouncy_castle">Use o provedor de soquete seguro (JSSE) do Bouncy Castle</string>
     <string name="title_advanced_manage_connectivity">Gerenciar conectividade</string>
     <string name="title_advanced_caption_general">Geral</string>
