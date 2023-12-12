@@ -483,7 +483,7 @@ public abstract class DB extends RoomDatabase {
                         if (cache_size != null) {
                             cache_size = -cache_size; // kibibytes
                             Log.i("Set PRAGMA cache_size=" + cache_size);
-                            try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";")) {
+                            try (Cursor cursor = db.query(new SimpleSQLiteQuery("PRAGMA cache_size=" + cache_size + ";"))) {
                                 cursor.moveToNext(); // required
                             }
                         }
