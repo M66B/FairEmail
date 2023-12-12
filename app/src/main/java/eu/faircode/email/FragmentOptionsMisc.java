@@ -2427,7 +2427,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Log.w(ex);
-                tvSuffixes.setText(ex.toString());
+                tvSuffixes.setText(new ThrowableWrapper(ex).toSafeString());
             }
         }.execute(this, new Bundle(), "suffixes");
     }
@@ -2522,7 +2522,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             protected void onException(Bundle args, Throwable ex) {
                 Log.w(ex);
-                tvPermissions.setText(ex.toString());
+                tvPermissions.setText(new ThrowableWrapper(ex).toSafeString());
             }
         }.execute(this, new Bundle(), "permissions");
     }

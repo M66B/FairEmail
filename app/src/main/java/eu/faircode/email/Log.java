@@ -1907,6 +1907,7 @@ public class Log {
             draft.ui_seen = true;
             draft.id = db.message().insertMessage(draft);
 
+            // TODO CASA
             File file = draft.getFile(context);
             Helper.writeText(file, body);
             db.message().setMessageContent(draft.id, true, null, 0, null, null);
@@ -3384,7 +3385,7 @@ public class Log {
                                     }, 0);
                                     sb.append(" bindable=").append(bindable);
                                 } catch (Throwable ex) {
-                                    size += write(os, ex.toString());
+                                    size += write(os, ex.toString() + "\r\n");
                                 }
 
                             sb.append("\r\n");

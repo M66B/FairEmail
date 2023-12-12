@@ -734,7 +734,7 @@ public class FragmentBase extends Fragment {
     @RequiresApi(api = Build.VERSION_CODES.Q)
     private void handle(RecoverableSecurityException ex) {
         new AlertDialog.Builder(getContext())
-                .setMessage(ex.getMessage())
+                .setMessage(new ThrowableWrapper(ex).getSafeMessage())
                 .setPositiveButton(ex.getUserAction().getTitle(), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

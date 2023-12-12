@@ -5798,7 +5798,7 @@ public class MessageHelper {
                 }
             } catch (Throwable ex) {
                 Log.e(ex);
-                report.append(TextUtils.htmlEncode(ex.toString()));
+                report.append(TextUtils.htmlEncode(new ThrowableWrapper(ex).toSafeString()));
             }
             report.append("</div>");
             this.html = report.toString();

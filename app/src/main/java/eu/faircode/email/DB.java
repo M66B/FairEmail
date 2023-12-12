@@ -494,6 +494,7 @@ public abstract class DB extends RoomDatabase {
                         if (cache_size != null) {
                             cache_size = -cache_size; // kibibytes
                             Log.i("Set PRAGMA cache_size=" + cache_size);
+                            // TODO CASA
                             try (Cursor cursor = jni_safe_support_query(db, "PRAGMA cache_size=" + cache_size + ";", new Object[0])) {
                                 cursor.moveToNext(); // required
                             }
@@ -514,6 +515,7 @@ public abstract class DB extends RoomDatabase {
                         // https://www.sqlite.org/pragma.html
                         for (String pragma : DB_PRAGMAS)
                             if (!"compile_options".equals(pragma) || BuildConfig.DEBUG) {
+                                // TODO CASA
                                 try (Cursor cursor = jni_safe_support_query(db, "PRAGMA " + pragma + ";", new Object[0])) {
                                     boolean has = false;
                                     while (cursor.moveToNext()) {

@@ -321,7 +321,7 @@ public class FragmentDialogTranslate extends FragmentDialogBase {
 
             @Override
             protected void onException(Bundle args, Throwable ex) {
-                tvText.setText(ex.toString());
+                tvText.setText(new ThrowableWrapper(ex).toSafeString());
             }
         }.execute(this, getArguments(), "message:translate");
 

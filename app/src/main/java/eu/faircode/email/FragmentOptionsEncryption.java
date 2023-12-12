@@ -736,7 +736,7 @@ public class FragmentOptionsEncryption extends FragmentBase
             tvOpenPgpStatus.setText("Not connected");
         else {
             Log.e(ex);
-            tvOpenPgpStatus.setText(ex.toString());
+            tvOpenPgpStatus.setText(new ThrowableWrapper(ex).toSafeString());
         }
     }
 }

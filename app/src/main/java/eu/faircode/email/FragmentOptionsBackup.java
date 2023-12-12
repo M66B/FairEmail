@@ -1308,7 +1308,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                         ssb.setSpan(new ForegroundColorSpan(colorWarning), 0, ssb.length(), 0);
                         ssb.append("\n\n");
                     }
-                    ssb.append(ex.toString());
+                    ssb.append(new ThrowableWrapper(ex).toSafeString());
                     onProgress(ssb, null);
                 }
             }
@@ -1866,7 +1866,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                             .setIcon(R.drawable.twotone_warning_24)
                             .setTitle(getString(R.string.title_advanced_cloud_invalid))
                             .setNegativeButton(android.R.string.cancel, null);
-                    String message = ex.getMessage();
+                    String message = new ThrowableWrapper(ex).getSafeMessage();
                     if (!TextUtils.isEmpty(message))
                         builder.setMessage(message);
                     builder.show();

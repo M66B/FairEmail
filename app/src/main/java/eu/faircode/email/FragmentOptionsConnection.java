@@ -522,7 +522,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                                             tm.checkServerTrusted(x509certs.toArray(new X509Certificate[0]), "UNKNOWN");
                                             sb.append("Peer certificate trusted\n");
                                         } catch (Throwable ex) {
-                                            sb.append(ex.toString()).append('\n');
+                                            sb.append(new ThrowableWrapper(ex).toSafeString()).append('\n');
                                         }
                                     }
                                 } finally {

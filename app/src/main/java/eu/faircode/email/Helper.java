@@ -2139,7 +2139,7 @@ public class Helper {
         try {
             return view.getContext().getResources().getResourceEntryName(id);
         } catch (Throwable ex) {
-            return ex.toString();
+            return new ThrowableWrapper(ex).toSafeString();
         }
     }
 
@@ -2733,6 +2733,7 @@ public class Helper {
     }
 
     static void writeText(File file, String content) throws IOException {
+        // TODO CASA
         try (FileOutputStream out = new FileOutputStream(file)) {
             Log.write(out, content);
         }

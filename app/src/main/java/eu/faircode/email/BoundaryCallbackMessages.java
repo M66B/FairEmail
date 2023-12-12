@@ -701,10 +701,10 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         if (ex instanceof ProtocolException) {
             Response r = ((ProtocolException) ex).getResponse();
             if (r != null && !TextUtils.isEmpty(r.getRest()))
-                return r.getRest();
+                return r.getRest(); // TODO CASA ?
         }
 
-        return ex.toString();
+        return new ThrowableWrapper(ex).toSafeString();
     }
 
     private Message[] search(boolean utf8, String[] keywords, IMAPProtocol protocol, State state) throws IOException, MessagingException, ProtocolException {

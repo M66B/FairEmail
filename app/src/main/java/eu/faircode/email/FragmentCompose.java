@@ -1198,7 +1198,7 @@ public class FragmentCompose extends FragmentBase {
                     return MessageHelper.formatAddressesCompose(new Address[]{address});
                 } catch (Throwable ex) {
                     Log.e(ex);
-                    return ex.toString();
+                    return new ThrowableWrapper(ex).toSafeString();
                 }
             }
         });
@@ -3223,7 +3223,7 @@ public class FragmentCompose extends FragmentBase {
                 onPgp(intent);
             } catch (Throwable ex) {
                 if (ex instanceof IllegalArgumentException)
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                    Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true).show();
                 else {
                     Log.e(ex);
@@ -4202,7 +4202,7 @@ public class FragmentCompose extends FragmentBase {
                 if (ex instanceof IllegalArgumentException
                         || ex instanceof GeneralSecurityException /* InvalidKeyException */) {
                     Log.i(ex);
-                    Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_LONG)
+                    Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_LONG)
                             .setGestureInsetBottomIgnored(true).show();
                 } else if (ex instanceof OperationCanceledException) {
                     Snackbar snackbar = Snackbar.make(view, R.string.title_no_openpgp, Snackbar.LENGTH_INDEFINITE)
@@ -4563,7 +4563,7 @@ public class FragmentCompose extends FragmentBase {
             protected void onException(Bundle args, Throwable ex) {
                 if (ex instanceof IllegalArgumentException) {
                     Log.i(ex);
-                    Snackbar snackbar = Snackbar.make(view, ex.getMessage(), Snackbar.LENGTH_INDEFINITE)
+                    Snackbar snackbar = Snackbar.make(view, new ThrowableWrapper(ex).getSafeMessage(), Snackbar.LENGTH_INDEFINITE)
                             .setGestureInsetBottomIgnored(true);
                     Helper.setSnackbarLines(snackbar, 7);
                     snackbar.setAction(R.string.title_fix, new View.OnClickListener() {
@@ -6582,7 +6582,7 @@ public class FragmentCompose extends FragmentBase {
                           at android.content.ContentResolver.openInputStream(ContentResolver.java:1187)
                           at eu.faircode.email.FragmentCompose.addAttachment(SourceFile:27)
                      */
-            Snackbar.make(view, ex.toString(), Snackbar.LENGTH_LONG)
+            Snackbar.make(view, new ThrowableWrapper(ex).toSafeString(), Snackbar.LENGTH_LONG)
                     .setGestureInsetBottomIgnored(true).show();
         } else {
             if (ex instanceof IOException &&

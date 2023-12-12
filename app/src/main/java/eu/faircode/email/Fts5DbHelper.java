@@ -240,6 +240,7 @@ public class Fts5DbHelper extends SQLiteOpenHelper {
                 " args=" + TextUtils.join(", ", args) +
                 " query=" + criteria.query);
         List<Long> result = new ArrayList<>();
+        // TODO CASA
         try (Cursor cursor = DB.jni_safe_sqlite_query(db,
                 "message", new String[]{"rowid"},
                 select,
