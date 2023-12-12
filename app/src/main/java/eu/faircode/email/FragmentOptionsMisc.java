@@ -2442,6 +2442,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
             @Override
             protected Spanned onExecute(Context context, Bundle args) throws Throwable {
+                return new SpannableStringBuilderEx();
+/*
                 int start = 0;
                 int dp24 = Helper.dp2pixels(getContext(), 24);
                 SpannableStringBuilder ssb = new SpannableStringBuilderEx();
@@ -2510,6 +2512,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 }
 
                 return ssb;
+ */
             }
 
             @Override
