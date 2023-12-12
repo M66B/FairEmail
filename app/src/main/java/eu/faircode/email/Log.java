@@ -247,8 +247,6 @@ public class Log {
 
     public static native void jni_safe_write(OutputStream os, byte[] data);
 
-    public static native Process jni_safe_runtime_exec(Runtime runtime, String[] cmd);
-
     public static native long[] jni_safe_runtime_stats();
 
     public static void setLevel(Context context) {
@@ -3132,15 +3130,18 @@ public class Log {
             attachment.progress = 0;
             attachment.id = db.attachment().insertAttachment(attachment);
 
+            // https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html#java
+            ProcessBuilder pb = new ProcessBuilder("logcat",
+                    "-d",
+                    "-v", "threadtime",
+                    //"-t", "1000",
+                    Log.TAG + ":I");
+            pb.directory(context.getFilesDir());
+
             Process proc = null;
             File file = attachment.getFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
-                String[] cmd = new String[]{"logcat",
-                        "-d",
-                        "-v", "threadtime",
-                        //"-t", "1000",
-                        Log.TAG + ":I"};
-                proc = proc = jni_safe_runtime_exec(Runtime.getRuntime(), cmd);
+                proc = pb.start();
 
                 long size = 0;
                 try (BufferedReader br = new BufferedReader(new InputStreamReader(proc.getInputStream()))) {
