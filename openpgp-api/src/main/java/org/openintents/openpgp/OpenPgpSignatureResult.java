@@ -40,13 +40,13 @@ public class OpenPgpSignatureResult implements Parcelable {
     // invalid signature!
     public static final int RESULT_INVALID_SIGNATURE = 0;
     // successfully verified signature, with confirmed key
-    @Deprecated
+    //@Deprecated
     public static final int RESULT_VALID_CONFIRMED = 1;
     public static final int RESULT_VALID_KEY_CONFIRMED = 1;
     // no key was found for this signature verification
     public static final int RESULT_KEY_MISSING = 2;
     // successfully verified signature, but with unconfirmed key
-    @Deprecated
+    //@Deprecated
     public static final int RESULT_VALID_UNCONFIRMED = 3;
     public static final int RESULT_VALID_KEY_UNCONFIRMED = 3;
     // key has been revoked -> invalid signature!
@@ -54,7 +54,7 @@ public class OpenPgpSignatureResult implements Parcelable {
     // key is expired -> invalid signature!
     public static final int RESULT_INVALID_KEY_EXPIRED = 5;
     // insecure cryptographic algorithms/protocol -> invalid signature!
-    @Deprecated
+    //@Deprecated
     public static final int RESULT_INVALID_INSECURE = 6;
     public static final int RESULT_INVALID_KEY_INSECURE = 6;
 
