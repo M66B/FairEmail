@@ -479,46 +479,6 @@ public class UriHelper {
             return uri.getHost();
     }
 
-    // Copied from android.net.Uri.toSafeString
-    public static String toSafeString(Uri uri) {
-        String scheme = uri.getScheme();
-        String ssp = uri.getSchemeSpecificPart();
-        StringBuilder builder = new StringBuilder(64);
-
-        if (scheme != null) {
-            builder.append(scheme);
-            builder.append(":");
-            if (scheme.equalsIgnoreCase("tel") || scheme.equalsIgnoreCase("sip")
-                    || scheme.equalsIgnoreCase("sms") || scheme.equalsIgnoreCase("smsto")
-                    || scheme.equalsIgnoreCase("mailto") || scheme.equalsIgnoreCase("nfc")) {
-                if (ssp != null) {
-                    for (int i = 0; i < ssp.length(); i++) {
-                        char c = ssp.charAt(i);
-                        if (c == '-' || c == '@' || c == '.') {
-                            builder.append(c);
-                        } else {
-                            builder.append('x');
-                        }
-                    }
-                }
-            } else {
-                // For other schemes, let's be conservative about
-                // the data we include -- only the host and port, not the query params, path or
-                // fragment, because those can often have sensitive info.
-                final String host = uri.getHost();
-                final int port = uri.getPort();
-                final String path = uri.getPath();
-                final String authority = uri.getAuthority();
-                if (authority != null) builder.append("//");
-                if (host != null) builder.append(host);
-                if (port != -1) builder.append(":").append(port);
-                if (authority != null || path != null) builder.append("/...");
-            }
-        }
-
-        return builder.toString();
-    }
-
     static void test(Context context) {
         String[] hosts = new String[]{
                 "child.parent.example.com", "parent.example.com", "example.com", "com",

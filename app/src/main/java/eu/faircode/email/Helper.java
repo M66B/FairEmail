@@ -1751,7 +1751,7 @@ public class Helper {
         String title = intent.getStringExtra(Intent.EXTRA_TITLE);
         Uri data = intent.getData();
         String type = intent.getType();
-        String fullName = (data == null ? intent.toString() : UriHelper.toSafeString(data));
+        String fullName = (data == null ? intent.toString() : data.getLastPathSegment());
         String extension = (data == null ? null : getExtension(data.getLastPathSegment()));
 
         tvName.setText(title == null ? fullName : title);
