@@ -8,6 +8,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Enabled TLSv1.3 by default
 * Added option to limit download size also for unmetered connections
 * Small improvements and minor bug fixes
 * Updated [Public Suffix List](https://github.com/publicsuffix/list)

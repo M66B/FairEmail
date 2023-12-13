@@ -8,6 +8,7 @@ Wintonotitan
 
 Next version
 
+* Enabled TLSv1.3 by default
 * Added option to limit download size also for unmetered connections
 * Small improvements and minor bug fixes
 * Updated Public Suffix List
