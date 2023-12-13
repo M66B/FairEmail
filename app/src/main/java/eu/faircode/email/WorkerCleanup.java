@@ -217,12 +217,13 @@ public class WorkerCleanup extends Worker {
             Log.breadcrumb("worker", "cleanup", "message files");
             {
                 File[] files = new File(context.getFilesDir(), "messages").listFiles();
-                for (File file : files) {
-                    if (file.isDirectory())
-                        cleanupMessageFiles(db, manual, file.listFiles());
-                    else
-                        cleanupMessageFiles(db, manual, new File[]{file});
-                }
+                if (files != null)
+                    for (File file : files) {
+                        if (file.isDirectory())
+                            cleanupMessageFiles(db, manual, file.listFiles());
+                        else
+                            cleanupMessageFiles(db, manual, new File[]{file});
+                    }
             }
             cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "revision").listFiles());
             cleanupMessageFiles(db, manual, new File(context.getFilesDir(), "references").listFiles());
