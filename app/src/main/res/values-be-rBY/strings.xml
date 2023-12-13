@@ -454,6 +454,7 @@
     <string name="title_advanced_lookup_mx">Правяраць адрасы электроннай пошты атрымальнікаў перад адпраўкай</string>
     <string name="title_advanced_metered">Выкарыстоўваць лімітаваныя злучэнні</string>
     <string name="title_advanced_download">Аўтаматычна загружаць паведамленні і ўкладанні пры лімітаваным злучэнні</string>
+    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Таксама ўжываць безлімітныя злучэнні</string>
     <string name="title_advanced_roaming">Загружаць паведамленні і ўкладанні ў роўмінгу</string>
     <string name="title_advanced_rlah">У роўмінгу як дома</string>
     <string name="title_advanced_download_headers">Загружаць усе загалоўкі паведамленняў</string>
@@ -464,10 +465,12 @@
     <string name="title_advanced_vpn_only">Ажыццяўляць злучэнне толькі праз VPN</string>
     <string name="title_advanced_timeout">Час чакання злучэння (секунды)</string>
     <string name="title_advanced_prefer_ip4">Аддаваць перавагу пратаколу IPv4 перад IPv6</string>
+    <string name="title_advanced_ssl_update">Выкарыстоўваць абноўлены SSL-правайдар</string>
     <string name="title_advanced_ssl_harden">Узмоцненыя SSL-злучэнні</string>
     <string name="title_advanced_ssl_harden_strict">Патрабаваць пратакол TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строгая праверка сертыфіката</string>
     <string name="title_advanced_open_safe">Адкрываць толькі бяспечныя злучэнні</string>
+    <string name="title_advanced_http_redirect">Дазволіць пераадрасаванне злучэння</string>
     <string name="title_advanced_bouncy_castle">Выкарыстанне правайдэра бяспечных сокетаў Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Кіраванне злучэннем</string>
     <string name="title_advanced_caption_general">Асноўнае</string>
@@ -1039,6 +1042,9 @@
     <string name="title_service_port">Калі ласка, рраверце нумар порта яшчэ раз</string>
     <string name="title_service_protocol">Калі ласка, праверце яшчэ раз пратакол (SSL/TLS або STARTTLS)</string>
     <string name="title_service_error10">Неабходна паўторна прайсці аўтэнтыфікацыю для гэтага ўліковага запісу. Гэта можна зрабіць з дапамогай майстра хуткага наладжвання</string>
+    <string name="title_certificate_error">        У версіі FairEmail для Google Play Store больш немагчыма падтрымліваць небяспечныя злучэнні з серверамі электроннай пошты з праблемнымі сертыфікатамі з-за змененай палітыкі Google.
+        Такім чынам, гэтую праблему можа вырашыць толькі ваш правайдар электроннай пошты — прыведзеная вышэй інфармацыя пра памылку можа дапамагчы яму вырашыць гэтую праблему.
+    </string>
     <string name="title_advanced_browse">Праглядзець паведамленні на серверы</string>
     <string name="title_advanced_expand_read">Пры разгортванні адзначаць паведамленні прачытанымі</string>
     <string name="title_synchronize_now">Сінхранізаваць зараз</string>

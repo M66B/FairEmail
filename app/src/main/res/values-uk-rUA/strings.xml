@@ -453,6 +453,7 @@
     <string name="title_advanced_lookup_mx">Перевіряти адреси електронної пошти одержувача перед надсиланням</string>
     <string name="title_advanced_metered">Використовувати лімітовані підключення</string>
     <string name="title_advanced_download">Автоматично завантажувати повідомлення і вкладення при лімітованому з\'єднанні обсягом до</string>
+    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Застосовувати це також до нелімітованих підключень</string>
     <string name="title_advanced_roaming">Завантажувати повідомлення та вкладення у роумінгу</string>
     <string name="title_advanced_rlah">В роумінгу як вдома</string>
     <string name="title_advanced_download_headers">Завантажувати всі заголовки повідомлень</string>
@@ -463,7 +464,7 @@
     <string name="title_advanced_vpn_only">Під’єднуватися тільки через VPN</string>
     <string name="title_advanced_timeout">Час очікування підключення (секунди)</string>
     <string name="title_advanced_prefer_ip4">Віддавати перевагу IPv4 над IPv6</string>
-    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Використовувати оновленого SSL-провайдера</string>
+    <string name="title_advanced_ssl_update">Використовувати оновленого SSL-провайдера</string>
     <string name="title_advanced_ssl_harden">Посилене SSL-з\'єднання</string>
     <string name="title_advanced_ssl_harden_strict">Вимагати TLS 1.3</string>
     <string name="title_advanced_cert_strict">Сувора перевірка сертифікату</string>

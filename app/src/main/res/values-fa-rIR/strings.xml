@@ -362,7 +362,7 @@
     <string name="title_advanced_vpn_only">اتصال تنها به وسیله وی‌پی‌ان</string>
     <string name="title_advanced_timeout">اتصال برقرار نشد (ثانیه)</string>
     <string name="title_advanced_prefer_ip4">ترجیح IPv4 به IPv6</string>
-    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">استفاده از ارائه‌دهنده اس‌اس‌ال به روز</string>
+    <string name="title_advanced_ssl_update">استفاده از ارائه‌دهنده اس‌اس‌ال به روز</string>
     <string name="title_advanced_ssl_harden">اتصالات SSL را محکم کن</string>
     <string name="title_advanced_open_safe">فقط ارتباطات اوپن‌سورس</string>
     <string name="title_advanced_http_redirect">مجاز دانستن تغییر مسیر ارتباط</string>

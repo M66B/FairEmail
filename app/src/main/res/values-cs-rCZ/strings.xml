@@ -453,6 +453,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_lookup_mx">Před odesláním zkontrolovat e-mailové adresy příjemců</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
+    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Použít i pro neměřená připojení</string>
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
     <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
     <string name="title_advanced_download_headers">Stáhnout hlavičky všech zpráv</string>
@@ -463,7 +464,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_vpn_only">Připojit pouze pomocí VPN</string>
     <string name="title_advanced_timeout">Časový limit připojení (sekundy)</string>
     <string name="title_advanced_prefer_ip4">Upřednostňovat IPv4 před IPv6</string>
-    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Použít aktualizovaného poskytovatele SSL</string>
+    <string name="title_advanced_ssl_update">Použít aktualizovaného poskytovatele SSL</string>
     <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
     <string name="title_advanced_ssl_harden_strict">Vyžadovat TLS 1.3</string>
     <string name="title_advanced_cert_strict">Přísná kontrola certifikátu</string>

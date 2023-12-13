@@ -425,6 +425,7 @@
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente messaggi e allegati su una connessione a consumo fino a</string>
+    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Applica anche alle reti non a consumo</string>
     <string name="title_advanced_roaming">Scarica messaggi e allegati in roaming</string>
     <string name="title_advanced_rlah">Roaming come a casa</string>
     <string name="title_advanced_download_headers">Scarica tutte le intestazioni del messaggio</string>
@@ -435,7 +436,7 @@
     <string name="title_advanced_vpn_only">Connettiti solo tramite una VPN</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_prefer_ip4">Preferisce IPv4 su IPv6</string>
-    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Usa provider SSL aggiornato</string>
+    <string name="title_advanced_ssl_update">Usa provider SSL aggiornato</string>
     <string name="title_advanced_ssl_harden">Indurisci connessioni SSL</string>
     <string name="title_advanced_ssl_harden_strict">Richiede TLS 1.3</string>
     <string name="title_advanced_cert_strict">Controllo rigoroso del certificato</string>

@@ -423,6 +423,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_lookup_mx">Controleer e-mailadressen van de ontvangers voor verzenden</string>
     <string name="title_advanced_metered">Gemeten verbindingen gebruiken</string>
     <string name="title_advanced_download">Automatisch downloaden van berichten en bijlagen op een gemeten verbinding tot</string>
+    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Ook toepassen op ongemeten verbindingen</string>
     <string name="title_advanced_roaming">Download berichten en bijlagen tijdens roaming</string>
     <string name="title_advanced_rlah">Roam zoals thuis</string>
     <string name="title_advanced_download_headers">Download alle berichtkoppen</string>
@@ -433,7 +434,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_vpn_only">Alleen via een VPN verbinden</string>
     <string name="title_advanced_timeout">Verbinding timeout (seconden)</string>
     <string name="title_advanced_prefer_ip4">Geef de voorkeur aan IPv4 boven IPv6</string>
-    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Bijgewerkte SSL-provider gebruiken</string>
+    <string name="title_advanced_ssl_update">Bijgewerkte SSL-provider gebruiken</string>
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_ssl_harden_strict">Vereis TLS 1.3</string>
     <string name="title_advanced_cert_strict">Strenge certificaatcontrole</string>

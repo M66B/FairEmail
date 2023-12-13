@@ -423,6 +423,7 @@
     <string name="title_advanced_lookup_mx">Fogadók címeinek ellenőrzése küldés előtt</string>
     <string name="title_advanced_metered">Mért kapcsolat használata</string>
     <string name="title_advanced_download">Üzenetek és mellékleteik automatikus letöltése mért kapcsolaton az alábbi méretig</string>
+    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Díjmentes kapcsolatok esetén is</string>
     <string name="title_advanced_roaming">Üzenetek és mellékleteik letöltése roaming kapcsolaton</string>
     <string name="title_advanced_rlah">Roaming mint otthon</string>
     <string name="title_advanced_download_headers">Minden üzenet fejléc letöltése</string>
@@ -433,7 +434,7 @@
     <string name="title_advanced_vpn_only">Csatlakozás csak VPN-en keresztül</string>
     <string name="title_advanced_timeout">Kapcsolat időtúllépés (másodpercben)</string>
     <string name="title_advanced_prefer_ip4">IPv4 preferálása IPv6 fölött</string>
-    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Frissített SSL szolgáltató használata</string>
+    <string name="title_advanced_ssl_update">Frissített SSL szolgáltató használata</string>
     <string name="title_advanced_ssl_harden">SSL kapcsolatok megerősítése</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 megkövetelése</string>
     <string name="title_advanced_cert_strict">Szigorú tanusítvány ellenőrzés</string>

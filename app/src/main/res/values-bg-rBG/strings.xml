@@ -411,7 +411,7 @@
     <string name="title_advanced_vpn_only">Свързване само чрез VPN</string>
     <string name="title_advanced_timeout">Време на изчакване на връзката (секунди)</string>
     <string name="title_advanced_prefer_ip4">Предпочитане на IPv4 пред IPv6</string>
-    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Употреба на обновения доставчик SSL</string>
+    <string name="title_advanced_ssl_update">Употреба на обновения доставчик SSL</string>
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_ssl_harden_strict">Изисква се TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строга проверка на удостоверението</string>
