@@ -216,12 +216,14 @@
     <string name="title_setup_doze">Изключване на оптимизирането на батерията</string>
     <string name="title_setup_doze_remark">За надеждно изпращане и получаване на е-писма във фонов режим</string>
     <string name="title_setup_doze_explanation">Оптимизиране на батерията трябва да се изключи за приложения, за да се осигури надеждно изпращане и получаване на съобщения във фонов режим</string>
+    <string name="title_setup_doze_hint">Въпреки че това може да звучи противоречиво, но изключването на оптимизирането на батерията за това приложение може да доведе до по-малка употреба на батерията</string>
     <string name="title_setup_doze_aggressively">Това устройство може да спре услугата за синхро.</string>
     <string name="title_setup_doze_why">Защо оптимизирането на енергопотребление трябва да е изключено?</string>
     <string name="title_setup_doze_battery">Висока конс. на батерия?</string>
     <string name="title_setup_doze_stopped">Спирате ли синхрото?</string>
     <string name="title_setup_doze_device">Това вероятно се изисква за устройството</string>
     <string name="title_setup_alarm_12">Неправилно работи приложението</string>
+    <string name="title_setup_inexact">Будилници и напомняния са изключени</string>
     <string name="title_setup_background">Фоновите ограничения са включени</string>
     <string name="title_setup_data">Ниска консумация на данни е активирано</string>
     <string name="title_setup_always">Моментални известия за нови съобщения</string>
@@ -291,7 +293,7 @@
     <string name="title_setup_theme_black_background">Черен фон</string>
     <string name="title_setup_theme_html_light">Светъл фон за преглед на първообразното съобщение</string>
     <string name="title_setup_theme_composer_light">Светъл фон за редактора на съобщения</string>
-    <string name="title_setup_theme_you_hint">Цветовете на Material може да се настроят в Тапети на Android &amp; настройка на стил</string>
+    <string name="title_setup_theme_you_hint">Цветовете на Material може да се настроят в Тапети на Android и настройка на стил</string>
     <string name="title_setup_theme_system_hint">Системната тема ще превключи автоматично от светло/тъмно през деня/ноща, ако се поддържа от Андроид</string>
     <string name="title_setup_theme_more_colors">Искам още багри</string>
     <string name="title_setup_advanced">Разширени</string>
@@ -409,10 +411,13 @@
     <string name="title_advanced_vpn_only">Свързване само чрез VPN</string>
     <string name="title_advanced_timeout">Време на изчакване на връзката (секунди)</string>
     <string name="title_advanced_prefer_ip4">Предпочитане на IPv4 пред IPv6</string>
+    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">Употреба на обновения доставчик SSL</string>
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_ssl_harden_strict">Изисква се TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строга проверка на удостоверението</string>
     <string name="title_advanced_open_safe">Отваряне само на сигурни връзки</string>
+    <string name="title_advanced_http_redirect">Позволяване на пренасочване на свързването</string>
+    <string name="title_advanced_bouncy_castle">Употреба на доставчика на сигурни сокети Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Управление на свързаността</string>
     <string name="title_advanced_caption_general">Общи</string>
     <string name="title_advanced_caption_navigation">Навигация</string>
@@ -2061,7 +2066,7 @@
         <item>Нормален</item>
         <item>Личен</item>
         <item>Private</item>
-        <item>Confidential</item>
+        <item>Поверително</item>
     </string-array>
     <string-array name="linesNames">
         <item>1</item>
@@ -2076,6 +2081,7 @@
         <item>Среден</item>
         <item>Голям</item>
     </string-array>
+    <string name="title_size_tiny">Дребен</string>
     <string-array name="receiptNames">
         <item>Разписка за прочетено</item>
         <item>Разписка за доставено</item>
@@ -2142,7 +2148,7 @@
         <item>Не блокирано</item>
     </string-array>
     <string-array name="contactGroupTypes">
-        <item>Any</item>
+        <item>Всеки</item>
         <item>Home</item>
         <item>Служебен</item>
         <item>Други</item>

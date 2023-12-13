@@ -777,6 +777,7 @@
     <string name="title_advanced_check_reply_hint">Ez ellenőrizni fogja, hogy a küldő- és a válaszcím domainje ugyanaz-e</string>
     <string name="title_advanced_lookup_mx_hint">Ez a DNS MX bejegyzés ellenőrzésével jár</string>
     <string name="title_advanced_sync_delay_hint">Ez lelassítja az üzenetek szinkronizálását</string>
+    <string name="title_advanced_folder_nav_hint">Mindig visszatér a mappa lista nézethez a hozzátartozó fióknál az üzenet listából</string>
     <string name="title_advanced_pull_all_hint">A mappa- vagy fióklista lehúzásakor</string>
     <string name="title_advanced_suggest_names_hint">Ha ki van kapcsolva, csak e-mail címek lesznek használva névjegyek kiválasztásakor</string>
     <string name="title_advanced_suggest_local_hint">Az Android által biztosított névjegyek mellett. A kapcsolattartási adatokat az újonnan elküldött vagy fogadott üzenetek csak akkor fogják tárolni, ha ez engedélyezve van.</string>
@@ -794,10 +795,12 @@
     <string name="title_advanced_rlah_hint">Roaming figyelmen kívül hagyása az EU-n belül</string>
     <string name="title_advanced_usage_hint">Ez megnöveli az akkumulátor, adat és tárhely használatot</string>
     <string name="title_advanced_plain_hint">Ezen opció bekapcsolása csökkenti az adathasználatot, de az üzenetek formázás nélkül fognak megjelenni</string>
+    <string name="title_advanced_tcp_keep_alive_hint">Bekapcsolása esetén okozhat csatlakozási problémákat egyes eszközökön, és megnövelheti az akksi fogyasztást</string>
     <string name="title_advanced_validate_hint">Ez azt eredményezheti, hogy nem szinkronizálják az üzeneteket, például VPN használatakor, de más helyzetekben is</string>
     <string name="title_advanced_timeout_hint">Az olvasás/írás időtúllépés be lesz állítva a kapcsolat időtúllépés duplájára. Nagyobb értékek több akkumulátor használatot eredményezhetnek.</string>
     <string name="title_advanced_cert_strict_hint">Kikapcsolása esetén felfüggeszti a tanúsítvány ellenőrzést</string>
     <string name="title_advanced_ssl_harden_hint">Ennek a bekapcsolása kikapcsolja a gyenge SSL protokollokat és ciphereket ami csatlakozási problémákat okozhat</string>
+    <string name="title_advanced_open_safe_hint">Bekapcsolásához szükséges egy biztonságos kapcsolat a képek és egyéb dolgok letöltésénél</string>
     <string name="title_advanced_roaming_hint">Az üzenetek fejléce roamingoláskor minden esetben letöltésre kerül. A készülék beállításai között kikapcsolhatja a roaming internet használatot.</string>
     <string name="title_advanced_browse_hint">Több üzenet letöltése lefelé görgetéssel</string>
     <string name="title_advanced_layout_hint">Váltás egy kompaktabb elrendezésre és az üzenet szövegméret módosítása elvégezhető a felső műveletsáv menüjében az üzenet nézetben</string>
@@ -817,7 +820,12 @@
     <string name="title_advanced_monospaced_pre_hint">Formázatlan üzeneteket előformázottnak tekinti</string>
     <string name="title_advanced_placeholders_hint">Ez csak az újraformázott szövegre érvényes</string>
     <string name="title_advanced_inline_hint">Beágyazott képek az üzenet szövegébe beszúrt képek</string>
+    <string name="compressed">A (%1$s) tömörített fájl esetében ha több mint %2$s fájlt tartalmaz, vagy %3$s -nál nagyobbak, nem kerülnek megjelenítésre</string>
     <string name="title_advanced_parse_classes_hint">Ez pontosabban fogja megjeleníteni az üzeneteket, de egy kis késéssel</string>
+    <string name="title_advanced_default_folder_hint">        A rendzser rákérdezhet a bizonyos mappához vlaó hozzáférést, akkoris ha az app számára nincs szükség engedélyre.
+        Kiveheti a kijelölést az alap mappa visszaállításához (többnyire ez a \"Letöltés\" mappa).
+    </string>
+    <string name="title_advanced_restore_on_launch_hint">%1$d percen belül a legutolsó app státusz visszaállítása az indító ikonra nyomva</string>
     <string name="title_advanced_autoexpand_hint">Üzenetek automatikus megnyitása, ha összesen egy, vagy csak egy olvasatlan üzetetet tartalmaz a beszélgetés</string>
     <string name="title_advanced_expandall_hint">Több üzenet kibontásánál nem fog megjelenni a válasz gomb, mert nem egyértelmű, hogy melyik üzenetre vonatkozik a válasz</string>
     <string name="title_advanced_autoseen_hint">Üzenetek kibontásánál olvasottnak tekintést ki lehet kapcsolni minden fiók saját haladó beállításainál</string>
@@ -825,14 +833,17 @@
     <string name="title_advanced_sender_hint">A legtöbb szolgáltató nem engedélyezi a küldő email cím módosítását</string>
     <string name="title_advanced_bcc_hint">A cím nem lesz megjelenítve, de küldésnél hozzá lesz adva</string>
     <string name="title_advanced_internal_hint">Figyelmeztetés megjelenítése üzenet más tartományba küldésekor</string>
+    <string name="title_advanced_uri">A kiválasztott kontakt részletei felhasználásra kerülnek vCard mellékletként</string>
     <string name="title_advanced_e2e_encryption">Végpontok közötti titkosítási beállítások</string>
     <string name="title_advanced_display_harmful_hint">Ennek az opciónak a kikapcsolása negatív hatással lehet az adatvédelemre</string>
     <string name="title_advanced_display_hidden_hint">Ez furcsa kinézetű és megkétszerezett szöveget eredményezhet</string>
     <string name="title_advanced_display_pin_hint">A PIN kód elsőbbséget élvez a biometrikus azonosítással szemben</string>
     <string name="title_advanced_display_autolock_nav_hint">%1$d másodperc türelmi idő</string>
+    <string name="title_advanced_user_agent_hint">Egyes szerverek nem fogadnak el általános felhasználói agent sorokat</string>
     <string name="title_advanced_safe_browsing_hint">A Google szervere tudja milyen címek kerülnek felkeresésre</string>
     <string name="title_advanced_badge_hint">Csak támogatott \"launcher\"-ek esetén elérhető</string>
     <string name="title_advanced_notify_action_hint">Legfeljebb három művelet lesz látható</string>
+    <string name="title_advanced_notify_car_hint">A kapcsolódás ebben az esetben az app felé való kivetítést jelenti, mint például a navigációs térképnél</string>
     <string name="title_advanced_notify_remove_hint">Az új üzenet értesitések mindig törlődnek azok oldalra csúsztatásával, vagy az üzenet olvasottként való megjelölésével</string>
     <string name="title_advanced_notify_manage_hint">Koppintson a csatorna nevére a tulajdonságai beállításához</string>
     <string name="title_advanced_notify_manage_default_hint">Alapértelmezett hang beállítása, stb</string>
@@ -854,6 +865,8 @@
     <string name="title_advanced_cleanup_hint">Ez törli az összes ideiglenes fájlt</string>
     <string name="title_advanced_never_favorite">Kedvencként megjelölés tiltása</string>
     <string name="title_advanced_edit_name">Név szerkesztése</string>
+    <string name="title_advanced_create_alias">Fedőnév létrehozása</string>
+    <string name="title_advanced_create_alias_remark">Sok esetben a fedőneves címet az email szolgáltató oldalán keresztül kell visszaigazolni</string>
     <string name="title_create_folder">Mappa létrehozása</string>
     <string name="title_create_folder_name">Mappanév</string>
     <string name="title_create_folder_parent">Szülő-mappa</string>
@@ -931,6 +944,9 @@
     <string name="title_leave_on_device">Üzenetek megőrzése a készüléken</string>
     <string name="title_max_messages">Letöltendő üzenetek maximális száma (összes ha üres)</string>
     <string name="title_max_messages_keep">A készüléken tárolt üzenetek maximális száma</string>
+    <string name="title_max_messages_remark">        Adjon meg egy pozitív számot az üzenetek letöltéséhez a végétől (leggyakoribb)
+        vagy egy negítvat, hogy az elejétől (kevésbé gyakori)
+    </string>
     <string name="title_keep_poll_interval">Újrapróbálkozási intervallum (perc)</string>
     <string name="title_keep_alive_interval">Életbentartási intervallum (perc)</string>
     <string name="title_keep_alive_noop">IMAP IDLE időszakos újraindítása</string>
@@ -1619,6 +1635,7 @@
     <string name="title_rule_daily">Csak naponta fusson</string>
     <string name="title_rule_age">Üzenet régebbi, mint (napokban)</string>
     <string name="title_rule_stop">Szabályok feldolgozásának leállítása e szabály végrehajtása után</string>
+    <string name="title_rule_stop_remark">Ha a szabály az egész csoportra vonatkozik, akkor az egész csoport számára meg fog szűnni</string>
     <string name="title_rule_sender">Küldő tartalmazza</string>
     <string name="title_rule_sender_known">A feladó szerepel a névjegyzékben</string>
     <string name="title_rule_recipient">Címzett tartalmazza</string>
@@ -1628,8 +1645,10 @@
     <string name="title_rule_body">Szöveg tartalmaz</string>
     <string name="title_rule_skip_quotes">Idézett szöveg átugrása</string>
     <string name="title_rule_body_remark">Ezt a feltételt beállítva mindig letölti az üzenet szövegét, ami lelassíthatja az üzenet lista szinkronizálását</string>
+    <string name="title_rule_time_abs">Abszolút idő (kapott) alatt</string>
     <string name="title_rule_time_after">Után érkezett</string>
     <string name="title_rule_time_before">Előtt érkezett</string>
+    <string name="title_rule_time_rel">Relatív idő (kapott) alatt</string>
     <string name="title_rule_time_every_day">Naponta</string>
     <string name="title_rule_younger">Üzenet későbbi, mint (órákban)</string>
     <string name="title_rule_regex">Regex</string>

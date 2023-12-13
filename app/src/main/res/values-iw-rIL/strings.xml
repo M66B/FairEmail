@@ -463,6 +463,7 @@
     <string name="title_advanced_vpn_only">התחברות רק דרך VPN</string>
     <string name="title_advanced_timeout">זמן קצוב לחיבור (בשניות)</string>
     <string name="title_advanced_prefer_ip4">להעדיף IPv4 על פני IPv6</string>
+    <string name="title_advanced_ssl_update" comment="title_advanced_ssl_update&#10;Title for an option in the connection settings tabv page to disable updating the SSL provider&#10;https://developer.android.com/privacy-and-security/security-gms-provider">להשתמש בספק SSL עדכני</string>
     <string name="title_advanced_ssl_harden">הקשחת חיבורי SSL</string>
     <string name="title_advanced_ssl_harden_strict">לדרוש TLS‎ 1.3</string>
     <string name="title_advanced_cert_strict">בדיקת אישורים קפדנית</string>
