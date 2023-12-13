@@ -186,7 +186,7 @@ public class CloudSync {
 
     private static Long updateSyncdata(Context context) throws IOException, JSONException {
         DB db = DB.getInstance(context);
-        File dir = Helper.ensureExists(context.getFilesDir(), "syncdata");
+        File dir = Helper.ensureExists(context, "syncdata");
 
         Long last = null;
 
@@ -352,7 +352,7 @@ public class CloudSync {
     private static void receiveRemoteData(Context context, String user, String password, long lrevision, long rrevision, JSONObject jstatus)
             throws JSONException, GeneralSecurityException, IOException, InvalidCipherTextException {
         DB db = DB.getInstance(context);
-        File dir = Helper.ensureExists(context.getFilesDir(), "syncdata");
+        File dir = Helper.ensureExists(context, "syncdata");
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean cloud_receive = prefs.getBoolean("cloud_receive", false);
 

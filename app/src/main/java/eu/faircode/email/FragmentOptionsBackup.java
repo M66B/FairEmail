@@ -1839,7 +1839,7 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                 .remove("cloud_last_sync")
                                 .apply();
 
-                        File dir = Helper.ensureExists(context.getFilesDir(), "syncdata");
+                        File dir = Helper.ensureExists(context, "syncdata");
                         File[] files = dir.listFiles();
                         if (files != null)
                             for (File file : files) {

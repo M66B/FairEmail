@@ -1933,8 +1933,6 @@ public class Log {
             db.endTransaction();
         }
 
-        Log.jni_safe_mkdirs(new File(context.getFilesDir(), "testing"));
-
         ServiceSynchronize.eval(context, "debuginfo");
 
         return draft;

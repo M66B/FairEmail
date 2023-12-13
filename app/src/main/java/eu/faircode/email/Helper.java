@@ -2641,11 +2641,9 @@ public class Helper {
 
     private static final Map<File, Boolean> exists = new HashMap<>();
 
-    static File ensureExists(File parent, String subdir) {
-        parent.mkdir();
-
-        File dir = new File(parent, subdir);
-        Log.jni_safe_mkdirs(dir);
+    static File ensureExists(Context context, String subdir) {
+        File dir = new File(context.getFilesDir(), subdir);
+        dir.mkdirs();
 
         synchronized (exists) {
             if (exists.containsKey(dir))

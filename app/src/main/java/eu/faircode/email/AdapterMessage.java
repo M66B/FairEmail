@@ -4105,7 +4105,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             response.setMethod(Method.REPLY);
                             response.addEvent(ev);
 
-                            File dir = Helper.ensureExists(context.getFilesDir(), "calendar");
+                            File dir = Helper.ensureExists(context, "calendar");
                             File ics = new File(dir, message.id + ".ics");
                             response.write(ics);
 
@@ -6389,7 +6389,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                             File source = EntityMessage.getFile(context, id);
 
-                            File dir = Helper.ensureExists(context.getFilesDir(), "shared");
+                            File dir = Helper.ensureExists(context, "shared");
                             File target = new File(dir, id + ".html");
 
                             Helper.copy(source, target);

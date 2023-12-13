@@ -172,7 +172,7 @@ public class EntityAttachment {
     }
 
     static File getFile(Context context, long id, String name) {
-        File dir = Helper.ensureExists(context.getFilesDir(), "attachments");
+        File dir = Helper.ensureExists(context, "attachments");
         String filename = Long.toString(id);
         if (!TextUtils.isEmpty(name))
             filename += "." + Helper.sanitizeFilename(name);
