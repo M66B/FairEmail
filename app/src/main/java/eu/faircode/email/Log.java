@@ -2944,8 +2944,13 @@ public class Log {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                 int timeout = prefs.getInt("timeout", EmailService.DEFAULT_CONNECT_TIMEOUT);
                 boolean metered = prefs.getBoolean("metered", true);
+                int download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
+                boolean download_limited = prefs.getBoolean("download_limited", false);
                 boolean roaming = prefs.getBoolean("roaming", true);
                 boolean rlah = prefs.getBoolean("rlah", true);
+                boolean download_headers = prefs.getBoolean("download_headers", false);
+                boolean download_eml = prefs.getBoolean("download_eml", false);
+                boolean download_plain = prefs.getBoolean("download_plain", false);
                 boolean standalone_vpn = prefs.getBoolean("standalone_vpn", false);
                 boolean require_validated = prefs.getBoolean("require_validated", false);
                 boolean require_validated_captive = prefs.getBoolean("require_validated_captive", true);
@@ -2958,8 +2963,14 @@ public class Log {
 
                 size += write(os, "timeout=" + timeout + "s" + (timeout == EmailService.DEFAULT_CONNECT_TIMEOUT ? "" : " !!!") + "\r\n");
                 size += write(os, "metered=" + metered + (metered ? "" : " !!!") + "\r\n");
+                size += write(os, "download=" + Helper.humanReadableByteCount(download) +
+                        " unmetered=" + download_limited + (download_limited ? " !!!" : "") + "\r\n");
                 size += write(os, "roaming=" + roaming + (roaming ? "" : " !!!") + "\r\n");
                 size += write(os, "rlah=" + rlah + (rlah ? "" : " !!!") + "\r\n");
+
+                size += write(os, "headers=" + download_headers + (download_headers ? " !!!" : "") + "\r\n");
+                size += write(os, "eml=" + download_eml + (download_eml ? " !!!" : "") + "\r\n");
+                size += write(os, "plain=" + download_plain + (download_plain ? " !!!" : "") + "\r\n");
 
                 size += write(os, "captive=" + (isCaptive == null ? "-" : Boolean.toString(isCaptive)) + "\r\n");
                 size += write(os, "validation=" + require_validated + (require_validated ? " !!!" : "") +
