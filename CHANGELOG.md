@@ -6,6 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
+### Next version
+
+* Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+
 ### 1.2139 - 2023-12-13
 
 * Enabled TLSv1.3 by default

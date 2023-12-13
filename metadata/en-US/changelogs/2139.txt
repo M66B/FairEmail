@@ -6,6 +6,10 @@ For support you can use the contact form.
 
 Wintonotitan
 
+Next version
+
+* Updated AndroidX
+
 1.2139 - 2023-12-13
 
 * Enabled TLSv1.3 by default
