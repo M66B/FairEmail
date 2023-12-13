@@ -2731,9 +2731,9 @@ public class Helper {
     }
 
     static void writeText(File file, String content) throws IOException {
-        // TODO CASA
         try (FileOutputStream out = new FileOutputStream(file)) {
-            Log.write(out, content);
+            if (content != null)
+                out.write(content.getBytes());
         }
     }
 

@@ -22,12 +22,10 @@ package eu.faircode.email;
 import static androidx.room.ForeignKey.CASCADE;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
-import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;

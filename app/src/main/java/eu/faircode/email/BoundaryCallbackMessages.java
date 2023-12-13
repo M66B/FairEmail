@@ -701,7 +701,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         if (ex instanceof ProtocolException) {
             Response r = ((ProtocolException) ex).getResponse();
             if (r != null && !TextUtils.isEmpty(r.getRest()))
-                return r.getRest(); // TODO CASA ?
+                return r.getRest();
         }
 
         return new ThrowableWrapper(ex).toSafeString();

@@ -142,19 +142,6 @@ public abstract class DB extends RoomDatabase {
             "compile_options"
     ));
 
-    static {
-        System.loadLibrary("fairemail");
-    }
-
-    public static native Cursor jni_safe_support_query(
-            SupportSQLiteDatabase db, String sql, Object[] args);
-
-    public static native Cursor jni_safe_sqlite_query(
-            SQLiteDatabase db, String table, String[] columns,
-            String selection, String[] selectionArgs,
-            String groupBy, String having,
-            String orderBy, String limit);
-
     @Override
     public void init(@NonNull DatabaseConfiguration configuration) {
         File dbfile = configuration.context.getDatabasePath(DB_NAME);
@@ -495,7 +482,7 @@ public abstract class DB extends RoomDatabase {
                             cache_size = -cache_size; // kibibytes
                             Log.i("Set PRAGMA cache_size=" + cache_size);
                             // TODO CASA
-                            try (Cursor cursor = jni_safe_support_query(db, "PRAGMA cache_size=" + cache_size + ";", new Object[0])) {
+                            try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";")) {
                                 cursor.moveToNext(); // required
                             }
                         }
@@ -516,7 +503,7 @@ public abstract class DB extends RoomDatabase {
                         for (String pragma : DB_PRAGMAS)
                             if (!"compile_options".equals(pragma) || BuildConfig.DEBUG) {
                                 // TODO CASA
-                                try (Cursor cursor = jni_safe_support_query(db, "PRAGMA " + pragma + ";", new Object[0])) {
+                                try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
                                     boolean has = false;
                                     while (cursor.moveToNext()) {
                                         has = true;

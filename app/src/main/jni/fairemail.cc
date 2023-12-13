@@ -66,15 +66,6 @@ Java_eu_faircode_email_ThrowableWrapper_jni_1get_1safe_1stack_1trace_1string(
 }
 
 extern "C"
-JNIEXPORT void JNICALL
-Java_eu_faircode_email_Log_jni_1safe_1write(JNIEnv *env, jclass clazz,
-                                            jobject os, jbyteArray data) {
-    jclass cls = env->FindClass("java/io/OutputStream");
-    jmethodID mid = env->GetMethodID(cls, "write", "([B)V");
-    env->CallVoidMethod(os, mid, data);
-}
-
-extern "C"
 JNIEXPORT jlongArray JNICALL
 Java_eu_faircode_email_Log_jni_1safe_1runtime_1stats(JNIEnv *env, jclass clazz) {
     jclass clsRuntime = env->FindClass("java/lang/Runtime");
@@ -108,28 +99,6 @@ Java_eu_faircode_email_Log_jni_1safe_1runtime_1stats(JNIEnv *env, jclass clazz) 
     env->SetLongArrayRegion(result, 4, 1, &getNativeHeapAllocatedSize);
 
     return result;
-}
-
-extern "C"
-JNIEXPORT jobject JNICALL
-Java_eu_faircode_email_DB_jni_1safe_1support_1query(JNIEnv *env, jclass clazz,
-                                                    jobject db,
-                                                    jstring sql, jobjectArray args) {
-    jclass cls = env->FindClass("androidx/sqlite/db/SupportSQLiteDatabase");
-    jmethodID mid = env->GetMethodID(cls, "query", "(Ljava/lang/String;[Ljava/lang/Object;)Landroid/database/Cursor;");
-    return env->CallObjectMethod(db, mid, sql, args);
-}
-
-extern "C"
-JNIEXPORT jobject JNICALL
-Java_eu_faircode_email_DB_jni_1safe_1sqlite_1query(JNIEnv *env, jclass clazz, jobject db,
-                                                   jstring table, jobjectArray columns,
-                                                   jstring selection, jobjectArray selection_args, jstring group_by,
-                                                   jstring having, jstring order_by, jstring limit) {
-    jclass cls = env->FindClass("android/database/sqlite/SQLiteDatabase");
-    jmethodID mid = env->GetMethodID(cls, "query",
-                                     "(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;");
-    return env->CallObjectMethod(db, mid, table, columns, selection, selection_args, group_by, having, order_by, limit);
 }
 
 extern "C"

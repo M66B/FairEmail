@@ -39,10 +39,7 @@ import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 

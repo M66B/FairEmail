@@ -63,7 +63,6 @@ import android.os.Bundle;
 import android.os.DeadObjectException;
 import android.os.DeadSystemException;
 import android.os.Debug;
-import android.os.Environment;
 import android.os.IBinder;
 import android.os.LocaleList;
 import android.os.OperationCanceledException;
@@ -242,8 +241,6 @@ public class Log {
     }
 
     public static native int jni_safe_log(int prio, String tag, String msg);
-
-    public static native void jni_safe_write(OutputStream os, byte[] data);
 
     public static native long[] jni_safe_runtime_stats();
 
@@ -1924,9 +1921,8 @@ public class Log {
             draft.ui_seen = true;
             draft.id = db.message().insertMessage(draft);
 
-            // TODO CASA
             File file = draft.getFile(context);
-            Helper.writeText(file, body);
+            Helper.writeText(file, body);  // TODO CASA
             db.message().setMessageContent(draft.id, true, null, 0, null, null);
 
             attachSettings(context, draft.id, 1);
@@ -3829,9 +3825,9 @@ public class Log {
         return ssb;
     }
 
-    static int write(OutputStream os, String text) throws IOException {
-        byte[] bytes = (text == null ? new byte[0] : text.getBytes());
-        jni_safe_write(os, bytes);
+    private static int write(OutputStream os, String text) throws IOException {
+        byte[] bytes = text.getBytes();
+        os.write(bytes);  // TODO CASA
         return bytes.length;
     }
 
