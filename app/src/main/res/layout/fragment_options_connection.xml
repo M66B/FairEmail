@@ -135,6 +135,18 @@
                     app:layout_constraintTop_toBottomOf="@id/tvDownload" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swDownloadLimited"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_download_limited"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spDownload"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swRoaming"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -143,7 +155,7 @@
                     android:text="@string/title_advanced_roaming"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/spDownload"
+                    app:layout_constraintTop_toBottomOf="@id/swDownloadLimited"
                     app:switchPadding="12dp" />
 
                 <TextView

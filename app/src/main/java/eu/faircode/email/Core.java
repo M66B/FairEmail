@@ -1722,21 +1722,25 @@ class Core {
                         long maxSize = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
                         if (maxSize == 0)
                             maxSize = Long.MAX_VALUE;
+                        boolean download_limited = prefs.getBoolean("download_limited", false);
                         boolean download_eml = prefs.getBoolean("download_eml", false);
 
                         if (!message.content)
-                            if (state.getNetworkState().isUnmetered() || (message.size != null && message.size < maxSize))
+                            if ((!download_limited && state.getNetworkState().isUnmetered()) ||
+                                    (message.size != null && message.size < maxSize))
                                 async = true;
 
                         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
                         for (EntityAttachment attachment : attachments)
                             if (!attachment.available)
-                                if (state.getNetworkState().isUnmetered() || (attachment.size != null && attachment.size < maxSize))
+                                if ((!download_limited && state.getNetworkState().isUnmetered()) ||
+                                        (attachment.size != null && attachment.size < maxSize))
                                     async = true;
 
                         if (download_eml &&
                                 (message.raw == null || !message.raw) &&
-                                (state.getNetworkState().isUnmetered() || (message.total != null && message.total < maxSize)))
+                                ((!download_limited && state.getNetworkState().isUnmetered()) ||
+                                        (message.total != null && message.total < maxSize)))
                             async = true;
                     }
 
@@ -5350,19 +5354,22 @@ class Core {
         long maxSize = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
         if (maxSize == 0)
             maxSize = Long.MAX_VALUE;
+        boolean download_limited = prefs.getBoolean("download_limited", false);
         boolean download_eml = prefs.getBoolean("download_eml", false);
 
         List<EntityAttachment> attachments = db.attachment().getAttachments(message.id);
 
         boolean fetch = false;
         if (!message.content)
-            if (state.getNetworkState().isUnmetered() || (message.size != null && message.size < maxSize))
+            if ((!download_limited && state.getNetworkState().isUnmetered()) ||
+                    (message.size != null && message.size < maxSize))
                 fetch = true;
 
         if (!fetch)
             for (EntityAttachment attachment : attachments)
                 if (!attachment.available)
-                    if (state.getNetworkState().isUnmetered() || (attachment.size != null && attachment.size < maxSize)) {
+                    if ((!download_limited && state.getNetworkState().isUnmetered()) ||
+                            (attachment.size != null && attachment.size < maxSize)) {
                         fetch = true;
                         break;
                     }
@@ -5391,7 +5398,7 @@ class Core {
             MessageHelper.MessageParts parts = helper.getMessageParts();
 
             if (!message.content) {
-                if (state.getNetworkState().isUnmetered() ||
+                if ((!download_limited && state.getNetworkState().isUnmetered()) ||
                         (message.size != null && message.size < maxSize)) {
                     String body = parts.getHtml(context);
                     File file = message.getFile(context);
@@ -5421,7 +5428,7 @@ class Core {
                 if (!attachment.available &&
                         attachment.subsequence == null &&
                         TextUtils.isEmpty(attachment.error))
-                    if (state.getNetworkState().isUnmetered() ||
+                    if ((!download_limited && state.getNetworkState().isUnmetered()) ||
                             (attachment.size != null && attachment.size < maxSize))
                         try {
                             parts.downloadAttachment(context, attachment, folder);
@@ -5435,7 +5442,8 @@ class Core {
 
         if (download_eml &&
                 (message.raw == null || !message.raw) &&
-                (state.getNetworkState().isUnmetered() || (message.total != null && message.total < maxSize))) {
+                ((!download_limited && state.getNetworkState().isUnmetered()) ||
+                        (message.total != null && message.total < maxSize))) {
             File file = message.getRawFile(context);
             try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
                 imessage.writeTo(os);

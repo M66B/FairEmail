@@ -7165,6 +7165,7 @@ public class FragmentMessages extends FragmentBase
         boolean expand_all = prefs.getBoolean("expand_all", false);
         boolean autoclose_send = prefs.getBoolean("autoclose_send", false);
         long download = prefs.getInt("download", MessageHelper.DEFAULT_DOWNLOAD_SIZE);
+        boolean download_limited = prefs.getBoolean("download_limited", false);
         boolean dup_msgids = prefs.getBoolean("dup_msgids", false);
 
         if (autoclose_send) {
@@ -7304,8 +7305,9 @@ public class FragmentMessages extends FragmentBase
                         expand = firstMessage;
                 }
 
-                if (expand != null &&
-                        (expand.content || unmetered || (expand.size != null && expand.size < download))) {
+                if (expand != null && (expand.content ||
+                        (!download_limited && unmetered) ||
+                        (expand.size != null && expand.size < download))) {
                     iProperties.setExpanded(expand, true, false);
                     for (int pos = 0; pos < messages.size(); pos++) {
                         TupleMessageEx message = messages.get(pos);

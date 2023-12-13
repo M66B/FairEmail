@@ -81,6 +81,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private ImageButton ibHelp;
     private SwitchCompat swMetered;
     private Spinner spDownload;
+    private SwitchCompat swDownloadLimited;
     private SwitchCompat swRoaming;
     private SwitchCompat swRlah;
     private SwitchCompat swDownloadHeaders;
@@ -118,7 +119,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private Group grpValidated;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "metered", "download", "roaming", "rlah",
+            "metered", "download", "download_limited", "roaming", "rlah",
             "download_headers", "download_eml", "download_plain",
             "require_validated", "require_validated_captive", "vpn_only",
             "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive",
@@ -139,6 +140,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         ibHelp = view.findViewById(R.id.ibHelp);
         swMetered = view.findViewById(R.id.swMetered);
         spDownload = view.findViewById(R.id.spDownload);
+        swDownloadLimited = view.findViewById(R.id.swDownloadLimited);
         swRoaming = view.findViewById(R.id.swRoaming);
         swRlah = view.findViewById(R.id.swRlah);
         swDownloadHeaders = view.findViewById(R.id.swDownloadHeaders);
@@ -208,6 +210,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 prefs.edit().remove("download").apply();
+            }
+        });
+
+        swDownloadLimited.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("download_limited", checked).apply();
             }
         });
 
@@ -654,6 +663,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                     spDownload.setSelection(pos);
                     break;
                 }
+
+            swDownloadLimited.setChecked(prefs.getBoolean("download_limited", false));
 
             swRoaming.setChecked(prefs.getBoolean("roaming", true));
             swRlah.setChecked(prefs.getBoolean("rlah", true));
