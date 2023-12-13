@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
-### Next version
+### 1.2139 - 2023-12-13
 
 * Enabled TLSv1.3 by default
 * Added option to limit download size also for unmetered connections
