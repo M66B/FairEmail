@@ -245,8 +245,6 @@ public class Log {
 
     public static native void jni_safe_write(OutputStream os, byte[] data);
 
-    public static native boolean jni_safe_mkdirs(File file);
-
     public static native long[] jni_safe_runtime_stats();
 
     public static void setLevel(Context context) {
