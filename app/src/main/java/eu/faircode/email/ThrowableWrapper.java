@@ -24,6 +24,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+// TODO CASA
 public class ThrowableWrapper extends Throwable {
     private String msg;
     private final Throwable ex;
