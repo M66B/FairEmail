@@ -1678,6 +1678,24 @@ public class Log {
                  */
         }
 
+        if (stack.length > 0 &&
+                stack[0].getClassName() != null &&
+                stack[0].getClassName().startsWith("com.android.internal.widget.FloatingToolbar"))
+            /*
+                java.lang.NullPointerException: Attempt to invoke virtual method 'int android.util.Size.getWidth()' on a null object reference
+                    at com.android.internal.widget.FloatingToolbar$FloatingToolbarPopup$11.onMeasure(FloatingToolbar.java:1430)
+                    at android.view.View.measure(View.java:25787)
+                    at com.android.internal.widget.FloatingToolbar$FloatingToolbarPopup.measure(FloatingToolbar.java:1530)
+                    at com.android.internal.widget.FloatingToolbar$FloatingToolbarPopup.layoutMainPanelItems(FloatingToolbar.java:1284)
+                    at com.android.internal.widget.FloatingToolbar$FloatingToolbarPopup.layoutMenuItems(FloatingToolbar.java:554)
+                    at com.android.internal.widget.FloatingToolbar.doShow(FloatingToolbar.java:283)
+                    at com.android.internal.widget.FloatingToolbar.show(FloatingToolbar.java:221)
+                    at com.android.internal.view.FloatingActionMode$FloatingToolbarVisibilityHelper.updateToolbarVisibility(FloatingActionMode.java:386)
+                    at com.android.internal.view.FloatingActionMode$2.run(FloatingActionMode.java:75)
+                    at android.os.Handler.handleCallback(Handler.java:938)
+             */
+            return false;
+
         if (isDead(ex))
             return false;
 
