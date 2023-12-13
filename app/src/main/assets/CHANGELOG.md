@@ -6,6 +6,13 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
+### Next version
+
+* Added option to limit download size also for unmetered connections
+* Small improvements and minor bug fixes
+* Updated [Public Suffix List](https://github.com/publicsuffix/list)
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2138 - 2023-12-12
 
 * Fixed *No protocols enabled* error

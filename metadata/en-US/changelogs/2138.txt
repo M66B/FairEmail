@@ -6,6 +6,13 @@ For support you can use the contact form.
 
 Wintonotitan
 
+Next version
+
+* Added option to limit download size also for unmetered connections
+* Small improvements and minor bug fixes
+* Updated Public Suffix List
+* Updated translations
+
 1.2138 - 2023-12-12
 
 * Fixed *No protocols enabled* error
