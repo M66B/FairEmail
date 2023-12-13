@@ -8420,6 +8420,19 @@ public class FragmentMessages extends FragmentBase
                             at androidx.recyclerview.selection.DefaultSelectionTracker.clearSelection(DefaultSelectionTracker:170)
                             at eu.faircode.email.FragmentMessages$130.handleOnBackPressed(FragmentMessages:8288)
                  */
+                /*
+                    Exception java.lang.IllegalStateException:
+                            at androidx.recyclerview.widget.RecyclerView.assertNotInLayoutOrScroll (RecyclerView.java:3482)
+                            at androidx.recyclerview.widget.RecyclerView$RecyclerViewDataObserver.onItemRangeChanged (RecyclerView.java:6071)
+                            at androidx.recyclerview.widget.RecyclerView$AdapterDataObservable.notifyItemRangeChanged (RecyclerView.java:13219)
+                            at androidx.recyclerview.widget.RecyclerView$Adapter.notifyItemChanged (RecyclerView.java:8136)
+                            at androidx.recyclerview.selection.EventBridge$TrackerToAdapterBridge.onItemStateChanged (EventBridge.java:99)
+                            at androidx.recyclerview.selection.DefaultSelectionTracker.notifyItemStateChanged (DefaultSelectionTracker.java:439)
+                            at androidx.recyclerview.selection.DefaultSelectionTracker.notifySelectionCleared (DefaultSelectionTracker.java:451)
+                            at androidx.recyclerview.selection.DefaultSelectionTracker.clearPrimarySelection (DefaultSelectionTracker.java:182)
+                            at androidx.recyclerview.selection.DefaultSelectionTracker.clearSelection (DefaultSelectionTracker.java:170)
+                            at eu.faircode.email.FragmentMessages$134.handleOnBackPressed (FragmentMessages.java:8358)
+                 */
             }
         }
     };
