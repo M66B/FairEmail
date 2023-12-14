@@ -83,6 +83,7 @@ public class JsonLd {
             if (!HTTP_SCHEMA_ORG.equals(jcontext) &&
                     !HTTPS_SCHEMA_ORG.equals(jcontext)) {
                 Log.e("JSON-LD " + jcontext + "?=" + jtype);
+                // Organization, PromotionCard, DiscountOffer
                 return null;
             }
 
