@@ -199,41 +199,41 @@ public class Fts5DbHelper extends SQLiteOpenHelper {
 
         String search = (sb.length() > 0 ? sb.toString() : escape(criteria.query));
 
-        String select = "";
+        StringBuilder select = new StringBuilder();
         List<String> args = new ArrayList<>();
 
         if (account != null) {
-            select += "account = ? AND ";
+            select.append("account = ? AND ");
             args.add(Long.toString(account));
         }
 
         if (folder != null) {
-            select += "folder = ? AND ";
+            select.append("folder = ? AND ");
             args.add(Long.toString(folder));
         }
 
         if (exclude.length > 0) {
-            select += "NOT folder IN (";
+            select.append("NOT folder IN (");
             for (int i = 0; i < exclude.length; i++) {
                 if (i > 0)
-                    select += ", ";
-                select += "?";
+                    select.append(", ");
+                select.append("?");
                 args.add(Long.toString(exclude[i]));
             }
-            select += ") AND ";
+            select.append(") AND ");
         }
 
         if (criteria.after != null) {
-            select += "time > ? AND ";
+            select.append("time > ? AND ");
             args.add(Long.toString(criteria.after));
         }
 
         if (criteria.before != null) {
-            select += "time < ? AND ";
+            select.append("time < ? AND ");
             args.add(Long.toString(criteria.before));
         }
 
-        select += "message MATCH ?";
+        select.append("message MATCH ?");
         args.add(search);
 
         Log.i("FTS select=" + select +
@@ -243,7 +243,7 @@ public class Fts5DbHelper extends SQLiteOpenHelper {
         // TODO CASA
         try (Cursor cursor = db.query(
                 "message", new String[]{"rowid"},
-                select,
+                select.toString(),
                 args.toArray(new String[0]),
                 null, null, "time DESC", null)) {
             while (cursor != null && cursor.moveToNext())
