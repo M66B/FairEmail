@@ -504,7 +504,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
-                    android:drawableStart="@drawable/twotone_report_24"
+                    android:drawableStart="@drawable/bugsnag"
                     android:drawablePadding="6dp"
                     android:text="@string/title_advanced_crash_reports"
                     app:layout_constraintEnd_toEndOf="parent"
