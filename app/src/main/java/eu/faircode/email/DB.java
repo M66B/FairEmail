@@ -132,7 +132,7 @@ public abstract class DB extends RoomDatabase {
             "identity", "account", "folder", "message", "attachment", "operation", "contact", "certificate", "answer", "rule", "search", "log"};
 
     private static final List<String> DB_PRAGMAS = Collections.unmodifiableList(Arrays.asList(
-            "synchronous", "journal_mode",
+            "synchronous", "journal_mode", "busy_timeout",
             "wal_checkpoint", "wal_autocheckpoint", "journal_size_limit",
             "page_count", "page_size", "max_page_count", "freelist_count",
             "cache_size", "cache_spill",
