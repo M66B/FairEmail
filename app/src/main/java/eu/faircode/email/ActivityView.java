@@ -1502,7 +1502,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         new SimpleTask<Long>() {
             @Override
             protected Long onExecute(Context context, Bundle args) throws Throwable {
-                File file = new File(context.getFilesDir(), "crash.log");
+                File file = new File(context.getFilesDir(), Log.CRASH_LOG_NAME);
                 if (file.exists()) {
                     StringBuilder sb = new StringBuilder();
                     try {
@@ -1535,7 +1535,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 ToastEx.makeText(ActivityView.this,
                         Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
             }
-        }.execute(this, new Bundle(), "crash:log");
+        }.execute(this, new Bundle(), Log.CRASH_LOG_NAME);
     }
 
     private void checkUpdate(boolean always) {

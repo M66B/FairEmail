@@ -195,6 +195,8 @@ import javax.net.ssl.X509TrustManager;
 public class Log {
     private static Context ctx;
 
+    static final String CRASH_LOG_NAME = "crash.log";
+
     private static final long MAX_LOG_SIZE = 8 * 1024 * 1024L;
     private static final int MAX_CRASH_REPORTS = (BuildConfig.TEST_RELEASE ? 50 : 5);
     private static final long MIN_FILE_SIZE = 1024 * 1024L;
@@ -1844,12 +1846,14 @@ public class Log {
     }
 
     static void writeCrashLog(Context context, Throwable ex) {
-        File file = new File(context.getFilesDir(), "crash.log");
+        File file = new File(context.getFilesDir(), CRASH_LOG_NAME);
         Log.w("Writing exception to " + file);
 
         try (FileWriter out = new FileWriter(file, true)) {
             out.write(BuildConfig.VERSION_NAME + BuildConfig.REVISION + " " + new Date() + "\r\n");
-            out.write(ex + "\r\n" + new ThrowableWrapper(ex).getSafeStackTraceString() + "\r\n");
+            ThrowableWrapper w = new ThrowableWrapper(ex);
+            out.write(w.toSafeString() + "\r\n");
+            out.write(w.getSafeStackTraceString() + "\r\n");
         } catch (IOException e) {
             Log.e(e);
         }
