@@ -1738,6 +1738,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                     final boolean capNotify = iservice.hasCapability("NOTIFY");
 
                     String capabilities = TextUtils.join(" ", iservice.getCapabilities());
+                    EntityLog.log(this, EntityLog.Type.Protocol, account, capabilities);
                     if (capabilities.length() > 500)
                         capabilities = capabilities.substring(0, 500) + "...";
 

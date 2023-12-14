@@ -778,6 +778,9 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
                     throw new IOException("Test");
                 db.identity().setIdentityState(ident.id, "connected");
 
+                EntityLog.log(this, EntityLog.Type.Protocol, ident.email + " " +
+                        TextUtils.join(" ", iservice.getCapabilities()));
+
                 max_size = iservice.getMaxSize();
 
                 List<Address> recipients = new ArrayList<>();

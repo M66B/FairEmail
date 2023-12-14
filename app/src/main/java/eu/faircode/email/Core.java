@@ -3209,9 +3209,9 @@ class Core {
             // Get capabilities
             Map<String, String> caps = istore.capabilities();
             boolean hasUidl = caps.containsKey("UIDL");
-            EntityLog.log(context, account.name +
-                    " POP capabilities= " + caps.keySet() +
-                    " uidl=" + account.capability_uidl);
+            String capabilities = TextUtils.join(" ", caps.values());
+            EntityLog.log(context, EntityLog.Type.Protocol, account, capabilities);
+            db.account().setAccountCapabilities(account.id, capabilities, false, false);
 
             if (hasUidl) {
                 if (Boolean.FALSE.equals(account.capability_uidl)) {

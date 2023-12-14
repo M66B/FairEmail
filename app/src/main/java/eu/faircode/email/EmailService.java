@@ -940,17 +940,18 @@ public class EmailService implements AutoCloseable {
     List<String> getCapabilities() throws MessagingException {
         List<String> result = new ArrayList<>();
 
-        Store store = getStore();
         Map<String, String> capabilities;
-        if (store instanceof IMAPStore)
-            capabilities = ((IMAPStore) getStore()).getCapabilities();
-        else if (store instanceof POP3Store)
-            capabilities = ((POP3Store) getStore()).getCapabilities();
+        if (iservice instanceof IMAPStore)
+            capabilities = ((IMAPStore) iservice).getCapabilities();
+        else if (iservice instanceof POP3Store)
+            capabilities = ((POP3Store) iservice).getCapabilities();
+        else if (iservice instanceof SMTPTransport)
+            capabilities = ((SMTPTransport) iservice).getExtensionParameters();
         else
             capabilities = null;
 
         if (capabilities != null)
-            result.addAll(capabilities.keySet());
+            result.addAll(capabilities.values());
 
         return result;
     }

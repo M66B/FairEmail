@@ -2653,6 +2653,10 @@ public class SMTPTransport extends Transport {
 			extMap.get(ext.toUpperCase(Locale.ENGLISH));
     }
 
+	public Map<String, String> getExtensionParameters() {
+		return extMap;
+	}
+
     /**
      * Does the server we're connected to support the specified
      * authentication mechanism?  Uses the extension information
