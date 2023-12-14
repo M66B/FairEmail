@@ -24,6 +24,10 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 // TODO CASA
 public class ThrowableWrapper extends Throwable {
     private String msg;
@@ -41,6 +45,10 @@ public class ThrowableWrapper extends Throwable {
 
     ThrowableWrapper() {
         this.ex = new Throwable();
+        List<StackTraceElement> stack = new ArrayList<>(Arrays.asList(ex.getStackTrace()));
+        if (stack.size() > 0)
+            stack.remove(0);
+        ex.setStackTrace(stack.toArray(new StackTraceElement[0]));
     }
 
     ThrowableWrapper(Throwable ex) {
@@ -84,6 +92,11 @@ public class ThrowableWrapper extends Throwable {
     @Override
     public StackTraceElement[] getStackTrace() {
         return ex.getStackTrace();
+    }
+
+    @Override
+    public void setStackTrace(@NonNull StackTraceElement[] stackTrace) {
+        ex.setStackTrace(stackTrace);
     }
 
     @Nullable
