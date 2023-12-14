@@ -57,7 +57,6 @@
 -keepnames class com.sun.mail.** {*;}
 
 -dontwarn java.awt.**
--dontwarn java.beans.Beans
 -dontwarn javax.activation.**
 -dontwarn javax.security.**
 
