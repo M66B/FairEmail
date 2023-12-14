@@ -67,7 +67,38 @@ public class ThrowableWrapper extends Throwable {
     }
 
     public String getSafeStackTraceString() {
-        return jni_get_safe_stack_trace_string(ex);
+        StringBuilder sb = new StringBuilder();
+
+        StackTraceElement[] stack = ex.getStackTrace();
+        for (StackTraceElement traceElement : stack)
+            sb.append("\tat ").append(traceElement).append('\n');
+
+        Throwable cause = ex.getCause();
+        StackTraceElement[] enclosing = stack;
+        while (cause != null) {
+            sb.append("Caused by: ").append('\n');
+
+            stack = cause.getStackTrace();
+
+            int m = stack.length - 1;
+            int n = enclosing.length - 1;
+            while (m >= 0 && n >= 0 && stack[m].equals(enclosing[n])) {
+                m--;
+                n--;
+            }
+
+            int common = stack.length - 1 - m;
+
+            for (int i = 0; i <= m; i++)
+                sb.append("\tat ").append(stack[i]).append('\n');
+            if (common != 0)
+                sb.append("\t... ").append(common).append(" more").append('\n');
+
+            enclosing = stack;
+            cause = cause.getCause();
+        }
+
+        return sb.toString(); //jni_get_safe_stack_trace_string(ex);
     }
 
     public String toSafeString() {
