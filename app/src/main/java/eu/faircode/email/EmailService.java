@@ -786,14 +786,11 @@ public class EmailService implements AutoCloseable {
                     try {
                         if (((char) b) == '\n') {
                             String line = bos.toString();
-                            if (!line.endsWith("ignoring socket timeout"))
-                                if (log)
-                                    EntityLog.log(context, EntityLog.Type.Protocol, user + " " + line);
-                                else {
-                                    breadcrumbs.push(line);
-                                    if (BuildConfig.DEBUG)
-                                        Log.i("javamail", user + " " + line);
-                                }
+                            if (log)
+                                if (line.endsWith("ignoring socket timeout"))
+                                    Log.d("javamail", user + " " + line);
+                                else
+                                    Log.w("javamail", user + " " + line);
                             bos.reset();
                         } else
                             bos.write(b);

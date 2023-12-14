@@ -289,6 +289,11 @@ public class Log {
         return 0;
     }
 
+    public static int w(String tag, String msg) {
+        org.tinylog.Logger.tag(tag).warn(msg);
+        return 0;
+    }
+
     public static int w(Throwable ex) {
         if (BuildConfig.BETA_RELEASE)
             try {
