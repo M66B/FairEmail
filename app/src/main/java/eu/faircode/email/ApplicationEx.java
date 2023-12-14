@@ -136,6 +136,32 @@ public class ApplicationEx extends Application
                 " process=" + android.os.Process.myPid());
         Log.logMemory(this, "App");
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        final boolean crash_reports = prefs.getBoolean("crash_reports", false);
+        final boolean leak_canary = prefs.getBoolean("leak_canary", false);
+        final boolean load_emoji = prefs.getBoolean("load_emoji", true);
+
+        prev = Thread.getDefaultUncaughtExceptionHandler();
+
+        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+            @Override
+            public void uncaughtException(@NonNull Thread thread, @NonNull Throwable ex) {
+                if (!crash_reports && Log.isOwnFault(ex)) {
+                    Log.e(ex);
+
+                    if (BuildConfig.BETA_RELEASE ||
+                            !Helper.isPlayStoreInstall())
+                        Log.writeCrashLog(ApplicationEx.this, ex);
+
+                    if (prev != null)
+                        prev.uncaughtException(thread, ex);
+                } else {
+                    Log.w(ex);
+                    System.exit(1);
+                }
+            }
+        });
+
         ConnectionHelper.setupProxy(this);
 
         if (BuildConfig.DEBUG)
@@ -155,19 +181,20 @@ public class ApplicationEx extends Application
             }
 
             private void log(boolean foreground) {
+                Log.i("App foreground=" + foreground);
                 Log.breadcrumb("app", "foreground", Boolean.toString(foreground));
             }
         });
 
         registerActivityLifecycleCallbacks(lifecycleCallbacks);
 
-        getMainLooper().setMessageLogging(new Printer() {
-            @Override
-            public void println(String msg) {
-                if (BuildConfig.DEBUG)
+        if (BuildConfig.DEBUG)
+            getMainLooper().setMessageLogging(new Printer() {
+                @Override
+                public void println(String msg) {
                     Log.d("Loop: " + msg);
-            }
-        });
+                }
+            });
 
         if (BuildConfig.DEBUG &&
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.P && false) {
@@ -204,32 +231,6 @@ public class ApplicationEx extends Application
                     .build();
             StrictMode.setVmPolicy(policy);
         }
-
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        final boolean crash_reports = prefs.getBoolean("crash_reports", false);
-        final boolean leak_canary = prefs.getBoolean("leak_canary", false);
-        final boolean load_emoji = prefs.getBoolean("load_emoji", true);
-
-        prev = Thread.getDefaultUncaughtExceptionHandler();
-
-        Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-            @Override
-            public void uncaughtException(@NonNull Thread thread, @NonNull Throwable ex) {
-                if (!crash_reports && Log.isOwnFault(ex)) {
-                    Log.e(ex);
-
-                    if (BuildConfig.BETA_RELEASE ||
-                            !Helper.isPlayStoreInstall())
-                        Log.writeCrashLog(ApplicationEx.this, ex);
-
-                    if (prev != null)
-                        prev.uncaughtException(thread, ex);
-                } else {
-                    Log.w(ex);
-                    System.exit(1);
-                }
-            }
-        });
 
         Log.setup(this);
         CoalMine.setup(leak_canary);
