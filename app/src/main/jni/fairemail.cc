@@ -34,15 +34,6 @@ Java_eu_faircode_email_ThrowableWrapper_jni_1get_1safe_1message(
 
 extern "C"
 JNIEXPORT jstring JNICALL
-Java_eu_faircode_email_ThrowableWrapper_jni_1to_1safe_1string(
-        JNIEnv *env, jclass clazz, jthrowable ex) {
-    jclass cls = env->FindClass("java/lang/Throwable");
-    jmethodID mid = env->GetMethodID(cls, "toString", "()Ljava/lang/String;");
-    return (jstring) env->CallObjectMethod(ex, mid);
-}
-
-extern "C"
-JNIEXPORT jstring JNICALL
 Java_eu_faircode_email_ThrowableWrapper_jni_1get_1safe_1stack_1trace_1string(
         JNIEnv *env, jclass clazz, jthrowable ex) {
     jclass cls = env->FindClass("android/util/Log");

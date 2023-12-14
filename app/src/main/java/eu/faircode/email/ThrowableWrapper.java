@@ -35,8 +35,6 @@ public class ThrowableWrapper extends Throwable {
 
     public static native String jni_get_safe_message(Throwable ex);
 
-    public static native String jni_to_safe_string(Throwable ex);
-
     public static native String jni_get_safe_stack_trace_string(Throwable ex);
 
     static {
@@ -73,7 +71,9 @@ public class ThrowableWrapper extends Throwable {
     }
 
     public String toSafeString() {
-        return jni_to_safe_string(ex);
+        String name = ex.getClass().getName();
+        String message = getSafeMessage();
+        return (message == null ? name : (name + ": " + message));
     }
 
     @Nullable
