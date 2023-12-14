@@ -68,6 +68,16 @@ public class ApplicationEx extends Application
     @Override
     protected void attachBaseContext(Context base) {
         TinyLogConfigurationLoader.setup(base);
+
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                Log.i("App shutdown" +
+                        " version=" + BuildConfig.VERSION_NAME + BuildConfig.REVISION +
+                        " process=" + android.os.Process.myPid());
+            }
+        });
+
         super.attachBaseContext(getLocalizedContext(base));
     }
 
