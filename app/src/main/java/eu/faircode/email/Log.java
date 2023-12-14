@@ -195,7 +195,6 @@ import javax.net.ssl.X509TrustManager;
 public class Log {
     private static Context ctx;
 
-    private static int level = android.util.Log.INFO;
     private static final long MAX_LOG_SIZE = 8 * 1024 * 1024L;
     private static final int MAX_CRASH_REPORTS = (BuildConfig.TEST_RELEASE ? 50 : 5);
     private static final long MIN_FILE_SIZE = 1024 * 1024L;
@@ -244,52 +243,27 @@ public class Log {
 
     public static native long[] jni_safe_runtime_stats();
 
-    public static void setLevel(Context context) {
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean debug = prefs.getBoolean("debug", false);
-        if (debug)
-            level = android.util.Log.DEBUG;
-        else {
-            int def = (BuildConfig.DEBUG ? android.util.Log.INFO : android.util.Log.WARN);
-            level = prefs.getInt("log_level", def);
-        }
-        jni_safe_log(android.util.Log.DEBUG, TAG, "Log level=" + level);
-    }
-
-    public static boolean isDebugLogLevel() {
-        return (level <= android.util.Log.INFO);
-    }
-
     public static int d(String msg) {
-        if (level <= android.util.Log.DEBUG)
-            return jni_safe_log(android.util.Log.DEBUG, TAG, msg);
-        else
-            return 0;
+        return d(TAG, msg);
     }
 
     public static int d(String tag, String msg) {
-        if (level <= android.util.Log.DEBUG)
-            return jni_safe_log(android.util.Log.DEBUG, tag, msg);
-        else
-            return 0;
+        org.tinylog.Logger.tag(tag).debug(msg);
+        return 0;
     }
 
     public static int i(String msg) {
-        if (level <= android.util.Log.INFO || BuildConfig.DEBUG || BuildConfig.TEST_RELEASE)
-            return jni_safe_log(android.util.Log.INFO, TAG, msg);
-        else
-            return 0;
+        return i(TAG, msg);
     }
 
     public static int i(String tag, String msg) {
-        if (level <= android.util.Log.INFO || BuildConfig.DEBUG || BuildConfig.TEST_RELEASE)
-            return jni_safe_log(android.util.Log.INFO, TAG, msg);
-        else
-            return 0;
+        org.tinylog.Logger.tag(tag).info(msg);
+        return 0;
     }
 
     public static int w(String msg) {
-        return jni_safe_log(android.util.Log.WARN, TAG, msg);
+        org.tinylog.Logger.tag(TAG).warn(msg);
+        return 0;
     }
 
     public static int e(String msg) {
@@ -307,11 +281,14 @@ public class Log {
             } catch (Throwable ex) {
                 Log.i(ex);
             }
-        return jni_safe_log(android.util.Log.ERROR, TAG, msg);
+
+        org.tinylog.Logger.tag(TAG).error(msg);
+        return 0;
     }
 
     public static int i(Throwable ex) {
-        return jni_safe_log(android.util.Log.INFO, TAG, getDescription(ex));
+        org.tinylog.Logger.tag(TAG).info(ex);
+        return 0;
     }
 
     public static int w(Throwable ex) {
@@ -330,7 +307,9 @@ public class Log {
             } catch (Throwable ex1) {
                 Log.i(ex1);
             }
-        return jni_safe_log(android.util.Log.WARN, TAG, getDescription(ex));
+
+        org.tinylog.Logger.tag(TAG).warn(ex);
+        return 0;
     }
 
     public static int e(Throwable ex) {
@@ -349,11 +328,14 @@ public class Log {
             } catch (Throwable ex1) {
                 Log.i(ex1);
             }
-        return jni_safe_log(android.util.Log.ERROR, TAG, getDescription(ex));
+
+        org.tinylog.Logger.tag(TAG).error(ex);
+        return 0;
     }
 
     public static int i(String prefix, Throwable ex) {
-        return jni_safe_log(android.util.Log.INFO, TAG, prefix + " " + getDescription(ex));
+        org.tinylog.Logger.tag(TAG).info(ex, prefix);
+        return 0;
     }
 
     public static int w(String prefix, Throwable ex) {
@@ -369,7 +351,9 @@ public class Log {
             } catch (Throwable ex1) {
                 Log.i(ex1);
             }
-        return jni_safe_log(android.util.Log.WARN, TAG, prefix + " " + getDescription(ex));
+
+        org.tinylog.Logger.tag(TAG).warn(ex, prefix);
+        return 0;
     }
 
     public static int e(String prefix, Throwable ex) {
@@ -385,24 +369,21 @@ public class Log {
             } catch (Throwable ex1) {
                 Log.i(ex1);
             }
-        return jni_safe_log(android.util.Log.ERROR, TAG, prefix + " " + getDescription(ex));
+
+        org.tinylog.Logger.tag(TAG).error(ex, prefix);
+        return 0;
     }
 
     public static void persist(String message) {
         if (ctx == null)
-            Log.e(message);
+            org.tinylog.Logger.tag(TAG).error(message);
         else
             EntityLog.log(ctx, message);
     }
 
-    private static String getDescription(Throwable ex) {
-        ThrowableWrapper t = new ThrowableWrapper(ex);
-        return t.toSafeString() + "\n" + t.getSafeStackTraceString();
-    }
-
     public static void persist(EntityLog.Type type, String message) {
         if (ctx == null)
-            Log.e(message);
+            org.tinylog.Logger.tag(TAG).error(type.name() + " " + message);
         else
             EntityLog.log(ctx, type, message);
     }
@@ -470,7 +451,6 @@ public class Log {
 
     static void setup(Context context) {
         ctx = context;
-        setLevel(context);
         setupBugsnag(context);
     }
 
@@ -2197,8 +2177,8 @@ public class Log {
             }
         }
 
-        sb.append(String.format("Log main: %b protocol: %b debug: %b build: %b test: %b\r\n",
-                main_log, protocol, Log.isDebugLogLevel(), BuildConfig.DEBUG, BuildConfig.TEST_RELEASE));
+        sb.append(String.format("Log main: %b protocol: %b build: %b test: %b\r\n",
+                main_log, protocol, BuildConfig.DEBUG, BuildConfig.TEST_RELEASE));
 
         int[] contacts = ContactInfo.getStats();
         sb.append(String.format("Contact lookup: %d cached: %d\r\n",
@@ -3153,6 +3133,8 @@ public class Log {
             attachment.progress = 0;
             attachment.id = db.attachment().insertAttachment(attachment);
 
+            attachment.zip(context, TinyLogConfigurationLoader.getFiles(context));
+/*
             // https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html#java
             ProcessBuilder pb = new ProcessBuilder("/system/bin/logcat",
                     "-d",
@@ -3182,6 +3164,7 @@ public class Log {
                 if (proc != null)
                     proc.destroy();
             }
+*/
         } catch (Throwable ex) {
             Log.e(ex);
         }

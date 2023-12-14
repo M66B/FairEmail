@@ -892,7 +892,6 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 if (checked)
                     prefs.edit()
                             .putLong("protocol_since", new Date().getTime())
-                            .putInt("log_level", android.util.Log.INFO)
                             .apply();
                 else
                     EntityLog.clear(compoundButton.getContext());
@@ -901,8 +900,9 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
 
         swLogInfo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putInt("log_level", checked ? android.util.Log.INFO : android.util.Log.WARN).apply();
+            public void onCheckedChanged(CompoundButton v, boolean checked) {
+                prefs.edit().putInt("log_level", checked ? android.util.Log.INFO : android.util.Log.WARN).commit();
+                ApplicationEx.restart(v.getContext(), "log_level");
             }
         });
 

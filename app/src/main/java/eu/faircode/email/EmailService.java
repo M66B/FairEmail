@@ -774,7 +774,7 @@ public class EmailService implements AutoCloseable {
 
         breadcrumbs = new RingBuffer<>(BREADCRUMBS_SIZE);
 
-        boolean trace = (debug || log || Log.isDebugLogLevel());
+        boolean trace = (debug || log);
 
         isession.setDebug(trace);
         if (trace)

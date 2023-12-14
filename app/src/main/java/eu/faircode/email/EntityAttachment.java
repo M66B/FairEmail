@@ -375,18 +375,41 @@ public class EntityAttachment {
         File file = getFile(context);
         File zip = new File(file.getAbsolutePath() + ".zip");
 
-        try (InputStream in = new BufferedInputStream(new FileInputStream(file))) {
-            try (ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(zip)))) {
-                out.setMethod(ZipOutputStream.DEFLATED);
-                out.setLevel(Deflater.BEST_COMPRESSION);
-                ZipEntry entry = new ZipEntry(name);
-                out.putNextEntry(entry);
+        try (ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(zip)))) {
+            out.setMethod(ZipOutputStream.DEFLATED);
+            out.setLevel(Deflater.BEST_COMPRESSION);
+            ZipEntry entry = new ZipEntry(name);
+            out.putNextEntry(entry);
+            try (InputStream in = new BufferedInputStream(new FileInputStream(file))) {
                 Helper.copy(in, out);
             }
         }
 
         DB db = DB.getInstance(context);
         db.attachment().setName(id, name + ".zip", "application/zip", zip.length());
+        db.attachment().setDownloaded(id, zip.length());
+        Helper.secureDelete(file);
+    }
+
+    void zip(Context context, File[] files) throws IOException {
+        File file = getFile(context);
+        File zip = new File(file.getAbsolutePath() + ".zip");
+
+        try (ZipOutputStream out = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(zip)))) {
+            out.setMethod(ZipOutputStream.DEFLATED);
+            out.setLevel(Deflater.BEST_COMPRESSION);
+            for (File f : files) {
+                ZipEntry entry = new ZipEntry(f.getName());
+                out.putNextEntry(entry);
+                try (InputStream in = new BufferedInputStream(new FileInputStream(f))) {
+                    Helper.copy(in, out);
+                }
+            }
+        }
+
+        DB db = DB.getInstance(context);
+        db.attachment().setName(id, name + ".zip", "application/zip", zip.length());
+        db.attachment().setDownloaded(id, zip.length());
         Helper.secureDelete(file);
     }
 

@@ -545,6 +545,7 @@ dependencies {
     def ipaddress_version = "5.4.0"
     def canary_version = "2.12"
     def ws_version = "2.14"
+    def tinylog_version = "2.6.2"
 
     // https://mvnrepository.com/artifact/com.android.tools/desugar_jdk_libs?repo=google
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
@@ -790,4 +791,9 @@ dependencies {
 
     // https://github.com/TakahikoKawasaki/nv-websocket-client
     implementation "com.neovisionaries:nv-websocket-client:$ws_version"
+
+    // https://tinylog.org/v2/download/
+    // https://mvnrepository.com/artifact/org.tinylog
+    implementation "org.tinylog:tinylog-api:$tinylog_version"
+    implementation "org.tinylog:tinylog-impl:$tinylog_version"
 }

@@ -3131,7 +3131,7 @@ class Core {
     private static void onDownload(Context context, JSONArray jargs, EntityAccount account, EntityFolder folder, EntityMessage message, IMAPStore istore, IMAPFolder ifolder, State state) throws MessagingException, IOException, JSONException {
         long uid = jargs.getLong(0);
         if (!Objects.equals(uid, message.uid))
-            throw new IllegalArgumentException("Different uid" + uid + "/" + message.uid);
+            throw new IllegalArgumentException("Different uid=" + uid + "/" + message.uid);
 
         MimeMessage imessage = (MimeMessage) ifolder.getMessageByUID(uid);
         downloadMessage(context, account, folder, istore, ifolder, imessage, message.id, state, new SyncStats());
