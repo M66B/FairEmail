@@ -239,8 +239,6 @@ public class Log {
         System.loadLibrary("fairemail");
     }
 
-    public static native int jni_safe_log(int prio, String tag, String msg);
-
     public static native long[] jni_safe_runtime_stats();
 
     public static int d(String msg) {
