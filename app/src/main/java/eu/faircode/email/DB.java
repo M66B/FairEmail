@@ -481,7 +481,7 @@ public abstract class DB extends RoomDatabase {
                         if (cache_size != null) {
                             cache_size = -cache_size; // kibibytes
                             Log.i("Set PRAGMA cache_size=" + cache_size);
-                            // TODO CASA
+                            // TODO CASA PRAGMA does not support placeholders
                             try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";")) {
                                 cursor.moveToNext(); // required
                             }
@@ -502,7 +502,7 @@ public abstract class DB extends RoomDatabase {
                         // https://www.sqlite.org/pragma.html
                         for (String pragma : DB_PRAGMAS)
                             if (!"compile_options".equals(pragma) || BuildConfig.DEBUG) {
-                                // TODO CASA
+                                // TODO CASA PRAGMA does not support placeholders
                                 try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
                                     boolean has = false;
                                     while (cursor.moveToNext()) {

@@ -240,7 +240,7 @@ public class Fts5DbHelper extends SQLiteOpenHelper {
                 " args=" + TextUtils.join(", ", args) +
                 " query=" + criteria.query);
         List<Long> result = new ArrayList<>();
-        // TODO CASA
+        // TODO CASA composed SQL with placeholders
         try (Cursor cursor = db.query(
                 "message", new String[]{"rowid"},
                 select.toString(),

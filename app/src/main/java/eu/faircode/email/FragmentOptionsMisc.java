@@ -2458,13 +2458,13 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             info.group = ex.toString();
                     }
 
-                    ssb.append(info.name).append('\n'); // TODO CASA
+                    ssb.append(info.name).append('\n'); // TODO CASA permission info
                     if (granted)
                         ssb.setSpan(new StyleSpan(Typeface.BOLD), start, ssb.length(), 0);
                     start = ssb.length();
 
                     if (info.group != null) {
-                        ssb.append(info.group).append('\n'); // TODO CASA
+                        ssb.append(info.group).append('\n'); // TODO CASA permission info
                         ssb.setSpan(new IndentSpan(dp24), start, ssb.length(), 0);
                         start = ssb.length();
                     }
@@ -2494,7 +2494,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                                     break;
                             }
 
-                        ssb.append(Integer.toHexString(info.protectionLevel)); // TODO CASA
+                        ssb.append(Integer.toHexString(info.protectionLevel)); // TODO CASA permission info
 
                         if (info.flags != 0)
                             ssb.append(' ').append(Integer.toHexString(info.flags));

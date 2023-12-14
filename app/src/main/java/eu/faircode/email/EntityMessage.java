@@ -621,7 +621,7 @@ public class EntityMessage implements Serializable {
     static File getFile(Context context, Long id) {
         File root = Helper.ensureExists(context, "messages");
         File dir = new File(root, "D" + (id / 1000));
-        dir.mkdir(); // TODO CASA
+        dir.mkdir(); // TODO CASA composed directory name
         return new File(dir, id.toString());
     }
 

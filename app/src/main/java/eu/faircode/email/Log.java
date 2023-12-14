@@ -1909,7 +1909,7 @@ public class Log {
             draft.id = db.message().insertMessage(draft);
 
             File file = draft.getFile(context);
-            Helper.writeText(file, body);  // TODO CASA
+            Helper.writeText(file, body);  // TODO CASA system info
             db.message().setMessageContent(draft.id, true, null, 0, null, null);
 
             attachSettings(context, draft.id, 1);
@@ -3828,7 +3828,7 @@ public class Log {
 
     private static int write(OutputStream os, String text) throws IOException {
         byte[] bytes = text.getBytes();
-        os.write(bytes);  // TODO CASA
+        os.write(bytes);  // TODO CASA system info
         return bytes.length;
     }
 
