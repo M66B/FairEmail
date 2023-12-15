@@ -1565,6 +1565,13 @@ public class FragmentMessages extends FragmentBase
             }
         });
 
+        // Workaround for RTL layout bug
+        boolean rtl = getContext().getResources().getConfiguration().getLayoutDirection() == View.LAYOUT_DIRECTION_RTL;
+        if (rtl) {
+            int dp71 = Helper.dp2pixels(getContext(), 56 /* FAB width */ + 15 /* FAB padding */);
+            ((ViewGroup.MarginLayoutParams) cardMore.getLayoutParams()).setMarginEnd(dp71);
+        }
+
         ibBatchSeen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
