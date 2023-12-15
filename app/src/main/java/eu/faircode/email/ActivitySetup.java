@@ -499,11 +499,15 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
 
             @Override
             protected Long onExecute(Context context, Bundle args) throws IOException, JSONException {
-                return Log.getDebugInfo(context, "setup", R.string.title_debug_info_remark, null, null, args).id;
+                EntityMessage m = DebugHelper.getDebugInfo(context,
+                        "setup", R.string.title_debug_info_remark, null, null, args);
+                return (m == null ? null : m.id);
             }
 
             @Override
             protected void onExecuted(Bundle args, Long id) {
+                if (id == null)
+                    return;
                 startActivity(new Intent(ActivitySetup.this, ActivityCompose.class)
                         .putExtra("action", "edit")
                         .putExtra("id", id));

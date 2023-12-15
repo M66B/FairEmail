@@ -151,7 +151,7 @@ public class ApplicationEx extends Application
 
                     if (BuildConfig.BETA_RELEASE ||
                             !Helper.isPlayStoreInstall())
-                        Log.writeCrashLog(ApplicationEx.this, ex);
+                        DebugHelper.writeCrashLog(ApplicationEx.this, ex);
 
                     if (prev != null)
                         prev.uncaughtException(thread, ex);

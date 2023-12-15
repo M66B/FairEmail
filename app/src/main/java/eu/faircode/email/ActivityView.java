@@ -1502,7 +1502,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         new SimpleTask<Long>() {
             @Override
             protected Long onExecute(Context context, Bundle args) throws Throwable {
-                File file = new File(context.getFilesDir(), Log.CRASH_LOG_NAME);
+                File file = new File(context.getFilesDir(), DebugHelper.CRASH_LOG_NAME);
                 if (file.exists()) {
                     StringBuilder sb = new StringBuilder();
                     try {
@@ -1512,7 +1512,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                                 sb.append(line).append("\r\n");
                         }
 
-                        return Log.getDebugInfo(context, "crash", R.string.title_crash_info_remark, null, sb.toString(), null).id;
+                        EntityMessage m = DebugHelper.getDebugInfo(context,
+                                "crash", R.string.title_crash_info_remark, null, sb.toString(), null);
+                        return (m == null ? null : m.id);
                     } finally {
                         Helper.secureDelete(file);
                     }
@@ -1523,11 +1525,12 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
 
             @Override
             protected void onExecuted(Bundle args, Long id) {
-                if (id != null)
-                    startActivity(
-                            new Intent(ActivityView.this, ActivityCompose.class)
-                                    .putExtra("action", "edit")
-                                    .putExtra("id", id));
+                if (id == null)
+                    return;
+                startActivity(
+                        new Intent(ActivityView.this, ActivityCompose.class)
+                                .putExtra("action", "edit")
+                                .putExtra("id", id));
             }
 
             @Override
@@ -1535,7 +1538,7 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                 ToastEx.makeText(ActivityView.this,
                         Log.formatThrowable(ex, false), Toast.LENGTH_LONG).show();
             }
-        }.execute(this, new Bundle(), Log.CRASH_LOG_NAME);
+        }.execute(this, new Bundle(), DebugHelper.CRASH_LOG_NAME);
     }
 
     private void checkUpdate(boolean always) {
@@ -2277,14 +2280,17 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             protected Long onExecute(Context context, Bundle args) throws IOException, JSONException {
                 boolean send = args.getBoolean("send");
 
-                long id = Log.getDebugInfo(context, "main", R.string.title_debug_info_remark, null, null, args).id;
+                EntityMessage m = DebugHelper.getDebugInfo(context,
+                        "main", R.string.title_debug_info_remark, null, null, args);
+                if (m == null)
+                    return null;
 
                 if (send) {
                     DB db = DB.getInstance(context);
                     try {
                         db.beginTransaction();
 
-                        EntityMessage draft = db.message().getMessage(id);
+                        EntityMessage draft = db.message().getMessage(m.id);
                         if (draft != null) {
                             draft.folder = EntityFolder.getOutbox(context).id;
                             db.message().updateMessage(draft);
@@ -2301,11 +2307,14 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
                     }
                 }
 
-                return id;
+                return m.id;
             }
 
             @Override
             protected void onExecuted(Bundle args, Long id) {
+                if (id == null)
+                    return;
+
                 boolean sent = args.getBoolean("sent");
                 if (sent) {
                     ToastEx.makeText(ActivityView.this, R.string.title_debug_info_send, Toast.LENGTH_LONG).show();
