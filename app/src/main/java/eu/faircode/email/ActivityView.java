@@ -909,10 +909,13 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
         }, new Callable<Boolean>() {
             @Override
             public Boolean call() {
-                if (!drawerLayout.isLocked(drawerContainer))
-                    drawerLayout.closeDrawer(drawerContainer);
-                onDebugInfo();
-                return true;
+                if (DebugHelper.isAvailable()) {
+                    if (!drawerLayout.isLocked(drawerContainer))
+                        drawerLayout.closeDrawer(drawerContainer);
+                    onDebugInfo();
+                    return true;
+                } else
+                    return false;
             }
         }).setExternal(true));
 

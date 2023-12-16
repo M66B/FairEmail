@@ -1824,7 +1824,7 @@ public class Log {
                         }
                     });
 
-            if (report)
+            if (report && DebugHelper.isAvailable())
                 builder.setNeutralButton(R.string.title_report, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

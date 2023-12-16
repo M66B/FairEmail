@@ -209,9 +209,12 @@ public class ActivitySetup extends ActivityBase implements FragmentManager.OnBac
         }, new Callable<Boolean>() {
             @Override
             public Boolean call() {
-                drawerLayout.closeDrawer(drawerContainer);
-                onDebugInfo();
-                return true;
+                if (DebugHelper.isAvailable()) {
+                    drawerLayout.closeDrawer(drawerContainer);
+                    onDebugInfo();
+                    return true;
+                } else
+                    return false;
             }
         }).setExternal(true));
 

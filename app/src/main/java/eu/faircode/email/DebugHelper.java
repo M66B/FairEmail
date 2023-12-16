@@ -169,6 +169,10 @@ public class DebugHelper {
             "networkaddress.cache.negative.ttl"
     ));
 
+    static boolean isAvailable() {
+        return true;
+    }
+
     static EntityMessage getDebugInfo(Context context, String source, int title, Throwable ex, String log, Bundle args) throws IOException, JSONException {
         StringBuilder sb = new StringBuilder();
         sb.append(context.getString(title)).append("\n\n");
