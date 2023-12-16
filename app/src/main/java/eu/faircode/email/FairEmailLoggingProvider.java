@@ -25,55 +25,74 @@ import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
 
 import org.tinylog.Level;
-import org.tinylog.configuration.PropertiesConfigurationLoader;
+import org.tinylog.core.TinylogLoggingProvider;
+import org.tinylog.format.MessageFormatter;
+import org.tinylog.provider.ProviderRegistry;
 
 import java.io.File;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Properties;
 
 // https://tinylog.org/v2/configuration/
 // https://github.com/tinylog-org/tinylog-android-example/blob/v2/app/src/main/resources/tinylog.properties
 
-public class TinyLogConfigurationLoader extends PropertiesConfigurationLoader {
-    private static Level level = Level.TRACE;
+public class FairEmailLoggingProvider extends TinylogLoggingProvider {
+    private Level activeLevel = Level.WARN;
+
+    public void setLevel(Level level) {
+        activeLevel = level;
+    }
 
     @Override
-    public Properties load() {
-        Properties props = super.load();
-        props.setProperty("level", level.name());
-        return props;
+    public boolean isEnabled(int depth, String tag, Level level) {
+        return (activeLevel.ordinal() <= level.ordinal() &&
+                super.isEnabled(depth + 1, tag, level));
+    }
+
+    @Override
+    public void log(int depth, String tag, Level level, Throwable exception, MessageFormatter formatter, Object obj, Object... arguments) {
+        if (activeLevel.ordinal() <= level.ordinal())
+            super.log(depth, tag, level, exception, formatter, obj, arguments);
+    }
+
+    @Override
+    public void log(String loggerClassName, String tag, Level level, Throwable exception, MessageFormatter formatter, Object obj, Object... arguments) {
+        if (activeLevel.ordinal() <= level.ordinal())
+            super.log(loggerClassName, tag, level, exception, formatter, obj, arguments);
     }
 
     static void setup(Context context) {
+        System.setProperty("tinylog.directory",
+                new File(context.getFilesDir(), "logs").getAbsolutePath());
+
+        setLevel(context);
+    }
+
+    static void setLevel(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        boolean debug = prefs.getBoolean("debug", false); // Changing requires force stop
+        boolean debug = prefs.getBoolean("debug", false);
+
+        FairEmailLoggingProvider provider = (FairEmailLoggingProvider) ProviderRegistry.getLoggingProvider();
 
         if (debug)
-            level = Level.DEBUG;
+            provider.activeLevel = Level.DEBUG;
         else {
             int def = (BuildConfig.DEBUG || BuildConfig.TEST_RELEASE ? android.util.Log.INFO : android.util.Log.WARN);
             int _level = prefs.getInt("log_level", def);
             if (_level == android.util.Log.VERBOSE)
-                level = Level.TRACE;
+                provider.activeLevel = Level.TRACE;
             else if (_level == android.util.Log.DEBUG)
-                level = Level.DEBUG;
+                provider.activeLevel = Level.DEBUG;
             else if (_level == android.util.Log.INFO)
-                level = Level.INFO;
+                provider.activeLevel = Level.INFO;
             else if (_level == android.util.Log.WARN)
-                level = Level.WARN;
+                provider.activeLevel = Level.WARN;
             else if (_level == android.util.Log.ERROR)
-                level = Level.ERROR;
+                provider.activeLevel = Level.ERROR;
         }
-
-        System.setProperty("tinylog.configurationloader",
-                TinyLogConfigurationLoader.class.getName());
-
-        System.setProperty("tinylog.directory",
-                new File(context.getFilesDir(), "logs").getAbsolutePath());
     }
 
-    static File[] getFiles(Context context) {
+    static File[] getLogFiles(Context context) {
         File[] files = new File(context.getFilesDir(), "logs").listFiles();
 
         if (files == null)

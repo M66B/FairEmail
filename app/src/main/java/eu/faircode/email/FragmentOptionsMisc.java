@@ -901,8 +901,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swLogInfo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton v, boolean checked) {
-                prefs.edit().putInt("log_level", checked ? android.util.Log.INFO : android.util.Log.WARN).commit();
-                ApplicationEx.restart(v.getContext(), "log_level");
+                prefs.edit().putInt("log_level", checked ? android.util.Log.INFO : android.util.Log.WARN).apply();
             }
         });
 

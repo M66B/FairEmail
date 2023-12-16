@@ -67,7 +67,7 @@ public class ApplicationEx extends Application
 
     @Override
     protected void attachBaseContext(Context base) {
-        TinyLogConfigurationLoader.setup(base);
+        FairEmailLoggingProvider.setup(base);
 
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
@@ -412,6 +412,10 @@ public class ApplicationEx extends Application
                 case "wal": // misc
                     // Should be excluded for import
                     restart(this, key);
+                    break;
+                case "debug":
+                case "log_level":
+                    FairEmailLoggingProvider.setLevel(this);
                     break;
             }
         } catch (Throwable ex) {

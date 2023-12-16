@@ -784,19 +784,6 @@
                     app:layout_constraintTop_toBottomOf="@id/tvProtocolHint"
                     app:switchPadding="12dp" />
 
-                <TextView
-                    android:id="@+id/tvLogInfoHint"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="48dp"
-                    android:text="@string/title_advanced_english_hint"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                    android:textStyle="italic"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swLogInfo" />
-
                 <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swDebug"
                     android:layout_width="0dp"
@@ -807,7 +794,7 @@
                     android:text="@string/title_advanced_debug"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLogInfoHint"
+                    app:layout_constraintTop_toBottomOf="@id/swLogInfo"
                     app:switchPadding="12dp" />
 
                 <TextView

@@ -1308,7 +1308,7 @@ public class DebugHelper {
             attachment.progress = 0;
             attachment.id = db.attachment().insertAttachment(attachment);
 
-            attachment.zip(context, TinyLogConfigurationLoader.getFiles(context));
+            attachment.zip(context, FairEmailLoggingProvider.getLogFiles(context));
 /*
             // https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html#java
             ProcessBuilder pb = new ProcessBuilder("/system/bin/logcat",
