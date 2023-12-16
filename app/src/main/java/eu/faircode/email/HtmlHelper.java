@@ -125,6 +125,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.mail.Address;
 import javax.mail.internet.InternetHeaders;
 import javax.mail.internet.MailDateFormat;
 import javax.mail.internet.MimeUtility;
@@ -2935,7 +2936,7 @@ public class HtmlHelper {
         return ssb.toString();
     }
 
-    static Spanned highlightHeaders(Context context, String headers, boolean blocklist) {
+    static Spanned highlightHeaders(Context context, Address[] from, String headers, boolean blocklist) {
         SpannableStringBuilder ssb = new SpannableStringBuilderEx(headers.replaceAll("\\t", " "));
         int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
         int colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
@@ -2966,6 +2967,23 @@ public class HtmlHelper {
                     tx = mdf.parse(dh);
             } catch (ParseException ex) {
                 Log.w(ex);
+            }
+
+            if (tx != null) {
+                ssb.append('\n');
+                int s = ssb.length();
+                ssb.append("\n#0 ").append(DTF.format(tx));
+                ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+
+                if (from != null) {
+                    ssb.append('\n');
+                    s = ssb.length();
+                    ssb.append("from");
+                    ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
+                    ssb.append(' ').append(MessageHelper.formatAddresses(from, true, false));
+                }
+
+                ssb.append('\n');
             }
 
             String[] received = iheaders.getHeader("Received");
