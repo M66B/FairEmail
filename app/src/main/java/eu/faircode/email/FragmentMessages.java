@@ -8889,13 +8889,13 @@ public class FragmentMessages extends FragmentBase
                         File file = message.getFile(context);
                         if (file.exists()) {
                             // https://tools.ietf.org/html/rfc4880#section-6.2
-                            String body = Helper.readText(file);
+                            String html = Helper.readText(file);
+                            String body = HtmlHelper.fromHtml(html, context).toString();
                             int begin = body.indexOf(Helper.PGP_BEGIN_MESSAGE);
                             int end = body.indexOf(Helper.PGP_END_MESSAGE);
                             if (begin >= 0 && begin < end) {
                                 String[] lines = body
                                         .substring(begin, end + Helper.PGP_END_MESSAGE.length())
-                                        .replace("<br>", "\r\n")
                                         .split("\\r?\\n");
 
                                 List<String> disarmored = new ArrayList<>();
