@@ -2299,11 +2299,16 @@ public class Helper {
     }
 
     static String formatDuration(long ms) {
+        int sign = (ms < 0 ? -1 : 1);
+        ms = Math.abs(ms);
         int days = (int) (ms / (24 * 3600 * 1000L));
         ms = ms % (24 * 3600 * 1000L);
         long seconds = ms / 1000;
         ms = ms % 1000;
-        return (days > 0 ? days + " " : "") + DateUtils.formatElapsedTime(seconds) + "." + ms;
+        return (sign < 0 ? "-" : "") +
+                (days > 0 ? days + " " : "") +
+                DateUtils.formatElapsedTime(seconds) +
+                (ms == 0 ? "" : ". " + ms);
     }
 
     static String formatNumber(Integer number, long max, NumberFormat nf) {

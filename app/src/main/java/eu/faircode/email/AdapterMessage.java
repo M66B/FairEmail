@@ -2756,7 +2756,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             if (show_headers && message.headers != null) {
                 Spanned headers = HtmlHelper.highlightHeaders(context,
-                        message.from, message.headers, message.blocklist != null && message.blocklist);
+                        message.from, message.to, message.received, message.headers,
+                        message.blocklist != null && message.blocklist);
                 if (BuildConfig.DEBUG && headers instanceof SpannableStringBuilder) {
                     SpannableStringBuilder ssb = (SpannableStringBuilder) headers;
                     ssb.append('\n')

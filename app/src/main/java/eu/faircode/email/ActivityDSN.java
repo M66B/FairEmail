@@ -118,7 +118,8 @@ public class ActivityDSN extends ActivityBase {
                         bos.write(buffer, 0, length);
 
                     String headers = MessageHelper.decodeMime(bos.toString(StandardCharsets.UTF_8.name()));
-                    result.headers = HtmlHelper.highlightHeaders(context, null, headers, false);
+                    result.headers = HtmlHelper.highlightHeaders(context,
+                            null, null, null, headers, false);
                 }
 
                 return result;

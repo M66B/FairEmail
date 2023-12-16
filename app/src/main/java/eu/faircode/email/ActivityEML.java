@@ -323,7 +323,8 @@ public class ActivityEML extends ActivityBase {
                     MessageHelper.getStructure(imessage, ssb, 0, textColorLink);
                     result.structure = ssb;
 
-                    result.headers = HtmlHelper.highlightHeaders(context, helper.getFrom(), helper.getHeaders(), false);
+                    result.headers = HtmlHelper.highlightHeaders(context,
+                            helper.getFrom(), helper.getTo(), helper.getReceivedHeader(), helper.getHeaders(), false);
 
                     return result;
                 }

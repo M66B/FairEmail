@@ -2936,7 +2936,7 @@ public class HtmlHelper {
         return ssb.toString();
     }
 
-    static Spanned highlightHeaders(Context context, Address[] from, String headers, boolean blocklist) {
+    static Spanned highlightHeaders(Context context, Address[] from, Address[] to, Long r, String headers, boolean blocklist) {
         SpannableStringBuilder ssb = new SpannableStringBuilderEx(headers.replaceAll("\\t", " "));
         int textColorLink = Helper.resolveColor(context, android.R.attr.textColorLink);
         int colorVerified = Helper.resolveColor(context, R.attr.colorVerified);
@@ -2969,23 +2969,23 @@ public class HtmlHelper {
                 Log.w(ex);
             }
 
-            if (tx != null) {
-                ssb.append('\n');
-                int s = ssb.length();
-                ssb.append("\n#0 ").append(DTF.format(tx));
-                ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+            int s = ssb.length();
+            ssb.append("\n#0 ");
+            if (tx != null)
+                ssb.append(DTF.format(tx));
+            ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
 
-                if (from != null) {
-                    ssb.append('\n');
-                    s = ssb.length();
-                    ssb.append("from");
-                    ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
-                    ssb.append(' ').append(MessageHelper.formatAddresses(from, true, false));
-                }
-
+            if (from != null) {
                 ssb.append('\n');
+                s = ssb.length();
+                ssb.append("from");
+                ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
+                ssb.append(' ').append(MessageHelper.formatAddresses(from, true, false));
             }
 
+            ssb.append('\n');
+
+            Date rx = null;
             String[] received = iheaders.getHeader("Received");
             if (received != null && received.length > 0) {
                 for (int i = received.length - 1; i >= 0; i--) {
@@ -2993,20 +2993,18 @@ public class HtmlHelper {
                     String h = MimeUtility.unfold(received[i]);
 
                     int semi = h.lastIndexOf(';');
-                    Date rx = null;
                     if (semi > 0) {
                         rx = mdf.parse(h, new ParsePosition(semi + 1));
                         h = h.substring(0, semi);
                     }
 
-                    int s = ssb.length();
+                    s = ssb.length();
                     ssb.append('#').append(Integer.toString(received.length - i));
                     if (rx != null) {
                         ssb.append(' ').append(DTF.format(rx));
-                        if (tx != null) {
-                            long ms = rx.getTime() - tx.getTime();
-                            ssb.append(" \u0394").append(DateUtils.formatElapsedTime(ms / 1000));
-                        }
+                        if (tx != null)
+                            ssb.append(" \u0394")
+                                    .append(Helper.formatDuration(rx.getTime() - tx.getTime()));
                     }
                     ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
 
@@ -3065,6 +3063,26 @@ public class HtmlHelper {
                     ssb.append("\n");
                 }
             }
+
+            s = ssb.length();
+            ssb.append("\n#").append(Integer.toString(received == null ? 1 : received.length + 1));
+            if (r != null) {
+                ssb.append(' ').append(DTF.format(r));
+                if (rx != null)
+                    ssb.append(" \u0394")
+                            .append(Helper.formatDuration(r - rx.getTime()));
+            }
+            ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+
+            if (to != null) {
+                ssb.append('\n');
+                s = ssb.length();
+                ssb.append("to");
+                ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
+                ssb.append(' ').append(MessageHelper.formatAddresses(to, true, false));
+            }
+
+            ssb.append('\n');
         } catch (Throwable ex) {
             Log.w(ex);
         }
