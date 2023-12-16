@@ -149,6 +149,7 @@
     <string name="title_setup_quick_smtp">메시지를 발신할 SMTP 서버</string>
     <string name="title_setup_quick_certificates">서버 인증서</string>
     <string name="title_setup_wizard">마법사</string>
+    <string name="title_setup_wizard_intro">대부분의 경우 마법사 버튼을 사용하여 계정을 추가할 수 있으며, 그렇지 않은 경우 수동 설정 옵션을 사용하여 수동으로 서버 주소를 입력하거나 변경할 수 있습니다</string>
     <string name="title_setup_wizard_tutorials">튜토리얼</string>
     <string name="title_setup_wizard_multiple">마법사는 여러 계정을 설정하기 위해 여려번 사용할 수 있습니다.</string>
     <string name="title_setup_wizard_new">새 이메일 주소 받기</string>
@@ -157,7 +158,7 @@
     <string name="title_setup_documentation">올바른 이메일 서버 설정을 위해 당신의 이메일 제공업체의 문서를 참고해 주세요.</string>
     <string name="title_setup_account_remark">이메일 수신</string>
     <string name="title_setup_identity_remark">이메일 발신</string>
-    <string name="title_setup_account_identity_hint">이름, 색상, 및 밀기 동작은 계정 설정에서 구성하실 수 있고, ID 설정에서 서명을 구성할 수 있습니다</string>
+    <string name="title_setup_account_identity_hint">계정 설정에서 이름, 색상 및 스와이프 동작을, id 설정에서 서명을 지정할 수 있습니다</string>
     <string name="title_setup_accounts">계정</string>
     <string name="title_setup_identities">ID</string>
     <string name="title_setup_google_sign_in">Google 로그인</string>
@@ -187,7 +188,7 @@
     <string name="title_setup_no_inbox">받은 편지함을 찾을 수 없음</string>
     <string name="title_setup_quick_success">계정을 성공적으로 추가했습니다</string>
     <string name="title_setup_quick_no_sent">보낸 메시지 폴더가 선택되지 않았습니다. 보낸 메시지가 저장되지 않을 수 있습니다.</string>
-    <string name="title_setup_quick_configure">이름, 색상, 밀기 동작 등 수정하기</string>
+    <string name="title_setup_quick_configure">이름, 색상, 스와이프 동작 등을 편집하기</string>
     <string name="title_setup_manage">관리</string>
     <string name="title_setup_grant">권한 허용</string>
     <string name="title_setup_grant_again">필요한 권한 허용하기</string>
@@ -210,6 +211,7 @@
     <string name="title_setup_alarm_12">이 앱이 제대로 작동하지 않을 것입니다.</string>
     <string name="title_setup_background">백그라운드 제한이 설정되었습니다</string>
     <string name="title_setup_data">데이터 절약 모드를 사용합니다</string>
+    <string name="title_setup_always">빠른 새 메시지 알림</string>
     <string name="title_setup_advanced_options">고급 설정 표시</string>
     <string name="title_setup_inbox">받은편지함으로 이동</string>
     <string name="title_setup_go">시작</string>
@@ -217,8 +219,11 @@
     <string name="title_setup_done">완료</string>
     <string name="title_setup_still">여전히 해야 할 일</string>
     <string name="title_setup_error">오류</string>
+    <string name="title_setup_manual_setup">수동 설정</string>
     <string name="title_setup_pop">POP3 사용 (권장하지 않음)</string>
+    <string name="title_setup_configuring">계정 &#8230; 지정</string>
     <string name="title_setup_app_password">앱 비밀번호가 필요할 수 있습니다</string>
+    <string name="title_setup_extra">기타</string>
     <string name="title_setup_delete_account_hint">앱에서만 계정이 삭제될 것입니다</string>
     <string name="title_setup_close">설정 닫기</string>
     <string name="title_setup_export">설정 내보내기</string>
@@ -266,7 +271,7 @@
     <string name="title_setup_theme_black_background">검정 배경</string>
     <string name="title_setup_theme_html_light">원본 메시지 보기에 밝은 배경색 사용</string>
     <string name="title_setup_theme_composer_light">메시지 편집기에 밝은 배경색 사용</string>
-    <string name="title_setup_theme_you_hint">Material You 색상은 Android 배경화면 및 스타일 설정에서 지정할 수 있습니다</string>
+    <string name="title_setup_theme_you_hint">Android Wallpaper &amp; 스타일 설정에서 Material You 색상을 지정할 수 있습니다</string>
     <string name="title_setup_theme_system_hint">Android가 지원하는 경우 주간/야간 모드에 따라 테마가 라이트/다크로 자동 전환됩니다.</string>
     <string name="title_setup_theme_more_colors">다른 색으로 설정하고 싶습니다</string>
     <string name="title_setup_advanced">고급 설정</string>
@@ -282,6 +287,7 @@
     <string name="title_check_outlook_oauth">Outlook 계정이 2022년 10월 1일 이후에도 계속 작동할 예정입니다</string>
     <string name="title_check_outlook_password">일부 Outlook 계정이 2022년 10월 1일 이후 정지될 수 있습니다</string>
     <string name="title_advanced_hint_title">고급 설정 더보기</string>
+    <string name="title_advanced_hint_setup">메인 설정 화면에서 마법사 버튼을 눌러 계정을 편집할 수 있습니다.</string>
     <string name="title_advanced_section_main">메인</string>
     <string name="title_advanced_section_synchronize">수신</string>
     <string name="title_advanced_section_send">발신</string>
@@ -298,6 +304,7 @@
     <string name="title_advanced_optimize">자동으로 최적화</string>
     <string name="title_advanced_always">이 계정들의 메시지를 항상 수신</string>
     <string name="title_advanced_schedule">일정</string>
+    <string name="title_advanced_schedule_workdays">평일</string>
     <string name="title_advanced_schedule_weekend">주말</string>
     <string name="title_advanced_advanced">고급</string>
     <string name="title_advanced_quick_sync">빠른 동기화</string>
@@ -327,6 +334,10 @@
     <string name="title_advanced_send_reminders">리마인더 표시</string>
     <string name="title_advanced_send_delayed">메일 전송 지연</string>
     <string name="title_advanced_answer_caption">답변 버튼 설정</string>
+    <string name="title_advanced_answer_default">답장 버튼을 짧게 누르면:</string>
+    <string name="title_advanced_answer_action">답장 버튼을 길게 누르면:</string>
+    <string name="title_advanced_answer_hint">전송 설정 탭 페이지에서도 답장 버튼 동작을 지정할 수 있습니다</string>
+    <string name="title_advanced_send_pending">방해되지 않는 전송 지연 아이콘 표시</string>
     <string name="title_advanced_compose_color">기본 글씨 색</string>
     <string name="title_advanced_compose_font">기본 글꼴</string>
     <string name="title_advanced_separate_reply">답장/전달 헤더 앞에 구분선 삽입</string>
@@ -427,6 +438,8 @@
     <string name="title_advanced_collapse_quotes">인용한 텍스트 접기</string>
     <string name="title_advanced_image_placeholders">사진 자리표시자 표시</string>
     <string name="title_advanced_images_inline">자동으로 인라인 사진 표시</string>
+    <string name="title_advanced_button_extra">메시지 하단에 추가 버튼 표시</string>
+    <string name="title_advanced_actionbar_swap">휴지통과 보관 버튼 바꾸기</string>
     <string name="title_advanced_category_header">계정 카테고리로 묶기</string>
     <string name="title_advanced_bundled_fonts">번들 글꼴 사용</string>
     <string name="title_advanced_parse_classes">CSS 구문 분석</string>
@@ -498,6 +511,7 @@
     <string name="title_advanced_more">설정 더보기</string>
     <string name="title_advanced_log_info">디버그 기록</string>
     <string name="title_advanced_debug">디버그 모드</string>
+    <string name="title_advanced_manual_hint">메시지 수신이 비활성화된 경우에도 메시지 목록을 밑으로 내려 수동으로 메시지를 수신할 수 있습니다</string>
     <string name="title_advanced_poll_hint">주기적으로 새 메시지를 확인하면 매번 오프라인 메시지와 온라인 메시지를 비교하게 되므로, 배터리 사용량이 증가할 수 있습니다. 항상 수신 기능은 변경사항을 그때그때 반영하므로 이런 현상을 막을 수 있습니다.</string>
     <string name="title_advanced_data_usage">데이터 사용량이 증가할 수 있습니다!</string>
     <string name="title_advanced_subject_threading_hint">최근 %1$d시간 동안 수신된 메시지만</string>
@@ -513,6 +527,7 @@
     <string name="title_advanced_sender_hint">대부분의 제공자가 수정된 보낸사람 주소를 허용하지 않습니다</string>
     <string name="title_advanced_notify_action_hint">최대 3개의 동작이 표시됩니다</string>
     <string name="title_advanced_notify_car_hint">\'연결\'이란 지도나 내비게이션을 표시하는 상태임을 의미합니다</string>
+    <string name="title_advanced_cleanup_attachments_hint">수동 정리할 때는 더 이상 동기화되지 않은 메시지에서 첨부 파일이 제거됩니다</string>
     <string name="title_advanced_never_favorite">즐겨찾기 등록 차단</string>
     <string name="title_advanced_edit_name">이름 수정</string>
     <string name="title_create_folder_name">폴더명</string>
@@ -529,6 +544,7 @@
     <string name="title_color">색상</string>
     <string name="title_calendar">달력</string>
     <string name="title_transparent">투명도</string>
+    <string name="title_account_ondemand">수동으로 동기화하기</string>
     <string name="title_account_left">왼쪽으로 밀기</string>
     <string name="title_account_right">우측으로 밀기</string>
     <string name="title_domain">도메인명</string>
@@ -549,6 +565,7 @@
     <string name="title_leave_on_device">기기에 메시지를 보관</string>
     <string name="title_keep_poll_interval">여론조사 시간 (분)</string>
     <string name="title_keep_alive_interval">유지 간격 (분)</string>
+    <string name="title_ignore_schedule">일정 밖에서도 동기화합니다</string>
     <string name="title_check">확인</string>
     <string name="title_no_name">이름 없음</string>
     <string name="title_no_account">계정 누락</string>
@@ -646,6 +663,7 @@
     <string name="title_auto_confirm">몇 초 후 자동으로 확인 처리됩니다</string>
     <string name="title_buttons">선택 버튼</string>
     <string name="title_button_search_text">메시지 내용에서 검색</string>
+    <string name="title_configure_buttons">버튼 &#8230; 설정</string>
     <string name="title_quick_actions">동작 선택</string>
     <string name="title_quick_actions_hint">최대 %1$d개의 동작이 표시됩니다</string>
     <string name="title_quick_actions_low">중요도 낮음</string>
@@ -834,6 +852,7 @@
     <string name="title_compact">간략히 보기</string>
     <string name="title_zoom">글씨 크기</string>
     <string name="title_padding">여백 크기</string>
+    <string name="title_large_buttons">더 큰 버튼</string>
     <string name="title_select_language">언어 선택</string>
     <string name="title_select_all">모두 선택</string>
     <string name="title_select_found">결과 모두 선택</string>
@@ -889,6 +908,7 @@
     <string name="title_rule_and">그리고</string>
     <string name="title_rule_action">동작</string>
     <string name="title_rule_hours">시간</string>
+    <string name="title_rule_schedule_end">시간 조건이 끝날 때부터</string>
     <string name="title_rule_folder">폴더</string>
     <string name="title_rule_identity">ID</string>
     <string name="title_rule_template">답장 템플릿</string>
@@ -1080,6 +1100,7 @@
     <string name="title_widget_font_size">글씨 크기</string>
     <string name="title_widget_padding">여백 크기</string>
     <string name="title_widget_avatars">연락처 아바타 표시</string>
+    <string name="title_widget_refresh">메시지 새로고침 버튼 표시</string>
     <string name="title_widget_background">배경 색</string>
     <string name="title_widget_day_night">시스템의 어두운 테마 설정 사용</string>
     <string name="title_compat_dark">Google은 Android 10 이전 버전에서 다크 모드를 제거했습니다</string>

@@ -221,7 +221,7 @@
     <string name="title_setup_inexact">アラームとリマインダーが無効です</string>
     <string name="title_setup_background">バックグラウンドでの制限が有効です</string>
     <string name="title_setup_data">データセーバーが有効です</string>
-    <string name="title_setup_always">即時の新着メッセージ通知</string>
+    <string name="title_setup_always">新着メッセージを即時通知する</string>
     <string name="title_setup_always_remark">有効にすると、不安定な接続や古いネットワークハードウェアなどではバッテリー使用量が増加する可能性があります</string>
     <string name="title_setup_advanced_options">詳細設定を表示</string>
     <string name="title_setup_inbox">受信トレイに移動</string>
@@ -411,7 +411,7 @@
     <string name="title_advanced_lookup_mx">送信する前に宛先のメールアドレスを確認する</string>
     <string name="title_advanced_metered">従量課金制接続を使用する</string>
     <string name="title_advanced_download">従量課金制接続で自動ダウンロードするメッセージと添付ファイルの大きさの上限</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">定額制接続にも適用する</string>
+    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">定額制接続にも制限を適用する</string>
     <string name="title_advanced_roaming">ローミングでメッセージと添付ファイルをダウンロードする</string>
     <string name="title_advanced_rlah">Roam Like at Home を適用する</string>
     <string name="title_advanced_download_headers">すべてのメッセージヘッダーをダウンロードする</string>
@@ -1924,7 +1924,7 @@
     <string name="title_icalendar_calendar">カレンダー</string>
     <string name="title_pro_feature">これはプロ版の機能です</string>
     <string name="title_pro_list">プロ版の機能リスト</string>
-    <string name="title_pro_purchase">購入</string>
+    <string name="title_pro_purchase">アクティベート</string>
     <string name="title_pro_one_time">%1$s (支払いは一回限り)</string>
     <string name="title_pro_no_play">Play ストアが見つかりませんでした</string>
     <string name="title_pro_info">FairEmail の開発には文字通り数千時間かかりましたが、それにもかかわらず、ほとんどの機能は無料で使用できます。

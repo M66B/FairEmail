@@ -453,6 +453,7 @@
     <string name="title_advanced_lookup_mx">בדיקת כתובות דוא״ל הנמענים בטרם השליחה</string>
     <string name="title_advanced_metered">שימוש בחיבור מוגבל</string>
     <string name="title_advanced_download">להוריד הודעות וקבצים מצורפים אוטומטית בחיבור מוגבל עד</string>
+    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">החלה גם על חיבורים לא מוגבלים</string>
     <string name="title_advanced_roaming">להוריד הודעות וקבצים מצורפים בזמן נדידה</string>
     <string name="title_advanced_rlah">לנדוד ולהרגיש בבית</string>
     <string name="title_advanced_download_headers">הורדת כל כותרות ההודעה</string>
@@ -1039,6 +1040,9 @@
     <string name="title_service_port">נא לבדוק היטב את מספר הפתחה</string>
     <string name="title_service_protocol">נא לבדוק את הפרוטוקול היטב (SSL/TLS או STARTTLS)</string>
     <string name="title_service_error10">יש לאמת את החשבון הזה שוב, ניתן לעשות זאת דרך אשף ההגדרות המהירות</string>
+    <string name="title_certificate_error">        עקב מדיניות חנות Google Play אי אפשר לתמוך עוד בחיבורים לא מאובטחים לשרתי דוא״ל עם בעיות באישור בגרסה של FairEmail שמופצת דרך חנות Play.
+        לכן, אפשר לפתור את התקלה הזאת רק מול ספק הדוא״ל שלך - פרטי התקלה שלהלן עשויים לסייע להם לפתור את התקלה הזאת.
+    </string>
     <string name="title_advanced_browse">עיון בהודעות שבשרת</string>
     <string name="title_advanced_expand_read">סימון הודעות כנקראו בעת הרחבתן</string>
     <string name="title_synchronize_now">לסנכרן עכשיו</string>

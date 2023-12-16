@@ -159,6 +159,7 @@
     <string name="title_setup_quick_smtp">SMTP сървър за изпращане на съобщения</string>
     <string name="title_setup_quick_certificates">Удостоверения на сървъра</string>
     <string name="title_setup_wizard">Вълшебник</string>
+    <string name="title_setup_wizard_intro">В повечето случаи за копчето вълшебник може да се употребява за добавяне на акаунти, в противен случай адресите на сървъра може да се въвеждат или променят ръчно, употребявайки възможността за ръчна настройка</string>
     <string name="title_setup_wizard_tutorials">Наръчници</string>
     <string name="title_setup_wizard_multiple">Вълшебникът може да се употребява многократно за настройка на няколко акаунта</string>
     <string name="title_setup_wizard_new">Трябва ми друг адрес на е-поща</string>
@@ -167,6 +168,7 @@
     <string name="title_setup_documentation">Прегледайте документацията на имейл доставчика си за правилна настройки на сървъра</string>
     <string name="title_setup_account_remark">Получаване на е-писмо</string>
     <string name="title_setup_identity_remark">Изпращане на е-писмо</string>
+    <string name="title_setup_account_identity_hint">Може да настроите името, цвета и действията плъзгане в настройките на акаунта, а и настройване на подписа в настройката за самоличност</string>
     <string name="title_setup_accounts">Акаунти</string>
     <string name="title_setup_identities">Самоличности</string>
     <string name="title_setup_google_sign_in">Влизане с помощта на Google</string>
@@ -207,6 +209,7 @@
     <string name="title_setup_permissions">Даване на позволения</string>
     <string name="title_setup_permissions_remark">Достъп до сведенията за контакт (незадължително)</string>
     <string name="title_setup_permissions_calendar">За съхранение на поканите (по избор)</string>
+    <string name="title_setup_permissions_explanation">Позволение за контакт се изисква, за да търсите сведения за контакт и да предлагате контакти</string>
     <string name="title_setup_permissions_notify">За да се показват новите известия (по избор)</string>
     <string name="title_setup_permissions_notify_explanation">Известия за позволение се изискват, за да показват нови съобщения в лентата за състояние</string>
     <string name="title_setup_permission_why">Кои позволения трябват и защо?</string>
@@ -219,6 +222,7 @@
     <string name="title_setup_doze_hint">Въпреки че това може да звучи противоречиво, но изключването на оптимизирането на батерията за това приложение може да доведе до по-малка употреба на батерията</string>
     <string name="title_setup_doze_aggressively">Това устройство може да спре услугата за синхро.</string>
     <string name="title_setup_doze_why">Защо оптимизирането на енергопотребление трябва да е изключено?</string>
+    <string name="title_setup_doze_instructions">В следващия диалогов прозорец на Android променете \"Не е оптимизирано\" за \"Всички приложения\", изберете това приложение и му изберете \"Без оптимизиране\"</string>
     <string name="title_setup_doze_battery">Висока конс. на батерия?</string>
     <string name="title_setup_doze_stopped">Спирате ли синхрото?</string>
     <string name="title_setup_doze_device">Това вероятно се изисква за устройството</string>
@@ -367,6 +371,7 @@
     <string name="title_advanced_answer_caption">Настройки на бутона отговор</string>
     <string name="title_advanced_answer_default">Кратко натискане на бутона за отговор ще:</string>
     <string name="title_advanced_answer_action">Дългият натиск на бутона за отговор ще:</string>
+    <string name="title_advanced_answer_hint">Действията за копче отговор може също да се настроят в раздел настройки за изпращане</string>
     <string name="title_advanced_answer_warning">Не всички действия са възможни без менюто за избор!</string>
     <string name="title_advanced_save_revisions">Съхранение на история на редактирането на чернови за операциите отмяна и повторение</string>
     <string name="title_advanced_auto_save_paragraph">Автозапазване на чернова след всеки абзац</string>
@@ -376,6 +381,7 @@
     <string name="title_advanced_compose_monospaced">Употреба на едноразмерен шрифт за обикновени текстови съобщения</string>
     <string name="title_advanced_auto_identity">Автоматичен избор на самоличности за нови съобщения</string>
     <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
+    <string name="title_advanced_prefix_count">Добавяне на брояч към префикса за отговор</string>
     <string name="title_advanced_separate_reply">Вмъкване на хоризонтален ред преди заглавка отговор/препращане</string>
     <string name="title_advanced_extended_reply">Използвай разширено заглавие за отговор/препращане</string>
     <string name="title_advanced_write_above">Пишете над текста на подателя</string>
@@ -1255,6 +1261,10 @@
     <string name="title_third_party">Използвате версия на трета страна</string>
     <string name="title_expand_warning">Рзширеното съобщение ще се изтегли %1$s</string>
     <string name="title_download_message">Изтегляне &#8230;</string>
+    <string name="title_reformatted">        Това е преформатиран изглед на съобщение.
+        Може да чукнете на иконата &#x26F6; за преглед на първообразното съобщение и скриване на това съобщение.
+        Преформатираните съобщения отнемат известно време в зависимост от големината на съобщението и бързината на устройството ви.
+    </string>
     <string name="title_compose">Ново съобщение</string>
     <string name="title_submitter">Изпратено от:</string>
     <string name="title_signed_by">Подписано от:</string>
