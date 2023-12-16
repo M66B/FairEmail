@@ -274,7 +274,7 @@ public class DebugHelper {
         boolean reporting = prefs.getBoolean("crash_reports", false);
         if (reporting || BuildConfig.TEST_RELEASE) {
             String uuid = prefs.getString("uuid", null);
-            sb.append(String.format("UUID: %s\r\n", uuid == null ? "-" : uuid));
+            sb.append(String.format("Bugsnag UUID: %s\r\n", uuid == null ? "-" : uuid));
         }
 
         try {
@@ -355,8 +355,8 @@ public class DebugHelper {
             }
         }
 
-        sb.append(String.format("Log main: %b protocol: %b build: %b test: %b\r\n",
-                main_log, protocol, BuildConfig.DEBUG, BuildConfig.TEST_RELEASE));
+        boolean log = (prefs.getInt("log_level", android.util.Log.WARN) <= android.util.Log.INFO);
+        sb.append(String.format("Log main: %b debug: %b protocol: %b\r\n", main_log, log, protocol));
 
         int[] contacts = ContactInfo.getStats();
         sb.append(String.format("Contact lookup: %d cached: %d\r\n",
