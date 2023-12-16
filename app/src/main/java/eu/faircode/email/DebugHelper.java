@@ -1308,38 +1308,36 @@ public class DebugHelper {
             attachment.progress = 0;
             attachment.id = db.attachment().insertAttachment(attachment);
 
-            attachment.zip(context, FairEmailLoggingProvider.getLogFiles(context));
-/*
+            List<File> files = new ArrayList<>();
+            files.addAll(Arrays.asList(FairEmailLoggingProvider.getLogFiles(context)));
+
+            File logcat = new File(context.getFilesDir(), "logcat.txt");
+
             // https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html#java
-            ProcessBuilder pb = new ProcessBuilder("/system/bin/logcat",
+            ProcessBuilder pb = new ProcessBuilder("logcat", // CASA "/system/bin/logcat",
                     "-d",
                     "-v", "threadtime",
                     //"-t", "1000",
-                    Log.TAG + ":I");
+                    "fairemail" + ":I");
             Map<String, String> env = pb.environment();
             env.clear();
             pb.directory(context.getFilesDir());
 
             Process proc = null;
-            File file = attachment.getFile(context);
-            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(logcat))) {
                 proc = pb.start();
-
-                long size = 0;
-                try (BufferedReader br = new BufferedReader(new InputStreamReader(proc.getInputStream()))) {
-                    String line;
-                    while ((line = br.readLine()) != null)
-                        size += write(os, line + "\r\n");
-                }
-
-                db.attachment().setDownloaded(attachment.id, size);
-                if (!BuildConfig.DEBUG && size > MIN_ZIP_SIZE)
-                    attachment.zip(context);
+                Helper.copy(proc.getInputStream(), os);
             } finally {
                 if (proc != null)
                     proc.destroy();
             }
-*/
+
+            files.add(logcat);
+
+            attachment.zip(context, files.toArray(new File[0]));
+
+            Helper.secureDelete(logcat);
+
         } catch (Throwable ex) {
             Log.e(ex);
         }
