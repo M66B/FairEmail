@@ -181,7 +181,7 @@ public class MessageHelper {
     static final int MAX_SUBJECT_AGE = 48; // hours
     static final int DEFAULT_THREAD_RANGE = 7; // 2^7 = 128 days
     static final int MAX_UNZIP_COUNT = 20;
-    static final long MAX_UNZIP_SIZE = 1000 * 1000 * 1000L;
+    static final long MAX_UNZIP_SIZE = 10 * 1024 * 1024L;
 
     static final List<String> UNZIP_FORMATS = Collections.unmodifiableList(Arrays.asList(
             "zip", "gz", "tar.gz"
