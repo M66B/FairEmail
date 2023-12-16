@@ -8,7 +8,10 @@ Wintonotitan
 
 Next version
 
+* Switched to tinylog
+* Small improvements and minor bug fixes
 * Updated AndroidX
+* Updated translations
 
 1.2139 - 2023-12-13
 

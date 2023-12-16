@@ -8,7 +8,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
+* Switched to [tinylog](https://tinylog.org/v2/)
+* Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
+* Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2139 - 2023-12-13
 
