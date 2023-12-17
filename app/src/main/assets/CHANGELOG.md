@@ -6,8 +6,9 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
-### Next version
+### 1.2140 - 2023-12-17
 
+* Fixed sometimes failing biometric authentication
 * Switched to [tinylog](https://tinylog.org/v2/)
 * Small improvements and minor bug fixes
 * Updated [AndroidX](https://developer.android.com/jetpack/androidx/versions/all-channel)
