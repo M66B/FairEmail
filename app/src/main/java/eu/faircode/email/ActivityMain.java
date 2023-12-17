@@ -357,24 +357,27 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             }.setExecutor(executor);
 
             if (Helper.shouldAuthenticate(this, false))
-                Helper.authenticate(ActivityMain.this, ActivityMain.this, null,
-                        new RunnableEx("auth:succeeded") {
-                            @Override
-                            public void delegate() {
-                                Intent intent = getIntent();
-                                Bundle args = new Bundle();
-                                if (intent.hasExtra("intent"))
-                                    args.putParcelable("intent", intent.getParcelableExtra("intent"));
-                                boot.execute(ActivityMain.this, args, "main:accounts");
-                            }
-                        },
-                        new RunnableEx("auth:cancelled") {
-                            @Override
-                            public void delegate() {
-                                try {
-                                    finish();
-                                } catch (Throwable ex) {
-                                    Log.w(ex);
+                getMainHandler().post(new RunnableEx("authenticate") {
+                    @Override
+                    public void delegate() {
+                        Helper.authenticate(ActivityMain.this, ActivityMain.this, null,
+                                new RunnableEx("auth:succeeded") {
+                                    @Override
+                                    public void delegate() {
+                                        Intent intent = getIntent();
+                                        Bundle args = new Bundle();
+                                        if (intent.hasExtra("intent"))
+                                            args.putParcelable("intent", intent.getParcelableExtra("intent"));
+                                        boot.execute(ActivityMain.this, args, "main:accounts");
+                                    }
+                                },
+                                new RunnableEx("auth:cancelled") {
+                                    @Override
+                                    public void delegate() {
+                                        try {
+                                            finish();
+                                        } catch (Throwable ex) {
+                                            Log.w(ex);
                                     /*
                                     java.lang.NullPointerException: Attempt to invoke virtual method 'int com.android.server.fingerprint.ClientMonitor.stop(boolean)' on a null object reference
                                         at android.os.Parcel.createException(Parcel.java:1956)
@@ -399,9 +402,11 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                                         at com.android.server.am.TaskChangeNotificationController.forAllLocalListeners(TaskChangeNotificationController.java:263)
                                         at com.android.server.am.TaskChangeNotificationController.notifyTaskStackChanged(TaskChangeNotificationController.java:276)
                                     */
-                                }
-                            }
-                        });
+                                        }
+                                    }
+                                });
+                    }
+                });
             else
                 boot.execute(this, new Bundle(), "main:accounts");
         } else {
