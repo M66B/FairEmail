@@ -67,8 +67,12 @@ public interface DaoRule {
             " ORDER by `group` COLLATE NOCASE")
     List<String> getGroups();
 
-    @Query("SELECT COUNT(*) FROM rule")
-    int countTotal();
+    @Query("SELECT COUNT(*) FROM rule" +
+            " JOIN folder ON folder.id = rule.folder" +
+            " WHERE (:account IS NULL OR folder.account = :account)" +
+            " AND (:folder IS NULL OR folder.id = :folder)" +
+            " AND rule.enabled")
+    int countTotal(Long account, Long folder);
 
     @Insert
     long insertRule(EntityRule rule);

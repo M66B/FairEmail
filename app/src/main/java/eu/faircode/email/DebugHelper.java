@@ -728,7 +728,7 @@ public class DebugHelper {
                         "accounts=" + accounts.size() +
                         " folders=" + db.folder().countSync() + "/" + db.folder().countTotal() +
                         " messages=" + db.message().countTotal() +
-                        " rules=" + db.rule().countTotal() +
+                        " rules=" + db.rule().countTotal(null, null) +
                         " ops=" + db.operation().getOperationCount() +
                         " outbox=" + db.message().countOutbox() + "\r\n" +
                         "filter " + filters + " " + sorts +
@@ -830,6 +830,7 @@ public class DebugHelper {
                                 " ondemand=" + account.ondemand + (account.ondemand ? " !!!" : "") +
                                 " msgs=" + content + "/" + messages + " max=" + account.max_messages +
                                 " blocked=" + blocked + (blocked == 0 ? "" : " !!!") +
+                                " rules=" + db.rule().countTotal(account.id, null) +
                                 " ops=" + db.operation().getOperationCount(account.id) +
                                 " schedule=" + (!ignore_schedule) + (ignore_schedule ? " !!!" : "") +
                                 " unmetered=" + unmetered + (unmetered ? " !!!" : "") +
@@ -856,6 +857,7 @@ public class DebugHelper {
                                         " factor=" + folder.poll_factor +
                                         " days=" + getDays(folder.sync_days) + "/" + getDays(folder.keep_days) +
                                         " msgs=" + folder.content + "/" + folder.messages + "/" + folder.total +
+                                        " rules=" + db.rule().countTotal(account.id, folder.id) +
                                         " ops=" + db.operation().getOperationCount(folder.id, null) +
                                         " unseen=" + unseen + " hidden=" + hidden + " notifying=" + notifying +
                                         " " + folder.state +
