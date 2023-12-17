@@ -51,9 +51,8 @@ public interface DaoMessage {
             ", account.notify AS accountNotify, account.summary AS accountSummary, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, NULL AS folderInheritedType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
-            ", '[' || group_concat(message.`from`, ',') || ']' AS senders" +
-            ", '[' || group_concat(message.`to`, ',') || ']' AS recipients" +
-            ", group_concat(message.received, ',') AS group_received" +
+            ", '[' || (SELECT group_concat(`from`, ',') FROM (SELECT DISTINCT `from` FROM message m0 WHERE m0.thread = message.thread ORDER BY m0.received LIMIT 3)) || ']' AS senders" +
+            ", '[' || (SELECT group_concat(`to`, ',') FROM (SELECT DISTINCT `to` FROM message m0 WHERE m0.thread = message.thread ORDER BY m0.received LIMIT 3)) || ']' AS recipients" +
             ", COUNT(message.id) AS count" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
@@ -130,9 +129,8 @@ public interface DaoMessage {
             ", account.notify AS accountNotify, account.summary AS accountSummary, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, f.inherited_type AS folderInheritedType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
-            ", '[' || group_concat(message.`from`, ',') || ']' AS senders" +
-            ", '[' || group_concat(message.`to`, ',') || ']' AS recipients" +
-            ", group_concat(message.received, ',') AS group_received" +
+            ", '[' || (SELECT group_concat(`from`, ',') FROM (SELECT DISTINCT `from` FROM message m0 WHERE m0.thread = message.thread ORDER BY m0.received LIMIT 3)) || ']' AS senders" +
+            ", '[' || (SELECT group_concat(`to`, ',') FROM (SELECT DISTINCT `to` FROM message m0 WHERE m0.thread = message.thread ORDER BY m0.received LIMIT 3)) || ']' AS recipients" +
             ", COUNT(message.id) AS count" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
@@ -204,7 +202,6 @@ public interface DaoMessage {
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", message.`from` AS senders" +
             ", message.`to` AS recipients" +
-            ", message.received AS group_received" +
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
@@ -511,7 +508,6 @@ public interface DaoMessage {
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", message.`from` AS senders" +
             ", message.`to` AS recipients" +
-            ", message.received AS group_received" +
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
@@ -543,7 +539,6 @@ public interface DaoMessage {
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
             ", message.`from` AS senders" +
             ", message.`to` AS recipients" +
-            ", message.received AS group_received" +
             ", 1 AS count" +
             ", 1 AS unseen" +
             ", 0 AS unflagged" +
