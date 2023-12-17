@@ -2988,6 +2988,7 @@ public class HtmlHelper {
                 int s = ssb.length();
                 ssb.append("from");
                 ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
+                ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
                 ssb.append(' ').append(MessageHelper.formatAddresses(from, true, false));
             }
 
@@ -3053,8 +3054,10 @@ public class HtmlHelper {
 
                         s = ssb.length();
                         ssb.append(w[j]);
-                        if (!p && MessageHelper.RECEIVED_WORDS.contains(w[j].toLowerCase(Locale.ROOT)))
+                        if (!p && MessageHelper.RECEIVED_WORDS.contains(w[j].toLowerCase(Locale.ROOT))) {
                             ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
+                            ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
+                        }
 
                         if (w[j].endsWith(")"))
                             p = false;
@@ -3088,6 +3091,7 @@ public class HtmlHelper {
                 int s = ssb.length();
                 ssb.append("to");
                 ssb.setSpan(new ForegroundColorSpan(textColorLink), s, ssb.length(), 0);
+                ssb.setSpan(new StyleSpan(Typeface.BOLD), s, ssb.length(), 0);
                 ssb.append(' ').append(MessageHelper.formatAddresses(to, true, false));
             }
 
