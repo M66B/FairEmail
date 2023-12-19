@@ -185,6 +185,7 @@
     <string name="title_setup_quick_smtp">SMTP server na odosielanie správ</string>
     <string name="title_setup_quick_certificates">Certifikáty servera</string>
     <string name="title_setup_wizard">Sprievodca</string>
+    <string name="title_setup_wizard_intro">Vo väčšine prípadoch môžete pridať účet klepnutím na tlačidlo sprievodca. Nastaviť alebo zmeniť adresy serverov môžete po klepnutí na tlačidlo manuálne nastavenie</string>
     <string name="title_setup_wizard_tutorials">Tutoriály</string>
     <string name="title_setup_wizard_multiple">Sprievodcu môžete spustiť viac krát, ak chcete nastaviť viac účtov</string>
     <string name="title_setup_wizard_new">Potrebujem novú emailovú adresu</string>
@@ -213,6 +214,7 @@
     <string name="title_setup_oauth_rationale">Autorizovať prístup do vášho %1$s účtu</string>
     <string name="title_setup_oauth_update">Opätovne autorizovať existujúci účet (ak neexistuje, bude vytvorený nový)</string>
     <string name="title_setup_oauth_updated">Autorizácia účtu bola aktualizovaná</string>
+    <string name="title_setup_oauth_brave">Ak používate prehliadač Brawe, mali by ste v jeho nastaveniach povoliť otváranie odkazov na aplikácie mimo prostredia Brawe</string>
     <string name="title_setup_oauth_authorize">Autorizovať</string>
     <string name="title_setup_select_account">Vybrať účet</string>
     <string name="title_setup_instructions">Pokyny pre nastavenie</string>
@@ -395,6 +397,7 @@
     <string name="title_advanced_suggest_sent">Navrhovať adresy nájdené v odoslaných správach</string>
     <string name="title_advanced_suggest_received">Navrhovať adresy nájdené v prijatých správach</string>
     <string name="title_advanced_suggest_frequently">Zoradiť navrhované adresy podľa počtu použití</string>
+    <string name="title_advanced_suggest_account">Obmedziť návrhy na aktuálny účet</string>
     <string name="title_advanced_alt_re_fwd">Alternatívne prefixy pre preposielanie / odpoveď</string>
     <string name="title_advanced_send_chips">Zobraziť bubliny s adresami</string>
     <string name="title_advanced_send_nav_color">Použiť farbu identity pre dolný panel akcií</string>
@@ -407,6 +410,7 @@
     <string name="title_advanced_answer_hint">Akcie tlačidla Odpovedať je možné nastaviť aj na karte Nastavenia odosielania</string>
     <string name="title_advanced_answer_warning">Nie všetky úkony sú možné bez výberového menu!</string>
     <string name="title_advanced_send_pending">Zobrazovať nevtieravú ikonu oneskoreného odosielania</string>
+    <string name="title_advanced_save_revisions">Ukladať revízie konceptov pre akcie opakovať a vrátiť späť</string>
     <string name="title_advanced_auto_save_paragraph">Automaticky uložiť koncept po každom odseku</string>
     <string name="title_advanced_auto_save_dot">Automaticky uložiť koncept po každej vete</string>
     <string name="title_advanced_compose_color">Predvolená farba textu</string>

@@ -438,6 +438,7 @@
     <string name="title_advanced_lookup_mx">Verifică adresele destinatarilor înainte de a trimite</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
+    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Aplică și la conexiunile necontorizate</string>
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
     <string name="title_advanced_rlah">Consideră roamingul ca național</string>
     <string name="title_advanced_download_headers">Descărcați toate anteturile mesajelor</string>
@@ -448,10 +449,12 @@
     <string name="title_advanced_vpn_only">Conectați-vă numai prin intermediul unui VPN</string>
     <string name="title_advanced_timeout">Expirarea conexiunii (secunde)</string>
     <string name="title_advanced_prefer_ip4">Preferă IPv4 înaintea IPv6</string>
+    <string name="title_advanced_ssl_update">Utilizați furnizorul SSL actualizat</string>
     <string name="title_advanced_ssl_harden">Întârire conexiuni SSL</string>
     <string name="title_advanced_ssl_harden_strict">Necesită TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificarea strictă a certificatelor</string>
     <string name="title_advanced_open_safe">Deschideți numai conexiuni sigure</string>
+    <string name="title_advanced_http_redirect">Permite redirectionarea conexiunii</string>
     <string name="title_advanced_bouncy_castle">Folosește furnizorul de socket securizat Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Gestionare conexiuni</string>
     <string name="title_advanced_caption_general">Generale</string>
@@ -1022,6 +1025,9 @@
     <string name="title_service_port">Vă rugăm să verificaţi din nou numărul de port</string>
     <string name="title_service_protocol">Vă rugăm să verificaţi protocolul (SSL/TLS sau STARTTLS)</string>
     <string name="title_service_error10">Acest cont trebuie să fie autentificat din nou, ceea ce poate fi făcut prin intermediul asistentului de configurare rapidă</string>
+    <string name="title_certificate_error">        Datorită politicilor Google Play Store nu mai este posibilă susținerea unei conexiuni nesigure la serverele de e-mail cu probleme de certificat pentru versiunea FairEmail distribuită în Play Store.
+        Prin urmare, această problemă poate fi rezolvată numai de către furnizorul dvs. de e-mail - informațiile de eroare de mai sus pot ajuta la rezolvarea acestei probleme.
+    </string>
     <string name="title_advanced_browse">Răsfoiește mesajele de pe server</string>
     <string name="title_advanced_expand_read">Marchează mesajele ca citite la extindere</string>
     <string name="title_synchronize_now">Sincronizează acum</string>

@@ -435,10 +435,12 @@
     <string name="title_advanced_vpn_only">Σύνδεση μόνο μέσω VPN</string>
     <string name="title_advanced_timeout">Χρονικό όριο σύνδεσης (δευτερόλεπτα)</string>
     <string name="title_advanced_prefer_ip4">Να προτιμάται IPv4 παρά IPv6</string>
+    <string name="title_advanced_ssl_update">Χρήση ενημερωμένου παρόχου SSL</string>
     <string name="title_advanced_ssl_harden">Θωράκιση συνδέσεων SSL</string>
     <string name="title_advanced_ssl_harden_strict">Απαιτείται TLS 1.3</string>
     <string name="title_advanced_cert_strict">Αυστηρός έλεγχος πιστοποιητικών</string>
     <string name="title_advanced_open_safe">Άνοιγμα ασφαλών συνδέσεων μόνο</string>
+    <string name="title_advanced_http_redirect">Να επιτρέπεται η ανακατεύθυνση σύνδεσης</string>
     <string name="title_advanced_bouncy_castle">Χρήση του παρόχου ασφαλών socket Bouncy Castle (JSSE)</string>
     <string name="title_advanced_manage_connectivity">Διαχείριση συνδεσιμότητας</string>
     <string name="title_advanced_caption_general">Γενικά</string>
