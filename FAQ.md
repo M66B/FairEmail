@@ -2808,6 +2808,7 @@ $$tls$ (since version 1.1826)
 $$dkim$
 $$spf$
 $$dmarc$
+$$auth$ (since version 1.2141)
 $$mx$
 $$blocklist$
 $$replydomain$
