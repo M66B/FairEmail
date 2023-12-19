@@ -77,7 +77,7 @@ public interface DaoMessage {
             "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
 
-            " JOIN message AS mm ON mm.thread = message.thread" +
+            " JOIN message AS mm ON mm.account = message.account AND mm.thread = message.thread" +
             "   AND (NOT :found OR mm.ui_found) AND (NOT mm.ui_hide OR :debug)" +
             " JOIN folder AS ff ON ff.id = mm.folder" +
             "   AND (:found OR (:type IS NULL AND ff.unified) OR (:type IS NOT NULL AND ff.type = :type))" +
@@ -154,7 +154,7 @@ public interface DaoMessage {
             "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
 
-            " JOIN message AS mm ON mm.thread = message.thread" +
+            " JOIN message AS mm ON mm.account = message.account AND mm.thread = message.thread" +
             "   AND (NOT :found OR mm.ui_found) AND (NOT mm.ui_hide OR :debug)" +
             "   AND message.folder = :folder" +
 
