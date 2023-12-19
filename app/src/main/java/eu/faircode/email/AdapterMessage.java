@@ -1269,9 +1269,9 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             String selector = (reverse ? null : message.bimi_selector);
             Address[] addresses = (reverse ? message.to : (message.isForwarder() ? message.submitter : message.from));
             Address[] senders = ContactInfo.fillIn(
-                    reverse && !show_recipients ? message.to : message.senders, prefer_contact, only_contact);
+                    reverse && !show_recipients ? message.to : message.addresses[0], prefer_contact, only_contact);
             Address[] recipients = ContactInfo.fillIn(
-                    reverse && !show_recipients ? message.from : message.recipients, prefer_contact, only_contact);
+                    reverse && !show_recipients ? message.from : message.addresses[1], prefer_contact, only_contact);
             boolean authenticated =
                     !((Boolean.FALSE.equals(message.dkim) && check_authentication) ||
                             (Boolean.FALSE.equals(message.spf) && check_authentication) ||
@@ -2563,7 +2563,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean hasChannel = (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
             int maxRecipients = (compact ? MAX_RECIPIENTS_COMPACT : MAX_RECIPIENTS_NORMAL);
             Spanned submitter = formatAddresses(message.submitter, true);
-            Spanned from = formatAddresses(message.senders, true);
+            Spanned from = formatAddresses(message.addresses[0], true);
 
             grpAddresses.setVisibility(View.VISIBLE);
 
@@ -7841,7 +7841,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 boolean outgoing = isOutgoing(message);
                 Address[] addresses = (EntityFolder.isOutgoing(message.folderType) &&
-                        (viewType != ViewType.THREAD || !threading) ? message.to : message.senders);
+                        (viewType != ViewType.THREAD || !threading) ? message.to : message.addresses[0]);
                 MessageHelper.AddressFormat format = email_format;
                 String from = MessageHelper.formatAddresses(addresses, format, false);
 
@@ -8617,7 +8617,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 keyPosition.put(message.id, i);
                 positionKey.put(i, message.id);
                 addExtra(message.from, message.extra);
-                addExtra(message.senders, message.extra);
+                addExtra(message.addresses[0], message.extra);
                 message.resolveLabelColors(context);
                 message.resolveKeywordColors(context);
             }
