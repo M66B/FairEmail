@@ -3698,6 +3698,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
             Bundle args = new Bundle();
             args.putLong("id", message.id);
+            args.putLong("attachment", attachment.id);
             args.putSerializable("file", attachment.getFile(context));
 
             new SimpleTask<ICalendar>() {
@@ -3715,11 +3716,26 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 @Override
                 protected ICalendar onExecute(Context context, Bundle args) throws IOException {
                     File file = (File) args.getSerializable("file");
-                    return CalendarHelper.parse(context, file);
+                    try {
+                        return CalendarHelper.parse(context, file);
+                    } catch (Throwable ex) {
+                        long attachment = args.getLong("attachment");
+                        String message = ex.getMessage();
+                        if (TextUtils.isEmpty(message))
+                            message = Log.formatThrowable(ex);
+
+                        DB db = DB.getInstance(context);
+                        db.attachment().setWarning(attachment, message);
+
+                        return null;
+                    }
                 }
 
                 @Override
                 protected void onExecuted(Bundle args, ICalendar icalendar) {
+                    if (icalendar == null)
+                        return;
+
                     long id = args.getLong("id");
                     TupleMessageEx amessage = getMessage();
                     if (amessage == null || !amessage.id.equals(id))
@@ -3820,13 +3836,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
 
                 @Override
                 protected void onException(Bundle args, Throwable ex) {
-                    if (properties.getValue("ical_error", message.id))
-                        return;
-                    properties.setValue("ical_error", message.id, true);
-
-                    // https://github.com/mangstadt/biweekly/issues/121
-                    if (!(ex instanceof AssertionError))
-                        Log.unexpectedError(parentFragment.getParentFragmentManager(), ex);
+                    // Dummy
                 }
             }.setLog(false).execute(context, owner, args, "message:calendar");
         }
