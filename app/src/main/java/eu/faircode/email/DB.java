@@ -3116,53 +3116,19 @@ public abstract class DB extends RoomDatabase {
             List<Address> result = new ArrayList<>();
             try {
                 JSONArray jroot = new JSONArray(json);
-                for (int i = 0; i < jroot.length(); i++)
-                    result.addAll(getAddresses(jroot.get(i)));
+                for (int i = 0; i < jroot.length(); i++) {
+                    Object item = jroot.get(i);
+                    if (jroot.get(i) instanceof JSONArray)
+                        for (int j = 0; j < ((JSONArray) item).length(); j++)
+                            result.add(InternetAddressJson.from((JSONObject) ((JSONArray) item).get(j)));
+                    else
+                        result.add(InternetAddressJson.from((JSONObject) item));
+                }
             } catch (Throwable ex) {
                 // Compose can store invalid addresses
                 Log.w(ex);
             }
             return result.toArray(new Address[0]);
-        }
-
-        @TypeConverter
-        public static Address[][] decodeAddressesArray(String json) {
-            if (json == null)
-                return new Address[][]{new Address[0], new Address[0]};
-
-            List<Address> senders = new ArrayList<>();
-            List<Address> recipients = new ArrayList<>();
-            try {
-                JSONArray jroot = new JSONArray(json);
-                senders.addAll(getAddresses(jroot.get(0)));
-                recipients.addAll(getAddresses(jroot.get(1)));
-            } catch (Throwable ex) {
-                Log.w(ex);
-            }
-            return new Address[][]{
-                    senders.toArray(new Address[0]),
-                    recipients.toArray(new Address[0])
-            };
-        }
-
-        private static List<Address> getAddresses(Object item) {
-            List<Address> result = new ArrayList<>();
-            if (item instanceof JSONArray)
-                for (int j = 0; j < ((JSONArray) item).length(); j++)
-                    try {
-                        result.add(InternetAddressJson.from((JSONObject) ((JSONArray) item).get(j)));
-                    } catch (Throwable ex) {
-                        // Compose can store invalid addresses
-                        Log.w(ex);
-                    }
-            else
-                try {
-                    result.add(InternetAddressJson.from((JSONObject) item));
-                } catch (Throwable ex) {
-                    // Compose can store invalid addresses
-                    Log.w(ex);
-                }
-            return result;
         }
 
         @TypeConverter

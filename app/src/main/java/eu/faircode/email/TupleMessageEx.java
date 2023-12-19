@@ -53,7 +53,8 @@ public class TupleMessageEx extends EntityMessage {
     public String identityEmail;
     public Integer identityColor;
     public Boolean identitySynchronize;
-    public Address[][] addresses;
+    public Address[] senders;
+    public Address[] recipients;
     public int count;
     public int unseen;
     public int unflagged;
@@ -159,8 +160,8 @@ public class TupleMessageEx extends EntityMessage {
                     Objects.equals(this.identityEmail, other.identityEmail) &&
                     Objects.equals(this.identityColor, other.identityColor) &&
                     Objects.equals(this.identitySynchronize, other.identitySynchronize) &&
-                    MessageHelper.equal(this.addresses[0], other.addresses[0]) &&
-                    MessageHelper.equal(this.addresses[1], other.addresses[1]) &&
+                    MessageHelper.equal(this.senders, other.senders) &&
+                    MessageHelper.equal(this.recipients, other.recipients) &&
                     this.count == other.count &&
                     this.unseen == other.unseen &&
                     this.unflagged == other.unflagged &&

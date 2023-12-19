@@ -51,7 +51,8 @@ public interface DaoMessage {
             ", account.notify AS accountNotify, account.summary AS accountSummary, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, NULL AS folderInheritedType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
-            ", (SELECT '[' || group_concat(`from`, ',') || ',' || group_concat(`to`, ',') || ']' FROM (SELECT DISTINCT `from`, `to` FROM message m0 WHERE m0.account = message.account AND m0.thread = message.thread ORDER BY m0.received DESC LIMIT 3)) AS addresses" +
+            ", '[' || (SELECT group_concat(`from`, ',') FROM (SELECT DISTINCT `from` FROM message m0 WHERE m0.account = message.account AND m0.thread = message.thread ORDER BY m0.received DESC LIMIT 3)) || ']' AS senders" +
+            ", '[' || (SELECT group_concat(`to`, ',') FROM (SELECT DISTINCT `to` FROM message m0 WHERE m0.account = message.account AND m0.thread = message.thread ORDER BY m0.received DESC LIMIT 3)) || ']' AS recipients" +
             ", COUNT(message.id) AS count" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
@@ -76,7 +77,7 @@ public interface DaoMessage {
             "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
 
-            " JOIN message AS mm ON mm.account = message.account AND mm.thread = message.thread" +
+            " JOIN message AS mm ON mm.thread = message.thread" +
             "   AND (NOT :found OR mm.ui_found) AND (NOT mm.ui_hide OR :debug)" +
             " JOIN folder AS ff ON ff.id = mm.folder" +
             "   AND (:found OR (:type IS NULL AND ff.unified) OR (:type IS NOT NULL AND ff.type = :type))" +
@@ -128,7 +129,8 @@ public interface DaoMessage {
             ", account.notify AS accountNotify, account.summary AS accountSummary, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, f.inherited_type AS folderInheritedType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
-            ", (SELECT '[' || group_concat(`from`, ',') || ',' || group_concat(`to`, ',') || ']' FROM (SELECT DISTINCT `from`, `to` FROM message m0 WHERE m0.account = message.account AND m0.thread = message.thread ORDER BY m0.received DESC LIMIT 3)) AS addresses" +
+            ", '[' || (SELECT group_concat(`from`, ',') FROM (SELECT DISTINCT `from` FROM message m0 WHERE m0.account = message.account AND m0.thread = message.thread ORDER BY m0.received DESC LIMIT 3)) || ']' AS senders" +
+            ", '[' || (SELECT group_concat(`to`, ',') FROM (SELECT DISTINCT `to` FROM message m0 WHERE m0.account = message.account AND m0.thread = message.thread ORDER BY m0.received DESC LIMIT 3)) || ']' AS recipients" +
             ", COUNT(message.id) AS count" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
@@ -152,7 +154,7 @@ public interface DaoMessage {
             "   THEN message.received ELSE 0 END) AS dummy" +
             " FROM message" +
 
-            " JOIN message AS mm ON mm.account = message.account AND mm.thread = message.thread" +
+            " JOIN message AS mm ON mm.thread = message.thread" +
             "   AND (NOT :found OR mm.ui_found) AND (NOT mm.ui_hide OR :debug)" +
             "   AND message.folder = :folder" +
 
@@ -198,7 +200,8 @@ public interface DaoMessage {
             ", account.notify AS accountNotify, account.summary AS accountSummary, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, NULL AS folderInheritedType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
-            ", ('[' || message.`from` || ',' || message.`to` || ']') AS addresses" +
+            ", message.`from` AS senders" +
+            ", message.`to` AS recipients" +
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
@@ -503,7 +506,8 @@ public interface DaoMessage {
             ", account.notify AS accountNotify, account.summary AS accountSummary, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, NULL AS folderInheritedType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
-            ", ('[' || message.`from` || ',' || message.`to` || ']') AS addresses" +
+            ", message.`from` AS senders" +
+            ", message.`to` AS recipients" +
             ", 1 AS count" +
             ", CASE WHEN message.ui_seen THEN 0 ELSE 1 END AS unseen" +
             ", CASE WHEN message.ui_flagged THEN 0 ELSE 1 END AS unflagged" +
@@ -533,7 +537,8 @@ public interface DaoMessage {
             ", account.notify AS accountNotify, account.summary AS accountSummary, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, NULL AS folderInheritedType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
-            ", ('[' || message.`from` || ',' || message.`to` || ']') AS addresses" +
+            ", message.`from` AS senders" +
+            ", message.`to` AS recipients" +
             ", 1 AS count" +
             ", 1 AS unseen" +
             ", 0 AS unflagged" +
