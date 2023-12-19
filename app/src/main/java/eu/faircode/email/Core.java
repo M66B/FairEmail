@@ -3437,6 +3437,7 @@ class Core {
                         if (message.spf == null && helper.getSPF())
                             message.spf = true;
                         message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+                        message.auth = MessageHelper.getAuthentication("auth", authentication);
                         message.smtp_from = helper.getMailFrom(authentication);
                         message.return_path = helper.getReturnPath();
                         message.submitter = helper.getSubmitter();
@@ -4585,6 +4586,7 @@ class Core {
             if (message.spf == null && helper.getSPF())
                 message.spf = true;
             message.dmarc = MessageHelper.getAuthentication("dmarc", authentication);
+            message.auth = MessageHelper.getAuthentication("auth", authentication);
             message.smtp_from = helper.getMailFrom(authentication);
             message.return_path = helper.getReturnPath();
             message.submitter = helper.getSubmitter();

@@ -1276,6 +1276,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     !((Boolean.FALSE.equals(message.dkim) && check_authentication) ||
                             (Boolean.FALSE.equals(message.spf) && check_authentication) ||
                             (Boolean.FALSE.equals(message.dmarc) && check_authentication) ||
+                            (Boolean.FALSE.equals(message.auth) && check_authentication) ||
                             (Boolean.FALSE.equals(message.reply_domain) && check_reply_domain) ||
                             (Boolean.FALSE.equals(message.mx) && check_mx) ||
                             (Boolean.TRUE.equals(message.blocklist) && check_blocklist));
@@ -1377,9 +1378,13 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         !Boolean.FALSE.equals(message.dmarc))
                     auths = 3;
 
+                if (Boolean.TRUE.equals(message.auth))
+                    auths = 3;
+
                 boolean verified = (auths == 3 && (!check_tls || Boolean.TRUE.equals(message.tls)));
 
-                if (message.dkim == null && message.spf == null && message.dmarc == null)
+                if (!Boolean.TRUE.equals(message.auth) &&
+                        message.dkim == null && message.spf == null && message.dmarc == null)
                     ibAuth.setImageLevel(1);
                 else
                     ibAuth.setImageLevel(auths + 2);
@@ -2020,9 +2025,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 ibAvatar.setVisibility(main == null || !main.hasPhoto() ? View.GONE : View.VISIBLE);
 
                 if (main != null && "vmc".equals(main.getType()) &&
-                        Boolean.TRUE.equals(message.dkim) &&
-                        Boolean.TRUE.equals(message.spf) &&
-                        Boolean.TRUE.equals(message.dmarc)) {
+                        (Boolean.TRUE.equals(message.auth) ||
+                                (Boolean.TRUE.equals(message.dkim) &&
+                                        Boolean.TRUE.equals(message.spf) &&
+                                        Boolean.TRUE.equals(message.dmarc)))) {
                     ibVerified.setImageLevel(main.isVerified() ? 1 : 0);
                     ibVerified.setImageTintList(ColorStateList.valueOf(main.isVerified()
                             ? colorVerified : colorControlNormal));
@@ -2765,6 +2771,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .append(" DKIM=").append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗"))
                             .append(" SPF=").append(message.spf == null ? "-" : (message.spf ? "✓" : "✗"))
                             .append(" DMARC=").append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"))
+                            .append(" AUTH=").append(message.auth == null ? "-" : (message.auth ? "✓" : "✗"))
                             .append(" BL=").append(message.blocklist == null ? "-" : (message.blocklist ? "✓" : "✗"))
                             .append('\n');
                 }
@@ -4858,6 +4865,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 result.add("SPF");
             if (Boolean.FALSE.equals(message.dmarc))
                 result.add("DMARC");
+            if (Boolean.FALSE.equals(message.auth))
+                result.add("AUTH");
             if (Boolean.FALSE.equals(message.mx))
                 result.add("MX");
 
@@ -4875,7 +4884,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         .append(message.spf == null ? "-" : (message.spf ? "✓" : "✗"))
                         .append('\n');
                 sb.append("DMARC: ")
-                        .append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"));
+                        .append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"))
+                        .append('\n');
+                sb.append("AUTH: ")
+                        .append(message.auth == null ? "-" : (message.auth ? "✓" : "✗"));
             }
 
             if (native_dkim && !TextUtils.isEmpty(message.signedby)) {
@@ -8141,6 +8153,10 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 if (!Objects.equals(prev.dmarc, next.dmarc)) {
                     same = false;
                     log("dmarc changed", next.id);
+                }
+                if (!Objects.equals(prev.auth, next.auth)) {
+                    same = false;
+                    log("auth changed", next.id);
                 }
                 if (!Objects.equals(prev.mx, next.mx)) {
                     same = false;

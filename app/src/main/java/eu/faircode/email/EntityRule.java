@@ -387,6 +387,9 @@ public class EntityRule {
                     } else if ("$dmarc".equals(keyword)) {
                         if (!Boolean.TRUE.equals(message.dmarc))
                             return false;
+                    } else if ("$auth".equals(keyword)) {
+                        if (!Boolean.TRUE.equals(message.auth))
+                            return false;
                     } else if ("$mx".equals(keyword)) {
                         if (!Boolean.TRUE.equals(message.mx))
                             return false;

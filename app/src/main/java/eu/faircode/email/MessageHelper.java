@@ -2146,6 +2146,7 @@ public class MessageHelper {
 
         List<String> all = new ArrayList<>();
 
+        // https://datatracker.ietf.org/doc/html/rfc8601
         String[] results = imessage.getHeader("Authentication-Results");
         if (results != null)
             all.addAll(Arrays.asList(results));
