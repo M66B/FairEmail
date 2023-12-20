@@ -425,7 +425,7 @@
     <string name="title_advanced_lookup_mx">Göndərməzdən əvvəl alıcı e-poçt ünvanlarını yoxla</string>
     <string name="title_advanced_metered">Ölçülmüş bağlantıları istifadə et</string>
     <string name="title_advanced_download">Mesajları və qoşmaları ölçülmüş bağlantıda avtomatik endir</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Ölçülməyən bağlantılara da tətbiq et</string>
+    <string name="title_advanced_download_limited">Ölçülməyən bağlantılara da tətbiq et</string>
     <string name="title_advanced_roaming">Roaminqdə olarkən mesajları və qoşmaları endir</string>
     <string name="title_advanced_rlah">Evdə olduğu kimi gəz</string>
     <string name="title_advanced_download_headers">Bütün mesaj başlıqlarını endir</string>

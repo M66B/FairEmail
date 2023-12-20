@@ -423,6 +423,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_lookup_mx">Göndermeden önce alıcı e-posta adreslerini kontrol edin</string>
     <string name="title_advanced_metered">Ölçülü bağlantıları kullan</string>
     <string name="title_advanced_download">Mesajları ve ekleri ölçülü bir bağlantıya kadar otomatik olarak indir</string>
+    <string name="title_advanced_download_limited">Ölçülmeyen bağlantılar için de geçerlidir</string>
     <string name="title_advanced_roaming">Gezeleme yaparken iletileri ve ekleri indir</string>
     <string name="title_advanced_rlah">Evde gibi dolaşmak</string>
     <string name="title_advanced_download_headers">Tüm mesaj başlıklarını indir</string>
@@ -433,9 +434,11 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_vpn_only">Yalnızca bir VPN aracılığıyla bağlanın</string>
     <string name="title_advanced_timeout">Bağlantı zaman aşımı (saniye)</string>
     <string name="title_advanced_prefer_ip4">IPv6 yerine IPv4\'ü tercih edin</string>
+    <string name="title_advanced_ssl_update">Güncellenmiş SSL sağlayıcısı kullanın</string>
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlamlaştır</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 gerektir</string>
     <string name="title_advanced_cert_strict">Katı sertifika kontrolü</string>
+    <string name="title_advanced_check_names" comment="title_advanced_check_names&#10;Title for advanced option in the connection settings tab page to enable checking if the host name of the server is the same as in the servers' security certificate.&#10;&quot;Check against&quot; could be translated as &quot;compare with&quot;">Ana bilgisayar adlarını sunucu sertifikalarına göre kontrol edin</string>
     <string name="title_advanced_open_safe">Yalnızca güvenli bağlantıları aç</string>
     <string name="title_advanced_http_redirect">Bağlantının yeniden yönlendirilmesine izin ver</string>
     <string name="title_advanced_bouncy_castle">Bouncy Castle\'ın güvenli soket sağlayıcısını (JSSE) kullan</string>
@@ -1008,6 +1011,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_service_port">Lütfen port numarasını tekrardan kontrol edin</string>
     <string name="title_service_protocol">Lütfen protokolü iki kez kontrol edin (SSL / TLS veya STARTTLS)</string>
     <string name="title_service_error10">Bu hesabın kimliğinin yeniden doğrulanması gerekiyor, bu işlem hızlı kurulum sihirbazı aracılığıyla yapılabilir</string>
+    <string name="title_certificate_error">..... Google\'ın Play Store politikaları nedeniyle, Play Store\'da dağıtılan FairEmail sürümü için sertifika sorunları olan e-posta sunucularına güvensiz bağlantıları desteklemek artık mümkün değildir  ...... Bu nedenle, bu sorun yalnızca e-posta sağlayıcınız tarafından çözülebilir - yukarıdaki hata bilgileri bu sorunu çözmelerine yardımcı olabilir.    </string>
     <string name="title_advanced_browse">Sunucudaki iletilere göz atın</string>
     <string name="title_advanced_expand_read">Genişletirken mesajları okundu olarak işaretle</string>
     <string name="title_synchronize_now">Şimdi senkronize et</string>

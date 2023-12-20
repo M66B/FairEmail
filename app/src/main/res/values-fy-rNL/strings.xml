@@ -423,7 +423,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_lookup_mx">Kontrolearje e-mailadressen fan ûntfangers foar ferstjoeren</string>
     <string name="title_advanced_metered">Mjitten ferbiningen brûke</string>
     <string name="title_advanced_download">Berjochten en bylagen automatysk downloade op in mjitten ferbining oant</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Ek tapasse op net mjitten ferbiningen</string>
+    <string name="title_advanced_download_limited">Ek tapasse op net mjitten ferbiningen</string>
     <string name="title_advanced_roaming">Download berjochten en bylagen wylst roaming</string>
     <string name="title_advanced_rlah">Roam lykas thús</string>
     <string name="title_advanced_download_headers">Download alle berjochtkoppen</string>
@@ -438,6 +438,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_ssl_harden">SSL-ferbiningen ferhurdzje</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 fereaskje</string>
     <string name="title_advanced_cert_strict">Strange sertifikaatkontrôle</string>
+    <string name="title_advanced_check_names" comment="title_advanced_check_names&#10;Title for advanced option in the connection settings tab page to enable checking if the host name of the server is the same as in the servers' security certificate.&#10;&quot;Check against&quot; could be translated as &quot;compare with&quot;">Hostnammen mei serversertifikaten fergelykje</string>
     <string name="title_advanced_open_safe">Allinnich befeilige ferbiningen iepenje</string>
     <string name="title_advanced_http_redirect">Ferbiningsomlieding tastean</string>
     <string name="title_advanced_bouncy_castle">Brûk de feilige socketprovider fan Bouncy Castle (JSSE)</string>

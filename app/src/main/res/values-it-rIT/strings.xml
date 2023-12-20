@@ -425,7 +425,7 @@
     <string name="title_advanced_lookup_mx">Controlla gli indirizzi email dei destinatari prima di inviare</string>
     <string name="title_advanced_metered">Usa connessioni a consumo</string>
     <string name="title_advanced_download">Scarica automaticamente messaggi e allegati su una connessione a consumo fino a</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Applica anche alle reti non a consumo</string>
+    <string name="title_advanced_download_limited">Applica anche alle reti non a consumo</string>
     <string name="title_advanced_roaming">Scarica messaggi e allegati in roaming</string>
     <string name="title_advanced_rlah">Roaming come a casa</string>
     <string name="title_advanced_download_headers">Scarica tutte le intestazioni del messaggio</string>

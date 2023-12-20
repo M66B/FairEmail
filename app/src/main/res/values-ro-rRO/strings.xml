@@ -438,7 +438,7 @@
     <string name="title_advanced_lookup_mx">Verifică adresele destinatarilor înainte de a trimite</string>
     <string name="title_advanced_metered">Folosește conexiuni contorizate</string>
     <string name="title_advanced_download">Descarcă automat mesajele și atașamentele, folosind o conexiune contorizată, până în</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Aplică și la conexiunile necontorizate</string>
+    <string name="title_advanced_download_limited">Aplică și la conexiunile necontorizate</string>
     <string name="title_advanced_roaming">Descărcarea mesajelor și a atașamentelor prin conexiuni roaming</string>
     <string name="title_advanced_rlah">Consideră roamingul ca național</string>
     <string name="title_advanced_download_headers">Descărcați toate anteturile mesajelor</string>

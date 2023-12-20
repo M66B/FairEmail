@@ -453,7 +453,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_lookup_mx">Před odesláním zkontrolovat e-mailové adresy příjemců</string>
     <string name="title_advanced_metered">Používat účtovaná připojení</string>
     <string name="title_advanced_download">Automaticky stahovat zprávy a přílohy na účtovaném připojení až do velikosti</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Použít i pro neměřená připojení</string>
+    <string name="title_advanced_download_limited">Použít i pro neměřená připojení</string>
     <string name="title_advanced_roaming">Stahovat zprávy a přílohy během roamingu</string>
     <string name="title_advanced_rlah">Roaming jako doma (RLAH)</string>
     <string name="title_advanced_download_headers">Stáhnout hlavičky všech zpráv</string>
@@ -468,6 +468,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_ssl_harden">Obrnit SSL připojení</string>
     <string name="title_advanced_ssl_harden_strict">Vyžadovat TLS 1.3</string>
     <string name="title_advanced_cert_strict">Přísná kontrola certifikátu</string>
+    <string name="title_advanced_check_names" comment="title_advanced_check_names&#10;Title for advanced option in the connection settings tab page to enable checking if the host name of the server is the same as in the servers' security certificate.&#10;&quot;Check against&quot; could be translated as &quot;compare with&quot;">Kontrolovat jména hostitelů podle serverových certifikátů</string>
     <string name="title_advanced_open_safe">Otevřít pouze zabezpečená připojení</string>
     <string name="title_advanced_http_redirect">Povolit přesměrování připojení</string>
     <string name="title_advanced_bouncy_castle">Použít Bouncy Castle\'s secure socket provider (JSSE)</string>

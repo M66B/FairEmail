@@ -410,7 +410,7 @@
     <string name="title_advanced_lookup_mx">发送前检查收件人电子邮件地址</string>
     <string name="title_advanced_metered">使用按流量计费的连接</string>
     <string name="title_advanced_download">在计量连接下自动下载最大__的邮件与附件</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">同样应用于不按流量计费的连接</string>
+    <string name="title_advanced_download_limited">同样应用于不按流量计费的连接</string>
     <string name="title_advanced_roaming">漫游时下载邮件和附件</string>
     <string name="title_advanced_rlah">欧盟 Roam like at home</string>
     <string name="title_advanced_download_headers">下载所有消息标题</string>

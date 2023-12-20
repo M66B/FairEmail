@@ -193,6 +193,7 @@
     <string name="title_setup_permissions_notify">برای نمایش اعلان پیام‌های جدید (دلبخواه)</string>
     <string name="title_setup_permission_why">کدام اجازه دسترسی‌ها لازمند و چرا؟</string>
     <string name="title_setup_permission_import_contacts">چگونه می‌توانم مخاطبین را وارد کنم؟</string>
+    <string name="title_setup_import_graph_contact">مخاطبین آوت‌لوک</string>
     <string name="title_setup_import_graph_new">مخاطب‌های جدید: %1$s</string>
     <string name="title_setup_doze">غیرفعال کردن بهینه سازی باتری</string>
     <string name="title_setup_doze_remark">برای فرستادن و دریافت ایمیل به طرز مطمئن در پس‌زمینه</string>
@@ -206,6 +207,8 @@
     <string name="title_setup_inexact">زنگ‌های &amp; یادآور غیرفعال هستند</string>
     <string name="title_setup_background">محدودیت‌های پس‌زمینه فعال هستند</string>
     <string name="title_setup_data">سرور داده فعال شده است</string>
+    <string name="title_setup_always">اعلان بلافاصله پیام‌های جدید</string>
+    <string name="title_setup_always_remark">در صورت فعال بودن، ارتباطات ناپایدار، سخت‌افزار شبکه قدیمی، و غیره می‌تواند منجر به مصرف بیشتر باتری شود</string>
     <string name="title_setup_advanced_options">نمایش گزینه‌های پیشرفته</string>
     <string name="title_setup_inbox">رفتن به صندوق دریافت</string>
     <string name="title_setup_go">برو</string>
@@ -222,6 +225,9 @@
     <string name="title_setup_close">تنظیمات را ببند</string>
     <string name="title_setup_export">ذخیره تنظیمات</string>
     <string name="title_setup_import">وارد کردن تنظیمات</string>
+    <string name="title_setup_export_remark">        از آنجایی که فایل تنظیمات دربرگیرنده همه تنظیمات و اطلاعات حساب است، با رمز عبور رمزگذاری شده است.
+        به رمز عبور برای وارد کردن دوباره تنظیمات نیاز است، برای همین در حفظ آن کوشا باشید!
+    </string>
     <string name="title_setup_backup">چگونه از پیام‌ها پشتیبان بگیریم؟</string>
     <string name="title_setup_password">گذرواژه</string>
     <string name="title_setup_password_chars">گذرواژه دارای control یا نویسه‌های فضای سفید می‌باشد</string>
@@ -315,8 +321,11 @@
     <string name="title_advanced_sync_folders">همگام سازی لیست پوشه</string>
     <string name="title_advanced_sync_folders_poll">هم‌رسانی فعالانه فهرست پوشه‌ها</string>
     <string name="title_advanced_sync_shared_folders">فهرست‌های پوشه‌های همرسانی شده را همگام‌سازی کن</string>
+    <string name="title_advanced_sync_added">فعال کردن همگام‌سازی برای پوشه‌های کاربری جدید</string>
     <string name="title_advanced_subscriptions">مدیریت اشتراکات پوشه</string>
     <string name="title_advanced_check_authentication">اصالت پیام را بررسی کنید</string>
+    <string name="title_advanced_check_tls">امنیت لایه انتقال (TLS) را بررسی کنید</string>
+    <string name="title_advanced_check_reply_domain">آدرس پاسخ را در همگام‌سازی پیام‌ها بررسی کنید</string>
     <string name="title_advanced_check_mx">نشانی‌های ایمیل فرستنده را هنگام همگام‌سازی پیام‌ها بررسی کن</string>
     <string name="title_advanced_use_blocklist_pop3">پیام‌هایی را که از طرف دامنه‌های درون لیست سیاه هستند در نظر نگیر (تنها برای POP3)</string>
     <string name="title_advanced_tune_keep_alive">وقفه زنده-نگه‌داشتن را خودکار کوک کن</string>
@@ -328,18 +337,26 @@
     <string name="title_advanced_suggest_received">پیشنهاد نشانی‌های یافت شده در پیام‌های دریافت شده</string>
     <string name="title_advanced_suggest_frequently">مرتب‌سازی نشانی‌های پیشنهادی در دفعات استفاده</string>
     <string name="title_advanced_suggest_account">محدود کردن پیشنهادات به حساب فعلی</string>
+    <string name="title_advanced_alt_re_fwd">پیشوند پاسخ/فوروارد جایگزین</string>
     <string name="title_advanced_send_chips">نمایش حباب‌ آدرس‌ها</string>
     <string name="title_advanced_send_reminders">نمایش یادآورها</string>
     <string name="title_advanced_send_delayed">وقفه ارسال پیام‌ها</string>
     <string name="title_advanced_answer_caption">تنظیمات دکمه پاسخ</string>
+    <string name="title_advanced_answer_default">با فشار کوتاه‌مدت دکمه پاسخ:</string>
+    <string name="title_advanced_answer_action">با فشار بلندمدت دکمه پاسخ:</string>
+    <string name="title_advanced_send_pending">نمایش نماد فرستادن با تاخیر غیر مزاحم</string>
+    <string name="title_advanced_save_revisions">ذخیره نسخه‌های پیش‌نویس برای معکوس کردن و انجام مجدد</string>
     <string name="title_advanced_auto_save_paragraph">پس از هر پاراگراف، پیش‌نویس را خودکار ذخیره کن</string>
     <string name="title_advanced_auto_save_dot">پس از هر جمله، پیش‌نویس را خودکار ذخیره کن</string>
     <string name="title_advanced_compose_color">رنگ پیش‌فرض نوشته‌ها</string>
     <string name="title_advanced_compose_font">قلم پیشفرض</string>
     <string name="title_advanced_auto_identity">برای پیام‌های جدید، هویت را خودکار انتخاب کن</string>
+    <string name="title_advanced_prefix_count">افزودن تعداد به پیشوند پاسخ</string>
+    <string name="title_advanced_extended_reply">استفاده از هدر پاسخ/فوروارد توسعه یافته</string>
     <string name="title_advanced_write_above">در بالای نوشته فرستنده بنویسید</string>
     <string name="title_advanced_write_below">در پایین نوشته فرستنده بنویسید</string>
     <string name="title_advanced_quote_reply">متن پاسخ نقل قول شده</string>
+    <string name="title_advanced_limit_reply">محدود کردن تعداد نقل‌قول‌های تودرتو</string>
     <string name="title_advanced_resize_reply">تغییر اندازه تصاویر در متن پاسخ داده شده</string>
     <string name="title_advanced_resize_paste">تغییر اندازه تصاویر کپی شده</string>
     <string name="title_advanced_signature_location">موقعیت امضاء</string>
@@ -351,12 +368,15 @@
     <string name="title_advanced_reply_move_inbox">همچنین برای پیام‌های درون صندوق ورودی</string>
     <string name="title_advanced_auto_link">ایجاد خودکار لینک</string>
     <string name="title_advanced_plain_only">فقط متن ساده را به صورت پیش‌فرض بفرست</string>
+    <string name="title_advanced_flow">\'قالب جریان\' برای متن ساده</string>
+    <string name="title_advanced_usenet_signature">پیروی از قرارداد امضای یوزنت</string>
     <string name="title_advanced_remove_signatures">امضاء های شناخته شده را حذف کن</string>
     <string name="title_advanced_receipt">هنگام درخواست رسید</string>
     <string name="title_advanced_forward_new">هنگام فوروارد کردن، یک مکالمه جدید شروع کن</string>
     <string name="title_advanced_lookup_mx">نشانی ایمیل گیرنده را قبل از فرستادن بررسی کن</string>
     <string name="title_advanced_metered">استفاده از شبکه موبایل</string>
     <string name="title_advanced_download">دریافت خودکار پیام‌ها و پیوست‌ها روی شبکه موبایل</string>
+    <string name="title_advanced_download_limited">برای اتصالات بدون اندازه‌گیری نیز به کار رود</string>
     <string name="title_advanced_roaming">بارگیری پیام‌ها و پیوست‌ها هنگام رومینگ</string>
     <string name="title_advanced_rlah">رومینگ مانند اینکه در خانه‌ای</string>
     <string name="title_advanced_vpn_only">اتصال تنها به وسیله وی‌پی‌ان</string>
@@ -364,6 +384,7 @@
     <string name="title_advanced_prefer_ip4">ترجیح IPv4 به IPv6</string>
     <string name="title_advanced_ssl_update">استفاده از ارائه‌دهنده اس‌اس‌ال به روز</string>
     <string name="title_advanced_ssl_harden">اتصالات SSL را محکم کن</string>
+    <string name="title_advanced_check_names" comment="title_advanced_check_names&#10;Title for advanced option in the connection settings tab page to enable checking if the host name of the server is the same as in the servers' security certificate.&#10;&quot;Check against&quot; could be translated as &quot;compare with&quot;">اسامی هاست‌ها را با گواهی‌های سرور مقایسه کنید</string>
     <string name="title_advanced_open_safe">فقط ارتباطات اوپن‌سورس</string>
     <string name="title_advanced_http_redirect">مجاز دانستن تغییر مسیر ارتباط</string>
     <string name="title_advanced_manage_connectivity">مدیریت اتصال</string>
@@ -387,12 +408,19 @@
     <string name="title_advanced_nav_hide_message">شما می‌توانید مجددا گزینه‌ها را در تنظیمات نمایش فعال کنید</string>
     <string name="title_advanced_nav_pinned_count">تعداد پیام‌های خوانده نشده را در منوی ناوبری سنجاق‌شده نشان بده</string>
     <string name="title_advanced_startup">نمایش در صفحه آغازین</string>
+    <string name="title_advanced_cards_shadow_border">نمایش حاشیه</string>
     <string name="title_advanced_date_header">گروه بندی بر اساس تاریخ</string>
+    <string name="title_advanced_date_week">گروه‌بندی بر اساس هفته به جای روز</string>
+    <string name="title_advanced_date_bold">نمایش تاریخ به صورت پررنگ</string>
+    <string name="title_advanced_date_time">نمایش همیشه تاریخ و زمان (هر دو)</string>
     <string name="title_advanced_threading">دسته بندی مکالمه</string>
     <string name="title_advanced_threading_unread">شمار پیام‌های خوانده نشده را در گفتگوها نمایش بده</string>
+    <string name="title_advanced_indentation">تورفتگی چپ/راست پیام‌های دریافت/فرستاده شده در مکالمات</string>
     <string name="title_advanced_highlight_unread">برجسته‌سازی پیام‌های خوانده نشده</string>
     <string name="title_advanced_color_stripe">نمایش نوار رنگ</string>
+    <string name="title_advanced_color_stripe_wide">استفاده از نوار رنگی پهن</string>
     <string name="title_advanced_avatars">نمایش تصویر مخاطبین</string>
+    <string name="title_advanced_bimi_unverified">فرستنده تاییدنشده</string>
     <string name="title_advanced_bimi_verified">فرستنده تایید شده</string>
     <string name="title_advanced_gravatars">نمایش Gravatar ها</string>
     <string name="title_advanced_libravatars">نمایش Libravatar ها</string>
@@ -402,6 +430,7 @@
     <string name="title_advanced_generated_icons">نمایس آیکون‌های تولید شده</string>
     <string name="title_advanced_identicons">نمایش identicons</string>
     <string name="title_advanced_circular">نمایش آیکون‌های گرد</string>
+    <string name="title_advanced_color_saturation">اشباع: %1$s %%</string>
     <string name="title_advanced_color_value">روشنایی: %1$s %%</string>
     <string name="title_advanced_color_threshold">آستانه رنگ حرف: %1$s %%</string>
     <string name="title_advanced_name_email">نام‌ها و نشانی‌های ایمیل را نمایش بده</string>
@@ -410,6 +439,7 @@
     <string name="title_advanced_show_recipients">گیرندگان را در سرتیتر نمایش بده</string>
     <string name="title_advanced_reverse_addresses">نمایش گیرنده پیام‌های ارسالی</string>
     <string name="title_advanced_font_size_sender">اندازه متن فرستنده</string>
+    <string name="title_advanced_sender_ellipsize">در صورت نیاز، فرستنده را کوتاه کن</string>
     <string name="title_advanced_subject_top">نمایش موضوع در بالای فرستنده</string>
     <string name="title_advanced_subject_italic">نمایش موضوع به‌صورت italic</string>
     <string name="title_advanced_highlight_subject">برجسته‌سازی موضوع</string>
@@ -418,14 +448,19 @@
     <string name="title_advanced_compact_mode_remark">تنها حالت فشرده</string>
     <string name="title_advanced_highlight_color">رنگ پیام هایلایت شده</string>
     <string name="title_advanced_keywords">کلیدواژه‌ها را در سرتیتر پیام نمایش بده</string>
+    <string name="title_advanced_labels">نمایش برچسب‌های جیمیل در سرصفحه پیام</string>
     <string name="title_advanced_flags">نمایش ستاره‌ها</string>
     <string name="title_advanced_flags_background">به‌جای ستاره‌های رنگی، پس‌زمینه رنگی را نمایش بده</string>
     <string name="title_advanced_preview">نمایش دادن پیش‌نمایش پیام</string>
     <string name="title_advanced_preview_italic">پیش‌نمایش پیام را به‌صورت ایتالیک نمایش بده</string>
     <string name="title_advanced_preview_lines">شمار خط‌های پیش‌نمایش</string>
+    <string name="title_advanced_align_header">ردیف کردن کلمات کلیدی، پیش‌نمایش متن، و یادداشت ها به صورت عمودی</string>
     <string name="title_advanced_addresses">نمایش جزئیات آدرس به صورت پیش‌فرض</string>
+    <string name="title_advanced_hide_attachments">جمع کردن پیوست‌ها به طور پیش‌فرض</string>
     <string name="title_advanced_unzip">محتویات ضمیمه‌های فشرده‌ شده را نشان بده</string>
     <string name="title_advanced_attachments_alt">نمایش پیوست‌ها بعد از متن پیام</string>
+    <string name="title_advanced_thumbnails">نمایش ریز عکس‌ها بعد از متن پیام</string>
+    <string name="title_advanced_pdf_preview">نمایش ریز پی‌دی‌اف‌ها</string>
     <string name="title_advanced_hyphenation">از خط تیره گذاری خودکار استفاده کن</string>
     <string name="title_advanced_contrast">از کنتراست زیاد برای متن پیام استفاده کن</string>
     <string name="title_advanced_background_color">استفاده از رنگ‌های پس‌زمینه</string>

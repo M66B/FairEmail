@@ -453,7 +453,7 @@
     <string name="title_advanced_lookup_mx">בדיקת כתובות דוא״ל הנמענים בטרם השליחה</string>
     <string name="title_advanced_metered">שימוש בחיבור מוגבל</string>
     <string name="title_advanced_download">להוריד הודעות וקבצים מצורפים אוטומטית בחיבור מוגבל עד</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">החלה גם על חיבורים לא מוגבלים</string>
+    <string name="title_advanced_download_limited">החלה גם על חיבורים לא מוגבלים</string>
     <string name="title_advanced_roaming">להוריד הודעות וקבצים מצורפים בזמן נדידה</string>
     <string name="title_advanced_rlah">לנדוד ולהרגיש בבית</string>
     <string name="title_advanced_download_headers">הורדת כל כותרות ההודעה</string>

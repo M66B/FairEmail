@@ -439,7 +439,7 @@
     <string name="title_advanced_lookup_mx">Provjeri e-mail adresu primaoca prije slanja</string>
     <string name="title_advanced_metered">Koristi konekcije \'s ograničenim paketom\'</string>
     <string name="title_advanced_download">Automatski preuzimaj poruke i priloge na mrežama \'s ograničenim paketom\' do</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Primjeni i na neograničene konekcije</string>
+    <string name="title_advanced_download_limited">Primjeni i na neograničene konekcije</string>
     <string name="title_advanced_roaming">Preuzimaj poruke i priloge u roamingu</string>
     <string name="title_advanced_rlah">Roaming kao u domovini</string>
     <string name="title_advanced_download_headers">Preuzimaj zaglavlja svih poruka</string>

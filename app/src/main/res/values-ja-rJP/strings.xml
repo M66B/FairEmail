@@ -75,10 +75,10 @@
     </string>
     <string name="title_block">%1$s をブロック</string>
     <string name="title_block_sender">差出人をブロック</string>
-    <string name="title_block_sender_domain">ドメイン「%1$s」をブロック</string>
+    <string name="title_block_sender_domain">ドメイン \'%1$s\' をブロック</string>
     <string name="title_block_sender_remark">ブロックすると、自動で迷惑メールフォルダーに移動します</string>
-    <string name="title_block_sender_hint">        差出人のブロックは無料版の機能です。
-        差出人のドメインをブロックするにはフィルタールールを使用します。これはプロ版の機能です。
+    <string name="title_block_sender_hint">        差出人のブロックは無料の機能です。
+        差出人のドメインをブロックするにはフィルタールールを使用します。これはプロの機能です。
     </string>
     <string name="title_blocked_senders">ブロックした差出人</string>
     <plurals name="title_ask_block_sender">
@@ -118,7 +118,7 @@
     <string name="menu_attribution">オープンソースライセンス</string>
     <string name="menu_privacy">プライバシー</string>
     <string name="menu_about">アプリについて</string>
-    <string name="menu_pro">プロ版の機能</string>
+    <string name="menu_pro">プロの機能</string>
     <string name="menu_rate">このアプリを評価</string>
     <string name="title_welcome">ようこそ</string>
     <string name="title_eula">エンドユーザー使用許諾契約書</string>
@@ -182,7 +182,7 @@
     <string name="title_setup_oauth_authorize">認証</string>
     <string name="title_setup_select_account">アカウントを選択</string>
     <string name="title_setup_instructions">セットアップ方法</string>
-    <string name="title_setup_no_settings">ドメイン「%1$s」の設定が見つかりませんでした</string>
+    <string name="title_setup_no_settings">ドメイン \'%1$s\' の設定が見つかりませんでした</string>
     <string name="title_setup_no_settings_hint">メールプロバイダーが提供する設定を使用して、手動でアカウントをセットアップしてみてください</string>
     <string name="title_setup_no_auth_hint">メールアドレスとパスワードをもう一度確認しアカウントで外部アクセス (IMAP/SMTP) が有効になっていることを確認してください</string>
     <string name="title_setup_app_password_hint">このプロバイダーではアカウントのパスワードの代わりにアプリパスワードが必要です。プロバイダーの指示を確認してください</string>
@@ -239,7 +239,7 @@
     <string name="title_setup_delete_account_hint">この操作はアプリからのアカウント削除のみを行います</string>
     <string name="title_setup_close">設定を閉じる</string>
     <string name="title_setup_export">設定をエクスポート</string>
-    <string name="title_setup_import">設定をインポート</string>
+    <string name="title_setup_import">設定をインポートする</string>
     <string name="title_setup_export_remark">        設定ファイルにはすべての設定とアカウント情報が保存され、パスワードで暗号化されます。
         設定をインポートするにはパスワードが必要です。パスワードは絶対に忘れないでください！
     </string>
@@ -252,13 +252,13 @@
     <string name="title_setup_password_missing">パスワードを入力してください</string>
     <string name="title_setup_password_different">パスワードが一致しません</string>
     <string name="title_setup_password_invalid">パスワードが間違っているか、ファイルが破損しています</string>
-    <string name="title_setup_import_accounts">アカウントとユーザー ID をインポート</string>
-    <string name="title_setup_import_delete">先に既存のアカウントを削除してください</string>
-    <string name="title_setup_import_rules">フィルタールールをインポート</string>
-    <string name="title_setup_import_contacts">ローカルの連絡先をインポート</string>
-    <string name="title_setup_import_answers">返信テンプレートをインポート</string>
-    <string name="title_setup_import_searches">保存した検索条件をインポート</string>
-    <string name="title_setup_import_settings">設定をインポート</string>
+    <string name="title_setup_import_accounts">アカウントとユーザー ID をインポートする</string>
+    <string name="title_setup_import_delete">先に既存のアカウントを削除する</string>
+    <string name="title_setup_import_rules">フィルタールールをインポートする</string>
+    <string name="title_setup_import_contacts">ローカルの連絡先をインポートする</string>
+    <string name="title_setup_import_answers">返信テンプレートをインポートする</string>
+    <string name="title_setup_import_searches">保存した検索条件をインポートする</string>
+    <string name="title_setup_import_settings">設定をインポートする</string>
     <string name="title_setup_exported">設定をエクスポートしました</string>
     <string name="title_setup_imported">設定をインポートしました</string>
     <string name="title_setup_import_invalid">設定ファイルが無効です</string>
@@ -411,7 +411,7 @@
     <string name="title_advanced_lookup_mx">送信する前に宛先のメールアドレスを確認する</string>
     <string name="title_advanced_metered">従量課金制接続を使用する</string>
     <string name="title_advanced_download">従量課金制接続で自動ダウンロードするメッセージと添付ファイルの大きさの上限</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">定額制接続にも制限を適用する</string>
+    <string name="title_advanced_download_limited">定額制接続にも制限を適用する</string>
     <string name="title_advanced_roaming">ローミングでメッセージと添付ファイルをダウンロードする</string>
     <string name="title_advanced_rlah">Roam Like at Home を適用する</string>
     <string name="title_advanced_download_headers">すべてのメッセージヘッダーをダウンロードする</string>
@@ -426,6 +426,7 @@
     <string name="title_advanced_ssl_harden">より強固な SSL 接続</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 を要求する</string>
     <string name="title_advanced_cert_strict">厳格な証明書確認</string>
+    <string name="title_advanced_check_names" comment="title_advanced_check_names&#10;Title for advanced option in the connection settings tab page to enable checking if the host name of the server is the same as in the servers' security certificate.&#10;&quot;Check against&quot; could be translated as &quot;compare with&quot;">ホスト名をサーバー証明書と比較して確認する</string>
     <string name="title_advanced_open_safe">保護された接続のみ使用する</string>
     <string name="title_advanced_http_redirect">接続のリダイレクトを許可する</string>
     <string name="title_advanced_bouncy_castle">Bouncy Castle のセキュアソケットプロバイダー (JSSE) を使用する</string>
@@ -1922,28 +1923,28 @@
     <string name="title_icalendar_decline">辞退する</string>
     <string name="title_icalendar_maybe">仮承諾</string>
     <string name="title_icalendar_calendar">カレンダー</string>
-    <string name="title_pro_feature">これはプロ版の機能です</string>
-    <string name="title_pro_list">プロ版の機能リスト</string>
+    <string name="title_pro_feature">これはプロの機能です</string>
+    <string name="title_pro_list">プロの機能リスト</string>
     <string name="title_pro_purchase">アクティベート</string>
     <string name="title_pro_one_time">%1$s (支払いは一回限り)</string>
     <string name="title_pro_no_play">Play ストアが見つかりませんでした</string>
     <string name="title_pro_info">FairEmail の開発には文字通り数千時間かかりましたが、それにもかかわらず、ほとんどの機能は無料で使用できます。
          FairEmail はあなたのプライバシーを真剣に考え、広告を表示せず、お金を稼ぐためにトラッキングやアナリティクスを使用しません。
          FairEmail を長期的に維持およびサポートするために、いくつかの便利で高度な機能は無料では使用できません。
-         FairEmail は、これについて小さなリマインダーを表示します。これは、プロ版を購入すると削除されます。
+         FairEmail は、これについて小さなリマインダーを表示します。これは、プロを購入すると削除されます。
     </string>
-    <string name="title_pro_whichever">どの機能がプロ版の機能に選ばれても、無料であるべきであると文句を言う人が必ずいます。そのような人にならないでください。</string>
+    <string name="title_pro_whichever">どの機能がプロの機能に選ばれても、無料であるべきであると文句を言う人が必ずいます。どうかそうはならないでください。</string>
     <string name="title_pro_google">FairEmail は Play ストアの購入を開始しますが、最終的には Google が購入プロセス全体を管理します。購入に関する問題が発生してもアプリを非難しないでください！</string>
     <string name="title_pro_hide">メッセージを %1$d 週間非表示にする</string>
-    <string name="title_pro_hint">プロ版を購入すると、現在および将来すべてのプロ版の機能を使用できるようになり、アプリの開発とサポートを継続する支援になります</string>
-    <string name="title_pro_price">なぜプロ版はそんなに高価なのですか？</string>
+    <string name="title_pro_hint">プロを購入すると、現在および将来すべてのプロの機能を使用できるようになり、アプリの開発とサポートを継続する支援になります</string>
+    <string name="title_pro_price">なぜプロはそんなに高価なのですか？</string>
     <string name="title_pro_family">Google Play ファミリーライブラリを使用できますか？</string>
     <string name="title_pro_restore">(別の端末で) 購入を復元するにはどうすればよいですか？</string>
     <string name="title_pro_pending">購入保留中</string>
-    <string name="title_pro_activated">すべてのプロ版の機能が解放されました</string>
-    <string name="title_pro_valid">すべてのプロ版の機能が解放されました</string>
+    <string name="title_pro_activated">すべてのプロの機能が解放されました</string>
+    <string name="title_pro_valid">すべてのプロの機能が解放されました</string>
     <string name="title_pro_invalid">無効なレスポンスです</string>
-    <string name="title_pro_support">FairEmail にはあなたの支援が必要です。プロジェクトを維持するため、タップしてプロ版を購入するか、このメッセージをオフにしてください。</string>
+    <string name="title_pro_support">FairEmail にはあなたの支援が必要です。プロジェクトを維持するため、タップしてプロを購入するか、このメッセージをオフにしてください。</string>
     <string name="title_boundary_error">メールサーバーからのメッセージのダウンロードエラー</string>
     <string name="title_boundary_retry">再試行</string>
     <string name="title_unexpected_error">予期せぬエラー</string>
@@ -2145,9 +2146,9 @@
         <item>なし</item>
         <item>PGP デジタル署名のみ</item>
         <item>PGP 暗号化のみ</item>
-        <item>PGP デジタル署名 + 暗号化</item>
+        <item>PGP 暗号化 + デジタル署名</item>
         <item>S/MIME デジタル署名のみ</item>
-        <item>S/MIME デジタル署名 + 暗号化</item>
+        <item>S/MIME 暗号化 + デジタル署名</item>
     </string-array>
     <string-array name="sizeNames">
         <item>0 B</item>

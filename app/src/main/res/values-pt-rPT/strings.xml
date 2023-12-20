@@ -426,7 +426,7 @@
     <string name="title_advanced_lookup_mx">Verificar endereços de e-mail do destinatário antes de enviar</string>
     <string name="title_advanced_metered">Usar ligações com tráfego limitado</string>
     <string name="title_advanced_download">Descarregar automaticamente mensagens e anexos numa conexão limitada</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Aplicar em ligações ilimitadas também</string>
+    <string name="title_advanced_download_limited">Aplicar em ligações ilimitadas também</string>
     <string name="title_advanced_roaming">Descarregar mensagens e anexos em roaming</string>
     <string name="title_advanced_rlah">Assumir ligação em roaming como no país de origem</string>
     <string name="title_advanced_download_headers">Transferir todos os cabeçalhos das mensagens</string>

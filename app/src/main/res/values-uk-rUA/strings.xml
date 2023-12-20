@@ -453,7 +453,7 @@
     <string name="title_advanced_lookup_mx">Перевіряти адреси електронної пошти одержувача перед надсиланням</string>
     <string name="title_advanced_metered">Використовувати лімітовані підключення</string>
     <string name="title_advanced_download">Автоматично завантажувати повідомлення і вкладення при лімітованому з\'єднанні обсягом до</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Застосовувати це також до нелімітованих підключень</string>
+    <string name="title_advanced_download_limited">Застосовувати це також до нелімітованих підключень</string>
     <string name="title_advanced_roaming">Завантажувати повідомлення та вкладення у роумінгу</string>
     <string name="title_advanced_rlah">В роумінгу як вдома</string>
     <string name="title_advanced_download_headers">Завантажувати всі заголовки повідомлень</string>

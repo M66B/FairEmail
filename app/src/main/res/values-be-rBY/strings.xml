@@ -454,7 +454,7 @@
     <string name="title_advanced_lookup_mx">Правяраць адрасы электроннай пошты атрымальнікаў перад адпраўкай</string>
     <string name="title_advanced_metered">Выкарыстоўваць лімітаваныя злучэнні</string>
     <string name="title_advanced_download">Аўтаматычна загружаць паведамленні і ўкладанні пры лімітаваным злучэнні</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Таксама ўжываць безлімітныя злучэнні</string>
+    <string name="title_advanced_download_limited">Таксама ўжываць безлімітныя злучэнні</string>
     <string name="title_advanced_roaming">Загружаць паведамленні і ўкладанні ў роўмінгу</string>
     <string name="title_advanced_rlah">У роўмінгу як дома</string>
     <string name="title_advanced_download_headers">Загружаць усе загалоўкі паведамленняў</string>

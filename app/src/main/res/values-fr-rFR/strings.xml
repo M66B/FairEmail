@@ -425,7 +425,7 @@
     <string name="title_advanced_lookup_mx">Vérifier les adresses e-mail des destinataires avant l’envoi</string>
     <string name="title_advanced_metered">Utiliser les connexions limitées</string>
     <string name="title_advanced_download">Télécharger automatiquement les messages et les pièces jointes avec une connexion limitée jusqu’à</string>
-    <string name="title_advanced_download_limited" comment="title_advanced_download_limited&#10;Title for sub option of parent option &quot;Automatically download messages and attachments on a metered connection up to&quot;&#10;metered=generally mobile data, but also paid WiFi hotspots&#10;unmetered=generally WiFi at home">Appliquer également aux connexions non limitées</string>
+    <string name="title_advanced_download_limited">Appliquer également aux connexions non limitées</string>
     <string name="title_advanced_roaming">Télécharger les messages et les pièces jointes en itinérance</string>
     <string name="title_advanced_rlah">Ignorer l\'itinérance en Europe</string>
     <string name="title_advanced_download_headers">Télécharger tous les en-têtes de message</string>
@@ -440,6 +440,7 @@
     <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 requis</string>
     <string name="title_advanced_cert_strict">Vérification stricte du certificat</string>
+    <string name="title_advanced_check_names" comment="title_advanced_check_names&#10;Title for advanced option in the connection settings tab page to enable checking if the host name of the server is the same as in the servers' security certificate.&#10;&quot;Check against&quot; could be translated as &quot;compare with&quot;">Vérifier les noms d\'hôtes par rapport aux certificats de serveur</string>
     <string name="title_advanced_open_safe">Ouvrir uniquement des connexions sécurisées</string>
     <string name="title_advanced_http_redirect">Autoriser la redirection de connexion</string>
     <string name="title_advanced_bouncy_castle">Utiliser le fournisseur de socket sécurisé de Bouncy Castle (JSSE)</string>
