@@ -1186,6 +1186,9 @@ public class FragmentOptionsBackup extends FragmentBase implements SharedPrefere
                                 continue;
                             }
 
+                            if ("external_storage".equals(key))
+                                continue;
+
                             if ("reformatted_hint".equals(key))
                                 continue;
 

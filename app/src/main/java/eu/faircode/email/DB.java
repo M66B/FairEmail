@@ -2877,11 +2877,11 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
-                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-                        boolean external_storage = prefs.getBoolean("external_storage", false);
-                        if (external_storage || BuildConfig.DEBUG)
-                            db.execSQL("UPDATE `attachment` SET available = 0");
-                        prefs.edit().remove("external_storage").apply();
+                        //SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                        //boolean external_storage = prefs.getBoolean("external_storage", false);
+                        //if (external_storage || BuildConfig.DEBUG)
+                        //    db.execSQL("UPDATE `attachment` SET available = 0");
+                        //prefs.edit().remove("external_storage").apply();
                     }
                 }).addMigrations(new Migration(286, 287) {
                     @Override

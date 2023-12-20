@@ -57,6 +57,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
+import android.os.Environment;
 import android.os.IBinder;
 import android.os.LocaleList;
 import android.os.PowerManager;
@@ -1646,6 +1647,10 @@ public class DebugHelper {
                     size += write(os, String.format("Source: %s\r\n public: %s\r\n",
                             ai.sourceDir, ai.publicSourceDir));
                 size += write(os, String.format("Files: %s\r\n", context.getFilesDir()));
+
+                File external = Helper.getExternalFilesDir(context);
+                boolean emulated = (external != null && Environment.isExternalStorageEmulated(external));
+                size += write(os, String.format("External: %s emulated: %b\r\n", external, emulated));
 
                 size += write(os, String.format("Cache: %s\r\n  external: %s\n",
                         context.getCacheDir(), context.getExternalCacheDir()));

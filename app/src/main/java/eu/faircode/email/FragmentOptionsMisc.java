@@ -43,6 +43,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Debug;
+import android.os.Environment;
 import android.provider.Settings;
 import android.text.Editable;
 import android.text.SpannableStringBuilder;
@@ -82,6 +83,7 @@ import androidx.work.WorkManager;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.lang.reflect.Field;
@@ -165,6 +167,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
     private SwitchCompat swAutostart;
     private SwitchCompat swEmergency;
     private SwitchCompat swWorkManager;
+    private SwitchCompat swExternalStorage;
+    private TextView tvExternalStorageFolder;
     private SwitchCompat swIntegrity;
     private SwitchCompat swWal;
     private SwitchCompat swCheckpoints;
@@ -267,7 +271,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             "crash_reports", "cleanup_attachments",
             "watchdog", "experiments", "main_log", "main_log_memory", "protocol", "log_level", "debug", "leak_canary",
             "test1", "test2", "test3", "test4", "test5",
-            "emergency_file", "work_manager",
+            "emergency_file", "work_manager", // "external_storage",
             "sqlite_integrity_check", "wal", "sqlite_checkpoints", "sqlite_analyze", "sqlite_auto_vacuum", "sqlite_sync_extra", "sqlite_cache",
             "chunk_size", "thread_range",
             "autoscroll_editor", "undo_manager",
@@ -400,6 +404,8 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         swAutostart = view.findViewById(R.id.swAutostart);
         swEmergency = view.findViewById(R.id.swEmergency);
         swWorkManager = view.findViewById(R.id.swWorkManager);
+        swExternalStorage = view.findViewById(R.id.swExternalStorage);
+        tvExternalStorageFolder = view.findViewById(R.id.tvExternalStorageFolder);
         swIntegrity = view.findViewById(R.id.swIntegrity);
         swWal = view.findViewById(R.id.swWal);
         swCheckpoints = view.findViewById(R.id.swCheckpoints);
@@ -1077,6 +1083,61 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 prefs.edit().putBoolean("work_manager", isChecked).apply();
+            }
+        });
+
+        swExternalStorage.setEnabled(Helper.getExternalFilesDir(getContext()) != null);
+        swExternalStorage.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putBoolean("external_storage", isChecked);
+                editor.apply();
+
+                Bundle args = new Bundle();
+                args.putBoolean("external_storage", isChecked);
+
+                new SimpleTask<Integer>() {
+                    @Override
+                    protected Integer onExecute(Context context, Bundle args) throws IOException {
+                        boolean external_storage = args.getBoolean("external_storage");
+
+                        File sourceRoot = (!external_storage
+                                ? Helper.getExternalFilesDir(context)
+                                : context.getFilesDir());
+
+                        File targetRoot = (external_storage
+                                ? Helper.getExternalFilesDir(context)
+                                : context.getFilesDir());
+
+                        File source = new File(sourceRoot, "attachments");
+                        File target = new File(targetRoot, "attachments");
+                        source.mkdirs();
+                        target.mkdirs();
+
+                        File[] attachments = source.listFiles();
+                        if (attachments != null)
+                            for (File attachment : attachments) {
+                                File dest = new File(target, attachment.getName());
+                                Log.w("Move " + attachment + " to " + dest);
+                                Helper.copy(attachment, dest);
+                                Helper.secureDelete(attachment);
+                            }
+
+                        return (attachments == null ? -1 : attachments.length);
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Integer count) {
+                        String msg = String.format("Moved %d attachments", count);
+                        ToastEx.makeText(getContext(), msg, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex);
+                    }
+                }.execute(FragmentOptionsMisc.this, args, "external");
             }
         });
 
@@ -1919,6 +1980,11 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         else
             tvLastDaily.setText(("-"));
 
+        File external = Helper.getExternalFilesDir(getContext());
+        boolean emulated = (external != null && Environment.isExternalStorageEmulated(external));
+        tvExternalStorageFolder.setText(
+                (external == null ? null : external.getAbsolutePath()) + (emulated ? " emulated" : ""));
+
         swExactAlarms.setEnabled(AlarmManagerCompatEx.canScheduleExactAlarms(getContext()));
         swTestIab.setVisibility(BuildConfig.DEBUG && BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
 
@@ -2206,6 +2272,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
             swAutostart.setChecked(Helper.isComponentEnabled(getContext(), ReceiverAutoStart.class));
             swEmergency.setChecked(prefs.getBoolean("emergency_file", true));
             swWorkManager.setChecked(prefs.getBoolean("work_manager", true));
+            swExternalStorage.setChecked(prefs.getBoolean("external_storage", false));
 
             swIntegrity.setChecked(prefs.getBoolean("sqlite_integrity_check", true));
             swWal.setChecked(prefs.getBoolean("wal", true));

@@ -22,10 +22,12 @@ package eu.faircode.email;
 import static androidx.room.ForeignKey.CASCADE;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.Ignore;
@@ -170,13 +172,26 @@ public class EntityAttachment {
     }
 
     static File getFile(Context context, long id, String name) {
-        File dir = Helper.ensureExists(context, "attachments");
+        File dir = getRoot(context);
         String filename = Long.toString(id);
         if (!TextUtils.isEmpty(name))
             filename += "." + Helper.sanitizeFilename(name);
         if (filename.length() > 127)
             filename = filename.substring(0, 127);
         return new File(dir, filename);
+    }
+
+    static File getRoot(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean external_storage = prefs.getBoolean("external_storage", false);
+
+        if (external_storage) {
+            File dir = Helper.getExternalFilesDir(context);
+            dir.mkdirs();
+            return dir;
+        }
+
+        return Helper.ensureExists(context, "attachments");
     }
 
     static void copy(Context context, long oldid, long newid) {
