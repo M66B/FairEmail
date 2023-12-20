@@ -75,13 +75,15 @@ public interface DaoMessage {
             "   OR (NOT :found AND :type IS NULL AND folder.unified)" +
             "   OR (NOT :found AND folder.type = :type)" +
             "   THEN message.received ELSE 0 END) AS dummy" +
-            " FROM message" +
-
-            " JOIN message AS mm ON mm.thread = message.thread" +
-            "   AND (NOT :found OR mm.ui_found) AND (NOT mm.ui_hide OR :debug)" +
-            " JOIN folder AS ff ON ff.id = mm.folder" +
-            "   AND (:found OR (:type IS NULL AND ff.unified) OR (:type IS NOT NULL AND ff.type = :type))" +
-
+            " FROM (SELECT * FROM message" +
+            "  WHERE message.thread IN" +
+            "  (SELECT DISTINCT mm.thread FROM folder ff" +
+            "   JOIN message mm ON mm.folder = ff.id" +
+            "   WHERE ((:found AND mm.ui_found)" +
+            "   OR (NOT :found AND :type IS NULL AND ff.unified)" +
+            "   OR (NOT :found AND :type IS NOT NULL AND ff.type = :type))" +
+            "   AND (NOT mm.ui_hide OR :debug))" +
+            "   ORDER BY received DESC) AS message" + // group_concat
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
@@ -99,7 +101,6 @@ public interface DaoMessage {
             " AND (NOT :filter_snoozed OR message.ui_snoozed IS NULL OR " + is_drafts + ")" +
             " AND (NOT :filter_deleted OR NOT message.ui_deleted)" +
             " AND (:filter_language IS NULL OR SUM(message.language = :filter_language) > 0)" +
-
             " ORDER BY CASE WHEN :found THEN 0 ELSE -IFNULL(message.importance, 1) END" +
             ", CASE WHEN :group_category THEN account.category ELSE '' END COLLATE NOCASE" +
             ", CASE" +
@@ -152,12 +153,13 @@ public interface DaoMessage {
             "   (:found AND folder.type <> '" + EntityFolder.ARCHIVE + "' AND NOT (" + is_outgoing + "))" +
             "   OR (NOT :found AND folder.id = :folder)" +
             "   THEN message.received ELSE 0 END) AS dummy" +
-            " FROM message" +
-
-            " JOIN message AS mm ON mm.thread = message.thread" +
-            "   AND (NOT :found OR mm.ui_found) AND (NOT mm.ui_hide OR :debug)" +
-            "   AND message.folder = :folder" +
-
+            " FROM (SELECT * FROM message" +
+            " WHERE message.thread IN" +
+            "  (SELECT DISTINCT mm.thread FROM message mm" +
+            "   WHERE mm.folder = :folder" +
+            "   AND (NOT mm.ui_hide OR :debug)" +
+            "   AND (NOT :found OR mm.ui_found))" +
+            "   ORDER BY received DESC) AS message" + // group_concat
             " JOIN account_view AS account ON account.id = message.account" +
             " LEFT JOIN identity_view AS identity ON identity.id = message.identity" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
