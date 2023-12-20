@@ -2771,7 +2771,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                             .append(" DKIM=").append(message.dkim == null ? "-" : (message.dkim ? "✓" : "✗"))
                             .append(" SPF=").append(message.spf == null ? "-" : (message.spf ? "✓" : "✗"))
                             .append(" DMARC=").append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"))
-                            .append(" AUTH=").append(message.auth == null ? "-" : (message.auth ? "✓" : "✗"))
+                            .append(" SMTP=").append(message.auth == null ? "-" : (message.auth ? "✓" : "✗"))
                             .append(" BL=").append(message.blocklist == null ? "-" : (message.blocklist ? "✓" : "✗"))
                             .append('\n');
                 }
@@ -4866,7 +4866,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             if (Boolean.FALSE.equals(message.dmarc))
                 result.add("DMARC");
             if (Boolean.FALSE.equals(message.auth))
-                result.add("AUTH");
+                result.add("SMTP");
             if (Boolean.FALSE.equals(message.mx))
                 result.add("MX");
 
@@ -4886,7 +4886,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 sb.append("DMARC: ")
                         .append(message.dmarc == null ? "-" : (message.dmarc ? "✓" : "✗"))
                         .append('\n');
-                sb.append("AUTH: ")
+                sb.append("SMTP: ")
                         .append(message.auth == null ? "-" : (message.auth ? "✓" : "✗"));
             }
 
