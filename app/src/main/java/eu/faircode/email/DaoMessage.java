@@ -51,8 +51,8 @@ public interface DaoMessage {
             ", account.notify AS accountNotify, account.summary AS accountSummary, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, NULL AS folderInheritedType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
-            ", '[' || (SELECT group_concat(`from`, ',') FROM (SELECT DISTINCT `from` FROM message m0 WHERE m0.thread = message.thread ORDER BY m0.received DESC LIMIT 3)) || ']' AS senders" +
-            ", '[' || (SELECT group_concat(`to`, ',') FROM (SELECT DISTINCT `to` FROM message m0 WHERE m0.thread = message.thread ORDER BY m0.received DESC LIMIT 3)) || ']' AS recipients" +
+            ", '[' || substr(group_concat(message.`from`, ','), 0, 2048) || ']' AS senders" +
+            ", '[' || substr(group_concat(message.`to`, ','), 0, 2048) || ']' AS recipients" +
             ", COUNT(message.id) AS count" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +
@@ -129,8 +129,8 @@ public interface DaoMessage {
             ", account.notify AS accountNotify, account.summary AS accountSummary, account.leave_deleted AS accountLeaveDeleted, account.auto_seen AS accountAutoSeen" +
             ", folder.name AS folderName, folder.color AS folderColor, folder.display AS folderDisplay, folder.type AS folderType, f.inherited_type AS folderInheritedType, folder.unified AS folderUnified, folder.read_only AS folderReadOnly" +
             ", IFNULL(identity.display, identity.name) AS identityName, identity.email AS identityEmail, identity.color AS identityColor, identity.synchronize AS identitySynchronize" +
-            ", '[' || (SELECT group_concat(`from`, ',') FROM (SELECT DISTINCT `from` FROM message m0 WHERE m0.thread = message.thread ORDER BY m0.received DESC LIMIT 3)) || ']' AS senders" +
-            ", '[' || (SELECT group_concat(`to`, ',') FROM (SELECT DISTINCT `to` FROM message m0 WHERE m0.thread = message.thread ORDER BY m0.received DESC LIMIT 3)) || ']' AS recipients" +
+            ", '[' || substr(group_concat(message.`from`, ','), 0, 2048) || ']' AS senders" +
+            ", '[' || substr(group_concat(message.`to`, ','), 0, 2048) || ']' AS recipients" +
             ", COUNT(message.id) AS count" +
             ", SUM(1 - message.ui_seen) AS unseen" +
             ", SUM(1 - message.ui_flagged) AS unflagged" +

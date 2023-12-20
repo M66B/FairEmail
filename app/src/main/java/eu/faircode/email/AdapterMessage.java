@@ -8617,12 +8617,17 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 keyPosition.put(message.id, i);
                 positionKey.put(i, message.id);
                 addExtra(message.from, message.extra);
-                if (threading)
+                if (threading) {
+                    if (message.senders == null || message.senders.length == 0)
+                        message.senders = message.from;
+                    if (message.recipients == null || message.recipients.length == 0)
+                        message.recipients = message.to;
                     addExtra(message.senders, message.extra);
-                else {
+                } else {
                     message.senders = message.from;
                     message.recipients = message.to;
                 }
+
                 message.resolveLabelColors(context);
                 message.resolveKeywordColors(context);
             }
