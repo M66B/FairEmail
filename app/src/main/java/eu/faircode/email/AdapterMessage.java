@@ -8617,7 +8617,12 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                 keyPosition.put(message.id, i);
                 positionKey.put(i, message.id);
                 addExtra(message.from, message.extra);
-                addExtra(message.senders, message.extra);
+                if (threading)
+                    addExtra(message.senders, message.extra);
+                else {
+                    message.senders = message.from;
+                    message.recipients = message.to;
+                }
                 message.resolveLabelColors(context);
                 message.resolveKeywordColors(context);
             }
