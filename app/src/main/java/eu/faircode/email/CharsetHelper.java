@@ -243,7 +243,7 @@ public class CharsetHelper {
                 Log.e("compact_enc_det result=" + detected);
                 return null;
             } else if (COMMON.contains(detected.charset) || LESS_COMMON.contains(detected.charset))
-                Log.w("compact_enc_det result=" + detected);
+                Log.i("compact_enc_det result=" + detected);
             else if ("UTF-7".equals(detected.charset))
                 return null;
             else if ("GB18030".equals(detected.charset)) {
