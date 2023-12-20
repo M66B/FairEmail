@@ -57,7 +57,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
         boolean has = context.getDatabasePath(DATABASE_NAME).exists();
         if (instance == null || !has) {
             if (!has)
-                DB.getInstance(context).message().resetFts(null);
+                DB.getInstance(context).message().resetFts();
             instance = new Fts4DbHelper(context);
         }
         return instance.getWritableDatabase();
@@ -96,7 +96,7 @@ public class Fts4DbHelper extends SQLiteOpenHelper {
 
         onCreate(db);
 
-        DB.getInstance(context).message().resetFts(null);
+        DB.getInstance(context).message().resetFts();
     }
 
     static void insert(SQLiteDatabase db, EntityMessage message, List<EntityAttachment> attachments, String text) {

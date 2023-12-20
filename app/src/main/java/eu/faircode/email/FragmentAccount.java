@@ -1329,11 +1329,9 @@ public class FragmentAccount extends FragmentBase {
                     if (account.primary)
                         db.account().resetPrimary();
 
-                    if (update) {
+                    if (update)
                         db.account().updateAccount(account);
-                        if (!account.synchronize)
-                            db.message().resetFts(account.id);
-                    } else
+                    else
                         account.id = db.account().insertAccount(account);
 
                     args.putLong("account", account.id);
@@ -1455,8 +1453,6 @@ public class FragmentAccount extends FragmentBase {
                     account.swipe_right = (right == null ? null : right.id);
                     account.move_to = (move == null ? null : move.id);
                     db.account().updateAccount(account);
-                    if (!account.synchronize)
-                        db.message().resetFts(account.id);
 
                     db.setTransactionSuccessful();
                 } finally {

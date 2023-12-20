@@ -995,8 +995,6 @@ public class FragmentOAuth extends FragmentBase {
                             FragmentDialogSwipes.setDefaultFolderActions(context, account);
 
                         db.account().updateAccount(account);
-                        if (!account.synchronize)
-                            db.message().resetFts(account.id);
 
                         // Create identities
                         if (!inbound_only)

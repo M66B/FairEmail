@@ -478,8 +478,6 @@ public class CloudSync {
                         }
                         raccount.move_to = laccount.move_to; // TODO
                         db.account().updateAccount(raccount);
-                        if (!raccount.synchronize)
-                            db.message().resetFts(raccount.id);
                     }
 
                     if (raccount.id != null) {
