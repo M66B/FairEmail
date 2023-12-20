@@ -100,6 +100,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swSslHarden;
     private SwitchCompat swSslHardenStrict;
     private SwitchCompat swCertStrict;
+    private SwitchCompat swCheckNames;
     private SwitchCompat swOpenSafe;
     private SwitchCompat swHttpRedirect;
     private SwitchCompat swBouncyCastle;
@@ -123,7 +124,8 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "download_headers", "download_eml", "download_plain",
             "require_validated", "require_validated_captive", "vpn_only",
             "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive",
-            "ssl_update", "ssl_harden", "ssl_harden_strict", "cert_strict", "open_safe", "http_redirect",
+            "ssl_update", "ssl_harden", "ssl_harden_strict", "cert_strict", "check_names",
+            "open_safe", "http_redirect",
             "bouncy_castle", "bc_fips"
     };
 
@@ -159,6 +161,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swSslHarden = view.findViewById(R.id.swSslHarden);
         swSslHardenStrict = view.findViewById(R.id.swSslHardenStrict);
         swCertStrict = view.findViewById(R.id.swCertStrict);
+        swCheckNames = view.findViewById(R.id.swCheckNames);
         swOpenSafe = view.findViewById(R.id.swOpenSafe);
         swHttpRedirect = view.findViewById(R.id.swHttpRedirect);
         swBouncyCastle = view.findViewById(R.id.swBouncyCastle);
@@ -373,6 +376,13 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("cert_strict", checked).apply();
+            }
+        });
+
+        swCheckNames.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("check_names", checked).apply();
             }
         });
 
@@ -691,6 +701,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             swSslHardenStrict.setChecked(prefs.getBoolean("ssl_harden_strict", false));
             swSslHardenStrict.setEnabled(swSslHarden.isChecked());
             swCertStrict.setChecked(prefs.getBoolean("cert_strict", true));
+            swCheckNames.setChecked(prefs.getBoolean("check_names", !BuildConfig.PLAY_STORE_RELEASE));
             swOpenSafe.setChecked(prefs.getBoolean("open_safe", false));
             swHttpRedirect.setChecked(prefs.getBoolean("http_redirect", true));
             swBouncyCastle.setChecked(prefs.getBoolean("bouncy_castle", false));
