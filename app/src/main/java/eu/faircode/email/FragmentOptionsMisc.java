@@ -588,7 +588,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                             }
 
                             DB db = DB.getInstance(context);
-                            db.message().resetFts();
+                            db.message().resetFts(null);
 
                             return null;
                         }

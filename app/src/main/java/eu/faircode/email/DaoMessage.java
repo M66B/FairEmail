@@ -944,8 +944,10 @@ public interface DaoMessage {
             " AND account IN (SELECT id FROM account WHERE pop = " + EntityAccount.TYPE_IMAP + ")")
     int clearRawMessages();
 
-    @Query("UPDATE message SET fts = 0 WHERE NOT (fts IS 0)")
-    int resetFts();
+    @Query("UPDATE message SET fts = 0" +
+            " WHERE NOT (fts IS 0)" +
+            " AND (:account IS NULL OR message.account = :account)")
+    int resetFts(Long account);
 
     @Query("DELETE FROM message WHERE id = :id")
     int deleteMessage(long id);

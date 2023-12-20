@@ -85,7 +85,7 @@ public class Fts5DbHelper extends SQLiteOpenHelper {
 
         onCreate(db);
 
-        DB.getInstance(context).message().resetFts();
+        DB.getInstance(context).message().resetFts(null);
     }
 
     static void insert(SQLiteDatabase db, EntityMessage message, String text) {

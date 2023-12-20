@@ -670,9 +670,11 @@ public class FragmentPop extends FragmentBase {
                     if (account.primary)
                         db.account().resetPrimary();
 
-                    if (update)
+                    if (update) {
                         db.account().updateAccount(account);
-                    else
+                        if (!account.synchronize)
+                            db.message().resetFts(account.id);
+                    } else
                         account.id = db.account().insertAccount(account);
 
                     args.putLong("account", account.id);

@@ -514,6 +514,8 @@ public class AdapterAccount extends RecyclerView.Adapter<AdapterAccount.ViewHold
                                 }
 
                                 db.account().setAccountSynchronize(id, sync);
+                                if (!sync)
+                                    db.message().resetFts(id);
 
                                 db.setTransactionSuccessful();
                             } finally {

@@ -571,6 +571,8 @@ public class FragmentGmail extends FragmentBase {
                             FragmentDialogSwipes.setDefaultFolderActions(context, account);
 
                         db.account().updateAccount(account);
+                        if (!account.synchronize)
+                            db.message().resetFts(account.id);
 
                         if (TextUtils.isEmpty(name))
                             name = user.split("@")[0];
