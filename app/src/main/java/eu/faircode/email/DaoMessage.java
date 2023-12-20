@@ -292,7 +292,9 @@ public interface DaoMessage {
 
     static String FTS_STATS = "SELECT SUM(fts) AS fts, COUNT(*) AS total FROM message" +
             " JOIN folder_view AS folder ON folder.id = message.folder" +
+            " JOIN account_view AS account ON account.id = message.account" +
             " WHERE content" +
+            " AND account.synchronize" +
             " AND folder.type <> '" + EntityFolder.OUTBOX + "'";
 
     @Query(FTS_STATS)
