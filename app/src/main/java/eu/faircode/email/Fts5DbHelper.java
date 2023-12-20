@@ -203,12 +203,12 @@ public class Fts5DbHelper extends SQLiteOpenHelper {
         List<String> args = new ArrayList<>();
 
         if (account != null) {
-            select.append("account = ? AND ");
+            select.append("account = CAST(? AS INTEGER) AND ");
             args.add(Long.toString(account));
         }
 
         if (folder != null) {
-            select.append("folder = ? AND ");
+            select.append("folder = CAST(? AS INTEGER) AND ");
             args.add(Long.toString(folder));
         }
 
@@ -217,19 +217,19 @@ public class Fts5DbHelper extends SQLiteOpenHelper {
             for (int i = 0; i < exclude.length; i++) {
                 if (i > 0)
                     select.append(", ");
-                select.append("?");
+                select.append("CAST(? AS INTEGER)");
                 args.add(Long.toString(exclude[i]));
             }
             select.append(") AND ");
         }
 
         if (criteria.after != null) {
-            select.append("time > ? AND ");
+            select.append("time > CAST(? AS INTEGER) AND ");
             args.add(Long.toString(criteria.after));
         }
 
         if (criteria.before != null) {
-            select.append("time < ? AND ");
+            select.append("time < CAST(? AS INTEGER) AND ");
             args.add(Long.toString(criteria.before));
         }
 
