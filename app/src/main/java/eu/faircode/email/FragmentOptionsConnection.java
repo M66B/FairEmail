@@ -118,6 +118,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private TextView tvNetworkInfo;
 
     private Group grpValidated;
+    private Group grpCustomSsl;
 
     private final static String[] RESET_OPTIONS = new String[]{
             "metered", "download", "download_limited", "roaming", "rlah",
@@ -181,6 +182,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         tvNetworkInfo = view.findViewById(R.id.tvNetworkInfo);
 
         grpValidated = view.findViewById(R.id.grpValidated);
+        grpCustomSsl = view.findViewById(R.id.grpCustomSsl);
 
         setOptions();
 
@@ -587,6 +589,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         FragmentDialogTheme.setBackground(getContext(), view, false);
         tvNetworkMetered.setVisibility(View.GONE);
         tvNetworkRoaming.setVisibility(View.GONE);
+        grpCustomSsl.setVisibility(SSLHelper.customTrustManager() ? View.VISIBLE : View.GONE);
         cardDebug.setVisibility(View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
