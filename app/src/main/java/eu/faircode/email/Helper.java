@@ -2308,7 +2308,7 @@ public class Helper {
         return (sign < 0 ? "-" : "") +
                 (days > 0 ? days + " " : "") +
                 DateUtils.formatElapsedTime(seconds) +
-                (ms == 0 ? "" : ". " + ms);
+                (ms == 0 ? "" : "." + ms);
     }
 
     static String formatNumber(Integer number, long max, NumberFormat nf) {
