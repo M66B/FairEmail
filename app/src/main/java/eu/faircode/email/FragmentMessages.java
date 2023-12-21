@@ -3328,29 +3328,55 @@ public class FragmentMessages extends FragmentBase
                         PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(getContext(), getViewLifecycleOwner(), viewHolder.itemView);
 
                         if (message.ui_seen)
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, order++, R.string.title_unseen);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unseen, order++, R.string.title_unseen)
+                                    .setIcon(R.drawable.twotone_mail_24);
                         else
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, order++, R.string.title_seen);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, order++, R.string.title_seen)
+                                    .setIcon(R.drawable.twotone_drafts_24);
 
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, order++, R.string.title_snooze);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, order++, R.string.title_snooze)
+                                .setIcon(R.drawable.twotone_timelapse_24);
 
                         if (message.ui_snoozed == null)
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, order++, R.string.title_hide);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_hide, order++, R.string.title_hide)
+                                    .setIcon(R.drawable.twotone_visibility_off_24);
                         else if (message.ui_snoozed == Long.MAX_VALUE)
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, order++, R.string.title_unhide);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, order++, R.string.title_unhide)
+                                    .setIcon(R.drawable.twotone_visibility_24);
 
                         if (message.ui_flagged)
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, order++, R.string.title_unflag);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, order++, R.string.title_unflag)
+                                    .setIcon(R.drawable.twotone_star_border_24);
                         else
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, order++, R.string.title_flag);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, order++, R.string.title_flag)
+                                    .setIcon(R.drawable.twotone_star_24);
 
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, order++, R.string.title_flag_color);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, order++, R.string.title_flag_color)
+                                .setIcon(R.drawable.twotone_auto_awesome_24);
+
+                        SubMenu importance = popupMenu.getMenu()
+                                .addSubMenu(Menu.NONE, Menu.NONE, order++, R.string.title_set_importance)
+                                .setIcon(R.drawable.twotone_north_24);
+                        importance.add(Menu.NONE, R.string.title_importance_high, 1, R.string.title_importance_high)
+                                .setIcon(R.drawable.twotone_north_24)
+                                .setEnabled(!EntityMessage.PRIORITIY_HIGH.equals(message.importance));
+                        importance.add(Menu.NONE, R.string.title_importance_normal, 2, R.string.title_importance_normal)
+                                .setIcon(R.drawable.twotone_horizontal_rule_24)
+                                .setEnabled(!EntityMessage.PRIORITIY_NORMAL.equals(message.importance));
+                        importance.add(Menu.NONE, R.string.title_importance_low, 3, R.string.title_importance_low)
+                                .setIcon(R.drawable.twotone_south_24)
+                                .setEnabled(!EntityMessage.PRIORITIY_LOW.equals(message.importance));
 
                         if (message.accountProtocol == EntityAccount.TYPE_IMAP) {
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_move, order++, R.string.title_move);
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_report_spam, order++, R.string.title_report_spam);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_move, order++, R.string.title_move)
+                                    .setIcon(R.drawable.twotone_drive_file_move_24);
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_report_spam, order++, R.string.title_report_spam)
+                                    .setIcon(R.drawable.twotone_report_24);
                         }
-                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, R.string.title_delete_permanently);
+                        popupMenu.getMenu().add(Menu.NONE, R.string.title_delete_permanently, order++, R.string.title_delete_permanently)
+                                .setIcon(R.drawable.twotone_delete_forever_24);
+
+                        popupMenu.insertIcons(getContext());
 
                         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                             @Override
@@ -3376,6 +3402,15 @@ public class FragmentMessages extends FragmentBase
                                     return true;
                                 } else if (itemId == R.string.title_flag_color) {
                                     onMenuColor();
+                                    return true;
+                                } else if (itemId == R.string.title_importance_low) {
+                                    onActionSetImportanceSelection(EntityMessage.PRIORITIY_LOW, message.id, false);
+                                    return true;
+                                } else if (itemId == R.string.title_importance_normal) {
+                                    onActionSetImportanceSelection(EntityMessage.PRIORITIY_NORMAL, message.id, false);
+                                    return true;
+                                } else if (itemId == R.string.title_importance_high) {
+                                    onActionSetImportanceSelection(EntityMessage.PRIORITIY_HIGH, message.id, false);
                                     return true;
                                 } else if (itemId == R.string.title_move) {
                                     onSwipeMove(message);
