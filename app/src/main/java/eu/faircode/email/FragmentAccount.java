@@ -2119,16 +2119,6 @@ public class FragmentAccount extends FragmentBase {
         seen.name = context.getString(R.string.title_seen);
         folders.add(seen);
 
-        EntityFolder flag = new EntityFolder();
-        flag.id = EntityMessage.SWIPE_ACTION_FLAG;
-        flag.name = context.getString(R.string.title_flag);
-        folders.add(flag);
-
-        EntityFolder importance = new EntityFolder();
-        importance.id = EntityMessage.SWIPE_ACTION_IMPORTANCE;
-        importance.name = context.getString(R.string.title_set_importance);
-        folders.add(importance);
-
         EntityFolder snooze = new EntityFolder();
         snooze.id = EntityMessage.SWIPE_ACTION_SNOOZE;
         snooze.name = context.getString(R.string.title_snooze_now);
@@ -2138,6 +2128,16 @@ public class FragmentAccount extends FragmentBase {
         hide.id = EntityMessage.SWIPE_ACTION_HIDE;
         hide.name = context.getString(R.string.title_hide);
         folders.add(hide);
+
+        EntityFolder flag = new EntityFolder();
+        flag.id = EntityMessage.SWIPE_ACTION_FLAG;
+        flag.name = context.getString(R.string.title_flag);
+        folders.add(flag);
+
+        EntityFolder importance = new EntityFolder();
+        importance.id = EntityMessage.SWIPE_ACTION_IMPORTANCE;
+        importance.name = context.getString(R.string.title_set_importance);
+        folders.add(importance);
 
         EntityFolder move = new EntityFolder();
         move.id = EntityMessage.SWIPE_ACTION_MOVE;
