@@ -3124,6 +3124,8 @@ public abstract class DB extends RoomDatabase {
                     else
                         result.add(InternetAddressJson.from((JSONObject) item));
                 }
+            } catch (JSONException ex) {
+                Log.i(ex);
             } catch (Throwable ex) {
                 // Compose can store invalid addresses
                 Log.w(ex);
