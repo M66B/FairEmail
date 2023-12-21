@@ -111,6 +111,18 @@
                     android:text="@string/title_blocked_senders"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvManualHint" />
+
+                <Button
+                    android:id="@+id/btnUnblockAll"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawableEnd="@drawable/twotone_delete_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_unblock_all"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnBlockedSenders" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
 

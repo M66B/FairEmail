@@ -22,6 +22,7 @@ package eu.faircode.email;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
@@ -42,9 +43,11 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.constraintlayout.widget.Group;
 import androidx.fragment.app.DialogFragment;
@@ -55,6 +58,9 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.DateFormatSymbols;
 import java.util.ArrayList;
@@ -67,6 +73,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
     private ImageButton ibHelp;
     private SwitchCompat swEnabled;
     private Button btnBlockedSenders;
+    private Button btnUnblockAll;
 
     private SwitchCompat swOptimize;
     private ImageButton ibOptimizeInfo;
@@ -155,6 +162,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         ibHelp = view.findViewById(R.id.ibHelp);
         swEnabled = view.findViewById(R.id.swEnabled);
         btnBlockedSenders = view.findViewById(R.id.btnBlockedSenders);
+        btnUnblockAll = view.findViewById(R.id.btnUnblockAll);
 
         swOptimize = view.findViewById(R.id.swOptimize);
         ibOptimizeInfo = view.findViewById(R.id.ibOptimizeInfo);
@@ -239,6 +247,75 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
                 LocalBroadcastManager lbm = LocalBroadcastManager.getInstance(getContext());
                 lbm.sendBroadcast(new Intent(ActivitySetup.ACTION_MANAGE_LOCAL_CONTACTS)
                         .putExtra("junk", true));
+            }
+        });
+
+        btnUnblockAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(v.getContext())
+                        .setIcon(R.drawable.twotone_help_24)
+                        .setTitle(R.string.title_unblock_all)
+                        .setMessage(R.string.title_unblock_all_remark)
+                        .setNegativeButton(android.R.string.cancel, null)
+                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                new SimpleTask<Void>() {
+                                    @Override
+                                    protected Void onExecute(Context context, Bundle args) throws JSONException {
+                                        DB db = DB.getInstance(context);
+                                        int cleared = db.contact().clearContacts(null, new int[]{EntityContact.TYPE_JUNK});
+                                        EntityLog.log(context, "Unblocked senders=" + cleared);
+
+                                        List<EntityAccount> accounts = db.account().getSynchronizingAccounts(EntityAccount.TYPE_IMAP);
+                                        for (EntityAccount account : accounts) {
+                                            EntityFolder inbox = db.folder().getFolderByType(account.id, EntityFolder.INBOX);
+                                            EntityFolder junk = db.folder().getFolderByType(account.id, EntityFolder.JUNK);
+
+                                            if (junk != null && junk.auto_classify_target) {
+                                                db.folder().setFolderAutoClassify(junk.id, junk.auto_classify_source, false);
+                                                EntityLog.log(context, "Disabled classification folder=" + account.name + ":" + junk.type);
+                                            }
+
+                                            if (inbox != null && junk != null) {
+                                                List<EntityRule> rules = db.rule().getRules(inbox.id);
+                                                for (EntityRule rule : rules) {
+                                                    JSONObject jaction = new JSONObject(rule.action);
+                                                    if (jaction.optInt("type") == EntityRule.TYPE_MOVE &&
+                                                            jaction.optLong("target") == junk.id) {
+                                                        db.rule().setRuleEnabled(rule.id, false);
+                                                        EntityLog.log(context, "Disabled rule=" + rule.name);
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+                                        SharedPreferences.Editor editor = prefs.edit();
+                                        for (String pref : new String[]{"check_blocklist"})
+                                            if (prefs.getBoolean(pref, false)) {
+                                                editor.putBoolean(pref, false);
+                                                EntityLog.log(context, "Disabled option=" + pref);
+                                            }
+                                        editor.apply();
+
+                                        return null;
+                                    }
+
+                                    @Override
+                                    protected void onExecuted(Bundle args, Void data) {
+                                        ToastEx.makeText(getContext(), R.string.title_completed, Toast.LENGTH_LONG).show();
+                                    }
+
+                                    @Override
+                                    protected void onException(Bundle args, Throwable ex) {
+                                        Log.unexpectedError(getParentFragment(), ex);
+                                    }
+                                }.execute(FragmentOptionsSynchronize.this, new Bundle(), "unblock");
+                            }
+                        })
+                        .show();
             }
         });
 
