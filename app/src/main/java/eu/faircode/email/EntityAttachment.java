@@ -186,7 +186,7 @@ public class EntityAttachment {
         boolean external_storage = prefs.getBoolean("external_storage", false);
 
         if (external_storage) {
-            File dir = Helper.getExternalFilesDir(context);
+            File dir = new File(Helper.getExternalFilesDir(context), "attachments");
             dir.mkdirs();
             return dir;
         }
