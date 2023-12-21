@@ -3332,11 +3332,6 @@ public class FragmentMessages extends FragmentBase
                         else
                             popupMenu.getMenu().add(Menu.NONE, R.string.title_seen, order++, R.string.title_seen);
 
-                        if (message.ui_flagged)
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, order++, R.string.title_unflag);
-                        else
-                            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, order++, R.string.title_flag);
-
                         popupMenu.getMenu().add(Menu.NONE, R.string.title_snooze, order++, R.string.title_snooze);
 
                         if (message.ui_snoozed == null)
@@ -3344,7 +3339,13 @@ public class FragmentMessages extends FragmentBase
                         else if (message.ui_snoozed == Long.MAX_VALUE)
                             popupMenu.getMenu().add(Menu.NONE, R.string.title_unhide, order++, R.string.title_unhide);
 
+                        if (message.ui_flagged)
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_unflag, order++, R.string.title_unflag);
+                        else
+                            popupMenu.getMenu().add(Menu.NONE, R.string.title_flag, order++, R.string.title_flag);
+
                         popupMenu.getMenu().add(Menu.NONE, R.string.title_flag_color, order++, R.string.title_flag_color);
+
                         if (message.accountProtocol == EntityAccount.TYPE_IMAP) {
                             popupMenu.getMenu().add(Menu.NONE, R.string.title_move, order++, R.string.title_move);
                             popupMenu.getMenu().add(Menu.NONE, R.string.title_report_spam, order++, R.string.title_report_spam);
@@ -3361,17 +3362,17 @@ public class FragmentMessages extends FragmentBase
                                 } else if (itemId == R.string.title_unseen) {
                                     onActionSeenSelection(false, message.id, false);
                                     return true;
-                                } else if (itemId == R.string.title_flag) {
-                                    onActionFlagSelection(true, Color.TRANSPARENT, message.id, false);
-                                    return true;
-                                } else if (itemId == R.string.title_unflag) {
-                                    onActionFlagSelection(false, Color.TRANSPARENT, message.id, false);
-                                    return true;
                                 } else if (itemId == R.string.title_snooze) {
                                     onMenuSnooze();
                                     return true;
                                 } else if (itemId == R.string.title_hide || itemId == R.string.title_unhide) {
                                     onActionHide(message);
+                                    return true;
+                                } else if (itemId == R.string.title_flag) {
+                                    onActionFlagSelection(true, Color.TRANSPARENT, message.id, false);
+                                    return true;
+                                } else if (itemId == R.string.title_unflag) {
+                                    onActionFlagSelection(false, Color.TRANSPARENT, message.id, false);
                                     return true;
                                 } else if (itemId == R.string.title_flag_color) {
                                     onMenuColor();
