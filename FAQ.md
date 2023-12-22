@@ -3313,6 +3313,8 @@ If you are wondering why a message was moved into the spam folder, these are all
 Note that a sender will automatically be blocked when a message is moved into the spam folder.
 You can disable this behavior by disabling the option *Automatically block the sender when reporting spam* in the behavior settings tab page.
 
+Since version 1.2143, there is an "*Unblock all*" button in the receive-settings tab page, which will reset all above options.
+
 If you receive a lot of spam messages in your inbox, the best you can do is to contact the email provider to ask if spam filtering can be improved.
 
 Also, FairEmail can show a small red warning flag
