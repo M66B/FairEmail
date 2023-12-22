@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabaseCorruptException;
+import android.database.sqlite.SQLiteException;
 import android.net.Uri;
 import android.text.TextUtils;
 
@@ -448,78 +449,100 @@ public abstract class DB extends RoomDatabase {
 
                     @Override
                     public void onOpen(@NonNull SupportSQLiteDatabase db) {
-                        Map<String, String> crumb = new HashMap<>();
-                        crumb.put("version", Integer.toString(db.getVersion()));
-                        crumb.put("WAL", Boolean.toString(db.isWriteAheadLoggingEnabled()));
-                        Log.breadcrumb("Database", crumb);
+                        try {
+                            Map<String, String> crumb = new HashMap<>();
+                            crumb.put("version", Integer.toString(db.getVersion()));
+                            crumb.put("WAL", Boolean.toString(db.isWriteAheadLoggingEnabled()));
+                            Log.breadcrumb("Database", crumb);
 
-                        // https://www.sqlite.org/pragma.html#pragma_auto_vacuum
-                        // https://android.googlesource.com/platform/external/sqlite.git/+/6ab557bdc070f11db30ede0696888efd19800475%5E!/
-                        boolean sqlite_auto_vacuum = prefs.getBoolean("sqlite_auto_vacuum", false);
-                        String mode = (sqlite_auto_vacuum ? "FULL" : "INCREMENTAL");
-                        Log.i("Set PRAGMA auto_vacuum=" + mode);
-                        try (Cursor cursor = db.query("PRAGMA auto_vacuum=" + mode + ";")) {
-                            cursor.moveToNext(); // required
-                        }
-
-                        // https://sqlite.org/pragma.html#pragma_synchronous
-                        boolean sqlite_sync_extra = prefs.getBoolean("sqlite_sync_extra", true);
-                        String sync = (sqlite_sync_extra ? "EXTRA" : "NORMAL");
-                        Log.i("Set PRAGMA synchronous=" + sync);
-                        try (Cursor cursor = db.query("PRAGMA synchronous=" + sync + ";")) {
-                            cursor.moveToNext(); // required
-                        }
-
-                        // https://www.sqlite.org/pragma.html#pragma_journal_size_limit
-                        Log.i("Set PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT);
-                        try (Cursor cursor = db.query("PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT + ";")) {
-                            cursor.moveToNext(); // required
-                        }
-
-                        // https://www.sqlite.org/pragma.html#pragma_cache_size
-                        Integer cache_size = getCacheSizeKb(context);
-                        if (cache_size != null) {
-                            cache_size = -cache_size; // kibibytes
-                            Log.i("Set PRAGMA cache_size=" + cache_size);
-                            // TODO CASA PRAGMA does not support placeholders
-                            try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";")) {
+                            // https://www.sqlite.org/pragma.html#pragma_auto_vacuum
+                            // https://android.googlesource.com/platform/external/sqlite.git/+/6ab557bdc070f11db30ede0696888efd19800475%5E!/
+                            boolean sqlite_auto_vacuum = prefs.getBoolean("sqlite_auto_vacuum", false);
+                            String mode = (sqlite_auto_vacuum ? "FULL" : "INCREMENTAL");
+                            Log.i("Set PRAGMA auto_vacuum=" + mode);
+                            try (Cursor cursor = db.query("PRAGMA auto_vacuum=" + mode + ";")) {
                                 cursor.moveToNext(); // required
                             }
-                        }
 
-                        // Prevent long running operations from getting an exclusive lock
-                        // https://www.sqlite.org/pragma.html#pragma_cache_spill
-                        Log.i("Set PRAGMA cache_spill=0");
-                        try (Cursor cursor = db.query("PRAGMA cache_spill=0;")) {
-                            cursor.moveToNext(); // required
-                        }
+                            // https://sqlite.org/pragma.html#pragma_synchronous
+                            boolean sqlite_sync_extra = prefs.getBoolean("sqlite_sync_extra", true);
+                            String sync = (sqlite_sync_extra ? "EXTRA" : "NORMAL");
+                            Log.i("Set PRAGMA synchronous=" + sync);
+                            try (Cursor cursor = db.query("PRAGMA synchronous=" + sync + ";")) {
+                                cursor.moveToNext(); // required
+                            }
 
-                        Log.i("Set PRAGMA recursive_triggers=off");
-                        try (Cursor cursor = db.query("PRAGMA recursive_triggers=off;")) {
-                            cursor.moveToNext(); // required
-                        }
+                            // https://www.sqlite.org/pragma.html#pragma_journal_size_limit
+                            Log.i("Set PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT);
+                            try (Cursor cursor = db.query("PRAGMA journal_size_limit=" + DB_JOURNAL_SIZE_LIMIT + ";")) {
+                                cursor.moveToNext(); // required
+                            }
 
-                        // https://www.sqlite.org/pragma.html
-                        for (String pragma : DB_PRAGMAS)
-                            if (!"compile_options".equals(pragma) || BuildConfig.DEBUG) {
+                            // https://www.sqlite.org/pragma.html#pragma_cache_size
+                            Integer cache_size = getCacheSizeKb(context);
+                            if (cache_size != null) {
+                                cache_size = -cache_size; // kibibytes
+                                Log.i("Set PRAGMA cache_size=" + cache_size);
                                 // TODO CASA PRAGMA does not support placeholders
-                                try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
-                                    boolean has = false;
-                                    while (cursor.moveToNext()) {
-                                        has = true;
-                                        Log.i("Get PRAGMA " + pragma + "=" + (cursor.isNull(0) ? "<null>" : cursor.getString(0)));
-                                    }
-                                    if (!has)
-                                        Log.i("Get PRAGMA " + pragma + "=<?>");
-                                } catch (Throwable ex) {
-                                    Log.e(ex);
+                                try (Cursor cursor = db.query("PRAGMA cache_size=" + cache_size + ";")) {
+                                    cursor.moveToNext(); // required
                                 }
                             }
 
-                        if (BuildConfig.DEBUG && false)
-                            dropTriggers(db);
+                            // Prevent long running operations from getting an exclusive lock
+                            // https://www.sqlite.org/pragma.html#pragma_cache_spill
+                            Log.i("Set PRAGMA cache_spill=0");
+                            try (Cursor cursor = db.query("PRAGMA cache_spill=0;")) {
+                                cursor.moveToNext(); // required
+                            }
 
-                        createTriggers(db);
+                            Log.i("Set PRAGMA recursive_triggers=off");
+                            try (Cursor cursor = db.query("PRAGMA recursive_triggers=off;")) {
+                                cursor.moveToNext(); // required
+                            }
+
+                            // https://www.sqlite.org/pragma.html
+                            for (String pragma : DB_PRAGMAS)
+                                if (!"compile_options".equals(pragma) || BuildConfig.DEBUG) {
+                                    // TODO CASA PRAGMA does not support placeholders
+                                    try (Cursor cursor = db.query("PRAGMA " + pragma + ";")) {
+                                        boolean has = false;
+                                        while (cursor.moveToNext()) {
+                                            has = true;
+                                            Log.i("Get PRAGMA " + pragma + "=" + (cursor.isNull(0) ? "<null>" : cursor.getString(0)));
+                                        }
+                                        if (!has)
+                                            Log.i("Get PRAGMA " + pragma + "=<?>");
+                                    } catch (Throwable ex) {
+                                        Log.e(ex);
+                                    }
+                                }
+
+                            if (BuildConfig.DEBUG && false)
+                                dropTriggers(db);
+
+                            createTriggers(db);
+                        } catch (SQLiteException ex) {
+                            /*
+                                at eu.faircode.email.DB$6.onOpen(DB.java:522)
+                                at eu.faircode.email.DB_Impl$1.onOpen(DB_Impl.java:171)
+                                at androidx.room.RoomOpenHelper.onOpen(RoomOpenHelper.java:136)
+                                at androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper.onOpen(FrameworkSQLiteOpenHelper.kt:287)
+                                at android.database.sqlite.SQLiteOpenHelper.getDatabaseLocked(SQLiteOpenHelper.java:427)
+                                at android.database.sqlite.SQLiteOpenHelper.getWritableDatabase(SQLiteOpenHelper.java:316)
+                                at androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper.getWritableOrReadableDatabase(FrameworkSQLiteOpenHelper.kt:232)
+                                at androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper.innerGetDatabase(FrameworkSQLiteOpenHelper.kt:190)
+                                at androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper$OpenHelper.getSupportDatabase(FrameworkSQLiteOpenHelper.kt:151)
+                                at androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper.getWritableDatabase(FrameworkSQLiteOpenHelper.kt:104)
+                                at androidx.room.RoomDatabase.inTransaction(RoomDatabase.java:706)
+                             */
+                            Log.e(ex);
+                            // FrameworkSQLiteOpenHelper.innerGetDatabase will delete the database
+                            if (ex instanceof SQLiteDatabaseCorruptException)
+                                throw ex;
+                            else
+                                throw new RuntimeException("Open failed", ex);
+                        }
                     }
 
                     @Override
