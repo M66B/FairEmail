@@ -522,7 +522,7 @@ public abstract class DB extends RoomDatabase {
                                 dropTriggers(db);
 
                             createTriggers(db);
-                        } catch (SQLiteException ex) {
+                        } catch (Throwable ex) {
                             /*
                                 at eu.faircode.email.DB$6.onOpen(DB.java:522)
                                 at eu.faircode.email.DB_Impl$1.onOpen(DB_Impl.java:171)
@@ -538,10 +538,7 @@ public abstract class DB extends RoomDatabase {
                              */
                             Log.e(ex);
                             // FrameworkSQLiteOpenHelper.innerGetDatabase will delete the database
-                            if (ex instanceof SQLiteDatabaseCorruptException)
-                                throw ex;
-                            else
-                                throw new RuntimeException("Open failed", ex);
+                            throw ex;
                         }
                     }
 

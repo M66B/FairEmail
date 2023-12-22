@@ -18,6 +18,7 @@ package androidx.sqlite.db.framework
 import android.content.Context
 import android.database.DatabaseErrorHandler
 import android.database.sqlite.SQLiteDatabase
+import android.database.sqlite.SQLiteDatabaseCorruptException
 import android.database.sqlite.SQLiteException
 import android.database.sqlite.SQLiteOpenHelper
 import android.os.Build
@@ -204,7 +205,7 @@ internal class FrameworkSQLiteOpenHelper @JvmOverloads constructor(
                 }
                 // If callback exception is not an SQLiteException, then more certainly it is not
                 // recoverable.
-                if (cause !is SQLiteException) {
+                if (cause !is SQLiteDatabaseCorruptException) {
                     throw cause
                 }
             } else if (openRetryError is SQLiteException) {
