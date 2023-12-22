@@ -452,6 +452,8 @@ configurations.all {
     // Support @69c481c39a17d4e1e44a4eb298bb81c48f226eef
     exclude group: "androidx.room", module: "room-runtime"
 
+    exclude group: "androidx.sqlite", module: "sqlite-framework"
+
     // Workaround https://issuetracker.google.com/issues/134685570
     exclude group: "androidx.lifecycle", module: "lifecycle-livedata"
     exclude group: "androidx.lifecycle", module: "lifecycle-livedata-core"
@@ -624,7 +626,7 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     implementation "androidx.room:room-common:$room_version" // because of exclude
     // https://mvnrepository.com/artifact/androidx.sqlite/sqlite-framework
-    implementation "androidx.sqlite:sqlite-framework:$sqlite_version" // because of exclude
+    //implementation "androidx.sqlite:sqlite-framework:$sqlite_version" // because of exclude
     annotationProcessor "androidx.room:room-compiler:$room_version"
 
     // https://www.sqlite.org/changes.html

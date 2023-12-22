@@ -25,6 +25,7 @@ import android.os.CancellationSignal;
 import android.util.Pair;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 import androidx.sqlite.db.SupportSQLiteQuery;
@@ -298,5 +299,14 @@ final class QueryInterceptorDatabase implements SupportSQLiteDatabase {
     @Override
     public void close() throws IOException {
         mDelegate.close();
+    }
+
+    @Override
+    public boolean isExecPerConnectionSQLSupported() {
+        return false;
+    }
+
+    @Override
+    public void execPerConnectionSQL(@NonNull String sql, @Nullable Object[] bindArgs) {
     }
 }

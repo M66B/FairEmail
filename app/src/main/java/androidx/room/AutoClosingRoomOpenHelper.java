@@ -489,6 +489,15 @@ final class AutoClosingRoomOpenHelper implements SupportSQLiteOpenHelper, Delega
         public void close() throws IOException {
             mAutoCloser.closeDatabaseIfOpen();
         }
+
+        @Override
+        public boolean isExecPerConnectionSQLSupported() {
+            return false;
+        }
+
+        @Override
+        public void execPerConnectionSQL(@NonNull String sql, @Nullable Object[] bindArgs) {
+        }
     }
 
     /**
