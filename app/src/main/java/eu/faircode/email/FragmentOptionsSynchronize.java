@@ -253,10 +253,10 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
         btnUnblockAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                final View dview = LayoutInflater.from(v.getContext()).inflate(R.layout.dialog_unblock, null);
+
                 new AlertDialog.Builder(v.getContext())
-                        .setIcon(R.drawable.twotone_help_24)
-                        .setTitle(R.string.title_unblock_all)
-                        .setMessage(R.string.title_unblock_all_remark)
+                        .setView(dview)
                         .setNegativeButton(android.R.string.cancel, null)
                         .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                             @Override
