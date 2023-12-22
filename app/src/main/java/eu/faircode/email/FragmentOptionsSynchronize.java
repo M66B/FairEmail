@@ -293,7 +293,7 @@ public class FragmentOptionsSynchronize extends FragmentBase implements SharedPr
 
                                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                                         SharedPreferences.Editor editor = prefs.edit();
-                                        for (String pref : new String[]{"check_blocklist"})
+                                        for (String pref : new String[]{"check_blocklist", "auto_block_sender"})
                                             if (prefs.getBoolean(pref, false)) {
                                                 editor.putBoolean(pref, false);
                                                 EntityLog.log(context, "Disabled option=" + pref);
