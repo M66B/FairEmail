@@ -472,16 +472,16 @@
             starttls="false" />
     </provider>
     <provider
-        name="infomaniak"
-        link="https://www.infomaniak.com/fr/support/faq/1075/configurer-une-adresse-email-configuration-logiciel-de-messagerie-parametres-courrier">
+        name="Infomaniak"
+        link="https://www.infomaniak.com/fr/support/faq/search?q=imap">
         <imap
             host="mail.infomaniak.com"
             port="993"
             starttls="false" />
         <smtp
             host="mail.infomaniak.com"
-            port="587"
-            starttls="true" />
+            port="465"
+            starttls="false" />
     </provider>
     <provider
         name="gmx.com"
