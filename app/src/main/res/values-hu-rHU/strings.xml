@@ -91,6 +91,8 @@
         Egy küldő domain letiltása szűrőszabályokat használ, ami pro funkció.
     </string>
     <string name="title_blocked_senders">Tiltott küldők</string>
+    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Összes tiltás feloldása</string>
+    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Így minden listát és beállítást, mellyel feladókat tilthat le, alaphelyzetbe állít</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Letiltja az üzenet küldőjét?</item>
         <item quantity="other">Letiltja az %1$s üzenet küldőjét?</item>
@@ -438,6 +440,7 @@
     <string name="title_advanced_ssl_harden">SSL kapcsolatok megerősítése</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 megkövetelése</string>
     <string name="title_advanced_cert_strict">Szigorú tanusítvány ellenőrzés</string>
+    <string name="title_advanced_check_names">Vesse össze a kiszolgáló nevét a tanúsítványban szereplővel</string>
     <string name="title_advanced_open_safe">Csak biztonságos kapcsolatok megnyitása</string>
     <string name="title_advanced_http_redirect">Engedélyezi a kapcsolat-átirányítást</string>
     <string name="title_advanced_bouncy_castle">A Bouncy Castle biztonságos kapcsolat szolgáltatást (JSSE) használja</string>

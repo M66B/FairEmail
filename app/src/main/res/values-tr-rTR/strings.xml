@@ -91,6 +91,8 @@
     <string name="title_block_sender_hint">Bir göndereni engellemek ücretsiz bir özelliktir.
 Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurallarını kullanır.    </string>
     <string name="title_blocked_senders">Engellenmiş gönderenler</string>
+    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Tüm engelleri kaldır</string>
+    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Bu, gönderenlerin engellenmesine neden olabilecek tüm listeleri ve seçenekleri sıfırlayacaktır</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">%1$s iletisinin göndericisi engellensin mi?</item>
         <item quantity="other">%1$s iletisinin göndericisi engellensin mi?</item>
@@ -438,7 +440,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlamlaştır</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 gerektir</string>
     <string name="title_advanced_cert_strict">Katı sertifika kontrolü</string>
-    <string name="title_advanced_check_names" comment="title_advanced_check_names&#10;Title for advanced option in the connection settings tab page to enable checking if the host name of the server is the same as in the servers' security certificate.&#10;&quot;Check against&quot; could be translated as &quot;compare with&quot;">Ana bilgisayar adlarını sunucu sertifikalarına göre kontrol edin</string>
+    <string name="title_advanced_check_names">Ana bilgisayar adlarını sunucu sertifikalarına göre kontrol edin</string>
     <string name="title_advanced_open_safe">Yalnızca güvenli bağlantıları aç</string>
     <string name="title_advanced_http_redirect">Bağlantının yeniden yönlendirilmesine izin ver</string>
     <string name="title_advanced_bouncy_castle">Bouncy Castle\'ın güvenli soket sağlayıcısını (JSSE) kullan</string>

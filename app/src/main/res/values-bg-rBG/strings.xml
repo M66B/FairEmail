@@ -315,6 +315,8 @@
     <string name="title_advanced_hint_title">Още разширени възможности</string>
     <string name="title_advanced_hint_message">        You are navigating to the more advanced options.        All options have commonly used standard values, which you do not need to change unless you have a different preference.
     </string>
+    <string name="title_advanced_hint_remark">        Възможностите са категоризирани по раздел, разделени на секции, организирани по външен вид или употреба, а и търсаеми.
+    </string>
     <string name="title_advanced_hint_setup">Може да настроите акаунта, чуквайки на бутона вълшебник на главния екран за конфигуриране.</string>
     <string name="title_advanced_section_main">Главно</string>
     <string name="title_advanced_section_synchronize">Получаване</string>
@@ -354,6 +356,7 @@
     <string name="title_advanced_check_reply_domain">Проверка на адреса за отговор при синхрон на съобщенията</string>
     <string name="title_advanced_check_mx">Проверка на имейл адреса на подателя при синхронизиране на съобщенията</string>
     <string name="title_advanced_check_blocklist">Проверка дали името на домейна на подателя е в списъка с блокиран спам</string>
+    <string name="title_advanced_use_blocklist">Преместване на съобщения от домейни, които са в списък блокирани, в папка спам</string>
     <string name="title_advanced_tune_keep_alive">Автоматично настройване на онлайн интервала</string>
     <string name="title_advanced_blocklist_warning">Списъците с блокирани не са съвършени и може да блокират повече отколкото просто спам!</string>
     <string name="title_advanced_keyboard">Показване на клавиатурата по подразбиране</string>

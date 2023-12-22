@@ -91,6 +91,8 @@
     <string name="title_block_sender_hint">Het blokkeren van een afzender is een gratis functie.
 Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro functie is.    </string>
     <string name="title_blocked_senders">Geblokkeerde afzenders</string>
+    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Deblokkeer alles</string>
+    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Dit zal alle lijsten en opties herstellen die kunnen resulteren in het blokkeren van de afzenders</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokkeer afzender van één bericht?</item>
         <item quantity="other">Blokkeer de afzender van %1$s berichten?</item>
@@ -438,7 +440,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_ssl_harden_strict">Vereis TLS 1.3</string>
     <string name="title_advanced_cert_strict">Strenge certificaatcontrole</string>
-    <string name="title_advanced_check_names" comment="title_advanced_check_names&#10;Title for advanced option in the connection settings tab page to enable checking if the host name of the server is the same as in the servers' security certificate.&#10;&quot;Check against&quot; could be translated as &quot;compare with&quot;">Hostnamen met servercertificaten vergelijken</string>
+    <string name="title_advanced_check_names">Hostnamen met servercertificaten vergelijken</string>
     <string name="title_advanced_open_safe">Alleen beveiligde verbindingen openen</string>
     <string name="title_advanced_http_redirect">Verbindingsomleiding toestaan</string>
     <string name="title_advanced_bouncy_castle">Gebruik de secure socket provider van Bouncy Castle (JSSE)</string>

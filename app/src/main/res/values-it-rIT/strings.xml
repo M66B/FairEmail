@@ -92,6 +92,8 @@
         Il blocco del dominio di un mittente usa le regole del filtro, una funzionalità pro.
     </string>
     <string name="title_blocked_senders">Mittenti bloccati</string>
+    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Sblocca tutti</string>
+    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Questo ripristinerà tutte le liste e opzioni che potrebbero causare il blocco dei mittenti</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloccare il mittente di %1$s messaggio?</item>
         <item quantity="other">Bloccare il mittente di %1$s messaggi?</item>
@@ -389,7 +391,7 @@
     <string name="title_advanced_answer_hint">Le azioni del pulsante di risposta sono configurabili anche nella scheda delle impostazioni di invio</string>
     <string name="title_advanced_answer_warning">Non tutte le azioni sono possibili senza un menu di selezione!</string>
     <string name="title_advanced_send_pending">Mostra icona ritardata di invio non vistosa</string>
-    <string name="title_advanced_save_revisions">Salva le modifiche delle bozze per annullare e ripetere</string>
+    <string name="title_advanced_save_revisions">Salva le revisioni delle bozze per annullare e ripetere</string>
     <string name="title_advanced_auto_save_paragraph">Salva automaticamente una bozza dopo ogni paragrafo</string>
     <string name="title_advanced_auto_save_dot">Salva automaticamente una bozza dopo ogni frase</string>
     <string name="title_advanced_compose_color">Colore predefinito del testo</string>
@@ -436,13 +438,14 @@
     <string name="title_advanced_vpn_only">Connettiti solo tramite una VPN</string>
     <string name="title_advanced_timeout">Timeout di connessione (secondi)</string>
     <string name="title_advanced_prefer_ip4">Preferisce IPv4 su IPv6</string>
-    <string name="title_advanced_ssl_update">Usa provider SSL aggiornato</string>
+    <string name="title_advanced_ssl_update">Utilizza il fornitore SSL aggiornato</string>
     <string name="title_advanced_ssl_harden">Indurisci connessioni SSL</string>
     <string name="title_advanced_ssl_harden_strict">Richiede TLS 1.3</string>
     <string name="title_advanced_cert_strict">Controllo rigoroso del certificato</string>
+    <string name="title_advanced_check_names">Controlla i nomi degli host rispetto ai certificati del server</string>
     <string name="title_advanced_open_safe">Apri solo le connessioni sicure</string>
     <string name="title_advanced_http_redirect">Consenti il reindirizzamento delle connessioni</string>
-    <string name="title_advanced_bouncy_castle">Usa il provider di socket sicuro (JSSE) di Bouncy Castle</string>
+    <string name="title_advanced_bouncy_castle">Utilizza il fornitore di socket sicuro (JSSE) di Bouncy Castle</string>
     <string name="title_advanced_manage_connectivity">Gestisci la connettività</string>
     <string name="title_advanced_caption_general">Generale</string>
     <string name="title_advanced_caption_navigation">Navigazione</string>
@@ -631,7 +634,7 @@
     <string name="title_advanced_notify_preview">Mostra l\'anteprima del messaggio nelle notifiche</string>
     <string name="title_advanced_notify_preview_all">Visualizza tutto il testo</string>
     <string name="title_advanced_notify_preview_only">Mostra solo le notifiche con un testo d\'anteprima</string>
-    <string name="title_advanced_notify_transliterate">Traslitterare all\'alfabeto latino</string>
+    <string name="title_advanced_notify_transliterate">Traslittera nell\'alfabeto latino</string>
     <string name="title_advanced_notify_ascii">Solo testo ASCII</string>
     <string name="title_advanced_notify_actions">Azioni di notifica</string>
     <string name="title_advanced_notify_action_trash">Cestino</string>
@@ -718,7 +721,7 @@
     <string name="title_advanced_external_search">Aggiungi la \'Ricerca di FairEmail\' al menu di selezione del testo di Android</string>
     <string name="title_advanced_sort_answers">Ordina i modelli di risposta per frequenza d\'uso</string>
     <string name="title_advanced_shortcuts">Mostra i contatti usati frequentemente nel menu di condivisione di Android</string>
-    <string name="title_advanced_ical_tentative">Memorizzare gli inviti ricevuti come provvisori</string>
+    <string name="title_advanced_ical_tentative">Memorizza gli inviti ricevuti come provvisori</string>
     <string name="title_advanced_fts">Crea indice di ricerca</string>
     <string name="title_advanced_fts_indexed">%1$d / %2$d messaggi indicizzati (%3$s)</string>
     <string name="title_advanced_classification">Classifica i messaggi</string>
@@ -1013,8 +1016,8 @@
     <string name="title_service_port">Sei pregato di ricontrollare il numero della porta</string>
     <string name="title_service_protocol">Sei pregato di ricontrollare il protocollo (SSL/TLS o STARTTLS)</string>
     <string name="title_service_error10">Questo profilo necessita di essere nuovamente autenticato, tramite la procedura guidata di configurazione rapida</string>
-    <string name="title_certificate_error">        A causa delle politiche del Play Store di Google, non è più possibile supportare connessioni non sicure ai server di posta elettronica con problemi di certificato per la versione di FairEmail distribuita nel Play Store.
-        Pertanto, questo problema può essere risolto solo dal tuo provider e-mail - le informazioni di errore di cui sopra possono aiutarli a risolvere questo problema.
+    <string name="title_certificate_error">        A causa delle politiche del Play Store di Googlee, non è più possibile supportare le connessioni non sicure ai server email con problemi di certificato per la versione di FairEmail distribuita sul Play Store.
+        Dunque, questo problema è risolvibile soltanto dal fornitore della tua email; l\'informazione precedente sull\'errore potrebbe aiutarlo a risolverlo.
     </string>
     <string name="title_advanced_browse">Sfoglia i messaggi sul server</string>
     <string name="title_advanced_expand_read">Contrassegna i messaggi come letti all\'espansione</string>
@@ -1176,7 +1179,7 @@
     <string name="title_print_block_quotes">Stampa i blocchi di citazioni</string>
     <string name="title_print_margins">Aggiungi un margine</string>
     <string name="title_show_headers">Mostra le intestazioni</string>
-    <string name="title_show_html">Mostra messaggio sorgente (HTML)</string>
+    <string name="title_show_html">Mostra sorgente</string>
     <string name="title_raw_save">Salva il messaggio non elaborato</string>
     <string name="title_raw_send">Invia come allegato</string>
     <string name="title_raw_send_message">Messaggio</string>
@@ -1713,7 +1716,7 @@
     <string name="title_rule_alarm_stop">Interrompi</string>
     <string name="title_code_line_numbers">Mostra i numeri di riga</string>
     <string name="title_code_enable_links">Abilita i link</string>
-    <string name="title_code_pretty">Stampa abbellita</string>
+    <string name="title_code_pretty">Abbellisci stampa</string>
     <string name="title_legend_section_synchronize">Sincronizza</string>
     <string name="title_legend_section_folders">Cartelle</string>
     <string name="title_legend_section_messages">Messaggi</string>
@@ -1908,7 +1911,7 @@
     <string name="title_no_ask_again">Non chiederlo di nuovo</string>
     <string name="title_no_ask_for_again">Non chiederlo di nuovo per %1$s</string>
     <string name="title_no_body">Nessun testo del messaggio trovato</string>
-    <string name="title_large_body">Questo messaggio è molto grande e questo può causare problemi!</string>
+    <string name="title_large_body">Questo messaggio è molto grande e ciò potrebbe causare problemi!</string>
     <string name="title_no_charset">Crittografia non supportata: %1$s</string>
     <string name="title_via">Tramite: %1$s</string>
     <string name="title_1hour">1 ora</string>

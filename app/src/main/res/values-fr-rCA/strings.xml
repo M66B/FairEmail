@@ -92,6 +92,8 @@
         Bloquer un domaine expéditeur utilise une règle de filtrage qui est une fonctionnalité Pro.
     </string>
     <string name="title_blocked_senders">Expéditeurs bloqués</string>
+    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Tout débloquer</string>
+    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Ceci réinitialisera toutes les listes et options pouvant provoquer le blocage des expéditeurs</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloquer l\'expéditeur de %1$s message?</item>
         <item quantity="other">Bloquer l\'expéditeur de %1$s messages?</item>
@@ -440,7 +442,7 @@
     <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 requis</string>
     <string name="title_advanced_cert_strict">Vérification stricte du certificat</string>
-    <string name="title_advanced_check_names" comment="title_advanced_check_names&#10;Title for advanced option in the connection settings tab page to enable checking if the host name of the server is the same as in the servers' security certificate.&#10;&quot;Check against&quot; could be translated as &quot;compare with&quot;">Vérifier les noms d\'hôtes par rapport aux certificats de serveur</string>
+    <string name="title_advanced_check_names">Vérifier les noms d\'hôtes par rapport aux certificats de serveur</string>
     <string name="title_advanced_open_safe">Ouvrir uniquement des connexions sécurisées</string>
     <string name="title_advanced_http_redirect">Autoriser la redirection de connexion</string>
     <string name="title_advanced_bouncy_castle">Utiliser le fournisseur de socket sécurisé de Bouncy Castle (JSSE)</string>

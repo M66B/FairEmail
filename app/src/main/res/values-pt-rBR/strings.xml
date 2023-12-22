@@ -92,6 +92,8 @@
         Bloquear o domínio do remetente usa regras de filtro, que trata-se de uma opção Pro.
     </string>
     <string name="title_blocked_senders">Remetentes bloqueados</string>
+    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Desbloquear todos</string>
+    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Isso redefinirá todas as listas e opções que poderiam resultar no bloqueio de remetentes</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloquear remetente da %1$s mensagem?</item>
         <item quantity="other">Bloquear remetentes das %1$s mensagens?</item>
@@ -439,6 +441,7 @@
     <string name="title_advanced_ssl_harden">Reforçar conexões SSL</string>
     <string name="title_advanced_ssl_harden_strict">Requer TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificação rigorosa de certificado</string>
+    <string name="title_advanced_check_names">Verifique os nomes dos hosts em relação aos certificados do servidor</string>
     <string name="title_advanced_open_safe">Abrir apenas conexões seguras</string>
     <string name="title_advanced_http_redirect">Permitir redirecionamento de conexão</string>
     <string name="title_advanced_bouncy_castle">Use o provedor de soquete seguro (JSSE) do Bouncy Castle</string>

@@ -103,6 +103,8 @@
         Blokiranje domene pošiljaoca koristi pravila filtriranja, što predstavlja pro funkcionalnost.
     </string>
     <string name="title_blocked_senders">Blokirani pošiljaoci</string>
+    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Odblokiraj sve</string>
+    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Ovo će resetovati sve liste i opcije za blokiranje pošiljaoca</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokirati pošiljaoca %1$s poruke?</item>
         <item quantity="few">Blokirati pošiljaoca %1$s poruke?</item>
@@ -454,6 +456,7 @@
     <string name="title_advanced_ssl_harden">Ojačaj SSL konekcije</string>
     <string name="title_advanced_ssl_harden_strict">Zahtjevaj TLS 1.3</string>
     <string name="title_advanced_cert_strict">Striktna provjera certifikata</string>
+    <string name="title_advanced_check_names">Uporedi imena hosta s onima iz serverskih certifikata</string>
     <string name="title_advanced_open_safe">Otvaraj samo sigurne konekcije</string>
     <string name="title_advanced_http_redirect">Omogući preusmjeravanje konekcije</string>
     <string name="title_advanced_bouncy_castle">Koristi pružaoca sigurnog priključka od Bouncy Castle-a (JSSE)</string>

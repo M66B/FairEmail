@@ -438,7 +438,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_ssl_harden">SSL-ferbiningen ferhurdzje</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 fereaskje</string>
     <string name="title_advanced_cert_strict">Strange sertifikaatkontrôle</string>
-    <string name="title_advanced_check_names" comment="title_advanced_check_names&#10;Title for advanced option in the connection settings tab page to enable checking if the host name of the server is the same as in the servers' security certificate.&#10;&quot;Check against&quot; could be translated as &quot;compare with&quot;">Hostnammen mei serversertifikaten fergelykje</string>
+    <string name="title_advanced_check_names">Hostnammen mei serversertifikaten fergelykje</string>
     <string name="title_advanced_open_safe">Allinnich befeilige ferbiningen iepenje</string>
     <string name="title_advanced_http_redirect">Ferbiningsomlieding tastean</string>
     <string name="title_advanced_bouncy_castle">Brûk de feilige socketprovider fan Bouncy Castle (JSSE)</string>

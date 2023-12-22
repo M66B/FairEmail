@@ -114,6 +114,8 @@
         Blokowanie domeny nadawcy używa zasad filtrowania, co jest funkcją Pro.
     </string>
     <string name="title_blocked_senders">Zablokowani nadawcy</string>
+    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Odblokuj wszystkich</string>
+    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Spowoduje to zresetowanie wszystkich list i opcji, które mogłyby skutkować zablokowaniem nadawców</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Zablokować nadawcę %1$s wiadomości?</item>
         <item quantity="few">Zablokować nadawcę %1$s wiadomości?</item>
@@ -467,6 +469,7 @@
     <string name="title_advanced_ssl_harden">Wzmocnij połączenia SSL</string>
     <string name="title_advanced_ssl_harden_strict">Wymagaj TLS 1.3</string>
     <string name="title_advanced_cert_strict">Ścisła kontrola certyfikatu</string>
+    <string name="title_advanced_check_names">Porównaj nazwy hostów z certyfikatami serwera</string>
     <string name="title_advanced_open_safe">Otwieraj tylko bezpieczne połączenia</string>
     <string name="title_advanced_http_redirect">Zezwalaj na przekierowanie połączenia</string>
     <string name="title_advanced_bouncy_castle">Używaj dostawcy bezpiecznych gniazd Bouncy Castle (JSSE)</string>
