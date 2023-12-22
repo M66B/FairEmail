@@ -6,9 +6,10 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
-### Next version
+### 1.2143 - 2023-12-22
 
 * Fixed searching in single folder
+* Added button to unblock all
 * Added importance to swipe-ask popup menu
 * Small improvements and minor bug fixes
 * Updated [translations](https://crowdin.com/project/open-source-email)
