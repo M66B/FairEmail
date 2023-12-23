@@ -6,12 +6,6 @@ For support you can use the contact form.
 
 Wintonotitan
 
-Next version
-
-* Added option to suppress notification actions on the lock screen
-* Small improvements and minor bug fixes
-* Updated translations
-
 1.2143 - 2023-12-22
 
 * Fixed searching in single folder
