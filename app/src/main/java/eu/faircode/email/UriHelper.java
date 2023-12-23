@@ -76,13 +76,14 @@ public class UriHelper {
 
             "kclickid", // https://support.freespee.com/hc/en-us/articles/202577831-Kenshoo-integration
 
-            // https://github.com/brave/brave-core/blob/master/browser/net/brave_site_hacks_network_delegate_helper.cc
+            // https://github.com/brave/adblock-lists/blob/master/brave-lists/clean-urls.json
             "oly_anon_id", "oly_enc_id", // https://training.omeda.com/knowledge-base/olytics-product-outline/
             "_openstat", // https://yandex.com/support/direct/statistics/url-tags.html
             "vero_conv", "vero_id", // https://help.getvero.com/cloud/articles/what-is-vero_id/
             "wickedid", // https://help.wickedreports.com/how-to-manually-tag-a-facebook-ad-with-wickedid
             "yclid", // https://ads-help.yahoo.co.jp/yahooads/ss/articledetail?lan=en&aid=20442
             "__s", // https://ads-help.yahoo.co.jp/yahooads/ss/articledetail?lan=en&aid=20442
+            "guccounter", "guce_referrer", "guce_referrer_sig", // Yahoo
             "rb_clickid", // Russian
             "s_cid", // https://help.goacoustic.com/hc/en-us/articles/360043311613-Track-lead-sources
             "ml_subscriber", "ml_subscriber_hash", // https://www.mailerlite.com/help/how-to-integrate-your-forms-to-a-wix-website
