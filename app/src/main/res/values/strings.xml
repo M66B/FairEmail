@@ -1072,6 +1072,7 @@
     <string name="title_advanced_wearable_hint">Notifications are only sent to a wearable after the message text has been downloaded</string>
     <string name="title_advanced_messaging_hint">This is required for Android Auto support</string>
     <string name="title_advanced_move_hint">The target folder can be configured in the account settings</string>
+    <string name="title_advanced_notify_sensitive_hint">Requires disabling sensitive notifications in Android\'s settings</string>
     <string name="title_advanced_notify_no_grouping">This Android version does not support notification grouping</string>
     <string name="title_advanced_notify_no_channels">This Android version does not support notification channels</string>
 
