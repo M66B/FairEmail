@@ -99,7 +99,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
     private SwitchCompat swUnseenIgnored;
     private SwitchCompat swNotifyGrouping;
     private SwitchCompat swNotifyPrivate;
-    private SwitchCompat swNotifyPublicActions;
     private SwitchCompat swNotifyBackgroundOnly;
     private SwitchCompat swNotifyKnownOnly;
     private SwitchCompat swNotifySuppressInCall;
@@ -140,7 +139,7 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             "notify_flag", "notify_seen", "notify_hide", "notify_snooze",
             "light", "sound", "notify_screen_on",
             "badge", "unseen_ignored",
-            "notify_grouping", "notify_private", "notify_public_actions", "notify_background_only", "notify_known", "notify_suppress_in_call", "notify_suppress_in_car",
+            "notify_grouping", "notify_private", "notify_background_only", "notify_known", "notify_suppress_in_call", "notify_suppress_in_car",
             "notify_remove", "notify_clear",
             "notify_subtext", "notify_preview", "notify_preview_all", "notify_preview_only", "notify_transliterate", "notify_ascii",
             "wearable_preview",
@@ -191,7 +190,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
         swUnseenIgnored = view.findViewById(R.id.swUnseenIgnored);
         swNotifyGrouping = view.findViewById(R.id.swNotifyGrouping);
         swNotifyPrivate = view.findViewById(R.id.swNotifyPrivate);
-        swNotifyPublicActions = view.findViewById(R.id.swNotifyPublicActions);
         swNotifyBackgroundOnly = view.findViewById(R.id.swNotifyBackgroundOnly);
         swNotifyKnownOnly = view.findViewById(R.id.swNotifyKnownOnly);
         swNotifySuppressInCall = view.findViewById(R.id.swNotifySuppressInCall);
@@ -567,14 +565,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("notify_private", checked).apply();
-                swNotifyPublicActions.setEnabled(!checked);
-            }
-        });
-
-        swNotifyPublicActions.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
-                prefs.edit().putBoolean("notify_public_actions", checked).apply();
             }
         });
 
@@ -866,8 +856,6 @@ public class FragmentOptionsNotifications extends FragmentBase implements Shared
             swUnseenIgnored.setChecked(prefs.getBoolean("unseen_ignored", false));
             swNotifyGrouping.setChecked(prefs.getBoolean("notify_grouping", true));
             swNotifyPrivate.setChecked(prefs.getBoolean("notify_private", true));
-            swNotifyPublicActions.setChecked(prefs.getBoolean("notify_public_actions", true));
-            swNotifyPublicActions.setEnabled(!swNotifyPrivate.isChecked());
             swNotifyBackgroundOnly.setChecked(prefs.getBoolean("notify_background_only", false));
             swNotifyKnownOnly.setChecked(prefs.getBoolean("notify_known", false));
             swNotifySuppressInCall.setChecked(prefs.getBoolean("notify_suppress_in_call", false));

@@ -719,7 +719,6 @@
     <string name="title_advanced_unseen_ignored">Let the number of new messages match the number of notifications</string>
     <string name="title_advanced_notify_grouping">Group notifications</string>
     <string name="title_advanced_notify_private">Keep notifications private when the device is locked</string>
-    <string name="title_advanced_notify_public_actions">Show notification actions when the device is locked</string>
     <string name="title_advanced_notify_background">Show notifications when in the background only</string>
     <string name="title_advanced_notify_known">Show notifications for contacts only</string>
     <string name="title_advanced_notify_suppress_in_call">Delay notifications while on a call</string>
