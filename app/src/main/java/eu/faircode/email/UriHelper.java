@@ -29,6 +29,8 @@ import androidx.annotation.NonNull;
 import androidx.core.net.MailTo;
 import androidx.core.util.PatternsCompat;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -42,6 +44,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Pattern;
 
 public class UriHelper {
     // https://publicsuffix.org/
@@ -76,7 +79,6 @@ public class UriHelper {
 
             "kclickid", // https://support.freespee.com/hc/en-us/articles/202577831-Kenshoo-integration
 
-            // https://github.com/brave/adblock-lists/blob/master/brave-lists/clean-urls.json
             "oly_anon_id", "oly_enc_id", // https://training.omeda.com/knowledge-base/olytics-product-outline/
             "_openstat", // https://yandex.com/support/direct/statistics/url-tags.html
             "vero_conv", "vero_id", // https://help.getvero.com/cloud/articles/what-is-vero_id/
@@ -260,7 +262,7 @@ public class UriHelper {
         }
     }
 
-    static Uri sanitize(Uri uri) {
+    static Uri sanitize(Context context, Uri uri) {
         if (uri.isOpaque())
             return uri;
 
@@ -393,6 +395,15 @@ public class UriHelper {
         if (url.isOpaque() || !isHyperLink(url))
             return uri;
 
+        JSONArray jclean;
+        try (InputStream is = context.getAssets().open("clean-urls.json")) {
+            String json = Helper.readStream(is);
+            jclean = new JSONArray(json);
+        } catch (Throwable ex) {
+            Log.e(ex);
+            jclean = new JSONArray();
+        }
+
         Uri.Builder builder = url.buildUpon();
 
         builder.clearQuery();
@@ -402,6 +413,37 @@ public class UriHelper {
             host = host.toLowerCase(Locale.ROOT);
         if (path != null)
             path = path.toLowerCase(Locale.ROOT);
+
+        // https://github.com/brave/adblock-lists/blob/master/brave-lists/clean-urls.json
+        JSONArray jparams = null;
+        for (int i = 0; i < jclean.length(); i++)
+            try {
+                JSONObject jitem = jclean.getJSONObject(i);
+                JSONArray jinclude = jitem.getJSONArray("include");
+                JSONArray jexclude = jitem.getJSONArray("exclude");
+
+                boolean include = false;
+                for (int j = 0; j < jinclude.length(); j++)
+                    if (Pattern.matches(escapeStar(jinclude.getString(j)), url.toString())) {
+                        include = true;
+                        break;
+                    }
+
+                if (include)
+                    for (int j = 0; j < jexclude.length(); j++)
+                        if (Pattern.matches(escapeStar(jexclude.getString(j)), url.toString())) {
+                            include = false;
+                            break;
+                        }
+
+                if (include) {
+                    jparams = jitem.getJSONArray("params");
+                    break;
+                }
+            } catch (JSONException ex) {
+                Log.e(ex);
+            }
+
         boolean first = "www.facebook.com".equals(host);
         for (String key : url.getQueryParameterNames()) {
             // https://en.wikipedia.org/wiki/UTM_parameters
@@ -420,17 +462,38 @@ public class UriHelper {
             else if (!TextUtils.isEmpty(key))
                 for (String value : url.getQueryParameters(key)) {
                     Log.i("Query " + key + "=" + value);
-                    Uri suri = Uri.parse(value);
-                    if (suri != null && isHyperLink(suri)) {
-                        Uri s = sanitize(suri);
-                        return (s == null ? suri : s);
+
+                    if (jparams != null)
+                        for (int j = 0; j < jparams.length(); j++)
+                            try {
+                                if (key.equals(jparams.getString(j))) {
+                                    changed = true;
+                                    break;
+                                }
+                            } catch (JSONException ex) {
+                                Log.e(ex);
+                            }
+
+                    if (!changed) {
+                        Uri suri = Uri.parse(value);
+                        if (suri != null && isHyperLink(suri)) {
+                            Uri s = sanitize(context, suri);
+                            return (s == null ? suri : s);
+                        }
+                        builder.appendQueryParameter(key, value);
                     }
-                    builder.appendQueryParameter(key, value);
                 }
             first = false;
         }
 
         return (changed ? builder.build() : null);
+    }
+
+    private static String escapeStar(String regex) {
+        for (char kar : "\\.?![]{}()<>*+-=^$|".toCharArray())
+            if (kar != '*')
+                regex = regex.replace("" + kar, "\\" + kar);
+        return regex.replace("*", ".*");
     }
 
     static Uri secure(Uri uri, boolean https) {

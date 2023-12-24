@@ -51,3 +51,4 @@ FairEmail uses parts or all of:
 * [Prism](https://github.com/PrismJS/prism). Copyright (c) 2012 Lea Verou. [MIT LICENSE](https://github.com/PrismJS/prism/blob/master/LICENSE).
 * [Jayway JsonPath](https://github.com/json-path/JsonPath). Copyright 2011 the original author or authors. [Apache License 2.0](https://github.com/json-path/JsonPath/blob/master/LICENSE).
 * [tinylog 2](https://github.com/tinylog-org/tinylog). Copyright 2016-2023 Martin Winandy. [Apache License 2.0](https://github.com/tinylog-org/tinylog/blob/v2.7/license.txt).
+* [Brave Lists](https://github.com/brave/adblock-lists). [Mozilla Public License Version 2.0](https://github.com/brave/adblock-lists/blob/master/LICENSE).

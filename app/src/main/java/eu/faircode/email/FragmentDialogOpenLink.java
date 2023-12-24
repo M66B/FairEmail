@@ -131,7 +131,7 @@ public class FragmentDialogOpenLink extends FragmentDialogBase {
         if (uri.isOpaque())
             sanitized = uri;
         else {
-            Uri s = UriHelper.sanitize(uri);
+            Uri s = UriHelper.sanitize(context, uri);
             sanitized = (s == null ? uri : s);
         }
 

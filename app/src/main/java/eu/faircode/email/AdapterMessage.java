@@ -6367,7 +6367,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                         uri = alt;
                 }
 
-                Uri sanitized = UriHelper.sanitize(uri);
+                Uri sanitized = UriHelper.sanitize(context, uri);
                 if (sanitized != null && isActivate(sanitized))
                     uri = sanitized;
                 else if (title != null) {
@@ -6453,7 +6453,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     boolean link_sanitize = prefs.getBoolean(chost + ".link_sanitize", false);
 
                     if (link_sanitize && UriHelper.isHyperLink(uri)) {
-                        Uri sanitized = UriHelper.sanitize(uri);
+                        Uri sanitized = UriHelper.sanitize(context, uri);
                         if (sanitized != null)
                             uri = sanitized;
                         Log.i("Open sanitized=" + uri);
