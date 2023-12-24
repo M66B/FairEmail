@@ -332,7 +332,7 @@ public class UriHelper {
         } else if (uri.getHost() != null && uri.getHost().endsWith(".awstrack.me")) {
             // https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html
             String path = uri.getPath();
-            int s = path.indexOf('/', 1);
+            int s = (path == null ? -1 : path.indexOf('/', 1));
             Uri result = (s > 0 ? Uri.parse(path.substring(s + 1)) : null);
             changed = (result != null && isHyperLink(result));
             url = (changed ? result : uri);
