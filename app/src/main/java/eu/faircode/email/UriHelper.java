@@ -336,18 +336,6 @@ public class UriHelper {
             Uri result = (s > 0 ? Uri.parse(path.substring(s + 1)) : null);
             changed = (result != null && isHyperLink(result));
             url = (changed ? result : uri);
-        } else if (uri.getQueryParameter("redirectUrl") != null) {
-            // https://.../link-tracker?redirectUrl=<base64>&sig=...&iat=...&a=...&account=...&email=...&s=...&i=...
-            Uri result = null;
-            try {
-                byte[] bytes = Base64.decode(uri.getQueryParameter("redirectUrl"), Base64.URL_SAFE);
-                String u = URLDecoder.decode(new String(bytes), StandardCharsets.UTF_8.name());
-                result = Uri.parse(u);
-            } catch (Throwable ex) {
-                Log.i(ex);
-            }
-            changed = (result != null && isHyperLink(result));
-            url = (changed ? result : uri);
         } else {
             Uri result = null;
 
@@ -407,6 +395,17 @@ public class UriHelper {
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+
+            if (result == null &&
+                    uri.getQueryParameter("redirectUrl") != null)
+                // https://.../link-tracker?redirectUrl=<base64>&sig=...&iat=...&a=...&account=...&email=...&s=...&i=...
+                try {
+                    byte[] bytes = Base64.decode(uri.getQueryParameter("redirectUrl"), Base64.URL_SAFE);
+                    String u = URLDecoder.decode(new String(bytes), StandardCharsets.UTF_8.name());
+                    result = Uri.parse(u);
+                } catch (Throwable ex) {
+                    Log.i(ex);
+                }
 
             changed = (result != null && isHyperLink(result));
             url = (changed ? result : uri);
