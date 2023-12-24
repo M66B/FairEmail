@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
+### Next version
+
+* Using [Brave browser lists](https://github.com/brave/adblock-lists/tree/master/brave-lists) to filter URLs
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2143 - 2023-12-22
 
 * Fixed searching in single folder
