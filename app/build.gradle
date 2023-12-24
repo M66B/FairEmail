@@ -331,7 +331,7 @@ android {
     }
 
     // https://stackoverflow.com/questions/28948538/
-    applicationVariants.all { variant ->
+    applicationVariants.configureEach { variant ->
         if (variant.buildType.name == "debug")
             variant.buildConfigField "String", "MXTOOLBOX_URI", "\"https://mxtoolbox.com\""
         else
@@ -364,7 +364,7 @@ android {
     }
 }
 
-task copyMarkdown(type: Copy) {
+tasks.register('copyMarkdown', Copy) {
     from "${rootDir}"
     into "src/main/assets"
     include "CHANGELOG.md"
@@ -374,7 +374,7 @@ task copyMarkdown(type: Copy) {
 
 preBuild.dependsOn copyMarkdown
 
-task copyChangelog(type: Copy) {
+tasks.register('copyChangelog', Copy) {
     from "${rootDir}"
     into "../metadata/en-US/changelogs"
     include "CHANGELOG.md"
@@ -393,54 +393,54 @@ task copyChangelog(type: Copy) {
 
 preBuild.dependsOn copyChangelog
 
-task updateFAQ(type: Exec) {
+tasks.register('updateFAQ', Exec) {
     workingDir "${rootDir}"
     commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FAQ FairEmail"  FAQ.md -o index.html'
 }
 
-task updatePrivacy(type: Exec) {
+tasks.register('updatePrivacy', Exec) {
     workingDir "${rootDir}"
     commandLine 'sh', '-c', 'pandoc --standalone --metadata title="FairEmail" --css=privacy.css PRIVACY.md -o privacy.html'
 }
 
-task updateCrowdin(type: Exec) {
+tasks.register('updateCrowdin', Exec) {
     // https://crowdin.github.io/crowdin-cli/
     // https://developer.crowdin.com/configuration-file/
     workingDir "${rootDir}"
     commandLine 'sh', '-c', 'crowdin download --branch=master'
 }
 
-task downloadPSL(type: Download) {
+tasks.register('downloadPSL', Download) {
     // https://github.com/michel-kraemer/gradle-download-task
     src "https://raw.githubusercontent.com/publicsuffix/list/master/public_suffix_list.dat"
     dest "src/main/assets"
     overwrite true
 }
 
-task downloadBraveClean(type: Download) {
+tasks.register('downloadBraveClean', Download) {
     src "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/clean-urls.json"
     dest "src/main/assets"
     overwrite true
 }
 
-task downloadBraveDebouce(type: Download) {
+tasks.register('downloadBraveDebouce', Download) {
     src "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/debounce.json"
     dest "src/main/assets"
     overwrite true
 }
 
-task downloadBrave() {
+tasks.register('downloadBrave') {
     dependsOn("downloadBraveClean", "downloadBraveDebouce")
 }
 
-task extractSignature(type: Exec) {
+tasks.register('extractSignature', Exec) {
     workingDir "${rootDir}"
     // sudo apt install apksigcopier
     commandLine 'sh', '-c', 'mkdir -p metadata/eu.faircode.email/signatures/' + getVersionCode() + ' &&' +
             'apksigcopier extract --v1-only=auto app/build/outputs/apk/fdroid/release/FairEmail-v1.' + getVersionCode() + getRevision() + '-fdroid-release.apk metadata/eu.faircode.email/signatures/' + getVersionCode()
 }
 
-task upload() {
+tasks.register('upload') {
     // ./gradlew upload -Ptarget=play-preview
     doLast {
         println "\nhttps://bitbucket.org/M66B/fairemail-test/downloads/FairEmail-v1." + getVersionCode() + getRevision() + "-" + target + "-release.apk\n"
@@ -463,7 +463,7 @@ repositories {
     //maven { url "https://jakarta.oss.sonatype.org/content/repositories/snapshots/" }
 }
 
-configurations.all {
+configurations.configureEach {
     // Workaround https://issuetracker.google.com/issues/138441698
     // Support @69c481c39a17d4e1e44a4eb298bb81c48f226eef
     exclude group: "androidx.room", module: "room-runtime"
@@ -481,7 +481,7 @@ configurations.all {
     exclude group: "androidx.emoji2", module: "emoji2"
 }
 
-configurations.all {
+configurations.configureEach {
     resolutionStrategy.eachDependency { details ->
         if (details.requested.group == "androidx.room") {
             //print("Pinning " + details.requested.group + ":" + details.requested.name + "\n")
