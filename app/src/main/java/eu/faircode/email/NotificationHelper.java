@@ -968,6 +968,79 @@ class NotificationHelper {
 
             DB db = DB.getInstance(context);
 
+            if (message.content && notify_preview) {
+                // Android will truncate the text
+                String preview = message.preview;
+                if (notify_preview_all)
+                    try {
+                        File file = message.getFile(context);
+                        preview = HtmlHelper.getFullText(file);
+                        if (preview != null && preview.length() > MAX_PREVIEW)
+                            preview = preview.substring(0, MAX_PREVIEW);
+                    } catch (Throwable ex) {
+                        Log.e(ex);
+                    }
+
+                // Wearables
+                StringBuilder sb = new StringBuilder();
+                if (!TextUtils.isEmpty(message.subject))
+                    sb.append(TextHelper.normalizeNotification(context, message.subject));
+                if (wearable_preview && !TextUtils.isEmpty(preview)) {
+                    if (sb.length() > 0)
+                        sb.append(" - ");
+                    sb.append(TextHelper.normalizeNotification(context, preview));
+                }
+                if (sb.length() > 0)
+                    mbuilder.setContentText(sb.toString());
+
+                // Device
+                if (!notify_messaging) {
+                    StringBuilder sbm = new StringBuilder();
+
+                    if (message.keywords != null && BuildConfig.DEBUG)
+                        for (String keyword : message.keywords)
+                            if (keyword.startsWith("!"))
+                                sbm.append(Html.escapeHtml(keyword)).append(": ");
+
+                    if (!TextUtils.isEmpty(message.subject))
+                        sbm.append("<em>").append(Html.escapeHtml(message.subject)).append("</em>").append("<br>");
+
+                    if (!TextUtils.isEmpty(preview))
+                        sbm.append(Html.escapeHtml(preview));
+
+                    if (sbm.length() > 0) {
+                        NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
+                                .bigText(HtmlHelper.fromHtml(sbm.toString(), context));
+                        if (!TextUtils.isEmpty(message.subject))
+                            bigText.setSummaryText(message.subject);
+
+                        mbuilder.setStyle(bigText);
+                    }
+                }
+            } else {
+                if (!TextUtils.isEmpty(message.subject))
+                    mbuilder.setContentText(TextHelper.normalizeNotification(context, message.subject));
+            }
+
+            if (info[0].hasPhoto())
+                mbuilder.setLargeIcon(info[0].getPhotoBitmap());
+
+            if (info[0].hasLookupUri()) {
+                Person.Builder you = new Person.Builder()
+                        .setUri(info[0].getLookupUri().toString());
+                mbuilder.addPerson(you.build());
+            }
+
+            if (pro) {
+                Integer color = getColor(message);
+                if (color != null) {
+                    mbuilder.setColor(color);
+                    mbuilder.setColorized(true);
+                }
+            }
+
+            // Notification actions
+
             List<NotificationCompat.Action> wactions = new ArrayList<>();
 
             if (notify_trash &&
@@ -1200,77 +1273,6 @@ class NotificationHelper {
                 mbuilder.addAction(actionSnooze.build());
 
                 wactions.add(actionSnooze.build());
-            }
-
-            if (message.content && notify_preview) {
-                // Android will truncate the text
-                String preview = message.preview;
-                if (notify_preview_all)
-                    try {
-                        File file = message.getFile(context);
-                        preview = HtmlHelper.getFullText(file);
-                        if (preview != null && preview.length() > MAX_PREVIEW)
-                            preview = preview.substring(0, MAX_PREVIEW);
-                    } catch (Throwable ex) {
-                        Log.e(ex);
-                    }
-
-                // Wearables
-                StringBuilder sb = new StringBuilder();
-                if (!TextUtils.isEmpty(message.subject))
-                    sb.append(TextHelper.normalizeNotification(context, message.subject));
-                if (wearable_preview && !TextUtils.isEmpty(preview)) {
-                    if (sb.length() > 0)
-                        sb.append(" - ");
-                    sb.append(TextHelper.normalizeNotification(context, preview));
-                }
-                if (sb.length() > 0)
-                    mbuilder.setContentText(sb.toString());
-
-                // Device
-                if (!notify_messaging) {
-                    StringBuilder sbm = new StringBuilder();
-
-                    if (message.keywords != null && BuildConfig.DEBUG)
-                        for (String keyword : message.keywords)
-                            if (keyword.startsWith("!"))
-                                sbm.append(Html.escapeHtml(keyword)).append(": ");
-
-                    if (!TextUtils.isEmpty(message.subject))
-                        sbm.append("<em>").append(Html.escapeHtml(message.subject)).append("</em>").append("<br>");
-
-                    if (!TextUtils.isEmpty(preview))
-                        sbm.append(Html.escapeHtml(preview));
-
-                    if (sbm.length() > 0) {
-                        NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle()
-                                .bigText(HtmlHelper.fromHtml(sbm.toString(), context));
-                        if (!TextUtils.isEmpty(message.subject))
-                            bigText.setSummaryText(message.subject);
-
-                        mbuilder.setStyle(bigText);
-                    }
-                }
-            } else {
-                if (!TextUtils.isEmpty(message.subject))
-                    mbuilder.setContentText(TextHelper.normalizeNotification(context, message.subject));
-            }
-
-            if (info[0].hasPhoto())
-                mbuilder.setLargeIcon(info[0].getPhotoBitmap());
-
-            if (info[0].hasLookupUri()) {
-                Person.Builder you = new Person.Builder()
-                        .setUri(info[0].getLookupUri().toString());
-                mbuilder.addPerson(you.build());
-            }
-
-            if (pro) {
-                Integer color = getColor(message);
-                if (color != null) {
-                    mbuilder.setColor(color);
-                    mbuilder.setColorized(true);
-                }
             }
 
             // https://developer.android.com/training/wearables/notifications
