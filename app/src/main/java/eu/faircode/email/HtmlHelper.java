@@ -40,7 +40,6 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextDirectionHeuristics;
 import android.text.TextUtils;
-import android.text.format.DateUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.text.style.AlignmentSpan;
 import android.text.style.BackgroundColorSpan;
