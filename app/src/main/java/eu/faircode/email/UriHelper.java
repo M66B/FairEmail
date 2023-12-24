@@ -339,6 +339,7 @@ public class UriHelper {
         } else {
             Uri result = null;
 
+            // https://github.com/brave/adblock-lists/blob/master/brave-lists/debounce.json
             try (InputStream is = context.getAssets().open("debounce.json")) {
                 String json = Helper.readStream(is);
                 JSONArray jbounce = new JSONArray(json);
