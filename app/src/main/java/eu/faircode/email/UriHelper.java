@@ -44,6 +44,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class UriHelper {
@@ -347,8 +348,69 @@ public class UriHelper {
             }
             changed = (result != null && isHyperLink(result));
             url = (changed ? result : uri);
-        } else
-            url = uri;
+        } else {
+            Uri result = null;
+
+            try (InputStream is = context.getAssets().open("debounce.json")) {
+                String json = Helper.readStream(is);
+                JSONArray jbounce = new JSONArray(json);
+                for (int i = 0; i < jbounce.length(); i++) {
+                    JSONObject jitem = jbounce.getJSONObject(i);
+                    JSONArray jinclude = jitem.getJSONArray("include");
+                    JSONArray jexclude = jitem.getJSONArray("exclude");
+
+                    boolean include = false;
+                    for (int j = 0; j < jinclude.length(); j++)
+                        if (Pattern.matches(escapeStar(jinclude.getString(j)), uri.toString())) {
+                            include = true;
+                            break;
+                        }
+
+                    if (include)
+                        for (int j = 0; j < jexclude.length(); j++)
+                            if (Pattern.matches(escapeStar(jexclude.getString(j)), uri.toString())) {
+                                include = false;
+                                break;
+                            }
+
+                    if (include) {
+                        String action = jitem.getString("action");
+                        if ("redirect".equals(action) || "base64,redirect".equals(action)) {
+                            String name = jitem.getString("param");
+                            String param = uri.getQueryParameter(name);
+                            if (!TextUtils.isEmpty(param))
+                                try {
+                                    if ("base64,redirect".equals(action))
+                                        param = new String(Base64.decode(param, Base64.NO_PADDING));
+                                    result = Uri.parse(param);
+                                } catch (Throwable ex) {
+                                    Log.w(ex);
+                                }
+                        } else if ("regex-path".equals(action)) {
+                            String regex = jitem.getString("param");
+                            String prepend = jitem.optString("prepend_scheme");
+                            String path = uri.getPath();
+                            if (!TextUtils.isEmpty(path)) {
+                                Matcher m = Pattern.compile(regex).matcher(path);
+                                if (m.matches()) {
+                                    String param = m.group(1);
+                                    if (!TextUtils.isEmpty(prepend))
+                                        param = prepend + "://" + param;
+                                    result = Uri.parse(param);
+                                }
+                            }
+                        }
+                    }
+                    if (result != null)
+                        break;
+                }
+            } catch (Throwable ex) {
+                Log.e(ex);
+            }
+
+            changed = (result != null && isHyperLink(result));
+            url = (changed ? result : uri);
+        }
 
         if (!changed) {
             // Sophos Email Appliance

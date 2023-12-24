@@ -1,0 +1,469 @@
+[
+  {
+    "include": [
+      "*://g-o-media.digidip.net/visit?*",
+      "*://www.dpbolvw.net/click-*",
+      "*://www.tkqlhce.com/click-",
+      "*://backerkit.com/ahoy/messages/*/click?*",
+      "*://www.sopasti.com/anime.php?*",
+      "*://flake.creditcable.info/*",
+      "*://www.forocoches.com/link.php?*",
+      "*://mcpedl.com/leaving/?*",
+      "*://track.effiliation.com/servlet/effi.redir*",
+      "*://go.skimresources.com/*",
+      "*://shop-links.co/link*",
+      "*://www.jdoqocy.com/click-*",
+      "*://www.kqzyfj.com/click-*",
+      "*://www.pjtra.com/t/*",
+      "*://*.narrativ.com/api/v0/client_redirect/*",
+      "*://c.pepperjamnetwork.com/click*",
+      "*://*.avantlink.com/click.php?*",
+      "*://*.pjatr.com/t/*",
+      "*://www.pntrs.com/t/*",
+      "*://*.nordstrom.com/Linkshare?*",
+      "*://pj.nutribullet.com/t/*",
+      "*://www.gopjn.com/t/*",
+      "*://pvn.mediamarkt.de/trck/eclick/*",
+      "*://pvn.saturn.de/trck/eclick/*",
+      "*://api.bam-x.com/api/v1/clickmate/*",
+      "*://go.redirectingat.com/*",
+      "*://x.chip.de/linktrack/button/*",
+      "*://*.mailchimp.com/mctx/clicks?*",
+      "*://*.tradedoubler.com/click?*",
+      "*://cc.techbargains.com/v1/otc/*",
+      "*://www.anrdoezrs.net/click-*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "url"
+  },
+  {
+    "include": [
+      "*://t.cfjump.com/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "Url"
+  },
+  {
+    "include": [
+      "*://app.hive.co/email/elt/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "next"
+  },
+  {
+    "include": [
+      "*://redir.tradedoubler.com/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "_td_deeplink"
+  },
+  {
+    "include": [
+      "*://www.zenaps.com/rclick.php*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "pr"
+  },
+  {
+    "include": [
+      "*://www.clixgalore.com/Lead.aspx*"
+    ],
+    "exclude": [
+    ],
+    "prepend_scheme": "http",
+    "action": "redirect",
+    "param": "AffDirectURL"
+  },
+  {
+    "include": [
+      "*://www.clixgalore.com/Lead.aspx*"
+    ],
+    "exclude": [
+    ],
+    "prepend_scheme": "http",
+    "action": "redirect",
+    "param": "LP"
+  },
+  {
+    "include": [
+      "*://rd.bizrate.com/rd2?*",
+      "*://rd.connexity.net/rd?*",
+      "*://rd.bizrate.com/rd?*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "t"
+  },
+  {
+    "include": [
+      "*://ad.atdmt.com/s/go;*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "h"
+  },
+  {
+    "include": [
+      "*://*.demdex.net/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "d_rd"
+  },
+  {
+    "include": [
+      "*://www.awin1.com/cread.php?*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "ued"
+  },
+  {
+    "include": [
+      "*://www.awin1.com/cread.php?*",
+      "*://www.awin1.com/awclick.php?*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "p"
+  },
+  {
+    "include": [
+      "*://*.getprice.com.au/prodhits.aspx?*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "link"
+  },
+  {
+    "include": [
+      "*://www.shareasale.com/r.cfm?*",
+      "*://shareasale.com/r.cfm?*",
+      "*://www.shareasale-analytics.com/r.cfm?*",
+      "*://shareasale-analytics.com/r.cfm?*"
+   ],
+   "exclude": [
+   ],
+   "prepend_scheme": "https",
+   "action": "redirect",
+   "param": "urllink"
+  },
+  {
+    "include": [
+      "*://click.icptrack.com/icp/relay.php*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "destination"
+  },
+  {
+    "include": [
+      "*://cat.criteo.com/beacon?*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "dest"
+  },
+  {
+    "include": [
+      "*://*.uikc.net/c/*",
+      "*://*.ztk5.net/*",
+      "*://*.rg35.net/*",
+      "*://sherlock.scribblelive.com/r?*",
+      "*://*.engage.squarespace-mail.com/r?*",
+      "*://engage.squarespace-mail.com/r?*",
+      "*://goto.target.com/c/*",
+      "*://goto.walmart.com/c/*",
+      "*://*.sjv.io/c/*",
+      "*://*.8ocm68.net/c/*",
+      "*://*.xovt.net/c/*",
+      "*://*.i114863.net/c/*",
+      "*://*.58dp.net/c/*",
+      "*://*.pxf.io/c/*",
+      "*://*.7tiv.net/c/*",
+      "*://*.5ad6.net/c/*",
+      "*://*.q77h.net/c/*",
+      "*://*.3uu8.net/c/*",
+      "*://*.uxsi.net/c/*",
+      "*://*.njih.net/c/*",
+      "*://*.pdy5.net/c/*",
+      "*://*.igs4ds.net/c/*",
+      "*://*.mvvx.net/c/*",
+      "*://*.xwrk.net/c/*",
+      "*://*.fziv.net/c/*",
+      "*://*.lvuv.net/c/*",
+      "*://*.xibx.net/c/*",
+      "*://*.attfm2.net/c/*",
+      "*://*.tkjf.net/c/*",
+      "*://deeplink-bh.datafeedfile.com/sl/*",
+      "*://deeplink-bh.datafeedfile.com/sl?*",
+      "*://*.a9yw.net/c/*",
+      "*://*.pfm4.net/c/*",
+      "*://*.i254217.net/c/*",
+      "*://*.i182465.net/c/*",
+      "*://*.vthnbx.net/c/*",
+      "*://*.ryvx.net/c/*",
+      "*://*.7eer.net/c/*",
+      "*://microsoft.msafflnk.net/c/*",
+      "*://*.i312864.net/c/*",
+      "*://*.tmfhgn.net/c/*",
+      "*://*.obak77.net/c/*",
+      "*://*.yvzx.net/c/*",
+      "*://goto.carters.com/c/*",
+      "*://*.ioym.net/c/*",
+      "*://*.ntaf.net/c/*",
+      "*://*.zlwlj8.net/c/*",
+      "*://*.uvwgb9.net/c/*",
+      "*://*.3anx.net/c/*",
+      "*://*.rrmo.net/c/*",
+      "*://*.i308314.net/c/*",
+      "*://*.uqhv.net/c/*",
+      "*://*.vzew.net/c/*",
+      "*://*.qflm.net/c/*",
+      "*://*.rfvk.net/c/*",
+      "*://redirect.viglink.com/*",
+      "*://*.am3t9s.net/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "u"
+  },
+  {
+    "include": [
+      "*://ck.jp.ap.valuecommerce.com/servlet/referral?*",
+      "*://atrrd.valuecommerce.com/resolve/*",
+      "*://*.valuecommerce.ne.jp/cgi-bin/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "vc_url"
+  },
+  {
+    "include": [
+      "*://target.georiot.com/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "GR_URL"
+  },
+  {
+    "include": [
+      "*://click.linksynergy.com/deeplink*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "murl"
+  },
+  {
+    "include": [
+      "*://*.ouo.today/*"
+    ],
+    "exclude": [
+    ],
+    "action": "base64,redirect",
+    "param": "cr"
+  },
+  {
+    "include": [
+      "*://www.ojrq.net/p/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "return"
+  },
+  {
+    "include": [
+      "*://d.agkn.com/pixel/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "l1"
+  },
+  {
+    "include": [
+      "*://t.mailpgn.com/l/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "fl"
+  },
+  {
+    "include": [
+      "*://jsv3.recruitics.com/redirect?*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "rx_url"
+  },
+  {
+    "include": [
+      "*://app.adjust.com/*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "redirect"
+  },
+  {
+    "include": [
+      "*://pvn.mediamarkt.de/trck/eclick/*"
+    ],
+    "exclude": [
+    ],
+    "action": "base64,redirect",
+    "param": "url64fb"
+  },
+  {
+    "include": [
+      "*://www.googleadservices.com/pagead/aclk?*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "adurl"
+  },
+  {
+    "include": [
+      "*://*.lt.acemlna.com/Prod/link-tracker?*",
+      "*://*.lt.acemlnb.com/Prod/link-tracker?*",
+      "*://*.lt.acemlnc.com/Prod/link-tracker?*",
+      "*://*.lt.acemlnd.com/Prod/link-tracker?*",
+      "*://*.lt.emlnk.com/Prod/link-tracker?*",
+      "*://*.lt.emlnk1.com/Prod/link-tracker?*",
+      "*://*.lt.emlnk2.com/Prod/link-tracker?*",
+      "*://*.lt.emlnk3.com/Prod/link-tracker?*",
+      "*://*.lt.emlnk4.com/Prod/link-tracker?*",
+      "*://*.lt.emlnk5.com/Prod/link-tracker?*",
+      "*://*.lt.emlnk6.com/Prod/link-tracker?*",
+      "*://*.lt.emlnk7.com/Prod/link-tracker?*",
+      "*://*.lt.emlnk8.com/Prod/link-tracker?*",
+      "*://*.lt.emlnk9.com/Prod/link-tracker?*",
+      "*://*.bluelena.io/Prod/link-tracker?*",
+      "*://*.golfbacksolutions.com/Prod/link-tracker?*",
+      "*://*.prospect2.com/Prod/link-tracker?*"
+    ],
+    "exclude": [
+    ],
+    "action": "base64,redirect",
+    "param": "redirectUrl"
+  },
+  {
+    "include": [
+      "*://*.cdn.ampproject.org/c/s/*"
+    ],
+    "pref": "brave.de_amp.enabled",
+    "exclude": [
+    ],
+    "prepend_scheme": "https",
+    "action": "regex-path",
+    "param": "^/c/s/(.*)$"
+  },
+  {
+    "include": [
+      "*://click.redditmail.com/*"
+    ],
+    "exclude": [
+    ],
+    "action": "regex-path",
+    "param": "^/CL0/([^/]+)/.*$"
+  },
+  {
+    "include": [
+      "*://streaklinks.com/*"
+    ],
+    "exclude": [
+    ],
+    "action": "regex-path",
+    "param": "^/[^/]+/(.*)$"
+  },
+  {
+    "include": [
+      "*://*.turbopages.org/*/s/*"
+    ],
+    "pref": "brave.de_amp.enabled",
+    "exclude": [
+    ],
+    "prepend_scheme": "https",
+    "action": "regex-path",
+    "param": "^/([^/]+)/s(/.*)$"
+  },
+  {
+    "include": [
+      "*://www.google.com/amp/s/*"
+    ],
+    "pref": "brave.de_amp.enabled",
+    "exclude": [
+    ],
+    "prepend_scheme": "https",
+    "action": "regex-path",
+    "param": "^/amp/s/(.*)$"
+  },
+  {
+    "include": [
+      "https://dev-pages.brave.software/navigation-tracking/error.html?*",
+      "https://dev-pages.bravesoftware.com/navigation-tracking/error.html?*"
+    ],
+    "exclude": [
+    ],
+    "action": "redirect",
+    "param": "brave_testing"
+  },
+  {
+    "include": [
+      "https://dev-pages.brave.software/navigation-tracking/error.html?*",
+      "https://dev-pages.bravesoftware.com/navigation-tracking/error.html?*"
+    ],
+    "exclude": [
+    ],
+    "action": "base64,redirect",
+    "param": "brave_testing_base64"
+  },
+  {
+    "include": [
+      "https://dev-pages.brave.software/navigation-tracking/regex-multiple-capture-groups/*",
+      "https://dev-pages.bravesoftware.com/navigation-tracking/regex-multiple-capture-groups/*"
+    ],
+    "exclude": [
+    ],
+    "prepend_scheme": "https",
+    "action": "regex-path",
+    "param": "^/navigation-tracking/regex-multiple-capture-groups/(.*)/test/(.*);.html$"
+  },
+  {
+    "include": [
+      "https://dev-pages.brave.software/navigation-tracking/*",
+      "https://dev-pages.bravesoftware.com/navigation-tracking/*"
+    ],
+    "exclude": [
+    ],
+    "prepend_scheme": "https",
+    "action": "regex-path",
+    "param": "^/navigation-tracking/(.*);.html$"
+  }
+]
