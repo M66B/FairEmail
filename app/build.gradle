@@ -417,6 +417,22 @@ task downloadPSL(type: Download) {
     overwrite true
 }
 
+task downloadBraveClean(type: Download) {
+    src "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/clean-urls.json"
+    dest "src/main/assets"
+    overwrite true
+}
+
+task downloadBraveDebouce(type: Download) {
+    src "https://raw.githubusercontent.com/brave/adblock-lists/master/brave-lists/debounce.json"
+    dest "src/main/assets"
+    overwrite true
+}
+
+task downloadBrave() {
+    dependsOn("downloadBraveClean", "downloadBraveDebouce")
+}
+
 task extractSignature(type: Exec) {
     workingDir "${rootDir}"
     // sudo apt install apksigcopier
