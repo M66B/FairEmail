@@ -224,7 +224,7 @@ public class FragmentDialogJunk extends FragmentDialogBase {
         ibInfoBlocklist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.viewFAQ(v.getContext(), 168, true);
+                Helper.viewFAQ(v.getContext(), 168);
             }
         });
 

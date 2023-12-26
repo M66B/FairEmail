@@ -418,7 +418,7 @@ public class DeepL {
             ibInfo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Helper.viewFAQ(v.getContext(), 167, true);
+                    Helper.viewFAQ(v.getContext(), 167);
                 }
             });
 

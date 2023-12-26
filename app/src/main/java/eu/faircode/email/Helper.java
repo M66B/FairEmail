@@ -1275,7 +1275,7 @@ public class Helper {
         viewFAQ(context, question, true /* Google translate */);
     }
 
-    static void viewFAQ(Context context, int question, boolean english) {
+    private static void viewFAQ(Context context, int question, boolean english) {
         // Redirection is done to prevent text editors from opening the link
         // https://email.faircode.eu/faq -> https://github.com/M66B/FairEmail/blob/master/FAQ.md
         // https://email.faircode.eu/docs -> https://github.com/M66B/FairEmail/tree/master/docs
