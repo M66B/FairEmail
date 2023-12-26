@@ -92,8 +92,8 @@
         Att blockera en avsändardomän använder filterregler, vilket är en pro-funktion.
     </string>
     <string name="title_blocked_senders">Blockerade avsändare</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Avblockera alla</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Detta kommer att återställa alla listor och alternativ som kan resultera i blockering av avsändare</string>
+    <string name="title_unblock_all">Avblockera alla</string>
+    <string name="title_unblock_all_remark">Detta kommer att återställa alla listor och alternativ som kan resultera i blockering av avsändare</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blockera avsändare av %1$s meddelande?</item>
         <item quantity="other">Blockera avsändare av %1$s meddelanden?</item>

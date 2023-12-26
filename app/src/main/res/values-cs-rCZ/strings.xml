@@ -114,8 +114,8 @@
         Blokování domény odesílatele používá pravidla filtru, což je Pro funkce.
     </string>
     <string name="title_blocked_senders">Zablokovaní odesílatelé</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Odblokovat vše</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Tímto resetujete všechny seznamy a možnosti, které mohou mít za následek blokování odesílatelů</string>
+    <string name="title_unblock_all">Odblokovat vše</string>
+    <string name="title_unblock_all_remark">Tímto resetujete všechny seznamy a možnosti, které mohou mít za následek blokování odesílatelů</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokovat odesílatele %1$s zprávy?</item>
         <item quantity="few">Blokovat odesílatele %1$s zpráv?</item>
@@ -889,6 +889,7 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_advanced_wearable_hint">Oznámení jsou do nositelného zařízení odeslány teprve po stažení textu zprávy</string>
     <string name="title_advanced_messaging_hint">Vyžadováno pro podporu Android Auto</string>
     <string name="title_advanced_move_hint">Cílovou složku lze změnit v nastavení účtu</string>
+    <string name="title_advanced_notify_sensitive_hint">Vyžaduje vypnutí citlivých oznámení v nastavení Androidu</string>
     <string name="title_advanced_notify_no_grouping">Tato verze Androidu nepodporuje seskupování oznámení</string>
     <string name="title_advanced_notify_no_channels">Tato verze Androidu nepodporuje kanály oznámení</string>
     <string name="title_advanced_fts_hint">Povolením se zlepší výkon vyhledávání, ale také se zvýší využití baterie a místa v úložišti</string>

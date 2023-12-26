@@ -81,8 +81,8 @@
         差出人のドメインをブロックするにはフィルタールールを使用します。これはプロの機能です。
     </string>
     <string name="title_blocked_senders">ブロックした差出人</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">すべてブロック解除</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">送信者をブロックするリストとオプションをすべてリセットします</string>
+    <string name="title_unblock_all">すべてブロック解除</string>
+    <string name="title_unblock_all_remark">送信者をブロックするリストとオプションをすべてリセットします</string>
     <plurals name="title_ask_block_sender">
         <item quantity="other">メッセージ %1$s 通の差出人をブロックしますか？</item>
     </plurals>
@@ -100,7 +100,7 @@
     <string name="title_notification_sending">メールを送信中</string>
     <string name="title_notification_waiting">接続を待機しています</string>
     <string name="title_notification_idle">待機</string>
-    <string name="title_notification_failed">%1$s エラーが発生しました</string>
+    <string name="title_notification_failed">\'%1$s\' エラーが発生しました</string>
     <string name="title_notification_alert">サーバーの警告: %1$s</string>
     <string name="title_notification_sending_left">残りの試行回数: %1$d</string>
     <string name="title_notification_sending_retry">インターネット接続が変更されるか、送信トレイをプルダウンすると送信が再試行されます</string>
@@ -1231,7 +1231,7 @@
     <string name="title_reply_template">テンプレートで返信</string>
     <string name="title_reply_menu">選択メニューを表示</string>
     <string name="title_move_undo">%1$s に移動しました (%2$d)</string>
-    <string name="title_authentication_failed">%1$s の認証に失敗しました</string>
+    <string name="title_authentication_failed">%1$s 認証に失敗しました</string>
     <string name="title_on_blocklist">迷惑メールブロックリストにあります</string>
     <string name="title_receipt_subject">開封確認メッセージ: %1$s</string>
     <string name="title_receipt_text">この開封確認メッセージはメッセージが表示されたことを知らせるものです。受信者がメッセージを読んだことを保証するものではありません。</string>

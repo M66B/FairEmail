@@ -92,8 +92,8 @@
         Bloquer un domaine expéditeur utilise une règle de filtrage qui est une fonctionnalité Pro.
     </string>
     <string name="title_blocked_senders">Expéditeurs bloqués</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Tout débloquer</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Ceci réinitialisera toutes les listes et options pouvant provoquer le blocage des expéditeurs</string>
+    <string name="title_unblock_all">Tout débloquer</string>
+    <string name="title_unblock_all_remark">Ceci réinitialisera toutes les listes et options pouvant provoquer le blocage des expéditeurs</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloquer l\'expéditeur de %1$s message?</item>
         <item quantity="other">Bloquer l\'expéditeur de %1$s messages?</item>
@@ -862,6 +862,7 @@
     <string name="title_advanced_wearable_hint">Les notifications ne sont envoyées à un appareil connecté qu’après le téléchargement du texte du message</string>
     <string name="title_advanced_messaging_hint">Ceci est nécessaire pour la prise en charge d\'Android Auto</string>
     <string name="title_advanced_move_hint">Le dossier de destination peut être configuré dans les paramètres du compte</string>
+    <string name="title_advanced_notify_sensitive_hint">Nécessite la désactivation des notifications sensibles dans les paramètres d\'Android</string>
     <string name="title_advanced_notify_no_grouping">Cette version d’Android ne prend pas en charge le regroupement de notifications</string>
     <string name="title_advanced_notify_no_channels">Cette version d’Android ne prend pas en charge les canaux de notification</string>
     <string name="title_advanced_fts_hint">Activer ceci améliore les performances de la recherche mais augmente également l’utilisation de la pile et de l’espace de stockage</string>

@@ -114,8 +114,8 @@
         Blokowanie domeny nadawcy używa zasad filtrowania, co jest funkcją Pro.
     </string>
     <string name="title_blocked_senders">Zablokowani nadawcy</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Odblokuj wszystkich</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Spowoduje to zresetowanie wszystkich list i opcji, które mogłyby skutkować zablokowaniem nadawców</string>
+    <string name="title_unblock_all">Odblokuj wszystkich</string>
+    <string name="title_unblock_all_remark">Spowoduje to zresetowanie wszystkich list i opcji, które mogłyby skutkować zablokowaniem nadawców</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Zablokować nadawcę %1$s wiadomości?</item>
         <item quantity="few">Zablokować nadawcę %1$s wiadomości?</item>
@@ -888,6 +888,7 @@
     <string name="title_advanced_wearable_hint">Powiadomienia są wysyłane na urządzenie do noszenia tylko po pobraniu treści wiadomości</string>
     <string name="title_advanced_messaging_hint">Jest to wymagane dla wsparcia Android Auto</string>
     <string name="title_advanced_move_hint">Folder docelowy można skonfigurować w ustawieniach konta</string>
+    <string name="title_advanced_notify_sensitive_hint">Wymaga wyłączenia wrażliwych powiadomień w ustawieniach Androida</string>
     <string name="title_advanced_notify_no_grouping">Ta wersja Androida nie obsługuje grupowania powiadomień</string>
     <string name="title_advanced_notify_no_channels">Ta wersja Androida nie obsługuje kanałów powiadomień</string>
     <string name="title_advanced_fts_hint">Włączenie tej opcji poprawia wydajność wyszukiwania, ale także zwiększa zużycie baterii i przestrzeni dyskowej</string>

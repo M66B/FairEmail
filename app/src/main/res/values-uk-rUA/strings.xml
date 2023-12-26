@@ -114,8 +114,8 @@
         Блокування домену відправника використовує правила фільтрів, які є функцією професійної версії.
     </string>
     <string name="title_blocked_senders">Заблоковані відправники</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Розблокувати всіх</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Це призведе до скидання всіх списків і опцій, що може призвести до блокування відправників</string>
+    <string name="title_unblock_all">Розблокувати всіх</string>
+    <string name="title_unblock_all_remark">Це призведе до скидання всіх списків і опцій, що може призвести до блокування відправників</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Заблокувати відправника %1$s повідомлення?</item>
         <item quantity="few">Заблокувати відправників %1$s повідомлень?</item>
@@ -888,6 +888,7 @@
     <string name="title_advanced_wearable_hint">Сповіщення надсилаються до пристрою тільки після завантаження тексту</string>
     <string name="title_advanced_messaging_hint">Це необхідно для підтримки Android Auto</string>
     <string name="title_advanced_move_hint">Цільову теку можна налаштувати у налаштуваннях облікового запису</string>
+    <string name="title_advanced_notify_sensitive_hint">Потребує вимкнення конфіденційних сповіщень у налаштуваннях Android</string>
     <string name="title_advanced_notify_no_grouping">Ця версія Android не підтримує групування сповіщень</string>
     <string name="title_advanced_notify_no_channels">Ця версія Android не підтримує канали сповіщень</string>
     <string name="title_advanced_fts_hint">Увімкнення цієї функції покращує продуктивність пошуку, але також збільшує використання батареї та потребує більше місця для зберігання</string>

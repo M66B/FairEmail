@@ -92,8 +92,8 @@
         O bloqueio de nomes de domínio dos remetentes utiliza regras de filtragem, o que é uma funcionalidade paga.
     </string>
     <string name="title_blocked_senders">Remetentes bloqueados</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Desbloquear todos</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Isto redefinirá todas as listas e opções que podem resultar no bloqueio de remetentes</string>
+    <string name="title_unblock_all">Desbloquear todos</string>
+    <string name="title_unblock_all_remark">Isto redefinirá todas as listas e opções que podem resultar no bloqueio de remetentes</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloquear o remetente de %1$s mensagem?</item>
         <item quantity="other">Bloquear o remetente de %1$s mensagens?</item>
@@ -862,6 +862,7 @@
     <string name="title_advanced_wearable_hint">As notificações apenas são enviadas para um dispositivo móvel (wearable) após a mensagem de texto ter sido transferida</string>
     <string name="title_advanced_messaging_hint">Isto é necessário para suporte ao Android Auto</string>
     <string name="title_advanced_move_hint">A pasta de destino pode ser configurada nas definições de conta</string>
+    <string name="title_advanced_notify_sensitive_hint">Requer a desativação de notificações confidenciais nas configurações do Android</string>
     <string name="title_advanced_notify_no_grouping">Esta versão do Android não suporta agrupamento de notificações</string>
     <string name="title_advanced_notify_no_channels">Esta versão do Android não suporta canais de notificação</string>
     <string name="title_advanced_fts_hint">Activar esta função melhora o desempenho da pesquisa, porém aumenta o consumo de bateria e a utilização de espaço do armazenamento</string>

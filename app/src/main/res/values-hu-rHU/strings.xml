@@ -91,8 +91,8 @@
         Egy küldő domain letiltása szűrőszabályokat használ, ami pro funkció.
     </string>
     <string name="title_blocked_senders">Tiltott küldők</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Összes tiltás feloldása</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Így minden listát és beállítást, mellyel feladókat tilthat le, alaphelyzetbe állít</string>
+    <string name="title_unblock_all">Összes tiltás feloldása</string>
+    <string name="title_unblock_all_remark">Így minden listát és beállítást, mellyel feladókat tilthat le, alaphelyzetbe állít</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Letiltja az üzenet küldőjét?</item>
         <item quantity="other">Letiltja az %1$s üzenet küldőjét?</item>
@@ -858,6 +858,7 @@
     <string name="title_advanced_wearable_hint">Az értesítések csak az üzenetszöveg letöltése után kerülnek elküldésre a hordhatónak</string>
     <string name="title_advanced_messaging_hint">Ez szükséges Android Auto támogatáshoz</string>
     <string name="title_advanced_move_hint">A célmappa szerkeszthető a fiók beállításai között</string>
+    <string name="title_advanced_notify_sensitive_hint">A bizalmas értesítések letiltását igényli az Android beállításaiban</string>
     <string name="title_advanced_notify_no_grouping">Ez az Android verzió nem támogatja az értesítések csoportosítását</string>
     <string name="title_advanced_notify_no_channels">Ez az Android verzió nem támogatja az értesítés csatornákat</string>
     <string name="title_advanced_fts_hint">Bekapcsolása javítja a keresés sebességét, a tárhely- és akkumulátorhasználat kárára</string>

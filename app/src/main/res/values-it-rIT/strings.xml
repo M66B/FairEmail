@@ -92,8 +92,8 @@
         Il blocco del dominio di un mittente usa le regole del filtro, una funzionalità pro.
     </string>
     <string name="title_blocked_senders">Mittenti bloccati</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Sblocca tutti</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Questo ripristinerà tutte le liste e opzioni che potrebbero causare il blocco dei mittenti</string>
+    <string name="title_unblock_all">Sblocca tutti</string>
+    <string name="title_unblock_all_remark">Questo ripristinerà tutti gli elenchi e le opzioni che potrebbero risultare nel blocco dei mittenti</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Bloccare il mittente di %1$s messaggio?</item>
         <item quantity="other">Bloccare il mittente di %1$s messaggi?</item>
@@ -862,6 +862,7 @@
     <string name="title_advanced_wearable_hint">Le notifiche sono inviate a un indossabile solo dopo che il testo del messaggio è stato scaricato</string>
     <string name="title_advanced_messaging_hint">Questo è necessario per il supporto di Android Auto</string>
     <string name="title_advanced_move_hint">La cartella di destinazione è configurabile nelle impostazioni del profilo</string>
+    <string name="title_advanced_notify_sensitive_hint">Richiede la disabilitazione delle notifiche sensibili nelle impostazioni di Android</string>
     <string name="title_advanced_notify_no_grouping">Questa versione di Android non supporta il raggruppamento delle notifiche</string>
     <string name="title_advanced_notify_no_channels">Questa versione di Android non supporta i canali di notifica</string>
     <string name="title_advanced_fts_hint">Abilitarlo migliora le prestazioni di ricerca, ma aumenta anche l\'uso della batteria e dello spazio di archiviazione</string>

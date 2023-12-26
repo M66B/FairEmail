@@ -114,8 +114,8 @@
         Блокировка домена отправителя использует фильтрующие правила, которые являются функцией pro.
     </string>
     <string name="title_blocked_senders">Заблокированные отправители</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Разблокировать всех</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Будут сброшены все списки и параметры, выполняющие блокировку отправителей</string>
+    <string name="title_unblock_all">Разблокировать всех</string>
+    <string name="title_unblock_all_remark">Будут сброшены все списки и параметры, выполняющие блокировку отправителей</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Заблокировать отправителя %1$s сообщения?</item>
         <item quantity="few">Заблокировать отправителя %1$s сообщений?</item>
@@ -433,7 +433,7 @@
     <string name="title_advanced_write_below">Писать под текстом отправителя</string>
     <string name="title_advanced_quote_reply">Цитировать текст при ответе</string>
     <string name="title_advanced_limit_reply">Ограничивать количество вложенных кавычек</string>
-    <string name="title_advanced_resize_reply">Менять размер изображений в ответе</string>
+    <string name="title_advanced_resize_reply">Изменять размер изображений в ответе</string>
     <string name="title_advanced_resize_paste">Изменять размер вставляемых изображений</string>
     <string name="title_advanced_signature_location">Расположение подписи</string>
     <string name="title_advanced_signature_new">Использовать подпись для новых сообщений</string>
@@ -889,6 +889,7 @@
     <string name="title_advanced_wearable_hint">Уведомления на носимое устройство отправляются только после загрузки текста сообщения</string>
     <string name="title_advanced_messaging_hint">Требуется поддержка Android Auto</string>
     <string name="title_advanced_move_hint">Целевая папка может быть указана в настройках учётной записи</string>
+    <string name="title_advanced_notify_sensitive_hint">Требуется отключить конфиденциальные уведомления в настройках Android</string>
     <string name="title_advanced_notify_no_grouping">Эта версия Android не поддерживает группировку уведомлений</string>
     <string name="title_advanced_notify_no_channels">Эта версия Android не поддерживает каналы уведомлений</string>
     <string name="title_advanced_fts_hint">Включение улучшит скорость поиска, но также увеличит расход батареи и занимаемое место в хранилище</string>

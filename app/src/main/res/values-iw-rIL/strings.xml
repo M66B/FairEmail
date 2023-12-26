@@ -114,8 +114,8 @@
         חסימת שם תחום כמען משתמשת בכללי סינון, שזאת יכולת למנויי פרו.
     </string>
     <string name="title_blocked_senders">שולחים חסומים</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">שחרור של הכול</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">פעולה זו תאפס את כל הרשימות והאפשרויות שיכולות לגרום לחסימת מוענים</string>
+    <string name="title_unblock_all">שחרור של הכול</string>
+    <string name="title_unblock_all_remark">פעולה זו תאפס את כל הרשימות והאפשרויות שיכולות לגרום לחסימת מוענים</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">לחסום את מוען ההודעה?</item>
         <item quantity="two">לחסום את מוען %1$s ההודעות?</item>
@@ -889,6 +889,7 @@
     <string name="title_advanced_wearable_hint">התראות נשלחות להתקנים לבישים רק לאחר שתוכן ההודעה התקבל</string>
     <string name="title_advanced_messaging_hint">נחוץ לתמיכה ב־Android Auto</string>
     <string name="title_advanced_move_hint">ניתן להגדיר את תיקיית היעד בהגדרות החשבון</string>
+    <string name="title_advanced_notify_sensitive_hint">דורש השבתת התראות רגישות בהגדרות ה־Android</string>
     <string name="title_advanced_notify_no_grouping">גרסת Android זו אינה תומכת בקיבוץ התראות</string>
     <string name="title_advanced_notify_no_channels">גרסת Android זו אינה תומכת בערוצי התראות</string>
     <string name="title_advanced_fts_hint">הפעלת אפשרות זו משפרת את ביצועי החיפוש אך גם מגדילה את ניצולת הסוללה ואחסון</string>

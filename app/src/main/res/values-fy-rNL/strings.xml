@@ -90,6 +90,8 @@
     <string name="title_block_sender_hint">It blokkearjen fan in ôfstjoerder is in fergeze funksje.
 It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in pro-funksje is.    </string>
     <string name="title_blocked_senders">Blokkearre ôfstjoerders</string>
+    <string name="title_unblock_all">Alle deblokkearje</string>
+    <string name="title_unblock_all_remark">Dit sil alle listen en opsjes, dy\'t resultearje kinne yn it blokkearjen fan de ôfstjoerders, werstelle</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Ofstjoerder fan %1$s berjocht blokkearje?</item>
         <item quantity="other">Ofstjoerder fan %1$s berjochten blokkearje?</item>

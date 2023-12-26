@@ -92,8 +92,8 @@
         Afsenderdomæneblokering sker via filterregler og er en Pro-funktion.
     </string>
     <string name="title_blocked_senders">Blokerede afsendere</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Afblokér alle</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Dette nulstiller alle lister og indstillinger, som potentielt kan blokere afsendere</string>
+    <string name="title_unblock_all">Afblokér alle</string>
+    <string name="title_unblock_all_remark">Dette nulstiller alle lister og indstillinger, som potentielt kan blokere afsendere</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokér afsenderen af %1$s besked?</item>
         <item quantity="other">Blokér afsenderen af %1$s beskeder?</item>
@@ -862,6 +862,7 @@
     <string name="title_advanced_wearable_hint">Notifikationer sendes kun til en wearable, når beskedteksten er blevet downloadet</string>
     <string name="title_advanced_messaging_hint">Dette kræves til Android Auto-understøttelse</string>
     <string name="title_advanced_move_hint">Målmappen kan opsættes i kontoindstillingerne</string>
+    <string name="title_advanced_notify_sensitive_hint">Kræver deaktivering af sensitive notifikationer i Android-indstillingerne</string>
     <string name="title_advanced_notify_no_grouping">Denne Android-version understøtter ikke notifikationsgruppering</string>
     <string name="title_advanced_notify_no_channels">Denne Android-version understøtter ikke notifikationskanaler</string>
     <string name="title_advanced_fts_hint">Aktivering af dette forøger søgeydelsen, men forøge også batteri- og lagerpladsforbruget</string>

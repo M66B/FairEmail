@@ -92,6 +92,8 @@
         Ο αποκλεισμός ενός τομέα αποστολέα χρησιμοποιεί κανόνες φιλτραρίσματος, κάτι που αποτελεί δυνατότητα της έκδοσης Pro.
     </string>
     <string name="title_blocked_senders">Αποκλεισμένοι αποστολείς</string>
+    <string name="title_unblock_all">Άρση αποκλεισμού για όλους</string>
+    <string name="title_unblock_all_remark">Θα επαναφέρει όλες τις λίστες και τις επιλογές που θα μπορούσαν να οδηγήσουν σε αποκλεισμό αποστολέων</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Αποκλεισμός αποστολέα του %1$s μηνύματος;</item>
         <item quantity="other">Αποκλεισμός αποστολέα των %1$s μηνυμάτων;</item>
@@ -439,6 +441,7 @@
     <string name="title_advanced_ssl_harden">Θωράκιση συνδέσεων SSL</string>
     <string name="title_advanced_ssl_harden_strict">Απαιτείται TLS 1.3</string>
     <string name="title_advanced_cert_strict">Αυστηρός έλεγχος πιστοποιητικών</string>
+    <string name="title_advanced_check_names">Να ελέγχεται αν το όνομα του εξυπηρετητή ταιριάζει με το πιστοποιητικό του εξυπηρετητή</string>
     <string name="title_advanced_open_safe">Άνοιγμα ασφαλών συνδέσεων μόνο</string>
     <string name="title_advanced_http_redirect">Να επιτρέπεται η ανακατεύθυνση σύνδεσης</string>
     <string name="title_advanced_bouncy_castle">Χρήση του παρόχου ασφαλών socket Bouncy Castle (JSSE)</string>
@@ -855,6 +858,7 @@
     <string name="title_advanced_wearable_hint">Οι ειδοποιήσεις αποστέλλονται σε μια φορετή συσκευή μόνον αφού το κείμενο του μηνύματος έχει κατέβει</string>
     <string name="title_advanced_messaging_hint">Απαιτείται για την υποστήριξη του Android Auto</string>
     <string name="title_advanced_move_hint">Μπορείτε να ρυθμίσετε τον φάκελο προορισμού στις ρυθμίσεις του λογαριασμού</string>
+    <string name="title_advanced_notify_sensitive_hint">Απαιτεί απενεργοποίηση των ευαίσθητων ειδοποιήσεων στις ρυθμίσεις του Android</string>
     <string name="title_advanced_notify_no_grouping">Αυτή η έκδοση του Android δεν υποστηρίζει ομαδοποίηση ειδοποιήσεων</string>
     <string name="title_advanced_notify_no_channels">Αυτή η έκδοση του Android δεν υποστηρίζει κανάλια ειδοποιήσεων</string>
     <string name="title_advanced_fts_hint">Αν ενεργοποιηθεί, βελτιώνεται η απόδοση της αναζήτησης, αλλά αυξάνονται επίσης η χρήση της μπαταρίας και του αποθηκευτικού χώρου</string>

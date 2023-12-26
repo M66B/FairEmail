@@ -81,8 +81,8 @@
         Memblokir domain pengirim menggunakan aturan saring, yang merupakan fitur pro.
     </string>
     <string name="title_blocked_senders">Pengirim yang diblokir</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Buka semua blokir</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Ini akan mengatur ulang semua daftar dan opsi yang dapat mengakibatkan pemblokiran pengirim</string>
+    <string name="title_unblock_all">Buka semua blokir</string>
+    <string name="title_unblock_all_remark">Ini akan mengatur ulang semua daftar dan opsi yang dapat mengakibatkan pemblokiran pengirim</string>
     <plurals name="title_ask_block_sender">
         <item quantity="other">Blokir pengirim %1$s pesan?</item>
     </plurals>
@@ -844,6 +844,7 @@ Kunci dan sertifikat umumnya dapat ditemukan di menu Lanjutan - Enkripsi dan kre
     <string name="title_advanced_wearable_hint">Notifikasi hanya akan dikirimkan ke perangkat yang dapat digunakan setelah pesan teks telah terunduh</string>
     <string name="title_advanced_messaging_hint">Hal ini dibutuhkan untuk bantuan otomatis Andorid</string>
     <string name="title_advanced_move_hint">Folder target dapat dikonfigurasi dalam pengaturan akun</string>
+    <string name="title_advanced_notify_sensitive_hint">Memerlukan penonaktifan notifikasi sensitif dalam pengaturan Android</string>
     <string name="title_advanced_notify_no_grouping">Versi Android ini tidak mendukung pengelompokan notifikasi</string>
     <string name="title_advanced_notify_no_channels">Versi Android ini tidak mendukung notifikasi channel</string>
     <string name="title_advanced_fts_hint">Mengaktifkan hal ini akan meningkatkan performa pencarian, namun juga menurunkan penggunaan baterai dan ruang penyimpanan</string>

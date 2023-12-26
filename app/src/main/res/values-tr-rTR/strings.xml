@@ -91,8 +91,8 @@
     <string name="title_block_sender_hint">Bir göndereni engellemek ücretsiz bir özelliktir.
 Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurallarını kullanır.    </string>
     <string name="title_blocked_senders">Engellenmiş gönderenler</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Tüm engelleri kaldır</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Bu, gönderenlerin engellenmesine neden olabilecek tüm listeleri ve seçenekleri sıfırlayacaktır</string>
+    <string name="title_unblock_all">Tüm engelleri kaldır</string>
+    <string name="title_unblock_all_remark">Bu, gönderenlerin engellenmesine neden olabilecek tüm listeleri ve seçenekleri sıfırlayacaktır</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">%1$s iletisinin göndericisi engellensin mi?</item>
         <item quantity="other">%1$s iletisinin göndericisi engellensin mi?</item>

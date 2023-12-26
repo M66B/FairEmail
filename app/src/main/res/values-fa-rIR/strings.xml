@@ -88,8 +88,8 @@
     <string name="title_block_sender_remark">بلاک کردن به منزله انتقال خودکار به پوشه هرزنامه می‌باشد</string>
     <string name="title_block_sender_hint">مسدود کردن فرستنده یک ویژگی رایگان است.        مسدود کردن دامنه فرستنده از قوانین فیلتر استفاده می کند ، که یک ویژگی حرفه ای است.</string>
     <string name="title_blocked_senders">فرستندگان مسدود شده</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">آنبلاک کردن همه</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">با این کار تمام لیست‌ها و گزینه‌هایی که می‌توانند منجر به مسدود کردن فرستندگان شوند، ریست می‌شوند</string>
+    <string name="title_unblock_all">آنبلاک کردن همه</string>
+    <string name="title_unblock_all_remark">با این کار تمام لیست‌ها و گزینه‌هایی که می‌توانند منجر به مسدود کردن فرستندگان شوند، ریست می‌شوند</string>
     <string name="title_junk_filter">از فیلتر هرزنامه محلی استفاده کنید</string>
     <string name="title_junk_filter_hint">این می تواند استفاده از باتری را افزایش دهد و پیام ها را به صورت نادرست به عنوان اسپم علامت گذاری کند</string>
     <string name="title_junk_blocklist">از فهرست‌های انسداد هرزنامه استفاده کن</string>
@@ -609,6 +609,7 @@
     <string name="title_advanced_badge_hint">تنها روی راه‌اندازهای پشتیبانی‌شده در دسترس است</string>
     <string name="title_advanced_notify_action_hint">حداکثر سه کنش نشان داده خواهد شد</string>
     <string name="title_advanced_notify_manage_default_hint">برای تنظیم صدای پیش‌فرض، وغیره</string>
+    <string name="title_advanced_notify_sensitive_hint">نیازمند غیرفعال کردن اعلان‌های حساس در تنظیمات اندروید</string>
     <string name="title_advanced_notify_no_grouping">این نگارش اندروید گروه‌بندی اعلان را پشتیبانی نمی‌کند</string>
     <string name="title_advanced_notify_no_channels">این نگارش اندروید کانال‌های اعلان را پشتیبانی نمی‌کند</string>
     <string name="title_advanced_english_hint">این موجب شروع مجدد برنامه خواهد شد</string>

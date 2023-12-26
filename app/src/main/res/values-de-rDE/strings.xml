@@ -93,8 +93,8 @@
         welche nur in der Pro-Version verfügbar sind.
     </string>
     <string name="title_blocked_senders">Gesperrte Absender</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Alle entsperren</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Dadurch werden alle Listen und Optionen zurückgesetzt, die zum Sperren von Absendern führen könnten</string>
+    <string name="title_unblock_all">Alle entsperren</string>
+    <string name="title_unblock_all_remark">Dadurch werden alle Listen und Optionen zurückgesetzt, die zum Sperren von Absendern führen könnten</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Absender von %1$s Nachricht sperren?</item>
         <item quantity="other">Absender von %1$s Nachrichten sperren?</item>
@@ -625,7 +625,7 @@
     <string name="title_advanced_notifications_newest_first">Neueste Benachrichtigungen zuerst anzeigen</string>
     <string name="title_advanced_badge">Startsymbol mit der Anzahl der neuen Nachrichten anzeigen</string>
     <string name="title_advanced_unseen_ignored">Anzahl der neuen Nachrichten mit der Anzahl der Benachrichtigungen übereinstimmen lassen</string>
-    <string name="title_advanced_notify_grouping">Gruppenbenachrichtigungen aufklappbar</string>
+    <string name="title_advanced_notify_grouping">Benachrichtigungen gruppieren</string>
     <string name="title_advanced_notify_private">Benachrichtigungen privat halten, wenn das Gerät gesperrt ist</string>
     <string name="title_advanced_notify_background">Benachrichtigungen nur anzeigen, wenn FairEmail im Hintergrund ausgeführt wird</string>
     <string name="title_advanced_notify_known">Benachrichtigungen nur für Kontakte anzeigen</string>
@@ -863,6 +863,7 @@
     <string name="title_advanced_wearable_hint">Benachrichtigungen werden erst dann an ein Wearable gesendet, wenn der Nachrichtentext heruntergeladen wurde</string>
     <string name="title_advanced_messaging_hint">Dies ist für die Unterstützung von Android Auto erforderlich</string>
     <string name="title_advanced_move_hint">Der Zielordner kann in den Kontoeinstellungen konfiguriert werden</string>
+    <string name="title_advanced_notify_sensitive_hint">Erfordert das Deaktivieren vertraulicher Benachrichtigungen in den Android-Einstellungen</string>
     <string name="title_advanced_notify_no_grouping">Diese Android-Version unterstützt keine Benachrichtigungsgruppierung</string>
     <string name="title_advanced_notify_no_channels">Diese Android-Version unterstützt keine Benachrichtigungskanäle</string>
     <string name="title_advanced_fts_hint">Das Aktivieren dieser Funktion verbessert die Suchleistung, erhöht aber auch den Akku- und Speicherplatzverbrauch</string>

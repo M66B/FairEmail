@@ -103,8 +103,8 @@
         Blokiranje domene pošiljaoca koristi pravila filtriranja, što predstavlja pro funkcionalnost.
     </string>
     <string name="title_blocked_senders">Blokirani pošiljaoci</string>
-    <string name="title_unblock_all" comment="title_unblock_all&#10;Title for button to unblock all blocked senders, etc.">Odblokiraj sve</string>
-    <string name="title_unblock_all_remark" comment="title_unblock_all_remark&#10;Remark in confirmation dialog box when using the &quot;Unblock all&quot; button">Ovo će resetovati sve liste i opcije za blokiranje pošiljaoca</string>
+    <string name="title_unblock_all">Odblokiraj sve</string>
+    <string name="title_unblock_all_remark">Ovo će resetovati sve liste i opcije za blokiranje pošiljaoca</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Blokirati pošiljaoca %1$s poruke?</item>
         <item quantity="few">Blokirati pošiljaoca %1$s poruke?</item>
@@ -875,6 +875,7 @@
     <string name="title_advanced_wearable_hint">Obavještenja se šalju samo na nosive uređaje nakon preuzimanja poruke</string>
     <string name="title_advanced_messaging_hint">Ovo je neophodno za podršku Android auta</string>
     <string name="title_advanced_move_hint">Ciljni folder može se podesiti u postavkama računa</string>
+    <string name="title_advanced_notify_sensitive_hint">Zahtijeva onemogućavanje osjetljivih obavještenja u Android postavkama</string>
     <string name="title_advanced_notify_no_grouping">Ova verzija Androida ne podržava grupisanje obavještenja</string>
     <string name="title_advanced_notify_no_channels">Ova verzija Androida ne podržava kanale obavještenja</string>
     <string name="title_advanced_fts_hint">Omogućavanje ovoga poboljšava performanse pretraživanja, ali i povećava potrošnju baterije i korištenje skladišnog prostora</string>
