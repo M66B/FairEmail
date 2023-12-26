@@ -433,17 +433,15 @@ public class UriHelper {
                 for (String value : url.getQueryParameters(key)) {
                     Log.i("Query " + key + "=" + value);
 
-                    if (clean != null && clean.contains(key))
-                        changed = true;
-
-                    if (!changed) {
+                    if (clean == null || !clean.contains(key)) {
                         Uri suri = Uri.parse(value);
                         if (suri != null && isHyperLink(suri)) {
                             Uri s = sanitize(context, suri);
                             return (s == null ? suri : s);
                         }
                         builder.appendQueryParameter(key, value);
-                    }
+                    } else
+                        changed = true;
                 }
             first = false;
         }
