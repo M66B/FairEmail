@@ -401,7 +401,6 @@ public class UriHelper {
         if (url.isOpaque() || !isHyperLink(url))
             return uri;
 
-
         Uri.Builder builder = url.buildUpon();
 
         builder.clearQuery();
@@ -427,21 +426,18 @@ public class UriHelper {
                             FACEBOOK_WHITELIST_PATH.contains(path) &&
                             !FACEBOOK_WHITELIST_QUERY.contains(lkey)) ||
                     ("store.steampowered.com".equals(host) &&
-                            "snr".equals(lkey)))
+                            "snr".equals(lkey)) ||
+                    (clean != null && clean.contains(key)))
                 changed = true;
             else if (!TextUtils.isEmpty(key))
                 for (String value : url.getQueryParameters(key)) {
                     Log.i("Query " + key + "=" + value);
-
-                    if (clean == null || !clean.contains(key)) {
-                        Uri suri = Uri.parse(value);
-                        if (suri != null && isHyperLink(suri)) {
-                            Uri s = sanitize(context, suri);
-                            return (s == null ? suri : s);
-                        }
-                        builder.appendQueryParameter(key, value);
-                    } else
-                        changed = true;
+                    Uri suri = Uri.parse(value);
+                    if (suri != null && isHyperLink(suri)) {
+                        Uri s = sanitize(context, suri);
+                        return (s == null ? suri : s);
+                    }
+                    builder.appendQueryParameter(key, value);
                 }
             first = false;
         }
