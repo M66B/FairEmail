@@ -625,6 +625,7 @@
                     android:id="@+id/ibDisconnectBlacklist"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
                     android:contentDescription="@string/title_info"
                     android:tooltipText="@string/title_info"
                     app:layout_constraintStart_toStartOf="parent"
