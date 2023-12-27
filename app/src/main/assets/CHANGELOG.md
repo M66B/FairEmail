@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
-### Next version
+### 1.2144 - 2023-12-27
 
 * Using [Brave browser lists](https://github.com/brave/adblock-lists/tree/master/brave-lists) to filter URLs
 * Small improvements and minor bug fixes
