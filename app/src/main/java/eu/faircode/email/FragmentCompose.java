@@ -1665,6 +1665,7 @@ public class FragmentCompose extends FragmentBase {
                 Bundle extras = new Bundle();
                 extras.putString("html", HtmlHelper.toHtml(etBody.getText(), getContext()));
                 extras.putBoolean("show", true);
+                extras.putBoolean("refdelete", true);
                 onAction(R.id.action_save, extras, "refdelete");
             }
         });
@@ -6878,6 +6879,9 @@ public class FragmentCompose extends FragmentBase {
                             Helper.writeText(draft.getFile(context, draft.revision), c.html());
 
                             d = JsoupEx.parse(extras.getString("html"));
+
+                            if (extras.getBoolean("refdelete"))
+                                addSignature(context, d, draft, identity);
                         } else {
                             d = JsoupEx.parse(body); // Save
 
