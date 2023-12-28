@@ -36,6 +36,7 @@ import java.util.regex.Pattern;
 public class Adguard {
     // https://github.com/AdguardTeam/AdguardFilters
     // https://github.com/AdguardTeam/FiltersRegistry/blob/master/filters/filter_17_TrackParam/filter.txt
+    // https://github.com/AdguardTeam/TestCases/tree/master/public/Filters/removeparam-rules
 
     private static final List<String> ADGUARD_IGNORE = Collections.unmodifiableList(Arrays.asList(
             "cookie", "font", "image", "media", "script", "subdocument", "stylesheet", "xmlhttprequest"
@@ -153,7 +154,10 @@ public class Adguard {
                                 break;
                         }
                     } else {
-                        if (!name.equals("document") &&
+                        if (!"document".equals(name) &&
+                                !"image".equals(name) &&
+                                !"important".equals(name) &&
+                                !"script".equals(name) &&
                                 !(name.startsWith("~") && !name.equals("~document"))) {
                             if (!ADGUARD_IGNORE.contains(name))
                                 Log.w("Adguard ignoring=" + name);
@@ -269,12 +273,11 @@ public class Adguard {
             return true;
         }
 
-        if (remove.startsWith("~")) {
-            // $removeparam=~param — removes all query parameters with the name different from param.
-            // $removeparam=~/regexp/ — removes all query parameters that do not match the regexp regular expression.
-            Log.w("Adguard not supported remove=" + remove);
-            return false;
-        }
+        // $removeparam=~param — removes all query parameters with the name different from param.
+        // $removeparam=~/regexp/ — removes all query parameters that do not match the regexp regular expression.
+        boolean not = remove.startsWith("~");
+        if (not)
+            remove = remove.substring(1);
 
         if (remove.startsWith("/")) {
             // $removeparam=/regexp/[options]
@@ -290,15 +293,18 @@ public class Adguard {
             String rest = remove.substring(end + 1);
             Log.i("Adguard regex=" + regex + " rest=" + rest);
 
-            if (!TextUtils.isEmpty(rest))
+            int flags = 0;
+            if ("i".equals(rest))
+                flags = Pattern.CASE_INSENSITIVE;
+            else if (!TextUtils.isEmpty(rest))
                 Log.w("Adguard unexpected remove=" + remove);
 
             String all = key + "=" + value;
-            if (Pattern.compile(regex).matcher(all).find()) {
+            if (Pattern.compile(regex, flags).matcher(all).find() ^ not) {
                 Log.i("Adguard omit regex=" + regex);
                 return true;
             }
-        } else if (remove.equals(key)) {
+        } else if (remove.equals(key) ^ not) {
             // $removeparam=param
             Log.i("Adguard omit key=" + key);
             return true;
