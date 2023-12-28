@@ -6,6 +6,12 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
+### Next version
+
+* Added [Adguard filter list](https://github.com/AdguardTeam/FiltersRegistry) to remove tracking parameters from links
+* Small improvements and minor bug fixes
+* Updated [translations](https://crowdin.com/project/open-source-email)
+
 ### 1.2144 - 2023-12-27
 
 * Using [Brave browser lists](https://github.com/brave/adblock-lists/tree/master/brave-lists) to filter URLs
