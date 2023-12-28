@@ -31,7 +31,6 @@ import androidx.core.net.MailTo;
 import androidx.core.util.PatternsCompat;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -402,11 +401,8 @@ public class UriHelper {
             return uri;
 
         if (BuildConfig.DEBUG) {
-            Uri result = filterAdguard(context, url);
-            if (result != null) {
-                changed = true;
-                url = result;
-            }
+            Uri result = Adguard.filter(context, url);
+            return (result == null ? url : result);
         }
 
         Uri.Builder builder = url.buildUpon();
@@ -451,180 +447,6 @@ public class UriHelper {
         }
 
         return (changed ? builder.build() : null);
-    }
-
-    @Nullable
-    private static Uri filterAdguard(Context context, Uri uri) {
-        if (uri.isOpaque())
-            return null;
-        String host = uri.getHost();
-        if (TextUtils.isEmpty(host))
-            return null;
-
-        List<String> removes = new ArrayList<>();
-
-        // https://github.com/AdguardTeam/FiltersRegistry/blob/master/filters/filter_17_TrackParam/filter.txt
-        try (BufferedReader br = new BufferedReader(
-                new InputStreamReader(context.getAssets().open("adguard_filter.txt")))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                if (TextUtils.isEmpty(line) || line.startsWith("!"))
-                    continue;
-
-                int dollar = line.indexOf('$');
-                while (dollar > 0 && line.charAt(dollar - 1) == '\\')
-                    dollar = line.indexOf('$', dollar + 1);
-                if (dollar < 0)
-                    continue;
-
-                String expr = line.substring(0, dollar).replace("\\$", "$");
-                String rest = line.substring(dollar + 1);
-
-                List<String> commands = new ArrayList<>();
-                int start = 0;
-                while (start < rest.length()) {
-                    int comma = rest.indexOf(',', start);
-                    while (comma > 0 && rest.charAt(comma - 1) == '\\')
-                        comma = rest.indexOf(',', comma + 1);
-                    int end = (comma < 0 ? rest.length() : comma);
-                    commands.add(rest.substring(start, end).replace("\\,", ","));
-                    start = (comma < 0 ? end : end + 1);
-                }
-
-                String remove = null;
-                boolean matches = true;
-                for (String command : commands) {
-                    int equal = command.indexOf('=');
-                    String c = (equal < 0 ? command : command.substring(0, equal));
-                    String e = (equal < 0 ? "" : command.substring(equal + 1));
-                    if ("removeparam".equals(c))
-                        remove = e;
-                    else if ("domain".equals(c)) {
-                        // https://adguard.com/kb/general/ad-filtering/create-own-filters/#domain-modifier
-                        matches = false;
-
-                        List<String> domains = new ArrayList<>();
-                        start = 0;
-                        while (start < e.length()) {
-                            int pipe = e.indexOf('|', start);
-                            while (pipe > 0 && e.charAt(pipe - 1) == '\\')
-                                pipe = e.indexOf('|', pipe + 1);
-                            int end = (pipe < 0 ? e.length() : pipe);
-                            domains.add(e.substring(start, end).replace("\\|", "|"));
-                            start = (pipe < 0 ? end : end + 1);
-                        }
-
-                        for (String domain : domains) {
-                            boolean not = domain.startsWith("~");
-                            String d = (not ? domain.substring(1) : domain);
-                            if (d.contains("*") && !d.endsWith("*"))
-                                Log.w("Adguard unexpected domain=" + domain);
-
-                            if (d.endsWith("*"))
-                                matches = host.startsWith(d.substring(0, d.length() - 1));
-                            else
-                                matches = host.equals(d);
-                            if (matches)
-                                Log.w("Adguard domain=" + domain + " host=" + host);
-                            if (not)
-                                matches = !matches;
-                            if (matches)
-                                break;
-                        }
-                    }
-                }
-
-                if (remove == null /* no removeparam */ || !matches)
-                    continue;
-
-                boolean except = false;
-                matches = TextUtils.isEmpty(expr);
-                if (!matches) {
-                    if (expr.startsWith("@@")) {
-                        except = true;
-                        expr = expr.substring(2);
-                    }
-
-                    String u = uri.toString();
-                    if (expr.startsWith("||")) {
-                        int ss = u.indexOf("//");
-                        if (ss > 0)
-                            u = u.substring(ss + 2);
-                        expr = expr.substring(2);
-                    }
-
-                    // https://adguard.com/kb/general/ad-filtering/create-own-filters/#basic-rules-special-characters
-                    StringBuilder b = new StringBuilder();
-                    b.append(".*");
-                    for (char c : expr.toCharArray())
-                        if (c == '*')
-                            b.append(".*");
-                        else if (c == '^')
-                            b.append("[^0-9a-zA-Z\\_\\-\\.\\%]");
-                        else if (c == '|')
-                            Log.w("Adguard unexpected expr=" + expr);
-                        else {
-                            if ("\\.?![]{}()<>*+-=^$|".indexOf(c) >= 0)
-                                b.append("\\");
-                            b.append(c);
-                        }
-                    if (!expr.endsWith("*"))
-                        b.append(".*");
-                    matches = Pattern.compile(b.toString()).matcher(u).matches();
-                    if (matches)
-                        Log.w("Adguard expr=" + b + " remove=" + remove);
-                }
-
-                if (matches)
-                    if (except)
-                        removes.clear();
-                    else if (!removes.contains(remove))
-                        removes.add(remove);
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-
-        try {
-            boolean changed = false;
-            Uri.Builder builder = uri.buildUpon();
-            builder.clearQuery();
-            if (removes.contains("") /* all */)
-                changed = true;
-            else
-                for (String key : uri.getQueryParameterNames()) {
-                    boolean omit = false;
-                    for (String remove : removes)
-                        if (remove.startsWith("/")) {
-                            int end = remove.indexOf('/', 1);
-                            if (end > 0) {
-                                String regex = remove.substring(1, end);
-                                String rest = remove.substring(end + 1);
-                                if (!TextUtils.isEmpty(rest))
-                                    Log.w("Adguard unexpected remove=" + remove);
-                                if (Pattern.compile(regex).matcher(key).matches()) {
-                                    omit = true;
-                                    Log.w("Adguard omit regex=" + regex);
-                                    break;
-                                }
-                            }
-                        } else if (remove.equals(key)) {
-                            omit = true;
-                            Log.w("Adguard omit key=" + key);
-                            break;
-                        }
-                    if (omit)
-                        changed = true;
-                    else
-                        for (String value : uri.getQueryParameters(key))
-                            builder.appendQueryParameter(key, value);
-                }
-
-            return (changed ? builder.build() : null);
-        } catch (Throwable ex) {
-            Log.e(ex);
-            return null;
-        }
     }
 
     @Nullable
