@@ -127,6 +127,19 @@
                     app:layout_constraintTop_toBottomOf="@id/swSanitizeLinks" />
 
                 <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAdguard"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:checked="true"
+                    android:text="@string/title_advanced_adguard"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvSanitizeLinksHint"
+                    app:switchPadding="12dp" />
+
+                <androidx.appcompat.widget.SwitchCompat
                     android:id="@+id/swCheckLinksDbl"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -135,7 +148,7 @@
                     android:text="@string/title_advanced_check_links_dbl"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSanitizeLinksHint"
+                    app:layout_constraintTop_toBottomOf="@id/swAdguard"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

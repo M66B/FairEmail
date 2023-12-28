@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -29,6 +30,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.net.MailTo;
 import androidx.core.util.PatternsCompat;
+import androidx.preference.PreferenceManager;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -400,7 +402,9 @@ public class UriHelper {
         if (url.isOpaque() || !isHyperLink(url))
             return uri;
 
-        if (BuildConfig.DEBUG) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean adguard = prefs.getBoolean("adguard", false);
+        if (adguard) {
             Uri result = Adguard.filter(context, url);
             return (result == null ? url : result);
         }
