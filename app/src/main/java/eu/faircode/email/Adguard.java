@@ -52,6 +52,7 @@ public class Adguard {
             return null;
 
         List<String> removes = new ArrayList<>();
+        List<String> importants = new ArrayList<>();
         List<String> excepts = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(
@@ -92,6 +93,7 @@ public class Adguard {
                 }
 
                 String remove = null;
+                boolean important = false;
                 boolean matches = true;
                 for (String modifier : modifiers) {
                     int equal = modifier.indexOf('=');
@@ -153,10 +155,12 @@ public class Adguard {
                             if (and != matches)
                                 break;
                         }
+                    } else if ("important".equals(name)) {
+                        important = true;
+                        Log.w("Adguard important=" + param);
                     } else {
                         if (!"document".equals(name) &&
                                 !"image".equals(name) &&
-                                !"important".equals(name) &&
                                 !"script".equals(name) &&
                                 !(name.startsWith("~") && !name.equals("~document"))) {
                             if (!ADGUARD_IGNORE.contains(name))
@@ -225,6 +229,8 @@ public class Adguard {
                     } else {
                         if (!removes.contains(remove))
                             removes.add(remove);
+                        if (important && !importants.contains(remove))
+                            importants.add(remove);
                     }
             }
         } catch (Throwable ex) {
@@ -242,12 +248,13 @@ public class Adguard {
                     String value = uri.getQueryParameter(key);
                     if (omitParam(remove, key, value)) {
                         omit = true;
-                        for (String except : excepts)
-                            if (omitParam(except, key, value)) {
-                                Log.i("Adguard except=" + except);
-                                omit = false;
-                                break;
-                            }
+                        if (!importants.contains(remove))
+                            for (String except : excepts)
+                                if (omitParam(except, key, value)) {
+                                    Log.i("Adguard except=" + except);
+                                    omit = false;
+                                    break;
+                                }
                     }
                 }
 
