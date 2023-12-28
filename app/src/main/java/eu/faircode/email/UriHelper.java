@@ -505,7 +505,7 @@ public class UriHelper {
 
                         List<String> domains = new ArrayList<>();
                         start = 0;
-                        while (start < c.length()) {
+                        while (start < e.length()) {
                             int pipe = e.indexOf('|', start);
                             while (pipe > 0 && e.charAt(pipe - 1) == '\\')
                                 pipe = e.indexOf('|', pipe + 1);
@@ -521,9 +521,9 @@ public class UriHelper {
                                 Log.w("Adguard unexpected domain=" + domain);
 
                             if (d.endsWith("*"))
-                                matches = d.substring(0, d.length() - 1).startsWith(host);
+                                matches = host.startsWith(d.substring(0, d.length() - 1));
                             else
-                                matches = d.equals(host);
+                                matches = host.equals(d);
                             if (matches)
                                 Log.w("Adguard domain=" + domain + " host=" + host);
                             if (not)
