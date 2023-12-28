@@ -71,8 +71,10 @@ public class Adguard {
                     continue;
                 }
 
-                String expr = line.substring(0, dollar).replace("\\$", "$");
-                String rest = line.substring(dollar + 1).replace("\\$", "$");
+                String expr = line.substring(0, dollar)
+                        .replace("\\$", "$");
+                String rest = line.substring(dollar + 1)
+                        .replace("\\$", "$");
 
                 List<String> commands = new ArrayList<>();
                 int start = 0;
@@ -81,7 +83,8 @@ public class Adguard {
                     while (comma > 0 && rest.charAt(comma - 1) == '\\')
                         comma = rest.indexOf(',', comma + 1);
                     int end = (comma < 0 ? rest.length() : comma);
-                    commands.add(rest.substring(start, end).replace("\\,", ","));
+                    commands.add(rest.substring(start, end)
+                            .replace("\\,", ","));
                     start = (comma < 0 ? end : end + 1);
                 }
 
@@ -104,7 +107,8 @@ public class Adguard {
                             while (pipe > 0 && e.charAt(pipe - 1) == '\\')
                                 pipe = e.indexOf('|', pipe + 1);
                             int end = (pipe < 0 ? e.length() : pipe);
-                            domains.add(e.substring(start, end).replace("\\|", "|"));
+                            domains.add(e.substring(start, end)
+                                    .replace("\\|", "|"));
                             start = (pipe < 0 ? end : end + 1);
                         }
 
