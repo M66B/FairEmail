@@ -57,10 +57,12 @@ public class Adguard {
                 new InputStreamReader(context.getAssets().open("adguard_filter.txt")))) {
             String line;
             while ((line = br.readLine()) != null) {
-                // https://adguard.com/kb/general/ad-filtering/create-own-filters/#basic-rules-syntax
-
+                // https://adguard.com/kb/general/ad-filtering/create-own-filters/#comments
                 if (TextUtils.isEmpty(line) || line.startsWith("!"))
                     continue;
+
+                // rule = ["@@"] pattern [ "$" modifiers ]
+                // modifiers = [modifier0, modifier1[, ...[, modifierN]]]
 
                 int dollar = line.indexOf('$');
                 while (dollar > 0 && line.charAt(dollar - 1) == '\\')
@@ -71,43 +73,46 @@ public class Adguard {
                     continue;
                 }
 
-                String expr = line.substring(0, dollar)
+                String pattern = line.substring(0, dollar)
                         .replace("\\$", "$");
                 String rest = line.substring(dollar + 1)
                         .replace("\\$", "$");
 
-                List<String> commands = new ArrayList<>();
                 int start = 0;
+                List<String> modifiers = new ArrayList<>();
                 while (start < rest.length()) {
                     int comma = rest.indexOf(',', start);
                     while (comma > 0 && rest.charAt(comma - 1) == '\\')
                         comma = rest.indexOf(',', comma + 1);
                     int end = (comma < 0 ? rest.length() : comma);
-                    commands.add(rest.substring(start, end)
+                    modifiers.add(rest.substring(start, end)
                             .replace("\\,", ","));
                     start = (comma < 0 ? end : end + 1);
                 }
 
                 String remove = null;
                 boolean matches = true;
-                for (String command : commands) {
-                    int equal = command.indexOf('=');
-                    String c = (equal < 0 ? command : command.substring(0, equal));
-                    String e = (equal < 0 ? "" : command.substring(equal + 1));
-                    if ("removeparam".equals(c))
-                        remove = e;
-                    else if ("domain".equals(c)) {
+                for (String modifier : modifiers) {
+                    int equal = modifier.indexOf('=');
+                    String name = (equal < 0 ? modifier : modifier.substring(0, equal));
+                    String param = (equal < 0 ? "" : modifier.substring(equal + 1));
+                    if ("removeparam".equals(name)) {
+                        // https://adguard.com/kb/general/ad-filtering/create-own-filters/#removeparam-modifier
+                        remove = param;
+                    } else if ("domain".equals(name)) {
                         // https://adguard.com/kb/general/ad-filtering/create-own-filters/#domain-modifier
+                        // domains = ["~"] entry_0 ["|" ["~"] entry_1 ["|" ["~"]entry_2 ["|" ... ["|" ["~"]entry_N]]]]
+                        // entry_i = ( regular_domain / any_tld_domain / regexp )
                         matches = false;
 
                         List<String> domains = new ArrayList<>();
                         start = 0;
-                        while (start < e.length()) {
-                            int pipe = e.indexOf('|', start);
-                            while (pipe > 0 && e.charAt(pipe - 1) == '\\')
-                                pipe = e.indexOf('|', pipe + 1);
-                            int end = (pipe < 0 ? e.length() : pipe);
-                            domains.add(e.substring(start, end)
+                        while (start < param.length()) {
+                            int pipe = param.indexOf('|', start);
+                            while (pipe > 0 && param.charAt(pipe - 1) == '\\')
+                                pipe = param.indexOf('|', pipe + 1);
+                            int end = (pipe < 0 ? param.length() : pipe);
+                            domains.add(param.substring(start, end)
                                     .replace("\\|", "|"));
                             start = (pipe < 0 ? end : end + 1);
                         }
@@ -148,10 +153,10 @@ public class Adguard {
                                 break;
                         }
                     } else {
-                        if (!c.equals("document") &&
-                                !(c.startsWith("~") && !c.equals("~document"))) {
-                            if (!ADGUARD_IGNORE.contains(c))
-                                Log.w("Adguard ignoring=" + c);
+                        if (!name.equals("document") &&
+                                !(name.startsWith("~") && !name.equals("~document"))) {
+                            if (!ADGUARD_IGNORE.contains(name))
+                                Log.w("Adguard ignoring=" + name);
                             remove = null;
                             break;
                         }
@@ -162,32 +167,43 @@ public class Adguard {
                     continue;
 
                 boolean except = false;
-                matches = TextUtils.isEmpty(expr);
+                matches = TextUtils.isEmpty(pattern);
                 if (!matches) {
                     // https://adguard.com/kb/general/ad-filtering/create-own-filters/#basic-rules-special-characters
 
-                    if (expr.startsWith("@@")) {
+                    if (pattern.startsWith("@@")) {
+                        // a marker that is used in rules of exception.
+                        // To turn off filtering for a request, start your rule with this marker.
                         except = true;
-                        expr = expr.substring(2);
+                        pattern = pattern.substring(2);
                     }
 
                     String u = uri.toString();
-                    if (expr.startsWith("||")) {
+                    if (pattern.startsWith("||")) {
+                        // an indication to apply the rule to the specified domain and its subdomains.
+                        // With this character, you do not have to specify a particular protocol and subdomain in address mask.
+                        // It means that || stands for http://*., https://*., ws://*., wss://*. at once.
                         int ss = u.indexOf("//");
                         if (ss > 0)
                             u = u.substring(ss + 2);
-                        expr = expr.substring(2);
+                        pattern = pattern.substring(2);
                     }
 
                     StringBuilder b = new StringBuilder();
-                    for (char c : expr.toCharArray())
-                        if (c == '*')
+                    for (char c : pattern.toCharArray())
+                        if (c == '*') {
+                            // a wildcard character. It is used to represent any set of characters.
+                            // This can also be an empty string or a string of any length.
                             b.append(".*");
-                        else if (c == '^')
+                        } else if (c == '^') {
+                            // a separator character mark.
+                            // Separator character is any character, but a letter, a digit, or one of the following: _ - . %.
                             b.append("[^0-9a-zA-Z\\_\\-\\.\\%]");
-                        else if (c == '|') {
+                        } else if (c == '|') {
+                            // a pointer to the beginning or the end of address.
+                            // The value depends on the character placement in the mask.
                             b.append(b.length() == 0 ? '^' : '$');
-                            Log.w("Adguard anchor expr=" + expr);
+                            Log.w("Adguard anchor expr=" + pattern);
                         } else {
                             if ("\\.?![]{}()<>*+-=^$|".indexOf(c) >= 0)
                                 b.append('\\');
@@ -248,15 +264,21 @@ public class Adguard {
     private static boolean omitParam(String remove, String key, String value) {
         // https://adguard.com/kb/general/ad-filtering/create-own-filters/#removeparam-modifier
 
-        if ("".equals(remove))
+        if ("".equals(remove)) {
+            // Specify naked $removeparam to remove all query parameters
             return true;
+        }
 
         if (remove.startsWith("~")) {
+            // $removeparam=~param — removes all query parameters with the name different from param.
+            // $removeparam=~/regexp/ — removes all query parameters that do not match the regexp regular expression.
             Log.w("Adguard not supported remove=" + remove);
             return false;
         }
 
         if (remove.startsWith("/")) {
+            // $removeparam=/regexp/[options]
+            // the only supported option is i which makes matching case-insensitive.
             int end = remove.lastIndexOf('/');
             if (end < 1) {
                 Log.w("Adguard missing slash remove=" + remove + " end=" + end);
@@ -277,6 +299,7 @@ public class Adguard {
                 return true;
             }
         } else if (remove.equals(key)) {
+            // $removeparam=param
             Log.i("Adguard omit key=" + key);
             return true;
         }
