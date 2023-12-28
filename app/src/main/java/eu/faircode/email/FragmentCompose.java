@@ -6886,9 +6886,9 @@ public class FragmentCompose extends FragmentBase {
                                     d.body().prependChild(e);
                                 else
                                     d.body().appendChild(e);
-                        }
 
-                        addSignature(context, d, draft, identity);
+                            addSignature(context, d, draft, identity);
+                        }
 
                         body = d.html();
 
