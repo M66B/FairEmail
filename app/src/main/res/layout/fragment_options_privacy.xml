@@ -138,17 +138,28 @@
                     app:layout_constraintTop_toBottomOf="@id/tvSanitizeLinksHint"
                     app:switchPadding="12dp" />
 
+                <ImageButton
+                    android:id="@+id/ibAdguard"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/title_info"
+                    android:tooltipText="@string/title_info"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAdguard"
+                    app:srcCompat="@drawable/twotone_info_24" />
+
                 <Button
                     android:id="@+id/btnAdguard"
                     style="?android:attr/buttonStyleSmall"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="6dp"
+                    android:layout_marginTop="12dp"
                     android:drawableEnd="@drawable/twotone_get_app_24"
                     android:drawablePadding="6dp"
                     android:text="@string/title_download"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/swAdguard" />
 
                 <TextView
@@ -159,7 +170,7 @@
                     android:text="December 29, 11:30 AM"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small"
                     android:textStyle="italic"
-                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btnAdguard" />
 
                 <androidx.appcompat.widget.SwitchCompat

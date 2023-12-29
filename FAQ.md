@@ -410,6 +410,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(197) How can I print a message?](#faq197)
 * [(198) Can you add spell checking?](#faq198)
 * [(199) Can you add proxy support?](#faq199)
+* [(200) How can I use Adguard to remove tracking parameters?](#faq200)
 
 [I have another question.](#get-support)
 
@@ -5631,6 +5632,21 @@ If you want to proxy traffic, for example to use Tor,
 you should use an Android VPN-service based app, which is the only way to reliably proxy traffic.
 
 Please note that if you want to use a .onion address, you will need to disable private DNS in the Android network settings.
+
+<br>
+
+<a name="faq200"></a>
+**(200) How can I use Adguard to remove tracking parameters?**
+
+To use [Adguard](https://adguard.com/) to remove tracking parameters from links:
+
+1. Enable confirming links in the privacy-settings tab page
+1. Download and enable [the Adguard filter list](https://github.com/AdguardTeam/FiltersRegistry), also via the privacy-settings tab page
+1. When you tap on a link, the app will check the filter list
+1. If a list entry is found for the link, the app will suggest to *Remove tracking parameters* in the confirmation dialog box
+
+Note that the Adguard filter list contains over 2,000 entries, which takes a few moments to scan,
+visible as a short delay between tapping on a link and the link confirmation dialog box appearing.
 
 <br>
 

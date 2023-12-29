@@ -65,6 +65,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swConfirmLinks;
     private SwitchCompat swSanitizeLinks;
     private SwitchCompat swAdguard;
+    private ImageButton ibAdguard;
     private Button btnAdguard;
     private TextView tvAdguardTime;
     private SwitchCompat swAdguardAutoUpdate;
@@ -139,6 +140,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swConfirmLinks = view.findViewById(R.id.swConfirmLinks);
         swSanitizeLinks = view.findViewById(R.id.swSanitizeLinks);
         swAdguard = view.findViewById(R.id.swAdguard);
+        ibAdguard = view.findViewById(R.id.ibAdguard);
         btnAdguard = view.findViewById(R.id.btnAdguard);
         tvAdguardTime = view.findViewById(R.id.tvAdguardTime);
         swAdguardAutoUpdate = view.findViewById(R.id.swAdguardAutoUpdate);
@@ -223,6 +225,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("adguard", checked).apply();
+            }
+        });
+
+        ibAdguard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Helper.viewFAQ(v.getContext(), 200);
             }
         });
 
