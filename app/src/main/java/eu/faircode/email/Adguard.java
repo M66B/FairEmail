@@ -38,8 +38,20 @@ public class Adguard {
     // https://github.com/AdguardTeam/FiltersRegistry/blob/master/filters/filter_17_TrackParam/filter.txt
     // https://github.com/AdguardTeam/TestCases/tree/master/public/Filters/removeparam-rules
 
-    private static final List<String> ADGUARD_IGNORE = Collections.unmodifiableList(Arrays.asList(
-            "cookie", "font", "image", "media", "script", "subdocument", "stylesheet", "xmlhttprequest"
+    private static final List<String> ALL_CONTENT = Collections.unmodifiableList(Arrays.asList(
+            "document",
+            "subdocument",
+            "font",
+            "image",
+            "media",
+            "object",
+            "other",
+            "ping",
+            "script",
+            "stylesheet",
+            "websocket",
+            "xmlhttprequest",
+            "popup"
     ));
 
     @Nullable
@@ -95,6 +107,7 @@ public class Adguard {
                 String remove = null;
                 boolean important = false;
                 boolean matches = true;
+                List<String> contents = new ArrayList<>();
                 for (String modifier : modifiers) {
                     int equal = modifier.indexOf('=');
                     String name = (equal < 0 ? modifier : modifier.substring(0, equal));
@@ -159,20 +172,52 @@ public class Adguard {
                         important = true;
                         Log.w("Adguard important=" + param);
                     } else {
-                        if (!"document".equals(name) &&
-                                !"image".equals(name) &&
-                                !"script".equals(name) &&
-                                !(name.startsWith("~") && !name.equals("~document"))) {
-                            if (!ADGUARD_IGNORE.contains(name))
-                                Log.w("Adguard ignoring=" + name);
-                            remove = null;
-                            break;
-                        }
+                        if (name.startsWith("~")) {
+                            name = name.substring(1);
+                            for (String content : ALL_CONTENT)
+                                if (!name.equals(content))
+                                    contents.add(content);
+                        } else
+                            contents.add(name);
                     }
                 }
 
                 if (remove == null || !matches)
                     continue;
+
+                // $removeparam rules that do not have any content type modifiers will match only requests where content type is document.
+                if (contents.size() == 0)
+                    contents.add("document");
+
+                List<String> recognized = new ArrayList<>();
+                String mime = Helper.guessMimeType(uri.getLastPathSegment());
+                if (mime.startsWith("audio/") || mime.startsWith("video/"))
+                    recognized.add("media");
+                else if (mime.startsWith("image/"))
+                    recognized.add("image");
+                else if ("text/css".equals(mime))
+                    recognized.add("stylesheet");
+                else if ("application/javascript".equals(mime))
+                    recognized.add("script");
+                else if (mime.startsWith("font/"))
+                    recognized.add("font");
+                else
+                    recognized.addAll(Arrays.asList("document", "subdocument", "xmlhttprequest"));
+
+                boolean found = false;
+                for (String content : recognized)
+                    if (contents.contains(content)) {
+                        found = true;
+                        break;
+                    }
+
+                if (!found) {
+                    Log.i("Adguard skipping mime=" + mime +
+                            " recognized=" + TextUtils.join(", ", recognized) +
+                            " contents=" + TextUtils.join(", ", contents) +
+                            " line=" + line);
+                    continue;
+                }
 
                 boolean except = false;
                 matches = TextUtils.isEmpty(pattern);
