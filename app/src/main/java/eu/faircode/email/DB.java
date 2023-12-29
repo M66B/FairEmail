@@ -1083,7 +1083,7 @@ public abstract class DB extends RoomDatabase {
                     @Override
                     public void migrate(@NonNull SupportSQLiteDatabase db) {
                         logMigration(startVersion, endVersion);
-                        File folder = new File(context.getFilesDir(), "attachments");
+                        File folder = Helper.ensureExists(context, "attachments");
                         File[] attachments = folder.listFiles();
                         if (attachments != null)
                             for (File source : attachments) {
@@ -1640,7 +1640,7 @@ public abstract class DB extends RoomDatabase {
                         logMigration(startVersion, endVersion);
                         db.execSQL("UPDATE `message` SET raw = NULL");
 
-                        File[] raws = new File(context.getFilesDir(), "raw").listFiles();
+                        File[] raws = Helper.ensureExists(context, "raw").listFiles();
                         if (raws != null)
                             for (File file : raws)
                                 Helper.secureDelete(file);

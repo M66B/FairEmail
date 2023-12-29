@@ -627,7 +627,7 @@ public class EntityMessage implements Serializable {
     }
 
     static void convert(Context context) {
-        File root = new File(context.getFilesDir(), "messages");
+        File root = Helper.ensureExists(context, "messages");
         List<File> files = Helper.listFiles(root);
         for (File file : files)
             if (file.isFile())

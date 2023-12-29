@@ -63,7 +63,7 @@ public class FairEmailLoggingProvider extends TinylogLoggingProvider {
 
     static void setup(Context context) {
         System.setProperty("tinylog.directory",
-                new File(context.getFilesDir(), "logs").getAbsolutePath());
+                Helper.ensureExists(context, "logs").getAbsolutePath());
 
         setLevel(context);
     }
@@ -93,7 +93,7 @@ public class FairEmailLoggingProvider extends TinylogLoggingProvider {
     }
 
     static File[] getLogFiles(Context context) {
-        File[] files = new File(context.getFilesDir(), "logs").listFiles();
+        File[] files = Helper.ensureExists(context, "logs").listFiles();
 
         if (files == null)
             return new File[0];

@@ -178,7 +178,7 @@ public class ContactInfo {
         // Favicons
         Log.i("Cleanup avatars");
         for (String type : new String[]{"favicons", "generated"}) {
-            File[] favicons = new File(context.getFilesDir(), type).listFiles();
+            File[] favicons = Helper.ensureExists(context, type).listFiles();
             if (favicons != null)
                 for (File file : favicons)
                     if (file.lastModified() + CACHE_FAVICON_DURATION < now) {
@@ -201,7 +201,7 @@ public class ContactInfo {
             return;
 
         for (String type : new String[]{"favicons", "generated"}) {
-            final File dir = new File(context.getFilesDir(), type);
+            final File dir = Helper.ensureExists(context, type);
             Helper.getParallelExecutor().submit(new Runnable() {
                 @Override
                 public void run() {
