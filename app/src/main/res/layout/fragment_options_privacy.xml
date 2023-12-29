@@ -132,11 +132,46 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="12dp"
-                    android:checked="true"
                     android:text="@string/title_advanced_adguard"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvSanitizeLinksHint"
+                    app:switchPadding="12dp" />
+
+                <Button
+                    android:id="@+id/btnAdguard"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="6dp"
+                    android:drawableEnd="@drawable/twotone_get_app_24"
+                    android:drawablePadding="6dp"
+                    android:text="@string/title_download"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/swAdguard" />
+
+                <TextView
+                    android:id="@+id/tvAdguardTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="December 29, 11:30 AM"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textStyle="italic"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnAdguard" />
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/swAdguardWeekly"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/title_advanced_adguard_weekly"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAdguardTime"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat
@@ -148,7 +183,7 @@
                     android:text="@string/title_advanced_check_links_dbl"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAdguard"
+                    app:layout_constraintTop_toBottomOf="@id/swAdguardWeekly"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

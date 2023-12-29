@@ -55,6 +55,7 @@ import androidx.webkit.WebViewFeature;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -64,6 +65,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swConfirmLinks;
     private SwitchCompat swSanitizeLinks;
     private SwitchCompat swAdguard;
+    private Button btnAdguard;
+    private TextView tvAdguardTime;
     private SwitchCompat swCheckLinksDbl;
     private SwitchCompat swConfirmFiles;
     private SwitchCompat swConfirmImages;
@@ -134,6 +137,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swConfirmLinks = view.findViewById(R.id.swConfirmLinks);
         swSanitizeLinks = view.findViewById(R.id.swSanitizeLinks);
         swAdguard = view.findViewById(R.id.swAdguard);
+        btnAdguard = view.findViewById(R.id.btnAdguard);
+        tvAdguardTime = view.findViewById(R.id.tvAdguardTime);
         swCheckLinksDbl = view.findViewById(R.id.swCheckLinksDbl);
         swConfirmFiles = view.findViewById(R.id.swConfirmFiles);
         swConfirmImages = view.findViewById(R.id.swConfirmImages);
@@ -215,6 +220,13 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
                 prefs.edit().putBoolean("adguard", checked).apply();
+            }
+        });
+
+        btnAdguard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                prefs.edit().putLong("adguard_last", new Date().getTime()).apply();
             }
         });
 
@@ -609,6 +621,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             if (view == null || getContext() == null)
                 return;
 
+            DateFormat DF = SimpleDateFormat.getDateTimeInstance();
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
 
             swConfirmLinks.setChecked(prefs.getBoolean("confirm_links", true));
@@ -616,6 +629,11 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             swSanitizeLinks.setEnabled(swConfirmLinks.isChecked());
             swAdguard.setChecked(prefs.getBoolean("adguard", false));
             swAdguard.setEnabled(swConfirmLinks.isChecked());
+
+            long adguard_last = prefs.getLong("adguard_last", -1);
+            tvAdguardTime.setText(adguard_last < 0 ? null : DF.format(adguard_last));
+            tvAdguardTime.setVisibility(adguard_last < 0 ? View.GONE : View.VISIBLE);
+
             swCheckLinksDbl.setChecked(prefs.getBoolean("check_links_dbl", BuildConfig.PLAY_STORE_RELEASE));
             swCheckLinksDbl.setEnabled(swConfirmLinks.isChecked());
             swConfirmFiles.setChecked(prefs.getBoolean("confirm_files", true));
@@ -660,10 +678,9 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             swSafeBrowsing.setChecked(prefs.getBoolean("safe_browsing", false));
             swLoadEmoji.setChecked(prefs.getBoolean("load_emoji", true));
 
-            long time = prefs.getLong("disconnect_last", -1);
-            DateFormat DF = SimpleDateFormat.getDateTimeInstance();
-            tvDisconnectBlacklistTime.setText(time < 0 ? null : DF.format(time));
-            tvDisconnectBlacklistTime.setVisibility(time < 0 ? View.GONE : View.VISIBLE);
+            long disconnect_last = prefs.getLong("disconnect_last", -1);
+            tvDisconnectBlacklistTime.setText(disconnect_last < 0 ? null : DF.format(disconnect_last));
+            tvDisconnectBlacklistTime.setVisibility(disconnect_last < 0 ? View.GONE : View.VISIBLE);
 
             swDisconnectAutoUpdate.setChecked(prefs.getBoolean("disconnect_auto_update", false));
             swDisconnectLinks.setChecked(prefs.getBoolean("disconnect_links", true));
