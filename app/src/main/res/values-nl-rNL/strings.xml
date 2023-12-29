@@ -662,6 +662,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_confirm_files">Bevestig het bekijken van bestanden</string>
     <string name="title_advanced_sanitize_links">Verwijder standaard tracking parameters</string>
     <string name="title_advanced_sanitize_links_hint">Alleen bij het bevestigen van links</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Gebruik Adguard filterlijst</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Automatisch wekelijks downloaden</string>
     <string name="title_advanced_check_links_dbl">Controleer domeinblokkeringslijsten op verdachte links</string>
     <string name="title_advanced_confirm_images">Toon standaard geen afbeeldingen</string>
     <string name="title_advanced_ask_images">Bevestig het tonen van afbeeldingen</string>

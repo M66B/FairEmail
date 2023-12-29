@@ -359,6 +359,7 @@
     <string name="title_advanced_check_mx">Проверка на имейл адреса на подателя при синхронизиране на съобщенията</string>
     <string name="title_advanced_check_blocklist">Проверка дали името на домейна на подателя е в списъка с блокиран спам</string>
     <string name="title_advanced_use_blocklist">Преместване на съобщения от домейни, които са в списък блокирани, в папка спам</string>
+    <string name="title_advanced_use_blocklist_pop3">Прескок на съобщения от домейна, които са в списъка блокирани (само за POP3)</string>
     <string name="title_advanced_tune_keep_alive">Автоматично настройване на онлайн интервала</string>
     <string name="title_advanced_blocklist_warning">Списъците с блокирани не са съвършени и може да блокират повече отколкото просто спам!</string>
     <string name="title_advanced_keyboard">Показване на клавиатурата по подразбиране</string>
@@ -374,6 +375,7 @@
     <string name="title_advanced_send_nav_color">Употреба на цвят за самоличност за долната лента с действия</string>
     <string name="title_advanced_send_reminders">Показване на напомняния</string>
     <string name="title_advanced_send_delayed">Отложено изпращане на съобщение</string>
+    <string name="title_advanced_attach_new">Сътворяване на ново черново съобщение за споделени адреси и файлове</string>
     <string name="title_advanced_answer_caption">Настройки на бутона отговор</string>
     <string name="title_advanced_answer_default">Кратко натискане на бутона за отговор ще:</string>
     <string name="title_advanced_answer_action">Дългият натиск на бутона за отговор ще:</string>
@@ -402,6 +404,7 @@
     <string name="title_advanced_signature_reply_once">Само за първия отговор</string>
     <string name="title_advanced_signature_forward">Употреба на подпис при пренасочване</string>
     <string name="title_advanced_discard_delete">При отказване на чернова за постоянно изтрий черновата</string>
+    <string name="title_advanced_reply_move">Отговаряйки на съобщение, запазване на отговора в същата папка</string>
     <string name="title_advanced_reply_move_inbox">Също за входящите съобщения</string>
     <string name="title_advanced_auto_link">Автоматично сътворение на връзки</string>
     <string name="title_advanced_plain_only">Изпращане на обикновен текст по подразбиране</string>
@@ -412,14 +415,16 @@
     <string name="title_advanced_receipt">При искане на разписка</string>
     <string name="title_advanced_forward_new">Начало на нов разговор при препращане</string>
     <string name="title_advanced_lookup_mx">Проверка имейл адреса на получателя преди изпращане</string>
-    <string name="title_advanced_metered">Използвай измервана връзка</string>
+    <string name="title_advanced_metered">Употреба на връзка с измерено потребление</string>
     <string name="title_advanced_download">Автоматично изтегляне на съобщения и прикачени файлове с големина до</string>
+    <string name="title_advanced_download_limited">Прилагане и към връзки с измерено потребление</string>
     <string name="title_advanced_roaming">Изтегляне на съобщения и прикачени файлове в роуминг</string>
     <string name="title_advanced_rlah">Роуминг като у дома</string>
     <string name="title_advanced_download_headers">Изтегляне на всички заглавки на съобщението</string>
     <string name="title_advanced_download_eml">Изтегляне на файловете на необработеното съобщение</string>
     <string name="title_advanced_download_plain">Изтегляне по подразбиране само на части обикновен текст (ако е налично)</string>
     <string name="title_advanced_validated">Изискване на валидирана (проверена) връзка</string>
+    <string name="title_advanced_validated_captive">Изисква удостоверена връзка за проверка за прихващащ портал</string>
     <string name="title_advanced_vpn_only">Свързване само чрез VPN</string>
     <string name="title_advanced_timeout">Време на изчакване на връзката (секунди)</string>
     <string name="title_advanced_prefer_ip4">Предпочитане на IPv4 пред IPv6</string>
@@ -427,6 +432,7 @@
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_ssl_harden_strict">Изисква се TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строга проверка на удостоверението</string>
+    <string name="title_advanced_check_names">Проверка на имената на хостовете срещу удостоверенията на сървърите</string>
     <string name="title_advanced_open_safe">Отваряне само на сигурни връзки</string>
     <string name="title_advanced_http_redirect">Позволяване на пренасочване на свързването</string>
     <string name="title_advanced_bouncy_castle">Употреба на доставчика на сигурни сокети Bouncy Castle (JSSE)</string>
@@ -492,6 +498,7 @@
     <string name="title_advanced_circular">Закръглени икони</string>
     <string name="title_advanced_color_saturation">Ситост: %1$s %%</string>
     <string name="title_advanced_color_value">Яркост: %1$s %%</string>
+    <string name="title_advanced_color_threshold">Праг за цвета на буквите: %1$s %%</string>
     <string name="title_advanced_name_email">Покажи имена и имейл адреси</string>
     <string name="title_advanced_replace_name">Предпочитано име от контакти пред изпратено име</string>
     <string name="title_advanced_only_name">Показване само имената на контакта</string>
@@ -589,11 +596,13 @@
     <string name="title_advanced_reset_importance">Нулирай важността при преместване на съобщения</string>
     <string name="title_advanced_star_snoozed">Автоматично добавяне на звезда при отхвърлени съобщения</string>
     <string name="title_advanced_auto_important">Автоматично прави съобщенията със звезда важни</string>
+    <string name="title_advanced_cancel_snooze">Отмяна на отлагането при премествани съобщения</string>
     <string name="title_advanced_auto_block_sender">Автоматично блокиране на подателя, докладвайки спам</string>
     <string name="title_advanced_auto_hide_answer">Автоматично скриване на бутон за отговор, превъртайки</string>
     <string name="title_advanced_swipe_reply">Прелистете надясно на разширените съобщения за отговор</string>
     <string name="title_advanced_move_thread_all">Премествайки разговор, премествате всички съобщения</string>
     <string name="title_advanced_move_thread_sent">Премествайки разговора, преместват се и изпратените съобщения</string>
+    <string name="title_advanced_default_snooze">Време за отлагане/закъснение по подразбиране</string>
     <string name="title_advanced_default_folder">Изберете подразбираща се папка</string>
     <string name="title_advanced_notifications">Управление на известията</string>
     <string name="title_advanced_notifications_delete">Изтриване на каналите за известия</string>
@@ -762,7 +771,7 @@
     <string name="title_advanced_sync_delay_hint">Това ще забави синхронизирането на съобщенията</string>
     <string name="title_advanced_folder_nav_hint">Това винаги ще се връща към списъка с папки на свързания акаунт от списъка със съобщения</string>
     <string name="title_advanced_pull_all_hint">Прелиствайки надолу в списъка с папки или акаунти</string>
-    <string name="title_advanced_suggest_names_hint">Ако е изключено, то адресите на е-поща ще се употребяват при избиране на контакти</string>
+    <string name="title_advanced_suggest_names_hint">Ако е изключено, при избор на контакти ще се употребяват само адресите на е-поща</string>
     <string name="title_advanced_suggest_local_hint">В допълнение към контактите, осигурени от Android. Данните за контакт ще се съхраняват за нови изпратени или получени съобщения, само когато са активирани.</string>
     <string name="title_advanced_suggest_account_hint">Отнася се само към местните контакти, защото контактите в адресника на Android не се свързани към определени акаунти</string>
     <string name="title_advanced_auto_identity_hint">Ще се избере последната употребявана самоличност, избирайки получател за новите съобщения</string>
@@ -997,6 +1006,9 @@
     <string name="title_synchronize_subfolders">Подпапки</string>
     <string name="title_synchronize_more">Извличане на още съобщения</string>
     <string name="title_synchronize_more_hint">Това ще доведе до едно изтегляне на стари съобщения, така то няма да доведе до още използване на батерията за ежедневна употреба</string>
+    <string name="title_synchronize_more_hint2">        Съобщенията ще се извлекат толкова бързо, колкото сървърът на имейла може да ги достави и съхрани толкова бързо, колкото устройството може да ги съхрани и индексира.
+        Ограничаващ фактор обикновено се явява бързината на мястото на вътрешното хранилище на устройството.
+    </string>
     <string name="title_synchronize_more_hint3">Имайте предвид, че съхраняването на много съобщения (десет хиляди и нагоре) на устройството ви може да причини забавяне, защото вътрешното място за съхранение не е безкрайно бързо.</string>
     <string name="title_synchronize_enabled">Синхронизиране</string>
     <string name="title_synchronize_batch_enable">Включване на синхронизирането</string>
@@ -1760,8 +1772,8 @@
     <string name="title_legend_italic">Наклонен текст</string>
     <string name="title_legend_underline">Подчертан текст</string>
     <string name="title_legend_text_style">Задаване на стил на текст</string>
-    <string name="title_legend_metered">Измервана връзка</string>
-    <string name="title_legend_unmetered">Неизмервана връзка</string>
+    <string name="title_legend_metered">Връзка с измерено потребление</string>
+    <string name="title_legend_unmetered">Връзка с безмерено потребление</string>
     <string name="title_legend_roaming">Роуминг</string>
     <string name="title_legend_expander">Разширен</string>
     <string name="title_legend_avatar">Аватар</string>
@@ -1897,7 +1909,7 @@
     <string name="title_icalendar_decline">Отказвам</string>
     <string name="title_icalendar_maybe">Може би</string>
     <string name="title_icalendar_calendar">Календар</string>
-    <string name="title_pro_feature">Това е pro функция</string>
+    <string name="title_pro_feature">Това е проф. функция (за платената версия)</string>
     <string name="title_pro_list">Списък на проф. функции (платена версия)</string>
     <string name="title_pro_purchase">Купувам</string>
     <string name="title_pro_one_time">%1$s (еднократна покупка)</string>
@@ -1922,7 +1934,7 @@
     <string name="title_boundary_error">Грешка при изтеглянето на съобщения от пощенския сървър</string>
     <string name="title_boundary_retry">Опитайте отново</string>
     <string name="title_unexpected_error">Неочаквана грешка</string>
-    <string name="title_log">Лог</string>
+    <string name="title_log">Дневник</string>
     <string name="title_log_clear">Изчисти</string>
     <string name="title_rules_search_hint">Търсене на име или условие</string>
     <string name="title_rules_export">Правила за износ</string>

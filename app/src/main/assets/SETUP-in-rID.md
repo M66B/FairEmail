@@ -1,6 +1,6 @@
 # Bantuan penyetelan
 
-Menyiapkan FairEmail cukup simpel. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
+Menyiapkan FairEmail cukup mudah. You'll need to add at least one account to receive email and at least one identity if you want to send email. The quick setup will add an account and an identity in one go for most major providers.
 
 ## Requirements
 

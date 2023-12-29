@@ -692,6 +692,8 @@
     <string name="title_advanced_confirm_files">אישור צפייה בקבצים</string>
     <string name="title_advanced_sanitize_links">הסרת משתני מעקב כברירת מחדל</string>
     <string name="title_advanced_sanitize_links_hint">רק בעת אישור קישורים</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">להשתמש ברשימת סינון Adguard</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">להוריד שבועית אוטומטית</string>
     <string name="title_advanced_check_links_dbl">לבדוק קישורים חשודים מול רשימת שמות תחום חסומים</string>
     <string name="title_advanced_confirm_images">לא להציג תמונות כברירת מחדל</string>
     <string name="title_advanced_ask_images">אישור הצגת תמונות</string>

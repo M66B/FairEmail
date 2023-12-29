@@ -662,6 +662,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_confirm_files">Dosyaları görüntülemeyi onayla</string>
     <string name="title_advanced_sanitize_links">Varsayılan olarak izleme parametrelerini kaldırın</string>
     <string name="title_advanced_sanitize_links_hint">Sadece bağlantıları doğrularken</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Adguard filtre listesini kullanma</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Haftalık otomatik indirme</string>
     <string name="title_advanced_check_links_dbl">Şüpheli bağlantılar için alan engelleme listelerini kontrol edin</string>
     <string name="title_advanced_confirm_images">Varsayılan olarak resim gösterme</string>
     <string name="title_advanced_ask_images">Görüntüleri göstermeyi onayla</string>
@@ -859,6 +861,7 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_advanced_wearable_hint">Bildirimler, sadece mesaj metni indirildikten sonra giyilebilir cihazlara gönderilmektedir</string>
     <string name="title_advanced_messaging_hint">Bu, Android Auto desteği için gereklidir</string>
     <string name="title_advanced_move_hint">Hedef klasörü, hesap ayarlarından yapılandırılabilir</string>
+    <string name="title_advanced_notify_sensitive_hint">Android ayarlarında hassas bildirimlerin devre dışı bırakılmasını gerektirir</string>
     <string name="title_advanced_notify_no_grouping">Bu Android versiyonu bildirim gruplamayı desteklememektedir</string>
     <string name="title_advanced_notify_no_channels">Bu Android versiyonu bildirim kanallarını desteklememektedir</string>
     <string name="title_advanced_fts_hint">Bunu etkinleştirmek arama performansını iyileştirir, ancak pil ve depolama alanı kullanımını da artırır</string>

@@ -650,6 +650,8 @@
     <string name="title_advanced_confirm_files">ファイルを開く前に確認を表示する</string>
     <string name="title_advanced_sanitize_links">デフォルトでトラッキングパラメーターを削除する</string>
     <string name="title_advanced_sanitize_links_hint">リンクを確認する場合のみ</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Adguard のフィルターリストを使用する</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">自動で毎週ダウンロードする</string>
     <string name="title_advanced_check_links_dbl">不審なリンクがないかドメインブロックリストを確認する</string>
     <string name="title_advanced_confirm_images">デフォルトで画像を表示しない</string>
     <string name="title_advanced_ask_images">画像を表示する前に確認を表示する</string>
@@ -847,6 +849,7 @@
     <string name="title_advanced_wearable_hint">通知は本文をダウンロード後、ウェアラブルにのみ送信されます</string>
     <string name="title_advanced_messaging_hint">Android Auto に対応するために必要です</string>
     <string name="title_advanced_move_hint">移動先フォルダーはアカウントから設定できます</string>
+    <string name="title_advanced_notify_sensitive_hint">Android の設定で機密性の高い通知を無効にする必要があります</string>
     <string name="title_advanced_notify_no_grouping">この Android バージョンは通知のグループ化に対応していません</string>
     <string name="title_advanced_notify_no_channels">この Android バージョンは通知チャンネルに対応していません</string>
     <string name="title_advanced_fts_hint">有効にすると、検索パフォーマンスが向上しますが、バッテリー使用量とストレージ使用量も増加します</string>

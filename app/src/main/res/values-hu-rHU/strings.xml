@@ -662,6 +662,8 @@
     <string name="title_advanced_confirm_files">Fájlmegtekintés jóváhagyása</string>
     <string name="title_advanced_sanitize_links">Alapértelmezetten a követő kódok eltávolítása</string>
     <string name="title_advanced_sanitize_links_hint">Csak hivatkozások jóváhagyásakor</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Adguard szűrőlista használata</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Automatikus letöltés hetente</string>
     <string name="title_advanced_check_links_dbl">Ellenőrizze a tartomány blokkoló listát a gyanús linkeknél</string>
     <string name="title_advanced_confirm_images">Ne mutasson képeket alapból</string>
     <string name="title_advanced_ask_images">Képek megjelenítésének jóváhagyása</string>

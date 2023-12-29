@@ -692,6 +692,8 @@
     <string name="title_advanced_confirm_files">Підтверджувати перегляд файлів</string>
     <string name="title_advanced_sanitize_links">Видаляти параметри відстеження за замовчуванням</string>
     <string name="title_advanced_sanitize_links_hint">Лише при підтвердженні посилань</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Використовувати список фільтрів від Adguard</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Автоматично завантажувати щотижня</string>
     <string name="title_advanced_check_links_dbl">Перевіряти списки заблокованих доменів задля виявлення сумнівних посилань</string>
     <string name="title_advanced_confirm_images">За замовчуванням не показувати зображення</string>
     <string name="title_advanced_ask_images">Підтверджувати показ зображень</string>
