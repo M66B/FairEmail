@@ -402,7 +402,6 @@
         documentation="Please check if &lt;a href=&quot;https://posteo.de/en/help/activating-additional-email-account-protection&quot;&gt;additional email account protection&lt;/a&gt; isn't enabled."
         domain="posteo\\..*"
         link="https://posteo.de/en/help/how-do-i-set-up-posteo-in-an-email-client-pop3-imap-and-smtp"
-        maxtls="1.2"
         user="*@posteo.net">
         <imap
             host="posteo.de"
