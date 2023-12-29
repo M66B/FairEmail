@@ -163,7 +163,7 @@
                     app:layout_constraintTop_toBottomOf="@id/btnAdguard" />
 
                 <androidx.appcompat.widget.SwitchCompat
-                    android:id="@+id/swAdguardWeekly"
+                    android:id="@+id/swAdguardAutoUpdate"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -183,7 +183,7 @@
                     android:text="@string/title_advanced_check_links_dbl"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/swAdguardWeekly"
+                    app:layout_constraintTop_toBottomOf="@id/swAdguardAutoUpdate"
                     app:switchPadding="12dp" />
 
                 <androidx.appcompat.widget.SwitchCompat

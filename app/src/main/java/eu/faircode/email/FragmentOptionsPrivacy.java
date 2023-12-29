@@ -67,6 +67,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private SwitchCompat swAdguard;
     private Button btnAdguard;
     private TextView tvAdguardTime;
+    private SwitchCompat swAdguardAutoUpdate;
     private SwitchCompat swCheckLinksDbl;
     private SwitchCompat swConfirmFiles;
     private SwitchCompat swConfirmImages;
@@ -112,7 +113,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
     private final static int BIP39_WORDS = 6;
 
     private final static String[] RESET_OPTIONS = new String[]{
-            "confirm_links", "sanitize_links", "adguard", "check_links_dbl", "confirm_files",
+            "confirm_links", "sanitize_links", "adguard", "adguard_auto_update",
+            "check_links_dbl", "confirm_files",
             "confirm_images", "ask_images", "html_always_images", "confirm_html", "ask_html",
             "disable_tracking",
             "pin", "biometrics", "biometrics_timeout", "autolock", "autolock_nav",
@@ -139,6 +141,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         swAdguard = view.findViewById(R.id.swAdguard);
         btnAdguard = view.findViewById(R.id.btnAdguard);
         tvAdguardTime = view.findViewById(R.id.tvAdguardTime);
+        swAdguardAutoUpdate = view.findViewById(R.id.swAdguardAutoUpdate);
         swCheckLinksDbl = view.findViewById(R.id.swCheckLinksDbl);
         swConfirmFiles = view.findViewById(R.id.swConfirmFiles);
         swConfirmImages = view.findViewById(R.id.swConfirmImages);
@@ -253,6 +256,14 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                         Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
                     }
                 }.execute(FragmentOptionsPrivacy.this, new Bundle(), "adguard");
+            }
+        });
+
+        swAdguardAutoUpdate.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                prefs.edit().putBoolean("adguard_auto_update", checked).apply();
+                WorkerAutoUpdate.init(compoundButton.getContext());
             }
         });
 
@@ -659,6 +670,8 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
             long adguard_last = prefs.getLong("adguard_last", -1);
             tvAdguardTime.setText(adguard_last < 0 ? null : DF.format(adguard_last));
             tvAdguardTime.setVisibility(adguard_last < 0 ? View.GONE : View.VISIBLE);
+
+            swAdguardAutoUpdate.setChecked(prefs.getBoolean("adguard_auto_update", false));
 
             swCheckLinksDbl.setChecked(prefs.getBoolean("check_links_dbl", BuildConfig.PLAY_STORE_RELEASE));
             swCheckLinksDbl.setEnabled(swConfirmLinks.isChecked());
