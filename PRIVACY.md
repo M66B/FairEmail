@@ -98,7 +98,8 @@ This table provides a complete overview of all shared data and the conditions un
 | OpenAI             | Received and entered message texts                                 | Upen pressing a button in a navigation bar (*)                              |
 | Gravatar           | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Gravatars are enabled, upon receiving a message (*)                      |
 | Libravatar         | [MD5 hash](https://en.wikipedia.org/wiki/MD5) of email addresses   | If Libravatars are enabled, upon receiving a message (*)                    |
-| GitHub             | None, but see the remarks below                                    | Upon downloading Disconnect's Tracker Protection lists                      |
+| GitHub             | None, but see the remarks below                                    | Upon downloading Adguard tracking parameter list                            |
+|                    |                                                                    | Upon downloading Disconnect's Tracker Protection lists                      |
 |                    |                                                                    | Upon checking for updates (*)                                               |
 | BIMI               | Domain name of email addresses                                     | If BIMI is enabled, upon receiving a message (*)                            |
 | Favicons           | Domain name of email addresses                                     | If favicons are enabled, upon receiving a message (*)                       |
