@@ -41,7 +41,6 @@ import java.io.InputStreamReader;
 import java.net.IDN;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -419,8 +418,6 @@ public class UriHelper {
         if (path != null)
             path = path.toLowerCase(Locale.ROOT);
 
-        List<String> clean = getBraveClean(context, url);
-
         boolean first = "www.facebook.com".equals(host);
         for (String key : url.getQueryParameterNames()) {
             // https://en.wikipedia.org/wiki/UTM_parameters
@@ -434,8 +431,7 @@ public class UriHelper {
                             FACEBOOK_WHITELIST_PATH.contains(path) &&
                             !FACEBOOK_WHITELIST_QUERY.contains(lkey)) ||
                     ("store.steampowered.com".equals(host) &&
-                            "snr".equals(lkey)) ||
-                    (clean != null && clean.contains(key)))
+                            "snr".equals(lkey)))
                 changed = true;
             else if (!TextUtils.isEmpty(key))
                 for (String value : url.getQueryParameters(key)) {
@@ -451,46 +447,6 @@ public class UriHelper {
         }
 
         return (changed ? builder.build() : null);
-    }
-
-    @Nullable
-    private static List<String> getBraveClean(Context context, Uri uri) {
-        // https://github.com/brave/adblock-lists/blob/master/brave-lists/clean-urls.json
-        try (InputStream is = context.getAssets().open("clean-urls.json")) {
-            String json = Helper.readStream(is);
-            JSONArray jclean = new JSONArray(json);
-            for (int i = 0; i < jclean.length(); i++) {
-                JSONObject jitem = jclean.getJSONObject(i);
-                JSONArray jinclude = jitem.getJSONArray("include");
-                JSONArray jexclude = jitem.getJSONArray("exclude");
-
-                boolean include = false;
-                for (int j = 0; j < jinclude.length(); j++)
-                    if (Pattern.matches(escapeStar(jinclude.getString(j)), uri.toString())) {
-                        include = true;
-                        break;
-                    }
-
-                if (include)
-                    for (int j = 0; j < jexclude.length(); j++)
-                        if (Pattern.matches(escapeStar(jexclude.getString(j)), uri.toString())) {
-                            include = false;
-                            break;
-                        }
-
-                if (include) {
-                    JSONArray jparams = jitem.getJSONArray("params");
-                    List<String> result = new ArrayList<>();
-                    for (int j = 0; j < jparams.length(); j++)
-                        result.add(jparams.getString(j));
-                    return result;
-                }
-            }
-        } catch (Throwable ex) {
-            Log.e(ex);
-        }
-
-        return null;
     }
 
     @Nullable
