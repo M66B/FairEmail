@@ -485,6 +485,7 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
 
                     @Override
                     protected void onExecuted(Bundle args, Void data) {
+                        prefs.edit().putLong("disconnect_last", new Date().getTime()).apply();
                         setOptions();
                     }
 
