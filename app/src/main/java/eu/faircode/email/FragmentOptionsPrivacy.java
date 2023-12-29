@@ -226,7 +226,33 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
         btnAdguard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                prefs.edit().putLong("adguard_last", new Date().getTime()).apply();
+                new SimpleTask<Void>() {
+                    @Override
+                    protected void onPreExecute(Bundle args) {
+                        btnAdguard.setEnabled(false);
+                    }
+
+                    @Override
+                    protected void onPostExecute(Bundle args) {
+                        btnAdguard.setEnabled(true);
+                    }
+
+                    @Override
+                    protected Void onExecute(Context context, Bundle args) throws Throwable {
+                        Adguard.download(context);
+                        return null;
+                    }
+
+                    @Override
+                    protected void onExecuted(Bundle args, Void data) {
+                        prefs.edit().putLong("adguard_last", new Date().getTime()).apply();
+                    }
+
+                    @Override
+                    protected void onException(Bundle args, Throwable ex) {
+                        Log.unexpectedError(getParentFragmentManager(), ex, !(ex instanceof IOException));
+                    }
+                }.execute(FragmentOptionsPrivacy.this, new Bundle(), "adguard");
             }
         });
 
@@ -486,7 +512,6 @@ public class FragmentOptionsPrivacy extends FragmentBase implements SharedPrefer
                     @Override
                     protected void onExecuted(Bundle args, Void data) {
                         prefs.edit().putLong("disconnect_last", new Date().getTime()).apply();
-                        setOptions();
                     }
 
                     @Override

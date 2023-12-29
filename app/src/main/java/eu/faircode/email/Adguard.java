@@ -25,18 +25,33 @@ import android.text.TextUtils;
 
 import androidx.annotation.Nullable;
 
+import org.json.JSONException;
+
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import javax.net.ssl.HttpsURLConnection;
+
 public class Adguard {
     // https://github.com/AdguardTeam/AdguardFilters
     // https://github.com/AdguardTeam/FiltersRegistry/blob/master/filters/filter_17_TrackParam/filter.txt
     // https://github.com/AdguardTeam/TestCases/tree/master/public/Filters/removeparam-rules
+
+    private final static int FETCH_TIMEOUT = 20 * 1000; // milliseconds
+    private final static String LIST = "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_17_TrackParam/filter.txt";
 
     private static final List<String> ALL_CONTENT = Collections.unmodifiableList(Arrays.asList(
             "document",
@@ -63,12 +78,15 @@ public class Adguard {
         if (TextUtils.isEmpty(host))
             return null;
 
+        File file = getFile(context);
+        if (!file.exists())
+            return null;
+
         List<String> removes = new ArrayList<>();
         List<String> importants = new ArrayList<>();
         List<String> excepts = new ArrayList<>();
 
-        try (BufferedReader br = new BufferedReader(
-                new InputStreamReader(context.getAssets().open("adguard_filter.txt")))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file)))) {
             String line;
             while ((line = br.readLine()) != null) {
                 // https://adguard.com/kb/general/ad-filtering/create-own-filters/#comments
@@ -363,5 +381,34 @@ public class Adguard {
         }
 
         return false;
+    }
+
+    static void download(Context context) throws IOException, JSONException {
+        File file = getFile(context);
+
+        URL url = new URL(LIST);
+        Log.i("GET " + url);
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("GET");
+        connection.setReadTimeout(FETCH_TIMEOUT);
+        connection.setConnectTimeout(FETCH_TIMEOUT);
+        ConnectionHelper.setUserAgent(context, connection);
+        connection.connect();
+
+        try {
+            int status = connection.getResponseCode();
+            if (status != HttpsURLConnection.HTTP_OK)
+                throw new FileNotFoundException("Error " + status + ": " + connection.getResponseMessage());
+
+            try (OutputStream os = new BufferedOutputStream(new FileOutputStream(file))) {
+                Helper.copy(connection.getInputStream(), os);
+            }
+        } finally {
+            connection.disconnect();
+        }
+    }
+
+    private static File getFile(Context context) {
+        return new File(context.getFilesDir(), "adguard.txt");
     }
 }
