@@ -429,6 +429,12 @@ tasks.register('downloadBraveDebouce', Download) {
     overwrite true
 }
 
+tasks.register('downloadAdguard', Download) {
+    src "https://raw.githubusercontent.com/AdguardTeam/FiltersRegistry/master/filters/filter_17_TrackParam/filter.txt"
+    dest "src/main/assets/adguard_filter.txt"
+    overwrite true
+}
+
 tasks.register('downloadBrave') {
     dependsOn("downloadBraveClean", "downloadBraveDebouce")
 }
