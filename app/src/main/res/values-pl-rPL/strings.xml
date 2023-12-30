@@ -691,6 +691,8 @@
     <string name="title_advanced_confirm_files">Potwierdź przeglądanie plików</string>
     <string name="title_advanced_sanitize_links">Domyślnie usuwaj parametry śledzące</string>
     <string name="title_advanced_sanitize_links_hint">Tylko podczas potwierdzania linków</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Używaj listy filtrów Adguard</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Automatycznie pobieraj raz w tygodniu</string>
     <string name="title_advanced_check_links_dbl">Sprawdź listy zablokowanych domen pod kątem podejrzanych linków</string>
     <string name="title_advanced_confirm_images">Domyślnie nie pokazuj obrazów</string>
     <string name="title_advanced_ask_images">Potwierdź wyświetlanie obrazów</string>

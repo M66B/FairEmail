@@ -663,6 +663,8 @@
     <string name="title_advanced_confirm_files">Επιβεβαίωση προβολής αρχείων</string>
     <string name="title_advanced_sanitize_links">Αφαίρεση παραμέτρων ιχνηλάτησης από προεπιλογή</string>
     <string name="title_advanced_sanitize_links_hint">Μόνο κατά την επιβεβαίωση συνδέσμων</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Χρήση της λίστας φίλτρων Adguard</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Αυτόματη λήψη εβδομαδιαίως</string>
     <string name="title_advanced_check_links_dbl">Έλεγχος λιστών αποκλεισμένων τομέων για τους ύποπτους συνδέσμους</string>
     <string name="title_advanced_confirm_images">Να μην προβάλλεται καμία εικόνα από προεπιλογή</string>
     <string name="title_advanced_ask_images">Επιβεβαίωση προβολής των εικόνων</string>

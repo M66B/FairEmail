@@ -92,6 +92,8 @@
         Bloquear un dominio de remitente utiliza reglas de filtro, que es una característica pro.
     </string>
     <string name="title_blocked_senders">Remitentes bloqueados</string>
+    <string name="title_unblock_all">Desbloquear todos</string>
+    <string name="title_unblock_all_remark">Esto restablecerá todas las listas y opciones que podrían resultar en el bloqueo de remitentes</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">¿Bloquear remitente de %1$s mensaje?</item>
         <item quantity="other">¿Bloquear remitente de %1$s mensajes?</item>
@@ -661,6 +663,8 @@
     <string name="title_advanced_confirm_files">Confirmar visualización de archivos</string>
     <string name="title_advanced_sanitize_links">Eliminar parámetros de rastreo por defecto</string>
     <string name="title_advanced_sanitize_links_hint">Sólo al confirmar enlaces</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Usar lista de filtros Adguard</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Descargar automáticamente semanalmente</string>
     <string name="title_advanced_check_links_dbl">Comprobar listas de bloqueo de dominio para enlaces sospechosos</string>
     <string name="title_advanced_confirm_images">No mostrar imágenes por defecto</string>
     <string name="title_advanced_ask_images">Confirmar mostrar imágenes</string>
@@ -858,6 +862,7 @@
     <string name="title_advanced_wearable_hint">Las notificaciones sólo se envian a dispositivos wearables luego de que el texto del mensaje haya sido descargado</string>
     <string name="title_advanced_messaging_hint">Esto es necesario para el soporte de Android Auto</string>
     <string name="title_advanced_move_hint">La carpeta destino puede establecerse en la configuración de la cuenta</string>
+    <string name="title_advanced_notify_sensitive_hint">Requiere desactivar notificaciones sensibles en los ajustes de Android</string>
     <string name="title_advanced_notify_no_grouping">Esta versión de Android no es compatible con la agrupación de notificaciones</string>
     <string name="title_advanced_notify_no_channels">Esta versión de Android no es compatible con canales de notificación</string>
     <string name="title_advanced_fts_hint">Activar esto mejora el rendimiento de búsqueda, pero también aumenta el uso de batería y espacio de almacenamiento</string>

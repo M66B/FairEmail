@@ -663,6 +663,8 @@
     <string name="title_advanced_confirm_files">Confirmar exibição dos arquivos</string>
     <string name="title_advanced_sanitize_links">Remover parâmetros de rastreamento por padrão</string>
     <string name="title_advanced_sanitize_links_hint">Somente quando confirmando links</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Usar lista de filtros Adguard</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Baixar automaticamente semanalmente</string>
     <string name="title_advanced_check_links_dbl">Verificar listas de bloqueio de domínios para links suspeitos</string>
     <string name="title_advanced_confirm_images">Não mostrar imagens por padrão</string>
     <string name="title_advanced_ask_images">Confirmar a exibição de imagens</string>

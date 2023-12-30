@@ -243,8 +243,10 @@
     <string name="title_setup_error">Грешка</string>
     <string name="title_setup_manual_setup">Ръчна настройка</string>
     <string name="title_setup_pop">Употреба на POP3 (не се препоръчва)</string>
+    <string name="title_setup_recent">Употреба на „recent“ за няколко клиента на е-поща</string>
     <string name="title_setup_configuring">Конфигуриране на акаунта &#8230;</string>
     <string name="title_setup_app_password">Може да трябва да употребявате парола за приложение</string>
+    <string name="title_setup_extra">Допълнение</string>
     <string name="title_setup_delete_account_hint">Това само ще премахне акаунтите от приложението</string>
     <string name="title_setup_close">Затваряне на настройките</string>
     <string name="title_setup_export">Експортиране на настройките</string>
@@ -1674,6 +1676,7 @@
     <string name="title_rule_no_body">Текстът на съобщението не е налично</string>
     <string name="title_rule_matched">Съвпадащи съобщения</string>
     <string name="title_rule_no_matches">Няма съвпадащи съобщения</string>
+    <string name="title_rule_tts_ok">Настрои се добре</string>
     <string name="title_rule_tts_setup">Проверка на настройките</string>
     <string name="title_rule_tts_data">Инсталиране на гласови данни</string>
     <string name="title_rule_tts_prefix">Ново съобщение</string>

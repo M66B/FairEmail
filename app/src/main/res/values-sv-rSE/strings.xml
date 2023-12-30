@@ -660,6 +660,8 @@
     <string name="title_advanced_confirm_files">Bekräfta visning av filer</string>
     <string name="title_advanced_sanitize_links">Ta bort spårningsparametrar som standard</string>
     <string name="title_advanced_sanitize_links_hint">Endast när du bekräftar länkar</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Använd Adguard filterlista</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Uppdatera automatiskt varje vecka</string>
     <string name="title_advanced_check_links_dbl">Kontrollera domänblockeringslistor för misstänkta länkar</string>
     <string name="title_advanced_confirm_images">Visa inga bilder som standard</string>
     <string name="title_advanced_ask_images">Bekräfta visning av bilder</string>
@@ -854,6 +856,7 @@
     <string name="title_advanced_wearable_hint">Aviseringar skickas endast till en bärbar enhet efter att meddelandet har laddats ner</string>
     <string name="title_advanced_messaging_hint">Detta krävs för Android Auto-stöd</string>
     <string name="title_advanced_move_hint">Målmappen kan konfigureras i kontoinställningarna</string>
+    <string name="title_advanced_notify_sensitive_hint">Kräver inaktivering av känsliga aviseringar i Androids inställningar</string>
     <string name="title_advanced_notify_no_grouping">Den här Android-versionen stödjer inte notifikationsgruppering</string>
     <string name="title_advanced_notify_no_channels">Den här Android-versionen stödjer inte notifikationsgruppering</string>
     <string name="title_advanced_fts_hint">Att aktivera detta förbättrar sökprestandan, men ökar både batteri- och utrymmesanvändingen</string>
