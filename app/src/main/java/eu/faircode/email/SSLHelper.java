@@ -50,7 +50,7 @@ public class SSLHelper {
         CTLogger logger = new CTLogger() {
             @Override
             public void log(@NonNull String host, @NonNull VerificationResult result) {
-                Log.w("Transparency: host=" + host + " result=" + result);
+                Log.persist(EntityLog.Type.Network, "Transparency: " + host + " " + result);
             }
         };
 
