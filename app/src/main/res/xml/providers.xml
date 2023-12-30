@@ -2025,7 +2025,7 @@
             starttls="true" />
     </provider>
     <provider
-        name="Drie.at"
+        name="Drei.at"
         domain="drei\\.at"
         link="https://www.drei.at/de/info/support/e-mail-einstellungen/">
         <imap
