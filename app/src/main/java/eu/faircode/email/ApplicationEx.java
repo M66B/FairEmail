@@ -415,6 +415,7 @@ public class ApplicationEx extends Application
                     break;
                 case "debug":
                 case "log_level":
+                    Log.setLevel(this);
                     FairEmailLoggingProvider.setLevel(this);
                     break;
             }

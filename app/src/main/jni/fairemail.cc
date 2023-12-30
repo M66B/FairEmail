@@ -12,8 +12,16 @@
 #include "compact_enc_det/compact_enc_det.h"
 #include "cld_3/src/nnet_language_identifier.h"
 
+int log_level = ANDROID_LOG_DEBUG;
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_eu_faircode_email_Log_jni_1set_1log_1level(JNIEnv *env, jclass clazz, jint level) {
+    log_level = level;
+}
+
 void log_android(int prio, const char *fmt, ...) {
-    if (prio >= ANDROID_LOG_DEBUG) {
+    if (prio >= log_level) {
         char line[1024];
         va_list argptr;
         va_start(argptr, fmt);

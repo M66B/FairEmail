@@ -77,8 +77,7 @@ public class FairEmailLoggingProvider extends TinylogLoggingProvider {
         if (debug)
             provider.activeLevel = Level.DEBUG;
         else {
-            int def = (BuildConfig.DEBUG || BuildConfig.TEST_RELEASE ? android.util.Log.INFO : android.util.Log.WARN);
-            int _level = prefs.getInt("log_level", def);
+            int _level = prefs.getInt("log_level", Log.getDefaultLogLevel());
             if (_level == android.util.Log.VERBOSE)
                 provider.activeLevel = Level.TRACE;
             else if (_level == android.util.Log.DEBUG)

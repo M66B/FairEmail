@@ -5182,10 +5182,6 @@ class Core {
         if (EntityFolder.DRAFTS.equals(folder.type))
             return null;
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        int level = prefs.getInt("log_level", android.util.Log.INFO);
-        boolean log = (level <= android.util.Log.INFO || BuildConfig.DEBUG);
-
         List<Address> addresses = new ArrayList<>();
         if (folder.isOutgoing()) {
             if (message.from != null)
@@ -5215,44 +5211,40 @@ class Core {
             for (Address address : addresses)
                 for (EntityIdentity identity : identities)
                     if (identity.sameAddress(address)) {
-                        if (log)
-                            Log.i("Matched same" +
-                                    " identity=" + identity.email +
-                                    " address=" + ((InternetAddress) address).getAddress() +
-                                    " folder=" + folder.name);
+                        Log.i("Matched same" +
+                                " identity=" + identity.email +
+                                " address=" + ((InternetAddress) address).getAddress() +
+                                " folder=" + folder.name);
                         return identity;
                     }
 
             for (Address address : addresses)
                 for (EntityIdentity identity : identities)
                     if (identity.similarAddress(address)) {
-                        if (log)
-                            Log.i("Matched similar" +
-                                    " identity=" + identity.email +
-                                    " regex=" + identity.sender_extra_regex +
-                                    " address=" + ((InternetAddress) address).getAddress() +
-                                    " folder=" + folder.name);
+                        Log.i("Matched similar" +
+                                " identity=" + identity.email +
+                                " regex=" + identity.sender_extra_regex +
+                                " address=" + ((InternetAddress) address).getAddress() +
+                                " folder=" + folder.name);
                         return identity;
                     }
 
             if (deliveredto != null)
                 for (EntityIdentity identity : identities)
                     if (identity.sameAddress(deliveredto) || identity.similarAddress(deliveredto)) {
-                        if (log)
-                            Log.i("Matched deliveredto" +
-                                    " identity=" + identity.email +
-                                    " regex=" + identity.sender_extra_regex +
-                                    " address=" + ((InternetAddress) deliveredto).getAddress() +
-                                    " folder=" + folder.name);
+                        Log.i("Matched deliveredto" +
+                                " identity=" + identity.email +
+                                " regex=" + identity.sender_extra_regex +
+                                " address=" + ((InternetAddress) deliveredto).getAddress() +
+                                " folder=" + folder.name);
                         return identity;
                     }
         }
 
-        if (log)
-            Log.i("Matched none" +
-                    " addresses=" + MessageHelper.formatAddresses(addresses.toArray(new Address[0])) +
-                    " deliveredto=" + (deliveredto == null ? null : ((InternetAddress) deliveredto).getAddress()) +
-                    " folder=" + folder.name);
+        Log.i("Matched none" +
+                " addresses=" + MessageHelper.formatAddresses(addresses.toArray(new Address[0])) +
+                " deliveredto=" + (deliveredto == null ? null : ((InternetAddress) deliveredto).getAddress()) +
+                " folder=" + folder.name);
 
         return null;
     }

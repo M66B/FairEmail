@@ -123,6 +123,8 @@ public class Log {
         System.loadLibrary("fairemail");
     }
 
+    public static native void jni_set_log_level(int level);
+
     public static native long[] jni_safe_runtime_stats();
 
     public static int d(String msg) {
@@ -338,7 +340,18 @@ public class Log {
 
     static void setup(Context context) {
         ctx = context;
+        setLevel(context);
         setupBugsnag(context);
+    }
+
+    static void setLevel(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        int level = prefs.getInt("log_level", getDefaultLogLevel());
+        jni_set_log_level(level);
+    }
+
+    static int getDefaultLogLevel() {
+        return (BuildConfig.DEBUG || BuildConfig.TEST_RELEASE ? android.util.Log.INFO : android.util.Log.WARN);
     }
 
     private static void setupBugsnag(final Context context) {
