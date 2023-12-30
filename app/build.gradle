@@ -572,7 +572,7 @@ dependencies {
     def tinylog_version = "2.6.2"
 
     // https://mvnrepository.com/artifact/com.android.tools/desugar_jdk_libs?repo=google
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 
     // https://developer.android.com/jetpack/androidx/releases/startup
     implementation "androidx.startup:startup-runtime:$startup_version"
