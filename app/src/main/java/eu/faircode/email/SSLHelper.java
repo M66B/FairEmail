@@ -4,6 +4,10 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
+import com.appmattus.certificatetransparency.CTLogger;
+import com.appmattus.certificatetransparency.CTTrustManagerBuilder;
+import com.appmattus.certificatetransparency.VerificationResult;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.KeyStore;
@@ -21,7 +25,7 @@ import javax.net.ssl.X509TrustManager;
 
 public class SSLHelper {
     static TrustManager[] getTrustManagers(
-            String server, boolean secure, boolean cert_strict, boolean check_names, String trustedFingerprint, ITrust intf) {
+            String server, boolean secure, boolean cert_strict, boolean transparency, boolean check_names, String trustedFingerprint, ITrust intf) {
         TrustManagerFactory tmf;
         try {
             tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -43,7 +47,16 @@ public class SSLHelper {
             for (TrustManager tm : tms)
                 Log.e("Trust manager " + tm.getClass());
 
-        final X509TrustManager rtm = (X509TrustManager) tms[0];
+        CTLogger logger = new CTLogger() {
+            @Override
+            public void log(@NonNull String host, @NonNull VerificationResult result) {
+                Log.w("Transparency: host=" + host + " result=" + result);
+            }
+        };
+
+        final X509TrustManager rtm = (transparency
+                ? new CTTrustManagerBuilder((X509TrustManager) tms[0]).setLogger(logger).build()
+                : (X509TrustManager) tms[0]);
 
         return new TrustManager[]{new X509TrustManager() {
             // openssl s_client -connect <host>

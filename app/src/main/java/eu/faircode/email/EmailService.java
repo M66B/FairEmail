@@ -103,6 +103,7 @@ public class EmailService implements AutoCloseable {
     private boolean ssl_harden;
     private boolean ssl_harden_strict;
     private boolean cert_strict;
+    private boolean cert_transparency;
     private boolean check_names;
     private boolean useip;
     private String ehlo;
@@ -191,6 +192,7 @@ public class EmailService implements AutoCloseable {
         this.ssl_harden = prefs.getBoolean("ssl_harden", false);
         this.ssl_harden_strict = prefs.getBoolean("ssl_harden_strict", false);
         this.cert_strict = prefs.getBoolean("cert_strict", true);
+        this.cert_transparency = prefs.getBoolean("cert_transparency", false);
         this.check_names = prefs.getBoolean("check_names", !BuildConfig.PLAY_STORE_RELEASE);
 
         boolean auth_plain = prefs.getBoolean("auth_plain", true);
@@ -452,7 +454,7 @@ public class EmailService implements AutoCloseable {
             boolean bc = prefs.getBoolean("bouncy_castle", false);
             boolean fips = prefs.getBoolean("bc_fips", false);
             factory = new SSLSocketFactoryService(
-                    host, insecure, ssl_harden, strict, cert_strict, check_names, bc, fips, key, chain, fingerprint);
+                    host, insecure, ssl_harden, strict, cert_strict, cert_transparency, check_names, bc, fips, key, chain, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
             properties.put("mail." + protocol + ".socketFactory.fallback", "false");
             properties.put("mail." + protocol + ".ssl.checkserveridentity", "false");
@@ -1034,23 +1036,21 @@ public class EmailService implements AutoCloseable {
         private boolean secure;
         private boolean ssl_harden;
         private boolean ssl_harden_strict;
-        private boolean cert_strict;
         private String trustedFingerprint;
         private SSLSocketFactory factory;
         private X509Certificate certificate;
 
         SSLSocketFactoryService(String host, boolean insecure,
-                                boolean ssl_harden, boolean ssl_harden_strict, boolean cert_strict, boolean check_names,
+                                boolean ssl_harden, boolean ssl_harden_strict, boolean cert_strict, boolean cert_transparency, boolean check_names,
                                 boolean bc, boolean fips,
                                 PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
             this.server = host;
             this.secure = !insecure;
             this.ssl_harden = ssl_harden;
             this.ssl_harden_strict = ssl_harden_strict;
-            this.cert_strict = cert_strict;
             this.trustedFingerprint = fingerprint;
 
-            TrustManager[] tms = SSLHelper.getTrustManagers(server, secure, cert_strict, check_names, trustedFingerprint,
+            TrustManager[] tms = SSLHelper.getTrustManagers(server, secure, cert_strict, cert_transparency, check_names, trustedFingerprint,
                     new SSLHelper.ITrust() {
                         @Override
                         public void checkServerTrusted(X509Certificate[] chain) {
