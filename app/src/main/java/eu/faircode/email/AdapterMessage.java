@@ -3390,7 +3390,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
                     tvDecrypt.setVisibility(encrypted && !unlocked ? View.VISIBLE : View.GONE);
                     tvSignedData.setVisibility(signed_data ? View.VISIBLE : View.GONE);
 
-                    if (!encrypted || unlocked) {
+                    if (!encrypted || inline || unlocked) {
                         if (show_full) {
                             ((WebViewEx) wvBody).setOnPageLoaded(new Runnable() {
                                 @Override
