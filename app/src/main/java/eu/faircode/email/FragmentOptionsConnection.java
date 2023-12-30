@@ -95,7 +95,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swBindSocket;
     private SwitchCompat swStandaloneVpn;
     private SwitchCompat swTcpKeepAlive;
-    private TextView tvTcpKeepAliveHint;
     private SwitchCompat swSslUpdate;
     private SwitchCompat swSslHarden;
     private SwitchCompat swSslHardenStrict;
@@ -159,7 +158,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swBindSocket = view.findViewById(R.id.swBindSocket);
         swStandaloneVpn = view.findViewById(R.id.swStandaloneVpn);
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
-        tvTcpKeepAliveHint = view.findViewById(R.id.tvTcpKeepAliveHint);
         swSslUpdate = view.findViewById(R.id.swSslUpdate);
         swSslHarden = view.findViewById(R.id.swSslHarden);
         swSslHardenStrict = view.findViewById(R.id.swSslHardenStrict);
