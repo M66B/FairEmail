@@ -135,7 +135,8 @@
         android:requestLegacyExternalStorage="true"
         android:resizeableActivity="true"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true">
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.TranslucentSplash">
         <!-- https://developer.samsung.com/samsung-dex/modify-optimizing.html -->
 
         <!-- https://developer.android.com/guide/webapps/managing-webview#metrics -->
