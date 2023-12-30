@@ -6,6 +6,12 @@ For support you can use the contact form.
 
 Wintonotitan
 
+Next version
+
+* Added Certificate transparency
+* Small improvements and minor bug fixes
+* Updated translations
+
 1.2145 - 2023-12-30
 
 * Added Adguard filter list to remove tracking parameters from links, see the FAQ
