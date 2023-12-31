@@ -691,6 +691,8 @@
     <string name="title_advanced_confirm_files">Подтверждать просмотр файлов</string>
     <string name="title_advanced_sanitize_links">Удалять отслеживающие элементы по умолчанию</string>
     <string name="title_advanced_sanitize_links_hint">Только при подтверждении ссылок</string>
+    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Использовать список фильтров Adguard</string>
+    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Еженедельное автообновление</string>
     <string name="title_advanced_check_links_dbl">Проверять списки блокировки доменов на подозрительные ссылки</string>
     <string name="title_advanced_confirm_images">Не показывать изображения по умолчанию</string>
     <string name="title_advanced_ask_images">Подтверждать отображение изображений</string>

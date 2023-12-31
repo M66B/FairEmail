@@ -191,7 +191,7 @@
     <string name="title_setup_oauth_updated">Обновено упълномощаване на акаунта</string>
     <string name="title_setup_oauth_brave">Употребявайки браузъра Brave, трябва да включите възможността в настройките му да позволите на връзките в приложението да се отварят в приложения извън Brave</string>
     <string name="title_setup_oauth_authorize">Упълномощявам</string>
-    <string name="title_setup_select_account">Изберане на акаунт</string>
+    <string name="title_setup_select_account">Избор на акаунт</string>
     <string name="title_setup_instructions">Указания за настройка</string>
     <string name="title_setup_no_settings">Няма намерени настройки за домейна %1$s</string>
     <string name="title_setup_no_settings_hint">Опитайте ръчна настройка на акаунта, употребявайки настройките, предоставени от доставчика на имейла ви</string>
@@ -204,7 +204,7 @@
     <string name="title_setup_quick_configure">За да редактирате името, цвета, действия по прелистване и т.н.</string>
     <string name="title_setup_manage">Управление</string>
     <string name="title_setup_grant">Разрешаване</string>
-    <string name="title_setup_grant_again">Даване не необходимите разрешения</string>
+    <string name="title_setup_grant_again">Даване на исканите позволения</string>
     <string name="title_setup_exchange_support">Поддържа ли се Microsoft Exchange?</string>
     <string name="title_setup_identity_what">Какво е самоличност?</string>
     <string name="title_setup_free">Приложението безплатно ли е за употреба?</string>
@@ -219,7 +219,7 @@
     <string name="title_setup_import_graph_contact">Контакти от Outlook</string>
     <string name="title_setup_import_graph_new">Нови контакти: %1$s</string>
     <string name="title_setup_doze">Изключване на оптимизирането на батерията</string>
-    <string name="title_setup_doze_remark">За надеждно изпращане и получаване на е-писма във фонов режим</string>
+    <string name="title_setup_doze_remark">За надеждно изпращане и получаване на е-писма на заден план</string>
     <string name="title_setup_doze_explanation">Оптимизиране на батерията трябва да се изключи за приложения, за да се осигури надеждно изпращане и получаване на съобщения във фонов режим</string>
     <string name="title_setup_doze_hint">Въпреки че това може да звучи противоречиво, но изключването на оптимизирането на батерията за това приложение може да доведе до по-малка употреба на батерията</string>
     <string name="title_setup_doze_aggressively">Това устройство може да спре услугата за синхро.</string>
@@ -237,9 +237,9 @@
     <string name="title_setup_advanced_options">Показване на разширени възможности</string>
     <string name="title_setup_inbox">Към кутията</string>
     <string name="title_setup_go">Напред</string>
-    <string name="title_setup_to_do">Да се направи</string>
+    <string name="title_setup_to_do">За направа</string>
     <string name="title_setup_done">Готово</string>
-    <string name="title_setup_still">Да направя още</string>
+    <string name="title_setup_still">Още трябва да се прави</string>
     <string name="title_setup_error">Грешка</string>
     <string name="title_setup_manual_setup">Ръчна настройка</string>
     <string name="title_setup_pop">Употреба на POP3 (не се препоръчва)</string>
@@ -279,7 +279,7 @@
     <string name="title_importing_wizard">Пускане на вълшебника за удостоверение пак</string>
     <string name="title_setup_reorder_accounts">Подреждане на акаунти</string>
     <string name="title_setup_reorder_folders">Подреждане на папки</string>
-    <string name="title_reset_order">Отказване на подреждането</string>
+    <string name="title_reset_order">Нулиране на подреждането</string>
     <string name="title_setup_authentication">Удостоверяване</string>
     <string name="title_setup_biometrics">Биометрично удостоверяване</string>
     <string name="title_setup_biometrics_enable">Включване</string>
@@ -393,18 +393,18 @@
     <string name="title_advanced_prefix_once">Префикс в темата само веднъж при отговор или препращане</string>
     <string name="title_advanced_prefix_count">Добавяне на брояч към префикса за отговор</string>
     <string name="title_advanced_separate_reply">Вмъкване на хоризонтален ред преди заглавка отговор/препращане</string>
-    <string name="title_advanced_extended_reply">Използвай разширено заглавие за отговор/препращане</string>
+    <string name="title_advanced_extended_reply">Употреба на разширена заглавка за отговор/препращане</string>
     <string name="title_advanced_write_above">Пишете над текста на подателя</string>
     <string name="title_advanced_write_below">Пишете под текста на подателя</string>
-    <string name="title_advanced_quote_reply">Цитирай текста в отговора</string>
+    <string name="title_advanced_quote_reply">Цитиране на отговорения текст</string>
     <string name="title_advanced_limit_reply">Ограничаване на броя на вложени цитирания</string>
-    <string name="title_advanced_resize_reply">Преоразмерете изображенията в текста за отговор</string>
+    <string name="title_advanced_resize_reply">Преоразмеряване на образите в отговорения текст</string>
     <string name="title_advanced_resize_paste">Преоразмеряване на поставените образи</string>
     <string name="title_advanced_signature_location">Положение на подписа</string>
     <string name="title_advanced_signature_new">Употреба на подпис за нови съобщения</string>
     <string name="title_advanced_signature_reply">Употреба на подпис при отговор</string>
     <string name="title_advanced_signature_reply_once">Само за първия отговор</string>
-    <string name="title_advanced_signature_forward">Употреба на подпис при пренасочване</string>
+    <string name="title_advanced_signature_forward">Употреба на подпис при препращане</string>
     <string name="title_advanced_discard_delete">При отказване на чернова за постоянно изтрий черновата</string>
     <string name="title_advanced_reply_move">Отговаряйки на съобщение, запазване на отговора в същата папка</string>
     <string name="title_advanced_reply_move_inbox">Също за входящите съобщения</string>
@@ -418,8 +418,8 @@
     <string name="title_advanced_forward_new">Начало на нов разговор при препращане</string>
     <string name="title_advanced_lookup_mx">Проверка имейл адреса на получателя преди изпращане</string>
     <string name="title_advanced_metered">Употреба на връзка с измерено потребление</string>
-    <string name="title_advanced_download">Автоматично изтегляне на съобщения и прикачени файлове с големина до</string>
-    <string name="title_advanced_download_limited">Прилагане и към връзки с измерено потребление</string>
+    <string name="title_advanced_download">Самодейно изтегляне на съобщения и прикачвания при връзка с измерено потребление до</string>
+    <string name="title_advanced_download_limited">Прилагане и към връзки с безмерено потребление</string>
     <string name="title_advanced_roaming">Изтегляне на съобщения и прикачени файлове в роуминг</string>
     <string name="title_advanced_rlah">Роуминг като у дома</string>
     <string name="title_advanced_download_headers">Изтегляне на всички заглавки на съобщението</string>
@@ -467,7 +467,7 @@
     <string name="title_advanced_nav_message_count">Показване на броя локално съхранени съобщения в менюто навигация</string>
     <string name="title_advanced_nav_unseen_drafts">Показване на броя на непрочетените чернови в менюто за навигиране</string>
     <string name="title_advanced_nav_pinned_count">Показване на броя непрочетени съобщения в менюто закачени на навигиране</string>
-    <string name="title_advanced_startup">Показване при стартиране</string>
+    <string name="title_advanced_startup">Показване на началния екран</string>
     <string name="title_advanced_cards">Употреба на картов стил вместо табличен стил</string>
     <string name="title_advanced_category">Категорията на акаунта може да се конфигурира в опциите за напреднали на акаунта чрез главния екран с настройки</string>
     <string name="title_advanced_cards_beige">Употребете бежов фон, използвайки стил на картата (само светли теми)</string>
@@ -490,9 +490,9 @@
     <string name="title_advanced_avatars">Показване на снимки на контакт</string>
     <string name="title_advanced_bimi_unverified">Непроверен подател</string>
     <string name="title_advanced_bimi_verified">Проверен подател</string>
-    <string name="title_advanced_gravatars">Покажи Gravatars</string>
+    <string name="title_advanced_gravatars">Показване на граватарите (Gravatars)</string>
     <string name="title_advanced_libravatars">Показване на либраватарите (Libravatars)</string>
-    <string name="title_advanced_favicons">Показване на фаворити</string>
+    <string name="title_advanced_favicons">Показване на иконата на сайта</string>
     <string name="title_advanced_favicons_partial">Сканиране само на първите %1$s от уебстраницата</string>
     <string name="title_advanced_favicons_manifest">Сканиране на манифести на уеб приложения</string>
     <string name="title_advanced_generated_icons">Показване на генерираните икони</string>
@@ -501,7 +501,7 @@
     <string name="title_advanced_color_saturation">Ситост: %1$s %%</string>
     <string name="title_advanced_color_value">Яркост: %1$s %%</string>
     <string name="title_advanced_color_threshold">Праг за цвета на буквите: %1$s %%</string>
-    <string name="title_advanced_name_email">Покажи имена и имейл адреси</string>
+    <string name="title_advanced_name_email">Показване на имена и имейл адреси</string>
     <string name="title_advanced_replace_name">Предпочитано име от контакти пред изпратено име</string>
     <string name="title_advanced_only_name">Показване само имената на контакта</string>
     <string name="title_advanced_distinguish_contacts">Подчертаване на подателя, когато е известен като местен контакт „до“</string>
@@ -533,7 +533,7 @@
     <string name="title_advanced_message_text_zoom2">Подразбиращ се мащаб на текста на съобщение: %1$s %%</string>
     <string name="title_advanced_editor_text_zoom">Мащабиране на текста на съобщението в редактора</string>
     <string name="title_advanced_overview_mode">Мащабиране на първообразните съобщения към размера на екрана</string>
-    <string name="title_advanced_hyphenation">Употреба на автоматично сричкопренасяне</string>
+    <string name="title_advanced_hyphenation">Употреба на самодейно сричкописане</string>
     <string name="title_advanced_contrast">Използвай висок контраст за текст на съобщението</string>
     <string name="title_advanced_monospaced">Употреба на едноразмерен шрифт за текст на съобщението по подразбиране</string>
     <string name="title_advanced_monospaced_pre">Употреба на едноразмерен шрифт за предварително форматиран текст</string>
@@ -546,7 +546,7 @@
     <string name="title_advanced_text_separators">Употребявайте разделителни линии</string>
     <string name="title_advanced_collapse_quotes">Свиване на цитирания текст</string>
     <string name="title_advanced_image_placeholders">Показване на съдове за образи</string>
-    <string name="title_advanced_images_inline">Автоматично показване на вградени изображения</string>
+    <string name="title_advanced_images_inline">Самодейно показване на вградени образи</string>
     <string name="title_advanced_button_extra">Показване на допълнителни копчета на дъното на съобщение</string>
     <string name="title_advanced_seekbar">Показване на позицията на разговора с точка</string>
     <string name="title_advanced_actionbar">Показване на панела за действиe в разговори</string>
@@ -636,7 +636,7 @@
     <string name="title_advanced_notify_action_flag">Звезда</string>
     <string name="title_advanced_notify_action_seen">Прочетено</string>
     <string name="title_advanced_notify_action_hide">Скриване</string>
-    <string name="title_advanced_notify_action_snooze">Отложи</string>
+    <string name="title_advanced_notify_action_snooze">Отлагане</string>
     <string name="title_advanced_notify_remove">Премахване на известие за ново съобщение при натискане на известието</string>
     <string name="title_advanced_notify_clear">Премахване на известия за нови съобщения в списъка за преглед на съобщения</string>
     <string name="title_advanced_notify_subtext">Показване на акаунта или името на папка като подтекст</string>
@@ -645,7 +645,7 @@
     <string name="title_advanced_biometrics_notify">Показване на съдържание в известията при използване на биометрична проверка</string>
     <string name="title_advanced_notify_open_folder">Отваряне на папка, отваряйки ново съобщение</string>
     <string name="title_advanced_light">Светлинна индикация на известия</string>
-    <string name="title_advanced_sound">Избери звук за известяване</string>
+    <string name="title_advanced_sound">Избор на звук за известяване</string>
     <string name="title_advanced_notify_screen_on">Включете за кратко екрана за известия на ново съобщение</string>
     <string name="title_advanced_notifications_background">Използвайте фонова услуга за синхронизиране на съобщения</string>
     <string name="title_advanced_notifications_background_hint">Услугата за фон може да бъде спряна от Android по всяко време, но не изисква известие за лентата на състоянието</string>
