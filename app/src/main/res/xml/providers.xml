@@ -2198,4 +2198,17 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="A1.net"
+        domain="a1\\.net"
+        link="https://www.a1.net/hilfe-kontakt/article/Vertrag-Services/E-Mail/E-Mail-einrichten/Wie-lauten-die-Servereinstellungen-f%C3%BCr-meine-A1-E-Mail-Adresse-/500000000007404/500000000027481">
+        <imap
+            host="securemail.a1.net"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="securemail.a1.net"
+            port="587"
+            starttls="true" />
+    </provider>
 </providers>
