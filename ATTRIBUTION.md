@@ -53,3 +53,4 @@ FairEmail uses parts or all of:
 * [tinylog 2](https://github.com/tinylog-org/tinylog). Copyright 2016-2023 Martin Winandy. [Apache License 2.0](https://github.com/tinylog-org/tinylog/blob/v2.7/license.txt).
 * [Brave Lists](https://github.com/brave/adblock-lists). [Mozilla Public License Version 2.0](https://github.com/brave/adblock-lists/blob/master/LICENSE).
 * [AG Filters Registry](https://github.com/AdguardTeam/FiltersRegistry). [GNU Lesser General Public License Version 3](https://github.com/AdguardTeam/FiltersRegistry/blob/master/LICENSE).
+* [Certificate transparency for Android and JVM](https://github.com/appmattus/certificatetransparency). Copyright 2023 Appmattus Limited. [Apache License 2.0](https://github.com/appmattus/certificatetransparency/blob/main/LICENSE.md).
