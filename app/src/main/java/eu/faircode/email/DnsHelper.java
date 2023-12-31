@@ -126,6 +126,9 @@ public class DnsHelper {
                         Log.i("Using Android DNS resolver");
                         Semaphore sem = new Semaphore(0);
                         DnsResolver resolver = DnsResolver.getInstance();
+                        //OPTRecord optRecord = new OPTRecord(4096, 0, 0, Flags.DO, null);
+                        //query.addRecord(optRecord, Section.ADDITIONAL);
+                        //query.getHeader().setFlag(Flags.AD);
                         Log.i("DNS query=" + query.toString());
                         resolver.rawQuery(
                                 null,
@@ -170,6 +173,10 @@ public class DnsHelper {
                         }
 
                         if (ex == null) {
+                            //ConnectivityManager cm = getSystemService(context, ConnectivityManager.class);
+                            //Network active = (cm == null ? null : cm.getActiveNetwork());
+                            //LinkProperties props = (active == null ? null : cm.getLinkProperties(active));
+                            //Log.i("DNS private=" + (props == null ? null : props.isPrivateDnsActive()));
                             Log.i("DNS answer=" + result.toString() + " flags=" + result.getHeader().printFlags());
                             return result;
                         } else {
