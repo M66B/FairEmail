@@ -5,11 +5,11 @@ import android.content.Context;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.VisibleForTesting;
 
 import java.io.File;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * User-specified configuration storage object, contains information
@@ -20,7 +20,6 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
 
     private static final int MIN_BREADCRUMBS = 0;
     private static final int MAX_BREADCRUMBS = 500;
-    private static final int VALID_API_KEY_LEN = 32;
     private static final long MIN_LAUNCH_CRASH_THRESHOLD_MS = 0;
 
     final ConfigInternal impl;
@@ -29,7 +28,6 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      * Constructs a new Configuration object with default values.
      */
     public Configuration(@NonNull String apiKey) {
-        validateApiKey(apiKey);
         impl = new ConfigInternal(apiKey);
     }
 
@@ -45,32 +43,6 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
     @NonNull
     static Configuration load(@NonNull Context context, @NonNull String apiKey) {
         return ConfigInternal.load(context, apiKey);
-    }
-
-    private void validateApiKey(String value) {
-        if (isInvalidApiKey(value)) {
-            DebugLogger.INSTANCE.w("Invalid configuration. "
-                    + "apiKey should be a 32-character hexademical string, got " + value);
-        }
-    }
-
-    @VisibleForTesting
-    static boolean isInvalidApiKey(String apiKey) {
-        if (Intrinsics.isEmpty(apiKey)) {
-            throw new IllegalArgumentException("No Bugsnag API Key set");
-        }
-        if (apiKey.length() != VALID_API_KEY_LEN) {
-            return true;
-        }
-        // check whether each character is hexadecimal (either a digit or a-f).
-        // this avoids using a regex to improve startup performance.
-        for (int k = 0; k < VALID_API_KEY_LEN; k++) {
-            char chr = apiKey.charAt(k);
-            if (!Character.isDigit(chr) && (chr < 'a' || chr > 'f')) {
-                return true;
-            }
-        }
-        return false;
     }
 
     private void logNull(String property) {
@@ -89,7 +61,6 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      * Changes the API key used for events sent to Bugsnag.
      */
     public void setApiKey(@NonNull String apiKey) {
-        validateApiKey(apiKey);
         impl.setApiKey(apiKey);
     }
 
@@ -242,28 +213,6 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      */
     public void setPersistenceDirectory(@Nullable File directory) {
         impl.setPersistenceDirectory(directory);
-    }
-
-    /**
-     * Deprecated. Use {@link #getLaunchDurationMillis()} instead.
-     */
-    @Deprecated
-    public long getLaunchCrashThresholdMs() {
-        getLogger().w("The launchCrashThresholdMs configuration option is deprecated "
-                + "and will be removed in a future release. Please use "
-                + "launchDurationMillis instead.");
-        return getLaunchDurationMillis();
-    }
-
-    /**
-     * Deprecated. Use {@link #setLaunchDurationMillis(long)} instead.
-     */
-    @Deprecated
-    public void setLaunchCrashThresholdMs(long launchCrashThresholdMs) {
-        getLogger().w("The launchCrashThresholdMs configuration option is deprecated "
-                + "and will be removed in a future release. Please use "
-                + "launchDurationMillis instead.");
-        setLaunchDurationMillis(launchCrashThresholdMs);
     }
 
     /**
@@ -541,8 +490,8 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      *
      * By default, 32 events are persisted.
      */
-    public int getMaxPersistedEvents() { 
-        return impl.getMaxPersistedEvents(); 
+    public int getMaxPersistedEvents() {
+        return impl.getMaxPersistedEvents();
     }
 
     /**
@@ -584,6 +533,31 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
             getLogger().e("Invalid configuration value detected. "
                     + "Option maxReportedThreads should be a positive integer."
                     + "Supplied value is " + maxReportedThreads);
+        }
+    }
+
+
+    /**
+     * Gets the maximum time for collecting threads and traces.
+     * By default, up to 200 threads are reported.
+     */
+    public long getThreadCollectionTimeLimitMillis() {
+        return impl.getThreadCollectionTimeLimitMillis();
+    }
+
+    /**
+     * Sets the maximum time for collecting threads and traces.
+     * By default, up to 500 milliseconds are reported.
+     */
+    public void setThreadCollectionTimeLimitMillis(
+            @IntRange(from = 0) long threadCollectionTimeLimitMillis
+    ) {
+        if (threadCollectionTimeLimitMillis >= 0) {
+            impl.setThreadCollectionTimeLimitMillis(threadCollectionTimeLimitMillis);
+        } else {
+            getLogger().e("Invalid configuration value detected. "
+                    + "Option threadCollectionTimeLimitMillis should be a positive integer."
+                    + "Supplied value is " + threadCollectionTimeLimitMillis);
         }
     }
 
@@ -671,7 +645,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      * By default, redactedKeys is set to "password"
      */
     @NonNull
-    public Set<String> getRedactedKeys() {
+    public Set<Pattern> getRedactedKeys() {
         return impl.getRedactedKeys();
     }
 
@@ -683,7 +657,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      *
      * By default, redactedKeys is set to "password"
      */
-    public void setRedactedKeys(@NonNull Set<String> redactedKeys) {
+    public void setRedactedKeys(@NonNull Set<Pattern> redactedKeys) {
         if (CollectionUtils.containsNullElements(redactedKeys)) {
             logNull("redactedKeys");
         } else {
@@ -697,7 +671,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      * match against the canonical class name.
      */
     @NonNull
-    public Set<String> getDiscardClasses() {
+    public Set<Pattern> getDiscardClasses() {
         return impl.getDiscardClasses();
     }
 
@@ -706,7 +680,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
      * before being sent to Bugsnag if they are detected. The notifier performs an exact
      * match against the canonical class name.
      */
-    public void setDiscardClasses(@NonNull Set<String> discardClasses) {
+    public void setDiscardClasses(@NonNull Set<Pattern> discardClasses) {
         if (CollectionUtils.containsNullElements(discardClasses)) {
             logNull("discardClasses");
         } else {
@@ -1164,7 +1138,7 @@ public class Configuration implements CallbackAware, MetadataAware, UserAware, F
 
     /**
      * Whether Bugsnag should try to send crashing errors prior to app termination.
-     * 
+     *
      * @see #setAttemptDeliveryOnCrash(boolean)
      */
     public boolean isAttemptDeliveryOnCrash() {

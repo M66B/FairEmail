@@ -8,7 +8,7 @@ internal data class CallbackState(
     val onErrorTasks: MutableCollection<OnErrorCallback> = CopyOnWriteArrayList(),
     val onBreadcrumbTasks: MutableCollection<OnBreadcrumbCallback> = CopyOnWriteArrayList(),
     val onSessionTasks: MutableCollection<OnSessionCallback> = CopyOnWriteArrayList(),
-    val onSendTasks: MutableCollection<OnSendCallback> = CopyOnWriteArrayList()
+    val onSendTasks: MutableList<OnSendCallback> = CopyOnWriteArrayList()
 ) : CallbackAware {
 
     private var internalMetrics: InternalMetrics = InternalMetricsNoop()
@@ -65,6 +65,11 @@ internal data class CallbackState(
         if (onSendTasks.add(onSend)) {
             internalMetrics.notifyAddCallback(onSendName)
         }
+    }
+
+    fun addPreOnSend(onSend: OnSendCallback) {
+        onSendTasks.add(0, onSend)
+        internalMetrics.notifyAddCallback(onSendName)
     }
 
     fun removeOnSend(onSend: OnSendCallback) {

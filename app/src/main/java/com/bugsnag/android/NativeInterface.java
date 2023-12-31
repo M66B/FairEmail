@@ -19,6 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * Used as the entry point for native code to allow proguard to obfuscate other areas if needed
@@ -84,7 +85,7 @@ public class NativeInterface {
     }
 
     private static @NonNull File getNativeReportPath(@NonNull File persistenceDirectory) {
-        return new File(persistenceDirectory, "bugsnag-native");
+        return new File(persistenceDirectory, "bugsnag/native");
     }
 
     private static @NonNull File getPersistenceDirectory() {
@@ -268,7 +269,7 @@ public class NativeInterface {
     /**
      * Add metadata to subsequent exception reports with a Hashmap
      */
-    public static void addMetadata(@NonNull final String tab, 
+    public static void addMetadata(@NonNull final String tab,
                                    @NonNull final Map<String, ?> metadata) {
         getClient().addMetadata(tab, metadata);
     }
@@ -348,21 +349,30 @@ public class NativeInterface {
      */
     @SuppressWarnings("unused")
     public static boolean isDiscardErrorClass(@NonNull String name) {
-        return getClient().getConfig().getDiscardClasses().contains(name);
+        Collection<Pattern> discardClasses = getClient().getConfig().getDiscardClasses();
+        if (discardClasses.isEmpty()) {
+            return false;
+        }
+        for (Pattern pattern : discardClasses) {
+            if (pattern.matcher(name).matches()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @SuppressWarnings("unchecked")
     private static void deepMerge(Map<String, Object> src, Map<String, Object> dst) {
-        for (Map.Entry<String, Object> entry: src.entrySet()) {
+        for (Map.Entry<String, Object> entry : src.entrySet()) {
             String key = entry.getKey();
             Object srcValue = entry.getValue();
             Object dstValue = dst.get(key);
             if (srcValue instanceof Map && (dstValue instanceof Map)) {
-                deepMerge((Map<String, Object>)srcValue, (Map<String, Object>)dstValue);
+                deepMerge((Map<String, Object>) srcValue, (Map<String, Object>) dstValue);
             } else if (srcValue instanceof Collection && dstValue instanceof Collection) {
                 // Just append everything because we don't know enough about the context or
                 // provenance of the data to make an intelligent decision about this.
-                ((Collection<Object>)dstValue).addAll((Collection<Object>)srcValue);
+                ((Collection<Object>) dstValue).addAll((Collection<Object>) srcValue);
             } else {
                 dst.put(key, srcValue);
             }
@@ -394,7 +404,7 @@ public class NativeInterface {
             @SuppressWarnings("unchecked")
             Map<String, Object> staticDataMap =
                     (Map<String, Object>) JsonHelper.INSTANCE.deserialize(
-                    new ByteArrayInputStream(staticDataBytes));
+                            new ByteArrayInputStream(staticDataBytes));
             deepMerge(staticDataMap, payloadMap);
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             JsonHelper.INSTANCE.serialize(payloadMap, os);

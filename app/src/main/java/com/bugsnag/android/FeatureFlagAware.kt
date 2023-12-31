@@ -1,9 +1,6 @@
-package com.bugsnag.android;
+package com.bugsnag.android
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-interface FeatureFlagAware {
+internal interface FeatureFlagAware {
     /**
      * Add a single feature flag with no variant. If there is an existing feature flag with the
      * same name, it will be overwritten to have no variant.
@@ -11,7 +8,7 @@ interface FeatureFlagAware {
      * @param name the name of the feature flag to add
      * @see #addFeatureFlag(String, String)
      */
-    void addFeatureFlag(@NonNull String name);
+    fun addFeatureFlag(name: String)
 
     /**
      * Add a single feature flag with an optional variant. If there is an existing feature
@@ -22,7 +19,7 @@ interface FeatureFlagAware {
      * @param variant the variant to set the feature flag to, or {@code null} to specify a feature
      *                flag with no variant
      */
-    void addFeatureFlag(@NonNull String name, @Nullable String variant);
+    fun addFeatureFlag(name: String, variant: String?)
 
     /**
      * Add a collection of feature flags. This method behaves exactly the same as calling
@@ -31,7 +28,7 @@ interface FeatureFlagAware {
      * @param featureFlags the feature flags to add
      * @see #addFeatureFlag(String, String)
      */
-    void addFeatureFlags(@NonNull Iterable<FeatureFlag> featureFlags);
+    fun addFeatureFlags(featureFlags: Iterable<FeatureFlag>)
 
     /**
      * Remove a single feature flag regardless of its current status. This will stop the specified
@@ -40,10 +37,10 @@ interface FeatureFlagAware {
      *
      * @param name the name of the feature flag to remove
      */
-    void clearFeatureFlag(@NonNull String name);
+    fun clearFeatureFlag(name: String)
 
     /**
      * Clear all of the feature flags. This will stop all feature flags from being reported.
      */
-    void clearFeatureFlags();
+    fun clearFeatureFlags()
 }

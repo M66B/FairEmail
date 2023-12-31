@@ -38,7 +38,13 @@ internal class StorageModule(
 
     val lastRunInfoStore by future { LastRunInfoStore(immutableConfig) }
 
-    val sessionStore by future { SessionStore(immutableConfig, logger, null) }
+    val sessionStore by future {
+        SessionStore(
+            immutableConfig,
+            logger,
+            null
+        )
+    }
 
     val lastRunInfo by future {
         val info = lastRunInfoStore.load()

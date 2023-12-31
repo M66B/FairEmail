@@ -5,6 +5,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.annotation.VisibleForTesting
 import java.lang.IllegalArgumentException
+import java.util.regex.Pattern
 
 internal class ManifestConfigLoader {
 
@@ -38,6 +39,7 @@ internal class ManifestConfigLoader {
         private const val MAX_PERSISTED_EVENTS = "$BUGSNAG_NS.MAX_PERSISTED_EVENTS"
         private const val MAX_PERSISTED_SESSIONS = "$BUGSNAG_NS.MAX_PERSISTED_SESSIONS"
         private const val MAX_REPORTED_THREADS = "$BUGSNAG_NS.MAX_REPORTED_THREADS"
+        private const val THREAD_COLLECTION_TIME_LIMIT_MS = "$BUGSNAG_NS.THREAD_COLLECTION_TIME_LIMIT_MS"
         private const val LAUNCH_CRASH_THRESHOLD_MS = "$BUGSNAG_NS.LAUNCH_CRASH_THRESHOLD_MS"
         private const val LAUNCH_DURATION_MILLIS = "$BUGSNAG_NS.LAUNCH_DURATION_MILLIS"
         private const val SEND_LAUNCH_CRASHES_SYNCHRONOUSLY = "$BUGSNAG_NS.SEND_LAUNCH_CRASHES_SYNCHRONOUSLY"
@@ -80,10 +82,10 @@ internal class ManifestConfigLoader {
                 maxPersistedEvents = data.getInt(MAX_PERSISTED_EVENTS, maxPersistedEvents)
                 maxPersistedSessions = data.getInt(MAX_PERSISTED_SESSIONS, maxPersistedSessions)
                 maxReportedThreads = data.getInt(MAX_REPORTED_THREADS, maxReportedThreads)
-                launchDurationMillis = data.getInt(
-                    LAUNCH_CRASH_THRESHOLD_MS,
-                    launchDurationMillis.toInt()
-                ).toLong()
+                threadCollectionTimeLimitMillis = data.getLong(
+                    THREAD_COLLECTION_TIME_LIMIT_MS,
+                    threadCollectionTimeLimitMillis
+                )
                 launchDurationMillis = data.getInt(
                     LAUNCH_DURATION_MILLIS,
                     launchDurationMillis.toInt()
@@ -135,9 +137,9 @@ internal class ManifestConfigLoader {
             if (data.containsKey(ENABLED_RELEASE_STAGES)) {
                 enabledReleaseStages = getStrArray(data, ENABLED_RELEASE_STAGES, enabledReleaseStages)
             }
-            discardClasses = getStrArray(data, DISCARD_CLASSES, discardClasses) ?: emptySet()
+            discardClasses = getPatternSet(data, DISCARD_CLASSES, discardClasses) ?: emptySet()
             projectPackages = getStrArray(data, PROJECT_PACKAGES, emptySet()) ?: emptySet()
-            redactedKeys = getStrArray(data, REDACTED_KEYS, redactedKeys) ?: emptySet()
+            redactedKeys = getPatternSet(data, REDACTED_KEYS, redactedKeys) ?: emptySet()
         }
     }
 
@@ -152,5 +154,16 @@ internal class ManifestConfigLoader {
             null -> default
             else -> ary.toSet()
         }
+    }
+
+    private fun getPatternSet(
+        data: Bundle,
+        key: String,
+        default: Set<Pattern>?
+    ): Set<Pattern>? {
+        val delimitedStr = data.getString(key) ?: return default
+        return delimitedStr.splitToSequence(',')
+            .map { Pattern.compile(it) }
+            .toSet()
     }
 }

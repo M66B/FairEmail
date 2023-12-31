@@ -2,6 +2,7 @@ package com.bugsnag.android.internal.dag
 
 import com.bugsnag.android.Configuration
 import com.bugsnag.android.Connectivity
+import com.bugsnag.android.internal.BackgroundTaskService
 import com.bugsnag.android.internal.sanitiseConfiguration
 
 /**
@@ -11,8 +12,9 @@ import com.bugsnag.android.internal.sanitiseConfiguration
 internal class ConfigModule(
     contextModule: ContextModule,
     configuration: Configuration,
-    connectivity: Connectivity
+    connectivity: Connectivity,
+    bgTaskExecutor: BackgroundTaskService
 ) : DependencyModule() {
 
-    val config = sanitiseConfiguration(contextModule.ctx, configuration, connectivity)
+    val config = sanitiseConfiguration(contextModule.ctx, configuration, connectivity, bgTaskExecutor)
 }

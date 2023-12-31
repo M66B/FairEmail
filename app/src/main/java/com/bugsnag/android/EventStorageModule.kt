@@ -37,5 +37,14 @@ internal class EventStorageModule(
             ) else null
     }
 
-    val eventStore by future { EventStore(cfg, cfg.logger, notifier, bgTaskService, delegate, callbackState) }
+    val eventStore by future {
+        EventStore(
+            cfg,
+            cfg.logger,
+            notifier,
+            bgTaskService,
+            delegate,
+            callbackState
+        )
+    }
 }

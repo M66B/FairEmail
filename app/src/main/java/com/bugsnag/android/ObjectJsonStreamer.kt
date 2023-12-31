@@ -4,6 +4,7 @@ import com.bugsnag.android.internal.DateUtils
 import java.io.IOException
 import java.lang.reflect.Array
 import java.util.Date
+import java.util.regex.Pattern
 
 internal class ObjectJsonStreamer {
 
@@ -12,7 +13,7 @@ internal class ObjectJsonStreamer {
         internal const val OBJECT_PLACEHOLDER = "[OBJECT]"
     }
 
-    var redactedKeys = setOf("password")
+    var redactedKeys = setOf(Pattern.compile(".*password.*", Pattern.CASE_INSENSITIVE))
 
     // Write complex/nested values to a JsonStreamer
     @Throws(IOException::class)
@@ -66,5 +67,5 @@ internal class ObjectJsonStreamer {
     }
 
     // Should this key be redacted
-    private fun isRedactedKey(key: String) = redactedKeys.any { key.contains(it) }
+    private fun isRedactedKey(key: String) = redactedKeys.any { it.matcher(key).matches() }
 }

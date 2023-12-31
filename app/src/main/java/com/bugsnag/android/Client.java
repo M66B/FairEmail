@@ -3,6 +3,8 @@ package com.bugsnag.android;
 import static com.bugsnag.android.SeverityReason.REASON_HANDLED_EXCEPTION;
 
 import com.bugsnag.android.internal.BackgroundTaskService;
+import com.bugsnag.android.internal.BugsnagStoreMigrator;
+import com.bugsnag.android.internal.ForegroundDetector;
 import com.bugsnag.android.internal.ImmutableConfig;
 import com.bugsnag.android.internal.InternalMetrics;
 import com.bugsnag.android.internal.InternalMetricsImpl;
@@ -33,6 +35,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.Callable;
 import java.util.concurrent.RejectedExecutionException;
+import java.util.regex.Pattern;
 
 /**
  * A Bugsnag Client instance allows you to use Bugsnag in your Android app.
@@ -143,7 +146,13 @@ public class Client implements MetadataAware, CallbackAware, UserAware, FeatureF
         });
 
         // set sensible defaults for delivery/project packages etc if not set
-        ConfigModule configModule = new ConfigModule(contextModule, configuration, connectivity);
+        ConfigModule configModule = new ConfigModule(
+                contextModule,
+                configuration,
+                connectivity,
+                bgTaskService
+        );
+
         immutableConfig = configModule.getConfig();
         logger = immutableConfig.getLogger();
 
@@ -158,6 +167,9 @@ public class Client implements MetadataAware, CallbackAware, UserAware, FeatureF
                     + "https://docs.bugsnag.com/platforms/android/#basic-configuration");
 
         }
+
+        BugsnagStoreMigrator.moveToNewDirectory(
+                immutableConfig.getPersistenceDirectory().getValue());
 
         // setup storage as soon as possible
         final StorageModule storageModule = new StorageModule(appContext,
@@ -314,8 +326,8 @@ public class Client implements MetadataAware, CallbackAware, UserAware, FeatureF
     void registerLifecycleCallbacks() {
         if (appContext instanceof Application) {
             Application application = (Application) appContext;
-            SessionLifecycleCallback sessionCb = new SessionLifecycleCallback(sessionTracker);
-            application.registerActivityLifecycleCallbacks(sessionCb);
+            ForegroundDetector.registerOn(application);
+            ForegroundDetector.registerActivityCallbacks(sessionTracker);
 
             if (!immutableConfig.shouldDiscardBreadcrumb(BreadcrumbType.STATE)) {
                 ActivityBreadcrumbCollector activityCb = new ActivityBreadcrumbCollector(
@@ -792,7 +804,7 @@ public class Client implements MetadataAware, CallbackAware, UserAware, FeatureF
                         @Nullable OnErrorCallback onError) {
         // set the redacted keys on the event as this
         // will not have been set for RN/Unity events
-        Collection<String> redactedKeys = metadataState.getMetadata().getRedactedKeys();
+        Collection<Pattern> redactedKeys = metadataState.getMetadata().getRedactedKeys();
         event.setRedactedKeys(redactedKeys);
 
         // get session for event
@@ -1181,5 +1193,9 @@ public class Client implements MetadataAware, CallbackAware, UserAware, FeatureF
 
     void setAutoDetectAnrs(boolean autoDetectAnrs) {
         pluginClient.setAutoDetectAnrs(this, autoDetectAnrs);
+    }
+
+    void addOnSend(OnSendCallback callback) {
+        callbackState.addPreOnSend(callback);
     }
 }

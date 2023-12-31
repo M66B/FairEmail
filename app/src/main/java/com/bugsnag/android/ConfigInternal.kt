@@ -3,9 +3,10 @@ package com.bugsnag.android
 import android.content.Context
 import java.io.File
 import java.util.EnumSet
+import java.util.regex.Pattern
 
 internal class ConfigInternal(
-    var apiKey: String
+    var apiKey: String?
 ) : CallbackAware, MetadataAware, UserAware, FeatureFlagAware {
 
     private var user = User()
@@ -23,7 +24,7 @@ internal class ConfigInternal(
     var versionCode: Int? = 0
     var releaseStage: String? = null
     var sendThreads: ThreadSendPolicy = ThreadSendPolicy.ALWAYS
-    var persistUser: Boolean = false
+    var persistUser: Boolean = true
 
     var launchDurationMillis: Long = DEFAULT_LAUNCH_CRASH_THRESHOLD_MS
 
@@ -42,16 +43,17 @@ internal class ConfigInternal(
     var maxPersistedEvents: Int = DEFAULT_MAX_PERSISTED_EVENTS
     var maxPersistedSessions: Int = DEFAULT_MAX_PERSISTED_SESSIONS
     var maxReportedThreads: Int = DEFAULT_MAX_REPORTED_THREADS
+    var threadCollectionTimeLimitMillis: Long = DEFAULT_THREAD_COLLECTION_TIME_LIMIT_MS
     var maxStringValueLength: Int = DEFAULT_MAX_STRING_VALUE_LENGTH
     var context: String? = null
 
-    var redactedKeys: Set<String>
+    var redactedKeys: Set<Pattern>
         get() = metadataState.metadata.redactedKeys
         set(value) {
             metadataState.metadata.redactedKeys = value
         }
 
-    var discardClasses: Set<String> = emptySet()
+    var discardClasses: Set<Pattern> = emptySet()
     var enabledReleaseStages: Set<String>? = null
     var enabledBreadcrumbTypes: Set<BreadcrumbType>? = null
     var telemetry: Set<Telemetry> = EnumSet.of(Telemetry.INTERNAL_ERRORS, Telemetry.USAGE)
@@ -138,6 +140,8 @@ internal class ConfigInternal(
                 "maxPersistedSessions" to maxPersistedSessions else null,
             if (maxReportedThreads != defaultConfig.maxReportedThreads)
                 "maxReportedThreads" to maxReportedThreads else null,
+            if (threadCollectionTimeLimitMillis != defaultConfig.threadCollectionTimeLimitMillis)
+                "threadCollectionTimeLimitMillis" to threadCollectionTimeLimitMillis else null,
             if (persistenceDirectory != null)
                 "persistenceDirectorySet" to true else null,
             if (sendThreads != defaultConfig.sendThreads)
@@ -152,6 +156,7 @@ internal class ConfigInternal(
         private const val DEFAULT_MAX_PERSISTED_SESSIONS = 128
         private const val DEFAULT_MAX_PERSISTED_EVENTS = 32
         private const val DEFAULT_MAX_REPORTED_THREADS = 200
+        private const val DEFAULT_THREAD_COLLECTION_TIME_LIMIT_MS: Long = 5000
         private const val DEFAULT_LAUNCH_CRASH_THRESHOLD_MS: Long = 5000
         private const val DEFAULT_MAX_STRING_VALUE_LENGTH = 10000
 

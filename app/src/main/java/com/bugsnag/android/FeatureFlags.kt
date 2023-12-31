@@ -12,7 +12,6 @@ internal class FeatureFlags(
     }
 
     @Synchronized override fun addFeatureFlag(name: String, variant: String?) {
-        store.remove(name)
         store[name] = variant ?: emptyVariant
     }
 

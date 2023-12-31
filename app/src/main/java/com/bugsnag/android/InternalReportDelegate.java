@@ -82,7 +82,7 @@ class InternalReportDelegate implements EventStore.Delegate {
     void recordStorageCacheBehavior(Event event) {
         if (storageManager != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             File cacheDir = appContext.getCacheDir();
-            File errDir = new File(cacheDir, "bugsnag-errors");
+            File errDir = new File(cacheDir, "bugsnag/errors");
 
             try {
                 boolean tombstone = storageManager.isCacheBehaviorTombstone(errDir);

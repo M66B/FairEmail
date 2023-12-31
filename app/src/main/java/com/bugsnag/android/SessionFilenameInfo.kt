@@ -35,7 +35,7 @@ internal data class SessionFilenameInfo(
 
         @JvmStatic
         fun defaultFilename(
-            obj: Any,
+            obj: Any?,
             config: ImmutableConfig
         ): SessionFilenameInfo {
             val sanitizedApiKey = when (obj) {

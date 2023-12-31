@@ -6,6 +6,7 @@ import com.bugsnag.android.internal.StringUtils
 import com.bugsnag.android.internal.TrimMetrics
 import java.io.IOException
 import java.util.concurrent.ConcurrentHashMap
+import java.util.regex.Pattern
 
 /**
  * A container for additional diagnostic information you'd like to send with
@@ -19,7 +20,7 @@ internal data class Metadata @JvmOverloads constructor(
 
     val jsonStreamer: ObjectJsonStreamer = ObjectJsonStreamer()
 
-    var redactedKeys: Set<String>
+    var redactedKeys: Set<Pattern>
         get() = jsonStreamer.redactedKeys
         set(value) {
             jsonStreamer.redactedKeys = value

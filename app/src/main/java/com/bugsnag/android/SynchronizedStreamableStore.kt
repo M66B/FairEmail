@@ -13,7 +13,7 @@ import kotlin.concurrent.withLock
  * This class is made thread safe through the use of a [ReadWriteLock].
  */
 internal class SynchronizedStreamableStore<T : JsonStream.Streamable>(
-    private val file: File
+    internal val file: File
 ) {
 
     private val lock = ReentrantReadWriteLock()

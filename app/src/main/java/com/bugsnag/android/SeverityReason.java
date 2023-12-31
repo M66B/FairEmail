@@ -64,6 +64,7 @@ final class SeverityReason implements JsonStream.Streamable {
         switch (reason) {
             case REASON_UNHANDLED_EXCEPTION:
             case REASON_PROMISE_REJECTION:
+            case REASON_SIGNAL:
             case REASON_ANR:
                 return new SeverityReason(reason, ERROR, true, true, null, null);
             case REASON_STRICT_MODE:

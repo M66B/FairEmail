@@ -1,5 +1,6 @@
 package com.bugsnag.android
 
+import androidx.annotation.RestrictTo
 import com.bugsnag.android.internal.JsonHelper
 import java.io.IOException
 
@@ -70,7 +71,8 @@ class Stackframe : JsonStream.Streamable {
     var type: ErrorType? = null
 
     @JvmOverloads
-    internal constructor(
+    @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
+    constructor(
         method: String?,
         file: String?,
         lineNumber: Number?,
@@ -130,7 +132,9 @@ class Stackframe : JsonStream.Streamable {
         writer.name("columnNumber").value(columnNumber)
 
         frameAddress?.let { writer.name("frameAddress").value(JsonHelper.ulongToHex(frameAddress)) }
-        symbolAddress?.let { writer.name("symbolAddress").value(JsonHelper.ulongToHex(symbolAddress)) }
+        symbolAddress?.let {
+            writer.name("symbolAddress").value(JsonHelper.ulongToHex(symbolAddress))
+        }
         loadAddress?.let { writer.name("loadAddress").value(JsonHelper.ulongToHex(loadAddress)) }
         codeIdentifier?.let { writer.name("codeIdentifier").value(it) }
         isPC?.let { writer.name("isPC").value(it) }

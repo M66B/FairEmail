@@ -6,6 +6,7 @@ import com.bugsnag.android.internal.InternalMetricsNoop
 import com.bugsnag.android.internal.JsonHelper
 import com.bugsnag.android.internal.TrimMetrics
 import java.io.IOException
+import java.util.regex.Pattern
 
 internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, MetadataAware, UserAware {
 
@@ -39,7 +40,7 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
         apiKey: String,
         logger: Logger,
         breadcrumbs: MutableList<Breadcrumb> = mutableListOf(),
-        discardClasses: Set<String> = setOf(),
+        discardClasses: Set<Pattern> = setOf(),
         errors: MutableList<Error> = mutableListOf(),
         metadata: Metadata = Metadata(),
         featureFlags: FeatureFlags = FeatureFlags(),
@@ -48,7 +49,7 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
         severityReason: SeverityReason = SeverityReason.newInstance(SeverityReason.REASON_HANDLED_EXCEPTION),
         threads: MutableList<Thread> = mutableListOf(),
         user: User = User(),
-        redactionKeys: Set<String>? = null
+        redactionKeys: Set<Pattern>? = null
     ) {
         this.logger = logger
         this.apiKey = apiKey
@@ -74,7 +75,7 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
     val logger: Logger
     val metadata: Metadata
     val featureFlags: FeatureFlags
-    private val discardClasses: Set<String>
+    private val discardClasses: Set<Pattern>
     internal var projectPackages: Collection<String>
 
     private val jsonStreamer: ObjectJsonStreamer = ObjectJsonStreamer().apply {
@@ -105,7 +106,7 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
     var groupingHash: String? = null
     var context: String? = null
 
-    var redactedKeys: Collection<String>
+    var redactedKeys: Collection<Pattern>
         get() = jsonStreamer.redactedKeys
         set(value) {
             jsonStreamer.redactedKeys = value.toSet()
@@ -125,7 +126,11 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
     protected fun shouldDiscardClass(): Boolean {
         return when {
             errors.isEmpty() -> true
-            else -> errors.any { discardClasses.contains(it.errorClass) }
+            else -> errors.any { error ->
+                discardClasses.any { pattern ->
+                    pattern.matcher(error.errorClass).matches()
+                }
+            }
         }
     }
 
@@ -304,9 +309,10 @@ internal class EventInternal : FeatureFlagAware, JsonStream.Streamable, Metadata
 
     override fun addFeatureFlag(name: String) = featureFlags.addFeatureFlag(name)
 
-    override fun addFeatureFlag(name: String, variant: String?) = featureFlags.addFeatureFlag(name, variant)
+    override fun addFeatureFlag(name: String, variant: String?) =
+        featureFlags.addFeatureFlag(name, variant)
 
-    override fun addFeatureFlags(featureFlags: MutableIterable<FeatureFlag>) =
+    override fun addFeatureFlags(featureFlags: Iterable<FeatureFlag>) =
         this.featureFlags.addFeatureFlags(featureFlags)
 
     override fun clearFeatureFlag(name: String) = featureFlags.clearFeatureFlag(name)

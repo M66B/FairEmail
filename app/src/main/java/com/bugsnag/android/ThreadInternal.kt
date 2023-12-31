@@ -3,9 +3,9 @@ package com.bugsnag.android
 import java.io.IOException
 
 class ThreadInternal internal constructor(
-    var id: Long,
+    var id: String,
     var name: String,
-    var type: ThreadType,
+    var type: ErrorType,
     val isErrorReportingThread: Boolean,
     var state: String,
     stacktrace: Stacktrace

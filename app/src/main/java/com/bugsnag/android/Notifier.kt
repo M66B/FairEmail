@@ -7,7 +7,7 @@ import java.io.IOException
  */
 class Notifier @JvmOverloads constructor(
     var name: String = "Android Bugsnag Notifier",
-    var version: String = "5.31.3",
+    var version: String = "6.1.0",
     var url: String = "https://bugsnag.com"
 ) : JsonStream.Streamable {
 

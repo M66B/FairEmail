@@ -96,6 +96,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeoutException;
+import java.util.regex.Pattern;
 
 import javax.mail.AuthenticationFailedException;
 import javax.mail.FolderClosedException;
@@ -118,6 +119,36 @@ public class Log {
 
     static final String TOKEN_REFRESH_REQUIRED =
             "Token refresh required. Is there a VPN based app running?";
+
+    static final List<String> IGNORE_CLASSES = Collections.unmodifiableList(Arrays.asList(
+            "com.sun.mail.util.MailConnectException",
+
+            "android.accounts.AuthenticatorException",
+            "android.accounts.OperationCanceledException",
+            "android.app.RemoteServiceException",
+
+            "java.lang.NoClassDefFoundError",
+            "java.lang.UnsatisfiedLinkError",
+
+            "java.nio.charset.MalformedInputException",
+
+            "java.net.ConnectException",
+            "java.net.SocketException",
+            "java.net.SocketTimeoutException",
+            "java.net.UnknownHostException",
+
+            "javax.mail.AuthenticationFailedException",
+            "javax.mail.internet.AddressException",
+            "javax.mail.internet.ParseException",
+            "javax.mail.MessageRemovedException",
+            "javax.mail.FolderNotFoundException",
+            "javax.mail.ReadOnlyFolderException",
+            "javax.mail.FolderClosedException",
+            "com.sun.mail.util.FolderClosedIOException",
+            "javax.mail.StoreClosedException",
+
+            "org.xmlpull.v1.XmlPullParserException"
+    ));
 
     static {
         System.loadLibrary("fairemail");
@@ -376,37 +407,11 @@ public class Log {
             config.setEnabledErrorTypes(etypes);
             config.setMaxBreadcrumbs(BuildConfig.PLAY_STORE_RELEASE ? 250 : 500);
 
-            Set<String> ignore = new HashSet<>();
-
-            ignore.add("com.sun.mail.util.MailConnectException");
-
-            ignore.add("android.accounts.AuthenticatorException");
-            ignore.add("android.accounts.OperationCanceledException");
-            ignore.add("android.app.RemoteServiceException");
-
-            ignore.add("java.lang.NoClassDefFoundError");
-            ignore.add("java.lang.UnsatisfiedLinkError");
-
-            ignore.add("java.nio.charset.MalformedInputException");
-
-            ignore.add("java.net.ConnectException");
-            ignore.add("java.net.SocketException");
-            ignore.add("java.net.SocketTimeoutException");
-            ignore.add("java.net.UnknownHostException");
-
-            ignore.add("javax.mail.AuthenticationFailedException");
-            ignore.add("javax.mail.internet.AddressException");
-            ignore.add("javax.mail.internet.ParseException");
-            ignore.add("javax.mail.MessageRemovedException");
-            ignore.add("javax.mail.FolderNotFoundException");
-            ignore.add("javax.mail.ReadOnlyFolderException");
-            ignore.add("javax.mail.FolderClosedException");
-            ignore.add("com.sun.mail.util.FolderClosedIOException");
-            ignore.add("javax.mail.StoreClosedException");
-
-            ignore.add("org.xmlpull.v1.XmlPullParserException");
-
-            config.setDiscardClasses(ignore);
+            Set<Pattern> discardClasses = new HashSet<>();
+            if (!BuildConfig.DEBUG)
+                for (String clazz : IGNORE_CLASSES)
+                    discardClasses.add(Pattern.compile(clazz.replace(".", "\\.")));
+            config.setDiscardClasses(discardClasses);
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
             ActivityManager am = Helper.getSystemService(context, ActivityManager.class);

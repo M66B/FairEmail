@@ -16,7 +16,7 @@ private const val KEY_CRASHED_DURING_LAUNCH = "crashedDuringLaunch"
  */
 internal class LastRunInfoStore(config: ImmutableConfig) {
 
-    val file: File = File(config.persistenceDirectory.value, "last-run-info")
+    val file: File = File(config.persistenceDirectory.value, "bugsnag/last-run-info")
     private val logger: Logger = config.logger
     private val lock = ReentrantReadWriteLock()
 

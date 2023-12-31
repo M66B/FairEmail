@@ -3,7 +3,6 @@ package com.bugsnag.android
 import com.bugsnag.android.internal.ImmutableConfig
 import com.bugsnag.android.internal.StateObserver
 import java.io.File
-import java.io.IOException
 import java.util.concurrent.atomic.AtomicReference
 
 /**
@@ -12,7 +11,7 @@ import java.util.concurrent.atomic.AtomicReference
 internal class UserStore @JvmOverloads constructor(
     private val config: ImmutableConfig,
     private val deviceId: String?,
-    file: File = File(config.persistenceDirectory.value, "user-info"),
+    file: File = File(config.persistenceDirectory.value, "bugsnag/user-info"),
     private val sharedPrefMigrator: SharedPrefMigrator,
     private val logger: Logger
 ) {
@@ -22,11 +21,6 @@ internal class UserStore @JvmOverloads constructor(
     private val previousUser = AtomicReference<User?>(null)
 
     init {
-        try {
-            file.createNewFile()
-        } catch (exc: IOException) {
-            logger.w("Failed to created device ID file", exc)
-        }
         this.synchronizedStreamableStore = SynchronizedStreamableStore(file)
     }
 
@@ -87,13 +81,19 @@ internal class UserStore @JvmOverloads constructor(
             val legacyUser = sharedPrefMigrator.loadUser(deviceId)
             save(legacyUser)
             legacyUser
-        } else {
-            return try {
+        } else if (
+            synchronizedStreamableStore.file.canRead() &&
+            synchronizedStreamableStore.file.length() > 0L &&
+            persist
+        ) {
+            try {
                 synchronizedStreamableStore.load(User.Companion::fromReader)
             } catch (exc: Exception) {
                 logger.w("Failed to load user info", exc)
                 null
             }
+        } else {
+            null
         }
     }
 }

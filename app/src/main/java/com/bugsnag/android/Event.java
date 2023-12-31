@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  * An Event object represents a Throwable captured by Bugsnag and is available as a parameter on
@@ -418,7 +419,7 @@ public class Event implements JsonStream.Streamable, MetadataAware, UserAware, F
         return impl;
     }
 
-    void setRedactedKeys(Collection<String> redactedKeys) {
+    void setRedactedKeys(Collection<Pattern> redactedKeys) {
         impl.setRedactedKeys(redactedKeys);
     }
 
