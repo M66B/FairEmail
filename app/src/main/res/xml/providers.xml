@@ -2211,4 +2211,30 @@
             port="587"
             starttls="true" />
     </provider>
+    <provider
+        name="NetEase"
+        description="NetEase"
+        domain="163\\.com,126\\.com,yeah\\.net"
+        id="netease"
+        link="https://qiye.163.com/help/client-profile.html">
+        <imap
+            host="imaphz.qiye.163.com"
+            port="993"
+            starttls="false" />
+        <smtp
+            host="smtphz.qiye.163.com"
+            port="465"
+            starttls="false" />
+        <oauth
+            askAccount="true"
+            authorizationEndpoint="http://reg.163.com/open/oauth2/authorize.do"
+            clientId="..."
+            clientSecret="..."
+            enabled="false"
+            privacy="https://ir.netease.com/privacy-policy"
+            redirectUri="https://oauth.faircode.eu/"
+            scopes=""
+            tokenEndpoint="http://reg.163.com/open/oauth2/token.do" />
+        <!-- https://reg.163.com/help/help_oauth2.html -->
+    </provider>
 </providers>
