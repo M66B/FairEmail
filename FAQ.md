@@ -411,6 +411,7 @@ Anything on this list is in random order and *might* be added in the near future
 * [(198) Can you add spell checking?](#faq198)
 * [(199) Can you add proxy support?](#faq199)
 * [(200) How can I use Adguard to remove tracking parameters?](#faq200)
+* [(201) What is certificate transparency](#faq201)
 
 [I have another question.](#get-support)
 
@@ -5647,6 +5648,19 @@ To use [Adguard](https://adguard.com/) to remove tracking parameters from links:
 
 Note that the Adguard filter list contains over 2,000 entries, which takes a few moments to scan,
 visible as a short delay between tapping on a link and the link confirmation dialog box appearing.
+
+<br>
+
+<a name="faq201"></a>
+**(201) What is certificate transparency?**
+
+Please see [this article](https://certificate.transparency.dev/howctworks/) about what certificate transparency is.
+Alternatively, see [this Wikipedia article](https://en.wikipedia.org/wiki/Certificate_Transparency).
+
+When certificate transparency is enabled in the connection-settings tab page of the app,
+the [Chrome Certificate Transparency Policy](https://github.com/GoogleChrome/CertificateTransparency/blob/master/ct_policy.md) will be applied.
+
+FairEmail uses [this library](https://github.com/appmattus/certificatetransparency) to implement certificate transparency via a custom trust manager.
 
 <br>
 

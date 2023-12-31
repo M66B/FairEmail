@@ -393,7 +393,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         ibCertTransparency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Helper.view(v.getContext(), Uri.parse(Helper.URI_CERT_TRANSPARENCY), true);
+                Helper.viewFAQ(v.getContext(), 201);
             }
         });
 

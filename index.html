@@ -364,6 +364,7 @@
 <li><a href="#faq198">(198) Can you add spell checking?</a></li>
 <li><a href="#faq199">(199) Can you add proxy support?</a></li>
 <li><a href="#faq200">(200) How can I use Adguard to remove tracking parameters?</a></li>
+<li><a href="#faq201">(201) What is certificate transparency</a></li>
 </ul>
 <p><a href="#get-support">I have another question.</a></p>
 <p><a name="faq1"></a> <strong>(1) Which permissions are needed and why?</strong></p>
@@ -2763,6 +2764,11 @@ adb install /path/to/FairEmail-xxx.apk</code></pre>
 <li>If a list entry is found for the link, the app will suggest to <em>Remove tracking parameters</em> in the confirmation dialog box</li>
 </ol>
 <p>Note that the Adguard filter list contains over 2,000 entries, which takes a few moments to scan, visible as a short delay between tapping on a link and the link confirmation dialog box appearing.</p>
+<p><br></p>
+<p><a name="faq201"></a> <strong>(201) What is certificate transparency?</strong></p>
+<p>Please see <a href="https://certificate.transparency.dev/howctworks/">this article</a> about what certificate transparency is. Alternatively, see <a href="https://en.wikipedia.org/wiki/Certificate_Transparency">this Wikipedia article</a>.</p>
+<p>When certificate transparency is enabled in the connection-settings tab page of the app, the <a href="https://github.com/GoogleChrome/CertificateTransparency/blob/master/ct_policy.md">Chrome Certificate Transparency Policy</a> will be applied.</p>
+<p>FairEmail uses <a href="https://github.com/appmattus/certificatetransparency">this library</a> to implement certificate transparency via a custom trust manager.</p>
 <p><br></p>
 <h2>
 <a name="get-support"></a>Get support
