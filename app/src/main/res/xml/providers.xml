@@ -2214,7 +2214,7 @@
     <provider
         name="NetEase"
         description="NetEase"
-        domain="163\\.com,126\\.com,yeah\\.net"
+        domain="163\\.com,126\\.com,yeah\\.net,188\\.net,vip\\.163\\.com,vip\\.126\\.com"
         id="netease"
         link="https://qiye.163.com/help/client-profile.html">
         <imap
