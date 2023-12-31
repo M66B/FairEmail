@@ -10,6 +10,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Added [Certificate transparency](https://github.com/appmattus/certificatetransparency/blob/main/docs/what-is-certificate-transparency.md)
 * Small improvements and minor bug fixes
+* Updated libraries (Apache Compress, Bugsnag, Bouncy Castle, Jsoup)
 * Updated [translations](https://crowdin.com/project/open-source-email)
 
 ### 1.2145 - 2023-12-30
