@@ -10,7 +10,7 @@ Next version
 
 * Added Certificate transparency
 * Small improvements and minor bug fixes
-* Updated libraries (Apache Compress, Bugsnag, Bouncy Castle, Jsoup)
+* Updated libraries (Apache Compress, Bugsnag, Bouncy Castle, dnsjava, Jsoup)
 * Updated translations
 
 1.2145 - 2023-12-30
