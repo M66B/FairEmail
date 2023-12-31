@@ -37,6 +37,7 @@ import org.xbill.DNS.MXRecord;
 import org.xbill.DNS.Message;
 import org.xbill.DNS.NSRecord;
 import org.xbill.DNS.Record;
+import org.xbill.DNS.SOARecord;
 import org.xbill.DNS.SRVRecord;
 import org.xbill.DNS.SimpleResolver;
 import org.xbill.DNS.TXTRecord;
@@ -45,7 +46,6 @@ import org.xbill.DNS.Type;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -96,6 +96,9 @@ public class DnsHelper {
                 break;
             case "mx":
                 rtype = Type.MX;
+                break;
+            case "soa":
+                rtype = Type.SOA;
                 break;
             case "srv":
                 rtype = Type.SRV;
@@ -186,7 +189,7 @@ public class DnsHelper {
                     }
                 }
             };
-            resolver.setTimeout(Duration.ofSeconds(timeout));
+            resolver.setTimeout(timeout);
             Lookup lookup = new Lookup(name, rtype);
             lookup.setResolver(resolver);
             Log.i("Lookup name=" + name + " @" + resolver.getAddress() + " type=" + rtype);
@@ -205,13 +208,16 @@ public class DnsHelper {
                     Log.i("Found record=" + record);
                     if (record instanceof NSRecord) {
                         NSRecord ns = (NSRecord) record;
-                        result.add(new DnsRecord(type, ns.getTarget().toString(true)));
+                        result.add(new DnsRecord(ns.getTarget().toString(true)));
                     } else if (record instanceof MXRecord) {
                         MXRecord mx = (MXRecord) record;
-                        result.add(new DnsRecord(type, mx.getTarget().toString(true)));
+                        result.add(new DnsRecord(mx.getTarget().toString(true)));
+                    } else if (record instanceof SOARecord) {
+                        SOARecord soa = (SOARecord) record;
+                        result.add(new DnsRecord(soa.getHost().toString(true)));
                     } else if (record instanceof SRVRecord) {
                         SRVRecord srv = (SRVRecord) record;
-                        result.add(new DnsRecord(type, srv.getTarget().toString(true), srv.getPort(), srv.getPriority(), srv.getWeight()));
+                        result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort(), srv.getPriority(), srv.getWeight()));
                     } else if (record instanceof TXTRecord) {
                         TXTRecord txt = (TXTRecord) record;
                         for (Object content : txt.getStrings()) {
@@ -233,14 +239,14 @@ public class DnsHelper {
                             if (result.size() > 0)
                                 result.get(0).response += text;
                             else
-                                result.add(new DnsRecord(type, text, 0));
+                                result.add(new DnsRecord(text, 0));
                         }
                     } else if (record instanceof ARecord) {
                         ARecord a = (ARecord) record;
-                        result.add(new DnsRecord(type, a.getAddress().getHostAddress()));
+                        result.add(new DnsRecord(a.getAddress().getHostAddress()));
                     } else if (record instanceof AAAARecord) {
                         AAAARecord aaaa = (AAAARecord) record;
-                        result.add(new DnsRecord(type, aaaa.getAddress().getHostAddress()));
+                        result.add(new DnsRecord(aaaa.getAddress().getHostAddress()));
                     } else
                         throw new IllegalArgumentException(record.getClass().getName());
                 }
@@ -291,41 +297,23 @@ public class DnsHelper {
             return dns.get(0).getHostAddress();
     }
 
-    static void test(Context context) throws UnknownHostException {
-        log(lookup(context, "gmail.com", "ns"));
-        log(lookup(context, "gmail.com", "mx"));
-        log(lookup(context, "_imaps._tcp.gmail.com", "srv"));
-        log(lookup(context, "gmail.com", "txt"));
-        log(lookup(context, "gmail.com", "a"));
-        log(lookup(context, "gmail.com", "aaaa"));
-    }
-
-    static void log(DnsRecord[] records) {
-        for (DnsRecord record : records)
-            Log.w("DNS " + record);
-    }
-
     static class DnsRecord {
-        String type;
         String query;
         String response;
         Integer port;
         Integer priority;
         Integer weight;
 
-        DnsRecord(String type, String response) {
-            this.type = type;
+        DnsRecord(String response) {
             this.response = response;
         }
 
-        DnsRecord(String type, String response, int port) {
-            this.type = type;
+        DnsRecord(String response, int port) {
             this.response = response;
             this.port = port;
         }
 
-        DnsRecord(String type, String response, int port, int priority, int weight) {
-            this.type = type;
+        DnsRecord(String response, int port, int priority, int weight) {
             this.response = response;
             this.port = port;
             this.priority = priority;
@@ -335,7 +323,7 @@ public class DnsHelper {
         @NonNull
         @Override
         public String toString() {
-            return type + " " + query + "=" + response + ":" + port + " " + priority + "/" + weight;
+            return query + "=" + response + ":" + port + " " + priority + "/" + weight;
         }
     }
 }
