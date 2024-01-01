@@ -221,6 +221,8 @@ public class DnsHelper {
             Set<? extends Data> answers = r.getAnswers();
             if (answers != null)
                 for (Data answer : answers) {
+                    if (BuildConfig.DEBUG)
+                        EntityLog.log(context, EntityLog.Type.Network, name + ":" + type + "=" + answer);
                     Log.i("Answer=" + answer);
                     if (answer instanceof NS) {
                         NS ns = (NS) answer;
