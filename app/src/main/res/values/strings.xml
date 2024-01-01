@@ -764,7 +764,7 @@
     <string name="title_advanced_confirm_files">Confirm viewing files</string>
     <string name="title_advanced_sanitize_links">Remove tracking parameters by default</string>
     <string name="title_advanced_sanitize_links_hint">Only when confirming links</string>
-    <string name="title_advanced_adguard">Use Adguard filter list</string>
+    <string name="title_advanced_adguard">Use AdGuard filter list</string>
     <string name="title_advanced_adguard_weekly">Automatically download weekly</string>
     <string name="title_advanced_check_links_dbl">Check domain block lists for suspicious links</string>
     <string name="title_advanced_confirm_images">Show no images by default</string>
