@@ -1036,6 +1036,8 @@ public class DebugHelper {
                         "\r\n");
                 size += write(os, "   caps=" + c + "\r\n");
                 size += write(os, "   props=" + p + "\r\n\r\n");
+                size += write(os, "   private DNS=" +
+                        (p == null ? null : p.isPrivateDnsActive() + " (" + p.getPrivateDnsServerName() + ")") + "\r\n");
 
                 for (Network network : cm.getAllNetworks()) {
                     size += write(os, (network.equals(active) ? "active=" : "network=") + network + "\r\n");
