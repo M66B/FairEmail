@@ -30,18 +30,23 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
-import org.xbill.DNS.AAAARecord;
-import org.xbill.DNS.ARecord;
-import org.xbill.DNS.Lookup;
-import org.xbill.DNS.MXRecord;
-import org.xbill.DNS.Message;
-import org.xbill.DNS.NSRecord;
-import org.xbill.DNS.Record;
-import org.xbill.DNS.SOARecord;
-import org.xbill.DNS.SRVRecord;
-import org.xbill.DNS.SimpleResolver;
-import org.xbill.DNS.TXTRecord;
-import org.xbill.DNS.Type;
+import org.minidns.DnsClient;
+import org.minidns.dnsmessage.DnsMessage;
+import org.minidns.dnsqueryresult.DnsQueryResult;
+import org.minidns.dnsqueryresult.StandardDnsQueryResult;
+import org.minidns.dnssec.DnssecValidationFailedException;
+import org.minidns.dnsserverlookup.AbstractDnsServerLookupMechanism;
+import org.minidns.hla.DnssecResolverApi;
+import org.minidns.hla.ResolverApi;
+import org.minidns.hla.ResolverResult;
+import org.minidns.record.A;
+import org.minidns.record.AAAA;
+import org.minidns.record.Data;
+import org.minidns.record.MX;
+import org.minidns.record.NS;
+import org.minidns.record.SRV;
+import org.minidns.record.TXT;
+import org.minidns.source.AbstractDnsDataSource;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -49,6 +54,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -76,12 +82,12 @@ public class DnsHelper {
     }
 
     @NonNull
-    static DnsRecord[] lookup(Context context, String name, String type) throws UnknownHostException {
+    static DnsRecord[] lookup(Context context, String name, String type) {
         return lookup(context, name, type, LOOKUP_TIMEOUT);
     }
 
     @NonNull
-    static DnsRecord[] lookup(Context context, String name, String type, int timeout) throws UnknownHostException {
+    static DnsRecord[] lookup(Context context, String name, String type, int timeout) {
         String filter = null;
         int colon = type.indexOf(':');
         if (colon > 0) {
@@ -89,53 +95,46 @@ public class DnsHelper {
             type = type.substring(0, colon);
         }
 
-        int rtype;
+        Class<? extends Data> clazz;
         switch (type) {
             case "ns":
-                rtype = Type.NS;
+                clazz = NS.class;
                 break;
             case "mx":
-                rtype = Type.MX;
-                break;
-            case "soa":
-                rtype = Type.SOA;
+                clazz = MX.class;
                 break;
             case "srv":
-                rtype = Type.SRV;
+                clazz = SRV.class;
                 break;
             case "txt":
-                rtype = Type.TXT;
+                clazz = TXT.class;
                 break;
             case "a":
-                rtype = Type.A;
+                clazz = A.class;
                 break;
             case "aaaa":
-                rtype = Type.AAAA;
+                clazz = AAAA.class;
                 break;
             default:
                 throw new IllegalArgumentException(type);
         }
 
         try {
-            SimpleResolver resolver = new SimpleResolver(getDnsServer(context)) {
-                private IOException ex;
-                private Message result;
+            ResolverApi resolver = DnssecResolverApi.INSTANCE;
 
-                @Override
-                public Message send(Message query) throws IOException {
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
-                        return super.send(query);
-                    else {
-                        Log.i("Using Android DNS resolver");
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                resolver.getClient().setDataSource(new AbstractDnsDataSource() {
+                    private IOException ex;
+                    private DnsQueryResult result;
+
+                    @Override
+                    public DnsQueryResult query(DnsMessage query, InetAddress address, int port) throws IOException {
                         Semaphore sem = new Semaphore(0);
                         DnsResolver resolver = DnsResolver.getInstance();
-                        //OPTRecord optRecord = new OPTRecord(4096, 0, 0, Flags.DO, null);
-                        //query.addRecord(optRecord, Section.ADDITIONAL);
-                        //query.getHeader().setFlag(Flags.AD);
-                        Log.i("DNS query=" + query.toString());
+                        Log.i("Android DNS query=" + query);
                         resolver.rawQuery(
                                 null,
-                                query.toWire(),
+                                query.toArray(),
                                 DnsResolver.FLAG_EMPTY,
                                 new Executor() {
                                     @Override
@@ -146,14 +145,19 @@ public class DnsHelper {
                                 null,
                                 new DnsResolver.Callback<byte[]>() {
                                     @Override
-                                    public void onAnswer(@NonNull byte[] answer, int rcode) {
+                                    public void onAnswer(@NonNull byte[] bytes, int rcode) {
                                         try {
-                                            if (rcode == 0)
-                                                result = new Message(answer);
-                                            else
-                                                ex = new IOException("rcode=" + rcode);
+                                            DnsMessage answer = new DnsMessage(bytes)
+                                                    .asBuilder()
+                                                    .setResponseCode(DnsMessage.RESPONSE_CODE.getResponseCode(rcode))
+                                                    .build();
+                                            result = new StandardDnsQueryResult(
+                                                    address, port,
+                                                    DnsQueryResult.QueryMethod.udp,
+                                                    query,
+                                                    answer);
                                         } catch (Throwable e) {
-                                            ex = new IOException(e.getMessage());
+                                            ex = new IOException(e.getMessage(), e);
                                         } finally {
                                             sem.release();
                                         }
@@ -168,6 +172,7 @@ public class DnsHelper {
                                         }
                                     }
                                 });
+
                         try {
                             if (!sem.tryAcquire(timeout, TimeUnit.SECONDS))
                                 ex = new IOException("timeout");
@@ -176,53 +181,58 @@ public class DnsHelper {
                         }
 
                         if (ex == null) {
-                            //ConnectivityManager cm = getSystemService(context, ConnectivityManager.class);
-                            //Network active = (cm == null ? null : cm.getActiveNetwork());
-                            //LinkProperties props = (active == null ? null : cm.getLinkProperties(active));
-                            //Log.i("DNS private=" + (props == null ? null : props.isPrivateDnsActive()));
-                            Log.i("DNS answer=" + result.toString() + " flags=" + result.getHeader().printFlags());
+                            Log.i("Android DNS answer=" + result);
                             return result;
                         } else {
                             Log.i(ex);
                             throw ex;
                         }
                     }
-                }
-            };
-            resolver.setTimeout(timeout);
-            Lookup lookup = new Lookup(name, rtype);
-            lookup.setResolver(resolver);
-            Log.i("Lookup name=" + name + " @" + resolver.getAddress() + " type=" + rtype);
-            Record[] records = lookup.run();
+                });
 
-            if (lookup.getResult() == Lookup.HOST_NOT_FOUND ||
-                    lookup.getResult() == Lookup.TYPE_NOT_FOUND)
-                throw new UnknownHostException(name);
-            else if (lookup.getResult() != Lookup.SUCCESSFUL)
-                Log.i("DNS error=" + lookup.getErrorString());
+            resolver.getClient().getDataSource().setTimeout(timeout * 1000);
+
+            List<String> servers = getDnsServers(context);
+            Log.i("DNS servers=" + TextUtils.join(",", servers));
+
+            DnsClient.addDnsServerLookupMechanism(
+                    new AbstractDnsServerLookupMechanism("FairEmail", 1) {
+                        @Override
+                        public boolean isAvailable() {
+                            return (servers.size() > 0);
+                        }
+
+                        @Override
+                        public List<String> getDnsServerAddresses() {
+                            return servers;
+                        }
+                    });
+
+            ResolverResult<? extends Data> r = resolver.resolve(name, clazz);
+            if (!r.wasSuccessful()) {
+                DnsMessage.RESPONSE_CODE responseCode = r.getResponseCode();
+                throw new IOException(responseCode.name());
+            }
 
             List<DnsRecord> result = new ArrayList<>();
 
-            if (records != null)
-                for (Record record : records) {
-                    Log.i("Found record=" + record);
-                    if (record instanceof NSRecord) {
-                        NSRecord ns = (NSRecord) record;
-                        result.add(new DnsRecord(ns.getTarget().toString(true)));
-                    } else if (record instanceof MXRecord) {
-                        MXRecord mx = (MXRecord) record;
-                        result.add(new DnsRecord(mx.getTarget().toString(true)));
-                    } else if (record instanceof SOARecord) {
-                        SOARecord soa = (SOARecord) record;
-                        result.add(new DnsRecord(soa.getHost().toString(true)));
-                    } else if (record instanceof SRVRecord) {
-                        SRVRecord srv = (SRVRecord) record;
-                        result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort(), srv.getPriority(), srv.getWeight()));
-                    } else if (record instanceof TXTRecord) {
+            Set<? extends Data> answers = r.getAnswers();
+            if (answers != null)
+                for (Data answer : answers) {
+                    Log.i("Answer=" + answer);
+                    if (answer instanceof NS) {
+                        NS ns = (NS) answer;
+                        result.add(new DnsRecord(ns.getTarget().toString()));
+                    } else if (answer instanceof MX) {
+                        MX mx = (MX) answer;
+                        result.add(new DnsRecord(mx.target.toString()));
+                    } else if (answer instanceof SRV) {
+                        SRV srv = (SRV) answer;
+                        result.add(new DnsRecord(srv.target.toString(), srv.port, srv.priority, srv.weight));
+                    } else if (answer instanceof TXT) {
                         StringBuilder sb = new StringBuilder();
-                        TXTRecord txt = (TXTRecord) record;
-                        for (Object content : txt.getStrings()) {
-                            String text = content.toString();
+                        TXT txt = (TXT) answer;
+                        for (String text : txt.getCharacterStrings()) {
                             if (filter != null &&
                                     (TextUtils.isEmpty(text) || !text.toLowerCase(Locale.ROOT).startsWith(filter)))
                                 continue;
@@ -240,32 +250,38 @@ public class DnsHelper {
                             sb.append(text);
                         }
                         result.add(new DnsRecord(sb.toString(), 0));
-                    } else if (record instanceof ARecord) {
-                        ARecord a = (ARecord) record;
-                        result.add(new DnsRecord(a.getAddress().getHostAddress()));
-                    } else if (record instanceof AAAARecord) {
-                        AAAARecord aaaa = (AAAARecord) record;
-                        result.add(new DnsRecord(aaaa.getAddress().getHostAddress()));
+                    } else if (answer instanceof A) {
+                        A a = (A) answer;
+                        result.add(new DnsRecord(a.getInetAddress().getHostAddress()));
+                    } else if (answer instanceof AAAA) {
+                        AAAA aaaa = (AAAA) answer;
+                        result.add(new DnsRecord(aaaa.getInetAddress().getHostAddress()));
                     } else
-                        throw new IllegalArgumentException(record.getClass().getName());
+                        throw new IllegalArgumentException(answer.getClass().getName());
                 }
 
-            for (DnsRecord record : result)
+            for (DnsRecord record : result) {
                 record.query = name;
+                record.secure = r.isAuthenticData();
+            }
 
             return result.toArray(new DnsRecord[0]);
         } catch (Throwable ex) {
-            // TextParseException
-            // Lookup static ctor: RuntimeException("Failed to initialize resolver")
-            Log.e(ex);
+            if (ex instanceof DnssecValidationFailedException)
+                Log.i(ex);
+            else
+                Log.e(ex);
             return new DnsRecord[0];
         }
     }
 
-    private static String getDnsServer(Context context) {
+    private static List<String> getDnsServers(Context context) {
+        List<String> result = new ArrayList<>();
+        result.add(DEFAULT_DNS);
+
         ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
         if (cm == null)
-            return DEFAULT_DNS;
+            return result;
 
         LinkProperties props = null;
 
@@ -281,19 +297,38 @@ public class DnsHelper {
         else {
             Network active = cm.getActiveNetwork();
             if (active == null)
-                return DEFAULT_DNS;
+                return result;
             props = cm.getLinkProperties(active);
             Log.i("New props=" + props);
         }
 
         if (props == null)
-            return DEFAULT_DNS;
+            return result;
 
         List<InetAddress> dns = props.getDnsServers();
-        if (dns.size() == 0)
-            return DEFAULT_DNS;
-        else
-            return dns.get(0).getHostAddress();
+        for (int i = 0; i < dns.size(); i++)
+            result.add(i, dns.get(i).getHostAddress());
+
+        return result;
+    }
+
+    static void test(Context context) throws UnknownHostException {
+        log(lookup(context, "gmail.com", "ns"));
+        log(lookup(context, "gmail.com", "mx"));
+        log(lookup(context, "_imaps._tcp.gmail.com", "srv"));
+        log(lookup(context, "gmail.com", "txt"));
+        log(lookup(context, "gmail.com", "a"));
+        log(lookup(context, "gmail.com", "aaaa"));
+        log(lookup(context, "posteo.de", "a"));
+        log(lookup(context, "non.existent.tld", "a"));
+        log(lookup(context, "rubbish", "a"));
+    }
+
+    static void log(DnsRecord[] records) {
+        if (records.length == 0)
+            Log.w("No records");
+        for (DnsRecord record : records)
+            Log.w("DNS " + record);
     }
 
     static class DnsRecord {
@@ -302,6 +337,7 @@ public class DnsHelper {
         Integer port;
         Integer priority;
         Integer weight;
+        Boolean secure;
 
         DnsRecord(String response) {
             this.response = response;
@@ -322,7 +358,7 @@ public class DnsHelper {
         @NonNull
         @Override
         public String toString() {
-            return query + "=" + response + ":" + port + " " + priority + "/" + weight;
+            return query + "=" + response + ":" + port + " " + priority + "/" + weight + " secure=" + secure;
         }
     }
 }

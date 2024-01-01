@@ -549,7 +549,7 @@ dependencies {
     def jsonpath_version = "2.8.0"
     def css_version = "0.9.30"
     def jax_version = "2.3.0-jaxb-1.0.6"
-    def dnsjava_version = "2.1.9" // Do not update: java.time.Duration SDK 26 dependency
+    def minidns_version = "1.0.4"
     def openpgp_version = "12.0"
     def badge_version = "1.1.22"
     def bugsnag_version = "6.1.0"
@@ -718,9 +718,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.w3c/dom
     implementation "org.w3c:dom:$jax_version"
 
-    // http://www.dnsjava.org/
-    // https://mvnrepository.com/artifact/dnsjava/dnsjava
-    implementation "dnsjava:dnsjava:$dnsjava_version"
+    // https://github.com/MiniDNS/minidns
+    // https://mvnrepository.com/artifact/org.minidns/minidns-hla
+    implementation "org.minidns:minidns-hla:$minidns_version"
 
     // https://github.com/open-keychain/openpgp-api
     // https://mvnrepository.com/artifact/org.sufficientlysecure/openpgp-api

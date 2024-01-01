@@ -464,16 +464,10 @@ public class ActivityDMARC extends ActivityBase {
             }
 
             List<DnsHelper.DnsRecord> records = new ArrayList<>();
-            try {
-                records.addAll(Arrays.asList(
-                        DnsHelper.lookup(context, "_dmarc." + lastDomain, "txt")));
-            } catch (UnknownHostException ignored) {
-            }
-            try {
-                records.addAll(Arrays.asList(
-                        DnsHelper.lookup(context, "default._bimi." + lastDomain, "txt")));
-            } catch (UnknownHostException ignored) {
-            }
+            records.addAll(Arrays.asList(
+                    DnsHelper.lookup(context, "_dmarc." + lastDomain, "txt")));
+            records.addAll(Arrays.asList(
+                    DnsHelper.lookup(context, "default._bimi." + lastDomain, "txt")));
 
             for (DnsHelper.DnsRecord r : records)
                 ssb.append(r.response).append("\n");
@@ -511,14 +505,8 @@ public class ActivityDMARC extends ActivityBase {
                                 String[] net = domain.split("/");
                                 Integer prefix = (net.length > 1 ? Helper.parseInt(net[1]) : null);
                                 List<DnsHelper.DnsRecord> as = new ArrayList<>();
-                                try {
-                                    as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "a")));
-                                } catch (UnknownHostException ignored) {
-                                }
-                                try {
-                                    as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "aaaa")));
-                                } catch (UnknownHostException ignored) {
-                                }
+                                as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "a")));
+                                as.addAll(Arrays.asList(DnsHelper.lookup(context, net[0], "aaaa")));
                                 for (DnsHelper.DnsRecord a : as)
                                     if (prefix == null
                                             ? text.equals(a.response)
@@ -529,35 +517,26 @@ public class ActivityDMARC extends ActivityBase {
                                         break;
                                     }
                             } else if ("mx".equals(ip) || ip.startsWith("mx:")) {
-                                try {
-                                    String domain = (ip.startsWith("mx:") ? ip.substring(3) : p.first);
-                                    String[] net = domain.split("/");
-                                    Integer prefix = (net.length > 1 ? Helper.parseInt(net[1]) : null);
-                                    DnsHelper.DnsRecord[] mxs = DnsHelper.lookup(context, net[0], "mx");
-                                    for (DnsHelper.DnsRecord mx : mxs) {
-                                        List<DnsHelper.DnsRecord> as = new ArrayList<>();
-                                        try {
-                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "a")));
-                                        } catch (UnknownHostException ignored) {
-                                        }
-                                        try {
-                                            as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "aaaa")));
-                                        } catch (UnknownHostException ignored) {
-                                        }
-                                        for (DnsHelper.DnsRecord a : as) {
-                                            if (prefix == null
-                                                    ? text.equals(a.response)
-                                                    : ConnectionHelper.inSubnet(text, a.response, prefix)) {
-                                                valid = allow;
-                                                because = (allow ? '+' : '-') + ip +
-                                                        " in " + domain + (prefix == null ? "" : "/" + prefix);
-                                                break;
-                                            }
-                                        }
-                                        if (valid != null)
+                                String domain = (ip.startsWith("mx:") ? ip.substring(3) : p.first);
+                                String[] net = domain.split("/");
+                                Integer prefix = (net.length > 1 ? Helper.parseInt(net[1]) : null);
+                                DnsHelper.DnsRecord[] mxs = DnsHelper.lookup(context, net[0], "mx");
+                                for (DnsHelper.DnsRecord mx : mxs) {
+                                    List<DnsHelper.DnsRecord> as = new ArrayList<>();
+                                    as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "a")));
+                                    as.addAll(Arrays.asList(DnsHelper.lookup(context, mx.response, "aaaa")));
+                                    for (DnsHelper.DnsRecord a : as) {
+                                        if (prefix == null
+                                                ? text.equals(a.response)
+                                                : ConnectionHelper.inSubnet(text, a.response, prefix)) {
+                                            valid = allow;
+                                            because = (allow ? '+' : '-') + ip +
+                                                    " in " + domain + (prefix == null ? "" : "/" + prefix);
                                             break;
+                                        }
                                     }
-                                } catch (UnknownHostException ignored) {
+                                    if (valid != null)
+                                        break;
                                 }
                             } else if ("ptr".equals(ip) || ip.startsWith("ptr:")) {
                                 valid = false;

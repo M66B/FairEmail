@@ -6,7 +6,7 @@ FairEmail uses parts or all of:
 * [jsoup](https://jsoup.org/). Copyright © 2009 - 2017 Jonathan Hedley. [MIT license](https://jsoup.org/license).
 * [Android Support Library](https://developer.android.com/tools/support-library/). Copyright (C) 2011 The Android Open Source Project. [Apache license 2.0](https://android.googlesource.com/platform/frameworks/support/+/master/LICENSE.txt).
 * [Android Architecture Components](https://developer.android.com/topic/libraries/architecture/). Copyright 2018 The Android Open Source Project, Inc. [Apache license 2.0](https://github.com/googlesamples/android-architecture-components/blob/master/LICENSE).
-* [dnsjava](http://www.xbill.org/dnsjava/). Copyright (c) 1998-2011, Brian Wellington. [BSD License](https://sourceforge.net/p/dnsjava/code/HEAD/tree/trunk/LICENSE).
+* [MiniDNS](https://github.com/MiniDNS/minidns). Copyright 2015-2022 the original author or authors. [GNU Lesser General Public License Version 2.1](https://github.com/MiniDNS/minidns/blob/master/LICENCE_LGPL2.1).
 * [OpenPGP API library](https://github.com/open-keychain/openpgp-api). Copyright (C) 2014-2015 Dominik Schürmann. [Apache License 2.0](https://github.com/open-keychain/openpgp-api/blob/master/LICENSE).
 * [Android SQLite support library](https://github.com/requery/sqlite-android). Copyright (C) 2017 requery.io. [Apache License 2.0](https://github.com/requery/sqlite-android/blob/master/LICENSE).
 * [App shortcut icon generator](https://romannurik.github.io/AndroidAssetStudio/icons-app-shortcut.html). Copyright ???. [Apache License 2.0](https://github.com/romannurik/AndroidAssetStudio/blob/master/LICENSE).

@@ -1574,6 +1574,9 @@ public class ActivityView extends ActivityBilling implements FragmentManager.OnB
             protected UpdateInfo onExecute(Context context, Bundle args) throws Throwable {
                 boolean beta = args.getBoolean("beta");
 
+                if (BuildConfig.DEBUG)
+                    DnsHelper.test(context);
+
                 StringBuilder response = new StringBuilder();
                 HttpsURLConnection urlConnection = null;
                 try {
