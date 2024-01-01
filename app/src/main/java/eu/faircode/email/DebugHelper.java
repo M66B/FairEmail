@@ -1036,8 +1036,6 @@ public class DebugHelper {
                         "\r\n");
                 size += write(os, "   caps=" + c + "\r\n");
                 size += write(os, "   props=" + p + "\r\n\r\n");
-                size += write(os, "   private DNS=" +
-                        (p == null ? null : p.isPrivateDnsActive() + " (" + p.getPrivateDnsServerName() + ")") + "\r\n");
 
                 for (Network network : cm.getAllNetworks()) {
                     size += write(os, (network.equals(active) ? "active=" : "network=") + network + "\r\n");
@@ -1096,6 +1094,9 @@ public class DebugHelper {
                 size += write(os, "VPN active=" + ConnectionHelper.vpnActive(context) + "\r\n");
                 size += write(os, "Data saving=" + ConnectionHelper.isDataSaving(context) + "\r\n");
                 size += write(os, "Airplane=" + ConnectionHelper.airplaneMode(context) + "\r\n");
+                size += write(os, "Private" +
+                        " DNS=" + ConnectionHelper.isPrivateDnsActive(context) +
+                        " server=" + ConnectionHelper.getPrivateDnsServerName(context) + "\r\n");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
                     size += write(os, "Cleartext permitted= " +
                             NetworkSecurityPolicy.getInstance().isCleartextTrafficPermitted() + "\r\n");
