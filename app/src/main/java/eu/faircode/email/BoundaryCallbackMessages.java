@@ -410,6 +410,15 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
         if (account == null || account.protocol != EntityAccount.TYPE_IMAP)
             return 0;
 
+        if (criteria == null) {
+            String sort = prefs.getString(FragmentMessages.getSort(context, viewType, browsable.type), "time");
+            boolean ascending = prefs.getBoolean(FragmentMessages.getSortOrder(context, viewType, browsable.type), false);
+            if (!"time".equals(sort) || ascending) {
+                Log.i("Boundary sort=" + sort + " ascending=" + ascending);
+                return 0;
+            }
+        }
+
         if (state.imessages == null)
             try {
                 // Check connectivity
