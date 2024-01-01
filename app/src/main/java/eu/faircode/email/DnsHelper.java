@@ -49,6 +49,8 @@ import org.minidns.record.TXT;
 import org.minidns.source.AbstractDnsDataSource;
 
 import java.io.IOException;
+import java.net.Inet4Address;
+import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -273,6 +275,37 @@ public class DnsHelper {
                 Log.e(ex);
             return new DnsRecord[0];
         }
+    }
+
+    static InetAddress getByName(Context context, String host) throws UnknownHostException {
+        return getAllByName(context, host)[0];
+    }
+
+    static InetAddress[] getAllByName(Context context, String host) throws UnknownHostException {
+        List<InetAddress> result = new ArrayList<>();
+
+        boolean[] has46 = ConnectionHelper.has46(context);
+
+        if (has46[0])
+            for (DnsRecord a : lookup(context, host, "a"))
+                try {
+                    result.add(Inet4Address.getByName(a.response));
+                } catch (UnknownHostException ex) {
+                    Log.e(ex);
+                }
+
+        if (has46[1])
+            for (DnsRecord aaaa : lookup(context, host, "aaaa"))
+                try {
+                    result.add(Inet6Address.getByName(aaaa.response));
+                } catch (UnknownHostException ex) {
+                    Log.e(ex);
+                }
+
+        if (result.size() == 0)
+            throw new UnknownHostException(host);
+        else
+            return result.toArray(new InetAddress[0]);
     }
 
     private static List<String> getDnsServers(Context context) {

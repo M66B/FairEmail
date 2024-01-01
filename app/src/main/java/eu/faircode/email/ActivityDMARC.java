@@ -48,7 +48,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -566,7 +565,7 @@ public class ActivityDMARC extends ActivityBase {
             }
 
             try {
-                InetAddress addr = InetAddress.getByName(text);
+                InetAddress addr = DnsHelper.getByName(context, text);
                 IPInfo info = IPInfo.getOrganization(addr, context);
                 ssb.append('(').append(info.org).append(") ");
             } catch (Throwable ex) {

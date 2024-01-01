@@ -131,7 +131,7 @@ public class SSLHelper {
                         // Fallback: check server/certificate IP address
                         if (!cert_strict)
                             try {
-                                InetAddress ip = InetAddress.getByName(server);
+                                InetAddress ip = DnsHelper.getByName(context, server);
                                 Log.i("Checking server ip=" + ip);
                                 for (String name : names) {
                                     if (name.startsWith("*."))
@@ -139,7 +139,7 @@ public class SSLHelper {
                                     Log.i("Checking cert name=" + name);
 
                                     try {
-                                        for (InetAddress addr : InetAddress.getAllByName(name))
+                                        for (InetAddress addr : DnsHelper.getAllByName(context, name))
                                             if (Arrays.equals(ip.getAddress(), addr.getAddress())) {
                                                 Log.i("Accepted " + name + " for " + server);
                                                 return;
