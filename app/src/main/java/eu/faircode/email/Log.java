@@ -408,9 +408,8 @@ public class Log {
             config.setMaxBreadcrumbs(BuildConfig.PLAY_STORE_RELEASE ? 250 : 500);
 
             Set<Pattern> discardClasses = new HashSet<>();
-            if (!BuildConfig.DEBUG)
-                for (String clazz : IGNORE_CLASSES)
-                    discardClasses.add(Pattern.compile(clazz.replace(".", "\\.")));
+            for (String clazz : IGNORE_CLASSES)
+                discardClasses.add(Pattern.compile(clazz.replace(".", "\\.")));
             config.setDiscardClasses(discardClasses);
 
             final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
