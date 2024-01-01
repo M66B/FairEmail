@@ -8,7 +8,8 @@ Wintonotitan
 
 Next version
 
-* Added Certificate transparency
+* Happy New Year!
+* Added *Certificate transparency*, see the FAQ
 * Small improvements and minor bug fixes
 * Updated libraries (Apache Compress, Bugsnag, Bouncy Castle, Jsoup)
 * Updated translations

@@ -8,7 +8,8 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### Next version
 
-* Added [Certificate transparency](https://github.com/appmattus/certificatetransparency/blob/main/docs/what-is-certificate-transparency.md)
+* Happy New Year!
+* Added *Certificate transparency*, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq201)
 * Small improvements and minor bug fixes
 * Updated libraries (Apache Compress, Bugsnag, Bouncy Castle, Jsoup)
 * Updated [translations](https://crowdin.com/project/open-source-email)
