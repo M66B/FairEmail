@@ -219,6 +219,7 @@ public class DnsHelper {
                         SRVRecord srv = (SRVRecord) record;
                         result.add(new DnsRecord(srv.getTarget().toString(true), srv.getPort(), srv.getPriority(), srv.getWeight()));
                     } else if (record instanceof TXTRecord) {
+                        StringBuilder sb = new StringBuilder();
                         TXTRecord txt = (TXTRecord) record;
                         for (Object content : txt.getStrings()) {
                             String text = content.toString();
@@ -236,11 +237,9 @@ public class DnsHelper {
                                     i += 4;
                                 slash = text.indexOf('\\', i);
                             }
-                            if (result.size() > 0)
-                                result.get(0).response += text;
-                            else
-                                result.add(new DnsRecord(text, 0));
+                            sb.append(text);
                         }
+                        result.add(new DnsRecord(sb.toString(), 0));
                     } else if (record instanceof ARecord) {
                         ARecord a = (ARecord) record;
                         result.add(new DnsRecord(a.getAddress().getHostAddress()));
