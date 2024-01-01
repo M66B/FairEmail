@@ -228,7 +228,7 @@ Error reporting is disabled by default, see also [the privacy policy](https://gi
 
 ## License
 
-Copyright &copy; 2018-2023 Marcel Bokhorst. All rights reserved.
+Copyright &copy; 2018-2024 Marcel Bokhorst. All rights reserved.
 
 [GNU General Public License version 3](https://www.gnu.org/licenses/gpl.txt)
 
