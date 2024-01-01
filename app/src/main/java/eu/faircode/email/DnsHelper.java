@@ -254,10 +254,10 @@ public class DnsHelper {
                         result.add(new DnsRecord(sb.toString(), 0));
                     } else if (answer instanceof A) {
                         A a = (A) answer;
-                        result.add(new DnsRecord(a.getInetAddress().getHostAddress()));
+                        result.add(new DnsRecord(a.getInetAddress()));
                     } else if (answer instanceof AAAA) {
                         AAAA aaaa = (AAAA) answer;
-                        result.add(new DnsRecord(aaaa.getInetAddress().getHostAddress()));
+                        result.add(new DnsRecord(aaaa.getInetAddress()));
                     } else
                         throw new IllegalArgumentException(answer.getClass().getName());
                 }
@@ -288,19 +288,11 @@ public class DnsHelper {
 
         if (has46[0])
             for (DnsRecord a : lookup(context, host, "a"))
-                try {
-                    result.add(Inet4Address.getByName(a.response));
-                } catch (UnknownHostException ex) {
-                    Log.e(ex);
-                }
+                result.add(a.address);
 
         if (has46[1])
             for (DnsRecord aaaa : lookup(context, host, "aaaa"))
-                try {
-                    result.add(Inet6Address.getByName(aaaa.response));
-                } catch (UnknownHostException ex) {
-                    Log.e(ex);
-                }
+                result.add(aaaa.address);
 
         if (result.size() == 0)
             throw new UnknownHostException(host);
@@ -371,9 +363,15 @@ public class DnsHelper {
         Integer priority;
         Integer weight;
         Boolean secure;
+        InetAddress address;
 
         DnsRecord(String response) {
             this.response = response;
+        }
+
+        DnsRecord(InetAddress address) {
+            this.address = address;
+            this.response = address.getHostAddress();
         }
 
         DnsRecord(String response, int port) {
