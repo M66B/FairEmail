@@ -652,11 +652,14 @@ public class ConnectionHelper {
                 ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
                 Network active = (cm == null ? null : cm.getActiveNetwork());
                 LinkProperties props = (active == null ? null : cm.getLinkProperties(active));
+                ifacename = (props == null ? null : props.getInterfaceName());
                 List<LinkAddress> las = (props == null ? null : props.getLinkAddresses());
                 if (las != null)
                     for (LinkAddress la : las) {
                         InetAddress addr = la.getAddress();
                         boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
+                        EntityLog.log(context, EntityLog.Type.Network,
+                                "Link addr=" + addr + " local=" + local + " interface=" + ifacename);
                         if (local)
                             continue;
                         if (addr instanceof Inet4Address)
