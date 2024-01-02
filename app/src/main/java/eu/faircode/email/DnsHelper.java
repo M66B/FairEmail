@@ -20,6 +20,7 @@ package eu.faircode.email;
 */
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.DnsResolver;
 import android.net.LinkProperties;
@@ -29,6 +30,7 @@ import android.os.Build;
 import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import org.minidns.DnsClient;
 import org.minidns.dnsmessage.DnsMessage;
@@ -310,10 +312,20 @@ public class DnsHelper {
     }
 
     static InetAddress getByName(Context context, String host) throws UnknownHostException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean custom_dns = prefs.getBoolean("custom_dns", false);
+        if (!custom_dns)
+            return InetAddress.getByName(host);
+
         return getAllByName(context, host)[0];
     }
 
     static InetAddress[] getAllByName(Context context, String host) throws UnknownHostException {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        boolean custom_dns = prefs.getBoolean("custom_dns", false);
+        if (!custom_dns)
+            return InetAddress.getAllByName(host);
+
         List<InetAddress> result = new ArrayList<>();
 
         boolean[] has46 = ConnectionHelper.has46(context);
