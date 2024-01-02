@@ -654,7 +654,7 @@ public class ConnectionHelper {
                 LinkProperties props = (active == null ? null : cm.getLinkProperties(active));
                 ifacename = (props == null ? null : props.getInterfaceName());
                 List<LinkAddress> las = (props == null ? null : props.getLinkAddresses());
-                if (las != null)
+                if (las != null && las.size() > 0) {
                     for (LinkAddress la : las) {
                         InetAddress addr = la.getAddress();
                         boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
@@ -667,7 +667,8 @@ public class ConnectionHelper {
                         else if (addr instanceof Inet6Address)
                             has6 = true;
                     }
-                return new boolean[]{has4, has6};
+                    return new boolean[]{has4, has6};
+                }
             } catch (Throwable ex) {
                 Log.e(ex);
             }
