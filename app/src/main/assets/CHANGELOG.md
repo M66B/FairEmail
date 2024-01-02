@@ -6,7 +6,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
-### Next version
+### 1.2146 - 2024-01-02
 
 * Happy New Year!
 * Added *Certificate transparency*, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq201)

@@ -3984,6 +3984,12 @@ a toolbar to perform operations (align text, insert list, indent text, insert bl
 
 <br />
 
+*Edit subject (1.2046+)*
+
+The subject of a received message can be edited, also on the email server, via the horizontal three-dots button just above the message text near the left side of the screen.
+
+<br>
+
 <a name="faq126"></a>
 **(126) Can message previews be sent to my smartwatch?**
 
