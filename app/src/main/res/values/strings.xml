@@ -518,7 +518,6 @@
     <string name="title_advanced_bind_socket" translatable="false">Bind sockets to the active network</string>
     <string name="title_advanced_standalone_vpn" translatable="false">Standalone VPN</string>
     <string name="title_advanced_tcp_keep_alive" translatable="false">TCP keep alive</string>
-    <string name="title_advanced_custom_dns">Use custom DNS resolver</string>
     <string name="title_advanced_ssl_update">Use updated SSL provider</string>
     <string name="title_advanced_ssl_harden">Harden SSL connections</string>
     <string name="title_advanced_ssl_harden_strict">Require TLS 1.3</string>

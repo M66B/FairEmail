@@ -95,7 +95,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
     private SwitchCompat swBindSocket;
     private SwitchCompat swStandaloneVpn;
     private SwitchCompat swTcpKeepAlive;
-    private SwitchCompat swCustomDns;
     private SwitchCompat swSslUpdate;
     private SwitchCompat swSslHarden;
     private SwitchCompat swSslHardenStrict;
@@ -126,7 +125,7 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             "metered", "download", "download_limited", "roaming", "rlah",
             "download_headers", "download_eml", "download_plain",
             "require_validated", "require_validated_captive", "vpn_only",
-            "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive", "custom_dns",
+            "timeout", "prefer_ip4", "bind_socket", "standalone_vpn", "tcp_keep_alive",
             "ssl_update", "ssl_harden", "ssl_harden_strict", "cert_strict", "cert_transparency", "check_names",
             "open_safe", "http_redirect",
             "bouncy_castle", "bc_fips"
@@ -159,7 +158,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
         swBindSocket = view.findViewById(R.id.swBindSocket);
         swStandaloneVpn = view.findViewById(R.id.swStandaloneVpn);
         swTcpKeepAlive = view.findViewById(R.id.swTcpKeepAlive);
-        swCustomDns = view.findViewById(R.id.swCustomDns);
         swSslUpdate = view.findViewById(R.id.swSslUpdate);
         swSslHarden = view.findViewById(R.id.swSslHarden);
         swSslHardenStrict = view.findViewById(R.id.swSslHardenStrict);
@@ -349,13 +347,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
                 } catch (Throwable ex) {
                     Log.e(ex);
                 }
-            }
-        });
-
-        swCustomDns.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton v, boolean checked) {
-                prefs.edit().putBoolean("custom_dns", checked).apply();
             }
         });
 
@@ -724,7 +715,6 @@ public class FragmentOptionsConnection extends FragmentBase implements SharedPre
             swBindSocket.setChecked(prefs.getBoolean("bind_socket", false));
             swStandaloneVpn.setChecked(prefs.getBoolean("standalone_vpn", false));
             swTcpKeepAlive.setChecked(prefs.getBoolean("tcp_keep_alive", false));
-            swCustomDns.setChecked(prefs.getBoolean("custom_dns", false));
             swSslUpdate.setChecked(prefs.getBoolean("ssl_update", true));
             swSslHarden.setChecked(prefs.getBoolean("ssl_harden", false));
             swSslHardenStrict.setChecked(prefs.getBoolean("ssl_harden_strict", false));
