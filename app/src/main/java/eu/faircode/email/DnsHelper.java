@@ -81,7 +81,9 @@ public class DnsHelper {
             String domain = UriHelper.getEmailDomain(email);
             if (domain == null)
                 continue;
-            lookup(context, domain, "mx", CHECK_TIMEOUT, MAX_FOLLOW, false);
+            DnsRecord[] records = lookup(context, domain, "mx", CHECK_TIMEOUT, MAX_FOLLOW, false);
+            if (records.length == 0)
+                throw new UnknownHostException(domain);
         }
     }
 
