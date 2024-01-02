@@ -42,6 +42,7 @@ import org.minidns.hla.ResolverApi;
 import org.minidns.hla.ResolverResult;
 import org.minidns.record.A;
 import org.minidns.record.AAAA;
+import org.minidns.record.CNAME;
 import org.minidns.record.Data;
 import org.minidns.record.MX;
 import org.minidns.record.NS;
@@ -53,6 +54,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -68,6 +70,7 @@ public class DnsHelper {
     private static final String DEFAULT_DNS = "84.200.69.80";
     private static final int CHECK_TIMEOUT = 5; // seconds
     private static final int LOOKUP_TIMEOUT = 15; // seconds
+    private static final int MAX_FOLLOW = 5; // cnames
 
     static void checkMx(Context context, Address[] addresses) throws UnknownHostException {
         if (addresses == null)
@@ -78,17 +81,35 @@ public class DnsHelper {
             String domain = UriHelper.getEmailDomain(email);
             if (domain == null)
                 continue;
-            lookup(context, domain, "mx", CHECK_TIMEOUT, false);
+            lookup(context, domain, "mx", CHECK_TIMEOUT, MAX_FOLLOW, false);
         }
     }
 
     @NonNull
     static DnsRecord[] lookup(Context context, String name, String type) {
-        return lookup(context, name, type, LOOKUP_TIMEOUT, false);
+        return lookup(context, name, type, LOOKUP_TIMEOUT, MAX_FOLLOW, false);
     }
 
     @NonNull
-    private static DnsRecord[] lookup(Context context, String name, String type, int timeout, boolean require_authentic) {
+    private static DnsRecord[] lookup(Context context, String name, String type, int timeout, int max_depth, boolean require_authentic) {
+        DnsRecord[] records = _lookup(context, name, type, timeout, require_authentic);
+        if (records.length == 0 &&
+                max_depth > 0 &&
+                !"ns".equals(type)) { // mx is not allowed, but used in practice anyway
+            DnsRecord[] cnames = _lookup(context, name, "cname", timeout, require_authentic);
+            List<DnsRecord> followed = new ArrayList<>();
+            for (DnsRecord cname : cnames) {
+                DnsRecord[] r = lookup(context, cname.response, type, timeout, max_depth - 1, require_authentic);
+                followed.addAll(Arrays.asList(r));
+            }
+            return followed.toArray(new DnsRecord[0]);
+        }
+        return records;
+    }
+
+    @NonNull
+    private static DnsRecord[] _lookup(
+            Context context, String name, String type, int timeout, boolean require_authentic) {
         String filter = null;
         int colon = type.indexOf(':');
         if (colon > 0) {
@@ -116,6 +137,9 @@ public class DnsHelper {
             case "aaaa":
                 clazz = AAAA.class;
                 break;
+            case "cname":
+                clazz = CNAME.class;
+                break;
             default:
                 throw new IllegalArgumentException(type);
         }
@@ -132,7 +156,7 @@ public class DnsHelper {
                     public DnsQueryResult query(DnsMessage query, InetAddress address, int port) throws IOException {
                         Semaphore sem = new Semaphore(0);
                         DnsResolver resolver = DnsResolver.getInstance();
-                        Log.i("Android DNS query=" + query);
+                        Log.i("DNS Android query=" + query);
                         resolver.rawQuery(
                                 null,
                                 query.toArray(),
@@ -182,7 +206,7 @@ public class DnsHelper {
                         }
 
                         if (ex == null) {
-                            Log.i("Android DNS answer=" + result);
+                            Log.i("DNS Android answer=" + result);
                             return result;
                         } else {
                             Log.i(ex);
@@ -209,6 +233,7 @@ public class DnsHelper {
                         }
                     });
 
+            Log.i("DNS query name=" + type + ":" + name);
             ResolverResult<? extends Data> data = resolver.resolve(name, clazz);
             data.throwIfErrorResponse();
 
@@ -224,7 +249,7 @@ public class DnsHelper {
             Set<? extends Data> answers = data.getAnswers();
             if (answers != null)
                 for (Data answer : answers) {
-                    Log.i("Answer=" + answer);
+                    Log.i("DNS answer=" + answer);
                     if (answer instanceof NS) {
                         NS ns = (NS) answer;
                         result.add(new DnsRecord(ns.getTarget().toString()));
@@ -261,6 +286,9 @@ public class DnsHelper {
                     } else if (answer instanceof AAAA) {
                         AAAA aaaa = (AAAA) answer;
                         result.add(new DnsRecord(aaaa.getInetAddress()));
+                    } else if (answer instanceof CNAME) {
+                        CNAME cname = (CNAME) answer;
+                        result.add(new DnsRecord(cname.target.toString()));
                     } else
                         throw new IllegalArgumentException(answer.getClass().getName());
                 }
@@ -346,8 +374,8 @@ public class DnsHelper {
         log(lookup(context, "gmail.com", "mx"));
         log(lookup(context, "_imaps._tcp.gmail.com", "srv"));
         log(lookup(context, "gmail.com", "txt"));
-        log(lookup(context, "gmail.com", "a"));
-        log(lookup(context, "gmail.com", "aaaa"));
+        log(lookup(context, "outlook.office365.com", "a"));
+        log(lookup(context, "outlook.office365.com", "aaaa"));
         log(lookup(context, "posteo.de", "a"));
         log(lookup(context, "non.existent.tld", "a"));
         log(lookup(context, "rubbish", "a"));
@@ -355,7 +383,7 @@ public class DnsHelper {
 
     static void log(DnsRecord[] records) {
         if (records.length == 0)
-            Log.w("No records");
+            Log.w("DNS no records");
         for (DnsRecord record : records)
             Log.w("DNS " + record);
     }
