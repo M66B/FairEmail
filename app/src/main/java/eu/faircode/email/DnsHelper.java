@@ -34,6 +34,7 @@ import org.minidns.DnsClient;
 import org.minidns.dnsmessage.DnsMessage;
 import org.minidns.dnsqueryresult.DnsQueryResult;
 import org.minidns.dnsqueryresult.StandardDnsQueryResult;
+import org.minidns.dnssec.DnssecResultNotAuthenticException;
 import org.minidns.dnssec.DnssecValidationFailedException;
 import org.minidns.dnsserverlookup.AbstractDnsServerLookupMechanism;
 import org.minidns.hla.DnssecResolverApi;
@@ -49,8 +50,6 @@ import org.minidns.record.TXT;
 import org.minidns.source.AbstractDnsDataSource;
 
 import java.io.IOException;
-import java.net.Inet4Address;
-import java.net.Inet6Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -79,17 +78,17 @@ public class DnsHelper {
             String domain = UriHelper.getEmailDomain(email);
             if (domain == null)
                 continue;
-            lookup(context, domain, "mx", CHECK_TIMEOUT);
+            lookup(context, domain, "mx", CHECK_TIMEOUT, false);
         }
     }
 
     @NonNull
     static DnsRecord[] lookup(Context context, String name, String type) {
-        return lookup(context, name, type, LOOKUP_TIMEOUT);
+        return lookup(context, name, type, LOOKUP_TIMEOUT, false);
     }
 
     @NonNull
-    static DnsRecord[] lookup(Context context, String name, String type, int timeout) {
+    private static DnsRecord[] lookup(Context context, String name, String type, int timeout, boolean require_authentic) {
         String filter = null;
         int colon = type.indexOf(':');
         if (colon > 0) {
@@ -210,19 +209,21 @@ public class DnsHelper {
                         }
                     });
 
-            ResolverResult<? extends Data> r = resolver.resolve(name, clazz);
-            if (!r.wasSuccessful()) {
-                DnsMessage.RESPONSE_CODE responseCode = r.getResponseCode();
-                throw new IOException(responseCode.name());
+            ResolverResult<? extends Data> data = resolver.resolve(name, clazz);
+            data.throwIfErrorResponse();
+
+            boolean secure = (data.getUnverifiedReasons() != null);
+            if (secure && require_authentic) {
+                DnssecResultNotAuthenticException ex = data.getDnssecResultNotAuthenticException();
+                if (ex != null)
+                    throw ex;
             }
 
             List<DnsRecord> result = new ArrayList<>();
 
-            Set<? extends Data> answers = r.getAnswers();
+            Set<? extends Data> answers = data.getAnswers();
             if (answers != null)
                 for (Data answer : answers) {
-                    if (BuildConfig.DEBUG)
-                        EntityLog.log(context, EntityLog.Type.Network, name + ":" + type + "=" + answer);
                     Log.i("Answer=" + answer);
                     if (answer instanceof NS) {
                         NS ns = (NS) answer;
@@ -266,7 +267,8 @@ public class DnsHelper {
 
             for (DnsRecord record : result) {
                 record.query = name;
-                record.secure = r.isAuthenticData();
+                record.secure = secure;
+                record.authentic = data.isAuthenticData();
             }
 
             return result.toArray(new DnsRecord[0]);
@@ -365,6 +367,7 @@ public class DnsHelper {
         Integer priority;
         Integer weight;
         Boolean secure;
+        Boolean authentic;
         InetAddress address;
 
         DnsRecord(String response) {
@@ -391,7 +394,8 @@ public class DnsHelper {
         @NonNull
         @Override
         public String toString() {
-            return query + "=" + response + ":" + port + " " + priority + "/" + weight + " secure=" + secure;
+            return query + "=" + response + ":" + port + " " + priority + "/" + weight +
+                    " secure=" + secure + " authentic=" + authentic;
         }
     }
 }
