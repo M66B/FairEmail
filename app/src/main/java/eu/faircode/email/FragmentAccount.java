@@ -101,6 +101,7 @@ public class FragmentAccount extends FragmentBase {
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
     private TextView tvInsecureRemark;
+    private CheckBox cbDane;
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
@@ -224,6 +225,7 @@ public class FragmentAccount extends FragmentBase {
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
         tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
+        cbDane = view.findViewById(R.id.cbDane);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
         tvAppPassword = view.findViewById(R.id.tvAppPassword);
@@ -363,6 +365,13 @@ public class FragmentAccount extends FragmentBase {
             @Override
             public void onCheckedChanged(RadioGroup group, int id) {
                 etPort.setHint(id == R.id.radio_ssl ? "993" : "143");
+            }
+        });
+
+        cbInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                cbDane.setEnabled(!checked);
             }
         });
 
@@ -631,6 +640,7 @@ public class FragmentAccount extends FragmentBase {
         if (!SSLHelper.customTrustManager()) {
             Helper.hide(cbInsecure);
             Helper.hide(tvInsecureRemark);
+            Helper.hide(cbDane);
         }
 
         if (id < 0)
@@ -729,6 +739,7 @@ public class FragmentAccount extends FragmentBase {
         args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
         args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
+        args.putBoolean("dane", cbDane.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putInt("auth", auth);
         args.putString("provider", provider);
@@ -774,6 +785,7 @@ public class FragmentAccount extends FragmentBase {
                 String host = args.getString("host");
                 int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
+                boolean dane = args.getBoolean("dane");
                 String port = args.getString("port");
                 int auth = args.getInt("auth");
                 String provider = args.getString("provider");
@@ -808,8 +820,8 @@ public class FragmentAccount extends FragmentBase {
 
                 // Check IMAP server / get folders
                 String protocol = "imap" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
-                try (EmailService iservice = new EmailService(
-                        context, protocol, realm, encryption, insecure, unicode,
+                try (EmailService iservice = new EmailService(context,
+                        protocol, realm, encryption, insecure, dane, unicode,
                         EmailService.PURPOSE_CHECK, true)) {
                     iservice.connect(
                             host, Integer.parseInt(port),
@@ -938,6 +950,7 @@ public class FragmentAccount extends FragmentBase {
         args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
         args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
+        args.putBoolean("dane", cbDane.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putInt("auth", auth);
         args.putString("provider", provider);
@@ -1015,6 +1028,7 @@ public class FragmentAccount extends FragmentBase {
                 String host = args.getString("host");
                 int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
+                boolean dane = args.getBoolean("dane");
                 String port = args.getString("port");
                 int auth = args.getInt("auth");
                 String provider = args.getString("provider");
@@ -1110,6 +1124,8 @@ public class FragmentAccount extends FragmentBase {
                     if (!Objects.equals(account.encryption, encryption))
                         return true;
                     if (!Objects.equals(account.insecure, insecure))
+                        return true;
+                    if (!Objects.equals(account.dane, dane))
                         return true;
                     if (!Objects.equals(account.port, Integer.parseInt(port)))
                         return true;
@@ -1211,6 +1227,7 @@ public class FragmentAccount extends FragmentBase {
                         !account.host.equals(host) ||
                         !account.encryption.equals(encryption) ||
                         !account.insecure.equals(insecure) ||
+                        !account.dane.equals(dane) ||
                         !account.port.equals(Integer.parseInt(port)) ||
                         !account.user.equals(user) ||
                         !account.password.equals(password) ||
@@ -1228,8 +1245,8 @@ public class FragmentAccount extends FragmentBase {
                 EntityFolder inbox = null;
                 if (check) {
                     String protocol = "imap" + (encryption == EmailService.ENCRYPTION_SSL ? "s" : "");
-                    try (EmailService iservice = new EmailService(
-                            context, protocol, realm, encryption, insecure, unicode,
+                    try (EmailService iservice = new EmailService(context,
+                            protocol, realm, encryption, insecure, dane, unicode,
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
                                 host, Integer.parseInt(port),
@@ -1277,6 +1294,7 @@ public class FragmentAccount extends FragmentBase {
                     account.host = host;
                     account.encryption = encryption;
                     account.insecure = insecure;
+                    account.dane = dane;
                     account.port = Integer.parseInt(port);
                     account.auth_type = auth;
                     account.user = user;
@@ -1673,6 +1691,8 @@ public class FragmentAccount extends FragmentBase {
                         rgEncryption.check(R.id.radio_ssl);
 
                     cbInsecure.setChecked(account == null ? false : account.insecure);
+                    cbDane.setChecked(account == null ? false : account.dane);
+                    cbDane.setEnabled(!cbInsecure.isChecked());
 
                     etUser.setText(account == null ? null : account.user);
                     tilPassword.getEditText().setText(account == null ? null : account.password);

@@ -99,6 +99,7 @@ public class EmailService implements AutoCloseable {
     private Context context;
     private String protocol;
     private boolean insecure;
+    private boolean dane;
     private int purpose;
     private boolean ssl_harden;
     private boolean ssl_harden_strict;
@@ -168,14 +169,11 @@ public class EmailService implements AutoCloseable {
         // Prevent instantiation
     }
 
-    EmailService(Context context, String protocol, String realm, int encryption, boolean insecure, boolean unicode, boolean debug) throws NoSuchProviderException {
-        this(context, protocol, realm, encryption, insecure, unicode, PURPOSE_USE, debug);
-    }
-
-    EmailService(Context context, String protocol, String realm, int encryption, boolean insecure, boolean unicode, int purpose, boolean debug) throws NoSuchProviderException {
+    EmailService(Context context, String protocol, String realm, int encryption, boolean insecure, boolean dane, boolean unicode, int purpose, boolean debug) throws NoSuchProviderException {
         this.context = context.getApplicationContext();
         this.protocol = protocol;
         this.insecure = insecure;
+        this.dane = dane;
         this.purpose = purpose;
         this.debug = debug;
 
@@ -310,6 +308,14 @@ public class EmailService implements AutoCloseable {
 
         } else
             throw new NoSuchProviderException(protocol);
+    }
+
+    EmailService(Context context, EntityIdentity ident, int purpose, boolean debug) throws NoSuchProviderException {
+        this(context, ident.getProtocol(), ident.realm, ident.encryption, ident.insecure, ident.dane, ident.unicode, purpose, debug);
+    }
+
+    EmailService(Context context, EntityAccount account, int purpose, boolean debug) throws NoSuchProviderException {
+        this(context, account.getProtocol(), account.realm, account.encryption, account.insecure, account.dane, account.unicode, purpose, debug);
     }
 
     void setPartialFetch(boolean enabled) {
@@ -454,7 +460,7 @@ public class EmailService implements AutoCloseable {
             boolean bc = prefs.getBoolean("bouncy_castle", false);
             boolean fips = prefs.getBoolean("bc_fips", false);
             factory = new SSLSocketFactoryService(
-                    context, host, insecure,
+                    context, host, port, insecure, dane,
                     ssl_harden, strict, cert_strict, cert_transparency, check_names,
                     bc, fips, key, chain, fingerprint);
             properties.put("mail." + protocol + ".ssl.socketFactory", factory);
@@ -1042,8 +1048,10 @@ public class EmailService implements AutoCloseable {
         private SSLSocketFactory factory;
         private X509Certificate certificate;
 
-        SSLSocketFactoryService(Context context, String host, boolean insecure,
-                                boolean ssl_harden, boolean ssl_harden_strict, boolean cert_strict, boolean cert_transparency, boolean check_names,
+        SSLSocketFactoryService(Context context, String host, int port,
+                                boolean insecure, boolean dane,
+                                boolean ssl_harden, boolean ssl_harden_strict, boolean cert_strict, boolean cert_transparency,
+                                boolean check_names,
                                 boolean bc, boolean fips,
                                 PrivateKey key, X509Certificate[] chain, String fingerprint) throws GeneralSecurityException {
             this.server = host;
@@ -1053,7 +1061,7 @@ public class EmailService implements AutoCloseable {
             this.trustedFingerprint = fingerprint;
 
             TrustManager[] tms = SSLHelper.getTrustManagers(
-                    context, server, secure, cert_strict, cert_transparency, check_names, trustedFingerprint,
+                    context, server, port, secure, dane, cert_strict, cert_transparency, check_names, trustedFingerprint,
                     new SSLHelper.ITrust() {
                         @Override
                         public void checkServerTrusted(X509Certificate[] chain) {

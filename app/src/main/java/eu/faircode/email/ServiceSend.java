@@ -752,8 +752,7 @@ public class ServiceSend extends ServiceBase implements SharedPreferences.OnShar
             MicrosoftGraph.send(ServiceSend.this, ident, imessage);
             end = new Date().getTime();
         } else {
-            EmailService iservice = new EmailService(
-                    this, ident.getProtocol(), ident.realm, ident.encryption, ident.insecure, ident.unicode, debug);
+            EmailService iservice = new EmailService(this, ident, EmailService.PURPOSE_USE, debug);
             try {
                 iservice.setUseIp(ident.use_ip, ident.ehlo);
                 if (!message.isSigned() && !message.isEncrypted())

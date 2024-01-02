@@ -430,8 +430,8 @@ public class FragmentQuickSetup extends FragmentBase {
                         String user = null;
                         String aprotocol = (provider.imap.starttls ? "imap" : "imaps");
                         int aencryption = (provider.imap.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
-                        try (EmailService iservice = new EmailService(
-                                context, aprotocol, null, aencryption, false, false,
+                        try (EmailService iservice = new EmailService(context,
+                                aprotocol, null, aencryption, false, false, false,
                                 EmailService.PURPOSE_CHECK, true)) {
                             List<Throwable> exceptions = new ArrayList<>();
                             for (int i = 0; i < users.size(); i++) {
@@ -539,8 +539,8 @@ public class FragmentQuickSetup extends FragmentBase {
                         Long max_size;
                         String iprotocol = (provider.smtp.starttls ? "smtp" : "smtps");
                         int iencryption = (provider.smtp.starttls ? EmailService.ENCRYPTION_STARTTLS : EmailService.ENCRYPTION_SSL);
-                        try (EmailService iservice = new EmailService(
-                                context, iprotocol, null, iencryption, false, false,
+                        try (EmailService iservice = new EmailService(context,
+                                iprotocol, null, iencryption, false, false, false,
                                 EmailService.PURPOSE_CHECK, true)) {
                             iservice.setUseIp(provider.useip, null);
                             try {

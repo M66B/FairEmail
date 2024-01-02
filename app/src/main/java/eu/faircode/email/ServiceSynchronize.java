@@ -1591,8 +1591,7 @@ public class ServiceSynchronize extends ServiceBase implements SharedPreferences
                 boolean empty_pool = prefs.getBoolean("empty_pool", true);
                 boolean debug = (prefs.getBoolean("debug", false) || BuildConfig.DEBUG);
 
-                final EmailService iservice = new EmailService(
-                        this, account.getProtocol(), account.realm, account.encryption, account.insecure, account.unicode, debug);
+                final EmailService iservice = new EmailService(this, account, EmailService.PURPOSE_USE, debug);
                 iservice.setPartialFetch(account.partial_fetch);
                 iservice.setRawFetch(account.raw_fetch);
                 iservice.setIgnoreBodyStructureSize(account.ignore_size);

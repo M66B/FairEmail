@@ -102,6 +102,7 @@ public class FragmentIdentity extends FragmentBase {
     private RadioGroup rgEncryption;
     private CheckBox cbInsecure;
     private TextView tvInsecureRemark;
+    private CheckBox cbDane;
     private EditText etPort;
     private EditText etUser;
     private TextInputLayout tilPassword;
@@ -209,6 +210,7 @@ public class FragmentIdentity extends FragmentBase {
         rgEncryption = view.findViewById(R.id.rgEncryption);
         cbInsecure = view.findViewById(R.id.cbInsecure);
         tvInsecureRemark = view.findViewById(R.id.tvInsecureRemark);
+        cbDane = view.findViewById(R.id.cbDane);
         etPort = view.findViewById(R.id.etPort);
         etUser = view.findViewById(R.id.etUser);
         tilPassword = view.findViewById(R.id.tilPassword);
@@ -466,6 +468,13 @@ public class FragmentIdentity extends FragmentBase {
             }
         });
 
+        cbInsecure.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean checked) {
+                cbDane.setEnabled(!checked);
+            }
+        });
+
         tvInsecureRemark.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -570,6 +579,7 @@ public class FragmentIdentity extends FragmentBase {
         if (!SSLHelper.customTrustManager()) {
             Helper.hide(cbInsecure);
             Helper.hide(tvInsecureRemark);
+            Helper.hide(cbDane);
         }
 
         btnAdvanced.setVisibility(View.GONE);
@@ -768,6 +778,7 @@ public class FragmentIdentity extends FragmentBase {
         args.putString("host", etHost.getText().toString().trim().replace(" ", ""));
         args.putInt("encryption", encryption);
         args.putBoolean("insecure", cbInsecure.isChecked());
+        args.putBoolean("dane", cbDane.isChecked());
         args.putString("port", etPort.getText().toString());
         args.putInt("auth", auth);
         args.putString("provider", provider);
@@ -821,6 +832,7 @@ public class FragmentIdentity extends FragmentBase {
                 String host = args.getString("host");
                 int encryption = args.getInt("encryption");
                 boolean insecure = args.getBoolean("insecure");
+                boolean dane = args.getBoolean("dane");
                 String port = args.getString("port");
                 int auth = args.getInt("auth");
                 String provider = args.getString("provider");
@@ -967,6 +979,8 @@ public class FragmentIdentity extends FragmentBase {
                         return true;
                     if (!Objects.equals(identity.insecure, insecure))
                         return true;
+                    if (!Objects.equals(identity.dane, dane))
+                        return true;
                     if (!Objects.equals(identity.port, Integer.parseInt(port)))
                         return true;
                     if (identity.auth_type != auth)
@@ -1036,6 +1050,7 @@ public class FragmentIdentity extends FragmentBase {
                         !host.equals(identity.host) ||
                         encryption != identity.encryption ||
                         insecure != identity.insecure ||
+                        dane != identity.dane ||
                         Integer.parseInt(port) != identity.port ||
                         !user.equals(identity.user) ||
                         !password.equals(identity.password) ||
@@ -1057,8 +1072,8 @@ public class FragmentIdentity extends FragmentBase {
                 if (check) {
                     // Create transport
                     String protocol = (encryption == EmailService.ENCRYPTION_SSL ? "smtps" : "smtp");
-                    try (EmailService iservice = new EmailService(
-                            context, protocol, realm, encryption, insecure, unicode,
+                    try (EmailService iservice = new EmailService(context,
+                            protocol, realm, encryption, insecure, dane, unicode,
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.setUseIp(use_ip, ehlo);
                         iservice.connect(
@@ -1094,6 +1109,7 @@ public class FragmentIdentity extends FragmentBase {
                     identity.host = host;
                     identity.encryption = encryption;
                     identity.insecure = insecure;
+                    identity.dane = dane;
                     identity.port = Integer.parseInt(port);
                     identity.auth_type = auth;
                     identity.user = user;
@@ -1274,6 +1290,8 @@ public class FragmentIdentity extends FragmentBase {
                         rgEncryption.check(R.id.radio_ssl);
 
                     cbInsecure.setChecked(identity == null ? false : identity.insecure);
+                    cbDane.setChecked(identity == null ? false : identity.dane);
+                    cbDane.setEnabled(!cbInsecure.isChecked());
                     etPort.setText(identity == null ? null : Long.toString(identity.port));
                     etUser.setText(identity == null ? null : identity.user);
                     tilPassword.getEditText().setText(identity == null ? null : identity.password);

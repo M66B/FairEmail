@@ -817,8 +817,8 @@ public class FragmentOAuth extends FragmentBase {
                     for (String alt : usernames) {
                         EntityLog.log(context, "Trying username=" + alt);
                         try {
-                            try (EmailService aservice = new EmailService(
-                                    context, aprotocol, null, aencryption, false, false,
+                            try (EmailService aservice = new EmailService(context,
+                                    aprotocol, null, aencryption, false, false, false,
                                     EmailService.PURPOSE_CHECK, true)) {
                                 aservice.connect(
                                         inbound.host, inbound.port,
@@ -827,8 +827,8 @@ public class FragmentOAuth extends FragmentBase {
                                         null, null);
                             }
                             if (state.length == 1) {
-                                try (EmailService iservice = new EmailService(
-                                        context, iprotocol, null, iencryption, false, false,
+                                try (EmailService iservice = new EmailService(context,
+                                        iprotocol, null, iencryption, false, false, false,
                                         EmailService.PURPOSE_CHECK, true)) {
                                     iservice.connect(
                                             provider.smtp.host, provider.smtp.port,
@@ -892,8 +892,8 @@ public class FragmentOAuth extends FragmentBase {
                 List<EntityFolder> folders;
 
                 EntityLog.log(context, "OAuth checking IMAP/POP3 provider=" + provider.id);
-                try (EmailService aservice = new EmailService(
-                        context, aprotocol, null, aencryption, false, false,
+                try (EmailService aservice = new EmailService(context,
+                        aprotocol, null, aencryption, false, false, false,
                         EmailService.PURPOSE_CHECK, true)) {
                     aservice.connect(
                             inbound.host, inbound.port,
@@ -911,8 +911,8 @@ public class FragmentOAuth extends FragmentBase {
                 if (!inbound_only && state.length == 1) {
                     EntityLog.log(context, "OAuth checking SMTP provider=" + provider.id);
 
-                    try (EmailService iservice = new EmailService(
-                            context, iprotocol, null, iencryption, false, false,
+                    try (EmailService iservice = new EmailService(context,
+                            iprotocol, null, iencryption, false, false, false,
                             EmailService.PURPOSE_CHECK, true)) {
                         iservice.connect(
                                 provider.smtp.host, provider.smtp.port,

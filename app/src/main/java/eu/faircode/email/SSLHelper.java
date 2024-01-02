@@ -29,6 +29,8 @@ import com.appmattus.certificatetransparency.CTTrustManagerBuilder;
 import com.appmattus.certificatetransparency.VerificationResult;
 import com.appmattus.certificatetransparency.cache.AndroidDiskCache;
 
+import org.minidns.dane.DaneVerifier;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.KeyStore;
@@ -39,6 +41,9 @@ import java.security.cert.CertificateExpiredException;
 import java.security.cert.X509Certificate;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Handler;
+import java.util.logging.LogRecord;
+import java.util.logging.Logger;
 
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
@@ -46,7 +51,10 @@ import javax.net.ssl.X509TrustManager;
 
 public class SSLHelper {
     static TrustManager[] getTrustManagers(
-            Context context, String server, boolean secure, boolean cert_strict, boolean transparency, boolean check_names, String trustedFingerprint, ITrust intf) {
+            Context context, String server, int port,
+            boolean secure, boolean dane, boolean cert_strict, boolean transparency, boolean check_names,
+            String trustedFingerprint,
+            ITrust intf) {
         TrustManagerFactory tmf;
         try {
             tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -120,6 +128,31 @@ public class SSLHelper {
                                 Log.w(ex);
                         } else
                             throw new CertificateException(principal.getName(), ex);
+                    }
+
+                    if (dane) {
+                        Handler handler = new Handler() {
+                            @Override
+                            public void publish(LogRecord record) {
+                                Log.w("DANE " + record.getMessage());
+                            }
+
+                            @Override
+                            public void flush() {
+                            }
+
+                            @Override
+                            public void close() throws SecurityException {
+                            }
+                        };
+                        String clazz = DaneVerifier.class.getName();
+                        Logger.getLogger(clazz).addHandler(handler);
+                        Log.w("DANE verify " + server + ":" + port);
+                        boolean verified = new DaneVerifier().verifyCertificateChain(chain, server, port);
+                        Log.w("DANE verified=" + verified + " " + server + ":" + port);
+                        Logger.getLogger(clazz).removeHandler(handler);
+                        if (!verified)
+                            throw new CertificateException("DANE missing or invalid");
                     }
 
                     // Check host name

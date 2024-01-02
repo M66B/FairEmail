@@ -426,9 +426,7 @@ public class BoundaryCallbackMessages extends PagedList.BoundaryCallback<TupleMe
                     throw new IllegalStateException(context.getString(R.string.title_no_internet));
 
                 EntityLog.log(context, "Boundary server connecting account=" + account.name);
-                state.iservice = new EmailService(
-                        context, account.getProtocol(), account.realm, account.encryption, account.insecure, account.unicode,
-                        EmailService.PURPOSE_SEARCH, debug || BuildConfig.DEBUG);
+                state.iservice = new EmailService(context, account, EmailService.PURPOSE_SEARCH, debug || BuildConfig.DEBUG);
                 state.iservice.setPartialFetch(account.partial_fetch);
                 state.iservice.setRawFetch(account.raw_fetch);
                 state.iservice.setIgnoreBodyStructureSize(account.ignore_size);
