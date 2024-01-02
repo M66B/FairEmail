@@ -565,7 +565,7 @@ public class ActivityDMARC extends ActivityBase {
             }
 
             try {
-                InetAddress addr = DnsHelper.getByName(context, text);
+                InetAddress addr = InetAddress.getByName(text);
                 IPInfo info = IPInfo.getOrganization(addr, context);
                 ssb.append('(').append(info.org).append(") ");
             } catch (Throwable ex) {

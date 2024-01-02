@@ -61,7 +61,7 @@ public class IPInfo {
             Log.i(ex);
         }
 
-        InetAddress address = DnsHelper.getByName(context, host);
+        InetAddress address = InetAddress.getByName(host);
         return new Pair<>(address, getOrganization(address, context));
     }
 
