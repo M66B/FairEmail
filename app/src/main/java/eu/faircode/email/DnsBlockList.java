@@ -205,7 +205,7 @@ public class DnsBlockList {
         for (BlockList blocklist : blocklists)
             if (isEnabled(context, blocklist) &&
                     blocklist.numeric == numeric &&
-                    isJunk(context, host, blocklist)) {
+                    isJunk(host, blocklist)) {
                 blocked = true;
                 break;
             }
@@ -217,11 +217,11 @@ public class DnsBlockList {
         return blocked;
     }
 
-    private static boolean isJunk(Context context, String host, BlockList blocklist) {
+    private static boolean isJunk(String host, BlockList blocklist) {
         try {
             if (blocklist.numeric) {
                 long start = new Date().getTime();
-                InetAddress[] addresses = DnsHelper.getAllByName(context, host);
+                InetAddress[] addresses = InetAddress.getAllByName(host);
                 long elapsed = new Date().getTime() - start;
                 Log.i("isJunk resolved=" + host + " elapse=" + elapsed + " ms");
                 for (InetAddress addr : addresses) {
@@ -249,7 +249,7 @@ public class DnsBlockList {
 
                         lookup.append(blocklist.address);
 
-                        if (isJunk(context, lookup.toString(), blocklist.responses))
+                        if (isJunk(lookup.toString(), blocklist.responses))
                             return true;
                     } catch (Throwable ex) {
                         Log.w(ex);
@@ -258,7 +258,7 @@ public class DnsBlockList {
             } else {
                 long start = new Date().getTime();
                 String lookup = host + "." + blocklist.address;
-                boolean junk = isJunk(context, lookup, blocklist.responses);
+                boolean junk = isJunk(lookup, blocklist.responses);
                 long elapsed = new Date().getTime() - start;
                 Log.i("isJunk" + " " + lookup + "=" + junk + " elapsed=" + elapsed);
                 return junk;
@@ -270,12 +270,12 @@ public class DnsBlockList {
         return false;
     }
 
-    private static boolean isJunk(Context context, String lookup, InetAddress[] responses) {
+    private static boolean isJunk(String lookup, InetAddress[] responses) {
         long start = new Date().getTime();
         InetAddress result;
         try {
             // Possibly blocked
-            result = DnsHelper.getByName(context, lookup);
+            result = InetAddress.getByName(lookup);
         } catch (UnknownHostException ignored) {
             // Not blocked
             result = null;
