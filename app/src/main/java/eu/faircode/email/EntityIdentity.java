@@ -75,6 +75,8 @@ public class EntityIdentity {
     @NonNull
     public Boolean insecure = false;
     @NonNull
+    public Boolean dane = false;
+    @NonNull
     public Integer port;
     @NonNull
     public Integer auth_type;
