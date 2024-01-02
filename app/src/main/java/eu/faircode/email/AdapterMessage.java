@@ -6111,6 +6111,8 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             boolean dark = Helper.isDarkTheme(context);
             boolean force_light = properties.getValue("force_light", message.id);
 
+            boolean experiments = prefs.getBoolean("experiments", false);
+
             PopupMenuLifecycle popupMenu = new PopupMenuLifecycle(context, powner, ibMore);
             popupMenu.inflate(R.menu.popup_message_more);
 
@@ -6138,7 +6140,7 @@ public class AdapterMessage extends RecyclerView.Adapter<AdapterMessage.ViewHold
             popupMenu.getMenu().findItem(R.id.menu_edit_subject)
                     .setEnabled(message.uid != null && !message.folderReadOnly)
                     .setVisible(message.accountProtocol == EntityAccount.TYPE_IMAP &&
-                            !BuildConfig.PLAY_STORE_RELEASE);
+                            experiments);
 
             popupMenu.getMenu().findItem(R.id.menu_move_to)
                     .setEnabled(message.uid != null && !message.folderReadOnly)
