@@ -646,15 +646,14 @@ public class ConnectionHelper {
         boolean has4 = false;
         boolean has6 = false;
 
-        String ifacename = null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             try {
                 ConnectivityManager cm = Helper.getSystemService(context, ConnectivityManager.class);
                 Network active = (cm == null ? null : cm.getActiveNetwork());
                 LinkProperties props = (active == null ? null : cm.getLinkProperties(active));
-                ifacename = (props == null ? null : props.getInterfaceName());
+                String ifacename = (props == null ? null : props.getInterfaceName());
                 List<LinkAddress> las = (props == null ? null : props.getLinkAddresses());
-                if (las != null && las.size() > 0) {
+                if (las != null)
                     for (LinkAddress la : las) {
                         InetAddress addr = la.getAddress();
                         boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
@@ -667,18 +666,16 @@ public class ConnectionHelper {
                         else if (addr instanceof Inet6Address)
                             has6 = true;
                     }
-                    return new boolean[]{has4, has6};
-                }
             } catch (Throwable ex) {
                 Log.e(ex);
             }
+            return new boolean[]{has4, has6};
+        }
 
         try {
             Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
             while (interfaces != null && interfaces.hasMoreElements()) {
                 NetworkInterface ni = interfaces.nextElement();
-                if (ifacename != null && !ifacename.equals(ni.getName()))
-                    continue;
                 for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
                     InetAddress addr = iaddr.getAddress();
                     boolean local = (addr.isLoopbackAddress() || addr.isLinkLocalAddress());
