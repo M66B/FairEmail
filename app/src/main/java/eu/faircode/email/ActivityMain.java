@@ -26,7 +26,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
@@ -218,19 +217,16 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
             final SimpleTask<Boolean> boot = new SimpleTask<Boolean>() {
                 @Override
                 protected void onPreExecute(Bundle args) {
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
-                        getMainHandler().postDelayed(splash, SPLASH_DELAY);
+                    getMainHandler().postDelayed(splash, SPLASH_DELAY);
                 }
 
                 @Override
                 protected void onPostExecute(Bundle args) {
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.S)
-                        getMainHandler().removeCallbacks(splash);
-                    getWindow().setBackgroundDrawable(null);
+                    getMainHandler().removeCallbacks(splash);
                 }
 
                 @Override
-                protected Boolean onExecute(Context context, Bundle args) {
+                protected Boolean onExecute(Context context, Bundle args) throws InterruptedException {
                     DB db = DB.getInstance(context);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
