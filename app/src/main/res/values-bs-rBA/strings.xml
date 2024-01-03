@@ -456,6 +456,7 @@
     <string name="title_advanced_ssl_harden">Ojačaj SSL konekcije</string>
     <string name="title_advanced_ssl_harden_strict">Zahtjevaj TLS 1.3</string>
     <string name="title_advanced_cert_strict">Striktna provjera certifikata</string>
+    <string name="title_advanced_cert_transparency">Transparentnost certifikata</string>
     <string name="title_advanced_check_names">Uporedi imena hosta s onima iz serverskih certifikata</string>
     <string name="title_advanced_open_safe">Otvaraj samo sigurne konekcije</string>
     <string name="title_advanced_http_redirect">Omogući preusmjeravanje konekcije</string>
@@ -678,8 +679,8 @@
     <string name="title_advanced_confirm_files">Potvrda pregleda datoteka</string>
     <string name="title_advanced_sanitize_links">Ukloni parametre \'praćenja\' po default-u</string>
     <string name="title_advanced_sanitize_links_hint">Samo pri potvrđivanju linkova</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Koristi liste za filtriranje od Adguarda</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Automatsko preuzimanje sedmično</string>
+    <string name="title_advanced_adguard">Koristi AdGuard-ove liste za filtriranje</string>
+    <string name="title_advanced_adguard_weekly">Automatsko preuzimanje sedmično</string>
     <string name="title_advanced_check_links_dbl">Provjeri spisak blokiranja domena za sumnjive linkove</string>
     <string name="title_advanced_confirm_images">Ne prikazuj slike po zadanom</string>
     <string name="title_advanced_ask_images">Potvrdi prikazivanje slika</string>

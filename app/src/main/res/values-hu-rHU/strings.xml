@@ -440,6 +440,7 @@
     <string name="title_advanced_ssl_harden">SSL kapcsolatok megerősítése</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 megkövetelése</string>
     <string name="title_advanced_cert_strict">Szigorú tanusítvány ellenőrzés</string>
+    <string name="title_advanced_cert_transparency">Certificate Transparency</string>
     <string name="title_advanced_check_names">Vesse össze a kiszolgáló nevét a tanúsítványban szereplővel</string>
     <string name="title_advanced_open_safe">Csak biztonságos kapcsolatok megnyitása</string>
     <string name="title_advanced_http_redirect">Engedélyezi a kapcsolat-átirányítást</string>
@@ -662,8 +663,8 @@
     <string name="title_advanced_confirm_files">Fájlmegtekintés jóváhagyása</string>
     <string name="title_advanced_sanitize_links">Alapértelmezetten a követő kódok eltávolítása</string>
     <string name="title_advanced_sanitize_links_hint">Csak hivatkozások jóváhagyásakor</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Adguard szűrőlista használata</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Automatikus letöltés hetente</string>
+    <string name="title_advanced_adguard">AdGuard szűrőlista használata</string>
+    <string name="title_advanced_adguard_weekly">Automatikus letöltés hetente</string>
     <string name="title_advanced_check_links_dbl">Ellenőrizze a tartomány blokkoló listát a gyanús linkeknél</string>
     <string name="title_advanced_confirm_images">Ne mutasson képeket alapból</string>
     <string name="title_advanced_ask_images">Képek megjelenítésének jóváhagyása</string>

@@ -440,6 +440,7 @@ It blokkearjen fan in ôfstjoerderdomein makket gebrûk fan filterregels, wat in
     <string name="title_advanced_ssl_harden">SSL-ferbiningen ferhurdzje</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 fereaskje</string>
     <string name="title_advanced_cert_strict">Strange sertifikaatkontrôle</string>
+    <string name="title_advanced_cert_transparency">Sertifikaattransparânsje</string>
     <string name="title_advanced_check_names">Hostnammen mei serversertifikaten fergelykje</string>
     <string name="title_advanced_open_safe">Allinnich befeilige ferbiningen iepenje</string>
     <string name="title_advanced_http_redirect">Ferbiningsomlieding tastean</string>
@@ -664,6 +665,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_confirm_files">Besjen fan bestannen befêstigje</string>
     <string name="title_advanced_sanitize_links">Standert trackingparameters fuortsmite</string>
     <string name="title_advanced_sanitize_links_hint">Allinnich by it befêstigjen fan keppelingen</string>
+    <string name="title_advanced_adguard">AdGuard-filterlist brûke</string>
+    <string name="title_advanced_adguard_weekly">Automatysk wykliks downloade</string>
     <string name="title_advanced_check_links_dbl">Kontrolearje domeinblokkearringslisten op fertochte keppelingen</string>
     <string name="title_advanced_confirm_images">Standert gjin ôfbyldingen toane</string>
     <string name="title_advanced_ask_images">Toanen fan ôfbyldingen befêstigje</string>
@@ -859,6 +862,7 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_advanced_wearable_hint">Notifikaasjes wurde pas nei in wearable stjoerd neidat de berjochttekst downloaden is</string>
     <string name="title_advanced_messaging_hint">Dit is ferplicht foar Android Auto-stipe</string>
     <string name="title_advanced_move_hint">De doelmap kin ynsteld wurde yn de accountynstellingen</string>
+    <string name="title_advanced_notify_sensitive_hint">Fereasket it útskeakeljen fan gefoelige meldingen yn de ynstellingen fan Android</string>
     <string name="title_advanced_notify_no_grouping">Dizze Android-ferzje stipet gjin notifikaasjegroepearring</string>
     <string name="title_advanced_notify_no_channels">Dizze Android-ferzje stipet gjin meldingskanalen</string>
     <string name="title_advanced_fts_hint">As jo dit ynskeakelje, ferbetteret it sykjen fan prestaasjes, mar fergruttet ek it fan batterij- en ûnthâldgebrûk</string>
@@ -929,6 +933,8 @@ https://en.wikipedia.org/wiki/ASCII</string>
     <string name="title_encryption_none">Gjin (ûnfeilich)</string>
     <string name="title_allow_insecure">Unfeilige ferbiningen tastean</string>
     <string name="title_insecure_remark">Unfeilige ferbiningen moatte allinnich tastien wurde op fertroude netwurken en nea op iepenbiere netwurken</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE ôftwinge</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Mar inkelde mailservers stypje DANE en mar in beheind tal DNS-servers stypje DNSSEC</string>
     <string name="title_notify_remark">Jo kinne dit ynskeakelje foar accountspesifike meldingen</string>
     <string name="title_port">Poartenûmer</string>
     <string name="title_user">Brûkersnamme</string>

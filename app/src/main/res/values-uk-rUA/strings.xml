@@ -470,6 +470,7 @@
     <string name="title_advanced_ssl_harden">Посилене SSL-з\'єднання</string>
     <string name="title_advanced_ssl_harden_strict">Вимагати TLS 1.3</string>
     <string name="title_advanced_cert_strict">Сувора перевірка сертифікату</string>
+    <string name="title_advanced_cert_transparency">Прозорість сертифікатів</string>
     <string name="title_advanced_check_names">Перевіряти імена хостів на відповідність вказаним в серверних сертифікатах</string>
     <string name="title_advanced_open_safe">Відкривати лише захищені з’єднання</string>
     <string name="title_advanced_http_redirect">Дозволяти перенаправлення підключення</string>
@@ -692,8 +693,8 @@
     <string name="title_advanced_confirm_files">Підтверджувати перегляд файлів</string>
     <string name="title_advanced_sanitize_links">Видаляти параметри відстеження за замовчуванням</string>
     <string name="title_advanced_sanitize_links_hint">Лише при підтвердженні посилань</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Використовувати список фільтрів від Adguard</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Автоматично завантажувати щотижня</string>
+    <string name="title_advanced_adguard">Використовувати список фільтрів від AdGuard</string>
+    <string name="title_advanced_adguard_weekly">Автоматично завантажувати щотижня</string>
     <string name="title_advanced_check_links_dbl">Перевіряти списки заблокованих доменів задля виявлення сумнівних посилань</string>
     <string name="title_advanced_confirm_images">За замовчуванням не показувати зображення</string>
     <string name="title_advanced_ask_images">Підтверджувати показ зображень</string>
@@ -961,6 +962,8 @@
     <string name="title_encryption_none">Немає (незахищено)</string>
     <string name="title_allow_insecure">Дозволити незахищене з’єднання</string>
     <string name="title_insecure_remark">Небезпечні підключення повинні бути дозволені тільки в надійних мережах і ніколи в мережах спільного користування</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Примусово використовувати DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Не всі сервери електронної пошти підтримують DANE і лише невелика кількість DNS-серверів підтримують DNSSEC</string>
     <string name="title_notify_remark">Ви можете ввімкнути цю функцію для сповіщень в певному обліковому записі</string>
     <string name="title_port">Номер порту</string>
     <string name="title_user">Ім\'я користувача</string>

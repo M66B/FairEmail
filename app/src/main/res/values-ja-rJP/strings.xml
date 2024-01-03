@@ -428,6 +428,7 @@
     <string name="title_advanced_ssl_harden">より強固な SSL 接続</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 を要求する</string>
     <string name="title_advanced_cert_strict">厳格な証明書確認</string>
+    <string name="title_advanced_cert_transparency">証明書の透明性 (Certificate Transparency)</string>
     <string name="title_advanced_check_names">ホスト名をサーバー証明書と比較して確認する</string>
     <string name="title_advanced_open_safe">保護された接続のみ使用する</string>
     <string name="title_advanced_http_redirect">接続のリダイレクトを許可する</string>
@@ -650,8 +651,8 @@
     <string name="title_advanced_confirm_files">ファイルを開く前に確認を表示する</string>
     <string name="title_advanced_sanitize_links">デフォルトでトラッキングパラメーターを削除する</string>
     <string name="title_advanced_sanitize_links_hint">リンクを確認する場合のみ</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Adguard のフィルターリストを使用する</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">自動で毎週ダウンロードする</string>
+    <string name="title_advanced_adguard">AdGuard のフィルターリストを使用する</string>
+    <string name="title_advanced_adguard_weekly">自動で毎週ダウンロードする</string>
     <string name="title_advanced_check_links_dbl">不審なリンクがないかドメインブロックリストを確認する</string>
     <string name="title_advanced_confirm_images">デフォルトで画像を表示しない</string>
     <string name="title_advanced_ask_images">画像を表示する前に確認を表示する</string>
