@@ -619,7 +619,7 @@ class NotificationHelper {
         }
 
         if (notify_screen_on && flash) {
-            Log.i("Notify screen on");
+            EntityLog.log(context, EntityLog.Type.Notification, "Notify screen on");
             PowerManager pm = Helper.getSystemService(context, PowerManager.class);
             PowerManager.WakeLock wakeLock = pm.newWakeLock(
                     PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP,
