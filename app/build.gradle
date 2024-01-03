@@ -569,7 +569,7 @@ dependencies {
     def svg_version = "1.4"
     def compress_version = "1.25.0"
     def ipaddress_version = "5.4.0"
-    def canary_version = "2.12"
+    def canary_version = "2.13"
     def ws_version = "2.14"
     def tinylog_version = "2.6.2"
 
