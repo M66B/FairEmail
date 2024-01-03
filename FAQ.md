@@ -411,7 +411,8 @@ Anything on this list is in random order and *might* be added in the near future
 * [(198) Can you add spell checking?](#faq198)
 * [(199) Can you add proxy support?](#faq199)
 * [(200) How can I use Adguard to remove tracking parameters?](#faq200)
-* [(201) What is certificate transparency](#faq201)
+* [(201) What is certificate transparency?](#faq201)
+* [(202) What is DANE?](#faq202)
 
 [I have another question.](#get-support)
 
@@ -5667,6 +5668,19 @@ When certificate transparency is enabled in the connection-settings tab page of 
 the [Chrome Certificate Transparency Policy](https://github.com/GoogleChrome/CertificateTransparency/blob/master/ct_policy.md) will be applied.
 
 FairEmail uses [this library](https://github.com/appmattus/certificatetransparency) to implement certificate transparency via a custom trust manager.
+
+<br>
+
+<a name="faq202"></a>
+**(202) What is DANE?**
+
+Please see [this Wikipedia article](https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities) about what DANE is.
+
+You can use [this tool](https://ssl-tools.net/tlsa-generator) to generate TSLA DNS records.
+
+You can enable enforcing DANA in the (advanced) account and identity settings (since version 1.2148).
+
+Note that only some email servers support DANE and that only a limited number of DNS servers support DNSSEC, which is required for DANE.
 
 <br>
 
