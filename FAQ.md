@@ -1505,7 +1505,8 @@ or something between the email server and the app, for example a router or a fir
 The error *... Connection closed by peer ...* means that the email server actively closed the connection.
 This might be caused by a not updated Exchange server, see [here](https://blogs.technet.microsoft.com/pki/2010/09/30/sha2-and-windows/) for more information.
 
-The errors *... Read error ...*, *... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
+The errors *... Read error ...* (sometimes combined with *BAD_DECRYPT* / *DECRYPTION_FAILED_OR_BAD_RECORD_MAC*),
+*... Write error ...*, *... Read timed out ...*, *... Broken pipe ...* mean that the email server is not responding anymore or that the internet connection is bad.
 
 <a name="connectiondropped"></a>
 The error *... Connection dropped by server? ...* means that the email server unexpectedly terminated the connection.
