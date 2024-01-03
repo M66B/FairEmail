@@ -12,8 +12,8 @@ buildscript {
         // https://mvnrepository.com/artifact/com.bugsnag/bugsnag-android-gradle-plugin
         classpath "com.bugsnag:bugsnag-android-gradle-plugin:8.1.0"
         // https://mvnrepository.com/artifact/org.jetbrains.kotlin/kotlin-gradle-plugin
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.20"
-        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.8.20"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.9.22"
         // https://plugins.gradle.org/plugin/de.undercouch.download
         classpath "de.undercouch:gradle-download-task:5.5.0"
     }
