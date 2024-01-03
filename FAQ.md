@@ -5683,6 +5683,8 @@ You can enable enforcing DANA in the (advanced) account and identity settings (s
 
 Note that only some email servers support DANE and that only a limited number of DNS servers support DNSSEC, which is required for DANE.
 
+Except for DANE, FairEmail won't enforce DNSSEC because adoption of DNSSEC is still limited (~30% at the start of 2024).
+
 <br>
 
 <h2><a name="get-support"></a>Get support</h2>
