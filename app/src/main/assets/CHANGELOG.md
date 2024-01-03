@@ -6,6 +6,11 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 ### [Wintonotitan](https://en.wikipedia.org/wiki/Wintonotitan)
 
+### Future version
+
+* Replaced [javadns](https://github.com/dnsjava/dnsjava) by [MiniDNS](https://github.com/MiniDNS/minidns)
+* Added account/identity option to enforce DANE, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq202)
+
 ### Next version
 
 * Small improvements and minor bug fixes

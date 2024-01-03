@@ -6,6 +6,11 @@ For support you can use the contact form.
 
 Wintonotitan
 
+Future version
+
+* Replaced javadns
+* Added account/identity option to enforce DANE, see the FAQ
+
 Next version
 
 * Small improvements and minor bug fixes
