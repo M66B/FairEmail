@@ -56,7 +56,7 @@ public class FragmentEula extends FragmentBase {
         btnAgree.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getContext());
+                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(view.getContext());
                 prefs.edit().putBoolean("eula", true).apply();
             }
         });
