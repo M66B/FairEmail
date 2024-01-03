@@ -1065,7 +1065,7 @@ public class DebugHelper {
                     Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
                     while (interfaces != null && interfaces.hasMoreElements()) {
                         NetworkInterface ni = interfaces.nextElement();
-                        size += write(os, "Interface=" + ni + "\r\n");
+                        size += write(os, "Interface=" + ni + " up=" + ni.isUp() + "\r\n");
                         for (InterfaceAddress iaddr : ni.getInterfaceAddresses()) {
                             InetAddress addr = iaddr.getAddress();
                             size += write(os, " addr=" + addr +
