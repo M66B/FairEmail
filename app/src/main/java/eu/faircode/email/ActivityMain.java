@@ -226,7 +226,7 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
                 }
 
                 @Override
-                protected Boolean onExecute(Context context, Bundle args) throws InterruptedException {
+                protected Boolean onExecute(Context context, Bundle args) {
                     DB db = DB.getInstance(context);
 
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
