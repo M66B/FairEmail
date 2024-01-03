@@ -1,5 +1,12 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:drawable="@android:color/darker_gray" />
+    <item
+        android:width="200dp"
+        android:height="200dp">
+        <shape>
+            <solid android:color="@android:color/darker_gray" />
+            <corners android:radius="400px" />
+        </shape>
+    </item>
     <item>
         <bitmap
             android:gravity="center"
