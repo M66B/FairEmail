@@ -49,6 +49,7 @@ import org.minidns.record.NS;
 import org.minidns.record.SRV;
 import org.minidns.record.TXT;
 import org.minidns.source.AbstractDnsDataSource;
+import org.minidns.util.MultipleIoException;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -303,7 +304,8 @@ public class DnsHelper {
 
             return result.toArray(new DnsRecord[0]);
         } catch (Throwable ex) {
-            if (ex instanceof DnssecValidationFailedException)
+            if (ex instanceof DnssecValidationFailedException ||
+                    ex instanceof MultipleIoException)
                 Log.i(ex);
             else
                 Log.e(ex);
