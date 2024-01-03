@@ -461,8 +461,13 @@ public class ActivityMain extends ActivityBase implements FragmentManager.OnBack
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-        if ("eula".equals(key))
-            if (prefs.getBoolean(key, false))
-                recreate();
+        if ("eula".equals(key)) {
+            boolean eula = prefs.getBoolean(key, false);
+            if (eula) {
+                // recreate is done without animation
+                finish();
+                startActivity(getIntent());
+            }
+        }
     }
 }
