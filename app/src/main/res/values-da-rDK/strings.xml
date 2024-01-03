@@ -442,6 +442,7 @@
     <string name="title_advanced_ssl_harden">Hærd SSL-forbindelser</string>
     <string name="title_advanced_ssl_harden_strict">Kræv TLS 1.3</string>
     <string name="title_advanced_cert_strict">Striks certifikatkontrol</string>
+    <string name="title_advanced_cert_transparency">Certifikatgennemsigtighed</string>
     <string name="title_advanced_check_names">Sammenlign værtsnavne med servercertifikater</string>
     <string name="title_advanced_open_safe">Åbn kun sikre forbindelser</string>
     <string name="title_advanced_http_redirect">Tillad forbindelsesomdirigering</string>
@@ -664,8 +665,8 @@
     <string name="title_advanced_confirm_files">Bekræft visning af filer</string>
     <string name="title_advanced_sanitize_links">Fjern som standard sporingsparametre</string>
     <string name="title_advanced_sanitize_links_hint">Kun ved linkbekræftelse</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Brug AdGuard-filterliste</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Download automatisk ugentligt</string>
+    <string name="title_advanced_adguard">Brug AdGuard-filterliste</string>
+    <string name="title_advanced_adguard_weekly">Download automatisk ugentligt</string>
     <string name="title_advanced_check_links_dbl">Tjek domæneblokeringslister for mistænkelige links</string>
     <string name="title_advanced_confirm_images">Som standard Ingen billedvisning</string>
     <string name="title_advanced_ask_images">Bekræft visning af billeder</string>

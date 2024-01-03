@@ -442,6 +442,7 @@
     <string name="title_advanced_ssl_harden">Renforcer les connexions SSL</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 requis</string>
     <string name="title_advanced_cert_strict">Vérification stricte du certificat</string>
+    <string name="title_advanced_cert_transparency">Transparence des certificats (Certificate transparency)</string>
     <string name="title_advanced_check_names">Vérifier les noms d\'hôtes par rapport aux certificats de serveur</string>
     <string name="title_advanced_open_safe">Ouvrir uniquement des connexions sécurisées</string>
     <string name="title_advanced_http_redirect">Autoriser la redirection de connexion</string>
@@ -664,8 +665,8 @@
     <string name="title_advanced_confirm_files">Confirmer la visualisation des fichiers</string>
     <string name="title_advanced_sanitize_links">Supprimer les paramètres de suivi par défaut</string>
     <string name="title_advanced_sanitize_links_hint">Seulement lors de la confirmation des liens</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Utiliser la liste de filtres Adguard</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Télécharger automatiquement chaque semaine</string>
+    <string name="title_advanced_adguard">Utiliser la liste de filtres Adguard</string>
+    <string name="title_advanced_adguard_weekly">Télécharger automatiquement chaque semaine</string>
     <string name="title_advanced_check_links_dbl">Rechercher les liens suspects dans des listes de blocage de domaines</string>
     <string name="title_advanced_confirm_images">N\'afficher aucune image par défaut</string>
     <string name="title_advanced_ask_images">Confirmer l’affichage des images</string>

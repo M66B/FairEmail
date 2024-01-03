@@ -442,6 +442,7 @@
     <string name="title_advanced_ssl_harden">SSL bağlantılarını sağlam et</string>
     <string name="title_advanced_ssl_harden_strict">TLS 1.3 tələb et</string>
     <string name="title_advanced_cert_strict">Ciddi sertifikat yoxlanışı</string>
+    <string name="title_advanced_cert_transparency">Sertifikat şəffaflığı</string>
     <string name="title_advanced_check_names">Host adlarını server sertifikatlarına görə yoxla</string>
     <string name="title_advanced_open_safe">Yalnız güvənli bağlantıları aç</string>
     <string name="title_advanced_http_redirect">Bağlantının təkrar yönləndirilməsinə icazə ver</string>
@@ -664,8 +665,8 @@
     <string name="title_advanced_confirm_files">Fayllara baxışı təsdiqlə</string>
     <string name="title_advanced_sanitize_links">İzləmə parametrlərini ilkin olaraq çıxart</string>
     <string name="title_advanced_sanitize_links_hint">Yalnız keçidləri təsdiqləyərkən</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Adguard filtr siyahısını istifadə et</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Həftəlik olaraq avto-endir</string>
+    <string name="title_advanced_adguard">AdGuard filtr siyahısını istifadə et</string>
+    <string name="title_advanced_adguard_weekly">Həftəlik olaraq avto-endir</string>
     <string name="title_advanced_check_links_dbl">Şübhəli bağlantılar üçün domen əngəlləmə siyahılarını yoxlayın</string>
     <string name="title_advanced_confirm_images">İlkin olaraq təsvirləri göstərmə</string>
     <string name="title_advanced_ask_images">Təsvirlərin göstərilməsini təsdiqlə</string>

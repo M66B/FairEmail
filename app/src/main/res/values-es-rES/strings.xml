@@ -441,6 +441,7 @@
     <string name="title_advanced_ssl_harden">Endurecer conexiones SSL</string>
     <string name="title_advanced_ssl_harden_strict">Requerir TLS 1.3</string>
     <string name="title_advanced_cert_strict">Verificación estricta de certificados</string>
+    <string name="title_advanced_cert_transparency">Certificate transparency</string>
     <string name="title_advanced_check_names">Comprobar nombres de host con certificados de servidor</string>
     <string name="title_advanced_open_safe">Abrir solo conexiones seguras</string>
     <string name="title_advanced_http_redirect">Permitir redirección de conexión</string>
@@ -663,8 +664,8 @@
     <string name="title_advanced_confirm_files">Confirmar visualización de archivos</string>
     <string name="title_advanced_sanitize_links">Eliminar parámetros de rastreo por defecto</string>
     <string name="title_advanced_sanitize_links_hint">Sólo al confirmar enlaces</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Usar lista de filtros Adguard</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Descargar automáticamente semanalmente</string>
+    <string name="title_advanced_adguard">Usar lista de filtros AdGuard</string>
+    <string name="title_advanced_adguard_weekly">Descargar automáticamente semanalmente</string>
     <string name="title_advanced_check_links_dbl">Comprobar listas de bloqueo de dominio para enlaces sospechosos</string>
     <string name="title_advanced_confirm_images">No mostrar imágenes por defecto</string>
     <string name="title_advanced_ask_images">Confirmar mostrar imágenes</string>
@@ -933,6 +934,8 @@
     <string name="title_encryption_none">Ninguno (inseguro)</string>
     <string name="title_allow_insecure">Permitir conexiones inseguras</string>
     <string name="title_insecure_remark">Las conexiones inseguras sólo deberían permitirse con redes de confianza y nunca con redes públicas</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Forzar DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Sólo algunos servidores de correo electrónico soportan DANE y sólo un número limitado de servidores DNS soportan DNSSEC</string>
     <string name="title_notify_remark">Puedes activar esto para notificaciones específicas de la cuenta</string>
     <string name="title_port">Puerto</string>
     <string name="title_user">Nombre de usuario</string>

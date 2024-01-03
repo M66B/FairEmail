@@ -427,6 +427,7 @@
     <string name="title_advanced_ssl_harden">加强 SSL 连接</string>
     <string name="title_advanced_ssl_harden_strict">需要 TLS 1.3</string>
     <string name="title_advanced_cert_strict">严格的证书检查</string>
+    <string name="title_advanced_cert_transparency">证书透明度</string>
     <string name="title_advanced_check_names">检查服务器证书是否匹配主机名</string>
     <string name="title_advanced_open_safe">仅打开安全连接</string>
     <string name="title_advanced_http_redirect">允许连接重定向</string>
@@ -649,8 +650,8 @@
     <string name="title_advanced_confirm_files">确认查看文件</string>
     <string name="title_advanced_sanitize_links">默认删除跟踪参数</string>
     <string name="title_advanced_sanitize_links_hint">仅当确认链接时</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">使用 Adguard 过滤规则列表</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">每周自动下载</string>
+    <string name="title_advanced_adguard">使用AdGuard过滤列表</string>
+    <string name="title_advanced_adguard_weekly">每周自动下载</string>
     <string name="title_advanced_check_links_dbl">使用域名拦截列表检查可疑链接</string>
     <string name="title_advanced_confirm_images">默认不显示图片</string>
     <string name="title_advanced_ask_images">确认显示图片</string>

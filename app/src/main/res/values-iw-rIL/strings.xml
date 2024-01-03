@@ -470,6 +470,7 @@
     <string name="title_advanced_ssl_harden">הקשחת חיבורי SSL</string>
     <string name="title_advanced_ssl_harden_strict">לדרוש TLS‎ 1.3</string>
     <string name="title_advanced_cert_strict">בדיקת אישורים קפדנית</string>
+    <string name="title_advanced_cert_transparency">שקיפות אישורים</string>
     <string name="title_advanced_check_names">בדיקת שם המארח כנגד אישורי השרת</string>
     <string name="title_advanced_open_safe">פתיחת חיבורים מאובטחים בלבד</string>
     <string name="title_advanced_http_redirect">לאפשר הפניית חיבורים</string>
@@ -692,8 +693,8 @@
     <string name="title_advanced_confirm_files">אישור צפייה בקבצים</string>
     <string name="title_advanced_sanitize_links">הסרת משתני מעקב כברירת מחדל</string>
     <string name="title_advanced_sanitize_links_hint">רק בעת אישור קישורים</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">להשתמש ברשימת סינון Adguard</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">להוריד שבועית אוטומטית</string>
+    <string name="title_advanced_adguard">להשתמש ברשימת סינון AdGuard</string>
+    <string name="title_advanced_adguard_weekly">להוריד שבועית אוטומטית</string>
     <string name="title_advanced_check_links_dbl">לבדוק קישורים חשודים מול רשימת שמות תחום חסומים</string>
     <string name="title_advanced_confirm_images">לא להציג תמונות כברירת מחדל</string>
     <string name="title_advanced_ask_images">אישור הצגת תמונות</string>

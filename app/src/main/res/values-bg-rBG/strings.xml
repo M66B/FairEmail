@@ -94,6 +94,10 @@
     <string name="title_blocked_senders">Блокирани податели</string>
     <string name="title_unblock_all">Разблокиране на всички</string>
     <string name="title_unblock_all_remark">Това ще занули всички списъци и възможности, което може да доведе до блокиране на податели</string>
+    <plurals name="title_ask_block_sender">
+        <item quantity="one">Блокирате ли подателя на %1$s съобщение?</item>
+        <item quantity="other">Блокирате ли подателя на %1$s съобщения?</item>
+    </plurals>
     <plurals name="title_hours">
         <item quantity="one">%1$s час</item>
         <item quantity="other">%1$s часа</item>
@@ -183,6 +187,7 @@
     <string name="title_setup_gmail_permissions">Google ще поиска разрешения за четене, съставяне, изпращане и окончателно изтриване на целия ви имейл. FairEmail никога няма да изтрие вашите съобщения без вашето изрично съгласие.</string>
     <string name="title_setup_gmail_login">Ако в Chrome е изпълнено влизане в акаунт, то нов акаунт може да се добави само през Android. Това може да се избегне, излизайки от акаунта в Chrome чрез настройките му за синхронизиране.</string>
     <string name="title_setup_gmail_max">В случай на съобщение за грешка \"Влезли сте в максималния брой акаунти\", то трябва да излезете от всичките си Google акаунти в браузъра.</string>
+    <string name="title_setup_gmail_on_device">Защо трябва да избера акаунт на устройството?</string>
     <string name="title_setup_gmail_password">Искам да упълномощя акаунт с парола вместо акаунт на устройството</string>
     <string name="title_setup_office_auth">Грешката „УДОСТОВЕРЯВАНЕТО неуспешно“ може да се причини от изключването на IMAP/SMTP от системния администратор</string>
     <string name="title_setup_office_auth_5_7_3">Опитайте вълшебника за бърза настройка „Друг доставчик“.</string>
@@ -309,6 +314,7 @@
     <string name="title_setup_defaults">Възстановяване по подразбиране</string>
     <string name="title_setup_reset_questions">Отказване на запитването</string>
     <string name="title_setup_reset_general">Общи въпроси</string>
+    <string name="title_setup_reset_links">Потвърждаване на линковете</string>
     <string name="title_setup_reset_files">Преглед на файловете</string>
     <string name="title_setup_reset_images">Показване на образите</string>
     <string name="title_setup_reset_full">Показване на оригиналните съобщения</string>
@@ -383,6 +389,7 @@
     <string name="title_advanced_answer_action">Дългият натиск на бутона за отговор ще:</string>
     <string name="title_advanced_answer_hint">Действията за копче отговор може също да се настроят в раздел настройки за изпращане</string>
     <string name="title_advanced_answer_warning">Не всички действия са възможни без менюто за избор!</string>
+    <string name="title_advanced_send_pending">Показване на ненатрапчива икона за забавено изпращане</string>
     <string name="title_advanced_save_revisions">Съхранение на история на редактирането на чернови за операциите отмяна и повторение</string>
     <string name="title_advanced_auto_save_paragraph">Автозапазване на чернова след всеки абзац</string>
     <string name="title_advanced_auto_save_dot">Автозапазване на чернова след всяко изречение</string>
@@ -434,6 +441,7 @@
     <string name="title_advanced_ssl_harden">Твърди SSL връзки</string>
     <string name="title_advanced_ssl_harden_strict">Изисква се TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строга проверка на удостоверението</string>
+    <string name="title_advanced_cert_transparency">Прозрачност на удостоверението</string>
     <string name="title_advanced_check_names">Проверка на имената на хостовете срещу удостоверенията на сървърите</string>
     <string name="title_advanced_open_safe">Отваряне само на сигурни връзки</string>
     <string name="title_advanced_http_redirect">Позволяване на пренасочване на свързването</string>
@@ -653,6 +661,8 @@
     <string name="title_advanced_confirm_files">Потвърждаване преглеждане на файловете</string>
     <string name="title_advanced_sanitize_links">Премахване на параметрите за проследяване по подразбиране</string>
     <string name="title_advanced_sanitize_links_hint">Само при потвърдени линкове</string>
+    <string name="title_advanced_adguard">Употреба на списъка с филтри на AdGuard</string>
+    <string name="title_advanced_adguard_weekly">Ежеседмично самодейно изтегляне</string>
     <string name="title_advanced_check_links_dbl">Проверете списъка с блокирани на домейна за подозрителни връзки</string>
     <string name="title_advanced_confirm_images">Без образи на показ по подразбиране</string>
     <string name="title_advanced_ask_images">Потвърдете показването на изображения</string>
@@ -691,6 +701,7 @@
     <string name="title_advanced_autocrypt">Използвай Autocrypt</string>
     <string name="title_advanced_autocrypt_mutual">Автокриптиране на споделен режим</string>
     <string name="title_advanced_encrypt_subject">Криптиране на темата</string>
+    <string name="title_advanced_import_pgp">Ключ за внасяне</string>
     <string name="title_advanced_sign_algo">Алгоритъм на подписа</string>
     <string name="title_advanced_encrypt_algo">Алгоритъм на криптирането</string>
     <string name="title_advanced_remark_algo">        Имайте предвид, че не всички имейл клиенти поддържат всички алгоритми.
@@ -886,6 +897,7 @@
     <string name="title_identity_octetmime">Позволяване на 8BITMIME</string>
     <string name="title_identity_max_size">Максимален размер на съобщението (MB)</string>
     <string name="title_identity_receipt">Заявка за доставка/четене по подразбиране</string>
+    <string name="title_identity_receipt_legacy">Употреба на наследени заглавки на заявки за разписки</string>
     <string name="title_identity_use_ip_hint">В случай на „невалиден поздрав“, „заявка за валиден адрес“ или подобна грешка, променете тази настройка</string>
     <string name="title_identity_self_hint">Също така ви предпазва и от самоотговаряне</string>
     <string name="title_optional">По избор</string>
@@ -918,6 +930,8 @@
     <string name="title_encryption_none">Няма (несигурно)</string>
     <string name="title_allow_insecure">Разрешаване на несигурни връзки</string>
     <string name="title_insecure_remark">Несигурните връзки трябва да се разрешават само в доверени мрежи и никога в обществени мрежи</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Налагане на употребата на DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Само някои сървъри на е-поща поддържат DANE и само ограничен брой сървъри на DNS поддържат DNSSEC</string>
     <string name="title_notify_remark">Може да включите това за известия на конкретен акаунт</string>
     <string name="title_port">Номер на порт</string>
     <string name="title_user">Потребителско име</string>
@@ -1002,6 +1016,9 @@
     <string name="title_service_port">Проверете два пъти номера на порта</string>
     <string name="title_service_protocol">Двойно проверете протокола (SSL/TLS или STARTTLS)</string>
     <string name="title_service_error10">Този акаунт трябва пак да се удостовери, което може да се извърши чрез бърза настройка на вълшебника</string>
+    <string name="title_certificate_error">        Поради политиката на Play Store на Google у версията на FairEmail, разпространяваща се през Play Store, вече не е може да се поддържат несигурни връзки към имейл сървъри с проблемно удостоверение.
+        Проблемът може да се реши само от доставчика на имейла ви - горните сведения за грешка може да ви помогнат да разрешите този проблем.
+    </string>
     <string name="title_advanced_browse">Търсене на съобщения на сървъра</string>
     <string name="title_advanced_expand_read">Маркирайте съобщенията като прочетени при разширяване</string>
     <string name="title_synchronize_now">Синхронизиране сега</string>
@@ -1021,11 +1038,13 @@
     <string name="title_download_batch_disable">Изтегляне само на заглавките</string>
     <string name="title_delete_local">Изтриване на локалните съобщения</string>
     <string name="title_delete_browsed">Изтриване на търсените съобщения</string>
+    <string name="title_expunge">Заличаване</string>
     <string name="title_expunge_remark">Необратимо изтриване на всички съобщения, означени за триене</string>
     <string name="title_empty_trash">Изпразване на кошчето</string>
     <string name="title_empty_spam">Изтриване на спама</string>
     <string name="title_edit_properties">Редактиране на свойствата</string>
     <string name="title_edit_rules">Редактиране на правилата</string>
+    <string name="title_execute_rules">Извършване на правилата</string>
     <string name="title_export_messages">Износ на съобщения</string>
     <string name="title_create_channel">Създаване на канал за известия</string>
     <string name="title_edit_channel">Редактиране на канал за известия</string>
@@ -1451,6 +1470,7 @@
     <string name="title_verify">Потвърждаване</string>
     <string name="title_encrypt">Криптиране</string>
     <string name="title_decrypt">Декриптиран</string>
+    <string name="title_reset_message_questions">Възстановяване на запитвания относно отваряне на линкове</string>
     <string name="title_resync">Повторно синхронизиране</string>
     <string name="title_charset">Кодиране</string>
     <string name="title_charset_auto">Автоматично</string>
@@ -1586,6 +1606,7 @@
     <string name="title_answer_standard">По подразбиране</string>
     <string name="title_answer_favorite">Любими</string>
     <string name="title_answer_snippet">Фрагмент</string>
+    <string name="title_answer_receipt">Употреба като разписка за прочитане</string>
     <string name="title_answer_hide">Скриване в менюто</string>
     <string name="title_answer_text">Шаблон текст</string>
     <string name="title_answer_placeholder">Контейнер</string>
@@ -1620,6 +1641,7 @@
     <string name="title_rule_group">Група</string>
     <string name="title_rule_order">Подреждане</string>
     <string name="title_rule_enabled">Активирано</string>
+    <string name="title_rule_daily">Пускане (само) дневно</string>
     <string name="title_rule_age">Съобщения по-стари от (дни)</string>
     <string name="title_rule_stop">Спри правилото след изпълнението му</string>
     <string name="title_rule_stop_remark">Ако правилото е част от група, то обработката на всички правила от тази група ще бъдат спрени</string>
@@ -1736,6 +1758,9 @@
     <string name="title_legend_draft">Има чернова</string>
     <string name="title_legend_priority">Има висок приоритет</string>
     <string name="title_legend_priority_low">Има висок приоритет</string>
+    <string name="title_legend_sensitivity_personal">Е личен</string>
+    <string name="title_legend_sensitivity_private">Е частен</string>
+    <string name="title_legend_sensitivity_confidential">Е поверителен</string>
     <string name="title_legend_importance">Е важно</string>
     <string name="title_legend_importance_low">Не е важно</string>
     <string name="title_legend_signed">Подписан</string>
@@ -2070,7 +2095,7 @@
         <item>Към следващия разговор</item>
     </string-array>
     <string-array name="resizeNames">
-        <item>Tiny</item>
+        <item>Дребно</item>
         <item>Много малко</item>
         <item>Малък</item>
         <item>Среден</item>
@@ -2105,7 +2130,7 @@
     <string-array name="sensitivityNames">
         <item>Нормален</item>
         <item>Личен</item>
-        <item>Private</item>
+        <item>Частно</item>
         <item>Поверително</item>
     </string-array>
     <string-array name="linesNames">
@@ -2189,9 +2214,9 @@
     </string-array>
     <string-array name="contactGroupTypes">
         <item>Всеки</item>
-        <item>Home</item>
+        <item>Домашен</item>
         <item>Служебен</item>
         <item>Други</item>
-        <item>Mobile</item>
+        <item>Мобилен</item>
     </string-array>
 </resources>

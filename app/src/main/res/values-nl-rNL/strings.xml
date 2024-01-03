@@ -440,6 +440,7 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_ssl_harden">Verhard SSL-verbindingen</string>
     <string name="title_advanced_ssl_harden_strict">Vereis TLS 1.3</string>
     <string name="title_advanced_cert_strict">Strenge certificaatcontrole</string>
+    <string name="title_advanced_cert_transparency">Certificaattransparantie</string>
     <string name="title_advanced_check_names">Hostnamen met servercertificaten vergelijken</string>
     <string name="title_advanced_open_safe">Alleen beveiligde verbindingen openen</string>
     <string name="title_advanced_http_redirect">Verbindingsomleiding toestaan</string>
@@ -662,8 +663,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_advanced_confirm_files">Bevestig het bekijken van bestanden</string>
     <string name="title_advanced_sanitize_links">Verwijder standaard tracking parameters</string>
     <string name="title_advanced_sanitize_links_hint">Alleen bij het bevestigen van links</string>
-    <string name="title_advanced_adguard" comment="title_advanced_adguard&#10;Title for option to enable using Adguard filter list to remove tracking parameters from links">Gebruik Adguard filterlijst</string>
-    <string name="title_advanced_adguard_weekly" comment="title_advanced_adguard_weekly&#10;Title for option to automatically update the Adguard filter list weekly">Automatisch wekelijks downloaden</string>
+    <string name="title_advanced_adguard">AdGuard-filterlijst gebruiken</string>
+    <string name="title_advanced_adguard_weekly">Automatisch wekelijks downloaden</string>
     <string name="title_advanced_check_links_dbl">Controleer domeinblokkeringslijsten op verdachte links</string>
     <string name="title_advanced_confirm_images">Toon standaard geen afbeeldingen</string>
     <string name="title_advanced_ask_images">Bevestig het tonen van afbeeldingen</string>
@@ -931,6 +932,8 @@ Het blokkeren van een afzenderdomein maakt gebruik van filterregels, wat een pro
     <string name="title_encryption_none">Geen (onveilig)</string>
     <string name="title_allow_insecure">Onveilige verbindingen toestaan</string>
     <string name="title_insecure_remark">Onveilige verbindingen mogen alleen worden toegestaan op vertrouwde netwerken en nooit op openbare netwerken</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE afdwingen</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Slechts enkele mailservers ondersteunen DANE en slechts een beperkt aantal DNS-servers ondersteunen DNSSEC</string>
     <string name="title_notify_remark">U kunt dit inschakelen voor account specifieke meldingen</string>
     <string name="title_port">Poortnummer</string>
     <string name="title_user">Gebruikersnaam</string>
