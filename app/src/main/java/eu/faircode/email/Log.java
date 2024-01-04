@@ -1203,6 +1203,19 @@ public class Log {
              */
             return false;
 
+        if (ex instanceof NullPointerException &&
+                stack.length > 0 &&
+                "android.app.OplusActivityManager".equals(stack[0].getClassName()) &&
+                "finishNotOrderReceiver".equals(stack[0].getMethodName()))
+                /*
+                    java.lang.NullPointerException: Attempt to invoke interface method 'boolean android.os.IBinder.transact(int, android.os.Parcel, android.os.Parcel, int)' on a null object reference
+                        at android.app.OplusActivityManager.finishNotOrderReceiver(OplusActivityManager.java:2360)
+                        at android.content.BroadcastReceiver$PendingResult.sendFinished(BroadcastReceiver.java:347)
+                        at android.content.BroadcastReceiver$PendingResult.finish(BroadcastReceiver.java:302)
+                        at android.app.ActivityThread.handleReceiver(ActivityThread.java:4352)
+                 */
+            return false;
+
         if (ex instanceof IndexOutOfBoundsException &&
                 stack.length > 0 &&
                 "android.text.SpannableStringInternal".equals(stack[0].getClassName()) &&
