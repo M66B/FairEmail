@@ -653,6 +653,8 @@
     <string name="title_host">نام میزبان</string>
     <string name="title_encryption">رمزنگاری</string>
     <string name="title_allow_insecure">اجازه اتصال ناامن</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">اعمال کردن DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">تنها تعداد کمی از سرورهای ایمیل از DANE پشتیبانی می‌کنند و تعداد محدودی از سرورهای DNS از DNSSEC</string>
     <string name="title_notify_remark">می‌توانید این را برای نوتیفیکیشن‌های خاص حساب فعال کنید</string>
     <string name="title_port">شماره پورت</string>
     <string name="title_user">نام کاربری</string>

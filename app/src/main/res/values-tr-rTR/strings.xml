@@ -933,6 +933,8 @@ Gönderen etki alanını engellemek, profesyonel bir özellik olan filtre kurall
     <string name="title_encryption_none">Yok (güvenliksiz)</string>
     <string name="title_allow_insecure">Güvensiz bağlantılara izin ver</string>
     <string name="title_insecure_remark">Güvensiz bağlantılara sadece güvenilen ağlarda izin verilmelidir ve halka açık ağlarda asla izin verilmemelidir</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE\'i Zorla</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Yalnızca bazı e-posta sunucuları DANE\'yi ve yalnızca sınırlı sayıda DNS sunucusu DNSSEC\'i destekler</string>
     <string name="title_notify_remark">Bunu hesaba özel bildirimler için etkinleştirebilirsiniz</string>
     <string name="title_port">Port numarası</string>
     <string name="title_user">Kullanıcı adı</string>

@@ -920,6 +920,8 @@
     <string name="title_encryption_none">无（不安全）</string>
     <string name="title_allow_insecure">允许不安全的连接</string>
     <string name="title_insecure_remark">只应在受信任的网络中允许不安全连接，请勿用于公共网络</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">强制使用DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">只有一些电子邮件服务器支持 DANE，只有数量有限的 DNS 服务器支持 DNSSEC</string>
     <string name="title_notify_remark">你可以为特定于账户的通知启用该选项</string>
     <string name="title_port">端口号</string>
     <string name="title_user">用户名</string>
