@@ -277,7 +277,7 @@ public class DebugHelper {
                 autostart == null ? "?" : Boolean.toString(autostart == 0)));
 
         boolean reporting = prefs.getBoolean("crash_reports", false);
-        if (reporting || BuildConfig.TEST_RELEASE) {
+        if (reporting || Log.isTestRelease()) {
             String uuid = prefs.getString("uuid", null);
             sb.append(String.format("Bugsnag UUID: %s\r\n", uuid == null ? "-" : uuid));
         }

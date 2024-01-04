@@ -184,7 +184,7 @@ public class EmailService implements AutoCloseable {
         long protocol_since = prefs.getLong("protocol_since", 0);
         if (protocol_since == 0)
             prefs.edit().putLong("protocol_since", now).apply();
-        else if (protocol_since + PROTOCOL_LOG_DURATION < now && !BuildConfig.TEST_RELEASE)
+        else if (protocol_since + PROTOCOL_LOG_DURATION < now && !Log.isTestRelease())
             prefs.edit().putBoolean("protocol", false).apply();
         this.log = prefs.getBoolean("protocol", false);
         this.ssl_harden = prefs.getBoolean("ssl_harden", false);

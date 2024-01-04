@@ -114,7 +114,7 @@ import javax.net.ssl.TrustManagerFactory;
 public class Log {
     private static Context ctx;
 
-    private static final int MAX_CRASH_REPORTS = (BuildConfig.TEST_RELEASE ? 50 : 5);
+    private static final int MAX_CRASH_REPORTS = (Log.isTestRelease() ? 50 : 5);
     private static final String TAG = "fairemail";
 
     static final String TOKEN_REFRESH_REQUIRED =
@@ -386,7 +386,7 @@ public class Log {
     }
 
     static int getDefaultLogLevel() {
-        return (BuildConfig.DEBUG || BuildConfig.TEST_RELEASE ? android.util.Log.INFO : android.util.Log.WARN);
+        return (BuildConfig.DEBUG || Log.isTestRelease() ? android.util.Log.INFO : android.util.Log.WARN);
     }
 
     private static void setupBugsnag(final Context context) {
@@ -435,7 +435,7 @@ public class Log {
                 @Override
                 public boolean onSession(@NonNull Session session) {
                     // opt-in
-                    return prefs.getBoolean("crash_reports", false) || BuildConfig.TEST_RELEASE;
+                    return prefs.getBoolean("crash_reports", false) || Log.isTestRelease();
                 }
             });
 
@@ -444,7 +444,7 @@ public class Log {
                 public boolean onError(@NonNull Event event) {
                     // opt-in
                     boolean crash_reports = prefs.getBoolean("crash_reports", false);
-                    if (!crash_reports && !BuildConfig.TEST_RELEASE)
+                    if (!crash_reports && !Log.isTestRelease())
                         return false;
 
                     Throwable ex = event.getOriginalError();
@@ -549,7 +549,7 @@ public class Log {
             Log.i("uuid=" + uuid);
             client.setUser(uuid, null, null);
 
-            if (prefs.getBoolean("crash_reports", false) || BuildConfig.TEST_RELEASE)
+            if (prefs.getBoolean("crash_reports", false) || Log.isTestRelease())
                 Bugsnag.startSession();
         } catch (Throwable ex) {
             Log.e(ex);
@@ -587,6 +587,10 @@ public class Log {
             else
                 return "Clone";
         }
+    }
+
+    static boolean isTestRelease() {
+        return BuildConfig.TEST_RELEASE;
     }
 
     static void logExtras(Intent intent) {
