@@ -197,7 +197,8 @@ public class EntityContact implements Serializable {
                 if (contact == null) {
                     contact = new EntityContact();
                     contact.account = account;
-                    contact.identity = identity;
+                    if (type == TYPE_TO)
+                        contact.identity = identity;
                     contact.type = type;
                     contact.email = email;
                     contact.name = name;
@@ -209,7 +210,8 @@ public class EntityContact implements Serializable {
                     contact.id = db.contact().insertContact(contact);
                     Log.i("Inserted contact=" + contact + " type=" + type);
                 } else {
-                    contact.identity = identity;
+                    if (type == TYPE_TO)
+                        contact.identity = identity;
                     if (contact.name == null && name != null)
                         contact.name = name;
                     if (contact.group == null && group != null)
