@@ -317,6 +317,10 @@ public class Log {
         }
     }
 
+    static void forceCrashReporting() {
+        Bugsnag.resumeSession();
+    }
+
     public static void breadcrumb(String name, Bundle args) {
         Map<String, String> crumb = new HashMap<>();
         for (String key : args.keySet()) {

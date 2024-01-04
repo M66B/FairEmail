@@ -535,6 +535,7 @@ public abstract class DB extends RoomDatabase {
                                 at androidx.sqlite.db.framework.FrameworkSQLiteOpenHelper.getWritableDatabase(FrameworkSQLiteOpenHelper.kt:104)
                                 at androidx.room.RoomDatabase.inTransaction(RoomDatabase.java:706)
                              */
+                            Log.forceCrashReporting();
                             Log.e(ex);
                             // FrameworkSQLiteOpenHelper.innerGetDatabase will delete the database
                             throw ex;
