@@ -56,6 +56,8 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
@@ -301,6 +303,21 @@ public class DnsHelper {
                 record.secure = secure;
                 record.authentic = data.isAuthenticData();
             }
+
+            if ("srv".equals(type))
+                Collections.sort(result, new Comparator<DnsRecord>() {
+                    @Override
+                    public int compare(DnsRecord d1, DnsRecord d2) {
+                        int o = Integer.compare(
+                                d1.priority == null ? 0 : d1.priority,
+                                d2.priority == null ? 0 : d2.priority);
+                        if (o == 0)
+                            o = Integer.compare(
+                                    d1.weight == null ? 0 : d1.weight,
+                                    d2.weight == null ? 0 : d2.weight);
+                        return o;
+                    }
+                });
 
             return result.toArray(new DnsRecord[0]);
         } catch (Throwable ex) {
