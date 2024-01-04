@@ -525,6 +525,7 @@ public class ContactInfo {
                                 ex instanceof CertPathValidatorException ||
                                 ex.getCause() instanceof CertPathValidatorException ||
                                 ex.getCause() instanceof CertificateException ||
+                                ex instanceof SSLHandshakeException ||
                                 (ex instanceof SSLException &&
                                         "Unable to parse TLS packet header".equals(ex.getMessage())) ||
                                 (ex instanceof IOException &&
