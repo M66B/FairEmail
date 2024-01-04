@@ -10,6 +10,7 @@ For support you can use [the contact form](https://contact.faircode.eu/?product=
 
 * Replaced [javadns](https://github.com/dnsjava/dnsjava) by [MiniDNS](https://github.com/MiniDNS/minidns)
 * Added account/identity option to enforce DANE, see [the FAQ](https://github.com/M66B/FairEmail/blob/master/FAQ.md#faq202)
+* A "dane" test version is [available here](https://bitbucket.org/M66B/fairemail-test/downloads/)
 
 ### 1.2147 - 2024-01-04
 
