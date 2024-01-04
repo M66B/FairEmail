@@ -3810,7 +3810,7 @@ public class MessageHelper {
                     throw ex;
                 } catch (Throwable ex) {
                     Log.e(ex);
-                    if (BuildConfig.TEST_RELEASE)
+                    if (Log.isTestRelease())
                         warnings.add(ex + "\n" + android.util.Log.getStackTraceString(ex));
                     else
                         warnings.add(Log.formatThrowable(ex, false));

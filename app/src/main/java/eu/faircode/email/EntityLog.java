@@ -110,7 +110,7 @@ public class EntityLog {
         if (context == null)
             return;
         if (type == Type.Debug &&
-                !(BuildConfig.DEBUG || BuildConfig.TEST_RELEASE))
+                !(BuildConfig.DEBUG || Log.isTestRelease()))
             return;
 
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);

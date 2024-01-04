@@ -1971,7 +1971,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
         grpBitbucket.setVisibility(View.GONE);
         grpAnnouncements.setVisibility(TextUtils.isEmpty(BuildConfig.ANNOUNCEMENT_URI)
                 ? View.GONE : View.VISIBLE);
-        grpTest.setVisibility(BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
+        grpTest.setVisibility(Log.isTestRelease() ? View.VISIBLE : View.GONE);
 
         setLastCleanup(prefs.getLong("last_cleanup", -1));
 
@@ -1986,7 +1986,7 @@ public class FragmentOptionsMisc extends FragmentBase implements SharedPreferenc
                 (external == null ? null : external.getAbsolutePath()) + (emulated ? " emulated" : ""));
 
         swExactAlarms.setEnabled(AlarmManagerCompatEx.canScheduleExactAlarms(getContext()));
-        swTestIab.setVisibility(BuildConfig.DEBUG && BuildConfig.TEST_RELEASE ? View.VISIBLE : View.GONE);
+        swTestIab.setVisibility(BuildConfig.DEBUG && Log.isTestRelease() ? View.VISIBLE : View.GONE);
 
         PreferenceManager.getDefaultSharedPreferences(getContext()).registerOnSharedPreferenceChangeListener(this);
 
