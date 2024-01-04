@@ -5334,7 +5334,7 @@ public class FragmentMessages extends FragmentBase
                 new SimpleTask<Void>() {
                     @Override
                     protected Void onExecute(Context context, Bundle args) {
-                        Long folder = args.getLong("folder");
+                        long folder = args.getLong("folder");
                         String type = args.getString("type");
 
                         DB db = DB.getInstance(context);
