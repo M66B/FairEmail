@@ -42,10 +42,10 @@ import org.minidns.hla.ResolverApi;
 import org.minidns.hla.ResolverResult;
 import org.minidns.record.A;
 import org.minidns.record.AAAA;
-import org.minidns.record.CNAME;
 import org.minidns.record.Data;
 import org.minidns.record.MX;
 import org.minidns.record.NS;
+import org.minidns.record.Record;
 import org.minidns.record.SRV;
 import org.minidns.record.TXT;
 import org.minidns.source.AbstractDnsDataSource;
@@ -73,7 +73,6 @@ public class DnsHelper {
     private static final String DEFAULT_DNS = "84.200.69.80";
     private static final int CHECK_TIMEOUT = 5; // seconds
     private static final int LOOKUP_TIMEOUT = 15; // seconds
-    private static final int MAX_FOLLOW = 5; // cnames
 
     static void checkMx(Context context, Address[] addresses) throws UnknownHostException {
         if (addresses == null)
@@ -84,7 +83,7 @@ public class DnsHelper {
             String domain = UriHelper.getEmailDomain(email);
             if (domain == null)
                 continue;
-            DnsRecord[] records = lookup(context, domain, "mx", CHECK_TIMEOUT, MAX_FOLLOW, false);
+            DnsRecord[] records = _lookup(context, domain, "mx", CHECK_TIMEOUT, false);
             if (records.length == 0)
                 throw new UnknownHostException(domain);
         }
@@ -92,24 +91,7 @@ public class DnsHelper {
 
     @NonNull
     static DnsRecord[] lookup(Context context, String name, String type) {
-        return lookup(context, name, type, LOOKUP_TIMEOUT, MAX_FOLLOW, false);
-    }
-
-    @NonNull
-    private static DnsRecord[] lookup(Context context, String name, String type, int timeout, int max_depth, boolean require_authentic) {
-        DnsRecord[] records = _lookup(context, name, type, timeout, require_authentic);
-        if (records.length == 0 &&
-                max_depth > 0 &&
-                !"ns".equals(type)) { // mx is not allowed, but used in practice anyway
-            DnsRecord[] cnames = _lookup(context, name, "cname", timeout, require_authentic);
-            List<DnsRecord> followed = new ArrayList<>();
-            for (DnsRecord cname : cnames) {
-                DnsRecord[] r = lookup(context, cname.response, type, timeout, max_depth - 1, require_authentic);
-                followed.addAll(Arrays.asList(r));
-            }
-            return followed.toArray(new DnsRecord[0]);
-        }
-        return records;
+        return _lookup(context, name, type, LOOKUP_TIMEOUT, false);
     }
 
     @NonNull
@@ -141,9 +123,6 @@ public class DnsHelper {
                 break;
             case "aaaa":
                 clazz = AAAA.class;
-                break;
-            case "cname":
-                clazz = CNAME.class;
                 break;
             default:
                 throw new IllegalArgumentException(type);
@@ -251,10 +230,20 @@ public class DnsHelper {
 
             List<DnsRecord> result = new ArrayList<>();
 
-            Set<? extends Data> answers = data.getAnswers();
-            if (answers != null)
-                for (Data answer : answers) {
-                    Log.i("DNS answer=" + answer);
+            DnsMessage raw = data.getRawAnswer();
+            List<Record<? extends Data>> answers = (raw == null ? null : raw.answerSection);
+            Log.i("DNS answers=" + (answers == null ? "n/a" : answers.size()));
+            if (answers != null) {
+                Record.TYPE expectedType = data.getQuestion().type;
+                for (Record<? extends Data> record : answers) {
+                    if (record.type != expectedType) {
+                        Log.i("DNS skip=" + record);
+                        continue;
+                    }
+
+                    Data answer = record.getPayload();
+                    Log.i("DNS record=" + record + " answer=" + answer);
+
                     if (answer instanceof NS) {
                         NS ns = (NS) answer;
                         result.add(new DnsRecord(ns.getTarget().toString()));
@@ -291,12 +280,11 @@ public class DnsHelper {
                     } else if (answer instanceof AAAA) {
                         AAAA aaaa = (AAAA) answer;
                         result.add(new DnsRecord(aaaa.getInetAddress()));
-                    } else if (answer instanceof CNAME) {
-                        CNAME cname = (CNAME) answer;
-                        result.add(new DnsRecord(cname.target.toString()));
                     } else
                         throw new IllegalArgumentException(answer.getClass().getName());
+
                 }
+            }
 
             for (DnsRecord record : result) {
                 record.query = name;
