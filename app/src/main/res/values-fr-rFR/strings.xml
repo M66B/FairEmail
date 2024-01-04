@@ -936,6 +936,8 @@
     <string name="title_encryption_none">Aucun (non sécurisé)</string>
     <string name="title_allow_insecure">Autoriser les connexions non sécurisées</string>
     <string name="title_insecure_remark">Les connexions non sécurisées ne doivent être autorisées que sur des réseaux de confiance et jamais sur des réseaux publics</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Renforcement DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Seuls certains serveurs de messagerie supportent DANE et seulement un nombre limité de serveurs DNS prennent en charge DNSSEC</string>
     <string name="title_notify_remark">Vous pouvez activer ceci pour avoir des notifications spécifiques par compte</string>
     <string name="title_port">Numéro de port</string>
     <string name="title_user">Nom d’utilisateur</string>

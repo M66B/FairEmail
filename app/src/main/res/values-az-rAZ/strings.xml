@@ -935,6 +935,8 @@
     <string name="title_encryption_none">Heç biri (güvənsiz)</string>
     <string name="title_allow_insecure">Güvənli olmayan bağlantılara icazə ver</string>
     <string name="title_insecure_remark">Güvənli olmayan bağlantılara, yalnız güvənli şəbəkələrdə icazə verilməli və heç vaxt ictimai şəbəkələrdə icazə verilməməlidir</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Məcbur et: DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Yalnız bəzi e-poçt serverləri DANE-i dəstəkləyir və yalnız limitli sayda DNS serveri DNSSEC-i dəstəkləyir</string>
     <string name="title_notify_remark">Bunu, hesaba özəl bildirişlər üçün fəallaşdıra bilərsiniz</string>
     <string name="title_port">Port nömrəsi</string>
     <string name="title_user">İstifadəçi adı</string>

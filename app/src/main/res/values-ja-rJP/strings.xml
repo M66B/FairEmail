@@ -921,6 +921,8 @@
     <string name="title_encryption_none">なし (安全でない)</string>
     <string name="title_allow_insecure">保護されていない接続を許可する</string>
     <string name="title_insecure_remark">保護されていない接続は信頼できるネットワークでのみ許可し、パブリックネットワークでは許可しないでください</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE を強制する</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE に対応したメールサーバーや、DNSSEC に対応した DNS サーバーは少数です。</string>
     <string name="title_notify_remark">アカウント別の通知を有効にできます</string>
     <string name="title_port">ポート番号</string>
     <string name="title_user">ユーザー名</string>

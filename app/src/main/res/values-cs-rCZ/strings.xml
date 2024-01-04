@@ -963,6 +963,8 @@ v prohlížeči ze všech Google účtů.</string>
     <string name="title_encryption_none">Žádné (nezabezpečené)</string>
     <string name="title_allow_insecure">Povolit nezabezpečené připojení</string>
     <string name="title_insecure_remark">Nezabezpečená připojení by měla být povolena pouze v důvěryhodných, a nikdy na veřejných sítích</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Vynutit DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Pouze některé e-mailové servery podporují DANE a pouze omezený počet DNS serverů podporuje DNSSEC</string>
     <string name="title_notify_remark">Toto můžete povolit pro specifická upozornění účtu</string>
     <string name="title_port">Číslo portu</string>
     <string name="title_user">Uživatelské jméno</string>

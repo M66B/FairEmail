@@ -932,6 +932,8 @@
     <string name="title_encryption_none">Nincs (nem biztonságos)</string>
     <string name="title_allow_insecure">Nem biztonságos mért kapcsolatok engedélyezése</string>
     <string name="title_insecure_remark">Nem biztonságos kapcsolatokat csak megbízható hálózatokon ajánlott használni és soha publikus hálózatokon</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE megkövetelése</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Csak néhány email kiszolgáló támogatja a DANE-t, és csak korlátozott számú DNS kiszolgáló támogatja a DNSSEC-et</string>
     <string name="title_notify_remark">Engedélyezheti a fiókonkénti egyedi értesítéseket</string>
     <string name="title_port">Port szám</string>
     <string name="title_user">Felhasználónév</string>

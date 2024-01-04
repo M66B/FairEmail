@@ -442,7 +442,7 @@
     <string name="title_advanced_ssl_harden">Indurisci connessioni SSL</string>
     <string name="title_advanced_ssl_harden_strict">Richiede TLS 1.3</string>
     <string name="title_advanced_cert_strict">Controllo rigoroso del certificato</string>
-    <string name="title_advanced_cert_transparency">Trasparenza dei certificati (Certificate transparency)</string>
+    <string name="title_advanced_cert_transparency">Trasparenza dei certificati</string>
     <string name="title_advanced_check_names">Controlla i nomi degli host rispetto ai certificati del server</string>
     <string name="title_advanced_open_safe">Apri solo le connessioni sicure</string>
     <string name="title_advanced_http_redirect">Consenti il reindirizzamento delle connessioni</string>
@@ -665,7 +665,7 @@
     <string name="title_advanced_confirm_files">Conferma la visualizzazione dei file</string>
     <string name="title_advanced_sanitize_links">Rimuovi i parametri di monitoraggio di default</string>
     <string name="title_advanced_sanitize_links_hint">Solo confermando i link</string>
-    <string name="title_advanced_adguard">Usa elenco filtri Adguard</string>
+    <string name="title_advanced_adguard">Utilizza l\'elenco di filtri di AdGuard</string>
     <string name="title_advanced_adguard_weekly">Scarica automaticamente ogni settimana</string>
     <string name="title_advanced_check_links_dbl">Controlla le liste di blocco del dominio per i link sospetti</string>
     <string name="title_advanced_confirm_images">Non mostrare alcun immagine di default</string>
@@ -936,6 +936,8 @@
     <string name="title_encryption_none">Nessuna (non sicuro)</string>
     <string name="title_allow_insecure">Consenti connessioni non sicure</string>
     <string name="title_insecure_remark">Le connessioni non sicure dovrebbero esser consentite solo su reti affidabili e mai sulle reti pubbliche</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Forza DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Solo alcuni server email supportano DANE e soltanto un numero limitato di server DNS supporta DNSSEC</string>
     <string name="title_notify_remark">Puoi abilitarlo per le notifiche specifiche del profilo</string>
     <string name="title_port">Numero di porta</string>
     <string name="title_user">Nome utente</string>

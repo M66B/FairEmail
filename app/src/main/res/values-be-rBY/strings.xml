@@ -114,6 +114,8 @@
          Блакіроўка дамена адпраўніка выкарыстоўвае правілы фільтра, што з\'яўляецца функцыяй з прафесійнай версіі.
    </string>
     <string name="title_blocked_senders">Заблакіраваныя адпраўнікi</string>
+    <string name="title_unblock_all">Разблакіраваць усе</string>
+    <string name="title_unblock_all_remark">Гэта прывядзе да скідвання ўсіх спісаў і параметраў і ў выніку — да блакіроўкі адпраўнікоў</string>
     <plurals name="title_ask_block_sender">
         <item quantity="one">Заблакіраваць адпраўніка %1$s паведамлення?</item>
         <item quantity="few">Заблакіраваць адпраўніка %1$s паведамленняў?</item>
@@ -469,6 +471,8 @@
     <string name="title_advanced_ssl_harden">Узмоцненыя SSL-злучэнні</string>
     <string name="title_advanced_ssl_harden_strict">Патрабаваць пратакол TLS 1.3</string>
     <string name="title_advanced_cert_strict">Строгая праверка сертыфіката</string>
+    <string name="title_advanced_cert_transparency">Празрыстасць сертыфікатаў</string>
+    <string name="title_advanced_check_names">Праверка імён хостаў паводле сертыфікатаў сервера</string>
     <string name="title_advanced_open_safe">Адкрываць толькі бяспечныя злучэнні</string>
     <string name="title_advanced_http_redirect">Дазволіць пераадрасаванне злучэння</string>
     <string name="title_advanced_bouncy_castle">Выкарыстанне правайдэра бяспечных сокетаў Bouncy Castle (JSSE)</string>
@@ -690,6 +694,8 @@
     <string name="title_advanced_confirm_files">Пацвярджаць прагляд файлаў</string>
     <string name="title_advanced_sanitize_links">Выдаліць параметры адсочвання па змаўчанні</string>
     <string name="title_advanced_sanitize_links_hint">Толькі пры пацвярджэнні спасылак</string>
+    <string name="title_advanced_adguard">Выкарыстоўваць спіс фільтраў AdGuard</string>
+    <string name="title_advanced_adguard_weekly">Аўтаматычна загружаць раз на тыдзень</string>
     <string name="title_advanced_check_links_dbl">Правяраць спісы блакіроўкі даменаў на наяўнасць падазроных спасылак</string>
     <string name="title_advanced_confirm_images">Па змаўчанні не паказваць выявы</string>
     <string name="title_advanced_ask_images">Пацвярджаць адлюстраванне выяў</string>
@@ -888,6 +894,7 @@
     <string name="title_advanced_wearable_hint">Апавяшчэнні адпраўляюцца на партатыўную прыладу толькі пасля загрузкі тэксту паведамлення</string>
     <string name="title_advanced_messaging_hint">Гэта опцыя патрабуецца для падтрымкі Android Auto</string>
     <string name="title_advanced_move_hint">Мэтавую папку можна задаць у наладах уліковага запісу</string>
+    <string name="title_advanced_notify_sensitive_hint">Неабходна адключыць канфідэнцыяльныя апавяшчэнні ў наладах Android</string>
     <string name="title_advanced_notify_no_grouping">Гэтая версія Android не падтрымлівае групаванне апавяшчэнняў</string>
     <string name="title_advanced_notify_no_channels">Гэтая версія Android не падтрымлівае каналы апавяшчэнняў</string>
     <string name="title_advanced_fts_hint">Уключэнне гэтай функцыі паляпшае прадукцыйнасць пошуку, але таксама павялічвае выкарыстанне зараду батарэі і памяці прылады</string>
@@ -958,6 +965,8 @@
     <string name="title_encryption_none">Няма (небяспечна)</string>
     <string name="title_allow_insecure">Дазволіць небяспечныя злучэнні</string>
     <string name="title_insecure_remark">Небяспечныя злучэнні могуць быць дазволены толькі ў давераных сетках і ніколі ў агульнадаступных сетках</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Прымусова выкарыстоўваць DANE</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Толькі некаторыя серверы электроннай пошты падтрымліваюць DANE і толькі абмежаваная колькасць сервераў DNS падтрымлівае DNSSEC</string>
     <string name="title_notify_remark">Вы можаце ўключыць гэту опцыю для апавяшчэнняў пэўнага ўліковага запісу</string>
     <string name="title_port">Нумар порта</string>
     <string name="title_user">Імя карыстальніка</string>

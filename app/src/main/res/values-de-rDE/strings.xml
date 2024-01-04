@@ -937,8 +937,8 @@
     <string name="title_encryption_none">Keine (unsicher)</string>
     <string name="title_allow_insecure">Unsichere Verbindungen zulassen</string>
     <string name="title_insecure_remark">Unsichere Verbindungen sollten nur in vertrauenswürdigen Netzwerken und niemals in öffentlichen Netzwerken erlaubt werden</string>
-    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Erzwinge DANE-Schutz</string>
-    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Nur einige E-Mail-Server unterstützen DANE und nur eine begrenzte Anzahl von DNSSEC Servern unterstützen DNSSEC</string>
+    <string name="title_dane" comment="title_dane&#10;Account/identity option title to enforce DANE&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">DANE erzwingen</string>
+    <string name="title_dane_remark" comment="title_dane_remark&#10;Remark for enforce DANE account/identity option&#10;https://en.wikipedia.org/wiki/DNS-based_Authentication_of_Named_Entities">Nur einige E-Mail-Server unterstützen DANE und nur eine begrenzte Anzahl von DNS-Servern unterstützen DNSSEC</string>
     <string name="title_notify_remark">Sie können das für kontenspezifische Benachrichtigungen aktivieren</string>
     <string name="title_port">Portnummer</string>
     <string name="title_user">Benutzername</string>
